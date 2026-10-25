@@ -602,6 +602,10 @@ div.card { cursor: default; }
 .peek .go span { display: none; }
 .peek .go::before { content: ""; width: 12px; height: 12px; border-right: 3px solid currentColor; border-top: 3px solid currentColor; transform: rotate(45deg); margin-right: 4px; }
 .peek .pbody p, .peek .pbody .blurb { padding-right: 30px; }
+
+.peek .pact { top: -6px; right: 0; }
+.peek .ibtn { width: 36px; height: 36px; }
+.peek h2 { padding-right: 0; margin-top: 12px; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -1845,7 +1849,7 @@ return maplibregl$1;
       });
     }
     function fc(f) { return { type: "FeatureCollection", features: f }; }
-    m.getSource("atl-t").setData(fc(tf)); m.getSource("atl-tie").setData(fc(ties)); m.getSource("atl-arc").setData(fc(arcs)); m.getSource("atl-al").setData(fc(al));
+    m.getSource("atl-t").setData(fc(tf)); try { m.setFilter("atl-lb", ["all", ["!", ["has", "point_count"]], ["!", ["in", ["get", "id"], ["literal", tf.map(function (f) { return f.properties.id; })]]]]); } catch (x) {} m.getSource("atl-tie").setData(fc(ties)); m.getSource("atl-arc").setData(fc(arcs)); m.getSource("atl-al").setData(fc(al));
     var f = id ? 0.28 : 1;
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f);
   }
