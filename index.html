@@ -580,6 +580,21 @@ div.card { cursor: default; }
   .pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
   .psheet .srow { gap: 10px; }
 }
+
+#more { display: none; }
+@media (max-width: 700px) {
+  .stage { background-image: none !important; }
+  .guides line { display: none; }
+  .guides text { font-size: 10px; opacity: .75; letter-spacing: .04em; }
+  .edge:not(.on):not(.rip) { opacity: .16; stroke-width: .9; }
+  .edge.dim { opacity: .03 !important; }
+  .edge.on { stroke-width: 2.4; }
+  #more { display: grid; place-items: center; width: 40px; padding: 0; font-size: 22px; line-height: 1; min-height: 36px; }
+  #share, #fit { display: none !important; }
+  #webctl.mopen #share, #webctl.mopen #fit { display: grid !important; }
+  #webctl #env { min-height: 36px; }
+}
+@media (max-width: 700px) { .psheet #panel .x { display: none; } }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -600,6 +615,7 @@ div.card { cursor: default; }
         <button type="button" id="m-layers" aria-pressed="true">Layers</button>
         <button type="button" id="m-web" aria-pressed="false">Web</button>
       </div>
+      <button type="button" class="btn" id="more" aria-label="More" aria-expanded="false">&#8943;</button>
       <button type="button" class="btn" id="share">Share</button>
       <button type="button" class="btn" id="fit">Fit</button>
     </div>
@@ -819,6 +835,8 @@ return maplibregl$1;
 
   /* ---------- Current ecosystem and state ---------- */
   var NODES = [], EDGES = [], BY = {}, adj = { ins: {}, outs: {} }, ECO = null;
+  var PH = !!(window.matchMedia && matchMedia("(max-width: 700px)").matches);
+  function sname(s) { return PH && s.length > 15 ? s.slice(0, 14).replace(/\s+$/, "") + "\u2026" : s; }
   var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: !(window.matchMedia && matchMedia("(max-width: 700px)").matches), edits: {}, fx: {} };
 
   function isVis(n) { return state.env || !n.cat; }
@@ -826,7 +844,7 @@ return maplibregl$1;
   function INS(id) { return adj.ins[id].filter(visE); }
   function OUTS(id) { return adj.outs[id].filter(visE); }
   function colorVar(n) { return n.cat === "abiotic" ? "var(--tl0)" : n.cat === "decomp" ? "var(--dec)" : "var(--tl" + n.tl + ")"; }
-  function kindText(n) { return n.cat === "abiotic" ? "Environment" : n.cat === "decomp" ? "Decomposer" : "TL " + n.tl + " · " + TL[n.tl].short; }
+  function kindText(n) { return n.cat === "abiotic" ? "Environment" : n.cat === "decomp" ? "Decomposer" : (PH ? "" : "TL " + n.tl + " · ") + TL[n.tl].short; }
   function vrad(n) { return n.r * (n.k || 1); }
 
   var el = {
@@ -846,7 +864,7 @@ return maplibregl$1;
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 540); H = Math.max(ch, state.env ? 1000 : 820); }
+    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 480); H = Math.max(ch, Math.round((ch - 64) * (W + 56) / cw)); }
     else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
     else { W = Math.max(cw, 620); H = Math.max(ch, 460); }
   }
@@ -862,7 +880,7 @@ return maplibregl$1;
   var guideG = svg.append("g").attr("class", "guides");
   var guide = guideG.selectAll("g").data([4, 3, 2, 1, 0]).join("g");
   guide.append("line");
-  guide.append("text").text(function (d) { return d ? "TL " + d + " · " + TL[d].label : TL[d].label; });
+  guide.append("text").text(function (d) { return PH ? ({ 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" })[d] : (d ? "TL " + d + " \u00b7 " + TL[d].label : TL[d].label); });
   var root = svg.append("g").attr("class", "root");
   var edgeG = root.append("g");
   var nodeG = root.append("g");
@@ -901,7 +919,7 @@ return maplibregl$1;
       .attr("transform", function (d) { var s = d.r * 1.4; return "translate(" + (-s / 2) + "," + (-s / 2) + ") scale(" + (s / 24) + ")"; })
       .html(function (d) { return ICONS[d.ic] || ""; });
     body.filter(function (d) { return d.badge; }).append("circle").attr("class", "ring").attr("r", function (d) { return d.r + 5; });
-    node.append("text").attr("class", "label").attr("y", function (d) { return d.r + 13; }).attr("text-anchor", "middle").text(function (d) { return d.name; });
+    node.append("text").attr("class", "label").attr("y", function (d) { return d.r + 13; }).attr("text-anchor", "middle").text(function (d) { return sname(d.name); });
     node.filter(function (d) { return d.xl || d.fl; }).append("g").attr("class", "xlb").html('<circle r="8"/><text text-anchor="middle" y="3.5">\u2194</text>');
     var delta = node.append("g").attr("class", "delta").style("display", "none");
     delta.append("rect").attr("height", 16).attr("rx", 3);
@@ -970,7 +988,7 @@ return maplibregl$1;
     NODES.filter(isVis).forEach(function (d) {
       var hw = Math.max(d.r, d.lw / 2);
       minX = Math.min(minX, d.x - hw); maxX = Math.max(maxX, d.x + hw);
-      minY = Math.min(minY, d.y - d.r); maxY = Math.max(maxY, d.y + d.r + 18);
+      minY = Math.min(minY, d.y - d.r - (PH ? 28 : 0)); maxY = Math.max(maxY, d.y + d.r + 18);
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
@@ -1351,9 +1369,9 @@ return maplibregl$1;
     EDGES.forEach(function (e) { adj.outs[e.s].push(e); adj.ins[e.t].push(e); });
     NODES.forEach(function (n) {
       var deg = adj.ins[n.id].length + adj.outs[n.id].length;
-      n.r = Math.min(26, 12 + 2.2 * Math.sqrt(deg));
+      n.r = PH ? Math.min(29, 16 + 2.2 * Math.sqrt(deg)) : Math.min(26, 12 + 2.2 * Math.sqrt(deg));
       n.r0 = n.r;
-      n.lw = n.name.length * 6.1;
+      n.lw = sname(n.name).length * 6.1;
     });
     build();
     applyEnv();
@@ -1406,6 +1424,7 @@ return maplibregl$1;
   document.getElementById("env").setAttribute("aria-pressed", String(state.env));
   document.getElementById("env").setAttribute("aria-label", "Show environment");
   el.reset.addEventListener("click", clearEdits);
+  (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("more"); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
   if (window.ResizeObserver) {
