@@ -566,6 +566,11 @@ div.card { cursor: default; }
   .psheet .shead { padding-top: 6px; }
   .psheet .grab { margin-bottom: 2px; }
 }
+
+@media (max-width: 700px) {
+  body:has(#webview:not([hidden])) { padding: 0; }
+  .guides text { font-size: 9px; opacity: .6; }
+}
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
