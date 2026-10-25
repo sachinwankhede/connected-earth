@@ -508,6 +508,35 @@ div.card { cursor: default; }
   #regions .chip, #regions .lbl { flex: none; }
   #cards { margin-top: 4px; }
 }
+
+.psheet { display: contents; }
+@media (max-width: 700px) {
+  .app:has(#webview:not([hidden])) { height: 100dvh; }
+  .app:has(#webview:not([hidden])) .top { flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 4px; padding: max(6px, env(safe-area-inset-top)) 10px 0; }
+  .app:has(#webview:not([hidden])) .titlebox { gap: 8px; }
+  .app:has(#webview:not([hidden])) .titlebox > div { min-width: 0; }
+  .app:has(#webview:not([hidden])) .top h1 { font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .app:has(#webview:not([hidden])) .sub { margin: 2px 0 0; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #back { min-height: 38px; padding: 0 12px; }
+  #webctl:not([hidden]) { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 6px; padding-bottom: 6px; scrollbar-width: none; }
+  #webctl::-webkit-scrollbar { display: none; }
+  #webctl > * { flex: none; }
+  #webctl .btn, #webctl .seg button { min-height: 36px; padding-top: 0; padding-bottom: 0; }
+  #eco { display: none; }
+  .main { display: block !important; position: relative; flex: 1 1 auto; min-height: 0 !important; margin: 0; }
+  .stage { position: absolute; inset: 0; border-left: 0; border-right: 0; }
+  .hint { display: none; }
+  .psheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,.25); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
+  .psheet.p-half { height: 46dvh; }
+  .psheet.p-full { height: calc(100dvh - 90px); }
+  .psheet.drag { transition: none; }
+  .psheet #panel { flex: 1 1 auto; max-height: none !important; min-height: 0; border: 0; padding: 4px 14px 16px; background: transparent; }
+  .psheet #panel .x { top: 2px; }
+  .legend { position: fixed; left: 8px; right: 8px; bottom: calc(72px + env(safe-area-inset-bottom)); z-index: 12; flex-wrap: nowrap; overflow-x: auto; gap: 14px; padding: 7px 12px; border-radius: 10px; font-size: 11px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 1px 6px rgba(0,0,0,.2); scrollbar-width: none; }
+  .legend::-webkit-scrollbar { display: none; }
+  .legend li { flex: none; }
+}
+#back { white-space: nowrap; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -555,7 +584,7 @@ div.card { cursor: default; }
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
-    <aside class="panel" id="panel" aria-live="polite"></aside>
+    <div class="psheet p-min" id="psheet"><div class="shead" id="phead"><span class="grab"></span><div class="srow" id="prow"></div></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
   </main>
 
   <ul class="legend" id="legend" aria-label="Legend" hidden>
@@ -774,7 +803,8 @@ return maplibregl$1;
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
+    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 540); H = Math.max(ch, state.env ? 1000 : 820); }
+    else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
     else { W = Math.max(cw, 620); H = Math.max(ch, 460); }
   }
   function rowY(tl) { var top = 64, bot = H - 64, lo = state.env ? 0 : 1; return top + (4 - tl) / (4 - lo) * (bot - top); }
@@ -901,6 +931,7 @@ return maplibregl$1;
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
+    if (cw < 560) ch = Math.max(240, ch - 124); /* keep clear of the legend and the bottom sheet */
     var k = Math.min(cw / (maxX - minX + 56), ch / (maxY - minY + 56));
     k = Math.max(0.3, Math.min(1.3, k));
     var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, ch / 2 - k * (minY + maxY) / 2).scale(k);
@@ -1106,7 +1137,7 @@ return maplibregl$1;
     var t = ECO.tip, n = BY[t.id];
     var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>Photo via Wikipedia \u00B7 <a href="' + esc(PHOTOS[ECO.imgwiki].page) + '" target="_blank" rel="noopener">read the article</a></figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p><h2>Select a node</h2>" + ph +
-      "<p>Click a species or environmental factor to see what it eats and what eats it. Arrows point from food to eater. Squares are the environment.</p>" +
+      "<p>Tap a species or environmental factor to see what it eats and what eats it. Arrows point from food to eater. Squares are the environment.</p>" +
       '<div class="note"><h3>' + t.title + "</h3><p>" + t.text + "</p>" +
       (n ? '<p><button type="button" class="chip" data-id="' + n.id + '"><i' + (n.cat === "abiotic" ? ' class="sq"' : "") + ' style="--c:' + colorVar(n) + '"></i>' + n.name + "</button></p>" : "") + "</div>" +
       (ECO.sources && ECO.sources.length ? "<h3>Sources for this ecosystem</h3>" + srcLinks(ECO.sources) : "") +
@@ -1187,8 +1218,16 @@ return maplibregl$1;
     if (!hits.length) return "";
     return '<div class="found"><b>Also found in ' + hits.length + (hits.length === 1 ? " ecosystem" : " ecosystems") + '</b><div class="chips">' + hits.slice(0, 8).map(function (h) { return '<button type="button" class="chip" data-jump="' + h.e.id + ":" + h.id + '">' + h.e.short + "</button>"; }).join("") + '</div><button type="button" class="btn" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</button></div>';
   }
+  var P = { set: function () {}, last: undefined };
   function renderPanel() {
     var id = state.sel;
+    var pr = document.getElementById("prow");
+    if (pr) {
+      var nn = id && BY[id];
+      pr.innerHTML = nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">Tap a species to explore</span>';
+      if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id ? "half" : "min");
+      P.last = id;
+    }
     if (!id || !BY[id]) { panel.innerHTML = emptyHTML(); return; }
     var n = BY[id], ins = INS(id), outs = OUTS(id);
     function k(list, kind) { return list.filter(function (e) { return e.kind === kind; }); }
@@ -1531,7 +1570,7 @@ return maplibregl$1;
     showMap(); renderView(true);
     window.scrollTo(0, 0);
   }
-  function fit(animate) {
+  function mapFit(animate) {
     var m = M.map; if (!m) return;
     M.needFit = false; M.prevCam = null;
     var phone = m.getContainer().clientWidth < 560, pad = phone ? (sheetMode() ? { top: 120, bottom: 110, left: 24, right: 24 } : 18) : 40;
@@ -1735,7 +1774,7 @@ return maplibregl$1;
     if (m && M.styleReady && m.getSource("atl-e")) {
       applyView(); applyShade();
       var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc);
-      if (animate || M.needFit) fit(animate);
+      if (animate || M.needFit) mapFit(animate);
       pushTies();
     }
     kindsHTML();
@@ -1757,7 +1796,7 @@ return maplibregl$1;
     document.getElementById("crumbs").innerHTML = crumbHTML();
     document.getElementById("regions").innerHTML = chipsHTML();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
-    el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " ecosystem matches " : " ecosystems match ") + "“" + FL.q + "”" : view.level === "world"
+    if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " ecosystem matches " : " ecosystems match ") + "“" + FL.q + "”" : view.level === "world"
       ? ECOS.length + (window.matchMedia && matchMedia("(max-width: 700px)").matches ? " ecosystems" : " ecosystems · tap a dot, a region or a card")
       : list.length + (list.length === 1 ? " ecosystem" : " ecosystems") + " in " + region;
     var sr = document.getElementById("srow");
@@ -1915,6 +1954,21 @@ return maplibregl$1;
       }
       hd.addEventListener("pointerup", end); hd.addEventListener("pointercancel", end);
       document.getElementById("q").addEventListener("input", function () { if (sheetMode() && this.value.trim().length >= 2) setS("half"); });
+    })();
+    (function () {
+      var sh = document.getElementById("psheet"), hd = document.getElementById("phead"); if (!sh || !hd) return;
+      var st = "min", sy = 0, h0 = 0, moved = false, drag = false;
+      function setS(s) { st = s; sh.classList.remove("p-min", "p-half", "p-full"); sh.classList.add("p-" + s); sh.style.height = ""; }
+      P.set = setS;
+      hd.addEventListener("pointerdown", function (e) { if (e.target.closest("button")) return; drag = true; moved = false; sy = e.clientY; h0 = sh.getBoundingClientRect().height; sh.classList.add("drag"); try { hd.setPointerCapture(e.pointerId); } catch (x) {} });
+      hd.addEventListener("pointermove", function (e) { if (!drag) return; var dy = e.clientY - sy; if (Math.abs(dy) > 4) moved = true; sh.style.height = Math.max(64, Math.min(innerHeight - 90, h0 - dy)) + "px"; });
+      function end() {
+        if (!drag) return; drag = false; sh.classList.remove("drag");
+        var h = sh.getBoundingClientRect().height, H = innerHeight;
+        if (!moved) { setS(st === "min" ? "half" : "min"); return; }
+        setS([["min", 64], ["half", H * 0.46], ["full", H - 90]].sort(function (a, b) { return Math.abs(a[1] - h) - Math.abs(b[1] - h); })[0][0]);
+      }
+      hd.addEventListener("pointerup", end); hd.addEventListener("pointercancel", end);
     })();
     document.getElementById("zin").addEventListener("click", function () { m.zoomIn(); });
     document.getElementById("zout").addEventListener("click", function () { m.zoomOut(); });
