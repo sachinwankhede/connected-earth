@@ -538,6 +538,15 @@ div.card { cursor: default; }
   .legend li { flex: none; }
 }
 #back { white-space: nowrap; }
+
+@media (max-width: 700px) {
+  .srow::after { content: ""; flex: none; width: 9px; height: 9px; margin: 0 4px 0 6px; border-right: 2px solid var(--muted); border-top: 2px solid var(--muted); transform: rotate(-45deg) translate(1px, -1px); transition: transform .2s; }
+  .sheet.s-half .srow::after, .sheet.s-full .srow::after, .psheet.p-half .srow::after, .psheet.p-full .srow::after { transform: rotate(135deg) translate(1px, -1px); }
+  #share, #fit { font-size: 0; width: 40px; padding: 0; display: grid; place-items: center; }
+  #share::before, #fit::before { content: ""; display: block; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+  #share { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 15V3M8 7l4-4 4 4'/%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7'/%3E%3C/svg%3E"); }
+  #fit { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'/%3E%3C/svg%3E"); }
+}
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -1226,7 +1235,7 @@ return maplibregl$1;
     if (pr) {
       var nn = id && BY[id];
       pr.innerHTML = nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">Tap a species to explore</span>';
-      if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id ? "half" : "min");
+      if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
     if (!id || !BY[id]) { panel.innerHTML = emptyHTML(); return; }
@@ -1331,6 +1340,7 @@ return maplibregl$1;
     apply();
     el.h1.textContent = ECO.name;
     loadPhotos();
+    if (ECO.tip && BY[ECO.tip.id] && isVis(BY[ECO.tip.id]) && !state.sel) { P.keepMin = true; select(ECO.tip.id); P.keepMin = false; }
   }
 
   /* ---------- Controls ---------- */
