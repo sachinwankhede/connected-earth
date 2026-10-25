@@ -864,7 +864,7 @@ return maplibregl$1;
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 480); H = Math.max(ch, Math.round((ch - 64) * (W + 56) / cw)); }
+    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.8 * (ch - 64) * (W + 56) / cw)); }
     else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
     else { W = Math.max(cw, 620); H = Math.max(ch, 460); }
   }
@@ -1369,7 +1369,7 @@ return maplibregl$1;
     EDGES.forEach(function (e) { adj.outs[e.s].push(e); adj.ins[e.t].push(e); });
     NODES.forEach(function (n) {
       var deg = adj.ins[n.id].length + adj.outs[n.id].length;
-      n.r = PH ? Math.min(29, 16 + 2.2 * Math.sqrt(deg)) : Math.min(26, 12 + 2.2 * Math.sqrt(deg));
+      n.r = PH ? Math.min(32, 21 + 2.2 * Math.sqrt(deg)) : Math.min(26, 12 + 2.2 * Math.sqrt(deg));
       n.r0 = n.r;
       n.lw = sname(n.name).length * 6.1;
     });
