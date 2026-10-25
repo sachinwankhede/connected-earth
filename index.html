@@ -1253,7 +1253,7 @@ return maplibregl$1;
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
-      pr.innerHTML = nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">Tap a species to explore</span>';
+      pr.innerHTML = nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span><span class="scnt">' + EDGES.filter(visE).length + ' links</span>';
       if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
@@ -1359,7 +1359,7 @@ return maplibregl$1;
     apply();
     el.h1.textContent = ECO.name;
     loadPhotos();
-    if (ECO.tip && BY[ECO.tip.id] && isVis(BY[ECO.tip.id]) && !state.sel) { P.keepMin = true; select(ECO.tip.id); P.keepMin = false; }
+    
   }
 
   /* ---------- Controls ---------- */
