@@ -606,6 +606,7 @@ div.card { cursor: default; }
 .peek .pact { top: -6px; right: 0; }
 .peek .ibtn { width: 36px; height: 36px; }
 .peek h2 { padding-right: 0; margin-top: 12px; }
+@media (max-width: 700px) { .guides text { font: 700 11px var(--font-mono); letter-spacing: .06em; fill: var(--ink); opacity: .62; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; } }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -991,7 +992,7 @@ return maplibregl$1;
       var y = cur.applyY(rowY(d)), g = d3.select(this);
       g.style("display", d === 0 && !state.env ? "none" : null);
       g.select("line").attr("x1", 0).attr("x2", w).attr("y1", y).attr("y2", y);
-      g.select("text").attr("x", 12).attr("y", y - 8 - 22 * Math.min(1, cur.k));
+      g.select("text").attr("x", 12).attr("y", y - 8 - (PH ? 44 : 22) * Math.min(1, cur.k));
     });
   }
   function fit(animate) {
@@ -999,14 +1000,14 @@ return maplibregl$1;
     NODES.filter(isVis).forEach(function (d) {
       var hw = Math.max(d.r, d.lw / 2);
       minX = Math.min(minX, d.x - hw); maxX = Math.max(maxX, d.x + hw);
-      minY = Math.min(minY, d.y - d.r - (PH ? 28 : 0)); maxY = Math.max(maxY, d.y + d.r + 18);
+      minY = Math.min(minY, d.y - d.r - (PH ? 54 : 0)); maxY = Math.max(maxY, d.y + d.r + 18);
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
     if (cw < 560) ch = Math.max(240, ch - 64); /* keep clear of the legend and the bottom sheet */
     var k = Math.min(cw / (maxX - minX + 56), ch / (maxY - minY + 56));
     k = Math.max(0.3, Math.min(1.3, k));
-    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, (PH ? 6 - k * minY : ch / 2 - k * (minY + maxY) / 2)).scale(k);
+    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, (PH && state.mode === "layers" ? 6 - k * minY : ch / 2 - k * (minY + maxY) / 2)).scale(k);
     if (animate && !reduce) svg.transition().duration(500).call(zoom.transform, t);
     else svg.call(zoom.transform, t);
     userMoved = false;
@@ -1406,7 +1407,7 @@ return maplibregl$1;
   }
 
   /* ---------- Controls ---------- */
-  function setMode(m) {
+  function gMode(m) {
     if (m === state.mode) return;
     state.mode = m;
     document.getElementById("m-layers").setAttribute("aria-pressed", String(m === "layers"));
@@ -1428,8 +1429,8 @@ return maplibregl$1;
     pendingFit = true;
     sim.alpha(0.9).restart();
   }
-  document.getElementById("m-layers").addEventListener("click", function () { setMode("layers"); });
-  document.getElementById("m-web").addEventListener("click", function () { setMode("web"); });
+  document.getElementById("m-layers").addEventListener("click", function () { gMode("layers"); });
+  document.getElementById("m-web").addEventListener("click", function () { gMode("web"); });
   document.getElementById("fit").addEventListener("click", function () { fit(true); });
   document.getElementById("env").addEventListener("click", function () { setEnv(!state.env); });
   document.getElementById("env").setAttribute("aria-pressed", String(state.env));
