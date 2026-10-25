@@ -571,6 +571,15 @@ div.card { cursor: default; }
   body:has(#webview:not([hidden])) { padding: 0; }
   .guides text { font-size: 9px; opacity: .6; }
 }
+
+@media (max-width: 700px) {
+  .app:has(#webview:not([hidden])) .top { display: contents; }
+  .app:has(#webview:not([hidden])) .titlebox { display: none; }
+  .stage { top: env(safe-area-inset-top) !important; }
+  #webctl:not([hidden]) { top: calc(env(safe-area-inset-top) + 8px); }
+  .pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
+  .psheet .srow { gap: 10px; }
+}
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -1258,7 +1267,7 @@ return maplibregl$1;
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
-      pr.innerHTML = nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span><span class="scnt">' + EDGES.filter(visE).length + ' links</span>';
+      pr.innerHTML = '<button type="button" class="pclose" aria-label="Close">✕</button>' + (nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
       if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
@@ -1997,6 +2006,7 @@ return maplibregl$1;
       var st = "min", sy = 0, h0 = 0, moved = false, drag = false;
       function setS(s) { st = s; sh.classList.remove("p-min", "p-half", "p-full"); sh.classList.add("p-" + s); sh.style.height = ""; }
       P.set = setS;
+      document.getElementById("prow").addEventListener("click", function (e) { if (!e.target.closest(".pclose")) return; e.stopPropagation(); if (state.sel) clearSel(); else el.back.click(); });
       hd.addEventListener("pointerdown", function (e) { if (e.target.closest("button")) return; drag = true; moved = false; sy = e.clientY; h0 = sh.getBoundingClientRect().height; sh.classList.add("drag"); try { hd.setPointerCapture(e.pointerId); } catch (x) {} });
       hd.addEventListener("pointermove", function (e) { if (!drag) return; var dy = e.clientY - sy; if (Math.abs(dy) > 4) moved = true; sh.style.height = Math.max(64, Math.min(innerHeight - 90, h0 - dy)) + "px"; });
       function end() {
