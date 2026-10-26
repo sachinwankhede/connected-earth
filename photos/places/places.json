@@ -1246,5 +1246,29 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg",
 "w": "https://en.wikipedia.org/wiki/Sinharaja_Forest_Reserve"
+},
+"Socotra": {
+"f": "whsocotra.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Socotra_satview.jpg",
+"w": "https://en.wikipedia.org/wiki/Socotra"
+},
+"Svalbard": {
+"f": "whsvalbard.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:W_W_Svalbard_LandSat7_21.14475E_78.71545N.png",
+"w": "https://en.wikipedia.org/wiki/Svalbard"
+},
+"Taï National Park": {
+"f": "whtai.jpg",
+"a": "yakovlev.alexey from Moscow, Russia",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ta%C3%AF_National_Park_%2824148248710%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Ta%C3%AF_National_Park"
 }
 }
