@@ -581,7 +581,7 @@ div.card { cursor: default; }
   .psheet .srow { gap: 10px; }
 }
 
-#more { display: none; }
+#moreb { display: none; }
 @media (max-width: 700px) {
   .stage { background-image: none !important; }
   .guides line { display: none; }
@@ -589,7 +589,7 @@ div.card { cursor: default; }
   .edge:not(.on):not(.rip) { opacity: .16; stroke-width: .9; }
   .edge.dim { opacity: .03 !important; }
   .edge.on { stroke-width: 2.4; }
-  #more { display: grid; place-items: center; width: 40px; padding: 0; font-size: 22px; line-height: 1; min-height: 36px; }
+  #moreb { display: grid; place-items: center; width: 40px; padding: 0; font-size: 22px; line-height: 1; min-height: 36px; }
   #share, #fit { display: none !important; }
   #webctl.mopen #share, #webctl.mopen #fit { display: grid !important; }
   #webctl #env { min-height: 36px; }
@@ -622,6 +622,54 @@ div.card { cursor: default; }
   #vtoast { display: block; position: fixed; left: 50%; top: calc(env(safe-area-inset-top) + 10px); transform: translateX(-50%); z-index: 16; background: var(--ink); color: var(--bg); font: 600 13px var(--font-body); padding: 8px 14px; border-radius: 18px; opacity: 0; pointer-events: none; transition: opacity .25s; white-space: nowrap; max-width: calc(100vw - 90px); overflow: hidden; text-overflow: ellipsis; }
   #vtoast.on { opacity: .95; }
 }
+
+/* ---- shared by every screen size ---- */
+.stage { background-image: none !important; }
+.hint, .legend { display: none !important; }
+.guides line { display: none; }
+.guides text { font: 700 11px var(--font-mono); letter-spacing: .06em; fill: var(--ink); opacity: .62; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; text-transform: none; }
+.edge:not(.on):not(.rip) { opacity: .16; stroke-width: .9; }
+.edge.dim { opacity: .03 !important; }
+.edge.on { stroke-width: 2.4; }
+.app:has(#webview:not([hidden])) .top { display: contents; }
+.app:has(#webview:not([hidden])) .titlebox { display: none; }
+#eco { display: none; }
+#webctl .seg { display: none; }
+#webctl:not([hidden]) { position: absolute; top: 8px; right: 8px; z-index: 14; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 6px; padding: 6px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 1px 8px rgba(0,0,0,.22); overflow: visible; }
+#webctl .btn { border-radius: 8px; width: 40px; min-height: 36px; padding: 0; display: grid; place-items: center; font-size: 0; }
+#webctl .btn::before { content: ""; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+#webctl #reset { font-size: 10px; width: 40px; padding: 0 4px; line-height: 1.1; white-space: normal; }
+#webctl #reset::before { display: none; }
+#vt { display: grid; }
+#vt::before { width: 22px; height: 22px; }
+#webctl[data-mode="layers"] #vt { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='6' cy='7' r='2.6'/%3E%3Ccircle cx='18' cy='6' r='2.6'/%3E%3Ccircle cx='12' cy='18' r='2.6'/%3E%3Cpath d='M8.4 8l7.2-1.2M7.3 9.4l3.4 6.4M16.8 8.4l-3.6 7.4'/%3E%3C/svg%3E"); }
+#webctl[data-mode="web"] #vt { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='8' cy='5' r='2'/%3E%3Ccircle cx='16' cy='5' r='2'/%3E%3Ccircle cx='5' cy='12' r='2'/%3E%3Ccircle cx='12' cy='12' r='2'/%3E%3Ccircle cx='19' cy='12' r='2'/%3E%3Ccircle cx='8' cy='19' r='2'/%3E%3Ccircle cx='16' cy='19' r='2'/%3E%3C/svg%3E"); }
+#env { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='4'/%3E%3Cpath d='M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5'/%3E%3C/svg%3E"); }
+#share { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 15V3M8 7l4-4 4 4'/%3E%3Cpath d='M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7'/%3E%3C/svg%3E"); }
+#fit { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5'/%3E%3C/svg%3E"); }
+#webctl #moreb { display: none; }
+#vtoast { display: block; position: absolute; left: 50%; top: 10px; transform: translateX(-50%); z-index: 16; background: var(--ink); color: var(--bg); font: 600 13px var(--font-body); padding: 8px 14px; border-radius: 18px; opacity: 0; pointer-events: none; transition: opacity .25s; white-space: nowrap; max-width: calc(100% - 100px); overflow: hidden; text-overflow: ellipsis; }
+#vtoast.on { opacity: .95; }
+.psheet #panel .x { display: none; }
+.panel .head h2, .panel .head .tlpill { display: none; }
+.pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.psheet .srow { gap: 10px; }
+@media (max-width: 700px) {
+  #webctl #moreb { display: grid; }
+  #share, #fit { display: none !important; }
+  #webctl.mopen #share, #webctl.mopen #fit { display: grid !important; }
+}
+@media (min-width: 701px) {
+  .psheet { display: flex; flex-direction: column; min-height: 0; background: var(--surface); border: 1px solid var(--line); }
+  .psheet .shead { display: block; padding: 10px 14px 0; flex: none; }
+  .psheet .grab { display: none; }
+  .psheet .srow { display: flex; align-items: center; min-height: 40px; font: 700 18px var(--font-display); }
+  .psheet .srow .stt { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .psheet .srow .scnt { margin-left: auto; flex: none; color: var(--muted); font: 500 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+  .psheet #panel { flex: 1 1 auto; min-height: 0; border: 0; }
+}
+#moreb { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='5' cy='12' r='2.2'/%3E%3Ccircle cx='12' cy='12' r='2.2'/%3E%3Ccircle cx='19' cy='12' r='2.2'/%3E%3C/svg%3E"); }
+@media (min-width: 701px) { .psheet .srow .stt { white-space: normal; line-height: 1.15; } .psheet .srow .scnt { white-space: nowrap; padding-left: 8px; } }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -644,7 +692,7 @@ div.card { cursor: default; }
       </div>
       <div id="vtoast" aria-live="polite"></div>
       <button type="button" class="btn" id="vt" aria-label="Show web view"></button>
-      <button type="button" class="btn" id="more" aria-label="More" aria-expanded="false">&#8943;</button>
+      <button type="button" class="btn" id="moreb" aria-label="More" aria-expanded="false">&#8943;</button>
       <button type="button" class="btn" id="share">Share</button>
       <button type="button" class="btn" id="fit">Fit</button>
     </div>
@@ -866,14 +914,14 @@ return maplibregl$1;
   var NODES = [], EDGES = [], BY = {}, adj = { ins: {}, outs: {} }, ECO = null;
   var PH = !!(window.matchMedia && matchMedia("(max-width: 700px)").matches);
   function sname(s) { return PH && s.length > 15 ? s.slice(0, 14).replace(/\s+$/, "") + "\u2026" : s; }
-  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: !(window.matchMedia && matchMedia("(max-width: 700px)").matches), edits: {}, fx: {} };
+  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: false, edits: {}, fx: {} };
 
   function isVis(n) { return state.env || !n.cat; }
   function visE(e) { return isVis(BY[e.s]) && isVis(BY[e.t]); }
   function INS(id) { return adj.ins[id].filter(visE); }
   function OUTS(id) { return adj.outs[id].filter(visE); }
   function colorVar(n) { return n.cat === "abiotic" ? "var(--tl0)" : n.cat === "decomp" ? "var(--dec)" : "var(--tl" + n.tl + ")"; }
-  function kindText(n) { return n.cat === "abiotic" ? "Environment" : n.cat === "decomp" ? "Decomposer" : (PH ? "" : "TL " + n.tl + " · ") + TL[n.tl].short; }
+  function kindText(n) { return n.cat === "abiotic" ? "Environment" : n.cat === "decomp" ? "Decomposer" : TL[n.tl].short; }
   function vrad(n) { return n.r * (n.k || 1); }
 
   var el = {
@@ -910,7 +958,7 @@ return maplibregl$1;
   var guideG = svg.append("g").attr("class", "guides");
   var guide = guideG.selectAll("g").data([4, 3, 2, 1, 0]).join("g");
   guide.append("line");
-  guide.append("text").text(function (d) { return PH ? ({ 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" })[d] : (d ? "TL " + d + " \u00b7 " + TL[d].label : TL[d].label); });
+  guide.append("text").text(function (d) { return ({ 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" })[d]; });
   var root = svg.append("g").attr("class", "root");
   var edgeG = root.append("g");
   var nodeG = root.append("g");
@@ -985,18 +1033,25 @@ return maplibregl$1;
     .on("end", function () {
       if (pendingFit) {
         pendingFit = false;
-        if (PH && state.mode === "web") {
-          var vs = NODES.filter(isVis), cw0 = stage.clientWidth || 390, ch0 = Math.max(240, (stage.clientHeight || 700) - 64);
-          var x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
-          vs.forEach(function (d) { x0 = Math.min(x0, d.x); x1 = Math.max(x1, d.x); y0 = Math.min(y0, d.y); y1 = Math.max(y1, d.y); });
-          var bw = (x1 - x0) + 90, bh = (y1 - y0) + 90, want = (ch0 / cw0) * bw, sy = Math.max(1, Math.min(2.4, want / bh)), cy0 = (y0 + y1) / 2;
-          if (sy > 1.05) { vs.forEach(function (d) { d.y = cy0 + (d.y - cy0) * sy; }); ticked(); }
-        }
+        stretchWeb();
         fit(true);
       }
     });
   sim.stop();
 
+  function stretchWeb() {
+    if (!(PH && state.mode === "web")) return;
+    var vs = NODES.filter(isVis), cw0 = stage.clientWidth || 390, ch0 = Math.max(240, (stage.clientHeight || 700) - 64);
+    var x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    vs.forEach(function (d) { x0 = Math.min(x0, d.x); x1 = Math.max(x1, d.x); y0 = Math.min(y0, d.y); y1 = Math.max(y1, d.y); });
+    var bw = (x1 - x0) + 90, bh = (y1 - y0) + 90, want = (ch0 / cw0) * bw, sy = Math.max(1, Math.min(2.4, want / bh)), cy0 = (y0 + y1) / 2;
+    if (sy > 1.05) { vs.forEach(function (d) { d.y = cy0 + (d.y - cy0) * sy; }); ticked(); }
+  }
+  function settleNow() {
+    sim.stop(); sim.alpha(0.9);
+    for (var i = 0; i < 170; i++) sim.tick();
+    stretchWeb(); ticked(); pendingFit = false; fit(false); drawGuides();
+  }
   function configure() {
     var L = state.mode === "layers";
     sim.force("link").distance(L ? 110 : 95).strength(L ? 0.015 : 0.3);
@@ -1246,8 +1301,7 @@ return maplibregl$1;
   function emptyHTML() {
     var t = ECO.tip, n = BY[t.id];
     var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>Photo via Wikipedia \u00B7 <a href="' + esc(PHOTOS[ECO.imgwiki].page) + '" target="_blank" rel="noopener">read the article</a></figcaption></figure>' : "";
-    return '<p class="eyebrow">' + ECO.place + "</p><h2>Select a node</h2>" + ph +
-      "<p>Tap a species or environmental factor to see what it eats and what eats it. Arrows point from food to eater. Squares are the environment.</p>" +
+    return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       '<div class="note"><h3>' + t.title + "</h3><p>" + t.text + "</p>" +
       (n ? '<p><button type="button" class="chip" data-id="' + n.id + '"><i' + (n.cat === "abiotic" ? ' class="sq"' : "") + ' style="--c:' + colorVar(n) + '"></i>' + n.name + "</button></p>" : "") + "</div>" +
       (ECO.sources && ECO.sources.length ? "<h3>Sources for this ecosystem</h3>" + srcLinks(ECO.sources) : "") +
@@ -1447,14 +1501,13 @@ return maplibregl$1;
   function gMode(m) {
     if (m === state.mode) return;
     state.mode = m;
-    var wc0 = document.getElementById("webctl"); wc0.setAttribute("data-mode", m); document.getElementById("vt").setAttribute("aria-label", m === "layers" ? "Show web view" : "Show layers view"); var vtt = document.getElementById("vtoast"); vtt.textContent = m === "layers" ? "Layers: who eats whom, by level" : "Web: everything connected"; vtt.classList.add("on"); clearTimeout(vtt._t); vtt._t = setTimeout(function () { vtt.classList.remove("on"); }, 1500);
+    var wc0 = document.getElementById("webctl"); wc0.setAttribute("data-mode", m); document.getElementById("vt").setAttribute("aria-label", m === "layers" ? "Show web view" : "Show layers view"); document.getElementById("vt").setAttribute("title", m === "layers" ? "Show web view" : "Show layers view"); var vtt = document.getElementById("vtoast"); vtt.textContent = m === "layers" ? "Layers: who eats whom, by level" : "Web: everything connected"; vtt.classList.add("on"); clearTimeout(vtt._t); vtt._t = setTimeout(function () { vtt.classList.remove("on"); }, 1500);
     document.getElementById("m-layers").setAttribute("aria-pressed", String(m === "layers"));
     document.getElementById("m-web").setAttribute("aria-pressed", String(m === "web"));
     dims(); configure();
     guideG.classed("off", m !== "layers");
     drawGuides();
-    pendingFit = true;
-    sim.alpha(0.9).restart();
+    settleNow();
   }
   function setEnv(on) {
     if (on === state.env) return;
@@ -1464,8 +1517,7 @@ return maplibregl$1;
     state.hov = null;
     applyEnv();
     dims(); configure(); drawGuides(); paint(); renderPanel(); apply();
-    pendingFit = true;
-    sim.alpha(0.9).restart();
+    settleNow();
   }
   document.getElementById("m-layers").addEventListener("click", function () { gMode("layers"); });
   document.getElementById("m-web").addEventListener("click", function () { gMode("web"); });
@@ -1474,7 +1526,9 @@ return maplibregl$1;
   document.getElementById("env").setAttribute("aria-pressed", String(state.env));
   document.getElementById("env").setAttribute("aria-label", "Show environment");
   el.reset.addEventListener("click", clearEdits);
-  (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("more"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
+  [["env", "Show environment: sun, rain, soil"], ["share", "Copy link to this ecosystem"], ["fit", "Fit everything on screen"], ["moreb", "More"], ["vt", "Show web view"]].forEach(function (a) { var b = document.getElementById(a[0]); if (b) { b.setAttribute("aria-label", a[1]); b.setAttribute("title", a[1]); } });
+  stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast"));
+  (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("moreb"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
   if (window.ResizeObserver) {
@@ -1963,10 +2017,11 @@ return maplibregl$1;
       else if (m[1] === "state" && M.stateBy[m[2]]) go("state", m[2]);
     }
   }
+  function toast(t) { var v = document.getElementById("vtoast"); if (!v) return; v.textContent = t; v.classList.add("on"); clearTimeout(v._t); v._t = setTimeout(function () { v.classList.remove("on"); }, 1600); }
   function share(btn) {
     syncHash();
     var url = location.href.replace(/#stub&?/, "#").replace(/#$/, "");
-    function flash(t) { if (btn.classList.contains("ibtn")) { btn.classList.add("done"); btn.setAttribute("aria-label", t); setTimeout(function () { btn.classList.remove("done"); btn.setAttribute("aria-label", "Share link"); }, 1600); return; } var o = btn.textContent; btn.textContent = t; setTimeout(function () { btn.textContent = o; }, 1600); }
+    function flash(t) { if (btn.id === "share") { toast(t); return; } if (btn.classList.contains("ibtn")) { btn.classList.add("done"); btn.setAttribute("aria-label", t); setTimeout(function () { btn.classList.remove("done"); btn.setAttribute("aria-label", "Share link"); }, 1600); return; } var o = btn.textContent; btn.textContent = t; setTimeout(function () { btn.textContent = o; }, 1600); }
     if (navigator.share) { navigator.share({ title: document.title, url: url }).catch(function () {}); return; }
     if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () { flash("Link copied"); }, function () { flash("Copy failed"); });
   }
