@@ -59,6 +59,7 @@ def build(d):
     for g,L in d['groups'].items():
         for s in L:
             if s['latin'] in ABSENT: continue
+            if d.get('nps') and g!='Insects' and s['latin'].lower() not in d['nps']: continue   # official park list: keep only species the park confirms (it has no insect list)
             tl=layer(g,s); cand.append(dict(g=g,tl=tl,**s))
     # balanced pick: quotas per taxonomic group so frequently-recorded birds do not crowd everything else out
     quota={'Plants':6,'Mammals':6,'Birds':6,'Reptiles':3,'Amphibians':2,'Fish':3,'Insects':4}
@@ -108,7 +109,7 @@ def emit(d):
     if sum(1 for c in sel if c['tl']==1)<3 or len(sel)<10: return None,{'id':p['id'],'skipped':'only %d species / %d plants after filtering'%(len(sel),sum(1 for c in sel if c['tl']==1))}
     ids={}; used=set()
     for c in sel:
-        nm=NAMES.get(c['latin']) or (clean(c['common']) if c['common'] else None) or _N.get(c['latin'])
+        nm=NAMES.get(c['latin']) or (clean(d['npscommon'][c['latin'].lower()]) if d.get('npscommon',{}).get(c['latin'].lower()) else None) or (clean(c['common']) if c['common'] else None) or _N.get(c['latin'])
         if not nm or nm.lower()==c['latin'].lower(): nm=c['latin']
         nm=titled(nm)
         base=re.sub(r'[^a-z0-9]','',nm.lower())[:14] or 'sp'

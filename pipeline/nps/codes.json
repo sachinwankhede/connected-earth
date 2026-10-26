@@ -1,0 +1,267 @@
+{
+ "usagatefossilbedsnationa": {
+  "name": "Agate Fossil Beds National Monument",
+  "code": "AGFO",
+  "title": "agate fossil beds national monument (u.s. national park service)"
+ },
+ "usapostleislandsnational": {
+  "name": "Apostle Islands National Lakeshore",
+  "code": "APIS",
+  "title": "apostle islands national lakeshore (u.s. national park service)"
+ },
+ "usassateagueislandnation": {
+  "name": "Assateague Island National Seashore",
+  "code": "ASIS",
+  "title": "assateague island national seashore (u.s. national park service)"
+ },
+ "usbandeliernationalmonum": {
+  "name": "Bandelier National Monument",
+  "code": "BAND",
+  "title": "bandelier national monument (u.s. national park service)"
+ },
+ "usbighorncanyonnationalr": {
+  "name": "Bighorn Canyon National Recreation Area",
+  "code": "BICA",
+  "title": "bighorn canyon national recreation area (u.s. national park service)"
+ },
+ "uscanaveralnationalseash": {
+  "name": "Canaveral National Seashore",
+  "code": "CANA",
+  "title": "canaveral national seashore (u.s. national park service)"
+ },
+ "uscapehatterasnationalse": {
+  "name": "Cape Hatteras National Seashore",
+  "code": "CAHA",
+  "title": "cape hatteras national seashore (u.s. national park service)"
+ },
+ "uscapelookoutnationalsea": {
+  "name": "Cape Lookout National Seashore",
+  "code": "CALO",
+  "title": "cape lookout national seashore (u.s. national park service)"
+ },
+ "uscedarbreaksnationalmon": {
+  "name": "Cedar Breaks National Monument",
+  "code": "CEBR",
+  "title": "cedar breaks national monument (u.s. national park service)"
+ },
+ "uschattahoocheerivernati": {
+  "name": "Chattahoochee River National Recreation Area",
+  "code": "CHAT",
+  "title": "chattahoochee river national recreation area (u.s. national park service)"
+ },
+ "uschickasawnationalrecre": {
+  "name": "Chickasaw National Recreation Area",
+  "code": "CHIC",
+  "title": "chickasaw national recreation area (u.s. national park service)"
+ },
+ "uschiricahuanationalmonu": {
+  "name": "Chiricahua National Monument",
+  "code": "CHIR",
+  "title": "chiricahua national park (u.s. national park service)"
+ },
+ "uscratersofthemoonnation": {
+  "name": "Craters of the Moon National Monument",
+  "code": "CRMO",
+  "title": "craters of the moon national monument & preserve (u.s. national park service)"
+ },
+ "uscumberlandislandnation": {
+  "name": "Cumberland Island National Seashore",
+  "code": "CUIS",
+  "title": "cumberland island national seashore (u.s. national park service)"
+ },
+ "usdelawarewatergapnation": {
+  "name": "Delaware Water Gap National Recreation Area",
+  "code": "DEWA",
+  "title": "delaware water gap national recreation area (u.s. national park service)"
+ },
+ "usdevilstowernationalmon": {
+  "name": "Devils Tower National Monument",
+  "code": "DETO",
+  "title": "devils tower national monument (u.s. national park service)"
+ },
+ "usdinosaurnationalmonume": {
+  "name": "Dinosaur National Monument",
+  "code": "DINO",
+  "title": "dinosaur national monument (u.s. national park service)"
+ },
+ "useffigymoundsnationalmo": {
+  "name": "Effigy Mounds National Monument",
+  "code": "EFMO",
+  "title": "effigy mounds national monument (u.s. national park service)"
+ },
+ "uselmalpaisnationalmonum": {
+  "name": "El Malpais National Monument",
+  "code": "ELMA",
+  "title": "el malpais national monument (u.s. national park service)"
+ },
+ "usflorissantfossilbedsna": {
+  "name": "Florissant Fossil Beds National Monument",
+  "code": "FLFO",
+  "title": "florissant fossil beds national monument (u.s. national park service)"
+ },
+ "usfortpulaskinationalmon": {
+  "name": "Fort Pulaski National Monument",
+  "code": "FOPU",
+  "title": "fort pulaski national monument (u.s. national park service)"
+ },
+ "usfossilbuttenationalmon": {
+  "name": "Fossil Butte National Monument",
+  "code": "FOBU",
+  "title": "fossil butte national monument (u.s. national park service)"
+ },
+ "usgatewaynationalrecreat": {
+  "name": "Gateway National Recreation Area",
+  "code": "GATE",
+  "title": "gateway national recreation area (u.s. national park service)"
+ },
+ "usgulfislandsnationalsea": {
+  "name": "Gulf Islands National Seashore",
+  "code": "GUIS",
+  "title": "gulf islands national seashore (u.s. national park service)"
+ },
+ "ushagermanfossilbedsnati": {
+  "name": "Hagerman Fossil Beds National Monument",
+  "code": "HAFO",
+  "title": "hagerman fossil beds national monument (u.s. national park service)"
+ },
+ "usjohndayfossilbedsnatio": {
+  "name": "John Day Fossil Beds National Monument",
+  "code": "JODA",
+  "title": "john day fossil beds national monument (u.s. national park service)"
+ },
+ "uslakerooseveltnationalr": {
+  "name": "Lake Roosevelt National Recreation Area",
+  "code": "LARO",
+  "title": "lake roosevelt national recreation area (u.s. national park service)"
+ },
+ "uslavabedsnationalmonume": {
+  "name": "Lava Beds National Monument",
+  "code": "LABE",
+  "title": "lava beds national monument (u.s. national park service)"
+ },
+ "usmontezumacastlenationa": {
+  "name": "Montezuma Castle National Monument",
+  "code": "MOCA",
+  "title": "montezuma castle national monument (u.s. national park service)"
+ },
+ "usnaturalbridgesnational": {
+  "name": "Natural Bridges National Monument",
+  "code": "NABR",
+  "title": "natural bridges national monument (u.s. national park service)"
+ },
+ "usolympicnationalpark": {
+  "name": "Olympic National Park",
+  "code": "OLYM",
+  "title": "olympic national park (u.s. national park service)"
+ },
+ "usoregoncavesnationalmon": {
+  "name": "Oregon Caves National Monument and Preserve",
+  "code": "ORCA",
+  "title": "oregon caves national monument & preserve (u.s. national park service)"
+ },
+ "usorganpipecactusnationa": {
+  "name": "Organ Pipe Cactus National Monument",
+  "code": "ORPI",
+  "title": "organ pipe cactus national monument (u.s. national park service)"
+ },
+ "uspadreislandnationalsea": {
+  "name": "Padre Island National Seashore",
+  "code": "PAIS",
+  "title": "padre island national seashore (u.s. national park service)"
+ },
+ "uspicturedrocksnationall": {
+  "name": "Pictured Rocks National Lakeshore",
+  "code": "PIRO",
+  "title": "pictured rocks national lakeshore (u.s. national park service)"
+ },
+ "uspointreyesnationalseas": {
+  "name": "Point Reyes National Seashore",
+  "code": "PORE",
+  "title": "point reyes national seashore (u.s. national park service)"
+ },
+ "ussantamonicamountainsna": {
+  "name": "Santa Monica Mountains National Recreation Area",
+  "code": "SAMO",
+  "title": "santa monica mountains national recreation area (u.s. national park service)"
+ },
+ "usscottsbluffnationalmon": {
+  "name": "Scotts Bluff National Monument",
+  "code": "SCBL",
+  "title": "scotts bluff national monument (u.s. national park service)"
+ },
+ "ussleepingbeardunesnatio": {
+  "name": "Sleeping Bear Dunes National Lakeshore",
+  "code": "SLBE",
+  "title": "sleeping bear dunes national lakeshore (u.s. national park service)"
+ },
+ "ustontonationalmonument": {
+  "name": "Tonto National Monument",
+  "code": "TONT",
+  "title": "tonto national monument (u.s. national park service)"
+ },
+ "uswupatkinationalmonumen": {
+  "name": "Wupatki National Monument",
+  "code": "WUPA",
+  "title": "wupatki national monument (u.s. national park service)"
+ },
+ "uschimborazopark": {
+  "name": "Chimborazo Park",
+  "code": null,
+  "title": null
+ },
+ "uscoloradonationalmonume": {
+  "name": "Colorado National Monument",
+  "code": "COLM",
+  "title": "colorado national monument (u.s. national park service)"
+ },
+ "usfredericksburgandspotn": {
+  "name": "Fredericksburg and Spot. National Military Park",
+  "code": "FRSP",
+  "title": "fredericksburg & spotsylvania national military park (u.s. national park service)"
+ },
+ "usgatewayarchnationalpar": {
+  "name": "Gateway Arch National Park",
+  "code": "JEFF",
+  "title": "gateway arch national park (u.s. national park service)"
+ },
+ "usgeorgewashingtonmemori": {
+  "name": "George Washington Memorial Parkway",
+  "code": "GWMP",
+  "title": "george washington memorial parkway (u.s. national park service)"
+ },
+ "uskatahdinwoodsandwaters": {
+  "name": "Katahdin Woods and Waters National Monument",
+  "code": "KAWW",
+  "title": "katahdin woods and waters national monument (u.s. national park service)"
+ },
+ "uslakechelannationalrecr": {
+  "name": "Lake Chelan National Recreation Area",
+  "code": "LACH",
+  "title": "manual"
+ },
+ "uslakemeredithnationalre": {
+  "name": "Lake Meredith National Recreation Area",
+  "code": "LAMR",
+  "title": "lake meredith national recreation area (u.s. national park service)"
+ },
+ "usmaggielwalker": {
+  "name": "Maggie L. Walker",
+  "code": "MAWA",
+  "title": "maggie l walker national historic site (u.s. national park service)"
+ },
+ "ussaintcroixnationalscen": {
+  "name": "Saint Croix National Scenic Riverway",
+  "code": "SACN",
+  "title": "saint croix national scenic riverway (u.s. national park service)"
+ },
+ "ustulespringsfossilbedsn": {
+  "name": "Tule Springs Fossil Beds National Monument",
+  "code": "TUSK",
+  "title": "tule springs fossil beds national monument (u.s. national park service)"
+ },
+ "uswhiskeytownshastatrini": {
+  "name": "Whiskeytown-Shasta-Trinity National Recreation Area",
+  "code": "WHIS",
+  "title": "manual (Whiskeytown unit only)"
+ }
+}
