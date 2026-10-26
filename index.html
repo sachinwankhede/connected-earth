@@ -688,6 +688,17 @@ i.sq, .panel .chip i.sq { border-radius: 50%; }
 rect.core { stroke-dasharray: 3 2.5; }
 @media (max-width: 700px) { .sheet.s-min .sbody, .psheet.p-min #panel { display: none !important; } }
 
+.peek:has(.nearlist) { display: block; padding: 10px 12px 4px; }
+.nearlist .nhead { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 36px; }
+.nearlist h2 { margin: 0; padding: 0; font: 700 17px var(--font-display); }
+.nearlist .nhead .ibtn { position: static; flex: none; }
+.nearlist p { margin: 6px 0 8px; font-size: 14px; color: var(--muted); }
+.nearlist .nrow { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; min-height: 44px; padding: 0 4px; margin: 0; border: 0; border-top: 1px solid var(--line); background: transparent; color: var(--ink); font: 600 15px var(--font-body); text-align: left; cursor: pointer; }
+.nearlist .nrow:first-of-type { margin-top: 6px; }
+.nearlist .nrow b { font: inherit; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nearlist .nrow span { flex: none; color: var(--muted); font: 500 12px var(--font-mono); }
+.nearlist .nrow:hover b { color: var(--accent); }
+
 .maplg, .ztip, #hbtn { display: none !important; }
 @media (min-width: 701px) {
   .app:has(#mapview:not([hidden])) .top { display: none; }
@@ -2102,7 +2113,7 @@ return maplibregl$1;
   }
   function nearMe() {
     var pe = document.getElementById("peek");
-    function msg(t) { M.peekId = null; pe.innerHTML = '<div></div><div><h2>Near me</h2><p>' + t + '</p><div class="pbtns"><button type="button" class="btn" data-closepeek="1">Close</button></div></div>'; pe.hidden = false; }
+    function msg(t) { M.peekId = null; pe.innerHTML = '<div class="nearlist"><div class="nhead"><h2>Near you</h2>' + ICON_CLOSE + '</div><p>' + t + '</p></div>'; pe.hidden = false; }
     if (!navigator.geolocation) { msg("This browser can't share your location."); return; }
     msg("Finding your location…");
     navigator.geolocation.getCurrentPosition(function (pos) {
@@ -2115,7 +2126,7 @@ return maplibregl$1;
       var dot = document.createElement("div"); dot.className = "me";
       M.userMk = new maplibregl.Marker({ element: dot }).setLngLat([lo, la]).addTo(M.map);
       M.peekId = null;
-      pe.innerHTML = '<div></div><div><span class="where">Nearest food webs</span><h2>Near you</h2><div class="ties">' + list.map(function (x) { return '<button type="button" data-peek="' + x.e.id + '">' + x.e.short + '</button> <span class="sp">' + fmt(x.d) + "</span>"; }).join("<br>") + '</div><div class="pbtns"><button type="button" class="btn" data-closepeek="1">Close</button></div></div>';
+      pe.innerHTML = '<div class="nearlist"><div class="nhead"><h2>Nearest food webs</h2>' + ICON_CLOSE + '</div>' + list.map(function (x) { return '<button type="button" class="nrow" data-peek="' + x.e.id + '"><b>' + x.e.short + '</b><span>' + fmt(x.d) + '</span></button>'; }).join("") + '</div>';
       pe.hidden = false;
       renderView(false);
       var b = new maplibregl.LngLatBounds([lo, la], [lo, la]);
