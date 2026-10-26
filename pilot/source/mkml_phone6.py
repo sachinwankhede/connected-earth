@@ -44,3 +44,37 @@ rep6('  function renderView(animate) {\n    var m = M.map;', '''  function filte
 rep6('FL.park = !FL.park; view.focus = null; renderView(true); return;', 'FL.park = !FL.park; view.focus = null; filterView(); return;')
 rep6('FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; renderView(true);', 'FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; filterView();')
 rep6('FL.local = !FL.local; view.focus = null; renderView(true); });', 'FL.local = !FL.local; view.focus = null; filterView(); });')
+
+# the hook: "N places. N species. N links." on the home screen; follows the Local parks button
+rep6('  function filterView() {', '''  function heroStats() {
+    var sp = {}, ns = 0, np = 0, nl = 0;
+    ECOS.forEach(function (e) {
+      if (e.level === "local" && !FL.local) return;
+      np++;
+      e.nodes.forEach(function (n) { if (!n.cat && n.latin) { var k = n.latin.toLowerCase(); if (!sp[k]) { sp[k] = 1; ns++; } } });
+      e.raw.forEach(function (r) { if (r.length === 2 || r[2] === "s") nl++; });
+    });
+    var f = function (x) { return x.toLocaleString("en-US"); };
+    return f(np) + " places. " + f(ns) + " species. " + f(nl) + " links.";
+  }
+  function filterView() {''')
+rep6('? ECOS.filter(function (e) { return FL.local || e.level !== "local"; }).length + " ecosystems"', '? heroStats()')
+rep6('var cnt = shown + (shown === 1 ? " ecosystem" : " ecosystems");', 'var cnt = shown + (shown === 1 ? " place" : " places");')
+rep6('list.length + (list.length === 1 ? " ecosystem" : " ecosystems") + " in " + region;', 'list.length + (list.length === 1 ? " place" : " places") + " in " + region;')
+rep6('list.length + (list.length === 1 ? " ecosystem matches " : " ecosystems match ")', 'list.length + (list.length === 1 ? " place matches " : " places match ")')
+
+# show the hook where people will see it: first line of the home sheet / panel
+rep6('<div class="sbody" id="sbody">', '<div class="sbody" id="sbody"><p class="hook" id="hook" hidden></p>')
+rep6('    var sr = document.getElementById("srow");', '''    var hk = document.getElementById("hook");
+    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = heroStats().replace(/([\\d,]+) (places|species|links)\\./g, "<b>$1</b> $2."); } }
+    var sr = document.getElementById("srow");''')
+css2 = """
+.hook { margin: 2px 0 12px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
+"""
+rep6(".me { width: 16px;", css2 + ".me { width: 16px;")
+
+# filter chips: no counts (they are not what a person decides by); the home sheet already says it once
+rep6("""">Protected areas <b>' + np + "</b></button>" """.strip(), """">Protected areas</button>'""".strip())
+rep6("""k + " <b>" + n + "</b></button>" """.strip(), """k + "</button>" """.strip())
+rep6('var cnt = shown + (shown === 1 ? " place" : " places");', 'var cnt = view.level === "world" && !FL.q ? "" : shown + (shown === 1 ? " place" : " places");')

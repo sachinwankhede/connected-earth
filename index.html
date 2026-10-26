@@ -753,6 +753,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 
 .zoomc #locbtn[aria-pressed="true"] { background: var(--accent); color: #fff; }
 .panel .autotag { display: inline-block; margin: 10px 0 0; padding: 3px 10px; border-radius: 999px; font: 500 11.5px var(--font-mono); letter-spacing: .02em; color: var(--muted); border: 1px dashed var(--line); }
+
+.hook { margin: 2px 0 12px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -787,7 +790,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left, and, on Streets or Light, use Shading to add habitat colours. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
-    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
+    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div></div><div class="sbody" id="sbody"><p class="hook" id="hook" hidden></p><div class="regions" id="regions"></div>
     <p class="fine" id="empty" hidden>No ecosystems here yet. Shaded regions on the map have food webs.</p>
     <ul class="cards" id="cards"></ul>
     <div id="xwrap">
@@ -1751,9 +1754,9 @@ return maplibregl$1;
     var np = ECOS.filter(function (e) { return e.park && (FL.local || e.level !== "local"); }).length;
     var nl = ECOS.filter(function (e) { return e.level === "local"; }).length, lb = document.getElementById("locbtn");
     if (lb) { lb.style.display = nl ? "" : "none"; lb.setAttribute("aria-pressed", FL.local ? "true" : "false"); }
-    document.getElementById("kinds").innerHTML = (np ? '<button type="button" class="chip' + (FL.park ? " on" : "") + '" data-park="1" aria-pressed="' + FL.park + '">Protected areas <b>' + np + "</b></button>" : "") + ks.map(function (k) {
+    document.getElementById("kinds").innerHTML = (np ? '<button type="button" class="chip' + (FL.park ? " on" : "") + '" data-park="1" aria-pressed="' + FL.park + '">Protected areas</button>' : "") + ks.map(function (k) {
       var n = ECOS.filter(function (e) { return e.kind === k && (FL.local || e.level !== "local"); }).length;
-      return n && !(k === "Urban" && n < 5) ? '<button type="button" class="chip' + (FL.kind === k ? " on" : "") + '" data-kind="' + k + '" aria-pressed="' + (FL.kind === k) + '"><i class="kd" style="--kc:' + KC[k] + '"></i>' + k + " <b>" + n + "</b></button>" : "";
+      return n && !(k === "Urban" && n < 5) ? '<button type="button" class="chip' + (FL.kind === k ? " on" : "") + '" data-kind="' + k + '" aria-pressed="' + (FL.kind === k) + '"><i class="kd" style="--kc:' + KC[k] + '"></i>' + k + "</button>" : "";
     }).join("");
   }
   function tiesHTML(id) {
@@ -2070,6 +2073,17 @@ return maplibregl$1;
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
+  function heroStats() {
+    var sp = {}, ns = 0, np = 0, nl = 0;
+    ECOS.forEach(function (e) {
+      if (e.level === "local" && !FL.local) return;
+      np++;
+      e.nodes.forEach(function (n) { if (!n.cat && n.latin) { var k = n.latin.toLowerCase(); if (!sp[k]) { sp[k] = 1; ns++; } } });
+      e.raw.forEach(function (r) { if (r.length === 2 || r[2] === "s") nl++; });
+    });
+    var f = function (x) { return x.toLocaleString("en-US"); };
+    return f(np) + " places. " + f(ns) + " species. " + f(nl) + " links.";
+  }
   function filterView() {
     renderView(false);
     var m = M.map; if (!m || !M.styleReady) return;
@@ -2103,13 +2117,15 @@ return maplibregl$1;
     document.getElementById("crumbs").innerHTML = crumbHTML();
     document.getElementById("regions").innerHTML = chipsHTML();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
-    if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " ecosystem matches " : " ecosystems match ") + "“" + FL.q + "”" : view.level === "world"
-      ? ECOS.filter(function (e) { return FL.local || e.level !== "local"; }).length + " ecosystems"
-      : list.length + (list.length === 1 ? " ecosystem" : " ecosystems") + " in " + region;
+    if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" : view.level === "world"
+      ? heroStats()
+      : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
+    var hk = document.getElementById("hook");
+    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = heroStats().replace(/([\d,]+) (places|species|links)\./g, "<b>$1</b> $2."); } }
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level === "state" ? ["country", view.country] : view.level === "country" ? ["continent", view.cont] : view.level === "continent" ? ["world", ""] : null;
-      var cnt = shown + (shown === 1 ? " ecosystem" : " ecosystems");
+      var cnt = view.level === "world" && !FL.q ? "" : shown + (shown === 1 ? " place" : " places");
       sr.innerHTML = (par ? '<button type="button" class="sbk" data-go="' + par[0] + '" data-a="' + String(par[1]).replace(/"/g, "&quot;") + '">\u2039 ' + (par[0] === "world" ? "World" : par[0] === "country" ? nm(par[1]) : par[1]) + "</button>" : "") + '<span class="stt">' + (par ? region : "Connected Earth") + '</span><span class="scnt">' + cnt + "</span>";
     }
     syncHash();
