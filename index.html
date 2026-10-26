@@ -672,7 +672,7 @@ div.card { cursor: default; }
 @media (min-width: 701px) { .psheet .srow .stt { white-space: normal; line-height: 1.15; } .psheet .srow .scnt { white-space: nowrap; padding-left: 8px; } }
 
 .panel .shot { display: block !important; margin: 10px 0 0; }
-.panel .shot img { height: 150px; border-radius: 10px; border: 0; }
+.panel .shot img { width: 100%; height: auto; max-height: 210px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
 .panel .head:has(+ .shot) .art { display: none; }
 #webctl .btn, #webctl #moreb { align-content: center; justify-content: center; }
 .panel .found { margin-top: 18px; }
@@ -1330,7 +1330,7 @@ return maplibregl$1;
     d3.select("#clip-" + n.id + " circle").attr("r", n.r - 1.8);
     g.select(".body").append("image").attr("class", "photo").attr("href", photoOf(n).src)
       .attr("x", -n.r).attr("y", -n.r).attr("width", 2 * n.r).attr("height", 2 * n.r)
-      .attr("preserveAspectRatio", "xMidYMid slice").attr("clip-path", "url(#clip-" + n.id + ")");
+      .attr("preserveAspectRatio", "xMidYMin slice").attr("clip-path", "url(#clip-" + n.id + ")");
     if (state.sel === n.id) renderPanel();
     paint();
     relayoutSoon();
