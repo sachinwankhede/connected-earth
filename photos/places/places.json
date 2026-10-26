@@ -654,5 +654,37 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Forest_Park%2C_St_Louis.jpg",
 "w": "https://en.wikipedia.org/wiki/Forest_Park_%28St._Louis%29"
+},
+"Sundarbans": {
+"f": "sundarbans.jpg",
+"a": "Shihabur Rahman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Save_the_sundarbans_20.jpg",
+"w": "https://en.wikipedia.org/wiki/Sundarbans"
+},
+"Wadden Sea": {
+"f": "wadden.jpg",
+"a": "Ralf Roletschek",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg",
+"w": "https://en.wikipedia.org/wiki/Wadden_Sea"
+},
+"Aldabra": {
+"f": "whaldabra.jpg",
+"a": "NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:An_Outpost_for_Evolution_at_Aldabra_Atoll.jpg",
+"w": "https://en.wikipedia.org/wiki/Aldabra"
+},
+"Banc d'Arguin National Park": {
+"f": "wharguin.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bancdarguin_map_lg.jpg",
+"w": "https://en.wikipedia.org/wiki/Banc_d%27Arguin_National_Park"
 }
 }
