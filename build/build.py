@@ -82,7 +82,6 @@ def build(pilot, out_path):
     tag = '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>'
     assert tag in out, 'd3 script tag not found in src/app.html'
     out = out.replace(tag, '<script>' + open(P('node_modules', 'd3', 'dist', 'd3.min.js')).read() + '</script>', 1)
-    out = out.replace('__BUILD__', build_id(out))
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w').write(out)
     print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
@@ -94,7 +93,7 @@ def build_id(html):
 
 
 def stamp_sw(main_html):
-    bid = re.search(r'data-build="([0-9a-f]{8})"', main_html).group(1)
+    bid = build_id(main_html)
     open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid))
     print('sw.js stamped', bid)
 

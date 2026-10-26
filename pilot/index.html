@@ -25,7 +25,6 @@
   --sea-a: #CFE6F4;
   --sea-b: #A9D0EA;
   --land: #EEF0E2;
-  --sh1: #D6EBB8; --sh2: #A8D58A; --sh3: #6DB964; --sh4: #3A9145; --sh5: #1B5E2E;
   --cl1: #F1F3EA; --cl2: #DDE8CF; --cl3: #C9DEB4; --cl4: #CFE2B0; --cl5: #E8E3BE; --cl6: #B7D99B; --cl7: #9ACB84;
   --land-has: #BFDDA0;
   --land-hi: #A6CF86;
@@ -57,7 +56,6 @@
     --sea-a: #12324A;
   --sea-b: #0B2236;
   --land: #2B3A2A;
-  --sh1: #3B5A2E; --sh2: #4F7F3B; --sh3: #66A64A; --sh4: #84C763; --sh5: #B4E88C;
   --cl1: #33402F; --cl2: #2A4A32; --cl3: #2A5234; --cl4: #2F5434; --cl5: #4A4A30; --cl6: #26562F; --cl7: #1F5A30;
     --land-has: #35603A;
     --land-hi: #44784A;
@@ -83,7 +81,6 @@
   --line: #2B4036;
   --grid: #1A2B24;
   --land: #2B3A2A;
-  --sh1: #3B5A2E; --sh2: #4F7F3B; --sh3: #66A64A; --sh4: #84C763; --sh5: #B4E88C;
   --cl1: #33402F; --cl2: #2A4A32; --cl3: #2A5234; --cl4: #2F5434; --cl5: #4A4A30; --cl6: #26562F; --cl7: #1F5A30;
   --land-has: #35603A;
   --land-hi: #44784A;
@@ -329,17 +326,7 @@ h2.sect { margin: 4px 0 -4px; font: 700 18px/1.2 var(--font-display); }
 .pin.grp { opacity: 0; pointer-events: none; }
 .chg { opacity: 0; transition: opacity .35s; pointer-events: none; }
 .chg path { stroke: var(--surface); stroke-width: .6px; vector-effect: non-scaling-stroke; pointer-events: none; fill: none; }
-#map.shaded .country, #map.shaded .state { fill: var(--land); }
 .chg path.s { stroke: none; }
-#map.shaded .cn { fill: var(--ink); opacity: .7; stroke-width: 3px; }
-.shkey { position: absolute; left: 10px; bottom: 8px; display: none; align-items: center; gap: 4px; font: 500 11px var(--font-body); color: var(--ink); background: var(--surface); padding: 4px 9px; border-radius: 99px; opacity: .92; pointer-events: none; }
-#map.shaded ~ .shkey { display: flex; }
-#map.shaded ~ .ztip { display: none; }
-.shkey i { width: 16px; height: 10px; border-radius: 2px; display: inline-block; }
-.shkey span { margin: 0 6px 0 2px; }
-#map.shaded .chg { opacity: 1; }
-#map.shaded .anc, #map.shaded .lead { display: none; }
-#map.shaded .pin.land:not(.tied):not(.sel) { opacity: 0; pointer-events: none; }
 .pin.grp.tied, .pin.grp.sel { opacity: 1; pointer-events: auto; }
 .glow, .shade { cursor: zoom-in; }
 .shade { stroke: var(--surface); stroke-width: .6px; vector-effect: non-scaling-stroke; transition: fill-opacity .3s; }
@@ -393,10 +380,6 @@ div.card { cursor: default; }
 .maplibregl-popup-content { font: 600 12.5px var(--font-body); padding: 5px 9px; border-radius: 8px; color: var(--ink); background: var(--surface); }
 .maplibregl-popup-tip { display: none; }
 .maplibregl-ctrl-attrib { font-size: 10.5px; }
-.mapbox .shkey { z-index: 3; }
-.mapctl2 { top: 52px; }
-.mapbox .shkey.on { display: flex; flex-wrap: wrap; max-width: calc(100% - 20px); }
-.shkey i { flex: none; }
 @media (min-width: 701px) {
   .mapbox > .peek:not([hidden]) { position: absolute; left: 10px; bottom: 44px; z-index: 5; width: min(420px, calc(100% - 80px)); max-height: calc(100% - 100px); overflow: auto; grid-template-columns: 92px minmax(0,1fr); border-radius: 12px; box-shadow: 0 6px 22px rgba(0,0,0,.35); }
 }
@@ -467,7 +450,6 @@ div.card { cursor: default; }
 }
 
 .sheet, .sbody { display: contents; }
-.ver { font-size: 10px; opacity: .55; padding: 0 6px; align-self: center; white-space: nowrap; }
 .shead, #lyrbtn { display: none; }
 @media (max-width: 700px) {
   .app:has(#mapview:not([hidden])) .top { display: none; }
@@ -486,12 +468,9 @@ div.card { cursor: default; }
   .filters .kinds .chip { flex: none; background: var(--surface); border-color: transparent; box-shadow: 0 1px 5px rgba(0,0,0,.28); }
   .zoomc { top: 116px; right: 8px; }
   #lyrbtn { display: grid; }
-  .mapctl:not(.mapctl2) { display: none; }
-  .mapbox.lopen .mapctl:not(.mapctl2) { display: flex; flex-direction: column; left: auto; right: 54px; top: 116px; min-width: 120px; }
+  .mapctl { display: none; }
+  .mapbox.lopen .mapctl { display: flex; flex-direction: column; left: auto; right: 54px; top: 116px; min-width: 120px; }
   .mapbox.lopen .mapctl button { justify-content: start; height: 42px; padding: 0 16px; }
-  .mapctl2 { display: none; }
-  .mapbox.lopen .mapctl2 { display: flex; left: auto; right: 54px; top: 320px; }
-  .mapbox.lopen .mapctl2:has(#shadebtn[style*="none"]) { display: none; }
   .mapview.hopen .maplg { display: block; position: fixed; top: 116px; left: 8px; right: 8px; z-index: 25; background: var(--surface); border-radius: 12px; padding: 12px 14px; box-shadow: 0 6px 22px rgba(0,0,0,.35); margin: 0; }
   .sheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,.25); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
   .sheet.s-half { height: 48dvh; }
@@ -719,12 +698,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   .zoomc { top: 12px; right: 12px; }
   #lyrbtn { display: grid; }
   #zin, #zout { display: none; }
-  .mapctl:not(.mapctl2) { display: none; }
-  .mapbox.lopen .mapctl:not(.mapctl2) { display: flex; flex-direction: column; left: auto; right: 62px; top: 12px; min-width: 130px; }
+  .mapctl { display: none; }
+  .mapbox.lopen .mapctl { display: flex; flex-direction: column; left: auto; right: 62px; top: 12px; min-width: 130px; }
   .mapbox.lopen .mapctl button { justify-content: start; height: 42px; padding: 0 16px; }
-  .mapctl2 { display: none; }
-  .mapbox.lopen .mapctl2 { display: flex; left: auto; right: 62px; top: 220px; }
-  .mapbox.lopen .mapctl2:has(#shadebtn[style*="none"]) { display: none; }
   .sheet { display: flex; flex-direction: column; position: fixed; left: 12px; top: 112px; bottom: 12px; width: 380px; z-index: 10; background: var(--surface); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); overflow: hidden; }
   body:has(#peek:not([hidden])) .sheet { display: none; }
   .shead { display: block; flex: none; padding: 12px 14px 4px; }
@@ -796,8 +772,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   <section class="mapview" id="mapview" aria-label="Choose an ecosystem">
     <nav class="crumbs" id="crumbs" aria-label="Map region"></nav>
-    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="mapctl mapctl2"><button type="button" id="shadebtn" aria-pressed="false">Shading: Off</button><span class="ver" id="ver" data-build="102a35bb">Version 102a35bb</span></div><div class="shkey" id="shkey" aria-hidden="true"><b>Ecosystems per country</b> <span>fewer</span><i style="background:var(--sh1)"></i><i style="background:var(--sh2)"></i><i style="background:var(--sh3)"></i><i style="background:var(--sh4)"></i><i style="background:var(--sh5)"></i><span>more</span></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
-    <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left, and, on Streets or Light, use Shading to add habitat colours. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
+    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
+    <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
     <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
@@ -1843,9 +1819,6 @@ return maplibregl$1;
       pl("sat-village", ["village", "suburb"], 10, 0, 11)] };
   }
   function sheetMode() { return window.matchMedia && matchMedia("(max-width: 700px)").matches; }
-  var HAB = [["wood", "#2f7d4f", 0, "Forest"], ["grass", "#b8902c", 0, "Grassland"], ["sand", "#d0702f", 0, "Desert"], ["ice", "#8a6fc0", 0, "Polar and ice"], ["wetland", "#3b6fd0", 8, "Wetland"]];
-  try { M.shade = localStorage.getItem("atlasShade2") || "off"; } catch (e) { M.shade = "off"; }
-  if (["off", "habitat"].indexOf(M.shade) < 0) M.shade = "off";
   function stubStyle() { return { version: 8, name: "plain", sources: {}, glyphs: GLYPHS, layers: [{ id: "bg", type: "background", paint: { "background-color": cssv("--sea-a", "#cfe6f4") } }] }; }
   function pt(e, extra) { var p = { id: e.id, short: e.short, kc: KC[e.kind] || "#888", lk: LK[e.id] ? 1 : 0 }; for (var k in extra) p[k] = extra[k]; return { type: "Feature", properties: p, geometry: { type: "Point", coordinates: [e.lon, e.lat] } }; }
   function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
@@ -1924,9 +1897,6 @@ return maplibregl$1;
     }
     var B = first || undefined;
     if (M.mode === "satellite") m.addLayer({ id: "atl-c-line", type: "line", source: "atl-c", paint: { "line-color": "#ffffff", "line-opacity": 0.55, "line-width": 0.8 } });
-    if (m.getSource("openmaptiles")) HAB.forEach(function (h) {
-      m.addLayer({ id: "atl-hab-" + h[0], type: "fill", source: "openmaptiles", "source-layer": "landcover", minzoom: h[2], filter: ["==", ["get", "class"], h[0]], layout: { visibility: "none" }, paint: { "fill-color": h[1], "fill-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.5, 7, 0.42, 11, 0.16] } }, B);
-    });
     m.addLayer({ id: "atl-c-fill", type: "fill", source: "atl-c", paint: { "fill-color": "rgba(0,0,0,0)", "fill-opacity": ["interpolate", ["linear"], ["zoom"], 0, 0.72, 3.5, 0.55, 5.5, 0.2, 7, 0.08] } }, B);
     m.addLayer({ id: "atl-s-fill", type: "fill", source: "atl-s", layout: { visibility: "none" }, paint: { "fill-color": "rgba(0,0,0,0)", "fill-opacity": 0.5 } }, B);
     m.addLayer({ id: "atl-s-line", type: "line", source: "atl-s", layout: { visibility: "none" }, paint: { "line-color": ink, "line-opacity": 0.35, "line-width": 0.8 } }, B);
@@ -1992,20 +1962,6 @@ return maplibregl$1;
     vis("atl-c-fill", !US_); vis("atl-src", view.level === "world"); vis("atl-src-lb", view.level === "world");
     m.setFilter("atl-c-out", view.level === "continent" ? ["!=", ["get", "cont"], view.cont] : view.level === "country" ? ["!=", ["get", "name"], view.country] : view.level === "state" ? ["!=", ["get", "name"], US] : F0);
     m.setFilter("atl-s-out", view.level === "state" ? ["!=", ["get", "name"], view.state] : F0);
-  }
-  var SHLBL = { off: "Off", habitat: "Habitat" };
-  function applyShade() {
-    var m = M.map; if (!m || !M.styleReady) return;
-    var haveHab = !!m.getLayer("atl-hab-wood");
-    var plain = M.mode === "streets" || M.mode === "light", on = plain && M.shade === "habitat";
-    HAB.forEach(function (h) { var id = "atl-hab-" + h[0]; if (m.getLayer(id)) m.setLayoutProperty(id, "visibility", on ? "visible" : "none"); });
-    shade();
-    var k = document.getElementById("shkey"), btn = document.getElementById("shadebtn");
-    if (btn) { btn.style.display = plain ? "" : "none"; btn.textContent = "Shading: " + SHLBL[M.shade]; btn.setAttribute("aria-pressed", M.shade === "off" ? "false" : "true"); }
-    if (!k) return;
-    if (!M.shkeyC) M.shkeyC = k.innerHTML;
-    if (on && haveHab) { k.innerHTML = "<b>Habitat</b> " + HAB.map(function (h) { return '<i style="background:' + h[1] + '"></i><span>' + h[3] + "</span>"; }).join(""); k.classList.add("on"); }
-    else k.classList.remove("on");
   }
   function shade() {
     var m = M.map; if (!m || !m.getLayer("atl-c-fill")) return;
@@ -2116,7 +2072,7 @@ return maplibregl$1;
   function renderView(animate) {
     var m = M.map;
     if (m && M.styleReady && m.getSource("atl-e")) {
-      applyView(); applyShade();
+      applyView(); shade();
       var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc);
       if (animate || M.needFit) mapFit(animate);
       pushTies();
@@ -2264,11 +2220,6 @@ return maplibregl$1;
         var id = f[0].properties.id;
         if (M.hov !== id && document.getElementById("peek").hidden) { M.hov = id; spanHi(ECO_BY[id]); showTies(id, true); }
       } else { if (M.hov) { M.hov = null; if (document.getElementById("peek").hidden) { spanHi(null); showTies(null); } } }
-    });
-    document.getElementById("shadebtn").addEventListener("click", function () {
-      M.shade = M.shade === "off" ? "habitat" : "off";
-      try { localStorage.setItem("atlasShade2", M.shade); } catch (e) {}
-      applyShade();
     });
     addEventListener("keydown", function (ev) {
       var pk = document.getElementById("peek");
