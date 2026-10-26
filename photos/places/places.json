@@ -2358,5 +2358,21 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Elefant_Ghana.jpg",
 "w": "https://en.wikipedia.org/wiki/Mole_National_Park"
+},
+"Iwokrama Forest": {
+"f": "xguyana.jpg",
+"a": "M M from Switzerland",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Iwokrama_Rainforest%2C_Guyana_%2812179378186%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Iwokrama_Forest"
+},
+"White Mountain National Forest": {
+"f": "xusnh.jpg",
+"a": "Ken Gallager at en.wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sandwich_Range.jpg",
+"w": "https://en.wikipedia.org/wiki/White_Mountain_National_Forest"
 }
 }
