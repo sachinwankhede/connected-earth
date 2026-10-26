@@ -1,0 +1,751 @@
+{
+ "id": "whgobi",
+ "name": "Gobi Gurvan Saikhan National Park",
+ "short": "Gobi Gurvan Saikhan",
+ "place": "Mongolia",
+ "lat": 43.8,
+ "lon": 101.6,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Mongolia",
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Saxaul, ibex and argali, and the snow leopards and wolves that hunt them.",
+ "tip": {
+  "id": "ibex",
+  "title": "Thin the ibex",
+  "text": "Siberian ibex are a main prey of snow leopards. Set Siberian ibex to -80% and watch snow leopards, wolves, foxes and ravens, and then the argali they turn to."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Gobi Gurvansaikhan National Park",
+   "url": "https://en.wikipedia.org/wiki/Gobi_Gurvansaikhan_National_Park"
+  },
+  {
+   "title": "Wikipedia: Gobi Desert",
+   "url": "https://en.wikipedia.org/wiki/Gobi_Desert"
+  },
+  {
+   "title": "Wikipedia: Snow leopard",
+   "url": "https://en.wikipedia.org/wiki/Snow_leopard"
+  },
+  {
+   "title": "Wikipedia: Gobi bear",
+   "url": "https://en.wikipedia.org/wiki/Gobi_bear"
+  },
+  {
+   "title": "Wikipedia: Argali",
+   "url": "https://en.wikipedia.org/wiki/Argali"
+  },
+  {
+   "title": "Wikipedia: Haloxylon ammodendron",
+   "url": "https://en.wikipedia.org/wiki/Haloxylon_ammodendron"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Gobi Gurvansaikhan National Park",
+ "icon": "sun",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "saxaul",
+   "name": "Black saxaul",
+   "latin": "Haloxylon ammodendron",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Haloxylon ammodendron",
+   "desc": "A tough desert shrub or small tree of loose sand. In the Gobi it is often the only tree, and its roots help hold dunes in place.",
+   "ic": "aspen",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "nitraria",
+   "name": "Siberian nitraria",
+   "latin": "Nitraria sibirica",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Nitraria sibirica",
+   "desc": "A salt-tolerant spiny shrub of sandy hollows and dune edges, recorded often in the park area.",
+   "ic": "sage"
+  },
+  {
+   "id": "stipa",
+   "name": "Needlegrasses",
+   "latin": "Stipa",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Stipa",
+   "desc": "Low, drought-hardy bunch grasses are among the main plants of the Gobi, grazed by wild and domestic hoofed animals.",
+   "ic": "grass"
+  },
+  {
+   "id": "gazelle",
+   "name": "Goitered gazelle",
+   "latin": "Gazella subgutturosa",
+   "tl": 2,
+   "xh": 0.04,
+   "wiki": "Goitered gazelle",
+   "desc": "A slender gazelle of open gravel plains and desert, and one of the most-recorded large herbivores near the park.",
+   "ic": "pronghorn"
+  },
+  {
+   "id": "ibex",
+   "name": "Siberian ibex",
+   "latin": "Capra sibirica",
+   "tl": 2,
+   "xh": 0.14,
+   "wiki": "Siberian ibex",
+   "desc": "A mountain goat of the rocky ranges and a main prey of snow leopards in Mongolia.",
+   "ic": "quad"
+  },
+  {
+   "id": "argali",
+   "name": "Argali",
+   "latin": "Ovis ammon",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Argali",
+   "desc": "The largest wild sheep. It grazes grasses, sedges and shrubs on mountain slopes, and wolves and snow leopards hunt it.",
+   "ic": "bison"
+  },
+  {
+   "id": "ass",
+   "name": "Asiatic wild ass",
+   "latin": "Equus hemionus",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Onager",
+   "desc": "A fast grazing equid of the open Gobi plains that roams long distances to find forage and water.",
+   "ic": "quad"
+  },
+  {
+   "id": "camel",
+   "name": "Wild Bactrian camel",
+   "latin": "Camelus ferus",
+   "tl": 2,
+   "xh": 0.44,
+   "wiki": "Wild Bactrian camel",
+   "desc": "A critically endangered camel of the Gobi that survives on sparse desert plants and can drink salty water.",
+   "ic": "quad"
+  },
+  {
+   "id": "jerboa",
+   "name": "Northern three-toed jerboa",
+   "latin": "Dipus sagitta",
+   "tl": 2,
+   "xh": 0.55,
+   "wiki": "Northern three-toed jerboa",
+   "desc": "A small hopping rodent of sandy ground that shelters in burrows. Foxes, shrikes and snakes take it.",
+   "ic": "vole"
+  },
+  {
+   "id": "pika",
+   "name": "Pallas's pika",
+   "latin": "Ochotona pallasi",
+   "tl": 2,
+   "xh": 0.66,
+   "wiki": "Pallas's pika",
+   "desc": "A small herbivore of rocky ground, among the most-recorded mammals near the park and food for small carnivores.",
+   "ic": "vole"
+  },
+  {
+   "id": "hare",
+   "name": "Tolai hare",
+   "latin": "Lepus tolai",
+   "tl": 2,
+   "xh": 0.77,
+   "wiki": "Tolai hare",
+   "desc": "A hare of steppe and semi-desert that feeds on grasses and shrubs and is prey for foxes and wolves.",
+   "ic": "quad"
+  },
+  {
+   "id": "bear",
+   "name": "Gobi bear",
+   "latin": "Ursus arctos gobiensis",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Gobi bear",
+   "desc": "A rare brown bear living near desert oases. It eats mostly plants and roots, with a little animal food such as rodents.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Red fox",
+   "desc": "An adaptable hunter of small mammals and reptiles that also feeds on carcasses.",
+   "ic": "fox"
+  },
+  {
+   "id": "cat",
+   "name": "Pallas's cat",
+   "latin": "Otocolobus manul",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Pallas's cat",
+   "desc": "A small, stocky wild cat of rocky steppe and desert that hunts pikas and small rodents.",
+   "ic": "lion"
+  },
+  {
+   "id": "shrike",
+   "name": "Great grey shrike",
+   "latin": "Lanius excubitor",
+   "tl": 3,
+   "xh": 0.65,
+   "wiki": "Great grey shrike",
+   "desc": "A predatory songbird that takes small rodents, birds and large insects, and impales prey on thorns.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Common raven",
+   "desc": "A clever scavenger that cleans up carcasses left by larger predators and also hunts small prey.",
+   "ic": "raven"
+  },
+  {
+   "id": "leopard",
+   "name": "Snow leopard",
+   "latin": "Panthera uncia",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Snow leopard",
+   "desc": "The mountain apex predator of the Gobi ranges. Ibex and argali are its main prey in Mongolia.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "wolf",
+   "name": "Grey wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Wolf",
+   "desc": "Wolves hunt argali, ibex, gazelles and other hoofed animals across the Gobi, and visit the park from its surroundings.",
+   "ic": "wolf"
+  },
+  {
+   "id": "rain",
+   "name": "Summer rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.15,
+   "wiki": "Rain",
+   "desc": "Most of the Gobi's small yearly rainfall comes in summer, setting how much grass and shrub can grow.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "spring",
+   "name": "Oasis springs",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "wiki": "Oasis",
+   "desc": "Scattered springs and seeps are the water that desert plants, wild asses, camels and bears gather around.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "snow",
+   "name": "Snow and ice melt",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.65,
+   "wiki": "Snowmelt",
+   "desc": "Winter snow and the ice field of Yolyn Am feed meltwater into the mountain valleys and the dry plains below.",
+   "ic": "ice",
+   "cat": "abiotic"
+  },
+  {
+   "id": "sand",
+   "name": "Sandy soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.85,
+   "wiki": "Soil",
+   "desc": "Loose sand and gravel soils are poor in nutrients; dead matter returning to them is what lets plants grow.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.95,
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and insects break down dead plants and carcasses and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "stipa",
+   "r"
+  ],
+  [
+   "rain",
+   "nitraria",
+   "r"
+  ],
+  [
+   "spring",
+   "nitraria",
+   "r"
+  ],
+  [
+   "spring",
+   "saxaul",
+   "r"
+  ],
+  [
+   "snow",
+   "stipa",
+   "r"
+  ],
+  [
+   "sand",
+   "saxaul",
+   "r"
+  ],
+  [
+   "sand",
+   "nitraria",
+   "r"
+  ],
+  [
+   "decomp",
+   "sand",
+   "r"
+  ],
+  [
+   "stipa",
+   "gazelle"
+  ],
+  [
+   "stipa",
+   "ibex"
+  ],
+  [
+   "stipa",
+   "argali"
+  ],
+  [
+   "stipa",
+   "ass"
+  ],
+  [
+   "stipa",
+   "camel"
+  ],
+  [
+   "stipa",
+   "jerboa"
+  ],
+  [
+   "stipa",
+   "pika"
+  ],
+  [
+   "stipa",
+   "hare"
+  ],
+  [
+   "stipa",
+   "bear"
+  ],
+  [
+   "nitraria",
+   "camel"
+  ],
+  [
+   "nitraria",
+   "ass"
+  ],
+  [
+   "saxaul",
+   "camel"
+  ],
+  [
+   "saxaul",
+   "gazelle"
+  ],
+  [
+   "jerboa",
+   "bear"
+  ],
+  [
+   "jerboa",
+   "fox"
+  ],
+  [
+   "jerboa",
+   "cat"
+  ],
+  [
+   "jerboa",
+   "shrike"
+  ],
+  [
+   "jerboa",
+   "raven"
+  ],
+  [
+   "pika",
+   "cat"
+  ],
+  [
+   "pika",
+   "fox"
+  ],
+  [
+   "pika",
+   "leopard"
+  ],
+  [
+   "hare",
+   "fox"
+  ],
+  [
+   "hare",
+   "wolf"
+  ],
+  [
+   "gazelle",
+   "wolf"
+  ],
+  [
+   "ibex",
+   "leopard"
+  ],
+  [
+   "ibex",
+   "wolf"
+  ],
+  [
+   "ibex",
+   "fox"
+  ],
+  [
+   "argali",
+   "leopard"
+  ],
+  [
+   "argali",
+   "wolf"
+  ],
+  [
+   "argali",
+   "fox"
+  ],
+  [
+   "ass",
+   "wolf"
+  ],
+  [
+   "camel",
+   "wolf"
+  ],
+  [
+   "ibex",
+   "raven",
+   "s"
+  ],
+  [
+   "argali",
+   "raven",
+   "s"
+  ],
+  [
+   "gazelle",
+   "raven",
+   "s"
+  ],
+  [
+   "ibex",
+   "fox",
+   "s"
+  ],
+  [
+   "hare",
+   "raven",
+   "s"
+  ],
+  [
+   "stipa",
+   "decomp",
+   "d"
+  ],
+  [
+   "nitraria",
+   "decomp",
+   "d"
+  ],
+  [
+   "saxaul",
+   "decomp",
+   "d"
+  ],
+  [
+   "ibex",
+   "decomp",
+   "d"
+  ],
+  [
+   "argali",
+   "decomp",
+   "d"
+  ],
+  [
+   "gazelle",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "hare",
+   "cat"
+  ],
+  [
+   "gazelle",
+   "leopard"
+  ],
+  [
+   "ass",
+   "leopard"
+  ],
+  [
+   "hare",
+   "leopard"
+  ],
+  [
+   "fox",
+   "leopard"
+  ],
+  [
+   "jerboa",
+   "wolf"
+  ],
+  [
+   "bear",
+   "wolf"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "stipa>gazelle": [
+   "a"
+  ],
+  "stipa>ibex": [
+   "a"
+  ],
+  "stipa>argali": [
+   "a"
+  ],
+  "stipa>ass": [
+   "a"
+  ],
+  "stipa>camel": [
+   "a"
+  ],
+  "stipa>jerboa": [
+   "a"
+  ],
+  "stipa>pika": [
+   "a"
+  ],
+  "stipa>hare": [
+   "a"
+  ],
+  "stipa>bear": [
+   "g",
+   "Ursus arctos",
+   "Stipa"
+  ],
+  "nitraria>camel": [
+   "a"
+  ],
+  "nitraria>ass": [
+   "a"
+  ],
+  "saxaul>camel": [
+   "a"
+  ],
+  "saxaul>gazelle": [
+   "a"
+  ],
+  "jerboa>bear": [
+   "a"
+  ],
+  "jerboa>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Dipus sagitta"
+  ],
+  "jerboa>cat": [
+   "a"
+  ],
+  "jerboa>shrike": [
+   "g",
+   "Lanius excubitor",
+   "Dipus sagitta"
+  ],
+  "jerboa>raven": [
+   "g",
+   "Corvus corax",
+   "Dipus sagitta"
+  ],
+  "pika>cat": [
+   "gg",
+   "Otocolobus manul",
+   "Ochotona pallasi"
+  ],
+  "pika>fox": [
+   "gg",
+   "Vulpes vulpes",
+   "Ochotona pallasi"
+  ],
+  "pika>leopard": [
+   "gg",
+   "Panthera uncia",
+   "Ochotona pallasi"
+  ],
+  "hare>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Lepus tolai"
+  ],
+  "hare>wolf": [
+   "g",
+   "Canis lupus",
+   "Lepus tolai"
+  ],
+  "gazelle>wolf": [
+   "g",
+   "Canis lupus",
+   "Gazella subgutturosa"
+  ],
+  "ibex>leopard": [
+   "g",
+   "Panthera uncia",
+   "Capra sibirica"
+  ],
+  "ibex>wolf": [
+   "g",
+   "Canis lupus",
+   "Capra sibirica"
+  ],
+  "ibex>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Capra sibirica"
+  ],
+  "argali>leopard": [
+   "g",
+   "Panthera uncia",
+   "Ovis ammon"
+  ],
+  "argali>wolf": [
+   "g",
+   "Canis lupus",
+   "Ovis ammon"
+  ],
+  "argali>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Ovis ammon"
+  ],
+  "ass>wolf": [
+   "g",
+   "Canis lupus",
+   "Equus hemionus"
+  ],
+  "camel>wolf": [
+   "gg",
+   "Canis lupus",
+   "Camelus ferus"
+  ],
+  "ibex>raven": [
+   "gg",
+   "Corvus corax",
+   "Capra sibirica"
+  ],
+  "argali>raven": [
+   "gg",
+   "Corvus corax",
+   "Ovis ammon"
+  ],
+  "gazelle>raven": [
+   "a"
+  ],
+  "hare>raven": [
+   "g",
+   "Corvus corax",
+   "Lepus tolai"
+  ],
+  "hare>cat": [
+   "ga",
+   "Otocolobus manul",
+   "Lepus tolai"
+  ],
+  "gazelle>leopard": [
+   "ga",
+   "Panthera uncia",
+   "Gazella subgutturosa"
+  ],
+  "ass>leopard": [
+   "ga",
+   "Panthera uncia",
+   "Equus hemionus"
+  ],
+  "hare>leopard": [
+   "ga",
+   "Panthera uncia",
+   "Lepus tolai"
+  ],
+  "fox>leopard": [
+   "ga",
+   "Panthera uncia",
+   "Vulpes vulpes"
+  ],
+  "jerboa>wolf": [
+   "ga",
+   "Canis lupus",
+   "Dipus sagitta"
+  ],
+  "bear>wolf": [
+   "ga",
+   "Canis lupus",
+   "Ursus arctos"
+  ],
+  "fox>wolf": [
+   "ga",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ]
+ }
+}

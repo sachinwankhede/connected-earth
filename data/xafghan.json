@@ -1,0 +1,716 @@
+{
+ "id": "xafghan",
+ "name": "Band-e Amir National Park",
+ "short": "Band-e Amir",
+ "place": "Bamyan, Afghanistan",
+ "lat": 34.8,
+ "lon": 67.2,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Afghanistan",
+ "blurb": "Six travertine-dammed lakes high in the Hindu Kush, with ibex, wolves and snowcocks.",
+ "tip": {
+  "id": "ibex",
+  "title": "Remove the ibex",
+  "text": "Wild ibex are a main prey of wolves and golden eagles. Remove them and watch the pressure shift to snowcocks, rodents and the foxes that feed on carcasses."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Band-e Amir National Park",
+   "url": "https://en.wikipedia.org/wiki/Band-e_Amir_National_Park"
+  },
+  {
+   "title": "Wikipedia: Band-e Amir",
+   "url": "https://en.wikipedia.org/wiki/Band-e_Amir"
+  },
+  {
+   "title": "Wikipedia: Siberian ibex",
+   "url": "https://en.wikipedia.org/wiki/Siberian_ibex"
+  },
+  {
+   "title": "Wikipedia: Himalayan snowcock",
+   "url": "https://en.wikipedia.org/wiki/Himalayan_snowcock"
+  },
+  {
+   "title": "Wikipedia: Gray wolf",
+   "url": "https://en.wikipedia.org/wiki/Gray_wolf"
+  },
+  {
+   "title": "Wikipedia: Golden eagle",
+   "url": "https://en.wikipedia.org/wiki/Golden_eagle"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Band-e Amir National Park",
+ "icon": "water",
+ "tier": "overview",
+ "kind": "Lakes & wetlands",
+ "park": true,
+ "nodes": [
+  {
+   "id": "willow",
+   "name": "Willow",
+   "latin": "Salix pycnostachya",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Salix",
+   "desc": "Willows are shrubs and trees of damp ground and are recorded near the park. Local people collect shrubs for fuel and winter fodder.",
+   "ic": "willow"
+  },
+  {
+   "id": "fescue",
+   "name": "Mountain grasses",
+   "latin": "Festuca rubra",
+   "tl": 1,
+   "xh": 0.34,
+   "wiki": "Festuca rubra",
+   "desc": "Red fescue and other grasses form the pasture that wild mountain herbivores and livestock graze.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "artem",
+   "name": "Wormwoods",
+   "latin": "Artemisia",
+   "tl": 1,
+   "xh": 0.56,
+   "wiki": "Artemisia (genus)",
+   "desc": "Aromatic shrubby Artemisia species grow on the dry slopes. A tarragon relative is a recorded food plant of the Old World swallowtail.",
+   "ic": "sage"
+  },
+  {
+   "id": "ephedra",
+   "name": "Ephedra",
+   "latin": "Ephedra intermedia",
+   "tl": 1,
+   "xh": 0.78,
+   "wiki": "Ephedra (plant)",
+   "desc": "A low, leafless shrub of dry rocky ground whose berries are eaten by Himalayan snowcocks.",
+   "ic": "sage"
+  },
+  {
+   "id": "ibex",
+   "name": "Siberian ibex",
+   "latin": "Capra sibirica",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Siberian ibex",
+   "desc": "Lives on steep slopes and scree. It eats alpine grasses and herbs, and in winter more twigs and needles of trees such as willow.",
+   "ic": "quad",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "urial",
+   "name": "Urial",
+   "latin": "Ovis vignei",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Urial",
+   "desc": "A wild sheep native to the Hindu Kush and nearby ranges, found on grassland, open woodland and gentle slopes.",
+   "ic": "quad"
+  },
+  {
+   "id": "vole",
+   "name": "Silver mountain vole",
+   "latin": "Alticola argentatus",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Alticola argentatus",
+   "desc": "A small rodent of rocky mountain ground, recorded near the park. It eats plant material and is prey for foxes and snakes.",
+   "ic": "vole"
+  },
+  {
+   "id": "hamster",
+   "name": "Gray dwarf hamster",
+   "latin": "Cricetulus migratorius",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Gray dwarf hamster",
+   "desc": "A small seed- and plant-eating rodent recorded near the park. GloBI records red foxes eating it.",
+   "ic": "vole"
+  },
+  {
+   "id": "snowcock",
+   "name": "Himalayan snowcock",
+   "latin": "Tetraogallus himalayensis",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Himalayan snowcock",
+   "desc": "Listed as an Important Bird Area species at Band-e Amir. Eats grass shoots, seeds, Ephedra berries and Artemisia leaves, and golden eagles sometimes take adults.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "swallow",
+   "name": "Old World swallowtail",
+   "latin": "Papilio machaon",
+   "tl": 2,
+   "xh": 0.89,
+   "wiki": "Papilio machaon",
+   "desc": "A butterfly whose caterpillars eat plants such as Artemisia. GloBI records many songbirds eating it.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "whitethroat",
+   "name": "Lesser whitethroat",
+   "latin": "Sylvia curruca",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Lesser whitethroat",
+   "desc": "A very commonly recorded warbler near the park. It hunts insects in shrubs and is eaten by red foxes in GloBI records.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "redstart",
+   "name": "Black redstart",
+   "latin": "Phoenicurus ochruros",
+   "tl": 3,
+   "xh": 0.25,
+   "wiki": "Black redstart",
+   "desc": "An insect-eating songbird of rocky ground, recorded often near the park.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "shrike",
+   "name": "Long-tailed shrike",
+   "latin": "Lanius schach",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Long-tailed shrike",
+   "desc": "A predatory songbird that hunts large insects and small vertebrates from perches.",
+   "ic": "hawk"
+  },
+  {
+   "id": "agama",
+   "name": "Himalayan agama",
+   "latin": "Paralaudakia himalayana",
+   "tl": 3,
+   "xh": 0.55,
+   "wiki": "Paralaudakia himalayana",
+   "desc": "A rock-dwelling lizard recorded near the park that feeds mostly on insects.",
+   "ic": "snake"
+  },
+  {
+   "id": "boa",
+   "name": "Central Asian sand boa",
+   "latin": "Eryx elegans",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Eryx elegans",
+   "desc": "A small boa that ambushes small rodents and lizards, recorded in the area.",
+   "ic": "snake"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Red fox",
+   "desc": "GloBI records it eating many songbirds and small rodents recorded here. It also scavenges carcasses.",
+   "ic": "fox"
+  },
+  {
+   "id": "wolf",
+   "name": "Gray wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Gray wolf",
+   "desc": "The northern regions of Afghanistan are described as strongholds for wolves. Wolves chiefly hunt hoofed mammals and eat carrion, and the ibex has wolves as a main predator.",
+   "ic": "wolf",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "eagle",
+   "name": "Golden eagle",
+   "latin": "Aquila chrysaetos",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Golden eagle",
+   "desc": "Occurs in Hindu Kush mountain habitat and hunts rodents, gamebirds and sometimes larger prey. It sometimes preys on adult Himalayan snowcocks.",
+   "ic": "goldeneagle"
+  },
+  {
+   "id": "ice",
+   "name": "Winter snow and ice",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "wiki": "Band-e Amir National Park",
+   "desc": "Winters are severe, with temperatures down to about minus 20 C, and the lakes freeze over. Meltwater feeds streams and pasture.",
+   "ic": "ice",
+   "cat": "abiotic"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Sun",
+   "desc": "High-altitude sunshine drives plant growth in the short summer.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "water",
+   "name": "Travertine lake water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "wiki": "Band-e Amir",
+   "desc": "Mineral-rich water deposited calcium carbonate that built the travertine dams holding the six lakes, which sustain the shoreline vegetation.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Mountain soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.74,
+   "wiki": "Soil",
+   "desc": "Thin mountain soils hold nutrients for shrubs and grasses and are replenished by decomposition.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, droppings and carcasses, returning nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "fescue",
+   "r"
+  ],
+  [
+   "sun",
+   "artem",
+   "r"
+  ],
+  [
+   "ice",
+   "fescue",
+   "r"
+  ],
+  [
+   "ice",
+   "willow",
+   "r"
+  ],
+  [
+   "water",
+   "willow",
+   "r"
+  ],
+  [
+   "water",
+   "fescue",
+   "r"
+  ],
+  [
+   "soil",
+   "ephedra",
+   "r"
+  ],
+  [
+   "soil",
+   "artem",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "willow",
+   "ibex"
+  ],
+  [
+   "fescue",
+   "ibex"
+  ],
+  [
+   "fescue",
+   "urial"
+  ],
+  [
+   "fescue",
+   "vole"
+  ],
+  [
+   "fescue",
+   "hamster"
+  ],
+  [
+   "fescue",
+   "snowcock"
+  ],
+  [
+   "ephedra",
+   "snowcock"
+  ],
+  [
+   "artem",
+   "snowcock"
+  ],
+  [
+   "artem",
+   "swallow"
+  ],
+  [
+   "swallow",
+   "whitethroat"
+  ],
+  [
+   "swallow",
+   "redstart"
+  ],
+  [
+   "swallow",
+   "shrike"
+  ],
+  [
+   "swallow",
+   "agama"
+  ],
+  [
+   "agama",
+   "shrike"
+  ],
+  [
+   "hamster",
+   "fox"
+  ],
+  [
+   "vole",
+   "fox"
+  ],
+  [
+   "vole",
+   "boa"
+  ],
+  [
+   "hamster",
+   "boa"
+  ],
+  [
+   "agama",
+   "boa"
+  ],
+  [
+   "whitethroat",
+   "fox"
+  ],
+  [
+   "redstart",
+   "fox"
+  ],
+  [
+   "hamster",
+   "eagle"
+  ],
+  [
+   "vole",
+   "eagle"
+  ],
+  [
+   "ibex",
+   "wolf"
+  ],
+  [
+   "urial",
+   "wolf"
+  ],
+  [
+   "snowcock",
+   "eagle"
+  ],
+  [
+   "ibex",
+   "eagle"
+  ],
+  [
+   "ibex",
+   "wolf",
+   "s"
+  ],
+  [
+   "ibex",
+   "fox",
+   "s"
+  ],
+  [
+   "ibex",
+   "eagle",
+   "s"
+  ],
+  [
+   "urial",
+   "fox",
+   "s"
+  ],
+  [
+   "willow",
+   "decomp",
+   "d"
+  ],
+  [
+   "fescue",
+   "decomp",
+   "d"
+  ],
+  [
+   "artem",
+   "decomp",
+   "d"
+  ],
+  [
+   "ephedra",
+   "decomp",
+   "d"
+  ],
+  [
+   "ibex",
+   "decomp",
+   "d"
+  ],
+  [
+   "urial",
+   "decomp",
+   "d"
+  ],
+  [
+   "vole",
+   "decomp",
+   "d"
+  ],
+  [
+   "hamster",
+   "decomp",
+   "d"
+  ],
+  [
+   "snowcock",
+   "decomp",
+   "d"
+  ],
+  [
+   "swallow",
+   "decomp",
+   "d"
+  ],
+  [
+   "whitethroat",
+   "decomp",
+   "d"
+  ],
+  [
+   "redstart",
+   "decomp",
+   "d"
+  ],
+  [
+   "shrike",
+   "decomp",
+   "d"
+  ],
+  [
+   "agama",
+   "decomp",
+   "d"
+  ],
+  [
+   "boa",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "eagle",
+   "decomp",
+   "d"
+  ],
+  [
+   "hamster",
+   "wolf"
+  ],
+  [
+   "whitethroat",
+   "wolf"
+  ],
+  [
+   "redstart",
+   "wolf"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "fox",
+   "eagle"
+  ]
+ ],
+ "ev": {
+  "willow>ibex": [
+   "a"
+  ],
+  "fescue>ibex": [
+   "a"
+  ],
+  "fescue>urial": [
+   "a"
+  ],
+  "fescue>vole": [
+   "a"
+  ],
+  "fescue>hamster": [
+   "a"
+  ],
+  "fescue>snowcock": [
+   "a"
+  ],
+  "ephedra>snowcock": [
+   "a"
+  ],
+  "artem>snowcock": [
+   "a"
+  ],
+  "artem>swallow": [
+   "gg",
+   "Papilio machaon",
+   "Artemisia"
+  ],
+  "swallow>whitethroat": [
+   "g",
+   "Sylvia curruca",
+   "Papilio machaon"
+  ],
+  "swallow>redstart": [
+   "g",
+   "Phoenicurus ochruros",
+   "Papilio machaon"
+  ],
+  "swallow>shrike": [
+   "a"
+  ],
+  "swallow>agama": [
+   "a"
+  ],
+  "agama>shrike": [
+   "a"
+  ],
+  "hamster>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Cricetulus migratorius"
+  ],
+  "vole>fox": [
+   "gg",
+   "Vulpes vulpes",
+   "Alticola argentatus"
+  ],
+  "vole>boa": [
+   "a"
+  ],
+  "hamster>boa": [
+   "a"
+  ],
+  "agama>boa": [
+   "a"
+  ],
+  "whitethroat>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Sylvia curruca"
+  ],
+  "redstart>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Phoenicurus ochruros"
+  ],
+  "hamster>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Cricetulus migratorius"
+  ],
+  "vole>eagle": [
+   "a"
+  ],
+  "ibex>wolf": [
+   "g",
+   "Canis lupus",
+   "Capra sibirica"
+  ],
+  "urial>wolf": [
+   "gg",
+   "Canis lupus",
+   "Ovis vignei"
+  ],
+  "snowcock>eagle": [
+   "gg",
+   "Aquila chrysaetos",
+   "Tetraogallus himalayensis"
+  ],
+  "ibex>eagle": [
+   "gg",
+   "Aquila chrysaetos",
+   "Capra sibirica"
+  ],
+  "ibex>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Capra sibirica"
+  ],
+  "urial>fox": [
+   "gg",
+   "Vulpes vulpes",
+   "Ovis vignei"
+  ],
+  "hamster>wolf": [
+   "ga",
+   "Canis lupus",
+   "Cricetulus migratorius"
+  ],
+  "whitethroat>wolf": [
+   "ga",
+   "Canis lupus",
+   "Sylvia curruca"
+  ],
+  "redstart>wolf": [
+   "ga",
+   "Canis lupus",
+   "Phoenicurus ochruros"
+  ],
+  "fox>wolf": [
+   "ga",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "fox>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Vulpes vulpes"
+  ]
+ }
+}

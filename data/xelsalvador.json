@@ -1,0 +1,631 @@
+{
+ "id": "xelsalvador",
+ "name": "El Imposible National Park",
+ "short": "El Imposible",
+ "place": "El Salvador",
+ "lat": 13.84,
+ "lon": -89.96,
+ "side": "r",
+ "cont": "North America",
+ "country": "El Salvador",
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Wet mountain forest where fruit trees feed bats and birds, and pumas hunt.",
+ "tip": {
+  "id": "rain",
+  "title": "Take away the rains",
+  "text": "Rain keeps the forest plants growing. Set Seasonal rain to -100% and watch the fruit plants fail, then the bats, birds and the cats above them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: El Imposible National Park",
+   "url": "https://en.wikipedia.org/wiki/El_Imposible_National_Park"
+  },
+  {
+   "title": "Wikipedia: Oncilla",
+   "url": "https://en.wikipedia.org/wiki/Oncilla"
+  },
+  {
+   "title": "Wikipedia: Cougar",
+   "url": "https://en.wikipedia.org/wiki/Cougar"
+  },
+  {
+   "title": "Wikipedia: Jamaican fruit bat",
+   "url": "https://en.wikipedia.org/wiki/Jamaican_fruit_bat"
+  },
+  {
+   "title": "Wikipedia: Turkey vulture",
+   "url": "https://en.wikipedia.org/wiki/Turkey_vulture"
+  },
+  {
+   "title": "Wikipedia: Boa constrictor",
+   "url": "https://en.wikipedia.org/wiki/Boa_constrictor"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "El Imposible National Park",
+ "icon": "willow",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Light reaching the forest canopy powers the growth of the trees and shrubs that feed the whole web.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Seasonal rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Rain feeds the rivers of the watershed and keeps this tropical mountain forest wet enough for lush plant growth.",
+   "ic": "rain"
+  },
+  {
+   "id": "soil",
+   "name": "Forest soil nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.55,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Nutrients in the soil of the volcanic mountain slopes are taken up by the roots of forest plants.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi and bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, fruit and dead animals, returning nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "milkberry",
+   "name": "West Indian milkberry",
+   "latin": "Chiococca alba",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Chiococca alba",
+   "desc": "A shrub or climber with small white berries. GloBI records show bats, doves, thrushes and other birds eating its fruit.",
+   "ic": "willow"
+  },
+  {
+   "id": "guarea",
+   "name": "Alligatorwood",
+   "latin": "Guarea glabra",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Guarea glabra",
+   "desc": "A common tree of the forest understorey in the GBIF records here. Birds such as manakins and thrushes are recorded eating its fruit.",
+   "ic": "willow"
+  },
+  {
+   "id": "waxmallow",
+   "name": "Wax mallow",
+   "latin": "Malvaviscus arboreus",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Malvaviscus arboreus",
+   "desc": "A shrub with red tubular flowers and fleshy fruit. Manakins and thrushes are recorded eating the fruit.",
+   "ic": "sage"
+  },
+  {
+   "id": "fruitbat",
+   "name": "Jamaican fruit bat",
+   "latin": "Artibeus jamaicensis",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Jamaican fruit bat",
+   "desc": "A fruit-eating bat that carries fruit to a roost and so spreads seeds. Boa constrictors are among its listed predators.",
+   "ic": "quad"
+  },
+  {
+   "id": "manakin",
+   "name": "Long-tailed manakin",
+   "latin": "Chiroxiphia linearis",
+   "tl": 2,
+   "xh": 0.19,
+   "wiki": "Long-tailed manakin",
+   "desc": "The most recorded bird near the site. It eats small fruits such as those of alligatorwood and wax mallow.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "thrush",
+   "name": "Clay-colored thrush",
+   "latin": "Turdus grayi",
+   "tl": 2,
+   "xh": 0.32,
+   "wiki": "Clay-colored thrush",
+   "desc": "A widespread thrush that eats fruit, recorded on milkberry, alligatorwood and wax mallow.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "dove",
+   "name": "White-tipped dove",
+   "latin": "Leptotila verreauxi",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "White-tipped dove",
+   "desc": "A ground-feeding dove of forest floor and edges. It is recorded eating the berries of West Indian milkberry.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "squirrel",
+   "name": "Deppe's squirrel",
+   "latin": "Sciurus deppei",
+   "tl": 2,
+   "xh": 0.6,
+   "wiki": "Deppe's squirrel",
+   "desc": "A tree squirrel of tropical forests that eats fruit and seeds. Recorded within the circle around the site.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "mouse",
+   "name": "Mexican deer mouse",
+   "latin": "Peromyscus mexicanus",
+   "tl": 2,
+   "xh": 0.74,
+   "wiki": "Peromyscus mexicanus",
+   "desc": "A small rodent of montane forests. It eats seeds, fruit and insects and is prey for snakes and small cats.",
+   "ic": "vole"
+  },
+  {
+   "id": "hopper",
+   "name": "Giant red-winged grasshopper",
+   "latin": "Tropidacris cristata",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "Tropidacris cristata",
+   "desc": "A very large tropical grasshopper that chews leaves, and is prey for lizards and birds.",
+   "ic": "hopper"
+  },
+  {
+   "id": "boa",
+   "name": "Central American boa",
+   "latin": "Boa imperator",
+   "tl": 3,
+   "xh": 0.07,
+   "wiki": "Boa imperator",
+   "desc": "A constrictor that eats mammals, lizards and birds. GloBI records Jamaican fruit bats as prey.",
+   "ic": "snake"
+  },
+  {
+   "id": "cuckoo",
+   "name": "Squirrel cuckoo",
+   "latin": "Piaya cayana",
+   "tl": 3,
+   "xh": 0.23,
+   "wiki": "Squirrel cuckoo",
+   "desc": "A long-tailed forest cuckoo that hunts large insects in the canopy and also eats fruit, such as milkberry.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "ameiva",
+   "name": "Rainbow ameiva",
+   "latin": "Holcosus undulatus",
+   "tl": 3,
+   "xh": 0.39,
+   "wiki": "Holcosus undulatus",
+   "desc": "A fast ground lizard of forest floors that forages for insects and other small invertebrates.",
+   "ic": "snake"
+  },
+  {
+   "id": "motmot",
+   "name": "Lesson's motmot",
+   "latin": "Momotus lessonii",
+   "tl": 3,
+   "xh": 0.55,
+   "wiki": "Lesson's motmot",
+   "desc": "A large forest bird that eats insects, small lizards and fruit.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "tvulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Turkey vulture",
+   "desc": "Feeds almost entirely on carrion, finding it largely by smell, and so helps clear dead animals from the forest.",
+   "ic": "hawk"
+  },
+  {
+   "id": "bvulture",
+   "name": "Black vulture",
+   "latin": "Coragyps atratus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Black vulture",
+   "desc": "A scavenger that feeds on carcasses and often crowds out turkey vultures at a carcass.",
+   "ic": "hawk"
+  },
+  {
+   "id": "puma",
+   "name": "Puma",
+   "latin": "Puma concolor",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Cougar",
+   "desc": "Named among the large predators of El Imposible. In El Salvador it has been recorded in montane forest, and it hunts small to medium mammals.",
+   "ic": "lion"
+  },
+  {
+   "id": "oncilla",
+   "name": "Oncilla",
+   "latin": "Leopardus tigrinus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Oncilla",
+   "desc": "A small forest cat that hunts rodents, lizards, birds, eggs and invertebrates, and climbs well. Listed for El Imposible.",
+   "ic": "lion"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "milkberry",
+   "r"
+  ],
+  [
+   "rain",
+   "milkberry",
+   "r"
+  ],
+  [
+   "soil",
+   "milkberry",
+   "r"
+  ],
+  [
+   "milkberry",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "guarea",
+   "r"
+  ],
+  [
+   "rain",
+   "guarea",
+   "r"
+  ],
+  [
+   "soil",
+   "guarea",
+   "r"
+  ],
+  [
+   "guarea",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "waxmallow",
+   "r"
+  ],
+  [
+   "rain",
+   "waxmallow",
+   "r"
+  ],
+  [
+   "soil",
+   "waxmallow",
+   "r"
+  ],
+  [
+   "waxmallow",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "milkberry",
+   "fruitbat"
+  ],
+  [
+   "milkberry",
+   "dove"
+  ],
+  [
+   "milkberry",
+   "thrush"
+  ],
+  [
+   "milkberry",
+   "cuckoo"
+  ],
+  [
+   "guarea",
+   "manakin"
+  ],
+  [
+   "guarea",
+   "thrush"
+  ],
+  [
+   "guarea",
+   "squirrel"
+  ],
+  [
+   "waxmallow",
+   "manakin"
+  ],
+  [
+   "waxmallow",
+   "thrush"
+  ],
+  [
+   "guarea",
+   "hopper"
+  ],
+  [
+   "waxmallow",
+   "hopper"
+  ],
+  [
+   "hopper",
+   "ameiva"
+  ],
+  [
+   "hopper",
+   "motmot"
+  ],
+  [
+   "hopper",
+   "cuckoo"
+  ],
+  [
+   "hopper",
+   "mouse"
+  ],
+  [
+   "hopper",
+   "oncilla"
+  ],
+  [
+   "ameiva",
+   "boa"
+  ],
+  [
+   "ameiva",
+   "motmot"
+  ],
+  [
+   "ameiva",
+   "oncilla"
+  ],
+  [
+   "fruitbat",
+   "boa"
+  ],
+  [
+   "squirrel",
+   "boa"
+  ],
+  [
+   "mouse",
+   "boa"
+  ],
+  [
+   "squirrel",
+   "puma"
+  ],
+  [
+   "mouse",
+   "puma"
+  ],
+  [
+   "mouse",
+   "oncilla"
+  ],
+  [
+   "dove",
+   "oncilla"
+  ],
+  [
+   "thrush",
+   "oncilla"
+  ],
+  [
+   "boa",
+   "tvulture",
+   "s"
+  ],
+  [
+   "puma",
+   "tvulture",
+   "s"
+  ],
+  [
+   "puma",
+   "bvulture",
+   "s"
+  ],
+  [
+   "squirrel",
+   "tvulture",
+   "s"
+  ],
+  [
+   "mouse",
+   "bvulture",
+   "s"
+  ],
+  [
+   "puma",
+   "decomp",
+   "d"
+  ],
+  [
+   "fruitbat",
+   "decomp",
+   "d"
+  ],
+  [
+   "hopper",
+   "decomp",
+   "d"
+  ],
+  [
+   "boa",
+   "decomp",
+   "d"
+  ],
+  [
+   "tvulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "bvulture",
+   "decomp",
+   "d"
+  ]
+ ],
+ "ev": {
+  "milkberry>fruitbat": [
+   "g",
+   "Artibeus jamaicensis",
+   "Chiococca alba"
+  ],
+  "milkberry>dove": [
+   "g",
+   "Leptotila verreauxi",
+   "Chiococca alba"
+  ],
+  "milkberry>thrush": [
+   "g",
+   "Turdus grayi",
+   "Chiococca alba"
+  ],
+  "milkberry>cuckoo": [
+   "g",
+   "Piaya cayana",
+   "Chiococca alba"
+  ],
+  "guarea>manakin": [
+   "g",
+   "Chiroxiphia linearis",
+   "Guarea glabra"
+  ],
+  "guarea>thrush": [
+   "g",
+   "Turdus grayi",
+   "Guarea glabra"
+  ],
+  "guarea>squirrel": [
+   "a"
+  ],
+  "waxmallow>manakin": [
+   "g",
+   "Chiroxiphia linearis",
+   "Malvaviscus arboreus"
+  ],
+  "waxmallow>thrush": [
+   "g",
+   "Turdus grayi",
+   "Malvaviscus arboreus"
+  ],
+  "guarea>hopper": [
+   "a"
+  ],
+  "waxmallow>hopper": [
+   "a"
+  ],
+  "hopper>ameiva": [
+   "a"
+  ],
+  "hopper>motmot": [
+   "a"
+  ],
+  "hopper>cuckoo": [
+   "a"
+  ],
+  "hopper>mouse": [
+   "a"
+  ],
+  "hopper>oncilla": [
+   "a"
+  ],
+  "ameiva>boa": [
+   "a"
+  ],
+  "ameiva>motmot": [
+   "a"
+  ],
+  "ameiva>oncilla": [
+   "a"
+  ],
+  "fruitbat>boa": [
+   "g",
+   "Boa imperator",
+   "Artibeus jamaicensis"
+  ],
+  "squirrel>boa": [
+   "gg",
+   "Boa imperator",
+   "Sciurus deppei"
+  ],
+  "mouse>boa": [
+   "a"
+  ],
+  "squirrel>puma": [
+   "gg",
+   "Puma concolor",
+   "Sciurus deppei"
+  ],
+  "mouse>puma": [
+   "gg",
+   "Puma concolor",
+   "Peromyscus mexicanus"
+  ],
+  "mouse>oncilla": [
+   "a"
+  ],
+  "dove>oncilla": [
+   "a"
+  ],
+  "thrush>oncilla": [
+   "a"
+  ],
+  "boa>tvulture": [
+   "g",
+   "Cathartes aura",
+   "Boa imperator"
+  ],
+  "puma>tvulture": [
+   "a"
+  ],
+  "puma>bvulture": [
+   "a"
+  ],
+  "squirrel>tvulture": [
+   "gg",
+   "Cathartes aura",
+   "Sciurus deppei"
+  ],
+  "mouse>bvulture": [
+   "a"
+  ]
+ }
+}

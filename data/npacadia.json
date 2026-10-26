@@ -1,0 +1,753 @@
+{
+ "id": "npacadia",
+ "name": "Acadia National Park",
+ "short": "Acadia",
+ "place": "Maine, USA",
+ "lat": 44.35,
+ "lon": -68.21,
+ "side": "r",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Maine"
+ ],
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Granite shore and spruce-fir forest: mussels, eiders, hares and eagles.",
+ "tip": {
+  "id": "mussel",
+  "title": "Thin out the mussels",
+  "text": "Blue mussels feed eiders and gulls on the rocky shore. Set Blue mussel to -80% and watch the sea duck and gull, then the eagle that eats them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Acadia National Park",
+   "url": "https://en.wikipedia.org/wiki/Acadia_National_Park"
+  },
+  {
+   "title": "NPS: Acadia nature and science",
+   "url": "https://www.nps.gov/acad/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Bald eagle",
+   "url": "https://en.wikipedia.org/wiki/Bald_eagle"
+  },
+  {
+   "title": "Wikipedia: Blue mussel",
+   "url": "https://en.wikipedia.org/wiki/Blue_mussel"
+  },
+  {
+   "title": "Wikipedia: Snowshoe hare",
+   "url": "https://en.wikipedia.org/wiki/Snowshoe_hare"
+  },
+  {
+   "title": "Wikipedia: Common eider",
+   "url": "https://en.wikipedia.org/wiki/Common_eider"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Acadia National Park",
+ "icon": "algae",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Light drives growth of both the forest and the coastal algae. Summer fog often cuts it along the shore.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "tide",
+   "name": "Tides",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Tide",
+   "desc": "Rising and falling tides wet and expose the rocky shore twice a day and set where seaweeds and shellfish can live.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "gom",
+   "name": "Cold Gulf of Maine water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Gulf of Maine",
+   "desc": "Cold, nutrient-bearing water along the coast feeds plankton and seaweed.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Thin glacial soils",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.7,
+   "wiki": "Soil",
+   "desc": "Granite bedrock and thin soils shaped by glaciers hold the forest's nutrients, which are recycled from dead matter.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, bacteria & detritivores",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.9,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, animals and seaweed, and return nutrients to the soil and sea.",
+   "ic": "decomp",
+   "cat": "decomp"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Diatoms and dinoflagellates",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting algae that grow in sunlit coastal water. They feed mussels and the tiny animals that fish eat.",
+   "ic": "algae"
+  },
+  {
+   "id": "rockweed",
+   "name": "Rockweed",
+   "latin": "Ascophyllum nodosum",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Ascophyllum nodosum",
+   "desc": "A brown seaweed that covers rocks in the tidal zone. Wikipedia notes that its chemical defenses deter grazing snails.",
+   "ic": "algae",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "fir",
+   "name": "Balsam fir",
+   "latin": "Abies balsamea",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Abies balsamea",
+   "desc": "A northern conifer of the spruce-fir forest that covers most of the park's vegetated land. Deer, hares and squirrels all feed on it.",
+   "ic": "aspen"
+  },
+  {
+   "id": "maple",
+   "name": "Red maple",
+   "latin": "Acer rubrum",
+   "tl": 1,
+   "xh": 0.86,
+   "wiki": "Acer rubrum",
+   "desc": "A common hardwood of the park's mixed forest and wetlands. Its twigs and leaves are browsed by deer and hares.",
+   "ic": "aspen"
+  },
+  {
+   "id": "copepod",
+   "name": "Copepods",
+   "latin": "Calanus finmarchicus",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Calanus finmarchicus",
+   "desc": "Small crustaceans that graze phytoplankton in the Gulf of Maine and are food for herring.",
+   "ic": "hopper"
+  },
+  {
+   "id": "mussel",
+   "name": "Blue mussel",
+   "latin": "Mytilus edulis",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Blue mussel",
+   "desc": "A filter feeder that clamps onto rocks in the tidal zone. Sea stars, whelks, gulls and eiders eat it.",
+   "ic": "shell"
+  },
+  {
+   "id": "periwinkle",
+   "name": "Common periwinkle",
+   "latin": "Littorina littorea",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Common periwinkle",
+   "desc": "A snail that scrapes algae off intertidal rocks. Its grazing changes which seaweeds grow where.",
+   "ic": "shell"
+  },
+  {
+   "id": "deer",
+   "name": "White-tailed deer",
+   "latin": "Odocoileus virginianus",
+   "tl": 2,
+   "xh": 0.52,
+   "wiki": "White-tailed deer",
+   "desc": "The park's main large browser of twigs, buds and leaves. Its carcasses feed scavengers.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "hare",
+   "name": "Snowshoe hare",
+   "latin": "Lepus americanus",
+   "tl": 2,
+   "xh": 0.68,
+   "wiki": "Snowshoe hare",
+   "desc": "Eats twigs and bark of woody plants in winter. Many predators, from foxes to eagles, depend on it.",
+   "ic": "vole"
+  },
+  {
+   "id": "squirrel",
+   "name": "American red squirrel",
+   "latin": "Tamiasciurus hudsonicus",
+   "tl": 2,
+   "xh": 0.86,
+   "wiki": "American red squirrel",
+   "desc": "A conifer-seed eater of the spruce-fir forest. Foxes and other predators take it.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "herring",
+   "name": "Atlantic herring",
+   "latin": "Clupea harengus",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Atlantic herring",
+   "desc": "A schooling fish that eats copepods. It is food for seals and many seabirds.",
+   "ic": "trout"
+  },
+  {
+   "id": "eider",
+   "name": "Common eider",
+   "latin": "Somateria mollissima",
+   "tl": 3,
+   "xh": 0.27,
+   "wiki": "Common eider",
+   "desc": "A sea duck that dives for mussels and crabs along the rocky coast. Wikipedia lists mussels as a favorite food.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "gull",
+   "name": "American herring gull",
+   "latin": "Larus smithsonianus",
+   "tl": 3,
+   "xh": 0.44,
+   "wiki": "American herring gull",
+   "desc": "A generalist that eats shore invertebrates such as mussels, fish, eggs and carrion. It drops shellfish on rocks to crack them.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Red fox",
+   "desc": "A small predator of hares, squirrels and voles. GloBI records it eating many park species.",
+   "ic": "fox"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.82,
+   "wiki": "Common raven",
+   "desc": "An omnivore and scavenger that feeds on carcasses and other food.",
+   "ic": "raven"
+  },
+  {
+   "id": "seal",
+   "name": "Harbor seal",
+   "latin": "Phoca vitulina",
+   "tl": 4,
+   "xh": 0.14,
+   "wiki": "Harbor seal",
+   "desc": "Eats mostly schooling fish such as herring. Harbor seals breed along the Maine coast.",
+   "ic": "seal"
+  },
+  {
+   "id": "eagle",
+   "name": "Bald eagle",
+   "latin": "Haliaeetus leucocephalus",
+   "tl": 4,
+   "xh": 0.4,
+   "wiki": "Bald eagle",
+   "desc": "Takes fish, ducks and gulls, and scavenges carrion. Wikipedia lists eiders and cormorants as frequent prey on the Maine coast.",
+   "ic": "baldeagle"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.72,
+   "wiki": "Coyote",
+   "desc": "The park's top land predator. Hares and deer are among its recorded prey, and it also scavenges.",
+   "ic": "coyote",
+   "badge": "Keystone predator"
+  }
+ ],
+ "raw": [
+  [
+   "phyto",
+   "copepod"
+  ],
+  [
+   "phyto",
+   "mussel"
+  ],
+  [
+   "rockweed",
+   "periwinkle"
+  ],
+  [
+   "fir",
+   "deer"
+  ],
+  [
+   "maple",
+   "deer"
+  ],
+  [
+   "fir",
+   "hare"
+  ],
+  [
+   "maple",
+   "hare"
+  ],
+  [
+   "fir",
+   "squirrel"
+  ],
+  [
+   "copepod",
+   "herring"
+  ],
+  [
+   "mussel",
+   "eider"
+  ],
+  [
+   "mussel",
+   "gull"
+  ],
+  [
+   "herring",
+   "seal"
+  ],
+  [
+   "herring",
+   "eagle"
+  ],
+  [
+   "eider",
+   "eagle"
+  ],
+  [
+   "gull",
+   "eagle"
+  ],
+  [
+   "hare",
+   "fox"
+  ],
+  [
+   "squirrel",
+   "fox"
+  ],
+  [
+   "hare",
+   "eagle"
+  ],
+  [
+   "hare",
+   "coyote"
+  ],
+  [
+   "deer",
+   "coyote"
+  ],
+  [
+   "squirrel",
+   "coyote"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "rockweed",
+   "r"
+  ],
+  [
+   "sun",
+   "fir",
+   "r"
+  ],
+  [
+   "sun",
+   "maple",
+   "r"
+  ],
+  [
+   "tide",
+   "rockweed",
+   "r"
+  ],
+  [
+   "gom",
+   "phyto",
+   "r"
+  ],
+  [
+   "gom",
+   "rockweed",
+   "r"
+  ],
+  [
+   "soil",
+   "fir",
+   "r"
+  ],
+  [
+   "soil",
+   "maple",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "rockweed",
+   "decomp",
+   "d"
+  ],
+  [
+   "fir",
+   "decomp",
+   "d"
+  ],
+  [
+   "maple",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "hare",
+   "decomp",
+   "d"
+  ],
+  [
+   "squirrel",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "coyote",
+   "decomp",
+   "d"
+  ],
+  [
+   "eagle",
+   "decomp",
+   "d"
+  ],
+  [
+   "seal",
+   "decomp",
+   "d"
+  ],
+  [
+   "eider",
+   "decomp",
+   "d"
+  ],
+  [
+   "gull",
+   "decomp",
+   "d"
+  ],
+  [
+   "herring",
+   "decomp",
+   "d"
+  ],
+  [
+   "mussel",
+   "decomp",
+   "d"
+  ],
+  [
+   "periwinkle",
+   "decomp",
+   "d"
+  ],
+  [
+   "copepod",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "raven",
+   "s"
+  ],
+  [
+   "deer",
+   "eagle",
+   "s"
+  ],
+  [
+   "deer",
+   "coyote",
+   "s"
+  ],
+  [
+   "mussel",
+   "herring"
+  ],
+  [
+   "periwinkle",
+   "eider"
+  ],
+  [
+   "deer",
+   "fox"
+  ],
+  [
+   "hare",
+   "raven"
+  ],
+  [
+   "squirrel",
+   "raven"
+  ],
+  [
+   "mussel",
+   "eagle"
+  ],
+  [
+   "squirrel",
+   "eagle"
+  ],
+  [
+   "fox",
+   "eagle"
+  ],
+  [
+   "raven",
+   "eagle"
+  ],
+  [
+   "fir",
+   "coyote"
+  ],
+  [
+   "fox",
+   "coyote"
+  ],
+  [
+   "raven",
+   "coyote"
+  ]
+ ],
+ "ev": {
+  "phyto>copepod": [
+   "a"
+  ],
+  "phyto>mussel": [
+   "a"
+  ],
+  "rockweed>periwinkle": [
+   "g",
+   "Littorina littorea",
+   "Ascophyllum nodosum"
+  ],
+  "fir>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Abies balsamea"
+  ],
+  "maple>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Acer rubrum"
+  ],
+  "fir>hare": [
+   "g",
+   "Lepus americanus",
+   "Abies balsamea"
+  ],
+  "maple>hare": [
+   "g",
+   "Lepus americanus",
+   "Acer rubrum"
+  ],
+  "fir>squirrel": [
+   "g",
+   "Tamiasciurus hudsonicus",
+   "Abies balsamea"
+  ],
+  "copepod>herring": [
+   "g",
+   "Clupea harengus",
+   "Calanus finmarchicus"
+  ],
+  "mussel>eider": [
+   "g",
+   "Somateria mollissima",
+   "Mytilus edulis"
+  ],
+  "mussel>gull": [
+   "g",
+   "Larus smithsonianus",
+   "Mytilus edulis"
+  ],
+  "herring>seal": [
+   "g",
+   "Phoca vitulina",
+   "Clupea harengus"
+  ],
+  "herring>eagle": [
+   "gg",
+   "Haliaeetus leucocephalus",
+   "Clupea harengus"
+  ],
+  "eider>eagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Somateria mollissima"
+  ],
+  "gull>eagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Larus smithsonianus"
+  ],
+  "hare>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Lepus americanus"
+  ],
+  "squirrel>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Tamiasciurus hudsonicus"
+  ],
+  "hare>eagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Lepus americanus"
+  ],
+  "hare>coyote": [
+   "g",
+   "Canis latrans",
+   "Lepus americanus"
+  ],
+  "deer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus virginianus"
+  ],
+  "squirrel>coyote": [
+   "g",
+   "Canis latrans",
+   "Tamiasciurus hudsonicus"
+  ],
+  "deer>raven": [
+   "g",
+   "Corvus corax",
+   "Odocoileus virginianus"
+  ],
+  "deer>eagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Odocoileus virginianus"
+  ],
+  "mussel>herring": [
+   "ga",
+   "Clupea harengus",
+   "Mytilus edulis"
+  ],
+  "periwinkle>eider": [
+   "ga",
+   "Somateria mollissima",
+   "Littorina littorea"
+  ],
+  "deer>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Odocoileus virginianus"
+  ],
+  "hare>raven": [
+   "ga",
+   "Corvus corax",
+   "Lepus americanus"
+  ],
+  "squirrel>raven": [
+   "ga",
+   "Corvus corax",
+   "Tamiasciurus hudsonicus"
+  ],
+  "mussel>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Mytilus edulis"
+  ],
+  "squirrel>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Tamiasciurus hudsonicus"
+  ],
+  "fox>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Vulpes vulpes"
+  ],
+  "raven>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Corvus corax"
+  ],
+  "fir>coyote": [
+   "ga",
+   "Canis latrans",
+   "Abies balsamea"
+  ],
+  "fox>coyote": [
+   "ga",
+   "Canis latrans",
+   "Vulpes vulpes"
+  ],
+  "raven>coyote": [
+   "ga",
+   "Canis latrans",
+   "Corvus corax"
+  ]
+ }
+}

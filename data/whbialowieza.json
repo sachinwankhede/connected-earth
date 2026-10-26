@@ -1,0 +1,868 @@
+{
+ "id": "whbialowieza",
+ "name": "Białowieża Forest",
+ "short": "Białowieża",
+ "place": "Poland and Belarus",
+ "lat": 52.7,
+ "lon": 23.85,
+ "side": "r",
+ "cont": "Europe",
+ "country": "Poland",
+ "countries": [
+  "Poland",
+  "Belarus"
+ ],
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Old oaks, deadwood and Europe's largest free-living bison herd.",
+ "tip": {
+  "id": "wolf",
+  "title": "Remove the wolves",
+  "text": "Wolves hunt red deer, roe deer and boar. Set Grey wolf to -100% and watch the deer and boar, then the oak, bilberry and other plants they browse."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Białowieża Forest",
+   "url": "https://en.wikipedia.org/wiki/Białowieża_Forest"
+  },
+  {
+   "title": "UNESCO World Heritage: Białowieża Forest",
+   "url": "https://whc.unesco.org/en/list/33/"
+  },
+  {
+   "title": "Wikipedia: European bison",
+   "url": "https://en.wikipedia.org/wiki/European_bison"
+  },
+  {
+   "title": "Wikipedia: White-backed woodpecker",
+   "url": "https://en.wikipedia.org/wiki/White-backed_woodpecker"
+  },
+  {
+   "title": "Wikipedia: Eurasian lynx",
+   "url": "https://en.wikipedia.org/wiki/Eurasian_lynx"
+  },
+  {
+   "title": "Wikipedia: Gray wolf",
+   "url": "https://en.wikipedia.org/wiki/Gray_wolf"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Białowieża Forest",
+ "icon": "bison",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Light reaching the forest floor is limited by the canopy, so gaps left by fallen trees let shrubs and young trees grow.",
+   "ic": "sun"
+  },
+  {
+   "id": "water",
+   "name": "Wet river valleys and meadows",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.32,
+   "cat": "abiotic",
+   "wiki": "Wetland",
+   "desc": "The forest sits on the Baltic-Black Sea watershed and holds river valleys and wetlands. UNESCO notes that wet meadows need continued water flow and management.",
+   "ic": "water"
+  },
+  {
+   "id": "dwsoil",
+   "name": "Deadwood and forest soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.58,
+   "cat": "abiotic",
+   "wiki": "Dead wood",
+   "desc": "Almost half the forest wood is dead, far more than in managed forests, and it slowly returns nutrients to the soil.",
+   "ic": "soil"
+  },
+  {
+   "id": "oak",
+   "name": "Pedunculate oak",
+   "latin": "Quercus robur",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Quercus robur",
+   "desc": "Giant old oaks, some individually named, grow in the forest. Their acorns and shoots feed boar, deer and voles.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "hornbeam",
+   "name": "Hornbeam",
+   "latin": "Carpinus betulus",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Carpinus betulus",
+   "desc": "A common broadleaf tree of the mixed forest, recorded often in the area. Its shoots and bark are browsed by deer and bison.",
+   "ic": "willow"
+  },
+  {
+   "id": "spruce",
+   "name": "Norway spruce",
+   "latin": "Picea abies",
+   "tl": 1,
+   "xh": 0.48,
+   "wiki": "Picea abies",
+   "desc": "A widespread conifer of the forest. Its seeds feed squirrels and its bark is where spruce bark beetles breed.",
+   "ic": "whitebark"
+  },
+  {
+   "id": "bilberry",
+   "name": "Bilberry",
+   "latin": "Vaccinium myrtillus",
+   "tl": 1,
+   "xh": 0.68,
+   "wiki": "Bilberry",
+   "desc": "A low forest-floor shrub whose leaves and berries are eaten by deer and voles.",
+   "ic": "sage"
+  },
+  {
+   "id": "marsh",
+   "name": "Marsh bedstraw and meadow plants",
+   "latin": "Galium palustre",
+   "tl": 1,
+   "xh": 0.87,
+   "wiki": "Galium palustre",
+   "desc": "Plants of damp meadows and forest edges, grazed by bison, red deer and wild boar in GloBI records.",
+   "ic": "grass"
+  },
+  {
+   "id": "bison",
+   "name": "European bison",
+   "latin": "Bison bonasus",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "European bison",
+   "desc": "Europe's heaviest land animal eats grasses, herbs and tree bark and leaves. The forest holds the largest free-living herd, restored after reintroduction in 1929.",
+   "ic": "bison",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "reddeer",
+   "name": "Red deer",
+   "latin": "Cervus elaphus",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Red deer",
+   "desc": "Reintroduced to the forest in the 1890s after local extinction. It eats bilberry, young trees and meadow plants and is a main prey of wolves.",
+   "ic": "elk"
+  },
+  {
+   "id": "roe",
+   "name": "Roe deer",
+   "latin": "Capreolus capreolus",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Roe deer",
+   "desc": "A small browsing deer that eats shoots and leaves of oak, spruce and bilberry. It is a favoured prey of lynx where common.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "boar",
+   "name": "Wild boar",
+   "latin": "Sus scrofa",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Wild boar",
+   "desc": "An omnivore that eats acorns, roots, small animals and carrion, rooting up the forest floor. Prey of wolves.",
+   "ic": "quad"
+  },
+  {
+   "id": "vole",
+   "name": "Bank vole",
+   "latin": "Myodes glareolus",
+   "tl": 2,
+   "xh": 0.62,
+   "wiki": "Bank vole",
+   "desc": "The most recorded mammal near the forest. It eats seeds, berries and herbs, and feeds foxes and owls.",
+   "ic": "vole"
+  },
+  {
+   "id": "squirrel",
+   "name": "Red squirrel",
+   "latin": "Sciurus vulgaris",
+   "tl": 2,
+   "xh": 0.76,
+   "wiki": "Red squirrel",
+   "desc": "Eats conifer seeds, nuts and buds in the canopy, and is taken by foxes and lynx.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "beetle",
+   "name": "European spruce bark beetle",
+   "latin": "Ips typographus",
+   "tl": 2,
+   "xh": 0.91,
+   "wiki": "European spruce bark beetle",
+   "desc": "A bark beetle that breeds under spruce bark and mainly attacks Norway spruce. Woodpeckers strip bark to reach its larvae.",
+   "ic": "hopper"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.14,
+   "wiki": "Red fox",
+   "desc": "A flexible hunter of voles, birds and young deer, widely recorded in the area. Wolves and lynx can kill it.",
+   "ic": "fox"
+  },
+  {
+   "id": "woodpecker",
+   "name": "White-backed woodpecker",
+   "latin": "Dendrocopos leucotos",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "White-backed woodpecker",
+   "desc": "Feeds mainly on wood-boring beetles and larvae and needs plenty of standing and fallen dead wood in mature broadleaf forest.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Common raven",
+   "desc": "A scavenger drawn to carcasses and wolf-kill sites, feeding on what large predators leave behind.",
+   "ic": "raven"
+  },
+  {
+   "id": "owl",
+   "name": "Tawny owl",
+   "latin": "Strix aluco",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "Tawny owl",
+   "desc": "A woodland owl hunting small mammals such as voles at night.",
+   "ic": "hawk"
+  },
+  {
+   "id": "wolf",
+   "name": "Grey wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Gray wolf",
+   "desc": "Hunts red deer, roe deer and wild boar, and occasionally bison. The forest is large enough to hold viable wolf populations, UNESCO notes.",
+   "ic": "wolf",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "lynx",
+   "name": "Eurasian lynx",
+   "latin": "Lynx lynx",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Eurasian lynx",
+   "desc": "Prefers roe deer where common, and also takes hares, squirrels and foxes. Wolves compete with it and can suppress its numbers.",
+   "ic": "lion"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi and decomposers",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and wood-eating insects break down fallen trunks and carcasses. The forest is notable for its fungi.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "oak",
+   "r"
+  ],
+  [
+   "dwsoil",
+   "oak",
+   "r"
+  ],
+  [
+   "oak",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "hornbeam",
+   "r"
+  ],
+  [
+   "dwsoil",
+   "hornbeam",
+   "r"
+  ],
+  [
+   "hornbeam",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "spruce",
+   "r"
+  ],
+  [
+   "dwsoil",
+   "spruce",
+   "r"
+  ],
+  [
+   "spruce",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "bilberry",
+   "r"
+  ],
+  [
+   "dwsoil",
+   "bilberry",
+   "r"
+  ],
+  [
+   "bilberry",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "marsh",
+   "r"
+  ],
+  [
+   "dwsoil",
+   "marsh",
+   "r"
+  ],
+  [
+   "marsh",
+   "decomp",
+   "d"
+  ],
+  [
+   "water",
+   "marsh",
+   "r"
+  ],
+  [
+   "water",
+   "spruce",
+   "r"
+  ],
+  [
+   "oak",
+   "boar"
+  ],
+  [
+   "oak",
+   "roe"
+  ],
+  [
+   "oak",
+   "vole"
+  ],
+  [
+   "hornbeam",
+   "roe"
+  ],
+  [
+   "hornbeam",
+   "bison"
+  ],
+  [
+   "spruce",
+   "beetle"
+  ],
+  [
+   "spruce",
+   "squirrel"
+  ],
+  [
+   "spruce",
+   "roe"
+  ],
+  [
+   "bilberry",
+   "reddeer"
+  ],
+  [
+   "bilberry",
+   "roe"
+  ],
+  [
+   "bilberry",
+   "vole"
+  ],
+  [
+   "marsh",
+   "bison"
+  ],
+  [
+   "marsh",
+   "reddeer"
+  ],
+  [
+   "marsh",
+   "boar"
+  ],
+  [
+   "beetle",
+   "woodpecker"
+  ],
+  [
+   "vole",
+   "fox"
+  ],
+  [
+   "vole",
+   "owl"
+  ],
+  [
+   "squirrel",
+   "fox"
+  ],
+  [
+   "squirrel",
+   "lynx"
+  ],
+  [
+   "roe",
+   "fox"
+  ],
+  [
+   "roe",
+   "wolf"
+  ],
+  [
+   "reddeer",
+   "wolf"
+  ],
+  [
+   "boar",
+   "wolf"
+  ],
+  [
+   "bison",
+   "wolf"
+  ],
+  [
+   "roe",
+   "lynx"
+  ],
+  [
+   "reddeer",
+   "lynx"
+  ],
+  [
+   "fox",
+   "lynx"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "wolf",
+   "raven",
+   "s"
+  ],
+  [
+   "decomp",
+   "dwsoil",
+   "r"
+  ],
+  [
+   "bison",
+   "decomp",
+   "d"
+  ],
+  [
+   "reddeer",
+   "decomp",
+   "d"
+  ],
+  [
+   "roe",
+   "decomp",
+   "d"
+  ],
+  [
+   "boar",
+   "decomp",
+   "d"
+  ],
+  [
+   "vole",
+   "decomp",
+   "d"
+  ],
+  [
+   "squirrel",
+   "decomp",
+   "d"
+  ],
+  [
+   "beetle",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "woodpecker",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "owl",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "lynx",
+   "decomp",
+   "d"
+  ],
+  [
+   "vole",
+   "raven"
+  ],
+  [
+   "marsh",
+   "roe"
+  ],
+  [
+   "bilberry",
+   "fox"
+  ],
+  [
+   "reddeer",
+   "fox"
+  ],
+  [
+   "boar",
+   "fox"
+  ],
+  [
+   "oak",
+   "raven"
+  ],
+  [
+   "hornbeam",
+   "raven"
+  ],
+  [
+   "spruce",
+   "raven"
+  ],
+  [
+   "bilberry",
+   "raven"
+  ],
+  [
+   "marsh",
+   "raven"
+  ],
+  [
+   "roe",
+   "raven"
+  ],
+  [
+   "squirrel",
+   "raven"
+  ],
+  [
+   "squirrel",
+   "owl"
+  ],
+  [
+   "vole",
+   "wolf"
+  ],
+  [
+   "squirrel",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ],
+  [
+   "owl",
+   "wolf"
+  ],
+  [
+   "boar",
+   "lynx"
+  ],
+  [
+   "vole",
+   "lynx"
+  ]
+ ],
+ "ev": {
+  "oak>boar": [
+   "g",
+   "Sus scrofa",
+   "Quercus robur"
+  ],
+  "oak>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Quercus robur"
+  ],
+  "oak>vole": [
+   "g",
+   "Myodes glareolus",
+   "Quercus robur"
+  ],
+  "hornbeam>roe": [
+   "a"
+  ],
+  "hornbeam>bison": [
+   "a"
+  ],
+  "spruce>beetle": [
+   "g",
+   "Ips typographus",
+   "Picea abies"
+  ],
+  "spruce>squirrel": [
+   "g",
+   "Sciurus vulgaris",
+   "Picea abies"
+  ],
+  "spruce>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Picea abies"
+  ],
+  "bilberry>reddeer": [
+   "g",
+   "Cervus elaphus",
+   "Vaccinium myrtillus"
+  ],
+  "bilberry>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Vaccinium myrtillus"
+  ],
+  "bilberry>vole": [
+   "g",
+   "Myodes glareolus",
+   "Vaccinium myrtillus"
+  ],
+  "marsh>bison": [
+   "g",
+   "Bison bonasus",
+   "Galium palustre"
+  ],
+  "marsh>reddeer": [
+   "g",
+   "Cervus elaphus",
+   "Galium palustre"
+  ],
+  "marsh>boar": [
+   "g",
+   "Sus scrofa",
+   "Galium palustre"
+  ],
+  "beetle>woodpecker": [
+   "a"
+  ],
+  "vole>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Myodes glareolus"
+  ],
+  "vole>owl": [
+   "g",
+   "Strix aluco",
+   "Myodes glareolus"
+  ],
+  "squirrel>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Sciurus vulgaris"
+  ],
+  "squirrel>lynx": [
+   "g",
+   "Lynx lynx",
+   "Sciurus vulgaris"
+  ],
+  "roe>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Capreolus capreolus"
+  ],
+  "roe>wolf": [
+   "g",
+   "Canis lupus",
+   "Capreolus capreolus"
+  ],
+  "reddeer>wolf": [
+   "g",
+   "Canis lupus",
+   "Cervus elaphus"
+  ],
+  "boar>wolf": [
+   "g",
+   "Canis lupus",
+   "Sus scrofa"
+  ],
+  "bison>wolf": [
+   "g",
+   "Canis lupus",
+   "Bison bonasus"
+  ],
+  "roe>lynx": [
+   "g",
+   "Lynx lynx",
+   "Capreolus capreolus"
+  ],
+  "reddeer>lynx": [
+   "g",
+   "Lynx lynx",
+   "Cervus elaphus"
+  ],
+  "fox>lynx": [
+   "g",
+   "Lynx lynx",
+   "Vulpes vulpes"
+  ],
+  "fox>wolf": [
+   "g",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "wolf>raven": [
+   "gg",
+   "Corvus corax",
+   "Canis lupus"
+  ],
+  "vole>raven": [
+   "g",
+   "Corvus corax",
+   "Myodes glareolus"
+  ],
+  "marsh>roe": [
+   "ga",
+   "Capreolus capreolus",
+   "Galium palustre"
+  ],
+  "bilberry>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Vaccinium myrtillus"
+  ],
+  "reddeer>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Cervus elaphus"
+  ],
+  "boar>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Sus scrofa"
+  ],
+  "oak>raven": [
+   "ga",
+   "Corvus corax",
+   "Quercus robur"
+  ],
+  "hornbeam>raven": [
+   "ga",
+   "Corvus corax",
+   "Carpinus betulus"
+  ],
+  "spruce>raven": [
+   "ga",
+   "Corvus corax",
+   "Picea abies"
+  ],
+  "bilberry>raven": [
+   "ga",
+   "Corvus corax",
+   "Vaccinium myrtillus"
+  ],
+  "marsh>raven": [
+   "ga",
+   "Corvus corax",
+   "Galium palustre"
+  ],
+  "roe>raven": [
+   "ga",
+   "Corvus corax",
+   "Capreolus capreolus"
+  ],
+  "squirrel>raven": [
+   "ga",
+   "Corvus corax",
+   "Sciurus vulgaris"
+  ],
+  "squirrel>owl": [
+   "ga",
+   "Strix aluco",
+   "Sciurus vulgaris"
+  ],
+  "vole>wolf": [
+   "ga",
+   "Canis lupus",
+   "Myodes glareolus"
+  ],
+  "squirrel>wolf": [
+   "ga",
+   "Canis lupus",
+   "Sciurus vulgaris"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ],
+  "owl>wolf": [
+   "ga",
+   "Canis lupus",
+   "Strix aluco"
+  ],
+  "boar>lynx": [
+   "ga",
+   "Lynx lynx",
+   "Sus scrofa"
+  ],
+  "vole>lynx": [
+   "ga",
+   "Lynx lynx",
+   "Myodes glareolus"
+  ]
+ }
+}

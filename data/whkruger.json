@@ -1,0 +1,780 @@
+{
+ "id": "whkruger",
+ "name": "Kruger National Park",
+ "short": "Kruger",
+ "place": "South Africa",
+ "lat": -23.9,
+ "lon": 31.6,
+ "side": "r",
+ "cont": "Africa",
+ "country": "South Africa",
+ "kind": "Grassland",
+ "park": true,
+ "blurb": "Elephants, lions and the grass and mopane that feed the lowveld.",
+ "tip": {
+  "id": "elephant",
+  "title": "Thin the elephants",
+  "text": "Select African bush elephants and lower their numbers. Watch the mopane, knobthorn and marula trees, then the browsers and predators that share them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Kruger National Park",
+   "url": "https://en.wikipedia.org/wiki/Kruger_National_Park"
+  },
+  {
+   "title": "Wikipedia: African bush elephant",
+   "url": "https://en.wikipedia.org/wiki/African_bush_elephant"
+  },
+  {
+   "title": "Wikipedia: Impala",
+   "url": "https://en.wikipedia.org/wiki/Impala"
+  },
+  {
+   "title": "Wikipedia: Colophospermum mopane",
+   "url": "https://en.wikipedia.org/wiki/Colophospermum_mopane"
+  },
+  {
+   "title": "Wikipedia: White-backed vulture",
+   "url": "https://en.wikipedia.org/wiki/White-backed_vulture"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Kruger National Park",
+ "icon": "elephant",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "redgrass",
+   "name": "Red grass",
+   "latin": "Themeda triandra",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Themeda triandra",
+   "desc": "A tall grass of the open grazing lands that zebra, wildebeest, buffalo and impala all feed on.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "mopane",
+   "name": "Mopane",
+   "latin": "Colophospermum mopane",
+   "tl": 1,
+   "xh": 0.42,
+   "wiki": "Colophospermum mopane",
+   "desc": "The dominant tree across the northern park. Elephants, giraffes and antelope browse its leaves, and the mopane worm caterpillar feeds on it.",
+   "ic": "aspen"
+  },
+  {
+   "id": "knobthorn",
+   "name": "Knobthorn",
+   "latin": "Senegalia nigrescens",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Senegalia nigrescens",
+   "desc": "A thorny savanna tree, browsed by giraffes and a main tree on the eastern grazing lands.",
+   "ic": "aspen"
+  },
+  {
+   "id": "marula",
+   "name": "Marula",
+   "latin": "Sclerocarya birrea",
+   "tl": 1,
+   "xh": 0.84,
+   "wiki": "Sclerocarya birrea",
+   "desc": "A large fruiting tree common in the central woodlands. Elephants eat its bark, leaves and fruit.",
+   "ic": "aspen"
+  },
+  {
+   "id": "impala",
+   "name": "Impala",
+   "latin": "Aepyceros melampus",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Impala",
+   "desc": "The most numerous large mammal in the park. It grazes after the rains and browses woody plants in the dry season, and is prey for most large carnivores.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "zebra",
+   "name": "Plains zebra",
+   "latin": "Equus quagga",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Plains zebra",
+   "desc": "Grazes grasses on the open plains and is common prey for lions, hyenas and wild dogs.",
+   "ic": "quad"
+  },
+  {
+   "id": "wildebeest",
+   "name": "Blue wildebeest",
+   "latin": "Connochaetes taurinus",
+   "tl": 2,
+   "xh": 0.32,
+   "wiki": "Blue wildebeest",
+   "desc": "A grazing antelope of the open grasslands, hunted by lions, hyenas, leopards and wild dogs.",
+   "ic": "quad"
+  },
+  {
+   "id": "buffalo",
+   "name": "African buffalo",
+   "latin": "Syncerus caffer",
+   "tl": 2,
+   "xh": 0.44,
+   "wiki": "African buffalo",
+   "desc": "Forms large herds on the grazing lands and is a main prey of lions.",
+   "ic": "bison"
+  },
+  {
+   "id": "giraffe",
+   "name": "Giraffe",
+   "latin": "Giraffa giraffa",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Giraffe",
+   "desc": "Browses the leaves of tall trees such as knobthorn and mopane, reaching food other herbivores cannot.",
+   "ic": "giraffe"
+  },
+  {
+   "id": "elephant",
+   "name": "African bush elephant",
+   "latin": "Loxodonta africana",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "African bush elephant",
+   "desc": "A mixed feeder on grass, leaves, bark and fruit. Its feeding opens up thickets and riverside forest, and calves are sometimes taken by lions.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "hyena",
+   "name": "Spotted hyena",
+   "latin": "Crocuta crocuta",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Spotted hyena",
+   "desc": "Hunts in clans and also scavenges. It eats a wide range of prey, from impala to buffalo, and often feeds on lion kills.",
+   "ic": "quad"
+  },
+  {
+   "id": "wilddog",
+   "name": "African wild dog",
+   "latin": "Lycaon pictus",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "African wild dog",
+   "desc": "A pack-hunting predator of antelope and zebra. Its packs are endangered in South Africa.",
+   "ic": "wolf"
+  },
+  {
+   "id": "vulture",
+   "name": "White-backed vulture",
+   "latin": "Gyps africanus",
+   "tl": 3,
+   "xh": 0.65,
+   "wiki": "White-backed vulture",
+   "desc": "A scavenger that feeds on the soft tissue of carcasses and is among the first vultures to reach one. It is critically endangered, in part from poisoned carcasses.",
+   "ic": "hawk"
+  },
+  {
+   "id": "bateleur",
+   "name": "Bateleur",
+   "latin": "Terathopius ecaudatus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Bateleur",
+   "desc": "A soaring eagle that takes live prey and also feeds on carrion.",
+   "ic": "hawk"
+  },
+  {
+   "id": "lion",
+   "name": "Lion",
+   "latin": "Panthera leo",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Lion",
+   "desc": "The top predator of the park, hunting zebra, wildebeest, buffalo, giraffe and impala. Its kills feed hyenas and vultures.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard",
+   "latin": "Panthera pardus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Leopard",
+   "desc": "A solitary ambush predator that takes impala, wildebeest, zebra and other medium prey.",
+   "ic": "lion"
+  },
+  {
+   "id": "rain",
+   "name": "Summer rains",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "wiki": "Rain",
+   "desc": "Falls mostly from September to May and sets the pace of grass and leaf growth.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rivers",
+   "name": "Rivers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.34,
+   "wiki": "Limpopo River",
+   "desc": "Eastward-flowing rivers such as the Olifants, Letaba and Sabie bring water and support thickets along their banks.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "fire",
+   "name": "Fire",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.56,
+   "wiki": "Wildfire",
+   "desc": "Savanna fires clear dead grass and let fresh growth sprout for grazers.",
+   "ic": "fire",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Soils and geology",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.76,
+   "wiki": "Soil",
+   "desc": "Granite in the west and basalt in the east shape the soils and so the plant communities.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Termites, dung beetles & fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "wiki": "Dung beetle",
+   "desc": "Break down dung, carcasses and dead plants and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "redgrass",
+   "r"
+  ],
+  [
+   "rain",
+   "mopane",
+   "r"
+  ],
+  [
+   "rain",
+   "knobthorn",
+   "r"
+  ],
+  [
+   "rain",
+   "marula",
+   "r"
+  ],
+  [
+   "rivers",
+   "knobthorn",
+   "r"
+  ],
+  [
+   "rivers",
+   "marula",
+   "r"
+  ],
+  [
+   "soil",
+   "redgrass",
+   "r"
+  ],
+  [
+   "soil",
+   "mopane",
+   "r"
+  ],
+  [
+   "soil",
+   "knobthorn",
+   "r"
+  ],
+  [
+   "fire",
+   "redgrass",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "redgrass",
+   "impala"
+  ],
+  [
+   "redgrass",
+   "zebra"
+  ],
+  [
+   "redgrass",
+   "wildebeest"
+  ],
+  [
+   "redgrass",
+   "buffalo"
+  ],
+  [
+   "redgrass",
+   "elephant"
+  ],
+  [
+   "mopane",
+   "impala"
+  ],
+  [
+   "mopane",
+   "giraffe"
+  ],
+  [
+   "mopane",
+   "elephant"
+  ],
+  [
+   "knobthorn",
+   "impala"
+  ],
+  [
+   "knobthorn",
+   "giraffe"
+  ],
+  [
+   "knobthorn",
+   "elephant"
+  ],
+  [
+   "marula",
+   "giraffe"
+  ],
+  [
+   "marula",
+   "elephant"
+  ],
+  [
+   "impala",
+   "lion"
+  ],
+  [
+   "impala",
+   "leopard"
+  ],
+  [
+   "impala",
+   "hyena"
+  ],
+  [
+   "impala",
+   "wilddog"
+  ],
+  [
+   "zebra",
+   "lion"
+  ],
+  [
+   "zebra",
+   "leopard"
+  ],
+  [
+   "zebra",
+   "hyena"
+  ],
+  [
+   "zebra",
+   "wilddog"
+  ],
+  [
+   "wildebeest",
+   "lion"
+  ],
+  [
+   "wildebeest",
+   "leopard"
+  ],
+  [
+   "wildebeest",
+   "hyena"
+  ],
+  [
+   "wildebeest",
+   "wilddog"
+  ],
+  [
+   "buffalo",
+   "lion"
+  ],
+  [
+   "buffalo",
+   "hyena"
+  ],
+  [
+   "giraffe",
+   "lion"
+  ],
+  [
+   "giraffe",
+   "hyena"
+  ],
+  [
+   "elephant",
+   "lion"
+  ],
+  [
+   "elephant",
+   "hyena"
+  ],
+  [
+   "impala",
+   "bateleur",
+   "s"
+  ],
+  [
+   "wildebeest",
+   "bateleur",
+   "s"
+  ],
+  [
+   "impala",
+   "vulture",
+   "s"
+  ],
+  [
+   "zebra",
+   "vulture",
+   "s"
+  ],
+  [
+   "wildebeest",
+   "vulture",
+   "s"
+  ],
+  [
+   "buffalo",
+   "vulture",
+   "s"
+  ],
+  [
+   "giraffe",
+   "vulture",
+   "s"
+  ],
+  [
+   "elephant",
+   "vulture",
+   "s"
+  ],
+  [
+   "lion",
+   "hyena",
+   "s"
+  ],
+  [
+   "lion",
+   "vulture",
+   "s"
+  ],
+  [
+   "lion",
+   "bateleur",
+   "s"
+  ],
+  [
+   "hyena",
+   "vulture",
+   "s"
+  ],
+  [
+   "redgrass",
+   "decomp",
+   "d"
+  ],
+  [
+   "mopane",
+   "decomp",
+   "d"
+  ],
+  [
+   "knobthorn",
+   "decomp",
+   "d"
+  ],
+  [
+   "marula",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "zebra",
+   "decomp",
+   "d"
+  ],
+  [
+   "buffalo",
+   "decomp",
+   "d"
+  ],
+  [
+   "buffalo",
+   "wilddog"
+  ],
+  [
+   "buffalo",
+   "leopard"
+  ],
+  [
+   "giraffe",
+   "leopard"
+  ],
+  [
+   "hyena",
+   "leopard"
+  ]
+ ],
+ "ev": {
+  "redgrass>impala": [
+   "g",
+   "Aepyceros melampus",
+   "Themeda triandra"
+  ],
+  "redgrass>zebra": [
+   "g",
+   "Equus quagga",
+   "Themeda triandra"
+  ],
+  "redgrass>wildebeest": [
+   "g",
+   "Connochaetes taurinus",
+   "Themeda triandra"
+  ],
+  "redgrass>buffalo": [
+   "g",
+   "Syncerus caffer",
+   "Themeda triandra"
+  ],
+  "redgrass>elephant": [
+   "g",
+   "Loxodonta africana",
+   "Themeda triandra"
+  ],
+  "mopane>impala": [
+   "a"
+  ],
+  "mopane>giraffe": [
+   "a"
+  ],
+  "mopane>elephant": [
+   "g",
+   "Loxodonta africana",
+   "Colophospermum mopane"
+  ],
+  "knobthorn>impala": [
+   "gg",
+   "Aepyceros melampus",
+   "Senegalia nigrescens"
+  ],
+  "knobthorn>giraffe": [
+   "g",
+   "Giraffa giraffa",
+   "Senegalia nigrescens"
+  ],
+  "knobthorn>elephant": [
+   "gg",
+   "Loxodonta africana",
+   "Senegalia nigrescens"
+  ],
+  "marula>giraffe": [
+   "a"
+  ],
+  "marula>elephant": [
+   "g",
+   "Loxodonta africana",
+   "Sclerocarya birrea"
+  ],
+  "impala>lion": [
+   "g",
+   "Panthera leo",
+   "Aepyceros melampus"
+  ],
+  "impala>leopard": [
+   "g",
+   "Panthera pardus",
+   "Aepyceros melampus"
+  ],
+  "impala>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Aepyceros melampus"
+  ],
+  "impala>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Aepyceros melampus"
+  ],
+  "zebra>lion": [
+   "g",
+   "Panthera leo",
+   "Equus quagga"
+  ],
+  "zebra>leopard": [
+   "g",
+   "Panthera pardus",
+   "Equus quagga"
+  ],
+  "zebra>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Equus quagga"
+  ],
+  "zebra>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Equus quagga"
+  ],
+  "wildebeest>lion": [
+   "g",
+   "Panthera leo",
+   "Connochaetes taurinus"
+  ],
+  "wildebeest>leopard": [
+   "g",
+   "Panthera pardus",
+   "Connochaetes taurinus"
+  ],
+  "wildebeest>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Connochaetes taurinus"
+  ],
+  "wildebeest>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Connochaetes taurinus"
+  ],
+  "buffalo>lion": [
+   "g",
+   "Panthera leo",
+   "Syncerus caffer"
+  ],
+  "buffalo>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Syncerus caffer"
+  ],
+  "giraffe>lion": [
+   "g",
+   "Panthera leo",
+   "Giraffa giraffa"
+  ],
+  "giraffe>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Giraffa giraffa"
+  ],
+  "elephant>lion": [
+   "g",
+   "Panthera leo",
+   "Loxodonta africana"
+  ],
+  "elephant>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Loxodonta africana"
+  ],
+  "impala>bateleur": [
+   "a"
+  ],
+  "wildebeest>bateleur": [
+   "a"
+  ],
+  "impala>vulture": [
+   "g",
+   "Gyps africanus",
+   "Aepyceros melampus"
+  ],
+  "zebra>vulture": [
+   "g",
+   "Gyps africanus",
+   "Equus quagga"
+  ],
+  "wildebeest>vulture": [
+   "g",
+   "Gyps africanus",
+   "Connochaetes taurinus"
+  ],
+  "buffalo>vulture": [
+   "g",
+   "Gyps africanus",
+   "Syncerus caffer"
+  ],
+  "giraffe>vulture": [
+   "g",
+   "Gyps africanus",
+   "Giraffa giraffa"
+  ],
+  "elephant>vulture": [
+   "g",
+   "Gyps africanus",
+   "Loxodonta africana"
+  ],
+  "lion>hyena": [
+   "gg",
+   "Crocuta crocuta",
+   "Panthera leo"
+  ],
+  "lion>vulture": [
+   "a"
+  ],
+  "lion>bateleur": [
+   "a"
+  ],
+  "hyena>vulture": [
+   "g",
+   "Gyps africanus",
+   "Crocuta crocuta"
+  ],
+  "buffalo>wilddog": [
+   "ga",
+   "Lycaon pictus",
+   "Syncerus caffer"
+  ],
+  "buffalo>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Syncerus caffer"
+  ],
+  "giraffe>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Giraffa giraffa"
+  ],
+  "hyena>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Crocuta crocuta"
+  ]
+ }
+}

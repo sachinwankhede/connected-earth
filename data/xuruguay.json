@@ -1,0 +1,499 @@
+{
+ "id": "xuruguay",
+ "name": "Cabo Polonio National Park",
+ "short": "Cabo Polonio",
+ "place": "Rocha, Uruguay",
+ "lat": -34.4,
+ "lon": -53.8,
+ "side": "r",
+ "cont": "South America",
+ "country": "Uruguay",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Dunes, seal islands and cold Atlantic water on Uruguay's Rocha coast.",
+ "tip": {
+  "id": "anchovy",
+  "title": "Thin out the anchovies",
+  "text": "Set Argentine anchoita to -100% and watch fur seals, sea lions and dolphins lose a main food, with orcas feeling it one step up."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Cabo Polonio",
+   "url": "https://en.wikipedia.org/wiki/Cabo_Polonio"
+  },
+  {
+   "title": "Wikipedia: Cabo Polonio National Park",
+   "url": "https://en.wikipedia.org/wiki/Cabo_Polonio_National_Park"
+  },
+  {
+   "title": "Wikipedia: South American sea lion",
+   "url": "https://en.wikipedia.org/wiki/South_American_sea_lion"
+  },
+  {
+   "title": "Wikipedia: South American fur seal",
+   "url": "https://en.wikipedia.org/wiki/South_American_fur_seal"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Cabo Polonio",
+ "icon": "seal",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Light drives the dune plants and the plankton in the cold coastal water.",
+   "ic": "sun"
+  },
+  {
+   "id": "upwell",
+   "name": "Cold nutrient-rich water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.32,
+   "cat": "abiotic",
+   "wiki": "Upwelling",
+   "desc": "Cool, nutrient-bearing Atlantic water feeds plankton, and plankton feed the fish that the seals depend on.",
+   "ic": "water"
+  },
+  {
+   "id": "dune",
+   "name": "Moving sand dunes",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.55,
+   "cat": "abiotic",
+   "wiki": "Dune",
+   "desc": "Wind-shifted dunes up to about 30 m high hold salt-tolerant, sand-adapted plants that anchor the sand.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Dune insects & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Carcass-feeding insects and microbes break down dead matter along the shore and return nutrients to the sand.",
+   "ic": "decomp"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Microscopic algae",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Phytoplankton",
+   "desc": "Microscopic algae in the offshore waters that start the marine food chain.",
+   "ic": "algae"
+  },
+  {
+   "id": "grass",
+   "name": "Dune grasses",
+   "latin": "Poaceae",
+   "tl": 1,
+   "xh": 0.4,
+   "wiki": "Poaceae",
+   "desc": "Grasses and other low herbs of the stabilised dunes and coastal grassland, eaten by burrowing and grazing rodents.",
+   "ic": "grass"
+  },
+  {
+   "id": "cakile",
+   "name": "Sea rocket",
+   "latin": "Cakile maritima",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Cakile maritima",
+   "desc": "A salt-tolerant pioneer plant of beaches and foredunes, recorded near Cabo Polonio.",
+   "ic": "sage"
+  },
+  {
+   "id": "cereus",
+   "name": "Hedge cactus",
+   "latin": "Cereus hildmannianus",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Cereus hildmannianus",
+   "desc": "A tall cactus of the coastal scrub whose fruit is eaten by birds and lizards.",
+   "ic": "sage"
+  },
+  {
+   "id": "zoo",
+   "name": "Zooplankton",
+   "latin": "Zooplankton",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Zooplankton",
+   "desc": "Drifting animals that graze phytoplankton and feed small fish.",
+   "ic": "hopper"
+  },
+  {
+   "id": "anchovy",
+   "name": "Argentine anchoita",
+   "latin": "Engraulis anchoita",
+   "tl": 2,
+   "xh": 0.28,
+   "wiki": "Argentine anchoita",
+   "desc": "A small schooling fish feeding on plankton. Anchovies are a main prey of Uruguayan fur seals.",
+   "ic": "trout"
+  },
+  {
+   "id": "tuco",
+   "name": "Pearson's tuco-tuco",
+   "latin": "Ctenomys pearsoni",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Tuco-tuco",
+   "desc": "A burrowing rodent and the dominant vertebrate of the Cabo Polonio dunes.",
+   "ic": "vole"
+  },
+  {
+   "id": "cavia",
+   "name": "Brazilian guinea pig",
+   "latin": "Cavia aperea",
+   "tl": 2,
+   "xh": 0.66,
+   "wiki": "Brazilian guinea pig",
+   "desc": "A wild cavy that grazes grass and herbs in coastal scrub and is prey for foxes, tegus and small cats.",
+   "ic": "vole"
+  },
+  {
+   "id": "sparrow",
+   "name": "Rufous-collared sparrow",
+   "latin": "Zonotrichia capensis",
+   "tl": 2,
+   "xh": 0.86,
+   "wiki": "Rufous-collared sparrow",
+   "desc": "A very common small bird that eats seeds, insects and fruit, including hedge cactus fruit.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "furseal",
+   "name": "South American fur seal",
+   "latin": "Arctocephalus australis",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "South American fur seal",
+   "desc": "Breeds on the Islas de Torres. Eats fish such as anchovies and squid, and is hunted by sharks, orcas and sea lions.",
+   "ic": "seal"
+  },
+  {
+   "id": "franc",
+   "name": "Franciscana",
+   "latin": "Pontoporia blainvillei",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "La Plata dolphin",
+   "desc": "A small coastal dolphin, the best-recorded mammal here, that feeds on fish and squid in shallow water.",
+   "ic": "whale"
+  },
+  {
+   "id": "gull",
+   "name": "Kelp gull",
+   "latin": "Larus dominicanus",
+   "tl": 3,
+   "xh": 0.48,
+   "wiki": "Kelp gull",
+   "desc": "Nests on the offshore islands and feeds on fish, invertebrates and scavenged food.",
+   "ic": "hawk"
+  },
+  {
+   "id": "tegu",
+   "name": "Argentine tegu",
+   "latin": "Salvator merianae",
+   "tl": 3,
+   "xh": 0.66,
+   "wiki": "Argentine black and white tegu",
+   "desc": "A large omnivorous lizard that eats fruit, small mammals and other prey.",
+   "ic": "snake"
+  },
+  {
+   "id": "fox",
+   "name": "Pampas fox",
+   "latin": "Lycalopex gymnocercus",
+   "tl": 3,
+   "xh": 0.82,
+   "wiki": "Pampas fox",
+   "desc": "A small canid of open country that eats cavies, hares and reptiles.",
+   "ic": "fox"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.94,
+   "wiki": "Turkey vulture",
+   "desc": "A soaring scavenger that finds carrion by smell and feeds on dead animals along the coast.",
+   "ic": "hawk"
+  },
+  {
+   "id": "sealion",
+   "name": "South American sea lion",
+   "latin": "Otaria flavescens",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "South American sea lion",
+   "desc": "The Islas de Torres hold the region's largest colony. Eats fish and squid and sometimes fur seals.",
+   "ic": "seal"
+  },
+  {
+   "id": "orca",
+   "name": "Orca",
+   "latin": "Orcinus orca",
+   "tl": 4,
+   "xh": 0.6,
+   "wiki": "Orca",
+   "desc": "A top marine predator that visits these waters and hunts seals and sea lions.",
+   "ic": "whale"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "grass",
+   "r"
+  ],
+  [
+   "sun",
+   "cakile",
+   "r"
+  ],
+  [
+   "sun",
+   "cereus",
+   "r"
+  ],
+  [
+   "upwell",
+   "phyto",
+   "r"
+  ],
+  [
+   "dune",
+   "grass",
+   "r"
+  ],
+  [
+   "dune",
+   "cakile",
+   "r"
+  ],
+  [
+   "dune",
+   "cereus",
+   "r"
+  ],
+  [
+   "decomp",
+   "dune",
+   "r"
+  ],
+  [
+   "phyto",
+   "zoo"
+  ],
+  [
+   "phyto",
+   "anchovy"
+  ],
+  [
+   "zoo",
+   "anchovy"
+  ],
+  [
+   "anchovy",
+   "furseal"
+  ],
+  [
+   "anchovy",
+   "sealion"
+  ],
+  [
+   "anchovy",
+   "franc"
+  ],
+  [
+   "anchovy",
+   "gull"
+  ],
+  [
+   "furseal",
+   "sealion"
+  ],
+  [
+   "furseal",
+   "orca"
+  ],
+  [
+   "sealion",
+   "orca"
+  ],
+  [
+   "grass",
+   "tuco"
+  ],
+  [
+   "grass",
+   "cavia"
+  ],
+  [
+   "cereus",
+   "sparrow"
+  ],
+  [
+   "cereus",
+   "tegu"
+  ],
+  [
+   "cavia",
+   "fox"
+  ],
+  [
+   "cavia",
+   "tegu"
+  ],
+  [
+   "tuco",
+   "fox"
+  ],
+  [
+   "tegu",
+   "vulture"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "grass",
+   "decomp",
+   "d"
+  ],
+  [
+   "furseal",
+   "decomp",
+   "d"
+  ],
+  [
+   "sealion",
+   "decomp",
+   "d"
+  ],
+  [
+   "orca",
+   "decomp",
+   "d"
+  ],
+  [
+   "tuco",
+   "decomp",
+   "d"
+  ],
+  [
+   "cavia",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ]
+ ],
+ "ev": {
+  "phyto>zoo": [
+   "a"
+  ],
+  "phyto>anchovy": [
+   "a"
+  ],
+  "zoo>anchovy": [
+   "a"
+  ],
+  "anchovy>furseal": [
+   "g",
+   "Arctocephalus australis",
+   "Engraulis anchoita"
+  ],
+  "anchovy>sealion": [
+   "gg",
+   "Otaria flavescens",
+   "Engraulis anchoita"
+  ],
+  "anchovy>franc": [
+   "a"
+  ],
+  "anchovy>gull": [
+   "a"
+  ],
+  "furseal>sealion": [
+   "a"
+  ],
+  "furseal>orca": [
+   "g",
+   "Orcinus orca",
+   "Arctocephalus australis"
+  ],
+  "sealion>orca": [
+   "a"
+  ],
+  "grass>tuco": [
+   "g",
+   "Ctenomys pearsoni",
+   "Poaceae"
+  ],
+  "grass>cavia": [
+   "g",
+   "Cavia aperea",
+   "Poaceae"
+  ],
+  "cereus>sparrow": [
+   "g",
+   "Zonotrichia capensis",
+   "Cereus hildmannianus"
+  ],
+  "cereus>tegu": [
+   "g",
+   "Salvator merianae",
+   "Cereus hildmannianus"
+  ],
+  "cavia>fox": [
+   "g",
+   "Lycalopex gymnocercus",
+   "Cavia aperea"
+  ],
+  "cavia>tegu": [
+   "g",
+   "Salvator merianae",
+   "Cavia aperea"
+  ],
+  "tuco>fox": [
+   "gg",
+   "Lycalopex gymnocercus",
+   "Ctenomys pearsoni"
+  ],
+  "tegu>vulture": [
+   "g",
+   "Cathartes aura",
+   "Salvator merianae"
+  ]
+ }
+}

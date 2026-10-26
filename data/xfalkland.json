@@ -1,0 +1,587 @@
+{
+ "id": "xfalkland",
+ "name": "Falkland Islands: Saunders Island and surrounding sea",
+ "short": "Falklands",
+ "place": "Falkland Islands",
+ "lat": -51.3,
+ "lon": -60.2,
+ "side": "r",
+ "cont": "South America",
+ "country": "Falkland Is.",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Tussac shores, penguin colonies and the cold sea that feeds seabirds and seals.",
+ "tip": {
+  "id": "munida",
+  "title": "Thin out the lobster krill",
+  "text": "Lobster krill feed squid and penguins. Set Lobster krill to -100% and watch the squid, the penguins, then the seals and scavengers above them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Falkland Islands",
+   "url": "https://en.wikipedia.org/wiki/Falkland_Islands"
+  },
+  {
+   "title": "Wikipedia: Tussac grass",
+   "url": "https://en.wikipedia.org/wiki/Tussac_grass"
+  },
+  {
+   "title": "Wikipedia: Black-browed albatross",
+   "url": "https://en.wikipedia.org/wiki/Black-browed_albatross"
+  },
+  {
+   "title": "Wikipedia: Striated caracara",
+   "url": "https://en.wikipedia.org/wiki/Striated_caracara"
+  },
+  {
+   "title": "Wikipedia: South American sea lion",
+   "url": "https://en.wikipedia.org/wiki/South_American_sea_lion"
+  },
+  {
+   "title": "Wikipedia: Southern rockhopper penguin",
+   "url": "https://en.wikipedia.org/wiki/Southern_rockhopper_penguin"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Falkland Islands",
+ "icon": "seal",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Long summer days power the tussac, shrubs, kelp and plankton that the whole web is built on.",
+   "ic": "sun"
+  },
+  {
+   "id": "current",
+   "name": "Cold, nutrient-rich current",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "cat": "abiotic",
+   "wiki": "Falkland Current",
+   "desc": "Cold water of the Falkland Current flows north along the Patagonian Shelf and carries nutrients that feed plankton and kelp.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Wet coastal ground",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.6,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Tussac forms dense stands on wet ground close to the shore, and dead plant matter and seabird waste are recycled there.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, kelp, carcasses and droppings, returning nutrients to the soil and water.",
+   "ic": "decomp"
+  },
+  {
+   "id": "tussac",
+   "name": "Tussac grass",
+   "latin": "Poa flabellata",
+   "tl": 1,
+   "xh": 0.08,
+   "wiki": "Tussac grass",
+   "desc": "A tall coastal grass that grows in dense clumps about 2 m high and dominates the shoreline where it grows. Penguins, albatrosses and seals use it for cover and nesting.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "diddle",
+   "name": "Diddle-dee",
+   "latin": "Empetrum rubrum",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Empetrum rubrum",
+   "desc": "A low dwarf shrub of the treeless Falklands heath. It bears berries and was among the most recorded plants near this site.",
+   "ic": "sage"
+  },
+  {
+   "id": "kelp",
+   "name": "Giant kelp",
+   "latin": "Macrocystis pyrifera",
+   "tl": 1,
+   "xh": 0.55,
+   "wiki": "Giant kelp",
+   "desc": "Large brown seaweed forming kelp beds in the cold coastal water around the islands.",
+   "ic": "algae"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Thalassiosira",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Phytoplankton",
+   "desc": "Microscopic drifting algae in the surrounding sea, the base of the open-water food chain.",
+   "ic": "algae"
+  },
+  {
+   "id": "munida",
+   "name": "Lobster krill",
+   "latin": "Munida gregaria",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Munida gregaria",
+   "desc": "A small red squat lobster that swarms in the waters around the Falklands and southern South America and feeds many seabirds and fish.",
+   "ic": "hopper"
+  },
+  {
+   "id": "kelpgoose",
+   "name": "Kelp goose",
+   "latin": "Chloephaga hybrida",
+   "tl": 2,
+   "xh": 0.28,
+   "wiki": "Kelp goose",
+   "desc": "A shoreline goose of southern South America that grazes seaweed on rocky coasts. It was one of the most recorded birds here.",
+   "ic": "quad"
+  },
+  {
+   "id": "sheep",
+   "name": "Sheep",
+   "latin": "Ovis aries",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "Sheep",
+   "desc": "Introduced livestock; virtually all land on the islands is used as sheep pasture, where they graze native grasses.",
+   "ic": "quad"
+  },
+  {
+   "id": "thrush",
+   "name": "Austral thrush",
+   "latin": "Turdus falcklandii",
+   "tl": 2,
+   "xh": 0.66,
+   "wiki": "Austral thrush",
+   "desc": "A common songbird that nests in tussac on the Falklands. It feeds on invertebrates and berries.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "squid",
+   "name": "Patagonian squid",
+   "latin": "Doryteuthis gahi",
+   "tl": 3,
+   "xh": 0.06,
+   "wiki": "Patagonian squid",
+   "desc": "A small squid fished in Falklands waters and an important prey for seabirds, seals and fish.",
+   "ic": "shell"
+  },
+  {
+   "id": "rockhopper",
+   "name": "Southern rockhopper penguin",
+   "latin": "Eudyptes chrysocome",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Southern rockhopper penguin",
+   "desc": "Breeds in colonies on the Falklands and eats mainly krill and other crustaceans, plus squid and some fish.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "magellanic",
+   "name": "Magellanic penguin",
+   "latin": "Spheniscus magellanicus",
+   "tl": 3,
+   "xh": 0.34,
+   "wiki": "Magellanic penguin",
+   "desc": "A burrowing penguin breeding on the islands and one of the most recorded birds near this site. It eats fish, squid and crustaceans.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "albatross",
+   "name": "Black-browed albatross",
+   "latin": "Thalassarche melanophris",
+   "tl": 3,
+   "xh": 0.48,
+   "wiki": "Black-browed albatross",
+   "desc": "The Falklands hold the largest breeding population in the world. It eats fish, squid, crustaceans, carrion and fishery discards.",
+   "ic": "hawk"
+  },
+  {
+   "id": "elephant",
+   "name": "Southern elephant seal",
+   "latin": "Mirounga leonina",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Southern elephant seal",
+   "desc": "Breeds on Falkland beaches; a large seal that dives for squid and fish.",
+   "ic": "seal"
+  },
+  {
+   "id": "skua",
+   "name": "Brown skua",
+   "latin": "Stercorarius antarcticus",
+   "tl": 3,
+   "xh": 0.76,
+   "wiki": "Brown skua",
+   "desc": "A bold seabird that takes eggs and chicks from penguin colonies and scavenges carcasses.",
+   "ic": "hawk"
+  },
+  {
+   "id": "petrel",
+   "name": "Southern giant petrel",
+   "latin": "Macronectes giganteus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Southern giant petrel",
+   "desc": "A large scavenging seabird that feeds on carrion from seals and penguins and also preys on penguin chicks.",
+   "ic": "hawk"
+  },
+  {
+   "id": "caracara",
+   "name": "Striated caracara",
+   "latin": "Phalcoboenus australis",
+   "tl": 3,
+   "xh": 0.95,
+   "wiki": "Striated caracara",
+   "desc": "A rare raptor of offshore islands. It scavenges and also takes seabird eggs and chicks, penguins and seal pups.",
+   "ic": "hawk"
+  },
+  {
+   "id": "sealion",
+   "name": "South American sea lion",
+   "latin": "Otaria byronia",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "South American sea lion",
+   "desc": "Eats fish, squid and crustaceans and also hunts penguins. The Falklands population is declining.",
+   "ic": "seal"
+  },
+  {
+   "id": "orca",
+   "name": "Orca",
+   "latin": "Orcinus orca",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Orca",
+   "desc": "Seen around the Falklands and recorded hunting seals and sea lions.",
+   "ic": "whale"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "tussac",
+   "r"
+  ],
+  [
+   "sun",
+   "diddle",
+   "r"
+  ],
+  [
+   "sun",
+   "kelp",
+   "r"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "current",
+   "kelp",
+   "r"
+  ],
+  [
+   "current",
+   "phyto",
+   "r"
+  ],
+  [
+   "soil",
+   "tussac",
+   "r"
+  ],
+  [
+   "soil",
+   "diddle",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "tussac",
+   "decomp",
+   "d"
+  ],
+  [
+   "diddle",
+   "decomp",
+   "d"
+  ],
+  [
+   "kelp",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "sealion",
+   "decomp",
+   "d"
+  ],
+  [
+   "phyto",
+   "munida"
+  ],
+  [
+   "kelp",
+   "kelpgoose"
+  ],
+  [
+   "tussac",
+   "sheep"
+  ],
+  [
+   "diddle",
+   "thrush"
+  ],
+  [
+   "munida",
+   "squid"
+  ],
+  [
+   "munida",
+   "rockhopper"
+  ],
+  [
+   "squid",
+   "rockhopper"
+  ],
+  [
+   "squid",
+   "magellanic"
+  ],
+  [
+   "squid",
+   "albatross"
+  ],
+  [
+   "squid",
+   "elephant"
+  ],
+  [
+   "squid",
+   "sealion"
+  ],
+  [
+   "magellanic",
+   "sealion"
+  ],
+  [
+   "rockhopper",
+   "skua"
+  ],
+  [
+   "magellanic",
+   "skua"
+  ],
+  [
+   "albatross",
+   "skua"
+  ],
+  [
+   "magellanic",
+   "petrel"
+  ],
+  [
+   "rockhopper",
+   "petrel"
+  ],
+  [
+   "rockhopper",
+   "caracara"
+  ],
+  [
+   "magellanic",
+   "caracara"
+  ],
+  [
+   "kelpgoose",
+   "caracara"
+  ],
+  [
+   "sheep",
+   "caracara"
+  ],
+  [
+   "skua",
+   "caracara"
+  ],
+  [
+   "elephant",
+   "skua",
+   "s"
+  ],
+  [
+   "elephant",
+   "petrel",
+   "s"
+  ],
+  [
+   "elephant",
+   "caracara",
+   "s"
+  ],
+  [
+   "sealion",
+   "petrel",
+   "s"
+  ],
+  [
+   "sealion",
+   "caracara",
+   "s"
+  ],
+  [
+   "sealion",
+   "orca"
+  ],
+  [
+   "elephant",
+   "orca"
+  ],
+  [
+   "kelp",
+   "orca"
+  ]
+ ],
+ "ev": {
+  "phyto>munida": [
+   "a"
+  ],
+  "kelp>kelpgoose": [
+   "a"
+  ],
+  "tussac>sheep": [
+   "gg",
+   "Ovis aries",
+   "Poa flabellata"
+  ],
+  "diddle>thrush": [
+   "a"
+  ],
+  "munida>squid": [
+   "a"
+  ],
+  "munida>rockhopper": [
+   "a"
+  ],
+  "squid>rockhopper": [
+   "a"
+  ],
+  "squid>magellanic": [
+   "gg",
+   "Spheniscus magellanicus",
+   "Doryteuthis gahi"
+  ],
+  "squid>albatross": [
+   "a"
+  ],
+  "squid>elephant": [
+   "a"
+  ],
+  "squid>sealion": [
+   "a"
+  ],
+  "magellanic>sealion": [
+   "a"
+  ],
+  "rockhopper>skua": [
+   "a"
+  ],
+  "magellanic>skua": [
+   "a"
+  ],
+  "albatross>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Thalassarche melanophris"
+  ],
+  "magellanic>petrel": [
+   "g",
+   "Macronectes giganteus",
+   "Spheniscus magellanicus"
+  ],
+  "rockhopper>petrel": [
+   "gg",
+   "Macronectes giganteus",
+   "Eudyptes chrysocome"
+  ],
+  "rockhopper>caracara": [
+   "g",
+   "Phalcoboenus australis",
+   "Eudyptes chrysocome"
+  ],
+  "magellanic>caracara": [
+   "g",
+   "Phalcoboenus australis",
+   "Spheniscus magellanicus"
+  ],
+  "kelpgoose>caracara": [
+   "a"
+  ],
+  "sheep>caracara": [
+   "a"
+  ],
+  "skua>caracara": [
+   "a"
+  ],
+  "elephant>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Mirounga leonina"
+  ],
+  "elephant>petrel": [
+   "gg",
+   "Macronectes giganteus",
+   "Mirounga leonina"
+  ],
+  "elephant>caracara": [
+   "a"
+  ],
+  "sealion>petrel": [
+   "a"
+  ],
+  "sealion>caracara": [
+   "a"
+  ],
+  "sealion>orca": [
+   "a"
+  ],
+  "elephant>orca": [
+   "g",
+   "Orcinus orca",
+   "Mirounga leonina"
+  ],
+  "kelp>orca": [
+   "ga",
+   "Orcinus orca",
+   "Macrocystis pyrifera"
+  ]
+ }
+}

@@ -1,0 +1,808 @@
+{
+ "id": "arctic",
+ "name": "Arctic",
+ "short": "Arctic",
+ "place": "Arctic Canada",
+ "lat": 74,
+ "lon": -100,
+ "side": "r",
+ "blurb": "Sea ice, seals and bears, plus lemmings, foxes and caribou on the tundra.",
+ "tip": {
+  "id": "seaice",
+  "title": "Melt the sea ice",
+  "text": "Select Sea ice and cut it by 50%. Ice algae, seals and polar bears all depend on it, directly or through the food chain."
+ },
+ "nodes": [
+  {
+   "id": "icealg",
+   "name": "Ice algae",
+   "latin": "Melosira arctica",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Sea ice algae",
+   "desc": "Algae growing on the underside of sea ice that start the spring bloom.",
+   "ic": "algae"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Diverse microalgae",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Phytoplankton",
+   "desc": "Blooms in open water as ice retreats, feeding zooplankton and the sea floor.",
+   "ic": "algae"
+  },
+  {
+   "id": "sedge",
+   "name": "Sedges & dwarf willow",
+   "latin": "Carex and Salix arctica",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Salix arctica",
+   "desc": "Low tundra plants that grow quickly during the short summer.",
+   "ic": "grass"
+  },
+  {
+   "id": "lichen",
+   "name": "Reindeer lichen",
+   "latin": "Cladonia rangiferina",
+   "tl": 1,
+   "xh": 0.86,
+   "wiki": "Cladonia rangiferina",
+   "desc": "A slow-growing winter food for caribou.",
+   "ic": "sage"
+  },
+  {
+   "id": "copepod",
+   "name": "Arctic copepods",
+   "latin": "Calanus glacialis",
+   "tl": 2,
+   "xh": 0.12,
+   "wiki": "Calanus glacialis",
+   "desc": "Rich in fat, they link the algae bloom to fish, seabirds and whales.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "clams",
+   "name": "Clams & seafloor worms",
+   "latin": "Mya truncata",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Mya truncata",
+   "desc": "Filter sinking algae from the seafloor and feed walruses.",
+   "ic": "shell"
+  },
+  {
+   "id": "lemming",
+   "name": "Collared lemming",
+   "latin": "Dicrostonyx groenlandicus",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Collared lemming",
+   "desc": "Tunnels under the snow all winter. Its boom-and-bust numbers drive owls and foxes.",
+   "ic": "vole"
+  },
+  {
+   "id": "goose",
+   "name": "Snow goose",
+   "latin": "Anser caerulescens",
+   "tl": 2,
+   "xh": 0.62,
+   "wiki": "Snow goose",
+   "desc": "Nests on the tundra in summer and grazes sedges.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "caribou",
+   "name": "Caribou",
+   "latin": "Rangifer tarandus",
+   "tl": 2,
+   "xh": 0.78,
+   "wiki": "Caribou",
+   "desc": "Migrates in large herds, eating lichen in winter and sedges in summer.",
+   "ic": "elk"
+  },
+  {
+   "id": "muskox",
+   "name": "Muskox",
+   "latin": "Ovibos moschatus",
+   "tl": 2,
+   "xh": 0.92,
+   "wiki": "Muskox",
+   "desc": "Stays on the tundra all year, circling its calves when wolves approach.",
+   "ic": "bison"
+  },
+  {
+   "id": "arcticcod",
+   "name": "Arctic cod",
+   "latin": "Boreogadus saida",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Arctic cod",
+   "desc": "A small fish that links copepods to seals, whales and seabirds.",
+   "ic": "trout"
+  },
+  {
+   "id": "ringedseal",
+   "name": "Ringed seal",
+   "latin": "Pusa hispida",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Ringed seal",
+   "desc": "Lives under the ice, keeping breathing holes open and hunting cod.",
+   "ic": "seal"
+  },
+  {
+   "id": "beluga",
+   "name": "Beluga",
+   "latin": "Delphinapterus leucas",
+   "tl": 3,
+   "xh": 0.32,
+   "wiki": "Beluga whale",
+   "desc": "A white whale that hunts cod and other fish in shallow Arctic waters.",
+   "ic": "whale"
+  },
+  {
+   "id": "walrus",
+   "name": "Walrus",
+   "latin": "Odobenus rosmarus",
+   "tl": 3,
+   "xh": 0.44,
+   "wiki": "Walrus",
+   "desc": "Digs clams out of the seabed with its whiskers.",
+   "ic": "seal"
+  },
+  {
+   "id": "murre",
+   "name": "Thick-billed murre",
+   "latin": "Uria lomvia",
+   "tl": 3,
+   "xh": 0.56,
+   "wiki": "Thick-billed murre",
+   "desc": "A seabird that dives deep for cod and nests on crowded cliffs.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "gull",
+   "name": "Glaucous gull",
+   "latin": "Larus hyperboreus",
+   "tl": 3,
+   "xh": 0.68,
+   "wiki": "Glaucous gull",
+   "desc": "Eats eggs, chicks and carrion, often following polar bears and foxes.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "snowyowl",
+   "name": "Snowy owl",
+   "latin": "Bubo scandiacus",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "Snowy owl",
+   "desc": "Hunts lemmings by day and lays more eggs in years when lemmings are plentiful.",
+   "ic": "hawk"
+  },
+  {
+   "id": "arcticfox",
+   "name": "Arctic fox",
+   "latin": "Vulpes lagopus",
+   "tl": 3,
+   "xh": 0.92,
+   "wiki": "Arctic fox",
+   "desc": "Hunts lemmings, raids nests and follows polar bears and wolves to scavenge.",
+   "ic": "fox"
+  },
+  {
+   "id": "shorebird",
+   "name": "Migratory shorebirds",
+   "latin": "Arenaria and Calidris spp.",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Ruddy turnstone",
+   "desc": "Nest on the tundra for a few summer weeks, feeding on insects, seeds and eggs. Many then fly to coasts and reef flats as far south as Australia.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "polarbear",
+   "name": "Polar bear",
+   "latin": "Ursus maritimus",
+   "tl": 4,
+   "xh": 0.25,
+   "wiki": "Polar bear",
+   "desc": "Hunts seals from the sea ice, so it depends on that ice to feed.",
+   "ic": "grizzly",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "orca",
+   "name": "Orca",
+   "latin": "Orcinus orca",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Orca",
+   "desc": "Hunts seals, belugas and walruses as ice retreats and open water spreads.",
+   "ic": "whale"
+  },
+  {
+   "id": "arcticwolf",
+   "name": "Arctic wolf",
+   "latin": "Canis lupus arctos",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Arctic wolf",
+   "desc": "Follows caribou and muskox herds and hunts lemmings in summer.",
+   "ic": "wolf"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Midnight sun and polar night make the growing season short and intense.",
+   "ic": "sun"
+  },
+  {
+   "id": "seaice",
+   "name": "Sea ice",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.26,
+   "cat": "abiotic",
+   "wiki": "Sea ice",
+   "desc": "A platform for algae, seals and bears. It shrinks every year as the Arctic warms.",
+   "ic": "ice"
+  },
+  {
+   "id": "water",
+   "name": "Cold, nutrient-rich water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.44,
+   "cat": "abiotic",
+   "wiki": "Seawater",
+   "desc": "Cold water holds nutrients that feed spring blooms when sunlight returns.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Permafrost soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.66,
+   "cat": "abiotic",
+   "wiki": "Permafrost",
+   "desc": "Frozen ground limits roots to a thin summer layer and locks away carbon.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Microbes",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead matter slowly in the cold.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "icealg",
+   "r"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "sedge",
+   "r"
+  ],
+  [
+   "sun",
+   "lichen",
+   "r"
+  ],
+  [
+   "seaice",
+   "icealg",
+   "r"
+  ],
+  [
+   "water",
+   "phyto",
+   "r"
+  ],
+  [
+   "water",
+   "icealg",
+   "r"
+  ],
+  [
+   "soil",
+   "sedge",
+   "r"
+  ],
+  [
+   "soil",
+   "lichen",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "icealg",
+   "copepod"
+  ],
+  [
+   "icealg",
+   "clams"
+  ],
+  [
+   "phyto",
+   "copepod"
+  ],
+  [
+   "phyto",
+   "clams"
+  ],
+  [
+   "copepod",
+   "arcticcod"
+  ],
+  [
+   "sedge",
+   "lemming"
+  ],
+  [
+   "sedge",
+   "caribou"
+  ],
+  [
+   "sedge",
+   "muskox"
+  ],
+  [
+   "sedge",
+   "goose"
+  ],
+  [
+   "lichen",
+   "caribou"
+  ],
+  [
+   "lemming",
+   "snowyowl"
+  ],
+  [
+   "lemming",
+   "arcticfox"
+  ],
+  [
+   "goose",
+   "arcticfox"
+  ],
+  [
+   "goose",
+   "gull"
+  ],
+  [
+   "caribou",
+   "arcticwolf"
+  ],
+  [
+   "muskox",
+   "arcticwolf"
+  ],
+  [
+   "arcticcod",
+   "ringedseal"
+  ],
+  [
+   "arcticcod",
+   "beluga"
+  ],
+  [
+   "arcticcod",
+   "murre"
+  ],
+  [
+   "clams",
+   "walrus"
+  ],
+  [
+   "ringedseal",
+   "polarbear"
+  ],
+  [
+   "ringedseal",
+   "orca"
+  ],
+  [
+   "beluga",
+   "orca"
+  ],
+  [
+   "beluga",
+   "polarbear"
+  ],
+  [
+   "walrus",
+   "polarbear"
+  ],
+  [
+   "walrus",
+   "orca"
+  ],
+  [
+   "murre",
+   "arcticfox"
+  ],
+  [
+   "murre",
+   "gull"
+  ],
+  [
+   "lemming",
+   "arcticwolf"
+  ],
+  [
+   "arcticfox",
+   "arcticwolf"
+  ],
+  [
+   "sedge",
+   "shorebird"
+  ],
+  [
+   "shorebird",
+   "arcticfox"
+  ],
+  [
+   "shorebird",
+   "gull"
+  ],
+  [
+   "polarbear",
+   "arcticfox",
+   "s"
+  ],
+  [
+   "polarbear",
+   "gull",
+   "s"
+  ],
+  [
+   "arcticwolf",
+   "arcticfox",
+   "s"
+  ],
+  [
+   "arcticwolf",
+   "gull",
+   "s"
+  ],
+  [
+   "icealg",
+   "decomp",
+   "d"
+  ],
+  [
+   "sedge",
+   "decomp",
+   "d"
+  ],
+  [
+   "lichen",
+   "decomp",
+   "d"
+  ],
+  [
+   "caribou",
+   "decomp",
+   "d"
+  ],
+  [
+   "muskox",
+   "decomp",
+   "d"
+  ],
+  [
+   "clams",
+   "ringedseal"
+  ],
+  [
+   "goose",
+   "snowyowl"
+  ],
+  [
+   "caribou",
+   "arcticfox"
+  ],
+  [
+   "goose",
+   "polarbear"
+  ],
+  [
+   "caribou",
+   "polarbear"
+  ],
+  [
+   "murre",
+   "polarbear"
+  ],
+  [
+   "gull",
+   "polarbear"
+  ],
+  [
+   "snowyowl",
+   "polarbear"
+  ],
+  [
+   "arcticfox",
+   "polarbear"
+  ],
+  [
+   "murre",
+   "arcticwolf"
+  ],
+  [
+   "gull",
+   "arcticwolf"
+  ],
+  [
+   "snowyowl",
+   "arcticwolf"
+  ]
+ ],
+ "sources": [
+  {
+   "title": "Wikipedia: Arctic ecology",
+   "url": "https://en.wikipedia.org/wiki/Arctic_ecology"
+  }
+ ],
+ "notes": "This ecosystem was written from general knowledge. The source is an overview, and individual species and links have not been checked one by one. Feeding links that match a GloBI (Global Biotic Interactions) record are marked in the node details, with a link to the records. A few links were added from GloBI records.",
+ "cont": "North America",
+ "country": "Canada",
+ "imgwiki": "Tundra",
+ "icon": "grizzly",
+ "tier": "detailed",
+ "kind": "Polar & mountain",
+ "ev": {
+  "icealg>copepod": [
+   "a"
+  ],
+  "icealg>clams": [
+   "a"
+  ],
+  "phyto>copepod": [
+   "a"
+  ],
+  "phyto>clams": [
+   "a"
+  ],
+  "copepod>arcticcod": [
+   "g",
+   "Boreogadus saida",
+   "Calanus glacialis"
+  ],
+  "sedge>lemming": [
+   "a"
+  ],
+  "sedge>caribou": [
+   "g",
+   "Rangifer tarandus",
+   "Carex"
+  ],
+  "sedge>muskox": [
+   "a"
+  ],
+  "sedge>goose": [
+   "g",
+   "Anser caerulescens",
+   "Carex"
+  ],
+  "lichen>caribou": [
+   "gg",
+   "Rangifer tarandus",
+   "Cladonia rangiferina"
+  ],
+  "lemming>snowyowl": [
+   "g",
+   "Bubo scandiacus",
+   "Dicrostonyx groenlandicus"
+  ],
+  "lemming>arcticfox": [
+   "gg",
+   "Vulpes lagopus",
+   "Dicrostonyx groenlandicus"
+  ],
+  "goose>arcticfox": [
+   "g",
+   "Vulpes lagopus",
+   "Anser caerulescens"
+  ],
+  "goose>gull": [
+   "g",
+   "Larus hyperboreus",
+   "Anser caerulescens"
+  ],
+  "caribou>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Rangifer tarandus"
+  ],
+  "muskox>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Ovibos moschatus"
+  ],
+  "arcticcod>ringedseal": [
+   "g",
+   "Pusa hispida",
+   "Boreogadus saida"
+  ],
+  "arcticcod>beluga": [
+   "g",
+   "Delphinapterus leucas",
+   "Boreogadus saida"
+  ],
+  "arcticcod>murre": [
+   "g",
+   "Uria lomvia",
+   "Boreogadus saida"
+  ],
+  "clams>walrus": [
+   "g",
+   "Odobenus rosmarus",
+   "Mya truncata"
+  ],
+  "ringedseal>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Pusa hispida"
+  ],
+  "ringedseal>orca": [
+   "g",
+   "Orcinus orca",
+   "Pusa hispida"
+  ],
+  "beluga>orca": [
+   "g",
+   "Orcinus orca",
+   "Delphinapterus leucas"
+  ],
+  "beluga>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Delphinapterus leucas"
+  ],
+  "walrus>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Odobenus rosmarus"
+  ],
+  "walrus>orca": [
+   "g",
+   "Orcinus orca",
+   "Odobenus rosmarus"
+  ],
+  "murre>arcticfox": [
+   "g",
+   "Vulpes lagopus",
+   "Uria lomvia"
+  ],
+  "murre>gull": [
+   "g",
+   "Larus hyperboreus",
+   "Uria lomvia"
+  ],
+  "lemming>arcticwolf": [
+   "gg",
+   "Canis lupus",
+   "Dicrostonyx groenlandicus"
+  ],
+  "arcticfox>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Vulpes lagopus"
+  ],
+  "sedge>shorebird": [
+   "a"
+  ],
+  "shorebird>arcticfox": [
+   "gg",
+   "Vulpes lagopus",
+   "Arenaria"
+  ],
+  "shorebird>gull": [
+   "gg",
+   "Larus hyperboreus",
+   "Arenaria"
+  ],
+  "polarbear>arcticfox": [
+   "a"
+  ],
+  "polarbear>gull": [
+   "a"
+  ],
+  "arcticwolf>arcticfox": [
+   "a"
+  ],
+  "arcticwolf>gull": [
+   "a"
+  ],
+  "clams>ringedseal": [
+   "g",
+   "Pusa hispida",
+   "Mya truncata"
+  ],
+  "goose>snowyowl": [
+   "g",
+   "Bubo scandiacus",
+   "Anser caerulescens"
+  ],
+  "caribou>arcticfox": [
+   "g",
+   "Vulpes lagopus",
+   "Rangifer tarandus"
+  ],
+  "goose>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Anser caerulescens"
+  ],
+  "caribou>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Rangifer tarandus"
+  ],
+  "murre>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Uria lomvia"
+  ],
+  "gull>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Larus hyperboreus"
+  ],
+  "snowyowl>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Bubo scandiacus"
+  ],
+  "arcticfox>polarbear": [
+   "g",
+   "Ursus maritimus",
+   "Vulpes lagopus"
+  ],
+  "murre>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Uria lomvia"
+  ],
+  "gull>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Larus hyperboreus"
+  ],
+  "snowyowl>arcticwolf": [
+   "g",
+   "Canis lupus",
+   "Bubo scandiacus"
+  ]
+ }
+}

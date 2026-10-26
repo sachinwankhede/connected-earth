@@ -1,0 +1,460 @@
+{
+ "id": "xoman",
+ "name": "Ras al Jinz Turtle Reserve and Arabian Sea coast",
+ "short": "Ras al Jinz",
+ "place": "Oman",
+ "lat": 22.53,
+ "lon": 59.8,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Oman",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Green turtles nest on warm sand beside one of the richest seas on Earth.",
+ "tip": {
+  "id": "turtle",
+  "title": "Remove the green turtles",
+  "text": "Set Green turtle to -100% and watch the ghost crabs, red foxes and gulls lose eggs and hatchlings, the tiger shark lose its main prey, and seagrass and algae go ungrazed."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Ras al Hadd",
+   "url": "https://en.wikipedia.org/wiki/Ras_al_Hadd"
+  },
+  {
+   "title": "UNESCO tentative list: Ras al Hadd Turtle Reserve and Ras al Jinz",
+   "url": "https://whc.unesco.org/en/tentativelists/5840"
+  },
+  {
+   "title": "Wikipedia: Green sea turtle",
+   "url": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  },
+  {
+   "title": "Wikipedia: Arabian Sea",
+   "url": "https://en.wikipedia.org/wiki/Arabian_Sea"
+  },
+  {
+   "title": "Wikipedia: Crab-plover",
+   "url": "https://en.wikipedia.org/wiki/Crab-plover"
+  },
+  {
+   "title": "Wikipedia: Indian Ocean humpback dolphin",
+   "url": "https://en.wikipedia.org/wiki/Indian_Ocean_humpback_dolphin"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Ras al Hadd",
+ "icon": "turtle",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Strong year-round sun drives algae and seagrass growth in the clear shallows and warms the sand where turtle eggs incubate.",
+   "ic": "sun"
+  },
+  {
+   "id": "upwell",
+   "name": "Monsoon upwelling",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Upwelling",
+   "desc": "Summer monsoon winds draw nutrient-rich water to the surface of the Arabian Sea, making it one of the most productive seas on Earth.",
+   "ic": "water"
+  },
+  {
+   "id": "lagoon",
+   "name": "Tidal lagoons (khaurs)",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "cat": "abiotic",
+   "wiki": "Lagoon",
+   "desc": "Lagoons such as Khaur Jarama have mudflats, scattered mangroves and fish nursery habitat, and feed wintering waders.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.85,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Microbes and scavenging invertebrates break down dead animals, eggs and plant matter, returning nutrients to sand and lagoon.",
+   "ic": "decomp"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Microscopic algae",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting microscopic algae that bloom when monsoon upwelling brings nutrients up; the base of the open-water food chain.",
+   "ic": "algae"
+  },
+  {
+   "id": "seagrass",
+   "name": "Seagrass",
+   "latin": "Halophila",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Halophila",
+   "desc": "Seagrass meadows in warm shallow water are the main food of adult green turtles, and shelter young fish.",
+   "ic": "sage"
+  },
+  {
+   "id": "ulva",
+   "name": "Sea lettuce",
+   "latin": "Ulva",
+   "tl": 1,
+   "xh": 0.58,
+   "wiki": "Ulva lactuca",
+   "desc": "A green seaweed of rocky and shallow shores that green turtles are recorded grazing.",
+   "ic": "algae"
+  },
+  {
+   "id": "mangrove",
+   "name": "Grey mangrove",
+   "latin": "Avicennia marina",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Avicennia marina",
+   "desc": "Salt-tolerant tree that grows in scattered stands in the lagoons, where it stabilises mud and shelters young fish and crabs.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "copepod",
+   "name": "Copepods",
+   "latin": "Copepoda",
+   "tl": 2,
+   "xh": 0.12,
+   "wiki": "Copepod",
+   "desc": "Tiny crustaceans that graze phytoplankton and are in turn eaten by small fish.",
+   "ic": "hopper"
+  },
+  {
+   "id": "sardine",
+   "name": "Indian oil sardine",
+   "latin": "Sardinella longiceps",
+   "tl": 2,
+   "xh": 0.35,
+   "wiki": "Indian oil sardine",
+   "desc": "A schooling fish of the Arabian Sea that feeds on plankton and is a key prey fish for birds, dolphins and larger fish.",
+   "ic": "trout"
+  },
+  {
+   "id": "turtle",
+   "name": "Green turtle",
+   "latin": "Chelonia mydas",
+   "tl": 2,
+   "xh": 0.58,
+   "wiki": "Green sea turtle",
+   "desc": "Adults graze seagrass and algae; females nest on the beaches of Ras al Jinz and Ras al Hadd year-round. The reserve is among the world's most important green turtle nesting sites.",
+   "ic": "turtle",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "camel",
+   "name": "Dromedary",
+   "latin": "Camelus dromedarius",
+   "tl": 2,
+   "xh": 0.85,
+   "wiki": "Dromedary",
+   "desc": "Domestic camels graze and browse coastal shrubs and mangroves along the Arabian coast; a few records fall in the circle.",
+   "ic": "quad"
+  },
+  {
+   "id": "ghostcrab",
+   "name": "Ghost crab",
+   "latin": "Ocypode",
+   "tl": 3,
+   "xh": 0.06,
+   "wiki": "Ocypode",
+   "desc": "Burrowing beach crabs that hunt and scavenge at night; crabs are among the predators of turtle hatchlings crossing the sand.",
+   "ic": "hopper"
+  },
+  {
+   "id": "crabplover",
+   "name": "Crab-plover",
+   "latin": "Dromas ardeola",
+   "tl": 3,
+   "xh": 0.24,
+   "wiki": "Crab-plover",
+   "desc": "A wader with a heavy bill specialised for eating crabs; it nests in burrows in sandy banks around the Arabian Sea.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "sootygull",
+   "name": "Sooty gull",
+   "latin": "Ichthyaetus hemprichii",
+   "tl": 3,
+   "xh": 0.42,
+   "wiki": "Sooty gull",
+   "desc": "A very commonly recorded gull on this coast. Gulls are known to take turtle hatchlings as they crawl to the sea.",
+   "ic": "hawk"
+  },
+  {
+   "id": "tern",
+   "name": "Great crested tern",
+   "latin": "Thalasseus bergii",
+   "tl": 3,
+   "xh": 0.58,
+   "wiki": "Great crested tern",
+   "desc": "A fish-eating tern that plunge-dives for small schooling fish along the shore.",
+   "ic": "hawk"
+  },
+  {
+   "id": "osprey",
+   "name": "Osprey",
+   "latin": "Pandion haliaetus",
+   "tl": 3,
+   "xh": 0.74,
+   "wiki": "Osprey",
+   "desc": "A fish-eating raptor that hunts by diving; commonly recorded along this coast.",
+   "ic": "osprey"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.92,
+   "wiki": "Red fox",
+   "desc": "An opportunistic predator and scavenger; red foxes are known to dig up and eat sea turtle eggs.",
+   "ic": "fox"
+  },
+  {
+   "id": "shark",
+   "name": "Tiger shark",
+   "latin": "Galeocerdo cuvier",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Tiger shark",
+   "desc": "A large shark and the main natural predator of sea turtles of all sizes.",
+   "ic": "shark",
+   "badge": "Apex predator"
+  },
+  {
+   "id": "dolphin",
+   "name": "Indian Ocean humpback dolphin",
+   "latin": "Sousa plumbea",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Indian Ocean humpback dolphin",
+   "desc": "A shallow coastal dolphin that feeds on fish, squid and crustaceans, with important populations along the Arabian Peninsula.",
+   "ic": "whale",
+   "badge": "Apex predator"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "seagrass",
+   "r"
+  ],
+  [
+   "sun",
+   "ulva",
+   "r"
+  ],
+  [
+   "upwell",
+   "phyto",
+   "r"
+  ],
+  [
+   "upwell",
+   "ulva",
+   "r"
+  ],
+  [
+   "lagoon",
+   "mangrove",
+   "r"
+  ],
+  [
+   "lagoon",
+   "seagrass",
+   "r"
+  ],
+  [
+   "decomp",
+   "lagoon",
+   "r"
+  ],
+  [
+   "phyto",
+   "copepod"
+  ],
+  [
+   "phyto",
+   "sardine"
+  ],
+  [
+   "copepod",
+   "sardine"
+  ],
+  [
+   "seagrass",
+   "turtle"
+  ],
+  [
+   "ulva",
+   "turtle"
+  ],
+  [
+   "mangrove",
+   "camel"
+  ],
+  [
+   "sardine",
+   "tern"
+  ],
+  [
+   "sardine",
+   "osprey"
+  ],
+  [
+   "sardine",
+   "sootygull"
+  ],
+  [
+   "sardine",
+   "dolphin"
+  ],
+  [
+   "turtle",
+   "ghostcrab"
+  ],
+  [
+   "turtle",
+   "fox"
+  ],
+  [
+   "turtle",
+   "sootygull"
+  ],
+  [
+   "turtle",
+   "shark"
+  ],
+  [
+   "ghostcrab",
+   "crabplover"
+  ],
+  [
+   "ghostcrab",
+   "sootygull"
+  ],
+  [
+   "turtle",
+   "decomp",
+   "d"
+  ],
+  [
+   "camel",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "sootygull",
+   "decomp",
+   "d"
+  ],
+  [
+   "mangrove",
+   "decomp",
+   "d"
+  ],
+  [
+   "ghostcrab",
+   "decomp",
+   "d"
+  ],
+  [
+   "camel",
+   "fox"
+  ]
+ ],
+ "ev": {
+  "phyto>copepod": [
+   "a"
+  ],
+  "phyto>sardine": [
+   "a"
+  ],
+  "copepod>sardine": [
+   "a"
+  ],
+  "seagrass>turtle": [
+   "gg",
+   "Chelonia mydas",
+   "Halophila"
+  ],
+  "ulva>turtle": [
+   "g",
+   "Chelonia mydas",
+   "Ulva"
+  ],
+  "mangrove>camel": [
+   "a"
+  ],
+  "sardine>tern": [
+   "a"
+  ],
+  "sardine>osprey": [
+   "a"
+  ],
+  "sardine>sootygull": [
+   "a"
+  ],
+  "sardine>dolphin": [
+   "a"
+  ],
+  "turtle>ghostcrab": [
+   "a"
+  ],
+  "turtle>fox": [
+   "a"
+  ],
+  "turtle>sootygull": [
+   "a"
+  ],
+  "turtle>shark": [
+   "g",
+   "Galeocerdo cuvier",
+   "Chelonia mydas"
+  ],
+  "ghostcrab>crabplover": [
+   "a"
+  ],
+  "ghostcrab>sootygull": [
+   "a"
+  ],
+  "camel>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Camelus dromedarius"
+  ]
+ }
+}

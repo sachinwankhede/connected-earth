@@ -1,0 +1,662 @@
+{
+ "id": "smokies",
+ "name": "Great Smoky Mountains",
+ "short": "Smoky Mountains",
+ "place": "Tennessee and North Carolina, USA",
+ "lat": 35.6,
+ "lon": -83.5,
+ "side": "r",
+ "blurb": "Mast-rich hardwood forests, salamanders and bears under threat from tiny pests.",
+ "tip": {
+  "id": "oak",
+  "title": "Fail the acorn crop",
+  "text": "Oak mast fuels bears, turkeys, deer and squirrels. Cut Oaks & hickories and see the animals that depend on autumn nuts, and the predators above them, feel it."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Great Smoky Mountains National Park",
+   "url": "https://en.wikipedia.org/wiki/Great_Smoky_Mountains_National_Park"
+  },
+  {
+   "title": "NPS: Mammals of Great Smoky Mountains",
+   "url": "https://www.nps.gov/grsm/learn/nature/mammals.htm"
+  },
+  {
+   "title": "Wikipedia: American black bear",
+   "url": "https://en.wikipedia.org/wiki/American_black_bear"
+  },
+  {
+   "title": "Wikipedia: Brook trout",
+   "url": "https://en.wikipedia.org/wiki/Brook_trout"
+  },
+  {
+   "title": "Wikipedia: Hemlock woolly adelgid",
+   "url": "https://en.wikipedia.org/wiki/Hemlock_woolly_adelgid"
+  },
+  {
+   "title": "Wikipedia: Photinus carolinus",
+   "url": "https://en.wikipedia.org/wiki/Photinus_carolinus"
+  }
+ ],
+ "notes": "Feeding links were checked against the sources listed where they state them. Where the sources are silent, links come from general ecological knowledge and are illustrative. Feeding links that match a GloBI (Global Biotic Interactions) record are marked in the node details, with a link to the records. A few links were added from GloBI records.",
+ "imgwiki": "Great Smoky Mountains National Park",
+ "icon": "grizzly",
+ "tier": "overview",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Tennessee",
+  "North Carolina"
+ ],
+ "nodes": [
+  {
+   "id": "oak",
+   "name": "Oaks & hickories",
+   "latin": "Quercus, Carya",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Oak",
+   "desc": "Dominant trees of the drier forest. Their acorns and nuts are the fall mast that bears, turkeys, deer and squirrels fatten on.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "chestnut",
+   "name": "American chestnut",
+   "latin": "Castanea dentata",
+   "tl": 1,
+   "xh": 0.26,
+   "wiki": "American chestnut",
+   "desc": "Once a major canopy tree, it was killed off by chestnut blight in the early to mid 1900s. Sprouts still grow but rarely reach the canopy.",
+   "ic": "willow"
+  },
+  {
+   "id": "hemlock",
+   "name": "Eastern hemlock",
+   "latin": "Tsuga canadensis",
+   "tl": 1,
+   "xh": 0.42,
+   "wiki": "Tsuga canadensis",
+   "desc": "A dominant cove tree that shades cool streams and damp ground. The hemlock woolly adelgid, which sucks sap from the tree, is killing hemlocks across the southern Appalachians.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "berries",
+   "name": "Berries & understory plants",
+   "latin": "Vaccinium and others",
+   "tl": 1,
+   "xh": 0.6,
+   "wiki": "Vaccinium",
+   "desc": "Blueberries, huckleberries and other soft fruits and greens that feed bears, turkeys and deer in summer.",
+   "ic": "sage"
+  },
+  {
+   "id": "fir",
+   "name": "Fraser fir",
+   "latin": "Abies fraseri",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Abies fraseri",
+   "desc": "Grows near the highest summits. The balsam woolly adelgid killed most mature firs from the 1960s on, though young firs are regrowing on some peaks.",
+   "ic": "willow"
+  },
+  {
+   "id": "litter",
+   "name": "Leaf-litter invertebrates",
+   "latin": "Springtails, snails, worms",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Springtail",
+   "desc": "Tiny animals that eat decaying leaves and fungi on the forest floor. They are food for salamanders and firefly larvae.",
+   "ic": "hopper"
+  },
+  {
+   "id": "deer",
+   "name": "White-tailed deer",
+   "latin": "Odocoileus virginianus",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "White-tailed deer",
+   "desc": "Browses plants and eats acorns. The NPS lists bobcats and coyotes among the predators that help keep deer numbers in check.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "squirrel",
+   "name": "Gray squirrel",
+   "latin": "Sciurus carolinensis",
+   "tl": 2,
+   "xh": 0.33,
+   "wiki": "Eastern gray squirrel",
+   "desc": "Eats and caches acorns and nuts. Bears are known to raid squirrel nut caches.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "turkey",
+   "name": "Wild turkey",
+   "latin": "Meleagris gallopavo",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "Wild turkey",
+   "desc": "Forages on the forest floor for acorns, fruits and insects.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "elk",
+   "name": "Elk",
+   "latin": "Cervus canadensis",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Elk",
+   "desc": "The park's largest mammal. Overhunting removed it, and it was reintroduced in 2001, now seen mostly in Cataloochee and Oconaluftee. Grazes grass and other plants.",
+   "ic": "elk"
+  },
+  {
+   "id": "aqinsect",
+   "name": "Stream insects",
+   "latin": "Mayflies, stoneflies, caddisflies",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "Caddisfly",
+   "desc": "Larvae in cold streams feed on leaf litter and algae, and in turn feed trout and stream salamanders.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "salamander",
+   "name": "Lungless salamanders",
+   "latin": "Plethodontidae",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Plethodontidae",
+   "desc": "The Smokies hold up to 31 salamander species, earning the title Salamander Capital of the World. These small amphibians eat tiny invertebrates.",
+   "ic": "snake"
+  },
+  {
+   "id": "firefly",
+   "name": "Synchronous firefly",
+   "latin": "Photinus carolinus",
+   "tl": 3,
+   "xh": 0.22,
+   "wiki": "Photinus carolinus",
+   "desc": "Famous for synchronized flashing in early summer near Elkmont. Its larvae live in soil and eat snails, worms and other soft-bodied animals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "bear",
+   "name": "American black bear",
+   "latin": "Ursus americanus",
+   "tl": 3,
+   "xh": 0.45,
+   "wiki": "American black bear",
+   "desc": "About 1,900 bears live in the park. Mostly plant eaters, they switch from fruit in summer to hard mast in autumn, and also take insects, trout, carrion and fawns.",
+   "ic": "grizzly",
+   "badge": "Mast consumer"
+  },
+  {
+   "id": "trout",
+   "name": "Brook trout",
+   "latin": "Salvelinus fontinalis",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "Brook trout",
+   "desc": "The park's only native trout, now mostly in cold high streams after non-native rainbow and brown trout took over lower reaches. Eats insects and small animals.",
+   "ic": "trout"
+  },
+  {
+   "id": "bobcat",
+   "name": "Bobcat",
+   "latin": "Lynx rufus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Bobcat",
+   "desc": "The only wild cat left in the park. Preys on deer and smaller animals such as squirrels and turkeys.",
+   "ic": "lion"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.6,
+   "wiki": "Coyote",
+   "desc": "Arrived in the late 1900s and is now the park's largest wild canine, filling the role left after the failed red wolf reintroduction of 1991.",
+   "ic": "coyote"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Powers the leafy summer canopy and the understory below it.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Rain & mountain fog",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "wiki": "Rain",
+   "desc": "Heavy rainfall and cool, moist air keep the high forests and streams wet.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Forest soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.6,
+   "wiki": "Soil",
+   "desc": "Rich, moist soil in the coves and slopes supports the tall hardwood forest.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, logs and carcasses and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "oak",
+   "r"
+  ],
+  [
+   "sun",
+   "chestnut",
+   "r"
+  ],
+  [
+   "sun",
+   "hemlock",
+   "r"
+  ],
+  [
+   "sun",
+   "berries",
+   "r"
+  ],
+  [
+   "sun",
+   "fir",
+   "r"
+  ],
+  [
+   "rain",
+   "oak",
+   "r"
+  ],
+  [
+   "rain",
+   "chestnut",
+   "r"
+  ],
+  [
+   "rain",
+   "hemlock",
+   "r"
+  ],
+  [
+   "rain",
+   "berries",
+   "r"
+  ],
+  [
+   "rain",
+   "fir",
+   "r"
+  ],
+  [
+   "soil",
+   "oak",
+   "r"
+  ],
+  [
+   "soil",
+   "chestnut",
+   "r"
+  ],
+  [
+   "soil",
+   "hemlock",
+   "r"
+  ],
+  [
+   "soil",
+   "berries",
+   "r"
+  ],
+  [
+   "soil",
+   "fir",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "oak",
+   "deer"
+  ],
+  [
+   "oak",
+   "squirrel"
+  ],
+  [
+   "oak",
+   "turkey"
+  ],
+  [
+   "oak",
+   "bear"
+  ],
+  [
+   "oak",
+   "litter"
+  ],
+  [
+   "oak",
+   "aqinsect"
+  ],
+  [
+   "hemlock",
+   "litter"
+  ],
+  [
+   "fir",
+   "litter"
+  ],
+  [
+   "berries",
+   "bear"
+  ],
+  [
+   "berries",
+   "turkey"
+  ],
+  [
+   "berries",
+   "deer"
+  ],
+  [
+   "berries",
+   "elk"
+  ],
+  [
+   "litter",
+   "salamander"
+  ],
+  [
+   "litter",
+   "firefly"
+  ],
+  [
+   "aqinsect",
+   "salamander"
+  ],
+  [
+   "aqinsect",
+   "trout"
+  ],
+  [
+   "deer",
+   "bear"
+  ],
+  [
+   "elk",
+   "bear"
+  ],
+  [
+   "trout",
+   "bear"
+  ],
+  [
+   "deer",
+   "bobcat"
+  ],
+  [
+   "deer",
+   "coyote"
+  ],
+  [
+   "squirrel",
+   "bobcat"
+  ],
+  [
+   "squirrel",
+   "coyote"
+  ],
+  [
+   "turkey",
+   "bobcat"
+  ],
+  [
+   "turkey",
+   "coyote"
+  ],
+  [
+   "salamander",
+   "trout"
+  ],
+  [
+   "oak",
+   "decomp",
+   "d"
+  ],
+  [
+   "chestnut",
+   "decomp",
+   "d"
+  ],
+  [
+   "hemlock",
+   "decomp",
+   "d"
+  ],
+  [
+   "berries",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "bear",
+   "decomp",
+   "d"
+  ],
+  [
+   "fir",
+   "decomp",
+   "d"
+  ],
+  [
+   "hemlock",
+   "deer"
+  ],
+  [
+   "hemlock",
+   "turkey"
+  ],
+  [
+   "elk",
+   "bobcat"
+  ],
+  [
+   "berries",
+   "coyote"
+  ],
+  [
+   "elk",
+   "coyote"
+  ],
+  [
+   "bear",
+   "coyote"
+  ]
+ ],
+ "link_ideas": [
+  {
+   "kind": "species",
+   "with": "Alligator River NWR, North Carolina",
+   "what": "Red wolves removed from the Smokies in 1998 were moved to Alligator River",
+   "evidence_url": "https://en.wikipedia.org/wiki/Great_Smoky_Mountains_National_Park"
+  }
+ ],
+ "kind": "Forest",
+ "ev": {
+  "oak>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Quercus"
+  ],
+  "oak>squirrel": [
+   "g",
+   "Sciurus carolinensis",
+   "Quercus"
+  ],
+  "oak>turkey": [
+   "g",
+   "Meleagris gallopavo",
+   "Quercus"
+  ],
+  "oak>bear": [
+   "gg",
+   "Ursus americanus",
+   "Quercus"
+  ],
+  "oak>litter": [
+   "a"
+  ],
+  "oak>aqinsect": [
+   "a"
+  ],
+  "hemlock>litter": [
+   "a"
+  ],
+  "fir>litter": [
+   "a"
+  ],
+  "berries>bear": [
+   "g",
+   "Ursus americanus",
+   "Vaccinium"
+  ],
+  "berries>turkey": [
+   "a"
+  ],
+  "berries>deer": [
+   "gg",
+   "Odocoileus virginianus",
+   "Vaccinium"
+  ],
+  "berries>elk": [
+   "a"
+  ],
+  "litter>salamander": [
+   "a"
+  ],
+  "litter>firefly": [
+   "a"
+  ],
+  "aqinsect>salamander": [
+   "a"
+  ],
+  "aqinsect>trout": [
+   "a"
+  ],
+  "deer>bear": [
+   "g",
+   "Ursus americanus",
+   "Odocoileus virginianus"
+  ],
+  "elk>bear": [
+   "g",
+   "Ursus americanus",
+   "Cervus canadensis"
+  ],
+  "trout>bear": [
+   "a"
+  ],
+  "deer>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Odocoileus virginianus"
+  ],
+  "deer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus virginianus"
+  ],
+  "squirrel>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Sciurus carolinensis"
+  ],
+  "squirrel>coyote": [
+   "g",
+   "Canis latrans",
+   "Sciurus carolinensis"
+  ],
+  "turkey>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Meleagris gallopavo"
+  ],
+  "turkey>coyote": [
+   "g",
+   "Canis latrans",
+   "Meleagris gallopavo"
+  ],
+  "salamander>trout": [
+   "a"
+  ],
+  "hemlock>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Tsuga canadensis"
+  ],
+  "hemlock>turkey": [
+   "g",
+   "Meleagris gallopavo",
+   "Tsuga canadensis"
+  ],
+  "elk>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Cervus canadensis"
+  ],
+  "berries>coyote": [
+   "g",
+   "Canis latrans",
+   "Vaccinium"
+  ],
+  "elk>coyote": [
+   "g",
+   "Canis latrans",
+   "Cervus canadensis"
+  ],
+  "bear>coyote": [
+   "g",
+   "Canis latrans",
+   "Ursus americanus"
+  ]
+ }
+}

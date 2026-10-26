@@ -1,0 +1,653 @@
+{
+ "id": "namib",
+ "name": "Namib Desert",
+ "short": "Namib Desert",
+ "place": "Namibia, with parts of Angola and South Africa",
+ "lat": -24.5,
+ "lon": 15.2,
+ "side": "l",
+ "cont": "Africa",
+ "country": "Namibia",
+ "blurb": "Fog, drifting debris, beetles and the lions that hunt seals on the coast.",
+ "tip": {
+  "id": "fog",
+  "title": "Lift the fog",
+  "text": "Fog is the main water for dune plants and beetles. Cut Coastal fog by 80% and watch the plants, then the animals that depend on them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Namib",
+   "url": "https://en.wikipedia.org/wiki/Namib"
+  },
+  {
+   "title": "Wikipedia: Skeleton Coast",
+   "url": "https://en.wikipedia.org/wiki/Skeleton_Coast"
+  },
+  {
+   "title": "Wikipedia: Stenocara gracilipes",
+   "url": "https://en.wikipedia.org/wiki/Stenocara_gracilipes"
+  },
+  {
+   "title": "Wikipedia: Brown hyena",
+   "url": "https://en.wikipedia.org/wiki/Brown_hyena"
+  },
+  {
+   "title": "Wikipedia: Peringuey's adder",
+   "url": "https://en.wikipedia.org/wiki/Peringuey%27s_adder"
+  },
+  {
+   "title": "Wikipedia: Gemsbok",
+   "url": "https://en.wikipedia.org/wiki/Gemsbok"
+  }
+ ],
+ "notes": "Feeding links were checked against the sources listed where they state them. Where the sources are silent, links come from general ecological knowledge and are illustrative. Feeding links that match a GloBI (Global Biotic Interactions) record are marked in the node details, with a link to the records. A few links were added from GloBI records.",
+ "imgwiki": "Namib",
+ "icon": "sun",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "stipa",
+   "name": "Dune grasses",
+   "latin": "Stipagrostis species",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Stipagrostis",
+   "desc": "Tussock grasses that grow on Namib dunes and gravel plains and feed grazers, seed eaters and termites.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "nara",
+   "name": "Nara melon",
+   "latin": "Acanthosicyos horridus",
+   "tl": 1,
+   "xh": 0.32,
+   "wiki": "Acanthosicyos horridus",
+   "desc": "A spiny, leafless melon plant of coastal dunes that fruits for animals and people. Its roots tap deep water.",
+   "ic": "sage"
+  },
+  {
+   "id": "welw",
+   "name": "Welwitschia",
+   "latin": "Welwitschia mirabilis",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Welwitschia",
+   "desc": "A long-lived plant with two strap-like leaves. It takes up moisture from fog as well as from groundwater.",
+   "ic": "sage"
+  },
+  {
+   "id": "tree",
+   "name": "Ana tree & riverbed shrubs",
+   "latin": "Faidherbia albida, Salvadora and others",
+   "tl": 1,
+   "xh": 0.78,
+   "wiki": "Faidherbia albida",
+   "desc": "Trees and shrubs along dry rivers. Desert elephants feed on the leaves and seedpods of ana trees in the dry season.",
+   "ic": "willow"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Benguela Current algae",
+   "tl": 1,
+   "xh": 0.94,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting algae in the cold, productive Benguela Current, the base of the offshore food chain.",
+   "ic": "algae"
+  },
+  {
+   "id": "beetle",
+   "name": "Fog-basking beetles",
+   "latin": "Stenocara and other darkling beetles",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Stenocara gracilipes",
+   "desc": "Darkling beetles that harvest fog on their bumpy backs and drink the droplets that roll to their mouths. They scavenge wind-blown plant debris.",
+   "ic": "ant"
+  },
+  {
+   "id": "lizard",
+   "name": "Sand-diving lizard",
+   "latin": "Aporosaura anchietae",
+   "tl": 2,
+   "xh": 0.15,
+   "wiki": "Aporosaura anchietae",
+   "desc": "A dune lizard that dives into sand to escape heat and enemies. It eats wind-blown seeds and insects and is itself prey for snakes.",
+   "ic": "snake"
+  },
+  {
+   "id": "termite",
+   "name": "Harvester termites",
+   "latin": "Hodotermitidae",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Hodotermitidae",
+   "desc": "Termites that gather dry grass and carry it underground, turning scarce plant matter into food for other animals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "springbok",
+   "name": "Springbok",
+   "latin": "Antidorcas marsupialis",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Springbok",
+   "desc": "A small antelope of arid plains that grazes and browses and needs little free water.",
+   "ic": "pronghorn"
+  },
+  {
+   "id": "oryx",
+   "name": "Gemsbok (oryx)",
+   "latin": "Oryx gazella",
+   "tl": 2,
+   "xh": 0.43,
+   "wiki": "Gemsbok",
+   "desc": "A desert antelope that can meet its water needs from wild melons and cucumbers. Lions and hyenas are its natural predators in Africa.",
+   "ic": "quad"
+  },
+  {
+   "id": "ostrich",
+   "name": "Common ostrich",
+   "latin": "Struthio camelus",
+   "tl": 2,
+   "xh": 0.52,
+   "wiki": "Common ostrich",
+   "desc": "A huge flightless bird that eats plants, seeds and some insects on open desert plains.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "elephant",
+   "name": "Desert-adapted elephant",
+   "latin": "Loxodonta africana",
+   "tl": 2,
+   "xh": 0.68,
+   "wiki": "Desert elephant",
+   "desc": "Elephants that follow dry riverbeds and may walk up to 70 km at night between water points. They eat browse such as ana tree leaves and pods.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "anchovy",
+   "name": "Cape anchovy & sardine",
+   "latin": "Engraulis encrasicolus, Sardinops sagax",
+   "tl": 2,
+   "xh": 0.94,
+   "wiki": "Cape anchovy",
+   "desc": "Small schooling fish that eat plankton and feed the seals and seabirds of the Skeleton Coast.",
+   "ic": "trout"
+  },
+  {
+   "id": "gecko",
+   "name": "Web-footed gecko",
+   "latin": "Pachydactylus rangei",
+   "tl": 3,
+   "xh": 0.06,
+   "wiki": "Palmatogecko rangei",
+   "desc": "A night-active dune gecko with webbed feet. It eats small arthropods and gets most of its water from dew on plants.",
+   "ic": "snake"
+  },
+  {
+   "id": "mole",
+   "name": "Namib golden mole",
+   "latin": "Eremitalpa granti namibensis",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Namib golden mole",
+   "desc": "A blind, sand-swimming mole that hunts insects under the dunes.",
+   "ic": "vole"
+  },
+  {
+   "id": "adder",
+   "name": "Peringuey's adder",
+   "latin": "Bitis peringueyi",
+   "tl": 3,
+   "xh": 0.24,
+   "wiki": "Peringuey's adder",
+   "desc": "A small sidewinding viper that buries itself in sand and ambushes lizards. Dune lizards with high water content help it get water.",
+   "ic": "snake"
+  },
+  {
+   "id": "aardwolf",
+   "name": "Aardwolf",
+   "latin": "Proteles cristata",
+   "tl": 3,
+   "xh": 0.33,
+   "wiki": "Aardwolf",
+   "desc": "A small hyena relative that specializes in eating termites.",
+   "ic": "coyote"
+  },
+  {
+   "id": "jackal",
+   "name": "Black-backed jackal",
+   "latin": "Lupulella mesomelas",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Black-backed jackal",
+   "desc": "A scavenging hunter of the coast and desert. On the Skeleton Coast it takes seal pups and carrion and even licks moisture from stones.",
+   "ic": "fox"
+  },
+  {
+   "id": "brownhyena",
+   "name": "Brown hyena",
+   "latin": "Parahyaena brunnea",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Brown hyena",
+   "desc": "Mostly a scavenger that lives near seal colonies on the Namib coast. It eats seal pups and often steals kills from jackals.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "seal",
+   "name": "Cape fur seal",
+   "latin": "Arctocephalus pusillus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Cape fur seal",
+   "desc": "Large colonies breed on the Namib coast and feed on fish at sea. Their pups and carcasses feed jackals, hyenas and lions on land.",
+   "ic": "seal"
+  },
+  {
+   "id": "lion",
+   "name": "Desert-adapted lion",
+   "latin": "Panthera leo",
+   "tl": 4,
+   "xh": 0.6,
+   "wiki": "Namib Desert lion",
+   "desc": "Lions on the Skeleton Coast prey on seals and shorebirds. Inland they also hunt oryx and springbok.",
+   "ic": "lion",
+   "badge": "Apex predator"
+  },
+  {
+   "id": "fog",
+   "name": "Coastal fog",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "wiki": "Fog",
+   "desc": "Cold Benguela Current air makes thick fog for much of the year. Plants and beetles drink from it where almost no rain falls.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "drift",
+   "name": "Wind-blown plant debris",
+   "latin": "Drift detritus",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Detritus",
+   "desc": "Dry plant matter carried by wind from the interior feeds dune invertebrates, which in turn support reptiles.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "ground",
+   "name": "Ephemeral river water",
+   "latin": "Groundwater",
+   "tl": 0,
+   "xh": 0.62,
+   "wiki": "Groundwater",
+   "desc": "Dry rivers carry flood pulses and keep groundwater close to the surface, supporting trees, Welwitschia and elephants.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Bacteria and fungi",
+   "tl": 0,
+   "xh": 0.8,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals, returning nutrients to the sand.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "fog",
+   "stipa",
+   "r"
+  ],
+  [
+   "fog",
+   "nara",
+   "r"
+  ],
+  [
+   "fog",
+   "welw",
+   "r"
+  ],
+  [
+   "ground",
+   "welw",
+   "r"
+  ],
+  [
+   "ground",
+   "nara",
+   "r"
+  ],
+  [
+   "ground",
+   "tree",
+   "r"
+  ],
+  [
+   "decomp",
+   "drift",
+   "r"
+  ],
+  [
+   "stipa",
+   "springbok"
+  ],
+  [
+   "stipa",
+   "oryx"
+  ],
+  [
+   "stipa",
+   "ostrich"
+  ],
+  [
+   "stipa",
+   "termite"
+  ],
+  [
+   "stipa",
+   "lizard"
+  ],
+  [
+   "nara",
+   "oryx"
+  ],
+  [
+   "tree",
+   "elephant"
+  ],
+  [
+   "tree",
+   "springbok"
+  ],
+  [
+   "phyto",
+   "anchovy"
+  ],
+  [
+   "anchovy",
+   "seal"
+  ],
+  [
+   "drift",
+   "beetle"
+  ],
+  [
+   "drift",
+   "lizard"
+  ],
+  [
+   "drift",
+   "termite"
+  ],
+  [
+   "beetle",
+   "lizard"
+  ],
+  [
+   "beetle",
+   "gecko"
+  ],
+  [
+   "beetle",
+   "mole"
+  ],
+  [
+   "termite",
+   "aardwolf"
+  ],
+  [
+   "termite",
+   "mole"
+  ],
+  [
+   "lizard",
+   "adder"
+  ],
+  [
+   "gecko",
+   "adder"
+  ],
+  [
+   "seal",
+   "jackal"
+  ],
+  [
+   "seal",
+   "brownhyena"
+  ],
+  [
+   "seal",
+   "lion"
+  ],
+  [
+   "jackal",
+   "brownhyena"
+  ],
+  [
+   "springbok",
+   "lion"
+  ],
+  [
+   "oryx",
+   "lion"
+  ],
+  [
+   "springbok",
+   "jackal"
+  ],
+  [
+   "seal",
+   "jackal",
+   "s"
+  ],
+  [
+   "seal",
+   "brownhyena",
+   "s"
+  ],
+  [
+   "springbok",
+   "brownhyena",
+   "s"
+  ],
+  [
+   "oryx",
+   "lion",
+   "s"
+  ],
+  [
+   "stipa",
+   "decomp",
+   "d"
+  ],
+  [
+   "springbok",
+   "decomp",
+   "d"
+  ],
+  [
+   "seal",
+   "decomp",
+   "d"
+  ],
+  [
+   "beetle",
+   "decomp",
+   "d"
+  ],
+  [
+   "welw",
+   "decomp",
+   "d"
+  ],
+  [
+   "oryx",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "jackal"
+  ],
+  [
+   "oryx",
+   "brownhyena"
+  ],
+  [
+   "elephant",
+   "lion"
+  ],
+  [
+   "jackal",
+   "lion"
+  ],
+  [
+   "brownhyena",
+   "lion"
+  ]
+ ],
+ "link_ideas": [
+  {
+   "kind": "flow",
+   "with": "Benguela Current / Atlantic",
+   "what": "Cold-current fog and fish feed the seal colonies that supply carrion to the coast",
+   "evidence_url": "https://en.wikipedia.org/wiki/Skeleton_Coast"
+  }
+ ],
+ "kind": "Desert",
+ "countries": [
+  "Namibia",
+  "Angola",
+  "South Africa"
+ ],
+ "ev": {
+  "stipa>springbok": [
+   "a"
+  ],
+  "stipa>oryx": [
+   "a"
+  ],
+  "stipa>ostrich": [
+   "a"
+  ],
+  "stipa>termite": [
+   "a"
+  ],
+  "stipa>lizard": [
+   "a"
+  ],
+  "nara>oryx": [
+   "a"
+  ],
+  "tree>elephant": [
+   "g",
+   "Loxodonta africana",
+   "Faidherbia albida"
+  ],
+  "tree>springbok": [
+   "a"
+  ],
+  "phyto>anchovy": [
+   "a"
+  ],
+  "anchovy>seal": [
+   "a"
+  ],
+  "beetle>lizard": [
+   "a"
+  ],
+  "beetle>gecko": [
+   "a"
+  ],
+  "beetle>mole": [
+   "a"
+  ],
+  "termite>aardwolf": [
+   "g",
+   "Proteles cristata",
+   "Hodotermitidae"
+  ],
+  "termite>mole": [
+   "a"
+  ],
+  "lizard>adder": [
+   "a"
+  ],
+  "gecko>adder": [
+   "a"
+  ],
+  "seal>jackal": [
+   "g",
+   "Lupulella mesomelas",
+   "Arctocephalus pusillus"
+  ],
+  "seal>brownhyena": [
+   "a"
+  ],
+  "seal>lion": [
+   "a"
+  ],
+  "jackal>brownhyena": [
+   "g",
+   "Parahyaena brunnea",
+   "Lupulella mesomelas"
+  ],
+  "springbok>lion": [
+   "g",
+   "Panthera leo",
+   "Antidorcas marsupialis"
+  ],
+  "oryx>lion": [
+   "g",
+   "Panthera leo",
+   "Oryx gazella"
+  ],
+  "springbok>jackal": [
+   "g",
+   "Lupulella mesomelas",
+   "Antidorcas marsupialis"
+  ],
+  "springbok>brownhyena": [
+   "g",
+   "Parahyaena brunnea",
+   "Antidorcas marsupialis"
+  ],
+  "elephant>jackal": [
+   "g",
+   "Lupulella mesomelas",
+   "Loxodonta africana"
+  ],
+  "oryx>brownhyena": [
+   "g",
+   "Parahyaena brunnea",
+   "Oryx gazella"
+  ],
+  "elephant>lion": [
+   "g",
+   "Panthera leo",
+   "Loxodonta africana"
+  ],
+  "jackal>lion": [
+   "g",
+   "Panthera leo",
+   "Lupulella mesomelas"
+  ],
+  "brownhyena>lion": [
+   "g",
+   "Panthera leo",
+   "Parahyaena brunnea"
+  ]
+ }
+}

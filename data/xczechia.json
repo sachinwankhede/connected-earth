@@ -1,0 +1,845 @@
+{
+ "id": "xczechia",
+ "name": "Sumava National Park",
+ "short": "Sumava",
+ "place": "Czechia",
+ "lat": 49.0,
+ "lon": 13.5,
+ "side": "r",
+ "cont": "Europe",
+ "country": "Czechia",
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Spruce forest, bark beetles and the returned lynx of the Bohemian Forest.",
+ "tip": {
+  "id": "lynx",
+  "title": "Remove the lynx",
+  "text": "Lynx hunt roe deer, red deer and foxes. Set Eurasian lynx to -100% and watch roe deer, then the bilberry and young trees they browse."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Sumava National Park",
+   "url": "https://en.wikipedia.org/wiki/%C5%A0umava_National_Park"
+  },
+  {
+   "title": "Wikipedia: Bohemian Forest",
+   "url": "https://en.wikipedia.org/wiki/Bohemian_Forest"
+  },
+  {
+   "title": "Wikipedia: Eurasian lynx",
+   "url": "https://en.wikipedia.org/wiki/Eurasian_lynx"
+  },
+  {
+   "title": "Wikipedia: Ips typographus",
+   "url": "https://en.wikipedia.org/wiki/Ips_typographus"
+  },
+  {
+   "title": "Wikipedia: Norway spruce",
+   "url": "https://en.wikipedia.org/wiki/Norway_spruce"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Šumava National Park",
+ "icon": "whitebark",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Light reaching the forest floor limits the growth of berries, seedlings and mountain meadows beneath the canopy.",
+   "ic": "sun"
+  },
+  {
+   "id": "water",
+   "name": "Peat bogs and streams",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Bog",
+   "desc": "The Bohemian Forest holds peat bogs and sources of rivers such as the Vltava, Otava and Uhlava, which keep soils wet.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Forest soil and deadwood",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Forest soil and rotting wood store nutrients that trees and shrubs draw on once decomposers release them.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi and bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, beetle-killed spruce and carcasses, returning nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "spruce",
+   "name": "Norway spruce",
+   "latin": "Picea abies",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Norway spruce",
+   "desc": "Dominant conifer of the Bohemian Forest, widely planted. Spruce stands stressed by wind or drought are the main host of the spruce bark beetle.",
+   "ic": "whitebark",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "beech",
+   "name": "European beech",
+   "latin": "Fagus sylvatica",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "European beech",
+   "desc": "A broadleaf tree of the lower and middle slopes. Its nuts feed wild boar and rodents.",
+   "ic": "aspen"
+  },
+  {
+   "id": "birch",
+   "name": "Silver birch",
+   "latin": "Betula pendula",
+   "tl": 1,
+   "xh": 0.46,
+   "wiki": "Betula pendula",
+   "desc": "A pioneer tree of clearings and disturbed ground, browsed by roe deer and gnawed by beavers.",
+   "ic": "aspen"
+  },
+  {
+   "id": "rowan",
+   "name": "Rowan",
+   "latin": "Sorbus aucuparia",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Sorbus aucuparia",
+   "desc": "A small tree whose berries are eaten by foxes, martens and many birds.",
+   "ic": "willow"
+  },
+  {
+   "id": "bilberry",
+   "name": "Bilberry",
+   "latin": "Vaccinium myrtillus",
+   "tl": 1,
+   "xh": 0.84,
+   "wiki": "Vaccinium myrtillus",
+   "desc": "Low shrub of the forest floor. Its leaves and berries feed deer, and martens take the fruit.",
+   "ic": "sage"
+  },
+  {
+   "id": "beetle",
+   "name": "Eurasian spruce bark beetle",
+   "latin": "Ips typographus",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Ips typographus",
+   "desc": "Breeds under spruce bark and can overwhelm stressed trees in outbreaks, a major natural disturbance in Sumava.",
+   "ic": "hopper",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "roe",
+   "name": "European roe deer",
+   "latin": "Capreolus capreolus",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "European roe deer",
+   "desc": "A small browsing deer that eats leaves, shoots and berries of trees and shrubs; the preferred prey of lynx where common.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "red",
+   "name": "Red deer",
+   "latin": "Cervus elaphus",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Red deer",
+   "desc": "The largest deer of the forest. It grazes grasses, browses shrubs such as bilberry and is prey for wolves and lynx.",
+   "ic": "elk"
+  },
+  {
+   "id": "boar",
+   "name": "Wild boar",
+   "latin": "Sus scrofa",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Wild boar",
+   "desc": "Omnivore that roots for nuts, plants, small animals and carrion in the forest.",
+   "ic": "quad"
+  },
+  {
+   "id": "beaver",
+   "name": "Eurasian beaver",
+   "latin": "Castor fiber",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Eurasian beaver",
+   "desc": "Gnaws trees and dams streams, creating wetlands. It feeds on bark and shoots of woody plants such as birch.",
+   "ic": "beaver",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "mouse",
+   "name": "Yellow-necked mouse",
+   "latin": "Apodemus flavicollis",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "Yellow-necked mouse",
+   "desc": "A forest rodent that eats seeds and small invertebrates; prey for foxes, martens and buzzards.",
+   "ic": "vole"
+  },
+  {
+   "id": "woodpecker",
+   "name": "Great spotted woodpecker",
+   "latin": "Dendrocopos major",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Great spotted woodpecker",
+   "desc": "Splits bark to reach insect larvae, so it can help limit bark beetle numbers.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "marten",
+   "name": "European pine marten",
+   "latin": "Martes martes",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "European pine marten",
+   "desc": "Agile forest hunter that eats rodents and birds and also fruit such as rowan berries and bilberries.",
+   "ic": "quad"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Red fox",
+   "desc": "Adaptable predator and scavenger that eats rodents, birds, carrion and fruit.",
+   "ic": "fox"
+  },
+  {
+   "id": "buzzard",
+   "name": "Common buzzard",
+   "latin": "Buteo buteo",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Common buzzard",
+   "desc": "Hawk that hunts rodents and other small animals over forest edges and clearings.",
+   "ic": "hawk"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Common raven",
+   "desc": "Large crow that scavenges carcasses, such as those left by lynx and wolves.",
+   "ic": "raven"
+  },
+  {
+   "id": "lynx",
+   "name": "Eurasian lynx",
+   "latin": "Lynx lynx",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Eurasian lynx",
+   "desc": "Ambush hunter, mainly of roe deer. Wiped out in Bohemia in the 1800s, it was reintroduced to the Sumava area in the 1980s.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "wolf",
+   "name": "Gray wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.65,
+   "wiki": "Wolf",
+   "desc": "Pack hunter of deer and wild boar, recorded near Sumava; leaves carcasses that scavengers use.",
+   "ic": "wolf"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "spruce",
+   "r"
+  ],
+  [
+   "sun",
+   "beech",
+   "r"
+  ],
+  [
+   "sun",
+   "birch",
+   "r"
+  ],
+  [
+   "sun",
+   "bilberry",
+   "r"
+  ],
+  [
+   "sun",
+   "rowan",
+   "r"
+  ],
+  [
+   "water",
+   "spruce",
+   "r"
+  ],
+  [
+   "water",
+   "birch",
+   "r"
+  ],
+  [
+   "water",
+   "bilberry",
+   "r"
+  ],
+  [
+   "soil",
+   "spruce",
+   "r"
+  ],
+  [
+   "soil",
+   "beech",
+   "r"
+  ],
+  [
+   "soil",
+   "bilberry",
+   "r"
+  ],
+  [
+   "soil",
+   "rowan",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "spruce",
+   "beetle"
+  ],
+  [
+   "spruce",
+   "roe"
+  ],
+  [
+   "beech",
+   "roe"
+  ],
+  [
+   "birch",
+   "roe"
+  ],
+  [
+   "bilberry",
+   "roe"
+  ],
+  [
+   "bilberry",
+   "red"
+  ],
+  [
+   "beech",
+   "boar"
+  ],
+  [
+   "birch",
+   "beaver"
+  ],
+  [
+   "beech",
+   "mouse"
+  ],
+  [
+   "beetle",
+   "woodpecker"
+  ],
+  [
+   "rowan",
+   "fox"
+  ],
+  [
+   "rowan",
+   "marten"
+  ],
+  [
+   "bilberry",
+   "marten"
+  ],
+  [
+   "mouse",
+   "fox"
+  ],
+  [
+   "mouse",
+   "marten"
+  ],
+  [
+   "mouse",
+   "buzzard"
+  ],
+  [
+   "boar",
+   "mouse"
+  ],
+  [
+   "roe",
+   "lynx"
+  ],
+  [
+   "red",
+   "lynx"
+  ],
+  [
+   "boar",
+   "lynx"
+  ],
+  [
+   "fox",
+   "lynx"
+  ],
+  [
+   "marten",
+   "lynx"
+  ],
+  [
+   "beaver",
+   "lynx"
+  ],
+  [
+   "mouse",
+   "lynx"
+  ],
+  [
+   "mouse",
+   "raven"
+  ],
+  [
+   "roe",
+   "wolf"
+  ],
+  [
+   "red",
+   "wolf"
+  ],
+  [
+   "boar",
+   "wolf"
+  ],
+  [
+   "beaver",
+   "wolf"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "roe",
+   "raven",
+   "s"
+  ],
+  [
+   "red",
+   "raven",
+   "s"
+  ],
+  [
+   "roe",
+   "fox",
+   "s"
+  ],
+  [
+   "red",
+   "fox",
+   "s"
+  ],
+  [
+   "boar",
+   "raven",
+   "s"
+  ],
+  [
+   "spruce",
+   "decomp",
+   "d"
+  ],
+  [
+   "beech",
+   "decomp",
+   "d"
+  ],
+  [
+   "birch",
+   "decomp",
+   "d"
+  ],
+  [
+   "roe",
+   "decomp",
+   "d"
+  ],
+  [
+   "red",
+   "decomp",
+   "d"
+  ],
+  [
+   "boar",
+   "decomp",
+   "d"
+  ],
+  [
+   "beetle",
+   "decomp",
+   "d"
+  ],
+  [
+   "lynx",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "rowan",
+   "mouse"
+  ],
+  [
+   "spruce",
+   "woodpecker"
+  ],
+  [
+   "rowan",
+   "woodpecker"
+  ],
+  [
+   "boar",
+   "marten"
+  ],
+  [
+   "bilberry",
+   "fox"
+  ],
+  [
+   "boar",
+   "fox"
+  ],
+  [
+   "beaver",
+   "fox"
+  ],
+  [
+   "roe",
+   "buzzard"
+  ],
+  [
+   "spruce",
+   "raven"
+  ],
+  [
+   "beech",
+   "raven"
+  ],
+  [
+   "birch",
+   "raven"
+  ],
+  [
+   "rowan",
+   "raven"
+  ],
+  [
+   "bilberry",
+   "raven"
+  ],
+  [
+   "mouse",
+   "wolf"
+  ],
+  [
+   "marten",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "spruce>beetle": [
+   "g",
+   "Ips typographus",
+   "Picea abies"
+  ],
+  "spruce>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Picea abies"
+  ],
+  "beech>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Fagus sylvatica"
+  ],
+  "birch>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Betula pendula"
+  ],
+  "bilberry>roe": [
+   "g",
+   "Capreolus capreolus",
+   "Vaccinium myrtillus"
+  ],
+  "bilberry>red": [
+   "g",
+   "Cervus elaphus",
+   "Vaccinium myrtillus"
+  ],
+  "beech>boar": [
+   "g",
+   "Sus scrofa",
+   "Fagus sylvatica"
+  ],
+  "birch>beaver": [
+   "a"
+  ],
+  "beech>mouse": [
+   "g",
+   "Apodemus flavicollis",
+   "Fagus sylvatica"
+  ],
+  "beetle>woodpecker": [
+   "a"
+  ],
+  "rowan>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Sorbus aucuparia"
+  ],
+  "rowan>marten": [
+   "g",
+   "Martes martes",
+   "Sorbus aucuparia"
+  ],
+  "bilberry>marten": [
+   "g",
+   "Martes martes",
+   "Vaccinium myrtillus"
+  ],
+  "mouse>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Apodemus flavicollis"
+  ],
+  "mouse>marten": [
+   "g",
+   "Martes martes",
+   "Apodemus flavicollis"
+  ],
+  "mouse>buzzard": [
+   "g",
+   "Buteo buteo",
+   "Apodemus flavicollis"
+  ],
+  "boar>mouse": [
+   "a"
+  ],
+  "roe>lynx": [
+   "g",
+   "Lynx lynx",
+   "Capreolus capreolus"
+  ],
+  "red>lynx": [
+   "g",
+   "Lynx lynx",
+   "Cervus elaphus"
+  ],
+  "boar>lynx": [
+   "g",
+   "Lynx lynx",
+   "Sus scrofa"
+  ],
+  "fox>lynx": [
+   "g",
+   "Lynx lynx",
+   "Vulpes vulpes"
+  ],
+  "marten>lynx": [
+   "g",
+   "Lynx lynx",
+   "Martes martes"
+  ],
+  "beaver>lynx": [
+   "g",
+   "Lynx lynx",
+   "Castor fiber"
+  ],
+  "mouse>lynx": [
+   "g",
+   "Lynx lynx",
+   "Apodemus flavicollis"
+  ],
+  "mouse>raven": [
+   "g",
+   "Corvus corax",
+   "Apodemus flavicollis"
+  ],
+  "roe>wolf": [
+   "g",
+   "Canis lupus",
+   "Capreolus capreolus"
+  ],
+  "red>wolf": [
+   "g",
+   "Canis lupus",
+   "Cervus elaphus"
+  ],
+  "boar>wolf": [
+   "g",
+   "Canis lupus",
+   "Sus scrofa"
+  ],
+  "beaver>wolf": [
+   "g",
+   "Canis lupus",
+   "Castor fiber"
+  ],
+  "fox>wolf": [
+   "g",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "roe>raven": [
+   "g",
+   "Corvus corax",
+   "Capreolus capreolus"
+  ],
+  "red>raven": [
+   "gg",
+   "Corvus corax",
+   "Cervus elaphus"
+  ],
+  "roe>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Capreolus capreolus"
+  ],
+  "red>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Cervus elaphus"
+  ],
+  "boar>raven": [
+   "a"
+  ],
+  "rowan>mouse": [
+   "ga",
+   "Apodemus flavicollis",
+   "Sorbus aucuparia"
+  ],
+  "spruce>woodpecker": [
+   "ga",
+   "Dendrocopos major",
+   "Picea abies"
+  ],
+  "rowan>woodpecker": [
+   "ga",
+   "Dendrocopos major",
+   "Sorbus aucuparia"
+  ],
+  "boar>marten": [
+   "ga",
+   "Martes martes",
+   "Sus scrofa"
+  ],
+  "bilberry>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Vaccinium myrtillus"
+  ],
+  "boar>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Sus scrofa"
+  ],
+  "beaver>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Castor fiber"
+  ],
+  "roe>buzzard": [
+   "ga",
+   "Buteo buteo",
+   "Capreolus capreolus"
+  ],
+  "spruce>raven": [
+   "ga",
+   "Corvus corax",
+   "Picea abies"
+  ],
+  "beech>raven": [
+   "ga",
+   "Corvus corax",
+   "Fagus sylvatica"
+  ],
+  "birch>raven": [
+   "ga",
+   "Corvus corax",
+   "Betula pendula"
+  ],
+  "rowan>raven": [
+   "ga",
+   "Corvus corax",
+   "Sorbus aucuparia"
+  ],
+  "bilberry>raven": [
+   "ga",
+   "Corvus corax",
+   "Vaccinium myrtillus"
+  ],
+  "mouse>wolf": [
+   "ga",
+   "Canis lupus",
+   "Apodemus flavicollis"
+  ],
+  "marten>wolf": [
+   "ga",
+   "Canis lupus",
+   "Martes martes"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ]
+ }
+}

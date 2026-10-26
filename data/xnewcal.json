@@ -1,0 +1,515 @@
+{
+ "id": "xnewcal",
+ "name": "Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems",
+ "short": "New Caledonia",
+ "place": "New Caledonia",
+ "lat": -22.3,
+ "lon": 166.8,
+ "side": "r",
+ "cont": "Oceania",
+ "country": "New Caledonia",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Seagrass, dugongs and sharks inside one of the largest reef lagoons.",
+ "tip": {
+  "id": "turtle",
+  "title": "Remove the green turtles",
+  "text": "Adult turtles graze seagrass and are prey for tiger sharks. Set Green sea turtle to -100% and watch the seagrass and the tiger shark respond."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: New Caledonia Barrier Reef",
+   "url": "https://en.wikipedia.org/wiki/Lagoons_of_New_Caledonia"
+  },
+  {
+   "title": "UNESCO World Heritage: Lagoons of New Caledonia",
+   "url": "https://whc.unesco.org/en/list/1115"
+  },
+  {
+   "title": "Wikipedia: Dugong",
+   "url": "https://en.wikipedia.org/wiki/Dugong"
+  },
+  {
+   "title": "Wikipedia: Green sea turtle",
+   "url": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  },
+  {
+   "title": "Wikipedia: Tiger shark",
+   "url": "https://en.wikipedia.org/wiki/Tiger_shark"
+  },
+  {
+   "title": "Wikipedia: Laticauda saintgironsi",
+   "url": "https://en.wikipedia.org/wiki/Laticauda_saintgironsi"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Lagoons of New Caledonia",
+ "icon": "coral",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Tropical sun powers the seagrass, algae and phytoplankton of the shallow lagoon, and the algae living inside reef corals.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "warm",
+   "name": "Warm lagoon water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "wiki": "Coral reef",
+   "desc": "The enclosed lagoon is shallow, averaging about 25 m deep, and warm and clear enough for reef corals and seagrass to thrive.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "pass",
+   "name": "Ocean passages",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.6,
+   "wiki": "Lagoons of New Caledonia",
+   "desc": "Natural gaps in the barrier reef, such as the Boulari passage, let ocean water flow into and out of the lagoon.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "silt",
+   "name": "River silt and nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.8,
+   "wiki": "Sediment",
+   "desc": "Rivers carry soil into the lagoon. Mangroves trap some of it, but heavy runoff from mining and grazing has buried reefs in silt.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.95,
+   "wiki": "Decomposer",
+   "desc": "Break down dead seagrass, mangrove leaves and animals, returning nutrients to the sediment.",
+   "ic": "decomp",
+   "cat": "decomp"
+  },
+  {
+   "id": "seagrass",
+   "name": "Seagrass",
+   "latin": "Halophila",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Halophila",
+   "desc": "Low seagrass meadows in the shallow lagoon, the main food of dugongs and adult green turtles.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "mangrove",
+   "name": "Mangroves",
+   "latin": "Rhizophora",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Rhizophora",
+   "desc": "Mangrove forests fringe the shore and help retain sediment before it reaches the reef.",
+   "ic": "willow"
+  },
+  {
+   "id": "algae",
+   "name": "Reef algae",
+   "latin": "Halimeda",
+   "tl": 1,
+   "xh": 0.58,
+   "wiki": "Halimeda",
+   "desc": "Algae growing on reef rock and sand, grazed by parrotfish and surgeonfish.",
+   "ic": "algae"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Microscopic algae",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting microscopic algae that feed zooplankton and corals. General ecological knowledge.",
+   "ic": "algae"
+  },
+  {
+   "id": "turtle",
+   "name": "Green sea turtle",
+   "latin": "Chelonia mydas",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Green sea turtle",
+   "desc": "Adults graze mostly seagrass, nibbling blade tops so beds stay healthy. The lagoon is an important nesting site.",
+   "ic": "turtle"
+  },
+  {
+   "id": "dugong",
+   "name": "Dugong",
+   "latin": "Dugong dugon",
+   "tl": 2,
+   "xh": 0.22,
+   "wiki": "Dugong",
+   "desc": "Feeds mainly on seagrass. New Caledonia holds the third largest dugong population in the world, and hunting is banned there.",
+   "ic": "whale",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "parrot",
+   "name": "Parrotfish",
+   "latin": "Scarus",
+   "tl": 2,
+   "xh": 0.38,
+   "wiki": "Parrotfish",
+   "desc": "Most species scrape algae from reef rock with their beaks, which keeps algae from overgrowing the reef.",
+   "ic": "trout"
+  },
+  {
+   "id": "surgeon",
+   "name": "Surgeonfish",
+   "latin": "Acanthurus",
+   "tl": 2,
+   "xh": 0.54,
+   "wiki": "Surgeonfish",
+   "desc": "Reef fish that graze algae. General ecological knowledge for the family.",
+   "ic": "trout"
+  },
+  {
+   "id": "copepod",
+   "name": "Copepods",
+   "latin": "Copepoda",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Copepod",
+   "desc": "Tiny drifting crustaceans that graze phytoplankton and feed many reef animals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "coral",
+   "name": "Reef-building corals",
+   "latin": "Acropora",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "Acropora",
+   "desc": "Branching and table corals build the reef structure. The lagoon coral diversity matches or exceeds the Great Barrier Reef.",
+   "ic": "coral",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "coraltrout",
+   "name": "Common coral trout",
+   "latin": "Plectropomus leopardus",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Plectropomus leopardus",
+   "desc": "An ambush predator of the reef that eats mainly fish, including parrotfish. Caught here by line and spear.",
+   "ic": "trout"
+  },
+  {
+   "id": "moray",
+   "name": "Lipspot moray",
+   "latin": "Gymnothorax chilospilus",
+   "tl": 3,
+   "xh": 0.34,
+   "wiki": "Lipspot moray",
+   "desc": "A small moray eel living in reef crevices, and the main prey of the New Caledonian sea krait.",
+   "ic": "trout"
+  },
+  {
+   "id": "krait",
+   "name": "Yellow-lipped sea krait",
+   "latin": "Laticauda saintgironsi",
+   "tl": 3,
+   "xh": 0.58,
+   "wiki": "Laticauda saintgironsi",
+   "desc": "A sea snake endemic to New Caledonia that hunts mostly eel-like fishes, about half of them lipspot morays.",
+   "ic": "snake"
+  },
+  {
+   "id": "cots",
+   "name": "Crown-of-thorns starfish",
+   "latin": "Acanthaster planci",
+   "tl": 3,
+   "xh": 0.82,
+   "wiki": "Crown-of-thorns starfish",
+   "desc": "Eats living hard coral, especially Acropora, leaving white skeleton. Outbreaks can devastate reefs.",
+   "ic": "starfish"
+  },
+  {
+   "id": "tiger",
+   "name": "Tiger shark",
+   "latin": "Galeocerdo cuvier",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Tiger shark",
+   "desc": "Wide-ranging predator that eats turtles, dugongs, fish and sea snakes, and also scavenges carcasses.",
+   "ic": "shark",
+   "badge": "Apex predator"
+  },
+  {
+   "id": "greyreef",
+   "name": "Grey reef shark",
+   "latin": "Carcharhinus amblyrhynchos",
+   "tl": 4,
+   "xh": 0.68,
+   "wiki": "Grey reef shark",
+   "desc": "A reef shark that hunts reef fish. The lagoons hold healthy populations of top predators.",
+   "ic": "shark",
+   "badge": "Apex predator"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "seagrass",
+   "r"
+  ],
+  [
+   "sun",
+   "algae",
+   "r"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "mangrove",
+   "r"
+  ],
+  [
+   "warm",
+   "coral",
+   "r"
+  ],
+  [
+   "warm",
+   "seagrass",
+   "r"
+  ],
+  [
+   "pass",
+   "phyto",
+   "r"
+  ],
+  [
+   "silt",
+   "mangrove",
+   "r"
+  ],
+  [
+   "silt",
+   "seagrass",
+   "r"
+  ],
+  [
+   "decomp",
+   "silt",
+   "r"
+  ],
+  [
+   "seagrass",
+   "decomp",
+   "d"
+  ],
+  [
+   "mangrove",
+   "decomp",
+   "d"
+  ],
+  [
+   "seagrass",
+   "turtle"
+  ],
+  [
+   "seagrass",
+   "dugong"
+  ],
+  [
+   "algae",
+   "parrot"
+  ],
+  [
+   "algae",
+   "surgeon"
+  ],
+  [
+   "phyto",
+   "copepod"
+  ],
+  [
+   "phyto",
+   "coral"
+  ],
+  [
+   "copepod",
+   "parrot"
+  ],
+  [
+   "coral",
+   "cots"
+  ],
+  [
+   "parrot",
+   "coraltrout"
+  ],
+  [
+   "surgeon",
+   "coraltrout"
+  ],
+  [
+   "parrot",
+   "moray"
+  ],
+  [
+   "surgeon",
+   "moray"
+  ],
+  [
+   "moray",
+   "krait"
+  ],
+  [
+   "turtle",
+   "tiger"
+  ],
+  [
+   "dugong",
+   "tiger"
+  ],
+  [
+   "coraltrout",
+   "tiger"
+  ],
+  [
+   "krait",
+   "tiger"
+  ],
+  [
+   "coraltrout",
+   "greyreef"
+  ],
+  [
+   "parrot",
+   "greyreef"
+  ],
+  [
+   "algae",
+   "turtle"
+  ],
+  [
+   "seagrass",
+   "surgeon"
+  ],
+  [
+   "surgeon",
+   "greyreef"
+  ]
+ ],
+ "ev": {
+  "seagrass>turtle": [
+   "gg",
+   "Chelonia mydas",
+   "Halophila"
+  ],
+  "seagrass>dugong": [
+   "gg",
+   "Dugong dugon",
+   "Halophila"
+  ],
+  "algae>parrot": [
+   "gg",
+   "Scarus",
+   "Halimeda"
+  ],
+  "algae>surgeon": [
+   "gg",
+   "Acanthurus",
+   "Halimeda"
+  ],
+  "phyto>copepod": [
+   "a"
+  ],
+  "phyto>coral": [
+   "a"
+  ],
+  "copepod>parrot": [
+   "a"
+  ],
+  "coral>cots": [
+   "g",
+   "Acanthaster planci",
+   "Acropora"
+  ],
+  "parrot>coraltrout": [
+   "gg",
+   "Plectropomus leopardus",
+   "Scarus"
+  ],
+  "surgeon>coraltrout": [
+   "gg",
+   "Plectropomus leopardus",
+   "Acanthurus"
+  ],
+  "parrot>moray": [
+   "a"
+  ],
+  "surgeon>moray": [
+   "a"
+  ],
+  "moray>krait": [
+   "g",
+   "Laticauda saintgironsi",
+   "Gymnothorax chilospilus"
+  ],
+  "turtle>tiger": [
+   "g",
+   "Galeocerdo cuvier",
+   "Chelonia mydas"
+  ],
+  "dugong>tiger": [
+   "g",
+   "Galeocerdo cuvier",
+   "Dugong dugon"
+  ],
+  "coraltrout>tiger": [
+   "a"
+  ],
+  "krait>tiger": [
+   "a"
+  ],
+  "coraltrout>greyreef": [
+   "a"
+  ],
+  "parrot>greyreef": [
+   "a"
+  ],
+  "algae>turtle": [
+   "ga",
+   "Chelonia mydas",
+   "Halimeda"
+  ],
+  "seagrass>surgeon": [
+   "ga",
+   "Acanthurus",
+   "Halophila"
+  ],
+  "surgeon>greyreef": [
+   "ga",
+   "Carcharhinus amblyrhynchos",
+   "Acanthurus"
+  ]
+ }
+}

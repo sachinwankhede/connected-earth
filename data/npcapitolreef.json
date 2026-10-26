@@ -1,0 +1,696 @@
+{
+ "id": "npcapitolreef",
+ "name": "Capitol Reef National Park",
+ "short": "Capitol Reef",
+ "place": "Utah, USA",
+ "lat": 38.2,
+ "lon": -111.17,
+ "side": "r",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Utah"
+ ],
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Pinyon-juniper slopes, bighorn and deer, and the cougars that hunt them.",
+ "tip": {
+  "id": "lion",
+  "title": "Remove the mountain lions",
+  "text": "Cougars are the main hunters of deer and bighorn here. Set Mountain lion to -100% and watch mule deer, then the shrubs they browse."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Capitol Reef National Park",
+   "url": "https://en.wikipedia.org/wiki/Capitol_Reef_National_Park"
+  },
+  {
+   "title": "National Park Service: Capitol Reef nature",
+   "url": "https://www.nps.gov/care/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Mule deer",
+   "url": "https://en.wikipedia.org/wiki/Mule_deer"
+  },
+  {
+   "title": "Wikipedia: Pinyon-juniper woodland",
+   "url": "https://en.wikipedia.org/wiki/Pinyon%E2%80%93juniper_woodland"
+  },
+  {
+   "title": "Wikipedia: Desert bighorn sheep",
+   "url": "https://en.wikipedia.org/wiki/Desert_bighorn_sheep"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Capitol Reef National Park",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.15,
+   "wiki": "Sun",
+   "desc": "Strong desert sun drives plant growth, though heat and dryness limit how much of it plants can use.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Scarce rain and flash floods",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Flash flood",
+   "desc": "The park averages only about 200 mm of precipitation a year. Late-summer storms bring most of it, often as sudden flash floods.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "crust",
+   "name": "Biological soil crust",
+   "latin": "Cyanobacteria, lichen and moss",
+   "tl": 0,
+   "xh": 0.85,
+   "wiki": "Biological soil crust",
+   "desc": "A living skin of cyanobacteria, fungi, lichen, moss and algae that protects sandy desert soil from erosion.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "pinyon",
+   "name": "Two-needle pinyon",
+   "latin": "Pinus edulis",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Pinus edulis",
+   "desc": "A small pine of the dry woodlands, with large seeds eaten by birds and rodents. Drought and insects can kill stands.",
+   "ic": "whitebark",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "juniper",
+   "name": "Utah juniper",
+   "latin": "Juniperus osteosperma",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "Juniperus osteosperma",
+   "desc": "Grows with pinyon in the pinyon-juniper woodland that covers much of the Colorado Plateau.",
+   "ic": "willow"
+  },
+  {
+   "id": "cliffrose",
+   "name": "Stansbury cliffrose",
+   "latin": "Purshia stansburiana",
+   "tl": 1,
+   "xh": 0.46,
+   "wiki": "Purshia stansburiana",
+   "desc": "A woody desert shrub. Wikipedia lists cliffrose among the plants mule deer commonly browse.",
+   "ic": "sage"
+  },
+  {
+   "id": "pricklypear",
+   "name": "Cliff prickly-pear",
+   "latin": "Opuntia polyacantha",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Opuntia polyacantha",
+   "desc": "A low, spiny cactus that stores water in its pads. Bighorn sheep break open cacti when grass is scarce.",
+   "ic": "sage"
+  },
+  {
+   "id": "ricegrass",
+   "name": "Indian ricegrass",
+   "latin": "Achnatherum hymenoides",
+   "tl": 1,
+   "xh": 0.84,
+   "wiki": "Achnatherum hymenoides",
+   "desc": "A native bunchgrass of sandy soils on the Colorado Plateau, grazed by hoofed animals.",
+   "ic": "grass"
+  },
+  {
+   "id": "muledeer",
+   "name": "Mule deer",
+   "latin": "Odocoileus hemionus",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Mule deer",
+   "desc": "A browser that eats mostly shrubs and trees, with some forbs, grass and fruit. Coyotes and cougars hunt it.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "bighorn",
+   "name": "Bighorn sheep",
+   "latin": "Ovis canadensis",
+   "tl": 2,
+   "xh": 0.28,
+   "wiki": "Desert bighorn sheep",
+   "desc": "Lives on steep rocky ground. Eats mainly grass, switching to cacti and forbs when grass is scarce. Cougars, coyotes and bobcats prey on it.",
+   "ic": "elk"
+  },
+  {
+   "id": "deermouse",
+   "name": "Deer mouse",
+   "latin": "Peromyscus maniculatus",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "Peromyscus maniculatus",
+   "desc": "The most-recorded mammal near the park. A small seed-eating rodent that many snakes, scavengers and canids eat.",
+   "ic": "vole"
+  },
+  {
+   "id": "woodrat",
+   "name": "Desert woodrat",
+   "latin": "Neotoma lepida",
+   "tl": 2,
+   "xh": 0.64,
+   "wiki": "Desert woodrat",
+   "desc": "A pack-rat of rocky desert slopes that feeds on cacti, juniper and other plants.",
+   "ic": "vole"
+  },
+  {
+   "id": "nutcracker",
+   "name": "Clark's nutcracker",
+   "latin": "Nucifraga columbiana",
+   "tl": 2,
+   "xh": 0.84,
+   "wiki": "Clark's nutcracker",
+   "desc": "A crow-family bird that harvests pine seeds and caches them, so it helps spread pines.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "antsquirrel",
+   "name": "White-tailed antelope squirrel",
+   "latin": "Ammospermophilus leucurus",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "White-tailed antelope squirrel",
+   "desc": "An omnivorous ground squirrel active in desert heat. GloBI records show it eating mice.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "bullsnake",
+   "name": "Bullsnake",
+   "latin": "Pituophis catenifer",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Pituophis catenifer",
+   "desc": "A large constrictor that hunts rodents, ground squirrels and birds.",
+   "ic": "snake"
+  },
+  {
+   "id": "rattlesnake",
+   "name": "Great Basin rattlesnake",
+   "latin": "Crotalus oreganus",
+   "tl": 3,
+   "xh": 0.48,
+   "wiki": "Crotalus oreganus",
+   "desc": "A pit viper that ambushes rodents and lizards on rocky slopes.",
+   "ic": "snake"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.68,
+   "wiki": "Common raven",
+   "desc": "A clever omnivore and scavenger, the most-recorded bird near the park.",
+   "ic": "raven"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Turkey vulture",
+   "desc": "Soars over the canyons and feeds mainly on carrion, finding it by smell.",
+   "ic": "hawk"
+  },
+  {
+   "id": "lion",
+   "name": "Mountain lion",
+   "latin": "Puma concolor",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Cougar",
+   "desc": "The main large predator of deer and bighorn in the canyon country.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Coyote",
+   "desc": "An adaptable hunter of rodents and young deer that also eats carrion.",
+   "ic": "coyote"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals, returning nutrients to the thin desert soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "pinyon",
+   "r"
+  ],
+  [
+   "rain",
+   "pinyon",
+   "r"
+  ],
+  [
+   "sun",
+   "juniper",
+   "r"
+  ],
+  [
+   "rain",
+   "juniper",
+   "r"
+  ],
+  [
+   "sun",
+   "cliffrose",
+   "r"
+  ],
+  [
+   "rain",
+   "cliffrose",
+   "r"
+  ],
+  [
+   "sun",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "rain",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "sun",
+   "ricegrass",
+   "r"
+  ],
+  [
+   "rain",
+   "ricegrass",
+   "r"
+  ],
+  [
+   "crust",
+   "ricegrass",
+   "r"
+  ],
+  [
+   "crust",
+   "cliffrose",
+   "r"
+  ],
+  [
+   "decomp",
+   "crust",
+   "r"
+  ],
+  [
+   "cliffrose",
+   "muledeer"
+  ],
+  [
+   "ricegrass",
+   "muledeer"
+  ],
+  [
+   "pricklypear",
+   "bighorn"
+  ],
+  [
+   "ricegrass",
+   "bighorn"
+  ],
+  [
+   "pinyon",
+   "deermouse"
+  ],
+  [
+   "juniper",
+   "woodrat"
+  ],
+  [
+   "pricklypear",
+   "woodrat"
+  ],
+  [
+   "pinyon",
+   "nutcracker"
+  ],
+  [
+   "deermouse",
+   "antsquirrel"
+  ],
+  [
+   "antsquirrel",
+   "bullsnake"
+  ],
+  [
+   "deermouse",
+   "bullsnake"
+  ],
+  [
+   "deermouse",
+   "rattlesnake"
+  ],
+  [
+   "woodrat",
+   "rattlesnake"
+  ],
+  [
+   "bullsnake",
+   "raven"
+  ],
+  [
+   "muledeer",
+   "lion"
+  ],
+  [
+   "bighorn",
+   "lion"
+  ],
+  [
+   "muledeer",
+   "coyote"
+  ],
+  [
+   "deermouse",
+   "coyote"
+  ],
+  [
+   "woodrat",
+   "coyote"
+  ],
+  [
+   "antsquirrel",
+   "coyote"
+  ],
+  [
+   "muledeer",
+   "raven",
+   "s"
+  ],
+  [
+   "bighorn",
+   "raven",
+   "s"
+  ],
+  [
+   "muledeer",
+   "vulture",
+   "s"
+  ],
+  [
+   "bighorn",
+   "vulture",
+   "s"
+  ],
+  [
+   "deermouse",
+   "vulture",
+   "s"
+  ],
+  [
+   "woodrat",
+   "vulture",
+   "s"
+  ],
+  [
+   "muledeer",
+   "coyote",
+   "s"
+  ],
+  [
+   "pinyon",
+   "decomp",
+   "d"
+  ],
+  [
+   "juniper",
+   "decomp",
+   "d"
+  ],
+  [
+   "cliffrose",
+   "decomp",
+   "d"
+  ],
+  [
+   "pricklypear",
+   "decomp",
+   "d"
+  ],
+  [
+   "ricegrass",
+   "decomp",
+   "d"
+  ],
+  [
+   "muledeer",
+   "decomp",
+   "d"
+  ],
+  [
+   "bighorn",
+   "decomp",
+   "d"
+  ],
+  [
+   "deermouse",
+   "decomp",
+   "d"
+  ],
+  [
+   "woodrat",
+   "decomp",
+   "d"
+  ],
+  [
+   "nutcracker",
+   "decomp",
+   "d"
+  ],
+  [
+   "antsquirrel",
+   "decomp",
+   "d"
+  ],
+  [
+   "bullsnake",
+   "decomp",
+   "d"
+  ],
+  [
+   "rattlesnake",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "lion",
+   "decomp",
+   "d"
+  ],
+  [
+   "coyote",
+   "decomp",
+   "d"
+  ],
+  [
+   "woodrat",
+   "lion"
+  ],
+  [
+   "antsquirrel",
+   "lion"
+  ],
+  [
+   "bighorn",
+   "coyote"
+  ],
+  [
+   "bullsnake",
+   "coyote"
+  ],
+  [
+   "raven",
+   "coyote"
+  ]
+ ],
+ "ev": {
+  "cliffrose>muledeer": [
+   "a"
+  ],
+  "ricegrass>muledeer": [
+   "a"
+  ],
+  "pricklypear>bighorn": [
+   "a"
+  ],
+  "ricegrass>bighorn": [
+   "a"
+  ],
+  "pinyon>deermouse": [
+   "a"
+  ],
+  "juniper>woodrat": [
+   "a"
+  ],
+  "pricklypear>woodrat": [
+   "a"
+  ],
+  "pinyon>nutcracker": [
+   "gg",
+   "Nucifraga columbiana",
+   "Pinus edulis"
+  ],
+  "deermouse>antsquirrel": [
+   "g",
+   "Ammospermophilus leucurus",
+   "Peromyscus maniculatus"
+  ],
+  "antsquirrel>bullsnake": [
+   "g",
+   "Pituophis catenifer",
+   "Ammospermophilus leucurus"
+  ],
+  "deermouse>bullsnake": [
+   "g",
+   "Pituophis catenifer",
+   "Peromyscus maniculatus"
+  ],
+  "deermouse>rattlesnake": [
+   "g",
+   "Crotalus oreganus",
+   "Peromyscus maniculatus"
+  ],
+  "woodrat>rattlesnake": [
+   "gg",
+   "Crotalus oreganus",
+   "Neotoma lepida"
+  ],
+  "bullsnake>raven": [
+   "g",
+   "Corvus corax",
+   "Pituophis catenifer"
+  ],
+  "muledeer>lion": [
+   "g",
+   "Puma concolor",
+   "Odocoileus hemionus"
+  ],
+  "bighorn>lion": [
+   "g",
+   "Puma concolor",
+   "Ovis canadensis"
+  ],
+  "muledeer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus hemionus"
+  ],
+  "deermouse>coyote": [
+   "g",
+   "Canis latrans",
+   "Peromyscus maniculatus"
+  ],
+  "woodrat>coyote": [
+   "g",
+   "Canis latrans",
+   "Neotoma lepida"
+  ],
+  "antsquirrel>coyote": [
+   "g",
+   "Canis latrans",
+   "Ammospermophilus leucurus"
+  ],
+  "muledeer>raven": [
+   "gg",
+   "Corvus corax",
+   "Odocoileus hemionus"
+  ],
+  "bighorn>raven": [
+   "gg",
+   "Corvus corax",
+   "Ovis canadensis"
+  ],
+  "muledeer>vulture": [
+   "g",
+   "Cathartes aura",
+   "Odocoileus hemionus"
+  ],
+  "bighorn>vulture": [
+   "gg",
+   "Cathartes aura",
+   "Ovis canadensis"
+  ],
+  "deermouse>vulture": [
+   "g",
+   "Cathartes aura",
+   "Peromyscus maniculatus"
+  ],
+  "woodrat>vulture": [
+   "g",
+   "Cathartes aura",
+   "Neotoma lepida"
+  ],
+  "woodrat>lion": [
+   "ga",
+   "Puma concolor",
+   "Neotoma lepida"
+  ],
+  "antsquirrel>lion": [
+   "ga",
+   "Puma concolor",
+   "Ammospermophilus leucurus"
+  ],
+  "bighorn>coyote": [
+   "ga",
+   "Canis latrans",
+   "Ovis canadensis"
+  ],
+  "bullsnake>coyote": [
+   "ga",
+   "Canis latrans",
+   "Pituophis catenifer"
+  ],
+  "raven>coyote": [
+   "ga",
+   "Canis latrans",
+   "Corvus corax"
+  ]
+ }
+}

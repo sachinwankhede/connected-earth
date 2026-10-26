@@ -1,0 +1,659 @@
+{
+ "id": "xliberia",
+ "name": "Sapo National Park",
+ "short": "Sapo",
+ "place": "Liberia",
+ "lat": 5.4,
+ "lon": -8.4,
+ "side": "r",
+ "cont": "Africa",
+ "country": "Liberia",
+ "blurb": "Liberia's rainforest: forest elephants, pygmy hippos and chimpanzees.",
+ "tip": {
+  "id": "elephant",
+  "title": "Lose the forest elephants",
+  "text": "Elephants spread seeds from many trees. Set African forest elephant to -100% and watch the fruit and canopy trees, then the animals that eat from them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Sapo National Park",
+   "url": "https://en.wikipedia.org/wiki/Sapo_National_Park"
+  },
+  {
+   "title": "Wikipedia: African forest elephant",
+   "url": "https://en.wikipedia.org/wiki/African_forest_elephant"
+  },
+  {
+   "title": "Wikipedia: Pygmy hippopotamus",
+   "url": "https://en.wikipedia.org/wiki/Pygmy_hippopotamus"
+  },
+  {
+   "title": "Wikipedia: Diana monkey",
+   "url": "https://en.wikipedia.org/wiki/Diana_monkey"
+  },
+  {
+   "title": "Wikipedia: Crowned eagle",
+   "url": "https://en.wikipedia.org/wiki/Crowned_eagle"
+  },
+  {
+   "title": "Wikipedia: African leopard",
+   "url": "https://en.wikipedia.org/wiki/African_leopard"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Sapo National Park",
+ "icon": "elephant",
+ "tier": "overview",
+ "kind": "Forest",
+ "park": true,
+ "nodes": [
+  {
+   "id": "figs",
+   "name": "Fig trees",
+   "latin": "Ficus",
+   "tl": 1,
+   "xh": 0.15,
+   "wiki": "Ficus",
+   "desc": "Fig trees of the forest. Their fruit is a staple for forest birds and primates; Wikipedia lists figs as a key food of the black-casqued hornbill.",
+   "ic": "aspen",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "ebony",
+   "name": "African ebony & relatives",
+   "latin": "Diospyros",
+   "tl": 1,
+   "xh": 0.38,
+   "wiki": "Diospyros",
+   "desc": "Diospyros trees recorded repeatedly in the park area by GBIF. Their fleshy fruit is food for forest animals.",
+   "ic": "willow"
+  },
+  {
+   "id": "gilbert",
+   "name": "Gilbertiodendron",
+   "latin": "Gilbertiodendron splendidum",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Gilbertiodendron",
+   "desc": "Legume canopy trees that Wikipedia names among the characteristic trees of Sapo National Park.",
+   "ic": "aspen"
+  },
+  {
+   "id": "herbs",
+   "name": "Forest floor herbs",
+   "latin": "Palisota bracteosa",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Palisota",
+   "desc": "Understorey herbs of the shaded forest floor, recorded in the park area. Herbs and ferns are food for ground browsers such as the pygmy hippo.",
+   "ic": "sage"
+  },
+  {
+   "id": "elephant",
+   "name": "African forest elephant",
+   "latin": "Loxodonta cyclotis",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "African forest elephant",
+   "desc": "Eats bark, leaves and fruit and spreads seeds in its dung, sometimes over 5 km. Wikipedia calls it the megagardener of the forest.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "hippo",
+   "name": "Pygmy hippopotamus",
+   "latin": "Hexaprotodon liberiensis",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Pygmy hippopotamus",
+   "desc": "Forages at dusk on herbs, ferns, shoots and fallen fruit. Camera traps confirmed it in Sapo in 2008. Liberia holds most of the wild population.",
+   "ic": "quad"
+  },
+  {
+   "id": "maxwell",
+   "name": "Maxwell's duiker",
+   "latin": "Philantomba maxwellii",
+   "tl": 2,
+   "xh": 0.29,
+   "wiki": "Maxwell's duiker",
+   "desc": "A small forest antelope that is locally abundant in Sapo and well recorded here. It feeds on leaves and fruit.",
+   "ic": "quad"
+  },
+  {
+   "id": "bay",
+   "name": "Bay duiker",
+   "latin": "Cephalophus dorsalis",
+   "tl": 2,
+   "xh": 0.41,
+   "wiki": "Bay duiker",
+   "desc": "A forest duiker that is locally abundant in Sapo and the most recorded duiker in the park area.",
+   "ic": "quad"
+  },
+  {
+   "id": "diana",
+   "name": "Diana monkey",
+   "latin": "Cercopithecus diana",
+   "tl": 2,
+   "xh": 0.53,
+   "wiki": "Diana monkey",
+   "desc": "Endangered monkey of the canopy. Eats mainly fruit, blossoms and leaves, plus some insects. Leopards, crowned eagles and chimpanzees prey on it.",
+   "ic": "quad"
+  },
+  {
+   "id": "colobus",
+   "name": "Western red colobus",
+   "latin": "Piliocolobus badius",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Western red colobus",
+   "desc": "A leaf-eating canopy monkey recorded in the park area. It is hunted by chimpanzees in other West African forests.",
+   "ic": "quad"
+  },
+  {
+   "id": "hornbill",
+   "name": "Black-casqued hornbill",
+   "latin": "Ceratogymna atrata",
+   "tl": 2,
+   "xh": 0.77,
+   "wiki": "Black-casqued hornbill",
+   "desc": "About 90 percent fruit, with figs and oil palm fruit as staples. An important seed disperser of forest trees.",
+   "ic": "hawk"
+  },
+  {
+   "id": "hog",
+   "name": "Red river hog",
+   "latin": "Potamochoerus porcus",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Red river hog",
+   "desc": "A forest pig that forages for fruit, roots and plants. GloBI has a record of it feeding on forest elephant.",
+   "ic": "quad"
+  },
+  {
+   "id": "chimp",
+   "name": "Western chimpanzee",
+   "latin": "Pan troglodytes",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Western chimpanzee",
+   "desc": "The most recorded mammal in the park area, with a population estimated at 500 to 1,640. Eats fruit and hunts monkeys such as colobus.",
+   "ic": "quad"
+  },
+  {
+   "id": "civet",
+   "name": "African civet",
+   "latin": "Civettictis civetta",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "African civet",
+   "desc": "An omnivore eating fruit, small animals, insects and carrion. Its latrines may help spread seeds.",
+   "ic": "quad"
+  },
+  {
+   "id": "vulture",
+   "name": "Palm-nut vulture",
+   "latin": "Gypohierax angolensis",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "Palm-nut vulture",
+   "desc": "Unusually for a raptor it eats mostly fruit, but also takes crabs, fish and carrion. GloBI has a record of it feeding on a buffalo.",
+   "ic": "hawk"
+  },
+  {
+   "id": "leopard",
+   "name": "African leopard",
+   "latin": "Panthera pardus",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "African leopard",
+   "desc": "The top mammal predator of Sapo. In African rainforests it mostly eats duikers and primates, and it also scavenges.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "eagle",
+   "name": "Crowned eagle",
+   "latin": "Stephanoaetus coronatus",
+   "tl": 4,
+   "xh": 0.68,
+   "wiki": "Crowned eagle",
+   "desc": "A forest eagle whose most common prey is monkeys. It also takes duikers.",
+   "ic": "hawk"
+  },
+  {
+   "id": "rain",
+   "name": "Seasonal rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.15,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Wet season from May to October and dry season from November to April set the rhythm of fruiting and growth.",
+   "ic": "rain"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.38,
+   "cat": "abiotic",
+   "wiki": "Sunlight",
+   "desc": "Canopy trees about 25 m high intercept most of the light, leaving the forest floor shaded.",
+   "ic": "sun"
+  },
+  {
+   "id": "water",
+   "name": "Swamps & rivers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.62,
+   "cat": "abiotic",
+   "wiki": "Swamp",
+   "desc": "Swamp and seasonally flooded forest make up about a quarter of the park, with the Sinoe River on its west side. Home to the pygmy hippo.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Forest soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.8,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Soil holds the nutrients recycled from fallen leaves and dead animals.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, termites & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.95,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, wood and carcasses and return nutrients to the soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "figs",
+   "r"
+  ],
+  [
+   "rain",
+   "gilbert",
+   "r"
+  ],
+  [
+   "rain",
+   "ebony",
+   "r"
+  ],
+  [
+   "rain",
+   "herbs",
+   "r"
+  ],
+  [
+   "sun",
+   "figs",
+   "r"
+  ],
+  [
+   "sun",
+   "herbs",
+   "r"
+  ],
+  [
+   "soil",
+   "ebony",
+   "r"
+  ],
+  [
+   "soil",
+   "gilbert",
+   "r"
+  ],
+  [
+   "water",
+   "herbs",
+   "r"
+  ],
+  [
+   "gilbert",
+   "elephant"
+  ],
+  [
+   "gilbert",
+   "colobus"
+  ],
+  [
+   "figs",
+   "elephant"
+  ],
+  [
+   "figs",
+   "maxwell"
+  ],
+  [
+   "figs",
+   "bay"
+  ],
+  [
+   "figs",
+   "diana"
+  ],
+  [
+   "figs",
+   "hornbill"
+  ],
+  [
+   "figs",
+   "hog"
+  ],
+  [
+   "figs",
+   "chimp"
+  ],
+  [
+   "figs",
+   "civet"
+  ],
+  [
+   "herbs",
+   "hippo"
+  ],
+  [
+   "herbs",
+   "maxwell"
+  ],
+  [
+   "herbs",
+   "bay"
+  ],
+  [
+   "herbs",
+   "hog"
+  ],
+  [
+   "ebony",
+   "diana"
+  ],
+  [
+   "ebony",
+   "colobus"
+  ],
+  [
+   "ebony",
+   "hornbill"
+  ],
+  [
+   "ebony",
+   "chimp"
+  ],
+  [
+   "ebony",
+   "civet"
+  ],
+  [
+   "elephant",
+   "hog",
+   "s"
+  ],
+  [
+   "diana",
+   "chimp"
+  ],
+  [
+   "diana",
+   "leopard"
+  ],
+  [
+   "diana",
+   "eagle"
+  ],
+  [
+   "colobus",
+   "chimp"
+  ],
+  [
+   "colobus",
+   "leopard"
+  ],
+  [
+   "colobus",
+   "eagle"
+  ],
+  [
+   "maxwell",
+   "leopard"
+  ],
+  [
+   "maxwell",
+   "eagle"
+  ],
+  [
+   "bay",
+   "leopard"
+  ],
+  [
+   "bay",
+   "eagle"
+  ],
+  [
+   "hog",
+   "leopard"
+  ],
+  [
+   "hippo",
+   "leopard"
+  ],
+  [
+   "maxwell",
+   "vulture",
+   "s"
+  ],
+  [
+   "bay",
+   "vulture",
+   "s"
+  ],
+  [
+   "gilbert",
+   "decomp",
+   "d"
+  ],
+  [
+   "herbs",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "leopard",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "figs",
+   "colobus"
+  ],
+  [
+   "chimp",
+   "leopard"
+  ],
+  [
+   "civet",
+   "leopard"
+  ]
+ ],
+ "ev": {
+  "gilbert>elephant": [
+   "gg",
+   "Loxodonta cyclotis",
+   "Gilbertiodendron splendidum"
+  ],
+  "gilbert>colobus": [
+   "gg",
+   "Piliocolobus badius",
+   "Gilbertiodendron splendidum"
+  ],
+  "figs>elephant": [
+   "gg",
+   "Loxodonta cyclotis",
+   "Ficus"
+  ],
+  "figs>maxwell": [
+   "gg",
+   "Philantomba maxwellii",
+   "Ficus"
+  ],
+  "figs>bay": [
+   "gg",
+   "Cephalophus dorsalis",
+   "Ficus"
+  ],
+  "figs>diana": [
+   "a"
+  ],
+  "figs>hornbill": [
+   "a"
+  ],
+  "figs>hog": [
+   "a"
+  ],
+  "figs>chimp": [
+   "gg",
+   "Pan troglodytes",
+   "Ficus"
+  ],
+  "figs>civet": [
+   "gg",
+   "Civettictis civetta",
+   "Ficus"
+  ],
+  "herbs>hippo": [
+   "a"
+  ],
+  "herbs>maxwell": [
+   "a"
+  ],
+  "herbs>bay": [
+   "a"
+  ],
+  "herbs>hog": [
+   "a"
+  ],
+  "ebony>diana": [
+   "gg",
+   "Cercopithecus diana",
+   "Diospyros"
+  ],
+  "ebony>colobus": [
+   "gg",
+   "Piliocolobus badius",
+   "Diospyros"
+  ],
+  "ebony>hornbill": [
+   "a"
+  ],
+  "ebony>chimp": [
+   "gg",
+   "Pan troglodytes",
+   "Diospyros"
+  ],
+  "ebony>civet": [
+   "gg",
+   "Civettictis civetta",
+   "Diospyros"
+  ],
+  "elephant>hog": [
+   "g",
+   "Potamochoerus porcus",
+   "Loxodonta cyclotis"
+  ],
+  "diana>chimp": [
+   "a"
+  ],
+  "diana>leopard": [
+   "g",
+   "Panthera pardus",
+   "Cercopithecus diana"
+  ],
+  "diana>eagle": [
+   "a"
+  ],
+  "colobus>chimp": [
+   "a"
+  ],
+  "colobus>leopard": [
+   "g",
+   "Panthera pardus",
+   "Piliocolobus badius"
+  ],
+  "colobus>eagle": [
+   "gg",
+   "Stephanoaetus coronatus",
+   "Piliocolobus badius"
+  ],
+  "maxwell>leopard": [
+   "g",
+   "Panthera pardus",
+   "Philantomba maxwellii"
+  ],
+  "maxwell>eagle": [
+   "gg",
+   "Stephanoaetus coronatus",
+   "Philantomba maxwellii"
+  ],
+  "bay>leopard": [
+   "g",
+   "Panthera pardus",
+   "Cephalophus dorsalis"
+  ],
+  "bay>eagle": [
+   "a"
+  ],
+  "hog>leopard": [
+   "g",
+   "Panthera pardus",
+   "Potamochoerus porcus"
+  ],
+  "hippo>leopard": [
+   "a"
+  ],
+  "maxwell>vulture": [
+   "a"
+  ],
+  "bay>vulture": [
+   "a"
+  ],
+  "figs>colobus": [
+   "ga",
+   "Piliocolobus badius",
+   "Ficus"
+  ],
+  "chimp>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Pan troglodytes"
+  ],
+  "civet>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Civettictis civetta"
+  ]
+ }
+}

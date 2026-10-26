@@ -1,0 +1,722 @@
+{
+ "id": "xturkmen",
+ "name": "Repetek Biosphere Reserve",
+ "short": "Repetek",
+ "place": "Turkmenistan",
+ "lat": 38.6,
+ "lon": 63.2,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Turkmenistan",
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Saxaul sand desert where gerbils, lizards and a big monitor share scarce water.",
+ "tip": {
+  "id": "gerbil",
+  "title": "Remove the great gerbil",
+  "text": "Gerbils feed owls, snakes, foxes and the desert monitor. Set Great gerbil to -100% and watch the predators that rely on it."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Repetek Nature Reserve",
+   "url": "https://en.wikipedia.org/wiki/Repetek_Nature_Reserve"
+  },
+  {
+   "title": "Wikipedia: Karakum Desert",
+   "url": "https://en.wikipedia.org/wiki/Karakum_Desert"
+  },
+  {
+   "title": "Wikipedia: Haloxylon ammodendron",
+   "url": "https://en.wikipedia.org/wiki/Haloxylon_ammodendron"
+  },
+  {
+   "title": "Wikipedia: Desert monitor",
+   "url": "https://en.wikipedia.org/wiki/Desert_monitor"
+  },
+  {
+   "title": "Wikipedia: Caspian cobra",
+   "url": "https://en.wikipedia.org/wiki/Caspian_cobra"
+  },
+  {
+   "title": "Wikipedia: Great grey shrike",
+   "url": "https://en.wikipedia.org/wiki/Great_grey_shrike"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Repetek Nature Reserve",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Intense desert sun drives plant growth but also the summer heat and drought that limit it.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Scarce rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.32,
+   "cat": "abiotic",
+   "wiki": "Desert climate",
+   "desc": "The Karakum gets only about 70 to 150 mm of rain a year, so a short spring flush of annual plants matters a great deal.",
+   "ic": "rain"
+  },
+  {
+   "id": "sand",
+   "name": "Sandy soil and dunes",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.56,
+   "cat": "abiotic",
+   "wiki": "Sand",
+   "desc": "Loose sand holds little organic matter. Deep-rooted shrubs help anchor it, and returning nutrients feed the plants.",
+   "ic": "soil"
+  },
+  {
+   "id": "groundwater",
+   "name": "Groundwater",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.78,
+   "cat": "abiotic",
+   "wiki": "Groundwater",
+   "desc": "Deep-rooted desert shrubs tap water below the sand surface, which lets them survive long dry spells. General ecology.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Soil algae, fungi and bacteria break down dead plants and animals and return nutrients to the sand.",
+   "ic": "decomp"
+  },
+  {
+   "id": "blacksaxaul",
+   "name": "Black saxaul",
+   "latin": "Haloxylon ammodendron",
+   "tl": 1,
+   "xh": 0.15,
+   "wiki": "Haloxylon ammodendron",
+   "desc": "A leafless desert tree of sandy deserts that forms saxaul woodland in Central Asia and is the signature plant of the reserve. Locusts and beetles attack it.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "whitesaxaul",
+   "name": "White saxaul",
+   "latin": "Haloxylon persicum",
+   "tl": 1,
+   "xh": 0.38,
+   "wiki": "Haloxylon persicum",
+   "desc": "A shrubby saxaul of shifting sands, one of the best-recorded plants in the area.",
+   "ic": "sage"
+  },
+  {
+   "id": "calligonum",
+   "name": "Calligonum shrubs",
+   "latin": "Calligonum",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Calligonum",
+   "desc": "Sand-loving shrubs with thin, nearly leafless stems that grow on dunes of the Karakum.",
+   "ic": "sage"
+  },
+  {
+   "id": "ephemerals",
+   "name": "Spring annual grasses",
+   "latin": "Schismus arabicus",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Schismus",
+   "desc": "Short-lived grasses and herbs that sprout after rain and set seed quickly, a seasonal feast for seed and leaf eaters.",
+   "ic": "grass"
+  },
+  {
+   "id": "gazelle",
+   "name": "Goitered gazelle",
+   "latin": "Gazella subgutturosa",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Goitered gazelle",
+   "desc": "A vulnerable desert antelope of sands and gravel plains, with a significant population in the reserve. Herds travel to find food.",
+   "ic": "pronghorn"
+  },
+  {
+   "id": "gerbil",
+   "name": "Great gerbil",
+   "latin": "Rhombomys opimus",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Great gerbil",
+   "desc": "A colonial burrowing rodent of Central Asian deserts that eats plant material. It is prey for reptiles, owls and foxes.",
+   "ic": "vole"
+  },
+  {
+   "id": "locust",
+   "name": "Saxaul locusts",
+   "latin": "Dericorys",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Locust",
+   "desc": "Locusts of this genus are recorded as pests of saxaul in Turkmenistan and neighbouring countries.",
+   "ic": "hopper"
+  },
+  {
+   "id": "beetles",
+   "name": "Darkling beetles",
+   "latin": "Tenebrionidae",
+   "tl": 2,
+   "xh": 0.49,
+   "wiki": "Darkling beetle",
+   "desc": "Hardy ground beetles of sandy deserts that feed on plant matter and debris, and feed many lizards and birds.",
+   "ic": "hopper"
+  },
+  {
+   "id": "sparrow",
+   "name": "Saxaul sparrow",
+   "latin": "Passer ammodendri",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Saxaul sparrow",
+   "desc": "A small sparrow tied to saxaul and desert shrubs that eats seeds and some insects. Prey for shrikes, owls and snakes.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "gecko",
+   "name": "Common wonder gecko",
+   "latin": "Teratoscincus scincus",
+   "tl": 3,
+   "xh": 0.06,
+   "wiki": "Teratoscincus scincus",
+   "desc": "A nocturnal gecko of sand dunes that shelters in a deep burrow by day and eats insects and other lizards.",
+   "ic": "snake"
+  },
+  {
+   "id": "agama",
+   "name": "Steppe agama",
+   "latin": "Trapelus sanguinolentus",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Trapelus sanguinolentus",
+   "desc": "A common desert lizard that hunts insects by day. It is recorded as prey of the steppe ribbon racer.",
+   "ic": "snake"
+  },
+  {
+   "id": "racer",
+   "name": "Steppe ribbon racer",
+   "latin": "Psammophis lineolatus",
+   "tl": 3,
+   "xh": 0.36,
+   "wiki": "Psammophis lineolatus",
+   "desc": "A slender, fast snake of sandy deserts that eats lizards such as the steppe agama.",
+   "ic": "snake"
+  },
+  {
+   "id": "groundjay",
+   "name": "Turkestan ground jay",
+   "latin": "Podoces panderi",
+   "tl": 3,
+   "xh": 0.52,
+   "wiki": "Turkestan ground jay",
+   "desc": "A ground-living crow of sandy desert with low shrubs, and the best-recorded bird near the reserve. Forages on the ground.",
+   "ic": "raven"
+  },
+  {
+   "id": "shrike",
+   "name": "Great grey shrike",
+   "latin": "Lanius excubitor",
+   "tl": 3,
+   "xh": 0.68,
+   "wiki": "Great grey shrike",
+   "desc": "A songbird predator that takes large insects, small rodents, lizards and small birds, and impales surplus prey on thorns.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "owl",
+   "name": "Little owl",
+   "latin": "Athene noctua",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "Little owl",
+   "desc": "A small owl that eats insects and small vertebrates, including mammals, reptiles and birds.",
+   "ic": "hawk"
+  },
+  {
+   "id": "monitor",
+   "name": "Desert monitor",
+   "latin": "Varanus griseus",
+   "tl": 4,
+   "xh": 0.2,
+   "wiki": "Desert monitor",
+   "desc": "A large burrowing lizard that eats mammals, reptiles, birds, eggs and insects, and also feeds on carrion. The reserve is known for it.",
+   "ic": "croc",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "cobra",
+   "name": "Caspian cobra",
+   "latin": "Naja oxiana",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Caspian cobra",
+   "desc": "A venomous snake of dry scrub that mainly eats small mammals, and also takes birds and other snakes.",
+   "ic": "snake"
+  },
+  {
+   "id": "corsac",
+   "name": "Corsac fox",
+   "latin": "Vulpes corsac",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Corsac fox",
+   "desc": "A small steppe and desert fox named among Karakum mammals. Eats rodents and insects. General ecology.",
+   "ic": "fox"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "blacksaxaul",
+   "r"
+  ],
+  [
+   "sun",
+   "whitesaxaul",
+   "r"
+  ],
+  [
+   "sun",
+   "calligonum",
+   "r"
+  ],
+  [
+   "sun",
+   "ephemerals",
+   "r"
+  ],
+  [
+   "rain",
+   "ephemerals",
+   "r"
+  ],
+  [
+   "rain",
+   "calligonum",
+   "r"
+  ],
+  [
+   "rain",
+   "whitesaxaul",
+   "r"
+  ],
+  [
+   "groundwater",
+   "blacksaxaul",
+   "r"
+  ],
+  [
+   "sand",
+   "whitesaxaul",
+   "r"
+  ],
+  [
+   "sand",
+   "calligonum",
+   "r"
+  ],
+  [
+   "decomp",
+   "sand",
+   "r"
+  ],
+  [
+   "blacksaxaul",
+   "decomp",
+   "d"
+  ],
+  [
+   "whitesaxaul",
+   "decomp",
+   "d"
+  ],
+  [
+   "calligonum",
+   "decomp",
+   "d"
+  ],
+  [
+   "ephemerals",
+   "decomp",
+   "d"
+  ],
+  [
+   "gazelle",
+   "decomp",
+   "d"
+  ],
+  [
+   "gerbil",
+   "decomp",
+   "d"
+  ],
+  [
+   "monitor",
+   "decomp",
+   "d"
+  ],
+  [
+   "cobra",
+   "decomp",
+   "d"
+  ],
+  [
+   "corsac",
+   "decomp",
+   "d"
+  ],
+  [
+   "ephemerals",
+   "gazelle"
+  ],
+  [
+   "blacksaxaul",
+   "gazelle"
+  ],
+  [
+   "whitesaxaul",
+   "gazelle"
+  ],
+  [
+   "calligonum",
+   "gazelle"
+  ],
+  [
+   "ephemerals",
+   "gerbil"
+  ],
+  [
+   "blacksaxaul",
+   "gerbil"
+  ],
+  [
+   "blacksaxaul",
+   "locust"
+  ],
+  [
+   "ephemerals",
+   "locust"
+  ],
+  [
+   "ephemerals",
+   "beetles"
+  ],
+  [
+   "ephemerals",
+   "sparrow"
+  ],
+  [
+   "blacksaxaul",
+   "sparrow"
+  ],
+  [
+   "whitesaxaul",
+   "sparrow"
+  ],
+  [
+   "beetles",
+   "gecko"
+  ],
+  [
+   "locust",
+   "gecko"
+  ],
+  [
+   "beetles",
+   "agama"
+  ],
+  [
+   "locust",
+   "agama"
+  ],
+  [
+   "agama",
+   "racer"
+  ],
+  [
+   "beetles",
+   "groundjay"
+  ],
+  [
+   "locust",
+   "groundjay"
+  ],
+  [
+   "beetles",
+   "shrike"
+  ],
+  [
+   "locust",
+   "shrike"
+  ],
+  [
+   "agama",
+   "shrike"
+  ],
+  [
+   "sparrow",
+   "shrike"
+  ],
+  [
+   "beetles",
+   "owl"
+  ],
+  [
+   "gerbil",
+   "owl"
+  ],
+  [
+   "agama",
+   "owl"
+  ],
+  [
+   "sparrow",
+   "owl"
+  ],
+  [
+   "gerbil",
+   "monitor"
+  ],
+  [
+   "agama",
+   "monitor"
+  ],
+  [
+   "gecko",
+   "monitor"
+  ],
+  [
+   "racer",
+   "monitor"
+  ],
+  [
+   "sparrow",
+   "monitor"
+  ],
+  [
+   "gerbil",
+   "cobra"
+  ],
+  [
+   "racer",
+   "cobra"
+  ],
+  [
+   "sparrow",
+   "cobra"
+  ],
+  [
+   "gerbil",
+   "corsac"
+  ],
+  [
+   "locust",
+   "corsac"
+  ],
+  [
+   "agama",
+   "corsac"
+  ],
+  [
+   "gazelle",
+   "monitor",
+   "s"
+  ],
+  [
+   "gerbil",
+   "shrike"
+  ],
+  [
+   "shrike",
+   "monitor"
+  ],
+  [
+   "owl",
+   "monitor"
+  ],
+  [
+   "owl",
+   "corsac"
+  ]
+ ],
+ "ev": {
+  "ephemerals>gazelle": [
+   "a"
+  ],
+  "blacksaxaul>gazelle": [
+   "a"
+  ],
+  "whitesaxaul>gazelle": [
+   "a"
+  ],
+  "calligonum>gazelle": [
+   "a"
+  ],
+  "ephemerals>gerbil": [
+   "a"
+  ],
+  "blacksaxaul>gerbil": [
+   "a"
+  ],
+  "blacksaxaul>locust": [
+   "a"
+  ],
+  "ephemerals>locust": [
+   "a"
+  ],
+  "ephemerals>beetles": [
+   "a"
+  ],
+  "ephemerals>sparrow": [
+   "a"
+  ],
+  "blacksaxaul>sparrow": [
+   "a"
+  ],
+  "whitesaxaul>sparrow": [
+   "a"
+  ],
+  "beetles>gecko": [
+   "a"
+  ],
+  "locust>gecko": [
+   "a"
+  ],
+  "beetles>agama": [
+   "a"
+  ],
+  "locust>agama": [
+   "a"
+  ],
+  "agama>racer": [
+   "g",
+   "Psammophis lineolatus",
+   "Trapelus sanguinolentus"
+  ],
+  "beetles>groundjay": [
+   "a"
+  ],
+  "locust>groundjay": [
+   "a"
+  ],
+  "beetles>shrike": [
+   "a"
+  ],
+  "locust>shrike": [
+   "a"
+  ],
+  "agama>shrike": [
+   "gg",
+   "Lanius excubitor",
+   "Trapelus sanguinolentus"
+  ],
+  "sparrow>shrike": [
+   "gg",
+   "Lanius excubitor",
+   "Passer ammodendri"
+  ],
+  "beetles>owl": [
+   "a"
+  ],
+  "gerbil>owl": [
+   "a"
+  ],
+  "agama>owl": [
+   "gg",
+   "Athene noctua",
+   "Trapelus sanguinolentus"
+  ],
+  "sparrow>owl": [
+   "gg",
+   "Athene noctua",
+   "Passer ammodendri"
+  ],
+  "gerbil>monitor": [
+   "g",
+   "Varanus griseus",
+   "Rhombomys opimus"
+  ],
+  "agama>monitor": [
+   "gg",
+   "Varanus griseus",
+   "Trapelus sanguinolentus"
+  ],
+  "gecko>monitor": [
+   "a"
+  ],
+  "racer>monitor": [
+   "a"
+  ],
+  "sparrow>monitor": [
+   "gg",
+   "Varanus griseus",
+   "Passer ammodendri"
+  ],
+  "gerbil>cobra": [
+   "a"
+  ],
+  "racer>cobra": [
+   "a"
+  ],
+  "sparrow>cobra": [
+   "a"
+  ],
+  "gerbil>corsac": [
+   "g",
+   "Vulpes corsac",
+   "Rhombomys opimus"
+  ],
+  "locust>corsac": [
+   "a"
+  ],
+  "agama>corsac": [
+   "gg",
+   "Vulpes corsac",
+   "Trapelus sanguinolentus"
+  ],
+  "gazelle>monitor": [
+   "a"
+  ],
+  "gerbil>shrike": [
+   "ga",
+   "Lanius excubitor",
+   "Rhombomys opimus"
+  ],
+  "shrike>monitor": [
+   "ga",
+   "Varanus griseus",
+   "Lanius excubitor"
+  ],
+  "owl>monitor": [
+   "ga",
+   "Varanus griseus",
+   "Athene noctua"
+  ],
+  "owl>corsac": [
+   "ga",
+   "Vulpes corsac",
+   "Athene noctua"
+  ]
+ }
+}

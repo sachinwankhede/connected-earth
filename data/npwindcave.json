@@ -1,0 +1,738 @@
+{
+ "id": "npwindcave",
+ "name": "Wind Cave National Park",
+ "short": "Wind Cave",
+ "place": "South Dakota, USA",
+ "lat": 43.57,
+ "lon": -103.48,
+ "side": "r",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "South Dakota"
+ ],
+ "kind": "Grassland",
+ "park": true,
+ "blurb": "Mixed-grass prairie where bison, prairie dogs and ferrets share the grass.",
+ "tip": {
+  "id": "prairiedog",
+  "title": "Lose the prairie dogs",
+  "text": "Prairie dogs feed ferrets, badgers and coyotes. Set Black-tailed prairie dog to -100% and watch the ferret first, then the other predators."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Wind Cave National Park",
+   "url": "https://en.wikipedia.org/wiki/Wind_Cave_National_Park"
+  },
+  {
+   "title": "NPS: Wind Cave nature and science",
+   "url": "https://www.nps.gov/wica/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Black-tailed prairie dog",
+   "url": "https://en.wikipedia.org/wiki/Black-tailed_prairie_dog"
+  },
+  {
+   "title": "Wikipedia: Black-footed ferret",
+   "url": "https://en.wikipedia.org/wiki/Black-footed_ferret"
+  },
+  {
+   "title": "Wikipedia: American bison",
+   "url": "https://en.wikipedia.org/wiki/American_bison"
+  },
+  {
+   "title": "Wikipedia: Cougar",
+   "url": "https://en.wikipedia.org/wiki/Cougar"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Wind Cave National Park",
+ "icon": "grass",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.15,
+   "wiki": "Sun",
+   "desc": "Sunshine powers the grasses and wildflowers that feed everything else on the prairie.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Rain & snow",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "wiki": "Precipitation",
+   "desc": "The park gets roughly 21 inches of precipitation a year, plus heavy winter snow, which is modest water for grassland growth.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "fire",
+   "name": "Fire",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.65,
+   "wiki": "Wildfire",
+   "desc": "Grassland fire clears dead growth and holds back woody plants, one of the forces that keeps prairie open.",
+   "ic": "fire",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Prairie soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Soil",
+   "desc": "Nutrients released by decay return to the soil and feed the next season of plant growth.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "grama",
+   "name": "Blue grama & buffalo grass",
+   "latin": "Bouteloua",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Bouteloua gracilis",
+   "desc": "Short grasses that prairie dogs favour and that bison graze in mixed-grass prairie.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "wheat",
+   "name": "Western wheatgrass",
+   "latin": "Pascopyrum smithii",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "Pascopyrum smithii",
+   "desc": "A cool-season grass of the northern Great Plains, a staple for grazers and a main food of prairie dogs.",
+   "ic": "grass"
+  },
+  {
+   "id": "forbs",
+   "name": "Prairie wildflowers",
+   "latin": "Echinacea angustifolia",
+   "tl": 1,
+   "xh": 0.46,
+   "wiki": "Echinacea angustifolia",
+   "desc": "Coneflowers, globemallow and other forbs add diversity to the grassland and feed pronghorn and prairie dogs.",
+   "ic": "sage"
+  },
+  {
+   "id": "chokecherry",
+   "name": "Chokecherry",
+   "latin": "Prunus virginiana",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Prunus virginiana",
+   "desc": "A thicket-forming shrub of draws and slopes whose leaves and fruit are eaten by deer and other animals.",
+   "ic": "willow"
+  },
+  {
+   "id": "pine",
+   "name": "Ponderosa pine",
+   "latin": "Pinus ponderosa",
+   "tl": 1,
+   "xh": 0.84,
+   "wiki": "Pinus ponderosa",
+   "desc": "The dominant tree of the hills, forming the forest that meets the prairie at the park edge.",
+   "ic": "aspen"
+  },
+  {
+   "id": "bison",
+   "name": "American bison",
+   "latin": "Bison bison",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "American bison",
+   "desc": "The park herd is one of four free-roaming, genetically pure bison herds on public land. They graze mainly grasses and sedges.",
+   "ic": "bison",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "prairiedog",
+   "name": "Black-tailed prairie dog",
+   "latin": "Cynomys ludovicianus",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Black-tailed prairie dog",
+   "desc": "A burrowing grazer that lives in large colonies; its digging and clipping reshape vegetation and its colonies support many other species.",
+   "ic": "gsquirrel",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "pronghorn",
+   "name": "Pronghorn",
+   "latin": "Antilocapra americana",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Pronghorn",
+   "desc": "A fast grassland ungulate that lives in the park alongside bison and elk.",
+   "ic": "pronghorn"
+  },
+  {
+   "id": "elk",
+   "name": "Elk",
+   "latin": "Cervus canadensis",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Elk",
+   "desc": "Elk graze and browse in the park, and are among the larger prey of mountain lions.",
+   "ic": "elk"
+  },
+  {
+   "id": "muledeer",
+   "name": "Mule deer",
+   "latin": "Odocoileus hemionus",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Mule deer",
+   "desc": "A browsing deer of slopes and pine edges, taken by cougars and coyotes.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "deermouse",
+   "name": "Deer mouse",
+   "latin": "Peromyscus maniculatus",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Peromyscus maniculatus",
+   "desc": "A small seed- and insect-eating rodent that is prey for badgers, coyotes, snakes and ferrets.",
+   "ic": "vole"
+  },
+  {
+   "id": "ferret",
+   "name": "Black-footed ferret",
+   "latin": "Mustela nigripes",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Black-footed ferret",
+   "desc": "An endangered weasel that depends on prairie dog colonies, which can make up most of its diet. The species has been reintroduced to the park.",
+   "ic": "quad"
+  },
+  {
+   "id": "badger",
+   "name": "American badger",
+   "latin": "Taxidea taxus",
+   "tl": 3,
+   "xh": 0.24,
+   "wiki": "American badger",
+   "desc": "A digging carnivore that preys on prairie dogs and other burrowing rodents.",
+   "ic": "quad"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Coyote",
+   "desc": "A generalist predator of prairie dogs, rodents and young ungulates that also scavenges.",
+   "ic": "coyote"
+  },
+  {
+   "id": "bullsnake",
+   "name": "Bullsnake",
+   "latin": "Pituophis catenifer",
+   "tl": 3,
+   "xh": 0.56,
+   "wiki": "Pituophis catenifer",
+   "desc": "A large constrictor that hunts rodents, birds and eggs in grassland.",
+   "ic": "snake"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Turkey vulture",
+   "desc": "A soaring scavenger that finds and eats carcasses of deer and small mammals.",
+   "ic": "hawk"
+  },
+  {
+   "id": "magpie",
+   "name": "Black-billed magpie",
+   "latin": "Pica hudsonia",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Black-billed magpie",
+   "desc": "A clever corvid that feeds on carrion as well as insects and seeds.",
+   "ic": "raven"
+  },
+  {
+   "id": "puma",
+   "name": "Mountain lion",
+   "latin": "Puma concolor",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Cougar",
+   "desc": "The park apex predator, which takes mainly deer and elk and is regarded as a keystone species.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and insects break down carcasses, dung and dead grass, returning nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "grama",
+   "r"
+  ],
+  [
+   "rain",
+   "grama",
+   "r"
+  ],
+  [
+   "soil",
+   "grama",
+   "r"
+  ],
+  [
+   "sun",
+   "wheat",
+   "r"
+  ],
+  [
+   "rain",
+   "wheat",
+   "r"
+  ],
+  [
+   "soil",
+   "wheat",
+   "r"
+  ],
+  [
+   "sun",
+   "forbs",
+   "r"
+  ],
+  [
+   "rain",
+   "forbs",
+   "r"
+  ],
+  [
+   "soil",
+   "forbs",
+   "r"
+  ],
+  [
+   "sun",
+   "chokecherry",
+   "r"
+  ],
+  [
+   "rain",
+   "chokecherry",
+   "r"
+  ],
+  [
+   "soil",
+   "chokecherry",
+   "r"
+  ],
+  [
+   "sun",
+   "pine",
+   "r"
+  ],
+  [
+   "rain",
+   "pine",
+   "r"
+  ],
+  [
+   "soil",
+   "pine",
+   "r"
+  ],
+  [
+   "fire",
+   "grama",
+   "r"
+  ],
+  [
+   "fire",
+   "wheat",
+   "r"
+  ],
+  [
+   "fire",
+   "forbs",
+   "r"
+  ],
+  [
+   "grama",
+   "bison"
+  ],
+  [
+   "grama",
+   "prairiedog"
+  ],
+  [
+   "grama",
+   "pronghorn"
+  ],
+  [
+   "grama",
+   "elk"
+  ],
+  [
+   "wheat",
+   "bison"
+  ],
+  [
+   "wheat",
+   "prairiedog"
+  ],
+  [
+   "wheat",
+   "pronghorn"
+  ],
+  [
+   "wheat",
+   "elk"
+  ],
+  [
+   "forbs",
+   "prairiedog"
+  ],
+  [
+   "forbs",
+   "pronghorn"
+  ],
+  [
+   "forbs",
+   "deermouse"
+  ],
+  [
+   "chokecherry",
+   "muledeer"
+  ],
+  [
+   "chokecherry",
+   "elk"
+  ],
+  [
+   "pine",
+   "muledeer"
+  ],
+  [
+   "wheat",
+   "deermouse"
+  ],
+  [
+   "prairiedog",
+   "ferret"
+  ],
+  [
+   "prairiedog",
+   "badger"
+  ],
+  [
+   "prairiedog",
+   "coyote"
+  ],
+  [
+   "prairiedog",
+   "vulture",
+   "s"
+  ],
+  [
+   "deermouse",
+   "ferret"
+  ],
+  [
+   "deermouse",
+   "badger"
+  ],
+  [
+   "deermouse",
+   "coyote"
+  ],
+  [
+   "deermouse",
+   "bullsnake"
+  ],
+  [
+   "pronghorn",
+   "coyote"
+  ],
+  [
+   "elk",
+   "coyote"
+  ],
+  [
+   "muledeer",
+   "coyote"
+  ],
+  [
+   "pronghorn",
+   "puma"
+  ],
+  [
+   "elk",
+   "puma"
+  ],
+  [
+   "muledeer",
+   "puma"
+  ],
+  [
+   "coyote",
+   "puma"
+  ],
+  [
+   "badger",
+   "puma"
+  ],
+  [
+   "deermouse",
+   "vulture"
+  ],
+  [
+   "deermouse",
+   "magpie"
+  ],
+  [
+   "muledeer",
+   "vulture",
+   "s"
+  ],
+  [
+   "muledeer",
+   "magpie",
+   "s"
+  ],
+  [
+   "elk",
+   "magpie",
+   "s"
+  ],
+  [
+   "bison",
+   "decomp",
+   "d"
+  ],
+  [
+   "grama",
+   "decomp",
+   "d"
+  ],
+  [
+   "pine",
+   "decomp",
+   "d"
+  ],
+  [
+   "puma",
+   "decomp",
+   "d"
+  ],
+  [
+   "muledeer",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "muledeer",
+   "badger"
+  ],
+  [
+   "prairiedog",
+   "bullsnake"
+  ],
+  [
+   "elk",
+   "vulture"
+  ]
+ ],
+ "ev": {
+  "grama>bison": [
+   "a"
+  ],
+  "grama>prairiedog": [
+   "a"
+  ],
+  "grama>pronghorn": [
+   "a"
+  ],
+  "grama>elk": [
+   "a"
+  ],
+  "wheat>bison": [
+   "a"
+  ],
+  "wheat>prairiedog": [
+   "a"
+  ],
+  "wheat>pronghorn": [
+   "a"
+  ],
+  "wheat>elk": [
+   "a"
+  ],
+  "forbs>prairiedog": [
+   "a"
+  ],
+  "forbs>pronghorn": [
+   "a"
+  ],
+  "forbs>deermouse": [
+   "a"
+  ],
+  "chokecherry>muledeer": [
+   "a"
+  ],
+  "chokecherry>elk": [
+   "a"
+  ],
+  "pine>muledeer": [
+   "a"
+  ],
+  "wheat>deermouse": [
+   "a"
+  ],
+  "prairiedog>ferret": [
+   "gg",
+   "Mustela nigripes",
+   "Cynomys ludovicianus"
+  ],
+  "prairiedog>badger": [
+   "g",
+   "Taxidea taxus",
+   "Cynomys ludovicianus"
+  ],
+  "prairiedog>coyote": [
+   "g",
+   "Canis latrans",
+   "Cynomys ludovicianus"
+  ],
+  "prairiedog>vulture": [
+   "g",
+   "Cathartes aura",
+   "Cynomys ludovicianus"
+  ],
+  "deermouse>ferret": [
+   "a"
+  ],
+  "deermouse>badger": [
+   "g",
+   "Taxidea taxus",
+   "Peromyscus maniculatus"
+  ],
+  "deermouse>coyote": [
+   "g",
+   "Canis latrans",
+   "Peromyscus maniculatus"
+  ],
+  "deermouse>bullsnake": [
+   "g",
+   "Pituophis catenifer",
+   "Peromyscus maniculatus"
+  ],
+  "pronghorn>coyote": [
+   "g",
+   "Canis latrans",
+   "Antilocapra americana"
+  ],
+  "elk>coyote": [
+   "g",
+   "Canis latrans",
+   "Cervus canadensis"
+  ],
+  "muledeer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus hemionus"
+  ],
+  "pronghorn>puma": [
+   "g",
+   "Puma concolor",
+   "Antilocapra americana"
+  ],
+  "elk>puma": [
+   "g",
+   "Puma concolor",
+   "Cervus canadensis"
+  ],
+  "muledeer>puma": [
+   "g",
+   "Puma concolor",
+   "Odocoileus hemionus"
+  ],
+  "coyote>puma": [
+   "g",
+   "Puma concolor",
+   "Canis latrans"
+  ],
+  "badger>puma": [
+   "g",
+   "Puma concolor",
+   "Taxidea taxus"
+  ],
+  "deermouse>vulture": [
+   "g",
+   "Cathartes aura",
+   "Peromyscus maniculatus"
+  ],
+  "deermouse>magpie": [
+   "a"
+  ],
+  "muledeer>vulture": [
+   "g",
+   "Cathartes aura",
+   "Odocoileus hemionus"
+  ],
+  "muledeer>magpie": [
+   "g",
+   "Pica hudsonia",
+   "Odocoileus hemionus"
+  ],
+  "elk>magpie": [
+   "g",
+   "Pica hudsonia",
+   "Cervus canadensis"
+  ],
+  "muledeer>badger": [
+   "ga",
+   "Taxidea taxus",
+   "Odocoileus hemionus"
+  ],
+  "prairiedog>bullsnake": [
+   "ga",
+   "Pituophis catenifer",
+   "Cynomys ludovicianus"
+  ],
+  "elk>vulture": [
+   "ga",
+   "Cathartes aura",
+   "Cervus canadensis"
+  ]
+ }
+}

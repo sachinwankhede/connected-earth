@@ -1,0 +1,886 @@
+{
+ "id": "mississippi",
+ "name": "Mississippi River Floodplain",
+ "short": "Mississippi River",
+ "place": "St. Louis region, Missouri and Illinois",
+ "lat": 38.8,
+ "lon": -90.2,
+ "side": "r",
+ "blurb": "Eagles, pelicans and paddlefish on the river beside St. Louis.",
+ "tip": {
+  "id": "silvercarp",
+  "title": "Try the invasive silver carp",
+  "text": "Silver carp filter the same plankton that shad, paddlefish and mussels need. Raise them by 100% and see who loses out."
+ },
+ "sources": [
+  {
+   "title": "National Park Service: animals of the Mississippi River corridor",
+   "url": "https://home.nps.gov/miss/learn/nature/animals.htm"
+  },
+  {
+   "title": "US Fish & Wildlife Service: Upper Mississippi floodplains",
+   "url": "https://www.fws.gov/story/2009-06/us-designates-upper-mississippi-river-floodplains-wetland-international-importance-0"
+  },
+  {
+   "title": "Wikipedia: Upper Mississippi River",
+   "url": "https://en.wikipedia.org/wiki/Upper_Mississippi_River"
+  },
+  {
+   "title": "Wikipedia: Mississippi Flyway",
+   "url": "https://en.wikipedia.org/wiki/Mississippi_Flyway"
+  }
+ ],
+ "notes": "Feeding links were checked against the sources listed where they state them. Where the sources are silent, links come from general ecological knowledge and are illustrative. Feeding links that match a GloBI (Global Biotic Interactions) record are marked in the node details, with a link to the records. A few links were added from GloBI records.",
+ "nodes": [
+  {
+   "id": "algae",
+   "name": "River phytoplankton",
+   "latin": "Diverse microalgae",
+   "tl": 1,
+   "xh": 0.08,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting algae that start the river's food chain. They feed zooplankton, mussels and filter-feeding fish.",
+   "ic": "algae"
+  },
+  {
+   "id": "celery",
+   "name": "Wild celery & pondweeds",
+   "latin": "Vallisneria and Potamogeton spp.",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Vallisneria americana",
+   "desc": "Underwater plants rooted in the river bed. The FWS and Wikipedia describe submerged vegetation as important for fish and waterfowl. Canvasbacks eat the tubers.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "moist",
+   "name": "Moist-soil plants",
+   "latin": "Smartweeds and millets",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Smartweed",
+   "desc": "Plants that sprout on exposed mud flats when floods recede. Their seeds feed ducks.",
+   "ic": "grass"
+  },
+  {
+   "id": "cottonwood",
+   "name": "Cottonwood & silver maple",
+   "latin": "Populus deltoides, Acer saccharinum",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Populus deltoides",
+   "desc": "Bottomland forest trees that flood each spring. Beavers and deer use them.",
+   "ic": "aspen"
+  },
+  {
+   "id": "willow",
+   "name": "Black willow",
+   "latin": "Salix nigra",
+   "tl": 1,
+   "xh": 0.9,
+   "wiki": "Salix nigra",
+   "desc": "Colonizes new sandbars and banks. Beavers, muskrats and deer all browse it.",
+   "ic": "willow"
+  },
+  {
+   "id": "zoop",
+   "name": "Zooplankton",
+   "latin": "Cladocera and copepods",
+   "tl": 2,
+   "xh": 0.04,
+   "wiki": "Zooplankton",
+   "desc": "Tiny animals that graze algae and feed paddlefish, gizzard shad and silver carp.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "mussels",
+   "name": "Freshwater mussels",
+   "latin": "Unionidae",
+   "tl": 2,
+   "xh": 0.13,
+   "wiki": "Unionidae",
+   "desc": "The upper river has dozens of mussel species. They filter algae from the water, and freshwater drum eat them. The NPS reports their numbers are recovering.",
+   "ic": "shell"
+  },
+  {
+   "id": "insects",
+   "name": "Aquatic insect larvae",
+   "latin": "Mayflies, caddisflies and midges",
+   "tl": 2,
+   "xh": 0.23,
+   "wiki": "Aquatic insect",
+   "desc": "Larvae living in mud and on wood. They feed on algae and detritus and are a main food for freshwater drum.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "shad",
+   "name": "Gizzard shad",
+   "latin": "Dorosoma cepedianum",
+   "tl": 2,
+   "xh": 0.32,
+   "wiki": "Gizzard shad",
+   "desc": "A filter-feeding fish and the most important forage fish in the river. Herons, cormorants, pelicans, ospreys, eagles and catfish all eat it.",
+   "ic": "trout"
+  },
+  {
+   "id": "silvercarp",
+   "name": "Silver carp (invasive)",
+   "latin": "Hypophthalmichthys molitrix",
+   "tl": 2,
+   "xh": 0.42,
+   "wiki": "Silver carp",
+   "desc": "A filter feeder that eats mostly phytoplankton and also zooplankton. Competes with paddlefish, gizzard shad and young fish. The NPS works to keep invasive carp downstream.",
+   "ic": "trout"
+  },
+  {
+   "id": "paddlefish",
+   "name": "Paddlefish",
+   "latin": "Polyodon spathula",
+   "tl": 2,
+   "xh": 0.51,
+   "wiki": "Paddlefish",
+   "desc": "A giant filter feeder that eats mainly zooplankton, with a few insect larvae and small fish.",
+   "ic": "trout"
+  },
+  {
+   "id": "canvasback",
+   "name": "Canvasback",
+   "latin": "Aythya valisineria",
+   "tl": 2,
+   "xh": 0.6,
+   "wiki": "Canvasback",
+   "desc": "A diving duck that migrates along the Mississippi Flyway. It eats tubers, buds, seeds, snails and insect larvae, favoring wild celery. The FWS says the upper river supports up to half the world's canvasbacks.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "mallard",
+   "name": "Mallard",
+   "latin": "Anas platyrhynchos",
+   "tl": 2,
+   "xh": 0.69,
+   "wiki": "Mallard",
+   "desc": "Eats seeds from moist-soil plants and other plant foods in flooded fields and backwaters.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "muskrat",
+   "name": "Muskrat",
+   "latin": "Ondatra zibethicus",
+   "tl": 2,
+   "xh": 0.78,
+   "wiki": "Muskrat",
+   "desc": "Lives along banks and marshes, eating aquatic plants.",
+   "ic": "beaver"
+  },
+  {
+   "id": "deer",
+   "name": "White-tailed deer",
+   "latin": "Odocoileus virginianus",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "White-tailed deer",
+   "desc": "Browses young trees and shrubs on the floodplain. Coyotes take fawns, and eagles scavenge carcasses.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "beaver",
+   "name": "Beaver",
+   "latin": "Castor canadensis",
+   "tl": 2,
+   "xh": 0.97,
+   "wiki": "North American beaver",
+   "desc": "Cuts cottonwood and willow for food and dams.",
+   "ic": "beaver",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "drum",
+   "name": "Freshwater drum",
+   "latin": "Aplodinotus grunniens",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Freshwater drum",
+   "desc": "Crushes mussels and eats insect larvae and, later in the year, young gizzard shad.",
+   "ic": "trout"
+  },
+  {
+   "id": "otter",
+   "name": "River otter",
+   "latin": "Lontra canadensis",
+   "tl": 3,
+   "xh": 0.28,
+   "wiki": "North American river otter",
+   "desc": "Hunts fish along the banks. The NPS notes its return since the 1980s as a sign of better water quality.",
+   "ic": "otter"
+  },
+  {
+   "id": "heron",
+   "name": "Great blue heron",
+   "latin": "Ardea herodias",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Great blue heron",
+   "desc": "Wades the shallows spearing fish. The NPS notes herons depend on fish.",
+   "ic": "hawk"
+  },
+  {
+   "id": "cormorant",
+   "name": "Double-crested cormorant",
+   "latin": "Nannopterum auritum",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Double-crested cormorant",
+   "desc": "Dives for fish. The NPS notes cormorants depend on fish.",
+   "ic": "raven"
+  },
+  {
+   "id": "pelican",
+   "name": "American white pelican",
+   "latin": "Pelecanus erythrorhynchos",
+   "tl": 3,
+   "xh": 0.6,
+   "wiki": "American white pelican",
+   "desc": "Scoops up fish from shallows. Breeds on lakes across interior North America and winters on the Gulf coast, and also follows the Mississippi River in winter.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "osprey",
+   "name": "Osprey",
+   "latin": "Pandion haliaetus",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Osprey",
+   "desc": "Dives for fish. The NPS notes ospreys depend on fish.",
+   "ic": "osprey"
+  },
+  {
+   "id": "flathead",
+   "name": "Flathead catfish",
+   "latin": "Pylodictis olivaris",
+   "tl": 4,
+   "xh": 0.1,
+   "wiki": "Flathead catfish",
+   "desc": "Mostly eats fish once larger than about 25 cm. Prey includes gizzard shad, drum, carp and crayfish.",
+   "ic": "trout"
+  },
+  {
+   "id": "baldeagle",
+   "name": "Bald eagle",
+   "latin": "Haliaeetus leucocephalus",
+   "tl": 4,
+   "xh": 0.45,
+   "wiki": "Bald eagle",
+   "desc": "The FWS counts more than 200 nesting pairs in the refuge and nearby public lands. Eats fish and waterfowl and scavenges carcasses.",
+   "ic": "baldeagle"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.85,
+   "wiki": "Coyote",
+   "desc": "Lives along the banks, taking fawns, ducks and muskrats. The NPS lists it as a bank dweller.",
+   "ic": "coyote"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Powers phytoplankton and the plants of the floodplain.",
+   "ic": "sun"
+  },
+  {
+   "id": "flood",
+   "name": "Flood pulse & river flow",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "cat": "abiotic",
+   "wiki": "Flood pulse concept",
+   "desc": "Spring floods spread water, silt and fish across the floodplain. When the water drops, bare mud flats grow moist-soil plants.",
+   "ic": "water"
+  },
+  {
+   "id": "sed",
+   "name": "Sediment & nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.62,
+   "cat": "abiotic",
+   "wiki": "Sediment",
+   "desc": "Silt carries nitrogen and phosphorus onto the floodplain. Much of it travels downriver to the Gulf of Mexico.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria & fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down leaf litter, dead fish and plants and return nutrients to the water and soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "algae",
+   "r"
+  ],
+  [
+   "sun",
+   "celery",
+   "r"
+  ],
+  [
+   "sun",
+   "moist",
+   "r"
+  ],
+  [
+   "sun",
+   "cottonwood",
+   "r"
+  ],
+  [
+   "sun",
+   "willow",
+   "r"
+  ],
+  [
+   "flood",
+   "algae",
+   "r"
+  ],
+  [
+   "flood",
+   "celery",
+   "r"
+  ],
+  [
+   "flood",
+   "moist",
+   "r"
+  ],
+  [
+   "flood",
+   "cottonwood",
+   "r"
+  ],
+  [
+   "flood",
+   "willow",
+   "r"
+  ],
+  [
+   "sed",
+   "algae",
+   "r"
+  ],
+  [
+   "sed",
+   "celery",
+   "r"
+  ],
+  [
+   "sed",
+   "moist",
+   "r"
+  ],
+  [
+   "sed",
+   "cottonwood",
+   "r"
+  ],
+  [
+   "sed",
+   "willow",
+   "r"
+  ],
+  [
+   "decomp",
+   "sed",
+   "r"
+  ],
+  [
+   "algae",
+   "zoop"
+  ],
+  [
+   "algae",
+   "mussels"
+  ],
+  [
+   "algae",
+   "insects"
+  ],
+  [
+   "algae",
+   "shad"
+  ],
+  [
+   "algae",
+   "silvercarp"
+  ],
+  [
+   "zoop",
+   "shad"
+  ],
+  [
+   "zoop",
+   "silvercarp"
+  ],
+  [
+   "zoop",
+   "paddlefish"
+  ],
+  [
+   "celery",
+   "canvasback"
+  ],
+  [
+   "celery",
+   "muskrat"
+  ],
+  [
+   "moist",
+   "mallard"
+  ],
+  [
+   "moist",
+   "muskrat"
+  ],
+  [
+   "cottonwood",
+   "beaver"
+  ],
+  [
+   "cottonwood",
+   "deer"
+  ],
+  [
+   "willow",
+   "beaver"
+  ],
+  [
+   "willow",
+   "deer"
+  ],
+  [
+   "willow",
+   "muskrat"
+  ],
+  [
+   "mussels",
+   "drum"
+  ],
+  [
+   "insects",
+   "drum"
+  ],
+  [
+   "shad",
+   "flathead"
+  ],
+  [
+   "shad",
+   "otter"
+  ],
+  [
+   "shad",
+   "heron"
+  ],
+  [
+   "shad",
+   "cormorant"
+  ],
+  [
+   "shad",
+   "pelican"
+  ],
+  [
+   "shad",
+   "osprey"
+  ],
+  [
+   "shad",
+   "baldeagle"
+  ],
+  [
+   "shad",
+   "drum"
+  ],
+  [
+   "silvercarp",
+   "flathead"
+  ],
+  [
+   "silvercarp",
+   "baldeagle"
+  ],
+  [
+   "drum",
+   "flathead"
+  ],
+  [
+   "drum",
+   "otter"
+  ],
+  [
+   "canvasback",
+   "baldeagle"
+  ],
+  [
+   "mallard",
+   "baldeagle"
+  ],
+  [
+   "mallard",
+   "coyote"
+  ],
+  [
+   "muskrat",
+   "coyote"
+  ],
+  [
+   "deer",
+   "coyote"
+  ],
+  [
+   "deer",
+   "baldeagle",
+   "s"
+  ],
+  [
+   "celery",
+   "decomp",
+   "d"
+  ],
+  [
+   "cottonwood",
+   "decomp",
+   "d"
+  ],
+  [
+   "willow",
+   "decomp",
+   "d"
+  ],
+  [
+   "mussels",
+   "decomp",
+   "d"
+  ],
+  [
+   "shad",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "mallard",
+   "otter"
+  ],
+  [
+   "muskrat",
+   "otter"
+  ],
+  [
+   "muskrat",
+   "heron"
+  ],
+  [
+   "muskrat",
+   "osprey"
+  ],
+  [
+   "deer",
+   "osprey"
+  ],
+  [
+   "muskrat",
+   "baldeagle"
+  ],
+  [
+   "beaver",
+   "baldeagle"
+  ],
+  [
+   "drum",
+   "baldeagle"
+  ],
+  [
+   "heron",
+   "baldeagle"
+  ],
+  [
+   "cormorant",
+   "baldeagle"
+  ],
+  [
+   "pelican",
+   "baldeagle"
+  ],
+  [
+   "osprey",
+   "baldeagle"
+  ],
+  [
+   "beaver",
+   "coyote"
+  ],
+  [
+   "otter",
+   "coyote"
+  ],
+  [
+   "pelican",
+   "coyote"
+  ]
+ ],
+ "ly": -12,
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Missouri",
+  "Illinois"
+ ],
+ "imgwiki": "Upper Mississippi River National Wildlife and Fish Refuge",
+ "icon": "baldeagle",
+ "tier": "detailed",
+ "kind": "Lakes & wetlands",
+ "ev": {
+  "algae>zoop": [
+   "a"
+  ],
+  "algae>mussels": [
+   "a"
+  ],
+  "algae>insects": [
+   "a"
+  ],
+  "algae>shad": [
+   "a"
+  ],
+  "algae>silvercarp": [
+   "a"
+  ],
+  "zoop>shad": [
+   "g",
+   "Dorosoma cepedianum",
+   "Cladocera"
+  ],
+  "zoop>silvercarp": [
+   "a"
+  ],
+  "zoop>paddlefish": [
+   "a"
+  ],
+  "celery>canvasback": [
+   "gg",
+   "Aythya valisineria",
+   "Vallisneria"
+  ],
+  "celery>muskrat": [
+   "a"
+  ],
+  "moist>mallard": [
+   "a"
+  ],
+  "moist>muskrat": [
+   "a"
+  ],
+  "cottonwood>beaver": [
+   "g",
+   "Castor canadensis",
+   "Populus deltoides"
+  ],
+  "cottonwood>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Populus deltoides"
+  ],
+  "willow>beaver": [
+   "g",
+   "Castor canadensis",
+   "Salix nigra"
+  ],
+  "willow>deer": [
+   "gg",
+   "Odocoileus virginianus",
+   "Salix nigra"
+  ],
+  "willow>muskrat": [
+   "a"
+  ],
+  "mussels>drum": [
+   "a"
+  ],
+  "insects>drum": [
+   "a"
+  ],
+  "shad>flathead": [
+   "a"
+  ],
+  "shad>otter": [
+   "a"
+  ],
+  "shad>heron": [
+   "g",
+   "Ardea herodias",
+   "Dorosoma cepedianum"
+  ],
+  "shad>cormorant": [
+   "g",
+   "Nannopterum auritum",
+   "Dorosoma cepedianum"
+  ],
+  "shad>pelican": [
+   "a"
+  ],
+  "shad>osprey": [
+   "g",
+   "Pandion haliaetus",
+   "Dorosoma cepedianum"
+  ],
+  "shad>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Dorosoma cepedianum"
+  ],
+  "shad>drum": [
+   "a"
+  ],
+  "silvercarp>flathead": [
+   "a"
+  ],
+  "silvercarp>baldeagle": [
+   "a"
+  ],
+  "drum>flathead": [
+   "g",
+   "Pylodictis olivaris",
+   "Aplodinotus grunniens"
+  ],
+  "drum>otter": [
+   "a"
+  ],
+  "canvasback>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Aythya valisineria"
+  ],
+  "mallard>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Anas platyrhynchos"
+  ],
+  "mallard>coyote": [
+   "g",
+   "Canis latrans",
+   "Anas platyrhynchos"
+  ],
+  "muskrat>coyote": [
+   "g",
+   "Canis latrans",
+   "Ondatra zibethicus"
+  ],
+  "deer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus virginianus"
+  ],
+  "deer>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Odocoileus virginianus"
+  ],
+  "mallard>otter": [
+   "g",
+   "Lontra canadensis",
+   "Anas platyrhynchos"
+  ],
+  "muskrat>otter": [
+   "g",
+   "Lontra canadensis",
+   "Ondatra zibethicus"
+  ],
+  "muskrat>heron": [
+   "g",
+   "Ardea herodias",
+   "Ondatra zibethicus"
+  ],
+  "muskrat>osprey": [
+   "g",
+   "Pandion haliaetus",
+   "Ondatra zibethicus"
+  ],
+  "deer>osprey": [
+   "g",
+   "Pandion haliaetus",
+   "Odocoileus virginianus"
+  ],
+  "muskrat>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Ondatra zibethicus"
+  ],
+  "beaver>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Castor canadensis"
+  ],
+  "drum>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Aplodinotus grunniens"
+  ],
+  "heron>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Ardea herodias"
+  ],
+  "cormorant>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Nannopterum auritum"
+  ],
+  "pelican>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Pelecanus erythrorhynchos"
+  ],
+  "osprey>baldeagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Pandion haliaetus"
+  ],
+  "beaver>coyote": [
+   "g",
+   "Canis latrans",
+   "Castor canadensis"
+  ],
+  "otter>coyote": [
+   "g",
+   "Canis latrans",
+   "Lontra canadensis"
+  ],
+  "pelican>coyote": [
+   "g",
+   "Canis latrans",
+   "Pelecanus erythrorhynchos"
+  ]
+ }
+}

@@ -1,0 +1,660 @@
+{
+ "id": "npkatmai",
+ "name": "Katmai National Park and Preserve",
+ "short": "Katmai",
+ "place": "Alaska, USA",
+ "lat": 58.5,
+ "lon": -155.0,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Alaska"
+ ],
+ "kind": "Polar & mountain",
+ "park": true,
+ "blurb": "Brown bears, sockeye salmon and a landscape rebuilt after a volcano.",
+ "tip": {
+  "id": "sock",
+  "title": "Cut the salmon run",
+  "text": "Salmon feed bears, gulls, ravens and eagles and carry nutrients inland. Set Sockeye salmon to -100% and watch bears, scavengers and the nutrient flow."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Katmai National Park and Preserve",
+   "url": "https://en.wikipedia.org/wiki/Katmai_National_Park_and_Preserve"
+  },
+  {
+   "title": "Wikipedia: Brown bear",
+   "url": "https://en.wikipedia.org/wiki/Brown_bear"
+  },
+  {
+   "title": "Wikipedia: Sockeye salmon",
+   "url": "https://en.wikipedia.org/wiki/Sockeye_salmon"
+  },
+  {
+   "title": "Wikipedia: Brooks Falls",
+   "url": "https://en.wikipedia.org/wiki/Brooks_Falls"
+  },
+  {
+   "title": "NPS: Katmai nature",
+   "url": "https://www.nps.gov/katm/learn/nature/index.htm"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Katmai National Park and Preserve",
+ "icon": "grizzly",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Long summer daylight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Near-constant summer light lets plants and lake algae grow fast in the short warm season.",
+   "ic": "sun"
+  },
+  {
+   "id": "ash",
+   "name": "Volcanic ash soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Volcanic ash",
+   "desc": "The 1912 Novarupta eruption buried the Valley of Ten Thousand Smokes under deep ash and pumice deposits, where plants are slowly recolonizing.",
+   "ic": "fire"
+  },
+  {
+   "id": "cold",
+   "name": "Cold, short growing season",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "cat": "abiotic",
+   "wiki": "Subarctic climate",
+   "desc": "Harsh weather and a brief summer shape which plants can grow and when animals can feed.",
+   "ic": "ice"
+  },
+  {
+   "id": "nutr",
+   "name": "Salmon-borne nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.7,
+   "cat": "abiotic",
+   "wiki": "Nutrient cycle",
+   "desc": "Salmon bring ocean-grown nutrients inland, and their remains are broken down into nutrients that feed streamside soil and lakes.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Fungi and bacteria break down salmon carcasses and other dead matter, returning nutrients to soil and water.",
+   "ic": "decomp"
+  },
+  {
+   "id": "sedge",
+   "name": "Sedges",
+   "latin": "Carex",
+   "tl": 1,
+   "xh": 0.06,
+   "wiki": "Carex",
+   "desc": "Grass-like plants of meadows and coastal flats. Wikipedia lists sedges among the main foods of brown bears.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "crow",
+   "name": "Black crowberry",
+   "latin": "Empetrum nigrum",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Empetrum nigrum",
+   "desc": "A low evergreen tundra shrub with black berries that birds eat.",
+   "ic": "sage"
+  },
+  {
+   "id": "bilb",
+   "name": "Bog bilberry",
+   "latin": "Vaccinium uliginosum",
+   "tl": 1,
+   "xh": 0.34,
+   "wiki": "Vaccinium uliginosum",
+   "desc": "A low berry shrub of tundra and bog. Its berries are eaten by bears.",
+   "ic": "sage"
+  },
+  {
+   "id": "horse",
+   "name": "Field horsetail",
+   "latin": "Equisetum arvense",
+   "tl": 1,
+   "xh": 0.48,
+   "wiki": "Equisetum arvense",
+   "desc": "A spore-bearing plant that colonizes bare, disturbed ground and is eaten by bears and moose.",
+   "ic": "grass"
+  },
+  {
+   "id": "spruce",
+   "name": "White spruce",
+   "latin": "Picea glauca",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Picea glauca",
+   "desc": "A conifer whose seeds feed red squirrels and which forms the forest along park lakes and rivers.",
+   "ic": "willow"
+  },
+  {
+   "id": "fire",
+   "name": "Fireweed",
+   "latin": "Chamaenerion angustifolium",
+   "tl": 1,
+   "xh": 0.76,
+   "wiki": "Chamaenerion angustifolium",
+   "desc": "A tall pink wildflower that quickly colonizes bare or disturbed ground and is browsed by moose.",
+   "ic": "sage"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Diatoms and other algae",
+   "tl": 1,
+   "xh": 0.9,
+   "wiki": "Phytoplankton",
+   "desc": "Microscopic drifting algae that form the base of the food web in park lakes.",
+   "ic": "algae"
+  },
+  {
+   "id": "moose",
+   "name": "Moose",
+   "latin": "Alces alces",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Moose",
+   "desc": "Browses shrubs, horsetail and other plants. Wikipedia lists moose among park mammals; bears and wolves hunt them.",
+   "ic": "moose"
+  },
+  {
+   "id": "ags",
+   "name": "Arctic ground squirrel",
+   "latin": "Urocitellus parryii",
+   "tl": 2,
+   "xh": 0.28,
+   "wiki": "Arctic ground squirrel",
+   "desc": "A burrowing, hibernating rodent of tundra slopes that eats plants and seeds and is prey for bears.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "rsq",
+   "name": "American red squirrel",
+   "latin": "Tamiasciurus hudsonicus",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "American red squirrel",
+   "desc": "Feeds on spruce seeds and is prey for lynx and bears.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "vole",
+   "name": "Tundra vole",
+   "latin": "Microtus oeconomus",
+   "tl": 2,
+   "xh": 0.64,
+   "wiki": "Tundra vole",
+   "desc": "A small rodent of wet meadows that feeds on sedges and other plants and is eaten by bears.",
+   "ic": "vole"
+  },
+  {
+   "id": "zoop",
+   "name": "Zooplankton",
+   "latin": "Copepoda and relatives",
+   "tl": 2,
+   "xh": 0.84,
+   "wiki": "Zooplankton",
+   "desc": "Tiny animals that graze algae in the lakes. Sockeye salmon feed extensively on them.",
+   "ic": "hopper"
+  },
+  {
+   "id": "sock",
+   "name": "Sockeye salmon",
+   "latin": "Oncorhynchus nerka",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Sockeye salmon",
+   "desc": "Feeds on zooplankton, then returns from the ocean to spawn. Spawning runs into Brooks River bring bears, eagles and gulls to feed.",
+   "ic": "trout",
+   "badge": "Keystone species"
+  },
+  {
+   "id": "lynx",
+   "name": "Canada lynx",
+   "latin": "Lynx canadensis",
+   "tl": 3,
+   "xh": 0.25,
+   "wiki": "Canada lynx",
+   "desc": "A secretive wild cat listed among park mammals. It hunts squirrels and other small prey.",
+   "ic": "lion"
+  },
+  {
+   "id": "gull",
+   "name": "Glaucous-winged gull",
+   "latin": "Larus glaucescens",
+   "tl": 3,
+   "xh": 0.42,
+   "wiki": "Glaucous-winged gull",
+   "desc": "The most often recorded bird here. Gulls scavenge the remains bears leave from salmon.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.6,
+   "wiki": "Common raven",
+   "desc": "An opportunistic omnivore that eats berries and scavenges salmon remains and carrion.",
+   "ic": "raven"
+  },
+  {
+   "id": "eagle",
+   "name": "Bald eagle",
+   "latin": "Haliaeetus leucocephalus",
+   "tl": 3,
+   "xh": 0.78,
+   "wiki": "Bald eagle",
+   "desc": "Feeds on spawning salmon and on carcasses left on riverbanks.",
+   "ic": "baldeagle"
+  },
+  {
+   "id": "bear",
+   "name": "Brown bear",
+   "latin": "Ursus arctos",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Brown bear",
+   "desc": "Katmai protects one of the largest brown bear populations in the world. Bears eat sedges, berries, and in summer, salmon.",
+   "ic": "grizzly",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "wolf",
+   "name": "Gray wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.65,
+   "wiki": "Gray wolf",
+   "desc": "Listed among Katmai mammals. Wolves hunt large prey such as moose.",
+   "ic": "wolf"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "sedge",
+   "r"
+  ],
+  [
+   "sun",
+   "fire",
+   "r"
+  ],
+  [
+   "ash",
+   "fire",
+   "r"
+  ],
+  [
+   "ash",
+   "horse",
+   "r"
+  ],
+  [
+   "cold",
+   "crow",
+   "r"
+  ],
+  [
+   "cold",
+   "bilb",
+   "r"
+  ],
+  [
+   "nutr",
+   "spruce",
+   "r"
+  ],
+  [
+   "nutr",
+   "bilb",
+   "r"
+  ],
+  [
+   "phyto",
+   "zoop"
+  ],
+  [
+   "zoop",
+   "sock"
+  ],
+  [
+   "sedge",
+   "bear"
+  ],
+  [
+   "bilb",
+   "bear"
+  ],
+  [
+   "horse",
+   "bear"
+  ],
+  [
+   "sock",
+   "bear"
+  ],
+  [
+   "moose",
+   "bear"
+  ],
+  [
+   "ags",
+   "bear"
+  ],
+  [
+   "vole",
+   "bear"
+  ],
+  [
+   "rsq",
+   "bear"
+  ],
+  [
+   "horse",
+   "moose"
+  ],
+  [
+   "fire",
+   "moose"
+  ],
+  [
+   "sedge",
+   "ags"
+  ],
+  [
+   "sedge",
+   "vole"
+  ],
+  [
+   "spruce",
+   "rsq"
+  ],
+  [
+   "rsq",
+   "lynx"
+  ],
+  [
+   "crow",
+   "raven"
+  ],
+  [
+   "bilb",
+   "raven"
+  ],
+  [
+   "moose",
+   "wolf"
+  ],
+  [
+   "sock",
+   "gull"
+  ],
+  [
+   "sock",
+   "raven",
+   "s"
+  ],
+  [
+   "sock",
+   "eagle"
+  ],
+  [
+   "moose",
+   "raven",
+   "s"
+  ],
+  [
+   "sock",
+   "decomp",
+   "d"
+  ],
+  [
+   "moose",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "nutr",
+   "r"
+  ],
+  [
+   "horse",
+   "raven"
+  ],
+  [
+   "rsq",
+   "raven"
+  ],
+  [
+   "vole",
+   "raven"
+  ],
+  [
+   "moose",
+   "eagle"
+  ],
+  [
+   "rsq",
+   "eagle"
+  ],
+  [
+   "vole",
+   "eagle"
+  ],
+  [
+   "rsq",
+   "wolf"
+  ],
+  [
+   "vole",
+   "wolf"
+  ],
+  [
+   "zoop",
+   "wolf"
+  ],
+  [
+   "lynx",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "phyto>zoop": [
+   "a"
+  ],
+  "zoop>sock": [
+   "g",
+   "Oncorhynchus nerka",
+   "Copepoda"
+  ],
+  "sedge>bear": [
+   "gg",
+   "Ursus arctos",
+   "Carex"
+  ],
+  "bilb>bear": [
+   "g",
+   "Ursus arctos",
+   "Vaccinium uliginosum"
+  ],
+  "horse>bear": [
+   "g",
+   "Ursus arctos",
+   "Equisetum arvense"
+  ],
+  "sock>bear": [
+   "g",
+   "Ursus arctos",
+   "Oncorhynchus nerka"
+  ],
+  "moose>bear": [
+   "g",
+   "Ursus arctos",
+   "Alces alces"
+  ],
+  "ags>bear": [
+   "g",
+   "Ursus arctos",
+   "Urocitellus parryii"
+  ],
+  "vole>bear": [
+   "g",
+   "Ursus arctos",
+   "Microtus oeconomus"
+  ],
+  "rsq>bear": [
+   "g",
+   "Ursus arctos",
+   "Tamiasciurus hudsonicus"
+  ],
+  "horse>moose": [
+   "a"
+  ],
+  "fire>moose": [
+   "a"
+  ],
+  "sedge>ags": [
+   "a"
+  ],
+  "sedge>vole": [
+   "a"
+  ],
+  "spruce>rsq": [
+   "g",
+   "Tamiasciurus hudsonicus",
+   "Picea glauca"
+  ],
+  "rsq>lynx": [
+   "g",
+   "Lynx canadensis",
+   "Tamiasciurus hudsonicus"
+  ],
+  "crow>raven": [
+   "g",
+   "Corvus corax",
+   "Empetrum nigrum"
+  ],
+  "bilb>raven": [
+   "g",
+   "Corvus corax",
+   "Vaccinium uliginosum"
+  ],
+  "moose>wolf": [
+   "g",
+   "Canis lupus",
+   "Alces alces"
+  ],
+  "sock>gull": [
+   "g",
+   "Larus glaucescens",
+   "Oncorhynchus nerka"
+  ],
+  "sock>raven": [
+   "gg",
+   "Corvus corax",
+   "Oncorhynchus nerka"
+  ],
+  "sock>eagle": [
+   "g",
+   "Haliaeetus leucocephalus",
+   "Oncorhynchus nerka"
+  ],
+  "moose>raven": [
+   "g",
+   "Corvus corax",
+   "Alces alces"
+  ],
+  "horse>raven": [
+   "ga",
+   "Corvus corax",
+   "Equisetum arvense"
+  ],
+  "rsq>raven": [
+   "ga",
+   "Corvus corax",
+   "Tamiasciurus hudsonicus"
+  ],
+  "vole>raven": [
+   "ga",
+   "Corvus corax",
+   "Microtus oeconomus"
+  ],
+  "moose>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Alces alces"
+  ],
+  "rsq>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Tamiasciurus hudsonicus"
+  ],
+  "vole>eagle": [
+   "ga",
+   "Haliaeetus leucocephalus",
+   "Microtus oeconomus"
+  ],
+  "rsq>wolf": [
+   "ga",
+   "Canis lupus",
+   "Tamiasciurus hudsonicus"
+  ],
+  "vole>wolf": [
+   "ga",
+   "Canis lupus",
+   "Microtus oeconomus"
+  ],
+  "zoop>wolf": [
+   "ga",
+   "Canis lupus",
+   "Copepoda"
+  ],
+  "lynx>wolf": [
+   "ga",
+   "Canis lupus",
+   "Lynx canadensis"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ]
+ }
+}

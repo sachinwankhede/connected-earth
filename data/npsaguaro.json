@@ -1,0 +1,879 @@
+{
+ "id": "npsaguaro",
+ "name": "Saguaro National Park",
+ "short": "Saguaro",
+ "place": "Arizona, USA",
+ "lat": 32.22,
+ "lon": -110.9,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Arizona"
+ ],
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Giant cacti, desert doves and the rains that keep the Sonoran Desert alive.",
+ "tip": {
+  "id": "rain",
+  "title": "Dry out the desert",
+  "text": "Water is a main driver of desert life. Set Winter and monsoon rain to -80% and watch the saguaro and the trees, then the animals that eat them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Saguaro National Park",
+   "url": "https://en.wikipedia.org/wiki/Saguaro_National_Park"
+  },
+  {
+   "title": "Wikipedia: Saguaro",
+   "url": "https://en.wikipedia.org/wiki/Saguaro"
+  },
+  {
+   "title": "National Park Service: Saguaro nature",
+   "url": "https://www.nps.gov/sagu/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Sonoran Desert",
+   "url": "https://en.wikipedia.org/wiki/Sonoran_Desert"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Saguaro National Park",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Strong desert sun drives growth, but it also bakes the ground; shade under trees keeps young cacti alive.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Winter and monsoon rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "cat": "abiotic",
+   "wiki": "North American monsoon",
+   "desc": "Two rainy seasons feed the desert, and water is one of the main reasons it holds so many species. Washes run only after storms and can flash flood.",
+   "ic": "rain"
+  },
+  {
+   "id": "soil",
+   "name": "Desert soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.66,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Thin, dry soil whose nutrients return mainly through decay and the shade and litter under trees such as palo verde.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Soil fungi and bacteria",
+   "tl": 0,
+   "xh": 0.88,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals, including fallen saguaros, and return nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "saguaro",
+   "name": "Saguaro",
+   "latin": "Carnegiea gigantea",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Saguaro",
+   "desc": "The park's namesake giant cactus. It stores rainwater, flowers feed bats, bees and birds, and its fruit feeds doves; woodpecker holes become homes for other birds.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "paloverde",
+   "name": "Foothill palo verde",
+   "latin": "Parkinsonia microphylla",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Parkinsonia microphylla",
+   "desc": "A green-barked desert tree that acts as a nurse plant, shading young saguaros and softening temperature extremes around them.",
+   "ic": "willow"
+  },
+  {
+   "id": "mesquite",
+   "name": "Velvet mesquite",
+   "latin": "Prosopis velutina",
+   "tl": 1,
+   "xh": 0.6,
+   "wiki": "Prosopis velutina",
+   "desc": "A desert tree whose seed pods and foliage feed many animals.",
+   "ic": "willow"
+  },
+  {
+   "id": "pricklypear",
+   "name": "Engelmann prickly pear",
+   "latin": "Opuntia engelmannii",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Opuntia engelmannii",
+   "desc": "A pad-forming cactus whose pads and fruit are food for javelinas, rabbits and other desert animals.",
+   "ic": "sage"
+  },
+  {
+   "id": "dove",
+   "name": "White-winged dove",
+   "latin": "Zenaida asiatica",
+   "tl": 2,
+   "xh": 0.04,
+   "wiki": "White-winged dove",
+   "desc": "Eats saguaro fruit and seeds, and also pollinates saguaro flowers. Wikipedia says saguaro can make up most of its diet in the season.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "woodpecker",
+   "name": "Gila woodpecker",
+   "latin": "Melanerpes uropygialis",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Gila woodpecker",
+   "desc": "Digs a new nest hole in saguaros each season; abandoned holes shelter elf owls, flycatchers and other birds.",
+   "ic": "meadowlark",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "bee",
+   "name": "Western honey bee",
+   "latin": "Apis mellifera",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Western honey bee",
+   "desc": "Wikipedia lists honey bees among the main pollinators of saguaro, visiting its flowers for nectar.",
+   "ic": "hopper"
+  },
+  {
+   "id": "jackrabbit",
+   "name": "Black-tailed jackrabbit",
+   "latin": "Lepus californicus",
+   "tl": 2,
+   "xh": 0.43,
+   "wiki": "Black-tailed jackrabbit",
+   "desc": "A large hare that grazes grasses and browses shrubs and cacti; prey for many desert predators.",
+   "ic": "quad"
+  },
+  {
+   "id": "peccary",
+   "name": "Collared peccary",
+   "latin": "Pecari tajacu",
+   "tl": 2,
+   "xh": 0.57,
+   "wiki": "Collared peccary",
+   "desc": "Also called javelina. Eats prickly pear pads and mesquite pods and travels in herds.",
+   "ic": "quad"
+  },
+  {
+   "id": "kratrat",
+   "name": "Merriam's kangaroo rat",
+   "latin": "Dipodomys merriami",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Merriam's kangaroo rat",
+   "desc": "A small seed-eating rodent of desert flats that does not need to drink; a main prey for snakes and owls.",
+   "ic": "vole"
+  },
+  {
+   "id": "muledeer",
+   "name": "Mule deer",
+   "latin": "Odocoileus hemionus",
+   "tl": 2,
+   "xh": 0.85,
+   "wiki": "Mule deer",
+   "desc": "The park's larger browser, taking leaves and twigs of desert shrubs and trees.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "rattler",
+   "name": "Western diamondback rattlesnake",
+   "latin": "Crotalus atrox",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Western diamondback rattlesnake",
+   "desc": "An ambush predator of rodents, rabbits and birds.",
+   "ic": "snake"
+  },
+  {
+   "id": "gila",
+   "name": "Gila monster",
+   "latin": "Heloderma suspectum",
+   "tl": 3,
+   "xh": 0.37,
+   "wiki": "Gila monster",
+   "desc": "A slow venomous lizard that raids burrows and nests for eggs and small animals.",
+   "ic": "snake"
+  },
+  {
+   "id": "grayfox",
+   "name": "Gray fox",
+   "latin": "Urocyon cinereoargenteus",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Gray fox",
+   "desc": "An omnivorous canid that hunts rodents and rabbits and eats fruit.",
+   "ic": "fox"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.87,
+   "wiki": "Common raven",
+   "desc": "A scavenger that feeds on carrion such as animals killed on park roads.",
+   "ic": "raven"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.2,
+   "wiki": "Coyote",
+   "desc": "A widespread predator and scavenger, taking rabbits, rodents, deer and carrion.",
+   "ic": "coyote"
+  },
+  {
+   "id": "bobcat",
+   "name": "Bobcat",
+   "latin": "Lynx rufus",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Bobcat",
+   "desc": "A solitary cat that hunts rabbits, rodents, birds and sometimes deer.",
+   "ic": "lion"
+  },
+  {
+   "id": "hawk",
+   "name": "Red-tailed hawk",
+   "latin": "Buteo jamaicensis",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Red-tailed hawk",
+   "desc": "A soaring hawk that preys on rabbits, rodents, birds and snakes.",
+   "ic": "hawk"
+  }
+ ],
+ "raw": [
+  [
+   "kratrat",
+   "raven"
+  ],
+  [
+   "sun",
+   "saguaro",
+   "r"
+  ],
+  [
+   "sun",
+   "paloverde",
+   "r"
+  ],
+  [
+   "sun",
+   "mesquite",
+   "r"
+  ],
+  [
+   "sun",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "rain",
+   "saguaro",
+   "r"
+  ],
+  [
+   "rain",
+   "paloverde",
+   "r"
+  ],
+  [
+   "rain",
+   "mesquite",
+   "r"
+  ],
+  [
+   "rain",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "soil",
+   "saguaro",
+   "r"
+  ],
+  [
+   "soil",
+   "paloverde",
+   "r"
+  ],
+  [
+   "soil",
+   "mesquite",
+   "r"
+  ],
+  [
+   "soil",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "saguaro",
+   "dove"
+  ],
+  [
+   "saguaro",
+   "woodpecker"
+  ],
+  [
+   "saguaro",
+   "bee"
+  ],
+  [
+   "mesquite",
+   "dove"
+  ],
+  [
+   "mesquite",
+   "peccary"
+  ],
+  [
+   "mesquite",
+   "jackrabbit"
+  ],
+  [
+   "mesquite",
+   "kratrat"
+  ],
+  [
+   "mesquite",
+   "muledeer"
+  ],
+  [
+   "paloverde",
+   "jackrabbit"
+  ],
+  [
+   "paloverde",
+   "bee"
+  ],
+  [
+   "paloverde",
+   "muledeer"
+  ],
+  [
+   "pricklypear",
+   "peccary"
+  ],
+  [
+   "pricklypear",
+   "jackrabbit"
+  ],
+  [
+   "pricklypear",
+   "grayfox"
+  ],
+  [
+   "dove",
+   "rattler"
+  ],
+  [
+   "kratrat",
+   "rattler"
+  ],
+  [
+   "jackrabbit",
+   "rattler"
+  ],
+  [
+   "jackrabbit",
+   "gila"
+  ],
+  [
+   "kratrat",
+   "gila"
+  ],
+  [
+   "jackrabbit",
+   "grayfox"
+  ],
+  [
+   "kratrat",
+   "grayfox"
+  ],
+  [
+   "dove",
+   "grayfox"
+  ],
+  [
+   "jackrabbit",
+   "coyote"
+  ],
+  [
+   "kratrat",
+   "coyote"
+  ],
+  [
+   "peccary",
+   "coyote"
+  ],
+  [
+   "rattler",
+   "coyote"
+  ],
+  [
+   "muledeer",
+   "coyote"
+  ],
+  [
+   "jackrabbit",
+   "bobcat"
+  ],
+  [
+   "kratrat",
+   "bobcat"
+  ],
+  [
+   "peccary",
+   "bobcat"
+  ],
+  [
+   "muledeer",
+   "bobcat"
+  ],
+  [
+   "rattler",
+   "bobcat"
+  ],
+  [
+   "dove",
+   "bobcat"
+  ],
+  [
+   "jackrabbit",
+   "hawk"
+  ],
+  [
+   "kratrat",
+   "hawk"
+  ],
+  [
+   "rattler",
+   "hawk"
+  ],
+  [
+   "gila",
+   "hawk"
+  ],
+  [
+   "dove",
+   "hawk"
+  ],
+  [
+   "gila",
+   "coyote"
+  ],
+  [
+   "muledeer",
+   "raven",
+   "s"
+  ],
+  [
+   "jackrabbit",
+   "raven",
+   "s"
+  ],
+  [
+   "muledeer",
+   "coyote",
+   "s"
+  ],
+  [
+   "saguaro",
+   "decomp",
+   "d"
+  ],
+  [
+   "paloverde",
+   "decomp",
+   "d"
+  ],
+  [
+   "mesquite",
+   "decomp",
+   "d"
+  ],
+  [
+   "pricklypear",
+   "decomp",
+   "d"
+  ],
+  [
+   "dove",
+   "decomp",
+   "d"
+  ],
+  [
+   "woodpecker",
+   "decomp",
+   "d"
+  ],
+  [
+   "bee",
+   "decomp",
+   "d"
+  ],
+  [
+   "jackrabbit",
+   "decomp",
+   "d"
+  ],
+  [
+   "peccary",
+   "decomp",
+   "d"
+  ],
+  [
+   "kratrat",
+   "decomp",
+   "d"
+  ],
+  [
+   "muledeer",
+   "decomp",
+   "d"
+  ],
+  [
+   "rattler",
+   "decomp",
+   "d"
+  ],
+  [
+   "gila",
+   "decomp",
+   "d"
+  ],
+  [
+   "grayfox",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "coyote",
+   "decomp",
+   "d"
+  ],
+  [
+   "bobcat",
+   "decomp",
+   "d"
+  ],
+  [
+   "hawk",
+   "decomp",
+   "d"
+  ],
+  [
+   "peccary",
+   "grayfox"
+  ],
+  [
+   "muledeer",
+   "grayfox"
+  ],
+  [
+   "dove",
+   "coyote"
+  ],
+  [
+   "grayfox",
+   "coyote"
+  ],
+  [
+   "raven",
+   "coyote"
+  ],
+  [
+   "gila",
+   "bobcat"
+  ],
+  [
+   "grayfox",
+   "bobcat"
+  ],
+  [
+   "muledeer",
+   "hawk"
+  ],
+  [
+   "raven",
+   "hawk"
+  ]
+ ],
+ "ev": {
+  "kratrat>raven": [
+   "gg",
+   "Corvus corax",
+   "Dipodomys merriami"
+  ],
+  "saguaro>dove": [
+   "g",
+   "Zenaida asiatica",
+   "Carnegiea gigantea"
+  ],
+  "saguaro>woodpecker": [
+   "g",
+   "Melanerpes uropygialis",
+   "Carnegiea gigantea"
+  ],
+  "saguaro>bee": [
+   "g",
+   "Apis mellifera",
+   "Carnegiea gigantea"
+  ],
+  "mesquite>dove": [
+   "g",
+   "Zenaida asiatica",
+   "Prosopis velutina"
+  ],
+  "mesquite>peccary": [
+   "a"
+  ],
+  "mesquite>jackrabbit": [
+   "a"
+  ],
+  "mesquite>kratrat": [
+   "a"
+  ],
+  "mesquite>muledeer": [
+   "a"
+  ],
+  "paloverde>jackrabbit": [
+   "a"
+  ],
+  "paloverde>bee": [
+   "gg",
+   "Apis mellifera",
+   "Parkinsonia microphylla"
+  ],
+  "paloverde>muledeer": [
+   "a"
+  ],
+  "pricklypear>peccary": [
+   "a"
+  ],
+  "pricklypear>jackrabbit": [
+   "a"
+  ],
+  "pricklypear>grayfox": [
+   "a"
+  ],
+  "dove>rattler": [
+   "g",
+   "Crotalus atrox",
+   "Zenaida asiatica"
+  ],
+  "kratrat>rattler": [
+   "g",
+   "Crotalus atrox",
+   "Dipodomys merriami"
+  ],
+  "jackrabbit>rattler": [
+   "g",
+   "Crotalus atrox",
+   "Lepus californicus"
+  ],
+  "jackrabbit>gila": [
+   "g",
+   "Heloderma suspectum",
+   "Lepus californicus"
+  ],
+  "kratrat>gila": [
+   "g",
+   "Heloderma suspectum",
+   "Dipodomys merriami"
+  ],
+  "jackrabbit>grayfox": [
+   "g",
+   "Urocyon cinereoargenteus",
+   "Lepus californicus"
+  ],
+  "kratrat>grayfox": [
+   "g",
+   "Urocyon cinereoargenteus",
+   "Dipodomys merriami"
+  ],
+  "dove>grayfox": [
+   "gg",
+   "Urocyon cinereoargenteus",
+   "Zenaida asiatica"
+  ],
+  "jackrabbit>coyote": [
+   "g",
+   "Canis latrans",
+   "Lepus californicus"
+  ],
+  "kratrat>coyote": [
+   "g",
+   "Canis latrans",
+   "Dipodomys merriami"
+  ],
+  "peccary>coyote": [
+   "g",
+   "Canis latrans",
+   "Pecari tajacu"
+  ],
+  "rattler>coyote": [
+   "g",
+   "Canis latrans",
+   "Crotalus atrox"
+  ],
+  "muledeer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus hemionus"
+  ],
+  "jackrabbit>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Lepus californicus"
+  ],
+  "kratrat>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Dipodomys merriami"
+  ],
+  "peccary>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Pecari tajacu"
+  ],
+  "muledeer>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Odocoileus hemionus"
+  ],
+  "rattler>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Crotalus atrox"
+  ],
+  "dove>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Zenaida asiatica"
+  ],
+  "jackrabbit>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Lepus californicus"
+  ],
+  "kratrat>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Dipodomys merriami"
+  ],
+  "rattler>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Crotalus atrox"
+  ],
+  "gila>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Heloderma suspectum"
+  ],
+  "dove>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Zenaida asiatica"
+  ],
+  "gila>coyote": [
+   "g",
+   "Canis latrans",
+   "Heloderma suspectum"
+  ],
+  "muledeer>raven": [
+   "gg",
+   "Corvus corax",
+   "Odocoileus hemionus"
+  ],
+  "jackrabbit>raven": [
+   "gg",
+   "Corvus corax",
+   "Lepus californicus"
+  ],
+  "peccary>grayfox": [
+   "ga",
+   "Urocyon cinereoargenteus",
+   "Pecari tajacu"
+  ],
+  "muledeer>grayfox": [
+   "ga",
+   "Urocyon cinereoargenteus",
+   "Odocoileus hemionus"
+  ],
+  "dove>coyote": [
+   "ga",
+   "Canis latrans",
+   "Zenaida asiatica"
+  ],
+  "grayfox>coyote": [
+   "ga",
+   "Canis latrans",
+   "Urocyon cinereoargenteus"
+  ],
+  "raven>coyote": [
+   "ga",
+   "Canis latrans",
+   "Corvus corax"
+  ],
+  "gila>bobcat": [
+   "ga",
+   "Lynx rufus",
+   "Heloderma suspectum"
+  ],
+  "grayfox>bobcat": [
+   "ga",
+   "Lynx rufus",
+   "Urocyon cinereoargenteus"
+  ],
+  "muledeer>hawk": [
+   "ga",
+   "Buteo jamaicensis",
+   "Odocoileus hemionus"
+  ],
+  "raven>hawk": [
+   "ga",
+   "Buteo jamaicensis",
+   "Corvus corax"
+  ]
+ }
+}

@@ -1,0 +1,486 @@
+{
+ "id": "whkinabalu",
+ "name": "Kinabalu Park",
+ "short": "Kinabalu",
+ "place": "Sabah, Malaysia",
+ "lat": 6.08,
+ "lon": 116.55,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Malaysia",
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Cloud forest where tree shrews feed giant pitcher plants.",
+ "tip": {
+  "id": "rain",
+  "title": "Dry out the cloud forest",
+  "text": "Set Rainfall to -100% and watch the pitcher plants, oaks and figs first, then the shrews, rats, birds and the pitviper that depend on them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Kinabalu National Park",
+   "url": "https://en.wikipedia.org/wiki/Kinabalu_National_Park"
+  },
+  {
+   "title": "Mongabay: small mammals use Borneo pitcher plant as toilet in exchange for nectar",
+   "url": "https://news.mongabay.com/2011/11/small-mammals-use-borneo-pitcher-plant-as-toilet-in-exchange-for-nectar"
+  },
+  {
+   "title": "Wikipedia: Mountain treeshrew",
+   "url": "https://en.wikipedia.org/wiki/Mountain_treeshrew"
+  },
+  {
+   "title": "Wikipedia: Trimeresurus sabahi",
+   "url": "https://en.wikipedia.org/wiki/Trimeresurus_sabahi"
+  },
+  {
+   "title": "Wikipedia: Rafflesia keithii",
+   "url": "https://en.wikipedia.org/wiki/Rafflesia_keithii"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Kinabalu National Park",
+ "icon": "willow",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Light reaches the canopy and the open ridges; cloud often cuts it back on the upper slopes.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Rain and cloud",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.37,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Moist air from the sea condenses on the mountain, keeping the montane forest wet and mossy.",
+   "ic": "rain"
+  },
+  {
+   "id": "cool",
+   "name": "Cool mountain air",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.62,
+   "cat": "abiotic",
+   "wiki": "Montane ecosystems",
+   "desc": "Temperature falls with height, so forest type changes from lowland to montane oak, rhododendron and conifer zones.",
+   "ic": "ice"
+  },
+  {
+   "id": "soil",
+   "name": "Mountain soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.84,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Thin, nutrient-poor mountain soils. Pitcher plants make up for scarce nitrogen by catching insects and animal droppings.",
+   "ic": "soil"
+  },
+  {
+   "id": "lithocarpus",
+   "name": "Montane oaks",
+   "latin": "Lithocarpus",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Lithocarpus",
+   "desc": "Stone oaks are among the trees of the montane forest zone, which Wikipedia describes as oak, then rhododendron and conifer forest as you climb.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "ficus",
+   "name": "Fig trees",
+   "latin": "Ficus",
+   "tl": 1,
+   "xh": 0.32,
+   "wiki": "Ficus",
+   "desc": "Figs bear fruit that many forest birds and mammals eat. A fig species is among the commonly recorded plants near the park.",
+   "ic": "willow"
+  },
+  {
+   "id": "rhodo",
+   "name": "Rhododendrons",
+   "latin": "Rhododendron",
+   "tl": 1,
+   "xh": 0.52,
+   "wiki": "Rhododendron",
+   "desc": "Flowering shrubs of the higher forest zones, which provide nectar and flowers for birds.",
+   "ic": "sage"
+  },
+  {
+   "id": "rajah",
+   "name": "Giant pitcher plant",
+   "latin": "Nepenthes rajah",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Nepenthes rajah",
+   "desc": "A carnivorous plant and the most notable pitcher plant of the park. Tree shrews and summit rats lick nectar from its lid and defecate into the pitcher.",
+   "ic": "sage"
+  },
+  {
+   "id": "rafflesia",
+   "name": "Rafflesia",
+   "latin": "Rafflesia keithii",
+   "tl": 1,
+   "xh": 0.9,
+   "wiki": "Rafflesia keithii",
+   "desc": "A parasitic flowering plant that lives inside a host vine and shows itself only as a huge flower; endemic to Sabah.",
+   "ic": "sage"
+  },
+  {
+   "id": "tupaia",
+   "name": "Mountain treeshrew",
+   "latin": "Tupaia montana",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Mountain treeshrew",
+   "desc": "Eats mostly arthropods plus wild fruit, and licks nectar from pitcher plants including N. rajah, leaving droppings in them. Endemic to Borneo.",
+   "ic": "quad"
+  },
+  {
+   "id": "rattus",
+   "name": "Summit rat",
+   "latin": "Rattus baluensis",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Summit rat",
+   "desc": "A night-active rat that licks nectar from giant pitcher lids and defecates into them; one of the most recorded mammals near the park.",
+   "ic": "vole"
+  },
+  {
+   "id": "jentinki",
+   "name": "Jentink's squirrel",
+   "latin": "Sundasciurus jentinki",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Jentink's squirrel",
+   "desc": "A small squirrel of montane Borneo forest, recorded often near the park.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "barbet",
+   "name": "Golden-naped barbet",
+   "latin": "Psilopogon pulcherrimus",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Golden-naped barbet",
+   "desc": "A montane Bornean bird recorded thousands of times near the park; barbets in general take fruit such as figs.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "sunbird",
+   "name": "Temminck's sunbird",
+   "latin": "Aethopyga temminckii",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Temminck's sunbird",
+   "desc": "A small nectar-feeding bird of Bornean mountain forest, among the most recorded birds near the park.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "beetle",
+   "name": "Three-horned rhinoceros beetle",
+   "latin": "Chalcosoma moellenkampi",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Chalcosoma moellenkampi",
+   "desc": "A large beetle of the montane forest. Rhinoceros beetle larvae of this kind develop in rotting wood; adults are prey for forest birds and frogs.",
+   "ic": "hopper"
+  },
+  {
+   "id": "frog",
+   "name": "Montane large-eyed litter frog",
+   "latin": "Leptobrachium montanum",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Leptobrachium montanum",
+   "desc": "A frog of the forest floor that eats small invertebrates.",
+   "ic": "quad"
+  },
+  {
+   "id": "thrush",
+   "name": "Bornean whistling thrush",
+   "latin": "Myophonus borneensis",
+   "tl": 3,
+   "xh": 0.34,
+   "wiki": "Bornean whistling thrush",
+   "desc": "A bird of mountain streams and forest floor that feeds on insects and other small animals.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "treepie",
+   "name": "Bornean treepie",
+   "latin": "Dendrocitta cinerascens",
+   "tl": 3,
+   "xh": 0.56,
+   "wiki": "Bornean treepie",
+   "desc": "The most recorded bird near the park; an omnivorous crow relative that takes fruit and small animals.",
+   "ic": "raven"
+  },
+  {
+   "id": "yuhina",
+   "name": "Chestnut-crested yuhina",
+   "latin": "Staphida everetti",
+   "tl": 3,
+   "xh": 0.78,
+   "wiki": "Chestnut-crested yuhina",
+   "desc": "A busy flocking bird that takes insects and fruit; one of the most recorded birds near the park.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "pitviper",
+   "name": "Sabah bamboo pitviper",
+   "latin": "Trimeresurus sabahi",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Trimeresurus sabahi",
+   "desc": "A Bornean pitviper of mountain forest, usually seen on branches of shrubs; it takes small vertebrates such as frogs and rodents.",
+   "ic": "snake"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, leeches & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.96,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, wood and dead animals in the damp forest floor and return nutrients to the soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "lithocarpus",
+   "r"
+  ],
+  [
+   "rain",
+   "ficus",
+   "r"
+  ],
+  [
+   "rain",
+   "rhodo",
+   "r"
+  ],
+  [
+   "rain",
+   "rajah",
+   "r"
+  ],
+  [
+   "rain",
+   "rafflesia",
+   "r"
+  ],
+  [
+   "sun",
+   "lithocarpus",
+   "r"
+  ],
+  [
+   "sun",
+   "ficus",
+   "r"
+  ],
+  [
+   "sun",
+   "rhodo",
+   "r"
+  ],
+  [
+   "soil",
+   "lithocarpus",
+   "r"
+  ],
+  [
+   "cool",
+   "lithocarpus",
+   "r"
+  ],
+  [
+   "soil",
+   "rhodo",
+   "r"
+  ],
+  [
+   "cool",
+   "rhodo",
+   "r"
+  ],
+  [
+   "soil",
+   "rajah",
+   "r"
+  ],
+  [
+   "cool",
+   "rajah",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "lithocarpus",
+   "rattus"
+  ],
+  [
+   "lithocarpus",
+   "jentinki"
+  ],
+  [
+   "lithocarpus",
+   "beetle"
+  ],
+  [
+   "ficus",
+   "barbet"
+  ],
+  [
+   "ficus",
+   "tupaia"
+  ],
+  [
+   "ficus",
+   "jentinki"
+  ],
+  [
+   "ficus",
+   "treepie"
+  ],
+  [
+   "rhodo",
+   "sunbird"
+  ],
+  [
+   "rajah",
+   "tupaia"
+  ],
+  [
+   "rajah",
+   "rattus"
+  ],
+  [
+   "beetle",
+   "tupaia"
+  ],
+  [
+   "beetle",
+   "frog"
+  ],
+  [
+   "beetle",
+   "thrush"
+  ],
+  [
+   "beetle",
+   "treepie"
+  ],
+  [
+   "beetle",
+   "yuhina"
+  ],
+  [
+   "rattus",
+   "pitviper"
+  ],
+  [
+   "frog",
+   "pitviper"
+  ],
+  [
+   "lithocarpus",
+   "decomp",
+   "d"
+  ],
+  [
+   "ficus",
+   "decomp",
+   "d"
+  ],
+  [
+   "frog",
+   "decomp",
+   "d"
+  ],
+  [
+   "pitviper",
+   "decomp",
+   "d"
+  ],
+  [
+   "thrush",
+   "decomp",
+   "d"
+  ]
+ ],
+ "ev": {
+  "lithocarpus>rattus": [
+   "a"
+  ],
+  "lithocarpus>jentinki": [
+   "a"
+  ],
+  "lithocarpus>beetle": [
+   "a"
+  ],
+  "ficus>barbet": [
+   "a"
+  ],
+  "ficus>tupaia": [
+   "a"
+  ],
+  "ficus>jentinki": [
+   "a"
+  ],
+  "ficus>treepie": [
+   "a"
+  ],
+  "rhodo>sunbird": [
+   "a"
+  ],
+  "rajah>tupaia": [
+   "a"
+  ],
+  "rajah>rattus": [
+   "a"
+  ],
+  "beetle>tupaia": [
+   "a"
+  ],
+  "beetle>frog": [
+   "a"
+  ],
+  "beetle>thrush": [
+   "a"
+  ],
+  "beetle>treepie": [
+   "a"
+  ],
+  "beetle>yuhina": [
+   "a"
+  ],
+  "rattus>pitviper": [
+   "a"
+  ],
+  "frog>pitviper": [
+   "a"
+  ]
+ }
+}

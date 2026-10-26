@@ -1,0 +1,649 @@
+{
+ "id": "xqatar",
+ "name": "Al Reem Biosphere Reserve",
+ "short": "Al Reem",
+ "place": "Qatar",
+ "lat": 25.75,
+ "lon": 51.0,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Qatar",
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Rain-fed gravel desert where oryx, gazelles and sand cats share thin pickings.",
+ "tip": {
+  "id": "stip",
+  "title": "Skip the rains",
+  "text": "Rain wakes the desert grasses and shrubs. Cut Desert bunch grasses by 100% and watch the oryx, the beetles and desert larks, then the shrikes, monitors and cats that feed on them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Al Reem Biosphere Reserve",
+   "url": "https://en.wikipedia.org/wiki/Al_Reem_Biosphere_Reserve"
+  },
+  {
+   "title": "Wikipedia: Wildlife of Qatar",
+   "url": "https://en.wikipedia.org/wiki/Wildlife_of_Qatar"
+  },
+  {
+   "title": "Wikipedia: Arabian oryx",
+   "url": "https://en.wikipedia.org/wiki/Arabian_oryx"
+  },
+  {
+   "title": "Wikipedia: Arabian gazelle",
+   "url": "https://en.wikipedia.org/wiki/Arabian_gazelle"
+  },
+  {
+   "title": "Wikipedia: Sand cat",
+   "url": "https://en.wikipedia.org/wiki/Sand_cat"
+  },
+  {
+   "title": "Wikipedia: Desert monitor",
+   "url": "https://en.wikipedia.org/wiki/Desert_monitor"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Al Reem Biosphere Reserve",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight and heat",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Intense sun powers sparse plant growth, and daytime heat sends many animals into burrows or shade.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Rare winter rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.32,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Rain is scarce and irregular. After a shower, desert plants leaf out quickly and herds can follow the new growth.",
+   "ic": "rain"
+  },
+  {
+   "id": "rawdat",
+   "name": "Rainwater depressions (rawdat)",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.54,
+   "cat": "abiotic",
+   "wiki": "Qatar",
+   "desc": "Shallow depressions called rawdat collect rainwater and hold richer plant life than the surrounding rocky desert.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Thin desert soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.74,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Weathered, nutrient-poor gravel and sand soil that limits how much vegetation the desert can carry.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals, returning scarce nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "stip",
+   "name": "Desert bunch grasses",
+   "latin": "Stipagrostis",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Stipagrostis",
+   "desc": "Grasses of sandy desert that green up after rain. Related Stipagrostis grasses are the main food of Arabian oryx in Oman.",
+   "ic": "grass"
+  },
+  {
+   "id": "samr",
+   "name": "Samr acacia",
+   "latin": "Vachellia tortilis",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Vachellia tortilis",
+   "desc": "A drought-tolerant thorny tree, among the most common plants in Qatar. Its pods and foliage are used as desert fodder and it fixes nitrogen in the soil.",
+   "ic": "aspen",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "arfaj",
+   "name": "Arfaj",
+   "latin": "Rhanterium epapposum",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Rhanterium epapposum",
+   "desc": "A yellow-flowered shrub native to Qatar, regarded as a main desert forage plant for camels and sheep. It leafs out quickly after rain.",
+   "ic": "sage"
+  },
+  {
+   "id": "oryx",
+   "name": "Arabian oryx",
+   "latin": "Oryx leucoryx",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Arabian oryx",
+   "desc": "Mostly a grass eater that follows rains to fresh growth and can go weeks without water. Semi-managed herds live in Qatar.",
+   "ic": "elk",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "gazelle",
+   "name": "Arabian sand gazelle",
+   "latin": "Gazella marica",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Arabian sand gazelle",
+   "desc": "The rheem, the native gazelle of Qatar. Gazelles of the Arabian peninsula browse mainly acacia and other woody plants.",
+   "ic": "pronghorn"
+  },
+  {
+   "id": "mastigure",
+   "name": "Egyptian mastigure",
+   "latin": "Uromastyx aegyptia",
+   "tl": 2,
+   "xh": 0.5,
+   "wiki": "Uromastyx aegyptia",
+   "desc": "A large spiny-tailed lizard of open, gravelly desert. It shelters in burrows and feeds mainly on plants and seeds.",
+   "ic": "snake"
+  },
+  {
+   "id": "beetle",
+   "name": "Pitted beetle",
+   "latin": "Adesmia cancellata",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Adesmia cancellata",
+   "desc": "A darkling beetle of arid Middle Eastern habitats, recorded in the Al Reem area. It is food for lizards, birds and shrikes.",
+   "ic": "hopper"
+  },
+  {
+   "id": "deslark",
+   "name": "Desert lark",
+   "latin": "Ammomanes deserti",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Desert lark",
+   "desc": "Eats seeds and insects, with more insects in the breeding season. A common small bird that predators of the desert hunt.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "mesalina",
+   "name": "Blanford's short-nosed desert lizard",
+   "latin": "Mesalina brevirostris",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Mesalina brevirostris",
+   "desc": "A small desert lizard recorded in the area. It feeds on small invertebrates and is prey for wheatears, shrikes and monitors.",
+   "ic": "snake"
+  },
+  {
+   "id": "wheatear",
+   "name": "Desert wheatear",
+   "latin": "Oenanthe deserti",
+   "tl": 3,
+   "xh": 0.37,
+   "wiki": "Desert wheatear",
+   "desc": "An insectivore that picks ants, beetles and other insects from the ground. GloBI records show it eating small lizards too.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "shrike",
+   "name": "Great grey shrike",
+   "latin": "Lanius excubitor",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Great grey shrike",
+   "desc": "A perch-and-pounce predator of rodents, songbirds, lizards and large insects, which it impales on thorns.",
+   "ic": "hawk"
+  },
+  {
+   "id": "viper",
+   "name": "Arabian horned viper",
+   "latin": "Cerastes gasperettii",
+   "tl": 3,
+   "xh": 0.87,
+   "wiki": "Cerastes gasperettii",
+   "desc": "A sand-dwelling viper whose diet is thought to be mainly rodents, with beetles and lizards as smaller prey.",
+   "ic": "snake"
+  },
+  {
+   "id": "monitor",
+   "name": "Desert monitor",
+   "latin": "Varanus griseus",
+   "tl": 4,
+   "xh": 0.2,
+   "wiki": "Desert monitor",
+   "desc": "A burrowing carnivore that eats small mammals, reptiles, birds, eggs and insects, and also scavenges carrion.",
+   "ic": "croc"
+  },
+  {
+   "id": "sandcat",
+   "name": "Sand cat",
+   "latin": "Felis margarita",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Sand cat",
+   "desc": "A small desert cat that hunts at night for rodents and birds, and also kills lizards and venomous snakes. It gets most of its water from prey.",
+   "ic": "lion"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Red fox",
+   "desc": "An omnivore that takes small animals, birds, reptiles and insects, and eats carrion. Qatar has two fox species.",
+   "ic": "fox"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "stip",
+   "r"
+  ],
+  [
+   "sun",
+   "samr",
+   "r"
+  ],
+  [
+   "sun",
+   "arfaj",
+   "r"
+  ],
+  [
+   "rain",
+   "stip",
+   "r"
+  ],
+  [
+   "rain",
+   "arfaj",
+   "r"
+  ],
+  [
+   "rain",
+   "samr",
+   "r"
+  ],
+  [
+   "rawdat",
+   "samr",
+   "r"
+  ],
+  [
+   "rawdat",
+   "arfaj",
+   "r"
+  ],
+  [
+   "rawdat",
+   "stip",
+   "r"
+  ],
+  [
+   "soil",
+   "samr",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "stip",
+   "oryx"
+  ],
+  [
+   "stip",
+   "mastigure"
+  ],
+  [
+   "arfaj",
+   "mastigure"
+  ],
+  [
+   "arfaj",
+   "gazelle"
+  ],
+  [
+   "samr",
+   "gazelle"
+  ],
+  [
+   "stip",
+   "deslark"
+  ],
+  [
+   "stip",
+   "beetle"
+  ],
+  [
+   "beetle",
+   "mesalina"
+  ],
+  [
+   "beetle",
+   "wheatear"
+  ],
+  [
+   "beetle",
+   "shrike"
+  ],
+  [
+   "beetle",
+   "viper"
+  ],
+  [
+   "beetle",
+   "deslark"
+  ],
+  [
+   "mesalina",
+   "wheatear"
+  ],
+  [
+   "mesalina",
+   "shrike"
+  ],
+  [
+   "mesalina",
+   "viper"
+  ],
+  [
+   "mesalina",
+   "monitor"
+  ],
+  [
+   "deslark",
+   "shrike"
+  ],
+  [
+   "deslark",
+   "monitor"
+  ],
+  [
+   "deslark",
+   "sandcat"
+  ],
+  [
+   "deslark",
+   "fox"
+  ],
+  [
+   "wheatear",
+   "shrike"
+  ],
+  [
+   "wheatear",
+   "monitor"
+  ],
+  [
+   "viper",
+   "monitor"
+  ],
+  [
+   "viper",
+   "sandcat"
+  ],
+  [
+   "mastigure",
+   "sandcat"
+  ],
+  [
+   "mastigure",
+   "fox"
+  ],
+  [
+   "mesalina",
+   "fox"
+  ],
+  [
+   "beetle",
+   "fox"
+  ],
+  [
+   "shrike",
+   "monitor"
+  ],
+  [
+   "oryx",
+   "fox",
+   "s"
+  ],
+  [
+   "gazelle",
+   "fox",
+   "s"
+  ],
+  [
+   "oryx",
+   "monitor",
+   "s"
+  ],
+  [
+   "gazelle",
+   "monitor",
+   "s"
+  ],
+  [
+   "stip",
+   "decomp",
+   "d"
+  ],
+  [
+   "samr",
+   "decomp",
+   "d"
+  ],
+  [
+   "arfaj",
+   "decomp",
+   "d"
+  ],
+  [
+   "oryx",
+   "decomp",
+   "d"
+  ],
+  [
+   "gazelle",
+   "decomp",
+   "d"
+  ],
+  [
+   "mastigure",
+   "decomp",
+   "d"
+  ],
+  [
+   "beetle",
+   "decomp",
+   "d"
+  ],
+  [
+   "deslark",
+   "decomp",
+   "d"
+  ],
+  [
+   "mesalina",
+   "decomp",
+   "d"
+  ],
+  [
+   "wheatear",
+   "decomp",
+   "d"
+  ],
+  [
+   "shrike",
+   "decomp",
+   "d"
+  ],
+  [
+   "viper",
+   "decomp",
+   "d"
+  ],
+  [
+   "monitor",
+   "decomp",
+   "d"
+  ],
+  [
+   "sandcat",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ]
+ ],
+ "ev": {
+  "stip>oryx": [
+   "a"
+  ],
+  "stip>mastigure": [
+   "a"
+  ],
+  "arfaj>mastigure": [
+   "a"
+  ],
+  "arfaj>gazelle": [
+   "a"
+  ],
+  "samr>gazelle": [
+   "a"
+  ],
+  "stip>deslark": [
+   "a"
+  ],
+  "stip>beetle": [
+   "a"
+  ],
+  "beetle>mesalina": [
+   "a"
+  ],
+  "beetle>wheatear": [
+   "a"
+  ],
+  "beetle>shrike": [
+   "a"
+  ],
+  "beetle>viper": [
+   "a"
+  ],
+  "beetle>deslark": [
+   "a"
+  ],
+  "mesalina>wheatear": [
+   "g",
+   "Oenanthe deserti",
+   "Mesalina brevirostris"
+  ],
+  "mesalina>shrike": [
+   "g",
+   "Lanius excubitor",
+   "Mesalina brevirostris"
+  ],
+  "mesalina>viper": [
+   "a"
+  ],
+  "mesalina>monitor": [
+   "g",
+   "Varanus griseus",
+   "Mesalina brevirostris"
+  ],
+  "deslark>shrike": [
+   "g",
+   "Lanius excubitor",
+   "Ammomanes deserti"
+  ],
+  "deslark>monitor": [
+   "g",
+   "Varanus griseus",
+   "Ammomanes deserti"
+  ],
+  "deslark>sandcat": [
+   "a"
+  ],
+  "deslark>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Ammomanes deserti"
+  ],
+  "wheatear>shrike": [
+   "g",
+   "Lanius excubitor",
+   "Oenanthe deserti"
+  ],
+  "wheatear>monitor": [
+   "g",
+   "Varanus griseus",
+   "Oenanthe deserti"
+  ],
+  "viper>monitor": [
+   "a"
+  ],
+  "viper>sandcat": [
+   "a"
+  ],
+  "mastigure>sandcat": [
+   "a"
+  ],
+  "mastigure>fox": [
+   "a"
+  ],
+  "mesalina>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Mesalina brevirostris"
+  ],
+  "beetle>fox": [
+   "a"
+  ],
+  "shrike>monitor": [
+   "g",
+   "Varanus griseus",
+   "Lanius excubitor"
+  ],
+  "oryx>fox": [
+   "a"
+  ],
+  "gazelle>fox": [
+   "gg",
+   "Vulpes vulpes",
+   "Gazella marica"
+  ],
+  "oryx>monitor": [
+   "a"
+  ],
+  "gazelle>monitor": [
+   "a"
+  ]
+ }
+}

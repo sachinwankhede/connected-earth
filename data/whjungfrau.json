@@ -1,0 +1,995 @@
+{
+ "id": "whjungfrau",
+ "name": "Swiss Alps Jungfrau-Aletsch",
+ "short": "Jungfrau-Aletsch",
+ "place": "Switzerland",
+ "lat": 46.5,
+ "lon": 8.0,
+ "side": "r",
+ "cont": "Europe",
+ "country": "Switzerland",
+ "kind": "Polar & mountain",
+ "park": true,
+ "blurb": "Ibex, marmots and eagles around the longest glacier in the Alps.",
+ "tip": {
+  "id": "marmot",
+  "title": "Thin out the marmots",
+  "text": "Marmots are a staple of golden eagles, foxes and stoats. Set Alpine marmot to -100% and watch those predators and the hares they turn to."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Swiss Alps Jungfrau-Aletsch",
+   "url": "https://en.wikipedia.org/wiki/Swiss_Alps_Jungfrau-Aletsch"
+  },
+  {
+   "title": "Wikipedia: Alpine ibex",
+   "url": "https://en.wikipedia.org/wiki/Alpine_ibex"
+  },
+  {
+   "title": "Wikipedia: Alpine marmot",
+   "url": "https://en.wikipedia.org/wiki/Alpine_marmot"
+  },
+  {
+   "title": "Wikipedia: Golden eagle",
+   "url": "https://en.wikipedia.org/wiki/Golden_eagle"
+  },
+  {
+   "title": "Wikipedia: Chamois",
+   "url": "https://en.wikipedia.org/wiki/Chamois"
+  },
+  {
+   "title": "Wikipedia: Alpine chough",
+   "url": "https://en.wikipedia.org/wiki/Alpine_chough"
+  },
+  {
+   "title": "Wikipedia: Swiss pine",
+   "url": "https://en.wikipedia.org/wiki/Swiss_pine"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Swiss Alps Jungfrau-Aletsch",
+ "icon": "ice",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Short alpine summers and intense light at altitude set how long plants can grow on the high slopes.",
+   "ic": "sun"
+  },
+  {
+   "id": "snow",
+   "name": "Snowpack",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Snow",
+   "desc": "Winter snow cover decides when meadows green up and pushes animals such as chamois down to lower, forested slopes.",
+   "ic": "ice"
+  },
+  {
+   "id": "glacier",
+   "name": "Glacier meltwater",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "cat": "abiotic",
+   "wiki": "Aletsch Glacier",
+   "desc": "The Aletsch Glacier is the longest in the Alps. Its ice and meltwater feed streams and wet ground below, while its retreat leaves fresh moraine for plants to colonise.",
+   "ic": "ice"
+  },
+  {
+   "id": "soil",
+   "name": "Alpine soils",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.72,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Thin soils on rock and moraine supply nutrients to alpine plants and are topped up as dead matter is broken down.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi and bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, animals and carcasses, returning nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "stonepine",
+   "name": "Swiss stone pine",
+   "latin": "Pinus cembra",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Swiss pine",
+   "desc": "A conifer of the uppermost forest belt in the Alps. On the Aletsch side it forms forest on moraine laid down after the glacier maximum around 1850.",
+   "ic": "whitebark",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "spruce",
+   "name": "Norway spruce",
+   "latin": "Picea abies",
+   "tl": 1,
+   "xh": 0.38,
+   "wiki": "Norway spruce",
+   "desc": "The dominant subalpine conifer on the south side of the site. Its shoots and needles are winter food for chamois and ibex.",
+   "ic": "whitebark"
+  },
+  {
+   "id": "meadow",
+   "name": "Alpine meadow plants",
+   "latin": "Festuca",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Festuca",
+   "desc": "Grasses and herbs of the alpine meadows above the treeline, the main summer food of marmots, chamois and ibex.",
+   "ic": "grass"
+  },
+  {
+   "id": "rhodo",
+   "name": "Alpine rose and dwarf shrubs",
+   "latin": "Rhododendron ferrugineum",
+   "tl": 1,
+   "xh": 0.86,
+   "wiki": "Rhododendron ferrugineum",
+   "desc": "Low evergreen shrubs on acidic alpine slopes. Dwarf shrubs are part of the autumn and winter diet of Alpine ibex.",
+   "ic": "sage"
+  },
+  {
+   "id": "nutcracker",
+   "name": "Spotted nutcracker",
+   "latin": "Nucifraga caryocatactes",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Spotted nutcracker",
+   "desc": "Eats Swiss stone pine seeds and spreads them, since the heavy seeds are barely wind-dispersed.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "chough",
+   "name": "Alpine chough",
+   "latin": "Pyrrhocorax graculus",
+   "tl": 2,
+   "xh": 0.18,
+   "wiki": "Alpine chough",
+   "desc": "Picks insects from alpine pasture in summer and fruit in winter. Flocks gather around huts and ski areas for scraps.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "apollo",
+   "name": "Apollo butterfly",
+   "latin": "Parnassius apollo",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Apollo (butterfly)",
+   "desc": "A large, white alpine butterfly. Its caterpillars feed on stonecrops of rocky meadows.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "marmot",
+   "name": "Alpine marmot",
+   "latin": "Marmota marmota",
+   "tl": 2,
+   "xh": 0.42,
+   "wiki": "Alpine marmot",
+   "desc": "Colonial burrower that grazes meadows through summer, fattens up, then hibernates for months. Sentinels whistle when predators approach.",
+   "ic": "gsquirrel",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "hare",
+   "name": "Mountain hare",
+   "latin": "Lepus timidus",
+   "tl": 2,
+   "xh": 0.54,
+   "wiki": "Mountain hare",
+   "desc": "A hare of the high Alps that browses grasses, herbs and shrubs and is prey for foxes, stoats and eagles.",
+   "ic": "vole"
+  },
+  {
+   "id": "deer",
+   "name": "Red deer",
+   "latin": "Cervus elaphus",
+   "tl": 2,
+   "xh": 0.66,
+   "wiki": "Red deer",
+   "desc": "The largest herbivore of the valleys and forest edges, grazing grasses and browsing shrubs and shoots.",
+   "ic": "elk"
+  },
+  {
+   "id": "chamois",
+   "name": "Chamois",
+   "latin": "Rupicapra rupicapra",
+   "tl": 2,
+   "xh": 0.78,
+   "wiki": "Chamois",
+   "desc": "Grazes alpine meadows in summer and moves into forest in winter, eating conifer needles and bark. Lynx and wolves are its natural predators.",
+   "ic": "quad"
+  },
+  {
+   "id": "ibex",
+   "name": "Alpine ibex",
+   "latin": "Capra ibex",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Alpine ibex",
+   "desc": "A steep-ground grazer living mostly between 1,800 and 3,300 m. It was nearly wiped out by hunting and has been restored by reintroductions.",
+   "ic": "quad"
+  },
+  {
+   "id": "stoat",
+   "name": "Stoat",
+   "latin": "Mustela erminea",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Stoat",
+   "desc": "A small hunter of the mountains that takes voles, hares and young marmots.",
+   "ic": "quad"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Red fox",
+   "desc": "Widespread hunter and scavenger from valley to alpine meadows, taking hares, marmots, birds and carrion.",
+   "ic": "fox"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "Common raven",
+   "desc": "Scavenges carcasses and also takes the nestlings of other birds such as choughs.",
+   "ic": "raven"
+  },
+  {
+   "id": "eagle",
+   "name": "Golden eagle",
+   "latin": "Aquila chrysaetos",
+   "tl": 4,
+   "xh": 0.2,
+   "wiki": "Golden eagle",
+   "desc": "Top aerial predator of the high Alps. Marmots and hares are staple prey, it may take young ibex, and in winter it feeds on carrion.",
+   "ic": "goldeneagle",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "lynx",
+   "name": "Eurasian lynx",
+   "latin": "Lynx lynx",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Eurasian lynx",
+   "desc": "Reintroduced to Switzerland. Hunts chamois, roe and red deer and hares, mainly in forest and rocky ground.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "wolf",
+   "name": "Gray wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Gray wolf",
+   "desc": "Has returned to the Alps in recent decades. Takes deer and chamois, and the Alpine ibex lives on steep ground that gives it some protection.",
+   "ic": "wolf"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "stonepine",
+   "r"
+  ],
+  [
+   "soil",
+   "stonepine",
+   "r"
+  ],
+  [
+   "snow",
+   "stonepine",
+   "r"
+  ],
+  [
+   "sun",
+   "spruce",
+   "r"
+  ],
+  [
+   "soil",
+   "spruce",
+   "r"
+  ],
+  [
+   "snow",
+   "spruce",
+   "r"
+  ],
+  [
+   "sun",
+   "meadow",
+   "r"
+  ],
+  [
+   "soil",
+   "meadow",
+   "r"
+  ],
+  [
+   "snow",
+   "meadow",
+   "r"
+  ],
+  [
+   "sun",
+   "rhodo",
+   "r"
+  ],
+  [
+   "soil",
+   "rhodo",
+   "r"
+  ],
+  [
+   "snow",
+   "rhodo",
+   "r"
+  ],
+  [
+   "glacier",
+   "meadow",
+   "r"
+  ],
+  [
+   "glacier",
+   "rhodo",
+   "r"
+  ],
+  [
+   "glacier",
+   "stonepine",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "stonepine",
+   "nutcracker"
+  ],
+  [
+   "spruce",
+   "chamois"
+  ],
+  [
+   "spruce",
+   "ibex"
+  ],
+  [
+   "meadow",
+   "chamois"
+  ],
+  [
+   "meadow",
+   "ibex"
+  ],
+  [
+   "meadow",
+   "marmot"
+  ],
+  [
+   "meadow",
+   "hare"
+  ],
+  [
+   "meadow",
+   "deer"
+  ],
+  [
+   "meadow",
+   "apollo"
+  ],
+  [
+   "rhodo",
+   "ibex"
+  ],
+  [
+   "rhodo",
+   "hare"
+  ],
+  [
+   "rhodo",
+   "deer"
+  ],
+  [
+   "apollo",
+   "chough"
+  ],
+  [
+   "marmot",
+   "eagle"
+  ],
+  [
+   "marmot",
+   "fox"
+  ],
+  [
+   "marmot",
+   "stoat"
+  ],
+  [
+   "marmot",
+   "lynx"
+  ],
+  [
+   "hare",
+   "eagle"
+  ],
+  [
+   "hare",
+   "fox"
+  ],
+  [
+   "hare",
+   "stoat"
+  ],
+  [
+   "hare",
+   "lynx"
+  ],
+  [
+   "chamois",
+   "lynx"
+  ],
+  [
+   "chamois",
+   "wolf"
+  ],
+  [
+   "chamois",
+   "eagle"
+  ],
+  [
+   "ibex",
+   "eagle"
+  ],
+  [
+   "deer",
+   "wolf"
+  ],
+  [
+   "deer",
+   "lynx"
+  ],
+  [
+   "chough",
+   "eagle"
+  ],
+  [
+   "chough",
+   "raven"
+  ],
+  [
+   "nutcracker",
+   "fox"
+  ],
+  [
+   "stoat",
+   "eagle"
+  ],
+  [
+   "fox",
+   "lynx"
+  ],
+  [
+   "spruce",
+   "deer"
+  ],
+  [
+   "chamois",
+   "raven",
+   "s"
+  ],
+  [
+   "deer",
+   "raven",
+   "s"
+  ],
+  [
+   "chamois",
+   "fox",
+   "s"
+  ],
+  [
+   "ibex",
+   "fox",
+   "s"
+  ],
+  [
+   "deer",
+   "eagle",
+   "s"
+  ],
+  [
+   "deer",
+   "fox",
+   "s"
+  ],
+  [
+   "stonepine",
+   "decomp",
+   "d"
+  ],
+  [
+   "spruce",
+   "decomp",
+   "d"
+  ],
+  [
+   "meadow",
+   "decomp",
+   "d"
+  ],
+  [
+   "rhodo",
+   "decomp",
+   "d"
+  ],
+  [
+   "nutcracker",
+   "decomp",
+   "d"
+  ],
+  [
+   "chough",
+   "decomp",
+   "d"
+  ],
+  [
+   "apollo",
+   "decomp",
+   "d"
+  ],
+  [
+   "marmot",
+   "decomp",
+   "d"
+  ],
+  [
+   "hare",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "chamois",
+   "decomp",
+   "d"
+  ],
+  [
+   "ibex",
+   "decomp",
+   "d"
+  ],
+  [
+   "stoat",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "eagle",
+   "decomp",
+   "d"
+  ],
+  [
+   "lynx",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "spruce",
+   "nutcracker"
+  ],
+  [
+   "stonepine",
+   "chough"
+  ],
+  [
+   "spruce",
+   "chough"
+  ],
+  [
+   "rhodo",
+   "chough"
+  ],
+  [
+   "chamois",
+   "stoat"
+  ],
+  [
+   "chough",
+   "fox"
+  ],
+  [
+   "stonepine",
+   "raven"
+  ],
+  [
+   "spruce",
+   "raven"
+  ],
+  [
+   "rhodo",
+   "raven"
+  ],
+  [
+   "nutcracker",
+   "raven"
+  ],
+  [
+   "hare",
+   "raven"
+  ],
+  [
+   "fox",
+   "eagle"
+  ],
+  [
+   "raven",
+   "eagle"
+  ],
+  [
+   "ibex",
+   "lynx"
+  ],
+  [
+   "nutcracker",
+   "wolf"
+  ],
+  [
+   "chough",
+   "wolf"
+  ],
+  [
+   "marmot",
+   "wolf"
+  ],
+  [
+   "hare",
+   "wolf"
+  ],
+  [
+   "ibex",
+   "wolf"
+  ],
+  [
+   "stoat",
+   "wolf"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "stonepine>nutcracker": [
+   "g",
+   "Nucifraga caryocatactes",
+   "Pinus cembra"
+  ],
+  "spruce>chamois": [
+   "a"
+  ],
+  "spruce>ibex": [
+   "a"
+  ],
+  "meadow>chamois": [
+   "a"
+  ],
+  "meadow>ibex": [
+   "a"
+  ],
+  "meadow>marmot": [
+   "a"
+  ],
+  "meadow>hare": [
+   "a"
+  ],
+  "meadow>deer": [
+   "a"
+  ],
+  "meadow>apollo": [
+   "a"
+  ],
+  "rhodo>ibex": [
+   "a"
+  ],
+  "rhodo>hare": [
+   "a"
+  ],
+  "rhodo>deer": [
+   "a"
+  ],
+  "apollo>chough": [
+   "a"
+  ],
+  "marmot>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Marmota marmota"
+  ],
+  "marmot>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Marmota marmota"
+  ],
+  "marmot>stoat": [
+   "g",
+   "Mustela erminea",
+   "Marmota marmota"
+  ],
+  "marmot>lynx": [
+   "g",
+   "Lynx lynx",
+   "Marmota marmota"
+  ],
+  "hare>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Lepus timidus"
+  ],
+  "hare>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Lepus timidus"
+  ],
+  "hare>stoat": [
+   "g",
+   "Mustela erminea",
+   "Lepus timidus"
+  ],
+  "hare>lynx": [
+   "g",
+   "Lynx lynx",
+   "Lepus timidus"
+  ],
+  "chamois>lynx": [
+   "g",
+   "Lynx lynx",
+   "Rupicapra rupicapra"
+  ],
+  "chamois>wolf": [
+   "g",
+   "Canis lupus",
+   "Rupicapra rupicapra"
+  ],
+  "chamois>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Rupicapra rupicapra"
+  ],
+  "ibex>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Capra ibex"
+  ],
+  "deer>wolf": [
+   "g",
+   "Canis lupus",
+   "Cervus elaphus"
+  ],
+  "deer>lynx": [
+   "g",
+   "Lynx lynx",
+   "Cervus elaphus"
+  ],
+  "chough>eagle": [
+   "a"
+  ],
+  "chough>raven": [
+   "g",
+   "Corvus corax",
+   "Pyrrhocorax graculus"
+  ],
+  "nutcracker>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Nucifraga caryocatactes"
+  ],
+  "stoat>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Mustela erminea"
+  ],
+  "fox>lynx": [
+   "g",
+   "Lynx lynx",
+   "Vulpes vulpes"
+  ],
+  "spruce>deer": [
+   "gg",
+   "Cervus elaphus",
+   "Picea abies"
+  ],
+  "chamois>raven": [
+   "a"
+  ],
+  "deer>raven": [
+   "gg",
+   "Corvus corax",
+   "Cervus elaphus"
+  ],
+  "chamois>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Rupicapra rupicapra"
+  ],
+  "ibex>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Capra ibex"
+  ],
+  "deer>eagle": [
+   "g",
+   "Aquila chrysaetos",
+   "Cervus elaphus"
+  ],
+  "deer>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Cervus elaphus"
+  ],
+  "spruce>nutcracker": [
+   "ga",
+   "Nucifraga caryocatactes",
+   "Picea abies"
+  ],
+  "stonepine>chough": [
+   "ga",
+   "Pyrrhocorax graculus",
+   "Pinus cembra"
+  ],
+  "spruce>chough": [
+   "ga",
+   "Pyrrhocorax graculus",
+   "Picea abies"
+  ],
+  "rhodo>chough": [
+   "ga",
+   "Pyrrhocorax graculus",
+   "Rhododendron ferrugineum"
+  ],
+  "chamois>stoat": [
+   "ga",
+   "Mustela erminea",
+   "Rupicapra rupicapra"
+  ],
+  "chough>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Pyrrhocorax graculus"
+  ],
+  "stonepine>raven": [
+   "ga",
+   "Corvus corax",
+   "Pinus cembra"
+  ],
+  "spruce>raven": [
+   "ga",
+   "Corvus corax",
+   "Picea abies"
+  ],
+  "rhodo>raven": [
+   "ga",
+   "Corvus corax",
+   "Rhododendron ferrugineum"
+  ],
+  "nutcracker>raven": [
+   "ga",
+   "Corvus corax",
+   "Nucifraga caryocatactes"
+  ],
+  "hare>raven": [
+   "ga",
+   "Corvus corax",
+   "Lepus timidus"
+  ],
+  "fox>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Vulpes vulpes"
+  ],
+  "raven>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Corvus corax"
+  ],
+  "ibex>lynx": [
+   "ga",
+   "Lynx lynx",
+   "Capra ibex"
+  ],
+  "nutcracker>wolf": [
+   "ga",
+   "Canis lupus",
+   "Nucifraga caryocatactes"
+  ],
+  "chough>wolf": [
+   "ga",
+   "Canis lupus",
+   "Pyrrhocorax graculus"
+  ],
+  "marmot>wolf": [
+   "ga",
+   "Canis lupus",
+   "Marmota marmota"
+  ],
+  "hare>wolf": [
+   "ga",
+   "Canis lupus",
+   "Lepus timidus"
+  ],
+  "ibex>wolf": [
+   "ga",
+   "Canis lupus",
+   "Capra ibex"
+  ],
+  "stoat>wolf": [
+   "ga",
+   "Canis lupus",
+   "Mustela erminea"
+  ],
+  "fox>wolf": [
+   "ga",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ]
+ }
+}

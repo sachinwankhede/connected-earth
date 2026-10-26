@@ -1,0 +1,799 @@
+{
+ "id": "whchobe",
+ "name": "Chobe National Park",
+ "short": "Chobe",
+ "place": "Botswana",
+ "lat": -18.7,
+ "lon": 24.6,
+ "side": "l",
+ "cont": "Africa",
+ "country": "Botswana",
+ "kind": "Grassland",
+ "park": true,
+ "blurb": "Elephants, buffalo and lions around the Chobe River floodplain.",
+ "tip": {
+  "id": "cynodon",
+  "title": "Dry up the floodplain",
+  "text": "Floodwater feeds the grasses. Set Seasonal floodwater to -100% and watch the grasses, then the grazers, lions and crocodiles."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Chobe National Park",
+   "url": "https://en.wikipedia.org/wiki/Chobe_National_Park"
+  },
+  {
+   "title": "Wikipedia: Chobe River",
+   "url": "https://en.wikipedia.org/wiki/Chobe_River"
+  },
+  {
+   "title": "Wikipedia: Nile crocodile",
+   "url": "https://en.wikipedia.org/wiki/Nile_crocodile"
+  },
+  {
+   "title": "Wikipedia: Lion",
+   "url": "https://en.wikipedia.org/wiki/Lion"
+  },
+  {
+   "title": "Wikipedia: Hippopotamus",
+   "url": "https://en.wikipedia.org/wiki/Hippopotamus"
+  },
+  {
+   "title": "Wikipedia: African fish eagle",
+   "url": "https://en.wikipedia.org/wiki/African_fish_eagle"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Chobe National Park",
+ "icon": "elephant",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "panicum",
+   "name": "Klein grass",
+   "latin": "Panicum coloratum",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Panicum coloratum",
+   "desc": "A tufted grass recorded around the park. GloBI records list it as food of buffalo, waterbuck and zebra.",
+   "ic": "grass"
+  },
+  {
+   "id": "cynodon",
+   "name": "Floodplain grasses",
+   "latin": "Cynodon dactylon",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Cynodon dactylon",
+   "desc": "Short creeping grass that can carpet open ground and river margins, grazed by hippos, buffalo and other grazers.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "teak",
+   "name": "Zambezi teak",
+   "latin": "Baikiaea plurijuga",
+   "tl": 1,
+   "xh": 0.58,
+   "wiki": "Baikiaea plurijuga",
+   "desc": "A dry-woodland tree. Wikipedia says dense stands of it once covered the Chobe riverfront before elephants thinned them.",
+   "ic": "willow"
+  },
+  {
+   "id": "lagaro",
+   "name": "Aquatic plants",
+   "latin": "Lagarosiphon",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Lagarosiphon",
+   "desc": "Submerged water plants of the river channels and lagoons, a food base for plant-eating fish.",
+   "ic": "algae"
+  },
+  {
+   "id": "elephant",
+   "name": "African bush elephant",
+   "latin": "Loxodonta africana",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "African bush elephant",
+   "desc": "Roughly 50,000 live in the park. They eat grass, leaves and bark, and can turn woodland into grassland.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "buffalo",
+   "name": "African buffalo",
+   "latin": "Syncerus caffer",
+   "tl": 2,
+   "xh": 0.19,
+   "wiki": "African buffalo",
+   "desc": "Large herds gather along the Chobe riverfront in the dry season to graze and drink.",
+   "ic": "bison"
+  },
+  {
+   "id": "hippo",
+   "name": "Hippopotamus",
+   "latin": "Hippopotamus amphibius",
+   "tl": 2,
+   "xh": 0.33,
+   "wiki": "Hippopotamus",
+   "desc": "Rests in the water by day and grazes grass on land at night. Its dung carries land nutrients into the river.",
+   "ic": "quad",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "zebra",
+   "name": "Plains zebra",
+   "latin": "Equus quagga",
+   "tl": 2,
+   "xh": 0.47,
+   "wiki": "Plains zebra",
+   "desc": "A grazer; predators follow the zebra migration through the Savuti area.",
+   "ic": "quad"
+  },
+  {
+   "id": "impala",
+   "name": "Impala",
+   "latin": "Aepyceros melampus",
+   "tl": 2,
+   "xh": 0.61,
+   "wiki": "Impala",
+   "desc": "A very common antelope, eaten by lions, leopards, wild dogs and hyenas.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "lechwe",
+   "name": "Southern lechwe",
+   "latin": "Kobus leche",
+   "tl": 2,
+   "xh": 0.75,
+   "wiki": "Southern lechwe",
+   "desc": "A floodplain antelope that grazes wet ground and is hunted by lions, leopards and wild dogs.",
+   "ic": "elk"
+  },
+  {
+   "id": "tilapia",
+   "name": "Tilapia and bream",
+   "latin": "Oreochromis",
+   "tl": 2,
+   "xh": 0.89,
+   "wiki": "Oreochromis",
+   "desc": "Cichlid fish that feed on plants and algae. They are a main food of the African fish eagle.",
+   "ic": "trout"
+  },
+  {
+   "id": "hyena",
+   "name": "Spotted hyena",
+   "latin": "Crocuta crocuta",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Spotted hyena",
+   "desc": "Hunts and scavenges. In Chobe, hyenas challenge lions and take food from many of their kills.",
+   "ic": "wolf"
+  },
+  {
+   "id": "wilddog",
+   "name": "African wild dog",
+   "latin": "Lycaon pictus",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "African wild dog",
+   "desc": "A pack hunter of the park. GloBI lists impala, zebra, buffalo and kudu among its prey.",
+   "ic": "coyote"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard",
+   "latin": "Panthera pardus",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Leopard",
+   "desc": "A solitary ambush cat that takes medium-sized antelope such as impala.",
+   "ic": "lion"
+  },
+  {
+   "id": "vulture",
+   "name": "White-backed vulture",
+   "latin": "Gyps africanus",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "White-backed vulture",
+   "desc": "Scavenges carcasses of elephant, buffalo, zebra and antelope.",
+   "ic": "hawk"
+  },
+  {
+   "id": "eagle",
+   "name": "African fish eagle",
+   "latin": "Haliaeetus vocifer",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "African fish eagle",
+   "desc": "Hunts fish from perches over open water, and also takes waterbirds and carrion.",
+   "ic": "baldeagle"
+  },
+  {
+   "id": "lion",
+   "name": "Lion",
+   "latin": "Panthera leo",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Lion",
+   "desc": "Hunts buffalo, zebra and antelope. Large Chobe prides also kill young elephants, mostly in droughts.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "croc",
+   "name": "Nile crocodile",
+   "latin": "Crocodylus niloticus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Nile crocodile",
+   "desc": "Ambushes animals at the water edge, eats fish, and feeds on carcasses such as dead hippos.",
+   "ic": "croc"
+  },
+  {
+   "id": "flood",
+   "name": "Seasonal floodwater",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Chobe River",
+   "desc": "Chobe and Linyanti floodwater spreads across the floodplains in the wet season and shrinks in the dry season.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Summer rains",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "wiki": "Rain",
+   "desc": "Rains fill pans and swell the rivers, and turn the grasslands green.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Kalahari sand and soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.6,
+   "wiki": "Soil",
+   "desc": "Sandy soils recycle dung and dead plants into nutrients for grasses and trees.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Termites and soil microbes",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Decomposer",
+   "desc": "Break down dung, dead plants and carcasses, returning nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "panicum",
+   "buffalo"
+  ],
+  [
+   "panicum",
+   "zebra"
+  ],
+  [
+   "panicum",
+   "impala"
+  ],
+  [
+   "panicum",
+   "lechwe"
+  ],
+  [
+   "panicum",
+   "elephant"
+  ],
+  [
+   "cynodon",
+   "hippo"
+  ],
+  [
+   "cynodon",
+   "buffalo"
+  ],
+  [
+   "cynodon",
+   "zebra"
+  ],
+  [
+   "cynodon",
+   "lechwe"
+  ],
+  [
+   "cynodon",
+   "elephant"
+  ],
+  [
+   "cynodon",
+   "impala"
+  ],
+  [
+   "teak",
+   "elephant"
+  ],
+  [
+   "lagaro",
+   "tilapia"
+  ],
+  [
+   "tilapia",
+   "eagle"
+  ],
+  [
+   "tilapia",
+   "croc"
+  ],
+  [
+   "buffalo",
+   "lion"
+  ],
+  [
+   "buffalo",
+   "hyena"
+  ],
+  [
+   "zebra",
+   "lion"
+  ],
+  [
+   "zebra",
+   "wilddog"
+  ],
+  [
+   "zebra",
+   "hyena"
+  ],
+  [
+   "impala",
+   "lion"
+  ],
+  [
+   "impala",
+   "leopard"
+  ],
+  [
+   "impala",
+   "wilddog"
+  ],
+  [
+   "impala",
+   "hyena"
+  ],
+  [
+   "impala",
+   "croc"
+  ],
+  [
+   "lechwe",
+   "lion"
+  ],
+  [
+   "lechwe",
+   "leopard"
+  ],
+  [
+   "lechwe",
+   "wilddog"
+  ],
+  [
+   "lechwe",
+   "croc"
+  ],
+  [
+   "elephant",
+   "lion"
+  ],
+  [
+   "hippo",
+   "lion"
+  ],
+  [
+   "hippo",
+   "croc"
+  ],
+  [
+   "lion",
+   "hyena",
+   "s"
+  ],
+  [
+   "elephant",
+   "vulture"
+  ],
+  [
+   "hippo",
+   "vulture"
+  ],
+  [
+   "buffalo",
+   "vulture",
+   "s"
+  ],
+  [
+   "zebra",
+   "vulture",
+   "s"
+  ],
+  [
+   "impala",
+   "vulture",
+   "s"
+  ],
+  [
+   "flood",
+   "panicum",
+   "r"
+  ],
+  [
+   "flood",
+   "cynodon",
+   "r"
+  ],
+  [
+   "rain",
+   "panicum",
+   "r"
+  ],
+  [
+   "rain",
+   "cynodon",
+   "r"
+  ],
+  [
+   "flood",
+   "lagaro",
+   "r"
+  ],
+  [
+   "rain",
+   "teak",
+   "r"
+  ],
+  [
+   "soil",
+   "teak",
+   "r"
+  ],
+  [
+   "soil",
+   "panicum",
+   "r"
+  ],
+  [
+   "soil",
+   "cynodon",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "panicum",
+   "decomp",
+   "d"
+  ],
+  [
+   "cynodon",
+   "decomp",
+   "d"
+  ],
+  [
+   "teak",
+   "decomp",
+   "d"
+  ],
+  [
+   "lagaro",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "buffalo",
+   "decomp",
+   "d"
+  ],
+  [
+   "hippo",
+   "decomp",
+   "d"
+  ],
+  [
+   "tilapia",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "hyena"
+  ],
+  [
+   "hippo",
+   "hyena"
+  ],
+  [
+   "buffalo",
+   "wilddog"
+  ],
+  [
+   "buffalo",
+   "leopard"
+  ],
+  [
+   "zebra",
+   "leopard"
+  ],
+  [
+   "lechwe",
+   "vulture"
+  ],
+  [
+   "leopard",
+   "lion"
+  ],
+  [
+   "elephant",
+   "croc"
+  ],
+  [
+   "buffalo",
+   "croc"
+  ],
+  [
+   "zebra",
+   "croc"
+  ]
+ ],
+ "ev": {
+  "panicum>buffalo": [
+   "g",
+   "Syncerus caffer",
+   "Panicum coloratum"
+  ],
+  "panicum>zebra": [
+   "g",
+   "Equus quagga",
+   "Panicum coloratum"
+  ],
+  "panicum>impala": [
+   "gg",
+   "Aepyceros melampus",
+   "Panicum coloratum"
+  ],
+  "panicum>lechwe": [
+   "a"
+  ],
+  "panicum>elephant": [
+   "a"
+  ],
+  "cynodon>hippo": [
+   "g",
+   "Hippopotamus amphibius",
+   "Cynodon dactylon"
+  ],
+  "cynodon>buffalo": [
+   "g",
+   "Syncerus caffer",
+   "Cynodon dactylon"
+  ],
+  "cynodon>zebra": [
+   "g",
+   "Equus quagga",
+   "Cynodon dactylon"
+  ],
+  "cynodon>lechwe": [
+   "a"
+  ],
+  "cynodon>elephant": [
+   "g",
+   "Loxodonta africana",
+   "Cynodon dactylon"
+  ],
+  "cynodon>impala": [
+   "g",
+   "Aepyceros melampus",
+   "Cynodon dactylon"
+  ],
+  "teak>elephant": [
+   "a"
+  ],
+  "lagaro>tilapia": [
+   "gg",
+   "Oreochromis",
+   "Lagarosiphon"
+  ],
+  "tilapia>eagle": [
+   "a"
+  ],
+  "tilapia>croc": [
+   "g",
+   "Crocodylus niloticus",
+   "Oreochromis"
+  ],
+  "buffalo>lion": [
+   "g",
+   "Panthera leo",
+   "Syncerus caffer"
+  ],
+  "buffalo>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Syncerus caffer"
+  ],
+  "zebra>lion": [
+   "g",
+   "Panthera leo",
+   "Equus quagga"
+  ],
+  "zebra>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Equus quagga"
+  ],
+  "zebra>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Equus quagga"
+  ],
+  "impala>lion": [
+   "g",
+   "Panthera leo",
+   "Aepyceros melampus"
+  ],
+  "impala>leopard": [
+   "g",
+   "Panthera pardus",
+   "Aepyceros melampus"
+  ],
+  "impala>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Aepyceros melampus"
+  ],
+  "impala>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Aepyceros melampus"
+  ],
+  "impala>croc": [
+   "g",
+   "Crocodylus niloticus",
+   "Aepyceros melampus"
+  ],
+  "lechwe>lion": [
+   "g",
+   "Panthera leo",
+   "Kobus leche"
+  ],
+  "lechwe>leopard": [
+   "g",
+   "Panthera pardus",
+   "Kobus leche"
+  ],
+  "lechwe>wilddog": [
+   "g",
+   "Lycaon pictus",
+   "Kobus leche"
+  ],
+  "lechwe>croc": [
+   "gg",
+   "Crocodylus niloticus",
+   "Kobus leche"
+  ],
+  "elephant>lion": [
+   "g",
+   "Panthera leo",
+   "Loxodonta africana"
+  ],
+  "hippo>lion": [
+   "g",
+   "Panthera leo",
+   "Hippopotamus amphibius"
+  ],
+  "hippo>croc": [
+   "g",
+   "Crocodylus niloticus",
+   "Hippopotamus amphibius"
+  ],
+  "lion>hyena": [
+   "gg",
+   "Crocuta crocuta",
+   "Panthera leo"
+  ],
+  "elephant>vulture": [
+   "g",
+   "Gyps africanus",
+   "Loxodonta africana"
+  ],
+  "hippo>vulture": [
+   "g",
+   "Gyps africanus",
+   "Hippopotamus amphibius"
+  ],
+  "buffalo>vulture": [
+   "g",
+   "Gyps africanus",
+   "Syncerus caffer"
+  ],
+  "zebra>vulture": [
+   "g",
+   "Gyps africanus",
+   "Equus quagga"
+  ],
+  "impala>vulture": [
+   "g",
+   "Gyps africanus",
+   "Aepyceros melampus"
+  ],
+  "elephant>hyena": [
+   "ga",
+   "Crocuta crocuta",
+   "Loxodonta africana"
+  ],
+  "hippo>hyena": [
+   "ga",
+   "Crocuta crocuta",
+   "Hippopotamus amphibius"
+  ],
+  "buffalo>wilddog": [
+   "ga",
+   "Lycaon pictus",
+   "Syncerus caffer"
+  ],
+  "buffalo>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Syncerus caffer"
+  ],
+  "zebra>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Equus quagga"
+  ],
+  "lechwe>vulture": [
+   "ga",
+   "Gyps africanus",
+   "Kobus leche"
+  ],
+  "leopard>lion": [
+   "ga",
+   "Panthera leo",
+   "Panthera pardus"
+  ],
+  "elephant>croc": [
+   "ga",
+   "Crocodylus niloticus",
+   "Loxodonta africana"
+  ],
+  "buffalo>croc": [
+   "ga",
+   "Crocodylus niloticus",
+   "Syncerus caffer"
+  ],
+  "zebra>croc": [
+   "ga",
+   "Crocodylus niloticus",
+   "Equus quagga"
+  ]
+ }
+}

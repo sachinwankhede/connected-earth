@@ -1,0 +1,690 @@
+{
+ "id": "npjoshuatree",
+ "name": "Joshua Tree National Park",
+ "short": "Joshua Tree",
+ "place": "California, USA",
+ "lat": 33.9,
+ "lon": -115.9,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "California"
+ ],
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Joshua trees, desert tortoises and ravens where two deserts meet.",
+ "tip": {
+  "id": "raven",
+  "title": "Remove the ravens",
+  "text": "Ravens are thought to take many young desert tortoises. Set Common raven to -100% and watch the tortoise, then coyotes and hawks."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Joshua Tree National Park",
+   "url": "https://en.wikipedia.org/wiki/Joshua_Tree_National_Park"
+  },
+  {
+   "title": "National Park Service: Joshua Tree nature",
+   "url": "https://www.nps.gov/jotr/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Desert tortoise",
+   "url": "https://en.wikipedia.org/wiki/Desert_tortoise"
+  },
+  {
+   "title": "Wikipedia: Yucca brevifolia",
+   "url": "https://en.wikipedia.org/wiki/Yucca_brevifolia"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Joshua Tree National Park",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Desert sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.05,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Intense sun powers desert plants, but heat sends many animals underground for the day.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Scarce rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.22,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Rain is scarce and irregular; the park lost roughly 39% of its annual precipitation between 1895 and 2016, and plants and animals depend on it.",
+   "ic": "rain"
+  },
+  {
+   "id": "cold",
+   "name": "Winter cold",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "cat": "abiotic",
+   "wiki": "Frost",
+   "desc": "Joshua tree blooming depends on timely rain and a winter freeze.",
+   "ic": "ice"
+  },
+  {
+   "id": "oasis",
+   "name": "Springs and oases",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.58,
+   "cat": "abiotic",
+   "wiki": "Oasis",
+   "desc": "Natural oases, springs and seeps are rare water sources vital to resident wildlife, and support the native fan palm.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals, returning nutrients to the sparse desert soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "creosote",
+   "name": "Creosote bush",
+   "latin": "Larrea tridentata",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Larrea tridentata",
+   "desc": "Typical shrub of the lower desert. Desert tortoises and chuckwallas eat it, and tortoises get much of their water from such plants.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "joshua",
+   "name": "Joshua tree",
+   "latin": "Yucca brevifolia",
+   "tl": 1,
+   "xh": 0.34,
+   "wiki": "Yucca brevifolia",
+   "desc": "The park namesake, dominant in the open Mojave areas. Pollinated by yucca moths, its seeds are moved by ground squirrels.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "cholla",
+   "name": "Cholla cactus",
+   "latin": "Cylindropuntia echinocarpa",
+   "tl": 1,
+   "xh": 0.56,
+   "wiki": "Cylindropuntia echinocarpa",
+   "desc": "A spiny cactus of the lower desert whose pads and fruit are food for tortoises and other desert animals.",
+   "ic": "sage"
+  },
+  {
+   "id": "palm",
+   "name": "California fan palm",
+   "latin": "Washingtonia filifera",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Washingtonia filifera",
+   "desc": "The only palm native to California; grows in the park only at oases with year-round water.",
+   "ic": "willow"
+  },
+  {
+   "id": "tortoise",
+   "name": "Desert tortoise",
+   "latin": "Gopherus agassizii",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Desert tortoise",
+   "desc": "Threatened grazer that eats grasses, wildflowers and cactus and spends most of its life in burrows. Ravens take juveniles.",
+   "ic": "turtle"
+  },
+  {
+   "id": "krat",
+   "name": "Merriam's kangaroo rat",
+   "latin": "Dipodomys merriami",
+   "tl": 2,
+   "xh": 0.19,
+   "wiki": "Merriam's kangaroo rat",
+   "desc": "A seed-eating rodent that shelters underground by day. Coyotes, hawks and snakes prey on it.",
+   "ic": "vole"
+  },
+  {
+   "id": "antsq",
+   "name": "White-tailed antelope squirrel",
+   "latin": "Ammospermophilus leucurus",
+   "tl": 2,
+   "xh": 0.33,
+   "wiki": "White-tailed antelope squirrel",
+   "desc": "A daytime ground squirrel of dry scrub that eats seeds and plants. Hawks and coyotes prey on it.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "jackrabbit",
+   "name": "Black-tailed jackrabbit",
+   "latin": "Lepus californicus",
+   "tl": 2,
+   "xh": 0.47,
+   "wiki": "Black-tailed jackrabbit",
+   "desc": "Browses desert shrubs and cacti and is a main meal for coyotes and hawks.",
+   "ic": "vole"
+  },
+  {
+   "id": "bighorn",
+   "name": "Desert bighorn sheep",
+   "latin": "Ovis canadensis",
+   "tl": 2,
+   "xh": 0.61,
+   "wiki": "Bighorn sheep",
+   "desc": "The park service reports healthy herds in the park. Grazes on shrubs and cacti and is prey for coyotes.",
+   "ic": "quad"
+  },
+  {
+   "id": "moth",
+   "name": "Yucca moth",
+   "latin": "Tegeticula synthetica",
+   "tl": 2,
+   "xh": 0.75,
+   "wiki": "Yucca moth",
+   "desc": "Pollinates Joshua trees while laying eggs in the flowers; its larvae eat some of the seeds.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "ant",
+   "name": "California harvester ant",
+   "latin": "Pogonomyrmex californicus",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Pogonomyrmex californicus",
+   "desc": "Gathers seeds of desert plants for its nest and is prey for horned lizards.",
+   "ic": "ant"
+  },
+  {
+   "id": "hornedliz",
+   "name": "Desert horned lizard",
+   "latin": "Phrynosoma platyrhinos",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Desert horned lizard",
+   "desc": "A flat-bodied lizard of sandy desert that eats mainly ants and is prey for hawks and roadrunners.",
+   "ic": "snake"
+  },
+  {
+   "id": "sidewinder",
+   "name": "Sidewinder",
+   "latin": "Crotalus cerastes",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Sidewinder",
+   "desc": "A small desert rattlesnake that hunts rodents and lizards. Coyotes and hawks eat it.",
+   "ic": "snake"
+  },
+  {
+   "id": "roadrunner",
+   "name": "Greater roadrunner",
+   "latin": "Geococcyx californianus",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Greater roadrunner",
+   "desc": "Fast ground bird that hunts lizards, snakes, rodents and insects.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Common raven",
+   "desc": "Omnivore and scavenger; thought to take many young desert tortoises, especially near towns.",
+   "ic": "raven"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "Turkey vulture",
+   "desc": "Scans the desert from the air and from rock perches for carrion.",
+   "ic": "hawk"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Coyote",
+   "desc": "Dusk- and night-active predator of rodents, rabbits, reptiles and bighorn sheep that also scavenges and eats fruit.",
+   "ic": "coyote"
+  },
+  {
+   "id": "hawk",
+   "name": "Red-tailed hawk",
+   "latin": "Buteo jamaicensis",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Red-tailed hawk",
+   "desc": "A daytime raptor that hunts rodents, rabbits, lizards, snakes and even ravens in open desert country.",
+   "ic": "hawk"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "creosote",
+   "r"
+  ],
+  [
+   "sun",
+   "joshua",
+   "r"
+  ],
+  [
+   "sun",
+   "cholla",
+   "r"
+  ],
+  [
+   "sun",
+   "palm",
+   "r"
+  ],
+  [
+   "rain",
+   "creosote",
+   "r"
+  ],
+  [
+   "rain",
+   "joshua",
+   "r"
+  ],
+  [
+   "rain",
+   "cholla",
+   "r"
+  ],
+  [
+   "cold",
+   "joshua",
+   "r"
+  ],
+  [
+   "oasis",
+   "palm",
+   "r"
+  ],
+  [
+   "creosote",
+   "tortoise"
+  ],
+  [
+   "cholla",
+   "tortoise"
+  ],
+  [
+   "creosote",
+   "jackrabbit"
+  ],
+  [
+   "cholla",
+   "jackrabbit"
+  ],
+  [
+   "cholla",
+   "bighorn"
+  ],
+  [
+   "creosote",
+   "krat"
+  ],
+  [
+   "joshua",
+   "antsq"
+  ],
+  [
+   "joshua",
+   "moth"
+  ],
+  [
+   "creosote",
+   "ant"
+  ],
+  [
+   "palm",
+   "coyote"
+  ],
+  [
+   "ant",
+   "hornedliz"
+  ],
+  [
+   "krat",
+   "sidewinder"
+  ],
+  [
+   "krat",
+   "roadrunner"
+  ],
+  [
+   "hornedliz",
+   "roadrunner"
+  ],
+  [
+   "sidewinder",
+   "roadrunner"
+  ],
+  [
+   "tortoise",
+   "raven"
+  ],
+  [
+   "krat",
+   "coyote"
+  ],
+  [
+   "antsq",
+   "coyote"
+  ],
+  [
+   "jackrabbit",
+   "coyote"
+  ],
+  [
+   "bighorn",
+   "coyote"
+  ],
+  [
+   "sidewinder",
+   "coyote"
+  ],
+  [
+   "raven",
+   "coyote"
+  ],
+  [
+   "krat",
+   "hawk"
+  ],
+  [
+   "antsq",
+   "hawk"
+  ],
+  [
+   "jackrabbit",
+   "hawk"
+  ],
+  [
+   "hornedliz",
+   "hawk"
+  ],
+  [
+   "sidewinder",
+   "hawk"
+  ],
+  [
+   "raven",
+   "hawk"
+  ],
+  [
+   "tortoise",
+   "coyote"
+  ],
+  [
+   "jackrabbit",
+   "raven",
+   "s"
+  ],
+  [
+   "jackrabbit",
+   "vulture",
+   "s"
+  ],
+  [
+   "bighorn",
+   "vulture",
+   "s"
+  ],
+  [
+   "coyote",
+   "vulture",
+   "s"
+  ],
+  [
+   "bighorn",
+   "raven",
+   "s"
+  ],
+  [
+   "creosote",
+   "decomp",
+   "d"
+  ],
+  [
+   "joshua",
+   "decomp",
+   "d"
+  ],
+  [
+   "palm",
+   "decomp",
+   "d"
+  ],
+  [
+   "jackrabbit",
+   "decomp",
+   "d"
+  ],
+  [
+   "coyote",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "tortoise",
+   "decomp",
+   "d"
+  ],
+  [
+   "antsq",
+   "sidewinder"
+  ],
+  [
+   "antsq",
+   "roadrunner"
+  ],
+  [
+   "antsq",
+   "vulture"
+  ],
+  [
+   "roadrunner",
+   "hawk"
+  ]
+ ],
+ "ev": {
+  "creosote>tortoise": [
+   "a"
+  ],
+  "cholla>tortoise": [
+   "a"
+  ],
+  "creosote>jackrabbit": [
+   "a"
+  ],
+  "cholla>jackrabbit": [
+   "a"
+  ],
+  "cholla>bighorn": [
+   "a"
+  ],
+  "creosote>krat": [
+   "a"
+  ],
+  "joshua>antsq": [
+   "a"
+  ],
+  "joshua>moth": [
+   "a"
+  ],
+  "creosote>ant": [
+   "a"
+  ],
+  "palm>coyote": [
+   "g",
+   "Canis latrans",
+   "Washingtonia filifera"
+  ],
+  "ant>hornedliz": [
+   "a"
+  ],
+  "krat>sidewinder": [
+   "g",
+   "Crotalus cerastes",
+   "Dipodomys merriami"
+  ],
+  "krat>roadrunner": [
+   "a"
+  ],
+  "hornedliz>roadrunner": [
+   "g",
+   "Geococcyx californianus",
+   "Phrynosoma platyrhinos"
+  ],
+  "sidewinder>roadrunner": [
+   "gg",
+   "Geococcyx californianus",
+   "Crotalus cerastes"
+  ],
+  "tortoise>raven": [
+   "a"
+  ],
+  "krat>coyote": [
+   "g",
+   "Canis latrans",
+   "Dipodomys merriami"
+  ],
+  "antsq>coyote": [
+   "g",
+   "Canis latrans",
+   "Ammospermophilus leucurus"
+  ],
+  "jackrabbit>coyote": [
+   "g",
+   "Canis latrans",
+   "Lepus californicus"
+  ],
+  "bighorn>coyote": [
+   "g",
+   "Canis latrans",
+   "Ovis canadensis"
+  ],
+  "sidewinder>coyote": [
+   "g",
+   "Canis latrans",
+   "Crotalus cerastes"
+  ],
+  "raven>coyote": [
+   "g",
+   "Canis latrans",
+   "Corvus corax"
+  ],
+  "krat>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Dipodomys merriami"
+  ],
+  "antsq>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Ammospermophilus leucurus"
+  ],
+  "jackrabbit>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Lepus californicus"
+  ],
+  "hornedliz>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Phrynosoma platyrhinos"
+  ],
+  "sidewinder>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Crotalus cerastes"
+  ],
+  "raven>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Corvus corax"
+  ],
+  "tortoise>coyote": [
+   "g",
+   "Canis latrans",
+   "Gopherus agassizii"
+  ],
+  "jackrabbit>raven": [
+   "gg",
+   "Corvus corax",
+   "Lepus californicus"
+  ],
+  "jackrabbit>vulture": [
+   "g",
+   "Cathartes aura",
+   "Lepus californicus"
+  ],
+  "bighorn>vulture": [
+   "gg",
+   "Cathartes aura",
+   "Ovis canadensis"
+  ],
+  "coyote>vulture": [
+   "g",
+   "Cathartes aura",
+   "Canis latrans"
+  ],
+  "bighorn>raven": [
+   "gg",
+   "Corvus corax",
+   "Ovis canadensis"
+  ],
+  "antsq>sidewinder": [
+   "ga",
+   "Crotalus cerastes",
+   "Ammospermophilus leucurus"
+  ],
+  "antsq>roadrunner": [
+   "ga",
+   "Geococcyx californianus",
+   "Ammospermophilus leucurus"
+  ],
+  "antsq>vulture": [
+   "ga",
+   "Cathartes aura",
+   "Ammospermophilus leucurus"
+  ],
+  "roadrunner>hawk": [
+   "ga",
+   "Buteo jamaicensis",
+   "Geococcyx californianus"
+  ]
+ }
+}

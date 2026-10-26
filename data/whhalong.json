@@ -1,0 +1,475 @@
+{
+ "id": "whhalong",
+ "name": "Ha Long Bay - Cat Ba Archipelago",
+ "short": "Ha Long Bay",
+ "place": "Quang Ninh and Hai Phong, Vietnam",
+ "lat": 20.9,
+ "lon": 107.1,
+ "side": "l",
+ "cont": "Asia",
+ "country": "Vietnam",
+ "blurb": "Limestone islands, reefs and mangroves, home to the rare Cat Ba langur.",
+ "tip": {
+  "id": "phyto",
+  "title": "Cloud the water",
+  "text": "Plankton need light and clean water. Set Phytoplankton to -100% and watch zooplankton, oysters and anchovies fall, then the fish and porpoises above them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Ha Long Bay",
+   "url": "https://en.wikipedia.org/wiki/Ha_Long_Bay"
+  },
+  {
+   "title": "Wikipedia: Cat Ba langur",
+   "url": "https://en.wikipedia.org/wiki/Cat_Ba_langur"
+  },
+  {
+   "title": "UNESCO World Heritage: Ha Long Bay - Cat Ba Archipelago",
+   "url": "https://whc.unesco.org/en/list/672/"
+  },
+  {
+   "title": "Wikipedia: Cat Ba Island",
+   "url": "https://en.wikipedia.org/wiki/C%C3%A1t_B%C3%A0_Island"
+  },
+  {
+   "title": "Wikipedia: Indo-Pacific finless porpoise",
+   "url": "https://en.wikipedia.org/wiki/Indo-Pacific_finless_porpoise"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Ha Long Bay",
+ "icon": "coral",
+ "tier": "overview",
+ "kind": "Coast & ocean",
+ "park": true,
+ "nodes": [
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Chaetoceros",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Phytoplankton",
+   "desc": "Microscopic algae drifting in the bay. They use sunlight and dissolved nutrients and feed the plankton, oysters and fish that fill the water.",
+   "ic": "algae"
+  },
+  {
+   "id": "mangrove",
+   "name": "Mangroves",
+   "latin": "Rhizophora",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Rhizophora",
+   "desc": "Salt-tolerant trees of tidal flats around the islands. Wikipedia notes that tourism development has cleared mangroves in the bay.",
+   "ic": "willow"
+  },
+  {
+   "id": "seagrass",
+   "name": "Dwarf eelgrass",
+   "latin": "Zostera japonica",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Zostera japonica",
+   "desc": "A seagrass recorded in GBIF near the bay. Seagrass beds shelter young fish and feed grazers, and have been lost to jetty building.",
+   "ic": "grass"
+  },
+  {
+   "id": "forest",
+   "name": "Karst forest trees",
+   "latin": "Ficus",
+   "tl": 1,
+   "xh": 0.75,
+   "wiki": "Ficus",
+   "desc": "Leafy trees and shrubs that cling to the limestone slopes of the islands, forming the moist forest on which the langurs depend.",
+   "ic": "aspen"
+  },
+  {
+   "id": "zoo",
+   "name": "Zooplankton",
+   "latin": "Copepoda",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Copepod",
+   "desc": "Small drifting animals, mostly copepods, that graze phytoplankton and are in turn eaten by corals, anchovies and larval fish.",
+   "ic": "hopper"
+  },
+  {
+   "id": "oyster",
+   "name": "Oysters",
+   "latin": "Crassostrea",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Crassostrea",
+   "desc": "Filter-feeding molluscs. Wikipedia lists oysters among the shellfish of the bay, and they strain phytoplankton from the water.",
+   "ic": "shell"
+  },
+  {
+   "id": "coral",
+   "name": "Reef corals",
+   "latin": "Scleractinia",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Scleractinia",
+   "desc": "The Cat Ba archipelago has about 178 coral species. Reefs in deeper waters are reported to be declining from pollution.",
+   "ic": "coral",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "rabbitfish",
+   "name": "Rabbitfish",
+   "latin": "Siganus",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Siganidae",
+   "desc": "Plant-eating reef fish that graze seagrass and algae. They are a typical link from seagrass beds to larger fish.",
+   "ic": "trout"
+  },
+  {
+   "id": "langur",
+   "name": "Cat Ba langur",
+   "latin": "Trachypithecus poliocephalus",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Cat Ba langur",
+   "desc": "A critically endangered primate found only on Cat Ba Island. Over 70% of its diet is leaves, and it can drink salt water.",
+   "ic": "quad"
+  },
+  {
+   "id": "macaque",
+   "name": "Rhesus macaque",
+   "latin": "Macaca mulatta",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Rhesus macaque",
+   "desc": "The most-recorded monkey in GBIF near the bay. A flexible omnivore that eats fruit and leaves of island forests.",
+   "ic": "quad"
+  },
+  {
+   "id": "anchovy",
+   "name": "Anchovies",
+   "latin": "Stolephorus",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Stolephorus",
+   "desc": "Small schooling fish that feed on zooplankton in the open bay and are food for larger fish, seabirds and porpoises.",
+   "ic": "trout"
+  },
+  {
+   "id": "cuttlefish",
+   "name": "Cuttlefish",
+   "latin": "Sepia",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Cuttlefish",
+   "desc": "Wikipedia lists cuttlefish among the bay species. They hunt small fish and crustaceans.",
+   "ic": "shell"
+  },
+  {
+   "id": "lobster",
+   "name": "Spiny lobsters",
+   "latin": "Panulirus",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Spiny lobster",
+   "desc": "Crustaceans listed in the bay, which eat molluscs and other bottom animals and hide in rocky crevices.",
+   "ic": "hopper"
+  },
+  {
+   "id": "heron",
+   "name": "Pacific reef heron",
+   "latin": "Egretta sacra",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Pacific reef heron",
+   "desc": "The second most-recorded bird near the bay. It wades along rocky shores and eats small fish and crustaceans.",
+   "ic": "hawk"
+  },
+  {
+   "id": "kite",
+   "name": "Black kite",
+   "latin": "Milvus migrans",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "Black kite",
+   "desc": "The most-recorded bird near the bay, a raptor that takes live prey and scavenges dead fish and scraps near boats and harbours.",
+   "ic": "hawk"
+  },
+  {
+   "id": "grouper",
+   "name": "Orange-spotted grouper",
+   "latin": "Epinephelus coioides",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Epinephelus coioides",
+   "desc": "A large reef predator of the region. It eats fish, crustaceans and cephalopods, and is a target of fishing in the bay.",
+   "ic": "trout"
+  },
+  {
+   "id": "porpoise",
+   "name": "Finless porpoise",
+   "latin": "Neophocaena phocaenoides",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Indo-Pacific finless porpoise",
+   "desc": "A small coastal porpoise recorded near the bay. It eats whatever is available, such as fish, crustaceans and cephalopods; gill nets are a main threat.",
+   "ic": "whale"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "wiki": "Sun",
+   "desc": "Warm tropical light drives the algae, seagrass and forest growth that start the web.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "sea",
+   "name": "Seawater and nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Seawater",
+   "desc": "Salty, nutrient-bearing water of the bay and its tidal flats, which feeds plankton and mangroves. Pollution and silt cloud it.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "wiki": "Rain",
+   "desc": "Cat Ba has no rivers, streams or permanent ponds, so the forest and langurs rely on rain collected on rock and plants.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "karst",
+   "name": "Limestone karst",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.72,
+   "wiki": "Karst",
+   "desc": "The drowned limestone towers and islets that give the bay its shape. Thin soils and caves shelter plants and animals.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "wiki": "Decomposer",
+   "desc": "Bacteria and fungi break down dead plants and animals on land and in the sea, returning nutrients.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sea",
+   "phyto",
+   "r"
+  ],
+  [
+   "sea",
+   "mangrove",
+   "r"
+  ],
+  [
+   "sun",
+   "seagrass",
+   "r"
+  ],
+  [
+   "sun",
+   "forest",
+   "r"
+  ],
+  [
+   "rain",
+   "forest",
+   "r"
+  ],
+  [
+   "karst",
+   "forest",
+   "r"
+  ],
+  [
+   "phyto",
+   "zoo"
+  ],
+  [
+   "phyto",
+   "oyster"
+  ],
+  [
+   "zoo",
+   "coral"
+  ],
+  [
+   "seagrass",
+   "rabbitfish"
+  ],
+  [
+   "forest",
+   "langur"
+  ],
+  [
+   "forest",
+   "macaque"
+  ],
+  [
+   "zoo",
+   "anchovy"
+  ],
+  [
+   "oyster",
+   "lobster"
+  ],
+  [
+   "anchovy",
+   "cuttlefish"
+  ],
+  [
+   "anchovy",
+   "heron"
+  ],
+  [
+   "anchovy",
+   "kite"
+  ],
+  [
+   "rabbitfish",
+   "grouper"
+  ],
+  [
+   "anchovy",
+   "grouper"
+  ],
+  [
+   "cuttlefish",
+   "grouper"
+  ],
+  [
+   "lobster",
+   "grouper"
+  ],
+  [
+   "anchovy",
+   "porpoise"
+  ],
+  [
+   "cuttlefish",
+   "porpoise"
+  ],
+  [
+   "mangrove",
+   "decomp",
+   "d"
+  ],
+  [
+   "seagrass",
+   "decomp",
+   "d"
+  ],
+  [
+   "forest",
+   "decomp",
+   "d"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "grouper",
+   "decomp",
+   "d"
+  ],
+  [
+   "langur",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "karst",
+   "r"
+  ],
+  [
+   "decomp",
+   "sea",
+   "r"
+  ]
+ ],
+ "ev": {
+  "phyto>zoo": [
+   "a"
+  ],
+  "phyto>oyster": [
+   "g",
+   "Crassostrea",
+   "Chaetoceros"
+  ],
+  "zoo>coral": [
+   "g",
+   "Scleractinia",
+   "Copepoda"
+  ],
+  "seagrass>rabbitfish": [
+   "a"
+  ],
+  "forest>langur": [
+   "a"
+  ],
+  "forest>macaque": [
+   "a"
+  ],
+  "zoo>anchovy": [
+   "a"
+  ],
+  "oyster>lobster": [
+   "a"
+  ],
+  "anchovy>cuttlefish": [
+   "a"
+  ],
+  "anchovy>heron": [
+   "a"
+  ],
+  "anchovy>kite": [
+   "a"
+  ],
+  "rabbitfish>grouper": [
+   "a"
+  ],
+  "anchovy>grouper": [
+   "a"
+  ],
+  "cuttlefish>grouper": [
+   "a"
+  ],
+  "lobster>grouper": [
+   "a"
+  ],
+  "anchovy>porpoise": [
+   "a"
+  ],
+  "cuttlefish>porpoise": [
+   "a"
+  ]
+ }
+}

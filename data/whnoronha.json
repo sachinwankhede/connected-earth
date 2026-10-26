@@ -1,0 +1,546 @@
+{
+ "id": "whnoronha",
+ "name": "Fernando de Noronha Archipelago",
+ "short": "Noronha",
+ "place": "Pernambuco, Brazil",
+ "lat": -3.85,
+ "lon": -32.4,
+ "side": "r",
+ "cont": "South America",
+ "country": "Brazil",
+ "blurb": "Spinner dolphins, sea turtles and seabirds on a remote mid-Atlantic archipelago.",
+ "tip": {
+  "id": "tegu",
+  "title": "Remove the tegus",
+  "text": "Tegus were brought in to control rats but mostly eat bird eggs. Set Argentine tegu to -100% and see what happens to the masked booby and cats."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Fernando de Noronha",
+   "url": "https://en.wikipedia.org/wiki/Fernando_de_Noronha"
+  },
+  {
+   "title": "Wikipedia: Spinner dolphin",
+   "url": "https://en.wikipedia.org/wiki/Spinner_dolphin"
+  },
+  {
+   "title": "Wikipedia: Hawksbill sea turtle",
+   "url": "https://en.wikipedia.org/wiki/Hawksbill_sea_turtle"
+  },
+  {
+   "title": "Wikipedia: Masked booby",
+   "url": "https://en.wikipedia.org/wiki/Masked_booby"
+  },
+  {
+   "title": "Wikipedia: Tiger shark",
+   "url": "https://en.wikipedia.org/wiki/Tiger_shark"
+  },
+  {
+   "title": "Wikipedia: Argentine black and white tegu",
+   "url": "https://en.wikipedia.org/wiki/Argentine_black_and_white_tegu"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Fernando de Noronha",
+ "icon": "turtle",
+ "tier": "overview",
+ "kind": "Coast & ocean",
+ "park": true,
+ "nodes": [
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Diatoms and dinoflagellates",
+   "tl": 1,
+   "xh": 0.15,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting algae that base the open-water food chain around the islands. Sponges and zooplankton feed on them.",
+   "ic": "algae"
+  },
+  {
+   "id": "algae",
+   "name": "Reef algae",
+   "latin": "Rhodophyta and Phaeophyceae",
+   "tl": 1,
+   "xh": 0.4,
+   "wiki": "Algae",
+   "desc": "Seaweeds and turf algae growing on the rocky reefs. Green turtles are herbivores that graze plant growth like this.",
+   "ic": "algae"
+  },
+  {
+   "id": "mandacaru",
+   "name": "Noronha cactus",
+   "latin": "Cereus insularis",
+   "tl": 1,
+   "xh": 0.68,
+   "wiki": "Cereus insularis",
+   "desc": "A tall columnar cactus recorded very often on the island. It copes with the dry season and provides cover and fruit.",
+   "ic": "sage"
+  },
+  {
+   "id": "abrus",
+   "name": "Crab's eye vine",
+   "latin": "Abrus precatorius",
+   "tl": 1,
+   "xh": 0.88,
+   "wiki": "Abrus precatorius",
+   "desc": "A climbing legume recorded on the island. GloBI lists it as food for the Common Blue butterfly.",
+   "ic": "sage"
+  },
+  {
+   "id": "zoop",
+   "name": "Zooplankton",
+   "latin": "Copepods and larvae",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Zooplankton",
+   "desc": "Tiny drifting grazers that eat phytoplankton and are eaten by small fish.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "sponge",
+   "name": "Marine sponges",
+   "latin": "Porifera",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Sponge",
+   "desc": "Filter feeders on the reef that strain tiny particles from the water. They are the main food of hawksbill turtles.",
+   "ic": "shell"
+  },
+  {
+   "id": "lantern",
+   "name": "Lanternfish",
+   "latin": "Myctophidae",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Lanternfish",
+   "desc": "Small deep-water fish that rise toward the surface at night to feed on plankton. Spinner dolphins hunt small fish of this kind.",
+   "ic": "trout"
+  },
+  {
+   "id": "flyfish",
+   "name": "Flying fish",
+   "latin": "Exocoetidae",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Flying fish",
+   "desc": "Plankton-feeding fish that glide above the waves. They make up most of the masked booby diet.",
+   "ic": "trout"
+  },
+  {
+   "id": "green",
+   "name": "Green sea turtle",
+   "latin": "Chelonia mydas",
+   "tl": 2,
+   "xh": 0.62,
+   "wiki": "Green sea turtle",
+   "desc": "A herbivorous turtle that feeds in shallow waters. Tiger sharks are among its recorded predators.",
+   "ic": "turtle"
+  },
+  {
+   "id": "hawksbill",
+   "name": "Hawksbill sea turtle",
+   "latin": "Eretmochelys imbricata",
+   "tl": 2,
+   "xh": 0.76,
+   "wiki": "Hawksbill sea turtle",
+   "desc": "Critically endangered and tied to reefs by its diet of sponges (70 to 95 percent) plus algae and invertebrates.",
+   "ic": "turtle"
+  },
+  {
+   "id": "cavy",
+   "name": "Rock cavy",
+   "latin": "Kerodon rupestris",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Kerodon rupestris",
+   "desc": "A rodent introduced by the military in the 1960s as game. Feral cats prey on it.",
+   "ic": "quad"
+  },
+  {
+   "id": "butterfly",
+   "name": "Common Blue butterfly",
+   "latin": "Hemiargus hanno",
+   "tl": 2,
+   "xh": 0.96,
+   "wiki": "Hemiargus hanno",
+   "desc": "A small butterfly whose caterpillars feed on legumes such as crab's eye. A source of insect food for lizards.",
+   "ic": "hopper"
+  },
+  {
+   "id": "skink",
+   "name": "Noronha skink",
+   "latin": "Trachylepis atlantica",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Noronha skink",
+   "desc": "An endemic island lizard, the most recorded reptile near the site. Small insects are its likely food.",
+   "ic": "snake"
+  },
+  {
+   "id": "tegu",
+   "name": "Argentine tegu",
+   "latin": "Salvator merianae",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Argentine black and white tegu",
+   "desc": "Brought in the 1950s to control rats; now an invasive pest that feeds largely on bird eggs.",
+   "ic": "croc"
+  },
+  {
+   "id": "booby",
+   "name": "Masked booby",
+   "latin": "Sula dactylatra",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Masked booby",
+   "desc": "A seabird that plunge-dives for flying fish and squid. Its eggs are open to rats and other egg predators.",
+   "ic": "hawk"
+  },
+  {
+   "id": "spinner",
+   "name": "Spinner dolphin",
+   "latin": "Stenella longirostris",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Spinner dolphin",
+   "desc": "Resident in large numbers. It eats small mesopelagic fish, squid and shrimp, and is preyed on by sharks.",
+   "ic": "whale"
+  },
+  {
+   "id": "cat",
+   "name": "Feral cat",
+   "latin": "Felis catus",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "Feral cat",
+   "desc": "Domestic cats gone wild; they prey on native birds, rock cavies and rodents.",
+   "ic": "lion"
+  },
+  {
+   "id": "tiger",
+   "name": "Tiger shark",
+   "latin": "Galeocerdo cuvier",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Tiger shark",
+   "desc": "An apex predator with a very broad diet that includes sea turtles, dolphins, seabirds and carrion.",
+   "ic": "shark",
+   "badge": "Apex predator"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "Sunlight",
+   "tl": 0,
+   "xh": 0.15,
+   "wiki": "Sunlight",
+   "desc": "Strong equatorial sun powers algae in clear shallow water and the island plants.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "currents",
+   "name": "Ocean currents & nutrients",
+   "latin": "Ocean currents & nutrients",
+   "tl": 0,
+   "xh": 0.45,
+   "wiki": "Ocean current",
+   "desc": "Open-ocean water around the islands carries nutrients and plankton that the reefs and fish depend on.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Seasonal rain",
+   "latin": "Seasonal rain",
+   "tl": 0,
+   "xh": 0.75,
+   "wiki": "Dry season",
+   "desc": "Island plants depend on a wet and a dry season; rain feeds the cactus and vines.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Bacteria and fungi",
+   "tl": 0,
+   "xh": 0.92,
+   "wiki": "Decomposer",
+   "desc": "Break down dead algae, plants and animals, returning nutrients to the soil and water.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "phyto",
+   "zoop"
+  ],
+  [
+   "phyto",
+   "sponge"
+  ],
+  [
+   "zoop",
+   "lantern"
+  ],
+  [
+   "zoop",
+   "flyfish"
+  ],
+  [
+   "algae",
+   "green"
+  ],
+  [
+   "algae",
+   "hawksbill"
+  ],
+  [
+   "sponge",
+   "hawksbill"
+  ],
+  [
+   "mandacaru",
+   "cavy"
+  ],
+  [
+   "abrus",
+   "butterfly"
+  ],
+  [
+   "butterfly",
+   "skink"
+  ],
+  [
+   "butterfly",
+   "tegu"
+  ],
+  [
+   "booby",
+   "tegu"
+  ],
+  [
+   "lantern",
+   "spinner"
+  ],
+  [
+   "flyfish",
+   "booby"
+  ],
+  [
+   "cavy",
+   "cat"
+  ],
+  [
+   "booby",
+   "cat"
+  ],
+  [
+   "green",
+   "tiger"
+  ],
+  [
+   "hawksbill",
+   "tiger"
+  ],
+  [
+   "spinner",
+   "tiger"
+  ],
+  [
+   "booby",
+   "tiger"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "algae",
+   "r"
+  ],
+  [
+   "sun",
+   "mandacaru",
+   "r"
+  ],
+  [
+   "sun",
+   "abrus",
+   "r"
+  ],
+  [
+   "currents",
+   "phyto",
+   "r"
+  ],
+  [
+   "currents",
+   "algae",
+   "r"
+  ],
+  [
+   "rain",
+   "mandacaru",
+   "r"
+  ],
+  [
+   "rain",
+   "abrus",
+   "r"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "algae",
+   "decomp",
+   "d"
+  ],
+  [
+   "mandacaru",
+   "decomp",
+   "d"
+  ],
+  [
+   "abrus",
+   "decomp",
+   "d"
+  ],
+  [
+   "green",
+   "decomp",
+   "d"
+  ],
+  [
+   "hawksbill",
+   "decomp",
+   "d"
+  ],
+  [
+   "tegu",
+   "decomp",
+   "d"
+  ],
+  [
+   "cat",
+   "decomp",
+   "d"
+  ],
+  [
+   "tiger",
+   "decomp",
+   "d"
+  ],
+  [
+   "skink",
+   "decomp",
+   "d"
+  ],
+  [
+   "booby",
+   "decomp",
+   "d"
+  ],
+  [
+   "spinner",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "currents",
+   "r"
+  ],
+  [
+   "cat",
+   "tiger"
+  ]
+ ],
+ "ev": {
+  "phyto>zoop": [
+   "a"
+  ],
+  "phyto>sponge": [
+   "a"
+  ],
+  "zoop>lantern": [
+   "a"
+  ],
+  "zoop>flyfish": [
+   "a"
+  ],
+  "algae>green": [
+   "g",
+   "Chelonia mydas",
+   "Rhodophyta"
+  ],
+  "algae>hawksbill": [
+   "a"
+  ],
+  "sponge>hawksbill": [
+   "a"
+  ],
+  "mandacaru>cavy": [
+   "a"
+  ],
+  "abrus>butterfly": [
+   "g",
+   "Hemiargus hanno",
+   "Abrus precatorius"
+  ],
+  "butterfly>skink": [
+   "a"
+  ],
+  "butterfly>tegu": [
+   "a"
+  ],
+  "booby>tegu": [
+   "a"
+  ],
+  "lantern>spinner": [
+   "g",
+   "Stenella longirostris",
+   "Myctophidae"
+  ],
+  "flyfish>booby": [
+   "g",
+   "Sula dactylatra",
+   "Exocoetidae"
+  ],
+  "cavy>cat": [
+   "a"
+  ],
+  "booby>cat": [
+   "a"
+  ],
+  "green>tiger": [
+   "g",
+   "Galeocerdo cuvier",
+   "Chelonia mydas"
+  ],
+  "hawksbill>tiger": [
+   "a"
+  ],
+  "spinner>tiger": [
+   "gg",
+   "Galeocerdo cuvier",
+   "Stenella longirostris"
+  ],
+  "booby>tiger": [
+   "a"
+  ],
+  "cat>tiger": [
+   "ga",
+   "Galeocerdo cuvier",
+   "Felis catus"
+  ]
+ }
+}

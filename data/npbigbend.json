@@ -1,0 +1,865 @@
+{
+ "id": "npbigbend",
+ "name": "Big Bend National Park",
+ "short": "Big Bend",
+ "place": "Texas, USA",
+ "lat": 29.25,
+ "lon": -103.25,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Texas"
+ ],
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Cactus, javelina and cougars where the Rio Grande bends through the Chihuahuan Desert.",
+ "tip": {
+  "id": "rain",
+  "title": "Cut the rain",
+  "text": "Rain is scarce here. Set Scarce rain to -60% and watch desert grasses and prickly pear fall, then the seed eaters, deer and the predators that hunt them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Big Bend National Park",
+   "url": "https://en.wikipedia.org/wiki/Big_Bend_National_Park"
+  },
+  {
+   "title": "National Park Service: Big Bend mammals",
+   "url": "https://www.nps.gov/bibe/learn/nature/mammals.htm"
+  },
+  {
+   "title": "Wikipedia: Cougar",
+   "url": "https://en.wikipedia.org/wiki/Cougar"
+  },
+  {
+   "title": "Wikipedia: Collared peccary",
+   "url": "https://en.wikipedia.org/wiki/Collared_peccary"
+  },
+  {
+   "title": "Wikipedia: Merriam's kangaroo rat",
+   "url": "https://en.wikipedia.org/wiki/Merriam%27s_kangaroo_rat"
+  },
+  {
+   "title": "Wikipedia: Turkey vulture",
+   "url": "https://en.wikipedia.org/wiki/Turkey_vulture"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Big Bend National Park",
+ "icon": "sage",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "creosote",
+   "name": "Creosote bush",
+   "latin": "Larrea tridentata",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Larrea tridentata",
+   "desc": "A common evergreen desert shrub of the Chihuahuan Desert flats. Its flowers feed bees, and GloBI records show honey bees and other insects using it.",
+   "ic": "sage"
+  },
+  {
+   "id": "lechuguilla",
+   "name": "Lechuguilla",
+   "latin": "Agave lechuguilla",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Agave lechuguilla",
+   "desc": "An indicator plant of the Chihuahuan Desert that spreads by underground offshoots into large colonies. Collared peccaries eat much of it in some areas.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "pricklypear",
+   "name": "Prickly pear",
+   "latin": "Opuntia phaeacantha",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Opuntia phaeacantha",
+   "desc": "One of the many cacti of Big Bend. Peccaries rely on prickly pear, and honey bees visit its flowers.",
+   "ic": "sage"
+  },
+  {
+   "id": "grama",
+   "name": "Desert grasses",
+   "latin": "Bouteloua",
+   "tl": 1,
+   "xh": 0.7,
+   "wiki": "Bouteloua",
+   "desc": "Grama grasses of the grasslands on the park's igneous and limestone soils and along the river. Their seeds and leaves feed rodents, doves, rabbits and deer.",
+   "ic": "grass"
+  },
+  {
+   "id": "bee",
+   "name": "Western honey bee",
+   "latin": "Apis mellifera",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Western honey bee",
+   "desc": "Collects nectar and pollen from desert flowers such as creosote and prickly pear. Roadrunners and bears also eat honey bees in GloBI records.",
+   "ic": "hopper"
+  },
+  {
+   "id": "kangrat",
+   "name": "Merriam's kangaroo rat",
+   "latin": "Dipodomys merriami",
+   "tl": 2,
+   "xh": 0.22,
+   "wiki": "Merriam's kangaroo rat",
+   "desc": "Eats mostly seeds and stores them in its burrow. It rarely drinks, getting water from its food and its humid burrow.",
+   "ic": "vole"
+  },
+  {
+   "id": "cottontail",
+   "name": "Desert cottontail",
+   "latin": "Sylvilagus audubonii",
+   "tl": 2,
+   "xh": 0.38,
+   "wiki": "Desert cottontail",
+   "desc": "A rabbit of open desert scrub that grazes on grasses and other plants. Coyotes, foxes and rattlesnakes hunt it.",
+   "ic": "quad"
+  },
+  {
+   "id": "dove",
+   "name": "White-winged dove",
+   "latin": "Zenaida asiatica",
+   "tl": 2,
+   "xh": 0.54,
+   "wiki": "White-winged dove",
+   "desc": "One of the most commonly recorded birds in the park area. It eats seeds and fruit and is taken by coyotes.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "peccary",
+   "name": "Collared peccary",
+   "latin": "Pecari tajacu",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Collared peccary",
+   "desc": "Also called javelina. Its main foods are agaves and prickly pears, and its predators include cougars and coyotes.",
+   "ic": "quad"
+  },
+  {
+   "id": "deer",
+   "name": "White-tailed deer",
+   "latin": "Odocoileus virginianus",
+   "tl": 2,
+   "xh": 0.86,
+   "wiki": "White-tailed deer",
+   "desc": "The park's main hoofed prey. Cougar hunting centres on deer, and coyotes eat them too. A small Chisos Mountains population is well known.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Common raven",
+   "desc": "A clever omnivore that scavenges carcasses. It is one of the most frequently recorded birds in the park area.",
+   "ic": "raven"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.24,
+   "wiki": "Turkey vulture",
+   "desc": "Eats almost only carrion and finds it by smell. Recorded far more than any other species near the park, it cleans up dead animals.",
+   "ic": "hawk"
+  },
+  {
+   "id": "roadrunner",
+   "name": "Greater roadrunner",
+   "latin": "Geococcyx californianus",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Greater roadrunner",
+   "desc": "A fast ground cuckoo that eats insects, spiders, mice, lizards and young rattlesnakes.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "rattler",
+   "name": "Western diamondback rattlesnake",
+   "latin": "Crotalus atrox",
+   "tl": 3,
+   "xh": 0.56,
+   "wiki": "Western diamondback rattlesnake",
+   "desc": "Ambush predator of rodents, rabbits and birds. Young snakes are eaten by roadrunners, and coyotes also take it.",
+   "ic": "snake"
+  },
+  {
+   "id": "fox",
+   "name": "Gray fox",
+   "latin": "Urocyon cinereoargenteus",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Gray fox",
+   "desc": "A small omnivorous canid seen near campsites at night. Eats rodents, rabbits and fruit.",
+   "ic": "fox"
+  },
+  {
+   "id": "bear",
+   "name": "American black bear",
+   "latin": "Ursus americanus",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "American black bear",
+   "desc": "Lives in the Chisos Mountains. An omnivore that eats deer, small rodents and bee nests, and often steals cougar kills.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "cougar",
+   "name": "Cougar",
+   "latin": "Puma concolor",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Cougar",
+   "desc": "Roughly two dozen live in the park. Deer are its chief prey, with peccaries also taken. When big prey is scarce it eats smaller animals.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.65,
+   "wiki": "Coyote",
+   "desc": "The most widespread predator, with GloBI records of it eating deer, peccary, rabbits, rodents, birds and rattlesnakes.",
+   "ic": "coyote"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "wiki": "Sun",
+   "desc": "Strong desert sun drives plant growth, but it also dries the land and heats it, so most animals are active at dawn, dusk or night.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Scarce rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Rain",
+   "desc": "Rainfall in the park ranges from about 10 inches a year at Castolon to 18 in the Chisos Basin. Plant growth depends on it.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rio",
+   "name": "Rio Grande & springs",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "wiki": "Rio Grande",
+   "desc": "The river and desert springs create a green riparian strip and isolated wet habitats across the dry landscape.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Desert soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.74,
+   "wiki": "Soil",
+   "desc": "Thin soils of igneous and limestone origin. Nutrients return to them from dead plants and animals.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes & fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "creosote",
+   "bee"
+  ],
+  [
+   "pricklypear",
+   "bee"
+  ],
+  [
+   "pricklypear",
+   "peccary"
+  ],
+  [
+   "lechuguilla",
+   "peccary"
+  ],
+  [
+   "pricklypear",
+   "deer"
+  ],
+  [
+   "grama",
+   "deer"
+  ],
+  [
+   "grama",
+   "cottontail"
+  ],
+  [
+   "grama",
+   "kangrat"
+  ],
+  [
+   "grama",
+   "dove"
+  ],
+  [
+   "bee",
+   "roadrunner"
+  ],
+  [
+   "bee",
+   "bear"
+  ],
+  [
+   "kangrat",
+   "coyote"
+  ],
+  [
+   "kangrat",
+   "fox"
+  ],
+  [
+   "kangrat",
+   "rattler"
+  ],
+  [
+   "kangrat",
+   "roadrunner"
+  ],
+  [
+   "kangrat",
+   "bear"
+  ],
+  [
+   "cottontail",
+   "coyote"
+  ],
+  [
+   "cottontail",
+   "fox"
+  ],
+  [
+   "cottontail",
+   "rattler"
+  ],
+  [
+   "cottontail",
+   "cougar"
+  ],
+  [
+   "dove",
+   "coyote"
+  ],
+  [
+   "peccary",
+   "cougar"
+  ],
+  [
+   "peccary",
+   "coyote"
+  ],
+  [
+   "deer",
+   "cougar"
+  ],
+  [
+   "deer",
+   "coyote"
+  ],
+  [
+   "deer",
+   "bear"
+  ],
+  [
+   "rattler",
+   "roadrunner"
+  ],
+  [
+   "rattler",
+   "coyote"
+  ],
+  [
+   "cottontail",
+   "vulture"
+  ],
+  [
+   "cottontail",
+   "raven"
+  ],
+  [
+   "deer",
+   "vulture",
+   "s"
+  ],
+  [
+   "peccary",
+   "vulture",
+   "s"
+  ],
+  [
+   "deer",
+   "raven",
+   "s"
+  ],
+  [
+   "peccary",
+   "raven",
+   "s"
+  ],
+  [
+   "cougar",
+   "bear",
+   "s"
+  ],
+  [
+   "sun",
+   "creosote",
+   "r"
+  ],
+  [
+   "rain",
+   "creosote",
+   "r"
+  ],
+  [
+   "soil",
+   "creosote",
+   "r"
+  ],
+  [
+   "sun",
+   "lechuguilla",
+   "r"
+  ],
+  [
+   "rain",
+   "lechuguilla",
+   "r"
+  ],
+  [
+   "soil",
+   "lechuguilla",
+   "r"
+  ],
+  [
+   "sun",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "rain",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "soil",
+   "pricklypear",
+   "r"
+  ],
+  [
+   "sun",
+   "grama",
+   "r"
+  ],
+  [
+   "rain",
+   "grama",
+   "r"
+  ],
+  [
+   "soil",
+   "grama",
+   "r"
+  ],
+  [
+   "rio",
+   "grama",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "creosote",
+   "decomp",
+   "d"
+  ],
+  [
+   "lechuguilla",
+   "decomp",
+   "d"
+  ],
+  [
+   "pricklypear",
+   "decomp",
+   "d"
+  ],
+  [
+   "grama",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "peccary",
+   "decomp",
+   "d"
+  ],
+  [
+   "kangrat",
+   "decomp",
+   "d"
+  ],
+  [
+   "cottontail",
+   "decomp",
+   "d"
+  ],
+  [
+   "cougar",
+   "decomp",
+   "d"
+  ],
+  [
+   "coyote",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "rattler",
+   "decomp",
+   "d"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "bear",
+   "decomp",
+   "d"
+  ],
+  [
+   "roadrunner",
+   "decomp",
+   "d"
+  ],
+  [
+   "dove",
+   "decomp",
+   "d"
+  ],
+  [
+   "bee",
+   "decomp",
+   "d"
+  ],
+  [
+   "creosote",
+   "dove"
+  ],
+  [
+   "dove",
+   "vulture"
+  ],
+  [
+   "cottontail",
+   "roadrunner"
+  ],
+  [
+   "deer",
+   "roadrunner"
+  ],
+  [
+   "dove",
+   "rattler"
+  ],
+  [
+   "peccary",
+   "fox"
+  ],
+  [
+   "deer",
+   "fox"
+  ],
+  [
+   "fox",
+   "cougar"
+  ],
+  [
+   "bear",
+   "cougar"
+  ],
+  [
+   "raven",
+   "coyote"
+  ],
+  [
+   "fox",
+   "coyote"
+  ],
+  [
+   "bear",
+   "coyote"
+  ]
+ ],
+ "ev": {
+  "creosote>bee": [
+   "g",
+   "Apis mellifera",
+   "Larrea tridentata"
+  ],
+  "pricklypear>bee": [
+   "g",
+   "Apis mellifera",
+   "Opuntia phaeacantha"
+  ],
+  "pricklypear>peccary": [
+   "a"
+  ],
+  "lechuguilla>peccary": [
+   "a"
+  ],
+  "pricklypear>deer": [
+   "gg",
+   "Odocoileus virginianus",
+   "Opuntia phaeacantha"
+  ],
+  "grama>deer": [
+   "a"
+  ],
+  "grama>cottontail": [
+   "a"
+  ],
+  "grama>kangrat": [
+   "a"
+  ],
+  "grama>dove": [
+   "a"
+  ],
+  "bee>roadrunner": [
+   "g",
+   "Geococcyx californianus",
+   "Apis mellifera"
+  ],
+  "bee>bear": [
+   "g",
+   "Ursus americanus",
+   "Apis mellifera"
+  ],
+  "kangrat>coyote": [
+   "g",
+   "Canis latrans",
+   "Dipodomys merriami"
+  ],
+  "kangrat>fox": [
+   "g",
+   "Urocyon cinereoargenteus",
+   "Dipodomys merriami"
+  ],
+  "kangrat>rattler": [
+   "g",
+   "Crotalus atrox",
+   "Dipodomys merriami"
+  ],
+  "kangrat>roadrunner": [
+   "a"
+  ],
+  "kangrat>bear": [
+   "a"
+  ],
+  "cottontail>coyote": [
+   "g",
+   "Canis latrans",
+   "Sylvilagus audubonii"
+  ],
+  "cottontail>fox": [
+   "g",
+   "Urocyon cinereoargenteus",
+   "Sylvilagus audubonii"
+  ],
+  "cottontail>rattler": [
+   "g",
+   "Crotalus atrox",
+   "Sylvilagus audubonii"
+  ],
+  "cottontail>cougar": [
+   "g",
+   "Puma concolor",
+   "Sylvilagus audubonii"
+  ],
+  "dove>coyote": [
+   "g",
+   "Canis latrans",
+   "Zenaida asiatica"
+  ],
+  "peccary>cougar": [
+   "g",
+   "Puma concolor",
+   "Pecari tajacu"
+  ],
+  "peccary>coyote": [
+   "g",
+   "Canis latrans",
+   "Pecari tajacu"
+  ],
+  "deer>cougar": [
+   "g",
+   "Puma concolor",
+   "Odocoileus virginianus"
+  ],
+  "deer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus virginianus"
+  ],
+  "deer>bear": [
+   "g",
+   "Ursus americanus",
+   "Odocoileus virginianus"
+  ],
+  "rattler>roadrunner": [
+   "g",
+   "Geococcyx californianus",
+   "Crotalus atrox"
+  ],
+  "rattler>coyote": [
+   "g",
+   "Canis latrans",
+   "Crotalus atrox"
+  ],
+  "cottontail>vulture": [
+   "g",
+   "Cathartes aura",
+   "Sylvilagus audubonii"
+  ],
+  "cottontail>raven": [
+   "gg",
+   "Corvus corax",
+   "Sylvilagus audubonii"
+  ],
+  "deer>vulture": [
+   "g",
+   "Cathartes aura",
+   "Odocoileus virginianus"
+  ],
+  "peccary>vulture": [
+   "g",
+   "Cathartes aura",
+   "Pecari tajacu"
+  ],
+  "deer>raven": [
+   "g",
+   "Corvus corax",
+   "Odocoileus virginianus"
+  ],
+  "peccary>raven": [
+   "a"
+  ],
+  "cougar>bear": [
+   "g",
+   "Ursus americanus",
+   "Puma concolor"
+  ],
+  "creosote>dove": [
+   "ga",
+   "Zenaida asiatica",
+   "Larrea tridentata"
+  ],
+  "dove>vulture": [
+   "ga",
+   "Cathartes aura",
+   "Zenaida asiatica"
+  ],
+  "cottontail>roadrunner": [
+   "ga",
+   "Geococcyx californianus",
+   "Sylvilagus audubonii"
+  ],
+  "deer>roadrunner": [
+   "ga",
+   "Geococcyx californianus",
+   "Odocoileus virginianus"
+  ],
+  "dove>rattler": [
+   "ga",
+   "Crotalus atrox",
+   "Zenaida asiatica"
+  ],
+  "peccary>fox": [
+   "ga",
+   "Urocyon cinereoargenteus",
+   "Pecari tajacu"
+  ],
+  "deer>fox": [
+   "ga",
+   "Urocyon cinereoargenteus",
+   "Odocoileus virginianus"
+  ],
+  "fox>cougar": [
+   "ga",
+   "Puma concolor",
+   "Urocyon cinereoargenteus"
+  ],
+  "bear>cougar": [
+   "ga",
+   "Puma concolor",
+   "Ursus americanus"
+  ],
+  "raven>coyote": [
+   "ga",
+   "Canis latrans",
+   "Corvus corax"
+  ],
+  "fox>coyote": [
+   "ga",
+   "Canis latrans",
+   "Urocyon cinereoargenteus"
+  ],
+  "bear>coyote": [
+   "ga",
+   "Canis latrans",
+   "Ursus americanus"
+  ]
+ }
+}

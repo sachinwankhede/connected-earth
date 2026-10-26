@@ -1,0 +1,514 @@
+{
+ "id": "xjamaica",
+ "name": "Blue and John Crow Mountains National Park",
+ "short": "Blue & John Crow",
+ "place": "Jamaica",
+ "lat": 18.1,
+ "lon": -76.6,
+ "side": "l",
+ "cont": "North America",
+ "country": "Jamaica",
+ "blurb": "Misty Jamaican peaks where tree ferns, fruit bats and the giant swallowtail meet the boa.",
+ "tip": {
+  "id": "ocotea",
+  "title": "Thin the Ocotea trees",
+  "text": "Ocotea trees give fruit to hutias, bats and pigeons and are a place the giant swallowtail lays eggs. Set Ocotea to -100% and watch those animals, then the Jamaican boa."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Blue and John Crow Mountains National Park",
+   "url": "https://en.wikipedia.org/wiki/Blue_and_John_Crow_Mountains_National_Park"
+  },
+  {
+   "title": "Wikipedia: Jamaican boa",
+   "url": "https://en.wikipedia.org/wiki/Jamaican_boa"
+  },
+  {
+   "title": "Wikipedia: Homerus swallowtail",
+   "url": "https://en.wikipedia.org/wiki/Homerus_swallowtail"
+  },
+  {
+   "title": "Wikipedia: Jamaican hutia",
+   "url": "https://en.wikipedia.org/wiki/Jamaican_hutia"
+  },
+  {
+   "title": "Wikipedia: Red-billed streamertail",
+   "url": "https://en.wikipedia.org/wiki/Red-billed_streamertail"
+  },
+  {
+   "title": "Wikipedia: Jamaican fruit bat",
+   "url": "https://en.wikipedia.org/wiki/Jamaican_fruit_bat"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Blue and John Crow Mountains National Park",
+ "icon": "quad",
+ "tier": "overview",
+ "kind": "Forest",
+ "park": true,
+ "nodes": [
+  {
+   "id": "cyathea",
+   "name": "Tree ferns",
+   "latin": "Cyathea",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Cyathea",
+   "desc": "Tall tree ferns are a hallmark of the wet, misty mountain forest, and many other ferns and epiphytes grow in the same cloud-soaked habitat.",
+   "ic": "sage"
+  },
+  {
+   "id": "podocarpus",
+   "name": "Blue Mountain yacca",
+   "latin": "Podocarpus urbanii",
+   "tl": 1,
+   "xh": 0.42,
+   "wiki": "Podocarpus",
+   "desc": "A native conifer of the high Blue Mountain forest, one of the plant species recorded most often in the park area.",
+   "ic": "willow"
+  },
+  {
+   "id": "ocotea",
+   "name": "Ocotea trees",
+   "latin": "Ocotea",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Ocotea",
+   "desc": "Laurel-family forest trees. Female giant swallowtails have been seen laying eggs on Ocotea, and the trees bear fruit that forest animals eat.",
+   "ic": "aspen",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "lantana",
+   "name": "Lantana",
+   "latin": "Lantana camara",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Lantana camara",
+   "desc": "A flowering shrub whose nectar is used by the Homerus swallowtail. Hummingbirds and other nectar feeders also visit it.",
+   "ic": "sage"
+  },
+  {
+   "id": "swallowtail",
+   "name": "Homerus swallowtail",
+   "latin": "Papilio homerus",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Homerus swallowtail",
+   "desc": "The largest butterfly in the Western Hemisphere. Adults sip nectar and females lay eggs on Ocotea. Blue and John Crow Mountains hold one of its two last populations.",
+   "ic": "hopper"
+  },
+  {
+   "id": "hutia",
+   "name": "Jamaican hutia",
+   "latin": "Geocapromys brownii",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Jamaican hutia",
+   "desc": "A night-foraging rodent found only in Jamaica. It eats fruit, roots, bark and leaves from many plants.",
+   "ic": "vole"
+  },
+  {
+   "id": "fruitbat",
+   "name": "Jamaican fruit bat",
+   "latin": "Artibeus jamaicensis",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Jamaican fruit bat",
+   "desc": "Eats mainly fruit, especially figs, and carries it away to eat, which spreads seeds through the forest.",
+   "ic": "quad"
+  },
+  {
+   "id": "pigeon",
+   "name": "Ring-tailed pigeon",
+   "latin": "Patagioenas caribaea",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Ring-tailed pigeon",
+   "desc": "An endemic forest pigeon of Jamaica that feeds mostly on fruit and was among the most recorded birds near the park.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "streamertail",
+   "name": "Red-billed streamertail",
+   "latin": "Trochilus polytmus",
+   "tl": 2,
+   "xh": 0.62,
+   "wiki": "Red-billed streamertail",
+   "desc": "Jamaica's national bird, the most recorded species here. It feeds mainly on nectar and also catches small insects.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "bananaquit",
+   "name": "Bananaquit",
+   "latin": "Coereba flaveola",
+   "tl": 2,
+   "xh": 0.76,
+   "wiki": "Bananaquit",
+   "desc": "A small nectar and fruit eater. It pierces flower bases to reach nectar, which other nectar feeders then use.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "ants",
+   "name": "Forest ants",
+   "latin": "Wasmannia auropunctata",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Little fire ant",
+   "desc": "Ants are abundant in the leaf litter and on plants. They take nectar and sugary foods and are a main prey for small lizards, frogs and birds.",
+   "ic": "ant"
+  },
+  {
+   "id": "anole",
+   "name": "Stripefoot anole",
+   "latin": "Anolis lineatopus",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Anole",
+   "desc": "A common Jamaican lizard that hunts insects, including ants, and is itself eaten by snakes and mongooses.",
+   "ic": "snake"
+  },
+  {
+   "id": "tody",
+   "name": "Jamaican tody",
+   "latin": "Todus todus",
+   "tl": 3,
+   "xh": 0.26,
+   "wiki": "Jamaican tody",
+   "desc": "A tiny endemic bird that catches insects and other small invertebrates in the forest understory.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "frog",
+   "name": "Jamaican forest frogs",
+   "latin": "Eleutherodactylus",
+   "tl": 3,
+   "xh": 0.42,
+   "wiki": "Eleutherodactylus",
+   "desc": "Several small frog species recorded in the park that develop without a tadpole stage. They hunt small invertebrates on the forest floor.",
+   "ic": "quad"
+  },
+  {
+   "id": "flycatcher",
+   "name": "Sad flycatcher",
+   "latin": "Myiarchus barbirostris",
+   "tl": 3,
+   "xh": 0.58,
+   "wiki": "Sad flycatcher",
+   "desc": "A Jamaican flycatcher that hunts insects. The Jamaican boa is known to eat flycatcher nests.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "mongoose",
+   "name": "Small Indian mongoose",
+   "latin": "Herpestes javanicus",
+   "tl": 3,
+   "xh": 0.74,
+   "wiki": "Small Indian mongoose",
+   "desc": "An introduced predator on Jamaica that eats small lizards, frogs and ground-nesting birds, and so competes with native predators.",
+   "ic": "quad"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "Turkey vulture",
+   "desc": "Called the John crow in Jamaica, which gave the mountains half of their name. It scavenges carrion.",
+   "ic": "hawk"
+  },
+  {
+   "id": "boa",
+   "name": "Jamaican boa",
+   "latin": "Chilabothrus subflavus",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Jamaican boa",
+   "desc": "Jamaica's top native predator. It kills by constriction and eats birds, bats and lizards, and hunts from ambush in vines and bromeliads.",
+   "ic": "snake",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "rain",
+   "name": "Rain and cloud mist",
+   "latin": "Rain and cloud mist",
+   "tl": 0,
+   "xh": 0.15,
+   "wiki": "Cloud forest",
+   "desc": "Heavy rain and constant mist keep humidity high. This is the main driver of the mountain's lush forest.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "Sunlight",
+   "tl": 0,
+   "xh": 0.4,
+   "wiki": "Sunlight",
+   "desc": "Light reaching the forest canopy and clearings drives growth of trees, ferns and flowering shrubs.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Mountain soil",
+   "latin": "Mountain soil",
+   "tl": 0,
+   "xh": 0.65,
+   "wiki": "Soil",
+   "desc": "Nutrient-rich soil and leaf litter feed the forest plants, topped up by decomposers.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Fungi and bacteria",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and litter invertebrates break down dead leaves, wood and carcasses and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "cyathea",
+   "r"
+  ],
+  [
+   "rain",
+   "podocarpus",
+   "r"
+  ],
+  [
+   "rain",
+   "ocotea",
+   "r"
+  ],
+  [
+   "sun",
+   "cyathea",
+   "r"
+  ],
+  [
+   "sun",
+   "ocotea",
+   "r"
+  ],
+  [
+   "sun",
+   "lantana",
+   "r"
+  ],
+  [
+   "soil",
+   "podocarpus",
+   "r"
+  ],
+  [
+   "soil",
+   "ocotea",
+   "r"
+  ],
+  [
+   "soil",
+   "lantana",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "cyathea",
+   "decomp",
+   "d"
+  ],
+  [
+   "podocarpus",
+   "decomp",
+   "d"
+  ],
+  [
+   "ocotea",
+   "decomp",
+   "d"
+  ],
+  [
+   "boa",
+   "decomp",
+   "d"
+  ],
+  [
+   "ocotea",
+   "swallowtail"
+  ],
+  [
+   "lantana",
+   "swallowtail"
+  ],
+  [
+   "ocotea",
+   "hutia"
+  ],
+  [
+   "podocarpus",
+   "hutia"
+  ],
+  [
+   "lantana",
+   "hutia"
+  ],
+  [
+   "ocotea",
+   "fruitbat"
+  ],
+  [
+   "ocotea",
+   "pigeon"
+  ],
+  [
+   "lantana",
+   "streamertail"
+  ],
+  [
+   "lantana",
+   "bananaquit"
+  ],
+  [
+   "lantana",
+   "ants"
+  ],
+  [
+   "ants",
+   "anole"
+  ],
+  [
+   "ants",
+   "tody"
+  ],
+  [
+   "ants",
+   "frog"
+  ],
+  [
+   "ants",
+   "flycatcher"
+  ],
+  [
+   "anole",
+   "mongoose"
+  ],
+  [
+   "frog",
+   "mongoose"
+  ],
+  [
+   "hutia",
+   "vulture",
+   "s"
+  ],
+  [
+   "pigeon",
+   "vulture",
+   "s"
+  ],
+  [
+   "mongoose",
+   "vulture",
+   "s"
+  ],
+  [
+   "anole",
+   "boa"
+  ],
+  [
+   "fruitbat",
+   "boa"
+  ],
+  [
+   "flycatcher",
+   "boa"
+  ]
+ ],
+ "ev": {
+  "ocotea>swallowtail": [
+   "a"
+  ],
+  "lantana>swallowtail": [
+   "a"
+  ],
+  "ocotea>hutia": [
+   "a"
+  ],
+  "podocarpus>hutia": [
+   "a"
+  ],
+  "lantana>hutia": [
+   "a"
+  ],
+  "ocotea>fruitbat": [
+   "a"
+  ],
+  "ocotea>pigeon": [
+   "a"
+  ],
+  "lantana>streamertail": [
+   "a"
+  ],
+  "lantana>bananaquit": [
+   "g",
+   "Coereba flaveola",
+   "Lantana camara"
+  ],
+  "lantana>ants": [
+   "a"
+  ],
+  "ants>anole": [
+   "a"
+  ],
+  "ants>tody": [
+   "a"
+  ],
+  "ants>frog": [
+   "a"
+  ],
+  "ants>flycatcher": [
+   "a"
+  ],
+  "anole>mongoose": [
+   "a"
+  ],
+  "frog>mongoose": [
+   "a"
+  ],
+  "hutia>vulture": [
+   "a"
+  ],
+  "pigeon>vulture": [
+   "gg",
+   "Cathartes aura",
+   "Patagioenas caribaea"
+  ],
+  "mongoose>vulture": [
+   "a"
+  ],
+  "anole>boa": [
+   "a"
+  ],
+  "fruitbat>boa": [
+   "g",
+   "Chilabothrus subflavus",
+   "Artibeus jamaicensis"
+  ],
+  "flycatcher>boa": [
+   "a"
+  ]
+ }
+}

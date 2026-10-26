@@ -1,0 +1,523 @@
+{
+ "id": "xsomalia",
+ "name": "Lag Badana National Park (Bush-Bush)",
+ "short": "Lag Badana",
+ "place": "Somalia",
+ "lat": -1.0,
+ "lon": 41.7,
+ "side": "r",
+ "cont": "Africa",
+ "country": "Somalia",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Coastal forest, mangroves and seagrass on Somalia's far southern coast.",
+ "tip": {
+  "id": "seagrass",
+  "title": "Lose the seagrass",
+  "text": "Dugongs and green turtles graze seagrass. Set Seagrass to -100% and watch both grazers, then the tiger sharks that hunt them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Lag Badana National Park",
+   "url": "https://en.wikipedia.org/wiki/Lag_Badana_National_Park"
+  },
+  {
+   "title": "Wikipedia: Mangrove",
+   "url": "https://en.wikipedia.org/wiki/Mangrove"
+  },
+  {
+   "title": "Wikipedia: Dugong",
+   "url": "https://en.wikipedia.org/wiki/Dugong"
+  },
+  {
+   "title": "Wikipedia: Lesser kudu",
+   "url": "https://en.wikipedia.org/wiki/Lesser_kudu"
+  },
+  {
+   "title": "Wikipedia: Green sea turtle",
+   "url": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  },
+  {
+   "title": "Wikipedia: Scylla serrata",
+   "url": "https://en.wikipedia.org/wiki/Scylla_serrata"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Lag Badana National Park",
+ "icon": "shell",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Tropical sun on the equator drives growth of mangroves, seagrass and forest trees along this coast.",
+   "ic": "sun"
+  },
+  {
+   "id": "tide",
+   "name": "Tides and salt water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.38,
+   "cat": "abiotic",
+   "wiki": "Tide",
+   "desc": "Tides flood and drain the mangrove mud twice a day, bringing salt water that mangroves tolerate and most other plants do not.",
+   "ic": "water"
+  },
+  {
+   "id": "rains",
+   "name": "Monsoon rains",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.64,
+   "cat": "abiotic",
+   "wiki": "Monsoon",
+   "desc": "Seasonal monsoon rains bring the freshwater that coastal forest plants and river-fed mangroves depend on.",
+   "ic": "rain"
+  },
+  {
+   "id": "mud",
+   "name": "Nutrient-rich mud",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.84,
+   "cat": "abiotic",
+   "wiki": "Mud",
+   "desc": "Oxygen-poor mangrove mud holds the nutrients released by decomposing leaves and wood.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi and bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.95,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down mangrove leaves, wood and dead animals in the mud, returning nutrients to the system.",
+   "ic": "decomp"
+  },
+  {
+   "id": "avicennia",
+   "name": "Grey mangrove",
+   "latin": "Avicennia marina",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Avicennia marina",
+   "desc": "A salt-tolerant mangrove tree of Indian Ocean shores that holds muddy shorelines together and shelters young fish and crabs.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "rhizophora",
+   "name": "Red mangrove",
+   "latin": "Rhizophora mucronata",
+   "tl": 1,
+   "xh": 0.3,
+   "wiki": "Rhizophora mucronata",
+   "desc": "A stilt-rooted mangrove of tidal creeks in the Indian Ocean region. Its tangled roots shelter small animals and trap sediment.",
+   "ic": "willow"
+  },
+  {
+   "id": "seagrass",
+   "name": "Seagrass",
+   "latin": "Thalassodendron ciliatum",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Thalassodendron ciliatum",
+   "desc": "A seagrass of shallow East African and Indian Ocean waters, forming meadows that feed grazers and shelter small fish.",
+   "ic": "grass"
+  },
+  {
+   "id": "grewia",
+   "name": "Grewia shrubs",
+   "latin": "Grewia",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Grewia",
+   "desc": "Shrubs of the dry coastal forest and thicket, recorded in GBIF data near the reserve. Browsers can eat their leaves.",
+   "ic": "sage"
+  },
+  {
+   "id": "forest",
+   "name": "Coastal forest trees",
+   "latin": "Manilkara",
+   "tl": 1,
+   "xh": 0.9,
+   "wiki": "Manilkara",
+   "desc": "Trees of the Somali coastal forest. A sapote relative, Manilkara sulcata, is recorded in GBIF data near the reserve.",
+   "ic": "aspen"
+  },
+  {
+   "id": "kudu",
+   "name": "Lesser kudu",
+   "latin": "Ammelaphus imberbis",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "Lesser kudu",
+   "desc": "A shy browser of thornbush and dense cover. Tree and shrub foliage makes up most of its diet, and it is found across most of Somalia.",
+   "ic": "elk"
+  },
+  {
+   "id": "dugong",
+   "name": "Dugong",
+   "latin": "Dugong dugon",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Dugong",
+   "desc": "A large marine grazer that feeds mainly on seagrass. East African populations are now very small.",
+   "ic": "whale"
+  },
+  {
+   "id": "turtle",
+   "name": "Green sea turtle",
+   "latin": "Chelonia mydas",
+   "tl": 2,
+   "xh": 0.5,
+   "wiki": "Green sea turtle",
+   "desc": "Adults graze seagrass beds in shallow lagoons. Tiger sharks are the main predator of turtles of all sizes.",
+   "ic": "turtle"
+  },
+  {
+   "id": "sesarmid",
+   "name": "Mangrove crabs",
+   "latin": "Sesarmidae",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Sesarmidae",
+   "desc": "Small crabs of mangrove mud that feed on fallen mangrove leaves and so move mangrove nutrients into the mud and other animals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "termite",
+   "name": "Termites",
+   "latin": "Isoptera",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Termite",
+   "desc": "Termites eat leaf litter, roots and wood, including in mangrove forests, and are a major food for insect-eating birds.",
+   "ic": "ant"
+  },
+  {
+   "id": "mudcrab",
+   "name": "Mud crab",
+   "latin": "Scylla serrata",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Scylla serrata",
+   "desc": "A large crab of estuaries and mangroves. Juveniles stay in the mangroves and the species is highly cannibalistic.",
+   "ic": "hopper"
+  },
+  {
+   "id": "lemon",
+   "name": "Sicklefin lemon shark",
+   "latin": "Negaprion acutidens",
+   "tl": 3,
+   "xh": 0.28,
+   "wiki": "Sicklefin lemon shark",
+   "desc": "An Indian Ocean shark that uses shallow sheltered waters such as mangrove creeks as a nursery.",
+   "ic": "shark"
+  },
+  {
+   "id": "drongo",
+   "name": "Fork-tailed drongo",
+   "latin": "Dicrurus adsimilis",
+   "tl": 3,
+   "xh": 0.46,
+   "wiki": "Fork-tailed drongo",
+   "desc": "A black insect-eating bird, recorded in GBIF data near the reserve. It hunts flying insects from perches.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "beeeater",
+   "name": "Little bee-eater",
+   "latin": "Merops pusillus",
+   "tl": 3,
+   "xh": 0.64,
+   "wiki": "Little bee-eater",
+   "desc": "A small bird that catches flying insects on the wing; recorded in GBIF data near the reserve.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "hornbill",
+   "name": "Von der Decken's hornbill",
+   "latin": "Tockus deckeni",
+   "tl": 3,
+   "xh": 0.84,
+   "wiki": "Von der Decken's hornbill",
+   "desc": "A hornbill of dry bush and coastal woodland in East Africa. It eats insects and other small prey, and fruit.",
+   "ic": "hawk"
+  },
+  {
+   "id": "lion",
+   "name": "Lion",
+   "latin": "Panthera leo",
+   "tl": 4,
+   "xh": 0.25,
+   "wiki": "Lion",
+   "desc": "Top predator of the Lag Badana forests, which have been a Lion Conservation Unit since 2005. It hunts medium and large browsers.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "tiger",
+   "name": "Tiger shark",
+   "latin": "Galeocerdo cuvier",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Tiger shark",
+   "desc": "A large shark and the main predator of green turtles. Sharks also threaten young dugongs.",
+   "ic": "shark"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "avicennia",
+   "r"
+  ],
+  [
+   "sun",
+   "rhizophora",
+   "r"
+  ],
+  [
+   "sun",
+   "seagrass",
+   "r"
+  ],
+  [
+   "sun",
+   "grewia",
+   "r"
+  ],
+  [
+   "sun",
+   "forest",
+   "r"
+  ],
+  [
+   "tide",
+   "avicennia",
+   "r"
+  ],
+  [
+   "tide",
+   "rhizophora",
+   "r"
+  ],
+  [
+   "rains",
+   "grewia",
+   "r"
+  ],
+  [
+   "rains",
+   "forest",
+   "r"
+  ],
+  [
+   "mud",
+   "avicennia",
+   "r"
+  ],
+  [
+   "mud",
+   "rhizophora",
+   "r"
+  ],
+  [
+   "decomp",
+   "mud",
+   "r"
+  ],
+  [
+   "avicennia",
+   "sesarmid"
+  ],
+  [
+   "rhizophora",
+   "sesarmid"
+  ],
+  [
+   "avicennia",
+   "termite"
+  ],
+  [
+   "rhizophora",
+   "termite"
+  ],
+  [
+   "grewia",
+   "kudu"
+  ],
+  [
+   "forest",
+   "kudu"
+  ],
+  [
+   "seagrass",
+   "dugong"
+  ],
+  [
+   "seagrass",
+   "turtle"
+  ],
+  [
+   "sesarmid",
+   "mudcrab"
+  ],
+  [
+   "sesarmid",
+   "drongo"
+  ],
+  [
+   "termite",
+   "drongo"
+  ],
+  [
+   "termite",
+   "beeeater"
+  ],
+  [
+   "termite",
+   "hornbill"
+  ],
+  [
+   "mudcrab",
+   "lemon"
+  ],
+  [
+   "kudu",
+   "lion"
+  ],
+  [
+   "dugong",
+   "tiger"
+  ],
+  [
+   "turtle",
+   "tiger"
+  ],
+  [
+   "avicennia",
+   "decomp",
+   "d"
+  ],
+  [
+   "rhizophora",
+   "decomp",
+   "d"
+  ],
+  [
+   "grewia",
+   "decomp",
+   "d"
+  ],
+  [
+   "forest",
+   "decomp",
+   "d"
+  ],
+  [
+   "sesarmid",
+   "decomp",
+   "d"
+  ],
+  [
+   "kudu",
+   "decomp",
+   "d"
+  ],
+  [
+   "mudcrab",
+   "decomp",
+   "d"
+  ],
+  [
+   "lion",
+   "decomp",
+   "d"
+  ],
+  [
+   "avicennia",
+   "dugong"
+  ],
+  [
+   "lemon",
+   "tiger"
+  ]
+ ],
+ "ev": {
+  "avicennia>sesarmid": [
+   "a"
+  ],
+  "rhizophora>sesarmid": [
+   "a"
+  ],
+  "avicennia>termite": [
+   "a"
+  ],
+  "rhizophora>termite": [
+   "a"
+  ],
+  "grewia>kudu": [
+   "a"
+  ],
+  "forest>kudu": [
+   "a"
+  ],
+  "seagrass>dugong": [
+   "a"
+  ],
+  "seagrass>turtle": [
+   "a"
+  ],
+  "sesarmid>mudcrab": [
+   "a"
+  ],
+  "sesarmid>drongo": [
+   "a"
+  ],
+  "termite>drongo": [
+   "a"
+  ],
+  "termite>beeeater": [
+   "a"
+  ],
+  "termite>hornbill": [
+   "a"
+  ],
+  "mudcrab>lemon": [
+   "a"
+  ],
+  "kudu>lion": [
+   "a"
+  ],
+  "dugong>tiger": [
+   "g",
+   "Galeocerdo cuvier",
+   "Dugong dugon"
+  ],
+  "turtle>tiger": [
+   "g",
+   "Galeocerdo cuvier",
+   "Chelonia mydas"
+  ],
+  "avicennia>dugong": [
+   "ga",
+   "Dugong dugon",
+   "Avicennia marina"
+  ],
+  "lemon>tiger": [
+   "ga",
+   "Galeocerdo cuvier",
+   "Negaprion acutidens"
+  ]
+ }
+}

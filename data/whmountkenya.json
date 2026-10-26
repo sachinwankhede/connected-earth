@@ -1,0 +1,593 @@
+{
+ "id": "whmountkenya",
+ "name": "Mount Kenya National Park/Natural Forest",
+ "short": "Mount Kenya",
+ "place": "Kenya",
+ "lat": -0.15,
+ "lon": 37.3,
+ "side": "r",
+ "cont": "Africa",
+ "country": "Kenya",
+ "kind": "Polar & mountain",
+ "park": true,
+ "blurb": "Equatorial glaciers, giant groundsel and the forest-to-moorland belts of Kenya's water tower.",
+ "tip": {
+  "id": "rockhyrax",
+  "title": "Thin out the hyraxes",
+  "text": "Rock hyraxes are the main prey of Verreaux's eagle and also feed leopards. Set them to -100% and watch the eagle, leopard and lobelia respond."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Mount Kenya National Park",
+   "url": "https://en.wikipedia.org/wiki/Mount_Kenya_National_Park"
+  },
+  {
+   "title": "Wikipedia: Mount Kenya",
+   "url": "https://en.wikipedia.org/wiki/Mount_Kenya"
+  },
+  {
+   "title": "UNESCO World Heritage: Mount Kenya National Park/Natural Forest",
+   "url": "https://whc.unesco.org/en/list/800/"
+  },
+  {
+   "title": "Wikipedia: Rock hyrax",
+   "url": "https://en.wikipedia.org/wiki/Rock_hyrax"
+  },
+  {
+   "title": "Wikipedia: Verreaux's eagle",
+   "url": "https://en.wikipedia.org/wiki/Verreaux%27s_eagle"
+  },
+  {
+   "title": "Wikipedia: Dendrosenecio keniodendron",
+   "url": "https://en.wikipedia.org/wiki/Dendrosenecio_keniodendron"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Mount Kenya",
+ "icon": "ice",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "groundsel",
+   "name": "Giant groundsel",
+   "latin": "Dendrosenecio keniodendron",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Dendrosenecio keniodendron",
+   "desc": "A tree-like rosette plant of the high alpine valleys. Its leaves fold over the central bud at night, keeping it above freezing.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "lobelia",
+   "name": "Giant lobelia",
+   "latin": "Lobelia telekii",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "Lobelia telekii",
+   "desc": "A tall, hairy-spired rosette plant of the afro-alpine zone, one of the giant lobelias adapted to freezing nights.",
+   "ic": "sage"
+  },
+  {
+   "id": "bamboo",
+   "name": "Mountain bamboo",
+   "latin": "Yushania alpina",
+   "tl": 1,
+   "xh": 0.46,
+   "wiki": "Yushania alpina",
+   "desc": "Forms a nearly continuous belt above the forest, thinner on the drier north side, and shades out most other plants.",
+   "ic": "grass"
+  },
+  {
+   "id": "tussock",
+   "name": "Tussock grasses",
+   "latin": "Festuca",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Festuca",
+   "desc": "Grasses and sedges that cover the moorland glades above the tree line and feed the mountain's grazers.",
+   "ic": "grass"
+  },
+  {
+   "id": "forest",
+   "name": "Montane forest trees",
+   "latin": "Podocarpus",
+   "tl": 1,
+   "xh": 0.82,
+   "wiki": "Podocarpus",
+   "desc": "Podocarpus and other evergreen trees of the cloud forest on the middle slopes, home to monkeys, hyraxes and elephants.",
+   "ic": "aspen"
+  },
+  {
+   "id": "rockhyrax",
+   "name": "Rock hyrax",
+   "latin": "Procavia capensis",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Rock hyrax",
+   "desc": "Lives in rocky crevices up to the moorlands and eats plants including lobelia. It is the main prey of Verreaux's eagle.",
+   "ic": "quad"
+  },
+  {
+   "id": "treehyrax",
+   "name": "Southern tree hyrax",
+   "latin": "Dendrohyrax arboreus",
+   "tl": 2,
+   "xh": 0.19,
+   "wiki": "Southern tree hyrax",
+   "desc": "A nocturnal, tree-living hyrax of the forest belt, browsing leaves and twigs.",
+   "ic": "quad"
+  },
+  {
+   "id": "elephant",
+   "name": "African elephant",
+   "latin": "Loxodonta africana",
+   "tl": 2,
+   "xh": 0.33,
+   "wiki": "African elephant",
+   "desc": "Moves through forest and bamboo on the lower slopes and has been recorded feeding on giant groundsel. Fences keep it out of nearby farms.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "buffalo",
+   "name": "African buffalo",
+   "latin": "Syncerus caffer",
+   "tl": 2,
+   "xh": 0.47,
+   "wiki": "African buffalo",
+   "desc": "Common in the lower forest and glades, grazing grass in herds.",
+   "ic": "bison"
+  },
+  {
+   "id": "colobus",
+   "name": "Mantled guereza",
+   "latin": "Colobus guereza",
+   "tl": 2,
+   "xh": 0.61,
+   "wiki": "Mantled guereza",
+   "desc": "A black-and-white colobus monkey that lives in the forest canopy and eats mainly leaves.",
+   "ic": "quad"
+  },
+  {
+   "id": "bushbuck",
+   "name": "Bushbuck",
+   "latin": "Tragelaphus scriptus",
+   "tl": 2,
+   "xh": 0.75,
+   "wiki": "Bushbuck",
+   "desc": "A shy antelope of forest edges and thickets that browses leaves and shoots.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "duiker",
+   "name": "Common duiker",
+   "latin": "Sylvicapra grimmia",
+   "tl": 2,
+   "xh": 0.89,
+   "wiki": "Common duiker",
+   "desc": "A small antelope found from the forest up into the moorlands, browsing leaves, shoots and fruit.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "buzzard",
+   "name": "Augur buzzard",
+   "latin": "Buteo augur",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Augur buzzard",
+   "desc": "A common raptor of the mountain slopes and moorland that hunts small mammals and reptiles from the air.",
+   "ic": "hawk"
+  },
+  {
+   "id": "vulture",
+   "name": "Bearded vulture",
+   "latin": "Gypaetus barbatus",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Bearded vulture",
+   "desc": "A mountain scavenger that lives on carrion, especially bones, and nests on cliffs.",
+   "ic": "hawk"
+  },
+  {
+   "id": "hyena",
+   "name": "Spotted hyena",
+   "latin": "Crocuta crocuta",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "Spotted hyena",
+   "desc": "Hunts and scavenges in the forest belt and drives off or scavenges from other predators' kills.",
+   "ic": "coyote"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard",
+   "latin": "Panthera pardus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Leopard",
+   "desc": "A solitary hunter that lives at every altitude of the mountain, even the alpine zone, preying on hyraxes, antelope and monkeys.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "eagle",
+   "name": "Verreaux's eagle",
+   "latin": "Aquila verreauxii",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Verreaux's eagle",
+   "desc": "A hyrax specialist: in many areas hyraxes make up most of its diet, so its range follows theirs.",
+   "ic": "goldeneagle"
+  },
+  {
+   "id": "glacier",
+   "name": "Glaciers and snowmelt",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "wiki": "Glacier",
+   "desc": "About a dozen small glaciers and alpine tarns feed streams but are shrinking fast and may vanish within decades.",
+   "ic": "ice",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Mountain rain and cloud",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.38,
+   "wiki": "Rain",
+   "desc": "Rainfall on the slopes, heaviest on the south-east, sets the forest and bamboo belts and fills the rivers that supply the region.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Volcanic soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.64,
+   "wiki": "Soil",
+   "desc": "Fertile volcanic soils on the lower slopes support the dense vegetation and surrounding farmland.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and soil invertebrates that break down dead plants, dung and carcasses.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "glacier",
+   "groundsel",
+   "r"
+  ],
+  [
+   "glacier",
+   "lobelia",
+   "r"
+  ],
+  [
+   "rain",
+   "groundsel",
+   "r"
+  ],
+  [
+   "rain",
+   "lobelia",
+   "r"
+  ],
+  [
+   "rain",
+   "bamboo",
+   "r"
+  ],
+  [
+   "rain",
+   "tussock",
+   "r"
+  ],
+  [
+   "rain",
+   "forest",
+   "r"
+  ],
+  [
+   "soil",
+   "bamboo",
+   "r"
+  ],
+  [
+   "soil",
+   "forest",
+   "r"
+  ],
+  [
+   "soil",
+   "tussock",
+   "r"
+  ],
+  [
+   "groundsel",
+   "elephant"
+  ],
+  [
+   "bamboo",
+   "elephant"
+  ],
+  [
+   "forest",
+   "elephant"
+  ],
+  [
+   "lobelia",
+   "rockhyrax"
+  ],
+  [
+   "tussock",
+   "rockhyrax"
+  ],
+  [
+   "forest",
+   "treehyrax"
+  ],
+  [
+   "tussock",
+   "buffalo"
+  ],
+  [
+   "forest",
+   "buffalo"
+  ],
+  [
+   "forest",
+   "colobus"
+  ],
+  [
+   "forest",
+   "bushbuck"
+  ],
+  [
+   "forest",
+   "duiker"
+  ],
+  [
+   "tussock",
+   "duiker"
+  ],
+  [
+   "rockhyrax",
+   "leopard"
+  ],
+  [
+   "treehyrax",
+   "leopard"
+  ],
+  [
+   "bushbuck",
+   "leopard"
+  ],
+  [
+   "duiker",
+   "leopard"
+  ],
+  [
+   "colobus",
+   "leopard"
+  ],
+  [
+   "rockhyrax",
+   "eagle"
+  ],
+  [
+   "duiker",
+   "buzzard"
+  ],
+  [
+   "buffalo",
+   "hyena"
+  ],
+  [
+   "bushbuck",
+   "hyena"
+  ],
+  [
+   "elephant",
+   "hyena",
+   "s"
+  ],
+  [
+   "elephant",
+   "vulture"
+  ],
+  [
+   "buffalo",
+   "vulture"
+  ],
+  [
+   "leopard",
+   "vulture",
+   "s"
+  ],
+  [
+   "leopard",
+   "hyena",
+   "s"
+  ],
+  [
+   "groundsel",
+   "decomp",
+   "d"
+  ],
+  [
+   "bamboo",
+   "decomp",
+   "d"
+  ],
+  [
+   "forest",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "buffalo",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "colobus",
+   "hyena"
+  ],
+  [
+   "duiker",
+   "hyena"
+  ],
+  [
+   "buffalo",
+   "leopard"
+  ],
+  [
+   "hyena",
+   "leopard"
+  ]
+ ],
+ "ev": {
+  "groundsel>elephant": [
+   "a"
+  ],
+  "bamboo>elephant": [
+   "a"
+  ],
+  "forest>elephant": [
+   "a"
+  ],
+  "lobelia>rockhyrax": [
+   "a"
+  ],
+  "tussock>rockhyrax": [
+   "a"
+  ],
+  "forest>treehyrax": [
+   "a"
+  ],
+  "tussock>buffalo": [
+   "a"
+  ],
+  "forest>buffalo": [
+   "a"
+  ],
+  "forest>colobus": [
+   "a"
+  ],
+  "forest>bushbuck": [
+   "a"
+  ],
+  "forest>duiker": [
+   "a"
+  ],
+  "tussock>duiker": [
+   "a"
+  ],
+  "rockhyrax>leopard": [
+   "g",
+   "Panthera pardus",
+   "Procavia capensis"
+  ],
+  "treehyrax>leopard": [
+   "g",
+   "Panthera pardus",
+   "Dendrohyrax arboreus"
+  ],
+  "bushbuck>leopard": [
+   "g",
+   "Panthera pardus",
+   "Tragelaphus scriptus"
+  ],
+  "duiker>leopard": [
+   "g",
+   "Panthera pardus",
+   "Sylvicapra grimmia"
+  ],
+  "colobus>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Colobus guereza"
+  ],
+  "rockhyrax>eagle": [
+   "gg",
+   "Aquila verreauxii",
+   "Procavia capensis"
+  ],
+  "duiker>buzzard": [
+   "a"
+  ],
+  "buffalo>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Syncerus caffer"
+  ],
+  "bushbuck>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Tragelaphus scriptus"
+  ],
+  "elephant>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Loxodonta africana"
+  ],
+  "elephant>vulture": [
+   "a"
+  ],
+  "buffalo>vulture": [
+   "a"
+  ],
+  "leopard>vulture": [
+   "a"
+  ],
+  "leopard>hyena": [
+   "g",
+   "Crocuta crocuta",
+   "Panthera pardus"
+  ],
+  "colobus>hyena": [
+   "ga",
+   "Crocuta crocuta",
+   "Colobus guereza"
+  ],
+  "duiker>hyena": [
+   "ga",
+   "Crocuta crocuta",
+   "Sylvicapra grimmia"
+  ],
+  "buffalo>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Syncerus caffer"
+  ],
+  "hyena>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Crocuta crocuta"
+  ]
+ }
+}

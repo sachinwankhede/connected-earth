@@ -1,0 +1,580 @@
+{
+ "id": "xnigeria",
+ "name": "Cross River National Park",
+ "short": "Cross River",
+ "place": "Nigeria",
+ "lat": 5.7,
+ "lon": 8.7,
+ "side": "r",
+ "cont": "Africa",
+ "country": "Nigeria",
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Rainforest where figs feed drills, apes and elephants, and leopards hunt.",
+ "tip": {
+  "id": "ficus",
+  "title": "Take away the fig trees",
+  "text": "Figs feed drills, chimpanzees, colobus, turacos, hornbills and elephants. Set Fig trees to -100% and watch the fruit-eaters fall, then the leopards and crowned eagles that hunt them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Cross River National Park",
+   "url": "https://en.wikipedia.org/wiki/Cross_River_National_Park"
+  },
+  {
+   "title": "Wikipedia: Drill",
+   "url": "https://en.wikipedia.org/wiki/Drill_(primate)"
+  },
+  {
+   "title": "Wikipedia: Cross River gorilla",
+   "url": "https://en.wikipedia.org/wiki/Cross_River_gorilla"
+  },
+  {
+   "title": "Wikipedia: African forest elephant",
+   "url": "https://en.wikipedia.org/wiki/African_forest_elephant"
+  },
+  {
+   "title": "Wikipedia: Crowned eagle",
+   "url": "https://en.wikipedia.org/wiki/Crowned_eagle"
+  },
+  {
+   "title": "Wikipedia: African leopard",
+   "url": "https://en.wikipedia.org/wiki/African_leopard"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Cross River National Park",
+ "icon": "aspen",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Light reaching the canopy and the gaps in it drives growth of the forest trees and herbs that everything else feeds on.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Heavy rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Rain",
+   "desc": "The park is very wet, with roughly 2,000 to over 4,000 mm of rain a year, which sustains the lowland rainforest.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Forest soil and nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Soil",
+   "desc": "Nutrients recycled from leaf litter and dead animals are taken up quickly by forest roots.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, termites and bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.85,
+   "wiki": "Decomposer",
+   "desc": "Break down fallen leaves, wood and carcasses and return nutrients to the forest soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  },
+  {
+   "id": "ficus",
+   "name": "Fig trees",
+   "latin": "Ficus",
+   "tl": 1,
+   "xh": 0.15,
+   "wiki": "Ficus",
+   "desc": "Figs fruit through much of the year and are eaten by primates, turacos, hornbills and elephants, so many animals depend on them.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "myrianthus",
+   "name": "Myrianthus trees",
+   "latin": "Myrianthus preussii",
+   "tl": 1,
+   "xh": 0.38,
+   "wiki": "Myrianthus",
+   "desc": "A recorded understory tree of the Cross River forests with edible fruit; fleshy forest fruits like this feed primates and rodents.",
+   "ic": "aspen"
+  },
+  {
+   "id": "sorindeia",
+   "name": "Sorindeia trees",
+   "latin": "Sorindeia grandifolia",
+   "tl": 1,
+   "xh": 0.62,
+   "wiki": "Sorindeia",
+   "desc": "A forest tree whose fruit has been recorded as food for the Guinea turaco, piping hornbill and African green pigeon.",
+   "ic": "aspen"
+  },
+  {
+   "id": "aframomum",
+   "name": "Aframomum herbs",
+   "latin": "Aframomum",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Aframomum",
+   "desc": "Ground-layer herbs of the ginger family. On Afi Mountain they made up most of the diet of Cross River gorillas.",
+   "ic": "sage"
+  },
+  {
+   "id": "gorilla",
+   "name": "Cross River gorilla",
+   "latin": "Gorilla gorilla diehli",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Cross River gorilla",
+   "desc": "A rare gorilla of the Nigeria-Cameroon border hills. It eats fruit, herbs, bark and leaves, switching to herbs when fruit is scarce.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "drill",
+   "name": "Drill",
+   "latin": "Mandrillus leucophaeus",
+   "tl": 2,
+   "xh": 0.16,
+   "wiki": "Drill (primate)",
+   "desc": "An omnivorous monkey that prefers fruit, including figs, and also eats leaves, seeds, mushrooms and invertebrates such as ants.",
+   "ic": "quad"
+  },
+  {
+   "id": "chimp",
+   "name": "Chimpanzee",
+   "latin": "Pan troglodytes",
+   "tl": 2,
+   "xh": 0.27,
+   "wiki": "Common chimpanzee",
+   "desc": "An ape of the forest canopy and floor that eats mostly fruit, and also leaves and some animal prey.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "colobus",
+   "name": "Preuss's red colobus",
+   "latin": "Piliocolobus preussi",
+   "tl": 2,
+   "xh": 0.38,
+   "wiki": "Preuss's red colobus",
+   "desc": "A rare leaf-eating monkey of the Cameroon-Nigeria forests, living high in the canopy.",
+   "ic": "quad"
+  },
+  {
+   "id": "elephant",
+   "name": "African forest elephant",
+   "latin": "Loxodonta cyclotis",
+   "tl": 2,
+   "xh": 0.49,
+   "wiki": "African forest elephant",
+   "desc": "Eats leaves, bark and fruit, and spreads the seeds of many trees in its dung, shaping forest tree diversity.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "turaco",
+   "name": "Great blue turaco",
+   "latin": "Corythaeola cristata",
+   "tl": 2,
+   "xh": 0.6,
+   "wiki": "Great blue turaco",
+   "desc": "A large forest bird that eats fruit, flowers and leaves, including figs, and spreads seeds in its droppings.",
+   "ic": "hawk"
+  },
+  {
+   "id": "hornbill",
+   "name": "Piping hornbill",
+   "latin": "Bycanistes fistulator",
+   "tl": 2,
+   "xh": 0.71,
+   "wiki": "Piping hornbill",
+   "desc": "A noisy canopy hornbill, among the best-recorded birds around the park, that mainly eats forest fruit.",
+   "ic": "hawk"
+  },
+  {
+   "id": "squirrel",
+   "name": "Forest giant squirrel",
+   "latin": "Protoxerus stangeri",
+   "tl": 2,
+   "xh": 0.82,
+   "wiki": "Forest giant squirrel",
+   "desc": "Forages for fruits and seeds of trees and lianas, cracking tough nuts, plus a few insects.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "praomys",
+   "name": "Tullberg's soft-furred mouse",
+   "latin": "Praomys tullbergi",
+   "tl": 2,
+   "xh": 0.93,
+   "wiki": "Tullberg's soft-furred mouse",
+   "desc": "A small forest rodent that forages on the forest floor and is prey for genets and snakes.",
+   "ic": "vole"
+  },
+  {
+   "id": "genet",
+   "name": "Crested servaline genet",
+   "latin": "Genetta cristata",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Crested servaline genet",
+   "desc": "A small forest carnivore. A GloBI record shows it eating Tullberg's soft-furred mouse.",
+   "ic": "fox"
+  },
+  {
+   "id": "python",
+   "name": "Ball python",
+   "latin": "Python regius",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Ball python",
+   "desc": "A constrictor that eats rodents and other small vertebrates; recorded prey includes forest rodents and the forest giant squirrel.",
+   "ic": "snake"
+  },
+  {
+   "id": "monitor",
+   "name": "Nile monitor",
+   "latin": "Varanus niloticus",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "Nile monitor",
+   "desc": "A generalist reptile that eats fish, frogs, birds, eggs, rodents and invertebrates, and will also scavenge carrion.",
+   "ic": "croc"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard",
+   "latin": "Panthera pardus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "African leopard",
+   "desc": "In African rainforests leopards mostly take duikers and primates, and also rodents and other mammals.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "eagle",
+   "name": "Crowned eagle",
+   "latin": "Stephanoaetus coronatus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Crowned eagle",
+   "desc": "A forest eagle whose main prey is monkeys, including colobus species, along with duikers.",
+   "ic": "hawk"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "ficus",
+   "r"
+  ],
+  [
+   "rain",
+   "ficus",
+   "r"
+  ],
+  [
+   "soil",
+   "ficus",
+   "r"
+  ],
+  [
+   "ficus",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "myrianthus",
+   "r"
+  ],
+  [
+   "rain",
+   "myrianthus",
+   "r"
+  ],
+  [
+   "soil",
+   "myrianthus",
+   "r"
+  ],
+  [
+   "myrianthus",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "sorindeia",
+   "r"
+  ],
+  [
+   "rain",
+   "sorindeia",
+   "r"
+  ],
+  [
+   "soil",
+   "sorindeia",
+   "r"
+  ],
+  [
+   "sorindeia",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "aframomum",
+   "r"
+  ],
+  [
+   "rain",
+   "aframomum",
+   "r"
+  ],
+  [
+   "soil",
+   "aframomum",
+   "r"
+  ],
+  [
+   "aframomum",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "ficus",
+   "drill"
+  ],
+  [
+   "ficus",
+   "chimp"
+  ],
+  [
+   "ficus",
+   "colobus"
+  ],
+  [
+   "ficus",
+   "elephant"
+  ],
+  [
+   "ficus",
+   "turaco"
+  ],
+  [
+   "ficus",
+   "hornbill"
+  ],
+  [
+   "myrianthus",
+   "drill"
+  ],
+  [
+   "myrianthus",
+   "chimp"
+  ],
+  [
+   "myrianthus",
+   "colobus"
+  ],
+  [
+   "myrianthus",
+   "squirrel"
+  ],
+  [
+   "myrianthus",
+   "praomys"
+  ],
+  [
+   "sorindeia",
+   "turaco"
+  ],
+  [
+   "sorindeia",
+   "hornbill"
+  ],
+  [
+   "aframomum",
+   "gorilla"
+  ],
+  [
+   "praomys",
+   "genet"
+  ],
+  [
+   "praomys",
+   "python"
+  ],
+  [
+   "praomys",
+   "monitor"
+  ],
+  [
+   "squirrel",
+   "python"
+  ],
+  [
+   "drill",
+   "leopard"
+  ],
+  [
+   "chimp",
+   "leopard"
+  ],
+  [
+   "colobus",
+   "leopard"
+  ],
+  [
+   "colobus",
+   "eagle"
+  ],
+  [
+   "leopard",
+   "decomp",
+   "d"
+  ],
+  [
+   "eagle",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "gorilla",
+   "leopard"
+  ],
+  [
+   "squirrel",
+   "leopard"
+  ]
+ ],
+ "ev": {
+  "ficus>drill": [
+   "a"
+  ],
+  "ficus>chimp": [
+   "gg",
+   "Pan troglodytes",
+   "Ficus"
+  ],
+  "ficus>colobus": [
+   "a"
+  ],
+  "ficus>elephant": [
+   "gg",
+   "Loxodonta cyclotis",
+   "Ficus"
+  ],
+  "ficus>turaco": [
+   "gg",
+   "Corythaeola cristata",
+   "Ficus"
+  ],
+  "ficus>hornbill": [
+   "g",
+   "Bycanistes fistulator",
+   "Ficus"
+  ],
+  "myrianthus>drill": [
+   "a"
+  ],
+  "myrianthus>chimp": [
+   "gg",
+   "Pan troglodytes",
+   "Myrianthus preussii"
+  ],
+  "myrianthus>colobus": [
+   "a"
+  ],
+  "myrianthus>squirrel": [
+   "a"
+  ],
+  "myrianthus>praomys": [
+   "a"
+  ],
+  "sorindeia>turaco": [
+   "a"
+  ],
+  "sorindeia>hornbill": [
+   "g",
+   "Bycanistes fistulator",
+   "Sorindeia grandifolia"
+  ],
+  "aframomum>gorilla": [
+   "a"
+  ],
+  "praomys>genet": [
+   "g",
+   "Genetta cristata",
+   "Praomys tullbergi"
+  ],
+  "praomys>python": [
+   "g",
+   "Python regius",
+   "Praomys tullbergi"
+  ],
+  "praomys>monitor": [
+   "a"
+  ],
+  "squirrel>python": [
+   "g",
+   "Python regius",
+   "Protoxerus stangeri"
+  ],
+  "drill>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Mandrillus leucophaeus"
+  ],
+  "chimp>leopard": [
+   "g",
+   "Panthera pardus",
+   "Pan troglodytes"
+  ],
+  "colobus>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Piliocolobus preussi"
+  ],
+  "colobus>eagle": [
+   "gg",
+   "Stephanoaetus coronatus",
+   "Piliocolobus preussi"
+  ],
+  "gorilla>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Gorilla gorilla"
+  ],
+  "squirrel>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Protoxerus stangeri"
+  ]
+ }
+}

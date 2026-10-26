@@ -1,0 +1,725 @@
+{
+ "id": "nplakeclark",
+ "name": "Lake Clark National Park and Preserve",
+ "short": "Lake Clark",
+ "place": "Alaska, USA",
+ "lat": 60.97,
+ "lon": -153.42,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Alaska"
+ ],
+ "kind": "Polar & mountain",
+ "park": true,
+ "blurb": "Sockeye salmon, brown bears and wolves beneath active volcanoes.",
+ "tip": {
+  "id": "sockeye",
+  "title": "Remove the sockeye run",
+  "text": "Sockeye feed bears, wolves, gulls and ravens. Set Sockeye salmon to -100% and watch the bears and the wolf pack that depends on salmon."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Lake Clark National Park and Preserve",
+   "url": "https://en.wikipedia.org/wiki/Lake_Clark_National_Park_and_Preserve"
+  },
+  {
+   "title": "National Park Service: Lake Clark nature",
+   "url": "https://www.nps.gov/lacl/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Sockeye salmon",
+   "url": "https://en.wikipedia.org/wiki/Sockeye_salmon"
+  },
+  {
+   "title": "Wikipedia: Brown bear",
+   "url": "https://en.wikipedia.org/wiki/Brown_bear"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Lake Clark National Park and Preserve",
+ "icon": "grizzly",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Summer sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Long summer days power a short growing season for tundra, willow and lake algae; winters are dark and cold.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "lakes",
+   "name": "Lakes and rivers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "wiki": "Lake Clark",
+   "desc": "Glacial lakes and rivers such as Lake Clark and the Kvichak watershed carry sockeye to spawning grounds and feed lake algae.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "snow",
+   "name": "Snow and winter cold",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.7,
+   "wiki": "Snow",
+   "desc": "Deep winter snow and cold limit food for herbivores and cover carcasses, shaping when bears, wolves and ravens eat.",
+   "ic": "ice",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes and fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, carcasses and spawned-out salmon, returning nutrients to soil and water.",
+   "ic": "decomp",
+   "cat": "decomp"
+  },
+  {
+   "id": "sedge",
+   "name": "Sedges",
+   "latin": "Carex",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Carex",
+   "desc": "Grass-like plants of wet meadows and salt marshes. Sedges are a spring staple for brown bears, and the park notes salt marshes are key bear feeding areas.",
+   "ic": "grass"
+  },
+  {
+   "id": "willow",
+   "name": "Grayleaf willow",
+   "latin": "Salix glauca",
+   "tl": 1,
+   "xh": 0.32,
+   "wiki": "Salix glauca",
+   "desc": "A shrub willow of tundra and river flats. Willow twigs and buds feed moose, hares and ptarmigan.",
+   "ic": "willow"
+  },
+  {
+   "id": "bilberry",
+   "name": "Bog bilberry",
+   "latin": "Vaccinium uliginosum",
+   "tl": 1,
+   "xh": 0.52,
+   "wiki": "Vaccinium uliginosum",
+   "desc": "A low berry shrub of tundra and bogs. Its leaves and berries are eaten by caribou, ptarmigan and bears.",
+   "ic": "sage"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Microscopic algae",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting microscopic algae in lakes that feed zooplankton. General ecological knowledge.",
+   "ic": "algae"
+  },
+  {
+   "id": "caribou",
+   "name": "Caribou",
+   "latin": "Rangifer tarandus",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Reindeer",
+   "desc": "Tundra herds that eat sedges, shrubs and lichens. The park herds have fallen from about 200,000 to 30,000 for reasons not fully known.",
+   "ic": "elk"
+  },
+  {
+   "id": "moose",
+   "name": "Moose",
+   "latin": "Alces alces",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Moose",
+   "desc": "Large browser of willow and other shrubs in river valleys and boreal forest. Prey of wolves and bears.",
+   "ic": "moose"
+  },
+  {
+   "id": "vole",
+   "name": "Tundra vole",
+   "latin": "Microtus oeconomus",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Tundra vole",
+   "desc": "Small rodent of wet meadows that eats sedges and grasses. Prey for stoats, gulls, ravens and bears.",
+   "ic": "vole"
+  },
+  {
+   "id": "squirrel",
+   "name": "Arctic ground squirrel",
+   "latin": "Urocitellus parryii",
+   "tl": 2,
+   "xh": 0.48,
+   "wiki": "Arctic ground squirrel",
+   "desc": "Burrowing hibernator of tundra slopes. Brown bears are known to dig out and catch it.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "ptarmigan",
+   "name": "Willow ptarmigan",
+   "latin": "Lagopus lagopus",
+   "tl": 2,
+   "xh": 0.62,
+   "wiki": "Willow ptarmigan",
+   "desc": "Grouse of tundra and shrub thickets that eats willow buds and berries. Preyed on by wolves, bears and stoats.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "hare",
+   "name": "Snowshoe hare",
+   "latin": "Lepus americanus",
+   "tl": 2,
+   "xh": 0.76,
+   "wiki": "Snowshoe hare",
+   "desc": "Browser of willow twigs in boreal thickets. Main prey of Canada lynx and also eaten by wolves.",
+   "ic": "quad"
+  },
+  {
+   "id": "zoo",
+   "name": "Zooplankton",
+   "latin": "Daphnia",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Zooplankton",
+   "desc": "Tiny animals drifting in lakes that graze algae and are the main food of sockeye in fresh water.",
+   "ic": "hopper"
+  },
+  {
+   "id": "sockeye",
+   "name": "Sockeye salmon",
+   "latin": "Oncorhynchus nerka",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Sockeye salmon",
+   "desc": "Returns from the sea to spawn in park lakes and streams; the Kvichak is described as the most productive sockeye watershed. Adults die after spawning.",
+   "ic": "trout"
+  },
+  {
+   "id": "stoat",
+   "name": "Stoat",
+   "latin": "Mustela erminea",
+   "tl": 3,
+   "xh": 0.28,
+   "wiki": "Stoat",
+   "desc": "Small weasel that hunts voles, shrews, hares and ptarmigan under snow and over tundra.",
+   "ic": "fox"
+  },
+  {
+   "id": "lynx",
+   "name": "Canada lynx",
+   "latin": "Lynx canadensis",
+   "tl": 3,
+   "xh": 0.46,
+   "wiki": "Canada lynx",
+   "desc": "Boreal cat that depends heavily on snowshoe hares.",
+   "ic": "lion"
+  },
+  {
+   "id": "gull",
+   "name": "Mew gull",
+   "latin": "Larus canus",
+   "tl": 3,
+   "xh": 0.64,
+   "wiki": "Common gull",
+   "desc": "Coastal and lakeshore gull that eats voles and scavenges salmon remains.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.82,
+   "wiki": "Common raven",
+   "desc": "Omnivorous scavenger that picks over carcasses, including bear-left salmon and winter-killed game, and takes small animals.",
+   "ic": "raven"
+  },
+  {
+   "id": "brownbear",
+   "name": "Brown bear",
+   "latin": "Ursus arctos",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Brown bear",
+   "desc": "Gathers on the coast to feed on spawning salmon and salt-marsh sedges; also eats berries, carrion and small and large prey.",
+   "ic": "grizzly"
+  },
+  {
+   "id": "wolf",
+   "name": "Gray wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Wolf",
+   "desc": "Hunts caribou, moose and hares. A Lake Clark pack is documented as the only salmon-dependent wolf pack in the world.",
+   "ic": "wolf"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "sedge",
+   "r"
+  ],
+  [
+   "sun",
+   "willow",
+   "r"
+  ],
+  [
+   "sun",
+   "bilberry",
+   "r"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "lakes",
+   "phyto",
+   "r"
+  ],
+  [
+   "snow",
+   "willow",
+   "r"
+  ],
+  [
+   "decomp",
+   "lakes",
+   "r"
+  ],
+  [
+   "sedge",
+   "caribou"
+  ],
+  [
+   "bilberry",
+   "caribou"
+  ],
+  [
+   "willow",
+   "moose"
+  ],
+  [
+   "willow",
+   "hare"
+  ],
+  [
+   "willow",
+   "ptarmigan"
+  ],
+  [
+   "bilberry",
+   "ptarmigan"
+  ],
+  [
+   "sedge",
+   "vole"
+  ],
+  [
+   "sedge",
+   "squirrel"
+  ],
+  [
+   "sedge",
+   "brownbear"
+  ],
+  [
+   "bilberry",
+   "brownbear"
+  ],
+  [
+   "phyto",
+   "zoo"
+  ],
+  [
+   "zoo",
+   "sockeye"
+  ],
+  [
+   "sockeye",
+   "brownbear"
+  ],
+  [
+   "sockeye",
+   "wolf"
+  ],
+  [
+   "vole",
+   "stoat"
+  ],
+  [
+   "vole",
+   "gull"
+  ],
+  [
+   "vole",
+   "wolf"
+  ],
+  [
+   "vole",
+   "brownbear"
+  ],
+  [
+   "hare",
+   "lynx"
+  ],
+  [
+   "hare",
+   "wolf"
+  ],
+  [
+   "hare",
+   "stoat"
+  ],
+  [
+   "ptarmigan",
+   "stoat"
+  ],
+  [
+   "ptarmigan",
+   "wolf"
+  ],
+  [
+   "ptarmigan",
+   "brownbear"
+  ],
+  [
+   "squirrel",
+   "brownbear"
+  ],
+  [
+   "caribou",
+   "wolf"
+  ],
+  [
+   "caribou",
+   "brownbear"
+  ],
+  [
+   "moose",
+   "wolf"
+  ],
+  [
+   "moose",
+   "brownbear"
+  ],
+  [
+   "stoat",
+   "wolf"
+  ],
+  [
+   "lynx",
+   "wolf"
+  ],
+  [
+   "stoat",
+   "raven"
+  ],
+  [
+   "sockeye",
+   "gull",
+   "s"
+  ],
+  [
+   "sockeye",
+   "raven",
+   "s"
+  ],
+  [
+   "caribou",
+   "raven",
+   "s"
+  ],
+  [
+   "moose",
+   "raven",
+   "s"
+  ],
+  [
+   "sedge",
+   "decomp",
+   "d"
+  ],
+  [
+   "willow",
+   "decomp",
+   "d"
+  ],
+  [
+   "sockeye",
+   "decomp",
+   "d"
+  ],
+  [
+   "caribou",
+   "decomp",
+   "d"
+  ],
+  [
+   "moose",
+   "decomp",
+   "d"
+  ],
+  [
+   "brownbear",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "sedge",
+   "ptarmigan"
+  ],
+  [
+   "bilberry",
+   "raven"
+  ],
+  [
+   "vole",
+   "raven"
+  ],
+  [
+   "ptarmigan",
+   "raven"
+  ],
+  [
+   "hare",
+   "raven"
+  ],
+  [
+   "gull",
+   "wolf"
+  ],
+  [
+   "raven",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "sedge>caribou": [
+   "g",
+   "Rangifer tarandus",
+   "Carex"
+  ],
+  "bilberry>caribou": [
+   "g",
+   "Rangifer tarandus",
+   "Vaccinium uliginosum"
+  ],
+  "willow>moose": [
+   "gg",
+   "Alces alces",
+   "Salix glauca"
+  ],
+  "willow>hare": [
+   "gg",
+   "Lepus americanus",
+   "Salix glauca"
+  ],
+  "willow>ptarmigan": [
+   "g",
+   "Lagopus lagopus",
+   "Salix glauca"
+  ],
+  "bilberry>ptarmigan": [
+   "g",
+   "Lagopus lagopus",
+   "Vaccinium uliginosum"
+  ],
+  "sedge>vole": [
+   "a"
+  ],
+  "sedge>squirrel": [
+   "a"
+  ],
+  "sedge>brownbear": [
+   "gg",
+   "Ursus arctos",
+   "Carex"
+  ],
+  "bilberry>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Vaccinium uliginosum"
+  ],
+  "phyto>zoo": [
+   "a"
+  ],
+  "zoo>sockeye": [
+   "g",
+   "Oncorhynchus nerka",
+   "Daphnia"
+  ],
+  "sockeye>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Oncorhynchus nerka"
+  ],
+  "sockeye>wolf": [
+   "gg",
+   "Canis lupus",
+   "Oncorhynchus nerka"
+  ],
+  "vole>stoat": [
+   "g",
+   "Mustela erminea",
+   "Microtus oeconomus"
+  ],
+  "vole>gull": [
+   "g",
+   "Larus canus",
+   "Microtus oeconomus"
+  ],
+  "vole>wolf": [
+   "g",
+   "Canis lupus",
+   "Microtus oeconomus"
+  ],
+  "vole>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Microtus oeconomus"
+  ],
+  "hare>lynx": [
+   "g",
+   "Lynx canadensis",
+   "Lepus americanus"
+  ],
+  "hare>wolf": [
+   "g",
+   "Canis lupus",
+   "Lepus americanus"
+  ],
+  "hare>stoat": [
+   "g",
+   "Mustela erminea",
+   "Lepus americanus"
+  ],
+  "ptarmigan>stoat": [
+   "g",
+   "Mustela erminea",
+   "Lagopus lagopus"
+  ],
+  "ptarmigan>wolf": [
+   "g",
+   "Canis lupus",
+   "Lagopus lagopus"
+  ],
+  "ptarmigan>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Lagopus lagopus"
+  ],
+  "squirrel>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Urocitellus parryii"
+  ],
+  "caribou>wolf": [
+   "g",
+   "Canis lupus",
+   "Rangifer tarandus"
+  ],
+  "caribou>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Rangifer tarandus"
+  ],
+  "moose>wolf": [
+   "g",
+   "Canis lupus",
+   "Alces alces"
+  ],
+  "moose>brownbear": [
+   "g",
+   "Ursus arctos",
+   "Alces alces"
+  ],
+  "stoat>wolf": [
+   "g",
+   "Canis lupus",
+   "Mustela erminea"
+  ],
+  "lynx>wolf": [
+   "g",
+   "Canis lupus",
+   "Lynx canadensis"
+  ],
+  "stoat>raven": [
+   "g",
+   "Corvus corax",
+   "Mustela erminea"
+  ],
+  "sockeye>gull": [
+   "a"
+  ],
+  "sockeye>raven": [
+   "gg",
+   "Corvus corax",
+   "Oncorhynchus nerka"
+  ],
+  "caribou>raven": [
+   "a"
+  ],
+  "moose>raven": [
+   "g",
+   "Corvus corax",
+   "Alces alces"
+  ],
+  "sedge>ptarmigan": [
+   "ga",
+   "Lagopus lagopus",
+   "Carex"
+  ],
+  "bilberry>raven": [
+   "ga",
+   "Corvus corax",
+   "Vaccinium uliginosum"
+  ],
+  "vole>raven": [
+   "ga",
+   "Corvus corax",
+   "Microtus oeconomus"
+  ],
+  "ptarmigan>raven": [
+   "ga",
+   "Corvus corax",
+   "Lagopus lagopus"
+  ],
+  "hare>raven": [
+   "ga",
+   "Corvus corax",
+   "Lepus americanus"
+  ],
+  "gull>wolf": [
+   "ga",
+   "Canis lupus",
+   "Larus canus"
+  ],
+  "raven>wolf": [
+   "ga",
+   "Canis lupus",
+   "Corvus corax"
+  ]
+ }
+}

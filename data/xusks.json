@@ -1,0 +1,830 @@
+{
+ "id": "xusks",
+ "name": "Konza Prairie and the Flint Hills",
+ "short": "Flint Hills",
+ "place": "Kansas, USA",
+ "lat": 39.1,
+ "lon": -96.6,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Kansas"
+ ],
+ "kind": "Grassland",
+ "park": true,
+ "blurb": "Bluestem, bison and spring fire in the last great tallgrass prairie.",
+ "tip": {
+  "id": "fire",
+  "title": "Take away fire",
+  "text": "Fire stops trees taking over. Set Fire to -100% and watch the grasses, then the bison, grasshoppers and prairie chickens that rely on them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Konza Prairie Biological Station",
+   "url": "https://en.wikipedia.org/wiki/Konza_Prairie_Biological_Station"
+  },
+  {
+   "title": "Wikipedia: Flint Hills",
+   "url": "https://en.wikipedia.org/wiki/Flint_Hills"
+  },
+  {
+   "title": "Wikipedia: Tallgrass prairie",
+   "url": "https://en.wikipedia.org/wiki/Tallgrass_prairie"
+  },
+  {
+   "title": "Wikipedia: Greater prairie chicken",
+   "url": "https://en.wikipedia.org/wiki/Greater_prairie_chicken"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Konza Prairie Biological Station",
+ "icon": "grass",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "bluestem",
+   "name": "Big bluestem",
+   "latin": "Andropogon gerardi",
+   "tl": 1,
+   "xh": 0.08,
+   "wiki": "Andropogon gerardi",
+   "desc": "The dominant tall grass of the Flint Hills prairie, and the main forage for grazing bison and cattle.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "indian",
+   "name": "Indiangrass",
+   "latin": "Sorghastrum nutans",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "Sorghastrum nutans",
+   "desc": "A tall warm-season grass that grows alongside big bluestem and is grazed by bison.",
+   "ic": "grass"
+  },
+  {
+   "id": "little",
+   "name": "Little bluestem",
+   "latin": "Schizachyrium scoparium",
+   "tl": 1,
+   "xh": 0.48,
+   "wiki": "Schizachyrium scoparium",
+   "desc": "A shorter bunchgrass found on the thin, rocky upland soils of the Flint Hills.",
+   "ic": "grass"
+  },
+  {
+   "id": "forbs",
+   "name": "Prairie wildflowers",
+   "latin": "Silphium laciniatum",
+   "tl": 1,
+   "xh": 0.68,
+   "wiki": "Silphium laciniatum",
+   "desc": "Compass plant, gayfeather, milkweed and many other wildflowers add most of the prairie plant diversity and feed insects and browsers.",
+   "ic": "sage"
+  },
+  {
+   "id": "cedar",
+   "name": "Eastern red cedar",
+   "latin": "Juniperus virginiana",
+   "tl": 1,
+   "xh": 0.88,
+   "wiki": "Juniperus virginiana",
+   "desc": "A woody tree that spreads into unburned prairie; the Flint Hills are threatened by this woody encroachment.",
+   "ic": "willow"
+  },
+  {
+   "id": "bison",
+   "name": "American bison",
+   "latin": "Bison bison",
+   "tl": 2,
+   "xh": 0.04,
+   "wiki": "American bison",
+   "desc": "A herd of about 200 bison grazes part of Konza Prairie. Wikipedia notes bison once grazed the region in huge numbers before being nearly wiped out.",
+   "ic": "bison",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "deer",
+   "name": "White-tailed deer",
+   "latin": "Odocoileus virginianus",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "White-tailed deer",
+   "desc": "Often present in large numbers at Konza. It browses wildflowers and shrubs, and its droppings add nutrients to the soil.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "cottontail",
+   "name": "Eastern cottontail",
+   "latin": "Sylvilagus floridanus",
+   "tl": 2,
+   "xh": 0.3,
+   "wiki": "Eastern cottontail",
+   "desc": "A common small grazer of grasses and wildflowers, and prey for many of the prairie predators.",
+   "ic": "quad"
+  },
+  {
+   "id": "vole",
+   "name": "Prairie vole",
+   "latin": "Microtus ochrogaster",
+   "tl": 2,
+   "xh": 0.43,
+   "wiki": "Prairie vole",
+   "desc": "A small grass-eating rodent that is well recorded around the park and is a staple prey of hawks and coyotes.",
+   "ic": "vole"
+  },
+  {
+   "id": "hopper",
+   "name": "Grasshoppers",
+   "latin": "Acrididae",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Grasshopper",
+   "desc": "Leaf-eating insects that are abundant in grassland and feed birds, reptiles and small mammals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "chicken",
+   "name": "Greater prairie chicken",
+   "latin": "Tympanuchus cupido",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Greater prairie chicken",
+   "desc": "Eats seeds and fruit, plus insects such as grasshoppers in summer. The Flint Hills are known for it, and raccoons and other mesopredators take many eggs.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "meadowlark",
+   "name": "Eastern meadowlark",
+   "latin": "Sturnella magna",
+   "tl": 2,
+   "xh": 0.85,
+   "wiki": "Eastern meadowlark",
+   "desc": "A grassland songbird recorded often near the park that eats insects and seeds.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raccoon",
+   "name": "Raccoon",
+   "latin": "Procyon lotor",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Raccoon",
+   "desc": "An omnivore. Wikipedia notes mesopredators such as raccoons raise prairie-chicken egg losses.",
+   "ic": "quad"
+  },
+  {
+   "id": "ratsnake",
+   "name": "Black rat snake",
+   "latin": "Pantherophis obsoletus",
+   "tl": 3,
+   "xh": 0.34,
+   "wiki": "Pantherophis obsoletus",
+   "desc": "A constrictor that eats rodents, rabbits and birds; GloBI records it feeding on rabbits and cotton rats.",
+   "ic": "snake"
+  },
+  {
+   "id": "hawk",
+   "name": "Red-tailed hawk",
+   "latin": "Buteo jamaicensis",
+   "tl": 3,
+   "xh": 0.58,
+   "wiki": "Red-tailed hawk",
+   "desc": "A common raptor hunting voles, rabbits and ground birds over open prairie.",
+   "ic": "hawk"
+  },
+  {
+   "id": "vulture",
+   "name": "Turkey vulture",
+   "latin": "Cathartes aura",
+   "tl": 3,
+   "xh": 0.84,
+   "wiki": "Turkey vulture",
+   "desc": "Scavenges carcasses such as deer and rabbits, returning their energy to the web.",
+   "ic": "hawk"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 4,
+   "xh": 0.32,
+   "wiki": "Coyote",
+   "desc": "The prairie's main wide-ranging carnivore, eating rabbits, rodents, insects and fawns.",
+   "ic": "coyote"
+  },
+  {
+   "id": "bobcat",
+   "name": "Bobcat",
+   "latin": "Lynx rufus",
+   "tl": 4,
+   "xh": 0.68,
+   "wiki": "Bobcat",
+   "desc": "A solitary cat that preys on rabbits, rodents and young deer.",
+   "ic": "lion"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Sun",
+   "desc": "Warm-season grasses grow fastest in summer sun.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Rainfall",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "wiki": "Rain",
+   "desc": "Konza receives roughly 835 mm of rain a year, enough to support woodland if fire and grazing did not hold it back.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "fire",
+   "name": "Fire",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Controlled burn",
+   "desc": "Fire keeps trees off the prairie and recycles nutrients; Flint Hills ranchers burn each spring to renew the grass.",
+   "ic": "fire",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Prairie soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.7,
+   "wiki": "Soil",
+   "desc": "Deep loess and organic-rich soils hold nutrients; urine and dung from grazers add nitrogen.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, insects & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "wiki": "Decomposer",
+   "desc": "Break down dead grass, dung and carcasses and return nutrients to the soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "bluestem",
+   "r"
+  ],
+  [
+   "rain",
+   "bluestem",
+   "r"
+  ],
+  [
+   "soil",
+   "bluestem",
+   "r"
+  ],
+  [
+   "sun",
+   "indian",
+   "r"
+  ],
+  [
+   "rain",
+   "indian",
+   "r"
+  ],
+  [
+   "soil",
+   "indian",
+   "r"
+  ],
+  [
+   "sun",
+   "little",
+   "r"
+  ],
+  [
+   "rain",
+   "little",
+   "r"
+  ],
+  [
+   "soil",
+   "little",
+   "r"
+  ],
+  [
+   "sun",
+   "forbs",
+   "r"
+  ],
+  [
+   "rain",
+   "forbs",
+   "r"
+  ],
+  [
+   "soil",
+   "forbs",
+   "r"
+  ],
+  [
+   "sun",
+   "cedar",
+   "r"
+  ],
+  [
+   "rain",
+   "cedar",
+   "r"
+  ],
+  [
+   "soil",
+   "cedar",
+   "r"
+  ],
+  [
+   "fire",
+   "bluestem",
+   "r"
+  ],
+  [
+   "fire",
+   "indian",
+   "r"
+  ],
+  [
+   "fire",
+   "little",
+   "r"
+  ],
+  [
+   "fire",
+   "forbs",
+   "r"
+  ],
+  [
+   "bluestem",
+   "bison"
+  ],
+  [
+   "indian",
+   "bison"
+  ],
+  [
+   "little",
+   "bison"
+  ],
+  [
+   "bluestem",
+   "vole"
+  ],
+  [
+   "indian",
+   "vole"
+  ],
+  [
+   "little",
+   "vole"
+  ],
+  [
+   "bluestem",
+   "cottontail"
+  ],
+  [
+   "little",
+   "cottontail"
+  ],
+  [
+   "forbs",
+   "cottontail"
+  ],
+  [
+   "forbs",
+   "deer"
+  ],
+  [
+   "cedar",
+   "deer"
+  ],
+  [
+   "bluestem",
+   "hopper"
+  ],
+  [
+   "indian",
+   "hopper"
+  ],
+  [
+   "little",
+   "hopper"
+  ],
+  [
+   "forbs",
+   "hopper"
+  ],
+  [
+   "bluestem",
+   "chicken"
+  ],
+  [
+   "indian",
+   "chicken"
+  ],
+  [
+   "forbs",
+   "chicken"
+  ],
+  [
+   "hopper",
+   "chicken"
+  ],
+  [
+   "hopper",
+   "meadowlark"
+  ],
+  [
+   "indian",
+   "meadowlark"
+  ],
+  [
+   "bluestem",
+   "meadowlark"
+  ],
+  [
+   "hopper",
+   "raccoon"
+  ],
+  [
+   "chicken",
+   "raccoon"
+  ],
+  [
+   "cottontail",
+   "ratsnake"
+  ],
+  [
+   "vole",
+   "ratsnake"
+  ],
+  [
+   "cottontail",
+   "hawk"
+  ],
+  [
+   "vole",
+   "hawk"
+  ],
+  [
+   "hopper",
+   "hawk"
+  ],
+  [
+   "chicken",
+   "hawk"
+  ],
+  [
+   "meadowlark",
+   "hawk"
+  ],
+  [
+   "cottontail",
+   "coyote"
+  ],
+  [
+   "vole",
+   "coyote"
+  ],
+  [
+   "deer",
+   "coyote"
+  ],
+  [
+   "hopper",
+   "coyote"
+  ],
+  [
+   "chicken",
+   "coyote"
+  ],
+  [
+   "raccoon",
+   "coyote"
+  ],
+  [
+   "cottontail",
+   "bobcat"
+  ],
+  [
+   "vole",
+   "bobcat"
+  ],
+  [
+   "deer",
+   "bobcat"
+  ],
+  [
+   "chicken",
+   "bobcat"
+  ],
+  [
+   "deer",
+   "vulture",
+   "s"
+  ],
+  [
+   "cottontail",
+   "vulture",
+   "s"
+  ],
+  [
+   "bison",
+   "vulture",
+   "s"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "bluestem",
+   "decomp",
+   "d"
+  ],
+  [
+   "indian",
+   "decomp",
+   "d"
+  ],
+  [
+   "little",
+   "decomp",
+   "d"
+  ],
+  [
+   "forbs",
+   "decomp",
+   "d"
+  ],
+  [
+   "cedar",
+   "decomp",
+   "d"
+  ],
+  [
+   "bison",
+   "decomp",
+   "d"
+  ],
+  [
+   "deer",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "little",
+   "meadowlark"
+  ],
+  [
+   "deer",
+   "raccoon"
+  ],
+  [
+   "cottontail",
+   "raccoon"
+  ],
+  [
+   "deer",
+   "hawk"
+  ],
+  [
+   "meadowlark",
+   "coyote"
+  ],
+  [
+   "raccoon",
+   "bobcat"
+  ]
+ ],
+ "ev": {
+  "bluestem>bison": [
+   "a"
+  ],
+  "indian>bison": [
+   "a"
+  ],
+  "little>bison": [
+   "a"
+  ],
+  "bluestem>vole": [
+   "a"
+  ],
+  "indian>vole": [
+   "a"
+  ],
+  "little>vole": [
+   "a"
+  ],
+  "bluestem>cottontail": [
+   "a"
+  ],
+  "little>cottontail": [
+   "a"
+  ],
+  "forbs>cottontail": [
+   "a"
+  ],
+  "forbs>deer": [
+   "a"
+  ],
+  "cedar>deer": [
+   "g",
+   "Odocoileus virginianus",
+   "Juniperus virginiana"
+  ],
+  "bluestem>hopper": [
+   "a"
+  ],
+  "indian>hopper": [
+   "a"
+  ],
+  "little>hopper": [
+   "a"
+  ],
+  "forbs>hopper": [
+   "a"
+  ],
+  "bluestem>chicken": [
+   "a"
+  ],
+  "indian>chicken": [
+   "a"
+  ],
+  "forbs>chicken": [
+   "a"
+  ],
+  "hopper>chicken": [
+   "a"
+  ],
+  "hopper>meadowlark": [
+   "g",
+   "Sturnella magna",
+   "Acrididae"
+  ],
+  "indian>meadowlark": [
+   "a"
+  ],
+  "bluestem>meadowlark": [
+   "a"
+  ],
+  "hopper>raccoon": [
+   "a"
+  ],
+  "chicken>raccoon": [
+   "a"
+  ],
+  "cottontail>ratsnake": [
+   "g",
+   "Pantherophis obsoletus",
+   "Sylvilagus floridanus"
+  ],
+  "vole>ratsnake": [
+   "gg",
+   "Pantherophis obsoletus",
+   "Microtus ochrogaster"
+  ],
+  "cottontail>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Sylvilagus floridanus"
+  ],
+  "vole>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Microtus ochrogaster"
+  ],
+  "hopper>hawk": [
+   "g",
+   "Buteo jamaicensis",
+   "Acrididae"
+  ],
+  "chicken>hawk": [
+   "gg",
+   "Buteo jamaicensis",
+   "Tympanuchus cupido"
+  ],
+  "meadowlark>hawk": [
+   "gg",
+   "Buteo jamaicensis",
+   "Sturnella magna"
+  ],
+  "cottontail>coyote": [
+   "g",
+   "Canis latrans",
+   "Sylvilagus floridanus"
+  ],
+  "vole>coyote": [
+   "g",
+   "Canis latrans",
+   "Microtus ochrogaster"
+  ],
+  "deer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus virginianus"
+  ],
+  "hopper>coyote": [
+   "g",
+   "Canis latrans",
+   "Acrididae"
+  ],
+  "chicken>coyote": [
+   "a"
+  ],
+  "raccoon>coyote": [
+   "g",
+   "Canis latrans",
+   "Procyon lotor"
+  ],
+  "cottontail>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Sylvilagus floridanus"
+  ],
+  "vole>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Microtus ochrogaster"
+  ],
+  "deer>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Odocoileus virginianus"
+  ],
+  "chicken>bobcat": [
+   "a"
+  ],
+  "deer>vulture": [
+   "g",
+   "Cathartes aura",
+   "Odocoileus virginianus"
+  ],
+  "cottontail>vulture": [
+   "g",
+   "Cathartes aura",
+   "Sylvilagus floridanus"
+  ],
+  "bison>vulture": [
+   "a"
+  ],
+  "little>meadowlark": [
+   "ga",
+   "Sturnella magna",
+   "Schizachyrium scoparium"
+  ],
+  "deer>raccoon": [
+   "ga",
+   "Procyon lotor",
+   "Odocoileus virginianus"
+  ],
+  "cottontail>raccoon": [
+   "ga",
+   "Procyon lotor",
+   "Sylvilagus floridanus"
+  ],
+  "deer>hawk": [
+   "ga",
+   "Buteo jamaicensis",
+   "Odocoileus virginianus"
+  ],
+  "meadowlark>coyote": [
+   "ga",
+   "Canis latrans",
+   "Sturnella magna"
+  ],
+  "raccoon>bobcat": [
+   "ga",
+   "Lynx rufus",
+   "Procyon lotor"
+  ]
+ }
+}

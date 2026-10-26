@@ -1,0 +1,730 @@
+{
+ "id": "xuzb",
+ "name": "Nuratau-Kyzylkum Biosphere Reserve",
+ "short": "Nuratau-Kyzylkum",
+ "place": "Uzbekistan",
+ "lat": 40.7,
+ "lon": 66.6,
+ "side": "r",
+ "cont": "Asia",
+ "country": "Uzbekistan",
+ "blurb": "Wild sheep, vultures and almond groves where the Nuratau range meets the desert.",
+ "tip": {
+  "id": "rain",
+  "title": "Take away the spring rain",
+  "text": "Spring moisture drives the grasses and milkvetches. Set Spring rain to -100% and watch argali and hares, then the wolves, foxes and vultures that depend on them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Nuratau Mountains",
+   "url": "https://en.wikipedia.org/wiki/Nuratau_Mountains"
+  },
+  {
+   "title": "Key Biodiversity Areas: Nuratau Range",
+   "url": "https://www.keybiodiversityareas.org/site/factsheet/20676"
+  },
+  {
+   "title": "Uzbekistan government: The Nurata State Reserve",
+   "url": "https://gov.uz/en/eco/news/view/22697"
+  },
+  {
+   "title": "Wikipedia: Argali",
+   "url": "https://en.wikipedia.org/wiki/Argali"
+  },
+  {
+   "title": "Wikipedia: Long-legged buzzard",
+   "url": "https://en.wikipedia.org/wiki/Long-legged_buzzard"
+  },
+  {
+   "title": "Wikipedia: Cinereous vulture",
+   "url": "https://en.wikipedia.org/wiki/Cinereous_vulture"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Nuratau Mountains",
+ "icon": "sage",
+ "tier": "overview",
+ "kind": "Desert",
+ "park": true,
+ "nodes": [
+  {
+   "id": "almond",
+   "name": "Bukhara almond",
+   "latin": "Prunus bucharica",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Prunus bucharica",
+   "desc": "A wild almond of the Central Asian foothills that grows at roughly 1,000 to 1,800 m. The cinereous vulture nests in Bukhara almond trees in this range, per the Key Biodiversity Areas factsheet.",
+   "ic": "willow"
+  },
+  {
+   "id": "walnut",
+   "name": "Wild walnut",
+   "latin": "Juglans regia",
+   "tl": 1,
+   "xh": 0.34,
+   "wiki": "Juglans regia",
+   "desc": "Feral walnut trees grow in the river flood-land forests of the reserve. The nuts are a rich food for animals such as wild boar.",
+   "ic": "aspen"
+  },
+  {
+   "id": "vetch",
+   "name": "Milkvetches",
+   "latin": "Oxytropis, Astragalus",
+   "tl": 1,
+   "xh": 0.56,
+   "wiki": "Oxytropis",
+   "desc": "Many Oxytropis and Astragalus species are recorded in the Nuratau slopes, some of them local endemics. Their leaves and seeds feed herbivores.",
+   "ic": "sage"
+  },
+  {
+   "id": "grass",
+   "name": "Steppe grasses",
+   "latin": "Taeniatherum caput-medusae",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Taeniatherum caput-medusae",
+   "desc": "Grasses and sedges cover about 45% of the Nuratau site (grassland), growing fast in the damp spring. They are the main forage on the lower slopes and desert fringe.",
+   "ic": "grass"
+  },
+  {
+   "id": "argali",
+   "name": "Severtsov argali",
+   "latin": "Ovis ammon",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Argali",
+   "desc": "A wild mountain sheep. The Nuratau-Kyzylkum reserve is said to hold the only wild population of the Severtsov subspecies. Wikipedia names wolves as the main argali predators.",
+   "ic": "quad",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "boar",
+   "name": "Wild boar",
+   "latin": "Sus scrofa",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Wild boar",
+   "desc": "An omnivore that roots for plant foods, nuts and small animals. Listed among the mammals of the Nurata reserve.",
+   "ic": "quad"
+  },
+  {
+   "id": "hare",
+   "name": "Tolai hare",
+   "latin": "Lepus tolai",
+   "tl": 2,
+   "xh": 0.35,
+   "wiki": "Tolai hare",
+   "desc": "A hare of Central Asian steppe and desert that eats grasses and herbs. It is common prey for foxes and buzzards.",
+   "ic": "vole"
+  },
+  {
+   "id": "squirrel",
+   "name": "Yellow ground squirrel",
+   "latin": "Spermophilus fulvus",
+   "tl": 2,
+   "xh": 0.5,
+   "wiki": "Yellow ground squirrel",
+   "desc": "A large burrowing ground squirrel of Central Asian deserts and steppe. It eats plants and is prey for raptors and foxes.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "chukar",
+   "name": "Chukar",
+   "latin": "Alectoris chukar",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Chukar partridge",
+   "desc": "A rocky-slope game bird that eats seeds, leaves and some insects. Well recorded in the reserve area, and prey for eagles, buzzards and foxes.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "cricket",
+   "name": "Bush-cricket",
+   "latin": "Tettigonia caudata",
+   "tl": 2,
+   "xh": 0.82,
+   "wiki": "Tettigonia caudata",
+   "desc": "A large bush-cricket of dry shrubby ground. It chews leaves and some other insects and feeds lizards and bats.",
+   "ic": "hopper"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Red fox",
+   "desc": "An adaptable predator and scavenger. GloBI records it eating many of the birds, hares and lizards of the area.",
+   "ic": "fox"
+  },
+  {
+   "id": "booted",
+   "name": "Booted eagle",
+   "latin": "Hieraaetus pennatus",
+   "tl": 3,
+   "xh": 0.22,
+   "wiki": "Booted eagle",
+   "desc": "A small eagle that hunts birds, lizards and small mammals. GloBI records link it to chukar, ground squirrels and many small birds.",
+   "ic": "hawk"
+  },
+  {
+   "id": "glass",
+   "name": "European glass lizard",
+   "latin": "Pseudopus apodus",
+   "tl": 3,
+   "xh": 0.36,
+   "wiki": "Pseudopus apodus",
+   "desc": "A big legless lizard that eats insects, snails and small vertebrates, including other lizards in GloBI records.",
+   "ic": "snake"
+  },
+  {
+   "id": "racer",
+   "name": "Central Asian racerunner",
+   "latin": "Eremias velox",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Eremias velox",
+   "desc": "A quick small lizard of sandy and stony ground, commonly recorded here. Racerunners generally eat insects.",
+   "ic": "snake"
+  },
+  {
+   "id": "griffon",
+   "name": "Eurasian griffon",
+   "latin": "Gyps fulvus",
+   "tl": 3,
+   "xh": 0.66,
+   "wiki": "Griffon vulture",
+   "desc": "A cliff-nesting vulture that feeds on carcasses of large animals. It is listed in the Uzbekistan Red Data Book as a breeder in the range.",
+   "ic": "hawk"
+  },
+  {
+   "id": "cinereous",
+   "name": "Cinereous vulture",
+   "latin": "Aegypius monachus",
+   "tl": 3,
+   "xh": 0.86,
+   "wiki": "Cinereous vulture",
+   "desc": "A huge vulture that eats mainly carrion, including carcasses of wild sheep and domestic livestock. Globally threatened, and it breeds in the Nuratau range.",
+   "ic": "hawk"
+  },
+  {
+   "id": "wolf",
+   "name": "Grey wolf",
+   "latin": "Canis lupus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Wolf",
+   "desc": "Listed among the mammals of the Nurata reserve. Wikipedia names wolves as the main predators of argali, especially in hard winters.",
+   "ic": "wolf"
+  },
+  {
+   "id": "buzzard",
+   "name": "Long-legged buzzard",
+   "latin": "Buteo rufinus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Long-legged buzzard",
+   "desc": "A raptor of open dry steppe and rocky country. It takes ground squirrels, hares, lizards and chukars, and nests on cliffs.",
+   "ic": "hawk"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "wiki": "Sun",
+   "desc": "Long, hot, dry summers drive the desert and foothill plants.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Spring rain & snowmelt",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.32,
+   "wiki": "Rain",
+   "desc": "Moisture comes mainly in the cooler months, so plant growth surges in spring and slows in the hot dry summer.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "soil",
+   "name": "Rocky shale & desert soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "wiki": "Soil",
+   "desc": "The Nurata range is mostly shales, sandstone and limestone, with soils thin and dry in places.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Soil microbes & beetles",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.82,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants, dung and carcasses and return nutrients to the thin dry soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "almond",
+   "r"
+  ],
+  [
+   "rain",
+   "almond",
+   "r"
+  ],
+  [
+   "soil",
+   "almond",
+   "r"
+  ],
+  [
+   "almond",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "walnut",
+   "r"
+  ],
+  [
+   "rain",
+   "walnut",
+   "r"
+  ],
+  [
+   "soil",
+   "walnut",
+   "r"
+  ],
+  [
+   "walnut",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "vetch",
+   "r"
+  ],
+  [
+   "rain",
+   "vetch",
+   "r"
+  ],
+  [
+   "soil",
+   "vetch",
+   "r"
+  ],
+  [
+   "vetch",
+   "decomp",
+   "d"
+  ],
+  [
+   "sun",
+   "grass",
+   "r"
+  ],
+  [
+   "rain",
+   "grass",
+   "r"
+  ],
+  [
+   "soil",
+   "grass",
+   "r"
+  ],
+  [
+   "grass",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "almond",
+   "argali"
+  ],
+  [
+   "walnut",
+   "boar"
+  ],
+  [
+   "almond",
+   "boar"
+  ],
+  [
+   "vetch",
+   "argali"
+  ],
+  [
+   "grass",
+   "argali"
+  ],
+  [
+   "grass",
+   "boar"
+  ],
+  [
+   "grass",
+   "hare"
+  ],
+  [
+   "vetch",
+   "hare"
+  ],
+  [
+   "grass",
+   "squirrel"
+  ],
+  [
+   "vetch",
+   "squirrel"
+  ],
+  [
+   "vetch",
+   "chukar"
+  ],
+  [
+   "grass",
+   "chukar"
+  ],
+  [
+   "vetch",
+   "cricket"
+  ],
+  [
+   "grass",
+   "cricket"
+  ],
+  [
+   "argali",
+   "wolf"
+  ],
+  [
+   "boar",
+   "wolf"
+  ],
+  [
+   "hare",
+   "wolf"
+  ],
+  [
+   "hare",
+   "fox"
+  ],
+  [
+   "hare",
+   "buzzard"
+  ],
+  [
+   "squirrel",
+   "fox"
+  ],
+  [
+   "squirrel",
+   "buzzard"
+  ],
+  [
+   "squirrel",
+   "booted"
+  ],
+  [
+   "chukar",
+   "fox"
+  ],
+  [
+   "chukar",
+   "booted"
+  ],
+  [
+   "chukar",
+   "buzzard"
+  ],
+  [
+   "cricket",
+   "racer"
+  ],
+  [
+   "racer",
+   "glass"
+  ],
+  [
+   "racer",
+   "fox"
+  ],
+  [
+   "racer",
+   "buzzard"
+  ],
+  [
+   "glass",
+   "fox"
+  ],
+  [
+   "cricket",
+   "glass"
+  ],
+  [
+   "argali",
+   "griffon"
+  ],
+  [
+   "argali",
+   "cinereous"
+  ],
+  [
+   "boar",
+   "griffon",
+   "s"
+  ],
+  [
+   "argali",
+   "decomp",
+   "d"
+  ],
+  [
+   "boar",
+   "decomp",
+   "d"
+  ],
+  [
+   "griffon",
+   "decomp",
+   "d"
+  ],
+  [
+   "wolf",
+   "decomp",
+   "d"
+  ],
+  [
+   "argali",
+   "fox"
+  ],
+  [
+   "boar",
+   "fox"
+  ],
+  [
+   "cricket",
+   "fox"
+  ],
+  [
+   "squirrel",
+   "glass"
+  ],
+  [
+   "squirrel",
+   "wolf"
+  ],
+  [
+   "chukar",
+   "wolf"
+  ],
+  [
+   "fox",
+   "wolf"
+  ],
+  [
+   "glass",
+   "wolf"
+  ]
+ ],
+ "ev": {
+  "almond>argali": [
+   "a"
+  ],
+  "walnut>boar": [
+   "a"
+  ],
+  "almond>boar": [
+   "gg",
+   "Sus scrofa",
+   "Prunus bucharica"
+  ],
+  "vetch>argali": [
+   "a"
+  ],
+  "grass>argali": [
+   "a"
+  ],
+  "grass>boar": [
+   "a"
+  ],
+  "grass>hare": [
+   "a"
+  ],
+  "vetch>hare": [
+   "a"
+  ],
+  "grass>squirrel": [
+   "a"
+  ],
+  "vetch>squirrel": [
+   "a"
+  ],
+  "vetch>chukar": [
+   "a"
+  ],
+  "grass>chukar": [
+   "a"
+  ],
+  "vetch>cricket": [
+   "a"
+  ],
+  "grass>cricket": [
+   "a"
+  ],
+  "argali>wolf": [
+   "g",
+   "Canis lupus",
+   "Ovis ammon"
+  ],
+  "boar>wolf": [
+   "g",
+   "Canis lupus",
+   "Sus scrofa"
+  ],
+  "hare>wolf": [
+   "g",
+   "Canis lupus",
+   "Lepus tolai"
+  ],
+  "hare>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Lepus tolai"
+  ],
+  "hare>buzzard": [
+   "g",
+   "Buteo rufinus",
+   "Lepus tolai"
+  ],
+  "squirrel>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Spermophilus fulvus"
+  ],
+  "squirrel>buzzard": [
+   "g",
+   "Buteo rufinus",
+   "Spermophilus fulvus"
+  ],
+  "squirrel>booted": [
+   "g",
+   "Hieraaetus pennatus",
+   "Spermophilus fulvus"
+  ],
+  "chukar>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Alectoris chukar"
+  ],
+  "chukar>booted": [
+   "g",
+   "Hieraaetus pennatus",
+   "Alectoris chukar"
+  ],
+  "chukar>buzzard": [
+   "g",
+   "Buteo rufinus",
+   "Alectoris chukar"
+  ],
+  "cricket>racer": [
+   "a"
+  ],
+  "racer>glass": [
+   "g",
+   "Pseudopus apodus",
+   "Eremias velox"
+  ],
+  "racer>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Eremias velox"
+  ],
+  "racer>buzzard": [
+   "g",
+   "Buteo rufinus",
+   "Eremias velox"
+  ],
+  "glass>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Pseudopus apodus"
+  ],
+  "cricket>glass": [
+   "a"
+  ],
+  "argali>griffon": [
+   "gg",
+   "Gyps fulvus",
+   "Ovis ammon"
+  ],
+  "argali>cinereous": [
+   "a"
+  ],
+  "boar>griffon": [
+   "a"
+  ],
+  "argali>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Ovis ammon"
+  ],
+  "boar>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Sus scrofa"
+  ],
+  "cricket>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Tettigonia caudata"
+  ],
+  "squirrel>glass": [
+   "ga",
+   "Pseudopus apodus",
+   "Spermophilus fulvus"
+  ],
+  "squirrel>wolf": [
+   "ga",
+   "Canis lupus",
+   "Spermophilus fulvus"
+  ],
+  "chukar>wolf": [
+   "ga",
+   "Canis lupus",
+   "Alectoris chukar"
+  ],
+  "fox>wolf": [
+   "ga",
+   "Canis lupus",
+   "Vulpes vulpes"
+  ],
+  "glass>wolf": [
+   "ga",
+   "Canis lupus",
+   "Pseudopus apodus"
+  ]
+ }
+}

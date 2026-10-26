@@ -1,0 +1,18 @@
+{
+  "name": "connected-earth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Connected Earth: a map of food webs",
+  "scripts": {
+    "build": "python3 build/build.py --all",
+    "validate": "python3 build/validate.py",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "d3": "7.9.0",
+    "maplibre-gl": "4.7.1"
+  },
+  "devDependencies": {
+    "playwright": "1.49.1"
+  }
+}

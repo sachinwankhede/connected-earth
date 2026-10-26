@@ -1,0 +1,691 @@
+{
+ "id": "gulf",
+ "name": "Northern Gulf of Mexico",
+ "short": "Gulf of Mexico",
+ "place": "Louisiana and Texas coast, USA",
+ "lat": 28.8,
+ "lon": -91.0,
+ "side": "r",
+ "blurb": "Where the river ends: shrimp, menhaden, dolphins and the summer dead zone.",
+ "tip": {
+  "id": "oxygen",
+  "title": "Cut the oxygen",
+  "text": "Each summer, bacteria feeding on dead algae use up the oxygen near the sea floor. Cut Bottom-water oxygen by 80% and see which bottom dwellers suffer."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Gulf of Mexico dead zone",
+   "url": "https://en.wikipedia.org/wiki/Gulf_of_Mexico_dead_zone"
+  },
+  {
+   "title": "Wikipedia: Gulf of Mexico",
+   "url": "https://en.wikipedia.org/wiki/Gulf_of_Mexico"
+  },
+  {
+   "title": "Wikipedia: Gulf menhaden",
+   "url": "https://en.wikipedia.org/wiki/Gulf_menhaden"
+  },
+  {
+   "title": "Wikipedia: American white pelican",
+   "url": "https://en.wikipedia.org/wiki/American_white_pelican"
+  },
+  {
+   "title": "Wikipedia: Bottlenose dolphin",
+   "url": "https://en.wikipedia.org/wiki/Bottlenose_dolphin"
+  }
+ ],
+ "notes": "Feeding links were checked against the sources listed where they state them. Where the sources are silent, links come from general ecological knowledge and are illustrative. The what-if model can show the effect of less oxygen, but it cannot show the algal blooms that cause it. Feeding links that match a GloBI (Global Biotic Interactions) record are marked in the node details, with a link to the records. A few links were added from GloBI records.",
+ "nodes": [
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Diatoms and dinoflagellates",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting algae that bloom where river nutrients arrive. When a bloom dies and sinks, bacteria break it down and use up oxygen.",
+   "ic": "algae"
+  },
+  {
+   "id": "spartina",
+   "name": "Coastal marsh grass",
+   "latin": "Spartina alterniflora",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Spartina alterniflora",
+   "desc": "Fringe marshes that shelter young shrimp, crabs and fish.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "zoop",
+   "name": "Zooplankton",
+   "latin": "Copepods and larvae",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Zooplankton",
+   "desc": "Tiny grazers of phytoplankton. Adult menhaden and bay anchovies eat them.",
+   "ic": "mayfly"
+  },
+  {
+   "id": "menhaden",
+   "name": "Gulf menhaden",
+   "latin": "Brevoortia patronus",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Gulf menhaden",
+   "desc": "A filter feeder. Wikipedia says juveniles eat mainly phytoplankton and adults mainly zooplankton. A major forage fish for the Gulf.",
+   "ic": "trout"
+  },
+  {
+   "id": "anchovy",
+   "name": "Bay anchovy",
+   "latin": "Anchoa mitchilli",
+   "tl": 2,
+   "xh": 0.33,
+   "wiki": "Bay anchovy",
+   "desc": "A small schooling fish that eats zooplankton. Wikipedia notes anchovies may temporarily increase in hypoxic water.",
+   "ic": "trout"
+  },
+  {
+   "id": "oyster",
+   "name": "Eastern oyster",
+   "latin": "Crassostrea virginica",
+   "tl": 2,
+   "xh": 0.46,
+   "wiki": "Eastern oyster",
+   "desc": "Filters algae from the water. Wikipedia notes oysters face more disease under hypoxia.",
+   "ic": "shell"
+  },
+  {
+   "id": "worms",
+   "name": "Seafloor worms & clams",
+   "latin": "Polychaetes and bivalves",
+   "tl": 2,
+   "xh": 0.58,
+   "wiki": "Polychaeta",
+   "desc": "Bottom dwellers that feed on sinking algae and detritus. They suffocate when oxygen drops very low.",
+   "ic": "shell"
+  },
+  {
+   "id": "shrimp",
+   "name": "Brown shrimp",
+   "latin": "Farfantepenaeus aztecus",
+   "tl": 2,
+   "xh": 0.7,
+   "wiki": "Brown shrimp",
+   "desc": "Young shrimp grow in coastal marshes and then move offshore, where trawlers first reported the dead zone in 1950.",
+   "ic": "hopper"
+  },
+  {
+   "id": "croaker",
+   "name": "Atlantic croaker",
+   "latin": "Micropogonias undulatus",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Atlantic croaker",
+   "desc": "Hunts worms, small crustaceans and other bottom prey.",
+   "ic": "trout"
+  },
+  {
+   "id": "trout",
+   "name": "Spotted seatrout",
+   "latin": "Cynoscion nebulosus",
+   "tl": 3,
+   "xh": 0.26,
+   "wiki": "Spotted seatrout",
+   "desc": "Hunts shrimp, anchovies and small fish in bays and marsh edges.",
+   "ic": "trout"
+  },
+  {
+   "id": "redsnapper",
+   "name": "Red snapper",
+   "latin": "Lutjanus campechanus",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Red snapper",
+   "desc": "A reef fish and one of the Gulf's major catches. Eats shrimp, crabs and fish.",
+   "ic": "trout"
+  },
+  {
+   "id": "redfish",
+   "name": "Red drum",
+   "latin": "Sciaenops ocellatus",
+   "tl": 3,
+   "xh": 0.52,
+   "wiki": "Red drum",
+   "desc": "Hunts crabs, shrimp and fish in marshes and bays.",
+   "ic": "trout"
+  },
+  {
+   "id": "crab",
+   "name": "Blue crab",
+   "latin": "Callinectes sapidus",
+   "tl": 3,
+   "xh": 0.63,
+   "wiki": "Callinectes sapidus",
+   "desc": "An omnivore that eats oysters, worms and carrion.",
+   "ic": "ant"
+  },
+  {
+   "id": "jelly",
+   "name": "Sea nettle",
+   "latin": "Chrysaora quinquecirrha",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Chrysaora quinquecirrha",
+   "desc": "A jellyfish. Wikipedia says jellyfish can survive hypoxia and may increase when competitors and predators leave.",
+   "ic": "starfish"
+  },
+  {
+   "id": "turtle",
+   "name": "Kemp's ridley turtle",
+   "latin": "Lepidochelys kempii",
+   "tl": 3,
+   "xh": 0.83,
+   "wiki": "Kemp's ridley sea turtle",
+   "desc": "A small sea turtle that feeds mainly on crabs.",
+   "ic": "turtle"
+  },
+  {
+   "id": "pelican",
+   "name": "American white pelican",
+   "latin": "Pelecanus erythrorhynchos",
+   "tl": 3,
+   "xh": 0.94,
+   "wiki": "American white pelican",
+   "desc": "A winter visitor to Gulf bays and estuaries. Nests on lakes in the interior and also follows the Mississippi River in winter.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "dolphin",
+   "name": "Bottlenose dolphin",
+   "latin": "Tursiops truncatus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Bottlenose dolphin",
+   "desc": "Eats fish, shrimp and squid, often herding schools toward shore. Large sharks including bull sharks prey on it.",
+   "ic": "whale"
+  },
+  {
+   "id": "bullshark",
+   "name": "Bull shark",
+   "latin": "Carcharhinus leucas",
+   "tl": 4,
+   "xh": 0.68,
+   "wiki": "Bull shark",
+   "desc": "A coastal shark that enters estuaries and river mouths and eats fish and dolphins.",
+   "ic": "shark"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Warm, bright surface water lets blooms grow fast in summer.",
+   "ic": "sun"
+  },
+  {
+   "id": "plume",
+   "name": "River nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Nutrient pollution",
+   "desc": "Nitrogen and phosphorus carried by the Mississippi, mostly from farm runoff and sewage, fuel the summer blooms.",
+   "ic": "water"
+  },
+  {
+   "id": "oxygen",
+   "name": "Bottom-water oxygen",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.64,
+   "cat": "abiotic",
+   "wiki": "Hypoxia (environmental)",
+   "desc": "Warm, layered water traps oxygen-poor water near the bottom. Bottom dwellers that cannot leave suffocate when oxygen falls very low.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead algae. In summer this uses up bottom-water oxygen and creates the dead zone.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "sun",
+   "spartina",
+   "r"
+  ],
+  [
+   "plume",
+   "phyto",
+   "r"
+  ],
+  [
+   "plume",
+   "spartina",
+   "r"
+  ],
+  [
+   "oxygen",
+   "worms",
+   "r"
+  ],
+  [
+   "oxygen",
+   "oyster",
+   "r"
+  ],
+  [
+   "oxygen",
+   "shrimp",
+   "r"
+  ],
+  [
+   "oxygen",
+   "crab",
+   "r"
+  ],
+  [
+   "oxygen",
+   "croaker",
+   "r"
+  ],
+  [
+   "decomp",
+   "plume",
+   "r"
+  ],
+  [
+   "phyto",
+   "zoop"
+  ],
+  [
+   "phyto",
+   "menhaden"
+  ],
+  [
+   "phyto",
+   "oyster"
+  ],
+  [
+   "phyto",
+   "worms"
+  ],
+  [
+   "spartina",
+   "shrimp"
+  ],
+  [
+   "zoop",
+   "menhaden"
+  ],
+  [
+   "zoop",
+   "anchovy"
+  ],
+  [
+   "zoop",
+   "jelly"
+  ],
+  [
+   "menhaden",
+   "dolphin"
+  ],
+  [
+   "menhaden",
+   "pelican"
+  ],
+  [
+   "menhaden",
+   "bullshark"
+  ],
+  [
+   "menhaden",
+   "trout"
+  ],
+  [
+   "menhaden",
+   "redfish"
+  ],
+  [
+   "anchovy",
+   "trout"
+  ],
+  [
+   "anchovy",
+   "pelican"
+  ],
+  [
+   "oyster",
+   "crab"
+  ],
+  [
+   "worms",
+   "croaker"
+  ],
+  [
+   "worms",
+   "crab"
+  ],
+  [
+   "shrimp",
+   "trout"
+  ],
+  [
+   "shrimp",
+   "redfish"
+  ],
+  [
+   "shrimp",
+   "croaker"
+  ],
+  [
+   "shrimp",
+   "redsnapper"
+  ],
+  [
+   "crab",
+   "redfish"
+  ],
+  [
+   "crab",
+   "turtle"
+  ],
+  [
+   "croaker",
+   "dolphin"
+  ],
+  [
+   "croaker",
+   "bullshark"
+  ],
+  [
+   "trout",
+   "dolphin"
+  ],
+  [
+   "trout",
+   "bullshark"
+  ],
+  [
+   "redsnapper",
+   "dolphin"
+  ],
+  [
+   "redfish",
+   "dolphin"
+  ],
+  [
+   "redfish",
+   "bullshark"
+  ],
+  [
+   "dolphin",
+   "bullshark"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "spartina",
+   "decomp",
+   "d"
+  ],
+  [
+   "menhaden",
+   "decomp",
+   "d"
+  ],
+  [
+   "croaker",
+   "decomp",
+   "d"
+  ],
+  [
+   "menhaden",
+   "croaker"
+  ],
+  [
+   "anchovy",
+   "croaker"
+  ],
+  [
+   "oyster",
+   "croaker"
+  ],
+  [
+   "oyster",
+   "trout"
+  ],
+  [
+   "anchovy",
+   "redfish"
+  ],
+  [
+   "oyster",
+   "redfish"
+  ],
+  [
+   "anchovy",
+   "jelly"
+  ],
+  [
+   "anchovy",
+   "dolphin"
+  ],
+  [
+   "crab",
+   "dolphin"
+  ]
+ ],
+ "ly": 24,
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Louisiana",
+  "Texas"
+ ],
+ "imgwiki": "Gulf Islands National Seashore",
+ "icon": "whale",
+ "tier": "detailed",
+ "kind": "Coast & ocean",
+ "ev": {
+  "phyto>zoop": [
+   "a"
+  ],
+  "phyto>menhaden": [
+   "a"
+  ],
+  "phyto>oyster": [
+   "a"
+  ],
+  "phyto>worms": [
+   "a"
+  ],
+  "spartina>shrimp": [
+   "a"
+  ],
+  "zoop>menhaden": [
+   "a"
+  ],
+  "zoop>anchovy": [
+   "a"
+  ],
+  "zoop>jelly": [
+   "a"
+  ],
+  "menhaden>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Brevoortia patronus"
+  ],
+  "menhaden>pelican": [
+   "a"
+  ],
+  "menhaden>bullshark": [
+   "g",
+   "Carcharhinus leucas",
+   "Brevoortia patronus"
+  ],
+  "menhaden>trout": [
+   "g",
+   "Cynoscion nebulosus",
+   "Brevoortia patronus"
+  ],
+  "menhaden>redfish": [
+   "g",
+   "Sciaenops ocellatus",
+   "Brevoortia patronus"
+  ],
+  "anchovy>trout": [
+   "g",
+   "Cynoscion nebulosus",
+   "Anchoa mitchilli"
+  ],
+  "anchovy>pelican": [
+   "a"
+  ],
+  "oyster>crab": [
+   "g",
+   "Callinectes sapidus",
+   "Crassostrea virginica"
+  ],
+  "worms>croaker": [
+   "a"
+  ],
+  "worms>crab": [
+   "a"
+  ],
+  "shrimp>trout": [
+   "g",
+   "Cynoscion nebulosus",
+   "Farfantepenaeus aztecus"
+  ],
+  "shrimp>redfish": [
+   "g",
+   "Sciaenops ocellatus",
+   "Farfantepenaeus aztecus"
+  ],
+  "shrimp>croaker": [
+   "g",
+   "Micropogonias undulatus",
+   "Farfantepenaeus aztecus"
+  ],
+  "shrimp>redsnapper": [
+   "g",
+   "Lutjanus campechanus",
+   "Farfantepenaeus aztecus"
+  ],
+  "crab>redfish": [
+   "g",
+   "Sciaenops ocellatus",
+   "Callinectes sapidus"
+  ],
+  "crab>turtle": [
+   "g",
+   "Lepidochelys kempii",
+   "Callinectes sapidus"
+  ],
+  "croaker>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Micropogonias undulatus"
+  ],
+  "croaker>bullshark": [
+   "g",
+   "Carcharhinus leucas",
+   "Micropogonias undulatus"
+  ],
+  "trout>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Cynoscion nebulosus"
+  ],
+  "trout>bullshark": [
+   "gg",
+   "Carcharhinus leucas",
+   "Cynoscion nebulosus"
+  ],
+  "redsnapper>dolphin": [
+   "a"
+  ],
+  "redfish>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Sciaenops ocellatus"
+  ],
+  "redfish>bullshark": [
+   "a"
+  ],
+  "dolphin>bullshark": [
+   "gg",
+   "Carcharhinus leucas",
+   "Tursiops truncatus"
+  ],
+  "menhaden>croaker": [
+   "g",
+   "Micropogonias undulatus",
+   "Brevoortia patronus"
+  ],
+  "anchovy>croaker": [
+   "g",
+   "Micropogonias undulatus",
+   "Anchoa mitchilli"
+  ],
+  "oyster>croaker": [
+   "g",
+   "Micropogonias undulatus",
+   "Crassostrea virginica"
+  ],
+  "oyster>trout": [
+   "g",
+   "Cynoscion nebulosus",
+   "Crassostrea virginica"
+  ],
+  "anchovy>redfish": [
+   "g",
+   "Sciaenops ocellatus",
+   "Anchoa mitchilli"
+  ],
+  "oyster>redfish": [
+   "g",
+   "Sciaenops ocellatus",
+   "Crassostrea virginica"
+  ],
+  "anchovy>jelly": [
+   "g",
+   "Chrysaora quinquecirrha",
+   "Anchoa mitchilli"
+  ],
+  "anchovy>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Anchoa mitchilli"
+  ],
+  "crab>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Callinectes sapidus"
+  ]
+ }
+}

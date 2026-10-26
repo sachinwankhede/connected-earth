@@ -1,0 +1,672 @@
+{
+ "id": "xkerguelen",
+ "name": "Kerguelen Islands (French Southern Lands reserve)",
+ "short": "Kerguelen",
+ "place": "French Southern and Antarctic Lands",
+ "lat": -49.35,
+ "lon": 69.35,
+ "side": "r",
+ "cont": "Antarctica",
+ "country": "Fr. S. Antarctic Lands",
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Penguins, seals and albatrosses, plus rabbits and cats that reshaped the land.",
+ "tip": {
+  "id": "cat",
+  "title": "Remove the feral cats",
+  "text": "Set Feral cat to -100%. Rabbits lose a predator and rise, so Kerguelen cabbage, cushion plants and tussock are grazed harder, while king penguins lose a predator too."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Kerguelen Islands",
+   "url": "https://en.wikipedia.org/wiki/Kerguelen_Islands"
+  },
+  {
+   "title": "Wikipedia: Kerguelen cabbage",
+   "url": "https://en.wikipedia.org/wiki/Kerguelen_cabbage"
+  },
+  {
+   "title": "Wikipedia: King penguin",
+   "url": "https://en.wikipedia.org/wiki/King_penguin"
+  },
+  {
+   "title": "Wikipedia: Southern elephant seal",
+   "url": "https://en.wikipedia.org/wiki/Southern_elephant_seal"
+  },
+  {
+   "title": "Wikipedia: Antarctic fur seal",
+   "url": "https://en.wikipedia.org/wiki/Antarctic_fur_seal"
+  },
+  {
+   "title": "Wikipedia: Southern giant petrel",
+   "url": "https://en.wikipedia.org/wiki/Southern_giant_petrel"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Kerguelen Islands",
+ "icon": "seal",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Short, cool, often cloudy summers limit how much light reaches the plants and plankton that start the food web.",
+   "ic": "sun"
+  },
+  {
+   "id": "front",
+   "name": "Antarctic Convergence",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Antarctic Convergence",
+   "desc": "The Southern Ocean boundary where cold and warmer waters meet, which concentrates plankton and the fish and squid that feed on it.",
+   "ic": "water"
+  },
+  {
+   "id": "wetsoil",
+   "name": "Wet, windswept soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Kerguelen cabbage grows where soil water stays high, in a climate with constant wind.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Microbes and soil invertebrates break down dead plants, carcasses and seabird waste, returning nutrients to the soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "pringlea",
+   "name": "Kerguelen cabbage",
+   "latin": "Pringlea antiscorbutica",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Kerguelen cabbage",
+   "desc": "Edible cabbage-like plant of subantarctic islands. Introduced rabbits eat it, so it now survives mainly where rabbits cannot reach.",
+   "ic": "sage"
+  },
+  {
+   "id": "azorella",
+   "name": "Cushion azorella",
+   "latin": "Azorella selago",
+   "tl": 1,
+   "xh": 0.27,
+   "wiki": "Azorella selago",
+   "desc": "Compact cushion plant common in the islands fellfield and rocky ground, and eaten by introduced rabbits.",
+   "ic": "sage"
+  },
+  {
+   "id": "poa",
+   "name": "Cook's tussock grass",
+   "latin": "Poa cookii",
+   "tl": 1,
+   "xh": 0.44,
+   "wiki": "Poa",
+   "desc": "Tussock grass of subantarctic coasts and slopes. Introduced rabbits graze it.",
+   "ic": "grass"
+  },
+  {
+   "id": "phyto",
+   "name": "Phytoplankton",
+   "latin": "Microscopic algae",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Phytoplankton",
+   "desc": "Drifting microscopic algae of the surrounding Southern Ocean, the base of the marine food web.",
+   "ic": "algae"
+  },
+  {
+   "id": "rabbit",
+   "name": "European rabbit",
+   "latin": "Oryctolagus cuniculus",
+   "tl": 2,
+   "xh": 0.1,
+   "wiki": "European rabbit",
+   "desc": "Introduced around 1874. It grazes cabbage, cushion plants and grasses, and is prey for feral cats and skuas.",
+   "ic": "quad"
+  },
+  {
+   "id": "moth",
+   "name": "Kerguelen flightless moth",
+   "latin": "Pringleophaga kerguelensis",
+   "tl": 2,
+   "xh": 0.28,
+   "wiki": "Tineidae",
+   "desc": "Flightless moth whose larvae feed on Kerguelen cabbage, a major part of the native litter-feeding fauna.",
+   "ic": "hopper"
+  },
+  {
+   "id": "lantern",
+   "name": "Lanternfish",
+   "latin": "Electrona carlsbergi",
+   "tl": 2,
+   "xh": 0.6,
+   "wiki": "Lanternfish",
+   "desc": "Small, abundant deep-sea fish that rise toward the surface at night and are the staple food of king penguins and many other predators.",
+   "ic": "trout"
+  },
+  {
+   "id": "krill",
+   "name": "Krill and zooplankton",
+   "latin": "Euphausia",
+   "tl": 2,
+   "xh": 0.82,
+   "wiki": "Krill",
+   "desc": "Small shrimp-like crustaceans that graze phytoplankton and feed fish, penguins and seabirds.",
+   "ic": "hopper"
+  },
+  {
+   "id": "cat",
+   "name": "Feral cat",
+   "latin": "Felis catus",
+   "tl": 3,
+   "xh": 0.05,
+   "wiki": "Feral cat",
+   "desc": "Descended from ships cats. They hunt rabbits, mice and nesting seabirds, including penguins, on land.",
+   "ic": "lion"
+  },
+  {
+   "id": "skua",
+   "name": "Brown skua",
+   "latin": "Stercorarius antarcticus",
+   "tl": 3,
+   "xh": 0.17,
+   "wiki": "Brown skua",
+   "desc": "Predator, pirate and scavenger: takes penguin chicks, eggs, seabirds, rabbits, fish and carrion.",
+   "ic": "hawk"
+  },
+  {
+   "id": "petrel",
+   "name": "Southern giant petrel",
+   "latin": "Macronectes giganteus",
+   "tl": 3,
+   "xh": 0.29,
+   "wiki": "Southern giant petrel",
+   "desc": "Large petrel that kills penguin chicks and seabirds and scavenges carrion, notably from elephant seals.",
+   "ic": "hawk"
+  },
+  {
+   "id": "king",
+   "name": "King penguin",
+   "latin": "Aptenodytes patagonicus",
+   "tl": 3,
+   "xh": 0.42,
+   "wiki": "King penguin",
+   "desc": "Breeds in large colonies at Kerguelen, about 240,000 to 280,000 pairs. Eats mostly lanternfish and squid.",
+   "ic": "hawk"
+  },
+  {
+   "id": "gentoo",
+   "name": "Gentoo penguin",
+   "latin": "Pygoscelis papua",
+   "tl": 3,
+   "xh": 0.54,
+   "wiki": "Gentoo penguin",
+   "desc": "Penguin of subantarctic coasts that feeds on fish and crustaceans such as krill, and is hunted by leopard seals and orcas.",
+   "ic": "hawk"
+  },
+  {
+   "id": "albatross",
+   "name": "Black-browed albatross",
+   "latin": "Thalassarche melanophris",
+   "tl": 3,
+   "xh": 0.66,
+   "wiki": "Black-browed albatross",
+   "desc": "Albatross that breeds at Kerguelen and eats fish, squid, crustaceans, carrion and fishery discards.",
+   "ic": "hawk"
+  },
+  {
+   "id": "furseal",
+   "name": "Antarctic fur seal",
+   "latin": "Arctocephalus gazella",
+   "tl": 3,
+   "xh": 0.78,
+   "wiki": "Antarctic fur seal",
+   "desc": "At Kerguelen it feeds mostly on fish and squid rather than krill, and its numbers there are growing.",
+   "ic": "seal"
+  },
+  {
+   "id": "esl",
+   "name": "Southern elephant seal",
+   "latin": "Mirounga leonina",
+   "tl": 3,
+   "xh": 0.9,
+   "wiki": "Southern elephant seal",
+   "desc": "Dives deep for squid and fish. Kerguelen holds about three-quarters of the Indian Ocean breeding population.",
+   "ic": "seal"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard seal",
+   "latin": "Hydrurga leptonyx",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "Leopard seal",
+   "desc": "Predator of penguins and young seals, recorded killing weaned elephant seal pups.",
+   "ic": "seal"
+  },
+  {
+   "id": "orca",
+   "name": "Orca",
+   "latin": "Orcinus orca",
+   "tl": 4,
+   "xh": 0.65,
+   "wiki": "Orca",
+   "desc": "Top marine predator that hunts penguins, seals and large whales.",
+   "ic": "whale"
+  }
+ ],
+ "raw": [
+  [
+   "pringlea",
+   "rabbit"
+  ],
+  [
+   "azorella",
+   "rabbit"
+  ],
+  [
+   "poa",
+   "rabbit"
+  ],
+  [
+   "pringlea",
+   "moth"
+  ],
+  [
+   "phyto",
+   "krill"
+  ],
+  [
+   "krill",
+   "lantern"
+  ],
+  [
+   "krill",
+   "gentoo"
+  ],
+  [
+   "krill",
+   "albatross"
+  ],
+  [
+   "lantern",
+   "king"
+  ],
+  [
+   "lantern",
+   "gentoo"
+  ],
+  [
+   "lantern",
+   "albatross"
+  ],
+  [
+   "lantern",
+   "furseal"
+  ],
+  [
+   "lantern",
+   "esl"
+  ],
+  [
+   "rabbit",
+   "cat"
+  ],
+  [
+   "rabbit",
+   "skua"
+  ],
+  [
+   "king",
+   "skua"
+  ],
+  [
+   "king",
+   "petrel"
+  ],
+  [
+   "king",
+   "leopard"
+  ],
+  [
+   "king",
+   "orca"
+  ],
+  [
+   "gentoo",
+   "skua"
+  ],
+  [
+   "gentoo",
+   "petrel"
+  ],
+  [
+   "gentoo",
+   "leopard"
+  ],
+  [
+   "gentoo",
+   "orca"
+  ],
+  [
+   "furseal",
+   "skua"
+  ],
+  [
+   "furseal",
+   "petrel"
+  ],
+  [
+   "furseal",
+   "leopard"
+  ],
+  [
+   "furseal",
+   "orca"
+  ],
+  [
+   "king",
+   "cat"
+  ],
+  [
+   "albatross",
+   "skua"
+  ],
+  [
+   "albatross",
+   "petrel"
+  ],
+  [
+   "esl",
+   "leopard"
+  ],
+  [
+   "esl",
+   "orca"
+  ],
+  [
+   "leopard",
+   "orca"
+  ],
+  [
+   "esl",
+   "skua",
+   "s"
+  ],
+  [
+   "esl",
+   "petrel",
+   "s"
+  ],
+  [
+   "sun",
+   "pringlea",
+   "r"
+  ],
+  [
+   "sun",
+   "azorella",
+   "r"
+  ],
+  [
+   "sun",
+   "poa",
+   "r"
+  ],
+  [
+   "sun",
+   "phyto",
+   "r"
+  ],
+  [
+   "front",
+   "phyto",
+   "r"
+  ],
+  [
+   "wetsoil",
+   "pringlea",
+   "r"
+  ],
+  [
+   "pringlea",
+   "decomp",
+   "d"
+  ],
+  [
+   "azorella",
+   "decomp",
+   "d"
+  ],
+  [
+   "poa",
+   "decomp",
+   "d"
+  ],
+  [
+   "phyto",
+   "decomp",
+   "d"
+  ],
+  [
+   "rabbit",
+   "decomp",
+   "d"
+  ],
+  [
+   "esl",
+   "decomp",
+   "d"
+  ],
+  [
+   "king",
+   "decomp",
+   "d"
+  ],
+  [
+   "furseal",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "wetsoil",
+   "r"
+  ],
+  [
+   "krill",
+   "furseal"
+  ]
+ ],
+ "ev": {
+  "pringlea>rabbit": [
+   "a"
+  ],
+  "azorella>rabbit": [
+   "g",
+   "Oryctolagus cuniculus",
+   "Azorella selago"
+  ],
+  "poa>rabbit": [
+   "g",
+   "Oryctolagus cuniculus",
+   "Poa cookii"
+  ],
+  "pringlea>moth": [
+   "g",
+   "Pringleophaga kerguelensis",
+   "Pringlea antiscorbutica"
+  ],
+  "phyto>krill": [
+   "a"
+  ],
+  "krill>lantern": [
+   "a"
+  ],
+  "krill>gentoo": [
+   "gg",
+   "Pygoscelis papua",
+   "Euphausia"
+  ],
+  "krill>albatross": [
+   "g",
+   "Thalassarche melanophris",
+   "Euphausia"
+  ],
+  "lantern>king": [
+   "g",
+   "Aptenodytes patagonicus",
+   "Electrona carlsbergi"
+  ],
+  "lantern>gentoo": [
+   "g",
+   "Pygoscelis papua",
+   "Electrona carlsbergi"
+  ],
+  "lantern>albatross": [
+   "g",
+   "Thalassarche melanophris",
+   "Electrona carlsbergi"
+  ],
+  "lantern>furseal": [
+   "g",
+   "Arctocephalus gazella",
+   "Electrona carlsbergi"
+  ],
+  "lantern>esl": [
+   "g",
+   "Mirounga leonina",
+   "Electrona carlsbergi"
+  ],
+  "rabbit>cat": [
+   "g",
+   "Felis catus",
+   "Oryctolagus cuniculus"
+  ],
+  "rabbit>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Oryctolagus cuniculus"
+  ],
+  "king>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Aptenodytes patagonicus"
+  ],
+  "king>petrel": [
+   "g",
+   "Macronectes giganteus",
+   "Aptenodytes patagonicus"
+  ],
+  "king>leopard": [
+   "a"
+  ],
+  "king>orca": [
+   "gg",
+   "Orcinus orca",
+   "Aptenodytes patagonicus"
+  ],
+  "gentoo>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Pygoscelis papua"
+  ],
+  "gentoo>petrel": [
+   "g",
+   "Macronectes giganteus",
+   "Pygoscelis papua"
+  ],
+  "gentoo>leopard": [
+   "g",
+   "Hydrurga leptonyx",
+   "Pygoscelis papua"
+  ],
+  "gentoo>orca": [
+   "g",
+   "Orcinus orca",
+   "Pygoscelis papua"
+  ],
+  "furseal>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Arctocephalus gazella"
+  ],
+  "furseal>petrel": [
+   "g",
+   "Macronectes giganteus",
+   "Arctocephalus gazella"
+  ],
+  "furseal>leopard": [
+   "g",
+   "Hydrurga leptonyx",
+   "Arctocephalus gazella"
+  ],
+  "furseal>orca": [
+   "g",
+   "Orcinus orca",
+   "Arctocephalus gazella"
+  ],
+  "king>cat": [
+   "g",
+   "Felis catus",
+   "Aptenodytes patagonicus"
+  ],
+  "albatross>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Thalassarche melanophris"
+  ],
+  "albatross>petrel": [
+   "gg",
+   "Macronectes giganteus",
+   "Thalassarche melanophris"
+  ],
+  "esl>leopard": [
+   "g",
+   "Hydrurga leptonyx",
+   "Mirounga leonina"
+  ],
+  "esl>orca": [
+   "g",
+   "Orcinus orca",
+   "Mirounga leonina"
+  ],
+  "leopard>orca": [
+   "g",
+   "Orcinus orca",
+   "Hydrurga leptonyx"
+  ],
+  "esl>skua": [
+   "g",
+   "Stercorarius antarcticus",
+   "Mirounga leonina"
+  ],
+  "esl>petrel": [
+   "gg",
+   "Macronectes giganteus",
+   "Mirounga leonina"
+  ],
+  "krill>furseal": [
+   "ga",
+   "Arctocephalus gazella",
+   "Euphausia"
+  ]
+ }
+}

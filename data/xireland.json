@@ -1,0 +1,712 @@
+{
+ "id": "xireland",
+ "name": "The Burren",
+ "short": "The Burren",
+ "place": "County Clare and County Galway",
+ "lat": 53.0,
+ "lon": -9.0,
+ "side": "r",
+ "cont": "Europe",
+ "country": "Ireland",
+ "blurb": "Limestone pavement, winter-grazing cattle and the flowers that grow in its cracks.",
+ "tip": {
+  "id": "cattle",
+  "title": "Take away winter grazing",
+  "text": "Cattle grazed on the uplands each winter keep scrub down. Set Native beef cattle to -100% and watch hazel and the flowers of the short turf."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: The Burren",
+   "url": "https://en.wikipedia.org/wiki/The_Burren"
+  },
+  {
+   "title": "Wikipedia: European pine marten",
+   "url": "https://en.wikipedia.org/wiki/European_pine_marten"
+  },
+  {
+   "title": "Wikipedia: Dryas octopetala",
+   "url": "https://en.wikipedia.org/wiki/Dryas_octopetala"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "The Burren",
+ "icon": "sage",
+ "tier": "overview",
+ "kind": "Grassland",
+ "park": true,
+ "nodes": [
+  {
+   "id": "avens",
+   "name": "Mountain avens",
+   "latin": "Dryas octopetala",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Dryas octopetala",
+   "desc": "A small evergreen shrub of limestone outcrops. In the Burren it grows beside Mediterranean plants, a mix of arctic-alpine and southern flora.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "cranesbill",
+   "name": "Bloody crane's-bill",
+   "latin": "Geranium sanguineum",
+   "tl": 1,
+   "xh": 0.28,
+   "wiki": "Geranium sanguineum",
+   "desc": "A magenta-flowered perennial of the limestone grassland and pavement, among the most recorded plants in the area.",
+   "ic": "sage"
+  },
+  {
+   "id": "trefoil",
+   "name": "Bird's-foot-trefoil",
+   "latin": "Lotus corniculatus",
+   "tl": 1,
+   "xh": 0.46,
+   "wiki": "Lotus corniculatus",
+   "desc": "A low yellow-flowered legume of short grassland. Butterflies and bumblebees take its nectar.",
+   "ic": "sage"
+  },
+  {
+   "id": "thyme",
+   "name": "Mother of thyme",
+   "latin": "Thymus praecox",
+   "tl": 1,
+   "xh": 0.64,
+   "wiki": "Thymus praecox",
+   "desc": "A creeping, aromatic herb of thin limestone soils that flowers in the short turf.",
+   "ic": "sage"
+  },
+  {
+   "id": "hazel",
+   "name": "Hazel",
+   "latin": "Corylus avellana",
+   "tl": 1,
+   "xh": 0.84,
+   "wiki": "Common hazel",
+   "desc": "A shrub that spreads as scrub where grazing has declined. Its nuts feed squirrels and small rodents.",
+   "ic": "willow"
+  },
+  {
+   "id": "cattle",
+   "name": "Native beef cattle",
+   "latin": "Bos taurus",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Cattle",
+   "desc": "Hardy cattle are traditionally grazed on the uplands from October to April (winterage). This keeps scrub down and the flower-rich turf open.",
+   "ic": "quad",
+   "badge": "Keystone grazer"
+  },
+  {
+   "id": "goat",
+   "name": "Feral goat",
+   "latin": "Capra hircus",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Feral goat",
+   "desc": "Free-living goats roam the Burren uplands and browse its plants and shrubs.",
+   "ic": "quad"
+  },
+  {
+   "id": "rabbit",
+   "name": "European rabbit",
+   "latin": "Oryctolagus cuniculus",
+   "tl": 2,
+   "xh": 0.35,
+   "wiki": "European rabbit",
+   "desc": "A grazer of short turf and an important prey animal for foxes, stoats, badgers and pine martens.",
+   "ic": "quad"
+  },
+  {
+   "id": "woodmouse",
+   "name": "Wood mouse",
+   "latin": "Apodemus sylvaticus",
+   "tl": 2,
+   "xh": 0.5,
+   "wiki": "Wood mouse",
+   "desc": "A small seed and fruit eater and prey for almost every predator in the web.",
+   "ic": "vole"
+  },
+  {
+   "id": "squirrel",
+   "name": "Red squirrel",
+   "latin": "Sciurus vulgaris",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Red squirrel",
+   "desc": "Eats hazel nuts and seeds. Wikipedia says pine martens help red squirrels by suppressing invasive grey squirrels.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "meadowbrown",
+   "name": "Meadow brown",
+   "latin": "Maniola jurtina",
+   "tl": 2,
+   "xh": 0.8,
+   "wiki": "Meadow brown",
+   "desc": "The most recorded insect in the area. The adult feeds on flower nectar such as thyme.",
+   "ic": "hopper"
+  },
+  {
+   "id": "carder",
+   "name": "Common carder bee",
+   "latin": "Bombus pascuorum",
+   "tl": 2,
+   "xh": 0.94,
+   "wiki": "Bombus pascuorum",
+   "desc": "A bumblebee that feeds on nectar and pollen from many flowers, including bird's-foot-trefoil and devil's-bit scabious.",
+   "ic": "hopper"
+  },
+  {
+   "id": "frog",
+   "name": "Common frog",
+   "latin": "Rana temporaria",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Common frog",
+   "desc": "An amphibian that eats insects and other small invertebrates. Otters, foxes, badgers and hedgehogs are all recorded eating frogs.",
+   "ic": "snake"
+  },
+  {
+   "id": "hedgehog",
+   "name": "European hedgehog",
+   "latin": "Erinaceus europaeus",
+   "tl": 3,
+   "xh": 0.38,
+   "wiki": "European hedgehog",
+   "desc": "An insect-eating mammal that also takes frogs.",
+   "ic": "quad"
+  },
+  {
+   "id": "stoat",
+   "name": "Stoat",
+   "latin": "Mustela erminea",
+   "tl": 3,
+   "xh": 0.6,
+   "wiki": "Stoat",
+   "desc": "A small mustelid hunter of rabbits, mice and voles.",
+   "ic": "quad"
+  },
+  {
+   "id": "badger",
+   "name": "European badger",
+   "latin": "Meles meles",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "European badger",
+   "desc": "An omnivore that eats small mammals, frogs and bumblebees among other foods.",
+   "ic": "quad"
+  },
+  {
+   "id": "marten",
+   "name": "European pine marten",
+   "latin": "Martes martes",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "European pine marten",
+   "desc": "The Burren is one of its strongholds in Ireland. It eats small mammals, frogs, insects, berries and carrion.",
+   "ic": "quad",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "fox",
+   "name": "Red fox",
+   "latin": "Vulpes vulpes",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Red fox",
+   "desc": "A generalist predator of rabbits, rodents and frogs that also eats carrion.",
+   "ic": "fox"
+  },
+  {
+   "id": "limestone",
+   "name": "Limestone pavement",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "wiki": "Limestone pavement",
+   "desc": "Bare limestone covers much of the uplands; the cracks hold ferns and flowers and the thin soil suits low specialist plants.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "rain",
+   "name": "Atlantic rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.35,
+   "wiki": "Rain",
+   "desc": "Wet Atlantic weather feeds the plants of the thin soils and the Burren's seasonal lakes.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "mild",
+   "name": "Mild winters",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.6,
+   "wiki": "Oceanic climate",
+   "desc": "The Atlantic coast climate is mild, one reason arctic-alpine and southern plants can grow side by side.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi & soil life",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals and return nutrients to the thin soil.",
+   "ic": "decomp",
+   "cat": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "limestone",
+   "avens",
+   "r"
+  ],
+  [
+   "limestone",
+   "cranesbill",
+   "r"
+  ],
+  [
+   "limestone",
+   "trefoil",
+   "r"
+  ],
+  [
+   "limestone",
+   "thyme",
+   "r"
+  ],
+  [
+   "limestone",
+   "hazel",
+   "r"
+  ],
+  [
+   "rain",
+   "trefoil",
+   "r"
+  ],
+  [
+   "rain",
+   "cranesbill",
+   "r"
+  ],
+  [
+   "rain",
+   "hazel",
+   "r"
+  ],
+  [
+   "mild",
+   "avens",
+   "r"
+  ],
+  [
+   "mild",
+   "thyme",
+   "r"
+  ],
+  [
+   "mild",
+   "cranesbill",
+   "r"
+  ],
+  [
+   "trefoil",
+   "cattle"
+  ],
+  [
+   "trefoil",
+   "rabbit"
+  ],
+  [
+   "thyme",
+   "cattle"
+  ],
+  [
+   "thyme",
+   "rabbit"
+  ],
+  [
+   "cranesbill",
+   "cattle"
+  ],
+  [
+   "cranesbill",
+   "rabbit"
+  ],
+  [
+   "hazel",
+   "cattle"
+  ],
+  [
+   "hazel",
+   "goat"
+  ],
+  [
+   "hazel",
+   "squirrel"
+  ],
+  [
+   "hazel",
+   "woodmouse"
+  ],
+  [
+   "trefoil",
+   "goat"
+  ],
+  [
+   "trefoil",
+   "carder"
+  ],
+  [
+   "thyme",
+   "meadowbrown"
+  ],
+  [
+   "meadowbrown",
+   "frog"
+  ],
+  [
+   "meadowbrown",
+   "hedgehog"
+  ],
+  [
+   "frog",
+   "hedgehog"
+  ],
+  [
+   "frog",
+   "marten"
+  ],
+  [
+   "frog",
+   "fox"
+  ],
+  [
+   "frog",
+   "badger"
+  ],
+  [
+   "rabbit",
+   "stoat"
+  ],
+  [
+   "rabbit",
+   "badger"
+  ],
+  [
+   "rabbit",
+   "marten"
+  ],
+  [
+   "rabbit",
+   "fox"
+  ],
+  [
+   "woodmouse",
+   "stoat"
+  ],
+  [
+   "woodmouse",
+   "badger"
+  ],
+  [
+   "woodmouse",
+   "marten"
+  ],
+  [
+   "woodmouse",
+   "fox"
+  ],
+  [
+   "squirrel",
+   "marten"
+  ],
+  [
+   "squirrel",
+   "fox"
+  ],
+  [
+   "hedgehog",
+   "stoat"
+  ],
+  [
+   "hedgehog",
+   "badger"
+  ],
+  [
+   "hedgehog",
+   "marten"
+  ],
+  [
+   "hedgehog",
+   "fox"
+  ],
+  [
+   "carder",
+   "badger"
+  ],
+  [
+   "cattle",
+   "fox",
+   "s"
+  ],
+  [
+   "cattle",
+   "badger",
+   "s"
+  ],
+  [
+   "fox",
+   "decomp",
+   "d"
+  ],
+  [
+   "avens",
+   "decomp",
+   "d"
+  ],
+  [
+   "hazel",
+   "decomp",
+   "d"
+  ],
+  [
+   "cattle",
+   "decomp",
+   "d"
+  ],
+  [
+   "marten",
+   "decomp",
+   "d"
+  ],
+  [
+   "badger",
+   "decomp",
+   "d"
+  ],
+  [
+   "rabbit",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "limestone",
+   "r"
+  ],
+  [
+   "woodmouse",
+   "hedgehog"
+  ],
+  [
+   "cattle",
+   "marten"
+  ],
+  [
+   "goat",
+   "fox"
+  ],
+  [
+   "stoat",
+   "fox"
+  ],
+  [
+   "badger",
+   "fox"
+  ]
+ ],
+ "ev": {
+  "trefoil>cattle": [
+   "g",
+   "Bos taurus",
+   "Lotus corniculatus"
+  ],
+  "trefoil>rabbit": [
+   "a"
+  ],
+  "thyme>cattle": [
+   "a"
+  ],
+  "thyme>rabbit": [
+   "a"
+  ],
+  "cranesbill>cattle": [
+   "a"
+  ],
+  "cranesbill>rabbit": [
+   "a"
+  ],
+  "hazel>cattle": [
+   "a"
+  ],
+  "hazel>goat": [
+   "a"
+  ],
+  "hazel>squirrel": [
+   "g",
+   "Sciurus vulgaris",
+   "Corylus avellana"
+  ],
+  "hazel>woodmouse": [
+   "a"
+  ],
+  "trefoil>goat": [
+   "a"
+  ],
+  "trefoil>carder": [
+   "g",
+   "Bombus pascuorum",
+   "Lotus corniculatus"
+  ],
+  "thyme>meadowbrown": [
+   "g",
+   "Maniola jurtina",
+   "Thymus praecox"
+  ],
+  "meadowbrown>frog": [
+   "a"
+  ],
+  "meadowbrown>hedgehog": [
+   "a"
+  ],
+  "frog>hedgehog": [
+   "g",
+   "Erinaceus europaeus",
+   "Rana temporaria"
+  ],
+  "frog>marten": [
+   "g",
+   "Martes martes",
+   "Rana temporaria"
+  ],
+  "frog>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Rana temporaria"
+  ],
+  "frog>badger": [
+   "g",
+   "Meles meles",
+   "Rana temporaria"
+  ],
+  "rabbit>stoat": [
+   "g",
+   "Mustela erminea",
+   "Oryctolagus cuniculus"
+  ],
+  "rabbit>badger": [
+   "g",
+   "Meles meles",
+   "Oryctolagus cuniculus"
+  ],
+  "rabbit>marten": [
+   "g",
+   "Martes martes",
+   "Oryctolagus cuniculus"
+  ],
+  "rabbit>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Oryctolagus cuniculus"
+  ],
+  "woodmouse>stoat": [
+   "g",
+   "Mustela erminea",
+   "Apodemus sylvaticus"
+  ],
+  "woodmouse>badger": [
+   "g",
+   "Meles meles",
+   "Apodemus sylvaticus"
+  ],
+  "woodmouse>marten": [
+   "g",
+   "Martes martes",
+   "Apodemus sylvaticus"
+  ],
+  "woodmouse>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Apodemus sylvaticus"
+  ],
+  "squirrel>marten": [
+   "g",
+   "Martes martes",
+   "Sciurus vulgaris"
+  ],
+  "squirrel>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Sciurus vulgaris"
+  ],
+  "hedgehog>stoat": [
+   "g",
+   "Mustela erminea",
+   "Erinaceus europaeus"
+  ],
+  "hedgehog>badger": [
+   "g",
+   "Meles meles",
+   "Erinaceus europaeus"
+  ],
+  "hedgehog>marten": [
+   "g",
+   "Martes martes",
+   "Erinaceus europaeus"
+  ],
+  "hedgehog>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Erinaceus europaeus"
+  ],
+  "carder>badger": [
+   "g",
+   "Meles meles",
+   "Bombus pascuorum"
+  ],
+  "cattle>fox": [
+   "g",
+   "Vulpes vulpes",
+   "Bos taurus"
+  ],
+  "cattle>badger": [
+   "a"
+  ],
+  "woodmouse>hedgehog": [
+   "ga",
+   "Erinaceus europaeus",
+   "Apodemus sylvaticus"
+  ],
+  "cattle>marten": [
+   "ga",
+   "Martes martes",
+   "Bos taurus"
+  ],
+  "goat>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Capra hircus"
+  ],
+  "stoat>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Mustela erminea"
+  ],
+  "badger>fox": [
+   "ga",
+   "Vulpes vulpes",
+   "Meles meles"
+  ]
+ }
+}

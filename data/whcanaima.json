@@ -1,0 +1,657 @@
+{
+ "id": "whcanaima",
+ "name": "Canaima National Park",
+ "short": "Canaima",
+ "place": "Venezuela",
+ "lat": 5.8,
+ "lon": -61.5,
+ "side": "l",
+ "cont": "South America",
+ "country": "Venezuela",
+ "blurb": "Tepui plateaus, pitcher plants and the jaguar of the Gran Sabana.",
+ "tip": {
+  "id": "ants",
+  "title": "Thin out the ants",
+  "text": "Ants feed pitcher plants, frogs, anteaters and armadillos. Set Ants to -100% and follow the ripple up to the jaguar."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Canaima National Park",
+   "url": "https://en.wikipedia.org/wiki/Canaima_National_Park"
+  },
+  {
+   "title": "Wikipedia: Gran Sabana",
+   "url": "https://en.wikipedia.org/wiki/Gran_Sabana"
+  },
+  {
+   "title": "Wikipedia: Heliamphora",
+   "url": "https://en.wikipedia.org/wiki/Heliamphora"
+  },
+  {
+   "title": "Wikipedia: Giant armadillo",
+   "url": "https://en.wikipedia.org/wiki/Giant_armadillo"
+  },
+  {
+   "title": "Wikipedia: Giant anteater",
+   "url": "https://en.wikipedia.org/wiki/Giant_anteater"
+  },
+  {
+   "title": "Wikipedia: Harpy eagle",
+   "url": "https://en.wikipedia.org/wiki/Harpy_eagle"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Canaima National Park",
+ "icon": "lion",
+ "tier": "overview",
+ "kind": "Forest",
+ "park": true,
+ "nodes": [
+  {
+   "id": "grass",
+   "name": "Savanna grasses and sedges",
+   "latin": "Poaceae",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Poaceae",
+   "desc": "Grasses and sedges cover the open Gran Sabana, growing on rocky, sandy, nutrient-poor soils derived from sandstone.",
+   "ic": "grass"
+  },
+  {
+   "id": "miconia",
+   "name": "Miconia",
+   "latin": "Miconia",
+   "tl": 1,
+   "xh": 0.34,
+   "wiki": "Miconia",
+   "desc": "Berry-bearing shrubs and small trees among the most recorded plants around the park; GloBI records show bananaquits and tanagers eating their fruit.",
+   "ic": "sage"
+  },
+  {
+   "id": "trees",
+   "name": "Cecropia & other forest trees",
+   "latin": "Cecropia",
+   "tl": 1,
+   "xh": 0.56,
+   "wiki": "Cecropia",
+   "desc": "Forest fills the hollows and lines the rivers, supplying leaves, fruit and dead wood to sloths, tapirs, termites and bats.",
+   "ic": "willow"
+  },
+  {
+   "id": "heli",
+   "name": "Tepui pitcher plants",
+   "latin": "Heliamphora",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Heliamphora",
+   "desc": "Carnivorous plants of the tepuis that trap insects, mostly ants, in leaf pitchers to make up for scarce nutrients; many rely on bacteria to digest the prey.",
+   "ic": "sage",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "termite",
+   "name": "Termites",
+   "latin": "Termitidae",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Termite",
+   "desc": "Feed on dead wood and plant litter, and are a main food of giant anteaters and giant armadillos.",
+   "ic": "ant"
+  },
+  {
+   "id": "ants",
+   "name": "Ants",
+   "latin": "Formicidae",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Ant",
+   "desc": "Abundant forest and savanna insects. They are the main prey caught by Heliamphora pitchers and a staple for anteaters, armadillos and frogs.",
+   "ic": "ant"
+  },
+  {
+   "id": "brocket",
+   "name": "Red brocket",
+   "latin": "Mazama americana",
+   "tl": 2,
+   "xh": 0.29,
+   "wiki": "Red brocket",
+   "desc": "A forest deer recorded near the park that browses leaves and eats fruit and fungi; prey for jaguars.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "tapir",
+   "name": "Lowland tapir",
+   "latin": "Tapirus terrestris",
+   "tl": 2,
+   "xh": 0.41,
+   "wiki": "Lowland tapir",
+   "desc": "A large browser and fruit-eater named among the Gran Sabana's mammals; a big prey animal for jaguars.",
+   "ic": "quad"
+  },
+  {
+   "id": "sloth",
+   "name": "Linnaeus's two-toed sloth",
+   "latin": "Choloepus didactylus",
+   "tl": 2,
+   "xh": 0.53,
+   "wiki": "Linnaeus's two-toed sloth",
+   "desc": "A slow leaf-eater of the canopy. In the harpy eagle article sloths are the most important prey group.",
+   "ic": "quad"
+  },
+  {
+   "id": "bat",
+   "name": "Seba's short-tailed bat",
+   "latin": "Carollia perspicillata",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Seba's short-tailed bat",
+   "desc": "The most recorded mammal in the GBIF data near the park. It eats fruit and helps spread seeds.",
+   "ic": "quad"
+  },
+  {
+   "id": "banana",
+   "name": "Bananaquit",
+   "latin": "Coereba flaveola",
+   "tl": 2,
+   "xh": 0.77,
+   "wiki": "Bananaquit",
+   "desc": "The most recorded bird near the park; a small nectar, fruit and insect eater that GloBI records feeding on Miconia fruit.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "tanager",
+   "name": "Palm tanager",
+   "latin": "Thraupis palmarum",
+   "tl": 2,
+   "xh": 0.89,
+   "wiki": "Palm tanager",
+   "desc": "A common fruit-eating songbird; GloBI records show it eating Miconia fruit.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "frog",
+   "name": "Bumblebee poison dart frog",
+   "latin": "Dendrobates leucomelas",
+   "tl": 3,
+   "xh": 0.1,
+   "wiki": "Dendrobates leucomelas",
+   "desc": "A small yellow-and-black frog of the Gran Sabana region that eats tiny insects, especially ants, on the forest floor.",
+   "ic": "hopper"
+  },
+  {
+   "id": "anteater",
+   "name": "Giant anteater",
+   "latin": "Myrmecophaga tridactyla",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Giant anteater",
+   "desc": "Eats mostly ants and termites, dug from nests with its claws. Only jaguars and pumas are known to hunt adults.",
+   "ic": "quad"
+  },
+  {
+   "id": "armadillo",
+   "name": "Giant armadillo",
+   "latin": "Priodontes maximus",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Giant armadillo",
+   "desc": "Eats mainly termites and ants, and its burrows are used by many other animals, making it a habitat engineer.",
+   "ic": "quad",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "vulture",
+   "name": "Black vulture",
+   "latin": "Coragyps atratus",
+   "tl": 3,
+   "xh": 0.75,
+   "wiki": "Black vulture",
+   "desc": "One of the most recorded birds near the park; it feeds on carrion, helping return dead animals to the ecosystem.",
+   "ic": "hawk"
+  },
+  {
+   "id": "harpy",
+   "name": "Harpy eagle",
+   "latin": "Harpia harpyja",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Harpy eagle",
+   "desc": "A huge forest eagle that hunts mostly tree-dwelling mammals, sloths above all, and sometimes young deer.",
+   "ic": "hawk"
+  },
+  {
+   "id": "jaguar",
+   "name": "Jaguar",
+   "latin": "Panthera onca",
+   "tl": 4,
+   "xh": 0.62,
+   "wiki": "Jaguar",
+   "desc": "The top predator of the park. It hunts large mammals such as tapirs and deer, and is one of the few animals known to hunt adult giant anteaters.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Powers the grasslands and forest; tepui summits are often wrapped in cloud.",
+   "ic": "sun"
+  },
+  {
+   "id": "rain",
+   "name": "Rain & tepui mist",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "The Gran Sabana gets roughly 1,600 to 2,200 mm of rain a year, with a rainy season of about ten months.",
+   "ic": "rain"
+  },
+  {
+   "id": "soil",
+   "name": "Nutrient-poor sandstone soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.52,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Acidic soils from sandstone are low in nutrients, which shapes the stunted shrubs and the carnivorous plants.",
+   "ic": "soil"
+  },
+  {
+   "id": "river",
+   "name": "Dark-water rivers",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.72,
+   "cat": "abiotic",
+   "wiki": "Black water river",
+   "desc": "Many Gran Sabana rivers are acidic and tea-colored from humic acids and tannins; forests line their banks.",
+   "ic": "water"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, bacteria & litter fauna",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.92,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead plants and animals and return nutrients to the thin soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "grass",
+   "brocket"
+  ],
+  [
+   "miconia",
+   "brocket"
+  ],
+  [
+   "trees",
+   "brocket"
+  ],
+  [
+   "trees",
+   "tapir"
+  ],
+  [
+   "trees",
+   "sloth"
+  ],
+  [
+   "trees",
+   "bat"
+  ],
+  [
+   "trees",
+   "termite"
+  ],
+  [
+   "trees",
+   "ants"
+  ],
+  [
+   "miconia",
+   "banana"
+  ],
+  [
+   "miconia",
+   "tanager"
+  ],
+  [
+   "ants",
+   "heli"
+  ],
+  [
+   "ants",
+   "frog"
+  ],
+  [
+   "ants",
+   "anteater"
+  ],
+  [
+   "termite",
+   "anteater"
+  ],
+  [
+   "ants",
+   "armadillo"
+  ],
+  [
+   "termite",
+   "armadillo"
+  ],
+  [
+   "sloth",
+   "harpy"
+  ],
+  [
+   "brocket",
+   "harpy"
+  ],
+  [
+   "brocket",
+   "jaguar"
+  ],
+  [
+   "tapir",
+   "jaguar"
+  ],
+  [
+   "sloth",
+   "jaguar"
+  ],
+  [
+   "anteater",
+   "jaguar"
+  ],
+  [
+   "armadillo",
+   "jaguar"
+  ],
+  [
+   "brocket",
+   "vulture",
+   "s"
+  ],
+  [
+   "tapir",
+   "vulture",
+   "s"
+  ],
+  [
+   "jaguar",
+   "vulture",
+   "s"
+  ],
+  [
+   "sun",
+   "grass",
+   "r"
+  ],
+  [
+   "sun",
+   "miconia",
+   "r"
+  ],
+  [
+   "sun",
+   "trees",
+   "r"
+  ],
+  [
+   "rain",
+   "grass",
+   "r"
+  ],
+  [
+   "rain",
+   "heli",
+   "r"
+  ],
+  [
+   "soil",
+   "grass",
+   "r"
+  ],
+  [
+   "soil",
+   "miconia",
+   "r"
+  ],
+  [
+   "soil",
+   "trees",
+   "r"
+  ],
+  [
+   "river",
+   "trees",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "grass",
+   "decomp",
+   "d"
+  ],
+  [
+   "trees",
+   "decomp",
+   "d"
+  ],
+  [
+   "miconia",
+   "decomp",
+   "d"
+  ],
+  [
+   "termite",
+   "decomp",
+   "d"
+  ],
+  [
+   "brocket",
+   "decomp",
+   "d"
+  ],
+  [
+   "tapir",
+   "decomp",
+   "d"
+  ],
+  [
+   "sloth",
+   "decomp",
+   "d"
+  ],
+  [
+   "frog",
+   "decomp",
+   "d"
+  ],
+  [
+   "vulture",
+   "decomp",
+   "d"
+  ],
+  [
+   "grass",
+   "tapir"
+  ],
+  [
+   "miconia",
+   "tapir"
+  ],
+  [
+   "miconia",
+   "bat"
+  ],
+  [
+   "trees",
+   "banana"
+  ],
+  [
+   "trees",
+   "tanager"
+  ],
+  [
+   "grass",
+   "anteater"
+  ]
+ ],
+ "ev": {
+  "grass>brocket": [
+   "g",
+   "Mazama americana",
+   "Poaceae"
+  ],
+  "miconia>brocket": [
+   "a"
+  ],
+  "trees>brocket": [
+   "gg",
+   "Mazama americana",
+   "Cecropia"
+  ],
+  "trees>tapir": [
+   "g",
+   "Tapirus terrestris",
+   "Cecropia"
+  ],
+  "trees>sloth": [
+   "a"
+  ],
+  "trees>bat": [
+   "g",
+   "Carollia perspicillata",
+   "Cecropia"
+  ],
+  "trees>termite": [
+   "a"
+  ],
+  "trees>ants": [
+   "a"
+  ],
+  "miconia>banana": [
+   "gg",
+   "Coereba flaveola",
+   "Miconia"
+  ],
+  "miconia>tanager": [
+   "gg",
+   "Thraupis palmarum",
+   "Miconia"
+  ],
+  "ants>heli": [
+   "a"
+  ],
+  "ants>frog": [
+   "a"
+  ],
+  "ants>anteater": [
+   "g",
+   "Myrmecophaga tridactyla",
+   "Formicidae"
+  ],
+  "termite>anteater": [
+   "g",
+   "Myrmecophaga tridactyla",
+   "Termitidae"
+  ],
+  "ants>armadillo": [
+   "g",
+   "Priodontes maximus",
+   "Formicidae"
+  ],
+  "termite>armadillo": [
+   "g",
+   "Priodontes maximus",
+   "Termitidae"
+  ],
+  "sloth>harpy": [
+   "g",
+   "Harpia harpyja",
+   "Choloepus didactylus"
+  ],
+  "brocket>harpy": [
+   "gg",
+   "Harpia harpyja",
+   "Mazama americana"
+  ],
+  "brocket>jaguar": [
+   "g",
+   "Panthera onca",
+   "Mazama americana"
+  ],
+  "tapir>jaguar": [
+   "g",
+   "Panthera onca",
+   "Tapirus terrestris"
+  ],
+  "sloth>jaguar": [
+   "a"
+  ],
+  "anteater>jaguar": [
+   "g",
+   "Panthera onca",
+   "Myrmecophaga tridactyla"
+  ],
+  "armadillo>jaguar": [
+   "a"
+  ],
+  "brocket>vulture": [
+   "a"
+  ],
+  "tapir>vulture": [
+   "a"
+  ],
+  "jaguar>vulture": [
+   "a"
+  ],
+  "grass>tapir": [
+   "ga",
+   "Tapirus terrestris",
+   "Poaceae"
+  ],
+  "miconia>tapir": [
+   "ga",
+   "Tapirus terrestris",
+   "Miconia"
+  ],
+  "miconia>bat": [
+   "ga",
+   "Carollia perspicillata",
+   "Miconia"
+  ],
+  "trees>banana": [
+   "ga",
+   "Coereba flaveola",
+   "Cecropia"
+  ],
+  "trees>tanager": [
+   "ga",
+   "Thraupis palmarum",
+   "Cecropia"
+  ],
+  "grass>anteater": [
+   "ga",
+   "Myrmecophaga tridactyla",
+   "Poaceae"
+  ]
+ }
+}

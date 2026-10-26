@@ -1,0 +1,527 @@
+{
+ "couple": 0.5,
+ "src": {},
+ "cross": [
+  {
+   "id": "osprey",
+   "type": "species",
+   "title": "Osprey",
+   "ends": [
+    {
+     "eco": "yellowstone",
+     "node": "osprey"
+    },
+    {
+     "eco": "amazon",
+     "node": "osprey"
+    }
+   ],
+   "text": "Ospreys that nest on Yellowstone's rivers and lakes fly south each autumn, and many winter on rivers in South America, including the Amazon basin. The same birds depend on fish in both places.",
+   "imgwiki": "Osprey"
+  },
+  {
+   "id": "shorebird",
+   "type": "species",
+   "title": "Migratory shorebirds",
+   "ends": [
+    {
+     "eco": "arctic",
+     "node": "shorebird"
+    },
+    {
+     "eco": "reef",
+     "node": "shorebird"
+    }
+   ],
+   "text": "Shorebirds such as ruddy turnstones breed on Arctic tundra and winter on coasts as far south as Australia, including reef flats. Losing winter feeding grounds hurts the Arctic breeding population.",
+   "imgwiki": "Ruddy turnstone"
+  },
+  {
+   "id": "dust",
+   "type": "flow",
+   "title": "Saharan dust",
+   "to": {
+    "eco": "amazon",
+    "node": "soil"
+   },
+   "text": "Each year winds carry mineral dust, including phosphorus, from the Sahara across the Atlantic to the Amazon. It helps replace nutrients that heavy rain washes out of the soil.",
+   "from": {
+    "eco": "sahara",
+    "node": "soil"
+   },
+   "imgwiki": "Saharan Air Layer"
+  },
+  {
+   "id": "pelican",
+   "type": "species",
+   "title": "American white pelican",
+   "ends": [
+    {
+     "eco": "mississippi",
+     "node": "pelican"
+    },
+    {
+     "eco": "gulf",
+     "node": "pelican"
+    }
+   ],
+   "text": "American white pelicans nest on lakes across interior North America and winter on the Gulf coast. Wikipedia also says they follow the Mississippi River north as far as St. Paul in winter.",
+   "imgwiki": "American white pelican"
+  },
+  {
+   "id": "nutrients",
+   "type": "flow",
+   "title": "River nutrients to the Gulf",
+   "from": {
+    "eco": "mississippi",
+    "node": "sed"
+   },
+   "to": {
+    "eco": "gulf",
+    "node": "plume"
+   },
+   "text": "The Mississippi drains about 41% of the continental US. Its nitrogen and phosphorus, mostly from farm runoff and sewage, feed the algal blooms behind the Gulf's summer dead zone. Wikipedia, citing a NOAA fact sheet, attributes about 70% of the nutrient load to this basin.",
+   "imgwiki": "Gulf of Mexico dead zone"
+  },
+  {
+   "id": "chesosprey",
+   "type": "species",
+   "title": "Osprey (Chesapeake)",
+   "ends": [
+    {
+     "eco": "chesapeake",
+     "node": "osprey"
+    },
+    {
+     "eco": "amazon",
+     "node": "osprey"
+    }
+   ],
+   "text": "Ospreys that breed around the Chesapeake Bay head south each autumn, and many winter in northern South America, including the Amazon basin. They return in spring to the same bay.",
+   "imgwiki": "Osprey"
+  },
+  {
+   "id": "knot",
+   "type": "species",
+   "title": "Red knot",
+   "ends": [
+    {
+     "eco": "wadden",
+     "node": "knot"
+    },
+    {
+     "eco": "wharguin",
+     "node": "redknot"
+    }
+   ],
+   "text": "Red knots refuel on the Wadden Sea mudflats and then fly on to winter on the coast of West Africa, including Banc d'Arguin in Mauritania. Both sites matter for the same birds.",
+   "imgwiki": "Red knot"
+  },
+  {
+   "id": "flamingo",
+   "type": "species",
+   "title": "Greater flamingo",
+   "ends": [
+    {
+     "eco": "whcamargue",
+     "node": "flamingo"
+    },
+    {
+     "eco": "whdonana",
+     "node": "flamingo"
+    }
+   ],
+   "text": "Greater flamingos ringed in the Camargue are regularly seen in Do\u00f1ana and other western Mediterranean wetlands. The birds move between them as water levels change.",
+   "imgwiki": "Greater flamingo"
+  },
+  {
+   "id": "altiplano",
+   "type": "species",
+   "title": "Altiplano flamingos",
+   "ends": [
+    {
+     "eco": "whuyuni",
+     "node": "chilean"
+    },
+    {
+     "eco": "whtiticaca",
+     "node": "flamingo"
+    }
+   ],
+   "text": "Chilean flamingos move between high-altitude lakes on the Andean plateau, from the salt lakes of southern Bolivia to Lake Titicaca. Shallow lakes dry up and fill with the seasons.",
+   "imgwiki": "Chilean flamingo"
+  },
+  {
+   "id": "caribouwest",
+   "type": "species",
+   "title": "Western Arctic caribou",
+   "ends": [
+    {
+     "eco": "npkobukvalley",
+     "node": "caribou"
+    },
+    {
+     "eco": "npgatesarctic",
+     "node": "caribou"
+    }
+   ],
+   "text": "The Western Arctic caribou herd migrates across northern Alaska and passes through both Kobuk Valley and Gates of the Arctic. Its river crossings in autumn are a major event at Kobuk.",
+   "imgwiki": "Caribou"
+  },
+  {
+   "id": "sockeye",
+   "type": "species",
+   "title": "Pacific sockeye",
+   "ends": [
+    {
+     "eco": "npkatmai",
+     "node": "sock"
+    },
+    {
+     "eco": "whkamchatka",
+     "node": "sockeye"
+    }
+   ],
+   "text": "Sockeye salmon from Alaska's Bristol Bay rivers and from Kamchatka share the North Pacific while at sea. Each run then returns to its own river and feeds bears, eagles and forests.",
+   "imgwiki": "Sockeye salmon"
+  },
+  {
+   "id": "greenturtleA",
+   "type": "species",
+   "title": "Green sea turtle (Florida Keys)",
+   "ends": [
+    {
+     "eco": "npbiscayne",
+     "node": "greenturtle"
+    },
+    {
+     "eco": "npdrytortugas",
+     "node": "greenturtle"
+    }
+   ],
+   "text": "Green turtles graze the seagrass of Biscayne Bay and nest and feed around the Dry Tortugas. They travel along the Florida reef tract between the two.",
+   "imgwiki": "Green sea turtle"
+  },
+  {
+   "id": "greenturtleB",
+   "type": "species",
+   "title": "Green sea turtle (Caribbean)",
+   "ends": [
+    {
+     "eco": "npbiscayne",
+     "node": "greenturtle"
+    },
+    {
+     "eco": "npvirginislands",
+     "node": "greenturtle"
+    }
+   ],
+   "text": "Green turtles tagged in Florida have been tracked to feeding grounds across the Caribbean, where seagrass beds such as those in the Virgin Islands support them.",
+   "imgwiki": "Green sea turtle"
+  }
+ ],
+ "order": [
+  "yellowstone",
+  "serengeti",
+  "amazon",
+  "reef",
+  "arctic",
+  "mississippi",
+  "prairie",
+  "gulf",
+  "baikal",
+  "boreal",
+  "chesapeake",
+  "congo",
+  "everglades",
+  "galapagos",
+  "greatlakes",
+  "himalaya",
+  "kelp",
+  "madagascar",
+  "ozarks",
+  "pnwrainforest",
+  "sahara",
+  "smokies",
+  "sonoran",
+  "southernocean",
+  "stlurban",
+  "wadden",
+  "namib",
+  "sundarbans",
+  "npacadia",
+  "npamericansamoa",
+  "nparches",
+  "npbadlands",
+  "npbigbend",
+  "npbiscayne",
+  "npblackcanyon",
+  "npbryce",
+  "npcanyonlands",
+  "npcapitolreef",
+  "npcarlsbad",
+  "npchannelislands",
+  "npcongaree",
+  "npcraterlake",
+  "npcuyahoga",
+  "npdeathvalley",
+  "npdenali",
+  "npdrytortugas",
+  "npgatesarctic",
+  "npglacier",
+  "npglacierbay",
+  "npgrandcanyon",
+  "npgrandteton",
+  "npgreatbasin",
+  "npgreatsanddunes",
+  "npguadalupe",
+  "nphaleakala",
+  "nphawaiivolcanoes",
+  "nphotsprings",
+  "npindianadunes",
+  "npisleroyale",
+  "npjoshuatree",
+  "npkatmai",
+  "npkenaifjords",
+  "npkingscanyon",
+  "npkobukvalley",
+  "nplakeclark",
+  "nplassen",
+  "npmammothcave",
+  "npmesaverde",
+  "npmountrainier",
+  "npnewrivergorge",
+  "npnorthcascades",
+  "nppetrifiedforest",
+  "nppinnacles",
+  "npredwood",
+  "nprockymountain",
+  "npsaguaro",
+  "npsequoia",
+  "npshenandoah",
+  "nptheodoreroosevelt",
+  "npvirginislands",
+  "npvoyageurs",
+  "npwhitesands",
+  "npwindcave",
+  "npwrangell",
+  "npyosemite",
+  "npzion",
+  "whaldabra",
+  "whaltai",
+  "wharguin",
+  "whbale",
+  "whbwindi",
+  "whcapefloral",
+  "whchitwan",
+  "whchobe",
+  "whcomoe",
+  "whcorbett",
+  "whdja",
+  "whetosha",
+  "whgobi",
+  "whgorongosa",
+  "whhalong",
+  "whkamchatka",
+  "whkaziranga",
+  "whkhaoyai",
+  "whkilimanjaro",
+  "whkinabalu",
+  "whkomodo",
+  "whkruger",
+  "whleuser",
+  "whmanapools",
+  "whmountkenya",
+  "whngorongoro",
+  "whokavango",
+  "whpanda",
+  "whphongnha",
+  "whranthambore",
+  "whroyalmanas",
+  "whsalonga",
+  "whsimien",
+  "whsinharaja",
+  "whtai",
+  "whtamannegara",
+  "whthreerivers",
+  "whtubbataha",
+  "whujungkulon",
+  "whuvs",
+  "whvirunga",
+  "whwesternghats",
+  "whatlantic",
+  "whbanff",
+  "whbialowieza",
+  "whcamargue",
+  "whcanaima",
+  "whcarpathian",
+  "whchapada",
+  "whdanube",
+  "whdonana",
+  "whdurmitor",
+  "whfiordland",
+  "whglaciares",
+  "whhortobagy",
+  "whibera",
+  "whiguazu",
+  "whjungfrau",
+  "whkakadu",
+  "whlaponia",
+  "whlordhowe",
+  "whlorentz",
+  "whmanu",
+  "whnoronha",
+  "whogasawara",
+  "whpantanal",
+  "whplitvice",
+  "whputorana",
+  "whpyrenees",
+  "whsharkbay",
+  "whshiretoko",
+  "whsikhote",
+  "whsocotra",
+  "whsvalbard",
+  "whtasmania",
+  "whtiticaca",
+  "whtongariro",
+  "whtorres",
+  "whuluru",
+  "whuyuni",
+  "whvaldes",
+  "whvatnajokull",
+  "whwcaucasus",
+  "whwettropics",
+  "whwoodbuffalo",
+  "whwrangel",
+  "whyakushima",
+  "whyasuni",
+  "whbelize",
+  "whcalakmul",
+  "whcocos",
+  "whcorcovado",
+  "whdarien",
+  "whgrosmorne",
+  "whgwaiihaanas",
+  "whmonarch",
+  "whnahanni",
+  "whpinacate",
+  "whsiankaan",
+  "whtikal",
+  "whvizcaino",
+  "xafghan",
+  "xalbania",
+  "xarmenia",
+  "xaustria",
+  "xazer",
+  "xbahamas",
+  "xbelgium",
+  "xbenin",
+  "xbosnia",
+  "xbrunei",
+  "xbulgaria",
+  "xburkina",
+  "xburundi",
+  "xcambodia",
+  "xcuba",
+  "xcyprus",
+  "xczechia",
+  "xdjibouti",
+  "xdomrep",
+  "xelsalvador",
+  "xeqguinea",
+  "xeritrea",
+  "xestonia",
+  "xeswatini",
+  "xfalkland",
+  "xfiji",
+  "xfinland",
+  "xgambia",
+  "xgeorgia",
+  "xghana",
+  "xgreece",
+  "xgreenland",
+  "xguinea",
+  "xguineabissau",
+  "xguyana",
+  "xhaiti",
+  "xhonduras",
+  "xiran",
+  "xiraq",
+  "xireland",
+  "xisrael",
+  "xitaly",
+  "xjamaica",
+  "xjordan",
+  "xkaz",
+  "xkerguelen",
+  "xkosovo",
+  "xkuwait",
+  "xkyrgyz",
+  "xlaos",
+  "xlatvia",
+  "xlebanon",
+  "xlesotho",
+  "xliberia",
+  "xlithuania",
+  "xluxembourg",
+  "xmacedonia",
+  "xmalawi",
+  "xmoldova",
+  "xmyanmar",
+  "xnewcal",
+  "xnicaragua",
+  "xnigeria",
+  "xnkorea",
+  "xoman",
+  "xpakistan",
+  "xpalestine",
+  "xparaguay",
+  "xpng",
+  "xportugal",
+  "xpuertorico",
+  "xqatar",
+  "xrwanda",
+  "xsaudi",
+  "xsenegal",
+  "xserbia",
+  "xsierra",
+  "xskorea",
+  "xslovenia",
+  "xsolomon",
+  "xsomalia",
+  "xsomaliland",
+  "xssudan",
+  "xsuriname",
+  "xsyria",
+  "xtaiwan",
+  "xtajik",
+  "xtimor",
+  "xtogo",
+  "xtrinidad",
+  "xturkey",
+  "xturkmen",
+  "xuae",
+  "xuk",
+  "xuruguay",
+  "xusal",
+  "xusct",
+  "xusdc",
+  "xusde",
+  "xusga",
+  "xusia",
+  "xusks",
+  "xusma",
+  "xusms",
+  "xusne",
+  "xusnh",
+  "xusnj",
+  "xusny",
+  "xusok",
+  "xuspa",
+  "xusri",
+  "xusvt",
+  "xuzb",
+  "xvanuatu",
+  "xzambia"
+ ]
+}

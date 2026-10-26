@@ -1,0 +1,621 @@
+{
+ "id": "npbiscayne",
+ "name": "Biscayne National Park",
+ "short": "Biscayne",
+ "place": "Florida, USA",
+ "lat": 25.47,
+ "lon": -80.19,
+ "side": "r",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Florida"
+ ],
+ "kind": "Coast & ocean",
+ "park": true,
+ "blurb": "Mangroves, seagrass and coral reef where manatees, lobsters and crocodiles share a bay.",
+ "tip": {
+  "id": "turtlegrass",
+  "title": "Scar the seagrass",
+  "text": "Seagrass covers much of the bay floor but boat propellers scar it. Set Turtlegrass to -60% and watch manatees, turtles, urchins and mullet, then the predators that eat them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Biscayne National Park",
+   "url": "https://en.wikipedia.org/wiki/Biscayne_National_Park"
+  },
+  {
+   "title": "NPS: Nature at Biscayne",
+   "url": "https://www.nps.gov/bisc/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Turtle grass",
+   "url": "https://en.wikipedia.org/wiki/Turtle_grass"
+  },
+  {
+   "title": "Wikipedia: Caribbean spiny lobster",
+   "url": "https://en.wikipedia.org/wiki/Caribbean_spiny_lobster"
+  },
+  {
+   "title": "Wikipedia: American crocodile",
+   "url": "https://en.wikipedia.org/wiki/American_crocodile"
+  },
+  {
+   "title": "Wikipedia: Bull shark",
+   "url": "https://en.wikipedia.org/wiki/Bull_shark"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Biscayne National Park",
+ "icon": "water",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.12,
+   "wiki": "Sun",
+   "desc": "Shallow, clear water lets light reach the seagrass and reef algae on the bay floor.",
+   "ic": "sun",
+   "cat": "abiotic"
+  },
+  {
+   "id": "warm",
+   "name": "Warm clear ocean water",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.38,
+   "wiki": "Florida Reef",
+   "desc": "The northern Florida Reef sits in warm subtropical water; the park protects the reef section that makes up about half its area.",
+   "ic": "water",
+   "cat": "abiotic"
+  },
+  {
+   "id": "canal",
+   "name": "Canal freshwater",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.64,
+   "wiki": "Biscayne Bay",
+   "desc": "Canals that drain the Everglades send fresh water, sediment and pollutants into the bay and shift its salinity.",
+   "ic": "rain",
+   "cat": "abiotic"
+  },
+  {
+   "id": "nutr",
+   "name": "Bay nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.88,
+   "wiki": "Nutrient",
+   "desc": "Nutrients released from dead plants and animals feed seagrass, mangroves and algae again.",
+   "ic": "soil",
+   "cat": "abiotic"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Bacteria, fungi and worms",
+   "tl": 0,
+   "xh": 0.5,
+   "wiki": "Decomposer",
+   "desc": "Break down mangrove leaf litter, dead seagrass and carcasses, returning nutrients to the bay.",
+   "ic": "decomp",
+   "cat": "decomp"
+  },
+  {
+   "id": "turtlegrass",
+   "name": "Turtlegrass",
+   "latin": "Thalassia testudinum",
+   "tl": 1,
+   "xh": 0.2,
+   "wiki": "Thalassia testudinum",
+   "desc": "The main seagrass of the bay. Its meadows shelter young fish and invertebrates, and its dead leaves supply much of the detritus.",
+   "ic": "grass",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "mangrove",
+   "name": "Red mangrove",
+   "latin": "Rhizophora mangle",
+   "tl": 1,
+   "xh": 0.5,
+   "wiki": "Rhizophora mangle",
+   "desc": "Lines the shore with prop roots that shelter young fish, mollusks and crustaceans; its leaf litter feeds the shallows.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "halimeda",
+   "name": "Calcareous green algae",
+   "latin": "Halimeda",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Halimeda",
+   "desc": "Chalky green seaweed growing on reefs and sandy flats. Grazed by parrotfish and snails.",
+   "ic": "algae"
+  },
+  {
+   "id": "manatee",
+   "name": "West Indian manatee",
+   "latin": "Trichechus manatus",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "West Indian manatee",
+   "desc": "A slow, gentle grazer of seagrass that visits the bay. Boat strikes are a main danger.",
+   "ic": "quad"
+  },
+  {
+   "id": "greenturtle",
+   "name": "Green sea turtle",
+   "latin": "Chelonia mydas",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Green sea turtle",
+   "desc": "Adults graze seagrass in shallow water. Green sea turtles are among the marine reptiles that use the park.",
+   "ic": "turtle"
+  },
+  {
+   "id": "urchin",
+   "name": "Variegated sea urchin",
+   "latin": "Lytechinus variegatus",
+   "tl": 2,
+   "xh": 0.29,
+   "wiki": "Lytechinus variegatus",
+   "desc": "A small urchin of seagrass meadows that grazes turtlegrass blades.",
+   "ic": "starfish"
+  },
+  {
+   "id": "conch",
+   "name": "Queen conch",
+   "latin": "Aliger gigas",
+   "tl": 2,
+   "xh": 0.41,
+   "wiki": "Queen conch",
+   "desc": "A large snail that grazes algae and seagrass films on sandy flats and meadows.",
+   "ic": "shell"
+  },
+  {
+   "id": "parrotfish",
+   "name": "Stoplight parrotfish",
+   "latin": "Sparisoma viride",
+   "tl": 2,
+   "xh": 0.53,
+   "wiki": "Stoplight parrotfish",
+   "desc": "A reef grazer that scrapes algae off coral rock, helping keep corals from being smothered.",
+   "ic": "trout"
+  },
+  {
+   "id": "shrimp",
+   "name": "Pink shrimp",
+   "latin": "Farfantepenaeus duorarum",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Farfantepenaeus duorarum",
+   "desc": "Young shrimp use seagrass and mangrove shallows as nurseries and feed on small bottom matter.",
+   "ic": "hopper"
+  },
+  {
+   "id": "mullet",
+   "name": "Striped mullet",
+   "latin": "Mugil cephalus",
+   "tl": 2,
+   "xh": 0.8,
+   "wiki": "Striped mullet",
+   "desc": "A schooling fish of shallow bays that feeds on algae and detritus; common prey of birds, dolphins and crocodiles.",
+   "ic": "trout"
+  },
+  {
+   "id": "lobster",
+   "name": "Caribbean spiny lobster",
+   "latin": "Panulirus argus",
+   "tl": 3,
+   "xh": 0.12,
+   "wiki": "Caribbean spiny lobster",
+   "desc": "Young settle in seagrass and mangrove roots, adults shelter in reef holes. Eats snails, clams, urchins and carrion.",
+   "ic": "hopper"
+  },
+  {
+   "id": "snapper",
+   "name": "Gray snapper",
+   "latin": "Lutjanus griseus",
+   "tl": 3,
+   "xh": 0.3,
+   "wiki": "Gray snapper",
+   "desc": "Hunts crabs, shrimp and small fish around mangroves, docks and grass flats.",
+   "ic": "trout"
+  },
+  {
+   "id": "barracuda",
+   "name": "Great barracuda",
+   "latin": "Sphyraena barracuda",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Great barracuda",
+   "desc": "An ambush predator of reefs and shallows; young stay in mangroves and seagrass.",
+   "ic": "trout"
+  },
+  {
+   "id": "pelican",
+   "name": "Brown pelican",
+   "latin": "Pelecanus occidentalis",
+   "tl": 3,
+   "xh": 0.7,
+   "wiki": "Brown pelican",
+   "desc": "A diving seabird that hunts schooling fish over the bay.",
+   "ic": "hawk"
+  },
+  {
+   "id": "osprey",
+   "name": "Osprey",
+   "latin": "Pandion haliaetus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Osprey",
+   "desc": "A fish-eating raptor that plunges for fish in the shallow bay.",
+   "ic": "osprey"
+  },
+  {
+   "id": "shark",
+   "name": "Bull shark",
+   "latin": "Carcharhinus leucas",
+   "tl": 4,
+   "xh": 0.2,
+   "wiki": "Bull shark",
+   "desc": "A shallow-water apex predator that takes bony fish, rays, turtles and dolphins.",
+   "ic": "shark",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "croc",
+   "name": "American crocodile",
+   "latin": "Crocodylus acutus",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "American crocodile",
+   "desc": "A threatened mangrove-shore predator found in Biscayne Bay; adults eat fish, crabs and small mammals.",
+   "ic": "croc"
+  },
+  {
+   "id": "dolphin",
+   "name": "Common bottlenose dolphin",
+   "latin": "Tursiops truncatus",
+   "tl": 4,
+   "xh": 0.8,
+   "wiki": "Common bottlenose dolphin",
+   "desc": "A resident of the bay and nearby waters that hunts fish such as mullet. Bull sharks occasionally eat dolphins.",
+   "ic": "whale"
+  }
+ ],
+ "raw": [
+  [
+   "turtlegrass",
+   "manatee"
+  ],
+  [
+   "turtlegrass",
+   "greenturtle"
+  ],
+  [
+   "turtlegrass",
+   "urchin"
+  ],
+  [
+   "turtlegrass",
+   "parrotfish"
+  ],
+  [
+   "turtlegrass",
+   "mullet"
+  ],
+  [
+   "halimeda",
+   "parrotfish"
+  ],
+  [
+   "halimeda",
+   "conch"
+  ],
+  [
+   "mangrove",
+   "shrimp"
+  ],
+  [
+   "conch",
+   "lobster"
+  ],
+  [
+   "urchin",
+   "lobster"
+  ],
+  [
+   "shrimp",
+   "snapper"
+  ],
+  [
+   "lobster",
+   "snapper"
+  ],
+  [
+   "shrimp",
+   "barracuda"
+  ],
+  [
+   "snapper",
+   "barracuda"
+  ],
+  [
+   "mullet",
+   "pelican"
+  ],
+  [
+   "mullet",
+   "osprey"
+  ],
+  [
+   "snapper",
+   "osprey"
+  ],
+  [
+   "mullet",
+   "dolphin"
+  ],
+  [
+   "snapper",
+   "dolphin"
+  ],
+  [
+   "mullet",
+   "croc"
+  ],
+  [
+   "snapper",
+   "croc"
+  ],
+  [
+   "mullet",
+   "shark"
+  ],
+  [
+   "barracuda",
+   "shark"
+  ],
+  [
+   "parrotfish",
+   "shark"
+  ],
+  [
+   "greenturtle",
+   "shark"
+  ],
+  [
+   "dolphin",
+   "shark"
+  ],
+  [
+   "sun",
+   "turtlegrass",
+   "r"
+  ],
+  [
+   "sun",
+   "mangrove",
+   "r"
+  ],
+  [
+   "sun",
+   "halimeda",
+   "r"
+  ],
+  [
+   "warm",
+   "halimeda",
+   "r"
+  ],
+  [
+   "canal",
+   "mangrove",
+   "r"
+  ],
+  [
+   "nutr",
+   "turtlegrass",
+   "r"
+  ],
+  [
+   "nutr",
+   "mangrove",
+   "r"
+  ],
+  [
+   "turtlegrass",
+   "decomp",
+   "d"
+  ],
+  [
+   "mangrove",
+   "decomp",
+   "d"
+  ],
+  [
+   "halimeda",
+   "decomp",
+   "d"
+  ],
+  [
+   "mullet",
+   "decomp",
+   "d"
+  ],
+  [
+   "shark",
+   "decomp",
+   "d"
+  ],
+  [
+   "croc",
+   "decomp",
+   "d"
+  ],
+  [
+   "decomp",
+   "nutr",
+   "r"
+  ],
+  [
+   "halimeda",
+   "greenturtle"
+  ],
+  [
+   "parrotfish",
+   "barracuda"
+  ],
+  [
+   "shrimp",
+   "pelican"
+  ],
+  [
+   "shrimp",
+   "shark"
+  ],
+  [
+   "manatee",
+   "croc"
+  ]
+ ],
+ "ev": {
+  "turtlegrass>manatee": [
+   "a"
+  ],
+  "turtlegrass>greenturtle": [
+   "g",
+   "Chelonia mydas",
+   "Thalassia testudinum"
+  ],
+  "turtlegrass>urchin": [
+   "g",
+   "Lytechinus variegatus",
+   "Thalassia testudinum"
+  ],
+  "turtlegrass>parrotfish": [
+   "g",
+   "Sparisoma viride",
+   "Thalassia testudinum"
+  ],
+  "turtlegrass>mullet": [
+   "a"
+  ],
+  "halimeda>parrotfish": [
+   "gg",
+   "Sparisoma viride",
+   "Halimeda"
+  ],
+  "halimeda>conch": [
+   "a"
+  ],
+  "mangrove>shrimp": [
+   "a"
+  ],
+  "conch>lobster": [
+   "a"
+  ],
+  "urchin>lobster": [
+   "a"
+  ],
+  "shrimp>snapper": [
+   "g",
+   "Lutjanus griseus",
+   "Farfantepenaeus duorarum"
+  ],
+  "lobster>snapper": [
+   "g",
+   "Lutjanus griseus",
+   "Panulirus argus"
+  ],
+  "shrimp>barracuda": [
+   "a"
+  ],
+  "snapper>barracuda": [
+   "g",
+   "Sphyraena barracuda",
+   "Lutjanus griseus"
+  ],
+  "mullet>pelican": [
+   "g",
+   "Pelecanus occidentalis",
+   "Mugil cephalus"
+  ],
+  "mullet>osprey": [
+   "g",
+   "Pandion haliaetus",
+   "Mugil cephalus"
+  ],
+  "snapper>osprey": [
+   "g",
+   "Pandion haliaetus",
+   "Lutjanus griseus"
+  ],
+  "mullet>dolphin": [
+   "g",
+   "Tursiops truncatus",
+   "Mugil cephalus"
+  ],
+  "snapper>dolphin": [
+   "a"
+  ],
+  "mullet>croc": [
+   "g",
+   "Crocodylus acutus",
+   "Mugil cephalus"
+  ],
+  "snapper>croc": [
+   "a"
+  ],
+  "mullet>shark": [
+   "g",
+   "Carcharhinus leucas",
+   "Mugil cephalus"
+  ],
+  "barracuda>shark": [
+   "a"
+  ],
+  "parrotfish>shark": [
+   "a"
+  ],
+  "greenturtle>shark": [
+   "a"
+  ],
+  "dolphin>shark": [
+   "gg",
+   "Carcharhinus leucas",
+   "Tursiops truncatus"
+  ],
+  "halimeda>greenturtle": [
+   "ga",
+   "Chelonia mydas",
+   "Halimeda"
+  ],
+  "parrotfish>barracuda": [
+   "ga",
+   "Sphyraena barracuda",
+   "Sparisoma viride"
+  ],
+  "shrimp>pelican": [
+   "ga",
+   "Pelecanus occidentalis",
+   "Farfantepenaeus duorarum"
+  ],
+  "shrimp>shark": [
+   "ga",
+   "Carcharhinus leucas",
+   "Farfantepenaeus duorarum"
+  ],
+  "manatee>croc": [
+   "ga",
+   "Crocodylus acutus",
+   "Trichechus manatus"
+  ]
+ }
+}

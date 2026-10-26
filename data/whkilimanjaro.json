@@ -1,0 +1,577 @@
+{
+ "id": "whkilimanjaro",
+ "name": "Kilimanjaro National Park",
+ "short": "Kilimanjaro",
+ "place": "Tanzania",
+ "lat": -3.07,
+ "lon": 37.35,
+ "side": "r",
+ "cont": "Africa",
+ "country": "Tanzania",
+ "kind": "Polar & mountain",
+ "park": true,
+ "blurb": "Montane forest to alpine desert: colobus, hyraxes, elephants and a leopard on top.",
+ "tip": {
+  "id": "rain",
+  "title": "Dry out the mountain",
+  "text": "Set Orographic rain to -100% and watch the forest trees, then the monkeys and hyraxes that live in them, and the leopard and eagle above them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Kilimanjaro National Park",
+   "url": "https://en.wikipedia.org/wiki/Kilimanjaro_National_Park"
+  },
+  {
+   "title": "Wikipedia: Mount Kilimanjaro",
+   "url": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
+  },
+  {
+   "title": "Wikipedia: Eastern tree hyrax",
+   "url": "https://en.wikipedia.org/wiki/Eastern_tree_hyrax"
+  },
+  {
+   "title": "Wikipedia: Black-and-white colobus",
+   "url": "https://en.wikipedia.org/wiki/Black-and-white_colobus"
+  },
+  {
+   "title": "Wikipedia: Blue monkey",
+   "url": "https://en.wikipedia.org/wiki/Blue_monkey"
+  },
+  {
+   "title": "Wikipedia: Augur buzzard",
+   "url": "https://en.wikipedia.org/wiki/Augur_buzzard"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Mount Kilimanjaro",
+ "icon": "ice",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "rain",
+   "name": "Orographic rain",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.15,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Moist air rising up the southern slope drops its heaviest rain in the forest belt, while the northern slopes and alpine zone are much drier.",
+   "ic": "rain"
+  },
+  {
+   "id": "fog",
+   "name": "Cloud and mist",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.4,
+   "cat": "abiotic",
+   "wiki": "Fog",
+   "desc": "Cloud wraps the montane forest and moorland, giving moisture to fog-dependent mosses and trees.",
+   "ic": "water"
+  },
+  {
+   "id": "ice",
+   "name": "Snow and glacier melt",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.65,
+   "cat": "abiotic",
+   "wiki": "Glacier",
+   "desc": "Snow and ice cap the summit. Most of the ice cover has vanished since 1912, and the forest below acts as the main water reservoir.",
+   "ic": "ice"
+  },
+  {
+   "id": "soil",
+   "name": "Volcanic mountain soil",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.85,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Soils on the old volcano hold the nutrients that the forest and moorland plants take up.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, insects & bacteria",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.97,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down leaf litter, dung and carcasses and return nutrients to the mountain soil.",
+   "ic": "decomp"
+  },
+  {
+   "id": "ocotea",
+   "name": "Camphor wood",
+   "latin": "Ocotea usambarensis",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Ocotea usambarensis",
+   "desc": "A canopy tree of the wet southern montane forest, with ferns and epiphytes growing beneath and on it.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "erica",
+   "name": "Tree heath",
+   "latin": "Erica arborea",
+   "tl": 1,
+   "xh": 0.32,
+   "wiki": "Erica arborea",
+   "desc": "Heather-family shrub forming the Erica belt of the moorland zone, above the forest.",
+   "ic": "sage"
+  },
+  {
+   "id": "groundsel",
+   "name": "Giant groundsel",
+   "latin": "Dendrosenecio kilimanjari",
+   "tl": 1,
+   "xh": 0.52,
+   "wiki": "Dendrosenecio kilimanjari",
+   "desc": "Giant groundsel endemic to the mountain, growing below about 4,000 m.",
+   "ic": "sage"
+  },
+  {
+   "id": "lobelia",
+   "name": "Giant lobelia",
+   "latin": "Lobelia deckenii",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Lobelia deckenii",
+   "desc": "A tall rosette plant of the high moorland and alpine zones, recorded very often in GBIF here.",
+   "ic": "sage"
+  },
+  {
+   "id": "koeleria",
+   "name": "Tussock grass",
+   "latin": "Koeleria",
+   "tl": 1,
+   "xh": 0.9,
+   "wiki": "Koeleria",
+   "desc": "Tufted grasses of the open moorland and tussock grassland above the tree line.",
+   "ic": "grass"
+  },
+  {
+   "id": "colobus",
+   "name": "Eastern black-and-white colobus",
+   "latin": "Colobus guereza",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Mantled guereza",
+   "desc": "Leaf-eating monkey of the montane forest, with a Kilimanjaro subspecies. Its sloppy feeding also helps spread seeds.",
+   "ic": "quad"
+  },
+  {
+   "id": "bluemonkey",
+   "name": "Blue monkey",
+   "latin": "Cercopithecus mitis",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Blue monkey",
+   "desc": "Canopy monkey eating mostly fruit, plus leaves and insects, which are its main protein source.",
+   "ic": "quad"
+  },
+  {
+   "id": "hyrax",
+   "name": "Kilimanjaro tree hyrax",
+   "latin": "Dendrohyrax validus",
+   "tl": 2,
+   "xh": 0.29,
+   "wiki": "Eastern tree hyrax",
+   "desc": "Leaf-eater of the foothill and montane forest, reaching about 3,000 m on Kilimanjaro. Leopards and crowned eagles prey on it.",
+   "ic": "vole"
+  },
+  {
+   "id": "elephant",
+   "name": "African bush elephant",
+   "latin": "Loxodonta africana",
+   "tl": 2,
+   "xh": 0.41,
+   "wiki": "African bush elephant",
+   "desc": "A mixed grazer and browser that disperses seeds. Elephants live between the Namwai and Tarakia rivers and sometimes climb higher.",
+   "ic": "elephant",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "buffalo",
+   "name": "African buffalo",
+   "latin": "Syncerus caffer",
+   "tl": 2,
+   "xh": 0.53,
+   "wiki": "African buffalo",
+   "desc": "Grazer of the forest edge and clearings, listed among the park wildlife in the montane forest.",
+   "ic": "bison"
+  },
+  {
+   "id": "duiker",
+   "name": "Common duiker",
+   "latin": "Sylvicapra grimmia",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Common duiker",
+   "desc": "Small antelope browsing leaves and fruit, seen above the timberline.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "rat",
+   "name": "Four-striped grass mouse",
+   "latin": "Rhabdomys dilectus",
+   "tl": 2,
+   "xh": 0.77,
+   "wiki": "Rhabdomys",
+   "desc": "Small rodent of the open montane grassland and the most recorded mammal in the GBIF data here.",
+   "ic": "vole"
+  },
+  {
+   "id": "locust",
+   "name": "Garden locust",
+   "latin": "Acanthacris ruficornis",
+   "tl": 2,
+   "xh": 0.9,
+   "wiki": "Locust",
+   "desc": "A large grasshopper that chews grasses and other plants and feeds reptiles and birds.",
+   "ic": "hopper"
+  },
+  {
+   "id": "chameleon",
+   "name": "Kilimanjaro two-horned chameleon",
+   "latin": "Kinyongia tavetana",
+   "tl": 3,
+   "xh": 0.2,
+   "wiki": "Kinyongia tavetana",
+   "desc": "A chameleon found only on the mountain that hunts insects.",
+   "ic": "snake"
+  },
+  {
+   "id": "buzzard",
+   "name": "Augur buzzard",
+   "latin": "Buteo augur",
+   "tl": 3,
+   "xh": 0.5,
+   "wiki": "Augur buzzard",
+   "desc": "Raptor of upland moorland that mostly takes small ground mammals and reptiles, with the odd young hyrax.",
+   "ic": "hawk"
+  },
+  {
+   "id": "raven",
+   "name": "White-necked raven",
+   "latin": "Corvus albicollis",
+   "tl": 3,
+   "xh": 0.8,
+   "wiki": "White-necked raven",
+   "desc": "Large crow named on the park page as a bird of the mountain; it scavenges carrion and eats insects.",
+   "ic": "raven"
+  },
+  {
+   "id": "leopard",
+   "name": "African leopard",
+   "latin": "Panthera pardus pardus",
+   "tl": 4,
+   "xh": 0.35,
+   "wiki": "African leopard",
+   "desc": "The main large predator of the forest, taking monkeys, hyraxes and small antelope.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "eagle",
+   "name": "Crowned eagle",
+   "latin": "Stephanoaetus coronatus",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Crowned eagle",
+   "desc": "A forest eagle that preys on monkeys and hyraxes in the canopy.",
+   "ic": "goldeneagle"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "ocotea",
+   "r"
+  ],
+  [
+   "fog",
+   "ocotea",
+   "r"
+  ],
+  [
+   "fog",
+   "erica",
+   "r"
+  ],
+  [
+   "rain",
+   "koeleria",
+   "r"
+  ],
+  [
+   "soil",
+   "ocotea",
+   "r"
+  ],
+  [
+   "soil",
+   "erica",
+   "r"
+  ],
+  [
+   "soil",
+   "koeleria",
+   "r"
+  ],
+  [
+   "ice",
+   "groundsel",
+   "r"
+  ],
+  [
+   "ice",
+   "lobelia",
+   "r"
+  ],
+  [
+   "soil",
+   "groundsel",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "ocotea",
+   "decomp",
+   "d"
+  ],
+  [
+   "groundsel",
+   "decomp",
+   "d"
+  ],
+  [
+   "elephant",
+   "decomp",
+   "d"
+  ],
+  [
+   "buffalo",
+   "decomp",
+   "d"
+  ],
+  [
+   "ocotea",
+   "colobus"
+  ],
+  [
+   "ocotea",
+   "bluemonkey"
+  ],
+  [
+   "ocotea",
+   "hyrax"
+  ],
+  [
+   "ocotea",
+   "elephant"
+  ],
+  [
+   "ocotea",
+   "duiker"
+  ],
+  [
+   "erica",
+   "elephant"
+  ],
+  [
+   "koeleria",
+   "buffalo"
+  ],
+  [
+   "koeleria",
+   "elephant"
+  ],
+  [
+   "koeleria",
+   "rat"
+  ],
+  [
+   "koeleria",
+   "locust"
+  ],
+  [
+   "locust",
+   "bluemonkey"
+  ],
+  [
+   "locust",
+   "chameleon"
+  ],
+  [
+   "locust",
+   "raven"
+  ],
+  [
+   "rat",
+   "buzzard"
+  ],
+  [
+   "chameleon",
+   "buzzard"
+  ],
+  [
+   "hyrax",
+   "buzzard"
+  ],
+  [
+   "colobus",
+   "leopard"
+  ],
+  [
+   "bluemonkey",
+   "leopard"
+  ],
+  [
+   "hyrax",
+   "leopard"
+  ],
+  [
+   "duiker",
+   "leopard"
+  ],
+  [
+   "colobus",
+   "eagle"
+  ],
+  [
+   "bluemonkey",
+   "eagle"
+  ],
+  [
+   "hyrax",
+   "eagle"
+  ],
+  [
+   "duiker",
+   "raven",
+   "s"
+  ],
+  [
+   "buffalo",
+   "raven",
+   "s"
+  ],
+  [
+   "buffalo",
+   "leopard"
+  ],
+  [
+   "duiker",
+   "eagle"
+  ]
+ ],
+ "ev": {
+  "ocotea>colobus": [
+   "gg",
+   "Colobus guereza",
+   "Ocotea usambarensis"
+  ],
+  "ocotea>bluemonkey": [
+   "gg",
+   "Cercopithecus mitis",
+   "Ocotea usambarensis"
+  ],
+  "ocotea>hyrax": [
+   "a"
+  ],
+  "ocotea>elephant": [
+   "a"
+  ],
+  "ocotea>duiker": [
+   "a"
+  ],
+  "erica>elephant": [
+   "a"
+  ],
+  "koeleria>buffalo": [
+   "a"
+  ],
+  "koeleria>elephant": [
+   "a"
+  ],
+  "koeleria>rat": [
+   "a"
+  ],
+  "koeleria>locust": [
+   "a"
+  ],
+  "locust>bluemonkey": [
+   "a"
+  ],
+  "locust>chameleon": [
+   "a"
+  ],
+  "locust>raven": [
+   "a"
+  ],
+  "rat>buzzard": [
+   "a"
+  ],
+  "chameleon>buzzard": [
+   "a"
+  ],
+  "hyrax>buzzard": [
+   "a"
+  ],
+  "colobus>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Colobus guereza"
+  ],
+  "bluemonkey>leopard": [
+   "g",
+   "Panthera pardus",
+   "Cercopithecus mitis"
+  ],
+  "hyrax>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Dendrohyrax validus"
+  ],
+  "duiker>leopard": [
+   "g",
+   "Panthera pardus",
+   "Sylvicapra grimmia"
+  ],
+  "colobus>eagle": [
+   "gg",
+   "Stephanoaetus coronatus",
+   "Colobus guereza"
+  ],
+  "bluemonkey>eagle": [
+   "a"
+  ],
+  "hyrax>eagle": [
+   "a"
+  ],
+  "duiker>raven": [
+   "a"
+  ],
+  "buffalo>raven": [
+   "a"
+  ],
+  "buffalo>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Syncerus caffer"
+  ],
+  "duiker>eagle": [
+   "ga",
+   "Stephanoaetus coronatus",
+   "Sylvicapra grimmia"
+  ]
+ }
+}

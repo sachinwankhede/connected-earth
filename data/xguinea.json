@@ -1,0 +1,520 @@
+{
+ "id": "xguinea",
+ "name": "Mount Nimba Strict Nature Reserve",
+ "short": "Mount Nimba",
+ "place": "Guinea and Côte d'Ivoire",
+ "lat": 7.65,
+ "lon": -8.4,
+ "side": "l",
+ "cont": "Africa",
+ "country": "Guinea",
+ "countries": [
+  "Guinea",
+  "Côte d'Ivoire",
+  "Liberia"
+ ],
+ "kind": "Forest",
+ "park": true,
+ "blurb": "Misty forest, mountain grassland and a toad that gives birth to live young.",
+ "tip": {
+  "id": "ficus",
+  "title": "Thin the figs",
+  "text": "Figs and forest fruit feed bats, chimpanzees, hornbills, duikers and beetles. Cut the figs and watch the fruit eaters, then the leopard, respond."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Mount Nimba Strict Nature Reserve",
+   "url": "https://en.wikipedia.org/wiki/Mount_Nimba_Strict_Nature_Reserve"
+  },
+  {
+   "title": "UNESCO World Heritage: Mount Nimba Strict Nature Reserve",
+   "url": "https://whc.unesco.org/en/list/155/"
+  },
+  {
+   "title": "Wikipedia: Nimba otter shrew",
+   "url": "https://en.wikipedia.org/wiki/Nimba_otter_shrew"
+  },
+  {
+   "title": "Wikipedia: Western chimpanzee",
+   "url": "https://en.wikipedia.org/wiki/Western_chimpanzee"
+  },
+  {
+   "title": "Wikipedia: Pygmy hippopotamus",
+   "url": "https://en.wikipedia.org/wiki/Pygmy_hippopotamus"
+  },
+  {
+   "title": "Wikipedia: Nimbaphrynoides occidentalis",
+   "url": "https://en.wikipedia.org/wiki/Nimbaphrynoides_occidentalis"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Mount Nimba Strict Nature Reserve",
+ "icon": "quad",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "loudetia",
+   "name": "Mountain grassland grass",
+   "latin": "Loudetia simplex",
+   "tl": 1,
+   "xh": 0.1,
+   "wiki": "Loudetia simplex",
+   "desc": "A perennial bunch grass of African grasslands. Montane grassland like this caps the Nimba ridge above the forest and is home to the endemic Nimba toad.",
+   "ic": "grass"
+  },
+  {
+   "id": "parinari",
+   "name": "Guinea plum",
+   "latin": "Parinari excelsa",
+   "tl": 1,
+   "xh": 0.35,
+   "wiki": "Parinari excelsa",
+   "desc": "A large evergreen tree that gives its name to the mossy Parinari forests on Nimba. Its fruit is eaten by chimpanzees and other animals.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "ficus",
+   "name": "Wild figs",
+   "latin": "Ficus",
+   "tl": 1,
+   "xh": 0.6,
+   "wiki": "Ficus",
+   "desc": "Fig trees fruit through the year in many tropical forests and are a food source for bats, birds and primates.",
+   "ic": "willow"
+  },
+  {
+   "id": "algae",
+   "name": "Stream algae",
+   "latin": "Bacillariophyta",
+   "tl": 1,
+   "xh": 0.85,
+   "wiki": "Diatom",
+   "desc": "Microscopic algae film on stones in the clear streams that drain the mountain springs.",
+   "ic": "algae"
+  },
+  {
+   "id": "bat",
+   "name": "Egyptian rousette",
+   "latin": "Rousettus aegyptiacus",
+   "tl": 2,
+   "xh": 0.05,
+   "wiki": "Egyptian fruit bat",
+   "desc": "A fruit bat recorded near Nimba in GBIF data. Fruit bats feed on figs and other fruit and spread seeds at night.",
+   "ic": "quad"
+  },
+  {
+   "id": "hippo",
+   "name": "Pygmy hippopotamus",
+   "latin": "Choeropsis liberiensis",
+   "tl": 2,
+   "xh": 0.17,
+   "wiki": "Pygmy hippopotamus",
+   "desc": "A forest and swamp herbivore of West Africa, mostly in Liberia with small numbers in Guinea. It eats ferns, herbs and fallen fruit, and leopards take its young.",
+   "ic": "quad"
+  },
+  {
+   "id": "chimp",
+   "name": "Western chimpanzee",
+   "latin": "Pan troglodytes verus",
+   "tl": 2,
+   "xh": 0.29,
+   "wiki": "Western chimpanzee",
+   "desc": "The Nimba area is known for chimpanzees that use stones as tools. They eat mostly fruit, including that of Guinea plum.",
+   "ic": "quad",
+   "badge": "Ecosystem engineer"
+  },
+  {
+   "id": "duiker",
+   "name": "Zebra duiker",
+   "latin": "Cephalophus zebra",
+   "tl": 2,
+   "xh": 0.41,
+   "wiki": "Zebra duiker",
+   "desc": "A small forest antelope that eats fruit, leaves and seeds and can crack hard fruit shells. It is a threatened species of the Upper Guinea forests.",
+   "ic": "quad"
+  },
+  {
+   "id": "hornbill",
+   "name": "African pied hornbill",
+   "latin": "Lophoceros fasciatus",
+   "tl": 2,
+   "xh": 0.53,
+   "wiki": "African pied hornbill",
+   "desc": "A frequently recorded forest bird of the Nimba circle. Hornbills take fruit and insects.",
+   "ic": "hawk"
+  },
+  {
+   "id": "chafer",
+   "name": "Marginated Congo chafer",
+   "latin": "Pachnoda marginata",
+   "tl": 2,
+   "xh": 0.65,
+   "wiki": "Pachnoda marginata",
+   "desc": "A colourful beetle recorded near Nimba. Adults feed on fruit and flowers and are prey for birds and small mammals.",
+   "ic": "hopper"
+  },
+  {
+   "id": "mouse",
+   "name": "Typical striped grass mouse",
+   "latin": "Lemniscomys striatus",
+   "tl": 2,
+   "xh": 0.77,
+   "wiki": "Typical striped grass mouse",
+   "desc": "A small rodent of grassland, forest edge and secondary forest up to about 1,700 m. GloBI records the rhinoceros viper eating it.",
+   "ic": "vole"
+  },
+  {
+   "id": "aquatic",
+   "name": "Stream insects",
+   "latin": "Insecta",
+   "tl": 2,
+   "xh": 0.89,
+   "wiki": "Aquatic insect",
+   "desc": "Insect larvae and other small animals that graze algae and debris in the mountain streams.",
+   "ic": "hopper"
+  },
+  {
+   "id": "toad",
+   "name": "Nimba viviparous toad",
+   "latin": "Nimbaphrynoides occidentalis",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Nimbaphrynoides occidentalis",
+   "desc": "A critically endangered toad found only in the high grasslands of Nimba at about 1,200 to 1,680 m. It gives birth to live young and does not tolerate disturbed ground.",
+   "ic": "quad",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "otter",
+   "name": "Nimba otter shrew",
+   "latin": "Micropotamogale lamottei",
+   "tl": 3,
+   "xh": 0.38,
+   "wiki": "Nimba otter shrew",
+   "desc": "A small nocturnal semi-aquatic insectivore living along creeks in the Nimba area. Mining runoff threatens its streams.",
+   "ic": "otter"
+  },
+  {
+   "id": "kusi",
+   "name": "Common kusimanse",
+   "latin": "Crossarchus obscurus",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Common kusimanse",
+   "desc": "A small social mongoose of West African forest floors that forages for insects and other small animals.",
+   "ic": "quad"
+  },
+  {
+   "id": "viper",
+   "name": "Rhinoceros viper",
+   "latin": "Bitis nasicornis",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "Rhinoceros viper",
+   "desc": "A forest viper recorded in the Nimba circle. GloBI records it eating the striped grass mouse.",
+   "ic": "snake"
+  },
+  {
+   "id": "leopard",
+   "name": "Leopard",
+   "latin": "Panthera pardus",
+   "tl": 4,
+   "xh": 0.5,
+   "wiki": "Leopard",
+   "desc": "The top predator of West African forests. Wikipedia lists it among the predators of young pygmy hippos.",
+   "ic": "lion",
+   "badge": "Keystone predator"
+  },
+  {
+   "id": "rain",
+   "name": "Rain and cloud",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "The southern slopes are wetter than the northern ones. Mist and cloud feed the mossy forest on the ridge.",
+   "ic": "rain"
+  },
+  {
+   "id": "water",
+   "name": "Mountain springs",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.28,
+   "cat": "abiotic",
+   "wiki": "Spring (hydrology)",
+   "desc": "About fifty springs make Nimba a water tower for the Cavally, Cestos and Sassandra rivers.",
+   "ic": "water"
+  },
+  {
+   "id": "fire",
+   "name": "Land-clearing fires",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.48,
+   "cat": "abiotic",
+   "wiki": "Wildfire",
+   "desc": "UNESCO lists regular fires set for farming and grazing around the reserve as a threat. Fire also shapes the grassland.",
+   "ic": "fire"
+  },
+  {
+   "id": "soil",
+   "name": "Mountain soils",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.68,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Thin ridge soils and the nutrients released from dead leaves feed the forest and grassland.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Dung beetles & fungi",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.88,
+   "cat": "decomp",
+   "wiki": "Dung beetle",
+   "desc": "Large dung beetles such as Heliocopris are among the most recorded insects here. With fungi they recycle dead matter into soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "rain",
+   "loudetia",
+   "r"
+  ],
+  [
+   "rain",
+   "parinari",
+   "r"
+  ],
+  [
+   "rain",
+   "ficus",
+   "r"
+  ],
+  [
+   "water",
+   "loudetia",
+   "r"
+  ],
+  [
+   "water",
+   "parinari",
+   "r"
+  ],
+  [
+   "water",
+   "ficus",
+   "r"
+  ],
+  [
+   "soil",
+   "loudetia",
+   "r"
+  ],
+  [
+   "soil",
+   "parinari",
+   "r"
+  ],
+  [
+   "soil",
+   "ficus",
+   "r"
+  ],
+  [
+   "fire",
+   "loudetia",
+   "r"
+  ],
+  [
+   "water",
+   "algae",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "loudetia",
+   "decomp",
+   "d"
+  ],
+  [
+   "parinari",
+   "decomp",
+   "d"
+  ],
+  [
+   "ficus",
+   "decomp",
+   "d"
+  ],
+  [
+   "ficus",
+   "bat"
+  ],
+  [
+   "ficus",
+   "hippo"
+  ],
+  [
+   "ficus",
+   "chimp"
+  ],
+  [
+   "parinari",
+   "chimp"
+  ],
+  [
+   "ficus",
+   "duiker"
+  ],
+  [
+   "ficus",
+   "hornbill"
+  ],
+  [
+   "ficus",
+   "chafer"
+  ],
+  [
+   "loudetia",
+   "mouse"
+  ],
+  [
+   "algae",
+   "aquatic"
+  ],
+  [
+   "chafer",
+   "hornbill"
+  ],
+  [
+   "chafer",
+   "toad"
+  ],
+  [
+   "chafer",
+   "kusi"
+  ],
+  [
+   "aquatic",
+   "otter"
+  ],
+  [
+   "mouse",
+   "viper"
+  ],
+  [
+   "mouse",
+   "kusi"
+  ],
+  [
+   "mouse",
+   "leopard"
+  ],
+  [
+   "duiker",
+   "leopard"
+  ],
+  [
+   "hippo",
+   "leopard"
+  ],
+  [
+   "aquatic",
+   "kusi"
+  ],
+  [
+   "chimp",
+   "leopard"
+  ]
+ ],
+ "ev": {
+  "ficus>bat": [
+   "g",
+   "Rousettus aegyptiacus",
+   "Ficus"
+  ],
+  "ficus>hippo": [
+   "a"
+  ],
+  "ficus>chimp": [
+   "gg",
+   "Pan troglodytes",
+   "Ficus"
+  ],
+  "parinari>chimp": [
+   "g",
+   "Pan troglodytes",
+   "Parinari excelsa"
+  ],
+  "ficus>duiker": [
+   "a"
+  ],
+  "ficus>hornbill": [
+   "a"
+  ],
+  "ficus>chafer": [
+   "a"
+  ],
+  "loudetia>mouse": [
+   "a"
+  ],
+  "algae>aquatic": [
+   "a"
+  ],
+  "chafer>hornbill": [
+   "a"
+  ],
+  "chafer>toad": [
+   "a"
+  ],
+  "chafer>kusi": [
+   "a"
+  ],
+  "aquatic>otter": [
+   "g",
+   "Micropotamogale lamottei",
+   "Insecta"
+  ],
+  "mouse>viper": [
+   "g",
+   "Bitis nasicornis",
+   "Lemniscomys striatus"
+  ],
+  "mouse>kusi": [
+   "a"
+  ],
+  "mouse>leopard": [
+   "a"
+  ],
+  "duiker>leopard": [
+   "gg",
+   "Panthera pardus",
+   "Cephalophus zebra"
+  ],
+  "hippo>leopard": [
+   "a"
+  ],
+  "aquatic>kusi": [
+   "ga",
+   "Crossarchus obscurus",
+   "Insecta"
+  ],
+  "chimp>leopard": [
+   "ga",
+   "Panthera pardus",
+   "Pan troglodytes"
+  ]
+ }
+}

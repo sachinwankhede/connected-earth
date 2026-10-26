@@ -1,0 +1,812 @@
+{
+ "id": "npgreatbasin",
+ "name": "Great Basin National Park",
+ "short": "Great Basin",
+ "place": "Nevada, USA",
+ "lat": 38.98,
+ "lon": -114.3,
+ "side": "l",
+ "cont": "North America",
+ "country": "United States of America",
+ "states": [
+  "Nevada"
+ ],
+ "kind": "Desert",
+ "park": true,
+ "blurb": "Bristlecone pines, sagebrush and the snowmelt that sustains a mountain island in the desert.",
+ "tip": {
+  "id": "snow",
+  "title": "Shrink the snowpack",
+  "text": "Mountain snowmelt is the water that sustains the high meadows and aspen. Set Snowpack & meltwater to -100% and watch the plants, then the deer, elk and the predators that follow them."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: Great Basin National Park",
+   "url": "https://en.wikipedia.org/wiki/Great_Basin_National_Park"
+  },
+  {
+   "title": "National Park Service: Great Basin nature and science",
+   "url": "https://www.nps.gov/grba/learn/nature/index.htm"
+  },
+  {
+   "title": "Wikipedia: Great Basin bristlecone pine",
+   "url": "https://en.wikipedia.org/wiki/Great_Basin_bristlecone_pine"
+  },
+  {
+   "title": "Wikipedia: Clark's nutcracker",
+   "url": "https://en.wikipedia.org/wiki/Clark%27s_nutcracker"
+  },
+  {
+   "title": "Wikipedia: Mule deer",
+   "url": "https://en.wikipedia.org/wiki/Mule_deer"
+  },
+  {
+   "title": "Wikipedia: Cougar",
+   "url": "https://en.wikipedia.org/wiki/Cougar"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "Great Basin National Park",
+ "icon": "whitebark",
+ "tier": "overview",
+ "nodes": [
+  {
+   "id": "bristle",
+   "name": "Great Basin bristlecone pine",
+   "latin": "Pinus longaeva",
+   "tl": 1,
+   "xh": 0.08,
+   "wiki": "Great Basin bristlecone pine",
+   "desc": "Grows in open stands near treeline on rocky, often dolomite soils where few other plants thrive. It is the oldest known living non-clonal organism.",
+   "ic": "whitebark"
+  },
+  {
+   "id": "limber",
+   "name": "Limber pine",
+   "latin": "Pinus flexilis",
+   "tl": 1,
+   "xh": 0.24,
+   "wiki": "Pinus flexilis",
+   "desc": "A high-elevation pine whose large seeds are among the favourite foods of Clark's nutcracker.",
+   "ic": "whitebark"
+  },
+  {
+   "id": "aspen",
+   "name": "Quaking aspen",
+   "latin": "Populus tremuloides",
+   "tl": 1,
+   "xh": 0.4,
+   "wiki": "Populus tremuloides",
+   "desc": "Forms groves on the wetter mountain slopes. Elk and mule deer browse it.",
+   "ic": "aspen"
+  },
+  {
+   "id": "mahogany",
+   "name": "Curl-leaf mountain-mahogany",
+   "latin": "Cercocarpus ledifolius",
+   "tl": 1,
+   "xh": 0.56,
+   "wiki": "Cercocarpus ledifolius",
+   "desc": "A tough evergreen shrub of dry slopes that mule deer browse, especially in winter.",
+   "ic": "willow"
+  },
+  {
+   "id": "sage",
+   "name": "Big sagebrush",
+   "latin": "Artemisia tridentata",
+   "tl": 1,
+   "xh": 0.72,
+   "wiki": "Artemisia tridentata",
+   "desc": "Dominates the valley floors and lower slopes near the park and is key winter browse for mule deer.",
+   "ic": "sage"
+  },
+  {
+   "id": "meadow",
+   "name": "Mountain meadow grasses & wildflowers",
+   "latin": "Poaceae and wildflowers",
+   "tl": 1,
+   "xh": 0.88,
+   "wiki": "Meadow",
+   "desc": "Grasses and flowering plants of the wetter high meadows, eaten by elk, deer and small rodents.",
+   "ic": "grass"
+  },
+  {
+   "id": "mdeer",
+   "name": "Mule deer",
+   "latin": "Odocoileus hemionus",
+   "tl": 2,
+   "xh": 0.08,
+   "wiki": "Mule deer",
+   "desc": "Mostly a browser, taking shrubs such as sagebrush, mountain-mahogany and aspen, with more flowering plants in summer. A main prey of cougars and coyotes.",
+   "ic": "muledeer"
+  },
+  {
+   "id": "elk",
+   "name": "Elk",
+   "latin": "Cervus elaphus",
+   "tl": 2,
+   "xh": 0.24,
+   "wiki": "Elk",
+   "desc": "A large grazer and browser of the high slopes and meadows, and big prey for cougars.",
+   "ic": "elk"
+  },
+  {
+   "id": "dmouse",
+   "name": "Deer mouse",
+   "latin": "Peromyscus maniculatus",
+   "tl": 2,
+   "xh": 0.4,
+   "wiki": "Deer mouse",
+   "desc": "The most recorded small mammal near the park. Eats seeds and insects and is food for snakes, bobcats and coyotes.",
+   "ic": "vole"
+  },
+  {
+   "id": "gsq",
+   "name": "Golden-mantled ground squirrel",
+   "latin": "Callospermophilus lateralis",
+   "tl": 2,
+   "xh": 0.56,
+   "wiki": "Golden-mantled ground squirrel",
+   "desc": "Eats seeds, plants and fungi in mountain forests and meadows, and is prey for eagles and carnivores.",
+   "ic": "gsquirrel"
+  },
+  {
+   "id": "chip",
+   "name": "Uinta chipmunk",
+   "latin": "Tamias umbrinus",
+   "tl": 2,
+   "xh": 0.72,
+   "wiki": "Uinta chipmunk",
+   "desc": "A conifer-forest chipmunk that eats seeds and other plant foods and is taken by bobcats and coyotes.",
+   "ic": "rsquirrel"
+  },
+  {
+   "id": "nutcracker",
+   "name": "Clark's nutcracker",
+   "latin": "Nucifraga columbiana",
+   "tl": 2,
+   "xh": 0.88,
+   "wiki": "Clark's nutcracker",
+   "desc": "Eats pine seeds and buries thousands for later; forgotten caches can sprout into new trees. Limber pine is among its important foods.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "raven",
+   "name": "Common raven",
+   "latin": "Corvus corax",
+   "tl": 3,
+   "xh": 0.15,
+   "wiki": "Common raven",
+   "desc": "A very well recorded park bird and an opportunist that scavenges carcasses and takes snakes.",
+   "ic": "raven"
+  },
+  {
+   "id": "bullsnake",
+   "name": "Gopher snake (bullsnake)",
+   "latin": "Pituophis catenifer",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Gopher snake",
+   "desc": "A constrictor that hunts rodents such as mice and voles on valley and slope habitats.",
+   "ic": "snake"
+  },
+  {
+   "id": "bobcat",
+   "name": "Bobcat",
+   "latin": "Lynx rufus",
+   "tl": 3,
+   "xh": 0.62,
+   "wiki": "Bobcat",
+   "desc": "A park predator of rabbits, rodents, birds and young deer on the rugged slopes.",
+   "ic": "lion"
+  },
+  {
+   "id": "coyote",
+   "name": "Coyote",
+   "latin": "Canis latrans",
+   "tl": 3,
+   "xh": 0.85,
+   "wiki": "Coyote",
+   "desc": "Hunts rodents and takes fawns, and feeds on carcasses, across the park's valleys and slopes.",
+   "ic": "coyote"
+  },
+  {
+   "id": "cougar",
+   "name": "Cougar",
+   "latin": "Puma concolor",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Cougar",
+   "desc": "The top predator of the mountains. Across North America deer and elk are its main prey.",
+   "ic": "lion"
+  },
+  {
+   "id": "eagle",
+   "name": "Golden eagle",
+   "latin": "Aquila chrysaetos",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Golden eagle",
+   "desc": "Hunts rabbits, hares and ground squirrels in open western country. Listed among the park's raptors.",
+   "ic": "goldeneagle"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.08,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Bright high-desert sun powers growth from the sagebrush valleys to the alpine slopes.",
+   "ic": "sun"
+  },
+  {
+   "id": "snow",
+   "name": "Snowpack & meltwater",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.26,
+   "cat": "abiotic",
+   "wiki": "Snow",
+   "desc": "The mountains collect snow that feeds streams, springs and meadows in dry surroundings; the park even holds a small glacier.",
+   "ic": "ice"
+  },
+  {
+   "id": "soil",
+   "name": "Rocky mountain soils",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.44,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Thin, rocky and often limestone-based soils; bristlecone pines dominate dolomite ground where few other plants grow.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Fungi, bacteria & soil invertebrates",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.8,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Break down dead needles, plants and carcasses and return nutrients to the thin mountain soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "bristle",
+   "r"
+  ],
+  [
+   "sun",
+   "limber",
+   "r"
+  ],
+  [
+   "sun",
+   "aspen",
+   "r"
+  ],
+  [
+   "sun",
+   "mahogany",
+   "r"
+  ],
+  [
+   "sun",
+   "sage",
+   "r"
+  ],
+  [
+   "sun",
+   "meadow",
+   "r"
+  ],
+  [
+   "snow",
+   "bristle",
+   "r"
+  ],
+  [
+   "snow",
+   "limber",
+   "r"
+  ],
+  [
+   "snow",
+   "aspen",
+   "r"
+  ],
+  [
+   "snow",
+   "mahogany",
+   "r"
+  ],
+  [
+   "snow",
+   "sage",
+   "r"
+  ],
+  [
+   "snow",
+   "meadow",
+   "r"
+  ],
+  [
+   "soil",
+   "bristle",
+   "r"
+  ],
+  [
+   "soil",
+   "limber",
+   "r"
+  ],
+  [
+   "soil",
+   "aspen",
+   "r"
+  ],
+  [
+   "soil",
+   "mahogany",
+   "r"
+  ],
+  [
+   "soil",
+   "sage",
+   "r"
+  ],
+  [
+   "soil",
+   "meadow",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "limber",
+   "nutcracker"
+  ],
+  [
+   "bristle",
+   "nutcracker"
+  ],
+  [
+   "limber",
+   "chip"
+  ],
+  [
+   "limber",
+   "dmouse"
+  ],
+  [
+   "limber",
+   "gsq"
+  ],
+  [
+   "meadow",
+   "elk"
+  ],
+  [
+   "aspen",
+   "elk"
+  ],
+  [
+   "aspen",
+   "mdeer"
+  ],
+  [
+   "sage",
+   "mdeer"
+  ],
+  [
+   "mahogany",
+   "mdeer"
+  ],
+  [
+   "meadow",
+   "mdeer"
+  ],
+  [
+   "sage",
+   "dmouse"
+  ],
+  [
+   "meadow",
+   "dmouse"
+  ],
+  [
+   "meadow",
+   "gsq"
+  ],
+  [
+   "meadow",
+   "chip"
+  ],
+  [
+   "dmouse",
+   "bullsnake"
+  ],
+  [
+   "dmouse",
+   "bobcat"
+  ],
+  [
+   "dmouse",
+   "coyote"
+  ],
+  [
+   "gsq",
+   "bobcat"
+  ],
+  [
+   "gsq",
+   "coyote"
+  ],
+  [
+   "gsq",
+   "eagle"
+  ],
+  [
+   "chip",
+   "bobcat"
+  ],
+  [
+   "chip",
+   "coyote"
+  ],
+  [
+   "mdeer",
+   "bobcat"
+  ],
+  [
+   "mdeer",
+   "coyote"
+  ],
+  [
+   "mdeer",
+   "cougar"
+  ],
+  [
+   "elk",
+   "cougar"
+  ],
+  [
+   "bullsnake",
+   "raven"
+  ],
+  [
+   "mdeer",
+   "raven",
+   "s"
+  ],
+  [
+   "elk",
+   "raven",
+   "s"
+  ],
+  [
+   "mdeer",
+   "coyote",
+   "s"
+  ],
+  [
+   "bristle",
+   "decomp",
+   "d"
+  ],
+  [
+   "limber",
+   "decomp",
+   "d"
+  ],
+  [
+   "aspen",
+   "decomp",
+   "d"
+  ],
+  [
+   "mahogany",
+   "decomp",
+   "d"
+  ],
+  [
+   "sage",
+   "decomp",
+   "d"
+  ],
+  [
+   "meadow",
+   "decomp",
+   "d"
+  ],
+  [
+   "mdeer",
+   "decomp",
+   "d"
+  ],
+  [
+   "elk",
+   "decomp",
+   "d"
+  ],
+  [
+   "cougar",
+   "decomp",
+   "d"
+  ],
+  [
+   "raven",
+   "decomp",
+   "d"
+  ],
+  [
+   "meadow",
+   "raven"
+  ],
+  [
+   "elk",
+   "bobcat"
+  ],
+  [
+   "elk",
+   "coyote"
+  ],
+  [
+   "meadow",
+   "cougar"
+  ],
+  [
+   "bobcat",
+   "cougar"
+  ],
+  [
+   "coyote",
+   "cougar"
+  ],
+  [
+   "mdeer",
+   "eagle"
+  ],
+  [
+   "elk",
+   "eagle"
+  ],
+  [
+   "dmouse",
+   "eagle"
+  ],
+  [
+   "nutcracker",
+   "eagle"
+  ],
+  [
+   "raven",
+   "eagle"
+  ],
+  [
+   "bullsnake",
+   "eagle"
+  ],
+  [
+   "bobcat",
+   "eagle"
+  ],
+  [
+   "coyote",
+   "eagle"
+  ]
+ ],
+ "ev": {
+  "limber>nutcracker": [
+   "g",
+   "Nucifraga columbiana",
+   "Pinus flexilis"
+  ],
+  "bristle>nutcracker": [
+   "gg",
+   "Nucifraga columbiana",
+   "Pinus longaeva"
+  ],
+  "limber>chip": [
+   "a"
+  ],
+  "limber>dmouse": [
+   "a"
+  ],
+  "limber>gsq": [
+   "a"
+  ],
+  "meadow>elk": [
+   "g",
+   "Cervus elaphus",
+   "Poaceae"
+  ],
+  "aspen>elk": [
+   "g",
+   "Cervus elaphus",
+   "Populus tremuloides"
+  ],
+  "aspen>mdeer": [
+   "a"
+  ],
+  "sage>mdeer": [
+   "gg",
+   "Odocoileus hemionus",
+   "Artemisia tridentata"
+  ],
+  "mahogany>mdeer": [
+   "a"
+  ],
+  "meadow>mdeer": [
+   "g",
+   "Odocoileus hemionus",
+   "Poaceae"
+  ],
+  "sage>dmouse": [
+   "a"
+  ],
+  "meadow>dmouse": [
+   "a"
+  ],
+  "meadow>gsq": [
+   "g",
+   "Callospermophilus lateralis",
+   "Poaceae"
+  ],
+  "meadow>chip": [
+   "a"
+  ],
+  "dmouse>bullsnake": [
+   "g",
+   "Pituophis catenifer",
+   "Peromyscus maniculatus"
+  ],
+  "dmouse>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Peromyscus maniculatus"
+  ],
+  "dmouse>coyote": [
+   "g",
+   "Canis latrans",
+   "Peromyscus maniculatus"
+  ],
+  "gsq>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Callospermophilus lateralis"
+  ],
+  "gsq>coyote": [
+   "g",
+   "Canis latrans",
+   "Callospermophilus lateralis"
+  ],
+  "gsq>eagle": [
+   "a"
+  ],
+  "chip>bobcat": [
+   "gg",
+   "Lynx rufus",
+   "Tamias umbrinus"
+  ],
+  "chip>coyote": [
+   "gg",
+   "Canis latrans",
+   "Tamias umbrinus"
+  ],
+  "mdeer>bobcat": [
+   "g",
+   "Lynx rufus",
+   "Odocoileus hemionus"
+  ],
+  "mdeer>coyote": [
+   "g",
+   "Canis latrans",
+   "Odocoileus hemionus"
+  ],
+  "mdeer>cougar": [
+   "g",
+   "Puma concolor",
+   "Odocoileus hemionus"
+  ],
+  "elk>cougar": [
+   "g",
+   "Puma concolor",
+   "Cervus elaphus"
+  ],
+  "bullsnake>raven": [
+   "g",
+   "Corvus corax",
+   "Pituophis catenifer"
+  ],
+  "mdeer>raven": [
+   "gg",
+   "Corvus corax",
+   "Odocoileus hemionus"
+  ],
+  "elk>raven": [
+   "gg",
+   "Corvus corax",
+   "Cervus elaphus"
+  ],
+  "meadow>raven": [
+   "ga",
+   "Corvus corax",
+   "Poaceae"
+  ],
+  "elk>bobcat": [
+   "ga",
+   "Lynx rufus",
+   "Cervus elaphus"
+  ],
+  "elk>coyote": [
+   "ga",
+   "Canis latrans",
+   "Cervus elaphus"
+  ],
+  "meadow>cougar": [
+   "ga",
+   "Puma concolor",
+   "Poaceae"
+  ],
+  "bobcat>cougar": [
+   "ga",
+   "Puma concolor",
+   "Lynx rufus"
+  ],
+  "coyote>cougar": [
+   "ga",
+   "Puma concolor",
+   "Canis latrans"
+  ],
+  "mdeer>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Odocoileus hemionus"
+  ],
+  "elk>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Cervus elaphus"
+  ],
+  "dmouse>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Peromyscus maniculatus"
+  ],
+  "nutcracker>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Nucifraga columbiana"
+  ],
+  "raven>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Corvus corax"
+  ],
+  "bullsnake>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Pituophis catenifer"
+  ],
+  "bobcat>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Lynx rufus"
+  ],
+  "coyote>eagle": [
+   "ga",
+   "Aquila chrysaetos",
+   "Canis latrans"
+  ]
+ }
+}

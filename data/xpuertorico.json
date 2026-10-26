@@ -1,0 +1,724 @@
+{
+ "id": "xpuertorico",
+ "name": "El Yunque National Forest",
+ "short": "El Yunque",
+ "place": "Puerto Rico",
+ "lat": 18.3,
+ "lon": -65.8,
+ "side": "r",
+ "cont": "North America",
+ "country": "Puerto Rico",
+ "blurb": "Rain-soaked peaks, coquí frogs and a parrot rebuilding after hurricanes.",
+ "tip": {
+  "id": "coqui",
+  "title": "Silence the coquís",
+  "text": "Coquís eat huge numbers of arthropods. Set Common coquí to -100% and watch forest insects, then the predators that rely on frogs."
+ },
+ "sources": [
+  {
+   "title": "Wikipedia: El Yunque National Forest",
+   "url": "https://en.wikipedia.org/wiki/El_Yunque_National_Forest"
+  },
+  {
+   "title": "Wikipedia: Puerto Rican amazon",
+   "url": "https://en.wikipedia.org/wiki/Puerto_Rican_amazon"
+  },
+  {
+   "title": "Wikipedia: Common coquí",
+   "url": "https://en.wikipedia.org/wiki/Common_coqu%C3%AD"
+  },
+  {
+   "title": "Wikipedia: Puerto Rican boa",
+   "url": "https://en.wikipedia.org/wiki/Puerto_Rican_boa"
+  },
+  {
+   "title": "Wikipedia: Pearly-eyed thrasher",
+   "url": "https://en.wikipedia.org/wiki/Pearly-eyed_thrasher"
+  },
+  {
+   "title": "USDA Forest Service: El Yunque National Forest",
+   "url": "https://www.fs.usda.gov/detail/elyunque/learning/nature-science/?cid=fsbdev3_042833"
+  }
+ ],
+ "notes": "The species list comes from GBIF occurrence records inside a circle around the park, so it can include nearby areas. Feeding links come from GloBI records and the sources listed where they state them; others are general ecology and are illustrative.",
+ "imgwiki": "El Yunque National Forest",
+ "icon": "rain",
+ "tier": "overview",
+ "park": true,
+ "kind": "Forest",
+ "nodes": [
+  {
+   "id": "tabonuco",
+   "name": "Tabonuco",
+   "latin": "Dacryodes excelsa",
+   "tl": 1,
+   "xh": 0.12,
+   "wiki": "Dacryodes excelsa",
+   "desc": "Dominant tree of the lower tabonuco forest zone at El Yunque. Its trunk cavities can serve as nest sites for the Puerto Rican parrot.",
+   "ic": "willow",
+   "badge": "Foundation species"
+  },
+  {
+   "id": "cecropia",
+   "name": "Pumpwood (yagrumo)",
+   "latin": "Cecropia schreberiana",
+   "tl": 1,
+   "xh": 0.32,
+   "wiki": "Cecropia schreberiana",
+   "desc": "A fast-growing pioneer tree that recolonizes hurricane-damaged ground. Birds and bats eat its fruit and spread the seeds.",
+   "ic": "aspen"
+  },
+  {
+   "id": "palm",
+   "name": "Sierra palm",
+   "latin": "Prestoea acuminata",
+   "tl": 1,
+   "xh": 0.55,
+   "wiki": "Prestoea acuminata",
+   "desc": "Dominates the palm forest zone on shallow soils at about 600 m. Its fruit is eaten by birds in the forest.",
+   "ic": "sage"
+  },
+  {
+   "id": "marcgravia",
+   "name": "Lira vine",
+   "latin": "Marcgravia rectiflora",
+   "tl": 1,
+   "xh": 0.8,
+   "wiki": "Marcgravia",
+   "desc": "A climbing vine whose fruit and nectar are recorded in the diet of several forest birds.",
+   "ic": "sage"
+  },
+  {
+   "id": "insects",
+   "name": "Forest insects",
+   "latin": "Insecta",
+   "tl": 2,
+   "xh": 0.06,
+   "wiki": "Insect",
+   "desc": "Leaf-eating and litter-dwelling insects. A coqui study at El Yunque linked frog presence to fewer flying insects and far less leaf damage.",
+   "ic": "hopper"
+  },
+  {
+   "id": "bananaquit",
+   "name": "Bananaquit",
+   "latin": "Coereba flaveola",
+   "tl": 2,
+   "xh": 0.2,
+   "wiki": "Bananaquit",
+   "desc": "Small, very commonly recorded bird that takes nectar and fruit. GloBI records it eating fruit of several forest plants.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "pigeon",
+   "name": "Scaly-naped pigeon",
+   "latin": "Patagioenas squamosa",
+   "tl": 2,
+   "xh": 0.34,
+   "wiki": "Scaly-naped pigeon",
+   "desc": "A fruit-eating pigeon, with GloBI records of it eating pumpwood, lira vine and sierra palm fruit.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "fruitbat",
+   "name": "Jamaican fruit bat",
+   "latin": "Artibeus jamaicensis",
+   "tl": 2,
+   "xh": 0.5,
+   "wiki": "Jamaican fruit bat",
+   "desc": "A fruit-eating bat recorded feeding on pumpwood. Fruit-eating bats help spread forest seeds.",
+   "ic": "quad"
+  },
+  {
+   "id": "parrot",
+   "name": "Puerto Rican parrot",
+   "latin": "Amazona vittata",
+   "tl": 2,
+   "xh": 0.66,
+   "wiki": "Puerto Rican amazon",
+   "desc": "Critically endangered. Eats flowers, fruit, leaves and bark, and nests in tree cavities, favouring palo colorado trees. Hurricanes have repeatedly cut its numbers.",
+   "ic": "hawk"
+  },
+  {
+   "id": "rat",
+   "name": "Black rat",
+   "latin": "Rattus rattus",
+   "tl": 2,
+   "xh": 0.84,
+   "wiki": "Black rat",
+   "desc": "An introduced omnivore that eats parrot eggs and chicks. It is in turn prey for the Puerto Rican boa.",
+   "ic": "vole"
+  },
+  {
+   "id": "coqui",
+   "name": "Common coquí",
+   "latin": "Eleutherodactylus coqui",
+   "tl": 3,
+   "xh": 0.08,
+   "wiki": "Common coquí",
+   "desc": "A nocturnal sit-and-wait frog that mainly eats arthropods and can reach very high densities. It lays eggs on land and has no tadpole stage.",
+   "ic": "quad"
+  },
+  {
+   "id": "anole",
+   "name": "Gundlach's anole",
+   "latin": "Anolis gundlachi",
+   "tl": 3,
+   "xh": 0.24,
+   "wiki": "Anolis gundlachi",
+   "desc": "A common forest anole that eats small invertebrates. Young Puerto Rican boas feed mainly on anoles.",
+   "ic": "snake"
+  },
+  {
+   "id": "tody",
+   "name": "Puerto Rican tody",
+   "latin": "Todus mexicanus",
+   "tl": 3,
+   "xh": 0.4,
+   "wiki": "Puerto Rican tody",
+   "desc": "A tiny insect-eating bird endemic to the island. GloBI also records it taking fruit of pumpwood.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "thrasher",
+   "name": "Pearly-eyed thrasher",
+   "latin": "Margarops fuscatus",
+   "tl": 3,
+   "xh": 0.56,
+   "wiki": "Pearly-eyed thrasher",
+   "desc": "An opportunistic omnivore that eats insects, fruit, lizards and frogs, and the eggs and nestlings of other birds. It competes with parrots for nest cavities.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "woodpecker",
+   "name": "Puerto Rican woodpecker",
+   "latin": "Melanerpes portoricensis",
+   "tl": 3,
+   "xh": 0.72,
+   "wiki": "Puerto Rican woodpecker",
+   "desc": "An endemic woodpecker. GloBI records it eating fruit and the lizard Anolis krugi.",
+   "ic": "meadowlark"
+  },
+  {
+   "id": "mongoose",
+   "name": "Small Indian mongoose",
+   "latin": "Herpestes javanicus",
+   "tl": 3,
+   "xh": 0.88,
+   "wiki": "Small Indian mongoose",
+   "desc": "An introduced predator that eats parrot eggs and chicks, and opportunistically takes coquís, according to the species accounts.",
+   "ic": "quad"
+  },
+  {
+   "id": "boa",
+   "name": "Puerto Rican boa",
+   "latin": "Epicrates inornatus",
+   "tl": 4,
+   "xh": 0.3,
+   "wiki": "Puerto Rican boa",
+   "desc": "The island's largest snake. Adults eat mostly mammals (rats and bats), plus birds, anoles and a few frogs.",
+   "ic": "snake"
+  },
+  {
+   "id": "hawk",
+   "name": "Puerto Rican broad-winged hawk",
+   "latin": "Buteo platypterus brunnescens",
+   "tl": 4,
+   "xh": 0.7,
+   "wiki": "Puerto Rican broad-winged hawk",
+   "desc": "A rare forest hawk found in El Yunque's tabonuco forest. Raptors including hawks are listed among natural predators of the parrot.",
+   "ic": "hawk"
+  },
+  {
+   "id": "rain",
+   "name": "Rainfall and cloud",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.1,
+   "cat": "abiotic",
+   "wiki": "Rain",
+   "desc": "Trade winds rise over the mountains and drop heavy rain, in places over six metres a year, with no distinct dry season.",
+   "ic": "rain"
+  },
+  {
+   "id": "sun",
+   "name": "Sunlight",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.3,
+   "cat": "abiotic",
+   "wiki": "Sun",
+   "desc": "Warm, steady temperatures and light year-round drive growth, though cloud cover is frequent.",
+   "ic": "sun"
+  },
+  {
+   "id": "hurricane",
+   "name": "Hurricane winds",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.5,
+   "cat": "abiotic",
+   "wiki": "Tropical cyclone",
+   "desc": "Hugo, Georges, Irma and Maria damaged the forest and cut parrot numbers. Open gaps let pioneer trees such as pumpwood take over.",
+   "ic": "water"
+  },
+  {
+   "id": "soil",
+   "name": "Soil nutrients",
+   "latin": "",
+   "tl": 0,
+   "xh": 0.7,
+   "cat": "abiotic",
+   "wiki": "Soil",
+   "desc": "Shallow, acidic soils in the higher forest zones; nutrients come mainly from recycled leaf litter.",
+   "ic": "soil"
+  },
+  {
+   "id": "decomp",
+   "name": "Decomposers",
+   "latin": "Decomposer community",
+   "tl": 0,
+   "xh": 0.9,
+   "cat": "decomp",
+   "wiki": "Decomposer",
+   "desc": "Fungi, bacteria and litter invertebrates break down fallen leaves and wood and return nutrients to the soil.",
+   "ic": "decomp"
+  }
+ ],
+ "raw": [
+  [
+   "sun",
+   "tabonuco",
+   "r"
+  ],
+  [
+   "rain",
+   "tabonuco",
+   "r"
+  ],
+  [
+   "sun",
+   "cecropia",
+   "r"
+  ],
+  [
+   "rain",
+   "cecropia",
+   "r"
+  ],
+  [
+   "sun",
+   "palm",
+   "r"
+  ],
+  [
+   "rain",
+   "palm",
+   "r"
+  ],
+  [
+   "sun",
+   "marcgravia",
+   "r"
+  ],
+  [
+   "rain",
+   "marcgravia",
+   "r"
+  ],
+  [
+   "soil",
+   "tabonuco",
+   "r"
+  ],
+  [
+   "soil",
+   "cecropia",
+   "r"
+  ],
+  [
+   "soil",
+   "palm",
+   "r"
+  ],
+  [
+   "hurricane",
+   "cecropia",
+   "r"
+  ],
+  [
+   "decomp",
+   "soil",
+   "r"
+  ],
+  [
+   "tabonuco",
+   "insects"
+  ],
+  [
+   "cecropia",
+   "insects"
+  ],
+  [
+   "palm",
+   "insects"
+  ],
+  [
+   "marcgravia",
+   "insects"
+  ],
+  [
+   "cecropia",
+   "bananaquit"
+  ],
+  [
+   "marcgravia",
+   "bananaquit"
+  ],
+  [
+   "palm",
+   "bananaquit"
+  ],
+  [
+   "cecropia",
+   "pigeon"
+  ],
+  [
+   "marcgravia",
+   "pigeon"
+  ],
+  [
+   "palm",
+   "pigeon"
+  ],
+  [
+   "cecropia",
+   "fruitbat"
+  ],
+  [
+   "palm",
+   "parrot"
+  ],
+  [
+   "tabonuco",
+   "parrot"
+  ],
+  [
+   "tabonuco",
+   "rat"
+  ],
+  [
+   "parrot",
+   "rat"
+  ],
+  [
+   "parrot",
+   "mongoose"
+  ],
+  [
+   "parrot",
+   "thrasher"
+  ],
+  [
+   "parrot",
+   "hawk"
+  ],
+  [
+   "insects",
+   "coqui"
+  ],
+  [
+   "insects",
+   "anole"
+  ],
+  [
+   "insects",
+   "tody"
+  ],
+  [
+   "insects",
+   "thrasher"
+  ],
+  [
+   "insects",
+   "woodpecker"
+  ],
+  [
+   "coqui",
+   "mongoose"
+  ],
+  [
+   "coqui",
+   "boa"
+  ],
+  [
+   "coqui",
+   "thrasher"
+  ],
+  [
+   "coqui",
+   "hawk"
+  ],
+  [
+   "anole",
+   "boa"
+  ],
+  [
+   "anole",
+   "mongoose"
+  ],
+  [
+   "anole",
+   "woodpecker"
+  ],
+  [
+   "anole",
+   "thrasher"
+  ],
+  [
+   "anole",
+   "hawk"
+  ],
+  [
+   "rat",
+   "boa"
+  ],
+  [
+   "rat",
+   "mongoose"
+  ],
+  [
+   "rat",
+   "hawk"
+  ],
+  [
+   "fruitbat",
+   "boa"
+  ],
+  [
+   "bananaquit",
+   "boa"
+  ],
+  [
+   "cecropia",
+   "tody"
+  ],
+  [
+   "cecropia",
+   "thrasher"
+  ],
+  [
+   "cecropia",
+   "woodpecker"
+  ],
+  [
+   "marcgravia",
+   "thrasher"
+  ],
+  [
+   "tabonuco",
+   "decomp",
+   "d"
+  ],
+  [
+   "cecropia",
+   "decomp",
+   "d"
+  ],
+  [
+   "palm",
+   "decomp",
+   "d"
+  ],
+  [
+   "marcgravia",
+   "decomp",
+   "d"
+  ],
+  [
+   "boa",
+   "decomp",
+   "d"
+  ],
+  [
+   "hawk",
+   "decomp",
+   "d"
+  ],
+  [
+   "mongoose",
+   "decomp",
+   "d"
+  ],
+  [
+   "rat",
+   "decomp",
+   "d"
+  ],
+  [
+   "insects",
+   "hawk"
+  ]
+ ],
+ "ev": {
+  "tabonuco>insects": [
+   "a"
+  ],
+  "cecropia>insects": [
+   "a"
+  ],
+  "palm>insects": [
+   "a"
+  ],
+  "marcgravia>insects": [
+   "a"
+  ],
+  "cecropia>bananaquit": [
+   "g",
+   "Coereba flaveola",
+   "Cecropia schreberiana"
+  ],
+  "marcgravia>bananaquit": [
+   "g",
+   "Coereba flaveola",
+   "Marcgravia rectiflora"
+  ],
+  "palm>bananaquit": [
+   "g",
+   "Coereba flaveola",
+   "Prestoea acuminata"
+  ],
+  "cecropia>pigeon": [
+   "g",
+   "Patagioenas squamosa",
+   "Cecropia schreberiana"
+  ],
+  "marcgravia>pigeon": [
+   "g",
+   "Patagioenas squamosa",
+   "Marcgravia rectiflora"
+  ],
+  "palm>pigeon": [
+   "g",
+   "Patagioenas squamosa",
+   "Prestoea acuminata"
+  ],
+  "cecropia>fruitbat": [
+   "g",
+   "Artibeus jamaicensis",
+   "Cecropia schreberiana"
+  ],
+  "palm>parrot": [
+   "a"
+  ],
+  "tabonuco>parrot": [
+   "a"
+  ],
+  "tabonuco>rat": [
+   "a"
+  ],
+  "parrot>rat": [
+   "a"
+  ],
+  "parrot>mongoose": [
+   "a"
+  ],
+  "parrot>thrasher": [
+   "a"
+  ],
+  "parrot>hawk": [
+   "a"
+  ],
+  "insects>coqui": [
+   "g",
+   "Eleutherodactylus coqui",
+   "Insecta"
+  ],
+  "insects>anole": [
+   "a"
+  ],
+  "insects>tody": [
+   "g",
+   "Todus mexicanus",
+   "Insecta"
+  ],
+  "insects>thrasher": [
+   "a"
+  ],
+  "insects>woodpecker": [
+   "a"
+  ],
+  "coqui>mongoose": [
+   "a"
+  ],
+  "coqui>boa": [
+   "a"
+  ],
+  "coqui>thrasher": [
+   "a"
+  ],
+  "coqui>hawk": [
+   "a"
+  ],
+  "anole>boa": [
+   "a"
+  ],
+  "anole>mongoose": [
+   "a"
+  ],
+  "anole>woodpecker": [
+   "gg",
+   "Melanerpes portoricensis",
+   "Anolis gundlachi"
+  ],
+  "anole>thrasher": [
+   "a"
+  ],
+  "anole>hawk": [
+   "gg",
+   "Buteo platypterus",
+   "Anolis gundlachi"
+  ],
+  "rat>boa": [
+   "a"
+  ],
+  "rat>mongoose": [
+   "a"
+  ],
+  "rat>hawk": [
+   "gg",
+   "Buteo platypterus",
+   "Rattus rattus"
+  ],
+  "fruitbat>boa": [
+   "a"
+  ],
+  "bananaquit>boa": [
+   "a"
+  ],
+  "cecropia>tody": [
+   "g",
+   "Todus mexicanus",
+   "Cecropia schreberiana"
+  ],
+  "cecropia>thrasher": [
+   "g",
+   "Margarops fuscatus",
+   "Cecropia schreberiana"
+  ],
+  "cecropia>woodpecker": [
+   "g",
+   "Melanerpes portoricensis",
+   "Cecropia schreberiana"
+  ],
+  "marcgravia>thrasher": [
+   "g",
+   "Margarops fuscatus",
+   "Marcgravia rectiflora"
+  ],
+  "insects>hawk": [
+   "ga",
+   "Buteo platypterus",
+   "Insecta"
+  ]
+ }
+}
