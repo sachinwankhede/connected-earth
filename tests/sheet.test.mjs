@@ -28,9 +28,10 @@ describe('place sheet', () => {
       await t.close();
     });
 
-    test(`${sizeName}: auto-generated place carries the tag`, async () => {
+    test(`${sizeName}: auto-generated places show no tag (the flag stays in the data)`, async () => {
       const t = await H.open(browser, H.PILOT, size, { hash: '#stub&e=mocastlewood' });
-      assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), true);
+      assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false);
+      assert.ok(await t.page.evaluate(() => !!document.querySelector('#panel .lead')), 'place sheet opened');
       assert.deepEqual(t.errors, []);
       await t.close();
     });

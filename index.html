@@ -740,7 +740,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 .keyrow svg { flex: none; }
 
 .zoomc #locbtn[aria-pressed="true"] { background: var(--accent); color: #fff; }
-.panel .autotag { display: inline-block; margin: 10px 0 0; padding: 3px 10px; border-radius: 999px; font: 500 11.5px var(--font-mono); letter-spacing: .02em; color: var(--muted); border: 1px dashed var(--line); }
 
 .hook { margin: 0 0 8px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
@@ -1413,7 +1412,7 @@ return maplibregl$1;
     var t = ECO.tip, n = BY[t.id];
     var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>Photo via Wikipedia \u00B7 <a href="' + esc(PHOTOS[ECO.imgwiki].page) + '" target="_blank" rel="noopener">read the article</a></figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
-      (ECO.auto ? '<p class="autotag">Auto-generated from public records and not checked by a person</p>' : "") + (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
+      (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
       (ECO.sources && ECO.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(ECO.sources) + "</details>" : "") +
       (ECO.notes ? '<p class="fine">' + ECO.notes + "</p>" : "");
   }
