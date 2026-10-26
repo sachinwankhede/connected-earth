@@ -78,3 +78,27 @@ rep6(".me { width: 16px;", css2 + ".me { width: 16px;")
 rep6("""">Protected areas <b>' + np + "</b></button>" """.strip(), """">Protected areas</button>'""".strip())
 rep6("""k + " <b>" + n + "</b></button>" """.strip(), """k + "</button>" """.strip())
 rep6('var cnt = shown + (shown === 1 ? " place" : " places");', 'var cnt = view.level === "world" && !FL.q ? "" : shown + (shown === 1 ? " place" : " places");')
+
+# five short habitat chips (no "Protected areas", no counts); a chip stands for one or more habitat types
+import re as _re
+_a = new.index("  function kindsHTML() {")
+_b = new.index("  function tiesHTML(")
+new = new[:_a] + r'''  var KGROUPS = [["Forest", ["Forest"]], ["Grass & desert", ["Grassland", "Desert"]], ["Freshwater", ["Lakes & wetlands"]], ["Ocean", ["Coast & ocean"]], ["Cold & high", ["Polar & mountain"]], ["Urban", ["Urban"]]];
+  function kindsOf(label) { for (var i = 0; i < KGROUPS.length; i++) if (KGROUPS[i][0] === label) return KGROUPS[i][1]; return [label]; }
+  function kindsHTML() {
+    var nl = ECOS.filter(function (e) { return e.level === "local"; }).length, lb = document.getElementById("locbtn");
+    if (lb) { lb.style.display = nl ? "" : "none"; lb.setAttribute("aria-pressed", FL.local ? "true" : "false"); }
+    document.getElementById("kinds").innerHTML = KGROUPS.map(function (g) {
+      var n = ECOS.filter(function (e) { return g[1].indexOf(e.kind) >= 0 && (FL.local || e.level !== "local"); }).length;
+      if (!n || (g[0] === "Urban" && n < 5)) return "";
+      return '<button type="button" class="chip' + (FL.kind === g[0] ? " on" : "") + '" data-kind="' + g[0] + '" aria-pressed="' + (FL.kind === g[0]) + '"><i class="kd" style="--kc:' + KC[g[1][0]] + '"></i>' + g[0] + "</button>";
+    }).join("");
+  }
+''' + new[_b:]
+assert "if (FL.kind && e.kind !== FL.kind) return false;" in new
+new = new.replace("if (FL.kind && e.kind !== FL.kind) return false;", "if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;", 1)
+
+# smaller habitat chips (phone and desktop alike)
+rep6(".me { width: 16px;", """.filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
+.filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
+.me { width: 16px;""")

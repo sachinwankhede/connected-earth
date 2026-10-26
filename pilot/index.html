@@ -756,6 +756,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 
 .hook { margin: 2px 0 12px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
+.filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
+.filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -1679,7 +1681,7 @@ return maplibregl$1;
   var KC = { "Forest": "#2f7d4f", "Grassland": "#b8902c", "Desert": "#d0702f", "Lakes & wetlands": "#3b6fd0", "Coast & ocean": "#139aa3", "Polar & mountain": "#8a6fc0", "Urban": "#c0457a" };
   var FL = { q: "", kind: null, park: false, local: false };
   function pass(e) {
-    if (FL.kind && e.kind !== FL.kind) return false;
+    if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
     if (FL.park && !e.park) return false;
     if (e.level === "local" && !FL.local && !FL.q) return false;
     if (FL.q) {
@@ -1749,14 +1751,15 @@ return maplibregl$1;
     if ((e.states || []).length > 1) p.push(e.states.join(" · "));
     return p.length ? "Spans " + p.join(" — ") : "";
   }
+  var KGROUPS = [["Forest", ["Forest"]], ["Grass & desert", ["Grassland", "Desert"]], ["Freshwater", ["Lakes & wetlands"]], ["Ocean", ["Coast & ocean"]], ["Cold & high", ["Polar & mountain"]], ["Urban", ["Urban"]]];
+  function kindsOf(label) { for (var i = 0; i < KGROUPS.length; i++) if (KGROUPS[i][0] === label) return KGROUPS[i][1]; return [label]; }
   function kindsHTML() {
-    var ks = Object.keys(KC);
-    var np = ECOS.filter(function (e) { return e.park && (FL.local || e.level !== "local"); }).length;
     var nl = ECOS.filter(function (e) { return e.level === "local"; }).length, lb = document.getElementById("locbtn");
     if (lb) { lb.style.display = nl ? "" : "none"; lb.setAttribute("aria-pressed", FL.local ? "true" : "false"); }
-    document.getElementById("kinds").innerHTML = (np ? '<button type="button" class="chip' + (FL.park ? " on" : "") + '" data-park="1" aria-pressed="' + FL.park + '">Protected areas</button>' : "") + ks.map(function (k) {
-      var n = ECOS.filter(function (e) { return e.kind === k && (FL.local || e.level !== "local"); }).length;
-      return n && !(k === "Urban" && n < 5) ? '<button type="button" class="chip' + (FL.kind === k ? " on" : "") + '" data-kind="' + k + '" aria-pressed="' + (FL.kind === k) + '"><i class="kd" style="--kc:' + KC[k] + '"></i>' + k + "</button>" : "";
+    document.getElementById("kinds").innerHTML = KGROUPS.map(function (g) {
+      var n = ECOS.filter(function (e) { return g[1].indexOf(e.kind) >= 0 && (FL.local || e.level !== "local"); }).length;
+      if (!n || (g[0] === "Urban" && n < 5)) return "";
+      return '<button type="button" class="chip' + (FL.kind === g[0] ? " on" : "") + '" data-kind="' + g[0] + '" aria-pressed="' + (FL.kind === g[0]) + '"><i class="kd" style="--kc:' + KC[g[1][0]] + '"></i>' + g[0] + "</button>";
     }).join("");
   }
   function tiesHTML(id) {
