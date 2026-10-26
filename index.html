@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Connected Earth</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow">
@@ -1307,6 +1308,14 @@ return maplibregl$1;
   /* ---------- Photos: each node's lead image comes from the Wikipedia summary API at runtime. Where the host page blocks outside requests (for example inside Claude's viewer) nothing loads and the drawn icons stay. ---------- */
   var PHOTOS = {}, WAIT = {};
   function esc(u) { return String(u).replace(/"/g, "%22").replace(/</g, "%3C"); }
+  function escH(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function creditHTML(p) {
+    var c = p.credit;
+    if (!c) return 'Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a>';
+    var a = c.a.length > 46 ? c.a.slice(0, 44) + "\u2026" : c.a;
+    return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
+      ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">Wikimedia Commons</a>';
+  }
   function photoOf(n) { return n.wiki ? PHOTOS[n.wiki] : null; }
   function shot(n) {
     var p = photoOf(n);
@@ -1410,7 +1419,7 @@ return maplibregl$1;
   }
   function emptyHTML() {
     var t = ECO.tip, n = BY[t.id];
-    var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>Photo via Wikipedia \u00B7 <a href="' + esc(PHOTOS[ECO.imgwiki].page) + '" target="_blank" rel="noopener">read the article</a></figcaption></figure>' : "";
+    var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>' + creditHTML(PHOTOS[ECO.imgwiki]) + '</figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
       (ECO.sources && ECO.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(ECO.sources) + "</details>" : "") +
@@ -2378,9 +2387,12 @@ return maplibregl$1;
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
+  var PB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "photos/places/";
+  (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
+    function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
   if (window.fetch) ECOS.forEach(function (e) {
     if (!e.imgwiki) return;
-    var tt = e.imgwiki;
+    var tt = e.imgwiki; stored(tt);
     if (PHOTOS[tt]) { ecoPhoto(e); return; }
     var fresh = !WAIT[tt];
     (WAIT[tt] = WAIT[tt] || []).push({ isEco: true, e: e });
@@ -2388,11 +2400,12 @@ return maplibregl$1;
   });
   if (window.fetch) CROSS.forEach(function (c) {
     var tt = c.imgwiki;
-    if (!tt) return;
+    if (!tt) return; stored(tt);
     if (PHOTOS[tt]) { linkPhoto(c); return; }
     var fresh = !WAIT[tt];
     (WAIT[tt] = WAIT[tt] || []).push({ isLink: true, c: c });
     if (fresh) fetchPhoto(tt);
+  });
   });
 })();
 </script>
