@@ -758,6 +758,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
 .filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
+.filters .kinds .chip { transition: opacity .25s ease, background-color .15s; }
+.filters .kinds .chip.dim { opacity: .4; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -1751,6 +1753,17 @@ return maplibregl$1;
     if ((e.states || []).length > 1) p.push(e.states.join(" · "));
     return p.length ? "Spans " + p.join(" — ") : "";
   }
+  function dimChips() {
+    var m = M.map, box = document.getElementById("kinds"); if (!box) return;
+    var bd = (m && M.styleReady && m.getBounds) ? m.getBounds() : null, sk = FL.kind; FL.kind = null;
+    var vis = bd ? ECOS.filter(function (e) { return inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world") && bd.contains([e.lon, e.lat]); }) : null;
+    FL.kind = sk;
+    Array.prototype.forEach.call(box.querySelectorAll("[data-kind]"), function (b) {
+      var lab = b.getAttribute("data-kind"), ks = kindsOf(lab);
+      var has = !vis || lab === FL.kind || vis.some(function (e) { return ks.indexOf(e.kind) >= 0; });
+      b.classList.toggle("dim", !has);
+    });
+  }
   var KGROUPS = [["Forest", ["Forest"]], ["Grass & desert", ["Grassland", "Desert"]], ["Freshwater", ["Lakes & wetlands"]], ["Ocean", ["Coast & ocean"]], ["Cold & high", ["Polar & mountain"]], ["Urban", ["Urban"]]];
   function kindsOf(label) { for (var i = 0; i < KGROUPS.length; i++) if (KGROUPS[i][0] === label) return KGROUPS[i][1]; return [label]; }
   function kindsHTML() {
@@ -1760,7 +1773,7 @@ return maplibregl$1;
       var n = ECOS.filter(function (e) { return g[1].indexOf(e.kind) >= 0 && (FL.local || e.level !== "local"); }).length;
       if (!n || (g[0] === "Urban" && n < 5)) return "";
       return '<button type="button" class="chip' + (FL.kind === g[0] ? " on" : "") + '" data-kind="' + g[0] + '" aria-pressed="' + (FL.kind === g[0]) + '"><i class="kd" style="--kc:' + KC[g[1][0]] + '"></i>' + g[0] + "</button>";
-    }).join("");
+    }).join(""); dimChips();
   }
   function tiesHTML(id) {
     var out = [], x = [];
@@ -1891,6 +1904,7 @@ return maplibregl$1;
     /* dots and their text use two sources, so a failed font download can never hide the dots */
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
+    var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });
     m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });
     ["atl-t", "atl-tie", "atl-arc", "atl-al"].forEach(function (id) { m.addSource(id, { type: "geojson", data: EMPTY }); });
     m.addSource("atl-src", { type: "geojson", data: { type: "FeatureCollection", features: Object.keys(SRC).map(function (k) { return { type: "Feature", properties: { name: SRC[k].name }, geometry: { type: "Point", coordinates: [SRC[k].lon, SRC[k].lat] } }; }) } });

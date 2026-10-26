@@ -102,3 +102,22 @@ new = new.replace("if (FL.kind && e.kind !== FL.kind) return false;", "if (FL.ki
 rep6(".me { width: 16px;", """.filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
 .filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
 .me { width: 16px;""")
+
+# chips follow the map once it stops moving: a habitat with nothing in view dims (still tappable: it takes you to the nearest)
+rep6('  var KGROUPS = [', '''  function dimChips() {
+    var m = M.map, box = document.getElementById("kinds"); if (!box) return;
+    var bd = (m && M.styleReady && m.getBounds) ? m.getBounds() : null, sk = FL.kind; FL.kind = null;
+    var vis = bd ? ECOS.filter(function (e) { return inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world") && bd.contains([e.lon, e.lat]); }) : null;
+    FL.kind = sk;
+    Array.prototype.forEach.call(box.querySelectorAll("[data-kind]"), function (b) {
+      var lab = b.getAttribute("data-kind"), ks = kindsOf(lab);
+      var has = !vis || lab === FL.kind || vis.some(function (e) { return ks.indexOf(e.kind) >= 0; });
+      b.classList.toggle("dim", !has);
+    });
+  }
+  var KGROUPS = [''')
+rep6('.join("");\n  }\n  function tiesHTML(', '.join(""); dimChips();\n  }\n  function tiesHTML(')
+rep6('m.on("zoomend", function () {', 'var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });\n    m.on("zoomend", function () {')
+rep6(".me { width: 16px;", """.filters .kinds .chip { transition: opacity .25s ease, background-color .15s; }
+.filters .kinds .chip.dim { opacity: .4; }
+.me { width: 16px;""")
