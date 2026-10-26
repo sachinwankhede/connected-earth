@@ -2206,5 +2206,37 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Platte_River.jpg",
 "w": "https://en.wikipedia.org/wiki/Platte_River"
+},
+"New Jersey Pine Barrens": {
+"f": "xusnj.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:2014-08-29_11_51_25_View_north-northeast_from_the_fire_tower_on_Apple_Pie_Hill_in_Wharton_State_Forest%2C_Tabernacle_Township%2C_New_Jersey.JPG",
+"w": "https://en.wikipedia.org/wiki/New_Jersey_Pine_Barrens"
+},
+"Adirondack Park": {
+"f": "xusny.jpg",
+"a": "Original uploader was Mwanner at en.wikipedia Later version(s) were uploaded by XcepticZP at en.wikipedia.",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Long_Pond_-_St_Regis.jpg",
+"w": "https://en.wikipedia.org/wiki/Adirondack_Park"
+},
+"Tallgrass Prairie Preserve": {
+"f": "xusok.jpg",
+"a": "DBinfo at English Wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Tallgrass_Prairie_Preserve.jpg",
+"w": "https://en.wikipedia.org/wiki/Tallgrass_Prairie_Preserve"
+},
+"Allegheny National Forest": {
+"f": "xuspa.jpg",
+"a": "IvoShandor",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Mead_Run3.JPG",
+"w": "https://en.wikipedia.org/wiki/Allegheny_National_Forest"
 }
 }
