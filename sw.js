@@ -1,4 +1,4 @@
-const V = "fbbfb8d2";
+const V = "2420718d";
 const SHELL = "atlas-shell-" + V, RT = "atlas-rt";
 const SHELL_FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 const RT_HOSTS = ["tiles.openfreemap.org", "server.arcgisonline.com", "s3.amazonaws.com", "upload.wikimedia.org", "en.wikipedia.org"];
