@@ -1102,5 +1102,45 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Ngorongoro-1001-2.jpg",
 "w": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area"
+},
+"Fernando de Noronha": {
+"f": "whnoronha.jpg",
+"a": "Eduardo Muruci",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:EDUARDO_MURUCI_-_BAIA_DOS_PORCOS-%28recorte%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Fernando_de_Noronha"
+},
+"Ogasawara Islands": {
+"f": "whogasawara.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Ogasawara_islands.png",
+"w": "https://en.wikipedia.org/wiki/Bonin_Islands"
+},
+"Okavango Delta": {
+"f": "whokavango.jpg",
+"a": "Joachim Huber",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Okavango_Delta%2C_Botswana1.jpg",
+"w": "https://en.wikipedia.org/wiki/Okavango_Delta"
+},
+"Sichuan Giant Panda Sanctuaries": {
+"f": "whpanda.jpg",
+"a": "Colegota",
+"l": "CC BY-SA 2.5 es",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5/es/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Chengdu-pandas-d10.jpg",
+"w": "https://en.wikipedia.org/wiki/Sichuan_Giant_Panda_Sanctuaries"
+},
+"Pantanal": {
+"f": "whpantanal.jpg",
+"a": "Alicia Yo",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Pantanal%2C_south-central_South_America_5170.jpg",
+"w": "https://en.wikipedia.org/wiki/Pantanal"
 }
 }
