@@ -744,6 +744,12 @@ rect.core { stroke-dasharray: 3 2.5; }
   #cards .card > p, #cards .card .span, #cards .card .go { display: none; }
   .mapbox > .peek:not([hidden]), .peek:not([hidden]) { position: fixed; left: 12px; top: 112px; bottom: auto; width: 380px; box-sizing: border-box; max-height: calc(100vh - 124px); overflow: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); z-index: 30; }
 }
+
+#kbtn { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3Cpath d='M12 11v6'/%3E%3Ccircle cx='12' cy='7.4' r='.6' fill='black'/%3E%3C/svg%3E"); }
+.keypop { display: none; position: absolute; top: 8px; right: 64px; z-index: 15; width: min(250px, calc(100% - 80px)); padding: 10px 12px; border-radius: 12px; background: var(--surface); box-shadow: 0 4px 18px rgba(0,0,0,.28); }
+.keypop.on { display: block; }
+.keyrow { display: flex; align-items: center; gap: 10px; min-height: 30px; font: 500 13px var(--font-body); color: var(--ink); }
+.keyrow svg { flex: none; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -987,6 +993,13 @@ return maplibregl$1;
   /* ---------- Current ecosystem and state ---------- */
   var NODES = [], EDGES = [], BY = {}, adj = { ins: {}, outs: {} }, ECO = null;
   var PH = !!(window.matchMedia && matchMedia("(max-width: 700px)").matches);
+  function labLines(s) {
+    var max = 13, w = s.split(" "), ls = [], cur = "";
+    w.forEach(function (x) { if (cur && (cur + " " + x).length > max) { ls.push(cur); cur = x; } else cur = cur ? cur + " " + x : x; });
+    if (cur) ls.push(cur);
+    if (ls.length > 2) { ls = [ls[0], ls.slice(1).join(" ")]; }
+    return ls.map(function (l) { return l.length > 15 ? l.slice(0, 14).replace(/\s+$/, "") + "…" : l; });
+  }
   function sname(s) { return PH && s.length > 15 ? s.slice(0, 14).replace(/\s+$/, "") + "\u2026" : s; }
   var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: false, edits: {}, fx: {} };
 
@@ -1071,7 +1084,7 @@ return maplibregl$1;
       .attr("transform", function (d) { var s = d.r * 1.4; return "translate(" + (-s / 2) + "," + (-s / 2) + ") scale(" + (s / 24) + ")"; })
       .html(function (d) { return ICONS[d.ic] || ""; });
     body.filter(function (d) { return d.badge; }).append("circle").attr("class", "ring").attr("r", function (d) { return d.r + 5; });
-    node.append("text").attr("class", "label").attr("y", function (d) { return d.r + 13; }).attr("text-anchor", "middle").text(function (d) { return sname(d.name); });
+    node.append("text").attr("class", "label").attr("y", function (d) { return d.r + 13; }).attr("text-anchor", "middle").each(function (d) { d3.select(this).selectAll("tspan").data(labLines(d.name)).enter().append("tspan").attr("x", 0).attr("dy", function (l, i) { return i ? "1.08em" : 0; }).text(function (l) { return l; }); });
     node.filter(function (d) { return d.xl || d.fl; }).append("g").attr("class", "xlb").html('<circle r="8"/><text text-anchor="middle" y="3.5">\u2194</text>');
     var delta = node.append("g").attr("class", "delta").style("display", "none");
     delta.append("rect").attr("height", 16).attr("rx", 3);
@@ -1561,7 +1574,7 @@ return maplibregl$1;
       var deg = adj.ins[n.id].length + adj.outs[n.id].length;
       n.r = PH ? Math.min(32, 21 + 2.2 * Math.sqrt(deg)) : Math.min(26, 12 + 2.2 * Math.sqrt(deg));
       n.r0 = n.r;
-      n.lw = sname(n.name).length * 6.1;
+      n.lw = Math.max.apply(null, labLines(n.name).map(function (l) { return l.length; })) * 6.1;
     });
     build();
     applyEnv();
@@ -1615,6 +1628,16 @@ return maplibregl$1;
   el.reset.addEventListener("click", clearEdits);
   [["env", "Show environment: sun, rain, soil"], ["share", "Copy link to this ecosystem"], ["fit", "Fit everything on screen"], ["moreb", "More"], ["vt", "Show web view"]].forEach(function (a) { var b = document.getElementById(a[0]); if (b) { b.setAttribute("aria-label", a[1]); b.setAttribute("title", a[1]); } });
   stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast"));
+  (function () {
+    var wc = document.getElementById("webctl"), vt = document.getElementById("vt"), kb = document.createElement("button"), kp = document.createElement("div");
+    kb.type = "button"; kb.id = "kbtn"; kb.className = "btn"; kb.setAttribute("aria-label", "What the arrows and rings mean"); kb.setAttribute("title", "Key"); kb.setAttribute("aria-expanded", "false");
+    kp.id = "keypop"; kp.className = "keypop"; kp.innerHTML = '<div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Arrow points from food to eater</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgd" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Eats a dead animal</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgdot" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Breaks down dead matter</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.5" style="fill:var(--tl1)"/><circle class="lgr" cx="9" cy="9" r="7.5"/></svg><span>Dotted ring: keystone species</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" style="fill:var(--tl0);stroke:var(--tl0);stroke-dasharray:3 2.5"/></svg><span>Dashed edge: sun, rain, soil</span></div>';
+    wc.insertBefore(kb, vt.nextSibling); stage.appendChild(kp);
+    function shut() { kp.classList.remove("on"); kb.setAttribute("aria-expanded", "false"); }
+    kb.addEventListener("click", function (ev) { ev.stopPropagation(); var o = kp.classList.toggle("on"); kb.setAttribute("aria-expanded", String(o)); });
+    document.addEventListener("pointerdown", function (ev) { if (!ev.target.closest("#keypop, #kbtn")) shut(); }, true);
+    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") shut(); });
+  })();
   (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("moreb"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
