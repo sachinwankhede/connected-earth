@@ -614,5 +614,45 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg",
 "w": "https://en.wikipedia.org/wiki/Sahara"
+},
+"Serengeti National Park": {
+"f": "serengeti.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Serengeti-Landscape-2012.JPG",
+"w": "https://en.wikipedia.org/wiki/Serengeti_National_Park"
+},
+"Great Smoky Mountains National Park": {
+"f": "smokies.jpg",
+"a": "AppalachianCentrist",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:View_atop_Cliff_Tops_on_Mount_LeConte%2C_GSMNP%2C_TN.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Smoky_Mountains_National_Park"
+},
+"Sonoran Desert": {
+"f": "sonoran.jpg",
+"a": "Joe Parks from Berkeley, CA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Saguaro_National_Park_-_Flickr_-_Joe_Parks.jpg",
+"w": "https://en.wikipedia.org/wiki/Sonoran_Desert"
+},
+"Antarctic Peninsula": {
+"f": "southernocean.jpg",
+"a": "Gi",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Antpen-en.png",
+"w": "https://en.wikipedia.org/wiki/Antarctic_Peninsula"
+},
+"Forest Park (St. Louis)": {
+"f": "stlurban.jpg",
+"a": "Kris from Seattle, USA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Forest_Park%2C_St_Louis.jpg",
+"w": "https://en.wikipedia.org/wiki/Forest_Park_%28St._Louis%29"
 }
 }
