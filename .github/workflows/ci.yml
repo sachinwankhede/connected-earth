@@ -21,6 +21,13 @@ jobs:
           git diff --exit-code -- index.html pilot/index.html sw.js || (echo "Built files are out of date: run npm run build and commit." && exit 1)
       - run: npx playwright install --with-deps chromium
       - name: Browser tests
-        run: npm test
+        run: |
+          set +e
+          node --test --test-concurrency=2 tests/*.test.mjs > test.log 2>&1
+          code=$?
+          if [ $code -ne 0 ]; then
+            grep -E "^\s*(not ok|error:|message:|name:)|Error|Timeout" -A3 test.log | head -40 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
+          fi
+          exit $code
         env:
           CI: "1"
