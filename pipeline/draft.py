@@ -2,7 +2,7 @@
 """draft.py <id>|all : species near each park (GBIF) + what each animal eats (GloBI), cached. Writes drafts/<id>.json"""
 import sys,json,math,subprocess,urllib.parse,os,csv,io,hashlib
 from concurrent.futures import ThreadPoolExecutor
-here=os.path.dirname(os.path.abspath(__file__))
+here=os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))  # work dir holds cache/ drafts/ parks.json
 def curl(u):
     for _ in range(3):
         r=subprocess.run(['curl','-sS','-f','-m','90',u],capture_output=True)
@@ -40,11 +40,17 @@ def eats(n):
     return n,cached('eats'+n,f)
 def run(p):
     out={'id':p['id'],'park':p,'groups':{}}
-    wkt=circ(p['lat'],p['lon'],p['radius'])
+    pts=p.get('points') or [[p['lon'],p['lat']]]
     def facet(g):
-        u='https://api.gbif.org/v1/occurrence/search?limit=0&hasCoordinate=true&occurrenceStatus=PRESENT&taxonKey=%d&geometry=%s&facet=speciesKey&facetLimit=%d'%(G[g],urllib.parse.quote(wkt),LIM[g])
-        t=cached('facet%s%s'%(p['id'],g),lambda:curl(u) and json.loads(curl(u)))
-        f=(t or {}).get('facets',[{}]); return g,[(c['name'],c['count']) for c in (f[0].get('counts',[]) if f else [])]
+        tot={}
+        for (lo,la) in pts:
+            wkt=circ(la,lo,p['radius'])
+            u='https://api.gbif.org/v1/occurrence/search?limit=0&hasCoordinate=true&occurrenceStatus=PRESENT&taxonKey=%d&geometry=%s&facet=speciesKey&facetLimit=%d'%(G[g],urllib.parse.quote(wkt),LIM[g])
+            key='facet%s%s'%(p['id'],g) if len(pts)==1 else 'facet%s%s%.4f%.4f'%(p['id'],g,lo,la)
+            t=cached(key,lambda:curl(u) and json.loads(curl(u)))
+            f=(t or {}).get('facets',[{}])
+            for c in (f[0].get('counts',[]) if f else []): tot[c['name']]=tot.get(c['name'],0)+c['count']
+        return g,sorted(tot.items(),key=lambda x:-x[1])[:LIM[g]]
     facs=dict(facet(g) for g in G)
     keys=sorted({k for v in facs.values() for k,_ in v})
     with ThreadPoolExecutor(8) as ex: info=dict(ex.map(sp,keys))

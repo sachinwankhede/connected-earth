@@ -1,0 +1,82 @@
+{
+"Amazon rainforest": {
+"f": "amazon.jpg",
+"a": "CIAT",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Amazon17_%285641020319%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Amazon_rainforest"
+},
+"Tundra": {
+"f": "arctic.jpg",
+"a": "Hannes Grobe, AWI",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Greenland_scoresby-sydkapp2_hg.jpg",
+"w": "https://en.wikipedia.org/wiki/Tundra"
+},
+"Lake Baikal": {
+"f": "baikal.jpg",
+"a": "Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Baikal.A2001296.0420.250m-NASA.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Baikal"
+},
+"Boreal forest of Canada": {
+"f": "boreal.jpg",
+"a": "Mark Baldwin-Smith",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Taiga_ecoregion.png",
+"w": "https://en.wikipedia.org/wiki/Boreal_forest_of_Canada"
+},
+"Chesapeake Bay": {
+"f": "chesapeake.jpg",
+"a": "Landsat/NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Chesapeakelandsat.jpeg",
+"w": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
+},
+"Congo Basin": {
+"f": "congo.jpg",
+"a": "Kmusser",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Congobasinmap.png",
+"w": "https://en.wikipedia.org/wiki/Congo_Basin"
+},
+"Everglades National Park": {
+"f": "everglades.jpg",
+"a": "Everglades NPS from Homestead, Florida, United States",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Everglades_National_Park"
+},
+"Galápagos Islands": {
+"f": "galapagos.jpg",
+"a": "Diego Delso",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lobo_marino_%28Zalophus_californianus_wollebaeki%29%2C_Punta_Pitt%2C_isla_de_San_Crist%C3%B3bal%2C_islas_Gal%C3%A1pagos%2C_Ecuador%2C_2015-07-24%2C_DD_11.JPG",
+"w": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands"
+},
+"Lake Michigan": {
+"f": "greatlakes.jpg",
+"a": "Earth Science and Remote Sensing Unit, NASA Johnson Space Center, ISS Expedition 60",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Michigan_in_true_color.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Michigan"
+},
+"Gulf Islands National Seashore": {
+"f": "gulf.jpg",
+"a": "National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Gulf_Islands_NS.jpg",
+"w": "https://en.wikipedia.org/wiki/Gulf_Islands_National_Seashore"
+}
+}
