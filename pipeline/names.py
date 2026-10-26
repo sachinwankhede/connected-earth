@@ -3,7 +3,7 @@
 Uses the Wikipedia page title (it is the common name when one exists) and GBIF's English vernacular names.
 Writes pipeline/names.json  {latin: common}. Usage: names.py latin1 latin2 ... | names.py --from-data data-auto"""
 import re,sys,json,os,glob,urllib.request,urllib.parse,time
-here=os.path.dirname(os.path.abspath(__file__)); P=os.path.join(here,'names.json')
+here=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(os.path.dirname(here),'build')); import species; P=os.path.join(here,'names.json')
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 def get(u):
     for k in range(5):
@@ -31,8 +31,8 @@ if __name__=='__main__':
     if todo[:1]==['--from-data']:
         todo=set()
         for f in glob.glob(os.path.join(todo and '' or '',sys.argv[2],'*.json')):
-            if f.endswith('order.json'): continue
-            for n in json.load(open(f))['nodes']:
+            if f.endswith(('order.json','links.json','species.json')): continue
+            for n in species.load(f)['nodes']:
                 if n['latin'] and n['tl']>0 and n['name'].split(' (')[0]==n['latin']: todo.add(n['latin'])
         todo=sorted(todo)
     for l in todo:

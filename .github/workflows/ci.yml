@@ -13,8 +13,12 @@ jobs:
       - run: npm ci
       - name: Validate auto-generated data
         run: |
-          python3 build/validate.py $(ls data-auto/*.json | grep -v order.json) | tee validate.log
+          python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json) | tee validate.log
           ! grep -q "ERROR" validate.log
+      - name: Shared species table is current
+        run: |
+          python3 build/species.py pack
+          git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Build and check committed files are current
         run: |
           npm run build

@@ -4,7 +4,7 @@ Usage: promote.py --from-codes   promotes every place that has an official NPS l
 import json,os,sys,subprocess
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(ROOT,'build'))
-import promote_check as pc
+import promote_check as pc, species
 ids=sys.argv[1:]
 if ids[:1]==['--from-codes']:
     ids=[k for k,v in json.load(open(os.path.join(ROOT,'pipeline/nps/codes.json'))).items() if v['code']]
@@ -19,7 +19,7 @@ moved=[];held=[];movedids=[]
 for i in ids:
     p=os.path.join(ROOT,'data-auto',i+'.json')
     if not os.path.exists(p): continue
-    e=json.load(open(p)); r=pc.check(e)
+    e=species.load(p); r=pc.check(e)
     if not r['pass_'] or (not r['official'] and not LOCAL): held.append((e['name'],r['why'] or ['no official list'])); continue
     subprocess.run(['git','mv',p,os.path.join(ROOT,'data',i+'.json')],check=True,cwd=ROOT); moved.append(e['name']); movedids.append(i)
 order=[x for x in order if x not in movedids]

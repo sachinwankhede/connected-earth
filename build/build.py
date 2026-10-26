@@ -11,6 +11,8 @@ data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre
 import json, re, sys, os, hashlib
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import species
 P = lambda *a: os.path.join(ROOT, *a)
 
 
@@ -21,7 +23,8 @@ def load_places(pilot):
     if pilot:
         for i in json.load(open(P('data-auto', 'order.json'))):
             ecos.append(json.load(open(P('data-auto', i + '.json'))))
-    return links, ecos
+    tab = species.table()
+    return links, [species.join(e, tab) for e in ecos]
 
 
 def check(ecos, links, tpl, geo):

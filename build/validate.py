@@ -8,8 +8,10 @@ i0=tpl.index('var ICONS = {'); i1=tpl.index('\n  };',i0)
 ICONS=set(re.findall(r"^\s{4}(\w+):",tpl[i0:i1],re.M))
 geo=json.load(open(os.path.join(ROOT,'src','geo.json')))
 C={c['name']:c['cont'] for c in geo['countries']}; S={s['name'] for s in geo['states']}
+sys.path.insert(0,here)
+import species
 def check(path):
-    e=json.load(open(path)); errs=[]; warn=[]
+    e=species.load(path); errs=[]; warn=[]
     for k in ('id','name','short','place','lat','lon','side','blurb','tip','sources','notes','nodes','raw','cont','country','imgwiki','icon','tier','kind'):
         if k not in e: errs.append('missing field '+k)
     if errs: return errs,warn

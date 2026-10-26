@@ -13,3 +13,8 @@ All places on main look alike (no visible tiers); the evidence list carries the 
 Passing batches are merged without asking; each batch is one commit so it can be reverted. Failing places stay in the pilot.
 
 `python3 build/promote_check.py [ids...]` prints which places pass.
+
+## Shared species table
+`data/species.json` has one row per species (key = lowercase Latin name): usual name, wiki page, icon, description, trophic level, category, badge.
+Place files keep only each species' id, position and whatever differs from its row. To fix a name, photo page or icon for every place, edit the row.
+After generating or editing places, run `python3 build/species.py pack`; CI fails if the files are not packed.

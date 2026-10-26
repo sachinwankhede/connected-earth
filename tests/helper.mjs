@@ -12,9 +12,12 @@ export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 128
 
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
 export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
+const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'species.json'), 'utf8'));
+// Same join as build/species.py: a place keeps only what differs from the shared species row.
+const join = (e) => ({ ...e, nodes: e.nodes.map((n) => { const { sp, no, ...rest } = n; const full = { ...(TABLE[sp] || {}), ...rest }; for (const f of no || []) delete full[f]; return full; }) });
 export function readPlaces(pilot) {
-  const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && f !== 'links.json' && f !== 'order.json')
-    .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8')));
+  const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json'].includes(f))
+    .map((f) => join(JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8'))));
   return pilot ? [...dir('data'), ...dir('data-auto')] : dir('data');
 }
 
