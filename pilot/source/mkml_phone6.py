@@ -31,3 +31,16 @@ rep6('m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clu
 # Local parks: its own button in the right-hand toolbar, between layers and the world button
 rep6('<button type="button" id="zin"', '<button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></button><button type="button" id="zin"')
 rep6('document.getElementById("kinds").addEventListener("click", function (ev) {', 'document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; renderView(true); });\n    document.getElementById("kinds").addEventListener("click", function (ev) {')
+
+# filters and the Local parks button keep the camera where it is; the map only moves if nothing from the new selection is in view
+rep6('  function renderView(animate) {\n    var m = M.map;', '''  function filterView() {
+    renderView(false);
+    var m = M.map; if (!m || !M.styleReady) return;
+    var bd = m.getBounds(), any = ECOS.some(function (e) { return inRegion(e) && bd.contains([e.lon, e.lat]); });
+    if (!any && ECOS.some(inRegion)) mapFit(true);
+  }
+  function renderView(animate) {
+    var m = M.map;''')
+rep6('FL.park = !FL.park; view.focus = null; renderView(true); return;', 'FL.park = !FL.park; view.focus = null; filterView(); return;')
+rep6('FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; renderView(true);', 'FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; filterView();')
+rep6('FL.local = !FL.local; view.focus = null; renderView(true); });', 'FL.local = !FL.local; view.focus = null; filterView(); });')

@@ -2070,6 +2070,12 @@ return maplibregl$1;
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
+  function filterView() {
+    renderView(false);
+    var m = M.map; if (!m || !M.styleReady) return;
+    var bd = m.getBounds(), any = ECOS.some(function (e) { return inRegion(e) && bd.contains([e.lon, e.lat]); });
+    if (!any && ECOS.some(inRegion)) mapFit(true);
+  }
   function renderView(animate) {
     var m = M.map;
     if (m && M.styleReady && m.getSource("atl-e")) {
@@ -2314,12 +2320,12 @@ return maplibregl$1;
     }
     document.getElementById("crumbs").addEventListener("click", nav);
     document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); view.focus = null; document.getElementById("peek").hidden = true; M.tieId = null; renderView(FL.q.length >= 3); });
-    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; renderView(true); });
+    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
-      if (pk) { FL.park = !FL.park; view.focus = null; renderView(true); return; }
+      if (pk) { FL.park = !FL.park; view.focus = null; filterView(); return; }
       var b = ev.target.closest("[data-kind]"); if (!b) return;
-      FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; renderView(true);
+      FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; filterView();
     });
     document.getElementById("peek").addEventListener("click", function (ev) {
       var o = ev.target.closest("[data-open]"); if (o) { showWeb(o.getAttribute("data-open")); return; }
