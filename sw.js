@@ -1,4 +1,4 @@
-const V = "fa7c17e8";
+const V = "2ccba9de";
 const SHELL = "atlas-shell-" + V, RT = "atlas-rt";
 const SHELL_FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 const RT_HOSTS = ["tiles.openfreemap.org", "server.arcgisonline.com", "s3.amazonaws.com", "upload.wikimedia.org", "en.wikipedia.org"];
@@ -13,7 +13,8 @@ self.addEventListener("fetch", e => {
   const u = new URL(r.url);
   if (u.origin === location.origin) {
     // app shell: network first so updates arrive, cache as fallback for offline
-    e.respondWith(fetch(r).then(res => { if (res.ok) { const cp = res.clone(); caches.open(SHELL).then(c => c.put(r, cp)); } return res; }).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match("./index.html"))));
+    const q = (r.mode === "navigate" || r.destination === "document" || u.pathname.endsWith("/") || u.pathname.endsWith(".html")) ? new Request(r.url, { cache: "no-cache", credentials: "same-origin" }) : r;
+    e.respondWith(fetch(q).then(res => { if (res.ok) { const cp = res.clone(); caches.open(SHELL).then(c => c.put(r, cp)); } return res; }).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match("./index.html"))));
     return;
   }
   if (RT_HOSTS.includes(u.hostname)) {

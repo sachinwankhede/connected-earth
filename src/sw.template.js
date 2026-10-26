@@ -13,7 +13,8 @@ self.addEventListener("fetch", e => {
   const u = new URL(r.url);
   if (u.origin === location.origin) {
     // app shell: network first so updates arrive, cache as fallback for offline
-    e.respondWith(fetch(r).then(res => { if (res.ok) { const cp = res.clone(); caches.open(SHELL).then(c => c.put(r, cp)); } return res; }).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match("./index.html"))));
+    const q = (r.mode === "navigate" || r.destination === "document" || u.pathname.endsWith("/") || u.pathname.endsWith(".html")) ? new Request(r.url, { cache: "no-cache", credentials: "same-origin" }) : r;
+    e.respondWith(fetch(q).then(res => { if (res.ok) { const cp = res.clone(); caches.open(SHELL).then(c => c.put(r, cp)); } return res; }).catch(() => caches.match(r, { ignoreSearch: true }).then(m => m || caches.match("./index.html"))));
     return;
   }
   if (RT_HOSTS.includes(u.hostname)) {

@@ -1,0 +1,26 @@
+name: checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Validate auto-generated data
+        run: |
+          python3 build/validate.py $(ls data-auto/*.json | grep -v order.json) | tee validate.log
+          ! grep -q "ERROR" validate.log
+      - name: Build and check committed files are current
+        run: |
+          npm run build
+          git diff --exit-code -- index.html pilot/index.html sw.js || (echo "Built files are out of date: run npm run build and commit." && exit 1)
+      - run: npx playwright install --with-deps chromium
+      - name: Browser tests
+        run: npm test
+        env:
+          CI: "1"
