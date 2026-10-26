@@ -1,0 +1,687 @@
+[
+ {
+  "id": "mobabler",
+  "species": 16,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 2,
+  "species_level": 7,
+  "genus_level": 5
+ },
+ {
+  "id": "mobennettspring",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4
+  },
+  "family_level": 12,
+  "species_level": 1,
+  "genus_level": 3
+ },
+ {
+  "id": "mobiglake",
+  "species": 14,
+  "edges": 33,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 17,
+  "species_level": 9,
+  "genus_level": 7
+ },
+ {
+  "id": "mobigoaktree",
+  "skipped": "only 0 species / 0 plants after filtering"
+ },
+ {
+  "id": "mobigsugarcreek",
+  "species": 19,
+  "edges": 44,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 6,
+   "4": 2
+  },
+  "family_level": 22,
+  "species_level": 19,
+  "genus_level": 3
+ },
+ {
+  "id": "mobryantcreek",
+  "species": 11,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 7,
+  "species_level": 2,
+  "genus_level": 5
+ },
+ {
+  "id": "mocastlewood",
+  "species": 20,
+  "edges": 38,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 18,
+  "species_level": 17,
+  "genus_level": 3
+ },
+ {
+  "id": "moconfluencepoint",
+  "species": 21,
+  "edges": 69,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 33,
+  "species_level": 24,
+  "genus_level": 12
+ },
+ {
+  "id": "mocrowder",
+  "species": 11,
+  "edges": 13,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3
+  },
+  "family_level": 6,
+  "species_level": 3,
+  "genus_level": 4
+ },
+ {
+  "id": "mocuivreriver",
+  "species": 18,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 16,
+  "species_level": 5,
+  "genus_level": 10
+ },
+ {
+  "id": "mocurrentriver",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 4,
+  "species_level": 8,
+  "genus_level": 4
+ },
+ {
+  "id": "modonrobinson",
+  "species": 14,
+  "edges": 22,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3
+  },
+  "family_level": 17,
+  "species_level": 2,
+  "genus_level": 3
+ },
+ {
+  "id": "moechobluff",
+  "species": 15,
+  "edges": 24,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 2
+  },
+  "family_level": 20,
+  "species_level": 3,
+  "genus_level": 1
+ },
+ {
+  "id": "moelephantrocks",
+  "species": 16,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 14,
+  "species_level": 6,
+  "genus_level": 17
+ },
+ {
+  "id": "moelevenpoint",
+  "species": 11,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3
+  },
+  "family_level": 7,
+  "species_level": 1,
+  "genus_level": 3
+ },
+ {
+  "id": "mofingerlakes",
+  "species": 19,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5
+  },
+  "family_level": 12,
+  "species_level": 12,
+  "genus_level": 12
+ },
+ {
+  "id": "mograhamcave",
+  "species": 13,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3
+  },
+  "family_level": 4,
+  "species_level": 6,
+  "genus_level": 1
+ },
+ {
+  "id": "mograndgulf",
+  "species": 13,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3
+  },
+  "family_level": 17,
+  "species_level": 2,
+  "genus_level": 4
+ },
+ {
+  "id": "mohahatonka",
+  "species": 18,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 3
+  },
+  "family_level": 10,
+  "species_level": 3,
+  "genus_level": 10
+ },
+ {
+  "id": "mohawn",
+  "species": 17,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5
+  },
+  "family_level": 12,
+  "species_level": 4,
+  "genus_level": 1
+ },
+ {
+  "id": "mojohnsonsshutins",
+  "species": 11,
+  "edges": 5,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3
+  },
+  "family_level": 4,
+  "species_level": 1,
+  "genus_level": 0
+ },
+ {
+  "id": "moknobnoster",
+  "species": 17,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 16,
+  "species_level": 9,
+  "genus_level": 0
+ },
+ {
+  "id": "molakeoftheozarks",
+  "species": 20,
+  "edges": 53,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 6,
+   "4": 1
+  },
+  "family_level": 31,
+  "species_level": 15,
+  "genus_level": 7
+ },
+ {
+  "id": "molakewappapello",
+  "species": 13,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 5
+  },
+  "family_level": 6,
+  "species_level": 4,
+  "genus_level": 8
+ },
+ {
+  "id": "molewisandclark",
+  "species": 15,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 1
+  },
+  "family_level": 12,
+  "species_level": 8,
+  "genus_level": 14
+ },
+ {
+  "id": "molongbranch",
+  "species": 16,
+  "edges": 48,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2
+  },
+  "family_level": 22,
+  "species_level": 10,
+  "genus_level": 16
+ },
+ {
+  "id": "momarktwain",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 5
+  },
+  "family_level": 14,
+  "species_level": 1,
+  "genus_level": 1
+ },
+ {
+  "id": "momeramec",
+  "species": 13,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2
+  },
+  "family_level": 6,
+  "species_level": 5,
+  "genus_level": 0
+ },
+ {
+  "id": "momontauk",
+  "species": 15,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 12,
+  "genus_level": 1
+ },
+ {
+  "id": "momorris",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3
+  },
+  "family_level": 13,
+  "species_level": 0,
+  "genus_level": 3
+ },
+ {
+  "id": "monixonbackcountry",
+  "skipped": "only 9 species / 3 plants after filtering"
+ },
+ {
+  "id": "moonondagacave",
+  "species": 16,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3
+  },
+  "family_level": 15,
+  "species_level": 9,
+  "genus_level": 1
+ },
+ {
+  "id": "mopershing",
+  "species": 14,
+  "edges": 15,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 13,
+  "species_level": 0,
+  "genus_level": 2
+ },
+ {
+  "id": "mopommedeterre",
+  "species": 13,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3
+  },
+  "family_level": 16,
+  "species_level": 2,
+  "genus_level": 0
+ },
+ {
+  "id": "moprairiestatepark",
+  "species": 18,
+  "edges": 46,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 10,
+  "species_level": 20,
+  "genus_level": 16
+ },
+ {
+  "id": "moroaringriver",
+  "species": 16,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3
+  },
+  "family_level": 18,
+  "species_level": 3,
+  "genus_level": 2
+ },
+ {
+  "id": "morobertsville",
+  "species": 19,
+  "edges": 46,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 31,
+  "species_level": 13,
+  "genus_level": 2
+ },
+ {
+  "id": "morockbridge",
+  "species": 11,
+  "edges": 8,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2
+  },
+  "family_level": 6,
+  "species_level": 2,
+  "genus_level": 0
+ },
+ {
+  "id": "moroute66",
+  "species": 20,
+  "edges": 43,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 6
+  },
+  "family_level": 17,
+  "species_level": 13,
+  "genus_level": 13
+ },
+ {
+  "id": "mosamabaker",
+  "species": 19,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 23,
+  "species_level": 0,
+  "genus_level": 2
+ },
+ {
+  "id": "moshepherdofhills",
+  "species": 18,
+  "edges": 30,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 3
+  },
+  "family_level": 7,
+  "species_level": 10,
+  "genus_level": 13
+ },
+ {
+  "id": "mostfrancois",
+  "skipped": "only 9 species / 6 plants after filtering"
+ },
+ {
+  "id": "mostjoe",
+  "species": 17,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3
+  },
+  "family_level": 15,
+  "species_level": 2,
+  "genus_level": 9
+ },
+ {
+  "id": "mostockton",
+  "species": 12,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 5,
+  "species_level": 10,
+  "genus_level": 3
+ },
+ {
+  "id": "motablerock",
+  "species": 22,
+  "edges": 50,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 6
+  },
+  "family_level": 19,
+  "species_level": 24,
+  "genus_level": 7
+ },
+ {
+  "id": "motaumsauk",
+  "species": 17,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5
+  },
+  "family_level": 19,
+  "species_level": 2,
+  "genus_level": 6
+ },
+ {
+  "id": "mothousandhills",
+  "species": 20,
+  "edges": 50,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 4
+  },
+  "family_level": 23,
+  "species_level": 16,
+  "genus_level": 11
+ },
+ {
+  "id": "motrailoftears",
+  "species": 12,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2
+  },
+  "family_level": 11,
+  "species_level": 4,
+  "genus_level": 3
+ },
+ {
+  "id": "motruman",
+  "species": 15,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3
+  },
+  "family_level": 12,
+  "species_level": 3,
+  "genus_level": 5
+ },
+ {
+  "id": "movanmeter",
+  "skipped": "only 9 species / 6 plants after filtering"
+ },
+ {
+  "id": "mowakonda",
+  "species": 14,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 6,
+  "species_level": 16,
+  "genus_level": 9
+ },
+ {
+  "id": "mowallace",
+  "skipped": "only 9 species / 3 plants after filtering"
+ },
+ {
+  "id": "mowashington",
+  "species": 15,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 12,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "mowatkinsmill",
+  "species": 16,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 9,
+  "species_level": 14,
+  "genus_level": 4
+ },
+ {
+  "id": "mowestonbend",
+  "species": 17,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 28,
+  "species_level": 7,
+  "genus_level": 7
+ }
+]
