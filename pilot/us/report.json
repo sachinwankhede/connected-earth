@@ -1,0 +1,2646 @@
+[
+ {
+  "id": "usagassiznationalwildlif",
+  "species": 18,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 21,
+  "species_level": 17,
+  "genus_level": 4
+ },
+ {
+  "id": "usagatefossilbedsnationa",
+  "species": 14,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 5,
+  "species_level": 8,
+  "genus_level": 10
+ },
+ {
+  "id": "usalligatorrivernational",
+  "species": 11,
+  "edges": 5,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 1,
+   "4": 2
+  },
+  "family_level": 0,
+  "species_level": 3,
+  "genus_level": 2
+ },
+ {
+  "id": "usapachenationalforest",
+  "species": 12,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 7,
+  "species_level": 0,
+  "genus_level": 4
+ },
+ {
+  "id": "usapostleislandsnational",
+  "species": 10,
+  "edges": 8,
+  "tl": {
+   "1": 6,
+   "2": 1,
+   "3": 3
+  },
+  "family_level": 4,
+  "species_level": 1,
+  "genus_level": 3
+ },
+ {
+  "id": "usappalachiantrailcorrid",
+  "species": 20,
+  "edges": 40,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 11,
+  "species_level": 20,
+  "genus_level": 9
+ },
+ {
+  "id": "usarapahonationalwildlif",
+  "species": 17,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 2
+  },
+  "family_level": 18,
+  "species_level": 5,
+  "genus_level": 4
+ },
+ {
+  "id": "usaroostooknationalwildl",
+  "species": 19,
+  "edges": 48,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 27,
+  "species_level": 7,
+  "genus_level": 14
+ },
+ {
+  "id": "usassateagueislandnation",
+  "species": 18,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4
+  },
+  "family_level": 17,
+  "species_level": 8,
+  "genus_level": 9
+ },
+ {
+  "id": "usbacanationalwildlifere",
+  "species": 17,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 24,
+  "species_level": 8,
+  "genus_level": 5
+ },
+ {
+  "id": "usbaldknobnationalwildli",
+  "species": 18,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 2
+  },
+  "family_level": 23,
+  "species_level": 6,
+  "genus_level": 2
+ },
+ {
+  "id": "usbandeliernationalmonum",
+  "species": 17,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 17,
+  "species_level": 2,
+  "genus_level": 15
+ },
+ {
+  "id": "usbearrivermigratorybird",
+  "species": 18,
+  "edges": 50,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 26,
+  "species_level": 17,
+  "genus_level": 7
+ },
+ {
+  "id": "usbeltramiwildlifemanage",
+  "species": 15,
+  "edges": 15,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 1,
+  "genus_level": 4
+ },
+ {
+  "id": "usbentonlakenationalwild",
+  "species": 18,
+  "edges": 40,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 20,
+  "species_level": 14,
+  "genus_level": 6
+ },
+ {
+  "id": "usbighorncanyonnationalr",
+  "species": 16,
+  "edges": 30,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 2,
+  "genus_level": 13
+ },
+ {
+  "id": "usbittercreeknationalwil",
+  "species": 16,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2,
+   "4": 3
+  },
+  "family_level": 5,
+  "species_level": 19,
+  "genus_level": 7
+ },
+ {
+  "id": "usbitterlakenationalwild",
+  "species": 14,
+  "edges": 22,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 12,
+  "species_level": 4,
+  "genus_level": 6
+ },
+ {
+  "id": "usblackhillsnationalfore",
+  "species": 17,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4
+  },
+  "family_level": 20,
+  "species_level": 3,
+  "genus_level": 3
+ },
+ {
+  "id": "usboisenationalforest",
+  "species": 14,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 16,
+  "species_level": 3,
+  "genus_level": 7
+ },
+ {
+  "id": "usbosquedelapachenationa",
+  "species": 14,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 4,
+  "genus_level": 5
+ },
+ {
+  "id": "usbowdoinnationalwildlif",
+  "species": 16,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2
+  },
+  "family_level": 16,
+  "species_level": 4,
+  "genus_level": 0
+ },
+ {
+  "id": "usbuffalogapnationalgras",
+  "species": 17,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3
+  },
+  "family_level": 8,
+  "species_level": 5,
+  "genus_level": 8
+ },
+ {
+  "id": "usbuffalolakenationalwil",
+  "species": 15,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 7,
+  "genus_level": 2
+ },
+ {
+  "id": "uscanaveralnationalseash",
+  "species": 16,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 18,
+  "species_level": 13,
+  "genus_level": 0
+ },
+ {
+  "id": "uscapehatterasnationalse",
+  "species": 16,
+  "edges": 29,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 6,
+  "genus_level": 9
+ },
+ {
+  "id": "uscapelookoutnationalsea",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4
+  },
+  "family_level": 15,
+  "species_level": 1,
+  "genus_level": 0
+ },
+ {
+  "id": "uscapemaynationalwildlif",
+  "species": 12,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 14,
+  "species_level": 0,
+  "genus_level": 3
+ },
+ {
+  "id": "uscaperomainnationalwild",
+  "species": 17,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4
+  },
+  "family_level": 20,
+  "species_level": 8,
+  "genus_level": 3
+ },
+ {
+  "id": "uscarlsbadwildiferefuge",
+  "species": 14,
+  "edges": 12,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 6,
+  "species_level": 6,
+  "genus_level": 0
+ },
+ {
+  "id": "uscarolinasandhillsnatio",
+  "species": 18,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 17,
+  "species_level": 7,
+  "genus_level": 10
+ },
+ {
+  "id": "uscedarbreaksnationalmon",
+  "species": 14,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 8,
+  "species_level": 1,
+  "genus_level": 8
+ },
+ {
+  "id": "uscharlesmrussellnationa",
+  "species": 16,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 18,
+  "species_level": 2,
+  "genus_level": 3
+ },
+ {
+  "id": "uschattahoocheenationalf",
+  "species": 14,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 13,
+  "species_level": 5,
+  "genus_level": 8
+ },
+ {
+  "id": "uschattahoocheerivernati",
+  "species": 17,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 5,
+  "species_level": 13,
+  "genus_level": 2
+ },
+ {
+  "id": "uschautauquanationalwild",
+  "species": 17,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4
+  },
+  "family_level": 17,
+  "species_level": 14,
+  "genus_level": 0
+ },
+ {
+  "id": "uscheneywildlifearea",
+  "species": 17,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3
+  },
+  "family_level": 20,
+  "species_level": 9,
+  "genus_level": 6
+ },
+ {
+  "id": "uschequamegonnationalfor",
+  "species": 19,
+  "edges": 46,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5,
+   "4": 2
+  },
+  "family_level": 22,
+  "species_level": 13,
+  "genus_level": 11
+ },
+ {
+  "id": "uscherokeenationalforest",
+  "species": 12,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 8,
+  "genus_level": 1
+ },
+ {
+  "id": "uschickasawnationalrecre",
+  "species": 19,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 6
+  },
+  "family_level": 27,
+  "species_level": 8,
+  "genus_level": 2
+ },
+ {
+  "id": "uschickasawnationalwildl",
+  "species": 18,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 12,
+  "genus_level": 1
+ },
+ {
+  "id": "uschimborazopark",
+  "species": 19,
+  "edges": 43,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5
+  },
+  "family_level": 21,
+  "species_level": 17,
+  "genus_level": 5
+ },
+ {
+  "id": "uschiricahuanationalmonu",
+  "species": 15,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4
+  },
+  "family_level": 14,
+  "species_level": 2,
+  "genus_level": 10
+ },
+ {
+  "id": "uscjstrikewildlifemanage",
+  "species": 19,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 21,
+  "species_level": 11,
+  "genus_level": 4
+ },
+ {
+  "id": "uscoconinonationalforest",
+  "species": 16,
+  "edges": 33,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 8,
+  "species_level": 12,
+  "genus_level": 13
+ },
+ {
+  "id": "uscoloradonationalmonume",
+  "species": 12,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 11,
+  "species_level": 5,
+  "genus_level": 4
+ },
+ {
+  "id": "uscolumbianationalwildli",
+  "species": 18,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 13,
+  "species_level": 11,
+  "genus_level": 11
+ },
+ {
+  "id": "uscomanchenationalgrassl",
+  "species": 12,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 18,
+  "species_level": 2,
+  "genus_level": 1
+ },
+ {
+  "id": "uscraborchardnationalwil",
+  "species": 15,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 16,
+  "species_level": 10,
+  "genus_level": 1
+ },
+ {
+  "id": "uscratersofthemoonnation",
+  "species": 18,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 5
+  },
+  "family_level": 17,
+  "species_level": 4,
+  "genus_level": 4
+ },
+ {
+  "id": "uscrescentlakenationalwi",
+  "species": 13,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2
+  },
+  "family_level": 14,
+  "species_level": 3,
+  "genus_level": 3
+ },
+ {
+  "id": "uscroatannationalforest",
+  "species": 18,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 8,
+  "species_level": 17,
+  "genus_level": 6
+ },
+ {
+  "id": "uscrookedrivernationalgr",
+  "species": 20,
+  "edges": 49,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 22,
+  "species_level": 11,
+  "genus_level": 16
+ },
+ {
+  "id": "uscumberlandislandnation",
+  "species": 14,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 10,
+  "species_level": 4,
+  "genus_level": 3
+ },
+ {
+  "id": "uscurlewnationalgrasslan",
+  "species": 18,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 18,
+  "species_level": 10,
+  "genus_level": 7
+ },
+ {
+  "id": "usdalebumperswhiterivern",
+  "species": 16,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 23,
+  "species_level": 1,
+  "genus_level": 4
+ },
+ {
+  "id": "usdelawarewatergapnation",
+  "species": 19,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 22,
+  "species_level": 10,
+  "genus_level": 4
+ },
+ {
+  "id": "usdesotonationalwildlife",
+  "species": 22,
+  "edges": 61,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 31,
+  "genus_level": 11
+ },
+ {
+  "id": "usdevilstowernationalmon",
+  "species": 14,
+  "edges": 24,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3
+  },
+  "family_level": 10,
+  "species_level": 7,
+  "genus_level": 7
+ },
+ {
+  "id": "usdinosaurnationalmonume",
+  "species": 14,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2
+  },
+  "family_level": 11,
+  "species_level": 0,
+  "genus_level": 3
+ },
+ {
+  "id": "usdixienationalforest",
+  "species": 12,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 13,
+  "species_level": 1,
+  "genus_level": 6
+ },
+ {
+  "id": "usdonedwardssanfrancisco",
+  "species": 17,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 19,
+  "genus_level": 2
+ },
+ {
+  "id": "usebeyslandingnationalhi",
+  "species": 15,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 16,
+  "species_level": 7,
+  "genus_level": 8
+ },
+ {
+  "id": "usedwinbforsythenational",
+  "species": 17,
+  "edges": 40,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3
+  },
+  "family_level": 15,
+  "species_level": 16,
+  "genus_level": 9
+ },
+ {
+  "id": "useffigymoundsnationalmo",
+  "species": 17,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 5,
+  "species_level": 12,
+  "genus_level": 6
+ },
+ {
+  "id": "uselmalpaisnationalmonum",
+  "species": 13,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4
+  },
+  "family_level": 6,
+  "species_level": 3,
+  "genus_level": 2
+ },
+ {
+  "id": "usfingerlakesnationalfor",
+  "species": 18,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 2
+  },
+  "family_level": 14,
+  "species_level": 11,
+  "genus_level": 3
+ },
+ {
+  "id": "usfireislandnationalseas",
+  "skipped": "only 7 species / 6 plants after filtering"
+ },
+ {
+  "id": "usfishspringsnationalwil",
+  "species": 14,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 9,
+  "species_level": 8,
+  "genus_level": 4
+ },
+ {
+  "id": "usflorissantfossilbedsna",
+  "species": 14,
+  "edges": 15,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 5
+  },
+  "family_level": 11,
+  "species_level": 2,
+  "genus_level": 2
+ },
+ {
+  "id": "usfortpulaskinationalmon",
+  "species": 15,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3
+  },
+  "family_level": 15,
+  "species_level": 5,
+  "genus_level": 1
+ },
+ {
+  "id": "usfossilbuttenationalmon",
+  "species": 13,
+  "edges": 9,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4
+  },
+  "family_level": 8,
+  "species_level": 0,
+  "genus_level": 1
+ },
+ {
+  "id": "usfrancismarionnationalf",
+  "species": 18,
+  "edges": 22,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 9,
+  "species_level": 11,
+  "genus_level": 2
+ },
+ {
+  "id": "usfredericksburgandspotn",
+  "species": 14,
+  "edges": 13,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3
+  },
+  "family_level": 5,
+  "species_level": 2,
+  "genus_level": 6
+ },
+ {
+  "id": "usgatewayarchnationalpar",
+  "species": 19,
+  "edges": 62,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 20,
+  "species_level": 26,
+  "genus_level": 16
+ },
+ {
+  "id": "usgatewaynationalrecreat",
+  "species": 20,
+  "edges": 54,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 5
+  },
+  "family_level": 25,
+  "species_level": 10,
+  "genus_level": 19
+ },
+ {
+  "id": "usgeorgewashingtonmemori",
+  "species": 23,
+  "edges": 51,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 7,
+   "4": 1
+  },
+  "family_level": 20,
+  "species_level": 28,
+  "genus_level": 3
+ },
+ {
+  "id": "usgeorgewashingtonnation",
+  "species": 19,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 20,
+  "species_level": 10,
+  "genus_level": 7
+ },
+ {
+  "id": "usgiffordpinchotnational",
+  "species": 11,
+  "edges": 12,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2
+  },
+  "family_level": 6,
+  "species_level": 2,
+  "genus_level": 4
+ },
+ {
+  "id": "usgilanationalforest",
+  "species": 17,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 8,
+  "species_level": 12,
+  "genus_level": 16
+ },
+ {
+  "id": "usgilariverwaterfowlmana",
+  "species": 14,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 9,
+  "species_level": 8,
+  "genus_level": 1
+ },
+ {
+  "id": "usgulfislandsnationalsea",
+  "species": 14,
+  "edges": 10,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 8,
+  "species_level": 2,
+  "genus_level": 0
+ },
+ {
+  "id": "ushagermanfossilbedsnati",
+  "species": 13,
+  "edges": 33,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 23,
+  "species_level": 4,
+  "genus_level": 6
+ },
+ {
+  "id": "ushaleakalanationalpark",
+  "species": 12,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 8,
+  "species_level": 3,
+  "genus_level": 0
+ },
+ {
+  "id": "ushartmountainnationalan",
+  "species": 20,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 24,
+  "species_level": 12,
+  "genus_level": 6
+ },
+ {
+  "id": "ushiawathanationalforest",
+  "species": 18,
+  "edges": 44,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 25,
+  "species_level": 16,
+  "genus_level": 3
+ },
+ {
+  "id": "ushoosiernationalforest",
+  "species": 20,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 8,
+   "4": 1
+  },
+  "family_level": 6,
+  "species_level": 19,
+  "genus_level": 2
+ },
+ {
+  "id": "ushoriconnationalwildlif",
+  "species": 20,
+  "edges": 45,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 5
+  },
+  "family_level": 24,
+  "species_level": 13,
+  "genus_level": 8
+ },
+ {
+  "id": "usiroquoisnationalwildli",
+  "species": 16,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 17,
+  "species_level": 15,
+  "genus_level": 3
+ },
+ {
+  "id": "usjacksoncountywaterfowl",
+  "species": 19,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 22,
+  "species_level": 10,
+  "genus_level": 0
+ },
+ {
+  "id": "usjclarksalyernationalwi",
+  "species": 13,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 7
+  },
+  "family_level": 10,
+  "species_level": 0,
+  "genus_level": 4
+ },
+ {
+  "id": "usjeffersonnationalfores",
+  "species": 17,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 10,
+  "species_level": 16,
+  "genus_level": 6
+ },
+ {
+  "id": "usjohndayfossilbedsnatio",
+  "species": 17,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 6,
+  "genus_level": 11
+ },
+ {
+  "id": "uskaibabnationalforest",
+  "species": 13,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 9,
+  "species_level": 5,
+  "genus_level": 6
+ },
+ {
+  "id": "uskatahdinwoodsandwaters",
+  "species": 21,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 9,
+  "genus_level": 9
+ },
+ {
+  "id": "usklamathmarshnationalwi",
+  "species": 15,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 15,
+  "species_level": 10,
+  "genus_level": 12
+ },
+ {
+  "id": "uskofanationalwildlifere",
+  "species": 11,
+  "edges": 10,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2
+  },
+  "family_level": 7,
+  "species_level": 2,
+  "genus_level": 1
+ },
+ {
+  "id": "uslakechelannationalrecr",
+  "species": 16,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3
+  },
+  "family_level": 11,
+  "species_level": 4,
+  "genus_level": 8
+ },
+ {
+  "id": "uslakemeredithnationalre",
+  "species": 16,
+  "edges": 33,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 12,
+  "species_level": 18,
+  "genus_level": 3
+ },
+ {
+  "id": "uslakerooseveltnationalr",
+  "species": 20,
+  "edges": 44,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 5,
+   "4": 2
+  },
+  "family_level": 24,
+  "species_level": 11,
+  "genus_level": 9
+ },
+ {
+  "id": "uslavabedsnationalmonume",
+  "species": 16,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 6
+  },
+  "family_level": 15,
+  "species_level": 5,
+  "genus_level": 8
+ },
+ {
+  "id": "uslenoregamerange",
+  "species": 15,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3
+  },
+  "family_level": 18,
+  "species_level": 2,
+  "genus_level": 1
+ },
+ {
+  "id": "uslincolnnationalforest",
+  "species": 12,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 1,
+   "4": 2
+  },
+  "family_level": 8,
+  "species_level": 3,
+  "genus_level": 0
+ },
+ {
+  "id": "uslittlemissourinational",
+  "species": 14,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2
+  },
+  "family_level": 12,
+  "species_level": 3,
+  "genus_level": 5
+ },
+ {
+  "id": "uslittlependoreillenatio",
+  "species": 16,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 12,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "usloessbluffsnationalwil",
+  "species": 19,
+  "edges": 54,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2,
+   "4": 3
+  },
+  "family_level": 18,
+  "species_level": 35,
+  "genus_level": 1
+ },
+ {
+  "id": "uslolonationalforest",
+  "species": 19,
+  "edges": 41,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 7
+  },
+  "family_level": 22,
+  "species_level": 7,
+  "genus_level": 12
+ },
+ {
+  "id": "uslospadresnationalfores",
+  "species": 17,
+  "edges": 46,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 19,
+  "species_level": 13,
+  "genus_level": 14
+ },
+ {
+  "id": "uslosttrailnationalwildl",
+  "species": 17,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 7,
+  "genus_level": 14
+ },
+ {
+  "id": "uslowerklamathnationalwi",
+  "species": 20,
+  "edges": 54,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 23,
+  "species_level": 26,
+  "genus_level": 5
+ },
+ {
+  "id": "uslyndonbjohnsonnational",
+  "species": 19,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5
+  },
+  "family_level": 27,
+  "species_level": 4,
+  "genus_level": 3
+ },
+ {
+  "id": "usmaggielwalker",
+  "species": 19,
+  "edges": 54,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 17,
+  "species_level": 27,
+  "genus_level": 10
+ },
+ {
+  "id": "usmanisteenationalforest",
+  "species": 15,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 7,
+  "species_level": 8,
+  "genus_level": 3
+ },
+ {
+  "id": "usmarktwainnationalfores",
+  "species": 18,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 6,
+   "4": 2
+  },
+  "family_level": 11,
+  "species_level": 12,
+  "genus_level": 8
+ },
+ {
+  "id": "usmaxwellnationalwildlif",
+  "species": 21,
+  "edges": 50,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4,
+   "4": 2
+  },
+  "family_level": 21,
+  "species_level": 22,
+  "genus_level": 7
+ },
+ {
+  "id": "usmendocinonationalfores",
+  "species": 15,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 6,
+  "species_level": 3,
+  "genus_level": 5
+ },
+ {
+  "id": "usmidewinother",
+  "species": 21,
+  "edges": 54,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 5
+  },
+  "family_level": 23,
+  "species_level": 22,
+  "genus_level": 9
+ },
+ {
+  "id": "usmingonationalwildlifer",
+  "species": 18,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 22,
+  "species_level": 14,
+  "genus_level": 1
+ },
+ {
+  "id": "usmodocnationalforest",
+  "species": 15,
+  "edges": 29,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4
+  },
+  "family_level": 14,
+  "species_level": 1,
+  "genus_level": 14
+ },
+ {
+  "id": "usmojavenationalpreserve",
+  "species": 12,
+  "edges": 13,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 8,
+  "species_level": 3,
+  "genus_level": 2
+ },
+ {
+  "id": "usmonomoynationalwildlif",
+  "species": 11,
+  "edges": 12,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3
+  },
+  "family_level": 10,
+  "species_level": 2,
+  "genus_level": 0
+ },
+ {
+  "id": "usmontevistanationalwild",
+  "species": 18,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 12,
+  "genus_level": 4
+ },
+ {
+  "id": "usmontezumacastlenationa",
+  "species": 12,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2
+  },
+  "family_level": 8,
+  "species_level": 3,
+  "genus_level": 9
+ },
+ {
+  "id": "usmontezumanationalwildl",
+  "species": 18,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 25,
+  "genus_level": 2
+ },
+ {
+  "id": "usmoosehornnationalwildl",
+  "species": 17,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 9,
+  "species_level": 9,
+  "genus_level": 13
+ },
+ {
+  "id": "usnaturalbridgesnational",
+  "species": 12,
+  "edges": 12,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 9,
+  "species_level": 1,
+  "genus_level": 2
+ },
+ {
+  "id": "usnebraskanationalforest",
+  "species": 17,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 13,
+  "species_level": 8,
+  "genus_level": 13
+ },
+ {
+  "id": "usnezpercenationalforest",
+  "species": 17,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5
+  },
+  "family_level": 18,
+  "species_level": 8,
+  "genus_level": 10
+ },
+ {
+  "id": "usoconeenationalforest",
+  "species": 16,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2
+  },
+  "family_level": 17,
+  "species_level": 5,
+  "genus_level": 1
+ },
+ {
+  "id": "usohioriverislandsnation",
+  "species": 20,
+  "edges": 46,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 4
+  },
+  "family_level": 28,
+  "species_level": 9,
+  "genus_level": 9
+ },
+ {
+  "id": "usolympicnationalpark",
+  "species": 14,
+  "edges": 15,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2
+  },
+  "family_level": 8,
+  "species_level": 0,
+  "genus_level": 7
+ },
+ {
+  "id": "usoregoncavesnationalmon",
+  "species": 11,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2
+  },
+  "family_level": 7,
+  "species_level": 1,
+  "genus_level": 3
+ },
+ {
+  "id": "usorganpipecactusnationa",
+  "species": 13,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 7,
+  "genus_level": 0
+ },
+ {
+  "id": "usottawanationalforest",
+  "species": 18,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 6,
+   "4": 2
+  },
+  "family_level": 20,
+  "species_level": 13,
+  "genus_level": 1
+ },
+ {
+  "id": "usottawanationalwildlife",
+  "species": 16,
+  "edges": 30,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 12,
+  "species_level": 11,
+  "genus_level": 7
+ },
+ {
+  "id": "usouachitanationalforest",
+  "species": 13,
+  "edges": 21,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 3
+  },
+  "family_level": 20,
+  "species_level": 0,
+  "genus_level": 1
+ },
+ {
+  "id": "uspacificremoteislandsma",
+  "species": 10,
+  "edges": 7,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 1
+  },
+  "family_level": 7,
+  "species_level": 0,
+  "genus_level": 0
+ },
+ {
+  "id": "uspadreislandnationalsea",
+  "species": 14,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 5,
+  "species_level": 5,
+  "genus_level": 4
+ },
+ {
+  "id": "uspeedeenationalwildlife",
+  "species": 16,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3
+  },
+  "family_level": 20,
+  "species_level": 5,
+  "genus_level": 6
+ },
+ {
+  "id": "uspicturedrocksnationall",
+  "species": 16,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 5
+  },
+  "family_level": 11,
+  "species_level": 8,
+  "genus_level": 16
+ },
+ {
+  "id": "uspiedmontnationalwildli",
+  "species": 20,
+  "edges": 40,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 23,
+  "species_level": 9,
+  "genus_level": 8
+ },
+ {
+  "id": "usplumasnationalforest",
+  "species": 13,
+  "edges": 26,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 19,
+  "species_level": 4,
+  "genus_level": 3
+ },
+ {
+  "id": "uspocosinlakesnationalwi",
+  "species": 15,
+  "edges": 24,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 7,
+  "species_level": 15,
+  "genus_level": 2
+ },
+ {
+  "id": "uspointreyesnationalseas",
+  "species": 16,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 11,
+  "species_level": 13,
+  "genus_level": 12
+ },
+ {
+  "id": "usportlouisanationalwild",
+  "species": 10,
+  "edges": 9,
+  "tl": {
+   "1": 3,
+   "2": 6,
+   "3": 1
+  },
+  "family_level": 9,
+  "species_level": 0,
+  "genus_level": 0
+ },
+ {
+  "id": "usquiviranationalwildlif",
+  "species": 15,
+  "edges": 22,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "usredrocklakesnationalwi",
+  "species": 14,
+  "edges": 29,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 17,
+  "species_level": 5,
+  "genus_level": 7
+ },
+ {
+  "id": "usricelakenationalwildli",
+  "species": 19,
+  "edges": 30,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 12,
+  "species_level": 13,
+  "genus_level": 5
+ },
+ {
+  "id": "usrockymountainarsenalna",
+  "species": 16,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 9,
+  "species_level": 14,
+  "genus_level": 2
+ },
+ {
+  "id": "usroseatollnationalwildl",
+  "skipped": "only 4 species / 4 plants after filtering"
+ },
+ {
+  "id": "usrouttnationalforest",
+  "species": 19,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5
+  },
+  "family_level": 15,
+  "species_level": 2,
+  "genus_level": 3
+ },
+ {
+  "id": "ussaintcroixnationalscen",
+  "species": 13,
+  "edges": 9,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 4,
+  "species_level": 4,
+  "genus_level": 1
+ },
+ {
+  "id": "ussaltplainsnationalwild",
+  "species": 12,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "4": 2
+  },
+  "family_level": 5,
+  "species_level": 4,
+  "genus_level": 2
+ },
+ {
+  "id": "ussamdhamiltonnoxubeenat",
+  "species": 19,
+  "edges": 35,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 6,
+   "4": 1
+  },
+  "family_level": 12,
+  "species_level": 23,
+  "genus_level": 0
+ },
+ {
+  "id": "ussanbernardinonationalf",
+  "species": 21,
+  "edges": 52,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 6,
+   "4": 1
+  },
+  "family_level": 26,
+  "species_level": 9,
+  "genus_level": 17
+ },
+ {
+  "id": "ussanjuannationalforest",
+  "species": 12,
+  "edges": 14,
+  "tl": {
+   "1": 6,
+   "2": 1,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 4,
+  "species_level": 3,
+  "genus_level": 7
+ },
+ {
+  "id": "ussanluisnationalwildlif",
+  "species": 20,
+  "edges": 52,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 29,
+  "species_level": 18,
+  "genus_level": 5
+ },
+ {
+  "id": "ussantamonicamountainsna",
+  "species": 22,
+  "edges": 59,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4,
+   "4": 3
+  },
+  "family_level": 33,
+  "species_level": 14,
+  "genus_level": 12
+ },
+ {
+  "id": "usscottsbluffnationalmon",
+  "species": 18,
+  "edges": 39,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 14,
+  "genus_level": 6
+ },
+ {
+  "id": "usseedskadeenationalwild",
+  "species": 12,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 5,
+  "genus_level": 1
+ },
+ {
+  "id": "usseneynationalwildlifer",
+  "species": 16,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 8,
+  "species_level": 13,
+  "genus_level": 4
+ },
+ {
+  "id": "ussevilletanationalwildl",
+  "species": 11,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 5
+  },
+  "family_level": 15,
+  "species_level": 2,
+  "genus_level": 3
+ },
+ {
+  "id": "usshawneenationalforest",
+  "species": 16,
+  "edges": 22,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 5
+  },
+  "family_level": 4,
+  "species_level": 9,
+  "genus_level": 9
+ },
+ {
+  "id": "ussheldonnationalwildlif",
+  "species": 16,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 13,
+  "species_level": 5,
+  "genus_level": 0
+ },
+ {
+  "id": "ussherburnenationalwildl",
+  "species": 23,
+  "edges": 70,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 5,
+   "4": 2
+  },
+  "family_level": 34,
+  "species_level": 32,
+  "genus_level": 4
+ },
+ {
+  "id": "ussheyennenationalgrassl",
+  "species": 18,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 2
+  },
+  "family_level": 26,
+  "species_level": 8,
+  "genus_level": 8
+ },
+ {
+  "id": "usshiawasseenationalwild",
+  "species": 20,
+  "edges": 51,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 4
+  },
+  "family_level": 24,
+  "species_level": 18,
+  "genus_level": 9
+ },
+ {
+  "id": "ussilvioocontenationalfi",
+  "species": 19,
+  "edges": 39,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 15,
+  "genus_level": 9
+ },
+ {
+  "id": "ussleepingbeardunesnatio",
+  "species": 15,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4
+  },
+  "family_level": 13,
+  "species_level": 10,
+  "genus_level": 2
+ },
+ {
+  "id": "ussonnybonosaltonseanati",
+  "species": 13,
+  "edges": 8,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 2,
+  "species_level": 6,
+  "genus_level": 0
+ },
+ {
+  "id": "usstillwaternationalwild",
+  "species": 13,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 8,
+  "species_level": 6,
+  "genus_level": 2
+ },
+ {
+  "id": "ussunkhazemeadowsnationa",
+  "species": 16,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 4,
+  "genus_level": 9
+ },
+ {
+  "id": "ussuperiornationalforest",
+  "species": 15,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3
+  },
+  "family_level": 7,
+  "species_level": 5,
+  "genus_level": 7
+ },
+ {
+  "id": "ustalladeganationalfores",
+  "species": 16,
+  "edges": 31,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 17,
+  "species_level": 9,
+  "genus_level": 5
+ },
+ {
+  "id": "ustamaracnationalwildlif",
+  "species": 16,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 12,
+  "species_level": 12,
+  "genus_level": 1
+ },
+ {
+  "id": "ustensasrivernationalwil",
+  "species": 20,
+  "edges": 43,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 18,
+  "species_level": 22,
+  "genus_level": 3
+ },
+ {
+  "id": "usthunderbasinnationalgr",
+  "species": 19,
+  "edges": 44,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 30,
+  "species_level": 13,
+  "genus_level": 1
+ },
+ {
+  "id": "ustoiyabenationalforest",
+  "skipped": "only 7 species / 6 plants after filtering"
+ },
+ {
+  "id": "ustontonationalforest",
+  "species": 15,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 23,
+  "species_level": 4,
+  "genus_level": 0
+ },
+ {
+  "id": "ustontonationalmonument",
+  "species": 14,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3
+  },
+  "family_level": 15,
+  "species_level": 3,
+  "genus_level": 1
+ },
+ {
+  "id": "ustulespringsfossilbedsn",
+  "species": 16,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3
+  },
+  "family_level": 16,
+  "species_level": 3,
+  "genus_level": 4
+ },
+ {
+  "id": "usumbagognationalwildlif",
+  "species": 17,
+  "edges": 24,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 5,
+  "species_level": 9,
+  "genus_level": 10
+ },
+ {
+  "id": "usuppermississippirivern",
+  "species": 18,
+  "edges": 37,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 28,
+  "species_level": 9,
+  "genus_level": 0
+ },
+ {
+  "id": "usuppersourisnationalwil",
+  "species": 17,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "4": 1
+  },
+  "family_level": 27,
+  "species_level": 6,
+  "genus_level": 3
+ },
+ {
+  "id": "usuwharrienationalforest",
+  "species": 15,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 9,
+  "genus_level": 0
+ },
+ {
+  "id": "usvalentinenationalwildl",
+  "species": 20,
+  "edges": 53,
+  "tl": {
+   "1": 6,
+   "2": 10,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 34,
+  "species_level": 16,
+  "genus_level": 3
+ },
+ {
+  "id": "usvoltawildlifearea",
+  "species": 14,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 2,
+   "4": 2
+  },
+  "family_level": 9,
+  "species_level": 7,
+  "genus_level": 4
+ },
+ {
+  "id": "uswaccamawnationalwildli",
+  "species": 11,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 2
+  },
+  "family_level": 4,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "uswenatcheenationalfores",
+  "species": 17,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 5,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 4,
+  "genus_level": 3
+ },
+ {
+  "id": "uswheelernationalwildlif",
+  "species": 20,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 12,
+  "genus_level": 3
+ },
+ {
+  "id": "uswhiskeytownshastatrini",
+  "species": 20,
+  "edges": 28,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 6,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 6,
+  "genus_level": 12
+ },
+ {
+  "id": "uswhiterivernationalfore",
+  "species": 18,
+  "edges": 29,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 15,
+  "species_level": 9,
+  "genus_level": 5
+ },
+ {
+  "id": "uswichitamountainswildli",
+  "species": 16,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 4
+  },
+  "family_level": 9,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "uswillamettenationalfore",
+  "species": 12,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 10,
+  "species_level": 1,
+  "genus_level": 5
+ },
+ {
+  "id": "uswillapanationalwildlif",
+  "species": 14,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 3
+  },
+  "family_level": 18,
+  "species_level": 1,
+  "genus_level": 0
+ },
+ {
+  "id": "uswilliambbankheadnation",
+  "species": 18,
+  "edges": 25,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 3,
+   "4": 2
+  },
+  "family_level": 5,
+  "species_level": 12,
+  "genus_level": 8
+ },
+ {
+  "id": "uswupatkinationalmonumen",
+  "species": 10,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 1
+  },
+  "family_level": 10,
+  "species_level": 3,
+  "genus_level": 5
+ }
+]
