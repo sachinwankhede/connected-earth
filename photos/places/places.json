@@ -1,0 +1,2378 @@
+{
+"Amazon rainforest": {
+"f": "amazon.jpg",
+"a": "CIAT",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Amazon17_%285641020319%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Amazon_rainforest"
+},
+"Tundra": {
+"f": "arctic.jpg",
+"a": "Hannes Grobe, AWI",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Greenland_scoresby-sydkapp2_hg.jpg",
+"w": "https://en.wikipedia.org/wiki/Tundra"
+},
+"Lake Baikal": {
+"f": "baikal.jpg",
+"a": "Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Baikal.A2001296.0420.250m-NASA.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Baikal"
+},
+"Boreal forest of Canada": {
+"f": "boreal.jpg",
+"a": "Mark Baldwin-Smith",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Taiga_ecoregion.png",
+"w": "https://en.wikipedia.org/wiki/Boreal_forest_of_Canada"
+},
+"Chesapeake Bay": {
+"f": "chesapeake.jpg",
+"a": "Landsat/NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Chesapeakelandsat.jpeg",
+"w": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
+},
+"Congo Basin": {
+"f": "congo.jpg",
+"a": "Kmusser",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Congobasinmap.png",
+"w": "https://en.wikipedia.org/wiki/Congo_Basin"
+},
+"Everglades National Park": {
+"f": "everglades.jpg",
+"a": "Everglades NPS from Homestead, Florida, United States",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sunset_over_the_River_of_Grass%2C_NPSphoto%2C_G.Gardner_%289255157507%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Everglades_National_Park"
+},
+"Galápagos Islands": {
+"f": "galapagos.jpg",
+"a": "Diego Delso",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lobo_marino_%28Zalophus_californianus_wollebaeki%29%2C_Punta_Pitt%2C_isla_de_San_Crist%C3%B3bal%2C_islas_Gal%C3%A1pagos%2C_Ecuador%2C_2015-07-24%2C_DD_11.JPG",
+"w": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_Islands"
+},
+"Lake Michigan": {
+"f": "greatlakes.jpg",
+"a": "Earth Science and Remote Sensing Unit, NASA Johnson Space Center, ISS Expedition 60",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Michigan_in_true_color.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Michigan"
+},
+"Gulf Islands National Seashore": {
+"f": "gulf.jpg",
+"a": "National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Gulf_Islands_NS.jpg",
+"w": "https://en.wikipedia.org/wiki/Gulf_Islands_National_Seashore"
+},
+"Sagarmatha National Park": {
+"f": "himalaya.jpg",
+"a": "Vyacheslav Argenberg",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Valley%2C_Tengboche%2C_Mountains_of_Nepal.jpg",
+"w": "https://en.wikipedia.org/wiki/Sagarmatha_National_Park"
+},
+"Adansonia grandidieri": {
+"f": "madagascar.jpg",
+"a": "Bernard Gagnon",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg",
+"w": "https://en.wikipedia.org/wiki/Adansonia_grandidieri"
+},
+"Upper Mississippi River National Wildlife and Fish Refuge": {
+"f": "mississippi.jpg",
+"a": "Royalbroil",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:UpperMississippiRiverNationalWildlifeFishRefugePanorama.jpg",
+"w": "https://en.wikipedia.org/wiki/Upper_Mississippi_River_National_Wildlife_and_Fish_Refuge"
+},
+"Namib": {
+"f": "namib.jpg",
+"a": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Namib_desert_MODIS.jpg",
+"w": "https://en.wikipedia.org/wiki/Namib"
+},
+"Acadia National Park": {
+"f": "npacadia.jpg",
+"a": "Plh1234us",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Acadia_National_Park_02.JPG",
+"w": "https://en.wikipedia.org/wiki/Acadia_National_Park"
+},
+"National Park of American Samoa": {
+"f": "npamericansamoa.jpg",
+"a": "Tavita Togia, National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pola_Islands_Tutuila_NPS.jpg",
+"w": "https://en.wikipedia.org/wiki/National_Park_of_American_Samoa"
+},
+"Arches National Park": {
+"f": "nparches.jpg",
+"a": "Palacemusic",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Delicate_arch_sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Arches_National_Park"
+},
+"Badlands National Park": {
+"f": "npbadlands.jpg",
+"a": "Martin Kraft",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:MK00609_Badlands.jpg",
+"w": "https://en.wikipedia.org/wiki/Badlands_National_Park"
+},
+"Big Bend National Park": {
+"f": "npbigbend.jpg",
+"a": "Michael from Minnesota (@Michael)",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Canyon%2C_Rio_Grande%2C_Texas.jpeg",
+"w": "https://en.wikipedia.org/wiki/Big_Bend_National_Park"
+},
+"Biscayne National Park": {
+"f": "npbiscayne.jpg",
+"a": "Catholic 85 at English Wikipedia",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Biscayne.JPG",
+"w": "https://en.wikipedia.org/wiki/Biscayne_National_Park"
+},
+"Black Canyon of the Gunnison National Park": {
+"f": "npblackcanyon.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Black_Canyon_and_Gunnison_River_2008.jpg",
+"w": "https://en.wikipedia.org/wiki/Black_Canyon_of_the_Gunnison_National_Park"
+},
+"Bryce Canyon National Park": {
+"f": "npbryce.jpg",
+"a": "King of Hearts",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg",
+"w": "https://en.wikipedia.org/wiki/Bryce_Canyon_National_Park"
+},
+"Canyonlands National Park": {
+"f": "npcanyonlands.jpg",
+"a": "au_ears",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Green_River_Overlook_Ekker_Butte.jpg",
+"w": "https://en.wikipedia.org/wiki/Canyonlands_National_Park"
+},
+"Capitol Reef National Park": {
+"f": "npcapitolreef.jpg",
+"a": "Wolfgang Staudt",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Capitol_Reef_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Capitol_Reef_National_Park"
+},
+"Carlsbad Caverns National Park": {
+"f": "npcarlsbad.jpg",
+"a": "Eric Guinther, User:Marshman",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Carlsbad_Interior_Formations.jpg",
+"w": "https://en.wikipedia.org/wiki/Carlsbad_Caverns_National_Park"
+},
+"Channel Islands National Park": {
+"f": "npchannelislands.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Channel_Islands_National_Park_by_Sentinel-2.jpg",
+"w": "https://en.wikipedia.org/wiki/Channel_Islands_National_Park"
+},
+"Congaree National Park": {
+"f": "npcongaree.jpg",
+"a": "Brian W. Schaller",
+"l": "FAL",
+"lu": "http://artlibre.org/licence/lal/en",
+"p": "https://commons.wikimedia.org/wiki/File:A548%2C_Congaree_National_Park%2C_South_Carolina%2C_USA%2C_2012.jpg",
+"w": "https://en.wikipedia.org/wiki/Congaree_National_Park"
+},
+"Crater Lake": {
+"f": "npcraterlake.jpg",
+"a": "John Manard",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Crater_Lake_National_Park_%282023%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Crater_Lake"
+},
+"Cuyahoga Valley National Park": {
+"f": "npcuyahoga.jpg",
+"a": "Niagara66",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cuyahoga_Valley_National_Park_20.jpg",
+"w": "https://en.wikipedia.org/wiki/Cuyahoga_Valley_National_Park"
+},
+"Death Valley National Park": {
+"f": "npdeathvalley.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mesquite_Sand_Dunes_in_Death_Valley.jpg",
+"w": "https://en.wikipedia.org/wiki/Death_Valley_National_Park"
+},
+"Denali National Park and Preserve": {
+"f": "npdenali.jpg",
+"a": "Denali National Park and Preserve",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Every_Road-_Denali_%287945497984%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Denali_National_Park_and_Preserve"
+},
+"Dry Tortugas National Park": {
+"f": "npdrytortugas.jpg",
+"a": "U.S. National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson_Dry-Tortugas.jpg",
+"w": "https://en.wikipedia.org/wiki/Dry_Tortugas_National_Park"
+},
+"Gates of the Arctic National Park and Preserve": {
+"f": "npgatesarctic.jpg",
+"a": "Sean Tevebaugh, National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Remote_river_in_Gates_of_the_Arctic_%2816524035298%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Gates_of_the_Arctic_National_Park_and_Preserve"
+},
+"Glacier National Park (U.S.)": {
+"f": "npglacier.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg",
+"w": "https://en.wikipedia.org/wiki/Glacier_National_Park_%28U.S.%29"
+},
+"Glacier Bay National Park and Preserve": {
+"f": "npglacierbay.jpg",
+"a": "Brian W. Schaller",
+"l": "FAL",
+"lu": "http://artlibre.org/licence/lal/en",
+"p": "https://commons.wikimedia.org/wiki/File:A045%2C_Glacier_Bay_National_Park%2C_Alaska%2C_USA%2C_Johns_Hopkins_Glacier%2C_2002.jpg",
+"w": "https://en.wikipedia.org/wiki/Glacier_Bay_National_Park_and_Preserve"
+},
+"Grand Canyon National Park": {
+"f": "npgrandcanyon.jpg",
+"a": "Murray Foubister",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Dawn_on_the_S_rim_of_the_Grand_Canyon_%288645178272%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Grand_Canyon_National_Park"
+},
+"Grand Teton National Park": {
+"f": "npgrandteton.jpg",
+"a": "Jon Sullivan, PD Photo.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg",
+"w": "https://en.wikipedia.org/wiki/Grand_Teton_National_Park"
+},
+"Great Basin National Park": {
+"f": "npgreatbasin.jpg",
+"a": "James R Bouldin (talk · contribs)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Prometheus_Wheeler.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Basin_National_Park"
+},
+"Great Sand Dunes National Park and Preserve": {
+"f": "npgreatsanddunes.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Great_Sand_Dunes_National_Park_and_Preserve%2C_United_States_%28Unsplash%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Sand_Dunes_National_Park_and_Preserve"
+},
+"Guadalupe Mountains National Park": {
+"f": "npguadalupe.jpg",
+"a": "CarlCarlsonIV",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Guadalupe_Peak_from_Hunter_Peak.jpg",
+"w": "https://en.wikipedia.org/wiki/Guadalupe_Mountains_National_Park"
+},
+"Haleakalā National Park": {
+"f": "nphaleakala.jpg",
+"a": "Niagara66",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Haleakala_National_Park_02.jpg",
+"w": "https://en.wikipedia.org/wiki/Haleakal%C4%81_National_Park"
+},
+"Hawaii Volcanoes National Park": {
+"f": "nphawaiivolcanoes.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:P%C4%81hoehoe_and_Aa_flows_at_Hawaii.jpg",
+"w": "https://en.wikipedia.org/wiki/Hawai%CA%BBi_Volcanoes_National_Park"
+},
+"Hot Springs National Park": {
+"f": "nphotsprings.jpg",
+"a": "TripOfALifestyle.com",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Steamy_Entrance_Springs_on_Cold_Night_in_Hot_Springs_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Hot_Springs_National_Park"
+},
+"Indiana Dunes National Park": {
+"f": "npindianadunes.jpg",
+"a": "Diego Delso",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Indiana_Dunes_National_Lakeshore%2C_Michigan_City%2C_Indiana%2C_Estados_Unidos%2C_2012-10-20%2C_DD_03.jpg",
+"w": "https://en.wikipedia.org/wiki/Indiana_Dunes_National_Park"
+},
+"Isle Royale National Park": {
+"f": "npisleroyale.jpg",
+"a": "William Wadas",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Edisen_Fishery_at_IRNP.jpg",
+"w": "https://en.wikipedia.org/wiki/Isle_Royale_National_Park"
+},
+"Joshua Tree National Park": {
+"f": "npjoshuatree.jpg",
+"a": "Jarek Tuszyński",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Joshua_Tree_-_Cyclops_%2B_Potato_Head_-_Sunrise.jpg",
+"w": "https://en.wikipedia.org/wiki/Joshua_Tree_National_Park"
+},
+"Katmai National Park and Preserve": {
+"f": "npkatmai.jpg",
+"a": "Captain Budd Christman, NOAA Corps",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Katmai_Crater_1980.jpg",
+"w": "https://en.wikipedia.org/wiki/Katmai_National_Park_and_Preserve"
+},
+"Kenai Fjords National Park": {
+"f": "npkenaifjords.jpg",
+"a": "NPS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Kenai_Fjords_coast.jpg",
+"w": "https://en.wikipedia.org/wiki/Kenai_Fjords_National_Park"
+},
+"Kings Canyon National Park": {
+"f": "npkingscanyon.jpg",
+"a": "Crd637",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:KingsCanyonNP.JPG",
+"w": "https://en.wikipedia.org/wiki/Kings_Canyon_National_Park"
+},
+"Kobuk Valley National Park": {
+"f": "npkobukvalley.jpg",
+"a": "16Terezka",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kobuk_Bendlova_235.jpg",
+"w": "https://en.wikipedia.org/wiki/Kobuk_Valley_National_Park"
+},
+"Lake Clark National Park and Preserve": {
+"f": "nplakeclark.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Clark_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Clark_National_Park_and_Preserve"
+},
+"Lassen Volcanic National Park": {
+"f": "nplassen.jpg",
+"a": "NPS Photo",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lassen_Peak_and_Lake_Helen.jpg",
+"w": "https://en.wikipedia.org/wiki/Lassen_Volcanic_National_Park"
+},
+"Mammoth Cave National Park": {
+"f": "npmammothcave.jpg",
+"a": "Willis Thomas Lee",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Rotunda_%28USGS_Lwt02830%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park"
+},
+"Mesa Verde National Park": {
+"f": "npmesaverde.jpg",
+"a": "Tobi 87",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cliff_Palace-Colorado-Mesa_Verde_NP.jpg",
+"w": "https://en.wikipedia.org/wiki/Mesa_Verde_National_Park"
+},
+"Mount Rainier National Park": {
+"f": "npmountrainier.jpg",
+"a": "Samuel Kerr",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mount_Rainier_from_above_Myrtle_Falls_in_August.JPG",
+"w": "https://en.wikipedia.org/wiki/Mount_Rainier_National_Park"
+},
+"New River Gorge National Park and Preserve": {
+"f": "npnewrivergorge.jpg",
+"a": "Aparkswv",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Grandview_Overlook%2C_New_River.jpg",
+"w": "https://en.wikipedia.org/wiki/New_River_Gorge_National_Park_and_Preserve"
+},
+"North Cascades National Park": {
+"f": "npnorthcascades.jpg",
+"a": "National Park Service/Deby Dixon",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Cascade_Pass_and_Pelton_Basin.jpg",
+"w": "https://en.wikipedia.org/wiki/North_Cascades_National_Park"
+},
+"Petrified Forest National Park": {
+"f": "nppetrifiedforest.jpg",
+"a": "Jeffhollett",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Jasper_Forest_at_Petrified_Forest_NP_in_AZ_12.jpg",
+"w": "https://en.wikipedia.org/wiki/Petrified_Forest_National_Park"
+},
+"Pinnacles National Park": {
+"f": "nppinnacles.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rock_formations_at_Pinnacles_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Pinnacles_National_Park"
+},
+"Redwood National and State Parks": {
+"f": "npredwood.jpg",
+"a": "Michael Schweppe",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Redwood_National_Park%2C_fog_in_the_forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Redwood_National_and_State_Parks"
+},
+"Rocky Mountain National Park": {
+"f": "nprockymountain.jpg",
+"a": "Daniel Mayer (Mav)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rocky_Mountain_National_Park_in_September_2011_-_Glacier_Gorge_from_Bear_Lake.JPG",
+"w": "https://en.wikipedia.org/wiki/Rocky_Mountain_National_Park"
+},
+"Saguaro National Park": {
+"f": "npsaguaro.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Saguaro_Sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Saguaro_National_Park"
+},
+"Sequoia National Park": {
+"f": "npsequoia.jpg",
+"a": "Marty Aligata",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg",
+"w": "https://en.wikipedia.org/wiki/Sequoia_National_Park"
+},
+"Shenandoah National Park": {
+"f": "npshenandoah.jpg",
+"a": "Shenandoah National Park from Virginia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Skyline_Drive_in_the_Fall_%2821852619608%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Shenandoah_National_Park"
+},
+"Theodore Roosevelt National Park": {
+"f": "nptheodoreroosevelt.jpg",
+"a": "NPS/Mark Hoffman",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:View_of_Theodore_Roosevelt_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Theodore_Roosevelt_National_Park"
+},
+"Virgin Islands National Park": {
+"f": "npvirginislands.jpg",
+"a": "Fred Hsu (Wikipedia:User:Fred Hsu on en.wikipedia)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:St_John_Trunk_Bay_3.jpg",
+"w": "https://en.wikipedia.org/wiki/Virgin_Islands_National_Park"
+},
+"Voyageurs National Park": {
+"f": "npvoyageurs.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Voyageurs_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Voyageurs_National_Park"
+},
+"White Sands National Park": {
+"f": "npwhitesands.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:White_Sands_National_Park_visitor_center_and_native_plant_garden%2C_New_Mexico%2C_United_States.jpg",
+"w": "https://en.wikipedia.org/wiki/White_Sands_National_Park"
+},
+"Wind Cave National Park": {
+"f": "npwindcave.jpg",
+"a": "National Park Service of the United States of America",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Skyway_Lake%2C_stalactites%2C_Wind_Cave.jpg",
+"w": "https://en.wikipedia.org/wiki/Wind_Cave_National_Park"
+},
+"Wrangell–St. Elias National Park and Preserve": {
+"f": "npwrangell.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mt_Saint_Elias%2C_South_Central_Alaska.jpg",
+"w": "https://en.wikipedia.org/wiki/Wrangell%E2%80%93St._Elias_National_Park_and_Preserve"
+},
+"Yosemite National Park": {
+"f": "npyosemite.jpg",
+"a": "Thomas Wolf, www.foto-tw.de",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Yosemite_National_Park"
+},
+"Zion National Park": {
+"f": "npzion.jpg",
+"a": "Diliff",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Zion_angels_landing_view.jpg",
+"w": "https://en.wikipedia.org/wiki/Zion_National_Park"
+},
+"Ozark National Scenic Riverways": {
+"f": "ozarks.jpg",
+"a": "Original content by Kbh3rd plus inclusion of the work Map_of_USA_MO.svg originally created by en:User:Wapcaplet",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:MO_locator_ONSR_%2B_EP_NWSR.png",
+"w": "https://en.wikipedia.org/wiki/Ozark_National_Scenic_Riverways"
+},
+"Hoh Rain Forest": {
+"f": "pnwrainforest.jpg",
+"a": "User:Doug Dolde",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:BIG_LEAF_MAPLES_HOH.jpg",
+"w": "https://en.wikipedia.org/wiki/Hoh_Rainforest"
+},
+"Tallgrass Prairie National Preserve": {
+"f": "prairie.jpg",
+"a": "NPS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sunset_falls_across_the_beautiful_Flint_Hills_%28f0f6c731-1dd8-b71b-0b88-d326127c9973%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Tallgrass_Prairie_National_Preserve"
+},
+"Great Barrier Reef": {
+"f": "reef.jpg",
+"a": "NASA/Kjell Lindgren",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Barrier_Reef"
+},
+"Sahara": {
+"f": "sahara.jpg",
+"a": "Project Apollo Archive",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg",
+"w": "https://en.wikipedia.org/wiki/Sahara"
+},
+"Serengeti National Park": {
+"f": "serengeti.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Serengeti-Landscape-2012.JPG",
+"w": "https://en.wikipedia.org/wiki/Serengeti_National_Park"
+},
+"Great Smoky Mountains National Park": {
+"f": "smokies.jpg",
+"a": "AppalachianCentrist",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:View_atop_Cliff_Tops_on_Mount_LeConte%2C_GSMNP%2C_TN.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Smoky_Mountains_National_Park"
+},
+"Sonoran Desert": {
+"f": "sonoran.jpg",
+"a": "Joe Parks from Berkeley, CA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Saguaro_National_Park_-_Flickr_-_Joe_Parks.jpg",
+"w": "https://en.wikipedia.org/wiki/Sonoran_Desert"
+},
+"Antarctic Peninsula": {
+"f": "southernocean.jpg",
+"a": "Gi",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Antpen-en.png",
+"w": "https://en.wikipedia.org/wiki/Antarctic_Peninsula"
+},
+"Forest Park (St. Louis)": {
+"f": "stlurban.jpg",
+"a": "Kris from Seattle, USA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Forest_Park%2C_St_Louis.jpg",
+"w": "https://en.wikipedia.org/wiki/Forest_Park_%28St._Louis%29"
+},
+"Sundarbans": {
+"f": "sundarbans.jpg",
+"a": "Shihabur Rahman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Save_the_sundarbans_20.jpg",
+"w": "https://en.wikipedia.org/wiki/Sundarbans"
+},
+"Wadden Sea": {
+"f": "wadden.jpg",
+"a": "Ralf Roletschek",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg",
+"w": "https://en.wikipedia.org/wiki/Wadden_Sea"
+},
+"Aldabra": {
+"f": "whaldabra.jpg",
+"a": "NASA Earth Observatory image by Wanmei Liang, using Landsat data from the U.S. Geological Survey",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:An_Outpost_for_Evolution_at_Aldabra_Atoll.jpg",
+"w": "https://en.wikipedia.org/wiki/Aldabra"
+},
+"Banc d'Arguin National Park": {
+"f": "wharguin.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bancdarguin_map_lg.jpg",
+"w": "https://en.wikipedia.org/wiki/Banc_d%27Arguin_National_Park"
+},
+"Bale Mountains National Park": {
+"f": "whbale.jpg",
+"a": "Laika ac from UK",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Harenna_Forest_%2816139095228%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Bale_Mountains_National_Park"
+},
+"Canadian Rocky Mountain Parks": {
+"f": "whbanff.jpg",
+"a": "Pethrus",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Canadian_Rocky_Mountain_parks_map.svg",
+"w": "https://en.wikipedia.org/wiki/Canadian_Rocky_Mountain_Parks_World_Heritage_Site"
+},
+"Belize Barrier Reef": {
+"f": "whbelize.jpg",
+"a": "MODIS Land Rapid Response Team, NASA/GSFC",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Satellite_image_of_Belize_in_March_31%2C_2002.jpg",
+"w": "https://en.wikipedia.org/wiki/Belize_Barrier_Reef"
+},
+"Białowieża Forest": {
+"f": "whbialowieza.jpg",
+"a": "Jacek Karczmarz",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Bialowieza_National_Park_in_Poland0029.JPG",
+"w": "https://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_Forest"
+},
+"Bwindi Impenetrable National Park": {
+"f": "whbwindi.jpg",
+"a": "Unknown author",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Bwindi.JPG",
+"w": "https://en.wikipedia.org/wiki/Bwindi_Impenetrable_National_Park"
+},
+"Calakmul Biosphere Reserve": {
+"f": "whcalakmul.jpg",
+"a": "Beatriz Moisset",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Calakmul2.02.06.w.jpg",
+"w": "https://en.wikipedia.org/wiki/Calakmul_Biosphere_Reserve"
+},
+"Canaima National Park": {
+"f": "whcanaima.jpg",
+"a": "Paolo Costa Baldi",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Wadakapiapo_Yuruani_tepuy_2010.jpg",
+"w": "https://en.wikipedia.org/wiki/Canaima_National_Park"
+},
+"Table Mountain National Park": {
+"f": "whcapefloral.jpg",
+"a": "Pavel Špindler",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Stolov%C3%A1_hora_a_12_apo%C5%A1tol%C5%AF%2C_Kapsk%C3%A9_m%C4%9Bsto_-_Table_Mountains%2C_Cape_Town_-_panoramio.jpg",
+"w": "https://en.wikipedia.org/wiki/Table_Mountain_National_Park"
+},
+"Poloniny National Park": {
+"f": "whcarpathian.jpg",
+"a": "Milan Bališin",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:%C4%8Eurkovec_%28poh%C4%BEad_z_%C4%8Eurkovca%29_001.jpg",
+"w": "https://en.wikipedia.org/wiki/Poloniny_National_Park"
+},
+"Golden Mountains of Altai": {
+"f": "whaltai.jpg",
+"a": "Alexandr frolov",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Jazator_Jul_006.jpg",
+"w": "https://en.wikipedia.org/wiki/Golden_Mountains_of_Altai"
+},
+"Atlantic Forest": {
+"f": "whatlantic.jpg",
+"a": "Maury Santos",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Vista_%C3%81rea_do_Parque_Nacional_Do_Igua%C3%A7u_-_Brasil.jpg",
+"w": "https://en.wikipedia.org/wiki/Atlantic_Forest"
+},
+"Chapada dos Veadeiros National Park": {
+"f": "whchapada.jpg",
+"a": "MTur Destinos",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ChapadaVeadeiros%2C_Alto_Paraiso_GO.jpg",
+"w": "https://en.wikipedia.org/wiki/Chapada_dos_Veadeiros_National_Park"
+},
+"Chitwan National Park": {
+"f": "whchitwan.jpg",
+"a": "Vadim Tolbatov",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Chitwan_swamp.jpg",
+"w": "https://en.wikipedia.org/wiki/Chitwan_National_Park"
+},
+"Chobe National Park": {
+"f": "whchobe.jpg",
+"a": "Gorgo",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Gnus_zebras_chobe_national_park.jpg",
+"w": "https://en.wikipedia.org/wiki/Chobe_National_Park"
+},
+"Cocos Island": {
+"f": "whcocos.jpg",
+"a": "J RAWLS",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Isla_del_coco.jpg",
+"w": "https://en.wikipedia.org/wiki/Cocos_Island"
+},
+"Comoé National Park": {
+"f": "whcomoe.jpg",
+"a": "ETF89",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Comoe_savannah.jpg",
+"w": "https://en.wikipedia.org/wiki/Como%C3%A9_National_Park"
+},
+"Jim Corbett National Park": {
+"f": "whcorbett.jpg",
+"a": "Soumyajit Nandy",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Bengal-Tiger_Corbett_Uttarakhand_Dec-2013.jpg",
+"w": "https://en.wikipedia.org/wiki/Jim_Corbett_National_Park"
+},
+"Corcovado National Park": {
+"f": "whcorcovado.jpg",
+"a": "Julio-César Chávez",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sirena_Station_at_Corcovado_National_Park_Costa_Rica.jpg",
+"w": "https://en.wikipedia.org/wiki/Corcovado_National_Park"
+},
+"Danube Delta": {
+"f": "whdanube.jpg",
+"a": "European Space Agency",
+"l": "Attribution",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Danube_Delta_ESA23450088.jpeg",
+"w": "https://en.wikipedia.org/wiki/Danube_Delta"
+},
+"Darién National Park": {
+"f": "whdarien.jpg",
+"a": "Mdf",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Pteroglossus-torquatus-001.jpg",
+"w": "https://en.wikipedia.org/wiki/Dari%C3%A9n_National_Park"
+},
+"Dja Faunal Reserve": {
+"f": "whdja.jpg",
+"a": "Amcaja",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Dja_River_and_pirogue.JPG",
+"w": "https://en.wikipedia.org/wiki/Dja_Faunal_Reserve"
+},
+"Doñana National Park": {
+"f": "whdonana.jpg",
+"a": "Unknown author",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Wetlands_in_Donana.jpg",
+"w": "https://en.wikipedia.org/wiki/Do%C3%B1ana_National_Park"
+},
+"Durmitor": {
+"f": "whdurmitor.jpg",
+"a": "Andrea Polereczky",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Durmitor.jpg",
+"w": "https://en.wikipedia.org/wiki/Durmitor"
+},
+"Etosha National Park": {
+"f": "whetosha.jpg",
+"a": "Yathin S Krishnappa",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Dust_Cloud_in_Etosha_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Etosha_National_Park"
+},
+"Fiordland National Park": {
+"f": "whfiordland.jpg",
+"a": "Krzysztof Golik",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hollyford_River_NZ_11.jpg",
+"w": "https://en.wikipedia.org/wiki/Fiordland_National_Park"
+},
+"Los Glaciares National Park": {
+"f": "whglaciares.jpg",
+"a": "Administración de Parques Nacionales",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Emblema_Parque_Nacional_Los_Glaciares.jpg",
+"w": "https://en.wikipedia.org/wiki/Los_Glaciares_National_Park"
+},
+"Gobi Gurvansaikhan National Park": {
+"f": "whgobi.jpg",
+"a": "The original uploader was Adagio at English Wikipedia. (Original text: Adagio)",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Gurvger.jpg",
+"w": "https://en.wikipedia.org/wiki/Gobi_Gurvansaikhan_National_Park"
+},
+"Gorongosa National Park": {
+"f": "whgorongosa.jpg",
+"a": "Brian Dell",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Gorongosa_Park_Gate.JPG",
+"w": "https://en.wikipedia.org/wiki/Gorongosa_National_Park"
+},
+"Gros Morne National Park": {
+"f": "whgrosmorne.jpg",
+"a": "Adavyd",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Western_Brook_Pond_Newfoundland_Canada_DSC_6405.jpg",
+"w": "https://en.wikipedia.org/wiki/Gros_Morne_National_Park"
+},
+"Gwaii Haanas National Park Reserve and Haida Heritage Site": {
+"f": "whgwaiihaanas.jpg",
+"a": "Brett Hodnett",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Gwaii_Haanas_%2828832822035%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Gwaii_Haanas_National_Park_Reserve_and_Haida_Heritage_Site"
+},
+"Ha Long Bay": {
+"f": "whhalong.jpg",
+"a": "Taewangkorea",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ha_Long_Bay_in_2019.jpg",
+"w": "https://en.wikipedia.org/wiki/H%E1%BA%A1_Long_Bay"
+},
+"Hortobágy National Park": {
+"f": "whhortobagy.jpg",
+"a": "Andreas Poeschek, fotografikus.hu",
+"l": "CC BY 2.0 at",
+"lu": "https://creativecommons.org/licenses/by/2.0/at/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Hortobagy-ziehbrunnen.jpg",
+"w": "https://en.wikipedia.org/wiki/Hortob%C3%A1gy_National_Park"
+},
+"Iberá Wetlands": {
+"f": "whibera.jpg",
+"a": "Evelyn Proimos",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Flying_Over_Esteros_del_Iber%C3%A1_The_kingdom_of_water%2C_North-eastern_Argentina.jpg",
+"w": "https://en.wikipedia.org/wiki/Iber%C3%A1_Wetlands"
+},
+"Iguazú National Park": {
+"f": "whiguazu.jpg",
+"a": "Administración de Parques Nacionales",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_Iguaz%C3%BA.jpg",
+"w": "https://en.wikipedia.org/wiki/Iguaz%C3%BA_National_Park"
+},
+"Swiss Alps Jungfrau-Aletsch": {
+"f": "whjungfrau.jpg",
+"a": "Carsten Steger",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Finsteraarhorn_%28view_from_the_east%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Jungfrau-Aletsch_protected_area"
+},
+"Kakadu National Park": {
+"f": "whkakadu.jpg",
+"a": "Tourism NT",
+"l": "Attribution",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Kakadu_2431.jpg",
+"w": "https://en.wikipedia.org/wiki/Kakadu_National_Park"
+},
+"Volcanoes of Kamchatka": {
+"f": "whkamchatka.jpg",
+"a": "Vfp15",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Petropavlovsk-Kamchatsky_with_Koryaksky_Volcano_in_background.jpg",
+"w": "https://en.wikipedia.org/wiki/Volcanoes_of_Kamchatka"
+},
+"Kaziranga National Park": {
+"f": "whkaziranga.jpg",
+"a": "Diganta Talukdar",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Beauty_of_Kaziranga_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Kaziranga_National_Park"
+},
+"Khao Yai National Park": {
+"f": "whkhaoyai.jpg",
+"a": "Nawit science",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Haew_Suwat_Waterfall_Khao-Yai02.jpg",
+"w": "https://en.wikipedia.org/wiki/Khao_Yai_National_Park"
+},
+"Mount Kilimanjaro": {
+"f": "whkilimanjaro.jpg",
+"a": "Sergey Pesterev",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kilimanjaro_from_Amboseli.jpg",
+"w": "https://en.wikipedia.org/wiki/Mount_Kilimanjaro"
+},
+"Kinabalu National Park": {
+"f": "whkinabalu.jpg",
+"a": "kallerna",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kinabalu_Sabah_Borneo_Kampong_Kundasang_2.jpg",
+"w": "https://en.wikipedia.org/wiki/Kinabalu_Park"
+},
+"Komodo National Park": {
+"f": "whkomodo.jpg",
+"a": "Adhi Rachdian from Indonesia",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Komodo_dragon_at_Komodo_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Komodo_National_Park"
+},
+"Kruger National Park": {
+"f": "whkruger.jpg",
+"a": "Nithin bolar k",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kruger_Zebra.JPG",
+"w": "https://en.wikipedia.org/wiki/Kruger_National_Park"
+},
+"Gunung Leuser National Park": {
+"f": "whleuser.jpg",
+"a": "Junaidi Hanafiah",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Taman_Nasional_Gunung_Leuser.jpg",
+"w": "https://en.wikipedia.org/wiki/Gunung_Leuser_National_Park"
+},
+"Lord Howe Island": {
+"f": "whlordhowe.jpg",
+"a": "Image courtesy of the Image Science & Analysis Laboratory, NASA Johnson Space Center.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lord_Howe_ISS006-E-5731.png",
+"w": "https://en.wikipedia.org/wiki/Lord_Howe_Island"
+},
+"Lorentz National Park": {
+"f": "whlorentz.jpg",
+"a": "Ganjarmustika1904",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Taman_Nasional_Lorentz.jpg",
+"w": "https://en.wikipedia.org/wiki/Lorentz_National_Park"
+},
+"Mana Pools National Park": {
+"f": "whmanapools.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ZmbziRvr.jpg",
+"w": "https://en.wikipedia.org/wiki/Mana_Pools_National_Park"
+},
+"Manú National Park": {
+"f": "whmanu.jpg",
+"a": "As578",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Manu_riverbank.jpg",
+"w": "https://en.wikipedia.org/wiki/Manu_National_Park"
+},
+"Monarch Butterfly Biosphere Reserve": {
+"f": "whmonarch.jpg",
+"a": "hspauldi",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Abies_religiosa_Chincua_5.jpg",
+"w": "https://en.wikipedia.org/wiki/Monarch_Butterfly_Biosphere_Reserve"
+},
+"Mount Kenya": {
+"f": "whmountkenya.jpg",
+"a": "Don Elvis Muraya",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:MtKenya.jpg",
+"w": "https://en.wikipedia.org/wiki/Mount_Kenya"
+},
+"Nahanni National Park Reserve": {
+"f": "whnahanni.jpg",
+"a": "Paul Gierszewski (Gierszep)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Nahanni_-VirginiaFalls2.jpg",
+"w": "https://en.wikipedia.org/wiki/Nahanni_National_Park_Reserve"
+},
+"Ngorongoro Conservation Area": {
+"f": "whngorongoro.jpg",
+"a": "Grahampurse",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ngorongoro-1001-2.jpg",
+"w": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area"
+},
+"Fernando de Noronha": {
+"f": "whnoronha.jpg",
+"a": "Eduardo Muruci",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:EDUARDO_MURUCI_-_BAIA_DOS_PORCOS-%28recorte%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Fernando_de_Noronha"
+},
+"Ogasawara Islands": {
+"f": "whogasawara.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Ogasawara_islands.png",
+"w": "https://en.wikipedia.org/wiki/Bonin_Islands"
+},
+"Okavango Delta": {
+"f": "whokavango.jpg",
+"a": "Joachim Huber",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Okavango_Delta%2C_Botswana1.jpg",
+"w": "https://en.wikipedia.org/wiki/Okavango_Delta"
+},
+"Sichuan Giant Panda Sanctuaries": {
+"f": "whpanda.jpg",
+"a": "Colegota",
+"l": "CC BY-SA 2.5 es",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5/es/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Chengdu-pandas-d10.jpg",
+"w": "https://en.wikipedia.org/wiki/Sichuan_Giant_Panda_Sanctuaries"
+},
+"Pantanal": {
+"f": "whpantanal.jpg",
+"a": "Alicia Yo",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Pantanal%2C_south-central_South_America_5170.jpg",
+"w": "https://en.wikipedia.org/wiki/Pantanal"
+},
+"Phong Nha-Kẻ Bàng National Park": {
+"f": "whphongnha.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Phongnhakebang6.jpg",
+"w": "https://en.wikipedia.org/wiki/Phong_Nha%E2%80%93K%E1%BA%BB_B%C3%A0ng_National_Park"
+},
+"El Pinacate y Gran Desierto de Altar Biosphere Reserve": {
+"f": "whpinacate.jpg",
+"a": "Presidencia de la República Mexicana",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Reserva_de_la_Bi%C3%B3sfera_%E2%80%9CEl_Pinacate%E2%80%9D.jpg",
+"w": "https://en.wikipedia.org/wiki/El_Pinacate_y_Gran_Desierto_de_Altar_Biosphere_Reserve"
+},
+"Plitvice Lakes National Park": {
+"f": "whplitvice.jpg",
+"a": "Zysko serhii",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:View_in_Plitvice_Lakes_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Plitvice_Lakes_National_Park"
+},
+"Putorana Plateau": {
+"f": "whputorana.jpg",
+"a": "Александр Лещёнок",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%B8%D1%88%D0%B8%D0%BD%D0%B0_%D0%BE%D0%B7%D0%B5%D1%80%D0%B0_%D0%94%D1%8E%D0%BF%D0%BA%D1%83%D0%BD.jpg",
+"w": "https://en.wikipedia.org/wiki/Putorana_Plateau"
+},
+"Ranthambore National Park": {
+"f": "whranthambore.jpg",
+"a": "THerrington",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ranthambore_National_Park.JPG",
+"w": "https://en.wikipedia.org/wiki/Ranthambore_National_Park"
+},
+"Royal Manas National Park": {
+"f": "whroyalmanas.jpg",
+"a": "Sujithkr",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Royal_Manas_National_Park_Bhutan.JPG",
+"w": "https://en.wikipedia.org/wiki/Royal_Manas_National_Park"
+},
+"Salonga National Park": {
+"f": "whsalonga.jpg",
+"a": "Radio Okapi",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:La_rivi%C3%A8re_Lulilaka%2C_parc_national_de_Salonga%2C_2005.jpg",
+"w": "https://en.wikipedia.org/wiki/Salonga_National_Park"
+},
+"Shark Bay": {
+"f": "whsharkbay.jpg",
+"a": "NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Shark_Bay_Phytoplankton_in_Bloom.jpg",
+"w": "https://en.wikipedia.org/wiki/Shark_Bay"
+},
+"Shiretoko National Park": {
+"f": "whshiretoko.jpg",
+"a": "663highland",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:140829_Track_Near_Furepe_Falls_Shiretoko_Hokkaido_Japan00s3.jpg",
+"w": "https://en.wikipedia.org/wiki/Shiretoko_National_Park"
+},
+"Sian Ka'an": {
+"f": "whsiankaan.jpg",
+"a": "Martha xucunostli",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Bi%C3%B3sfera_de_Sian_Kaan_Quintana_Roo.JPG",
+"w": "https://en.wikipedia.org/wiki/Sian_Ka%CA%BCan_Biosphere_Reserve"
+},
+"Sikhote-Alin Nature Reserve": {
+"f": "whsikhote.jpg",
+"a": "Романвер",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Glukhomanka_mass.jpg",
+"w": "https://en.wikipedia.org/wiki/Sikhote-Alin_Nature_Reserve"
+},
+"Semien Mountains National Park": {
+"f": "whsimien.jpg",
+"a": "Hulivili",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Semien_Mountains_9.jpg",
+"w": "https://en.wikipedia.org/wiki/Simien_Mountains_National_Park"
+},
+"Sinharaja Forest Reserve": {
+"f": "whsinharaja.jpg",
+"a": "Dan Lundberg",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:20160128_Sri_Lanka_4132_Sinharaja_Forest_Preserve_sRGB_%2825674474901%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Sinharaja_Forest_Reserve"
+},
+"Socotra": {
+"f": "whsocotra.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Socotra_satview.jpg",
+"w": "https://en.wikipedia.org/wiki/Socotra"
+},
+"Svalbard": {
+"f": "whsvalbard.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:W_W_Svalbard_LandSat7_21.14475E_78.71545N.png",
+"w": "https://en.wikipedia.org/wiki/Svalbard"
+},
+"Taï National Park": {
+"f": "whtai.jpg",
+"a": "yakovlev.alexey from Moscow, Russia",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ta%C3%AF_National_Park_%2824148248710%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Ta%C3%AF_National_Park"
+},
+"Taman Negara": {
+"f": "whtamannegara.jpg",
+"a": "RoB",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Taman_Negara_Sungai_Tembeling.JPG",
+"w": "https://en.wikipedia.org/wiki/Taman_Negara"
+},
+"Tasmanian Wilderness": {
+"f": "whtasmania.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Judd_from_Mt_Eliza.jpg",
+"w": "https://en.wikipedia.org/wiki/Tasmanian_Wilderness_World_Heritage_Area"
+},
+"Three Parallel Rivers of Yunnan Protected Areas": {
+"f": "whthreerivers.jpg",
+"a": "xiquinhosilva",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:56762-Yunnan%2C_Three_Parallel_Rivers_02.jpg",
+"w": "https://en.wikipedia.org/wiki/Three_Parallel_Rivers"
+},
+"Tikal National Park": {
+"f": "whtikal.jpg",
+"a": "Mundo Maya",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Tikal_3.jpg",
+"w": "https://en.wikipedia.org/wiki/Tikal"
+},
+"Lake Titicaca": {
+"f": "whtiticaca.jpg",
+"a": "European Space Agency",
+"l": "Attribution",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Titicaca_ESA22522896.jpeg",
+"w": "https://en.wikipedia.org/wiki/Lake_Titicaca"
+},
+"Tongariro National Park": {
+"f": "whtongariro.jpg",
+"a": "Unknown author",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Tongariro_Mahuia_River_n.jpg",
+"w": "https://en.wikipedia.org/wiki/Tongariro_National_Park"
+},
+"Torres del Paine National Park": {
+"f": "whtorres.jpg",
+"a": "Karen Chan 16 y Miguel.v ( local | logs | global ) (originales), y Jorge Morales Piderit (montaje).",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Torres_del_Paine_y_cuernos_del_Paine%2C_montaje.jpg",
+"w": "https://en.wikipedia.org/wiki/Torres_del_Paine_National_Park"
+},
+"Tubbataha Reefs Natural Park": {
+"f": "whtubbataha.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Tubbataha_Shark.jpg",
+"w": "https://en.wikipedia.org/wiki/Tubbataha_Reef"
+},
+"Ujung Kulon National Park": {
+"f": "whujungkulon.jpg",
+"a": "Achmad Soerio Hutomo",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ujung_Kulon_National_Park%2C_2014.jpg",
+"w": "https://en.wikipedia.org/wiki/Ujung_Kulon_National_Park"
+},
+"Uluṟu-Kata Tjuṯa National Park": {
+"f": "whuluru.jpg",
+"a": "Leonard G.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:UluruClip3ArtC1941.jpg",
+"w": "https://en.wikipedia.org/wiki/Ulu%E1%B9%9Fu-Kata_Tju%E1%B9%AFa_National_Park"
+},
+"Uvs Lake": {
+"f": "whuvs.jpg",
+"a": "Original uploader was Jan Sysel at cs.wikipedia",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Uvs_n%C3%BAr.JPG",
+"w": "https://en.wikipedia.org/wiki/Uvs_Lake"
+},
+"Eduardo Avaroa Andean Fauna National Reserve": {
+"f": "whuyuni.jpg",
+"a": "Oscar Murillo Mallea",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Reserva_Eduardo_Avaroa.jpg",
+"w": "https://en.wikipedia.org/wiki/Eduardo_Avaroa_Andean_Fauna_National_Reserve"
+},
+"Valdés Peninsula": {
+"f": "whvaldes.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Peninsula_Vald%C3%A9s_STS-68.jpg",
+"w": "https://en.wikipedia.org/wiki/Vald%C3%A9s_Peninsula"
+},
+"Vatnajökull National Park": {
+"f": "whvatnajokull.jpg",
+"a": "Gummao",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hvannadalshnjukur-Vatnajokull_National_Park.JPG",
+"w": "https://en.wikipedia.org/wiki/Vatnaj%C3%B6kull_National_Park"
+},
+"Virunga National Park": {
+"f": "whvirunga.jpg",
+"a": "Yvette Kaboza",
+"l": "CC BY-SA 3.0 igo",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Virunga_National_Park-107997.jpg",
+"w": "https://en.wikipedia.org/wiki/Virunga_National_Park"
+},
+"El Vizcaíno Biosphere Reserve": {
+"f": "whvizcaino.jpg",
+"a": "The Gentle from San Diego, California Republic",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pel%C3%ADcano_en_Muleg%C3%A9.jpg",
+"w": "https://en.wikipedia.org/wiki/El_Vizca%C3%ADno_Biosphere_Reserve"
+},
+"Western Caucasus": {
+"f": "whwcaucasus.jpg",
+"a": "Altushkin",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:%D0%91%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B9_%D0%B8_%D0%9C%D0%B0%D0%BB%D1%8B%D0%B9_%D0%A2%D1%85%D0%B0%D1%87._%D0%A0%D0%B5%D1%81%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0_%D0%90%D0%B4%D1%8B%D0%B3%D0%B5%D1%8F.jpg",
+"w": "https://en.wikipedia.org/wiki/Western_Caucasus"
+},
+"Western Ghats": {
+"f": "whwesternghats.jpg",
+"a": "Mdmadhu",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:AnaimudiPeak_DSC_4834.jpg",
+"w": "https://en.wikipedia.org/wiki/Western_Ghats"
+},
+"Wet Tropics of Queensland": {
+"f": "whwettropics.jpg",
+"a": "Thomas Schoch",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Rain_Forest_Daintree_Australia.jpg",
+"w": "https://en.wikipedia.org/wiki/Wet_Tropics_of_Queensland"
+},
+"Wood Buffalo National Park": {
+"f": "whwoodbuffalo.jpg",
+"a": "Ansgar Walk",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Wood-Buffalo-NP_Gros_Beak_Lake_2_98-07-02.jpg",
+"w": "https://en.wikipedia.org/wiki/Wood_Buffalo_National_Park"
+},
+"Wrangel Island": {
+"f": "whwrangel.jpg",
+"a": "Анастасия Игоревна Петухова",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:%D0%9D%D0%B8%D0%B7%D0%BA%D0%B0%D1%8F_%D0%BE%D0%B1%D0%BB%D0%B0%D1%87%D0%BD%D0%BE%D1%81%D1%82%D1%8C_%D0%BD%D0%B0%D0%B4_%D0%A1%D0%BE%D0%BC%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%D0%B8_%D0%B3%D0%BE%D1%80%D0%B0%D0%BC%D0%B8.jpg",
+"w": "https://en.wikipedia.org/wiki/Wrangel_Island"
+},
+"Yakushima": {
+"f": "whyakushima.jpg",
+"a": "NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Yakushima.jpg",
+"w": "https://en.wikipedia.org/wiki/Yakushima"
+},
+"Yasuní National Park": {
+"f": "whyasuni.jpg",
+"a": "Sageo",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Localizaci%C3%B3n_de_Yasun%C3%AD_en_Ecuador.svg",
+"w": "https://en.wikipedia.org/wiki/Yasun%C3%AD_National_Park"
+},
+"Band-e Amir National Park": {
+"f": "xafghan.jpg",
+"a": "USAID",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Afghanistan%27s_Grand_Canyon.jpg",
+"w": "https://en.wikipedia.org/wiki/Band-e_Amir_National_Park"
+},
+"Karavasta Lagoon": {
+"f": "xalbania.jpg",
+"a": "European Space Agency",
+"l": "CC BY-SA 3.0 igo",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Karavasta_Lagoon%2C_Albania_ESA374612.tiff",
+"w": "https://en.wikipedia.org/wiki/Karavasta_Lagoon"
+},
+"Khosrov Forest State Reserve": {
+"f": "xarmenia.jpg",
+"a": "Ogannes",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Khosrov_forest%2C_Armenia.jpg",
+"w": "https://en.wikipedia.org/wiki/Khosrov_Forest_State_Reserve"
+},
+"Hohe Tauern National Park": {
+"f": "xaustria.jpg",
+"a": "Anitagraser",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Nationalpark_hohe_tauern.png",
+"w": "https://en.wikipedia.org/wiki/Hohe_Tauern_National_Park"
+},
+"Hirkan National Park": {
+"f": "xazer.jpg",
+"a": "Naturefriends",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:%28L%29_Hirkan_MP_019.JPG",
+"w": "https://en.wikipedia.org/wiki/Hirkan_National_Park"
+},
+"Exuma Cays Land and Sea Park": {
+"f": "xbahamas.jpg",
+"a": "Craig Stanfill",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Exuma_Cays_Land_and_Sea_Park_2.jpeg",
+"w": "https://en.wikipedia.org/wiki/Exuma_Cays_Land_and_Sea_Park"
+},
+"Hautes Fagnes": {
+"f": "xbelgium.jpg",
+"a": "Trougnouf",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Fagne_Tirifaye_with_the_Hill_river_in_Waimes%2C_Belgium_%28DSCF3682%29.jpg",
+"w": "https://en.wikipedia.org/wiki/High_Fens"
+},
+"Pendjari National Park": {
+"f": "xbenin.jpg",
+"a": "Fawaz.tairou",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Parc_national_de_la_Pendjari.JPG",
+"w": "https://en.wikipedia.org/wiki/Pendjari_National_Park"
+},
+"Sutjeska National Park": {
+"f": "xbosnia.jpg",
+"a": "Budzak2",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:NP001_nacionalni_park_sutjeska_perucica.jpg",
+"w": "https://en.wikipedia.org/wiki/Sutjeska_National_Park"
+},
+"Ulu Temburong National Park": {
+"f": "xbrunei.jpg",
+"a": "SomeBaL_",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Long_way_to_go....jpg",
+"w": "https://en.wikipedia.org/wiki/Ulu_Temburong_National_Park"
+},
+"Pirin National Park": {
+"f": "xbulgaria.jpg",
+"a": "Dido3",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pirin_-_Gergiyski_ezera_-_IMG_4439.jpg",
+"w": "https://en.wikipedia.org/wiki/Pirin_National_Park"
+},
+"W National Park": {
+"f": "xburkina.jpg",
+"a": "Marco Schmidt",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mekrou_river_in_W-National_Park_MS_6380.JPG",
+"w": "https://en.wikipedia.org/wiki/W_National_Park"
+},
+"Kibira National Park": {
+"f": "xburundi.jpg",
+"a": "NZISABIRA Léopold",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:L%27environnement_de_Kibira_%C3%A0_teza.jpg",
+"w": "https://en.wikipedia.org/wiki/Kibira_National_Park"
+},
+"Tonlé Sap": {
+"f": "xcambodia.jpg",
+"a": "Deror_avi",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cambodia%2C_Tonle_Sap_IMG_3285.JPG",
+"w": "https://en.wikipedia.org/wiki/Tonle_Sap"
+},
+"Zapata Swamp": {
+"f": "xcuba.jpg",
+"a": "NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Zapata_swamp.JPG",
+"w": "https://en.wikipedia.org/wiki/Zapata_Swamp"
+},
+"Troodos Mountains": {
+"f": "xcyprus.jpg",
+"a": "Chneophytou",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Chionistra_winter_1.JPG",
+"w": "https://en.wikipedia.org/wiki/Troodos_Mountains"
+},
+"Šumava National Park": {
+"f": "xczechia.jpg",
+"a": "Prochaine at Czech Wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Ple%C5%A1n%C3%A9_jezero.jpg",
+"w": "https://en.wikipedia.org/wiki/%C5%A0umava_National_Park"
+},
+"Lake Abbe": {
+"f": "xdjibouti.jpg",
+"a": "Skilla1st",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Abbe_Map.png",
+"w": "https://en.wikipedia.org/wiki/Lake_Abbe"
+},
+"Los Haitises National Park": {
+"f": "xdomrep.jpg",
+"a": "Anton Bielousov",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Los_Haitises_Park.jpeg",
+"w": "https://en.wikipedia.org/wiki/Los_Haitises_National_Park"
+},
+"El Imposible National Park": {
+"f": "xelsalvador.jpg",
+"a": "ElmerGuevara",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mirador_Reserva_Natural_El_Imposible.JPG",
+"w": "https://en.wikipedia.org/wiki/El_Imposible_National_Park"
+},
+"Monte Alén National Park": {
+"f": "xeqguinea.jpg",
+"a": "Mehlauge",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Nationalpark_Monte_Al%C3%A9n_%28Tafel%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Monte_Al%C3%A9n_National_Park"
+},
+"Dahlak Archipelago": {
+"f": "xeritrea.jpg",
+"a": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ISS067-E-939_-_View_of_Earth.jpg",
+"w": "https://en.wikipedia.org/wiki/Dahlak_Archipelago"
+},
+"Soomaa National Park": {
+"f": "xestonia.jpg",
+"a": "Joonas Plaan",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Raudna_j%C3%B5gi-masterplaan-2008.jpg",
+"w": "https://en.wikipedia.org/wiki/Soomaa_National_Park"
+},
+"Hlane Royal National Park": {
+"f": "xeswatini.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Hlane-Basic-Hide-At-Hippo-Pool.JPG",
+"w": "https://en.wikipedia.org/wiki/Hlane_Royal_National_Park"
+},
+"Falkland Islands": {
+"f": "xfalkland.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Falkland_Islands.svg",
+"w": "https://en.wikipedia.org/wiki/Falkland_Islands"
+},
+"Colo-i-Suva Forest Reserve": {
+"f": "xfiji.jpg",
+"a": "Tucoxn",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Colo-i-Suva_big_waterfall.jpg",
+"w": "https://en.wikipedia.org/wiki/Colo-i-Suva_Forest_Reserve"
+},
+"River Gambia National Park": {
+"f": "xgambia.jpg",
+"a": "August Dominus",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Rijeka_Gambija_2026.jpg",
+"w": "https://en.wikipedia.org/wiki/River_Gambia_National_Park"
+},
+"Kolkheti National Park": {
+"f": "xgeorgia.jpg",
+"a": "Paata vardanashvili",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kolkheti_National_Park%2C_Western_Georgia%2C_Sept._2017.jpg",
+"w": "https://en.wikipedia.org/wiki/Kolkheti_National_Park"
+},
+"Vikos Gorge": {
+"f": "xgreece.jpg",
+"a": "Skamnelis",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Vikos_Gorge_from_Beloe.jpg",
+"w": "https://en.wikipedia.org/wiki/Vikos_Gorge"
+},
+"Northeast Greenland National Park": {
+"f": "xgreenland.jpg",
+"a": "Jerzy Strzelecki",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Franz_Josef_Fjord%2C_glacier.jpg",
+"w": "https://en.wikipedia.org/wiki/Northeast_Greenland_National_Park"
+},
+"Mount Nimba Strict Nature Reserve": {
+"f": "xguinea.jpg",
+"a": "Yakoo1986",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Nimba_Range.jpg",
+"w": "https://en.wikipedia.org/wiki/Mount_Nimba_Strict_Nature_Reserve"
+},
+"Bijagós Islands": {
+"f": "xguineabissau.jpg",
+"a": "European Space Agency / CNES",
+"l": "Attribution",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:L%27Archipel_des_Bijagos_vu_par_Sentinel_2.jpg",
+"w": "https://en.wikipedia.org/wiki/Bijag%C3%B3s_Islands"
+},
+"Pic Macaya National Park": {
+"f": "xhaiti.jpg",
+"a": "Angela268",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pic_Macaya_national_park_topographic_map.jpg",
+"w": "https://en.wikipedia.org/wiki/Pic_Macaya_National_Park"
+},
+"Río Plátano Biosphere Reserve": {
+"f": "xhonduras.jpg",
+"a": "Marcio Martínez",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cerro_Chachahuate.jpg",
+"w": "https://en.wikipedia.org/wiki/R%C3%ADo_Pl%C3%A1tano_Biosphere_Reserve"
+},
+"Hyrcanian forests": {
+"f": "xiran.jpg",
+"a": "Mahsa Safari",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:3615554_%D8%AA%D8%B5%D8%A7%D9%88%DB%8C%D8%B1_%D9%87%D9%88%D8%A7%DB%8C%DB%8C_%D8%AC%D8%A7%D8%AF%D9%87_%D9%87%D8%A7%DB%8C_%D9%BE%D8%A7%DB%8C%DB%8C%D8%B2%DB%8C_%D8%AC%D9%86%DA%AF%D9%84_%D9%87%D8%A7%DB%8C_%D9%87%DB%8C%D8%B1%DA%A9%D8%A7%D9%86%DB%8C.jpg",
+"w": "https://en.wikipedia.org/wiki/Hyrcanian_forests"
+},
+"Mesopotamian Marshes": {
+"f": "xiraq.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Chibaish_Marches%2C_Iraq_-_An_Nasiriyah.jpg",
+"w": "https://en.wikipedia.org/wiki/Mesopotamian_Marshes"
+},
+"The Burren": {
+"f": "xireland.jpg",
+"a": "Ingo Mehling",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Burren_Landscape_2.jpg",
+"w": "https://en.wikipedia.org/wiki/The_Burren"
+},
+"Hula Valley": {
+"f": "xisrael.jpg",
+"a": "Jotpe",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:View_of_Agamon_Hula.JPG",
+"w": "https://en.wikipedia.org/wiki/Hula_Valley"
+},
+"Gran Paradiso National Park": {
+"f": "xitaly.jpg",
+"a": "Alberto Peracchio",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Le_prime_luci_dell%27alba_in_Valle_Orco_-_Ceresole_Reale%2C_Colle_del_Nivolet.jpg",
+"w": "https://en.wikipedia.org/wiki/Gran_Paradiso_National_Park"
+},
+"Blue and John Crow Mountains National Park": {
+"f": "xjamaica.jpg",
+"a": "Wolmadrian",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Blue_Mountains%2C_Jamaica.jpg",
+"w": "https://en.wikipedia.org/wiki/Blue_and_John_Crow_Mountains_National_Park"
+},
+"Dana Biosphere Reserve": {
+"f": "xjordan.jpg",
+"a": "Bernard Gagnon",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Dana_Reserve_02.jpg",
+"w": "https://en.wikipedia.org/wiki/Dana_Biosphere_Reserve"
+},
+"Korgalzhyn Nature Reserve": {
+"f": "xkaz.jpg",
+"a": "Tomiris",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Korgalzhinskiy_Nature_Reserve.JPG",
+"w": "https://en.wikipedia.org/wiki/Korgalzhyn_Nature_Reserve"
+},
+"Kerguelen Islands": {
+"f": "xkerguelen.jpg",
+"a": "Académie de Grenoble",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Flag_of_the_French_Southern_and_Antarctic_Lands.svg",
+"w": "https://en.wikipedia.org/wiki/Kerguelen_Islands"
+},
+"Sharr Mountains National Park": {
+"f": "xkosovo.jpg",
+"a": "Ben Njeri",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Long_ridge_of_Pashallore.jpg",
+"w": "https://en.wikipedia.org/wiki/Sharr_Mountains_National_Park"
+},
+"Bubiyan Island": {
+"f": "xkuwait.jpg",
+"a": "Envisat satellite",
+"l": "CC BY-SA 3.0 igo",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0/igo/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Kuwaiti_islands.jpg",
+"w": "https://en.wikipedia.org/wiki/Bubiyan_Island"
+},
+"Issyk-Kul": {
+"f": "xkyrgyz.jpg",
+"a": "Қайырқан Әсем",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Issykkul_plyag.jpg",
+"w": "https://en.wikipedia.org/wiki/Issyk-Kul"
+},
+"Gauja National Park": {
+"f": "xlatvia.jpg",
+"a": "Gatis Pāvils",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Ergeljuklintis424aug037qg.jpg",
+"w": "https://en.wikipedia.org/wiki/Gauja_National_Park"
+},
+"Al Shouf Cedar Nature Reserve": {
+"f": "xlebanon.jpg",
+"a": "Yhabbouche at English Wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Barouk_Mountain.JPG",
+"w": "https://en.wikipedia.org/wiki/Al_Shouf_Cedar_Nature_Reserve"
+},
+"Sehlabathebe National Park": {
+"f": "xlesotho.jpg",
+"a": "Graham Maclachlan",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Early_Morning_view_from_Sehlabathebe_House_-_panoramio.jpg",
+"w": "https://en.wikipedia.org/wiki/Sehlabathebe_National_Park"
+},
+"Curonian Spit": {
+"f": "xlithuania.jpg",
+"a": "Hugo.arg (talk)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mirties_sl%C4%97nis_nuo_Parnid%C5%BEio_kopos.JPG",
+"w": "https://en.wikipedia.org/wiki/Curonian_Spit"
+},
+"Upper Sûre Lake": {
+"f": "xluxembourg.jpg",
+"a": "Finck Roderick",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Staumauer_Esch_-_Sauer_-_panoramio.jpg",
+"w": "https://en.wikipedia.org/wiki/Upper_S%C3%BBre_Lake"
+},
+"Lake Ohrid": {
+"f": "xmacedonia.jpg",
+"a": "NASA/METI/AIST/Japan Space Systems, and U.S./Japan ASTER Science Team",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Ohrid%2C_Macedonia-Albania_viewed_from_a_NASA_satellite.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Ohrid"
+},
+"Lake Malawi National Park": {
+"f": "xmalawi.jpg",
+"a": "Kevin Walsh from Oxford, England",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_malawi_national_park.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Malawi_National_Park"
+},
+"Codru Reserve": {
+"f": "xmoldova.jpg",
+"a": "Superbe777",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hiking.jpg",
+"w": "https://en.wikipedia.org/wiki/Codru_Reserve"
+},
+"Hukaung Valley Wildlife Sanctuary": {
+"f": "xmyanmar.jpg",
+"a": "Kyaw_Myo_Hlaing_(Tanai)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:%22Hukaung_Valley%22.jpg",
+"w": "https://en.wikipedia.org/wiki/Hukaung_Valley_Wildlife_Sanctuary"
+},
+"Lagoons of New Caledonia": {
+"f": "xnewcal.jpg",
+"a": "the Enhanced Thematic Mapper Plus on NASA’s Landsat 7 satellite, Jesse Allen, Michon Scott.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lagoons_and_Reefs_of_New_Caledonia_May_10%2C_2001.jpg",
+"w": "https://en.wikipedia.org/wiki/New_Caledonian_barrier_reef"
+},
+"Cross River National Park": {
+"f": "xnigeria.jpg",
+"a": "Shiraz Chakera",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kwafalls.jpg",
+"w": "https://en.wikipedia.org/wiki/Cross_River_National_Park"
+},
+"Mount Paektu": {
+"f": "xnkorea.jpg",
+"a": "Laika ac from USA",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Laika_ac_Mt._Paekdu_%287998657081%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Mount_Paektu"
+},
+"Ras al Hadd": {
+"f": "xoman.jpg",
+"a": "Andries Oudshoorn",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ras_al_Hadd.jpg",
+"w": "https://en.wikipedia.org/wiki/Ras_al_Hadd"
+},
+"Deosai National Park": {
+"f": "xpakistan.jpg",
+"a": "Hunzagrapher",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Deosai_pic_hd.jpg",
+"w": "https://en.wikipedia.org/wiki/Deosai_National_Park"
+},
+"Wadi Qelt": {
+"f": "xpalestine.jpg",
+"a": "This file is a work by Ester Inbar (user:ST or he:user:ST). More of my work can be found in Category:Files by User:ST. If you use my work outside Wikimedia I would appreciate being notified and referred to site where used here.",
+"l": "Attribution",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:WadiKelt_ST_06.jpg",
+"w": "https://en.wikipedia.org/wiki/Wadi_Qelt"
+},
+"Gran Chaco": {
+"f": "xparaguay.jpg",
+"a": "Unknown author",
+"l": "CC BY 1.0",
+"lu": "https://creativecommons.org/licenses/by/1.0",
+"p": "https://commons.wikimedia.org/wiki/File:Chaco_Boreal_Paraguay.jpg",
+"w": "https://en.wikipedia.org/wiki/Gran_Chaco"
+},
+"Raggiana bird-of-paradise": {
+"f": "xpng.jpg",
+"a": "JJ Harrison",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Raggiana_Bird-of-paradise_0A2A5379.jpg",
+"w": "https://en.wikipedia.org/wiki/Raggiana_bird-of-paradise"
+},
+"Peneda-Gerês National Park": {
+"f": "xportugal.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Serra_Amarela_%283998067385%29_%282%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Peneda-Ger%C3%AAs_National_Park"
+},
+"El Yunque National Forest": {
+"f": "xpuertorico.jpg",
+"a": "Harvey Barrison",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Top_of_El_Yunque%2C_from_the_Yokah%C3%BA_Tower%2C_an_observation_tower_built_in_1963_%28cropped%29.jpg",
+"w": "https://en.wikipedia.org/wiki/El_Yunque_National_Forest"
+},
+"Al Reem Biosphere Reserve": {
+"f": "xqatar.jpg",
+"a": "Davide Mauro",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Al_Reem_Biosphere_Reserve_map.jpg",
+"w": "https://en.wikipedia.org/wiki/Al_Reem_Biosphere_Reserve"
+},
+"Farasan Islands": {
+"f": "xsaudi.jpg",
+"a": "NASA/Terry Virts",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ISS-42_Red_Sea_in_the_Middle_East.jpg",
+"w": "https://en.wikipedia.org/wiki/Farasan_Islands"
+},
+"Djoudj National Bird Sanctuary": {
+"f": "xsenegal.jpg",
+"a": "Ji-Elle",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:CormoransDjoudj.JPG",
+"w": "https://en.wikipedia.org/wiki/Djoudj_National_Bird_Sanctuary"
+},
+"Đerdap National Park": {
+"f": "xserbia.jpg",
+"a": "Milan Paunović",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Veliki_Kazan.jpg",
+"w": "https://en.wikipedia.org/wiki/%C4%90erdap_National_Park"
+},
+"Korean Demilitarized Zone": {
+"f": "xskorea.jpg",
+"a": "Driedprawns at en.wikipedia",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:070401_Panmunjeom3.jpg",
+"w": "https://en.wikipedia.org/wiki/Korean_Demilitarized_Zone"
+},
+"Marovo Lagoon": {
+"f": "xsolomon.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Vangunu_Island_NASA.jpg",
+"w": "https://en.wikipedia.org/wiki/Marovo_Lagoon"
+},
+"Daallo Mountain": {
+"f": "xsomaliland.jpg",
+"a": "Abukar Musa",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Daallo_Mountain_-_Erigavo%2C_Sanaag_Region%2C_Somaliland_08.jpg",
+"w": "https://en.wikipedia.org/wiki/Daallo_Mountain"
+},
+"Sudd": {
+"f": "xssudan.jpg",
+"a": "NASA",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sudd_swamp.jpg",
+"w": "https://en.wikipedia.org/wiki/Sudd"
+},
+"Central Suriname Nature Reserve": {
+"f": "xsuriname.jpg",
+"a": "David Evers",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Amazon_jungle_from_above.jpg",
+"w": "https://en.wikipedia.org/wiki/Central_Suriname_Nature_Reserve"
+},
+"Palmyra": {
+"f": "xsyria.jpg",
+"a": "Bernard Gagnon",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg",
+"w": "https://en.wikipedia.org/wiki/Palmyra"
+},
+"Yushan National Park": {
+"f": "xtaiwan.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mount_Yu_Shan_-_Taiwan.jpg",
+"w": "https://en.wikipedia.org/wiki/Yushan_National_Park"
+},
+"Nino Konis Santana National Park": {
+"f": "xtimor.jpg",
+"a": "Government of Timor-Leste",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Logo_of_Parque_Nacional_Nino_Konis_Santana.jpg",
+"w": "https://en.wikipedia.org/wiki/Nino_Konis_Santana_National_Park"
+},
+"Fazao-Malfakassa National Park": {
+"f": "xtogo.jpg",
+"a": "Zayneb Dhahbi",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Vue_de_la_montagne_%C3%A0_Fazao.jpg",
+"w": "https://en.wikipedia.org/wiki/Fazao_Malfakassa_National_Park"
+},
+"Caroni Swamp": {
+"f": "xtrinidad.jpg",
+"a": "Chris Fitzpatrick",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Caronipanchrisfitzpatrick.JPG",
+"w": "https://en.wikipedia.org/wiki/Caroni_Swamp"
+},
+"Kaçkar Mountains": {
+"f": "xturkey.jpg",
+"a": "Wikimol",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:KackarDagi_fromNorth_hory.jpg",
+"w": "https://en.wikipedia.org/wiki/Ka%C3%A7kar_Mountains"
+},
+"Repetek Nature Reserve": {
+"f": "xturkmen.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Takirs_of_Karakum_Desert.jpg",
+"w": "https://en.wikipedia.org/wiki/Repetek_Biosphere_State_Reserve"
+},
+"Dugong": {
+"f": "xuae.jpg",
+"a": "Gejuni",
+"l": "CC BY-SA 3.0 de",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Dugong.JPG",
+"w": "https://en.wikipedia.org/wiki/Dugong"
+},
+"Cairngorms National Park": {
+"f": "xuk.jpg",
+"a": "Thomas Andy Branson",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cairngorms_National_Park%2C_Scotland.jpg",
+"w": "https://en.wikipedia.org/wiki/Cairngorms_National_Park"
+},
+"Cabo Polonio": {
+"f": "xuruguay.jpg",
+"a": "Pablofor",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cabo_Polonio_desde_el_faro.jpg",
+"w": "https://en.wikipedia.org/wiki/Cabo_Polonio"
+},
+"Mobile–Tensaw River Delta": {
+"f": "xusal.jpg",
+"a": "Altairisfar",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bottle_Creek.jpg",
+"w": "https://en.wikipedia.org/wiki/Mobile%E2%80%93Tensaw_River_Delta"
+},
+"Connecticut River": {
+"f": "xusct.jpg",
+"a": "It'sOnlyMakeBelieve",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Connecticut_River_From_Gillette_Castle.jpg",
+"w": "https://en.wikipedia.org/wiki/Connecticut_River"
+},
+"Rock Creek Park": {
+"f": "xusdc.jpg",
+"a": "TrailVoice",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rock_Creek_Park_NPS_sign.jpg",
+"w": "https://en.wikipedia.org/wiki/Rock_Creek_Park"
+},
+"Bombay Hook National Wildlife Refuge": {
+"f": "xusde.jpg",
+"a": "Jamie Richie",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bombay_Hook_NWR_-_birds.jpg",
+"w": "https://en.wikipedia.org/wiki/Bombay_Hook_National_Wildlife_Refuge"
+},
+"Okefenokee Swamp": {
+"f": "xusga.jpg",
+"a": "Ryan Hagerty",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_wetlands_in_Okefenokee.jpg",
+"w": "https://en.wikipedia.org/wiki/Okefenokee_Swamp"
+},
+"Loess Hills": {
+"f": "xusia.jpg",
+"a": "Bill Whittaker",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Loess_hills.jpg",
+"w": "https://en.wikipedia.org/wiki/Loess_Hills"
+},
+"Konza Prairie Biological Station": {
+"f": "xusks.jpg",
+"a": "No machine-readable author provided. Kgwo1972 assumed (based on copyright claims).",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Konza1.jpg",
+"w": "https://en.wikipedia.org/wiki/Konza_Prairie_Biological_Station"
+},
+"Cape Cod National Seashore": {
+"f": "xusma.jpg",
+"a": "Unknown, Cape Cod National Seashore",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Cape_Cod_National_Seashore_logo.png",
+"w": "https://en.wikipedia.org/wiki/Cape_Cod_National_Seashore"
+},
+"Pascagoula River": {
+"f": "xusms.jpg",
+"a": "Kmusser",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Pascagoularivermap.png",
+"w": "https://en.wikipedia.org/wiki/Pascagoula_River"
+},
+"Platte River": {
+"f": "xusne.jpg",
+"a": "Babymestizo",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Platte_River.jpg",
+"w": "https://en.wikipedia.org/wiki/Platte_River"
+},
+"New Jersey Pine Barrens": {
+"f": "xusnj.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:2014-08-29_11_51_25_View_north-northeast_from_the_fire_tower_on_Apple_Pie_Hill_in_Wharton_State_Forest%2C_Tabernacle_Township%2C_New_Jersey.JPG",
+"w": "https://en.wikipedia.org/wiki/New_Jersey_Pine_Barrens"
+},
+"Adirondack Park": {
+"f": "xusny.jpg",
+"a": "Original uploader was Mwanner at en.wikipedia Later version(s) were uploaded by XcepticZP at en.wikipedia.",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Long_Pond_-_St_Regis.jpg",
+"w": "https://en.wikipedia.org/wiki/Adirondack_Park"
+},
+"Tallgrass Prairie Preserve": {
+"f": "xusok.jpg",
+"a": "DBinfo at English Wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Tallgrass_Prairie_Preserve.jpg",
+"w": "https://en.wikipedia.org/wiki/Tallgrass_Prairie_Preserve"
+},
+"Allegheny National Forest": {
+"f": "xuspa.jpg",
+"a": "IvoShandor",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Mead_Run3.JPG",
+"w": "https://en.wikipedia.org/wiki/Allegheny_National_Forest"
+},
+"Narragansett Bay": {
+"f": "xusri.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:RIBay.JPG",
+"w": "https://en.wikipedia.org/wiki/Narragansett_Bay"
+},
+"Green Mountain National Forest": {
+"f": "xusvt.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Hapgood_Pond_-_Flickr_-_USDAgov.jpg",
+"w": "https://en.wikipedia.org/wiki/Green_Mountain_National_Forest"
+},
+"Nuratau Mountains": {
+"f": "xuzb.jpg",
+"a": "Clemens Schmillen",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sentob_valley.jpg",
+"w": "https://en.wikipedia.org/wiki/Nuratau_Mountains"
+},
+"Espiritu Santo": {
+"f": "xvanuatu.jpg",
+"a": "United States Bureau of Yards and Docks",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Map_of_Espiritu_Santo.jpg",
+"w": "https://en.wikipedia.org/wiki/Espiritu_Santo"
+},
+"South Luangwa National Park": {
+"f": "xzambia.jpg",
+"a": "Geoff Gallice",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Luangwa_River_crossing.jpg",
+"w": "https://en.wikipedia.org/wiki/South_Luangwa_National_Park"
+},
+"Yellowstone National Park": {
+"f": "yellowstone.jpg",
+"a": "Rhododendrites",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_of_the_Yellowstone_Lower_Falls_%2895819p%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Yellowstone_National_Park"
+},
+"Bennett Spring State Park": {
+"f": "mobennettspring.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:2016_Bennett_Spring_State_Park_Trout_Opener_-_025.jpg",
+"w": "https://en.wikipedia.org/wiki/Bennett_Spring_State_Park"
+},
+"Big Lake State Park": {
+"f": "mobiglake.jpg",
+"a": "Ichabod",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Big_Lake%2C_Missouri_9-2-2013.JPG",
+"w": "https://en.wikipedia.org/wiki/Big_Lake_State_Park"
+},
+"Big Muddy National Fish and Wildlife Refuge": {
+"f": "mobigmuddynational.jpg",
+"a": "Steve Hillebrand, U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Big_muddy_national_wildlife_refuge_sign.jpg",
+"w": "https://en.wikipedia.org/wiki/Big_Muddy_National_Fish_and_Wildlife_Refuge"
+},
+"Big Sugar Creek State Park": {
+"f": "mobigsugarcreek.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:BigSugar2.jpg",
+"w": "https://en.wikipedia.org/wiki/Big_Sugar_Creek_State_Park"
+},
+"Castlewood State Park": {
+"f": "mocastlewood.jpg",
+"a": "Archbob",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Castlewoodscenic.JPG",
+"w": "https://en.wikipedia.org/wiki/Castlewood_State_Park"
+},
+"Clarence Cannon National Wildlife Refuge": {
+"f": "moclarencecannon.jpg",
+"a": "U.S. Fish and Wildlife Service Headquarters",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Fall_migration_at_Clarence_Cannon_NWR_%286366882263%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Clarence_Cannon_National_Wildlife_Refuge"
+},
+"Sarek National Park": {
+"f": "whlaponia.jpg",
+"a": "Grapetonix",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pierikpakte_in_Sarek.jpg",
+"w": "https://en.wikipedia.org/wiki/Sarek_National_Park"
+},
+"Oulanka National Park": {
+"f": "xfinland.jpg",
+"a": "Lysy",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:FI-Oulanka_NP1.jpg",
+"w": "https://en.wikipedia.org/wiki/Oulanka_National_Park"
+},
+"Mole National Park": {
+"f": "xghana.jpg",
+"a": "Stig Nygaard",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Elefant_Ghana.jpg",
+"w": "https://en.wikipedia.org/wiki/Mole_National_Park"
+},
+"Iwokrama Forest": {
+"f": "xguyana.jpg",
+"a": "M M from Switzerland",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Iwokrama_Rainforest%2C_Guyana_%2812179378186%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Iwokrama_Forest"
+},
+"White Mountain National Forest": {
+"f": "xusnh.jpg",
+"a": "Ken Gallager at en.wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sandwich_Range.jpg",
+"w": "https://en.wikipedia.org/wiki/White_Mountain_National_Forest"
+}
+}
