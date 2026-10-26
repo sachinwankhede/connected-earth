@@ -1143,7 +1143,7 @@ return maplibregl$1;
     var L = state.mode === "layers";
     sim.force("link").distance(L ? 110 : 95).strength(L ? 0.015 : 0.3);
     sim.force("charge").strength(L ? -60 : -380);
-    sim.force("collide").radius(function (d) { return L ? Math.max(d.r + 10, d.lw / 2 + 4) : d.r + 16; }).strength(0.9);
+    sim.force("collide").radius(function (d) { return L ? Math.max(d.r + (PH ? 16 : 10), d.lw / 2 + 4) : d.r + 16; }).strength(0.9);
     sim.force("x").x(function (d) { return L ? PAD + d.xh * (W - 2 * PAD) : W / 2; }).strength(L ? 0.25 : (PH ? 0.16 : 0.07));
     sim.force("y").y(function (d) { return L ? rowY(d.tl) : H / 2; }).strength(L ? 0.85 : (PH ? 0.02 : 0.07));
   }
@@ -1164,7 +1164,8 @@ return maplibregl$1;
       var y = cur.applyY(rowY(d)), g = d3.select(this);
       g.style("display", d === 0 && !state.env ? "none" : null);
       g.select("line").attr("x1", 0).attr("x2", w).attr("y1", y).attr("y2", y);
-      g.select("text").attr("x", 12).attr("y", y - 8 - (PH ? 44 : 22) * Math.min(1, cur.k));
+      var tp = Infinity; NODES.forEach(function (n) { if (n.tl === d && isVis(n)) tp = Math.min(tp, cur.applyY(n.y) - n.r * cur.k); });
+      g.select("text").attr("x", 12).attr("y", isFinite(tp) ? tp - 7 : y - 8 - (PH ? 44 : 22) * Math.min(1, cur.k));
     });
   }
   function fit(animate) {
@@ -1172,7 +1173,7 @@ return maplibregl$1;
     NODES.filter(isVis).forEach(function (d) {
       var hw = Math.max(d.r, d.lw / 2);
       minX = Math.min(minX, d.x - hw); maxX = Math.max(maxX, d.x + hw);
-      minY = Math.min(minY, d.y - d.r - (PH ? 54 : 0)); maxY = Math.max(maxY, d.y + d.r + 18);
+      minY = Math.min(minY, d.y - d.r - (PH ? 54 : 26)); maxY = Math.max(maxY, d.y + d.r + 18);
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
@@ -1395,6 +1396,10 @@ return maplibregl$1;
       var g = bio.filter(function (n) { return n.tl === tl; }).sort(function (a, b) { return deg(b) - deg(a); });
       if (g.length) h += "<h3>" + names[tl] + " \u00b7 " + g.length + '</h3><div class="chips">' + g.map(chip).join("") + "</div>";
     });
+    var mine = {}; bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
+    var near = ECOS.filter(function (e) { return e.id !== state.eco; }).map(function (e) { var c = 0; e.nodes.forEach(function (m) { if (!m.cat && m.latin && mine[m.latin]) c++; }); return { e: e, c: c }; })
+      .filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 8);
+    if (near.length) h += "<h3>Shares species with</h3>" + '<div class="chips">' + near.map(function (x) { return '<button type="button" class="chip" data-goto="' + x.e.id + '">' + x.e.short + " <b>" + x.c + "</b></button>"; }).join("") + "</div>";
     var env = NODES.filter(function (n) { return n.cat; });
     if (env.length) h += "<h3>Environment \u00b7 " + env.length + '</h3><div class="chips">' + env.map(chip).join("") + "</div>";
     return h;
@@ -1536,6 +1541,7 @@ return maplibregl$1;
     }
     if (ev.target.closest("[data-resetall]")) { clearEdits(); return; }
     var spb = ev.target.closest("[data-species]"); if (spb) { speciesMap(spb.getAttribute("data-species")); return; }
+    var gt = ev.target.closest("[data-goto]"); if (gt) { showWeb(gt.getAttribute("data-goto")); return; }
     var jm = ev.target.closest("[data-jump]");
     if (jm) { var jp = jm.getAttribute("data-jump").split(":"); jump(jp[0], jp[1]); return; }
     var b = ev.target.closest("[data-id]");
