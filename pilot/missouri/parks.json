@@ -1,992 +1,1064 @@
 [
- {
-  "name": "Dr. Edmund A. Babler Memorial State Park",
-  "short": "Babler",
-  "county": "St. Louis",
-  "acres": 2441,
-  "kind": "Forest",
-  "seed": [
-   38.614,
-   -90.685
-  ],
-  "n": 592,
-  "lat": 38.6175,
-  "lon": -90.6952,
-  "shift_km": 1.0,
-  "conf": "gbif",
-  "id": "mobabler",
-  "radius": 3
- },
- {
-  "name": "Sam A. Baker State Park",
-  "short": "Sam A. Baker",
-  "county": "Wayne",
-  "acres": 5324,
-  "kind": "Forest",
-  "seed": [
-   37.278,
-   -90.526
-  ],
-  "n": 489,
-  "lat": 37.2604,
-  "lon": -90.508,
-  "shift_km": 2.5,
-  "conf": "gbif",
-  "id": "mosamabaker",
-  "radius": 3.9
- },
- {
-  "name": "Bennett Spring State Park",
-  "short": "Bennett Spring",
-  "county": "Dallas, Laclede",
-  "acres": 3217,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   37.661,
-   -92.853
-  ],
-  "n": 590,
-  "lat": 37.661,
-  "lon": -92.853,
-  "shift_km": 6.4,
-  "conf": "seed",
-  "id": "mobennettspring",
-  "radius": 3.1
- },
- {
-  "name": "Big Lake State Park",
-  "short": "Big Lake",
-  "county": "Holt",
-  "acres": 407,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   40.093,
-   -95.317
-  ],
-  "n": 586,
-  "lat": 40.0779,
-  "lon": -95.3461,
-  "shift_km": 3.0,
-  "conf": "gbif",
-  "id": "mobiglake",
-  "radius": 3
- },
- {
-  "name": "Big Oak Tree State Park",
-  "short": "Big Oak Tree",
-  "county": "Mississippi",
-  "acres": 1029,
-  "kind": "Forest",
-  "seed": [
-   36.717,
-   -89.267
-  ],
-  "n": 600,
-  "lat": 36.717,
-  "lon": -89.267,
-  "shift_km": 8.6,
-  "conf": "seed",
-  "id": "mobigoaktree",
-  "radius": 3
- },
- {
-  "name": "Big Sugar Creek State Park",
-  "short": "Big Sugar Creek",
-  "county": "McDonald",
-  "acres": 2083,
-  "kind": "Forest",
-  "seed": [
-   36.53,
-   -94.39
-  ],
-  "n": 566,
-  "lat": 36.53,
-  "lon": -94.39,
-  "shift_km": 13.5,
-  "conf": "seed",
-  "id": "mobigsugarcreek",
-  "radius": 3
- },
- {
-  "name": "Bryant Creek State Park",
-  "short": "Bryant Creek",
-  "county": "Douglas",
-  "acres": 2917,
-  "kind": "Forest",
-  "seed": [
-   36.88,
-   -92.35
-  ],
-  "n": 600,
-  "lat": 36.88,
-  "lon": -92.35,
-  "shift_km": 8.8,
-  "conf": "seed",
-  "id": "mobryantcreek",
-  "radius": 3
- },
- {
-  "name": "Castlewood State Park",
-  "short": "Castlewood",
-  "county": "St. Louis",
-  "acres": 1818,
-  "kind": "Forest",
-  "seed": [
-   38.549,
-   -90.547
-  ],
-  "n": 593,
-  "lat": 38.5481,
-  "lon": -90.5433,
-  "shift_km": 0.3,
-  "conf": "gbif",
-  "id": "mocastlewood",
-  "radius": 3
- },
- {
-  "name": "Crowder State Park",
-  "short": "Crowder",
-  "county": "Grundy",
-  "acres": 1912,
-  "kind": "Forest",
-  "seed": [
-   40.117,
-   -93.967
-  ],
-  "n": 0,
-  "lat": 40.117,
-  "lon": -93.967,
-  "shift_km": 0,
-  "conf": "seed",
-  "id": "mocrowder",
-  "radius": 3
- },
- {
-  "name": "Cuivre River State Park",
-  "short": "Cuivre River",
-  "county": "Lincoln",
-  "acres": 6394,
-  "kind": "Forest",
-  "seed": [
-   39.02,
-   -90.91
-  ],
-  "n": 505,
-  "lat": 39.0336,
-  "lon": -90.9308,
-  "shift_km": 2.3,
-  "conf": "gbif",
-  "id": "mocuivreriver",
-  "radius": 4.3
- },
- {
-  "name": "Current River State Park",
-  "short": "Current River",
-  "county": "Shannon",
-  "acres": 780,
-  "kind": "Forest",
-  "seed": [
-   37.15,
-   -91.358
-  ],
-  "n": 515,
-  "lat": 37.15,
-  "lon": -91.358,
-  "shift_km": 6.3,
-  "conf": "seed",
-  "id": "mocurrentriver",
-  "radius": 3
- },
- {
-  "name": "Echo Bluff State Park",
-  "short": "Echo Bluff",
-  "county": "Shannon",
-  "acres": 410,
-  "kind": "Forest",
-  "seed": [
-   37.3,
-   -91.417
-  ],
-  "n": 599,
-  "lat": 37.3125,
-  "lon": -91.4064,
-  "shift_km": 1.7,
-  "conf": "gbif",
-  "id": "moechobluff",
-  "radius": 3
- },
- {
-  "name": "Elephant Rocks State Park",
-  "short": "Elephant Rocks",
-  "county": "Iron",
-  "acres": 132,
-  "kind": "Forest",
-  "seed": [
-   37.654,
-   -90.687
-  ],
-  "n": 599,
-  "lat": 37.6529,
-  "lon": -90.689,
-  "shift_km": 0.2,
-  "conf": "gbif",
-  "id": "moelephantrocks",
-  "radius": 3
- },
- {
-  "name": "Eleven Point State Park",
-  "short": "Eleven Point",
-  "county": "Oregon",
-  "acres": 4167,
-  "kind": "Forest",
-  "seed": [
-   36.766,
-   -91.3
-  ],
-  "n": 583,
-  "lat": 36.766,
-  "lon": -91.3,
-  "shift_km": 4.0,
-  "conf": "seed",
-  "id": "moelevenpoint",
-  "radius": 3.5
- },
- {
-  "name": "Finger Lakes State Park",
-  "short": "Finger Lakes",
-  "county": "Boone",
-  "acres": 1129,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   39.033,
-   -92.367
-  ],
-  "n": 600,
-  "lat": 39.033,
-  "lon": -92.367,
-  "shift_km": 7.7,
-  "conf": "seed",
-  "id": "mofingerlakes",
-  "radius": 3
- },
- {
-  "name": "Graham Cave State Park",
-  "short": "Graham Cave",
-  "county": "Montgomery",
-  "acres": 370,
-  "kind": "Forest",
-  "seed": [
-   38.917,
-   -91.583
-  ],
-  "n": 597,
-  "lat": 38.9056,
-  "lon": -91.5744,
-  "shift_km": 1.5,
-  "conf": "gbif",
-  "id": "mograhamcave",
-  "radius": 3
- },
- {
-  "name": "Grand Gulf State Park",
-  "short": "Grand Gulf",
-  "county": "Oregon",
-  "acres": 322,
-  "kind": "Forest",
-  "seed": [
-   36.532,
-   -91.642
-  ],
-  "n": 600,
-  "lat": 36.5441,
-  "lon": -91.645,
-  "shift_km": 1.4,
-  "conf": "gbif",
-  "id": "mograndgulf",
-  "radius": 3
- },
- {
-  "name": "Ha Ha Tonka State Park",
-  "short": "Ha Ha Tonka",
-  "county": "Camden",
-  "acres": 3710,
-  "kind": "Forest",
-  "seed": [
-   37.972,
-   -92.767
-  ],
-  "n": 571,
-  "lat": 37.974,
-  "lon": -92.7672,
-  "shift_km": 0.2,
-  "conf": "gbif",
-  "id": "mohahatonka",
-  "radius": 3.3
- },
- {
-  "name": "Hawn State Park",
-  "short": "Hawn",
-  "county": "Ste. Genevieve",
-  "acres": 4954,
-  "kind": "Forest",
-  "seed": [
-   37.833,
-   -90.23
-  ],
-  "n": 541,
-  "lat": 37.833,
-  "lon": -90.23,
-  "shift_km": 4.4,
-  "conf": "seed",
-  "id": "mohawn",
-  "radius": 3.8
- },
- {
-  "name": "Johnson's Shut-Ins State Park",
-  "short": "Johnsons Shut-Ins",
-  "county": "Reynolds",
-  "acres": 8550,
-  "kind": "Forest",
-  "seed": [
-   37.533,
-   -90.85
-  ],
-  "n": 584,
-  "lat": 37.5425,
-  "lon": -90.8449,
-  "shift_km": 1.1,
-  "conf": "gbif",
-  "id": "mojohnsonsshutins",
-  "radius": 5.0
- },
- {
-  "name": "Edward \"Ted\" and Pat Jones-Confluence Point State Park",
-  "short": "Confluence Point",
-  "county": "St. Charles",
-  "acres": 1121,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   38.83,
-   -90.11
-  ],
-  "n": 63,
-  "lat": 38.8193,
-  "lon": -90.1206,
-  "shift_km": 1.5,
-  "conf": "gbif",
-  "id": "moconfluencepoint",
-  "radius": 3
- },
- {
-  "name": "Knob Noster State Park",
-  "short": "Knob Noster",
-  "county": "Johnson",
-  "acres": 3934,
-  "kind": "Forest",
-  "seed": [
-   38.754,
-   -93.574
-  ],
-  "n": 588,
-  "lat": 38.7502,
-  "lon": -93.5843,
-  "shift_km": 1.0,
-  "conf": "gbif",
-  "id": "moknobnoster",
-  "radius": 3.4
- },
- {
-  "name": "Lake of the Ozarks State Park",
-  "short": "Lake of the Ozarks",
-  "county": "Camden, Miller",
-  "acres": 17627,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   38.105,
-   -92.603
-  ],
-  "n": 573,
-  "lat": 38.1098,
-  "lon": -92.5794,
-  "shift_km": 2.1,
-  "conf": "gbif",
-  "id": "molakeoftheozarks",
-  "radius": 7.1
- },
- {
-  "name": "Lake Wappapello State Park",
-  "short": "Lake Wappapello",
-  "county": "Wayne",
-  "acres": 1854,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   36.9,
-   -90.27
-  ],
-  "n": 448,
-  "lat": 36.9,
-  "lon": -90.27,
-  "shift_km": 6.8,
-  "conf": "seed",
-  "id": "molakewappapello",
-  "radius": 3
- },
- {
-  "name": "Lewis and Clark State Park",
-  "short": "Lewis and Clark",
-  "county": "Buchanan",
-  "acres": 189,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   39.717,
-   -94.867
-  ],
-  "n": 4,
-  "lat": 39.717,
-  "lon": -94.867,
-  "shift_km": 0,
-  "conf": "seed",
-  "id": "molewisandclark",
-  "radius": 3
- },
- {
-  "name": "Long Branch State Park",
-  "short": "Long Branch",
-  "county": "Macon",
-  "acres": 1828,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   39.783,
-   -92.533
-  ],
-  "n": 588,
-  "lat": 39.7652,
-  "lon": -92.52,
-  "shift_km": 2.3,
-  "conf": "gbif",
-  "id": "molongbranch",
-  "radius": 3
- },
- {
-  "name": "Meramec State Park",
-  "short": "Meramec",
-  "county": "Crawford, Franklin, Washington",
-  "acres": 6896,
-  "kind": "Forest",
-  "seed": [
-   38.212,
-   -91.098
-  ],
-  "n": 551,
-  "lat": 38.2097,
-  "lon": -91.094,
-  "shift_km": 0.4,
-  "conf": "gbif",
-  "id": "momeramec",
-  "radius": 4.5
- },
- {
-  "name": "Montauk State Park",
-  "short": "Montauk",
-  "county": "Dent",
-  "acres": 1396,
-  "kind": "Forest",
-  "seed": [
-   37.45,
-   -91.683
-  ],
-  "n": 593,
-  "lat": 37.4564,
-  "lon": -91.6866,
-  "shift_km": 0.8,
-  "conf": "gbif",
-  "id": "momontauk",
-  "radius": 3
- },
- {
-  "name": "Morris State Park",
-  "short": "Morris",
-  "county": "Dunklin",
-  "acres": 161,
-  "kind": "Forest",
-  "seed": [
-   36.25,
-   -90.05
-  ],
-  "n": 0,
-  "lat": 36.25,
-  "lon": -90.05,
-  "shift_km": 0,
-  "conf": "seed",
-  "id": "momorris",
-  "radius": 3
- },
- {
-  "name": "Jay Nixon Backcountry",
-  "short": "Nixon Backcountry",
-  "county": "Reynolds",
-  "acres": 1230,
-  "kind": "Forest",
-  "seed": [
-   37.4,
-   -90.95
-  ],
-  "n": 0,
-  "lat": 37.4,
-  "lon": -90.95,
-  "shift_km": 0,
-  "conf": "seed",
-  "id": "monixonbackcountry",
-  "radius": 3
- },
- {
-  "name": "Onondaga Cave State Park",
-  "short": "Onondaga Cave",
-  "county": "Crawford",
-  "acres": 1318,
-  "kind": "Forest",
-  "seed": [
-   38.067,
-   -91.233
-  ],
-  "n": 588,
-  "lat": 38.0611,
-  "lon": -91.2303,
-  "shift_km": 0.7,
-  "conf": "gbif",
-  "id": "moonondagacave",
-  "radius": 3
- },
- {
-  "name": "Pershing State Park",
-  "short": "Pershing",
-  "county": "Linn",
-  "acres": 3566,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   39.8,
-   -93.2
-  ],
-  "n": 565,
-  "lat": 39.8,
-  "lon": -93.2,
-  "shift_km": 5.3,
-  "conf": "seed",
-  "id": "mopershing",
-  "radius": 3.2
- },
- {
-  "name": "Pomme de Terre State Park",
-  "short": "Pomme de Terre",
-  "county": "Hickory",
-  "acres": 734,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   37.933,
-   -93.317
-  ],
-  "n": 599,
-  "lat": 37.933,
-  "lon": -93.317,
-  "shift_km": 5.2,
-  "conf": "seed",
-  "id": "mopommedeterre",
-  "radius": 3
- },
- {
-  "name": "Prairie State Park",
-  "short": "Prairie State Park",
-  "county": "Barton",
-  "acres": 3942,
-  "kind": "Grassland",
-  "seed": [
-   37.533,
-   -94.583
-  ],
-  "n": 593,
-  "lat": 37.533,
-  "lon": -94.583,
-  "shift_km": 4.1,
-  "conf": "seed",
-  "id": "moprairiestatepark",
-  "radius": 3.4
- },
- {
-  "name": "Roaring River State Park",
-  "short": "Roaring River",
-  "county": "Barry",
-  "acres": 4093,
-  "kind": "Forest",
-  "seed": [
-   36.583,
-   -93.833
-  ],
-  "n": 513,
-  "lat": 36.5856,
-  "lon": -93.8268,
-  "shift_km": 0.6,
-  "conf": "gbif",
-  "id": "moroaringriver",
-  "radius": 3.4
- },
- {
-  "name": "Robertsville State Park",
-  "short": "Robertsville",
-  "county": "Franklin",
-  "acres": 1225,
-  "kind": "Forest",
-  "seed": [
-   38.45,
-   -90.867
-  ],
-  "n": 589,
-  "lat": 38.45,
-  "lon": -90.867,
-  "shift_km": 5.4,
-  "conf": "seed",
-  "id": "morobertsville",
-  "radius": 3
- },
- {
-  "name": "Don Robinson State Park",
-  "short": "Don Robinson",
-  "county": "Jefferson",
-  "acres": 843,
-  "kind": "Forest",
-  "seed": [
-   38.33,
-   -90.6
-  ],
-  "n": 598,
-  "lat": 38.33,
-  "lon": -90.6,
-  "shift_km": 10.7,
-  "conf": "seed",
-  "id": "modonrobinson",
-  "radius": 3
- },
- {
-  "name": "Rock Bridge Memorial State Park",
-  "short": "Rock Bridge",
-  "county": "Boone",
-  "acres": 2273,
-  "kind": "Forest",
-  "seed": [
-   38.867,
-   -92.317
-  ],
-  "n": 590,
-  "lat": 38.8734,
-  "lon": -92.3208,
-  "shift_km": 0.8,
-  "conf": "gbif",
-  "id": "morockbridge",
-  "radius": 3
- },
- {
-  "name": "Route 66 State Park",
-  "short": "Route 66",
-  "county": "St. Louis",
-  "acres": 419,
-  "kind": "Forest",
-  "seed": [
-   38.5,
-   -90.583
-  ],
-  "n": 599,
-  "lat": 38.5073,
-  "lon": -90.5998,
-  "shift_km": 1.7,
-  "conf": "gbif",
-  "id": "moroute66",
-  "radius": 3
- },
- {
-  "name": "St. Francois State Park",
-  "short": "St. Francois",
-  "county": "St. Francois",
-  "acres": 2735,
-  "kind": "Forest",
-  "seed": [
-   37.8,
-   -90.517
-  ],
-  "n": 454,
-  "lat": 37.8081,
-  "lon": -90.5182,
-  "shift_km": 0.9,
-  "conf": "gbif",
-  "id": "mostfrancois",
-  "radius": 3
- },
- {
-  "name": "St. Joe State Park",
-  "short": "St. Joe",
-  "county": "St. Francois",
-  "acres": 8243,
-  "kind": "Forest",
-  "seed": [
-   37.817,
-   -90.517
-  ],
-  "n": 491,
-  "lat": 37.8042,
-  "lon": -90.5058,
-  "shift_km": 1.7,
-  "conf": "gbif",
-  "id": "mostjoe",
-  "radius": 4.9
- },
- {
-  "name": "Shepherd of the Hills State Park",
-  "short": "Shepherd of Hills",
-  "county": "Taney",
-  "acres": 1011,
-  "kind": "Forest",
-  "seed": [
-   36.517,
-   -93.3
-  ],
-  "n": 600,
-  "lat": 36.517,
-  "lon": -93.3,
-  "shift_km": 8.9,
-  "conf": "seed",
-  "id": "moshepherdofhills",
-  "radius": 3
- },
- {
-  "name": "Stockton State Park",
-  "short": "Stockton",
-  "county": "Cedar",
-  "acres": 2176,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   37.667,
-   -93.767
-  ],
-  "n": 582,
-  "lat": 37.667,
-  "lon": -93.767,
-  "shift_km": 5.3,
-  "conf": "seed",
-  "id": "mostockton",
-  "radius": 3
- },
- {
-  "name": "Table Rock State Park",
-  "short": "Table Rock",
-  "county": "Stone, Taney",
-  "acres": 356,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   36.583,
-   -93.317
-  ],
-  "n": 598,
-  "lat": 36.5819,
-  "lon": -93.3051,
-  "shift_km": 1.1,
-  "conf": "gbif",
-  "id": "motablerock",
-  "radius": 3
- },
- {
-  "name": "Taum Sauk Mountain State Park",
-  "short": "Taum Sauk",
-  "county": "Iron, Reynolds",
-  "acres": 7501,
-  "kind": "Forest",
-  "seed": [
-   37.567,
-   -90.733
-  ],
-  "n": 581,
-  "lat": 37.5652,
-  "lon": -90.7382,
-  "shift_km": 0.5,
-  "conf": "gbif",
-  "id": "motaumsauk",
-  "radius": 4.7
- },
- {
-  "name": "Thousand Hills State Park",
-  "short": "Thousand Hills",
-  "county": "Adair",
-  "acres": 3080,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   40.167,
-   -92.583
-  ],
-  "n": 578,
-  "lat": 40.167,
-  "lon": -92.583,
-  "shift_km": 5.5,
-  "conf": "seed",
-  "id": "mothousandhills",
-  "radius": 3
- },
- {
-  "name": "Trail of Tears State Park",
-  "short": "Trail of Tears",
-  "county": "Cape Girardeau",
-  "acres": 3415,
-  "kind": "Forest",
-  "seed": [
-   37.4,
-   -89.48
-  ],
-  "n": 567,
-  "lat": 37.4,
-  "lon": -89.48,
-  "shift_km": 6.0,
-  "conf": "seed",
-  "id": "motrailoftears",
-  "radius": 3.1
- },
- {
-  "name": "Harry S Truman State Park",
-  "short": "Truman",
-  "county": "Benton",
-  "acres": 1440,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   38.283,
-   -93.433
-  ],
-  "n": 600,
-  "lat": 38.283,
-  "lon": -93.433,
-  "shift_km": 6.5,
-  "conf": "seed",
-  "id": "motruman",
-  "radius": 3
- },
- {
-  "name": "Mark Twain State Park",
-  "short": "Mark Twain",
-  "county": "Monroe",
-  "acres": 2775,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   39.517,
-   -91.783
-  ],
-  "n": 600,
-  "lat": 39.4942,
-  "lon": -91.7871,
-  "shift_km": 2.5,
-  "conf": "gbif",
-  "id": "momarktwain",
-  "radius": 3
- },
- {
-  "name": "Annie and Abel Van Meter State Park",
-  "short": "Van Meter",
-  "county": "Saline",
-  "acres": 1105,
-  "kind": "Grassland",
-  "seed": [
-   39.25,
-   -93.2
-  ],
-  "n": 600,
-  "lat": 39.25,
-  "lon": -93.2,
-  "shift_km": 6.2,
-  "conf": "seed",
-  "id": "movanmeter",
-  "radius": 3
- },
- {
-  "name": "Wakonda State Park",
-  "short": "Wakonda",
-  "county": "Lewis",
-  "acres": 1054,
-  "kind": "Lakes & wetlands",
-  "seed": [
-   40.133,
-   -91.517
-  ],
-  "n": 537,
-  "lat": 40.133,
-  "lon": -91.517,
-  "shift_km": 13.9,
-  "conf": "seed",
-  "id": "mowakonda",
-  "radius": 3
- },
- {
-  "name": "Wallace State Park",
-  "short": "Wallace",
-  "county": "Clinton",
-  "acres": 502,
-  "kind": "Forest",
-  "seed": [
-   39.867,
-   -94.483
-  ],
-  "n": 0,
-  "lat": 39.867,
-  "lon": -94.483,
-  "shift_km": 0,
-  "conf": "seed",
-  "id": "mowallace",
-  "radius": 3
- },
- {
-  "name": "Washington State Park",
-  "short": "Washington",
-  "county": "Washington",
-  "acres": 2148,
-  "kind": "Forest",
-  "seed": [
-   38.083,
-   -90.683
-  ],
-  "n": 562,
-  "lat": 38.0844,
-  "lon": -90.6883,
-  "shift_km": 0.5,
-  "conf": "gbif",
-  "id": "mowashington",
-  "radius": 3
- },
- {
-  "name": "Watkins Mill State Park",
-  "short": "Watkins Mill",
-  "county": "Clay",
-  "acres": 1500,
-  "kind": "Forest",
-  "seed": [
-   39.417,
-   -94.267
-  ],
-  "n": 588,
-  "lat": 39.3985,
-  "lon": -94.2597,
-  "shift_km": 2.1,
-  "conf": "gbif",
-  "id": "mowatkinsmill",
-  "radius": 3
- },
- {
-  "name": "Weston Bend State Park",
-  "short": "Weston Bend",
-  "county": "Platte",
-  "acres": 1133,
-  "kind": "Forest",
-  "seed": [
-   39.433,
-   -94.917
-  ],
-  "n": 599,
-  "lat": 39.433,
-  "lon": -94.917,
-  "shift_km": 5.9,
-  "conf": "seed",
-  "id": "mowestonbend",
-  "radius": 3
- }
+{
+"id": "momarktwain",
+"name": "Mark Twain National Forest",
+"short": "Mark Twain",
+"county": "",
+"acres": 1509045,
+"kind": "Forest",
+"lat": 37.6698,
+"lon": -91.0957,
+"radius": 12,
+"conf": "padus-main-part",
+"des": "NF",
+"mgr": "USFS",
+"bbox_km": [
+335,
+269
+]
+},
+{
+"id": "moozarknationalsce",
+"name": "Ozark National Scenic Riverways",
+"short": "Ozark National Sce",
+"county": "",
+"acres": 53180,
+"kind": "Lakes & wetlands",
+"lat": 36.9443,
+"lon": -90.9776,
+"radius": 3.3,
+"conf": "padus-main-part",
+"des": "WSR",
+"mgr": "NPS",
+"bbox_km": [
+72,
+71
+]
+},
+{
+"id": "momingo",
+"name": "Mingo National Wildlife Refuge",
+"short": "Mingo",
+"county": "",
+"acres": 43322,
+"kind": "Lakes & wetlands",
+"lat": 36.9941,
+"lon": -90.1824,
+"radius": 5.5,
+"conf": "padus",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+14,
+13
+]
+},
+{
+"id": "moswanlake",
+"name": "Swan Lake National Wildlife Refuge",
+"short": "Swan Lake",
+"county": "",
+"acres": 22068,
+"kind": "Lakes & wetlands",
+"lat": 39.6075,
+"lon": -93.1864,
+"radius": 3.7,
+"conf": "padus",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+9,
+9
+]
+},
+{
+"id": "mobigmuddynational",
+"name": "Big Muddy National Fish and Wildlife Refuge",
+"short": "Big Muddy National",
+"county": "",
+"acres": 21875,
+"kind": "Lakes & wetlands",
+"lat": 39.0814,
+"lon": -92.9278,
+"radius": 2,
+"conf": "padus-main-part",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+318,
+71
+]
+},
+{
+"id": "molakeoftheozarks",
+"name": "Lake of The Ozarks State Park",
+"short": "Lake of The Ozarks",
+"county": "",
+"acres": 21094,
+"kind": "Forest",
+"lat": 38.0983,
+"lon": -92.5976,
+"radius": 5.8,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+15,
+12
+]
+},
+{
+"id": "moloessbluffs",
+"name": "Loess Bluffs National Wildlife Refuge",
+"short": "Loess Bluffs",
+"county": "",
+"acres": 14870,
+"kind": "Lakes & wetlands",
+"lat": 40.0876,
+"lon": -95.251,
+"radius": 3.5,
+"conf": "padus",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+6,
+9
+]
+},
+{
+"id": "mojohnsonsshutins",
+"name": "Johnson's Shut-Ins State Park",
+"short": "Johnson's Shut-Ins",
+"county": "",
+"acres": 8304,
+"kind": "Forest",
+"lat": 37.5626,
+"lon": -90.8703,
+"radius": 3.6,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+8,
+9
+]
+},
+{
+"id": "mosaintjoe",
+"name": "Saint Joe State Park",
+"short": "Saint Joe",
+"county": "",
+"acres": 8297,
+"kind": "Forest",
+"lat": 37.8045,
+"lon": -90.5051,
+"radius": 3.7,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+7,
+9
+]
+},
+{
+"id": "moclarencecannon",
+"name": "Clarence Cannon National Wildlife Refuge",
+"short": "Clarence Cannon",
+"county": "",
+"acres": 7470,
+"kind": "Lakes & wetlands",
+"lat": 39.2682,
+"lon": -90.7884,
+"radius": 2.7,
+"conf": "padus",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+7,
+4
+]
+},
+{
+"id": "mohahatonka",
+"name": "Ha Ha Tonka State Park",
+"short": "Ha Ha Tonka",
+"county": "",
+"acres": 5570,
+"kind": "Forest",
+"lat": 37.971,
+"lon": -92.7697,
+"radius": 2.6,
+"conf": "padus",
+"des": "SP",
+"mgr": "OTHS",
+"bbox_km": [
+6,
+5
+]
+},
+{
+"id": "mogreatriver",
+"name": "Great River National Wildlife Refuge",
+"short": "Great River",
+"county": "",
+"acres": 5474,
+"kind": "Lakes & wetlands",
+"lat": 40.3178,
+"lon": -91.4856,
+"radius": 2.9,
+"conf": "padus-main-part",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+63,
+119
+]
+},
+{
+"id": "momeramec",
+"name": "Meramec State Park",
+"short": "Meramec",
+"county": "",
+"acres": 5282,
+"kind": "Forest",
+"lat": 38.2074,
+"lon": -91.097,
+"radius": 3.7,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+9
+]
+},
+{
+"id": "mopershing",
+"name": "Pershing State Park",
+"short": "Pershing",
+"county": "",
+"acres": 5033,
+"kind": "Forest",
+"lat": 39.7685,
+"lon": -93.2266,
+"radius": 4.4,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+11
+]
+},
+{
+"id": "mohawn",
+"name": "Hawn State Park",
+"short": "Hawn",
+"county": "",
+"acres": 4698,
+"kind": "Forest",
+"lat": 37.8202,
+"lon": -90.2406,
+"radius": 2.9,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+7,
+5
+]
+},
+{
+"id": "mocuivreriver",
+"name": "Cuivre River State Park",
+"short": "Cuivre River",
+"county": "",
+"acres": 4371,
+"kind": "Forest",
+"lat": 39.0357,
+"lon": -90.9345,
+"radius": 4.2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+5,
+10
+]
+},
+{
+"id": "mosamabaker",
+"name": "Sam A. Baker State Park",
+"short": "Sam A. Baker",
+"county": "",
+"acres": 4174,
+"kind": "Forest",
+"lat": 37.2574,
+"lon": -90.5233,
+"radius": 2.7,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+5,
+7
+]
+},
+{
+"id": "momiddlemississippi",
+"name": "Middle Mississippi River National Wildlife Refuge",
+"short": "Middle Mississippi",
+"county": "",
+"acres": 4052,
+"kind": "Lakes & wetlands",
+"lat": 38.1562,
+"lon": -90.2876,
+"radius": 2,
+"conf": "padus-main-part",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+63,
+50
+]
+},
+{
+"id": "moroaringriver",
+"name": "Roaring River State Park",
+"short": "Roaring River",
+"county": "",
+"acres": 3814,
+"kind": "Forest",
+"lat": 36.5852,
+"lon": -93.8314,
+"radius": 2.6,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+4
+]
+},
+{
+"id": "moknobnoster",
+"name": "Knob Noster State Park",
+"short": "Knob Noster",
+"county": "",
+"acres": 3618,
+"kind": "Forest",
+"lat": 38.7467,
+"lon": -93.5995,
+"radius": 2.4,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+4
+]
+},
+{
+"id": "mothousandhills",
+"name": "Thousand Hills State Park",
+"short": "Thousand Hills",
+"county": "",
+"acres": 3064,
+"kind": "Forest",
+"lat": 40.1758,
+"lon": -92.6387,
+"radius": 2.2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+6
+]
+},
+{
+"id": "moprairie",
+"name": "Prairie State Park",
+"short": "Prairie",
+"county": "",
+"acres": 3044,
+"kind": "Grassland",
+"lat": 37.5207,
+"lon": -94.5485,
+"radius": 2.9,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+7,
+3
+]
+},
+{
+"id": "motrailoftears",
+"name": "Trail of Tears State Park",
+"short": "Trail of Tears",
+"county": "",
+"acres": 3017,
+"kind": "Forest",
+"lat": 37.4577,
+"lon": -89.4817,
+"radius": 2.3,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+5
+]
+},
+{
+"id": "mosaintfrancois",
+"name": "Saint Francois State Park",
+"short": "Saint Francois",
+"county": "",
+"acres": 2530,
+"kind": "Forest",
+"lat": 37.9742,
+"lon": -90.5226,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+5
+]
+},
+{
+"id": "mobabler",
+"name": "Dr. Edmund A. Babler Memorial State Park",
+"short": "Babler",
+"county": "",
+"acres": 2292,
+"kind": "Forest",
+"lat": 38.6228,
+"lon": -90.6934,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+4
+]
+},
+{
+"id": "mobennettspring",
+"name": "Bennett Spring State Park",
+"short": "Bennett Spring",
+"county": "",
+"acres": 2262,
+"kind": "Forest",
+"lat": 37.7003,
+"lon": -92.8401,
+"radius": 2.5,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+6
+]
+},
+{
+"id": "motaumsaukmountain",
+"name": "Taum Sauk Mountain State Park",
+"short": "Taum Sauk Mountain",
+"county": "",
+"acres": 2125,
+"kind": "Forest",
+"lat": 37.5474,
+"lon": -90.772,
+"radius": 3.7,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+9,
+8
+]
+},
+{
+"id": "mostockton",
+"name": "Stockton State Park",
+"short": "Stockton",
+"county": "",
+"acres": 2078,
+"kind": "Forest",
+"lat": 37.6075,
+"lon": -93.7482,
+"radius": 2.5,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+6
+]
+},
+{
+"id": "morockbridgememori",
+"name": "Rock Bridge Memorial State Park",
+"short": "Rock Bridge Memori",
+"county": "",
+"acres": 2071,
+"kind": "Forest",
+"lat": 38.8709,
+"lon": -92.3186,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+5,
+3
+]
+},
+{
+"id": "mocrowder",
+"name": "Crowder State Park",
+"short": "Crowder",
+"county": "",
+"acres": 2051,
+"kind": "Forest",
+"lat": 40.1064,
+"lon": -93.6714,
+"radius": 2.1,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+5
+]
+},
+{
+"id": "molakewappappello",
+"name": "Lake Wappappello State Park",
+"short": "Lake Wappappello",
+"county": "",
+"acres": 1927,
+"kind": "Forest",
+"lat": 36.9476,
+"lon": -90.3324,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+5
+]
+},
+{
+"id": "mowashington",
+"name": "Washington State Park",
+"short": "Washington",
+"county": "",
+"acres": 1784,
+"kind": "Forest",
+"lat": 38.0823,
+"lon": -90.6878,
+"radius": 3.3,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+8,
+3
+]
+},
+{
+"id": "mocastlewood",
+"name": "Castlewood State Park",
+"short": "Castlewood",
+"county": "",
+"acres": 1668,
+"kind": "Forest",
+"lat": 38.5474,
+"lon": -90.5765,
+"radius": 3.4,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+8,
+3
+]
+},
+{
+"id": "molongbranch",
+"name": "Long Branch State Park",
+"short": "Long Branch",
+"county": "",
+"acres": 1584,
+"kind": "Forest",
+"lat": 39.787,
+"lon": -92.5169,
+"radius": 3.4,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+8
+]
+},
+{
+"id": "moharrystruman",
+"name": "Harry S Truman State Park",
+"short": "Harry S Truman",
+"county": "",
+"acres": 1416,
+"kind": "Forest",
+"lat": 38.2818,
+"lon": -93.4377,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+3
+]
+},
+{
+"id": "morobertsville",
+"name": "Robertsville State Park",
+"short": "Robertsville",
+"county": "",
+"acres": 1236,
+"kind": "Forest",
+"lat": 38.4272,
+"lon": -90.8141,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+2
+]
+},
+{
+"id": "moedwardtedandp",
+"name": "Edward \"ted\" and Pat Jones-confluence Point State Park",
+"short": "Edward \"ted\" and P",
+"county": "",
+"acres": 1117,
+"kind": "Forest",
+"lat": 38.8327,
+"lon": -90.1255,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+4
+]
+},
+{
+"id": "moonondagacave",
+"name": "Onondaga Cave State Park",
+"short": "Onondaga Cave",
+"county": "",
+"acres": 1109,
+"kind": "Forest",
+"lat": 38.0761,
+"lon": -91.1884,
+"radius": 4.2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+10,
+6
+]
+},
+{
+"id": "mofingerlakes",
+"name": "Finger Lakes State Park",
+"short": "Finger Lakes",
+"county": "",
+"acres": 1059,
+"kind": "Forest",
+"lat": 39.0909,
+"lon": -92.319,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+3
+]
+},
+{
+"id": "mowestonbend",
+"name": "Weston Bend State Park",
+"short": "Weston Bend",
+"county": "",
+"acres": 1048,
+"kind": "Forest",
+"lat": 39.3919,
+"lon": -94.8795,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+3
+]
+},
+{
+"id": "mowakonda",
+"name": "Wakonda State Park",
+"short": "Wakonda",
+"county": "",
+"acres": 1040,
+"kind": "Forest",
+"lat": 40.0074,
+"lon": -91.5115,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+3
+]
+},
+{
+"id": "movanmeter",
+"name": "Van Meter State Park",
+"short": "Van Meter",
+"county": "",
+"acres": 795,
+"kind": "Forest",
+"lat": 39.2739,
+"lon": -93.2612,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+4
+]
+},
+{
+"id": "mocurrentriver",
+"name": "Current River State Park",
+"short": "Current River",
+"county": "",
+"acres": 785,
+"kind": "Forest",
+"lat": 37.3244,
+"lon": -91.4322,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+2
+]
+},
+{
+"id": "mopommedeterre",
+"name": "Pomme de Terre State Park",
+"short": "Pomme de Terre",
+"county": "",
+"acres": 757,
+"kind": "Forest",
+"lat": 37.883,
+"lon": -93.3097,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+3
+]
+},
+{
+"id": "mobigsugarcreek",
+"name": "Big Sugar Creek State Park",
+"short": "Big Sugar Creek",
+"county": "",
+"acres": 510,
+"kind": "Forest",
+"lat": 36.6255,
+"lon": -94.2883,
+"radius": 2.2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+6,
+2
+]
+},
+{
+"id": "mowallace",
+"name": "Wallace State Park",
+"short": "Wallace",
+"county": "",
+"acres": 488,
+"kind": "Forest",
+"lat": 39.6563,
+"lon": -94.2178,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+1
+]
+},
+{
+"id": "moroute66",
+"name": "Route 66 State Park",
+"short": "Route 66",
+"county": "",
+"acres": 402,
+"kind": "Forest",
+"lat": 38.5091,
+"lon": -90.6012,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+2
+]
+},
+{
+"id": "mobiglake",
+"name": "Big Lake State Park",
+"short": "Big Lake",
+"county": "",
+"acres": 398,
+"kind": "Forest",
+"lat": 40.0838,
+"lon": -95.3572,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+3,
+2
+]
+},
+{
+"id": "motablerock",
+"name": "Table Rock State Park",
+"short": "Table Rock",
+"county": "",
+"acres": 390,
+"kind": "Forest",
+"lat": 36.5849,
+"lon": -93.3063,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+2
+]
+},
+{
+"id": "mograhamcave",
+"name": "Graham Cave State Park",
+"short": "Graham Cave",
+"county": "",
+"acres": 305,
+"kind": "Forest",
+"lat": 38.9066,
+"lon": -91.5782,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+1
+]
+},
+{
+"id": "mograndgulf",
+"name": "Grand Gulf State Park",
+"short": "Grand Gulf",
+"county": "",
+"acres": 263,
+"kind": "Forest",
+"lat": 36.5478,
+"lon": -91.6448,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+2
+]
+},
+{
+"id": "mogeorgewashington",
+"name": "George Washington Carver National Monument",
+"short": "George Washington ",
+"county": "",
+"acres": 241,
+"kind": "Grassland",
+"lat": 36.9866,
+"lon": -94.3555,
+"radius": 2,
+"conf": "padus",
+"des": "NM",
+"mgr": "NPS",
+"bbox_km": [
+1,
+1
+]
+},
+{
+"id": "molewisandclark",
+"name": "Lewis and Clark State Park",
+"short": "Lewis and Clark",
+"county": "",
+"acres": 206,
+"kind": "Forest",
+"lat": 39.5359,
+"lon": -95.056,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+2,
+3
+]
+},
+{
+"id": "mopilotknob",
+"name": "Pilot Knob National Wildlife Refuge",
+"short": "Pilot Knob",
+"county": "",
+"acres": 192,
+"kind": "Lakes & wetlands",
+"lat": 37.6177,
+"lon": -90.6243,
+"radius": 2,
+"conf": "padus",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+1,
+1
+]
+},
+{
+"id": "momorris",
+"name": "Morris State Park",
+"short": "Morris",
+"county": "",
+"acres": 161,
+"kind": "Forest",
+"lat": 36.5512,
+"lon": -90.041,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+1,
+2
+]
+},
+{
+"id": "mobigoaktree",
+"name": "Big Oak Tree State Park",
+"short": "Big Oak Tree",
+"county": "",
+"acres": 142,
+"kind": "Forest",
+"lat": 36.6487,
+"lon": -89.2951,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+4,
+3
+]
+},
+{
+"id": "moelephantrocks",
+"name": "Elephant Rocks State Park",
+"short": "Elephant Rocks",
+"county": "",
+"acres": 128,
+"kind": "Forest",
+"lat": 37.6547,
+"lon": -90.6891,
+"radius": 2,
+"conf": "padus",
+"des": "SP",
+"mgr": "UNK",
+"bbox_km": [
+1,
+1
+]
+},
+{
+"id": "mogatewayarch",
+"name": "Gateway Arch National Park",
+"short": "Gateway Arch",
+"county": "",
+"acres": 85,
+"kind": "Urban",
+"lat": 38.6243,
+"lon": -90.1862,
+"radius": 2,
+"conf": "padus",
+"des": "NP",
+"mgr": "NPS",
+"bbox_km": [
+1,
+1
+]
+},
+{
+"id": "moozarkcavefish",
+"name": "Ozark Cavefish National Wildlife Refuge",
+"short": "Ozark Cavefish",
+"county": "",
+"acres": 82,
+"kind": "Lakes & wetlands",
+"lat": 37.1998,
+"lon": -93.6953,
+"radius": 2,
+"conf": "padus-main-part",
+"des": "NWR",
+"mgr": "FWS",
+"bbox_km": [
+59,
+38
+]
+}
 ]
