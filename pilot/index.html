@@ -754,12 +754,17 @@ rect.core { stroke-dasharray: 3 2.5; }
 .zoomc #locbtn[aria-pressed="true"] { background: var(--accent); color: #fff; }
 .panel .autotag { display: inline-block; margin: 10px 0 0; padding: 3px 10px; border-radius: 999px; font: 500 11.5px var(--font-mono); letter-spacing: .02em; color: var(--muted); border: 1px dashed var(--line); }
 
-.hook { margin: 2px 0 12px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.hook { margin: 0 0 8px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
 .filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
 .filters .kinds .chip { transition: opacity .25s ease, background-color .15s; }
 .filters .kinds .chip.dim { opacity: .4; }
+@media (max-width: 700px) {
+  .sheet.s-min:has(#hook:not([hidden])) { height: auto; }
+  .hook { white-space: nowrap; font-size: 14px; }
+  .hook b { font-size: 17px; }
+}
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -794,7 +799,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left, and, on Streets or Light, use Shading to add habitat colours. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
-    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div></div><div class="sbody" id="sbody"><p class="hook" id="hook" hidden></p><div class="regions" id="regions"></div>
+    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
     <p class="fine" id="empty" hidden>No ecosystems here yet. Shaded regions on the map have food webs.</p>
     <ul class="cards" id="cards"></ul>
     <div id="xwrap">

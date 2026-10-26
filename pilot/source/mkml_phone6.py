@@ -64,12 +64,12 @@ rep6('list.length + (list.length === 1 ? " ecosystem" : " ecosystems") + " in " 
 rep6('list.length + (list.length === 1 ? " ecosystem matches " : " ecosystems match ")', 'list.length + (list.length === 1 ? " place matches " : " places match ")')
 
 # show the hook where people will see it: first line of the home sheet / panel
-rep6('<div class="sbody" id="sbody">', '<div class="sbody" id="sbody"><p class="hook" id="hook" hidden></p>')
+rep6('<div class="srow" id="srow"></div></div><div class="sbody" id="sbody">', '<div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p></div><div class="sbody" id="sbody">')
 rep6('    var sr = document.getElementById("srow");', '''    var hk = document.getElementById("hook");
     if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = heroStats().replace(/([\\d,]+) (places|species|links)\\./g, "<b>$1</b> $2."); } }
     var sr = document.getElementById("srow");''')
 css2 = """
-.hook { margin: 2px 0 12px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.hook { margin: 0 0 8px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 """
 rep6(".me { width: 16px;", css2 + ".me { width: 16px;")
@@ -120,4 +120,12 @@ rep6('.join("");\n  }\n  function tiesHTML(', '.join(""); dimChips();\n  }\n  fu
 rep6('m.on("zoomend", function () {', 'var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });\n    m.on("zoomend", function () {')
 rep6(".me { width: 16px;", """.filters .kinds .chip { transition: opacity .25s ease, background-color .15s; }
 .filters .kinds .chip.dim { opacity: .4; }
+.me { width: 16px;""")
+
+# phone: the collapsed bottom sheet is tall enough to show the hook line on the home screen
+rep6(".me { width: 16px;", """@media (max-width: 700px) {
+  .sheet.s-min:has(#hook:not([hidden])) { height: auto; }
+  .hook { white-space: nowrap; font-size: 14px; }
+  .hook b { font-size: 17px; }
+}
 .me { width: 16px;""")
