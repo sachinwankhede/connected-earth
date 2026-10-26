@@ -2238,5 +2238,53 @@
 "lu": "https://creativecommons.org/licenses/by/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Mead_Run3.JPG",
 "w": "https://en.wikipedia.org/wiki/Allegheny_National_Forest"
+},
+"Narragansett Bay": {
+"f": "xusri.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:RIBay.JPG",
+"w": "https://en.wikipedia.org/wiki/Narragansett_Bay"
+},
+"Green Mountain National Forest": {
+"f": "xusvt.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Hapgood_Pond_-_Flickr_-_USDAgov.jpg",
+"w": "https://en.wikipedia.org/wiki/Green_Mountain_National_Forest"
+},
+"Nuratau Mountains": {
+"f": "xuzb.jpg",
+"a": "Clemens Schmillen",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sentob_valley.jpg",
+"w": "https://en.wikipedia.org/wiki/Nuratau_Mountains"
+},
+"Espiritu Santo": {
+"f": "xvanuatu.jpg",
+"a": "United States Bureau of Yards and Docks",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Map_of_Espiritu_Santo.jpg",
+"w": "https://en.wikipedia.org/wiki/Espiritu_Santo"
+},
+"South Luangwa National Park": {
+"f": "xzambia.jpg",
+"a": "Geoff Gallice",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Luangwa_River_crossing.jpg",
+"w": "https://en.wikipedia.org/wiki/South_Luangwa_National_Park"
+},
+"Yellowstone National Park": {
+"f": "yellowstone.jpg",
+"a": "Rhododendrites",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Grand_Canyon_of_the_Yellowstone_Lower_Falls_%2895819p%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Yellowstone_National_Park"
 }
 }
