@@ -751,6 +751,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .keyrow { display: flex; align-items: center; gap: 10px; min-height: 30px; font: 500 13px var(--font-body); color: var(--ink); }
 .keyrow svg { flex: none; }
 
+.mapctl #locbtn { grid-auto-flow: column; justify-content: center; align-items: center; column-gap: 6px; }
+.mapctl #locbtn svg { margin: 0 !important; }
 .panel .autotag { display: inline-block; margin: 10px 0 0; padding: 3px 10px; border-radius: 999px; font: 500 11.5px var(--font-mono); letter-spacing: .02em; color: var(--muted); border: 1px dashed var(--line); }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
@@ -782,7 +784,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   <section class="mapview" id="mapview" aria-label="Choose an ecosystem">
     <nav class="crumbs" id="crumbs" aria-label="Map region"></nav>
-    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="mapctl mapctl2"><button type="button" id="shadebtn" aria-pressed="false">Shading: Off</button></div><div class="shkey" id="shkey" aria-hidden="true"><b>Ecosystems per country</b> <span>fewer</span><i style="background:var(--sh1)"></i><i style="background:var(--sh2)"></i><i style="background:var(--sh3)"></i><i style="background:var(--sh4)"></i><i style="background:var(--sh5)"></i><span>more</span></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
+    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="locbtn" aria-pressed="false" style="display:none"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="margin-right:6px"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg>Local parks</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="mapctl mapctl2"><button type="button" id="shadebtn" aria-pressed="false">Shading: Off</button></div><div class="shkey" id="shkey" aria-hidden="true"><b>Ecosystems per country</b> <span>fewer</span><i style="background:var(--sh1)"></i><i style="background:var(--sh2)"></i><i style="background:var(--sh3)"></i><i style="background:var(--sh4)"></i><i style="background:var(--sh5)"></i><span>more</span></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left, and, on Streets or Light, use Shading to add habitat colours. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
@@ -1748,10 +1750,11 @@ return maplibregl$1;
   function kindsHTML() {
     var ks = Object.keys(KC);
     var np = ECOS.filter(function (e) { return e.park && (FL.local || e.level !== "local"); }).length;
-    var nl = ECOS.filter(function (e) { return e.level === "local"; }).length;
-    document.getElementById("kinds").innerHTML = (nl ? '<button type="button" class="chip' + (FL.local ? " on" : "") + '" data-local="1" aria-pressed="' + FL.local + '">Local parks <b>' + nl + "</b></button>" : "") + (np ? '<button type="button" class="chip' + (FL.park ? " on" : "") + '" data-park="1" aria-pressed="' + FL.park + '">Protected areas <b>' + np + "</b></button>" : "") + ks.map(function (k) {
+    var nl = ECOS.filter(function (e) { return e.level === "local"; }).length, lb = document.getElementById("locbtn");
+    if (lb) { lb.style.display = nl ? "" : "none"; lb.setAttribute("aria-pressed", FL.local ? "true" : "false"); }
+    document.getElementById("kinds").innerHTML = (np ? '<button type="button" class="chip' + (FL.park ? " on" : "") + '" data-park="1" aria-pressed="' + FL.park + '">Protected areas <b>' + np + "</b></button>" : "") + ks.map(function (k) {
       var n = ECOS.filter(function (e) { return e.kind === k && (FL.local || e.level !== "local"); }).length;
-      return n ? '<button type="button" class="chip' + (FL.kind === k ? " on" : "") + '" data-kind="' + k + '" aria-pressed="' + (FL.kind === k) + '"><i class="kd" style="--kc:' + KC[k] + '"></i>' + k + " <b>" + n + "</b></button>" : "";
+      return n && !(k === "Urban" && n < 5) ? '<button type="button" class="chip' + (FL.kind === k ? " on" : "") + '" data-kind="' + k + '" aria-pressed="' + (FL.kind === k) + '"><i class="kd" style="--kc:' + KC[k] + '"></i>' + k + " <b>" + n + "</b></button>" : "";
     }).join("");
   }
   function tiesHTML(id) {
@@ -1821,7 +1824,7 @@ return maplibregl$1;
   if (["off", "habitat"].indexOf(M.shade) < 0) M.shade = "off";
   function stubStyle() { return { version: 8, name: "plain", sources: {}, glyphs: GLYPHS, layers: [{ id: "bg", type: "background", paint: { "background-color": cssv("--sea-a", "#cfe6f4") } }] }; }
   function pt(e, extra) { var p = { id: e.id, short: e.short, kc: KC[e.kind] || "#888", lk: LK[e.id] ? 1 : 0 }; for (var k in extra) p[k] = extra[k]; return { type: "Feature", properties: p, geometry: { type: "Point", coordinates: [e.lon, e.lat] } }; }
-  function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
+  function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
   function gbox(g) {
     var b = [Infinity, Infinity, -Infinity, -Infinity];
     (function w(a) { if (typeof a[0] === "number") { b[0] = Math.min(b[0], a[0]); b[1] = Math.min(b[1], a[1]); b[2] = Math.max(b[2], a[0]); b[3] = Math.max(b[3], a[1]); } else a.forEach(w); })(g.coordinates);
@@ -2089,7 +2092,7 @@ return maplibregl$1;
     ECOS.forEach(function (e) { e.li.classList.remove("pg"); if (e.li.hidden) return; shown++; if (pm && shown > M.pageN) { e.li.classList.add("pg"); left++; } });
     var mo = document.getElementById("morecards"); if (!mo) { mo = document.createElement("li"); mo.id = "morecards"; mo.className = "morerow"; document.getElementById("cards").appendChild(mo); }
     mo.hidden = !(pm && left > 0); mo.innerHTML = '<button type="button" class="btn" id="more">Show more (' + left + ' left)</button>';
-    var fb = document.getElementById("fbtn"); if (fb) fb.classList.toggle("on", !!(FL.kind || FL.park || FL.local));
+    var fb = document.getElementById("fbtn"); if (fb) fb.classList.toggle("on", !!(FL.kind || FL.park));
     document.getElementById("xwrap").hidden = !CROSS.some(function (c) { return c.li && !c.li.hidden; });
     document.getElementById("empty").hidden = list.length > 0;
     document.getElementById("crumbs").innerHTML = crumbHTML();
@@ -2236,7 +2239,7 @@ return maplibregl$1;
       var fb = ev.target.closest("#fbtn"); if (fb) { var o = this.classList.toggle("fopen"); fb.setAttribute("aria-expanded", o); return; }
       var sb = ev.target.closest(".sbk"); if (sb) { go(sb.getAttribute("data-go"), sb.getAttribute("data-a")); return; }
       var lb = ev.target.closest("#lyrbtn"); if (lb) { var mbx = document.querySelector(".mapbox"), lo = mbx.classList.toggle("lopen"); lb.setAttribute("aria-expanded", lo); return; }
-      if (ev.target.closest("#mapctl [data-mode], #tilt")) document.querySelector(".mapbox").classList.remove("lopen");
+      if (ev.target.closest("#mapctl [data-mode], #tilt, #locbtn")) document.querySelector(".mapbox").classList.remove("lopen");
       var hb = ev.target.closest("#hbtn"); if (hb) { var o2 = this.classList.toggle("hopen"); hb.setAttribute("aria-expanded", o2); }
     });
     (function () {
@@ -2276,7 +2279,7 @@ return maplibregl$1;
     document.getElementById("zhome").addEventListener("click", function () { view.focus = null; M.tieId = null; document.getElementById("peek").hidden = true; spanHi(null); go("world"); });
     document.getElementById("mapctl").addEventListener("click", function (ev) {
       var b = ev.target.closest("button"); if (!b) return;
-      if (b.id === "tilt") setTilt(!M.tilt); else if (b.getAttribute("data-mode") !== M.mode) setMode(b.getAttribute("data-mode"));
+      if (b.id === "tilt") setTilt(!M.tilt); else if (b.id === "locbtn") { FL.local = !FL.local; view.focus = null; renderView(true); } else if (b.hasAttribute("data-mode") && b.getAttribute("data-mode") !== M.mode) setMode(b.getAttribute("data-mode"));
     });
     if (window.matchMedia) { var mq = matchMedia("(prefers-color-scheme: dark)"); (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(function () { setTimeout(function () { setMode(M.mode); }, 60); }); }
     setTimeout(function () { var tp = document.getElementById("ztip"); if (tp) tp.classList.add("gone"); }, 6000);
@@ -2313,8 +2316,6 @@ return maplibregl$1;
     document.getElementById("crumbs").addEventListener("click", nav);
     document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); view.focus = null; document.getElementById("peek").hidden = true; M.tieId = null; renderView(FL.q.length >= 3); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
-      var lc = ev.target.closest("[data-local]");
-      if (lc) { FL.local = !FL.local; view.focus = null; renderView(true); return; }
       var pk = ev.target.closest("[data-park]");
       if (pk) { FL.park = !FL.park; view.focus = null; renderView(true); return; }
       var b = ev.target.closest("[data-kind]"); if (!b) return;
