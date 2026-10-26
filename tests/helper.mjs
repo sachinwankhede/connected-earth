@@ -10,6 +10,8 @@ export const MAIN = path.join(ROOT, 'index.html');
 export const PILOT = path.join(ROOT, 'pilot', 'index.html');
 export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 1280, height: 800 } };
 
+// Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
+export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
 export function readPlaces(pilot) {
   const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && f !== 'links.json' && f !== 'order.json')
     .map((f) => JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8')));

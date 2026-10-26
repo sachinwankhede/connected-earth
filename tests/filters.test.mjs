@@ -6,7 +6,7 @@ describe('habitat chips', () => {
   let browser;
   before(async () => { browser = await H.launch(); });
   after(async () => { await browser.close(); });
-  const places = H.readPlaces(false);
+  const places = H.atWorld(H.readPlaces(false));
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: five short chips, no counts, no "Protected areas"`, async () => {

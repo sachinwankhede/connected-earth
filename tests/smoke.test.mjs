@@ -13,7 +13,7 @@ describe('smoke: every build loads cleanly on phone and desktop', () => {
         const t = await H.open(browser, file, size);
         assert.deepEqual(t.errors, []);
         const places = H.readPlaces(pilot);
-        const visible = pilot ? places.filter((e) => e.level !== 'local') : places;
+        const visible = places.filter((e) => e.level !== 'local');
         assert.equal(await H.hookText(t.page), H.expectedHook(visible));
         // phone: the line must be visible without opening the sheet
         const inView = await t.page.evaluate(() => { const r = document.getElementById('hook').getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight; });
@@ -23,10 +23,11 @@ describe('smoke: every build loads cleanly on phone and desktop', () => {
     }
   }
 
-  test('main app has no local-parks button and no auto-generated places', async () => {
+  test('main app: local-parks button shows when local parks exist; national auto places wait for zoom', async () => {
     const t = await H.open(browser, H.MAIN, H.SIZES.phone);
-    assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('locbtn')).display), 'none');
-    assert.equal(await t.page.evaluate(() => window.__M.map.getSource('atl-e')._data.features.length), H.readPlaces(false).length);
+    const places = H.readPlaces(false), hasLocal = places.some((e) => e.level === 'local');
+    assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('locbtn')).display) !== 'none', hasLocal);
+    assert.equal(await t.page.evaluate(() => window.__M.map.getSource('atl-e')._data.features.length), H.atWorld(places).length);
     await t.close();
   });
 });
