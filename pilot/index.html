@@ -1821,7 +1821,7 @@ return maplibregl$1;
   if (["off", "habitat"].indexOf(M.shade) < 0) M.shade = "off";
   function stubStyle() { return { version: 8, name: "plain", sources: {}, glyphs: GLYPHS, layers: [{ id: "bg", type: "background", paint: { "background-color": cssv("--sea-a", "#cfe6f4") } }] }; }
   function pt(e, extra) { var p = { id: e.id, short: e.short, kc: KC[e.kind] || "#888", lk: LK[e.id] ? 1 : 0 }; for (var k in extra) p[k] = extra[k]; return { type: "Feature", properties: p, geometry: { type: "Point", coordinates: [e.lon, e.lat] } }; }
-  function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(inRegion).map(function (e) { return pt(e); }) }; }
+  function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
   function gbox(g) {
     var b = [Infinity, Infinity, -Infinity, -Infinity];
     (function w(a) { if (typeof a[0] === "number") { b[0] = Math.min(b[0], a[0]); b[1] = Math.min(b[1], a[1]); b[2] = Math.max(b[2], a[0]); b[3] = Math.max(b[3], a[1]); } else a.forEach(w); })(g.coordinates);
@@ -1883,6 +1883,7 @@ return maplibregl$1;
     /* dots and their text use two sources, so a failed font download can never hide the dots */
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
+    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });
     ["atl-t", "atl-tie", "atl-arc", "atl-al"].forEach(function (id) { m.addSource(id, { type: "geojson", data: EMPTY }); });
     m.addSource("atl-src", { type: "geojson", data: { type: "FeatureCollection", features: Object.keys(SRC).map(function (k) { return { type: "Feature", properties: { name: SRC[k].name }, geometry: { type: "Point", coordinates: [SRC[k].lon, SRC[k].lat] } }; }) } });
     if (M.mode === "terrain" || M.tilt) {

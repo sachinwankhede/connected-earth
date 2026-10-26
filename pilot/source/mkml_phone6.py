@@ -25,3 +25,6 @@ rep6(".me { width: 16px;", css + ".me { width: 16px;")
 rep6('var np = ECOS.filter(function (e) { return e.park; }).length;', 'var np = ECOS.filter(function (e) { return e.park && (FL.local || e.level !== "local"); }).length;')
 rep6('var n = ECOS.filter(function (e) { return e.kind === k; }).length;', 'var n = ECOS.filter(function (e) { return e.kind === k && (FL.local || e.level !== "local"); }).length;')
 rep6('? ECOS.length + " ecosystems"', '? ECOS.filter(function (e) { return FL.local || e.level !== "local"; }).length + " ecosystems"')
+# auto-generated places appear once the map is zoomed in (or searched / a region is chosen), so the world view stays readable
+rep6('features: ECOS.filter(inRegion).map(function (e) { return pt(e); }) }; }', 'features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }')
+rep6('m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });', 'm.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });\n    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });')
