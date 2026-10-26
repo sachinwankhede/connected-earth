@@ -78,5 +78,517 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Gulf_Islands_NS.jpg",
 "w": "https://en.wikipedia.org/wiki/Gulf_Islands_National_Seashore"
+},
+"Sagarmatha National Park": {
+"f": "himalaya.jpg",
+"a": "Vyacheslav Argenberg",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Valley%2C_Tengboche%2C_Mountains_of_Nepal.jpg",
+"w": "https://en.wikipedia.org/wiki/Sagarmatha_National_Park"
+},
+"Adansonia grandidieri": {
+"f": "madagascar.jpg",
+"a": "Bernard Gagnon",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Adansonia_grandidieri04.jpg",
+"w": "https://en.wikipedia.org/wiki/Adansonia_grandidieri"
+},
+"Upper Mississippi River National Wildlife and Fish Refuge": {
+"f": "mississippi.jpg",
+"a": "Royalbroil",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:UpperMississippiRiverNationalWildlifeFishRefugePanorama.jpg",
+"w": "https://en.wikipedia.org/wiki/Upper_Mississippi_River_National_Wildlife_and_Fish_Refuge"
+},
+"Namib": {
+"f": "namib.jpg",
+"a": "Jeff Schmaltz, MODIS Land Rapid Response Team, NASA GSFC",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Namib_desert_MODIS.jpg",
+"w": "https://en.wikipedia.org/wiki/Namib"
+},
+"Acadia National Park": {
+"f": "npacadia.jpg",
+"a": "Plh1234us",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Acadia_National_Park_02.JPG",
+"w": "https://en.wikipedia.org/wiki/Acadia_National_Park"
+},
+"National Park of American Samoa": {
+"f": "npamericansamoa.jpg",
+"a": "Tavita Togia, National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pola_Islands_Tutuila_NPS.jpg",
+"w": "https://en.wikipedia.org/wiki/National_Park_of_American_Samoa"
+},
+"Arches National Park": {
+"f": "nparches.jpg",
+"a": "Palacemusic",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Delicate_arch_sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Arches_National_Park"
+},
+"Badlands National Park": {
+"f": "npbadlands.jpg",
+"a": "Martin Kraft",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:MK00609_Badlands.jpg",
+"w": "https://en.wikipedia.org/wiki/Badlands_National_Park"
+},
+"Big Bend National Park": {
+"f": "npbigbend.jpg",
+"a": "Michael from Minnesota (@Michael)",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Canyon%2C_Rio_Grande%2C_Texas.jpeg",
+"w": "https://en.wikipedia.org/wiki/Big_Bend_National_Park"
+},
+"Biscayne National Park": {
+"f": "npbiscayne.jpg",
+"a": "Catholic 85 at English Wikipedia",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Biscayne.JPG",
+"w": "https://en.wikipedia.org/wiki/Biscayne_National_Park"
+},
+"Black Canyon of the Gunnison National Park": {
+"f": "npblackcanyon.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Black_Canyon_and_Gunnison_River_2008.jpg",
+"w": "https://en.wikipedia.org/wiki/Black_Canyon_of_the_Gunnison_National_Park"
+},
+"Bryce Canyon National Park": {
+"f": "npbryce.jpg",
+"a": "King of Hearts",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Inspiration_Point_Bryce_Canyon_November_2018_panorama.jpg",
+"w": "https://en.wikipedia.org/wiki/Bryce_Canyon_National_Park"
+},
+"Canyonlands National Park": {
+"f": "npcanyonlands.jpg",
+"a": "au_ears",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Green_River_Overlook_Ekker_Butte.jpg",
+"w": "https://en.wikipedia.org/wiki/Canyonlands_National_Park"
+},
+"Capitol Reef National Park": {
+"f": "npcapitolreef.jpg",
+"a": "Wolfgang Staudt",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Capitol_Reef_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Capitol_Reef_National_Park"
+},
+"Carlsbad Caverns National Park": {
+"f": "npcarlsbad.jpg",
+"a": "Eric Guinther, User:Marshman",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Carlsbad_Interior_Formations.jpg",
+"w": "https://en.wikipedia.org/wiki/Carlsbad_Caverns_National_Park"
+},
+"Channel Islands National Park": {
+"f": "npchannelislands.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Channel_Islands_National_Park_by_Sentinel-2.jpg",
+"w": "https://en.wikipedia.org/wiki/Channel_Islands_National_Park"
+},
+"Congaree National Park": {
+"f": "npcongaree.jpg",
+"a": "Brian W. Schaller",
+"l": "FAL",
+"lu": "http://artlibre.org/licence/lal/en",
+"p": "https://commons.wikimedia.org/wiki/File:A548%2C_Congaree_National_Park%2C_South_Carolina%2C_USA%2C_2012.jpg",
+"w": "https://en.wikipedia.org/wiki/Congaree_National_Park"
+},
+"Crater Lake": {
+"f": "npcraterlake.jpg",
+"a": "John Manard",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Crater_Lake_National_Park_%282023%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Crater_Lake"
+},
+"Cuyahoga Valley National Park": {
+"f": "npcuyahoga.jpg",
+"a": "Niagara66",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cuyahoga_Valley_National_Park_20.jpg",
+"w": "https://en.wikipedia.org/wiki/Cuyahoga_Valley_National_Park"
+},
+"Death Valley National Park": {
+"f": "npdeathvalley.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mesquite_Sand_Dunes_in_Death_Valley.jpg",
+"w": "https://en.wikipedia.org/wiki/Death_Valley_National_Park"
+},
+"Denali National Park and Preserve": {
+"f": "npdenali.jpg",
+"a": "Denali National Park and Preserve",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Every_Road-_Denali_%287945497984%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Denali_National_Park_and_Preserve"
+},
+"Dry Tortugas National Park": {
+"f": "npdrytortugas.jpg",
+"a": "U.S. National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Fort-Jefferson_Dry-Tortugas.jpg",
+"w": "https://en.wikipedia.org/wiki/Dry_Tortugas_National_Park"
+},
+"Gates of the Arctic National Park and Preserve": {
+"f": "npgatesarctic.jpg",
+"a": "Sean Tevebaugh, National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Remote_river_in_Gates_of_the_Arctic_%2816524035298%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Gates_of_the_Arctic_National_Park_and_Preserve"
+},
+"Glacier National Park (U.S.)": {
+"f": "npglacier.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg",
+"w": "https://en.wikipedia.org/wiki/Glacier_National_Park_%28U.S.%29"
+},
+"Glacier Bay National Park and Preserve": {
+"f": "npglacierbay.jpg",
+"a": "Brian W. Schaller",
+"l": "FAL",
+"lu": "http://artlibre.org/licence/lal/en",
+"p": "https://commons.wikimedia.org/wiki/File:A045%2C_Glacier_Bay_National_Park%2C_Alaska%2C_USA%2C_Johns_Hopkins_Glacier%2C_2002.jpg",
+"w": "https://en.wikipedia.org/wiki/Glacier_Bay_National_Park_and_Preserve"
+},
+"Grand Canyon National Park": {
+"f": "npgrandcanyon.jpg",
+"a": "Murray Foubister",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Dawn_on_the_S_rim_of_the_Grand_Canyon_%288645178272%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Grand_Canyon_National_Park"
+},
+"Grand Teton National Park": {
+"f": "npgrandteton.jpg",
+"a": "Jon Sullivan, PD Photo.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Barns_grand_tetons.jpg",
+"w": "https://en.wikipedia.org/wiki/Grand_Teton_National_Park"
+},
+"Great Basin National Park": {
+"f": "npgreatbasin.jpg",
+"a": "James R Bouldin (talk · contribs)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Prometheus_Wheeler.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Basin_National_Park"
+},
+"Great Sand Dunes National Park and Preserve": {
+"f": "npgreatsanddunes.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Great_Sand_Dunes_National_Park_and_Preserve%2C_United_States_%28Unsplash%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Sand_Dunes_National_Park_and_Preserve"
+},
+"Guadalupe Mountains National Park": {
+"f": "npguadalupe.jpg",
+"a": "CarlCarlsonIV",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Guadalupe_Peak_from_Hunter_Peak.jpg",
+"w": "https://en.wikipedia.org/wiki/Guadalupe_Mountains_National_Park"
+},
+"Haleakalā National Park": {
+"f": "nphaleakala.jpg",
+"a": "Niagara66",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Haleakala_National_Park_02.jpg",
+"w": "https://en.wikipedia.org/wiki/Haleakal%C4%81_National_Park"
+},
+"Hawaii Volcanoes National Park": {
+"f": "nphawaiivolcanoes.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:P%C4%81hoehoe_and_Aa_flows_at_Hawaii.jpg",
+"w": "https://en.wikipedia.org/wiki/Hawai%CA%BBi_Volcanoes_National_Park"
+},
+"Hot Springs National Park": {
+"f": "nphotsprings.jpg",
+"a": "TripOfALifestyle.com",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Steamy_Entrance_Springs_on_Cold_Night_in_Hot_Springs_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Hot_Springs_National_Park"
+},
+"Indiana Dunes National Park": {
+"f": "npindianadunes.jpg",
+"a": "Diego Delso",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Indiana_Dunes_National_Lakeshore%2C_Michigan_City%2C_Indiana%2C_Estados_Unidos%2C_2012-10-20%2C_DD_03.jpg",
+"w": "https://en.wikipedia.org/wiki/Indiana_Dunes_National_Park"
+},
+"Isle Royale National Park": {
+"f": "npisleroyale.jpg",
+"a": "William Wadas",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Edisen_Fishery_at_IRNP.jpg",
+"w": "https://en.wikipedia.org/wiki/Isle_Royale_National_Park"
+},
+"Joshua Tree National Park": {
+"f": "npjoshuatree.jpg",
+"a": "Jarek Tuszyński",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Joshua_Tree_-_Cyclops_%2B_Potato_Head_-_Sunrise.jpg",
+"w": "https://en.wikipedia.org/wiki/Joshua_Tree_National_Park"
+},
+"Katmai National Park and Preserve": {
+"f": "npkatmai.jpg",
+"a": "Captain Budd Christman, NOAA Corps",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Katmai_Crater_1980.jpg",
+"w": "https://en.wikipedia.org/wiki/Katmai_National_Park_and_Preserve"
+},
+"Kenai Fjords National Park": {
+"f": "npkenaifjords.jpg",
+"a": "NPS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Kenai_Fjords_coast.jpg",
+"w": "https://en.wikipedia.org/wiki/Kenai_Fjords_National_Park"
+},
+"Kings Canyon National Park": {
+"f": "npkingscanyon.jpg",
+"a": "Crd637",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:KingsCanyonNP.JPG",
+"w": "https://en.wikipedia.org/wiki/Kings_Canyon_National_Park"
+},
+"Kobuk Valley National Park": {
+"f": "npkobukvalley.jpg",
+"a": "16Terezka",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kobuk_Bendlova_235.jpg",
+"w": "https://en.wikipedia.org/wiki/Kobuk_Valley_National_Park"
+},
+"Lake Clark National Park and Preserve": {
+"f": "nplakeclark.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Clark_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Clark_National_Park_and_Preserve"
+},
+"Lassen Volcanic National Park": {
+"f": "nplassen.jpg",
+"a": "NPS Photo",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lassen_Peak_and_Lake_Helen.jpg",
+"w": "https://en.wikipedia.org/wiki/Lassen_Volcanic_National_Park"
+},
+"Mammoth Cave National Park": {
+"f": "npmammothcave.jpg",
+"a": "Willis Thomas Lee",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Rotunda_%28USGS_Lwt02830%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park"
+},
+"Mesa Verde National Park": {
+"f": "npmesaverde.jpg",
+"a": "Tobi 87",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cliff_Palace-Colorado-Mesa_Verde_NP.jpg",
+"w": "https://en.wikipedia.org/wiki/Mesa_Verde_National_Park"
+},
+"Mount Rainier National Park": {
+"f": "npmountrainier.jpg",
+"a": "Samuel Kerr",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mount_Rainier_from_above_Myrtle_Falls_in_August.JPG",
+"w": "https://en.wikipedia.org/wiki/Mount_Rainier_National_Park"
+},
+"New River Gorge National Park and Preserve": {
+"f": "npnewrivergorge.jpg",
+"a": "Aparkswv",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Grandview_Overlook%2C_New_River.jpg",
+"w": "https://en.wikipedia.org/wiki/New_River_Gorge_National_Park_and_Preserve"
+},
+"North Cascades National Park": {
+"f": "npnorthcascades.jpg",
+"a": "National Park Service/Deby Dixon",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Cascade_Pass_and_Pelton_Basin.jpg",
+"w": "https://en.wikipedia.org/wiki/North_Cascades_National_Park"
+},
+"Petrified Forest National Park": {
+"f": "nppetrifiedforest.jpg",
+"a": "Jeffhollett",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Jasper_Forest_at_Petrified_Forest_NP_in_AZ_12.jpg",
+"w": "https://en.wikipedia.org/wiki/Petrified_Forest_National_Park"
+},
+"Pinnacles National Park": {
+"f": "nppinnacles.jpg",
+"a": "Brocken Inaglory",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rock_formations_at_Pinnacles_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Pinnacles_National_Park"
+},
+"Redwood National and State Parks": {
+"f": "npredwood.jpg",
+"a": "Michael Schweppe",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Redwood_National_Park%2C_fog_in_the_forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Redwood_National_and_State_Parks"
+},
+"Rocky Mountain National Park": {
+"f": "nprockymountain.jpg",
+"a": "Daniel Mayer (Mav)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rocky_Mountain_National_Park_in_September_2011_-_Glacier_Gorge_from_Bear_Lake.JPG",
+"w": "https://en.wikipedia.org/wiki/Rocky_Mountain_National_Park"
+},
+"Saguaro National Park": {
+"f": "npsaguaro.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Saguaro_Sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Saguaro_National_Park"
+},
+"Sequoia National Park": {
+"f": "npsequoia.jpg",
+"a": "Marty Aligata",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:General_Sherman_Tree_in_Sequoia_National_Park_-_June_2022.jpg",
+"w": "https://en.wikipedia.org/wiki/Sequoia_National_Park"
+},
+"Shenandoah National Park": {
+"f": "npshenandoah.jpg",
+"a": "Shenandoah National Park from Virginia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Skyline_Drive_in_the_Fall_%2821852619608%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Shenandoah_National_Park"
+},
+"Theodore Roosevelt National Park": {
+"f": "nptheodoreroosevelt.jpg",
+"a": "NPS/Mark Hoffman",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:View_of_Theodore_Roosevelt_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Theodore_Roosevelt_National_Park"
+},
+"Virgin Islands National Park": {
+"f": "npvirginislands.jpg",
+"a": "Fred Hsu (Wikipedia:User:Fred Hsu on en.wikipedia)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:St_John_Trunk_Bay_3.jpg",
+"w": "https://en.wikipedia.org/wiki/Virgin_Islands_National_Park"
+},
+"Voyageurs National Park": {
+"f": "npvoyageurs.jpg",
+"a": "Unknown author",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Voyageurs_National_Park.jpg",
+"w": "https://en.wikipedia.org/wiki/Voyageurs_National_Park"
+},
+"White Sands National Park": {
+"f": "npwhitesands.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:White_Sands_National_Park_visitor_center_and_native_plant_garden%2C_New_Mexico%2C_United_States.jpg",
+"w": "https://en.wikipedia.org/wiki/White_Sands_National_Park"
+},
+"Wind Cave National Park": {
+"f": "npwindcave.jpg",
+"a": "National Park Service of the United States of America",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Skyway_Lake%2C_stalactites%2C_Wind_Cave.jpg",
+"w": "https://en.wikipedia.org/wiki/Wind_Cave_National_Park"
+},
+"Wrangell–St. Elias National Park and Preserve": {
+"f": "npwrangell.jpg",
+"a": "Unknown author",
+"l": "See file page",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mt_Saint_Elias%2C_South_Central_Alaska.jpg",
+"w": "https://en.wikipedia.org/wiki/Wrangell%E2%80%93St._Elias_National_Park_and_Preserve"
+},
+"Yosemite National Park": {
+"f": "npyosemite.jpg",
+"a": "Thomas Wolf, www.foto-tw.de",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Half_Dome_with_Eastern_Yosemite_Valley_%2850MP%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Yosemite_National_Park"
+},
+"Zion National Park": {
+"f": "npzion.jpg",
+"a": "Diliff",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Zion_angels_landing_view.jpg",
+"w": "https://en.wikipedia.org/wiki/Zion_National_Park"
+},
+"Ozark National Scenic Riverways": {
+"f": "ozarks.jpg",
+"a": "Original content by Kbh3rd plus inclusion of the work Map_of_USA_MO.svg originally created by en:User:Wapcaplet",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:MO_locator_ONSR_%2B_EP_NWSR.png",
+"w": "https://en.wikipedia.org/wiki/Ozark_National_Scenic_Riverways"
+},
+"Hoh Rain Forest": {
+"f": "pnwrainforest.jpg",
+"a": "User:Doug Dolde",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:BIG_LEAF_MAPLES_HOH.jpg",
+"w": "https://en.wikipedia.org/wiki/Hoh_Rainforest"
 }
 }
