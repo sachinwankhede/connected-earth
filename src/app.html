@@ -450,6 +450,17 @@ div.card { cursor: default; }
 }
 
 .sheet, .sbody { display: contents; }
+.credlink { margin: 14px 0 4px; text-align: center; }
+.credlink button { background: none; border: 0; color: var(--muted, #6b7a78); font: 12px var(--font-body); text-decoration: underline; padding: 8px 12px; cursor: pointer; }
+.credmodal { position: fixed; inset: 0; z-index: 60; background: rgba(10,25,22,.5); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.credmodal[hidden] { display: none; }
+.credcard { position: relative; background: var(--surface); color: var(--ink); border-radius: 14px; max-width: 460px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 18px 18px 14px; font: 14px/1.45 var(--font-body); box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.credcard h2 { margin: 0 0 6px; font-size: 18px; }
+.credcard dt { font-weight: 600; margin-top: 12px; }
+.credcard dd { margin: 2px 0 0; }
+.credcard a { color: var(--accent); }
+.credfine { font-size: 12px; opacity: .75; margin-top: 14px; }
+.credx { position: absolute; top: 6px; right: 8px; width: 40px; height: 40px; border: 0; background: none; font-size: 26px; color: var(--ink); cursor: pointer; }
 .shead, #lyrbtn { display: none; }
 @media (max-width: 700px) {
   .app:has(#mapview:not([hidden])) .top { display: none; }
@@ -774,11 +785,13 @@ rect.core { stroke-dasharray: 3 2.5; }
     <nav class="crumbs" id="crumbs" aria-label="Map region"></nav>
     <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
+    <div class="credmodal" id="credmodal" role="dialog" aria-modal="true" aria-label="Credits" hidden><div class="credcard"><button type="button" class="credx" id="credx" aria-label="Close">&times;</button><h2>Credits</h2><p>Connected Earth is built from open data. Thank you to everyone who collects and shares it.</p><dl><dt>Species photos and descriptions</dt><dd><a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> and <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>. Text is available under CC BY-SA; each photo has its own licence and author, shown on its Commons page.</dd><dt>Which species live where</dt><dd><a href="https://www.gbif.org" target="_blank" rel="noopener">GBIF</a>, the Global Biodiversity Information Facility, and the observers and institutions who contribute records to it.</dd><dt>Who eats whom</dt><dd><a href="https://www.globalbioticinteractions.org" target="_blank" rel="noopener">Global Biotic Interactions (GloBI)</a> and the studies it collects.</dd><dt>Park and protected-area locations</dt><dd><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview" target="_blank" rel="noopener">PAD-US</a>, the US Geological Survey's Protected Areas Database.</dd><dt>Maps</dt><dd>Street map &copy; <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, &copy; <a href="https://openmaptiles.org" target="_blank" rel="noopener">OpenMapTiles</a>, data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Satellite imagery &copy; Esri, Maxar, Earthstar Geographics. Terrain: Mapzen, AWS Open Data.</dd></dl><p class="credfine">Ecosystems marked auto-generated were drafted from these sources by software and have not been checked by hand.</p></div></div>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
     <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
     <p class="fine" id="empty" hidden>No ecosystems here yet. Shaded regions on the map have food webs.</p>
     <ul class="cards" id="cards"></ul>
+    <p class="credlink"><button type="button" id="credbtn">Credits</button></p>
     <div id="xwrap">
     <h2 class="sect">Connections between ecosystems</h2>
     <p class="fine">On the map, solid arcs are animals that travel between ecosystems and dashed arcs are nutrients carried in. Tap an arc or a card. Changes you make to a linked species carry over at half strength. These links are illustrative.</p>
@@ -2160,6 +2173,11 @@ rect.core { stroke-dasharray: 3 2.5; }
         if (M.hov !== id && document.getElementById("peek").hidden) { M.hov = id; spanHi(ECO_BY[id]); showTies(id, true); }
       } else { if (M.hov) { M.hov = null; if (document.getElementById("peek").hidden) { spanHi(null); showTies(null); } } }
     });
+    (function () { var cm = document.getElementById("credmodal"); function cl() { cm.hidden = true; }
+      document.getElementById("credbtn").addEventListener("click", function () { cm.hidden = false; document.getElementById("credx").focus(); });
+      document.getElementById("credx").addEventListener("click", cl);
+      cm.addEventListener("click", function (ev) { if (ev.target === cm) cl(); });
+      addEventListener("keydown", function (ev) { if (ev.key === "Escape" && !cm.hidden) { cl(); ev.stopImmediatePropagation(); } }, true); })();
     addEventListener("keydown", function (ev) {
       var pk = document.getElementById("peek");
       if (ev.key === "Escape" && !el.mapview.hidden && !pk.hidden) { pk.hidden = true; spanHi(null); showTies(null); }
