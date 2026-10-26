@@ -39,6 +39,7 @@ def icon(g,s,tl):
         if f=='Ursidae': return 'grizzly'
         return 'quad'
     return 'quad'
+_N=json.load(open(os.path.join(here,'names.json'))) if os.path.exists(os.path.join(here,'names.json')) else {}
 def clean(s):
     return re.sub(r'\s+',' ',re.sub(r'\s*\[[^\]]*\]','',s.split(',')[0])).strip()
 def titled(s): return s[:1].upper()+s[1:]
@@ -107,7 +108,7 @@ def emit(d):
     if sum(1 for c in sel if c['tl']==1)<3 or len(sel)<10: return None,{'id':p['id'],'skipped':'only %d species / %d plants after filtering'%(len(sel),sum(1 for c in sel if c['tl']==1))}
     ids={}; used=set()
     for c in sel:
-        nm=NAMES.get(c['latin']) or (clean(c['common']) if c['common'] else None)
+        nm=NAMES.get(c['latin']) or (clean(c['common']) if c['common'] else None) or _N.get(c['latin'])
         if not nm or nm.lower()==c['latin'].lower(): nm=c['latin']
         nm=titled(nm)
         base=re.sub(r'[^a-z0-9]','',nm.lower())[:14] or 'sp'
