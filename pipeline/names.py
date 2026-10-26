@@ -2,7 +2,7 @@
 """names.py: find a common English name for species that only have a Latin name.
 Uses the Wikipedia page title (it is the common name when one exists) and GBIF's English vernacular names.
 Writes pipeline/names.json  {latin: common}. Usage: names.py latin1 latin2 ... | names.py --from-data data-auto"""
-import sys,json,os,glob,urllib.request,urllib.parse,time
+import re,sys,json,os,glob,urllib.request,urllib.parse,time
 here=os.path.dirname(os.path.abspath(__file__)); P=os.path.join(here,'names.json')
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 def get(u):
@@ -16,6 +16,9 @@ def lookup(latin):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(latin.replace(' ','_')))
     t=(j or {}).get('title')
     if t and t.lower()!=latin.lower() and not t.lower().startswith(latin.split()[0].lower()+' '): return t
+    ex=(j or {}).get('extract') or ''
+    mm=re.search(r'(?:also called|commonly called|commonly known as|also known as|known as|is a common name for|is the common name of)\s+(?:the\s+)?([A-Za-z][A-Za-z\' -]{2,40}?)(?:,| or | and | as |\.|\)|;| is | in )',ex[:300])
+    if mm and mm.group(1).lower()!=latin.lower() and len(mm.group(1).split())<=4: return mm.group(1).strip().capitalize()
     m=get('https://api.gbif.org/v1/species/match?name='+urllib.parse.quote(latin))
     if m and m.get('usageKey'):
         v=get('https://api.gbif.org/v1/species/%s/vernacularNames?limit=60'%m['usageKey'])
@@ -33,6 +36,6 @@ if __name__=='__main__':
                 if n['latin'] and n['tl']>0 and n['name'].split(' (')[0]==n['latin']: todo.add(n['latin'])
         todo=sorted(todo)
     for l in todo:
-        if l in names: continue
+        if names.get(l): continue
         names[l]=lookup(l); time.sleep(0.3); print(l,'->',names[l],flush=True)
         json.dump(names,open(P,'w'),indent=1,ensure_ascii=False)
