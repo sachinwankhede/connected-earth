@@ -590,5 +590,29 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:BIG_LEAF_MAPLES_HOH.jpg",
 "w": "https://en.wikipedia.org/wiki/Hoh_Rainforest"
+},
+"Tallgrass Prairie National Preserve": {
+"f": "prairie.jpg",
+"a": "NPS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sunset_falls_across_the_beautiful_Flint_Hills_%28f0f6c731-1dd8-b71b-0b88-d326127c9973%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Tallgrass_Prairie_National_Preserve"
+},
+"Great Barrier Reef": {
+"f": "reef.jpg",
+"a": "NASA/Kjell Lindgren",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:ISS-45_StoryOfWater%2C_Great_Barrier_Reef%2C_Australia.jpg",
+"w": "https://en.wikipedia.org/wiki/Great_Barrier_Reef"
+},
+"Sahara": {
+"f": "sahara.jpg",
+"a": "Project Apollo Archive",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sahara_real_color.jpg",
+"w": "https://en.wikipedia.org/wiki/Sahara"
 }
 }
