@@ -150,44 +150,162 @@ test('phone: the open sheet shows the place count at the top right at home as it
   await b.close();
 });
 
-for (const [name, size] of Object.entries(H.SIZES)) {
-  test(`${name}: Journeys follow the region, with the region chips, a count, and an empty message`, async () => {
-    const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
-    await t.page.waitForTimeout(500);
-    if (name === 'phone') { await t.page.click('#speek'); await t.page.waitForTimeout(600); }
-    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(400);
-    const vis = (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel);
-    const n = () => t.page.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((x) => !x.hidden).length);
-    const txt = () => t.page.evaluate(() => name === 'x' ? '' : (document.querySelector('#srow .scnt') && document.querySelector('#srow .scnt').offsetParent ? document.querySelector('#srow .scnt').textContent : document.getElementById('stats').textContent));
-    assert.equal(await vis('#regions'), true, 'region chips stay on the Journeys tab');
-    const all = await n();
-    await t.page.click('#regions .chip:text-is("Africa")'); await t.page.waitForTimeout(700);
-    const af = await n();
-    assert.ok(af > 0 && af < all, `Africa narrows journeys: ${af} of ${all}`);
-    assert.match(await txt(), new RegExp(`^${af} journeys?`), 'count follows: ' + await txt());
-    assert.equal(await vis('#xcards'), true);
-    // only continents on the Journeys tab: no country or state chips, and the chosen continent is marked
-    const chips = await t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => c.textContent.trim()));
-    assert.ok(chips.includes('Africa') && chips.includes('Europe') && !chips.includes('Antarctica'), 'continents that have journeys: ' + chips);
-    assert.ok(!chips.some((c) => /Congo|South Africa|Missouri/.test(c)), 'no country or state chips: ' + chips);
-    assert.equal(await t.page.evaluate(() => document.querySelector('#regions .chip.on').textContent.trim()), 'Africa');
-    // a country picked on Places still filters journeys by its continent only
-    await t.page.click('#tab-places'); await t.page.waitForTimeout(400);
-    await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(600);
-    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
-    assert.equal(await n(), af, 'country level shows the continent\'s journeys');
-    assert.ok(!(await t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].some((c) => /Congo/.test(c.textContent)))), 'still no country chips');
-    // a region without journeys says so
-    await t.page.click('#tab-places'); await t.page.waitForTimeout(300);
-    await t.page.evaluate(() => { const g = document.querySelector('#crumbs button'); if (g) g.click(); }); await t.page.waitForTimeout(500);
-    await t.page.click('#regions .chip:text-is("Antarctica")'); await t.page.waitForTimeout(700);
-    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
-    assert.equal(await n(), 0); assert.equal(await vis('#jempty'), true); assert.equal(await vis('#xcards'), false);
-    // back to Places: the places count returns
-    await t.page.click('#tab-places'); await t.page.waitForTimeout(300);
-    assert.match(await txt(), /place/);
-    assert.deepEqual(t.errors, []);
-    await b.close();
+// ---- Places <-> Journeys: every combination ----
+const SIZES2 = Object.entries(H.SIZES);
+async function setup(name, size, opts = {}) {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, size, { hash: '#stub', ...opts });
+  await t.page.waitForTimeout(500);
+  const api = {
+    b, t, p: t.page,
+    open: async () => { if (name === 'phone') { await t.page.evaluate(() => window.__M.setSheet('half')); await t.page.waitForTimeout(500); } },
+    tab: async (k) => { await t.page.click('#tab-' + k); await t.page.waitForTimeout(450); },
+    nJ: () => t.page.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((x) => !x.hidden).length),
+    nP: () => t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length),
+    vis: (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel),
+    chips: () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => c.textContent.trim())),
+    on: () => t.page.evaluate(() => { const c = document.querySelector('#regions .chip.on'); return c ? c.textContent.trim() : null; }),
+    head: () => t.page.evaluate(() => { const c = document.querySelector('#srow .scnt'), st = document.querySelector('#srow .stt'); return c && c.offsetParent ? st.textContent + '|' + c.textContent : 'stats:' + document.getElementById('stats').textContent; }),
+    crumbs: () => t.page.evaluate(() => document.querySelector('#crumbs').textContent.trim()),
+    tabOn: () => t.page.evaluate(() => document.querySelector('#tabs [aria-pressed="true"]').textContent.trim()),
+  };
+  return api;
+}
+
+for (const [name, size] of SIZES2) {
+  test(`${name}: tabs x regions - Journeys never follow the map region, Places keep theirs`, async () => {
+    const a = await setup(name, size); await a.open();
+    // 1. region chosen on Places, then Journeys: all journeys, header says Journeys, no country/state chips
+    await a.p.click('#regions .chip >> nth=0'); await a.p.waitForTimeout(600);
+    const region = await a.crumbs(); assert.ok(region.length > 0);
+    await a.tab('journeys');
+    const all = await a.nJ(); assert.ok(all >= 13, 'all journeys: ' + all);
+    assert.match(await a.head(), new RegExp(`Journeys\\|${all} journeys|^stats:${all} journeys$`));
+    const chips = await a.chips();
+    assert.equal(chips[0], 'All'); assert.ok(chips.includes('Africa') && !chips.includes('Antarctica') && !chips.some((c) => /Congo|South Africa|Missouri/.test(c)), chips.join());
+    assert.equal(await a.on(), 'All');
+    // 2. filter, then back to Places: region is exactly as left, count is a places count
+    await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(400);
+    const af = await a.nJ(); assert.ok(af > 0 && af < all);
+    assert.equal(await a.crumbs(), region, 'map region untouched by the Journeys filter');
+    assert.equal(await a.on(), 'Africa');
+    await a.tab('places');
+    assert.equal(await a.crumbs(), region); assert.match(await a.head(), /places?/); assert.doesNotMatch(await a.head(), /journey/i);
+    assert.ok((await a.chips()).every((c) => c !== 'All'), 'Places chips are regions, not the Journeys chips');
+    // 3. Journeys filter is remembered when you come back
+    await a.tab('journeys'); assert.equal(await a.nJ(), af); assert.equal(await a.on(), 'Africa');
+    // 4. a different region on Places does not reset the Journeys filter
+    await a.tab('places'); await a.p.evaluate(() => document.querySelector('#crumbs button[data-go="world"]').click()); await a.p.waitForTimeout(500);
+    await a.p.click('#regions .chip >> nth=1'); await a.p.waitForTimeout(500);
+    await a.tab('journeys'); assert.equal(await a.nJ(), af); assert.equal(await a.on(), 'Africa');
+    // 5. All clears; filter to a continent, then Antarctica never offered
+    await a.p.click('#regions .chip:text-is("All")'); await a.p.waitForTimeout(300); assert.equal(await a.nJ(), all);
+    assert.deepEqual(a.t.errors, []);
+    await a.b.close();
   });
 }
+
+for (const [name, size] of SIZES2) {
+  test(`${name}: tabs x search x filters x local parks`, async () => {
+    const a = await setup(name, size); await a.open();
+    await a.tab('journeys');
+    assert.equal(await a.vis('#xcards'), true);
+    // typing a search applies to places, so the Places tab comes forward with the matches
+    await a.p.fill('#q', 'osprey'); await a.p.waitForTimeout(800);
+    assert.equal(await a.tabOn(), 'Places', 'a search brings the Places tab forward');
+    assert.equal(await a.vis('#xcards'), false);
+    assert.ok((await a.nP()) >= 1);
+    // clearing the search returns to the full places list; Journeys still reachable and unfiltered
+    await a.p.fill('#q', ''); await a.p.waitForTimeout(700);
+    await a.tab('journeys'); assert.ok((await a.nJ()) >= 13);
+    // a habitat filter while on Journeys does not hide journeys, and does narrow Places
+    await a.p.click('#kinds .chip >> nth=0'); await a.p.waitForTimeout(500);
+    assert.ok((await a.nJ()) >= 13, 'habitat chips do not filter journeys');
+    await a.tab('places');
+    const filtered = await a.nP(); await a.p.click('#kinds .chip >> nth=0'); await a.p.waitForTimeout(500);
+    assert.ok((await a.nP()) >= filtered);
+    // local parks toggle (if present) does not disturb the Journeys list
+    const hasLoc = await a.p.evaluate(() => { const b = document.getElementById('locbtn'); return !!b && b.style.display !== 'none'; });
+    if (hasLoc) { await a.tab('journeys'); const before = await a.nJ(); await a.p.click('#locbtn'); await a.p.waitForTimeout(500); assert.equal(await a.nJ(), before); await a.p.click('#locbtn'); await a.p.waitForTimeout(300); }
+    assert.deepEqual(a.t.errors, []);
+    await a.b.close();
+  });
+}
+
+for (const [name, size] of SIZES2) {
+  test(`${name}: tabs x opening things - a place, a journey chip, the back button, the map`, async () => {
+    const a = await setup(name, size); await a.open();
+    // Places -> open a place -> back: still on Places
+    await a.p.click('#cards .card >> nth=0'); await a.p.waitForTimeout(1500);
+    assert.equal(await a.p.evaluate(() => !document.getElementById('webview').hidden), true);
+    await a.p.evaluate(() => document.getElementById('back').click()); await a.p.waitForTimeout(900);
+    assert.equal(await a.tabOn(), 'Places');
+    // Journeys -> open a journey chip -> back: still on Journeys, same filter and card state sane
+    await a.open(); await a.tab('journeys'); await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300);
+    await a.p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await a.p.waitForTimeout(300);
+    await a.p.click('#xcards .jcard[aria-expanded="true"] .chip >> nth=0'); await a.p.waitForTimeout(1600);
+    assert.equal(await a.p.evaluate(() => !document.getElementById('webview').hidden), true);
+    await a.p.evaluate(() => document.getElementById('back').click()); await a.p.waitForTimeout(900);
+    await a.open();
+    assert.equal(await a.tabOn(), 'Journeys', 'back returns to the Journeys tab'); assert.equal(await a.on(), 'Africa');
+    assert.ok((await a.nJ()) > 0);
+    // tapping a place on the map while on Journeys opens its card; tab stays
+    await a.p.evaluate(() => { const m = window.__M.map; const f = m.getSource('atl-f')._data.features[0]; const q = m.project(f.geometry.coordinates); window.__tap = [q.x, q.y]; });
+    const xy = await a.p.evaluate(() => { const r = window.__M.map.getContainer().getBoundingClientRect(); return [r.left + window.__tap[0], r.top + window.__tap[1]]; });
+    if (xy[0] > 5 && xy[0] < size.width - 5 && xy[1] > 100 && xy[1] < size.height - 300) { await a.p.mouse.click(xy[0], xy[1]); await a.p.waitForTimeout(800); assert.equal(await a.tabOn(), 'Journeys'); }
+    assert.deepEqual(a.t.errors, []);
+    await a.b.close();
+  });
+}
+
+test('phone: tabs x sheet states - collapsed, half and full, switching from every state', async () => {
+  const a = await setup('phone', H.SIZES.phone);
+  // collapsed: no tabs visible, peek and pitch show; switching tabs is impossible there (tabs live in the open sheet)
+  assert.equal(await a.vis('#tabs'), false); assert.equal(await a.vis('#speek'), true);
+  for (const state of ['half', 'full']) {
+    await a.p.evaluate((s) => window.__M.setSheet(s), state); await a.p.waitForTimeout(600);
+    assert.equal(await a.vis('#tabs'), true); assert.equal(await a.vis('#speek'), false); assert.equal(await a.vis('#hook'), false);
+    await a.tab('journeys'); assert.match(await a.head(), /^Journeys\|\d+ journeys$/); assert.equal(await a.vis('#xcards'), true); assert.equal(await a.vis('#cards'), false);
+    await a.tab('places'); assert.match(await a.head(), /^Connected Earth\|\d+ places$/); assert.equal(await a.vis('#cards'), true);
+  }
+  // collapse while on Journeys: header returns to the pitch and peek (Places framing), reopen: still Journeys
+  await a.tab('journeys');
+  await a.p.evaluate(() => window.__M.setSheet('min')); await a.p.waitForTimeout(600);
+  assert.equal(await a.vis('#speek'), true, 'collapsed sheet is the home framing');
+  await a.p.evaluate(() => window.__M.setSheet('half')); await a.p.waitForTimeout(600);
+  assert.equal(await a.tabOn(), 'Journeys');
+  // scroll position resets on each switch
+  await a.p.evaluate(() => { document.getElementById('sbody').scrollTop = 200; });
+  await a.tab('places'); assert.equal(await a.p.evaluate(() => document.getElementById('sbody').scrollTop), 0);
+  assert.deepEqual(a.t.errors, []);
+  await a.b.close();
+});
+
+test('desktop: tabs keep the panel header in step', async () => {
+  const a = await setup('desktop', H.SIZES.desktop);
+  const stats = () => a.p.evaluate(() => document.getElementById('stats').textContent);
+  assert.match(await stats(), /Who eats whom/);
+  await a.tab('journeys'); assert.match(await stats(), /^\d+ journeys$/);
+  await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300); assert.match(await stats(), /^\d+ journeys? in Africa$/);
+  await a.tab('places'); assert.match(await stats(), /Who eats whom/);
+  await a.p.click('#regions .chip >> nth=0'); await a.p.waitForTimeout(500); assert.match(await stats(), /places? in /);
+  await a.tab('journeys'); assert.match(await stats(), /in Africa$/, 'journeys filter kept while the map moved');
+  await a.tab('places'); assert.match(await stats(), /places? in /);
+  assert.deepEqual(a.t.errors, []);
+  await a.b.close();
+});
+
+test('arc tap and deep link: a journey card brought up from the map switches to Journeys and clears a filter that hides it', async () => {
+  const a = await setup('desktop', H.SIZES.desktop);
+  await a.tab('journeys'); await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300);
+  await a.tab('places');
+  // osprey is Yellowstone-Amazon, hidden by an Africa filter
+  await a.p.evaluate(() => document.getElementById('xc-osprey') && 0);
+  const shown = await a.p.evaluate(() => { const c = document.getElementById('xc-osprey'); return c ? c.parentNode.hidden : null; });
+  assert.equal(shown, true, 'osprey hidden by the Africa filter');
+  await a.p.evaluate(() => window.__M.hlCard('osprey')); await a.p.waitForTimeout(700);
+  assert.equal(await a.tabOn(), 'Journeys'); assert.equal(await a.on(), 'All', 'filter cleared so the card can show');
+  assert.equal(await a.p.evaluate(() => { const c = document.getElementById('xc-osprey'); return !c.parentNode.hidden && c.getAttribute('aria-expanded'); }), 'true');
+  assert.deepEqual(a.t.errors, []);
+  await a.b.close();
+});
