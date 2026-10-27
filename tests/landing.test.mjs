@@ -75,8 +75,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await vis('#cards'), true); assert.equal(await vis('#xcards'), false, 'journeys hidden on the Places tab');
     await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
     assert.equal(await vis('#cards'), false); assert.equal(await vis('#xcards'), true);
-    const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, tn: document.getElementById('tn').textContent, route: document.querySelector('#xcards .jroute').textContent }));
-    assert.equal(String(n.cards), n.tn); assert.match(n.route, /→/);
+    const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, route: document.querySelector('#xcards .jroute').textContent }));
+    assert.ok(n.cards >= 13); assert.match(n.route, /→/);
+    assert.equal(await t.page.evaluate(() => document.getElementById('tab-journeys').textContent.trim()), 'Journeys', 'no count on the tab');
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'none', 'collapsed card hides its chips');
     await t.page.click('#xcards .jcard >> nth=0'); await t.page.waitForTimeout(300);
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'flex', 'open card shows its chips');
@@ -87,3 +88,27 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await b.close();
   });
 }
+
+test('phone: more places load when you scroll to the end of the list, and a quiet link works too; nothing loads before you scroll', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  await t.page.waitForTimeout(500);
+  await t.page.evaluate(() => window.__M.setSheet('full')); await t.page.waitForTimeout(800);
+  const shown = () => t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length);
+  assert.equal(await shown(), 10);
+  await t.page.waitForTimeout(800);
+  assert.equal(await shown(), 10, 'nothing loads until the reader scrolls');
+  assert.match(await t.page.evaluate(() => document.getElementById('more').textContent), /Show \d+ more places/);
+  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = sb.scrollHeight; });
+  await t.page.waitForTimeout(1200);
+  const n1 = await shown();
+  assert.ok(n1 >= 25, 'next batch loaded on scroll: ' + n1);
+  // the link still works for anyone who prefers it
+  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = 0; });
+  await t.page.waitForTimeout(300);
+  await t.page.evaluate(() => { const m = document.getElementById('more'); if (m) m.scrollIntoView({ block: 'center' }); });
+  await t.page.click('#more'); await t.page.waitForTimeout(800);
+  assert.ok(await shown() > n1, 'link loads another batch');
+  assert.deepEqual(t.errors, []);
+  await b.close();
+});
