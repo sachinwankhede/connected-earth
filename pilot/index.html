@@ -747,6 +747,15 @@ rect.core { stroke-dasharray: 3 2.5; }
 .zoomc #locbtn[aria-pressed="true"] { background: var(--accent); color: #fff; }
 
 .hook { margin: 0 0 8px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.hook .pitch { display: block; font: 600 16px var(--font-display); color: var(--ink); margin-bottom: 2px; }
+.hook .stat { display: block; }
+.sub .pitch { display: block; font: 600 15px var(--font-display); color: var(--ink); margin-bottom: 2px; }
+.speek { display: none; }
+.cards li.grp { grid-column: 1 / -1; font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 -4px; }
+.cards li.grp[hidden] { display: none; }
+.zoomc #locbtn { height: auto; min-height: 46px; padding: 4px 0 3px; grid-auto-flow: row; gap: 1px; align-content: center; }
+.zoomc #locbtn .lb { font: 600 9.5px/1 var(--font-body); letter-spacing: .02em; }
+.regions.fade, .filters .kinds.fade { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
 .filters .kinds .chip i.kd { width: 8px; height: 8px; margin-right: 6px; }
@@ -755,6 +764,14 @@ rect.core { stroke-dasharray: 3 2.5; }
 @media (max-width: 700px) {
   .sheet.s-min:has(#hook:not([hidden])) { height: auto; }
   .hook { white-space: nowrap; font-size: 14px; }
+  .speek:not([hidden]) { display: flex; align-items: center; gap: 10px; width: 100%; margin: 6px 0 2px; padding: 7px 10px 7px 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
+  .speek .pimg { width: 44px; height: 44px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center; }
+  .speek .pimg img { width: 100%; height: 100%; object-fit: cover; }
+  .speek .pimg svg { width: 24px; height: 24px; }
+  .speek .st { min-width: 0; flex: 1; }
+  .speek .st small { display: block; font: 600 10.5px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .speek .st b { display: block; font: 700 15px var(--font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .speek .chev { flex: none; color: var(--muted); }
   .hook b { font-size: 17px; }
 }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
@@ -787,12 +804,12 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   <section class="mapview" id="mapview" aria-label="Choose an ecosystem">
     <nav class="crumbs" id="crumbs" aria-label="Map region"></nav>
-    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 6.5 11h3L5.5 17h13l-4-6h3z"/><path d="M12 17v4"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
+    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 6.5 11h3L5.5 17h13l-4-6h3z"/><path d="M12 17v4"/></svg><span class="lb">Parks</span></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="credmodal" id="credmodal" role="dialog" aria-modal="true" aria-label="Credits" hidden><div class="credcard"><button type="button" class="credx" id="credx" aria-label="Close">&times;</button><h2>Credits</h2><p>Connected Earth is built from open data. Thank you to everyone who collects and shares it.</p><dl><dt>Species photos and descriptions</dt><dd><a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> and <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>. Text is available under CC BY-SA; each photo has its own licence and author, shown on its Commons page.</dd><dt>Which species live where</dt><dd><a href="https://www.gbif.org" target="_blank" rel="noopener">GBIF</a>, the Global Biodiversity Information Facility, and the observers and institutions who contribute records to it.</dd><dt>Who eats whom</dt><dd><a href="https://www.globalbioticinteractions.org" target="_blank" rel="noopener">Global Biotic Interactions (GloBI)</a> and the studies it collects.</dd><dt>Park and protected-area locations</dt><dd><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview" target="_blank" rel="noopener">PAD-US</a>, the US Geological Survey's Protected Areas Database.</dd><dt>Maps</dt><dd>Street map &copy; <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, &copy; <a href="https://openmaptiles.org" target="_blank" rel="noopener">OpenMapTiles</a>, data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Satellite imagery &copy; Esri, Maxar, Earthstar Geographics. Terrain: Mapzen, AWS Open Data.</dd></dl><p class="credfine">Ecosystems marked auto-generated were drafted from these sources by software and have not been checked by hand.</p></div></div>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
-    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
+    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p><button type="button" class="speek" id="speek" hidden></button></div><div class="sbody" id="sbody"><div class="regions" id="regions"></div>
     <p class="fine" id="empty" hidden>No ecosystems here yet. Shaded regions on the map have food webs.</p>
     <ul class="cards" id="cards"></ul>
     <p class="credlink"><button type="button" id="credbtn">Credits</button></p>
@@ -1345,6 +1362,7 @@ return maplibregl$1;
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
     var im = box.querySelector("img");
     im.onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>"; };
+    var pk = document.getElementById("cp-" + e.id); if (pk) pk.innerHTML = box.innerHTML;
     if (ECO === e && !state.sel && !el.webview.hidden) renderPanel();
   }
   function linkPhoto(c) {
@@ -1763,14 +1781,15 @@ return maplibregl$1;
   }
   function chipsHTML() {
     var keys = [], lvl, lab;
-    if (view.level === "world") { lvl = "continent"; lab = "Continents with food webs"; ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); }); }
+    if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); }); }
     else if (view.level === "continent") { lvl = "country"; lab = "Countries"; ECOS.filter(inRegion).forEach(function (e) { e.countries.forEach(function (c) { if (keys.indexOf(c) < 0 && M.countryBy[c] && M.countryBy[c].cont === view.cont) keys.push(c); }); }); }
     else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; ECOS.filter(inRegion).forEach(function (e) { (e.states || []).forEach(function (s) { if (keys.indexOf(s) < 0) keys.push(s); }); }); }
     else return "";
     keys.sort();
     function count(k) { return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
+    if (lvl === "continent") keys.sort(function (a, b) { return count(b) - count(a) || (a < b ? -1 : 1); });
     return '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
-      return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + " <b>" + count(k) + "</b></button>";
+      return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + (lvl === "continent" ? "" : " <b>" + count(k) + "</b>") + "</button>";
     }).join("");
   }
   function spanText(e) {
@@ -1799,8 +1818,11 @@ return maplibregl$1;
       var n = ECOS.filter(function (e) { return g[1].indexOf(e.kind) >= 0 && (FL.local || e.level !== "local"); }).length;
       if (!n || (g[0] === "Urban" && n < 5)) return "";
       return '<button type="button" class="chip' + (FL.kind === g[0] ? " on" : "") + '" data-kind="' + g[0] + '" aria-pressed="' + (FL.kind === g[0]) + '"><i class="kd" style="--kc:' + KC[g[1][0]] + '"></i>' + g[0] + "</button>";
-    }).join(""); dimChips();
+    }).join(""); dimChips(); kfade();
   }
+  function kfade() { ["kinds", "regions"].forEach(function (id) { var k = document.getElementById(id); if (k) k.classList.toggle("fade", k.scrollWidth - k.scrollLeft - k.clientWidth > 4); }); }
+  addEventListener("resize", function () { kfade(); });
+  document.addEventListener("scroll", function (ev) { if (ev.target && (ev.target.id === "kinds" || ev.target.id === "regions")) kfade(); }, true);
   function tiesHTML(id) {
     var out = [], x = [];
     CROSS.forEach(function (c) { var ends = ecoEnds(c); if (ends.some(function (en) { return en.eco === id; })) x.push(c.title); });
@@ -2179,6 +2201,7 @@ return maplibregl$1;
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f); m.setPaintProperty("atl-f-pt", "circle-opacity", f); m.setPaintProperty("atl-f-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-f-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
+  var PITCH = "Who eats whom, around the world";
   function heroStats() {
     var sp = {}, ns = 0, np = 0, nl = 0;
     ECOS.forEach(function (e) {
@@ -2188,7 +2211,7 @@ return maplibregl$1;
       nl += e.idx.nl;
     });
     var f = function (x) { return x.toLocaleString("en-US"); };
-    return f(np) + " places. " + f(ns) + " species. " + f(nl) + " links.";
+    return f(np) + " places \u00b7 " + f(ns) + " species";
   }
   function filterView() {
     renderView(false);
@@ -2211,6 +2234,8 @@ return maplibregl$1;
       if (c.li) c.li.hidden = !(view.level === "world" || ends.some(function (en) { return inRegion(ECO_BY[en.eco]); }));
     });
     ECOS.forEach(function (e) { e.li.hidden = !inRegion(e); });
+    var homeList = view.level === "world" && !FL.q && !FL.kind && !FL.park;
+    [["grp1", 0], ["grp2", 3]].forEach(function (g) { var h = document.getElementById(g[0]); if (h) h.hidden = !(homeList && ECOS[g[1]] && !ECOS[g[1]].li.hidden); });
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
     if (M.pgKey !== pgKey) { M.pgKey = pgKey; M.pageN = 15; }
     var pm = window.matchMedia && matchMedia("(max-width: 700px)").matches, shown = 0, left = 0;
@@ -2221,13 +2246,21 @@ return maplibregl$1;
     document.getElementById("xwrap").hidden = !CROSS.some(function (c) { return c.li && !c.li.hidden; });
     document.getElementById("empty").hidden = list.length > 0;
     document.getElementById("crumbs").innerHTML = crumbHTML();
-    document.getElementById("regions").innerHTML = chipsHTML();
+    document.getElementById("regions").innerHTML = chipsHTML(); kfade();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
     if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" : view.level === "world"
       ? heroStats()
       : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
     var hk = document.getElementById("hook");
-    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = heroStats().replace(/([\d,]+) (places|species|links)\./g, "<b>$1</b> $2."); } }
+    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + heroStats().replace(/([\d,]+) (places|species)/g, "<b>$1</b> $2") + "</span>"; } }
+    if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + heroStats();
+    var spk = document.getElementById("speek");
+    if (spk) {
+      var f1 = view.level === "world" && !FL.q && !FL.kind && !FL.park ? ECOS.filter(function (e) { return !e.li.hidden; })[0] : null;
+      spk.hidden = !f1;
+      if (f1) { var cb = document.getElementById("ci-" + f1.id); spk.innerHTML = '<span class="pimg" id="cp-' + f1.id + '">' + (cb ? cb.innerHTML : "") + '</span><span class="st"><small>Start here</small><b>' + f1.name + '</b></span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>'; }
+      if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
+    }
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level === "state" ? ["country", view.country] : view.level === "country" ? ["continent", view.cont] : view.level === "continent" ? ["world", ""] : null;
@@ -2423,9 +2456,10 @@ return maplibregl$1;
     ECOS.forEach(function (e) {
       var sp = e.idx.ns;
       var li = document.createElement("li");
-      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species · " + e.idx.nr + ' links' + (e.tier === "overview" ? '<span class="tag">Overview</span>' : "") + '</span><span class="go">Open the food web &rarr;</span></button>';
+      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + (e.tier === "overview" ? '<span class="tag">Overview</span>' : "") + '</span><span class="go">Open the food web &rarr;</span></button>';
       cards.appendChild(li); e.li = li;
     });
+    [[0, "Start here", "grp1"], [3, "More places", "grp2"]].forEach(function (g) { var t = ECOS[g[0]]; if (!t) return; var h = document.createElement("li"); h.className = "grp"; h.id = g[2]; h.textContent = g[1]; h.hidden = true; cards.insertBefore(h, t.li); });
     var xc = document.getElementById("xcards");
     CROSS.forEach(function (c) {
       var btns = ecoEnds(c).map(function (en) { var nn = { name: nodeName(en.eco, en.node) }; return '<button type="button" class="chip" data-jump="' + en.eco + ':' + en.node + '">' + ECO_BY[en.eco].short + ' · ' + nn.name + '</button>'; }).join("");

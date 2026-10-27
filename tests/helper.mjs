@@ -61,7 +61,7 @@ export const jump = async (page, center, zoom) => {
 };
 export const chipLabels = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip')].map((x) => x.textContent.trim()));
 export const dimmed = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip.dim')].map((x) => x.getAttribute('data-kind')).sort());
-export const hookText = (page) => page.evaluate(() => { const h = document.getElementById('hook'); return h && !h.hidden ? h.textContent : null; });
+export const hookText = (page) => page.evaluate(() => { const h = document.getElementById('hook'); return h && !h.hidden ? h.querySelector('.stat').textContent : null; });
 
 // The five habitat chips and the data kinds each one stands for
 export const GROUPS = {
@@ -80,5 +80,5 @@ export function expectedHook(places) {
     for (const r of e.raw) if (r.length === 2 || r[2] === 's') links++;
   }
   const f = (x) => x.toLocaleString('en-US');
-  return `${f(places.length)} places. ${f(sp.size)} species. ${f(links)} links.`;
+  return `${f(places.length)} places \u00b7 ${f(sp.size)} species`;
 }
