@@ -791,6 +791,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   .sheet.atend::after { opacity: 0; }
   .sheet:not(.s-min) .speek { display: none !important; }
   .sheet:not(.s-min) .hook { display: none; }
+  .sheet.s-min .srow.home .scnt { display: none; }
   .speek:not([hidden]) { display: flex; align-items: center; gap: 10px; width: 100%; margin: 6px 0 2px; padding: 7px 10px 7px 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
   .speek .pimg { width: 44px; height: 44px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center; }
   .speek .pimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -2295,7 +2296,7 @@ return maplibregl$1;
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level === "state" ? ["country", view.country] : view.level === "country" ? ["continent", view.cont] : view.level === "continent" ? ["world", ""] : null;
-      var cnt = view.level === "world" && !FL.q ? "" : shown + (shown === 1 ? " place" : " places");
+      var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q);
       sr.innerHTML = (par ? '<button type="button" class="sbk" data-go="' + par[0] + '" data-a="' + String(par[1]).replace(/"/g, "&quot;") + '">\u2039 ' + (par[0] === "world" ? "World" : par[0] === "country" ? nm(par[1]) : par[1]) + "</button>" : "") + '<span class="stt">' + (par ? region : "Connected Earth") + '</span><span class="scnt">' + cnt + "</span>";
     }
     syncHash();

@@ -135,3 +135,17 @@ test('phone: a soft fade at the bottom of the open sheet says the list continues
   assert.deepEqual(t.errors, []);
   await b.close();
 });
+
+test('phone: the open sheet shows the place count at the top right at home as it does in a continent; the collapsed home sheet does not repeat it', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  await t.page.waitForTimeout(500);
+  const cnt = () => t.page.evaluate(() => { const e = document.querySelector('#srow .scnt'); return { v: e && e.offsetParent !== null, t: e ? e.textContent : '' }; });
+  assert.equal((await cnt()).v, false, 'collapsed home: stats line already says it');
+  await t.page.click('#speek'); await t.page.waitForTimeout(700);
+  let c = await cnt(); assert.ok(c.v && /^\d+ places$/.test(c.t), 'open home: ' + JSON.stringify(c));
+  await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(900);
+  c = await cnt(); assert.ok(c.v && /^\d+ places?$/.test(c.t), 'continent: ' + JSON.stringify(c));
+  assert.deepEqual(t.errors, []);
+  await b.close();
+});
