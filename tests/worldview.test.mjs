@@ -48,12 +48,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: first-view dots are tiny and untappable, grow with zoom, and a tap beside them zooms in`, async () => {
     const b = await H.launch();
     const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
-    const rad = () => t.page.evaluate(() => JSON.stringify(window.__M.map.getPaintProperty('atl-pt', 'circle-radius')));
-    assert.match(await rad(), /1\.6/, 'tiny at the first view');
+    const rad = () => t.page.evaluate(() => JSON.stringify(window.__M.map.getPaintProperty('atl-n-pt', 'circle-radius')));
+    assert.match(await rad(), /1\.4/, 'needle-sized at the first view');
+    assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-cl', 'visibility')), 'none', 'no clusters at the first view');
     // pick a small, ordinary dot that is clear of flagships and clusters
     const xy = await t.page.evaluate(() => {
       const m = window.__M.map, r = m.getContainer().getBoundingClientRect(), W = r.width, Hh = r.height;
-      const f = m.queryRenderedFeatures({ layers: ['atl-pt'] }).filter((x) => { const p = m.project(x.geometry.coordinates); return p.x > 40 && p.x < W - 60 && p.y > 160 && p.y < Hh - 120 && (W > 700 ? p.x > 430 : true); })[0];
+      const f = m.queryRenderedFeatures({ layers: ['atl-n-pt'] }).filter((x) => { const p = m.project(x.geometry.coordinates); return p.x > 40 && p.x < W - 60 && p.y > 160 && p.y < Hh - 120 && (W > 700 ? p.x > 430 : true); })[0];
       if (!f) return null; const p = m.project(f.geometry.coordinates); return { x: r.left + p.x, y: r.top + p.y, z: m.getZoom() };
     });
     assert.ok(xy, 'found a small dot');
@@ -66,7 +67,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     // zoomed in: normal size
     await H.jump(t.page, [-90, 38], 5);
     await t.page.waitForTimeout(800);
-    assert.doesNotMatch(await rad(), /1\.6,2\.4/, 'normal size once zoomed in');
+    assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-n-pt', 'visibility')), 'none');
+    assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-cl', 'visibility')), 'visible', 'clusters come back once zoomed in');
     assert.deepEqual(t.errors, []);
     await b.close();
   });

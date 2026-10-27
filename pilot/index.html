@@ -1871,10 +1871,11 @@ return maplibregl$1;
     m.setPaintProperty("atl-pt", "circle-radius", fm ? ["interpolate", ["linear"], ["zoom"], 1, 1.6, 2.4, 2.6, 3.5, DOT] : ["interpolate", ["linear"], ["zoom"], 1, DOT - 1.5, 5, DOT]);
     m.setPaintProperty("atl-f-pt", "circle-radius", ["interpolate", ["linear"], ["zoom"], 0.6, 3.6, 2.4, 5, 3.5, DOT + 2]);
     m.setPaintProperty("atl-f-pt", "circle-stroke-width", ["interpolate", ["linear"], ["zoom"], 0.6, 1.2, 3.5, 2]);
-    if (m.getLayer("atl-lb")) m.setLayoutProperty("atl-lb", "visibility", fm ? "none" : "visible");
+    ["atl-lb", "atl-pt", "atl-cl", "atl-cl-n"].forEach(function (l) { if (m.getLayer(l)) m.setLayoutProperty(l, "visibility", fm ? "none" : "visible"); });
+    if (m.getLayer("atl-n-pt")) m.setLayoutProperty("atl-n-pt", "visibility", fm ? "visible" : "none");
     m.setPaintProperty("atl-pt", "circle-stroke-width", fm ? ["interpolate", ["linear"], ["zoom"], 1, 0.3, 2.4, 0.7, 3.5, 1.6] : 1.6);
   }
-  function setEco() { var m = M.map; dotStyle(); var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff); }
+  function setEco() { var m = M.map; dotStyle(); var fc = ecoFC(); if (m.getSource("atl-n")) m.getSource("atl-n").setData(flagMode() ? fc : EMPTY_FC); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff); }
   function ecoFC() { var fm = flagMode(); return { type: "FeatureCollection", features: ECOS.filter(function (e) { return !(fm && FLAGS.indexOf(e.id) >= 0) && inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
   function gbox(g) {
     var b = [Infinity, Infinity, -Infinity, -Infinity];
@@ -1938,6 +1939,7 @@ return maplibregl$1;
     m.addSource("atl-bound", { type: "geojson", data: M.boundFC || EMPTY_FC });
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     m.addSource("atl-f", { type: "geojson", data: EMPTY_FC });
+    m.addSource("atl-n", { type: "geojson", data: EMPTY_FC });
     m.addSource("atl-fl", { type: "geojson", data: EMPTY_FC });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });
@@ -1976,13 +1978,14 @@ return maplibregl$1;
     m.addLayer({ id: "atl-arc-flow", type: "line", source: "atl-arc", filter: ["==", ["get", "type"], "flow"], paint: { "line-color": ["case", ["==", ["get", "act"], 1], "#d0702f", acc], "line-width": 3, "line-dasharray": [2.2, 1.6] } });
     m.addLayer({ id: "atl-arc-end", type: "circle", source: "atl-al", filter: ["==", ["get", "k"], "end"], paint: { "circle-radius": 5, "circle-color": acc, "circle-stroke-color": surf, "circle-stroke-width": 1.5 } });
     m.addLayer({ id: "atl-arc-lb", type: "symbol", source: "atl-al", filter: ["==", ["get", "k"], "mid"], layout: { "text-field": ["get", "title"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-allow-overlap": true, "text-max-width": 12 }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
+    m.addLayer({ id: "atl-n-pt", type: "circle", source: "atl-n", paint: { "circle-color": ["get", "kc"], "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 1.4, 2.4, 2.4, 3.5, DOT], "circle-stroke-color": surf, "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 0.6, 0.2, 2.4, 0.6, 3.5, 1.6], "circle-opacity": 0.9 } });
     m.addLayer({ id: "atl-cl", type: "circle", source: "atl-e", filter: ["has", "point_count"], paint: { "circle-color": acc, "circle-opacity": 0.92, "circle-radius": ["step", ["zoom"], ["step", ["get", "point_count"], 4, 10, 5, 30, 6.5], 3.5, ["step", ["get", "point_count"], 10, 10, 12, 30, 14]], "circle-stroke-color": surf, "circle-stroke-width": ["step", ["zoom"], 1.2, 3.5, 2] } });
     m.addLayer({ id: "atl-cl-n", type: "symbol", source: "atl-el", filter: ["has", "point_count"], layout: { "text-field": ["step", ["zoom"], "", 3.5, ["get", "point_count_abbreviated"]], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } });
     m.addLayer({ id: "atl-pt", type: "circle", source: "atl-e", filter: ["!", ["has", "point_count"]], paint: { "circle-color": ["get", "kc"], "circle-opacity": 1, "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, DOT - 1.5, 5, DOT], "circle-stroke-color": surf, "circle-stroke-width": 1.6 } });
     m.addLayer({ id: "atl-lb", type: "symbol", source: "atl-el", filter: ["!", ["has", "point_count"]], layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Regular"], "text-size": 12, "text-variable-anchor": ["right", "left", "top", "bottom"], "text-radial-offset": 0.9, "text-justify": "auto", "text-optional": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 1.7 } });
     m.addLayer({ id: "atl-f-pt", type: "circle", source: "atl-f", paint: { "circle-color": ["get", "kc"], "circle-radius": DOT + 3.5, "circle-stroke-color": "#ffffff", "circle-stroke-width": 2.4 } });
     m.addLayer({ id: "atl-f-lb", type: "symbol", source: "atl-fl", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "symbol-sort-key": ["get", "pr"], "text-variable-anchor": ["right", "left", "top", "bottom"], "text-radial-offset": 1.1, "text-justify": "auto", "text-optional": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
-    dotStyle(); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff);
+    dotStyle(); if (flagMode()) m.getSource("atl-n").setData(ecoFC()); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff);
     m.addLayer({ id: "atl-t-ring", type: "circle", source: "atl-t", filter: ["==", ["get", "role"], "sel"], paint: { "circle-radius": 11, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
     m.addLayer({ id: "atl-t-pt", type: "circle", source: "atl-t", paint: { "circle-radius": 7, "circle-color": ["get", "kc"], "circle-stroke-color": surf, "circle-stroke-width": 2 } });
     m.addLayer({ id: "atl-t-lb", type: "symbol", source: "atl-t", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "text-anchor": "left", "text-offset": [1.2, 0], "text-allow-overlap": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
@@ -2326,7 +2329,7 @@ return maplibregl$1;
       if (f.length) { var id = f[0].properties.id; pop.remove(); peek(id); return; }
       f = hit(ev, ["atl-cl"], 4);
       if (f.length) { m.getSource("atl-e").getClusterExpansionZoom(f[0].properties.cluster_id).then(function (z) { m.easeTo({ center: f[0].geometry.coordinates, zoom: Math.min(z + 0.4, 12), duration: reduce ? 0 : 600 }); }); return; }
-      if (flagMode()) { var nb = m.queryRenderedFeatures([[ev.point.x - 22, ev.point.y - 22], [ev.point.x + 22, ev.point.y + 22]], { layers: ["atl-pt"] }); if (nb.length) { m.easeTo({ center: ev.lngLat, zoom: Math.min(m.getZoom() + 1.4, 3.6), duration: reduce ? 0 : 500 }); return; } }
+      if (flagMode()) { var nb = m.queryRenderedFeatures([[ev.point.x - 22, ev.point.y - 22], [ev.point.x + 22, ev.point.y + 22]], { layers: ["atl-n-pt"] }); if (nb.length) { m.easeTo({ center: ev.lngLat, zoom: Math.min(m.getZoom() + 1.4, 3.6), duration: reduce ? 0 : 500 }); return; } }
       f = hit(ev, ["atl-arc-hit"], 6);
       if (f.length) { hlCard(f[0].properties.id); return; }
       f = hit(ev, ["atl-s-fill", "atl-c-fill"], 0);
