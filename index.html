@@ -1810,15 +1810,17 @@ return maplibregl$1;
   }
   function chipsHTML() {
     var keys = [], lvl, lab;
-    if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); }); }
+    if (M.tab === "journeys") { lvl = "continent"; lab = "Browse by continent"; CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { ECO_BY[en.eco].conts.forEach(function (k) { if (keys.indexOf(k) < 0) keys.push(k); }); }); }); }
+    else if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); }); }
     else if (view.level === "continent") { lvl = "country"; lab = "Countries"; ECOS.filter(inRegion).forEach(function (e) { e.countries.forEach(function (c) { if (keys.indexOf(c) < 0 && M.countryBy[c] && M.countryBy[c].cont === view.cont) keys.push(c); }); }); }
     else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; ECOS.filter(inRegion).forEach(function (e) { (e.states || []).forEach(function (s) { if (keys.indexOf(s) < 0) keys.push(s); }); }); }
     else return "";
     keys.sort();
-    function count(k) { return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
+    function jcount(k) { return CROSS.filter(function (c) { return ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(k) >= 0; }); }).length; }
+    function count(k) { if (M.tab === "journeys") return jcount(k); return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
     keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
     return '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
-      return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + (lvl === "continent" ? "" : " <b>" + count(k) + "</b>") + "</button>";
+      return '<button type="button" class="chip' + (M.tab === "journeys" && view.cont === k && view.level !== "world" ? " on" : "") + '" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + (lvl === "continent" ? "" : " <b>" + count(k) + "</b>") + "</button>";
     }).join("");
   }
   function spanText(e) {
@@ -2260,7 +2262,7 @@ return maplibregl$1;
     var list = ECOS.filter(inRegion);
     CROSS.forEach(function (c) {
       var ends = ecoEnds(c);
-      if (c.li) c.li.hidden = !(view.level === "world" || ends.some(function (en) { return inRegion(ECO_BY[en.eco]); }));
+      if (c.li) c.li.hidden = !(view.level === "world" || ends.some(function (en) { return ECO_BY[en.eco].conts.indexOf(view.cont) >= 0; }));
     });
     ECOS.forEach(function (e) { e.li.hidden = !inRegion(e); });
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
@@ -2544,10 +2546,11 @@ return maplibregl$1;
   function updCount() {
     var j = M.tab === "journeys", sc = document.querySelector("#srow .scnt");
     if (sc && M.nPlaces !== undefined) sc.textContent = j ? M.nJ + (M.nJ === 1 ? " journey" : " journeys") : M.nPlaces + (M.nPlaces === 1 ? " place" : " places");
-    if (el.webview.hidden && M.statsHTML !== undefined) { if (j && view.level !== "world") el.stats.textContent = M.nJ + (M.nJ === 1 ? " journey" : " journeys") + " in " + M.region; else el.stats.innerHTML = M.statsHTML; }
+    if (el.webview.hidden && M.statsHTML !== undefined) { if (j && view.level !== "world") el.stats.textContent = M.nJ + (M.nJ === 1 ? " journey" : " journeys") + " in " + view.cont; else el.stats.innerHTML = M.statsHTML; }
   }
   function setTab(t) {
     M.tab = t; updCount();
+    var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) sb.classList.toggle("tab-j", t === "journeys");
     ["places", "journeys"].forEach(function (k) { var b = document.getElementById("tab-" + k); if (b) b.setAttribute("aria-pressed", k === t ? "true" : "false"); });
     if (sb && sb.scrollTo) sb.scrollTo(0, 0);

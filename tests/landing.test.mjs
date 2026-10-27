@@ -167,9 +167,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(af > 0 && af < all, `Africa narrows journeys: ${af} of ${all}`);
     assert.match(await txt(), new RegExp(`^${af} journeys?`), 'count follows: ' + await txt());
     assert.equal(await vis('#xcards'), true);
+    // only continents on the Journeys tab: no country or state chips, and the chosen continent is marked
+    const chips = await t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => c.textContent.trim()));
+    assert.ok(chips.includes('Africa') && chips.includes('Europe') && !chips.includes('Antarctica'), 'continents that have journeys: ' + chips);
+    assert.ok(!chips.some((c) => /Congo|South Africa|Missouri/.test(c)), 'no country or state chips: ' + chips);
+    assert.equal(await t.page.evaluate(() => document.querySelector('#regions .chip.on').textContent.trim()), 'Africa');
+    // a country picked on Places still filters journeys by its continent only
+    await t.page.click('#tab-places'); await t.page.waitForTimeout(400);
+    await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(600);
+    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
+    assert.equal(await n(), af, 'country level shows the continent\'s journeys');
+    assert.ok(!(await t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].some((c) => /Congo/.test(c.textContent)))), 'still no country chips');
     // a region without journeys says so
+    await t.page.click('#tab-places'); await t.page.waitForTimeout(300);
     await t.page.evaluate(() => { const g = document.querySelector('#crumbs button'); if (g) g.click(); }); await t.page.waitForTimeout(500);
     await t.page.click('#regions .chip:text-is("Antarctica")'); await t.page.waitForTimeout(700);
+    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
     assert.equal(await n(), 0); assert.equal(await vis('#jempty'), true); assert.equal(await vis('#xcards'), false);
     // back to Places: the places count returns
     await t.page.click('#tab-places'); await t.page.waitForTimeout(300);
