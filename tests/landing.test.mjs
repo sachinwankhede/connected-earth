@@ -35,3 +35,17 @@ test('desktop: Start here / More places headings, plain card wording, continent 
   assert.deepEqual(t.errors, []);
   await b.close();
 });
+
+test('phone: first batch is about ten places; small regions show everything; no Overview tag; no row label', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  await t.page.waitForTimeout(600);
+  const r = await t.page.evaluate(() => ({ shown: [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length, tag: document.querySelectorAll('#cards .tag').length, lbl: getComputedStyle(document.querySelector('#regions .lbl') || document.body).display }));
+  assert.equal(r.shown, 10); assert.equal(r.tag, 0); assert.equal(r.lbl, 'none');
+  await t.page.evaluate(() => document.getElementById('sheet') && window.__M.setSheet('half'));
+  await t.page.click('#regions .chip >> nth=-1'); await t.page.waitForTimeout(900);
+  const n = await t.page.evaluate(() => { const vis = [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].filter((x) => !x.hidden); return [vis.length, vis.filter((x) => !x.classList.contains('pg')).length]; });
+  assert.ok(n[0] > 12 ? n[1] === 10 : n[1] === n[0], 'region batch: ' + n);
+  assert.deepEqual(t.errors, []);
+  await b.close();
+});

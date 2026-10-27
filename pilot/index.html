@@ -764,6 +764,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 @media (max-width: 700px) {
   .sheet.s-min:has(#hook:not([hidden])) { height: auto; }
   .hook { white-space: nowrap; font-size: 14px; }
+  .regions .lbl { display: none; }
   .speek:not([hidden]) { display: flex; align-items: center; gap: 10px; width: 100%; margin: 6px 0 2px; padding: 7px 10px 7px 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
   .speek .pimg { width: 44px; height: 44px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center; }
   .speek .pimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -2237,7 +2238,7 @@ return maplibregl$1;
     var homeList = view.level === "world" && !FL.q && !FL.kind && !FL.park;
     [["grp1", 0], ["grp2", 3]].forEach(function (g) { var h = document.getElementById(g[0]); if (h) h.hidden = !(homeList && ECOS[g[1]] && !ECOS[g[1]].li.hidden); });
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
-    if (M.pgKey !== pgKey) { M.pgKey = pgKey; M.pageN = 15; }
+    if (M.pgKey !== pgKey) { M.pgKey = pgKey; var nv = ECOS.filter(function (e) { return !e.li.hidden; }).length; M.pageN = nv <= 12 ? nv : 10; }
     var pm = window.matchMedia && matchMedia("(max-width: 700px)").matches, shown = 0, left = 0;
     ECOS.forEach(function (e) { e.li.classList.remove("pg"); if (e.li.hidden) return; shown++; if (pm && shown > M.pageN) { e.li.classList.add("pg"); left++; } });
     var mo = document.getElementById("morecards"); if (!mo) { mo = document.createElement("li"); mo.id = "morecards"; mo.className = "morerow"; document.getElementById("cards").appendChild(mo); }
@@ -2401,7 +2402,7 @@ return maplibregl$1;
     document.getElementById("peek").addEventListener("click", function (ev) { var b = ev.target.closest("[data-share]"); if (b) { share(b); return; } if (ev.target.closest("button, a, [data-peek]")) return; var go = document.getElementById("peek").querySelector("[data-open]"); if (go) go.click(); });
     new MutationObserver(function () { syncHash(); if (document.getElementById("peek").hidden) { parkHi(null); restoreCam(); } }).observe(document.getElementById("peek"), { attributes: true, attributeFilter: ["hidden"], childList: true });
     document.getElementById("mapview").addEventListener("click", function (ev) {
-      var mb = ev.target.closest("#more"); if (mb) { M.pageN += 20; renderView(false); return; }
+      var mb = ev.target.closest("#more"); if (mb) { M.pageN += 15; renderView(false); return; }
       var fb = ev.target.closest("#fbtn"); if (fb) { var o = this.classList.toggle("fopen"); fb.setAttribute("aria-expanded", o); return; }
       var sb = ev.target.closest(".sbk"); if (sb) { go(sb.getAttribute("data-go"), sb.getAttribute("data-a")); return; }
       var lb = ev.target.closest("#lyrbtn"); if (lb) { var mbx = document.querySelector(".mapbox"), lo = mbx.classList.toggle("lopen"); lb.setAttribute("aria-expanded", lo); return; }
@@ -2456,7 +2457,7 @@ return maplibregl$1;
     ECOS.forEach(function (e) {
       var sp = e.idx.ns;
       var li = document.createElement("li");
-      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + (e.tier === "overview" ? '<span class="tag">Overview</span>' : "") + '</span><span class="go">Open the food web &rarr;</span></button>';
+      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + '</span><span class="go">Open the food web &rarr;</span></button>';
       cards.appendChild(li); e.li = li;
     });
     [[0, "Start here", "grp1"], [3, "More places", "grp2"]].forEach(function (g) { var t = ECOS[g[0]]; if (!t) return; var h = document.createElement("li"); h.className = "grp"; h.id = g[2]; h.textContent = g[1]; h.hidden = true; cards.insertBefore(h, t.li); });
