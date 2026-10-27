@@ -752,7 +752,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .tabs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.14); }
 .tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .tabs .tn { font: 600 11px var(--font-mono); color: var(--muted); margin-left: 3px; }
-.sbody.tab-j #regions, .sbody.tab-j #cards, .sbody.tab-j #empty, .sbody.tab-j .credlink, .sbody.tab-j #morecards { display: none !important; }
+.sbody.tab-j #cards, .sbody.tab-j #empty, .sbody.tab-j .credlink, .sbody.tab-j #morecards { display: none !important; }
 .sbody:not(.tab-j) #xwrap { display: none; }
 .jlist { grid-template-columns: 1fr !important; gap: 8px !important; }
 .jcard { display: flex; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
@@ -842,7 +842,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     <ul class="cards" id="cards"></ul>
     <p class="credlink"><button type="button" id="credbtn">Credits</button></p>
     <div id="xwrap">
-    <p class="fine">Animals that travel, and nutrients that are carried, from one place to another. Tap a journey to read it.</p>
+    <p class="fine" id="jintro">Animals that travel, and nutrients that are carried, from one place to another. Tap a journey to read it.</p>
+    <p class="fine" id="jempty" hidden>No journeys here yet.</p>
     <ul class="cards jlist" id="xcards"></ul>
     <p class="fine jfoot">Routes are simplified; real journeys vary by season and population.</p>
     </div>
@@ -2275,7 +2276,9 @@ return maplibregl$1;
     mo.hidden = !(pm && left > 0); mo.innerHTML = '<button type="button" class="moretxt" id="more">Show ' + Math.min(left, 15) + ' more places &rsaquo;</button>';
     if (!mo.hidden && M.moreIO) { M.moreIO.unobserve(mo); M.moreIO.observe(mo); }
     var fb = document.getElementById("fbtn"); if (fb) fb.classList.toggle("on", !!(FL.kind || FL.park));
-    document.getElementById("xwrap").hidden = !CROSS.some(function (c) { return c.li && !c.li.hidden; });
+    M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length;
+    document.getElementById("xwrap").hidden = false;
+    document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ; document.getElementById("jempty").hidden = M.nJ > 0;
     document.getElementById("empty").hidden = list.length > 0;
     document.getElementById("crumbs").innerHTML = crumbHTML();
     document.getElementById("regions").innerHTML = chipsHTML(); kfade();
@@ -2293,12 +2296,15 @@ return maplibregl$1;
       if (f1) { var cb = document.getElementById("ci-" + f1.id); spk.innerHTML = '<span class="pimg" id="cp-' + f1.id + '">' + (cb ? cb.innerHTML : "") + '</span><span class="st"><small>Start here</small><b>' + f1.name + '</b></span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>'; }
       if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
     }
+    M.statsHTML = el.stats.innerHTML; M.region = region;
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level === "state" ? ["country", view.country] : view.level === "country" ? ["continent", view.cont] : view.level === "continent" ? ["world", ""] : null;
+      M.nPlaces = shown;
       var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q);
       sr.innerHTML = (par ? '<button type="button" class="sbk" data-go="' + par[0] + '" data-a="' + String(par[1]).replace(/"/g, "&quot;") + '">\u2039 ' + (par[0] === "world" ? "World" : par[0] === "country" ? nm(par[1]) : par[1]) + "</button>" : "") + '<span class="stt">' + (par ? region : "Connected Earth") + '</span><span class="scnt">' + cnt + "</span>";
     }
+    updCount();
     syncHash();
   }
   function hashState() {
@@ -2535,8 +2541,13 @@ return maplibregl$1;
     });
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
+  function updCount() {
+    var j = M.tab === "journeys", sc = document.querySelector("#srow .scnt");
+    if (sc && M.nPlaces !== undefined) sc.textContent = j ? M.nJ + (M.nJ === 1 ? " journey" : " journeys") : M.nPlaces + (M.nPlaces === 1 ? " place" : " places");
+    if (el.webview.hidden && M.statsHTML !== undefined) { if (j && view.level !== "world") el.stats.textContent = M.nJ + (M.nJ === 1 ? " journey" : " journeys") + " in " + M.region; else el.stats.innerHTML = M.statsHTML; }
+  }
   function setTab(t) {
-    M.tab = t;
+    M.tab = t; updCount();
     var sb = document.getElementById("sbody"); if (sb) sb.classList.toggle("tab-j", t === "journeys");
     ["places", "journeys"].forEach(function (k) { var b = document.getElementById("tab-" + k); if (b) b.setAttribute("aria-pressed", k === t ? "true" : "false"); });
     if (sb && sb.scrollTo) sb.scrollTo(0, 0);
