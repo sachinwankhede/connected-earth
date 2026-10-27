@@ -73,3 +73,15 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await b.close();
   });
 }
+
+// Names read white on a dark halo over satellite imagery, dark on a light halo on the plain/street maps.
+test('place names flip to white on the satellite view and stay dark on plain maps', async () => {
+  const b = await H.launch();
+  const col = (t) => t.page.evaluate(() => window.__M.map.getPaintProperty('atl-f-lb', 'text-color'));
+  const plain = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  assert.notEqual(await col(plain), '#ffffff');
+  const sat = await H.open(b, H.MAIN, H.SIZES.phone, {});
+  const c = await sat.page.evaluate(() => { const m = window.__M.map; return m.getStyle().name === 'satellite' ? m.getPaintProperty('atl-f-lb', 'text-color') : 'left-satellite'; });
+  assert.ok(c === '#ffffff' || c === 'left-satellite', 'satellite labels are white: ' + c);
+  await b.close();
+});
