@@ -1530,7 +1530,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
-  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "webs/";
+  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "webs/";
   function fetchWeb(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
@@ -2009,7 +2009,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   /* outline the real park or reserve the basemap draws under the selected ecosystem */
   /* real park outlines (US: PAD-US, simplified) are fetched once, the first time a place opens */
   var EMPTY_FC = { type: "FeatureCollection", features: [] };
-  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "data/bounds.json";
+  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "data/bounds.json";
   function loadBounds() {
     if (!M.boundsP) M.boundsP = fetch(BU).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
     return M.boundsP;
@@ -2426,7 +2426,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
-  var PB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "photos/places/";
+  var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
     function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
   if (window.fetch) ECOS.forEach(function (e) {
