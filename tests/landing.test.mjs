@@ -10,6 +10,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
   assert.match(r.pitch, /Who eats whom/); assert.doesNotMatch(r.stat, /links/); assert.match(r.peek, /Start here/); assert.match(r.sheet, /s-min/);
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
   assert.match(await t.page.evaluate(() => document.getElementById('sheet').className), /s-half/);
+  assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('speek')).display), 'none', 'peek goes away once the sheet is open (the list shows the same place)');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
