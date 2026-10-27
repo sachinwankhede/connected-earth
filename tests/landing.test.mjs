@@ -78,11 +78,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, route: document.querySelector('#xcards .jroute').textContent }));
     assert.ok(n.cards >= 13); assert.match(n.route, /→/);
     assert.equal(await t.page.evaluate(() => [...document.querySelectorAll('[data-tab="journeys"]')].find((b) => b.offsetParent).textContent.trim()), 'Journeys', 'no count on the tab');
-    assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'none', 'collapsed card hides its chips');
-    await t.page.click('#xcards .jcard >> nth=0'); await t.page.waitForTimeout(300);
-    assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'flex', 'open card shows its chips');
-    // a chip opens that place's food web
-    await t.page.click('#xcards .jcard[aria-expanded="true"] .chip >> nth=0'); await t.page.waitForTimeout(1500);
+    // a journey card opens its own page; from there a button opens that place's food web
+    await t.page.click('#xcards .jcard >> nth=0'); await t.page.waitForTimeout(500);
+    assert.equal(await t.page.evaluate(() => !document.getElementById('jview').hidden && document.getElementById('mapview').hidden), true, 'journey page open');
+    await t.page.click('#jview [data-jopen] >> nth=0'); await t.page.waitForTimeout(1500);
     assert.equal(await t.page.evaluate(() => !document.getElementById('webview').hidden), true);
     assert.deepEqual(t.errors, []);
     await b.close();
@@ -250,9 +249,11 @@ for (const [name, size] of SIZES2) {
     // Journeys -> open a journey chip -> back: still on Journeys, same filter and card state sane
     await a.open(); await a.tab('journeys'); await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300);
     await a.p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await a.p.waitForTimeout(300);
-    await a.p.click('#xcards .jcard[aria-expanded="true"] .chip >> nth=0'); await a.p.waitForTimeout(1600);
+    await a.p.click('#jview [data-jopen] >> nth=0'); await a.p.waitForTimeout(1600);
     assert.equal(await a.p.evaluate(() => !document.getElementById('webview').hidden), true);
     await a.p.evaluate(() => document.getElementById('back').click()); await a.p.waitForTimeout(900);
+    assert.equal(await a.p.evaluate(() => !document.getElementById('jview').hidden), true, 'back from the food web returns to the journey');
+    await a.p.click('#jview [data-jback]'); await a.p.waitForTimeout(700);
     await a.open();
     assert.equal(await a.tabOn(), 'Journeys', 'back returns to the Journeys tab'); assert.equal(await a.on(), 'Africa');
     assert.ok((await a.nJ()) > 0);
@@ -313,7 +314,7 @@ test('arc tap and deep link: a journey card brought up from the map switches to 
   assert.equal(shown, true, 'osprey hidden by the Africa filter');
   await a.p.evaluate(() => window.__M.hlCard('osprey')); await a.p.waitForTimeout(700);
   assert.equal(await a.tabOn(), 'Journeys'); assert.equal(await a.on(), 'All', 'filter cleared so the card can show');
-  assert.equal(await a.p.evaluate(() => { const c = document.getElementById('xc-osprey'); return !c.parentNode.hidden && c.getAttribute('aria-expanded'); }), 'true');
+  assert.equal(await a.p.evaluate(() => { const c = document.getElementById('xc-osprey'); return !c.parentNode.hidden; }), true);
   assert.deepEqual(a.t.errors, []);
   await a.b.close();
 });

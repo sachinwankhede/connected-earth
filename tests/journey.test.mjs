@@ -1,0 +1,113 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import * as H from './helper.mjs';
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  async function start(hash = '#stub') {
+    const b = await H.launch();
+    const t = await H.open(b, H.MAIN, size, { hash });
+    const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
+    await t.page.waitForTimeout(700);
+    return { b, p: t.page, errors };
+  }
+  const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('jview').hidden, map: !document.getElementById('mapview').hidden, web: !document.getElementById('webview').hidden, hash: location.hash, title: (document.querySelector('#jview h2') || {}).textContent }));
+
+  test(`${name}: a journey page has the route, the story, both ends, sources and more journeys`, async () => {
+    const { b, p, errors } = await start();
+    await p.evaluate(() => window.__M.showJourney('knot')); await p.waitForTimeout(500);
+    const s = await shown(p);
+    assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Red knot'); assert.match(s.hash, /j=knot/);
+    const r = await p.evaluate(() => {
+      const j = document.getElementById('jview');
+      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('.jsrc a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('.jsrc a').length, more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text')].map((t) => t.textContent) };
+    });
+    assert.deepEqual(r.heads, ['The story', 'Both ends', 'Sources', 'More journeys']);
+    assert.ok(r.land > 100 && r.arc && r.dots === 2 && r.ends === 2 && r.src >= 1 && r.more >= 1 && r.when);
+    assert.deepEqual(r.labels, ['Wadden Sea', "Banc d'Arguin"]);
+    assert.ok(r.over <= 1, 'no sideways scroll: ' + r.over);
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: every journey opens without errors and with its two places`, async () => {
+    const { b, p, errors } = await start();
+    const ids = await p.evaluate(() => [...document.querySelectorAll('#xcards .jcard')].map((c) => c.id.slice(3)));
+    assert.ok(ids.length >= 13);
+    for (const id of ids) {
+      await p.evaluate((i) => window.__M.showJourney(i), id);
+      const r = await p.evaluate(() => ({ h: document.querySelector('#jview h2').textContent, ends: document.querySelectorAll('#jview .jend').length, pts: window.__M.jpts.length, nan: window.__M.jpts.some((q) => !isFinite(q[0]) || !isFinite(q[1])), inside: window.__M.jpts.every((q) => q[0] > -50 && q[0] < 1000 && q[1] > -50 && q[1] < 700), more: document.querySelectorAll('#jview .jmore button').length }));
+      assert.ok(r.h && r.ends === 2 && r.pts === 41 && !r.nan && r.inside && r.more >= 1, id + ' ' + JSON.stringify(r));
+    }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: Fly the route moves the dot along the arc and a round trip ends where it began`, async () => {
+    const { b, p, errors } = await start();
+    await p.evaluate(() => window.__M.showJourney('osprey')); await p.waitForTimeout(300);
+    const at = () => p.evaluate(() => { const d = document.getElementById('jdot'); return [+d.getAttribute('cx'), +d.getAttribute('cy')]; });
+    const a0 = await at();
+    await p.click('#jfly'); await p.waitForTimeout(1500);
+    const mid = await at(); assert.ok(Math.hypot(mid[0] - a0[0], mid[1] - a0[1]) > 20, 'the dot moved');
+    await p.waitForFunction(() => window.__M.jdone >= 1, null, { timeout: 20000 });
+    const end = await at(); assert.ok(Math.hypot(end[0] - a0[0], end[1] - a0[1]) < 2, 'species round trip returns to the start');
+    // a nutrient flow is one way
+    await p.evaluate(() => window.__M.showJourney('dust')); await p.waitForTimeout(300);
+    const f0 = await at(); await p.click('#jfly');
+    await p.waitForFunction(() => window.__M.jdone >= 2, null, { timeout: 20000 });
+    const f1 = await at(); assert.ok(Math.hypot(f1[0] - f0[0], f1[1] - f0[1]) > 50, 'a flow ends at the far place');
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: back, more journeys, the food web and the link in a food web all connect`, async () => {
+    const { b, p, errors } = await start();
+    if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(500); }
+    await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400);
+    const first = await p.evaluate(() => document.querySelector('#xcards li:not([hidden]) .jcard').id.slice(3));
+    await p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await p.waitForTimeout(400);
+    assert.equal((await shown(p)).page, true);
+    // more journeys -> another page
+    const t1 = (await shown(p)).title;
+    await p.click('#jview .jmore button >> nth=0'); await p.waitForTimeout(400);
+    const t2 = (await shown(p)).title; assert.notEqual(t1, t2); assert.equal(await p.evaluate(() => document.getElementById('jview').scrollTop), 0);
+    // food web, and back lands on the same journey
+    await p.click('#jview [data-jopen] >> nth=0'); await p.waitForTimeout(1500);
+    let s = await shown(p); assert.equal(s.web, true); assert.equal(s.page, false);
+    assert.match(await p.evaluate(() => document.getElementById('back').textContent), /Journey/);
+    await p.evaluate(() => document.getElementById('back').click()); await p.waitForTimeout(500);
+    s = await shown(p); assert.equal(s.page, true); assert.equal(s.title, t2);
+    // back to the list: Journeys tab, that card highlighted
+    await p.click('#jview [data-jback]'); await p.waitForTimeout(600);
+    s = await shown(p); assert.equal(s.page, false); assert.equal(s.map, true);
+    assert.equal(await p.evaluate(() => window.__M.tab), 'journeys');
+    assert.equal(await p.evaluate(() => /-j=|j=/.test(location.hash)), false, 'hash cleared');
+    // a place's own food web links to its journey
+    await p.evaluate(() => window.__M.showJourney('osprey')); await p.waitForTimeout(300);
+    await p.click('#jview [data-jopen] >> nth=0'); await p.waitForTimeout(1500);
+    const link = await p.evaluate(() => { const x = document.querySelector('#panel [data-journey], [data-journey]'); return x ? x.getAttribute('data-journey') : null; });
+    if (link) { await p.evaluate(() => document.querySelector('[data-journey]').click()); await p.waitForTimeout(400); assert.equal((await shown(p)).page, true); }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: a shared journey link opens the page, and the browser keeps it on reload`, async () => {
+    const { b, p, errors } = await start('#stub&j=pelican');
+    await p.waitForTimeout(800);
+    const s = await shown(p); assert.equal(s.page, true); assert.equal(s.title, 'American white pelican');
+    await p.reload(); await p.waitForTimeout(1200);
+    assert.equal((await shown(p)).page, true);
+    await p.evaluate(() => { location.hash = '#stub&j=nope'; }); await p.waitForTimeout(300);
+    assert.equal((await shown(p)).page, true, 'an unknown journey leaves the current page alone');
+    await p.click('[data-jback]'); await p.waitForTimeout(500);
+    assert.equal((await shown(p)).map, true);
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: tapping a route drawn on the map opens its journey page`, async () => {
+    const { b, p, errors } = await start();
+    await p.evaluate(() => window.__M.showTies('yellowstone')); await p.waitForTimeout(900);
+    await p.evaluate(() => { const m = window.__M.map, f = m.getSource('atl-arc')._data.features[0]; const c = f.geometry.coordinates, q = c[20]; m.jumpTo({ center: q, zoom: 3 }); });
+    await p.waitForTimeout(1200);
+    const xy = await p.evaluate(() => { const m = window.__M.map, f = m.getSource('atl-arc')._data.features[0], q = m.project(f.geometry.coordinates[20]), r = m.getContainer().getBoundingClientRect(); return { x: r.left + q.x, y: r.top + q.y, id: f.properties.id }; });
+    await p.mouse.click(xy.x, xy.y); await p.waitForTimeout(800);
+    const s = await shown(p); assert.equal(s.page, true, 'route tap opened ' + xy.id); assert.match(s.hash, new RegExp('j=' + xy.id));
+    assert.deepEqual(errors, []); await b.close();
+  });
+}

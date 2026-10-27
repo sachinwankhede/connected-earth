@@ -821,6 +821,52 @@ rect.core { stroke-dasharray: 3 2.5; }
   .speek .chev { flex: none; color: var(--muted); }
   .hook b { font-size: 17px; }
 }
+/* journey page */
+.app:has(#jview:not([hidden])) { height: 100dvh; }
+.app:has(#jview:not([hidden])) .top, .app:has(#jview:not([hidden])) #mapview { display: none; }
+.jview { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.jview[hidden] { display: none !important; }
+.jp { max-width: 720px; margin: 0 auto; padding: 0 0 calc(28px + env(safe-area-inset-bottom, 0px)); }
+.jp .jtop { position: sticky; top: 0; z-index: 3; padding: 4px 0 8px; background: var(--bg); }
+.jp .jtop .btn { min-height: 40px; padding: 0 14px; border-radius: 10px; }
+.jp .jhero { display: flex; gap: 14px; align-items: center; margin: 4px 0 14px; }
+.jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
+.jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
+.jp .jhimg svg { width: 36px; height: 36px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.jp .jkind { margin: 0 0 2px; font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp h2 { margin: 0; font: 700 26px/1.1 var(--font-display); }
+.jp .jr { margin: 4px 0 0; font-weight: 600; color: var(--accent); }
+.jp .jr i { font-style: normal; padding: 0 4px; }
+.jp .jmap { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--sea-a); }
+.jp .jmap svg { display: block; width: 100%; height: auto; }
+.jp .jmap .jl { fill: var(--land); stroke: var(--edge); stroke-width: .4; }
+.jp .jmap .jarc { fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-dasharray: 2 6; stroke-linecap: round; }
+.jp .jmap .jpt { fill: var(--accent); stroke: #fff; stroke-width: 2; }
+.jp .jmap .jfd { fill: #fff; stroke: var(--accent); stroke-width: 3; }
+.jp .jmap text { font: 700 12px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+.jp .jfly { position: absolute; right: 10px; bottom: 10px; min-height: 38px; padding: 0 14px; border-radius: 999px; background: var(--surface); }
+.jp .jwhen { margin: 12px 0 0; padding: 10px 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.jp h3 { margin: 22px 0 6px; font: 700 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp p { margin: 0 0 8px; font-size: 15.5px; line-height: 1.55; }
+.jp .jends { display: grid; gap: 10px; }
+@media (min-width: 560px) { .jp .jends { grid-template-columns: 1fr 1fr; } }
+.jp .jend { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+.jp .jend .jeh { display: flex; gap: 10px; align-items: center; }
+.jp .jend .jeimg { flex: none; width: 52px; height: 52px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
+.jp .jend .jeimg img { width: 100%; height: 100%; object-fit: cover; }
+.jp .jend .jeimg svg { width: 26px; height: 26px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.jp .jend small { display: block; font: 600 10.5px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp .jend b { display: block; font: 700 16px var(--font-display); }
+.jp .jend .btn { align-self: flex-start; min-height: 38px; border-radius: 10px; }
+.jp a { color: var(--accent); }
+.jp ul.jsrc { margin: 0; padding-left: 18px; }
+.jp ul.jsrc li { margin: 2px 0; }
+.jp .jmore { display: grid; gap: 8px; }
+.jp .jmore button { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
+.jp .jmore button span { font: 600 12px var(--font-body); color: var(--accent); }
+.jp .jmore button b { font: 700 15px var(--font-display); }
+.jcard .jgo { flex: none; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; padding-left: 2px; }
+
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 </style>
 
@@ -868,6 +914,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     </div>
     </div></div>
   </section>
+
+  <section class="jview" id="jview" aria-label="Journey" hidden></section>
 
   <main class="main" id="webview" hidden>
     <div class="stage" id="stage">
@@ -1351,12 +1399,14 @@ rect.core { stroke-dasharray: 3 2.5; }
     im.onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>"; };
     var pk = document.getElementById("cp-" + e.id); if (pk) pk.innerHTML = box.innerHTML;
     if (ECO === e && !state.sel && !el.webview.hidden) renderPanel();
+    if (M.jid) jPhotos();
   }
   function linkPhoto(c) {
     var p = PHOTOS[c.imgwiki], box = document.getElementById("xi-" + c.id);
     if (!p || !box) return;
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
     box.querySelector("img").onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[ECO_BY[ecoEnds(c)[0].eco].icon] || "") + "</svg>"; };
+    if (M.jid) jPhotos();
   }
   function showPhoto(n) {
     if (n.isEco) { ecoPhoto(n.e); return; }
@@ -1485,7 +1535,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (n.xl) {
       var o = n.xl.other, oe = ECO_BY[o.eco], on = { name: nodeName(o.eco, o.node) };
       var hd = n.xl.dir === "in" ? "Flows in from another ecosystem" : n.xl.dir === "out" ? "Flows out to another ecosystem" : "Linked ecosystem";
-      return '<div class="xlink"><h3>' + hd + '</h3><p><b>' + n.xl.link.title + '.</b> ' + n.xl.link.text + '</p><button type="button" class="chip" data-jump="' + o.eco + ':' + o.node + '">Open ' + on.name + ' in ' + oe.short + ' &rarr;</button></div>';
+      return '<div class="xlink"><h3>' + hd + '</h3><p><b>' + n.xl.link.title + '.</b> ' + n.xl.link.text + '</p><button type="button" class="chip" data-jump="' + o.eco + ':' + o.node + '">Open ' + on.name + ' in ' + oe.short + ' &rarr;</button> <button type="button" class="chip" data-journey="' + n.xl.link.id + '">Read the journey</button></div>';
     }
     if (n.fl) return '<div class="xlink"><h3>Outside input</h3><p><b>' + n.fl.title + '.</b> ' + n.fl.text + '</p></div>';
     return "";
@@ -1571,6 +1621,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (ev.target.closest("[data-resetall]")) { clearEdits(); return; }
     var spb = ev.target.closest("[data-species]"); if (spb) { speciesMap(spb.getAttribute("data-species")); return; }
     var gt = ev.target.closest("[data-goto]"); if (gt) { showWeb(gt.getAttribute("data-goto")); return; }
+    var jr = ev.target.closest("[data-journey]"); if (jr) { showJourney(jr.getAttribute("data-journey")); return; }
     var jm = ev.target.closest("[data-jump]");
     if (jm) { var jp = jm.getAttribute("data-jump").split(":"); jump(jp[0], jp[1]); return; }
     var b = ev.target.closest("[data-id]");
@@ -2276,6 +2327,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     syncHash();
   }
   function hashState() {
+    if (M.jid) return "j=" + M.jid;
     if (!el.webview.hidden) return "e=" + el.eco.value;
     if (!document.getElementById("peek").hidden && M.peekId) return "p=" + M.peekId;
     if (view.level === "continent") return "r=continent:" + view.cont;
@@ -2299,7 +2351,8 @@ rect.core { stroke-dasharray: 3 2.5; }
   function applyHash(h0) {
     var h = ""; try { h = decodeURIComponent(typeof h0 === "string" ? h0 : location.hash.slice(1)); } catch (e) {}
     var m;
-    if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);
+    if ((m = /(?:^|&)j=([\w-]+)/.exec(h)) && jbyId(m[1])) showJourney(m[1]);
+    else if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);
     else if ((m = /(?:^|&)p=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) { M.pendingPeek = m[1]; if (M.styleReady) doPendingPeek(); }
     else if ((m = /(?:^|&)r=(\w+):(.+)$/.exec(h))) {
       if (m[1] === "continent" && CONT_BOX[m[2]]) go("continent", m[2]);
@@ -2369,14 +2422,14 @@ rect.core { stroke-dasharray: 3 2.5; }
     }
     m.on("click", function (ev) {
       if (sheetMode()) { if (M.setSheet && M.sheetState !== "min") M.setSheet("min"); var mbx = document.querySelector(".mapbox"); if (mbx) mbx.classList.remove("lopen"); }
-      if (sheetMode() && !document.getElementById("peek").hidden && !hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt", "atl-cl"], 9).length) { document.getElementById("peek").hidden = true; spanHi(null); showTies(null); return; }
+      if (sheetMode() && !document.getElementById("peek").hidden && !hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt", "atl-cl"], 9).length && !hit(ev, ["atl-arc-hit"], 6).length) { document.getElementById("peek").hidden = true; spanHi(null); showTies(null); return; }
       var f = hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt"], 9);
       if (f.length) { var id = f[0].properties.id; pop.remove(); peek(id); return; }
       f = hit(ev, ["atl-cl"], 4);
       if (f.length) { m.getSource("atl-e").getClusterExpansionZoom(f[0].properties.cluster_id).then(function (z) { m.easeTo({ center: f[0].geometry.coordinates, zoom: Math.min(z + 0.4, 12), duration: reduce ? 0 : 600 }); }); return; }
-      if (flagMode()) { var nb = m.queryRenderedFeatures([[ev.point.x - 22, ev.point.y - 22], [ev.point.x + 22, ev.point.y + 22]], { layers: ["atl-n-pt"] }); if (nb.length) { m.easeTo({ center: ev.lngLat, zoom: Math.min(m.getZoom() + 1.4, 3.6), duration: reduce ? 0 : 500 }); return; } }
       f = hit(ev, ["atl-arc-hit"], 6);
-      if (f.length) { hlCard(f[0].properties.id); return; }
+      if (f.length) { showJourney(f[0].properties.id); return; }
+      if (flagMode()) { var nb = m.queryRenderedFeatures([[ev.point.x - 22, ev.point.y - 22], [ev.point.x + 22, ev.point.y + 22]], { layers: ["atl-n-pt"] }); if (nb.length) { m.easeTo({ center: ev.lngLat, zoom: Math.min(m.getZoom() + 1.4, 3.6), duration: reduce ? 0 : 500 }); return; } }
       f = hit(ev, ["atl-s-fill", "atl-c-fill"], 0);
       if (f.length && f[0].layer.id === "atl-s-fill" && view.level === "country") { go("state", f[0].properties.name); return; }
       if (f.length && f[0].layer.id === "atl-c-fill") {
@@ -2467,17 +2520,14 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     var xc = document.getElementById("xcards");
     CROSS.forEach(function (c) {
-      var en = ecoEnds(c), btns = en.map(function (x) { return '<button type="button" class="chip" data-jump="' + x.eco + ':' + x.node + '">' + ECO_BY[x.eco].short + ' \u00b7 ' + nodeName(x.eco, x.node) + '</button>'; }).join("");
+      var en = ecoEnds(c);
       var li = document.createElement("li"), fi = ECO_BY[en[0].eco].icon;
-      li.innerHTML = '<div class="jcard" id="xc-' + c.id + '" role="button" tabindex="0" aria-expanded="false"><span class="jimg" id="xi-' + c.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[fi] || "") + '</svg></span><span class="jbody"><span class="jroute">' + ECO_BY[en[0].eco].short + ' <i aria-hidden="true">\u2192</i> ' + ECO_BY[en[en.length - 1].eco].short + '</span><b class="jtitle">' + c.title + '</b><span class="jtext">' + c.text + '</span><span class="jjumps">' + btns + '</span></span></div>';
+      li.innerHTML = '<div class="jcard" id="xc-' + c.id + '" role="button" tabindex="0"><span class="jimg" id="xi-' + c.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[fi] || "") + '</svg></span><span class="jbody"><span class="jroute">' + ECO_BY[en[0].eco].short + ' <i aria-hidden="true">\u2192</i> ' + ECO_BY[en[en.length - 1].eco].short + '</span><b class="jtitle">' + c.title + '</b></span><span class="jgo" aria-hidden="true">\u203a</span></div>';
       xc.appendChild(li); c.li = li;
     });
-    function jtoggle(d) { var on = d.getAttribute("aria-expanded") !== "true"; d.setAttribute("aria-expanded", on ? "true" : "false"); }
-    xc.addEventListener("keydown", function (ev) { var d = ev.target.closest(".jcard"); if (d && ev.target === d && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); jtoggle(d); } });
+    xc.addEventListener("keydown", function (ev) { var d = ev.target.closest(".jcard"); if (d && ev.target === d && (ev.key === "Enter" || ev.key === " ")) { ev.preventDefault(); showJourney(d.id.slice(3)); } });
     xc.addEventListener("click", function (ev) {
-      var j = ev.target.closest("[data-jump]");
-      if (j) { var p = j.getAttribute("data-jump").split(":"); jump(p[0], p[1]); return; }
-      var d = ev.target.closest(".jcard"); if (d) jtoggle(d);
+      var d = ev.target.closest(".jcard"); if (d) showJourney(d.id.slice(3));
     });
     cards.addEventListener("click", function (ev) {
       var b = ev.target.closest("[data-eco]");
@@ -2542,24 +2592,112 @@ rect.core { stroke-dasharray: 3 2.5; }
     var c = document.getElementById("xc-" + id);
     if (!c) return;
     if (c.parentNode && c.parentNode.hidden) M.jcont = null;
-    setTab("journeys"); c.setAttribute("aria-expanded", "true");
+    setTab("journeys");
     c.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
     c.classList.add("hl");
     setTimeout(function () { c.classList.remove("hl"); }, 1600);
   }
-  M.hlCard = hlCard;
+  M.hlCard = hlCard; M.showTies = function (id) { showTies(id); };
+  M.showJourney = function (id) { showJourney(id); };
+  /* the journey page: opens from a journey card, a route on the map, or a linked food web */
+  var JV = document.getElementById("jview");
+  function jbyId(id) { return CROSS.filter(function (c) { return c.id === id; })[0]; }
+  function jEnds(c) { return ecoEnds(c).map(function (x, i) { return { eco: x.eco, node: x.node, e: ECO_BY[x.eco], flowLabel: c.type === "flow" ? (i === 0 ? "Carried from" : "Carried to") : "" }; }); }
+  function jRelated(c) {
+    var mine = jEnds(c).map(function (x) { return x.eco; });
+    return CROSS.filter(function (o) { return o !== c; }).map(function (o) {
+      var sh = jEnds(o).filter(function (x) { return mine.indexOf(x.eco) >= 0; }).length;
+      return { o: o, score: sh * 2 + (o.type === c.type ? 1 : 0) };
+    }).sort(function (a, b) { return b.score - a.score; }).slice(0, 3).map(function (r) { return r.o; });
+  }
+  function jRouteSVG(c) {
+    var W = Math.max(300, Math.min(720, (JV.clientWidth || 640) - (JV.clientWidth < 740 ? 0 : 0))), H = Math.round(W < 500 ? W * 0.82 : W * 0.53), ab = arcEnds(c), cv = curve(ab[0], ab[1]);
+    var mid = (cv[0][0] + cv[cv.length - 1][0]) / 2;
+    var lons = cv.map(function (q) { return q[0]; }), lats = cv.map(function (q) { return q[1]; });
+    var x0 = Math.min.apply(null, lons), x1 = Math.max.apply(null, lons), y0 = Math.min.apply(null, lats), y1 = Math.max.apply(null, lats);
+    var mx = Math.max(14, (x1 - x0) * 0.35), my = Math.max(10, (y1 - y0) * 0.45);
+    var corners = [[x0 - mx, Math.max(-84, y0 - my)], [x1 + mx, Math.max(-84, y0 - my)], [x0 - mx, Math.min(84, y1 + my)], [x1 + mx, Math.min(84, y1 + my)]];
+    var pr = d3.geoNaturalEarth1().rotate([-mid, 0]);
+    pr.fitExtent([[10, 10], [W - 10, H - 10]], { type: "MultiPoint", coordinates: cv.concat(corners) });
+    var gp = d3.geoPath(pr), land = GJ_C.features.map(function (f) { var d = gp(f); return d ? '<path class="jl" d="' + d + '"/>' : ""; }).join("");
+    var pts = cv.map(function (q) { return pr(q); }), d = "M" + pts.map(function (q) { return q[0].toFixed(1) + " " + q[1].toFixed(1); }).join("L");
+    var en = jEnds(c);
+    function lab(q, name) { var right = q[0] > W * 0.62, below = q[1] < 36; return '<text x="' + (q[0] + (right ? -11 : 11)).toFixed(1) + '" y="' + (q[1] + (below ? 22 : -10)).toFixed(1) + '" text-anchor="' + (right ? "end" : "start") + '">' + escH(name) + "</text>"; }
+    var A = pts[0], B = pts[pts.length - 1];
+    return { pts: pts, html: '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Route from ' + escH(en[0].e.short) + " to " + escH(en[en.length - 1].e.short) + '">' + land + '<path class="jarc" d="' + d + '"/><circle class="jpt" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="6"/><circle class="jpt" cx="' + B[0].toFixed(1) + '" cy="' + B[1].toFixed(1) + '" r="6"/>' + lab(A, en[0].e.short) + lab(B, en[en.length - 1].e.short) + '<circle class="jfd" id="jdot" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="6.5"/></svg>' };
+  }
+  function jHTML(c, rt) {
+    var en = jEnds(c), fi = en[0].e.icon, icon = function (k) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[k] || "") + "</svg>"; };
+    var ends = en.map(function (x, i) {
+      return '<div class="jend"><div class="jeh"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><div><small>' + (x.flowLabel ? x.flowLabel + " · " : "") + escH(x.e.place) + "</small><b>" + escH(x.e.name) + '</b></div></div><p>Shown in its food web as <em>' + escH(nodeName(x.eco, x.node)) + '</em>.</p><button type="button" class="btn" data-jopen="' + x.eco + ":" + x.node + '">Open this food web</button></div>';
+    }).join("");
+    var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener">' + escH(q.t) + "</a></li>"; }).join("");
+    var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span>' + escH(oe[0].e.short) + " → " + escH(oe[oe.length - 1].e.short) + "</span><b>" + escH(o.title) + "</b></button>"; }).join("");
+    return '<article class="jp"><div class="jtop"><button type="button" class="btn" data-jback="1">← Journeys</button></div>' +
+      '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>→</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
+      '<div class="jmap">' + rt.html + '<button type="button" class="btn jfly" id="jfly">Fly the route</button></div>' +
+      '<p class="fine">Routes are simplified; real journeys vary by season and population.</p>' +
+      (c.when ? '<p class="jwhen"><b>When:</b> ' + escH(c.when) + "</p>" : "") +
+      "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? "<p><b>Why it matters.</b> " + escH(c.matters) + "</p>" : "") +
+      '<h3>' + (c.type === "flow" ? "Both places" : "Both ends") + '</h3><div class="jends">' + ends + "</div>" +
+      (src ? '<h3>Sources</h3><ul class="jsrc">' + src + "</ul>" : "") +
+      (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") + "</article>";
+  }
+  function jPhotos() {
+    var c = M.jid && jbyId(M.jid); if (!c) return;
+    var m = document.getElementById("xi-" + c.id), t = document.getElementById("jp-main");
+    if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
+    jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
+  }
+  function jFly(c, pts) {
+    var dot = document.getElementById("jdot"); if (!dot) return;
+    var round = c.type === "species", dur = reduce ? 1 : round ? 5200 : 3200, t0 = null, id = ++M.jfly;
+    function at(u) { var f = u * (pts.length - 1), i = Math.min(pts.length - 2, Math.floor(f)), r = f - i; return [pts[i][0] + (pts[i + 1][0] - pts[i][0]) * r, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * r]; }
+    function step(ts) {
+      if (id !== M.jfly) return;
+      if (t0 === null) t0 = ts;
+      var k = Math.min(1, (ts - t0) / dur), h = round ? (k < 0.5 ? k * 2 : 2 - k * 2) : k, u = h * h * (3 - 2 * h), q = at(u);
+      dot.setAttribute("cx", q[0].toFixed(1)); dot.setAttribute("cy", q[1].toFixed(1));
+      if (k < 1) requestAnimationFrame(step); else M.jdone = (M.jdone || 0) + 1;
+    }
+    requestAnimationFrame(step);
+  }
+  function showJourney(id, from) {
+    var c = jbyId(id); if (!c) return;
+    var sb = document.getElementById("sbody"); if (el.webview.hidden && !el.mapview.hidden && sb) M.jScroll = sb.scrollTop;
+    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1;
+    el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
+    JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
+    JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);
+    jPhotos(); syncHash();
+  }
+  function closeJourney() {
+    var id = M.jid; M.jfly++; M.jid = null; JV.hidden = true; showMap(); setTab("journeys");
+    var sb = document.getElementById("sbody"); if (sb && M.jScroll) sb.scrollTop = M.jScroll;
+    var c = document.getElementById("xc-" + id); if (c) { c.classList.add("hl"); setTimeout(function () { c.classList.remove("hl"); }, 1600); }
+  }
+  JV.addEventListener("click", function (ev) {
+    var t = ev.target.closest("[data-jback],[data-jopen],[data-jj],#jfly"); if (!t) return;
+    var c = M.jid && jbyId(M.jid);
+    if (t.hasAttribute("data-jback")) closeJourney();
+    else if (t.hasAttribute("data-jj")) showJourney(t.getAttribute("data-jj"));
+    else if (t.hasAttribute("data-jopen")) { var p = t.getAttribute("data-jopen").split(":"); JV.hidden = true; var from = M.jid; M.jid = null; showWeb(p[0], function () { select(p[1]); }, from); }
+    else if (t.id === "jfly" && c) jFly(c, M.jpts);
+  });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
   function showMap() {
     M.loading = null; sim.stop();
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
+    JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Map";
     el.h1.textContent = "Connected Earth";
     if (M.map) M.map.resize();
     refreshArcs();
     renderView(false);
     syncHash();
   }
-  function showWeb(id, then) {
+  function showWeb(id, then, fromJ) {
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
+    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = fromJ ? "&larr; Journey" : "&larr; Map";
     el.eco.value = id; M.loading = id;
     var wl = document.getElementById("webload"), ready = !!ECO_BY[id].nodes;
     wl.hidden = ready; wl.textContent = "Loading\u2026"; wl.classList.remove("err");
@@ -2571,7 +2709,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     syncHash();
   }
-  el.back.addEventListener("click", function () { M.loading = null; showMap(); });
+  el.back.addEventListener("click", function () { M.loading = null; var f = M.cameFrom; if (f && !el.webview.hidden) { M.cameFrom = null; showJourney(f); } else showMap(); });
 
   M.h0 = location.hash.slice(1);
   buildMap();

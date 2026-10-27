@@ -1,9 +1,9 @@
-# Journeys (next to build)
+# Journeys
 
 Today: a Places | Journeys tab with compact route cards (13 journeys, hand-written, in `data/links.json` under `cross`). No count on the tab.
 
-## Dedicated journey page (wanted soon)
-Opens like a food web does, from a journey card. Contents:
+## Dedicated journey page (built)
+Opens from a journey card, a route tapped on the map, or "Read the journey" in a linked food web. Link: `#j=<id>`. Each journey in `data/links.json` has `text`, `when`, `matters` and `sources`. The route is an SVG map drawn from the country outlines, so it works offline. Contents:
 1. Header: route and photo, e.g. "Osprey · Yellowstone → Amazon".
 2. The story: 3-4 short lines on why it travels (food, breeding, weather) and what happens if it is lost.
 3. The map: the route as an arc, a "Fly the route" button, and when it travels (e.g. leaves in autumn, returns in spring).
