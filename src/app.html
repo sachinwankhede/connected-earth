@@ -833,9 +833,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
 .jp .jhimg svg { width: 36px; height: 36px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
-.jp .jkind { margin: 0 0 2px; font: 600 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.jp h2 { margin: 0; font: 700 26px/1.1 var(--font-display); }
-.jp .jr { margin: 4px 0 0; font-weight: 600; color: var(--muted); }
+.jp .jkind { margin: 0 0 2px; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp h2 { margin: 0; font: 700 24px/1.12 var(--font-display); letter-spacing: -0.015em; }
+.jp .jr { margin: 4px 0 0; font-size: 14px; font-weight: 600; color: var(--muted); }
 .jp .jr i { font-style: normal; padding: 0 4px; }
 .jp .jmap { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--sea-a); cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .jp .jmap:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
@@ -845,15 +845,16 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jmap .jhead { fill: var(--accent); }
 .jp .jmap .jpt { fill: var(--accent); stroke: #fff; stroke-width: 2; }
 .jp .jmap .jpt.src { fill: #fff; stroke: var(--accent); stroke-width: 3; }
-.jp .jmap .jfd { fill: #fff; stroke: var(--accent); stroke-width: 3.5; }
+.jp .jmap .jfd { fill: #fff; stroke: var(--accent); stroke-width: 3; }
+.jp .jmap .jemo { font: 16px/1 system-ui, -apple-system, "Segoe UI Emoji", "Apple Color Emoji", sans-serif; text-anchor: middle; dominant-baseline: central; stroke: none; paint-order: normal; fill: initial; pointer-events: none; }
 .jp .jmap text { font: 700 13px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
-.jp .jplay { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 15px var(--font-body); box-shadow: 0 2px 10px rgba(0,0,0,.25); pointer-events: none; white-space: nowrap; }
+.jp .jplay { position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 14px var(--font-body); box-shadow: 0 2px 10px rgba(0,0,0,.25); pointer-events: none; white-space: nowrap; }
 .jp .jplay svg { width: 16px; height: 16px; fill: currentColor; }
 .jp .jwhen, .jp .jwhy { margin: 14px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--accent); }
 .jp .jwhy { margin-top: 10px; }
-.jp h3 { margin: 24px 0 8px; font: 700 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-.jp p { margin: 0 0 8px; font-size: 16px; line-height: 1.55; }
-.jp p.fine { margin: 6px 2px 0; font-size: 12px; line-height: 1.4; color: var(--muted); }
+.jp h3 { margin: 22px 0 8px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp p { margin: 0 0 8px; }
+.jp p.fine { margin: 6px 2px 0; line-height: 1.4; }
 .jp a { color: var(--accent); }
 .jp .jends { display: grid; gap: 8px; }
 @media (min-width: 560px) { .jp .jends { grid-template-columns: 1fr 1fr; } }
@@ -864,19 +865,18 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend .jeimg img { width: 100%; height: 100%; object-fit: cover; }
 .jp .jend .jeimg svg { width: 22px; height: 22px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
 .jp .jend .jet { flex: 1 1 auto; min-width: 0; }
-.jp .jend small { display: block; font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp .jend small { display: block; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .jp .jend b { display: block; font: 700 16px var(--font-display); }
-.jp .jend .jlink { display: block; color: var(--accent); font-size: 14px; font-weight: 600; }
+.jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
 .jp details.srcd { margin-top: 22px; }
-.jp .srcd summary { cursor: pointer; font: 600 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
-.jp .srcs { font-size: 14px; }
+.jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
 .jp .jmore button::after { content: "\203a"; color: var(--muted); font-size: 22px; line-height: 1; }
 .jp .jmore button > span { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-.jp .jmore button i { font: 600 12px var(--font-body); font-style: normal; color: var(--muted); }
-.jp .jmore button b { font: 700 15px var(--font-display); }
+.jp .jmore button i { font: 600 10.5px var(--font-mono); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp .jmore button b { font: 700 16px/1.2 var(--font-display); }
 .jcard .jgo { flex: none; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; padding-left: 2px; }
 
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
@@ -2637,25 +2637,36 @@ rect.core { stroke-dasharray: 3 2.5; }
     function lab(q, name) { var right = q[0] > W * 0.62, below = q[1] < 36; return '<text x="' + (q[0] + (right ? -12 : 12)).toFixed(1) + '" y="' + (q[1] + (below ? 24 : -11)).toFixed(1) + '" text-anchor="' + (right ? "end" : "start") + '">' + escH(name) + "</text>"; }
     var A = pts[0], B = pts[pts.length - 1], flow = c.type === "flow", q = pts[pts.length - 4], ang = Math.atan2(B[1] - q[1], B[0] - q[0]) * 180 / Math.PI;
     var head = flow ? '<path class="jhead" transform="translate(' + B[0].toFixed(1) + " " + B[1].toFixed(1) + ") rotate(" + ang.toFixed(1) + ')" d="M-2 -9 L14 0 L-2 9 Z"/>' : "";
-    return { pts: pts, html: '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Route from ' + escH(en[0].e.short) + " to " + escH(en[en.length - 1].e.short) + '">' + land + '<path class="jarc" d="' + d + '"/>' + head + '<circle class="jpt' + (flow ? " src" : "") + '" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="7"/>' + (flow ? "" : '<circle class="jpt" cx="' + B[0].toFixed(1) + '" cy="' + B[1].toFixed(1) + '" r="7"/>') + lab(A, en[0].e.short) + lab(B, en[en.length - 1].e.short) + '<circle class="jfd" id="jdot" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="7"/></svg>' };
+    return { pts: pts, html: '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Route from ' + escH(en[0].e.short) + " to " + escH(en[en.length - 1].e.short) + '">' + land + '<path class="jarc" d="' + d + '"/>' + head + '<circle class="jpt' + (flow ? " src" : "") + '" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="7"/>' + (flow ? "" : '<circle class="jpt" cx="' + B[0].toFixed(1) + '" cy="' + B[1].toFixed(1) + '" r="7"/>') + lab(A, en[0].e.short) + lab(B, en[en.length - 1].e.short) + '<circle class="jfd" id="jdot" cx="' + A[0].toFixed(1) + '" cy="' + A[1].toFixed(1) + '" r="13"/><text class="jemo" id="jemo" x="' + A[0].toFixed(1) + '" y="' + (A[1] + 1).toFixed(1) + '">' + (c.mark || "") + "</text></svg>" };
   }
   function jPlace(t) { t = String(t).replace(/\s*\([^)]*\)/g, ""); return t.length > 44 ? t.split(",")[0] : t; }
   function jHTML(c, rt) {
     var en = jEnds(c), fi = en[0].e.icon, icon = function (k) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[k] || "") + "</svg>"; };
     var ends = en.map(function (x, i) {
-      return '<div class="jend" role="button" tabindex="0" data-jopen="' + x.eco + ":" + x.node + '"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><span class="jet">' + (x.flowLabel ? "<small>" + x.flowLabel + "</small>" : "") + "<b>" + escH(x.e.name) + '</b><span class="jlink">' + (c.type === "flow" ? "See it in the food web" : escH(nodeName(x.eco, x.node)) + " in its food web") + "</span></span></div>";
+      return '<div class="jend" role="button" tabindex="0" data-jopen="' + x.eco + ":" + x.node + '"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><span class="jet">' + (x.flowLabel ? "<small>" + x.flowLabel + "</small>" : "") + "<b>" + escH(x.e.name) + '</b><span class="jrole" id="jrole' + i + '"></span></span></div>';
     }).join("");
     var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener noreferrer">' + escH(q.t) + "</a></li>"; }).join("");
     var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
     return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button></div>' +
       '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>\u2192</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
-      '<div class="jmap" id="jfly" role="button" tabindex="0" aria-label="Fly the route">' + rt.html + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>Fly the route</span></div>' +
+      '<div class="jmap" id="jfly" role="button" tabindex="0" aria-label="' + escH(c.go || "Follow the route") + '">' + rt.html + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>' + escH(c.go || "Follow the route") + "</span></div>" +
       '<p class="fine">Routes are simplified; real journeys vary by season and population.</p>' +
       (c.when ? '<p class="jwhen"><b>When.</b> ' + escH(c.when) + "</p>" : "") +
       "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(c.matters) + "</p>" : "") +
       '<h3>Places on this route</h3><div class="jends">' + ends + "</div>" +
       (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") +
       (src ? '<details class="srcd"><summary>Sources</summary><ul class="srcs">' + src + "</ul></details>" : "") + "</article>";
+  }
+  function jRoles(c) {
+    var id = c.id;
+    jEnds(c).forEach(function (x, i) {
+      fetchWeb(x.eco).then(function (ok) {
+        var box = document.getElementById("jrole" + i); if (!ok || M.jid !== id || !box) return;
+        var n = (ECO_BY[x.eco].nodes || []).filter(function (q) { return q.id === x.node; })[0];
+        if (!n || !n.desc) return;
+        box.textContent = n.desc.split(/(?<=[.!?])\s+/)[0];
+      });
+    });
   }
   function jPhotos() {
     var c = M.jid && jbyId(M.jid); if (!c) return;
@@ -2672,6 +2683,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (t0 === null) t0 = ts;
       var k = Math.min(1, (ts - t0) / dur), h = round ? (k < 0.5 ? k * 2 : 2 - k * 2) : k, u = h * h * (3 - 2 * h), q = at(u);
       dot.setAttribute("cx", q[0].toFixed(1)); dot.setAttribute("cy", q[1].toFixed(1));
+      var em = document.getElementById("jemo"); if (em) { em.setAttribute("x", q[0].toFixed(1)); em.setAttribute("y", (q[1] + 1).toFixed(1)); }
       if (k < 1) requestAnimationFrame(step); else M.jdone = (M.jdone || 0) + 1;
     }
     requestAnimationFrame(step);
@@ -2683,7 +2695,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
     JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);
-    jPhotos(); syncHash();
+    jPhotos(); jRoles(c); syncHash();
   }
   function closeJourney() {
     var id = M.jid; M.jfly++; M.jid = null; JV.hidden = true; showMap(); setTab("journeys");

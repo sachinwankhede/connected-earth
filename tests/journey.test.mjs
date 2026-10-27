@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Red knot'); assert.match(s.hash, /j=knot/);
     const r = await p.evaluate(() => {
       const j = document.getElementById('jview');
-      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text')].map((t) => t.textContent) };
+      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text:not(.jemo)')].map((t) => t.textContent) };
     });
     assert.deepEqual(r.heads, ['The story', 'Places on this route', 'More journeys']);
     assert.ok(r.srcClosed, 'sources start collapsed'); assert.ok(r.endH <= 96, 'compact place row: ' + r.endH);
@@ -38,6 +38,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       const r = await p.evaluate(() => ({ h: document.querySelector('#jview h2').textContent, ends: document.querySelectorAll('#jview .jend').length, pts: window.__M.jpts.length, nan: window.__M.jpts.some((q) => !isFinite(q[0]) || !isFinite(q[1])), inside: window.__M.jpts.every((q) => q[0] > -50 && q[0] < 1000 && q[1] > -50 && q[1] < 700), more: document.querySelectorAll('#jview .jmore button').length }));
       assert.ok(r.h && r.ends === 2 && r.pts === 41 && !r.nan && r.inside && r.more >= 1, id + ' ' + JSON.stringify(r));
     }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: the play label fits the traveller, the map shows its icon, places describe the species, and type sizes match the rest of the app`, async () => {
+    const { b, p, errors } = await start();
+    const label = async (id) => { await p.evaluate((i) => window.__M.showJourney(i), id); await p.waitForTimeout(900); return p.evaluate(() => ({ go: document.querySelector('#jview .jplay').textContent.trim(), mark: document.getElementById('jemo').textContent.trim(), aria: document.getElementById('jfly').getAttribute('aria-label') })); };
+    assert.equal((await label('knot')).go, 'Fly the route');
+    const sock = await label('sockeye'); assert.equal(sock.go, 'Swim the route'); assert.ok(sock.mark.length > 0); assert.equal(sock.aria, 'Swim the route');
+    assert.equal((await label('greenturtleA')).go, 'Swim the route');
+    assert.equal((await label('caribouwest')).go, 'Follow the herd');
+    assert.equal((await label('dust')).go, 'Follow the dust');
+    assert.equal((await label('nutrients')).go, 'Follow the water');
+    await p.evaluate(() => window.__M.showJourney('knot')); await p.waitForTimeout(1500);
+    const r = await p.evaluate(() => { const f = (s) => { const c = getComputedStyle(document.querySelector(s)); return c.fontSize + '/' + c.fontWeight; }; return { roles: [...document.querySelectorAll('#jview .jrole')].map((x) => x.textContent.trim().length), h2: f('#jview h2'), body: f('#jview .jwhen'), h3: f('#jview h3'), kind: f('#jview .jkind'), card: f('#jview .jmore b') }; });
+    assert.ok(r.roles.length === 2 && r.roles.every((n) => n > 20), 'each place says what the species does there: ' + r.roles);
+    assert.equal(r.h2, '24px/700'); assert.equal(r.body, '14px/400'); assert.equal(r.h3, '11px/500'); assert.equal(r.kind, '11px/500'); assert.equal(r.card, '16px/700');
     assert.deepEqual(errors, []); await b.close();
   });
 

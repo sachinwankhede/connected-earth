@@ -25,7 +25,9 @@
      "t": "Wikipedia: Osprey",
      "u": "https://en.wikipedia.org/wiki/Osprey"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🦅"
   },
   {
    "id": "shorebird",
@@ -54,7 +56,9 @@
      "t": "Wikipedia: Shorebird",
      "u": "https://en.wikipedia.org/wiki/Shorebird"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "dust",
@@ -81,7 +85,9 @@
      "t": "Wikipedia: Bodélé Depression",
      "u": "https://en.wikipedia.org/wiki/Bodélé_Depression"
     }
-   ]
+   ],
+   "go": "Follow the dust",
+   "mark": "💨"
   },
   {
    "id": "pelican",
@@ -106,7 +112,9 @@
      "t": "Wikipedia: American white pelican",
      "u": "https://en.wikipedia.org/wiki/American_white_pelican"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "nutrients",
@@ -133,7 +141,9 @@
      "t": "Wikipedia: Mississippi River",
      "u": "https://en.wikipedia.org/wiki/Mississippi_River"
     }
-   ]
+   ],
+   "go": "Follow the water",
+   "mark": "💧"
   },
   {
    "id": "chesosprey",
@@ -162,7 +172,9 @@
      "t": "Wikipedia: Chesapeake Bay",
      "u": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🦅"
   },
   {
    "id": "knot",
@@ -195,7 +207,9 @@
      "t": "Wikipedia: Banc d'Arguin National Park",
      "u": "https://en.wikipedia.org/wiki/Banc_d'Arguin_National_Park"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "flamingo",
@@ -228,7 +242,9 @@
      "t": "Wikipedia: Doñana National Park",
      "u": "https://en.wikipedia.org/wiki/Doñana_National_Park"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🦩"
   },
   {
    "id": "altiplano",
@@ -257,7 +273,9 @@
      "t": "Wikipedia: Altiplano",
      "u": "https://en.wikipedia.org/wiki/Altiplano"
     }
-   ]
+   ],
+   "go": "Fly the route",
+   "mark": "🦩"
   },
   {
    "id": "caribouwest",
@@ -286,7 +304,9 @@
      "t": "Wikipedia: Caribou",
      "u": "https://en.wikipedia.org/wiki/Caribou"
     }
-   ]
+   ],
+   "go": "Follow the herd",
+   "mark": "🦌"
   },
   {
    "id": "sockeye",
@@ -315,7 +335,9 @@
      "t": "Wikipedia: Bristol Bay",
      "u": "https://en.wikipedia.org/wiki/Bristol_Bay"
     }
-   ]
+   ],
+   "go": "Swim the route",
+   "mark": "🐟"
   },
   {
    "id": "greenturtleA",
@@ -340,7 +362,9 @@
      "t": "Wikipedia: Green sea turtle",
      "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
     }
-   ]
+   ],
+   "go": "Swim the route",
+   "mark": "🐢"
   },
   {
    "id": "greenturtleB",
@@ -365,7 +389,9 @@
      "t": "Wikipedia: Green sea turtle",
      "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
     }
-   ]
+   ],
+   "go": "Swim the route",
+   "mark": "🐢"
   }
  ],
  "order": [
