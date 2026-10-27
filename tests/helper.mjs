@@ -36,12 +36,13 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
     ...(geo ? { geolocation: geo, permissions: ['geolocation'] } : {}),
   });
   const page = await ctx.newPage();
+  page.setDefaultTimeout(90000); // CI machines draw the map in software and can be several times slower than a laptop
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
   await page.goto('file://' + file + hash);
   if (hash) await page.reload();
-  await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
+  await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
   await page.waitForTimeout(1500);
   if (extraCss) await page.addStyleTag({ content: extraCss });
   return { ctx, page, errors, close: () => ctx.close() };
