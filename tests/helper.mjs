@@ -56,8 +56,8 @@ export const camera = (page) => page.evaluate(() => {
   return { lng: +c.lng.toFixed(2), lat: +c.lat.toFixed(2), zoom: +m.getZoom().toFixed(2) };
 });
 export const jump = async (page, center, zoom) => {
-  await page.evaluate(([c, z]) => window.__M.map.jumpTo({ center: c, zoom: z }), [center, zoom]);
-  await page.waitForTimeout(900);
+  await page.evaluate(([c, z]) => { window.__M.map.jumpTo({ center: c, zoom: z }); }, [center, zoom]);
+  await page.waitForTimeout(600);
 };
 export const chipLabels = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip')].map((x) => x.textContent.trim()));
 export const dimmed = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip.dim')].map((x) => x.getAttribute('data-kind')).sort());

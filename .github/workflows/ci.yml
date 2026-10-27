@@ -23,6 +23,8 @@ jobs:
         run: |
           npm run build
           git diff --exit-code -- index.html pilot/index.html sw.js webs && test -z "$(git status --porcelain webs)" || (echo "Built files are out of date: run npm run build and commit." && exit 1)
+      - name: Size budget
+        run: python3 build/budget.py
       - run: npx playwright install --with-deps chromium
       - name: Browser tests
         run: |

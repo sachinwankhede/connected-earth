@@ -21,3 +21,6 @@ After generating or editing places, run `python3 build/species.py pack`; CI fail
 
 ## On-demand loading
 The page carries only a light index of each place (name, location, species names, counts). A place's full web (species, links, evidence) lives in `webs/<id>.json`, written by `python3 build/build.py --all` and fetched the first time the place is opened. Commit `webs/` with the built pages; CI fails if they are stale.
+
+## Tests and budget
+`npm run test:quick` (about 1 minute) for everyday changes; `npm test` (about 3 minutes) before anything is called done; CI runs the full set. `npm run budget` fails if the pages or data grow past the limits in `build/budget.py`.
