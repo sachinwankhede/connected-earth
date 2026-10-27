@@ -19,9 +19,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Red knot'); assert.match(s.hash, /j=knot/);
     const r = await p.evaluate(() => {
       const j = document.getElementById('jview');
-      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('.jsrc a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('.jsrc a').length, more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text')].map((t) => t.textContent) };
+      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text')].map((t) => t.textContent) };
     });
-    assert.deepEqual(r.heads, ['The story', 'Both ends', 'Sources', 'More journeys']);
+    assert.deepEqual(r.heads, ['The story', 'Places on this route', 'More journeys']);
+    assert.ok(r.srcClosed, 'sources start collapsed'); assert.ok(r.endH <= 96, 'compact place row: ' + r.endH);
     assert.ok(r.land > 100 && r.arc && r.dots === 2 && r.ends === 2 && r.src >= 1 && r.more >= 1 && r.when);
     assert.deepEqual(r.labels, ['Wadden Sea', "Banc d'Arguin"]);
     assert.ok(r.over <= 1, 'no sideways scroll: ' + r.over);
