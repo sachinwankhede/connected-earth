@@ -74,6 +74,25 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(errors, []); await b.close();
   });
 
+  test(`${name}: satellite tiles cover the route map when they load and the plain map shows when they do not`, async () => {
+    const { b, p, errors } = await start();
+    const PNG = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64');
+    // blocked (the default in tests): plain map, no satellite look
+    for (const id of ['knot', 'dust', 'osprey']) {
+      await p.evaluate((i) => window.__M.showJourney(i), id); await p.waitForTimeout(500);
+      const r = await p.evaluate(() => ({ sat: !!document.querySelector('.jmap.sat'), land: document.querySelectorAll('.jmap .jl').length, tiles: document.querySelectorAll('.jmap .jt').length }));
+      assert.equal(r.sat, false, id + ' plain'); assert.ok(r.land > 100, id + ' land drawn');
+    }
+    // available: tiles cover the map, labels stay, the credit shows
+    await p.route(/arcgisonline/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: PNG }));
+    for (const id of ['knot', 'dust', 'osprey', 'sockeye', 'greenturtleA']) {
+      await p.evaluate((i) => window.__M.showJourney(i), id); await p.waitForTimeout(1200);
+      const r = await p.evaluate(() => { const m = document.querySelector('.jmap'); const svg = m.querySelector('svg').getBoundingClientRect(); return { sat: m.classList.contains('sat'), tiles: m.querySelectorAll('.jt').length, shown: [...m.querySelectorAll('.jt')].filter((t) => t.getAttribute('opacity') === '1').length, attr: getComputedStyle(m.querySelector('.jattr')).display, labels: m.querySelectorAll('text:not(.jemo)').length, over: document.documentElement.scrollWidth - document.documentElement.clientWidth }; });
+      assert.equal(r.sat, true, id + ' satellite'); assert.ok(r.tiles >= 1 && r.tiles <= 36 && r.shown === r.tiles, id + ' tiles ' + JSON.stringify(r)); assert.equal(r.attr, 'block'); assert.equal(r.labels, 2); assert.ok(r.over <= 0);
+    }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
   test(`${name}: back, more journeys, the food web and the link in a food web all connect`, async () => {
     const { b, p, errors } = await start();
     if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(500); }
