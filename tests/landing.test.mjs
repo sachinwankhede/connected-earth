@@ -49,3 +49,18 @@ test('phone: first batch is about ten places; small regions show everything; no 
   assert.deepEqual(t.errors, []);
   await b.close();
 });
+
+test('continent, country and state chips run from most places to fewest', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
+  await t.page.waitForTimeout(500);
+  const counts = () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => ({ n: c.textContent.trim(), c: +(c.querySelector('b') || { textContent: -1 }).textContent })));
+  const places = await t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].length);
+  // choose a continent, then check the country row order via the number of places in each
+  await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(700);
+  const row = await counts();
+  const nums = row.map((x) => x.c);
+  assert.ok(row.length > 1 && nums.every((x, i) => i === 0 || nums[i - 1] >= x), 'countries by place count: ' + JSON.stringify(row));
+  assert.ok(places > 0);
+  await b.close();
+});

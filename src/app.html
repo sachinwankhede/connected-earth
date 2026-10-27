@@ -1727,7 +1727,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     else return "";
     keys.sort();
     function count(k) { return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
-    if (lvl === "continent") keys.sort(function (a, b) { return count(b) - count(a) || (a < b ? -1 : 1); });
+    keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
     return '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
       return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + (lvl === "continent" ? "" : " <b>" + count(k) + "</b>") + "</button>";
     }).join("");
