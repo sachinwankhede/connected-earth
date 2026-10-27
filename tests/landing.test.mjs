@@ -16,7 +16,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
   await b.close();
 });
 
-test('desktop: plain card wording, continent row without counts, no list headings', async () => {
+test('desktop: plain card wording, continent chips carry counts, no list headings', async () => {
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
   await t.page.waitForTimeout(600);
@@ -30,7 +30,7 @@ test('desktop: plain card wording, continent row without counts, no list heading
   }));
   assert.deepEqual(r.g, [], 'no list headings');
   assert.match(r.card, /feeding links/);
-  assert.equal(r.lbl, 'Browse by continent'); assert.equal(r.counts, 0);
+  assert.equal(r.lbl, 'Browse by continent'); assert.ok(r.counts >= 5, 'continent chips show counts');
   assert.match(r.stats, /Who eats whom/);
   assert.deepEqual(t.errors, []);
   await b.close();
@@ -168,8 +168,8 @@ async function setup(name, size, opts = {}) {
     nJ: () => t.page.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((x) => !x.hidden).length),
     nP: () => t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length),
     vis: (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel),
-    chips: () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => c.textContent.trim())),
-    on: () => t.page.evaluate(() => { const c = document.querySelector('#regions .chip.on'); return c ? c.textContent.trim() : null; }),
+    chips: () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => c.textContent.trim().replace(/\s+\d+$/, ''))),
+    on: () => t.page.evaluate(() => { const c = document.querySelector('#regions .chip.on'); return c ? c.textContent.trim().replace(/\s+\d+$/, '') : null; }),
     head: () => t.page.evaluate(() => { const c = document.querySelector('#srow .scnt'), st = document.querySelector('#srow .stt'); return c && c.offsetParent ? st.textContent + '|' + c.textContent : 'stats:' + document.getElementById('stats').textContent; }),
     crumbs: () => t.page.evaluate(() => document.querySelector('#crumbs').textContent.trim()),
     tabOn: () => t.page.evaluate(() => (window.__M.tab === 'journeys' ? 'Journeys' : 'Places')),
@@ -192,7 +192,7 @@ for (const [name, size] of SIZES2) {
     assert.equal(chips[0], 'All'); assert.ok(chips.includes('Africa') && !chips.includes('Antarctica') && !chips.some((c) => /Congo|South Africa|Missouri/.test(c)), chips.join());
     assert.equal(await a.on(), 'All');
     // 2. filter, then back to Places: region is exactly as left, count is a places count
-    await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(400);
+    await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(400);
     const af = await a.nJ(); assert.ok(af > 0 && af < all);
     assert.equal(await a.crumbs(), region, 'map region untouched by the Journeys filter');
     assert.equal(await a.on(), 'Africa');
@@ -248,7 +248,7 @@ for (const [name, size] of SIZES2) {
     await a.p.evaluate(() => document.getElementById('back').click()); await a.p.waitForTimeout(900);
     assert.equal(await a.tabOn(), 'Places');
     // Journeys -> open a journey chip -> back: still on Journeys, same filter and card state sane
-    await a.open(); await a.tab('journeys'); await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300);
+    await a.open(); await a.tab('journeys'); await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300);
     await a.p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await a.p.waitForTimeout(300);
     await a.p.click('#xcards .jcard[aria-expanded="true"] .chip >> nth=0'); await a.p.waitForTimeout(1600);
     assert.equal(await a.p.evaluate(() => !document.getElementById('webview').hidden), true);
@@ -294,7 +294,7 @@ test('desktop: tabs keep the panel header in step', async () => {
   const stats = () => a.p.evaluate(() => document.getElementById('stats').textContent);
   assert.match(await stats(), /Who eats whom/);
   await a.tab('journeys'); assert.match(await stats(), /^\d+ journeys$/);
-  await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300); assert.match(await stats(), /^\d+ journeys? in Africa$/);
+  await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300); assert.match(await stats(), /^\d+ journeys? in Africa$/);
   await a.tab('places'); assert.match(await stats(), /Who eats whom/);
   await a.p.click('#regions .chip >> nth=0'); await a.p.waitForTimeout(500); assert.match(await stats(), /places? in /);
   await a.tab('journeys'); assert.match(await stats(), /in Africa$/, 'journeys filter kept while the map moved');
@@ -305,7 +305,7 @@ test('desktop: tabs keep the panel header in step', async () => {
 
 test('arc tap and deep link: a journey card brought up from the map switches to Journeys and clears a filter that hides it', async () => {
   const a = await setup('desktop', H.SIZES.desktop);
-  await a.tab('journeys'); await a.p.click('#regions .chip:text-is("Africa")'); await a.p.waitForTimeout(300);
+  await a.tab('journeys'); await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300);
   await a.tab('places');
   // osprey is Yellowstone-Amazon, hidden by an Africa filter
   await a.p.evaluate(() => document.getElementById('xc-osprey') && 0);
@@ -317,3 +317,31 @@ test('arc tap and deep link: a journey card brought up from the map switches to 
   assert.deepEqual(a.t.errors, []);
   await a.b.close();
 });
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: the region row is a tappable trail; one tap jumps up two levels; one-option rows are hidden`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    await t.page.waitForTimeout(600);
+    if (name === 'phone') { await t.page.click('#speek'); await t.page.waitForTimeout(600); }
+    const trail = () => t.page.evaluate(() => { const r = document.getElementById('srow'); return { btns: [...r.querySelectorAll('.sbk')].map((x) => x.textContent), cur: r.querySelector('.stt').textContent, vis: r.offsetParent !== null }; });
+    await t.page.evaluate(() => window.__M.go ? window.__M.go('state', 'Missouri') : null);
+    const viaHash = await t.page.evaluate(() => !!window.__M.go);
+    if (!viaHash) { await t.page.goto(H.MAIN + '#stub&r=state:Missouri'); await t.page.waitForTimeout(1200); if (name === 'phone') { await t.page.click('#speek').catch(() => {}); } }
+    await t.page.waitForTimeout(800);
+    const s1 = await trail();
+    assert.deepEqual(s1.btns, ['World', 'North America', 'United States'], 'full trail above the current state');
+    assert.equal(s1.cur, 'Missouri');
+    assert.equal(await t.page.evaluate(() => document.querySelectorAll('#regions .chip').length), 0, 'a state has no further chips');
+    await t.page.click('#srow .sbk >> nth=1'); await t.page.waitForTimeout(800);
+    const s2 = await trail();
+    assert.deepEqual(s2.btns, ['World'], 'jumped straight to the continent');
+    assert.equal(s2.cur, 'North America');
+    // every chip row that is shown offers at least two choices
+    const n = await t.page.evaluate(() => document.querySelectorAll('#regions .chip').length);
+    assert.ok(n === 0 || n >= 2, 'no single-option chip rows: ' + n);
+    await t.page.click('#srow .sbk >> nth=0'); await t.page.waitForTimeout(600);
+    assert.equal((await trail()).cur, 'Connected Earth');
+    await b.close();
+  });
+}
