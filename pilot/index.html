@@ -1811,6 +1811,8 @@ return maplibregl$1;
   }
   M.go = function (l, a) { go(l, a); };
   function go(level, a) {
+    /* moving to another region closes any open place card and its highlighted links */
+    view.focus = null; M.tieId = null; M.peekId = null; var pk0 = document.getElementById("peek"); if (pk0) pk0.hidden = true; spanHi(null);
     if (level === "world") view = { level: "world", cont: null, country: null, state: null };
     else if (level === "continent") view = { level: "continent", cont: a, country: null, state: null };
     else if (level === "country") view = { level: "country", cont: M.countryBy[a].cont, country: a, state: null };
@@ -1892,6 +1894,7 @@ return maplibregl$1;
   }
   var ICON_SHARE = '<button type="button" class="ibtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
   var ICON_CLOSE = '<button type="button" class="ibtn" data-closepeek="1" aria-label="Close card" title="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
+  M.peek = function (id) { peek(id); };
   function peek(id) {
     var e = ECO_BY[id], pe = document.getElementById("peek"), ci = document.getElementById("ci-" + id);
     pe.innerHTML = '<div class="pimg">' + (ci ? ci.innerHTML : "") + '</div><div class="pbody"><div class="pact">' + ICON_SHARE + ICON_CLOSE + '</div><span class="where">' + e.place + '</span><h2>' + e.name + '</h2><p>' + e.blurb + '</p>' + (spanText(e) ? '<p class="spans">' + spanText(e) + "</p>" : "") + tiesHTML(id) + '<div class="pbtns"><button type="button" class="btn go" data-open="' + id + '"><span class="long">Open the food web</span><span class="short">Open</span> &rarr;</button></div></div>';

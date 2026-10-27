@@ -345,3 +345,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await b.close();
   });
 }
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: going up a level with the trail closes an open place card and its highlighted links`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const p = t.page; await p.waitForTimeout(600);
+    if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(600); }
+    await p.click('#regions .chip:text-matches("^Africa")'); await p.waitForTimeout(1200);
+    await p.evaluate(() => window.__M.peek('serengeti')); await p.waitForTimeout(1200);
+    const open = await p.evaluate(() => ({ tie: window.__M.tieId, tied: window.__M.map.getSource('atl-t')._data.features.length }));
+    assert.ok(open.tie && open.tied > 0, 'a place is selected: ' + JSON.stringify(open));
+    await p.evaluate(() => document.querySelector('#srow .sbk, #srow button').click()); await p.waitForTimeout(1500);
+    const after = await p.evaluate(() => ({ tie: window.__M.tieId, tied: window.__M.map.getSource('atl-t')._data.features.length, peek: document.getElementById('peek').hidden, op: window.__M.map.getPaintProperty('atl-f-pt', 'circle-opacity') }));
+    assert.equal(after.tie, null); assert.equal(after.tied, 0, 'no highlighted links left'); assert.equal(after.peek, true); assert.equal(after.op, 1, 'dots are not dimmed');
+    await b.close();
+  });
+}
