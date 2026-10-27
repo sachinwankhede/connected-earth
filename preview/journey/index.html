@@ -855,22 +855,22 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp p { margin: 0 0 8px; font-size: 16px; line-height: 1.55; }
 .jp p.fine { margin: 6px 2px 0; font-size: 12px; line-height: 1.4; color: var(--muted); }
 .jp a { color: var(--accent); }
-.jp .jends { display: grid; gap: 10px; }
+.jp .jends { display: grid; gap: 8px; }
 @media (min-width: 560px) { .jp .jends { grid-template-columns: 1fr 1fr; } }
-.jp .jend { display: flex; flex-direction: column; gap: 10px; padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
+.jp .jend { display: flex; align-items: center; gap: 12px; min-height: 64px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
 .jp .jend:hover { border-color: var(--accent); }
 .jp .jend:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.jp .jend .jeh { display: flex; gap: 12px; align-items: center; }
-.jp .jend .jeimg { flex: none; width: 56px; height: 56px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
+.jp .jend .jeimg { flex: none; width: 44px; height: 44px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jend .jeimg img { width: 100%; height: 100%; object-fit: cover; }
-.jp .jend .jeimg svg { width: 26px; height: 26px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
-.jp .jend small { display: block; font: 600 12px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.jp .jend b { display: block; font: 700 17px var(--font-display); }
-.jp .jend .jlink { margin-top: auto; padding-top: 2px; color: var(--accent); font-weight: 600; }
-.jp .jend .jlink::after { content: " \203a"; }
-.jp ul.jsrc { margin: 0; padding-left: 18px; }
-.jp ul.jsrc li { margin: 4px 0; }
-.jp ul.jsrc a::after { content: " \2197"; font-size: .85em; }
+.jp .jend .jeimg svg { width: 22px; height: 22px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.jp .jend .jet { flex: 1 1 auto; min-width: 0; }
+.jp .jend small { display: block; font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp .jend b { display: block; font: 700 16px var(--font-display); }
+.jp .jend .jlink { display: block; color: var(--accent); font-size: 14px; font-weight: 600; }
+.jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
+.jp details.srcd { margin-top: 22px; }
+.jp .srcd summary { cursor: pointer; font: 600 12px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
+.jp .srcs { font-size: 14px; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
 .jp .jmore button::after { content: "\203a"; color: var(--muted); font-size: 22px; line-height: 1; }
@@ -2704,9 +2704,9 @@ return maplibregl$1;
   function jHTML(c, rt) {
     var en = jEnds(c), fi = en[0].e.icon, icon = function (k) { return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[k] || "") + "</svg>"; };
     var ends = en.map(function (x, i) {
-      return '<div class="jend" role="button" tabindex="0" data-jopen="' + x.eco + ":" + x.node + '"><div class="jeh"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><div><small>' + (x.flowLabel ? x.flowLabel + " \u00b7 " : "") + escH(jPlace(x.e.place)) + "</small><b>" + escH(x.e.name) + '</b></div></div><span class="jlink">' + (c.type === "flow" ? "See it in the food web" : escH(nodeName(x.eco, x.node)) + " in its food web") + "</span></div>";
+      return '<div class="jend" role="button" tabindex="0" data-jopen="' + x.eco + ":" + x.node + '"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><span class="jet">' + (x.flowLabel ? "<small>" + x.flowLabel + "</small>" : "") + "<b>" + escH(x.e.name) + '</b><span class="jlink">' + (c.type === "flow" ? "See it in the food web" : escH(nodeName(x.eco, x.node)) + " in its food web") + "</span></span></div>";
     }).join("");
-    var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener">' + escH(q.t) + "</a></li>"; }).join("");
+    var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener noreferrer">' + escH(q.t) + "</a></li>"; }).join("");
     var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
     return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button></div>' +
       '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>\u2192</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
@@ -2714,9 +2714,9 @@ return maplibregl$1;
       '<p class="fine">Routes are simplified; real journeys vary by season and population.</p>' +
       (c.when ? '<p class="jwhen"><b>When.</b> ' + escH(c.when) + "</p>" : "") +
       "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(c.matters) + "</p>" : "") +
-      '<h3>' + (c.type === "flow" ? "Both places" : "Both ends") + '</h3><div class="jends">' + ends + "</div>" +
-      (src ? '<h3>Sources</h3><ul class="jsrc">' + src + "</ul>" : "") +
-      (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") + "</article>";
+      '<h3>Places on this route</h3><div class="jends">' + ends + "</div>" +
+      (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") +
+      (src ? '<details class="srcd"><summary>Sources</summary><ul class="srcs">' + src + "</ul></details>" : "") + "</article>";
   }
   function jPhotos() {
     var c = M.jid && jbyId(M.jid); if (!c) return;
