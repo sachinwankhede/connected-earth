@@ -775,8 +775,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 .hook .stat { display: block; }
 .sub .pitch { display: block; font: 600 15px var(--font-display); color: var(--ink); margin-bottom: 2px; }
 .speek { display: none; }
-.cards li.grp { grid-column: 1 / -1; font: 600 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 6px 0 -4px; }
-.cards li.grp[hidden] { display: none; }
 .zoomc #locbtn { height: auto; min-height: 46px; padding: 4px 0 3px; grid-auto-flow: row; gap: 1px; align-content: center; }
 .zoomc #locbtn .lb { font: 600 9.5px/1 var(--font-body); letter-spacing: .02em; }
 .regions.fade, .filters .kinds.fade { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
@@ -2202,8 +2200,6 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (c.li) c.li.hidden = !(view.level === "world" || ends.some(function (en) { return inRegion(ECO_BY[en.eco]); }));
     });
     ECOS.forEach(function (e) { e.li.hidden = !inRegion(e); });
-    var homeList = view.level === "world" && !FL.q && !FL.kind && !FL.park;
-    [["grp1", 0], ["grp2", 3]].forEach(function (g) { var h = document.getElementById(g[0]); if (h) h.hidden = !(homeList && ECOS[g[1]] && !ECOS[g[1]].li.hidden); });
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
     if (M.pgKey !== pgKey) { M.pgKey = pgKey; var nv = ECOS.filter(function (e) { return !e.li.hidden; }).length; M.pageN = nv <= 12 ? nv : 10; }
     var pm = window.matchMedia && matchMedia("(max-width: 700px)").matches, shown = 0, left = 0;
@@ -2433,7 +2429,6 @@ rect.core { stroke-dasharray: 3 2.5; }
       li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + '</span><span class="go">Open the food web &rarr;</span></button>';
       cards.appendChild(li); e.li = li;
     });
-    [[0, "Start here", "grp1"], [3, "More places", "grp2"]].forEach(function (g) { var t = ECOS[g[0]]; if (!t) return; var h = document.createElement("li"); h.className = "grp"; h.id = g[2]; h.textContent = g[1]; h.hidden = true; cards.insertBefore(h, t.li); });
     var xc = document.getElementById("xcards");
     CROSS.forEach(function (c) {
       var en = ecoEnds(c), btns = en.map(function (x) { return '<button type="button" class="chip" data-jump="' + x.eco + ':' + x.node + '">' + ECO_BY[x.eco].short + ' \u00b7 ' + nodeName(x.eco, x.node) + '</button>'; }).join("");

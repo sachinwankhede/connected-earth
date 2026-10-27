@@ -16,7 +16,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
   await b.close();
 });
 
-test('desktop: Start here / More places headings, plain card wording, continent row without counts, headings leave with a filter', async () => {
+test('desktop: plain card wording, continent row without counts, no list headings', async () => {
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
   await t.page.waitForTimeout(600);
@@ -28,12 +28,10 @@ test('desktop: Start here / More places headings, plain card wording, continent 
     stats: document.getElementById('stats').textContent,
     tree: document.getElementById('locbtn').style.display,
   }));
-  assert.deepEqual(r.g, ['Start here', 'More places']);
+  assert.deepEqual(r.g, [], 'no list headings');
   assert.match(r.card, /feeding links/);
   assert.equal(r.lbl, 'Browse by continent'); assert.equal(r.counts, 0);
   assert.match(r.stats, /Who eats whom/);
-  await t.page.click('#kinds .chip >> nth=0'); await t.page.waitForTimeout(500);
-  assert.equal(await t.page.evaluate(() => [...document.querySelectorAll('#cards li.grp')].filter((x) => !x.hidden).length), 0, 'no headings while filtering');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
