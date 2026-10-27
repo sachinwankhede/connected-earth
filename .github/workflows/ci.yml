@@ -33,6 +33,7 @@ jobs:
           node --test --test-concurrency=2 --test-timeout=300000 tests/*.test.mjs > test.log 2>&1
           code=$?
           if [ $code -ne 0 ]; then
+            grep -E "^\s*not ok" test.log | head -30 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
             grep -E "^\s*(not ok|error:|message:|name:)|Error|Timeout" -A3 test.log | head -40 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
           fi
           exit $code
