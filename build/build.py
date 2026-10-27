@@ -76,7 +76,10 @@ def build(pilot, out_path):
     errs = check(ecos, links, tpl, geo)
     if errs:
         print('\n'.join(errs)); sys.exit(1)
-    data = json.dumps({'ecos': ecos, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
+    tab = species.table()
+    used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
+    about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
+    data = json.dumps({'about': about, 'ecos': ecos, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     out = tpl.replace('__LAND__', land).replace('__GEO__', json.dumps(geo, separators=(',', ':'))).replace('__DATA__', data)
     ml = P('node_modules', 'maplibre-gl', 'dist')

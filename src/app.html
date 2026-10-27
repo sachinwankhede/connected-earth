@@ -255,6 +255,8 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .shot a { color: var(--muted); }
 .eyebrow { font: 500 11px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
 .latin { font-style: italic; color: var(--muted); }
+.about { color: var(--muted); font-size: 0.9em; margin-top: -2px; }
+.about a { color: inherit; text-decoration: underline; white-space: nowrap; }
 .tlpill { display: inline-flex; align-items: center; gap: 8px; font: 500 11px var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .tlpill i, .chip i, .legend .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
 .badge { display: inline-block; margin-top: 10px; padding: 2px 8px; border: 1px dashed var(--ink); font: 500 11px var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; }
@@ -899,6 +901,12 @@ rect.core { stroke-dasharray: 3 2.5; }
   };
 
   var DATA = __DATA__;
+  var ABOUT = DATA.about || {};
+  function aboutHTML(n) {
+    var t = n.latin && ABOUT[n.latin.toLowerCase()];
+    if (!t) return "";
+    return '<p class="about">' + t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a></p>';
+  }
   var ECOS = DATA.ecos;
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
@@ -1459,7 +1467,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       '<span class="tlpill">' + kindText(n) + "</span>" +
       "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" + shot(n) +
       (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
-      "<p>" + n.desc + "</p>" + linkHTML(n) + whatIfHTML(n) + whereElseHTML(n) +
+      "<p>" + n.desc + "</p>" + aboutHTML(n) + linkHTML(n) + whatIfHTML(n) + whereElseHTML(n) +
       group("Eats", k(ins, "eats"), "s") +
       group("Scavenges from", k(ins, "scav"), "s") +
       group("Depends on", k(ins, "res"), "s") +
