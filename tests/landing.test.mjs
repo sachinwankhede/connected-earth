@@ -73,11 +73,11 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     if (name === 'phone') { await t.page.click('#speek'); await t.page.waitForTimeout(600); }
     const vis = (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel);
     assert.equal(await vis('#cards'), true); assert.equal(await vis('#xcards'), false, 'journeys hidden on the Places tab');
-    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
+    await t.page.click('[data-tab="journeys"]:visible'); await t.page.waitForTimeout(500);
     assert.equal(await vis('#cards'), false); assert.equal(await vis('#xcards'), true);
     const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, route: document.querySelector('#xcards .jroute').textContent }));
     assert.ok(n.cards >= 13); assert.match(n.route, /→/);
-    assert.equal(await t.page.evaluate(() => document.getElementById('tab-journeys').textContent.trim()), 'Journeys', 'no count on the tab');
+    assert.equal(await t.page.evaluate(() => [...document.querySelectorAll('[data-tab="journeys"]')].find((b) => b.offsetParent).textContent.trim()), 'Journeys', 'no count on the tab');
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'none', 'collapsed card hides its chips');
     await t.page.click('#xcards .jcard >> nth=0'); await t.page.waitForTimeout(300);
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'flex', 'open card shows its chips');
@@ -136,16 +136,21 @@ test('phone: a soft fade at the bottom of the open sheet says the list continues
   await b.close();
 });
 
-test('phone: the open sheet shows the place count at the top right at home as it does in a continent; the collapsed home sheet does not repeat it', async () => {
+test('phone: tabs come first in the open sheet; the title row only appears for a region, with its count; collapsed home keeps its title', async () => {
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
   await t.page.waitForTimeout(500);
   const cnt = () => t.page.evaluate(() => { const e = document.querySelector('#srow .scnt'); return { v: e && e.offsetParent !== null, t: e ? e.textContent : '' }; });
   assert.equal((await cnt()).v, false, 'collapsed home: stats line already says it');
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
-  let c = await cnt(); assert.ok(c.v && /^\d+ places$/.test(c.t), 'open home: ' + JSON.stringify(c));
+  const rowVis = () => t.page.evaluate(() => !!document.getElementById('srow').offsetParent);
+  assert.equal(await rowVis(), false, 'open at home: no title row, the tabs lead');
+  const first = await t.page.evaluate(() => { const sh = document.getElementById('sheet').getBoundingClientRect(), tb = document.querySelector('#trow .tabs').getBoundingClientRect(); return tb.top - sh.top; });
+  assert.ok(first < 48, 'tabs sit at the top of the open sheet: ' + first);
+  let c = { v: true, t: '' };
   await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(900);
   c = await cnt(); assert.ok(c.v && /^\d+ places?$/.test(c.t), 'continent: ' + JSON.stringify(c));
+  assert.equal(await rowVis(), true, 'a region shows its title row (back, name, count) under the tabs');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
@@ -159,7 +164,7 @@ async function setup(name, size, opts = {}) {
   const api = {
     b, t, p: t.page,
     open: async () => { if (name === 'phone') { await t.page.evaluate(() => window.__M.setSheet('half')); await t.page.waitForTimeout(500); } },
-    tab: async (k) => { await t.page.click('#tab-' + k); await t.page.waitForTimeout(450); },
+    tab: async (k) => { await t.page.click('[data-tab="' + k + '"]:visible'); await t.page.waitForTimeout(450); },
     nJ: () => t.page.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((x) => !x.hidden).length),
     nP: () => t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length),
     vis: (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel),
@@ -167,7 +172,7 @@ async function setup(name, size, opts = {}) {
     on: () => t.page.evaluate(() => { const c = document.querySelector('#regions .chip.on'); return c ? c.textContent.trim() : null; }),
     head: () => t.page.evaluate(() => { const c = document.querySelector('#srow .scnt'), st = document.querySelector('#srow .stt'); return c && c.offsetParent ? st.textContent + '|' + c.textContent : 'stats:' + document.getElementById('stats').textContent; }),
     crumbs: () => t.page.evaluate(() => document.querySelector('#crumbs').textContent.trim()),
-    tabOn: () => t.page.evaluate(() => document.querySelector('#tabs [aria-pressed="true"]').textContent.trim()),
+    tabOn: () => t.page.evaluate(() => (window.__M.tab === 'journeys' ? 'Journeys' : 'Places')),
   };
   return api;
 }
@@ -180,7 +185,9 @@ for (const [name, size] of SIZES2) {
     const region = await a.crumbs(); assert.ok(region.length > 0);
     await a.tab('journeys');
     const all = await a.nJ(); assert.ok(all >= 13, 'all journeys: ' + all);
-    assert.match(await a.head(), new RegExp(`Journeys\\|${all} journeys|^stats:${all} journeys$`));
+    assert.match(await a.p.evaluate(() => document.getElementById('jintro').textContent), new RegExp(`^${all} journeys\\.`));
+    if (name === 'phone') assert.equal(await a.vis('#srow'), false, 'no region title row on the Journeys tab');
+    else assert.equal(await a.p.evaluate(() => document.getElementById('srow').textContent.trim()), 'Connected Earth');
     const chips = await a.chips();
     assert.equal(chips[0], 'All'); assert.ok(chips.includes('Africa') && !chips.includes('Antarctica') && !chips.some((c) => /Congo|South Africa|Missouri/.test(c)), chips.join());
     assert.equal(await a.on(), 'All');
@@ -261,17 +268,18 @@ for (const [name, size] of SIZES2) {
 test('phone: tabs x sheet states - collapsed, half and full, switching from every state', async () => {
   const a = await setup('phone', H.SIZES.phone);
   // collapsed: no tabs visible, peek and pitch show; switching tabs is impossible there (tabs live in the open sheet)
-  assert.equal(await a.vis('#tabs'), false); assert.equal(await a.vis('#speek'), true);
+  assert.equal(await a.vis('#trow .tabs'), false); assert.equal(await a.vis('#speek'), true);
   for (const state of ['half', 'full']) {
     await a.p.evaluate((s) => window.__M.setSheet(s), state); await a.p.waitForTimeout(600);
-    assert.equal(await a.vis('#tabs'), true); assert.equal(await a.vis('#speek'), false); assert.equal(await a.vis('#hook'), false);
-    await a.tab('journeys'); assert.match(await a.head(), /^Journeys\|\d+ journeys$/); assert.equal(await a.vis('#xcards'), true); assert.equal(await a.vis('#cards'), false);
-    await a.tab('places'); assert.match(await a.head(), /^Connected Earth\|\d+ places$/); assert.equal(await a.vis('#cards'), true);
+    assert.equal(await a.vis('#trow .tabs'), true); assert.equal(await a.vis('#speek'), false); assert.equal(await a.vis('#hook'), false);
+    await a.tab('journeys'); assert.match(await a.p.evaluate(() => document.getElementById('jintro').textContent), /^\d+ journeys\./); assert.equal(await a.vis('#xcards'), true); assert.equal(await a.vis('#cards'), false); assert.equal(await a.vis('#srow'), false);
+    await a.tab('places'); assert.equal(await a.vis('#srow'), false, 'home: tabs lead, no title row'); assert.equal(await a.vis('#cards'), true);
   }
   // collapse while on Journeys: header returns to the pitch and peek (Places framing), reopen: still Journeys
   await a.tab('journeys');
   await a.p.evaluate(() => window.__M.setSheet('min')); await a.p.waitForTimeout(600);
   assert.equal(await a.vis('#speek'), true, 'collapsed sheet is the home framing');
+  assert.equal(await a.p.evaluate(() => document.querySelector('#srow .stt').textContent), 'Connected Earth');
   await a.p.evaluate(() => window.__M.setSheet('half')); await a.p.waitForTimeout(600);
   assert.equal(await a.tabOn(), 'Journeys');
   // scroll position resets on each switch

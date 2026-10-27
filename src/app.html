@@ -747,6 +747,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .zoomc #locbtn[aria-pressed="true"] { background: var(--accent); color: #fff; }
 
 .hook { margin: 0 0 8px; font: 500 15px/1.35 var(--font-body); color: var(--muted); }
+.trow { display: none; }
 .tabs { display: flex; gap: 3px; padding: 3px; margin: 2px 0 10px; background: rgba(0,0,0,.07); border-radius: 11px; }
 .tabs button { all: unset; box-sizing: border-box; flex: 1; text-align: center; padding: 7px 8px; border-radius: 9px; font: 600 14px var(--font-body); color: var(--muted); cursor: pointer; }
 .tabs button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0,0,0,.14); }
@@ -787,6 +788,12 @@ rect.core { stroke-dasharray: 3 2.5; }
   .sheet.s-min:has(#hook:not([hidden])) { height: auto; }
   .hook { white-space: nowrap; font-size: 14px; }
   .regions .lbl { display: none; }
+  .sheet:not(.s-min) .trow { display: flex; align-items: center; gap: 4px; margin: 2px 0 6px; }
+  .trow .tabs { flex: 1; margin: 0; }
+  .trow::after { content: ""; flex: none; width: 9px; height: 9px; margin: 0 8px 0 8px; border-right: 2px solid var(--muted); border-top: 2px solid var(--muted); transform: rotate(135deg) translate(1px, -1px); }
+  .sbody .tabs { display: none; }
+  .sheet:not(.s-min) .srow::after { display: none; }
+  .sheet:not(.s-min) .srow.home, .sheet:not(.s-min) .srow.jtab { display: none; }
   .sheet:not(.s-min)::after { content: ""; position: absolute; left: 0; right: 0; bottom: env(safe-area-inset-bottom, 0px); height: 44px; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--surface)); border-radius: 0; transition: opacity .2s; }
   .sheet.atend::after { opacity: 0; }
   .sheet:not(.s-min) .speek { display: none !important; }
@@ -837,7 +844,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     <div class="credmodal" id="credmodal" role="dialog" aria-modal="true" aria-label="Credits" hidden><div class="credcard"><button type="button" class="credx" id="credx" aria-label="Close">&times;</button><h2>Credits</h2><p>Connected Earth is built from open data. Thank you to everyone who collects and shares it.</p><dl><dt>Species photos and descriptions</dt><dd><a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> and <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>. Text is available under CC BY-SA; each photo has its own licence and author, shown on its Commons page.</dd><dt>Which species live where</dt><dd><a href="https://www.gbif.org" target="_blank" rel="noopener">GBIF</a>, the Global Biodiversity Information Facility, and the observers and institutions who contribute records to it.</dd><dt>Who eats whom</dt><dd><a href="https://www.globalbioticinteractions.org" target="_blank" rel="noopener">Global Biotic Interactions (GloBI)</a> and the studies it collects.</dd><dt>Park and protected-area locations</dt><dd><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview" target="_blank" rel="noopener">PAD-US</a>, the US Geological Survey's Protected Areas Database.</dd><dt>Maps</dt><dd>Street map &copy; <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, &copy; <a href="https://openmaptiles.org" target="_blank" rel="noopener">OpenMapTiles</a>, data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Satellite imagery &copy; Esri, Maxar, Earthstar Geographics. Terrain: Mapzen, AWS Open Data.</dd></dl><p class="credfine">Ecosystems marked auto-generated were drafted from these sources by software and have not been checked by hand.</p></div></div>
     <div class="peek" id="peek" hidden></div>
     <div class="filters"><div class="qrow"><input type="search" id="q" placeholder="Search places or species" aria-label="Search ecosystems or species"><button type="button" class="btn qbtn" id="fbtn" aria-expanded="false">Filters</button></div><div class="kinds" id="kinds"></div></div>
-    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p><button type="button" class="speek" id="speek" hidden></button></div><div class="sbody" id="sbody"><div class="tabs" id="tabs" role="group" aria-label="Browse"><button type="button" id="tab-places" data-tab="places" aria-pressed="true">Places</button><button type="button" id="tab-journeys" data-tab="journeys" aria-pressed="false">Journeys</button></div><div class="regions" id="regions"></div>
+    <div class="sheet s-min" id="sheet"><div class="shead" id="shead"><span class="grab"></span><div class="trow" id="trow"><div class="tabs" role="group" aria-label="Browse"><button type="button" data-tab="places" aria-pressed="true">Places</button><button type="button" data-tab="journeys" aria-pressed="false">Journeys</button></div></div><div class="srow" id="srow"></div><p class="hook" id="hook" hidden></p><button type="button" class="speek" id="speek" hidden></button></div><div class="sbody" id="sbody"><div class="tabs" id="tabs" role="group" aria-label="Browse"><button type="button" id="tab-places" data-tab="places" aria-pressed="true">Places</button><button type="button" id="tab-journeys" data-tab="journeys" aria-pressed="false">Journeys</button></div><div class="regions" id="regions"></div>
     <p class="fine" id="empty" hidden>No ecosystems here yet. Shaded regions on the map have food webs.</p>
     <ul class="cards" id="cards"></ul>
     <p class="credlink"><button type="button" id="credbtn">Credits</button></p>
@@ -2490,14 +2497,15 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function updCount() {
     var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys");
-    if (sr && M.srHTML !== undefined) { if (j) { sr.innerHTML = '<span class="stt">Journeys</span><span class="scnt">' + nj + "</span>"; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
+    if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j); if (j) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
+    var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
     if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; }
   }
   function setTab(t) {
     M.tab = t;
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) sb.classList.toggle("tab-j", t === "journeys");
-    ["places", "journeys"].forEach(function (k) { var b = document.getElementById("tab-" + k); if (b) b.setAttribute("aria-pressed", k === t ? "true" : "false"); });
+    Array.prototype.forEach.call(document.querySelectorAll("[data-tab]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tab") === t ? "true" : "false"); });
     applyJ();
     if (sb && sb.scrollTo) sb.scrollTo(0, 0);
   }
@@ -2509,7 +2517,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     addEventListener("resize", fade); setTimeout(fade, 300);
   })();
   (function () { var rg = document.getElementById("regions"); if (rg) rg.addEventListener("click", function (ev) { var b = ev.target.closest("[data-jc]"); if (!b) return; M.jcont = b.getAttribute("data-jc") || null; rg.innerHTML = chipsHTML(); kfade(); applyJ(); }); })();
-  (function () { var tb = document.getElementById("tabs"); if (tb) tb.addEventListener("click", function (ev) { var b = ev.target.closest("[data-tab]"); if (b) { setTab(b.getAttribute("data-tab")); if (M.setSheet && M.sheetState === "min") M.setSheet("half"); } }); })();
+  document.addEventListener("click", function (ev) { var b = ev.target.closest("[data-tab]"); if (b) { setTab(b.getAttribute("data-tab")); if (M.setSheet && M.sheetState === "min") M.setSheet("half"); } });
   function hlCard(id) {
     var c = document.getElementById("xc-" + id);
     if (!c) return;
