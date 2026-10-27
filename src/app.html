@@ -787,7 +787,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   <section class="mapview" id="mapview" aria-label="Choose an ecosystem">
     <nav class="crumbs" id="crumbs" aria-label="Map region"></nav>
-    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="streets" aria-pressed="false">Streets</button><button type="button" data-mode="terrain" aria-pressed="false">Terrain</button><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 6.5 11h3L5.5 17h13l-4-6h3z"/><path d="M12 17v4"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
+    <div class="mapbox"><div id="map" role="region" aria-label="Interactive map. Drag to move, scroll or pinch to zoom, right-drag to rotate. The cards below list every ecosystem."></div><div class="mapctl" id="mapctl" role="group" aria-label="Map style"><button type="button" data-mode="light" aria-pressed="false">Light</button><button type="button" data-mode="satellite" aria-pressed="true">Satellite</button><button type="button" id="tilt" aria-pressed="false" title="Tilt the map and raise the mountains">3D</button></div><div class="zoomc"><button type="button" id="lyrbtn" class="home" aria-label="Map layers" aria-expanded="false" title="Map layers"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></svg></button><button type="button" id="locbtn" aria-pressed="false" aria-label="Local parks" title="Local parks" style="display:none"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 6.5 11h3L5.5 17h13l-4-6h3z"/><path d="M12 17v4"/></svg></button><button type="button" id="zin" aria-label="Zoom in">+</button><button type="button" id="zout" aria-label="Zoom out">&minus;</button><button type="button" id="zhome" class="home" aria-label="Show the whole world" title="Whole world"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></button><button type="button" id="znear" class="home" aria-label="Show ecosystems near me" title="Near me"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button></div><div class="ztip" id="ztip">Scroll or pinch to zoom &middot; drag to move</div></div>
     <p class="fine maplg" id="maplg">Zoom in for cities, roads and terrain, switch the map style at the top left. Numbered circles group nearby ecosystems; tap one to zoom in. Tap an ecosystem to see the animals and nutrients that travel to or from it (solid and dashed arcs) and which ecosystems share its species (dotted lines).</p>
     <div class="credmodal" id="credmodal" role="dialog" aria-modal="true" aria-label="Credits" hidden><div class="credcard"><button type="button" class="credx" id="credx" aria-label="Close">&times;</button><h2>Credits</h2><p>Connected Earth is built from open data. Thank you to everyone who collects and shares it.</p><dl><dt>Species photos and descriptions</dt><dd><a href="https://www.wikipedia.org" target="_blank" rel="noopener">Wikipedia</a> and <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a>. Text is available under CC BY-SA; each photo has its own licence and author, shown on its Commons page.</dd><dt>Which species live where</dt><dd><a href="https://www.gbif.org" target="_blank" rel="noopener">GBIF</a>, the Global Biodiversity Information Facility, and the observers and institutions who contribute records to it.</dd><dt>Who eats whom</dt><dd><a href="https://www.globalbioticinteractions.org" target="_blank" rel="noopener">Global Biotic Interactions (GloBI)</a> and the studies it collects.</dd><dt>Park and protected-area locations</dt><dd><a href="https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview" target="_blank" rel="noopener">PAD-US</a>, the US Geological Survey's Protected Areas Database.</dd><dt>Maps</dt><dd>Street map &copy; <a href="https://openfreemap.org" target="_blank" rel="noopener">OpenFreeMap</a>, &copy; <a href="https://openmaptiles.org" target="_blank" rel="noopener">OpenMapTiles</a>, data from <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors. Satellite imagery &copy; Esri, Maxar, Earthstar Geographics. Terrain: Mapzen, AWS Open Data.</dd></dl><p class="credfine">Ecosystems marked auto-generated were drafted from these sources by software and have not been checked by hand.</p></div></div>
     <div class="peek" id="peek" hidden></div>
@@ -1530,7 +1530,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
-  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "webs/";
+  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "webs/";
   function fetchWeb(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
@@ -1643,6 +1643,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   var SHORTNAME = {}; SHORTNAME[US] = "United States";
   function nm(s) { return SHORTNAME[s] || s; }
   var KC = { "Forest": "#2f7d4f", "Grassland": "#b8902c", "Desert": "#d0702f", "Lakes & wetlands": "#3b6fd0", "Coast & ocean": "#139aa3", "Polar & mountain": "#8a6fc0", "Urban": "#c0457a" };
+  var KC_BASE = Object.assign({}, KC);
+  // brighter set for the dark satellite imagery; chips and map dots always use the same set
+  var KC_SAT = { "Forest": "#43c779", "Grassland": "#f0c040", "Desert": "#ff8f4a", "Lakes & wetlands": "#5f95ff", "Coast & ocean": "#2fd4de", "Polar & mountain": "#b79cff", "Urban": "#ff6fa8" };
   var FL = { q: "", kind: null, park: false, local: false };
   function pass(e) {
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
@@ -1758,7 +1761,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   /* ---------- MapLibre GL layer: real basemap (streets, cities), terrain and 3D ---------- */
   var GLYPHS = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
-  var STYLES = { streets: "https://tiles.openfreemap.org/styles/liberty", terrain: "https://tiles.openfreemap.org/styles/liberty", light: "https://tiles.openfreemap.org/styles/positron" };
+  var STYLES = { streets: "https://tiles.openfreemap.org/styles/liberty", light: "https://tiles.openfreemap.org/styles/positron" };
   var DEM_TILES = ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"];
   M.mode = "satellite"; M.tilt = false; M.needFit = true; M.styleReady = false; M.stub = M.stubUrl = /[#&?]stub/.test(location.href); M.fails = {}; M.retries = 0;
   function cssv(n, d) { var v = getComputedStyle(document.documentElement).getPropertyValue(n).trim(); return v || d; }
@@ -1801,14 +1804,28 @@ rect.core { stroke-dasharray: 3 2.5; }
   function sheetMode() { return window.matchMedia && matchMedia("(max-width: 700px)").matches; }
   function stubStyle() { return { version: 8, name: "plain", sources: {}, glyphs: GLYPHS, layers: [{ id: "bg", type: "background", paint: { "background-color": cssv("--sea-a", "#cfe6f4") } }] }; }
   function pt(e, extra) { var p = { id: e.id, short: e.short, kc: KC[e.kind] || "#888", lk: LK[e.id] ? 1 : 0 }; for (var k in extra) p[k] = extra[k]; return { type: "Feature", properties: p, geometry: { type: "Point", coordinates: [e.lon, e.lat] } }; }
-  function ecoFC() { return { type: "FeatureCollection", features: ECOS.filter(function (e) { return inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
+  var FLAGS = ["yellowstone", "amazon", "serengeti", "congo", "reef", "arctic", "mississippi", "galapagos", "boreal", "baikal", "himalaya", "greatlakes"];
+  function flagMode() { return !M.hiZ && view.level === "world" && !(FL.q && FL.q.length >= 2); }
+  function flagFC() { var fm = flagMode(); return { type: "FeatureCollection", features: !fm ? [] : ECOS.filter(function (e) { return FLAGS.indexOf(e.id) >= 0 && inRegion(e); }).map(function (e) { return pt(e, { pr: FLAGS.indexOf(e.id) }); }) }; }
+  function dotStyle() {
+    var m = M.map; if (!m || !m.getLayer("atl-pt")) return;
+    var fm = flagMode();
+    m.setPaintProperty("atl-pt", "circle-radius", fm ? ["interpolate", ["linear"], ["zoom"], 1, 1.6, 2.4, 2.6, 3.5, DOT] : ["interpolate", ["linear"], ["zoom"], 1, DOT - 1.5, 5, DOT]);
+    m.setPaintProperty("atl-f-pt", "circle-radius", ["interpolate", ["linear"], ["zoom"], 0.6, 3.6, 2.4, 5, 3.5, DOT + 2]);
+    m.setPaintProperty("atl-f-pt", "circle-stroke-width", ["interpolate", ["linear"], ["zoom"], 0.6, 0.6, 3.5, 1.2]);
+    ["atl-lb", "atl-pt", "atl-cl", "atl-cl-n"].forEach(function (l) { if (m.getLayer(l)) m.setLayoutProperty(l, "visibility", fm ? "none" : "visible"); });
+    if (m.getLayer("atl-n-pt")) m.setLayoutProperty("atl-n-pt", "visibility", fm ? "visible" : "none");
+    m.setPaintProperty("atl-pt", "circle-stroke-width", fm ? ["interpolate", ["linear"], ["zoom"], 1, 0.15, 2.4, 0.3, 3.5, 0.7] : 0.7);
+  }
+  function setEco() { var m = M.map; dotStyle(); var fc = ecoFC(); if (m.getSource("atl-n")) m.getSource("atl-n").setData(flagMode() ? fc : EMPTY_FC); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff); }
+  function ecoFC() { var fm = flagMode(); return { type: "FeatureCollection", features: ECOS.filter(function (e) { return !(fm && FLAGS.indexOf(e.id) >= 0) && inRegion(e) && (!e.auto || e.level === "local" || M.hiZ || FL.q || view.level !== "world"); }).map(function (e) { return pt(e); }) }; }
   function gbox(g) {
     var b = [Infinity, Infinity, -Infinity, -Infinity];
     (function w(a) { if (typeof a[0] === "number") { b[0] = Math.min(b[0], a[0]); b[1] = Math.min(b[1], a[1]); b[2] = Math.max(b[2], a[0]); b[3] = Math.max(b[3], a[1]); } else a.forEach(w); })(g.coordinates);
     return b;
   }
   function regionBounds() {
-    if (view.level === "world") return [[-168, -56], [180, 74]];
+    if (view.level === "world") return M.map && M.map.getContainer().clientWidth < 560 ? [[-132, -40], [48, 64]] : [[-168, -56], [180, 74]];
     if (view.level === "continent") { var c = CONT_BOX[view.cont]; return [[c[0], Math.max(c[1], -80)], [c[2], c[3]]]; }
     if (view.level === "country" && COUNTRY_BOX[view.country]) { var q = COUNTRY_BOX[view.country]; return [[q[0], q[1]], [q[2], q[3]]]; }
     var g = view.level === "state" ? M.stateBy[view.state] : M.countryBy[view.country], b = g ? gbox(g.g) : [Infinity, Infinity, -Infinity, -Infinity];
@@ -1863,14 +1880,16 @@ rect.core { stroke-dasharray: 3 2.5; }
     /* dots and their text use two sources, so a failed font download can never hide the dots */
     m.addSource("atl-bound", { type: "geojson", data: M.boundFC || EMPTY_FC });
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
+    m.addSource("atl-f", { type: "geojson", data: EMPTY_FC });
+    m.addSource("atl-n", { type: "geojson", data: EMPTY_FC });
+    m.addSource("atl-fl", { type: "geojson", data: EMPTY_FC });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });
-    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; if (!m.getSource("atl-e")) return; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });
+    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; if (!m.getSource("atl-e")) return; setEco(); } });
     ["atl-t", "atl-tie", "atl-arc", "atl-al"].forEach(function (id) { m.addSource(id, { type: "geojson", data: EMPTY }); });
     m.addSource("atl-src", { type: "geojson", data: { type: "FeatureCollection", features: Object.keys(SRC).map(function (k) { return { type: "Feature", properties: { name: SRC[k].name }, geometry: { type: "Point", coordinates: [SRC[k].lon, SRC[k].lat] } }; }) } });
-    if (M.mode === "terrain" || M.tilt) {
+    if (M.tilt) {
       m.addSource("atl-dem", { type: "raster-dem", tiles: DEM_TILES, encoding: "terrarium", tileSize: 256, maxzoom: 14, attribution: "Terrain: Mapzen, AWS Open Data" });
-      if (M.mode === "terrain") m.addLayer({ id: "atl-hill", type: "hillshade", source: "atl-dem", paint: { "hillshade-exaggeration": 0.55, "hillshade-shadow-color": "#3b3a2e", "hillshade-highlight-color": "#ffffff", "hillshade-accent-color": "#6b6a55" } }, first || undefined);
     }
     if (M.stub) {
       m.addLayer({ id: "atl-base", type: "fill", source: "atl-c", paint: { "fill-color": land } }, first || undefined);
@@ -1900,17 +1919,25 @@ rect.core { stroke-dasharray: 3 2.5; }
     m.addLayer({ id: "atl-arc-flow", type: "line", source: "atl-arc", filter: ["==", ["get", "type"], "flow"], paint: { "line-color": ["case", ["==", ["get", "act"], 1], "#d0702f", acc], "line-width": 3, "line-dasharray": [2.2, 1.6] } });
     m.addLayer({ id: "atl-arc-end", type: "circle", source: "atl-al", filter: ["==", ["get", "k"], "end"], paint: { "circle-radius": 5, "circle-color": acc, "circle-stroke-color": surf, "circle-stroke-width": 1.5 } });
     m.addLayer({ id: "atl-arc-lb", type: "symbol", source: "atl-al", filter: ["==", ["get", "k"], "mid"], layout: { "text-field": ["get", "title"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-allow-overlap": true, "text-max-width": 12 }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
-    m.addLayer({ id: "atl-cl", type: "circle", source: "atl-e", filter: ["has", "point_count"], paint: { "circle-color": acc, "circle-opacity": 0.92, "circle-radius": ["step", ["get", "point_count"], 11, 10, 14, 30, 18], "circle-stroke-color": surf, "circle-stroke-width": 2 } });
-    m.addLayer({ id: "atl-cl-n", type: "symbol", source: "atl-el", filter: ["has", "point_count"], layout: { "text-field": ["get", "point_count_abbreviated"], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } });
-    m.addLayer({ id: "atl-pt", type: "circle", source: "atl-e", filter: ["!", ["has", "point_count"]], paint: { "circle-color": ["get", "kc"], "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, DOT, 5, DOT + 1.5, 9, DOT + 4], "circle-stroke-color": surf, "circle-stroke-width": 1.6 } });
+    m.addLayer({ id: "atl-n-pt", type: "circle", source: "atl-n", paint: { "circle-color": ["get", "kc"], "circle-radius": ["interpolate", ["linear"], ["zoom"], 0.6, 1.4, 2.4, 2.4, 3.5, DOT], "circle-stroke-color": surf, "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 0.6, 0.1, 2.4, 0.3, 3.5, 0.7], "circle-opacity": 0.9 } });
+    m.addLayer({ id: "atl-cl", type: "circle", source: "atl-e", filter: ["has", "point_count"], paint: { "circle-color": acc, "circle-opacity": 0.92, "circle-radius": ["step", ["zoom"], ["step", ["get", "point_count"], 4, 10, 5, 30, 6.5], 3.5, ["step", ["get", "point_count"], 10, 10, 12, 30, 14]], "circle-stroke-color": surf, "circle-stroke-width": ["step", ["zoom"], 0.5, 3.5, 1] } });
+    m.addLayer({ id: "atl-cl-n", type: "symbol", source: "atl-el", filter: ["has", "point_count"], layout: { "text-field": ["step", ["zoom"], "", 3.5, ["get", "point_count_abbreviated"]], "text-font": ["Noto Sans Bold"], "text-size": 12, "text-allow-overlap": true }, paint: { "text-color": "#ffffff" } });
+    m.addLayer({ id: "atl-pt", type: "circle", source: "atl-e", filter: ["!", ["has", "point_count"]], paint: { "circle-color": ["get", "kc"], "circle-opacity": 1, "circle-radius": ["interpolate", ["linear"], ["zoom"], 1, DOT - 1.5, 5, DOT], "circle-stroke-color": surf, "circle-stroke-width": 0.7 } });
     m.addLayer({ id: "atl-lb", type: "symbol", source: "atl-el", filter: ["!", ["has", "point_count"]], layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Regular"], "text-size": 12, "text-variable-anchor": ["right", "left", "top", "bottom"], "text-radial-offset": 0.9, "text-justify": "auto", "text-optional": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 1.7 } });
+    m.addLayer({ id: "atl-f-pt", type: "circle", source: "atl-f", paint: { "circle-color": ["get", "kc"], "circle-radius": DOT + 3.5, "circle-stroke-color": "#ffffff", "circle-stroke-width": 1.2 } });
+    m.addLayer({ id: "atl-f-lb", type: "symbol", source: "atl-fl", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "symbol-sort-key": ["get", "pr"], "text-variable-anchor": ["right", "left", "top", "bottom"], "text-radial-offset": 1.1, "text-justify": "auto", "text-optional": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
+    dotStyle(); if (flagMode()) m.getSource("atl-n").setData(ecoFC()); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff);
     m.addLayer({ id: "atl-t-ring", type: "circle", source: "atl-t", filter: ["==", ["get", "role"], "sel"], paint: { "circle-radius": 11, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
     m.addLayer({ id: "atl-t-pt", type: "circle", source: "atl-t", paint: { "circle-radius": 7, "circle-color": ["get", "kc"], "circle-stroke-color": surf, "circle-stroke-width": 2 } });
     m.addLayer({ id: "atl-t-lb", type: "symbol", source: "atl-t", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "text-anchor": "left", "text-offset": [1.2, 0], "text-allow-overlap": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
+    var sat = (m.getStyle().name === "satellite");
+    ["atl-lb", "atl-f-lb", "atl-t-lb"].forEach(function (l) { if (!m.getLayer(l)) return; m.setPaintProperty(l, "text-color", sat ? "#ffffff" : ink); m.setPaintProperty(l, "text-halo-color", sat ? "rgba(8,16,24,0.85)" : surf); });
   }
   function onStyle() {
     var m = M.map;
     M.styleReady = true;
+    var satNow = m.getStyle().name === "satellite";
+    if (satNow !== !!M.kcSat) { M.kcSat = satNow; Object.assign(KC, satNow ? KC_SAT : KC_BASE); kindsHTML(); }
     addOverlay();
     m.getContainer().classList.toggle("nobase", !!M.stub);
     if (M.boundFC) setBound(M.boundFC);
@@ -2000,7 +2027,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   /* outline the real park or reserve the basemap draws under the selected ecosystem */
   /* real park outlines (US: PAD-US, simplified) are fetched once, the first time a place opens */
   var EMPTY_FC = { type: "FeatureCollection", features: [] };
-  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "data/bounds.json";
+  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "data/bounds.json";
   function loadBounds() {
     if (!M.boundsP) M.boundsP = fetch(BU).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
     return M.boundsP;
@@ -2088,7 +2115,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     function fc(f) { return { type: "FeatureCollection", features: f }; }
     m.getSource("atl-t").setData(fc(tf)); try { m.setFilter("atl-lb", ["all", ["!", ["has", "point_count"]], ["!", ["in", ["get", "id"], ["literal", tf.map(function (f) { return f.properties.id; })]]]]); } catch (x) {} m.getSource("atl-tie").setData(fc(ties)); m.getSource("atl-arc").setData(fc(arcs)); m.getSource("atl-al").setData(fc(al));
     var f = id ? 0.28 : 1;
-    m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f);
+    m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f); m.setPaintProperty("atl-f-pt", "circle-opacity", f); m.setPaintProperty("atl-f-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-f-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
   function heroStats() {
@@ -2112,7 +2139,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var m = M.map;
     if (m && M.styleReady && m.getSource("atl-e")) {
       applyView(); shade();
-      var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc);
+      setEco();
       if (animate || M.needFit) mapFit(animate);
       pushTies();
     }
@@ -2228,7 +2255,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var pop = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "ecopop" });
     var touch = window.matchMedia && matchMedia("(pointer: coarse)").matches;
     function hit(ev, ids, pad) {
-      ids = ids.filter(function (l) { return m.getLayer(l); });
+      ids = ids.filter(function (l) { return m.getLayer(l) && !(l === "atl-pt" && flagMode()); });
       if (!ids.length) return [];
       if (touch && pad) pad = Math.max(pad, 22);
       var p = ev.point, fs = m.queryRenderedFeatures([[p.x - pad, p.y - pad], [p.x + pad, p.y + pad]], { layers: ids });
@@ -2242,11 +2269,12 @@ rect.core { stroke-dasharray: 3 2.5; }
     }
     m.on("click", function (ev) {
       if (sheetMode()) { if (M.setSheet && M.sheetState !== "min") M.setSheet("min"); var mbx = document.querySelector(".mapbox"); if (mbx) mbx.classList.remove("lopen"); }
-      if (sheetMode() && !document.getElementById("peek").hidden && !hit(ev, ["atl-t-pt", "atl-pt", "atl-cl"], 9).length) { document.getElementById("peek").hidden = true; spanHi(null); showTies(null); return; }
-      var f = hit(ev, ["atl-t-pt", "atl-pt"], 9);
+      if (sheetMode() && !document.getElementById("peek").hidden && !hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt", "atl-cl"], 9).length) { document.getElementById("peek").hidden = true; spanHi(null); showTies(null); return; }
+      var f = hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt"], 9);
       if (f.length) { var id = f[0].properties.id; pop.remove(); peek(id); return; }
       f = hit(ev, ["atl-cl"], 4);
       if (f.length) { m.getSource("atl-e").getClusterExpansionZoom(f[0].properties.cluster_id).then(function (z) { m.easeTo({ center: f[0].geometry.coordinates, zoom: Math.min(z + 0.4, 12), duration: reduce ? 0 : 600 }); }); return; }
+      if (flagMode()) { var nb = m.queryRenderedFeatures([[ev.point.x - 22, ev.point.y - 22], [ev.point.x + 22, ev.point.y + 22]], { layers: ["atl-n-pt"] }); if (nb.length) { m.easeTo({ center: ev.lngLat, zoom: Math.min(m.getZoom() + 1.4, 3.6), duration: reduce ? 0 : 500 }); return; } }
       f = hit(ev, ["atl-arc-hit"], 6);
       if (f.length) { hlCard(f[0].properties.id); return; }
       f = hit(ev, ["atl-s-fill", "atl-c-fill"], 0);
@@ -2258,7 +2286,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       }
     });
     m.on("mousemove", function (ev) {
-      var f = hit(ev, ["atl-t-pt", "atl-pt"], 7), c = f.length ? f : hit(ev, ["atl-cl", "atl-arc-hit"], 5);
+      var f = hit(ev, ["atl-t-pt", "atl-f-pt", "atl-pt"], 7), c = f.length ? f : hit(ev, ["atl-cl", "atl-arc-hit"], 5);
       m.getCanvas().style.cursor = c.length ? "pointer" : "";
       if (f.length) {
         var id = f[0].properties.id;
@@ -2417,7 +2445,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
-  var PB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "photos/places/";
+  var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
     function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
   if (window.fetch) ECOS.forEach(function (e) {

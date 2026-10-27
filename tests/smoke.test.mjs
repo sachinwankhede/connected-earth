@@ -27,7 +27,7 @@ describe('smoke: every build loads cleanly on phone and desktop', () => {
     const t = await H.open(browser, H.MAIN, H.SIZES.phone);
     const places = H.readPlaces(false), hasLocal = places.some((e) => e.level === 'local');
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('locbtn')).display) !== 'none', hasLocal);
-    assert.equal(await t.page.evaluate(() => window.__M.map.getSource('atl-e')._data.features.length), H.atWorld(places).length);
+    assert.equal(await t.page.evaluate(() => window.__M.map.getSource('atl-e')._data.features.length + window.__M.map.getSource('atl-f')._data.features.length), H.atWorld(places).length);
     await t.close();
   });
 });
