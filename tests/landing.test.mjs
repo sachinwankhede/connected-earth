@@ -149,3 +149,32 @@ test('phone: the open sheet shows the place count at the top right at home as it
   assert.deepEqual(t.errors, []);
   await b.close();
 });
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: Journeys follow the region, with the region chips, a count, and an empty message`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    await t.page.waitForTimeout(500);
+    if (name === 'phone') { await t.page.click('#speek'); await t.page.waitForTimeout(600); }
+    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(400);
+    const vis = (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel);
+    const n = () => t.page.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((x) => !x.hidden).length);
+    const txt = () => t.page.evaluate(() => name === 'x' ? '' : (document.querySelector('#srow .scnt') && document.querySelector('#srow .scnt').offsetParent ? document.querySelector('#srow .scnt').textContent : document.getElementById('stats').textContent));
+    assert.equal(await vis('#regions'), true, 'region chips stay on the Journeys tab');
+    const all = await n();
+    await t.page.click('#regions .chip:text-is("Africa")'); await t.page.waitForTimeout(700);
+    const af = await n();
+    assert.ok(af > 0 && af < all, `Africa narrows journeys: ${af} of ${all}`);
+    assert.match(await txt(), new RegExp(`^${af} journeys?`), 'count follows: ' + await txt());
+    assert.equal(await vis('#xcards'), true);
+    // a region without journeys says so
+    await t.page.evaluate(() => { const g = document.querySelector('#crumbs button'); if (g) g.click(); }); await t.page.waitForTimeout(500);
+    await t.page.click('#regions .chip:text-is("Antarctica")'); await t.page.waitForTimeout(700);
+    assert.equal(await n(), 0); assert.equal(await vis('#jempty'), true); assert.equal(await vis('#xcards'), false);
+    // back to Places: the places count returns
+    await t.page.click('#tab-places'); await t.page.waitForTimeout(300);
+    assert.match(await txt(), /place/);
+    assert.deepEqual(t.errors, []);
+    await b.close();
+  });
+}
