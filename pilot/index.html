@@ -1704,6 +1704,9 @@ return maplibregl$1;
   var SHORTNAME = {}; SHORTNAME[US] = "United States";
   function nm(s) { return SHORTNAME[s] || s; }
   var KC = { "Forest": "#2f7d4f", "Grassland": "#b8902c", "Desert": "#d0702f", "Lakes & wetlands": "#3b6fd0", "Coast & ocean": "#139aa3", "Polar & mountain": "#8a6fc0", "Urban": "#c0457a" };
+  var KC_BASE = Object.assign({}, KC);
+  // brighter set for the dark satellite imagery; chips and map dots always use the same set
+  var KC_SAT = { "Forest": "#43c779", "Grassland": "#f0c040", "Desert": "#ff8f4a", "Lakes & wetlands": "#5f95ff", "Coast & ocean": "#2fd4de", "Polar & mountain": "#b79cff", "Urban": "#ff6fa8" };
   var FL = { q: "", kind: null, park: false, local: false };
   function pass(e) {
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
@@ -1995,6 +1998,8 @@ return maplibregl$1;
   function onStyle() {
     var m = M.map;
     M.styleReady = true;
+    var satNow = m.getStyle().name === "satellite";
+    if (satNow !== !!M.kcSat) { M.kcSat = satNow; Object.assign(KC, satNow ? KC_SAT : KC_BASE); kindsHTML(); }
     addOverlay();
     m.getContainer().classList.toggle("nobase", !!M.stub);
     if (M.boundFC) setBound(M.boundFC);

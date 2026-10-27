@@ -85,3 +85,21 @@ test('place names flip to white on the satellite view and stay dark on plain map
   assert.ok(c === '#ffffff' || c === 'left-satellite', 'satellite labels are white: ' + c);
   await b.close();
 });
+
+// Brighter dot colours on satellite only, and the filter chips always match the map dots.
+test('satellite uses the brighter colours and the chips match; plain maps keep the originals', async () => {
+  const b = await H.launch();
+  const chip = (t) => t.page.evaluate(() => getComputedStyle(document.querySelector('#kinds .chip i.kd')).backgroundColor);
+  const dot = (t) => t.page.evaluate(() => { const f = window.__M.map.getSource('atl-f')._data.features[0]; return f.properties.kc; });
+  const plain = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  assert.equal(await chip(plain), 'rgb(47, 125, 79)', 'plain: original forest green');
+  const sat = await H.open(b, H.MAIN, H.SIZES.phone, {});
+  const on = await sat.page.evaluate(() => window.__M.map.getStyle().name === 'satellite');
+  if (on) {
+    assert.equal(await chip(sat), 'rgb(67, 199, 121)', 'satellite: brighter forest green');
+    assert.match(await dot(sat), /#(43c779|8a6fc0|b79cff|2f7d4f)/i);
+    const f = await sat.page.evaluate(() => { const fs = window.__M.map.getSource('atl-f')._data.features; return fs.every((x) => /^#[0-9a-f]{6}$/i.test(x.properties.kc)); });
+    assert.ok(f);
+  }
+  await b.close();
+});
