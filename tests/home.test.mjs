@@ -13,6 +13,8 @@ describe('home screen on phones', () => {
       await t.page.waitForTimeout(500);
       const r = await t.page.evaluate(() => { const x = document.getElementById('hook').getBoundingClientRect(); return { top: x.top, bottom: x.bottom, vh: innerHeight, w: x.width, sw: document.getElementById('hook').scrollWidth }; });
       assert.ok(r.bottom <= r.vh - 90, `home line must sit above the 90px browser bar (bottom ${r.bottom}, limit ${r.vh - 90})`);
+      const pk = await t.page.evaluate(() => { const x = document.getElementById('speek').getBoundingClientRect(); return { bottom: x.bottom, top: x.top, vh: innerHeight, vis: !document.getElementById('speek').hidden }; });
+      assert.ok(pk.vis, 'first place peeks above the fold'); assert.ok(pk.bottom <= pk.vh - 90, 'peek sits above the browser bar');
       assert.ok(r.sw <= r.w + 1, 'home line does not overflow its width');
       await t.close();
     });
