@@ -18,3 +18,6 @@ Passing batches are merged without asking; each batch is one commit so it can be
 `data/species.json` has one row per species (key = lowercase Latin name): usual name, wiki page, icon, description, trophic level, category, badge.
 Place files keep only each species' id, position and whatever differs from its row. To fix a name, photo page or icon for every place, edit the row.
 After generating or editing places, run `python3 build/species.py pack`; CI fails if the files are not packed.
+
+## On-demand loading
+The page carries only a light index of each place (name, location, species names, counts). A place's full web (species, links, evidence) lives in `webs/<id>.json`, written by `python3 build/build.py --all` and fetched the first time the place is opened. Commit `webs/` with the built pages; CI fails if they are stale.

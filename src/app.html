@@ -255,6 +255,8 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .shot a { color: var(--muted); }
 .eyebrow { font: 500 11px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
 .latin { font-style: italic; color: var(--muted); }
+.webload { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0 24px; text-align: center; color: var(--muted); z-index: 2; pointer-events: none; }
+.webload.err { color: var(--ink); }
 .about { color: var(--muted); font-size: 0.9em; margin-top: -2px; }
 .about a { color: inherit; text-decoration: underline; white-space: nowrap; }
 .tlpill { display: inline-flex; align-items: center; gap: 8px; font: 500 11px var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
@@ -804,6 +806,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   <main class="main" id="webview" hidden>
     <div class="stage" id="stage">
+      <p class="webload" id="webload" hidden></p>
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
@@ -917,7 +920,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   var TIES = {};
   (function () {
     var by = {};
-    ECOS.forEach(function (e) { e.nodes.forEach(function (n) { if (!n.cat && n.latin) { (by[n.latin] = by[n.latin] || []).push({ eco: e.id, name: n.name }); } }); });
+    ECOS.forEach(function (e) { e.idx.sp.forEach(function (n) { (by[n[0]] = by[n[0]] || []).push({ eco: e.id, name: n[1] }); }); });
     Object.keys(by).forEach(function (k) {
       var g = by[k]; if (g.length < 2 || g.length > 10) return;
       g.forEach(function (a) { g.forEach(function (b) {
@@ -1357,7 +1360,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (g.length) h += "<h3>" + names[tl] + " \u00b7 " + g.length + '</h3><div class="chips">' + g.map(chip).join("") + "</div>";
     });
     var mine = {}; bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
-    var near = ECOS.filter(function (e) { return e.id !== state.eco; }).map(function (e) { var c = 0; e.nodes.forEach(function (m) { if (!m.cat && m.latin && mine[m.latin]) c++; }); return { e: e, c: c }; })
+    var near = ECOS.filter(function (e) { return e.id !== state.eco; }).map(function (e) { var c = 0; e.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: e, c: c }; })
       .filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 8);
     if (near.length) h += "<h3>Shares species with</h3>" + '<div class="chips">' + near.map(function (x) { return '<button type="button" class="chip" data-goto="' + x.e.id + '">' + x.e.short + " <b>" + x.c + "</b></button>"; }).join("") + "</div>";
     var env = NODES.filter(function (n) { return n.cat; });
@@ -1414,7 +1417,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function linkHTML(n) {
     if (n.xl) {
-      var o = n.xl.other, oe = ECO_BY[o.eco], on = oe.nodes.filter(function (m) { return m.id === o.node; })[0];
+      var o = n.xl.other, oe = ECO_BY[o.eco], on = { name: nodeName(o.eco, o.node) };
       var hd = n.xl.dir === "in" ? "Flows in from another ecosystem" : n.xl.dir === "out" ? "Flows out to another ecosystem" : "Linked ecosystem";
       return '<div class="xlink"><h3>' + hd + '</h3><p><b>' + n.xl.link.title + '.</b> ' + n.xl.link.text + '</p><button type="button" class="chip" data-jump="' + o.eco + ':' + o.node + '">Open ' + on.name + ' in ' + oe.short + ' &rarr;</button></div>';
     }
@@ -1443,7 +1446,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function whereElseHTML(n) {
     if (n.cat || !n.latin) return "";
     var hits = [];
-    ECOS.forEach(function (e) { e.nodes.forEach(function (m) { if (!m.cat && m.latin === n.latin && !(e.id === state.eco)) hits.push({ e: e, id: m.id }); }); });
+    ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, id: m[2] }); }); });
     if (!hits.length) return "";
     return '<div class="found"><b>Also found in ' + hits.length + (hits.length === 1 ? " ecosystem" : " ecosystems") + '</b><div class="chips">' + hits.slice(0, 8).map(function (h) { return '<button type="button" class="chip" data-jump="' + h.e.id + ":" + h.id + '">' + h.e.short + "</button>"; }).join("") + '</div><button type="button" class="btn" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</button></div>';
   }
@@ -1524,6 +1527,15 @@ rect.core { stroke-dasharray: 3 2.5; }
     node.style("display", function (d) { return isVis(d) ? null : "none"; });
     edge.style("display", function (e) { return visE(e) ? null : "none"; });
     updateStats();
+  }
+  function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
+  /* a place's full web (species, links, evidence) is fetched the first time it is opened */
+  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "webs/";
+  function fetchWeb(id) {
+    var e = ECO_BY[id];
+    if (e.nodes) return Promise.resolve(true);
+    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; return true; }).catch(function () { e._wp = null; return false; });
+    return e._wp;
   }
   function loadEco(id) {
     ECO = ECO_BY[id];
@@ -1637,7 +1649,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (FL.park && !e.park) return false;
     if (e.level === "local" && !FL.local && !FL.q) return false;
     if (FL.q) {
-      if (!e._s) e._s = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "") + " " + e.nodes.map(function (n) { return n.name + " " + (n.latin || ""); }).join(" ")).toLowerCase();
+      if (!e._s) e._s = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "") + " " + e.idx.sp.map(function (n) { return n[1] + " " + n[0]; }).join(" ") + " " + e.idx.q).toLowerCase();
       return e._s.indexOf(FL.q) >= 0;
     }
     return true;
@@ -1853,7 +1865,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });
-    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });
+    m.on("zoomend", function () { var hi = m.getZoom() >= 3.5; if (hi !== !!M.hiZ) { M.hiZ = hi; if (!m.getSource("atl-e")) return; var fc = ecoFC(); m.getSource("atl-e").setData(fc); m.getSource("atl-el").setData(fc); } });
     ["atl-t", "atl-tie", "atl-arc", "atl-al"].forEach(function (id) { m.addSource(id, { type: "geojson", data: EMPTY }); });
     m.addSource("atl-src", { type: "geojson", data: { type: "FeatureCollection", features: Object.keys(SRC).map(function (k) { return { type: "Feature", properties: { name: SRC[k].name }, geometry: { type: "Point", coordinates: [SRC[k].lon, SRC[k].lat] } }; }) } });
     if (M.mode === "terrain" || M.tilt) {
@@ -2084,8 +2096,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     ECOS.forEach(function (e) {
       if (e.level === "local" && !FL.local) return;
       np++;
-      e.nodes.forEach(function (n) { if (!n.cat && n.latin) { var k = n.latin.toLowerCase(); if (!sp[k]) { sp[k] = 1; ns++; } } });
-      e.raw.forEach(function (r) { if (r.length === 2 || r[2] === "s") nl++; });
+      e.idx.sp.forEach(function (n) { var k = n[0].toLowerCase(); if (!sp[k]) { sp[k] = 1; ns++; } });
+      nl += e.idx.nl;
     });
     var f = function (x) { return x.toLocaleString("en-US"); };
     return f(np) + " places. " + f(ns) + " species. " + f(nl) + " links.";
@@ -2320,14 +2332,14 @@ rect.core { stroke-dasharray: 3 2.5; }
   function buildMap() {
     var cards = document.getElementById("cards");
     ECOS.forEach(function (e) {
-      var sp = e.nodes.filter(function (n) { return !n.cat; }).length;
+      var sp = e.idx.ns;
       var li = document.createElement("li");
-      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species · " + e.raw.length + ' links' + (e.tier === "overview" ? '<span class="tag">Overview</span>' : "") + '</span><span class="go">Open the food web &rarr;</span></button>';
+      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species · " + e.idx.nr + ' links' + (e.tier === "overview" ? '<span class="tag">Overview</span>' : "") + '</span><span class="go">Open the food web &rarr;</span></button>';
       cards.appendChild(li); e.li = li;
     });
     var xc = document.getElementById("xcards");
     CROSS.forEach(function (c) {
-      var btns = ecoEnds(c).map(function (en) { var nn = ECO_BY[en.eco].nodes.filter(function (q) { return q.id === en.node; })[0]; return '<button type="button" class="chip" data-jump="' + en.eco + ':' + en.node + '">' + ECO_BY[en.eco].short + ' · ' + nn.name + '</button>'; }).join("");
+      var btns = ecoEnds(c).map(function (en) { var nn = { name: nodeName(en.eco, en.node) }; return '<button type="button" class="chip" data-jump="' + en.eco + ':' + en.node + '">' + ECO_BY[en.eco].short + ' · ' + nn.name + '</button>'; }).join("");
       var li = document.createElement("li");
       var fi = ECO_BY[ecoEnds(c)[0].eco].icon;
       li.innerHTML = '<div class="card" id="xc-' + c.id + '"><div class="cimg" id="xi-' + c.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[fi] || "") + '</svg></div><span class="where">' + (c.type === "species" ? "Travelling species" : "Nutrient flow") + '</span><h2>' + c.title + '</h2><p>' + c.text + '</p><span class="jumps">' + btns + '</span></div>';
@@ -2374,9 +2386,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     c.classList.add("hl");
     setTimeout(function () { c.classList.remove("hl"); }, 1600);
   }
-  function jump(eco, nodeId) { showWeb(eco); select(nodeId); }
+  function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
   function showMap() {
-    sim.stop();
+    M.loading = null; sim.stop();
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     el.h1.textContent = "Connected Earth";
     if (M.map) M.map.resize();
@@ -2384,13 +2396,20 @@ rect.core { stroke-dasharray: 3 2.5; }
     renderView(false);
     syncHash();
   }
-  function showWeb(id) {
+  function showWeb(id, then) {
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
-    el.eco.value = id;
-    loadEco(id);
+    el.eco.value = id; M.loading = id;
+    var wl = document.getElementById("webload"), ready = !!ECO_BY[id].nodes;
+    wl.hidden = ready; wl.textContent = "Loading\u2026"; wl.classList.remove("err");
+    fetchWeb(id).then(function (ok) {
+      if (M.loading !== id) return;
+      if (!ok) { wl.hidden = false; wl.textContent = "This place could not be loaded. Check your connection and try again."; wl.classList.add("err"); return; }
+      M.loading = null; wl.hidden = true;
+      loadEco(id); syncHash(); if (then) then();
+    });
     syncHash();
   }
-  el.back.addEventListener("click", showMap);
+  el.back.addEventListener("click", function () { M.loading = null; showMap(); });
 
   M.h0 = location.hash.slice(1);
   buildMap();

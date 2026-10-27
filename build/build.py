@@ -27,6 +27,41 @@ def load_places(pilot):
     return links, [species.join(e, tab) for e in ecos]
 
 
+def cross_ends(links):
+    """Every (place, node) that a cross-place link mentions."""
+    out = {}
+    def walk(x):
+        if isinstance(x, dict):
+            if 'eco' in x and 'node' in x: out.setdefault(x['eco'], set()).add(x['node'])
+            for v in x.values(): walk(v)
+        elif isinstance(x, list):
+            for v in x: walk(v)
+    walk(links['cross'])
+    return out
+
+
+def split(ecos, links):
+    """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json."""
+    ends = cross_ends(links); light = []; webs = {}
+    for e in ecos:
+        nodes = e['nodes']
+        sp = [[n['latin'], n['name'], n['id']] for n in nodes if not n.get('cat') and n.get('latin')]
+        idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'sp': sp,
+               'q': ' '.join(n['name'] for n in nodes if n.get('cat')),
+               'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
+        webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})}
+        light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev')} | {'idx': idx})
+    return light, webs
+
+
+def write_webs(webs):
+    d = P('webs'); os.makedirs(d, exist_ok=True)
+    for f in os.listdir(d):
+        if f.endswith('.json') and f[:-5] not in webs: os.remove(os.path.join(d, f))
+    for i, w in webs.items():
+        open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
+
+
 def check(ecos, links, tpl, geo):
     cnames = {c['name']: c['cont'] for c in geo['countries']}
     snames = {s['name'] for s in geo['states']}
@@ -68,7 +103,7 @@ def check(ecos, links, tpl, geo):
     return errs
 
 
-def build(pilot, out_path):
+def build(pilot, out_path, write=False):
     links, ecos = load_places(pilot)
     tpl = open(P('src', 'app.html')).read()
     land = open(P('src', 'land.json')).read().strip()
@@ -79,7 +114,9 @@ def build(pilot, out_path):
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
-    data = json.dumps({'about': about, 'ecos': ecos, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
+    light, webs = split(ecos, links)
+    if write: write_webs(webs)
+    data = json.dumps({'about': about, 'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     out = tpl.replace('__LAND__', land).replace('__GEO__', json.dumps(geo, separators=(',', ':'))).replace('__DATA__', data)
     ml = P('node_modules', 'maplibre-gl', 'dist')
@@ -108,7 +145,7 @@ if __name__ == '__main__':
     a = sys.argv[1:]
     if '--all' in a:
         main = build(False, P('index.html'))
-        build(True, P('pilot', 'index.html'))
+        build(True, P('pilot', 'index.html'), write=True)
         stamp_sw(main)
     else:
         out = a[a.index('--out') + 1] if '--out' in a else P('dist', 'index.html')
