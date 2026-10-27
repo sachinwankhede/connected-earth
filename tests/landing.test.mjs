@@ -122,3 +122,18 @@ test('desktop keeps the pitch and counts in the panel', async () => {
   assert.match(await t.page.evaluate(() => document.getElementById('stats').textContent), /Who eats whom.*places/);
   await b.close();
 });
+
+test('phone: a soft fade at the bottom of the open sheet says the list continues, and goes away at the end', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  await t.page.waitForTimeout(500);
+  const op = () => t.page.evaluate(() => { const s = getComputedStyle(document.getElementById('sheet'), '::after'); return { o: +s.opacity, h: s.content !== 'none' && s.content !== 'normal' ? parseFloat(s.height) : 0 }; });
+  assert.equal((await op()).h, 0, 'no fade on the collapsed sheet');
+  await t.page.click('#speek'); await t.page.waitForTimeout(900);
+  let r = await op(); assert.ok(r.h > 20 && r.o > 0.9, 'fade shows while there is more below: ' + JSON.stringify(r));
+  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = sb.scrollHeight; }); await t.page.waitForTimeout(1200);
+  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = sb.scrollHeight; }); await t.page.waitForTimeout(600);
+  r = await op(); assert.ok(r.o < 0.1 || (await t.page.evaluate(() => document.getElementById('more') && !document.getElementById('morecards').hidden)), 'fade leaves at the very end: ' + JSON.stringify(r));
+  assert.deepEqual(t.errors, []);
+  await b.close();
+});
