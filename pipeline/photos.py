@@ -4,16 +4,8 @@ Usage: photos.py <outdir> <data-dir> [<data-dir>...]   writes <outdir>/<id>.jpg 
 Source: Wikipedia page summary (thumbnail, 330px wide) + file metadata from the English Wikipedia API (Commons files)."""
 import sys,os,re,json,glob,time,html,urllib.request,urllib.parse
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
-def get(u,raw=False):
-    for k in range(7):
-        try:
-            b=urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=40).read()
-            return b if raw else json.loads(b)
-        except urllib.error.HTTPError as e:
-            if e.code==429: time.sleep(6*(k+1)); continue
-            if e.code==404: return None
-            raise
-        except Exception: time.sleep(3)
+sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
+def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
 def one(i,title,out,man):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_')))
@@ -42,7 +34,7 @@ if __name__=='__main__':
             if not t or t in man: continue
             try: r=one(e['id'],t,out,man)
             except Exception as ex: r='err '+str(ex)[:50]
-            stat[t]=r; time.sleep(0.8)
+            stat[t]=r
             json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
             if r!='ok': print(t,r,flush=True)
     print('done',len(man),'photos; problems:',sum(1 for r in stat.values() if r!='ok'))

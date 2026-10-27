@@ -24,3 +24,7 @@ The page carries only a light index of each place (name, location, species names
 
 ## Tests and budget
 `npm run test:quick` (about 1 minute) for everyday changes; `npm test` (about 3 minutes) before anything is called done; CI runs the full set. `npm run budget` fails if the pages or data grow past the limits in `build/budget.py`.
+
+## Adding a state
+`python3 build/state.py IL --top 25` seeds the largest state parks from PAD-US, drafts species (GBIF) and feeding links (GloBI), generates the places, adds them to the pilot (`data-auto/`), packs the shared species table and fetches outlines, then prints which places pass the promotion floors. Add `--scratch` to try it without touching the repo. Photos and Wikipedia lines are slow (Wikimedia throttles): run `pipeline/fetch_all.sh` and leave it going. Promote with `python3 build/promote.py --local` after the 10-link spot check.
+Known limit: species are sightings within a circle around each park point, not strictly inside its outline. Small parks next to busy places can pick up neighbours' sightings; querying by the real outline (now stored in `data/bounds.json`) would tighten this.

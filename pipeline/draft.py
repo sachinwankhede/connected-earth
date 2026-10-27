@@ -66,6 +66,7 @@ def run(p):
     json.dump(out,open(os.path.join(here,'drafts',p['id']+'.json'),'w'),ensure_ascii=False)
     return p['id'],{g:len(v) for g,v in out['groups'].items()}
 if __name__=='__main__':
+    for d in ('cache','drafts'): os.makedirs(os.path.join(here,d),exist_ok=True)
     P=json.load(open(os.path.join(here,'parks.json')))
     sel=[p for p in P if sys.argv[1]=='all' or p['id']==sys.argv[1]]
     with ThreadPoolExecutor(3) as ex:

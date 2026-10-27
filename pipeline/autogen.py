@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """autogen.py : drafts/<id>.json -> out/<id>.json in the app's ecosystem schema (automatic, no hand curation)."""
 import json,os,re,sys,collections
-here=os.path.dirname(os.path.abspath(__file__)); os.makedirs(os.path.join(here,'out'),exist_ok=True)
+here=os.path.dirname(os.path.abspath(__file__)); work=os.environ.get('WORK') or here; os.makedirs(os.path.join(work,'out'),exist_ok=True)
 # ---- layer rules (by taxonomy) ----
 APEX={'Canis latrans','Lynx rufus','Ursus americanus','Puma concolor','Haliaeetus leucocephalus','Buteo jamaicensis','Bubo virginianus','Strix varia','Buteo lineatus','Alligator mississippiensis','Esox americanus'}
 SCAV={'Cathartes aura','Coragyps atratus','Didelphis virginiana'}
@@ -152,9 +152,9 @@ def emit(d):
     return out,dict(id=p['id'],**counts)
 if __name__=='__main__':
     rep=[]
-    for f in sorted(os.listdir(os.path.join(here,'drafts'))):
-        d=json.load(open(os.path.join(here,'drafts',f)))
+    for f in sorted(os.listdir(os.path.join(work,'drafts'))):
+        d=json.load(open(os.path.join(work,'drafts',f)))
         out,r=emit(d); rep.append(r)
-        if out: json.dump(out,open(os.path.join(here,'out',out['id']+'.json'),'w'),ensure_ascii=False)
-    json.dump(rep,open(os.path.join(here,'report.json'),'w'),indent=1)
+        if out: json.dump(out,open(os.path.join(work,'out',out['id']+'.json'),'w'),ensure_ascii=False)
+    json.dump(rep,open(os.path.join(work,'report.json'),'w'),indent=1)
     ok=[r for r in rep if 'skipped' not in r]; print(len(rep),'parks;',len(ok),'built;',[r for r in rep if 'skipped' in r])
