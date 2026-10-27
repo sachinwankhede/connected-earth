@@ -64,3 +64,26 @@ test('continent, country and state chips run from most places to fewest', async 
   assert.ok(places > 0);
   await b.close();
 });
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: Places | Journeys tabs switch the list, journeys are compact route cards that open on tap`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    await t.page.waitForTimeout(600);
+    if (name === 'phone') { await t.page.click('#speek'); await t.page.waitForTimeout(600); }
+    const vis = (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel);
+    assert.equal(await vis('#cards'), true); assert.equal(await vis('#xcards'), false, 'journeys hidden on the Places tab');
+    await t.page.click('#tab-journeys'); await t.page.waitForTimeout(500);
+    assert.equal(await vis('#cards'), false); assert.equal(await vis('#xcards'), true);
+    const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, tn: document.getElementById('tn').textContent, route: document.querySelector('#xcards .jroute').textContent }));
+    assert.equal(String(n.cards), n.tn); assert.match(n.route, /→/);
+    assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'none', 'collapsed card hides its chips');
+    await t.page.click('#xcards .jcard >> nth=0'); await t.page.waitForTimeout(300);
+    assert.equal(await t.page.evaluate(() => getComputedStyle(document.querySelector('#xcards .jjumps')).display), 'flex', 'open card shows its chips');
+    // a chip opens that place's food web
+    await t.page.click('#xcards .jcard[aria-expanded="true"] .chip >> nth=0'); await t.page.waitForTimeout(1500);
+    assert.equal(await t.page.evaluate(() => !document.getElementById('webview').hidden), true);
+    assert.deepEqual(t.errors, []);
+    await b.close();
+  });
+}
