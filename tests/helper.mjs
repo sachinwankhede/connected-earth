@@ -2,12 +2,31 @@
 //   index.html (main app) and pilot/index.html (main + auto-generated places).
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const MAIN = path.join(ROOT, 'index.html');
 export const PILOT = path.join(ROOT, 'pilot', 'index.html');
+// The app fetches its place files with fetch(). Newer Chromium builds (as on CI) refuse fetch() on file:// pages,
+// so tests load the built files from a small local web server instead, as the real site does.
+const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json', '.css': 'text/css', '.svg': 'image/svg+xml' };
+let serverP = null;
+function server() {
+  if (!serverP) serverP = new Promise((resolve) => {
+    const srv = http.createServer((req, res) => {
+      const rel = decodeURIComponent((req.url || '/').split('?')[0].split('#')[0]);
+      const f = path.join(ROOT, rel === '/' ? 'index.html' : rel);
+      if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.statusCode = 404; res.end(); return; }
+      res.setHeader('content-type', MIME[path.extname(f)] || 'application/octet-stream'); res.end(fs.readFileSync(f));
+    });
+    srv.unref(); srv.listen(0, '127.0.0.1', () => resolve(srv));
+  });
+  return serverP;
+}
+export async function urlFor(file) { const srv = await server(); return `http://127.0.0.1:${srv.address().port}/` + path.relative(ROOT, file).split(path.sep).join('/'); }
+
 export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 1280, height: 800 } };
 
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
@@ -40,7 +59,7 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-  await page.goto('file://' + file + hash);
+  await page.goto((await urlFor(file)) + hash);
   if (hash) await page.reload();
   await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
   await page.waitForTimeout(1500);

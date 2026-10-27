@@ -23,7 +23,7 @@ describe('base map fallback', () => {
     await page.route(/openfreemap\.org\/fonts/, (r) => r.abort());
     await page.route(/arcgisonline/, (r) => (sOk ? r.fulfill({ status: 404 }) && undefined : r.abort()));
     await page.addInitScript((ms) => { if (ms) window.__retryMs = ms; }, retryMs);
-    await page.goto('file://' + H.MAIN);
+    await page.goto(await H.urlFor(H.MAIN));
     await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
     return { ctx, page, errors, set: (v, s) => { vOk = v; sOk = s; } };
   }

@@ -328,7 +328,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const trail = () => t.page.evaluate(() => { const r = document.getElementById('srow'); return { btns: [...r.querySelectorAll('.sbk')].map((x) => x.textContent), cur: r.querySelector('.stt').textContent, vis: r.offsetParent !== null }; });
     await t.page.evaluate(() => window.__M.go ? window.__M.go('state', 'Missouri') : null);
     const viaHash = await t.page.evaluate(() => !!window.__M.go);
-    if (!viaHash) { await t.page.goto(H.MAIN + '#stub&r=state:Missouri'); await t.page.waitForTimeout(1200); if (name === 'phone') { await t.page.click('#speek').catch(() => {}); } }
+    if (!viaHash) { await t.page.goto((await H.urlFor(H.MAIN)) + '#stub&r=state:Missouri'); await t.page.waitForTimeout(1200); if (name === 'phone') { await t.page.click('#speek').catch(() => {}); } }
     await t.page.waitForTimeout(800);
     const s1 = await trail();
     assert.deepEqual(s1.btns, ['World', 'North America', 'United States'], 'full trail above the current state');
