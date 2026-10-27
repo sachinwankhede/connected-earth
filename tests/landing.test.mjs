@@ -11,6 +11,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
   assert.match(await t.page.evaluate(() => document.getElementById('sheet').className), /s-half/);
   assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('speek')).display), 'none', 'peek goes away once the sheet is open (the list shows the same place)');
+  assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('hook')).display), 'none', 'pitch and counts give the space back once the sheet is open');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
@@ -111,5 +112,13 @@ test('phone: more places load when you scroll to the end of the list, and a quie
   await t.page.click('#more'); await t.page.waitForTimeout(800);
   assert.ok(await shown() > n1, 'link loads another batch');
   assert.deepEqual(t.errors, []);
+  await b.close();
+});
+
+test('desktop keeps the pitch and counts in the panel', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
+  await t.page.waitForTimeout(500);
+  assert.match(await t.page.evaluate(() => document.getElementById('stats').textContent), /Who eats whom.*places/);
   await b.close();
 });
