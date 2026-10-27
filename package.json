@@ -5,7 +5,7 @@
   "description": "Connected Earth: a map of food webs",
   "scripts": {
     "build": "python3 build/build.py --all",
-    "validate": "python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json)",
+    "validate": "python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json)",
     "test": "node --test tests/"
   },
   "dependencies": {

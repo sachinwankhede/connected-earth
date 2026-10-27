@@ -32,7 +32,7 @@ def load(path):
 def files():
     for d in ('data', 'data-auto'):
         for f in sorted(os.listdir(os.path.join(ROOT, d))):
-            if f.endswith('.json') and f not in ('links.json', 'order.json', 'species.json'):
+            if f.endswith('.json') and f not in ('links.json', 'order.json', 'species.json', 'bounds.json'):
                 yield os.path.join(ROOT, d, f)
 
 def pack():

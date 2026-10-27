@@ -1809,7 +1809,7 @@ return maplibregl$1;
   var GLYPHS = "https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf";
   var STYLES = { streets: "https://tiles.openfreemap.org/styles/liberty", terrain: "https://tiles.openfreemap.org/styles/liberty", light: "https://tiles.openfreemap.org/styles/positron" };
   var DEM_TILES = ["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"];
-  M.mode = "satellite"; M.tilt = false; M.needFit = true; M.styleReady = false; M.stub = /[#&?]stub/.test(location.href);
+  M.mode = "satellite"; M.tilt = false; M.needFit = true; M.styleReady = false; M.stub = M.stubUrl = /[#&?]stub/.test(location.href); M.fails = {}; M.retries = 0;
   function cssv(n, d) { var v = getComputedStyle(document.documentElement).getPropertyValue(n).trim(); return v || d; }
   M.countryBy = {}; M.stateBy = {};
   GEO.countries.forEach(function (c) { M.countryBy[c.name] = c; });
@@ -1910,6 +1910,7 @@ return maplibregl$1;
     var ink = cssv("--ink", "#1d2a24"), surf = cssv("--surface", "#ffffff"), acc = cssv("--accent", "#0e7a6b"), land = cssv("--land", "#eef1e6");
     ["atl-c", "atl-s"].forEach(function (id) { m.addSource(id, { type: "geojson", data: id === "atl-c" ? GJ_C : GJ_S }); });
     /* dots and their text use two sources, so a failed font download can never hide the dots */
+    m.addSource("atl-bound", { type: "geojson", data: M.boundFC || EMPTY_FC });
     m.addSource("atl-e", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     m.addSource("atl-el", { type: "geojson", data: ecoFC(), cluster: true, clusterRadius: 36, clusterMaxZoom: 7 });
     var dimT = null; m.on("moveend", function () { clearTimeout(dimT); dimT = setTimeout(dimChips, 330); });
@@ -1936,6 +1937,8 @@ return maplibregl$1;
       m.addLayer({ id: "atl-park-fill", type: "fill", source: "openmaptiles", "source-layer": "park", filter: nf, paint: { "fill-color": acc, "fill-opacity": 0.28 } }, B);
       m.addLayer({ id: "atl-park-line", type: "line", source: "openmaptiles", "source-layer": "park", filter: nf, paint: { "line-color": acc, "line-width": 2.4 } }, B);
     }
+    m.addLayer({ id: "atl-bound-fill", type: "fill", source: "atl-bound", paint: { "fill-color": acc, "fill-opacity": 0.2 } }, B);
+    m.addLayer({ id: "atl-bound-line", type: "line", source: "atl-bound", layout: { "line-join": "round" }, paint: { "line-color": acc, "line-width": 2.4 } }, B);
     m.addLayer({ id: "atl-c-out", type: "fill", source: "atl-c", filter: ["==", ["get", "name"], "__none__"], paint: { "fill-color": surf, "fill-opacity": 0.5 } }, B);
     m.addLayer({ id: "atl-s-out", type: "fill", source: "atl-s", filter: ["==", ["get", "name"], "__none__"], layout: { visibility: "none" }, paint: { "fill-color": surf, "fill-opacity": 0.5 } }, B);
     m.addLayer({ id: "atl-src", type: "circle", source: "atl-src", paint: { "circle-radius": 4, "circle-color": surf, "circle-stroke-color": acc, "circle-stroke-width": 2 } });
@@ -1958,7 +1961,8 @@ return maplibregl$1;
     var m = M.map;
     M.styleReady = true;
     addOverlay();
-    if (M.stub) m.getContainer().classList.add("nobase");
+    m.getContainer().classList.toggle("nobase", !!M.stub);
+    if (M.boundFC) setBound(M.boundFC);
     applyTerrain(true);
     renderView(false);
     if (M.spanE) spanHi(M.spanE);
@@ -1970,14 +1974,34 @@ return maplibregl$1;
     if (M.tilt) { m.setTerrain({ source: "atl-dem", exaggeration: 1.4 }); if (!quiet || m.getPitch() < 10) m.easeTo({ pitch: 58, duration: reduce ? 0 : 700 }); }
     else { m.setTerrain(null); if (!quiet) m.easeTo({ pitch: 0, bearing: 0, duration: reduce ? 0 : 500 }); }
   }
-  function setMode(mode) {
+  // If the base map stops loading, quietly fall back (satellite -> streets -> plain map) and try the real one again later.
+  function baseFailed(id) {
+    if (M.stub) return;
+    M.fails[id] = (M.fails[id] || 0) + 1;
+    if (M.fails[id] < 6) return;
+    M.fails = {}; M.want = M.want || M.mode;
+    if (id === "sat" && M.mode === "satellite") setMode("streets", true);
+    else { M.stub = true; setMode(M.mode, true); }
+    scheduleRetry();
+  }
+  function scheduleRetry() {
+    if (M.stubUrl || M.retryTimer) return;
+    var wait = window.__retryMs || [90, 300, 900][Math.min(M.retries, 2)] * 1000;
+    M.retryTimer = setTimeout(function () {
+      M.retryTimer = null; M.retries++; M.fails = {};
+      var back = M.want || M.mode; M.want = null;
+      M.stub = false; setMode(back, true);
+    }, wait);
+  }
+  function setMode(mode, auto) {
+    if (!auto) M.want = null;
     M.mode = mode; M.styleReady = false;
     M.map.setStyle(M.stub ? stubStyle() : mode === "satellite" ? satStyle() : STYLES[mode], { diff: false });
     syncCtl();
   }
   function setTilt(on) {
     M.tilt = on;
-    if (on && !M.map.getSource("atl-dem")) setMode(M.mode); else { applyTerrain(false); syncCtl(); }
+    if (on && !M.map.getSource("atl-dem")) setMode(M.mode, true); else { applyTerrain(false); syncCtl(); }
   }
   function syncCtl() {
     Array.prototype.forEach.call(document.querySelectorAll("#mapctl [data-mode]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-mode") === M.mode ? "true" : "false"); });
@@ -2023,9 +2047,44 @@ return maplibregl$1;
   }
   function actOf(c) { return c.type === "species" ? c.ends.some(function (en) { return (EDITS[en.eco] || {})[en.node]; }) : !!(c.from && (EDITS[c.from.eco] || {})[c.from.node]); }
   /* outline the real park or reserve the basemap draws under the selected ecosystem */
+  /* real park outlines (US: PAD-US, simplified) are fetched once, the first time a place opens */
+  var EMPTY_FC = { type: "FeatureCollection", features: [] };
+  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/pilot\/$/, "") + "data/bounds.json";
+  function loadBounds() {
+    if (!M.boundsP) M.boundsP = fetch(BU).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
+    return M.boundsP;
+  }
+  function boundFC(b) {
+    return { type: "FeatureCollection", features: b.r.map(function (flat) { var ring = []; for (var i = 0; i < flat.length; i += 2) ring.push([flat[i], flat[i + 1]]); return { type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [ring] } }; }) };
+  }
+  function boundBox(b) {
+    var x0 = 999, x1 = -999, y0 = 99, y1 = -99;
+    b.r.forEach(function (flat) { for (var i = 0; i < flat.length; i += 2) { x0 = Math.min(x0, flat[i]); x1 = Math.max(x1, flat[i]); y0 = Math.min(y0, flat[i + 1]); y1 = Math.max(y1, flat[i + 1]); } });
+    return [[x0, y0], [x1, y1]];
+  }
+  function setBound(fc) { M.boundFC = fc; var m = M.map; if (m && m.getSource("atl-bound")) m.getSource("atl-bound").setData(fc || EMPTY_FC); }
   function parkHi(id) {
     var m = M.map; M.parkId = id || null;
     if (!m || !M.styleReady) return;
+    if (!id) setBound(null);
+    if (id) {
+      loadBounds().then(function (all) {
+        var b = all[id]; if (M.parkId !== id) return;
+        if (!b) { M.noBound = id; parkHiStyle(id); return; }
+        setBound(boundFC(b)); M.noBound = null;
+        var none = ["==", ["get", "name"], "__none__"];
+        if (m.getLayer("atl-park-fill")) { m.setFilter("atl-park-fill", none); m.setFilter("atl-park-line", none); }
+        if (!M.prevCam) M.prevCam = { center: m.getCenter(), zoom: m.getZoom(), bearing: m.getBearing(), pitch: m.getPitch() };
+        m.fitBounds(boundBox(b), { padding: sheetMode() ? { top: 70, left: 30, right: 30, bottom: 300 } : { top: 70, left: 60, right: 60, bottom: 70 }, maxZoom: 13, duration: reduce ? 0 : 700 });
+        var pe = document.getElementById("peek"), pb = pe.querySelector(".pbtns");
+        if (pb && !pe.hidden && M.peekId === id && !pe.querySelector("#parkname")) { var t = document.createElement("p"); t.className = "spans"; t.id = "parkname"; t.textContent = "Outlined on the map: " + b.n; pb.parentNode.insertBefore(t, pb); }
+      });
+      return;
+    }
+    parkHiStyle(id);
+  }
+  function parkHiStyle(id) {
+    var m = M.map;
     var have = !!m.getLayer("atl-park-fill"), none = ["==", ["get", "name"], "__none__"];
     if (have) { m.setFilter("atl-park-fill", none); m.setFilter("atl-park-line", none); }
     if (!id) return;
@@ -2209,7 +2268,12 @@ return maplibregl$1;
     window._atlas = M;
     document.getElementById("map").parentNode.appendChild(document.getElementById("peek"));
     m.on("style.load", onStyle);
-    m.on("error", function (ev) { if (window._mlerr) window._mlerr.push(String(ev.error && ev.error.message).slice(0, 160)); if (!M.styleReady && !M.stub) { M.stub = true; M.styleFail = true; m.setStyle(stubStyle(), { diff: false }); } });
+    m.on("error", function (ev) {
+      if (window._mlerr) window._mlerr.push(String(ev.error && ev.error.message).slice(0, 160));
+      if (!M.styleReady && !M.stub) { M.stub = true; M.styleFail = true; M.want = M.want || M.mode; m.setStyle(stubStyle(), { diff: false }); scheduleRetry(); }
+      else if (M.styleReady && (ev.sourceId === "sat" || ev.sourceId === "openmaptiles")) baseFailed(ev.sourceId);
+    });
+    m.on("data", function (ev) { if (ev.dataType === "source" && ev.tile && M.fails[ev.sourceId]) M.fails[ev.sourceId] = 0; });
     var pop = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "ecopop" });
     var touch = window.matchMedia && matchMedia("(pointer: coarse)").matches;
     function hit(ev, ids, pad) {

@@ -16,7 +16,7 @@ const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'species.json')
 // Same join as build/species.py: a place keeps only what differs from the shared species row.
 const join = (e) => ({ ...e, nodes: e.nodes.map((n) => { const { sp, no, ...rest } = n; const full = { ...(TABLE[sp] || {}), ...rest }; for (const f of no || []) delete full[f]; return full; }) });
 export function readPlaces(pilot) {
-  const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json'].includes(f))
+  const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json', 'bounds.json'].includes(f))
     .map((f) => join(JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8'))));
   return pilot ? [...dir('data'), ...dir('data-auto')] : dir('data');
 }

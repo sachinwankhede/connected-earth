@@ -13,7 +13,7 @@ jobs:
       - run: npm ci
       - name: Validate auto-generated data
         run: |
-          python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json) | tee validate.log
+          python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json) | tee validate.log
           ! grep -q "ERROR" validate.log
       - name: Shared species table is current
         run: |
