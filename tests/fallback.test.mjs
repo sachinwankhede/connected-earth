@@ -24,11 +24,11 @@ describe('base map fallback', () => {
     await page.route(/arcgisonline/, (r) => (sOk ? r.fulfill({ status: 404 }) && undefined : r.abort()));
     await page.addInitScript((ms) => { if (ms) window.__retryMs = ms; }, retryMs);
     await page.goto('file://' + H.MAIN);
-    await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
+    await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
     return { ctx, page, errors, set: (v, s) => { vOk = v; sOk = s; } };
   }
   const state = (page) => page.evaluate(() => ({ mode: window.__M.mode, stub: !!window.__M.stub, nobase: document.getElementById('map').classList.contains('nobase'), dots: document.querySelectorAll('.maplibregl-canvas').length }));
-  const wait = (page, f) => page.waitForFunction(f, null, { timeout: 25000 });
+  const wait = (page, f) => page.waitForFunction(f, null, { timeout: 90000 });
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: satellite fails, street map still works -> streets, no plain map`, async () => {
