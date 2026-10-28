@@ -5,7 +5,7 @@ A place file keeps for each species only its id, latin, position (xh) and whatev
   python3 build/species.py pack   fold place files into the table and slim them (safe to repeat)
   python3 build/species.py unpack write full nodes back into place files (for inspection)
 The build calls join() so the app receives full nodes either way."""
-import json, os, sys, collections
+import json, os, re, sys, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TABLE = os.path.join(ROOT, 'data', 'species.json')
 ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'desc', 'ic', 'cat', 'badge']
@@ -76,11 +76,13 @@ def clean(t):
         t = t[:i + 1] if i > 60 else cut.rsplit(' ', 1)[0] + '…'
     return t
 
+# Wikipedia titles that land on a page that is not about the species: disambiguation pages, people, towns, myths.
+NOT_ABOUT = re.compile(r"may refer to|can refer to|could refer to|share the common name|is a common name that|:\s*$|\b(given name|female name|male name|surname|unincorporated community|census-designated|is a (village|town|city|municipality|commune)|is an? (album|film|song|band|novel|company|television))\b", re.I)
 def about():
     tab = table(); src = json.load(open(os.path.join(ROOT, 'pipeline', 'about.json'))); n = 0
     for r in tab.values():
         t = clean(src.get(r.get('wiki'), ''))
-        if t and len(t) > 30 and not r.get('cat'): r['about'] = t; n += 1
+        if t and len(t) > 30 and not r.get('cat') and not NOT_ABOUT.search(t): r['about'] = t; n += 1
         else: r.pop('about', None)
     json.dump(tab, open(TABLE, 'w'), indent=1, ensure_ascii=False)
     print(n, 'rows have an about line')
