@@ -833,8 +833,28 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .pmap svg .pe { fill: none; stroke: var(--muted); stroke-opacity: .28; stroke-width: .9; }
 .jp .pmap svg .pn .core { stroke: var(--surface); stroke-width: 1.6; }
 .jp .pmap svg .pn .gl { color: var(--on-node); fill: currentColor; pointer-events: none; }
+.jp .pmap svg .pn.ph .gl { display: none; }
 .jp .pmap svg text { font: 600 11px var(--font-body); }
 .jp .pmap .jplay { pointer-events: none; }
+.jp .pstats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 14px 0 4px; }
+.jp .pstats > div { padding: 10px 11px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); min-width: 0; }
+.jp .pstats b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font: 700 16px/1.15 var(--font-display); }
+.jp .pstats small { display: block; margin-top: 4px; font: 500 11px/1.25 var(--font-body); color: var(--muted); }
+.jp .pmeet { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 6px; scrollbar-width: none; }
+.jp .pmeet::-webkit-scrollbar { display: none; }
+.jp .pmc { flex: none; width: 168px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding: 0 0 10px; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; overflow: hidden; font: inherit; }
+.jp .pmc .pph { width: 100%; height: 118px; border-radius: 0; }
+.jp .pmc b { margin: 8px 11px 0; font: 700 15px/1.2 var(--font-display); }
+.jp .pmc small { display: flex; align-items: center; gap: 5px; margin: 3px 11px 0; font: 500 11px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+.jp .pmc small i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.jp .pmc .pd { margin: 6px 11px 0; font: 400 13px/1.35 var(--font-body); color: var(--ink); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.jp .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
+.jp .pph svg { width: 40%; height: 40%; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.jp .pph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.jp .pchain { display: flex; align-items: flex-start; justify-content: flex-start; gap: 6px; margin: 0 0 12px; max-width: 460px; }
+.jp .pcn { flex: 1 1 0; min-width: 0; max-width: 84px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font: inherit; }
+.jp .pcn small { font: 600 11px/1.2 var(--font-body); text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 100%; }
+.jp .parr { flex: none; margin-top: 16px; color: var(--muted); font-size: 16px; }
 .jp .pchips { display: flex; flex-wrap: wrap; gap: 6px; }
 .jp .pchips button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 12px 0 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: 500 13px var(--font-body); cursor: pointer; }
 .jp .pchips button i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
@@ -1512,6 +1532,7 @@ return maplibregl$1;
     if (M.jid) jPhotos();
   }
   function showPhoto(n) {
+    if (n.isPage) { pShow(n); return; }
     if (n.isEco) { ecoPhoto(n.e); return; }
     if (n.isLink) { linkPhoto(n.c); return; }
     if (BY[n.id] !== n || n.photoShown || !photoOf(n)) return;
@@ -2852,33 +2873,87 @@ return maplibregl$1;
     top.forEach(function (n) { if (Object.keys(labelled).length >= 9 && n.tl < 4) return; var x = pos[n.id][0], rk = n.tl, ok = true; (lastX[rk] = lastX[rk] || []).forEach(function (q) { if (Math.abs(q[0] - x) < q[1] + lw(n) / 2 + 8) ok = false; }); if (ok) { labelled[n.id] = 1; lastX[rk].push([x, lw(n) / 2]); } });
     var nodes = d.bio.map(function (n) {
       var rowN = rows.filter(function (rw) { return rw.indexOf(n) >= 0; })[0].length, r = Math.max(6, Math.min(17, 9 + 1.7 * Math.sqrt(d.deg[n.id]), (W - 2 * padX) / rowN / 2 - 1.5)), q = pos[n.id], gs = r * 1.4, lab = labelled[n.id] ? '<text text-anchor="middle" y="' + (r + 13) + '">' + escH(n.name.length > 16 ? n.name.replace(/^(African|American|Common|Greater|Great|Northern) /, "") : n.name) + "</text>" : "";
-      return '<g class="pn" data-node="' + n.id + '" transform="translate(' + q[0].toFixed(1) + " " + q[1].toFixed(1) + ')"><circle class="core" r="' + r.toFixed(1) + '" style="fill:var(--tl' + n.tl + ')"/><g class="gl" transform="translate(' + (-gs / 2).toFixed(1) + "," + (-gs / 2).toFixed(1) + ") scale(" + (gs / 24).toFixed(3) + ')">' + (ICONS[n.ic] || "") + "</g>" + lab + "</g>";
+      return '<clipPath id="pcl-' + n.id + '"><circle r="' + r.toFixed(1) + '"/></clipPath><g class="pn" data-r="' + r.toFixed(1) + '" data-node="' + n.id + '" transform="translate(' + q[0].toFixed(1) + " " + q[1].toFixed(1) + ')"><circle class="core" r="' + r.toFixed(1) + '" style="fill:var(--tl' + n.tl + ')"/><g class="gl" transform="translate(' + (-gs / 2).toFixed(1) + "," + (-gs / 2).toFixed(1) + ") scale(" + (gs / 24).toFixed(3) + ')">' + (ICONS[n.ic] || "") + "</g>" + lab + "</g>";
     }).join("");
     return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Food web of ' + escH(d.e.name) + ': ' + d.bio.length + ' species in four levels">' + edges + nodes + "</svg>";
   }
+  var PNAMES = { 4: "Top predator", 3: "Hunter & scavenger", 2: "Plant-eater", 1: "Plant" };
+  var PAGE_CHAINS = { yellowstone: [["aspen", "elk", "wolf"], ["willow", "beaver", "wolf"], ["grass", "elk", "lion"]] };
+  function pChains(d) {
+    var pick = (PAGE_CHAINS[d.e.id] || []).map(function (ids) { return ids.map(function (i) { return d.by[i]; }); }).filter(function (c) { return c.every(Boolean); });
+    if (pick.length) return pick.slice(0, 2);
+    var used = {}, out = [];
+    d.bio.filter(function (n) { return n.tl >= 3 && d.ins[n.id].length; }).sort(function (a, b) { return b.tl - a.tl || d.deg[b.id] - d.deg[a.id]; }).forEach(function (t) {
+      if (out.length >= 2) return;
+      var chain = [t], c = t, g = 0;
+      while (g++ < 5) {
+        var pr = d.ins[c.id].map(function (i) { return d.by[i]; }).filter(function (n) { return !n.cat && n.tl < c.tl && chain.indexOf(n) < 0; }).sort(function (a, b) { return (used[a.id] ? 1 : 0) - (used[b.id] ? 1 : 0) || d.deg[b.id] - d.deg[a.id]; });
+        if (!pr.length) break; chain.unshift(pr[0]); c = pr[0];
+      }
+      if (chain.length >= 3) { chain.forEach(function (n) { used[n.id] = 1; }); out.push(chain); }
+    });
+    return out;
+  }
+  function pLongest(d) {
+    var memo = {}, vis = {};
+    function f(id) { if (memo[id] != null) return memo[id]; if (vis[id]) return 0; vis[id] = 1; var m = 0; d.outs[id].forEach(function (t) { m = Math.max(m, 1 + f(t)); }); vis[id] = 0; return (memo[id] = m); }
+    return d.bio.reduce(function (a, n) { return Math.max(a, f(n.id)); }, 0) + 1;
+  }
+  function pph(n, icons) { return '<span class="pph" data-pid="' + n.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></span>"; }
   function pHTML(id) {
-    var d = pData(id), e = d.e, kc = KC[e.kind] || "var(--accent)";
-    var names = { 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants" };
+    var d = pData(id), e = d.e, byDeg = d.bio.slice().sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; });
+    var chip = function (n) { return '<button type="button" data-pnode="' + n.id + '"><i style="--c:var(--tl' + n.tl + ')"></i>' + escH(n.name) + "</button>"; };
     var lvls = [4, 3, 2, 1].map(function (tl) {
-      var g = d.bio.filter(function (n) { return n.tl === tl; }).sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; });
-      return g.length ? "<h3>" + names[tl] + " · " + g.length + '</h3><div class="pchips">' + g.map(function (n) { return '<button type="button" data-pnode="' + n.id + '"><i style="--c:var(--tl' + n.tl + ')"></i>' + escH(n.name) + "</button>"; }).join("") + "</div>" : "";
+      var g = byDeg.filter(function (n) { return n.tl === tl; });
+      return g.length ? "<h3>" + PNAMES[tl] + "s · " + g.length + '</h3><div class="pchips">' + g.map(chip).join("") + "</div>" : "";
     }).join("");
+    var env = e.nodes.filter(function (n) { return n.cat; });
+    var eh = env.length ? "<h3>Environment · " + env.length + '</h3><div class="pchips">' + env.map(chip).join("") + "</div>" : "";
+    var mine = {}; d.bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
+    var near = ECOS.filter(function (o) { return o.id !== id; }).map(function (o) { var c = 0; o.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: o, c: c }; }).filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; });
+    var sh = near.length ? "<h3>Shares species with</h3>" + '<div class="pchips">' + near.slice(0, 8).map(function (x) { return '<button type="button" data-ppage="' + x.e.id + '">' + escH(x.e.short) + " <b>" + x.c + "</b></button>"; }).join("") + "</div>" : "";
     var js = CROSS.filter(function (c) { return jEnds(c).some(function (x) { return x.eco === id; }); });
     var jh = js.length ? "<h3>Journeys through here</h3>" + '<div class="jmore">' + js.map(function (c) { var oe = jEnds(c); return '<button type="button" data-pjourney="' + c.id + '"><span><i>' + escH(oe[0].e.short) + " → " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(c.title) + "</b></span></button>"; }).join("") + "</div>" : "";
-    var mine = {}; d.bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
-    var near = ECOS.filter(function (o) { return o.id !== id; }).map(function (o) { var c = 0; o.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: o, c: c }; }).filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 8);
-    var sh = near.length ? "<h3>Shares species with</h3>" + '<div class="pchips">' + near.map(function (x) { return '<button type="button" data-ppage="' + x.e.id + '">' + escH(x.e.short) + " <b>" + x.c + "</b></button>"; }).join("") + "</div>" : "";
-    var env = e.nodes.filter(function (n) { return n.cat; });
-    var eh = env.length ? "<h3>Environment · " + env.length + '</h3><div class="pchips">' + env.map(function (n) { return '<button type="button" data-pnode="' + n.id + '"><i style="--c:var(--tl0)"></i>' + escH(n.name) + "</button>"; }).join("") + "</div>" : "";
+    // the six species that matter most here: well connected, at most two from each level
+    var cnt = {}, feat = byDeg.filter(function (n) { cnt[n.tl] = (cnt[n.tl] || 0) + 1; return cnt[n.tl] <= 2; }).slice(0, 6).sort(function (a, b) { return b.tl - a.tl || d.deg[b.id] - d.deg[a.id]; });
+    var meet = feat.length ? "<h3>Meet the species</h3>" + '<div class="pmeet">' + feat.map(function (n) {
+      var one = String(n.desc || "").split(/(?<=[.!?])\s+/)[0];
+      return '<button type="button" class="pmc" data-pnode="' + n.id + '">' + pph(n) + "<b>" + escH(n.name) + '</b><small><i style="--c:var(--tl' + n.tl + ')"></i>' + PNAMES[n.tl] + "</small>" + (one ? '<span class="pd">' + escH(one) + "</span>" : "") + "</button>";
+    }).join("") + "</div>" : "";
+    var chains = pChains(d), ch = chains.length ? "<h3>Who feeds whom</h3>" + chains.map(function (c) {
+      return '<div class="pchain">' + c.map(function (n, i) { return (i ? '<span class="parr" aria-hidden="true">→</span>' : "") + '<button type="button" class="pcn" data-pnode="' + n.id + '">' + pph(n) + "<small>" + escH(n.name) + "</small></button>"; }).join("") + "</div>";
+    }).join("") + '<p class="fine">Each one feeds the next.</p>' : "";
+    var stats = byDeg.length ? '<div class="pstats"><div><b>' + escH(byDeg[0].name) + "</b><small>Most connected · " + d.deg[byDeg[0].id] + " links</small></div><div><b>" + pLongest(d) + "</b><small>Species in the longest food chain</small></div>" + (near.length ? "<div><b>" + escH(near[0].e.short) + "</b><small>Shares the most species \u00b7 " + near[0].c + "</small></div>" : "") + "</div>" : "";
     var icon = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>";
     return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Map</button></div>' +
       '<div class="jhero"><span class="jhimg" id="pp-main">' + icon + '</span><div><p class="jkind">' + escH(e.kind || "Place") + "</p><h2>" + escH(e.name) + '</h2><p class="jr">' + escH(e.place || "") + "</p></div></div>" +
       (e.blurb ? '<p class="plead">' + escH(e.blurb) + "</p>" : "") +
       '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
-      '<p class="fine">' + d.bio.length + " species. Lines run from food to eater.</p>" +
-      lvls + jh + sh + eh +
+      '<p class="fine">' + d.bio.length + " species. Lines run from food to eater. Photos via Wikipedia.</p>" +
+      stats + meet + ch + jh + sh +
+      '<details class="srcd"><summary>All ' + d.bio.length + " species</summary>" + lvls + eh + "</details>" +
       (e.sources && e.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(e.sources) + "</details>" : "") +
       (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : "") + "</article>";
+  }
+  function pWant(n) {
+    if (PHOTOS[n.wiki]) { pShow(n); return; }
+    if (WAIT[n.wiki]) { WAIT[n.wiki].push(n); return; }
+    WAIT[n.wiki] = [n]; fetchPhoto(n.wiki);
+  }
+  function pShow(n) {
+    var ph = PHOTOS[n.wiki]; if (!ph || M.pid !== n.eco) return;
+    PV.querySelectorAll('.pph[data-pid="' + n.id + '"]').forEach(function (b) {
+      if (b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
+    });
+    PV.querySelectorAll('.pn[data-node="' + n.id + '"]').forEach(function (g) {
+      if (g.querySelector("image")) return;
+      var r = +g.getAttribute("data-r"), NS = "http://www.w3.org/2000/svg", im = document.createElementNS(NS, "image");
+      im.setAttribute("href", ph.src); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
+      im.setAttribute("preserveAspectRatio", "xMidYMin slice"); im.setAttribute("clip-path", "url(#pcl-" + n.id + ")");
+      im.addEventListener("error", function () { im.remove(); g.classList.remove("ph"); });
+      var gl = g.querySelector(".gl"); g.insertBefore(im, gl); g.classList.add("ph");
+    });
   }
   function showPlace(id, from) {
     if (!ECO_BY[id]) return;
@@ -2891,6 +2966,7 @@ return maplibregl$1;
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto();
+      pData(id).bio.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
     });
   }
   function pPhoto() {

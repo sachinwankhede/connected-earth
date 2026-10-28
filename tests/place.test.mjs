@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+import { mockPhotos } from './mockphotos.mjs';
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   async function start(hash = '#stub') {
@@ -24,9 +25,28 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       return { title: v.querySelector('h2').textContent, place: v.querySelector('.jr').textContent, lead: !!v.querySelector('.plead'), order: top('h2') < top('.plead') && top('.plead') < top('#pgraph') && top('#pgraph') < top('h3'), nodes: g.querySelectorAll('.pn').length, heads: [...v.querySelectorAll('h3')].map((h) => h.textContent), chips: v.querySelectorAll('[data-pnode]').length, hit, overlap, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: v.querySelector('[data-pback]').textContent.trim(), web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden };
     });
     assert.equal(r.title, 'Greater Yellowstone'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then hook, then the web, then detail');
-    assert.equal(r.nodes, 30); assert.ok(r.heads[0].startsWith('Top predators') && r.heads.some((h) => /^Journeys through here/.test(h)));
+    assert.equal(r.nodes, 30); assert.deepEqual(r.heads.slice(0, 3), ['Meet the species', 'Who feeds whom', 'Journeys through here']);
     assert.ok(r.chips >= 30); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
     assert.equal(r.back, '‹ Map'); assert.equal(r.web, false); assert.equal(r.map, false);
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: species show their photos in the picture, the cards and the chains, and fall back to icons without them`, async () => {
+    const { b, p, errors } = await start();
+    // no photos available: icons stay, nothing breaks
+    await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p); await p.waitForTimeout(1500);
+    let r = await p.evaluate(() => ({ img: document.querySelectorAll('#pgraph image').length, gl: [...document.querySelectorAll('#pgraph .pn .gl')].filter((g) => g.getBoundingClientRect().width > 0).length }));
+    assert.equal(r.img, 0); assert.ok(r.gl >= 25, 'icons shown');
+    // photos available
+    await mockPhotos(p);
+    await p.evaluate(() => window.__M.showPlace('serengeti')); await ready(p);
+    await p.waitForFunction(() => document.querySelectorAll('#pgraph image').length >= 15, null, { timeout: 30000 });
+    r = await p.evaluate(() => {
+      const v = document.getElementById('pview'), g = v.querySelector('#pgraph');
+      return { all: g.querySelectorAll('.pn').length, ph: g.querySelectorAll('.pn.ph').length, cards: v.querySelectorAll('.pmc').length, cardImgs: v.querySelectorAll('.pmc .pph img').length, chainImgs: v.querySelectorAll('.pchain .pph img').length, chainNodes: v.querySelectorAll('.pchain .pcn').length, stats: v.querySelectorAll('.pstats > div').length, closed: !v.querySelector('details.srcd').open, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, glHidden: [...g.querySelectorAll('.pn.ph .gl')].every((x) => getComputedStyle(x).display === 'none') };
+    });
+    assert.equal(r.ph, r.all, 'every species with a photo shows it'); assert.ok(r.cards >= 4 && r.cardImgs === r.cards); assert.ok(r.chainNodes >= 3 && r.chainImgs === r.chainNodes);
+    assert.ok(r.glHidden, 'a photo replaces the icon'); assert.equal(r.stats, 3); assert.ok(r.closed, 'the long species list starts collapsed'); assert.ok(r.over <= 0);
     assert.deepEqual(errors, []); await b.close();
   });
 
