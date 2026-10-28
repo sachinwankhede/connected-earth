@@ -26,12 +26,14 @@ def one(i,title,out,man):
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
     man=json.load(open(mp)) if os.path.exists(mp) else {}
-    stat={}
+    stat={}; LIMIT=int(os.environ.get('LIMIT','0') or 0); tried=0   # a scheduled run does one batch; 0 = everything left
     for d in sys.argv[2:]:
         for f in sorted(glob.glob(d+'/*.json')):
             if f.endswith(('order.json','links.json')): continue
             e=json.load(open(f)); t=e.get('imgwiki')
             if not t or t in man: continue
+            if LIMIT and tried>=LIMIT: continue
+            tried+=1
             try: r=one(e['id'],t,out,man)
             except Exception as ex: r='err '+str(ex)[:50]
             stat[t]=r

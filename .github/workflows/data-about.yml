@@ -24,11 +24,13 @@ jobs:
       - run: npm ci
       - name: Carry on from the open batch, if there is one
         run: |
-          if git ls-remote --exit-code --heads origin data/about >/dev/null 2>&1; then
+          if git ls-remote --exit-code --heads origin data/about >/dev/null 2>&1 && [ -n "$(gh pr list --head data/about --state open --json number --jq '.[0].number')" ]; then
             git fetch origin data/about && git checkout -B data/about origin/data/about && git merge --no-edit origin/main || true
           else
             git checkout -B data/about
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Fetch the next batch
         run: LIMIT="${{ github.event.inputs.limit || '1000' }}" python3 pipeline/about.py
       - name: Fold the text into the species table
