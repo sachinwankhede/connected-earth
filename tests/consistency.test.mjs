@@ -27,3 +27,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await b.close();
   });
 }
+
+// docs/DESIGN.md: every page has a share icon and the same "Sources & credits" footer.
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: journey, place and explore all have a share icon; pages and the species sheet share one footer`, async () => {
+    const b = await H.launch();
+    for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
+      const t = await H.open(b, H.MAIN, size, { hash }); const p = t.page;
+      if (scr === 'journey') await p.evaluate(() => window.__M.showJourney(window.__M.journeyIds()[0]));
+      await p.waitForSelector(scr === 'explore' ? '#pbk' : '.jback', { state: 'visible', timeout: 60000 }); await p.waitForTimeout(1000);
+      const r = await p.evaluate(() => { const v = [...document.querySelectorAll('.shbtn')].filter((e) => e.getBoundingClientRect().width > 0); const f = [...document.querySelectorAll('details.srcd summary')].filter((e) => e.getBoundingClientRect().width > 0).map((e) => e.textContent.trim()); return { share: v.length, foot: f }; });
+      assert.equal(r.share, 1, `${scr}: exactly one share icon`);
+      if (scr !== 'explore') assert.deepEqual(r.foot, ['Sources & credits'], `${scr}: shared footer`);
+      assert.deepEqual(t.errors, []); await t.close();
+    }
+    await b.close();
+  });
+}

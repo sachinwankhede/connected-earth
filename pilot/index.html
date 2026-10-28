@@ -588,19 +588,18 @@ div.card { cursor: default; }
 #fit { display: none !important; }
 #webctl.moved #fit { display: grid !important; }
 #webctl:not(.moved):has(#reset[hidden]) { display: none !important; }
-.gcap { position: fixed; left: 24px; right: 24px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 6; margin: 0; text-align: center; font: 500 12px var(--font-body); color: var(--muted); pointer-events: none; }
-.gcap:has(~ .psheet:not(.nosel)) { display: none; }
+.gcap { position: absolute; left: 16px; right: 16px; bottom: 10px; z-index: 6; margin: 0; text-align: center; font: 500 12px var(--font-body); color: var(--muted); pointer-events: none; }
+.stage.hasel .gcap { display: none; }
 /* a slimmer top: the back link row is 38px tall and the page gives up most of its top padding on phones */
 @media (max-width: 700px) {
-  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { padding-top: 4px; }
+  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 0; }
   .jp .jhero { margin: 0 0 12px; }
-  .pbk:not([hidden]) { top: 4px; }
 }
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
 /* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
-.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: fixed; left: 24px; top: 22px; z-index: 14; max-width: calc(100vw - 90px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 6px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
@@ -932,7 +931,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jview[hidden] { display: none !important; }
 .jp { max-width: 720px; margin: 0 auto; padding: 0 0 calc(36px + env(safe-area-inset-bottom, 0px)); }
 .jp .jtop { position: sticky; top: 0; z-index: 3; padding: 0 0 4px; background: var(--bg); }
-.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
+.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
 .jp .jhero { display: flex; gap: 14px; align-items: center; margin: 2px 0 14px; }
 .jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -988,8 +987,16 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend b { display: block; font: 700 16px var(--font-display); }
 .jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
-.jp .pshare { margin: 18px 0 0; font: 600 14px var(--font-body); }
 .jp details.srcd { margin-top: 22px; }
+.credits p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+.credits a, .srcd .fine a { color: var(--accent); }
+.shbtn { flex: none; width: 40px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer; padding: 0; }
+.shbtn .ok { display: none; }
+.shbtn.done svg:not(.ok) { display: none; }
+.shbtn.done .ok { display: block; }
+.jp .jtop { display: flex; align-items: center; justify-content: space-between; }
+.gsh { position: absolute; right: 12px; top: 6px; z-index: 14; }
+#webctl:not([hidden]) { top: 50px !important; }
 .jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
@@ -1781,13 +1788,19 @@ return maplibregl$1;
     if (n.fl) return '<div class="xlink"><h3>Outside input</h3><p><b>' + n.fl.title + '.</b> ' + n.fl.text + '</p></div>';
     return "";
   }
+  /* the same footer on every page: one collapsed "Sources & credits" section */
+  function footHTML(inner, cid) { return '<details class="srcd"><summary>Sources &amp; credits</summary>' + inner + (cid ? '<div class="credits" id="' + cid + '"></div>' : "") + "</details>"; }
+  function shareBtn() {
+    return '<button type="button" class="ibtn shbtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>' +
+      '<svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
+  }
   function srcLinks(list) {
     return '<ul class="srcs">' + list.map(function (s) { return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + s.title + '</a></li>'; }).join("") + "</ul>";
   }
   function srcHTML(n) {
     var list = (n.src || []).slice();
     if (n.wiki) list.push({ title: "Wikipedia: " + n.wiki, url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(n.wiki.replace(/ /g, "_")) });
-    return list.length ? "<h3>Read more</h3>" + srcLinks(list) : "";
+    return list.length ? srcLinks(list) : "";
   }
   var EVT = { g: "Recorded in GloBI", gg: "GloBI has records for this genus", gf: "GloBI has records for this family", ga: "Added from a GloBI record", a: "From the ecosystem sources and general ecology (no GloBI record found)" };
   function evHTML(ins, outs) {
@@ -1814,6 +1827,7 @@ return maplibregl$1;
     var id = state.sel;
     var ps = document.getElementById("psheet");
     if (ps) ps.classList.toggle("nosel", !id);
+    stage.classList.toggle("hasel", !!id);
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
@@ -1839,9 +1853,9 @@ return maplibregl$1;
       group("Scavenged by", k(outs, "scav"), "t") +
       group(n.name + " supports", k(outs, "res"), "t") +
       group("Broken down by", k(outs, "det"), "t") +
+      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") +
       linkHTML(n) + whereElseHTML(n) +
-      '<details class="more"><summary>More</summary>' + photoCap(n) + evHTML(ins, outs) + srcHTML(n) +
-      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") + "</details>" + whatIfHTML(n);
+      footHTML(photoCap(n) + evHTML(ins, outs) + srcHTML(n)) + whatIfHTML(n);
     pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); });
   }
   function setEdit(id, v) {
@@ -1968,7 +1982,7 @@ return maplibregl$1;
   document.getElementById("env").setAttribute("aria-label", "Show environment");
   el.reset.addEventListener("click", clearEdits);
   [["env", "Show environment: sun, rain, soil"], ["share", "Copy link to this ecosystem"], ["fit", "Fit everything on screen"], ["moreb", "More"], ["vt", "Show web view"]].forEach(function (a) { var b = document.getElementById(a[0]); if (b) { b.setAttribute("aria-label", a[1]); b.setAttribute("title", a[1]); } });
-  stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast"));
+  stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast")); stage.appendChild(document.getElementById("pbk")); (function () { var g = document.createElement("span"); g.className = "gsh"; g.innerHTML = shareBtn(); stage.appendChild(g); })(); stage.appendChild(document.getElementById("gcap"));
   (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("moreb"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
@@ -2598,6 +2612,7 @@ return maplibregl$1;
       else if (m[1] === "state" && M.stateBy[m[2]]) go("state", m[2]);
     }
   }
+  document.addEventListener("click", function (ev) { var b = ev.target.closest(".shbtn"); if (b) { ev.stopPropagation(); share(b); } }, true);
   function toast(t) { var v = document.getElementById("vtoast"); if (!v) return; v.textContent = t; v.classList.add("on"); clearTimeout(v._t); v._t = setTimeout(function () { v.classList.remove("on"); }, 1600); }
   function share(btn) {
     syncHash();
@@ -2889,7 +2904,7 @@ return maplibregl$1;
     }).join("");
     var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener noreferrer">' + escH(q.t) + "</a></li>"; }).join("");
     var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
-    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button></div>' +
+    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button>' + shareBtn() + '</div>' +
       '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>\u2192</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
       '<div class="jmap' + (rt.right ? " pr" : "") + '" id="jfly" role="button" tabindex="0" aria-label="' + escH(c.go || "Follow the route") + '">' + rt.html + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>' + escH(c.go || "Follow the route") + '</span><span class="jattr">\u00a9 Esri, Maxar</span></div>' +
       '<p class="fine">Routes are simplified; real journeys vary by season and population.</p>' +
@@ -2897,7 +2912,7 @@ return maplibregl$1;
       "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(c.matters) + "</p>" : "") +
       '<h3>Places on this route</h3><div class="jends">' + ends + "</div>" +
       (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") +
-      (src ? '<details class="srcd"><summary>Sources</summary><ul class="srcs">' + src + "</ul></details>" : "") + "</article>";
+      footHTML(src ? '<ul class="srcs">' + src + "</ul>" : "", "jcredit") + "</article>";
   }
   function jRoles(c) {
     var id = c.id;
@@ -2915,6 +2930,9 @@ return maplibregl$1;
     var m = document.getElementById("xi-" + c.id), t = document.getElementById("jp-main");
     if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
     jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
+    var cr = document.getElementById("jcredit"); if (!cr) return;
+    var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
+    cr.innerHTML = lines.map(function (ph) { return "<p>" + creditHTML(ph) + "</p>"; }).join("");
   }
   function jFly(c, pts) {
     var dot = document.getElementById("jdot"); if (!dot) return;
@@ -3037,15 +3055,14 @@ return maplibregl$1;
       return '<div class="pchain">' + c.map(function (n, i) { return (i ? '<span class="parr" aria-hidden="true">→</span>' : "") + '<button type="button" class="pcn" data-pnode="' + n.id + '">' + pph(n) + "<small>" + escH(n.name) + "</small></button>"; }).join("") + "</div>";
     }).join("") + '<p class="fine">Each one feeds the next.</p>' : "";
     var icon = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>";
-    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div>' +
+    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button>' + shareBtn() + '</div>' +
       '<div class="jhero"><span class="jhimg" id="pp-main">' + icon + '</span><div><p class="jkind">' + escH(e.kind || "Place") + "</p><h2>" + escH(e.name) + '</h2><p class="jr">' + escH(e.place || "") + "</p></div></div>" +
       '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
       '<p class="fine">' + d.bio.length + " species. Lines run from food to eater.</p>" +
       (e.story ? '<p class="pstory"><b>The story.</b> ' + escH(e.story) + "</p>" : e.blurb ? '<p class="pstory">' + escH(e.blurb) + "</p>" : "") +
       (e.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(e.matters) + "</p>" : "") +
       rows + eh + ch + jh + sh +
-      (e.sources && e.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(e.sources) + "</details>" : "") +
-      (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : "") + '<p class="fine pcredit" id="pcredit"></p><p class="pshare"><a href="#" data-pshare>Share this place</a></p></article>';
+      footHTML((e.sources && e.sources.length ? srcLinks(e.sources) : "") + (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : ""), "pcredit") + "</article>";
   }
   function pWant(n) {
     if (PHOTOS[n.wiki]) { pShow(n); return; }
@@ -3089,14 +3106,13 @@ return maplibregl$1;
     var id = M.pid, m = document.getElementById("pp-main"), c = id && document.getElementById("ci-" + id);
     if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
     var cr = document.getElementById("pcredit"), ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki];
-    if (cr && ph && m && m.querySelector("img")) cr.innerHTML = creditHTML(ph);
+    if (cr) cr.innerHTML = (ph && m && m.querySelector("img") ? "<p>" + creditHTML(ph) + "</p>" : "") + "<p>Species photos via Wikipedia.</p>";
   }
   function closePlace() { M.pid = null; PV.hidden = true; showMap(); }
   PV.addEventListener("keydown", function (ev) { var t = ev.target; if ((ev.key === "Enter" || ev.key === " ") && t.getAttribute && t.getAttribute("role") === "button") { ev.preventDefault(); t.click(); } });
   PV.addEventListener("click", function (ev) {
     var id = M.pid; if (!id) return;
-    var t = ev.target.closest("[data-pback],[data-pnode],[data-pjourney],[data-ppage],[data-pshare],#pgraph"); if (!t) return;
-    if (t.hasAttribute("data-pshare")) { ev.preventDefault(); share(t); return; }
+    var t = ev.target.closest("[data-pback],[data-pnode],[data-pjourney],[data-ppage],#pgraph"); if (!t) return;
     if (t.hasAttribute("data-pback")) closePlace();
     else if (t.hasAttribute("data-pjourney")) { var jid = t.getAttribute("data-pjourney"); PV.hidden = true; M.pid = null; showJourney(jid); }
     else if (t.hasAttribute("data-ppage")) showPlace(t.getAttribute("data-ppage"));

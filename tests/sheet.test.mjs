@@ -27,7 +27,7 @@ describe('place sheet', () => {
       await t.close();
     });
 
-    test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, details tucked under More, What if last`, async () => {
+    test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, sources and credits tucked away, What if last`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page);
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
@@ -36,7 +36,7 @@ describe('place sheet', () => {
       const r = await t.page.evaluate(() => {
         const pn = document.getElementById('panel'), top = (e) => e.getBoundingClientRect().top + pn.scrollTop;
         const heads = [...pn.querySelectorAll('h3')].map((h) => h.textContent.replace(/\s*\(\d+\)/, ''));
-        const wi = pn.querySelector('.wi'), more = pn.querySelector('details.more'), last = pn.lastElementChild;
+        const wi = pn.querySelector('.wi'), more = pn.querySelector('details.srcd'), last = pn.lastElementChild;
         return { heads, whatIfLast: last === wi, moreClosed: !!more && !more.open, moreBeforeWhatIf: top(more) < top(wi), cards: pn.querySelectorAll('.prow .pmc').length };
       });
       await t.page.waitForFunction(() => document.querySelector('#panel .art.hasph img'), null, { timeout: 30000 });
@@ -80,7 +80,8 @@ describe('place sheet', () => {
       s = await vis(); assert.ok(s.fit, 'Fit appears once the graph has been moved'); await t.page.click('#fit'); await t.page.waitForTimeout(900);
       s = await vis(); assert.equal(s.fit, false, 'and goes away once it is back');
       await t.page.evaluate(() => window.__M.showPlace('yellowstone')); await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
-      assert.ok(await t.page.evaluate(() => !!document.querySelector('#pview [data-pshare]')), 'place page has Share');
+      assert.ok(await t.page.evaluate(() => !!document.querySelector('#pview .shbtn')), 'place page has a share icon');
+      assert.ok(await t.page.evaluate(() => !!document.querySelector('#pview details.srcd summary') && /Sources & credits/.test(document.querySelector('#pview details.srcd summary').textContent)), 'and the shared footer');
       assert.deepEqual(t.errors, []); await t.close();
     });
 
