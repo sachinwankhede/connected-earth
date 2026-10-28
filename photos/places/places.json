@@ -695,14 +695,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Harenna_Forest_%2816139095228%29.jpg",
 "w": "https://en.wikipedia.org/wiki/Bale_Mountains_National_Park"
 },
-"Canadian Rocky Mountain Parks": {
-"f": "whbanff.jpg",
-"a": "Pethrus",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Canadian_Rocky_Mountain_parks_map.svg",
-"w": "https://en.wikipedia.org/wiki/Canadian_Rocky_Mountain_Parks_World_Heritage_Site"
-},
 "Belize Barrier Reef": {
 "f": "whbelize.jpg",
 "a": "MODIS Land Rapid Response Team, NASA/GSFC",
@@ -886,14 +878,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Hollyford_River_NZ_11.jpg",
 "w": "https://en.wikipedia.org/wiki/Fiordland_National_Park"
-},
-"Los Glaciares National Park": {
-"f": "whglaciares.jpg",
-"a": "Administración de Parques Nacionales",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Emblema_Parque_Nacional_Los_Glaciares.jpg",
-"w": "https://en.wikipedia.org/wiki/Los_Glaciares_National_Park"
 },
 "Gobi Gurvansaikhan National Park": {
 "f": "whgobi.jpg",
@@ -1447,14 +1431,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Yakushima.jpg",
 "w": "https://en.wikipedia.org/wiki/Yakushima"
 },
-"Yasuní National Park": {
-"f": "whyasuni.jpg",
-"a": "Sageo",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Localizaci%C3%B3n_de_Yasun%C3%AD_en_Ecuador.svg",
-"w": "https://en.wikipedia.org/wiki/Yasun%C3%AD_National_Park"
-},
 "Band-e Amir National Park": {
 "f": "xafghan.jpg",
 "a": "USAID",
@@ -1647,14 +1623,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Hlane-Basic-Hide-At-Hippo-Pool.JPG",
 "w": "https://en.wikipedia.org/wiki/Hlane_Royal_National_Park"
 },
-"Falkland Islands": {
-"f": "xfalkland.jpg",
-"a": "Unknown author",
-"l": "See file page",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Flag_of_the_Falkland_Islands.svg",
-"w": "https://en.wikipedia.org/wiki/Falkland_Islands"
-},
 "Colo-i-Suva Forest Reserve": {
 "f": "xfiji.jpg",
 "a": "Tucoxn",
@@ -1790,14 +1758,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Korgalzhinskiy_Nature_Reserve.JPG",
 "w": "https://en.wikipedia.org/wiki/Korgalzhyn_Nature_Reserve"
-},
-"Kerguelen Islands": {
-"f": "xkerguelen.jpg",
-"a": "Académie de Grenoble",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Flag_of_the_French_Southern_and_Antarctic_Lands.svg",
-"w": "https://en.wikipedia.org/wiki/Kerguelen_Islands"
 },
 "Sharr Mountains National Park": {
 "f": "xkosovo.jpg",
@@ -2063,14 +2023,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Mount_Yu_Shan_-_Taiwan.jpg",
 "w": "https://en.wikipedia.org/wiki/Yushan_National_Park"
 },
-"Nino Konis Santana National Park": {
-"f": "xtimor.jpg",
-"a": "Government of Timor-Leste",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Logo_of_Parque_Nacional_Nino_Konis_Santana.jpg",
-"w": "https://en.wikipedia.org/wiki/Nino_Konis_Santana_National_Park"
-},
 "Fazao-Malfakassa National Park": {
 "f": "xtogo.jpg",
 "a": "Zayneb Dhahbi",
@@ -2182,14 +2134,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Konza1.jpg",
 "w": "https://en.wikipedia.org/wiki/Konza_Prairie_Biological_Station"
-},
-"Cape Cod National Seashore": {
-"f": "xusma.jpg",
-"a": "Unknown, Cape Cod National Seashore",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Cape_Cod_National_Seashore_logo.png",
-"w": "https://en.wikipedia.org/wiki/Cape_Cod_National_Seashore"
 },
 "Pascagoula River": {
 "f": "xusms.jpg",
