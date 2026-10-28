@@ -21,10 +21,9 @@ jobs:
         with: { ref: main }
       - name: Carry on from the open batch, if there is one
         run: |
-          if git ls-remote --exit-code --heads origin data/photos >/dev/null 2>&1 && [ -n "$(gh pr list --head data/photos --state open --json number --jq '.[0].number')" ]; then
-            git fetch origin data/photos && git checkout -B data/photos origin/data/photos && git merge --no-edit origin/main || true
-          else
-            git checkout -B data/photos
+          git checkout -B data/photos
+          if [ -n "$(gh pr list --head data/photos --state open --json number --jq '.[0].number')" ]; then
+            git fetch origin data/photos && git checkout origin/data/photos -- photos/places
           fi
         env:
           GH_TOKEN: ${{ github.token }}
