@@ -3021,7 +3021,7 @@ return maplibregl$1;
   function showWeb(id, then, fromJ, fromP) {
     PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
-    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = fromJ ? "&larr; Journey" : fromP ? "&larr; Place" : "&larr; Map"; setPbk();
+    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = "&larr; " + (fromJ ? "Journey" : escH(ECO_BY[id].name)); setPbk();
     el.eco.value = id; M.loading = id;
     var wl = document.getElementById("webload"), ready = !!ECO_BY[id].nodes;
     wl.hidden = ready; wl.textContent = "Loading\u2026"; wl.classList.remove("err");
@@ -3033,7 +3033,7 @@ return maplibregl$1;
     });
     syncHash();
   }
-  el.back.addEventListener("click", function () { M.loading = null; if (M.cameFromP && !el.webview.hidden) { var fp = M.cameFromP; M.cameFromP = null; showPlace(fp); return; } var f = M.cameFrom; if (f && !el.webview.hidden) { M.cameFrom = null; showJourney(f); } else showMap(); });
+  el.back.addEventListener("click", function () { M.loading = null; var f = M.cameFrom; if (f && !el.webview.hidden) { M.cameFrom = null; showJourney(f); } else if (!el.webview.hidden && el.eco.value) showPlace(el.eco.value); else showMap(); });
 
   M.h0 = location.hash.slice(1);
   buildMap();
