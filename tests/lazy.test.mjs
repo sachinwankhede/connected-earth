@@ -59,8 +59,8 @@ describe('places load on demand', () => {
       assert.ok(target);
       // pick a species that is also in other places, then jump
       const jumped = await t.page.evaluate(async () => {
-        const chips = [...document.querySelectorAll('#panel .chips .chip')];
-        for (const c of chips) { c.click(); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump]'); if (j && document.querySelector('#panel .found')) { j.click(); return j.getAttribute('data-jump'); } }
+        const chips = [...document.querySelectorAll('.node')];
+        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump]'); if (j && document.querySelector('#panel .found')) { j.click(); return j.getAttribute('data-jump'); } }
         return null;
       });
       assert.ok(jumped, 'found a species with another place');
@@ -79,7 +79,7 @@ describe('places load on demand', () => {
       await page.goto(base + 'pilot/index.html#stub&e=mocastlewood'); await page.reload();
       await page.waitForTimeout(3000);
       assert.ok(urls.some((u) => u.endsWith('/webs/mocastlewood.json') && !u.includes('/pilot/')), 'urls: ' + urls);
-      assert.ok(await page.evaluate(() => !!document.querySelector('#panel .lead')), 'place sheet open');
+      assert.ok(await page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       await ctx.close();
     });
 

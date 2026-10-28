@@ -30,12 +30,11 @@ describe('stored place photos carry a credit line', () => {
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-      await page.goto(base + 'index.html#stub&e=' + e.id); await page.reload();
+      await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
       await page.waitForTimeout(2000);
-      if (sizeName === 'phone') { await page.click('#phead'); await page.waitForTimeout(600); }
-      await page.waitForFunction(() => { const i = document.querySelector('#panel .shot img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 60000 }).catch(() => {});
-      const r = await page.evaluate(() => { const f = document.querySelector('#panel .shot'); if (!f) return null; const i = f.querySelector('img'); return { src: i.getAttribute('src'), ok: i.naturalWidth > 0, cap: f.querySelector('figcaption').textContent, links: [...f.querySelectorAll('figcaption a')].map((a) => a.href) }; });
+      await page.waitForFunction(() => { const i = document.querySelector('#pp-main img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 60000 }).catch(() => {});
+      const r = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); const f = document.getElementById('pcredit'); if (!i) return null; return { src: i.getAttribute('src'), ok: i.naturalWidth > 0, cap: f.textContent, links: [...f.querySelectorAll('a')].map((a) => a.href) }; });
       assert.ok(r, 'photo figure shown');
       assert.ok(r.src.includes('photos/places/' + m.f), 'served from our files: ' + r.src);
       assert.ok(r.ok, 'image loaded');

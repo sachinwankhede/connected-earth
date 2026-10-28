@@ -8,26 +8,20 @@ describe('place sheet', () => {
   after(async () => { await browser.close(); });
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
-    test(`${sizeName}: open a place, pick a species, clear it, open sources`, async () => {
+    test(`${sizeName}: a place opens as just the graph; picking a species brings up its sheet; clearing it takes the sheet away`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=npmammothcave' });
-      if (sizeName === 'phone') { await t.page.click('#phead'); await t.page.waitForTimeout(600); }
-      try { await t.page.waitForSelector('#panel h2, #panel .lead', { timeout: 20000 }); } catch (e) {
-        const d = await t.page.evaluate(() => ({ hash: location.hash, web: !document.getElementById('webview').hidden, load: document.getElementById('webload').textContent, loadHidden: document.getElementById('webload').hidden, loading: window.__M.loading, eco: document.getElementById('eco').value, panel: document.getElementById('panel').innerHTML.slice(0, 80), sheet: window.__M.sheetState, ready: window.__M.styleReady })).catch((x) => String(x));
-        throw new Error('panel missing: ' + JSON.stringify(d) + ' pageerrors=' + JSON.stringify(t.errors));
-      }
-      assert.match(await t.page.textContent('#panel h2, #panel .lead') || '', /./);
-      await t.page.click('#panel .chips .chip >> nth=0');
-      await t.page.waitForTimeout(1000);
-      const picked = await t.page.evaluate(() => ({ h2: document.querySelector('#panel h2')?.textContent, sel: document.querySelectorAll('.node.sel,.node.on').length }));
-      assert.ok(picked.h2, 'species name shown');
-      assert.equal(picked.sel, 1, 'exactly one species selected in the graph');
-      await t.page.keyboard.press('Escape');
-      await t.page.waitForTimeout(500);
-      assert.equal(await t.page.evaluate(() => !!document.querySelector('#panel .lead')), true, 'back to the place overview');
+      const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { sheet: v('psheet'), back: v('pbk'), graph: document.querySelectorAll('.node').length }; });
+      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
+      let s = await vis();
+      assert.equal(s.sheet, false, 'no sheet or side panel while nothing is selected'); assert.equal(s.back, true, 'a way back is always there');
+      assert.match(await t.page.textContent('#pbk'), /Mammoth/);
+      await t.page.click('.node >> nth=0'); await t.page.waitForTimeout(1000);
+      s = await vis(); assert.equal(s.sheet, true, 'the species sheet appears'); assert.equal(s.back, false);
+      const picked = await t.page.evaluate(() => ({ lead: document.querySelector('#panel p')?.textContent, sel: document.querySelectorAll('.node.sel,.node.on').length }));
+      assert.ok(picked.lead, 'species details shown'); assert.equal(picked.sel, 1, 'exactly one species selected in the graph');
+      await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(500);
+      s = await vis(); assert.equal(s.sheet, false, 'sheet goes away'); assert.equal(s.back, true);
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false, 'hand-built place has no auto-generated tag');
-      if (sizeName === 'phone') { await t.page.click('#phead'); await t.page.waitForTimeout(400); }
-      await t.page.click('#panel details summary');
-      assert.equal(await t.page.evaluate(() => document.querySelector('#panel details').open), true);
       assert.deepEqual(t.errors, []);
       await t.close();
     });
@@ -35,7 +29,7 @@ describe('place sheet', () => {
     test(`${sizeName}: auto-generated places show no tag (the flag stays in the data)`, async () => {
       const t = await H.open(browser, H.PILOT, size, { hash: '#stub&e=mocastlewood' });
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false);
-      assert.ok(await t.page.evaluate(() => !!document.querySelector('#panel .lead')), 'place sheet opened');
+      assert.ok(await t.page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       assert.deepEqual(t.errors, []);
       await t.close();
     });
