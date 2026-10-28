@@ -880,6 +880,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   .sheet:not(.s-min) .speek { display: none !important; }
   .sheet:not(.s-min) .hook { display: none; }
   .sheet.s-min .srow.home .scnt { display: none; }
+  .sheet.s-min .srow.home .stt, .sheet.s-min .srow.jtab .stt { font: 700 24px/1.1 var(--font-display); letter-spacing: -0.015em; }
   .speek:not([hidden]) { display: flex; align-items: center; gap: 10px; width: 100%; margin: 6px 0 2px; padding: 7px 10px 7px 7px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
   .speek .pimg { width: 44px; height: 44px; border-radius: 8px; flex: none; overflow: hidden; display: grid; place-items: center; }
   .speek .pimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -2213,7 +2214,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function speciesMap(name) {
     FL.q = name.toLowerCase(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name;
-    document.getElementById("peek").hidden = true; M.tieId = null;
+    document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);
     window.scrollTo(0, 0);
   }
@@ -2290,7 +2291,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     dotStyle(); if (flagMode()) m.getSource("atl-n").setData(ecoFC()); var ff = flagFC(); m.getSource("atl-f").setData(ff); m.getSource("atl-fl").setData(ff);
     m.addLayer({ id: "atl-t-ring", type: "circle", source: "atl-t", filter: ["==", ["get", "role"], "sel"], paint: { "circle-radius": 11, "circle-color": "rgba(0,0,0,0)", "circle-stroke-color": "#ffffff", "circle-stroke-width": 2 } });
     m.addLayer({ id: "atl-t-pt", type: "circle", source: "atl-t", paint: { "circle-radius": 7, "circle-color": ["get", "kc"], "circle-stroke-color": surf, "circle-stroke-width": 2 } });
-    m.addLayer({ id: "atl-t-lb", type: "symbol", source: "atl-t", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "text-anchor": "left", "text-offset": [1.2, 0], "text-allow-overlap": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
+    m.addLayer({ id: "atl-t-lb", type: "symbol", source: "atl-t", layout: { "text-field": ["get", "short"], "text-font": ["Noto Sans Bold"], "text-size": 12.5, "symbol-sort-key": ["case", ["==", ["get", "role"], "sel"], 0, 1], "text-variable-anchor": ["left", "right", "top", "bottom"], "text-radial-offset": 1.1, "text-justify": "auto", "text-optional": true }, paint: { "text-color": ink, "text-halo-color": surf, "text-halo-width": 2 } });
     var sat = (m.getStyle().name === "satellite");
     ["atl-lb", "atl-f-lb", "atl-t-lb"].forEach(function (l) { if (!m.getLayer(l)) return; m.setPaintProperty(l, "text-color", sat ? "#ffffff" : ink); m.setPaintProperty(l, "text-halo-color", sat ? "rgba(8,16,24,0.85)" : surf); });
   }
@@ -2479,7 +2480,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f); m.setPaintProperty("atl-f-pt", "circle-opacity", f); m.setPaintProperty("atl-f-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-f-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
-  var PITCH = "Who eats whom, around the world";
+  var PITCH = "See how nature is connected", PITCH2 = "What eats what, and where it travels";
   function heroStats() {
     var sp = {}, ns = 0, np = 0, nl = 0;
     ECOS.forEach(function (e) {
@@ -2530,8 +2531,8 @@ rect.core { stroke-dasharray: 3 2.5; }
       ? heroStats()
       : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
     var hk = document.getElementById("hook");
-    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + heroStats().replace(/([\d,]+) (places|species)/g, "<b>$1</b> $2") + "</span>"; } }
-    if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + heroStats();
+    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + PITCH2 + "</span>"; }
+    if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + PITCH2;
     var spk = document.getElementById("speek");
     if (spk) {
       var f1 = view.level === "world" && !FL.q && !FL.kind && !FL.park ? ECOS.filter(function (e) { return !e.li.hidden; })[0] : null;
@@ -2734,7 +2735,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     })();
     document.getElementById("zin").addEventListener("click", function () { m.zoomIn(); });
     document.getElementById("zout").addEventListener("click", function () { m.zoomOut(); });
-    document.getElementById("zhome").addEventListener("click", function () { view.focus = null; M.tieId = null; document.getElementById("peek").hidden = true; spanHi(null); go("world"); });
+    document.getElementById("zhome").addEventListener("click", function () { view.focus = null; showTies(null); document.getElementById("peek").hidden = true; spanHi(null); go("world"); });
     document.getElementById("mapctl").addEventListener("click", function (ev) {
       var b = ev.target.closest("button"); if (!b) return;
       if (b.id === "tilt") setTilt(!M.tilt); else if (b.getAttribute("data-mode") !== M.mode) setMode(b.getAttribute("data-mode"));
@@ -2771,7 +2772,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (b) go(b.getAttribute("data-go"), b.getAttribute("data-a"));
     }
     document.getElementById("crumbs").addEventListener("click", nav);
-    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; M.tieId = null; renderView(FL.q.length >= 3); });
+    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");

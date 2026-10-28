@@ -14,7 +14,7 @@ describe('smoke: every build loads cleanly on phone and desktop', () => {
         assert.deepEqual(t.errors, []);
         const places = H.readPlaces(pilot);
         const visible = places.filter((e) => e.level !== 'local');
-        assert.equal(await H.hookText(t.page), H.expectedHook(visible));
+        assert.equal(await H.hookText(t.page), H.HOOK);
         // phone: the line must be visible without opening the sheet
         const inView = await t.page.evaluate(() => { const r = document.getElementById('hook').getBoundingClientRect(); return r.height > 0 && r.bottom <= innerHeight; });
         assert.ok(inView, 'home line should be on screen when the app opens');
