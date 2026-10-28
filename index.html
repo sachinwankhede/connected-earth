@@ -583,6 +583,13 @@ div.card { cursor: default; }
   .psheet .srow { gap: 10px; }
 }
 
+/* the graph's controls: Environment is always shown, Web mode and Share are gone (Share lives on the place page); Fit appears only after the graph has been moved */
+#env, #vt, #moreb, #share, #webctl .seg, #kbtn { display: none !important; }
+#fit { display: none !important; }
+#webctl.moved #fit { display: grid !important; }
+#webctl:not(.moved):has(#reset[hidden]) { display: none !important; }
+.gcap { position: fixed; left: 24px; right: 24px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 6; margin: 0; text-align: center; font: 500 12px var(--font-body); color: var(--muted); pointer-events: none; }
+.gcap:has(~ .psheet:not(.nosel)) { display: none; }
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
@@ -975,6 +982,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend b { display: block; font: 700 16px var(--font-display); }
 .jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
+.jp .pshare { margin: 18px 0 0; font: 600 14px var(--font-body); }
 .jp details.srcd { margin-top: 22px; }
 .jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
@@ -1042,6 +1050,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
+    <p class="gcap" id="gcap">Arrow: food to eater &middot; Dotted ring: key species</p>
     <button type="button" class="pbk" id="pbk">&#8249; Map</button>
     <div class="psheet p-min" id="psheet"><div class="shead" id="phead"><span class="grab"></span><div class="srow" id="prow"></div></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
   </main>
@@ -1250,7 +1259,7 @@ return maplibregl$1;
     return ls.map(function (l) { return l.length > 15 ? l.slice(0, 14).replace(/\s+$/, "") + "…" : l; });
   }
   function sname(s) { return PH && s.length > 15 ? s.slice(0, 14).replace(/\s+$/, "") + "\u2026" : s; }
-  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: false, edits: {}, fx: {} };
+  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: true, edits: {}, fx: {} };
 
   function isVis(n) { return state.env || !n.cat; }
   function visE(e) { return isVis(BY[e.s]) && isVis(BY[e.t]); }
@@ -1277,6 +1286,7 @@ return maplibregl$1;
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
+    if (cw < 560) ch -= 30;   /* the one-line caption under the graph */
     if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.97 * ch * (W + 56) / cw)); }
     else if (cw < 560) { W = cw; H = Math.max(300, ch); }
     else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
@@ -1401,7 +1411,7 @@ return maplibregl$1;
   var zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) {
     cur = ev.transform;
     root.attr("transform", cur);
-    if (ev.sourceEvent) userMoved = true;
+    if (ev.sourceEvent) { userMoved = true; document.getElementById("webctl").classList.add("moved"); }
     drawGuides();
   });
   svg.call(zoom).on("dblclick.zoom", null);
@@ -1426,12 +1436,13 @@ return maplibregl$1;
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
+    if (cw < 560) ch -= 30;
     var k = Math.min(cw / (maxX - minX + 56), ch / (maxY - minY + 56));
     k = Math.max(0.3, Math.min(1.3, k));
     var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, ch / 2 - k * (minY + maxY) / 2).scale(k);
     if (animate && !reduce) svg.transition().duration(500).call(zoom.transform, t);
     else svg.call(zoom.transform, t);
-    userMoved = false;
+    userMoved = false; document.getElementById("webctl").classList.remove("moved");
   }
 
   /* ---------- Focus: hover previews direct links, selection pins them, trace follows energy upward ---------- */
@@ -1952,16 +1963,6 @@ return maplibregl$1;
   el.reset.addEventListener("click", clearEdits);
   [["env", "Show environment: sun, rain, soil"], ["share", "Copy link to this ecosystem"], ["fit", "Fit everything on screen"], ["moreb", "More"], ["vt", "Show web view"]].forEach(function (a) { var b = document.getElementById(a[0]); if (b) { b.setAttribute("aria-label", a[1]); b.setAttribute("title", a[1]); } });
   stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast"));
-  (function () {
-    var wc = document.getElementById("webctl"), vt = document.getElementById("vt"), kb = document.createElement("button"), kp = document.createElement("div");
-    kb.type = "button"; kb.id = "kbtn"; kb.className = "btn"; kb.setAttribute("aria-label", "What the arrows and rings mean"); kb.setAttribute("title", "Key"); kb.setAttribute("aria-expanded", "false");
-    kp.id = "keypop"; kp.className = "keypop"; kp.innerHTML = '<div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Arrow points from food to eater</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgd" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Eats a dead animal</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgdot" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Breaks down dead matter</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.5" style="fill:var(--tl1)"/><circle class="lgr" cx="9" cy="9" r="7.5"/></svg><span>Dotted ring: keystone species</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" style="fill:var(--tl0);stroke:var(--tl0);stroke-dasharray:3 2.5"/></svg><span>Dashed edge: sun, rain, soil</span></div>';
-    wc.insertBefore(kb, vt.nextSibling); stage.appendChild(kp);
-    function shut() { kp.classList.remove("on"); kb.setAttribute("aria-expanded", "false"); }
-    kb.addEventListener("click", function (ev) { ev.stopPropagation(); var o = kp.classList.toggle("on"); kb.setAttribute("aria-expanded", String(o)); });
-    document.addEventListener("pointerdown", function (ev) { if (!ev.target.closest("#keypop, #kbtn")) shut(); }, true);
-    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") shut(); });
-  })();
   (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("moreb"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
@@ -3038,7 +3039,7 @@ return maplibregl$1;
       (e.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(e.matters) + "</p>" : "") +
       rows + eh + ch + jh + sh +
       (e.sources && e.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(e.sources) + "</details>" : "") +
-      (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : "") + '<p class="fine pcredit" id="pcredit"></p></article>';
+      (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : "") + '<p class="fine pcredit" id="pcredit"></p><p class="pshare"><a href="#" data-pshare>Share this place</a></p></article>';
   }
   function pWant(n) {
     if (PHOTOS[n.wiki]) { pShow(n); return; }
@@ -3088,7 +3089,8 @@ return maplibregl$1;
   PV.addEventListener("keydown", function (ev) { var t = ev.target; if ((ev.key === "Enter" || ev.key === " ") && t.getAttribute && t.getAttribute("role") === "button") { ev.preventDefault(); t.click(); } });
   PV.addEventListener("click", function (ev) {
     var id = M.pid; if (!id) return;
-    var t = ev.target.closest("[data-pback],[data-pnode],[data-pjourney],[data-ppage],#pgraph"); if (!t) return;
+    var t = ev.target.closest("[data-pback],[data-pnode],[data-pjourney],[data-ppage],[data-pshare],#pgraph"); if (!t) return;
+    if (t.hasAttribute("data-pshare")) { ev.preventDefault(); share(t); return; }
     if (t.hasAttribute("data-pback")) closePlace();
     else if (t.hasAttribute("data-pjourney")) { var jid = t.getAttribute("data-pjourney"); PV.hidden = true; M.pid = null; showJourney(jid); }
     else if (t.hasAttribute("data-ppage")) showPlace(t.getAttribute("data-ppage"));

@@ -23,6 +23,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 
 ## Navigation shape
 Map → Place page → Explore (graph) → species sheet. Back always goes one step up and says where. Journeys sit beside places and link both ways.
+- **Graph controls.** None by default: the environment row is always shown, there is no Web mode, and sharing lives on the place page. A one-line caption under the graph replaces the key. Fit appears only after the graph has been moved, and Clear changes only while What if has changes.
 - Explore with nothing selected is just the graph. The sheet or side panel appears only for a selected species.
 
 ## How this is enforced

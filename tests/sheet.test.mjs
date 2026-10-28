@@ -70,6 +70,20 @@ describe('place sheet', () => {
       assert.deepEqual(t.errors, []); await t.close();
     });
 
+    test(`${sizeName}: the graph has no toolbar until it is moved; the environment is always shown; sharing lives on the place page`, async () => {
+      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
+      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 }); await t.page.waitForTimeout(1500);
+      const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { env: v('env'), web: v('vt'), more: v('moreb'), share: v('share'), key: v('kbtn'), fit: v('fit'), bar: v('webctl'), cap: v('gcap'), sun: [...document.querySelectorAll('.node')].some((n) => /Sunlight/.test(n.getAttribute('aria-label')) && n.getBoundingClientRect().width > 0) }; });
+      let s = await vis();
+      assert.deepEqual([s.env, s.web, s.more, s.share, s.key, s.fit, s.bar], [false, false, false, false, false, false, false], 'no buttons on a fresh graph'); assert.ok(s.cap && s.sun, 'caption and environment shown');
+      await t.page.mouse.move(size.width / 2, size.height / 2); await t.page.mouse.wheel(0, -500); await t.page.waitForTimeout(800);
+      s = await vis(); assert.ok(s.fit, 'Fit appears once the graph has been moved'); await t.page.click('#fit'); await t.page.waitForTimeout(900);
+      s = await vis(); assert.equal(s.fit, false, 'and goes away once it is back');
+      await t.page.evaluate(() => window.__M.showPlace('yellowstone')); await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
+      assert.ok(await t.page.evaluate(() => !!document.querySelector('#pview [data-pshare]')), 'place page has Share');
+      assert.deepEqual(t.errors, []); await t.close();
+    });
+
     test(`${sizeName}: auto-generated places show no tag (the flag stays in the data)`, async () => {
       const t = await H.open(browser, H.PILOT, size, { hash: '#stub&e=mocastlewood' });
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false);
