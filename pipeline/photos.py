@@ -7,6 +7,8 @@ UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
 def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
+# Files that are logos, seals, flags or drawings are not photos of the place
+NOTPHOTO=re.compile(r'logo|arrowhead|emblem|coat[_ ]of[_ ]arms|seal[_ ]of|(^|[_ ])flag([_ .]|$)|\.svg',re.I)
 def one(i,title,out,man):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_')))
     th=(j or {}).get('thumbnail')
@@ -14,6 +16,7 @@ def one(i,title,out,man):
     m=re.search(r'/commons/thumb/\w/\w\w/([^/]+)/',th['source'])
     if not m: return 'notcommons'
     fn=urllib.parse.unquote(m.group(1)); path=os.path.join(out,i+'.jpg')
+    if NOTPHOTO.search(fn): return 'notphoto'
     if not os.path.exists(path):
         b=get(th['source'],raw=True)
         if not b: return 'nodl'
@@ -26,6 +29,11 @@ def one(i,title,out,man):
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
     man=json.load(open(mp)) if os.path.exists(mp) else {}
+    for t in [t for t,v in man.items() if NOTPHOTO.search(v.get('p',''))]:   # drop logos stored by earlier runs
+        try: os.remove(os.path.join(out,man[t]['f']))
+        except OSError: pass
+        del man[t]; print('removed non-photo',t,flush=True)
+    json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
     stat={}; LIMIT=int(os.environ.get('LIMIT','0') or 0); tried=0   # a scheduled run does one batch; 0 = everything left
     for d in sys.argv[2:]:
         for f in sorted(glob.glob(d+'/*.json')):
