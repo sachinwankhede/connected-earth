@@ -28,12 +28,14 @@ jobs:
           fi
       - name: Fetch the next batch
         run: LIMIT="${{ github.event.inputs.limit || '1000' }}" python3 pipeline/about.py
-      - name: Rebuild
-        run: |
-          python3 build/species.py about
-          python3 build/species.py pack
-          python3 build/build.py --all
-          python3 build/budget.py
+      - name: Fold the text into the species table
+        run: python3 build/species.py about
+      - name: Pack the species table
+        run: python3 build/species.py pack
+      - name: Rebuild the pages
+        run: python3 build/build.py --all
+      - name: Size budget
+        run: python3 build/budget.py
       - name: Commit and open or update the pull request
         env:
           GH_TOKEN: ${{ github.token }}
