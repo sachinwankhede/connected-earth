@@ -11,6 +11,10 @@ describe('place sheet', () => {
     test(`${sizeName}: open a place, pick a species, clear it, open sources`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=npmammothcave' });
       if (sizeName === 'phone') { await t.page.click('#phead'); await t.page.waitForTimeout(600); }
+      try { await t.page.waitForSelector('#panel h2, #panel .lead', { timeout: 20000 }); } catch (e) {
+        const d = await t.page.evaluate(() => ({ hash: location.hash, web: !document.getElementById('webview').hidden, load: document.getElementById('webload').textContent, loadHidden: document.getElementById('webload').hidden, loading: window.__M.loading, eco: document.getElementById('eco').value, panel: document.getElementById('panel').innerHTML.slice(0, 80), sheet: window.__M.sheetState, ready: window.__M.styleReady })).catch((x) => String(x));
+        throw new Error('panel missing: ' + JSON.stringify(d) + ' pageerrors=' + JSON.stringify(t.errors));
+      }
       assert.match(await t.page.textContent('#panel h2, #panel .lead') || '', /./);
       await t.page.click('#panel .chips .chip >> nth=0');
       await t.page.waitForTimeout(1000);

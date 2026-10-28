@@ -17,7 +17,17 @@
     }
    ],
    "text": "Ospreys that nest on Yellowstone's rivers and lakes fly south each autumn, and many winter on rivers in South America, including the Amazon basin. The same birds depend on fish in both places.",
-   "imgwiki": "Osprey"
+   "imgwiki": "Osprey",
+   "when": "Leaves Yellowstone in late summer and autumn and returns in spring.",
+   "matters": "Ospreys eat almost only fish, so they need clean, fish-rich water at both ends of the trip. Harm to either end hurts the same birds.",
+   "sources": [
+    {
+     "t": "Wikipedia: Osprey",
+     "u": "https://en.wikipedia.org/wiki/Osprey"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦅"
   },
   {
    "id": "shorebird",
@@ -34,7 +44,21 @@
     }
    ],
    "text": "Shorebirds such as ruddy turnstones breed on Arctic tundra and winter on coasts as far south as Australia, including reef flats. Losing winter feeding grounds hurts the Arctic breeding population.",
-   "imgwiki": "Ruddy turnstone"
+   "imgwiki": "Ruddy turnstone",
+   "when": "Breed on the Arctic tundra in summer, then travel south for the northern winter.",
+   "matters": "Their long trip depends on a few feeding stops. Losing winter feeding grounds hurts the Arctic breeding population.",
+   "sources": [
+    {
+     "t": "Wikipedia: Ruddy turnstone",
+     "u": "https://en.wikipedia.org/wiki/Ruddy_turnstone"
+    },
+    {
+     "t": "Wikipedia: Shorebird",
+     "u": "https://en.wikipedia.org/wiki/Shorebird"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "dust",
@@ -49,7 +73,21 @@
     "eco": "sahara",
     "node": "soil"
    },
-   "imgwiki": "Saharan Air Layer"
+   "imgwiki": "Saharan Air Layer",
+   "when": "Strongest in winter and spring, when the winds carry the most dust across the Atlantic.",
+   "matters": "Heavy rain washes phosphorus out of rainforest soil. Dust from the Sahara helps replace part of what is lost.",
+   "sources": [
+    {
+     "t": "Wikipedia: Saharan Air Layer",
+     "u": "https://en.wikipedia.org/wiki/Saharan_Air_Layer"
+    },
+    {
+     "t": "Wikipedia: Bodélé Depression",
+     "u": "https://en.wikipedia.org/wiki/Bodélé_Depression"
+    }
+   ],
+   "go": "Follow the dust",
+   "mark": "💨"
   },
   {
    "id": "pelican",
@@ -66,7 +104,17 @@
     }
    ],
    "text": "American white pelicans nest on lakes across interior North America and winter on the Gulf coast. Wikipedia also says they follow the Mississippi River north as far as St. Paul in winter.",
-   "imgwiki": "American white pelican"
+   "imgwiki": "American white pelican",
+   "when": "Nest on inland lakes in spring and summer; spend the winter on the Gulf coast.",
+   "matters": "They need undisturbed nesting lakes in summer and fish-rich shallows in winter.",
+   "sources": [
+    {
+     "t": "Wikipedia: American white pelican",
+     "u": "https://en.wikipedia.org/wiki/American_white_pelican"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "nutrients",
@@ -81,7 +129,21 @@
     "node": "plume"
    },
    "text": "The Mississippi drains about 41% of the continental US. Its nitrogen and phosphorus, mostly from farm runoff and sewage, feed the algal blooms behind the Gulf's summer dead zone. Wikipedia, citing a NOAA fact sheet, attributes about 70% of the nutrient load to this basin.",
-   "imgwiki": "Gulf of Mexico dead zone"
+   "imgwiki": "Gulf of Mexico dead zone",
+   "when": "Flows all year; spring floods bring the biggest load, and the dead zone is largest in summer.",
+   "matters": "Too much nitrogen and phosphorus feeds algae. When the algae die and rot they use up oxygen near the sea floor, and fish and shellfish leave or die.",
+   "sources": [
+    {
+     "t": "Wikipedia: Gulf of Mexico dead zone",
+     "u": "https://en.wikipedia.org/wiki/Gulf_of_Mexico_dead_zone"
+    },
+    {
+     "t": "Wikipedia: Mississippi River",
+     "u": "https://en.wikipedia.org/wiki/Mississippi_River"
+    }
+   ],
+   "go": "Follow the water",
+   "mark": "💧"
   },
   {
    "id": "chesosprey",
@@ -98,7 +160,21 @@
     }
    ],
    "text": "Ospreys that breed around the Chesapeake Bay head south each autumn, and many winter in northern South America, including the Amazon basin. They return in spring to the same bay.",
-   "imgwiki": "Osprey"
+   "imgwiki": "Osprey",
+   "when": "Leave the bay in autumn and return in spring.",
+   "matters": "Ospreys need fish at the bay and on their winter rivers. Harm to either end hurts the same birds.",
+   "sources": [
+    {
+     "t": "Wikipedia: Osprey",
+     "u": "https://en.wikipedia.org/wiki/Osprey"
+    },
+    {
+     "t": "Wikipedia: Chesapeake Bay",
+     "u": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦅"
   },
   {
    "id": "knot",
@@ -115,7 +191,25 @@
     }
    ],
    "text": "Red knots refuel on the Wadden Sea mudflats and then fly on to winter on the coast of West Africa, including Banc d'Arguin in Mauritania. Both sites matter for the same birds.",
-   "imgwiki": "Red knot"
+   "imgwiki": "Red knot",
+   "when": "Stop on the Wadden Sea mudflats in spring and autumn, between the Arctic and West Africa.",
+   "matters": "Knots fatten up on a few rich mudflats. Losing one of them can leave birds too weak to finish the trip.",
+   "sources": [
+    {
+     "t": "Wikipedia: Red knot",
+     "u": "https://en.wikipedia.org/wiki/Red_knot"
+    },
+    {
+     "t": "Wikipedia: Wadden Sea",
+     "u": "https://en.wikipedia.org/wiki/Wadden_Sea"
+    },
+    {
+     "t": "Wikipedia: Banc d'Arguin National Park",
+     "u": "https://en.wikipedia.org/wiki/Banc_d'Arguin_National_Park"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   },
   {
    "id": "flamingo",
@@ -132,7 +226,25 @@
     }
    ],
    "text": "Greater flamingos ringed in the Camargue are regularly seen in Doñana and other western Mediterranean wetlands. The birds move between them as water levels change.",
-   "imgwiki": "Greater flamingo"
+   "imgwiki": "Greater flamingo",
+   "when": "Move between wetlands through the year as water levels rise and fall.",
+   "matters": "Flamingos depend on a network of shallow wetlands. If one dries out or is disturbed, birds move to another.",
+   "sources": [
+    {
+     "t": "Wikipedia: Greater flamingo",
+     "u": "https://en.wikipedia.org/wiki/Greater_flamingo"
+    },
+    {
+     "t": "Wikipedia: Camargue",
+     "u": "https://en.wikipedia.org/wiki/Camargue"
+    },
+    {
+     "t": "Wikipedia: Doñana National Park",
+     "u": "https://en.wikipedia.org/wiki/Doñana_National_Park"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦩"
   },
   {
    "id": "altiplano",
@@ -149,7 +261,21 @@
     }
    ],
    "text": "Chilean flamingos move between high-altitude lakes on the Andean plateau, from the salt lakes of southern Bolivia to Lake Titicaca. Shallow lakes dry up and fill with the seasons.",
-   "imgwiki": "Chilean flamingo"
+   "imgwiki": "Chilean flamingo",
+   "when": "Move with the seasons as shallow lakes fill and dry up.",
+   "matters": "Chilean flamingos feed in shallow salt lakes, so they need several lakes across the plateau.",
+   "sources": [
+    {
+     "t": "Wikipedia: Chilean flamingo",
+     "u": "https://en.wikipedia.org/wiki/Chilean_flamingo"
+    },
+    {
+     "t": "Wikipedia: Altiplano",
+     "u": "https://en.wikipedia.org/wiki/Altiplano"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦩"
   },
   {
    "id": "caribouwest",
@@ -166,7 +292,21 @@
     }
    ],
    "text": "The Western Arctic caribou herd migrates across northern Alaska and passes through both Kobuk Valley and Gates of the Arctic. Its river crossings in autumn are a major event at Kobuk.",
-   "imgwiki": "Caribou"
+   "imgwiki": "Caribou",
+   "when": "Move north in spring to calve and south again before winter; river crossings at Kobuk peak in autumn.",
+   "matters": "Caribou follow food across a huge area. Wolves, bears and people along the route depend on their passing.",
+   "sources": [
+    {
+     "t": "Wikipedia: Western Arctic Caribou Herd",
+     "u": "https://en.wikipedia.org/wiki/Western_Arctic_Caribou_Herd"
+    },
+    {
+     "t": "Wikipedia: Caribou",
+     "u": "https://en.wikipedia.org/wiki/Caribou"
+    }
+   ],
+   "go": "Follow the herd",
+   "mark": "🦌"
   },
   {
    "id": "sockeye",
@@ -183,7 +323,21 @@
     }
    ],
    "text": "Sockeye salmon from Alaska's Bristol Bay rivers and from Kamchatka share the North Pacific while at sea. Each run then returns to its own river and feeds bears, eagles and forests.",
-   "imgwiki": "Sockeye salmon"
+   "imgwiki": "Sockeye salmon",
+   "when": "Spend a few years at sea, then adults return to their home rivers in summer to spawn.",
+   "matters": "Spawning salmon feed bears, eagles and the trees along the river. Without a run, the forest loses a source of nutrients.",
+   "sources": [
+    {
+     "t": "Wikipedia: Sockeye salmon",
+     "u": "https://en.wikipedia.org/wiki/Sockeye_salmon"
+    },
+    {
+     "t": "Wikipedia: Bristol Bay",
+     "u": "https://en.wikipedia.org/wiki/Bristol_Bay"
+    }
+   ],
+   "go": "Swim the route",
+   "mark": "🐟"
   },
   {
    "id": "greenturtleA",
@@ -200,7 +354,17 @@
     }
    ],
    "text": "Green turtles graze the seagrass of Biscayne Bay and nest and feed around the Dry Tortugas. They travel along the Florida reef tract between the two.",
-   "imgwiki": "Green sea turtle"
+   "imgwiki": "Green sea turtle",
+   "when": "Adults nest in summer and travel between feeding and nesting sites; hatchlings go to sea.",
+   "matters": "Turtles graze seagrass, which keeps it healthy. They need both safe nesting beaches and seagrass beds.",
+   "sources": [
+    {
+     "t": "Wikipedia: Green sea turtle",
+     "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+    }
+   ],
+   "go": "Swim the route",
+   "mark": "🐢"
   },
   {
    "id": "greenturtleB",
@@ -217,7 +381,17 @@
     }
    ],
    "text": "Green turtles tagged in Florida have been tracked to feeding grounds across the Caribbean, where seagrass beds such as those in the Virgin Islands support them.",
-   "imgwiki": "Green sea turtle"
+   "imgwiki": "Green sea turtle",
+   "when": "Adults nest in summer and travel between feeding and nesting sites; hatchlings go to sea.",
+   "matters": "Turtles graze seagrass, which keeps it healthy. They need both safe nesting beaches and seagrass beds.",
+   "sources": [
+    {
+     "t": "Wikipedia: Green sea turtle",
+     "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+    }
+   ],
+   "go": "Swim the route",
+   "mark": "🐢"
   }
  ],
  "order": [
