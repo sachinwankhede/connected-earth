@@ -665,7 +665,14 @@ div.card { cursor: default; }
 .panel .head .art svg { width: 40px; height: 40px; }
 .panel .latin { margin: 4px 0 0; font: italic 600 14px var(--font-body); color: var(--muted); }
 /* the name lives in the hero, as on journeys and places; the sheet's top line keeps it only while collapsed */
-@media (max-width: 700px) { .psheet:not(.p-min) .srow .stt { visibility: hidden; } }
+@media (max-width: 700px) {
+  /* expanded: the top line collapses to a slim grab bar; the chevron floats at the top right of the hero */
+  .psheet:not(.p-min) .srow .stt { display: none; }
+  .psheet:not(.p-min) #phead { position: relative; padding: 8px 14px 2px; }
+  .psheet:not(.p-min) .srow { min-height: 0; height: 0; }
+  .psheet:not(.p-min) .srow::after { position: absolute; right: 18px; top: 22px; margin: 0; }
+  .psheet:not(.p-min) #panel .head { padding-right: 30px; margin-top: 0; }
+}
 @media (min-width: 701px) { .psheet #phead.shead { display: none; } }
 .pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .psheet .srow { gap: 10px; }
