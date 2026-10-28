@@ -1,6 +1,7 @@
 // Shared helpers for the browser tests. Tests run against the built files:
 //   index.html (main app) and pilot/index.html (main + auto-generated places).
 import { chromium } from 'playwright';
+import { after } from 'node:test';
 import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
@@ -40,12 +41,23 @@ export function readPlaces(pilot) {
   return pilot ? [...dir('data'), ...dir('data-auto')] : dir('data');
 }
 
+// One Chromium per test file (each file runs in its own process). Starting a browser is slow with software rendering,
+// so tests share it; every test still gets its own fresh context, and b.close() closes that test's contexts only.
+let shared = null;
+after(async () => { if (shared) { const br = await shared; await br.close().catch(() => {}); } });
 export async function launch() {
-  const exe = process.env.CHROMIUM_PATH || undefined;
-  return chromium.launch({
-    executablePath: exe,
-    args: ['--allow-file-access-from-files', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
-  });
+  if (!shared) {
+    const exe = process.env.CHROMIUM_PATH || undefined;
+    shared = chromium.launch({
+      executablePath: exe,
+      args: ['--allow-file-access-from-files', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
+    });
+  }
+  const br = await shared, mine = [];
+  return {
+    newContext: async (o) => { const c = await br.newContext(o); mine.push(c); return c; },
+    close: async () => { await Promise.all(mine.splice(0).map((c) => c.close().catch(() => {}))); },
+  };
 }
 
 // Open a page on a build. Map tiles, photos and fonts are blocked so tests are fast and offline.
@@ -62,7 +74,7 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   await page.goto((await urlFor(file)) + hash);
   if (hash) await page.reload();
   await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
-  await page.waitForTimeout(1500);
+  await page.waitForTimeout(500);
   if (extraCss) await page.addStyleTag({ content: extraCss });
   return { ctx, page, errors, close: () => ctx.close() };
 }
