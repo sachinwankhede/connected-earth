@@ -20,6 +20,8 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Tappable rows.** Photo, title, one muted line, chevron on the right (`.jend`, `.pj`).
 - **Fonts.** Display font for names and titles, body font for text, mono for small labels. Sizes: page title 24, row title 16, body 16, card name 12–13, label 11, fine print 12.
 - **Credits.** Every photo has its author and licence reachable on the screen that shows it.
+- **Share.** Journey, place and food-web screens each have one share icon (`shareBtn()`), top-right in the same row as the back link. Never a text button.
+- **Sources & credits.** Every content screen (journey, place, species sheet) ends with one collapsed "Sources & credits" section (`footHTML()`): sources, notes and photo credits together. No separate "More" or "Read more". Controls such as the trace toggle sit above it, not inside.
 
 ## Navigation shape
 Map → Place page → Explore (graph) → species sheet. Back always goes one step up and says where. Journeys sit beside places and link both ways.
