@@ -54,7 +54,7 @@ jobs:
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git checkout -B "data/state-$ST"
           rm -f state.log.tmp; cp state.log /tmp/state.log; rm -f state.log validate.log
-          git add -A
+          git add -A -- . ':!pipeline/work'
           git commit -m "State parks: $ST (pilot)"
           git push -f origin "data/state-$ST"
           { echo "Automatic batch from the data-state workflow: the largest $ST state parks, added to the pilot (data-auto). Not shown in the main app until promoted."; echo; echo '```'; tail -n 40 /tmp/state.log; echo '```'; } > body.md
