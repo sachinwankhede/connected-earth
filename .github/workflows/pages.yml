@@ -1,0 +1,47 @@
+name: deploy
+# Publishes the site only after the quick build checks pass, so a broken build never goes live.
+# (The slower browser tests run in the "checks" workflow on every pull request and on main.)
+# Needs Settings > Pages > Source = "GitHub Actions".
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Validate data
+        run: |
+          python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json) | tee validate.log
+          ! grep -q "ERROR" validate.log
+      - name: Built files are current
+        run: |
+          npm run build
+          git diff --exit-code -- index.html pilot/index.html sw.js webs || (echo "Built files are out of date: run npm run build and commit." && exit 1)
+      - name: Size budget
+        run: python3 build/budget.py
+      - name: The built page loads
+        run: test -s index.html && grep -q "Connected Earth" index.html
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: . }
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
