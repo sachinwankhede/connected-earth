@@ -11,7 +11,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 6. **Photos, not icons,** wherever a photo exists. Icons only as the fallback while a photo loads or is missing.
 
 ## Patterns (one definition each)
-- **Back.** One link: accent colour, 16px / 600, "‹ " plus the name of where it goes ("‹ Map", "‹ Journey", "‹ Place"). 44px tall, top-left of the content on every screen: 24px from the edge on a phone; on desktop the edge of the page column (journeys, places) or of the full-width graph (explore). Over the graph it gets a faint backdrop. Never an arrow-only icon, never a ✕. Code: `.jback` (pages) and `#pbk` (explore); both must look identical (a test checks it).
+- **Back.** One link: accent colour, 16px / 600, "‹ " plus the name of where it goes ("‹ Map", "‹ Journey", "‹ Greater Yellowstone"). Explore always goes back up to its place page, even after a refresh. 44px tall, top-left of the content on every screen: 24px from the edge on a phone; on desktop the edge of the page column (journeys, places) or of the full-width graph (explore). Over the graph it gets a faint backdrop. Never an arrow-only icon, never a ✕. Code: `.jback` (pages) and `#pbk` (explore); both must look identical (a test checks it).
 - **Close (✕).** Only for dismissing something that sits on top of a screen (the species sheet). It never navigates.
 - **Section headings.** Small mono caps label (`.jp h3`). Same on every page.
 - **Story blocks.** "The story" is plain text with a bold lead-in; "Why it matters" has the accent bar (`.jwhy`). Journeys and places use the same blocks.

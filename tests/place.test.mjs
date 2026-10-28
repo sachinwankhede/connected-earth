@@ -100,8 +100,11 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const eco = await p.evaluate(() => document.querySelector('#cards [data-eco]').getAttribute('data-eco'));
     await p.click('#cards [data-eco] >> nth=0'); await ready(p);
     let s = await shown(p); assert.equal(s.page, true); assert.equal(s.web, false); assert.equal(s.map, false); assert.match(s.hash, new RegExp('pg=' + eco));
-    const bx = await p.locator('#pgraph').boundingBox(); await p.mouse.click(bx.x + 6, bx.y + 6); await p.waitForTimeout(1500);
-    s = await shown(p); assert.equal(s.web, true); assert.equal(s.page, false); assert.equal(s.sel, null, 'empty corner opens the explore view with nothing selected'); assert.equal(s.back, '← Place'); assert.match(s.hash, new RegExp('e=' + eco));
+    const nm = (await p.textContent('#pview h2')).trim(); const bx = await p.locator('#pgraph').boundingBox(); await p.mouse.click(bx.x + 6, bx.y + 6); await p.waitForTimeout(1500);
+    s = await shown(p); assert.equal(s.web, true); assert.equal(s.page, false); assert.equal(s.sel, null, 'empty corner opens the explore view with nothing selected'); assert.equal(s.back.replace(/^\S+\s*/, ''), nm, 'back names the place'); assert.match(s.hash, new RegExp('e=' + eco));
+    // refreshing the explore view keeps the same back link, and it still goes to the place page
+    await p.reload(); await p.waitForSelector('#pbk', { state: 'visible', timeout: 60000 }); await p.waitForTimeout(1500);
+    assert.equal((await p.textContent('#pbk')).replace(/^\S+\s*/, '').trim(), nm, 'same label after a refresh');
     await leave(p); await p.waitForTimeout(600);
     s = await shown(p); assert.equal(s.page, true); assert.equal(s.web, false);
     await p.click('[data-pback]'); await p.waitForTimeout(600);
