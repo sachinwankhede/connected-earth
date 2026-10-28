@@ -1502,7 +1502,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + slug)
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
-        if (!j || !j.thumbnail || !j.thumbnail.source) return;
+        if (!j) { delete WAIT[title]; return; }   // a failed request can be tried again later; a page with no picture cannot
+        if (!j.thumbnail || !j.thumbnail.source) return;
         var page = j.content_urls && j.content_urls.desktop && j.content_urls.desktop.page;
         var src = j.thumbnail.source, im = new Image();
         im.onload = function () {
@@ -1511,7 +1512,7 @@ rect.core { stroke-dasharray: 3 2.5; }
         };
         im.src = src;
       })
-      .catch(function () {});
+      .catch(function () { delete WAIT[title]; });
   }
   function loadPhotos() {
     if (!window.fetch) return;
@@ -2872,6 +2873,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       (e.blurb ? '<p class="plead">' + escH(e.blurb) + "</p>" : "") +
       '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
       '<p class="fine">' + d.bio.length + " species. Lines run from food to eater. Photos via Wikipedia.</p>" +
+      (e.story ? "<h3>The story</h3><p>" + escH(e.story) + "</p>" : "") + (e.matters ? '<h3>Why it matters</h3><p>' + escH(e.matters) + "</p>" : "") +
       rows + eh + ch + jh + sh +
       (e.sources && e.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(e.sources) + "</details>" : "") +
       (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : "") + "</article>";
@@ -2907,7 +2909,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto();
-      pData(id).bio.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
+      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });

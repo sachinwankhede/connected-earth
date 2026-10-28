@@ -25,7 +25,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       return { title: v.querySelector('h2').textContent, place: v.querySelector('.jr').textContent, lead: !!v.querySelector('.plead'), order: top('h2') < top('.plead') && top('.plead') < top('#pgraph') && top('#pgraph') < top('h3'), nodes: g.querySelectorAll('.pn').length, heads: [...v.querySelectorAll('h3')].map((h) => h.textContent), chips: v.querySelectorAll('[data-pnode]').length, hit, overlap, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: v.querySelector('[data-pback]').textContent.trim(), web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden };
     });
     assert.equal(r.title, 'Greater Yellowstone'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then hook, then the web, then detail');
-    assert.equal(r.nodes, 30); assert.ok(/^Top predators/.test(r.heads[0]) && /^Hunters/.test(r.heads[1]) && /^Plant-eaters/.test(r.heads[2]) && /^Plants/.test(r.heads[3]), 'four rows by level: ' + r.heads);
+    assert.equal(r.nodes, 30); const ix = ['Top predators', 'Hunters', 'Plant-eaters', 'Plants'].map((x) => r.heads.findIndex((h) => h.startsWith(x))); assert.ok(ix.every((v, i) => v >= 0 && (i === 0 || v === ix[i - 1] + 1)), 'four rows by level in order: ' + r.heads);
     assert.ok(r.heads.includes('Who feeds whom') && r.heads.includes('Journeys through here') && r.heads.includes('Shares species with'));
     assert.ok(r.chips >= 30); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
     assert.equal(r.back, '‹ Map'); assert.equal(r.web, false); assert.equal(r.map, false);
@@ -42,17 +42,38 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await mockPhotos(p);
     await p.evaluate(() => window.__M.showPlace('serengeti')); await ready(p);
     await p.waitForFunction(() => document.querySelectorAll('#pgraph image').length >= 15, null, { timeout: 30000 });
-    await p.waitForFunction(() => document.querySelectorAll('.prow .pmc .pph img').length >= 18, null, { timeout: 30000 });
+    await p.waitForFunction(() => document.querySelectorAll('.prow .pmc:not(.ppc) .pph img').length >= document.querySelectorAll('.prow .pmc:not(.ppc)').length, null, { timeout: 30000 });
     r = await p.evaluate(() => {
       const v = document.getElementById('pview'), g = v.querySelector('#pgraph');
       const rows = [...v.querySelectorAll('.prow')].map((x) => ({ n: x.querySelectorAll('.pmc').length, scroll: x.scrollWidth > x.clientWidth || x.querySelectorAll('.pmc').length < 6, h: Math.round(x.getBoundingClientRect().height) }));
       return { all: g.querySelectorAll('.pn').length, ph: g.querySelectorAll('.pn.ph').length, species: v.querySelectorAll('.prow .pmc:not(.ppc)').length, withImg: v.querySelectorAll('.prow .pmc:not(.ppc) .pph img').length, rows, desc: v.querySelectorAll('.pd').length, boxes: v.querySelectorAll('.pstats').length, places: v.querySelectorAll('.ppc').length, placeImgs: v.querySelectorAll('.ppc .pph img').length, badges: [...v.querySelectorAll('.pbadge')].map((x) => x.textContent), chainImgs: v.querySelectorAll('.pchain .pph img').length, chainNodes: v.querySelectorAll('.pchain .pcn').length, all2: v.querySelectorAll('details.srcd summary').length, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, glHidden: [...g.querySelectorAll('.pn.ph .gl')].every((x) => getComputedStyle(x).display === 'none'), card: Math.round(v.querySelector('.pmc').getBoundingClientRect().width) };
     });
     assert.equal(r.ph, r.all, 'every species with a photo shows it in the picture'); assert.ok(r.glHidden, 'a photo replaces the icon');
-    assert.ok(r.species >= r.all, 'every species has a card in its level row'); assert.equal(r.withImg, r.all, 'each species card shows its photo (environment items keep icons)');
+    assert.ok(r.species >= r.all, 'every species has a card in its level row'); assert.equal(r.withImg, r.species, 'every card, environment items included, shows its photo');
     assert.equal(r.desc, 0, 'no descriptions on the small cards'); assert.equal(r.boxes, 0, 'no plain stat boxes'); assert.ok(r.card <= 110, 'small cards: ' + r.card);
     assert.ok(r.places >= 3 && r.placeImgs === r.places, 'places that share species show their photos'); assert.ok(r.badges.includes('Shares the most') && r.badges.includes('Most connected'));
     assert.ok(r.chainNodes >= 3 && r.chainImgs === r.chainNodes); assert.ok(r.over <= 0);
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: places with a story show it under the picture with why it matters, others show neither; environment items get photos`, async () => {
+    const { b, p, errors } = await start();
+    await mockPhotos(p);
+    await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p);
+    await p.waitForFunction(() => document.querySelectorAll('.prow .pmc .pph img').length >= 30, null, { timeout: 30000 });
+    let r = await p.evaluate(() => {
+      const v = document.getElementById('pview'), h = [...v.querySelectorAll('h3')].map((x) => x.textContent), top = (el) => el.getBoundingClientRect().top;
+      const st = [...v.querySelectorAll('h3')].find((x) => x.textContent === 'The story'), wm = [...v.querySelectorAll('h3')].find((x) => x.textContent === 'Why it matters'), g = v.querySelector('#pgraph'), first = v.querySelector('.prow');
+      const env = [...v.querySelectorAll('h3')].find((x) => /^Environment/.test(x.textContent)).nextElementSibling;
+      return { has: !!st && !!wm, order: st && wm && top(g) < top(st) && top(st) < top(wm) && top(wm) < top(first), len: st ? st.nextElementSibling.textContent.length : 0, matters: wm ? wm.nextElementSibling.textContent.length : 0, envCards: env.querySelectorAll('.pmc').length, envImgs: env.querySelectorAll('.pph img').length };
+    });
+    assert.ok(r.has && r.order, 'the story and why it matters sit between the picture and the species rows'); assert.ok(r.len > 120 && r.matters > 80);
+    assert.ok(r.envCards >= 2 && r.envImgs === r.envCards, 'environment items show photos: ' + JSON.stringify(r));
+    // a place without a story has neither section
+    const none = await p.evaluate(() => window.__M.ecoIds().filter((i) => !['yellowstone', 'serengeti', 'amazon', 'everglades', 'galapagos'].includes(i))[0]);
+    await p.evaluate((i) => window.__M.showPlace(i), none); await ready(p);
+    r = await p.evaluate(() => [...document.querySelectorAll('#pview h3')].map((x) => x.textContent));
+    assert.ok(!r.includes('The story') && !r.includes('Why it matters'), 'no empty story sections');
     assert.deepEqual(errors, []); await b.close();
   });
 
