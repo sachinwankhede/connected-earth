@@ -30,7 +30,7 @@ jobs:
       - name: Browser tests
         run: |
           set +e
-          node --test --test-concurrency=2 --test-timeout=300000 tests/*.test.mjs > test.log 2>&1
+          node --test --test-concurrency=$(nproc) --test-timeout=300000 tests/*.test.mjs > test.log 2>&1
           code=$?
           if [ $code -ne 0 ]; then
             grep -h "panel missing" test.log | head -2 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
