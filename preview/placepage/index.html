@@ -1650,6 +1650,12 @@ return maplibregl$1;
       return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '" style="--c:' + colorVar(m) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
     }).join("") + "</div>";
   }
+  /* one line for the kind and the special role; when the role already says it (Keystone predator) it stands alone */
+  function kindLine(n) {
+    var k = kindText(n); if (!n.badge) return k;
+    var last = k.toLowerCase().split(" ").pop();
+    return escH(n.badge.toLowerCase().indexOf(last) >= 0 ? n.badge : k + " \u00B7 " + n.badge);
+  }
   function factsHTML(ins, outs) {
     function c(l, kinds) { return l.filter(function (e) { return kinds.indexOf(e.kind) >= 0; }).length; }
     var eats = c(ins, ["eats", "scav"]), eaten = c(outs, ["eats", "scav"]), f = [];
@@ -1801,8 +1807,8 @@ return maplibregl$1;
     panel.innerHTML =
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
       '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
-      '<span class="tlpill">' + kindText(n) + "</span>" +
-      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + '</div></div>' + (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
+      '<span class="tlpill">' + kindLine(n) + "</span>" +
+      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + '</div></div>' +
       "<p>" + n.desc + "</p>" + aboutHTML(n) +
       group("What " + n.name + " eats", k(ins, "eats"), "s") +
       group("What eats " + n.name, k(outs, "eats"), "t") +
