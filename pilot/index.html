@@ -592,14 +592,14 @@ div.card { cursor: default; }
 .stage.hasel .gcap { display: none; }
 /* a slimmer top: the back link row is 38px tall and the page gives up most of its top padding on phones */
 @media (max-width: 700px) {
-  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 10px; }
+  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 18px; }
   .jp .jhero { margin: 0 0 12px; }
 }
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
 /* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
-.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 12px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: var(--surface); }
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 20px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: var(--surface); }
 .pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
@@ -1017,8 +1017,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .shbtn.done svg:not(.ok) { display: none; }
 .shbtn.done .ok { display: block; }
 .jp .jtop { display: flex; align-items: center; justify-content: space-between; }
-.gsh { position: absolute; right: 12px; top: 12px; z-index: 14; }
-#webctl:not([hidden]) { top: 56px !important; }
+.gsh { position: absolute; right: 12px; top: 20px; z-index: 14; }
+#webctl:not([hidden]) { top: 64px !important; }
 .jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
