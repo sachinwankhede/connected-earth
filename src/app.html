@@ -659,7 +659,7 @@ div.card { cursor: default; }
 #vtoast { display: block; position: absolute; left: 50%; top: 10px; transform: translateX(-50%); z-index: 16; background: var(--ink); color: var(--bg); font: 600 13px var(--font-body); padding: 8px 14px; border-radius: 18px; opacity: 0; pointer-events: none; transition: opacity .25s; white-space: nowrap; max-width: calc(100% - 100px); overflow: hidden; text-overflow: ellipsis; }
 #vtoast.on { opacity: .95; }
 .psheet #panel .x { display: none; }
-.panel .head h2, .panel .head .tlpill { display: none; }
+.panel .head h2 { display: none; }
 .pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .psheet .srow { gap: 10px; }
 @media (max-width: 700px) {
@@ -681,7 +681,13 @@ div.card { cursor: default; }
 
 .panel .shot { display: block !important; margin: 10px 0 0; }
 .panel .shot img { width: 100%; height: auto; max-height: 150px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
-.panel .head:has(+ .shot) .art { display: none; }
+.panel .head { align-items: center; gap: 14px; }
+.panel .head .tlpill { display: block; margin: 0 0 4px; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: none; padding: 0; }
+.panel .art.hasph { position: relative; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); }
+.panel .art.hasph svg { display: none; }
+.panel .art.hasph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.panel .pcap { margin: 0 0 6px; }
+.panel .fine a { color: var(--accent); }
 #webctl .btn, #webctl #moreb { align-content: center; justify-content: center; }
 .panel .found { margin-top: 18px; }
 .panel .found > b { display: block; margin: 0 0 8px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -1487,6 +1493,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var pk = document.getElementById("cp-" + e.id); if (pk) pk.innerHTML = box.innerHTML;
     if (ECO === e && !state.sel && !el.webview.hidden) renderPanel();
     if (M.pid === e.id) pPhoto();
+    pnlPhotos();
     if (M.jid) jPhotos();
   }
   function linkPhoto(c) {
@@ -1559,8 +1566,16 @@ rect.core { stroke-dasharray: 3 2.5; }
       return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
     }).join("") + "</div>";
   }
+  function photoCap(n) { var p = photoOf(n); return p ? '<p class="fine pcap">Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a></p>' : ""; }
   function pnlPhotos() {
     if (!state.sel) return;
+    var me = BY[state.sel]; if (me && me.wiki && !photoOf(me) && !WAIT[me.wiki] && window.fetch) { WAIT[me.wiki] = [me]; fetchPhoto(me.wiki); }
+    panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
+      var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
+      if (e && e.imgwiki && !ph && !WAIT[e.imgwiki] && window.fetch) { WAIT[e.imgwiki] = [{ isEco: true, e: e }]; fetchPhoto(e.imgwiki); }
+      if (!ph || b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im);
+    });
     panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
       var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
       if (m && m.wiki && !ph && !WAIT[m.wiki] && window.fetch) { WAIT[m.wiki] = [m]; fetchPhoto(m.wiki); }   /* a picture that failed earlier gets another try */
@@ -1667,7 +1682,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hits = [];
     ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, id: m[2] }); }); });
     if (!hits.length) return "";
-    return '<div class="found"><b>Also found in ' + hits.length + (hits.length === 1 ? " ecosystem" : " ecosystems") + '</b><div class="chips">' + hits.slice(0, 8).map(function (h) { return '<button type="button" class="chip" data-jump="' + h.e.id + ":" + h.id + '">' + h.e.short + "</button>"; }).join("") + '</div><button type="button" class="btn" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</button></div>';
+    return '<h3>Also found in ' + hits.length + (hits.length === 1 ? " place" : " places") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
+      return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b></button>";
+    }).join("") + '</div>' + (hits.length > 1 ? '<p class="fine"><a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</a></p>' : "");
   }
   var P = { set: function () {}, last: undefined };
   function renderPanel() {
@@ -1677,7 +1694,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
-      pr.innerHTML = '<button type="button" class="pclose" aria-label="Close">✕</button>' + (nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
+      pr.innerHTML = (nn ? '<span class="stt">' + nn.name + "</span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
       if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
@@ -1687,11 +1704,11 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hasUp = ins.some(flows);
     panel.innerHTML =
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
-      '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + '" style="--c:' + colorVar(n) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
+      '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
       '<span class="tlpill">' + kindText(n) + "</span>" +
-      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" + shot(n) +
+      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" +
       (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
-      "<p>" + n.desc + "</p>" + aboutHTML(n) +
+      "<p>" + n.desc + "</p>" + aboutHTML(n) + photoCap(n) +
       group("Eats", k(ins, "eats"), "s") +
       group("Eaten by", k(outs, "eats"), "t") +
       group("Scavenges from", k(ins, "scav"), "s") +
@@ -1726,7 +1743,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       return;
     }
     if (ev.target.closest("[data-resetall]")) { clearEdits(); return; }
-    var spb = ev.target.closest("[data-species]"); if (spb) { speciesMap(spb.getAttribute("data-species")); return; }
+    var spb = ev.target.closest("[data-species]"); if (spb) { ev.preventDefault(); speciesMap(spb.getAttribute("data-species")); return; }
     var gt = ev.target.closest("[data-goto]"); if (gt) { showPlace(gt.getAttribute("data-goto")); return; }
     var jr = ev.target.closest("[data-journey]"); if (jr) { showJourney(jr.getAttribute("data-journey")); return; }
     var jm = ev.target.closest("[data-jump]");

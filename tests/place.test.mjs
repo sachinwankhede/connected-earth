@@ -117,10 +117,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await ready(p);
     await p.click('#pgraph .pn >> nth=0'); await p.waitForTimeout(1500);
     let s = await shown(p); assert.equal(s.web, true); assert.ok(s.sel, 'the tapped species is selected');
-    await p.click('.pclose:visible'); await p.waitForTimeout(400); await leave(p); await ready(p);
+    await p.keyboard.press('Escape'); await p.waitForTimeout(400); await leave(p); await ready(p);
     await p.click('[data-pnode="elk"]'); await p.waitForTimeout(1500);
     s = await shown(p); assert.equal(s.web, true); assert.match(s.sel, /Elk/);
-    await p.click('.pclose:visible'); await p.waitForTimeout(400); await leave(p); await ready(p);
+    await p.keyboard.press('Escape'); await p.waitForTimeout(400); await leave(p); await ready(p);
     await p.click('[data-pjourney]'); await p.waitForTimeout(600);
     s = await shown(p); assert.equal(s.journey, true); assert.equal(s.page, false);
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p);
