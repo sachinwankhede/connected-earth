@@ -1004,6 +1004,12 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
 .jp details.srcd { margin-top: 22px; }
+.srcd .fgrp { margin: 0 0 12px; }
+.srcd .fgrp[hidden] { display: none; }
+.srcd .fgrp h4 { margin: 10px 0 4px; font: 600 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.srcd .fgrp p { margin: 0; font-size: 13px; line-height: 1.4; }
+.srcd .srcs { margin: 0; padding-left: 18px; font-size: 13px; line-height: 1.4; }
+.srcd .srcs li { margin: 3px 0; }
 .credits p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
 .credits a, .srcd .fine a { color: var(--accent); }
 .shbtn { flex: none; width: 40px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer; padding: 0; }
@@ -1600,7 +1606,7 @@ return maplibregl$1;
   function escH(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function creditHTML(p) {
     var c = p.credit;
-    if (!c) return 'Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a>';
+    if (!c) return 'Photo: Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">article</a>';
     var a = c.a.length > 46 ? c.a.slice(0, 44) + "\u2026" : c.a;
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">Wikimedia Commons</a>';
@@ -1717,7 +1723,6 @@ return maplibregl$1;
   }
   document.addEventListener("scroll", function (ev) { var t = ev.target; if (t && t.classList && t.classList.contains("prow")) rowHints(t.parentNode); }, true);
   addEventListener("resize", function () { rowHints(); });
-  function photoCap(n) { var p = photoOf(n); return p ? '<p class="fine pcap">Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a></p>' : ""; }
   function pnlPhotos() {
     if (!state.sel) return;
     var me = BY[state.sel]; if (me && me.wiki && !photoOf(me) && !WAIT[me.wiki] && window.fetch) { WAIT[me.wiki] = [me]; fetchPhoto(me.wiki); }
@@ -1757,7 +1762,7 @@ return maplibregl$1;
     var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>' + creditHTML(PHOTOS[ECO.imgwiki]) + '</figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
-      (ECO.sources && ECO.sources.length ? '<details class="srcd"><summary>Sources</summary>' + srcLinks(ECO.sources) + "</details>" : "") +
+      footHTML({ sources: ECO.sources, notes: ECO.notes }) +
       (ECO.notes ? '<p class="fine">' + ECO.notes + "</p>" : "");
   }
   function traceText() {
@@ -1810,7 +1815,20 @@ return maplibregl$1;
     return "";
   }
   /* the same footer on every page: one collapsed "Sources & credits" section */
-  function footHTML(inner, cid) { return '<details class="srcd"><summary>Sources &amp; credits</summary>' + inner + (cid ? '<div class="credits" id="' + cid + '"></div>' : "") + "</details>"; }
+  // One footer for every screen. Groups always appear in this order and only when they have content:
+  // Sources (links), Photos (credits), Notes (plain text), Evidence (species sheet only).
+  function footGroup(h, body, id, empty) { return '<div class="fgrp"' + (id ? ' id="' + id + '"' : "") + (empty ? " hidden" : "") + "><h4>" + h + "</h4>" + body + "</div>"; }
+  function footList(items) { return '<ul class="srcs">' + items.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>"; }
+  function footHTML(o) {
+    var src = o.sources && o.sources.length ? o.sources.map(function (q) { return '<a href="' + esc(q.url || q.u) + '" target="_blank" rel="noopener noreferrer">' + (q.title || escH(q.t)) + "</a>"; }) : [];
+    var ph = o.photos || [];
+    return '<details class="srcd"><summary>Sources &amp; credits</summary>' +
+      (src.length ? footGroup("Sources", footList(src)) : "") +
+      (o.photoId ? footGroup("Photos", '<ul class="srcs"></ul>', o.photoId, true) : ph.length ? footGroup("Photos", footList(ph)) : "") +
+      (o.notes ? footGroup("Notes", "<p>" + escH(o.notes) + "</p>") : "") +
+      (o.evidence ? footGroup("Evidence", o.evidence) : "") + "</details>";
+  }
+  function fillPhotos(id, lines) { var g = document.getElementById(id); if (!g) return; var u = g.querySelector("ul"); u.innerHTML = lines.map(function (x) { return "<li>" + x + "</li>"; }).join(""); g.hidden = !lines.length; }
   function shareBtn() {
     return '<button type="button" class="ibtn shbtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>' +
       '<svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
@@ -1818,10 +1836,10 @@ return maplibregl$1;
   function srcLinks(list) {
     return '<ul class="srcs">' + list.map(function (s) { return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + s.title + '</a></li>'; }).join("") + "</ul>";
   }
-  function srcHTML(n) {
+  function srcList(n) {
     var list = (n.src || []).slice();
     if (n.wiki) list.push({ title: "Wikipedia: " + n.wiki, url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(n.wiki.replace(/ /g, "_")) });
-    return list.length ? srcLinks(list) : "";
+    return list;
   }
   var EVT = { g: "Recorded in GloBI", gg: "GloBI has records for this genus", gf: "GloBI has records for this family", ga: "Added from a GloBI record", a: "From the ecosystem sources and general ecology (no GloBI record found)" };
   function evHTML(ins, outs) {
@@ -1876,7 +1894,7 @@ return maplibregl$1;
       group("Broken down by", k(outs, "det"), "t") +
       (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") +
       linkHTML(n) + whereElseHTML(n) +
-      footHTML(photoCap(n) + evHTML(ins, outs) + srcHTML(n)) + whatIfHTML(n);
+      footHTML({ sources: srcList(n), photos: photoOf(n) ? [creditHTML(photoOf(n))] : [], evidence: evHTML(ins, outs) }) + whatIfHTML(n);
     pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); });
   }
   function setEdit(id, v) {
@@ -2933,7 +2951,7 @@ return maplibregl$1;
       "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(c.matters) + "</p>" : "") +
       '<h3>Places on this route</h3><div class="jends">' + ends + "</div>" +
       (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") +
-      footHTML(src ? '<ul class="srcs">' + src + "</ul>" : "", "jcredit") + "</article>";
+      footHTML({ sources: c.sources, photoId: "jcredit" }) + "</article>";
   }
   function jRoles(c) {
     var id = c.id;
@@ -2952,9 +2970,9 @@ return maplibregl$1;
     if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
     jRelated(c).forEach(function (o) { var s = document.getElementById("xi-" + o.id), b = document.getElementById("jm-" + o.id); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
-    var cr = document.getElementById("jcredit"); if (!cr) return;
+    
     var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
-    cr.innerHTML = lines.map(function (ph) { return "<p>" + creditHTML(ph) + "</p>"; }).join("");
+    fillPhotos("jcredit", lines.map(creditHTML));
   }
   function jFly(c, pts) {
     var dot = document.getElementById("jdot"); if (!dot) return;
@@ -3084,7 +3102,7 @@ return maplibregl$1;
       (e.story ? '<p class="pstory"><b>The story.</b> ' + escH(e.story) + "</p>" : e.blurb ? '<p class="pstory">' + escH(e.blurb) + "</p>" : "") +
       (e.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(e.matters) + "</p>" : "") +
       rows + eh + ch + jh + sh +
-      footHTML((e.sources && e.sources.length ? srcLinks(e.sources) : "") + (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : ""), "pcredit") + "</article>";
+      footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
   }
   function pWant(n) {
     if (PHOTOS[n.wiki]) { pShow(n); return; }
@@ -3127,8 +3145,10 @@ return maplibregl$1;
   function pPhoto() {
     var id = M.pid, m = document.getElementById("pp-main"), c = id && document.getElementById("ci-" + id);
     if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
-    var cr = document.getElementById("pcredit"), ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki];
-    if (cr) cr.innerHTML = (ph && m && m.querySelector("img") ? "<p>" + creditHTML(ph) + "</p>" : "") + "<p>Species photos via Wikipedia.</p>";
+    var ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki], l = [];
+    if (ph && m && m.querySelector("img")) l.push(creditHTML(ph));
+    l.push("Species photos: Wikipedia");
+    fillPhotos("pcredit", l);
   }
   function closePlace() { M.pid = null; PV.hidden = true; showMap(); }
   PV.addEventListener("keydown", function (ev) { var t = ev.target; if ((ev.key === "Enter" || ev.key === " ") && t.getAttribute && t.getAttribute("role") === "button") { ev.preventDefault(); t.click(); } });
