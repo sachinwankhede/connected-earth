@@ -1,0 +1,50 @@
+name: data-about
+# Fetches the next batch of species descriptions from Wikipedia and opens (or updates) one pull request.
+# Nothing reaches the live site until that pull request is merged.
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Titles to fetch this run (0 = all left)", default: "1000" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-about
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: Carry on from the open batch, if there is one
+        run: |
+          if git ls-remote --exit-code --heads origin data/about >/dev/null 2>&1; then
+            git fetch origin data/about && git checkout -B data/about origin/data/about && git merge --no-edit origin/main || true
+          else
+            git checkout -B data/about
+          fi
+      - name: Fetch the next batch
+        run: LIMIT="${{ github.event.inputs.limit || '1000' }}" python3 pipeline/about.py
+      - name: Rebuild
+        run: |
+          python3 build/species.py about
+          python3 build/species.py pack
+          python3 build/build.py --all
+          python3 build/budget.py
+      - name: Commit and open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          N=$(python3 -c "import json;d=json.load(open('pipeline/about.json'));print(sum(1 for v in d.values() if v))")
+          git commit -m "Species descriptions from Wikipedia: $N so far"
+          git push -f origin data/about
+          if [ -z "$(gh pr list --head data/about --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base main --head data/about --title "Species descriptions from Wikipedia (batch)" --body "Automatic batch from the data-about workflow. Text is the first sentences of each species' Wikipedia page (CC BY-SA, credited on the species sheet)."
+          fi
+          gh workflow run ci.yml --ref data/about

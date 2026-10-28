@@ -8,6 +8,8 @@ sys.path.insert(0,os.path.join(ROOT,'build')); sys.path.insert(0,here)
 import species, wm
 tab=species.table(); got=json.load(open(OUT)) if os.path.exists(OUT) else {}
 titles=sorted({r['wiki'] for r in tab.values() if r.get('wiki') and not r.get('cat')} - set(got))
+LIMIT=int(os.environ.get('LIMIT','0') or 0)   # a scheduled run does one batch; 0 = everything left
+if LIMIT: titles=titles[:LIMIT]
 print(len(titles),'to fetch',flush=True)
 for n,i in enumerate(range(0,len(titles),20)):
     b=titles[i:i+20]
