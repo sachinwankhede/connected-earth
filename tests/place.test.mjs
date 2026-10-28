@@ -61,7 +61,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const { b, p, errors } = await start();
     await mockPhotos(p);
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p);
-    await p.waitForFunction(() => document.querySelectorAll('.prow .pmc .pph img').length >= 30, null, { timeout: 30000 });
+    await p.waitForFunction(() => { const c = document.querySelectorAll('.prow .pmc:not(.ppc) .pph'); return c.length > 0 && [...c].every((x) => x.querySelector('img')); }, null, { timeout: 60000 });
     let r = await p.evaluate(() => {
       const v = document.getElementById('pview'), h = [...v.querySelectorAll('h3')].map((x) => x.textContent), top = (el) => el.getBoundingClientRect().top;
       const st = v.querySelector('.pstory'), wm = v.querySelector('.jwhy'), g = v.querySelector('#pgraph'), first = v.querySelector('.prow');

@@ -14,9 +14,9 @@ describe('place sheet', () => {
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       let s = await vis();
       assert.equal(s.sheet, false, 'no sheet or side panel while nothing is selected'); assert.equal(s.back, true, 'a way back is always there');
-      assert.match(await t.page.textContent('#pbk'), /Mammoth/);
+      assert.match(await t.page.textContent('#pbk'), /^\u2039 Map$/);
       await t.page.click('.node >> nth=0'); await t.page.waitForTimeout(1000);
-      s = await vis(); assert.equal(s.sheet, true, 'the species sheet appears'); assert.equal(s.back, false);
+      s = await vis(); assert.equal(s.sheet, true, 'the species sheet appears'); assert.equal(s.back, true, 'back stays in the same place');
       const picked = await t.page.evaluate(() => ({ lead: document.querySelector('#panel p')?.textContent, sel: document.querySelectorAll('.node.sel,.node.on').length }));
       assert.ok(picked.lead, 'species details shown'); assert.equal(picked.sel, 1, 'exactly one species selected in the graph');
       await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(500);

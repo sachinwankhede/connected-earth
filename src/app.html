@@ -586,11 +586,9 @@ div.card { cursor: default; }
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
-@media all {
-  .pbk:not([hidden]) { display: inline-flex; align-items: center; gap: 2px; position: fixed; left: 8px; top: calc(max(6px, env(safe-area-inset-top)) + 4px); z-index: 14; max-width: calc(100vw - 90px); min-height: 40px; padding: 0 14px 0 8px; border: 1px solid var(--line); border-radius: 999px; background: color-mix(in srgb, var(--surface) 92%, transparent); color: var(--ink); font: 700 15px var(--font-body); cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
-  .pbk span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .pbk b { font-size: 22px; line-height: 1; font-weight: 500; padding: 0 2px 2px 0; }
-}
+/* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: fixed; left: 24px; top: 22px; z-index: 14; max-width: calc(100vw - 90px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
   .stage { background-image: none !important; }
@@ -999,7 +997,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
-    <button type="button" class="pbk" id="pbk" hidden></button>
+    <button type="button" class="pbk" id="pbk">&#8249; Map</button>
     <div class="psheet p-min" id="psheet"><div class="shead" id="phead"><span class="grab"></span><div class="srow" id="prow"></div></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
   </main>
 
@@ -1649,9 +1647,8 @@ rect.core { stroke-dasharray: 3 2.5; }
   var P = { set: function () {}, last: undefined };
   function renderPanel() {
     var id = state.sel;
-    var ps = document.getElementById("psheet"), pb = document.getElementById("pbk");
+    var ps = document.getElementById("psheet");
     if (ps) ps.classList.toggle("nosel", !id);
-    if (pb) { pb.hidden = !!id; pb.innerHTML = "<b>\u2039</b><span>" + escH(ECO.name) + "</span>"; }
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
@@ -2959,10 +2956,11 @@ rect.core { stroke-dasharray: 3 2.5; }
     renderView(false);
     syncHash();
   }
+  function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
   function showWeb(id, then, fromJ, fromP) {
     PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
-    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = fromJ ? "&larr; Journey" : fromP ? "&larr; Place" : "&larr; Map";
+    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = fromJ ? "&larr; Journey" : fromP ? "&larr; Place" : "&larr; Map"; setPbk();
     el.eco.value = id; M.loading = id;
     var wl = document.getElementById("webload"), ready = !!ECO_BY[id].nodes;
     wl.hidden = ready; wl.textContent = "Loading\u2026"; wl.classList.remove("err");
