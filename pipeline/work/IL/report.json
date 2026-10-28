@@ -1,0 +1,307 @@
+[
+ {
+  "id": "iladelinejaygeokar",
+  "species": 19,
+  "edges": 44,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 19,
+  "species_level": 21,
+  "genus_level": 4
+ },
+ {
+  "id": "ilbeaverdam",
+  "skipped": "only 0 species / 0 plants after filtering"
+ },
+ {
+  "id": "ilbuffalorock",
+  "species": 16,
+  "edges": 36,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 18,
+  "genus_level": 8
+ },
+ {
+  "id": "ilcahokiamoundssta",
+  "species": 19,
+  "edges": 33,
+  "tl": {
+   "1": 6,
+   "2": 9,
+   "3": 4
+  },
+  "family_level": 23,
+  "species_level": 7,
+  "genus_level": 3
+ },
+ {
+  "id": "ilcastlerock",
+  "species": 14,
+  "edges": 27,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2
+  },
+  "family_level": 18,
+  "species_level": 3,
+  "genus_level": 6
+ },
+ {
+  "id": "ilcaveinrock",
+  "skipped": "only 5 species / 0 plants after filtering"
+ },
+ {
+  "id": "ilchainolakes",
+  "species": 18,
+  "edges": 43,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3,
+   "4": 1
+  },
+  "family_level": 10,
+  "species_level": 24,
+  "genus_level": 9
+ },
+ {
+  "id": "ildelabar",
+  "species": 13,
+  "edges": 17,
+  "tl": {
+   "1": 6,
+   "2": 2,
+   "3": 5
+  },
+  "family_level": 4,
+  "species_level": 1,
+  "genus_level": 12
+ },
+ {
+  "id": "iledwardrmadigan",
+  "species": 15,
+  "edges": 23,
+  "tl": {
+   "1": 6,
+   "2": 5,
+   "3": 4
+  },
+  "family_level": 11,
+  "species_level": 7,
+  "genus_level": 5
+ },
+ {
+  "id": "ilfoxridge",
+  "species": 17,
+  "edges": 18,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 5
+  },
+  "family_level": 7,
+  "species_level": 9,
+  "genus_level": 2
+ },
+ {
+  "id": "ilfrankholten",
+  "species": 14,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 2
+  },
+  "family_level": 15,
+  "species_level": 8,
+  "genus_level": 11
+ },
+ {
+  "id": "ilhorshoelake",
+  "species": 17,
+  "edges": 32,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 2,
+   "4": 1
+  },
+  "family_level": 14,
+  "species_level": 15,
+  "genus_level": 3
+ },
+ {
+  "id": "ilillini",
+  "skipped": "only 9 species / 6 plants after filtering"
+ },
+ {
+  "id": "illakemurphysboro",
+  "species": 17,
+  "edges": 16,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 3
+  },
+  "family_level": 11,
+  "species_level": 4,
+  "genus_level": 1
+ },
+ {
+  "id": "illincolnsnewsalem",
+  "species": 12,
+  "edges": 11,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 3
+  },
+  "family_level": 2,
+  "species_level": 9,
+  "genus_level": 0
+ },
+ {
+  "id": "illowden",
+  "species": 13,
+  "edges": 13,
+  "tl": {
+   "1": 6,
+   "2": 3,
+   "3": 4
+  },
+  "family_level": 6,
+  "species_level": 5,
+  "genus_level": 2
+ },
+ {
+  "id": "ilmatthiessen",
+  "species": 17,
+  "edges": 19,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4
+  },
+  "family_level": 4,
+  "species_level": 11,
+  "genus_level": 4
+ },
+ {
+  "id": "ilmorrainehills",
+  "species": 15,
+  "edges": 24,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 2
+  },
+  "family_level": 2,
+  "species_level": 11,
+  "genus_level": 11
+ },
+ {
+  "id": "ilnauvoo",
+  "species": 17,
+  "edges": 34,
+  "tl": {
+   "1": 6,
+   "2": 7,
+   "3": 4
+  },
+  "family_level": 20,
+  "species_level": 11,
+  "genus_level": 3
+ },
+ {
+  "id": "ilperemarquette",
+  "species": 11,
+  "edges": 4,
+  "tl": {
+   "1": 6,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 0,
+  "species_level": 4,
+  "genus_level": 0
+ },
+ {
+  "id": "ilpoolno26stumplak",
+  "species": 16,
+  "edges": 30,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 1,
+   "4": 1
+  },
+  "family_level": 20,
+  "species_level": 7,
+  "genus_level": 3
+ },
+ {
+  "id": "ilpyramid",
+  "species": 18,
+  "edges": 42,
+  "tl": {
+   "1": 6,
+   "2": 6,
+   "3": 3,
+   "4": 3
+  },
+  "family_level": 11,
+  "species_level": 24,
+  "genus_level": 7
+ },
+ {
+  "id": "ilrockcut",
+  "species": 19,
+  "edges": 40,
+  "tl": {
+   "1": 6,
+   "2": 8,
+   "3": 4,
+   "4": 1
+  },
+  "family_level": 16,
+  "species_level": 18,
+  "genus_level": 6
+ },
+ {
+  "id": "ilsiloamsprings",
+  "species": 14,
+  "edges": 20,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 4
+  },
+  "family_level": 16,
+  "species_level": 4,
+  "genus_level": 0
+ },
+ {
+  "id": "ilsilversprings",
+  "species": 11,
+  "edges": 7,
+  "tl": {
+   "1": 6,
+   "2": 4,
+   "3": 1
+  },
+  "family_level": 6,
+  "species_level": 0,
+  "genus_level": 1
+ }
+]

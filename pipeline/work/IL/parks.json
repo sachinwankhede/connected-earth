@@ -1,0 +1,461 @@
+[
+ {
+  "id": "ilpyramid",
+  "name": "Pyramid State Recreation Area",
+  "short": "Pyramid",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 38.0176,
+  "lon": -89.471,
+  "radius": 4.4,
+  "points": [
+   [
+    -89.476,
+    38.0196
+   ],
+   [
+    -89.405,
+    38.0745
+   ],
+   [
+    -89.5319,
+    37.9586
+   ]
+  ],
+  "acres": 18936,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilsiloamsprings",
+  "name": "Siloam Springs State Park",
+  "short": "Siloam Springs",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 39.9053,
+  "lon": -90.8955,
+  "radius": 2.4,
+  "points": [
+   [
+    -90.8945,
+    39.8923
+   ],
+   [
+    -90.8385,
+    39.9283
+   ],
+   [
+    -90.9535,
+    39.8953
+   ]
+  ],
+  "acres": 5854,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilchainolakes",
+  "name": "Chain O'Lakes State Park",
+  "short": "Chain O'Lakes",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 42.445,
+  "lon": -88.18,
+  "radius": 2.3,
+  "points": [
+   [
+    -88.1714,
+    42.4509
+   ],
+   [
+    -88.2102,
+    42.4556
+   ],
+   [
+    -88.1584,
+    42.4286
+   ]
+  ],
+  "acres": 5124,
+  "des": "SP",
+  "mgr": "SDC"
+ },
+ {
+  "id": "ilhorshoelake",
+  "name": "Horshoe Lake State Park",
+  "short": "Horshoe Lake",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 38.6914,
+  "lon": -90.0955,
+  "radius": 1.8,
+  "points": [
+   [
+    -90.0926,
+    38.6867
+   ],
+   [
+    -90.0726,
+    38.7076
+   ],
+   [
+    -90.1214,
+    38.68
+   ]
+  ],
+  "acres": 3339,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "iladelinejaygeokar",
+  "name": "Adeline Jay Geo-Karis Illinois Beach State Park",
+  "short": "Adeline Jay Geo-Kari",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 42.4396,
+  "lon": -87.8092,
+  "radius": 1.8,
+  "points": [
+   [
+    -87.8097,
+    42.4362
+   ],
+   [
+    -87.8021,
+    42.4892
+   ],
+   [
+    -87.8159,
+    42.3933
+   ]
+  ],
+  "acres": 3186,
+  "des": "SP",
+  "mgr": "SDC"
+ },
+ {
+  "id": "ilrockcut",
+  "name": "Rock Cut State Park",
+  "short": "Rock Cut",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 42.3534,
+  "lon": -88.9891,
+  "radius": 1.8,
+  "points": [
+   [
+    -88.9942,
+    42.3563
+   ],
+   [
+    -88.9656,
+    42.3619
+   ],
+   [
+    -89.0074,
+    42.3419
+   ]
+  ],
+  "acres": 3080,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilpoolno26stumplak",
+  "name": "Pool No. 26 - Stump Lake",
+  "short": "Pool No. 26 - Stump ",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 39.0027,
+  "lon": -90.5608,
+  "radius": 1.7,
+  "acres": 2972,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilcahokiamoundssta",
+  "name": "Cahokia Mounds State Historical Site",
+  "short": "Cahokia Mounds State",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 38.6555,
+  "lon": -90.0673,
+  "radius": 1.5,
+  "acres": 2016,
+  "des": "SP",
+  "mgr": "OTHS"
+ },
+ {
+  "id": "ilcastlerock",
+  "name": "Castle Rock State Park",
+  "short": "Castle Rock",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 39.596,
+  "lon": -105.7565,
+  "radius": 1.5,
+  "acres": 2008,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilmatthiessen",
+  "name": "Matthiessen State Park",
+  "short": "Matthiessen",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 41.2894,
+  "lon": -89.0263,
+  "radius": 1.5,
+  "acres": 1915,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilfoxridge",
+  "name": "Fox Ridge State Park",
+  "short": "Fox Ridge",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 39.4023,
+  "lon": -88.1562,
+  "radius": 1.5,
+  "acres": 1720,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilmorrainehills",
+  "name": "Morraine Hills State Park",
+  "short": "Morraine Hills",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 42.3159,
+  "lon": -88.2365,
+  "radius": 1.5,
+  "acres": 1619,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilsilversprings",
+  "name": "Silver Springs",
+  "short": "Silver Springs",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 41.625,
+  "lon": -88.5285,
+  "radius": 1.5,
+  "acres": 1189,
+  "des": "SP",
+  "mgr": "SDC"
+ },
+ {
+  "id": "ilfrankholten",
+  "name": "Frank Holten State Park",
+  "short": "Frank Holten",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 38.5894,
+  "lon": -90.0978,
+  "radius": 1.5,
+  "acres": 1047,
+  "des": "SP",
+  "mgr": "OTHS"
+ },
+ {
+  "id": "iledwardrmadigan",
+  "name": "Edward R. Madigan State Park",
+  "short": "Edward R. Madigan",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 40.112,
+  "lon": -89.3915,
+  "radius": 1.5,
+  "acres": 970,
+  "des": "SP",
+  "mgr": "OTHS"
+ },
+ {
+  "id": "illakemurphysboro",
+  "name": "Lake Murphysboro State Park",
+  "short": "Lake Murphysboro",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Lakes & wetlands",
+  "lat": 37.7798,
+  "lon": -89.3806,
+  "radius": 1.5,
+  "acres": 948,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilbeaverdam",
+  "name": "Beaver Dam State Park",
+  "short": "Beaver Dam",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 38.3545,
+  "lon": -102.0245,
+  "radius": 1.5,
+  "acres": 699,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "illincolnsnewsalem",
+  "name": "Lincolns New Salem State Park",
+  "short": "Lincolns New Salem",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 39.9747,
+  "lon": -89.8444,
+  "radius": 1.5,
+  "acres": 560,
+  "des": "SP",
+  "mgr": "OTHS"
+ },
+ {
+  "id": "ilbuffalorock",
+  "name": "Buffalo Rock State Park",
+  "short": "Buffalo Rock",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 41.3239,
+  "lon": -88.9189,
+  "radius": 1.5,
+  "acres": 295,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "illowden",
+  "name": "Lowden State Park",
+  "short": "Lowden",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 42.0317,
+  "lon": -89.3278,
+  "radius": 1.5,
+  "acres": 204,
+  "des": "SP",
+  "mgr": "OTHS"
+ },
+ {
+  "id": "ilcaveinrock",
+  "name": "Cave-In-Rock State Park",
+  "short": "Cave-In-Rock",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 37.4703,
+  "lon": -88.1572,
+  "radius": 1.5,
+  "acres": 188,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilillini",
+  "name": "Illini State Park",
+  "short": "Illini",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 41.3214,
+  "lon": -88.7128,
+  "radius": 1.5,
+  "acres": 159,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilnauvoo",
+  "name": "Nauvoo State Park",
+  "short": "Nauvoo",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 40.544,
+  "lon": -91.3811,
+  "radius": 1.5,
+  "acres": 146,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ilperemarquette",
+  "name": "Pere Marquette State Park",
+  "short": "Pere Marquette",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 38.9709,
+  "lon": -90.4788,
+  "radius": 1.5,
+  "acres": 116,
+  "des": "SP",
+  "mgr": "SDNR"
+ },
+ {
+  "id": "ildelabar",
+  "name": "Delabar State Park",
+  "short": "Delabar",
+  "states": [
+   "Illinois"
+  ],
+  "kind": "Forest",
+  "lat": 40.9643,
+  "lon": -90.9404,
+  "radius": 1.5,
+  "acres": 109,
+  "des": "SP",
+  "mgr": "SDNR"
+ }
+]
