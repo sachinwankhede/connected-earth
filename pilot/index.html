@@ -680,7 +680,7 @@ div.card { cursor: default; }
 @media (min-width: 701px) { .psheet .srow .stt { white-space: normal; line-height: 1.15; } .psheet .srow .scnt { white-space: nowrap; padding-left: 8px; } }
 
 .panel .shot { display: block !important; margin: 10px 0 0; }
-.panel .shot img { width: 100%; height: auto; max-height: 210px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
+.panel .shot img { width: 100%; height: auto; max-height: 150px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
 .panel .head:has(+ .shot) .art { display: none; }
 #webctl .btn, #webctl #moreb { align-content: center; justify-content: center; }
 .panel .found { margin-top: 18px; }
@@ -689,6 +689,9 @@ div.card { cursor: default; }
 .panel .lead { font: 500 15px/1.4 var(--font-body); margin: 10px 0 2px; color: var(--ink); }
 .panel .note { display: none !important; }
 .panel .srcd { margin-top: 18px; }
+.panel details.more { margin-top: 14px; }
+.panel details.more > summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
+.panel .prow { margin-bottom: 4px; }
 .panel .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
 .panel .chip i.sq { border-radius: 2px; }
 .art.sq { border-radius: 50%; }
@@ -843,12 +846,19 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .pmap svg text { font: 600 11px var(--font-body); }
 .jp .pmap .jplay { pointer-events: none; }
 .jp .prow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; scrollbar-width: none; }
+.panel .prow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; scrollbar-width: none; }
 .jp .prow::-webkit-scrollbar { display: none; }
+.panel .prow::-webkit-scrollbar { display: none; }
 .jp .pmc { flex: none; width: 86px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 5px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: inherit; }
+.panel .pmc { flex: none; width: 86px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 5px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: inherit; }
 .jp .pmc .pbox { position: relative; display: block; }
+.panel .pmc .pbox { position: relative; display: block; }
 .jp .pmc .pph { width: 100%; height: 64px; border-radius: 10px; }
+.panel .pmc .pph { width: 100%; height: 64px; border-radius: 10px; }
 .jp .pmc b { font: 600 12px/1.2 var(--font-body); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.panel .pmc b { font: 600 12px/1.2 var(--font-body); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .jp .pmc small { font: 500 11px/1.2 var(--font-body); color: var(--muted); }
+.panel .pmc small { font: 500 11px/1.2 var(--font-body); color: var(--muted); }
 .jp .ppc { width: 112px; }
 .jp .ppc .pph { height: 70px; }
 .jp .pbadge { font: 600 10px/1.2 var(--font-body); font-style: normal; color: var(--accent); }
@@ -860,8 +870,11 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .pj .pjt b { display: block; font: 700 16px/1.2 var(--font-display); }
 .jp .pj .pjgo { flex: none; color: var(--muted); font-size: 22px; }
 .jp .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
+.panel .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
 .jp .pph svg { width: 40%; height: 40%; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.panel .pph svg { width: 40%; height: 40%; stroke: var(--muted); fill: none; stroke-width: 1.6; }
 .jp .pph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.panel .pph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
 .jp .pchain { display: flex; align-items: flex-start; justify-content: flex-start; gap: 6px; margin: 0 0 12px; max-width: 460px; }
 .jp .pcn { flex: 1 1 0; min-width: 0; max-width: 84px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font: inherit; }
 .jp .pcn small { font: 600 11px/1.2 var(--font-body); text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 100%; }
@@ -1232,8 +1245,8 @@ return maplibregl$1;
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.97 * (ch - 64) * (W + 56) / cw)); }
-    else if (cw < 560) { W = cw; H = Math.max(300, ch - 64); }
+    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.97 * ch * (W + 56) / cw)); }
+    else if (cw < 560) { W = cw; H = Math.max(300, ch); }
     else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
     else { W = Math.max(cw, 620); H = Math.max(ch, 460); }
   }
@@ -1381,10 +1394,9 @@ return maplibregl$1;
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560) ch = Math.max(240, ch - 64); /* keep clear of the legend and the bottom sheet */
     var k = Math.min(cw / (maxX - minX + 56), ch / (maxY - minY + 56));
     k = Math.max(0.3, Math.min(1.3, k));
-    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, (PH && state.mode === "layers" ? 6 - k * minY : ch / 2 - k * (minY + maxY) / 2)).scale(k);
+    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, ch / 2 - k * (minY + maxY) / 2).scale(k);
     if (animate && !reduce) svg.transition().duration(500).call(zoom.transform, t);
     else svg.call(zoom.transform, t);
     userMoved = false;
@@ -1549,6 +1561,7 @@ return maplibregl$1;
     if (n.isPage) { pShow(n); return; }
     if (n.isEco) { ecoPhoto(n.e); return; }
     if (n.isLink) { linkPhoto(n.c); return; }
+    if (BY[n.id] === n) pnlPhotos();
     if (BY[n.id] !== n || n.photoShown || !photoOf(n)) return;
     n.photoShown = true;
     n.r = n.r0 * 1.3;
@@ -1602,7 +1615,19 @@ return maplibregl$1;
   }
   function group(title, edges, key) {
     if (!edges.length) return "";
-    return "<h3>" + title + " (" + edges.length + ")</h3><div class=\"chips\">" + edges.map(function (e) { return chip(BY[e[key]]); }).join("") + "</div>";
+    return "<h3>" + title + " (" + edges.length + ")</h3><div class=\"prow\">" + edges.map(function (e) {
+      var m = BY[e[key]];
+      return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
+    }).join("") + "</div>";
+  }
+  function pnlPhotos() {
+    if (!state.sel) return;
+    panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
+      var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
+      if (m && m.wiki && !ph && !WAIT[m.wiki] && window.fetch) { WAIT[m.wiki] = [m]; fetchPhoto(m.wiki); }   /* a picture that failed earlier gets another try */
+      if (!ph || b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im);
+    });
   }
   function overviewHTML() {
     var names = { 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" };
@@ -1727,17 +1752,19 @@ return maplibregl$1;
       '<span class="tlpill">' + kindText(n) + "</span>" +
       "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" + shot(n) +
       (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
-      "<p>" + n.desc + "</p>" + aboutHTML(n) + linkHTML(n) + whatIfHTML(n) + whereElseHTML(n) +
+      "<p>" + n.desc + "</p>" + aboutHTML(n) +
       group("Eats", k(ins, "eats"), "s") +
+      group("Eaten by", k(outs, "eats"), "t") +
       group("Scavenges from", k(ins, "scav"), "s") +
       group("Depends on", k(ins, "res"), "s") +
       group("Breaks down", k(ins, "det"), "s") +
-      group("Eaten by", k(outs, "eats"), "t") +
       group("Scavenged by", k(outs, "scav"), "t") +
       group("Supports", k(outs, "res"), "t") +
       group("Broken down by", k(outs, "det"), "t") +
-      evHTML(ins, outs) + srcHTML(n) +
-      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "");
+      linkHTML(n) + whereElseHTML(n) +
+      '<details class="more"><summary>More</summary>' + evHTML(ins, outs) + srcHTML(n) +
+      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") + "</details>" + whatIfHTML(n);
+    pnlPhotos();
   }
   function setEdit(id, v) {
     if (!id) return;
