@@ -25,6 +25,9 @@ def check(path):
         if s not in S: errs.append('unknown US state '+s)
     if e.get('states') and 'United States of America' not in e.get('countries',[e['country']]): errs.append('states only for the United States')
     if e['icon'] not in ICONS: errs.append('eco icon %s not in ICONS'%e['icon'])
+    for k,lo,hi in (('story',120,620),('matters',80,520)):
+        if k in e and not (isinstance(e[k],str) and lo<=len(e[k])<=hi): errs.append('%s must be text of %d-%d characters'%(k,lo,hi))
+    if ('matters' in e) and 'story' not in e: errs.append('matters needs a story')
     if e['tier'] not in ('overview','detailed'): errs.append('tier must be overview or detailed')
     if not (isinstance(e['sources'],list) and 1<=len(e['sources'])<=8 and all(s.get('url','').startswith('https://') and s.get('title') for s in e['sources'])): errs.append('need 1-8 sources (aim for 3 or more) with title and https url')
     if len(e['sources'])<3: warn.append('only %d sources; aim for 3 or more'%len(e['sources']))

@@ -494,7 +494,7 @@ div.card { cursor: default; }
   .sheet.drag { transition: none; }
   body:has(#peek:not([hidden])) .sheet { display: none; }
   .shead { display: block; flex: none; padding: 8px 14px 4px; touch-action: none; cursor: grab; }
-  .grab { display: block; width: 40px; height: 4px; border-radius: 2px; background: var(--line); margin: 0 auto 6px; }
+  .grab { display: block; width: 44px; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 55%, var(--line)); margin: 0 auto 6px; }
   .srow { display: flex; align-items: center; gap: 8px; min-height: 34px; font: 700 16px var(--font-display); }
   .srow .sbk { border: 0; background: transparent; color: var(--accent); font: 700 15px var(--font-body); padding: 6px 8px 6px 0; min-height: 40px; cursor: pointer; }
   .srow .stt { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -583,6 +583,24 @@ div.card { cursor: default; }
   .psheet .srow { gap: 10px; }
 }
 
+/* the graph's controls: Environment is always shown, Web mode and Share are gone (Share lives on the place page); Fit appears only after the graph has been moved */
+#env, #vt, #moreb, #share, #webctl .seg, #kbtn { display: none !important; }
+#fit { display: none !important; }
+#webctl.moved #fit { display: grid !important; }
+#webctl:not(.moved):has(#reset[hidden]) { display: none !important; }
+.gcap { position: absolute; left: 16px; right: 16px; bottom: 10px; z-index: 6; margin: 0; text-align: center; font: 500 12px var(--font-body); color: var(--muted); pointer-events: none; }
+.stage.hasel .gcap { display: none; }
+/* a slimmer top: the back link row is 38px tall and the page gives up most of its top padding on phones */
+@media (max-width: 700px) {
+  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 0; }
+  .jp .jhero { margin: 0 0 12px; }
+}
+/* nothing selected: just the graph (no sheet, no side panel) */
+.psheet.nosel { display: none !important; }
+.main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
+/* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 6px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
   .stage { background-image: none !important; }
@@ -653,7 +671,41 @@ div.card { cursor: default; }
 #vtoast { display: block; position: absolute; left: 50%; top: 10px; transform: translateX(-50%); z-index: 16; background: var(--ink); color: var(--bg); font: 600 13px var(--font-body); padding: 8px 14px; border-radius: 18px; opacity: 0; pointer-events: none; transition: opacity .25s; white-space: nowrap; max-width: calc(100% - 100px); overflow: hidden; text-overflow: ellipsis; }
 #vtoast.on { opacity: .95; }
 .psheet #panel .x { display: none; }
-.panel .head h2, .panel .head .tlpill { display: none; }
+.panel .head { margin: 2px 0 14px; }
+.panel .head h2 { display: block; margin: 0; font: 700 24px/1.12 var(--font-display); letter-spacing: -0.015em; }
+.panel .head .art, .panel .head .art.sq { width: 84px; height: 84px; border-radius: 14px; }
+.panel .head .art svg { width: 40px; height: 40px; }
+.panel .latin { margin: 4px 0 0; font: italic 600 14px var(--font-body); color: var(--muted); }
+/* the name lives in the hero, as on journeys and places; the sheet's top line keeps it only while collapsed */
+@media (min-width: 701px) { .pchev { display: none; } }
+.panel .head { position: relative; }
+@media (max-width: 700px) {
+  /* expanded: the top line collapses to a slim grab bar; the chevron floats at the top right of the hero */
+  .psheet:not(.p-min) .srow .stt { display: none; }
+  .psheet:not(.p-min) #phead { position: relative; padding: 8px 14px 2px; }
+  .psheet:not(.p-min) .srow { min-height: 0; height: 0; }
+  .psheet:not(.p-min) .srow::after { display: none; }
+  .pchev { display: block; position: absolute; right: -8px; top: -8px; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; }
+  .pchev::after { content: ""; position: absolute; left: 15px; top: 13px; width: 9px; height: 9px; border-right: 2px solid var(--muted); border-top: 2px solid var(--muted); transform: rotate(135deg); }
+  .psheet:not(.p-min) #panel .head { padding-right: 30px; margin-top: 0; }
+}
+@media (min-width: 701px) { .psheet #phead.shead { display: none; } }
+@media (max-width: 700px) {
+  .psheet { height: calc(92px + env(safe-area-inset-bottom)); padding-bottom: env(safe-area-inset-bottom); }
+  .psheet.p-half, .psheet.p-full { padding-bottom: env(safe-area-inset-bottom); }
+  .psheet .shead { padding-top: 8px; }
+  .psheet.p-min .shead { padding: 10px; }
+  .psheet.p-min .grab { display: none; }
+  .psheet.p-min .srow { min-height: 70px; align-items: stretch; gap: 12px; }
+  .psheet .srow .sth { flex: none; width: 70px; height: 70px; overflow: hidden; background: linear-gradient(135deg, var(--land-has), var(--land-hi)); }
+  .psheet .srow .sth img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .psheet .srow .stx { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 3px; line-height: 1.15; }
+  .psheet.p-min .srow .stt { order: 2; font: 700 18px var(--font-display); }
+  .psheet .srow .ssub { order: 1; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .psheet:not(.p-min) .srow .sth, .psheet:not(.p-min) .srow .ssub { display: none; }
+  .psheet.p-min .srow::after { align-self: center; }
+}
+
 .pclose { flex: none; width: 36px; height: 36px; margin-left: -8px; border: 0; border-radius: 50%; background: var(--line); color: var(--ink); font: 700 15px/1 var(--font-body); display: grid; place-items: center; cursor: pointer; padding: 0; }
 .psheet .srow { gap: 10px; }
 @media (max-width: 700px) {
@@ -674,8 +726,22 @@ div.card { cursor: default; }
 @media (min-width: 701px) { .psheet .srow .stt { white-space: normal; line-height: 1.15; } .psheet .srow .scnt { white-space: nowrap; padding-left: 8px; } }
 
 .panel .shot { display: block !important; margin: 10px 0 0; }
-.panel .shot img { width: 100%; height: auto; max-height: 210px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
-.panel .head:has(+ .shot) .art { display: none; }
+.panel .shot img { width: 100%; height: auto; max-height: 150px; object-fit: contain; border-radius: 10px; border: 0; background: var(--line); }
+.panel .head { align-items: center; gap: 14px; }
+.panel .head .tlpill { display: block; margin: 0 0 4px; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: none; padding: 0; }
+.panel .art.hasph { position: relative; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); }
+.panel .art.hasph svg { display: none; }
+.panel .art.hasph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.panel .pcap { margin: 6px 0 6px; }
+.prow.cont { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
+.panel .facts { margin: 4px 0 0; font: 600 13px var(--font-body); color: var(--ink); }
+.panel .badge { margin: -4px 0 10px; }
+.panel h3.hrow { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.panel h3.hrow a { flex: none; font: 600 12px var(--font-body); letter-spacing: 0; text-transform: none; color: var(--accent); }
+.panel .ppc small, .jp .ppc small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.panel .pph:not(.has), .jp .pph:not(.has) { background: color-mix(in srgb, var(--c, var(--muted)) 16%, var(--surface)); }
+.panel .pph:not(.has) svg, .jp .pph:not(.has) svg { stroke: var(--c, var(--muted)); }
+.panel .fine a { color: var(--accent); }
 #webctl .btn, #webctl #moreb { align-content: center; justify-content: center; }
 .panel .found { margin-top: 18px; }
 .panel .found > b { display: block; margin: 0 0 8px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
@@ -683,6 +749,9 @@ div.card { cursor: default; }
 .panel .lead { font: 500 15px/1.4 var(--font-body); margin: 10px 0 2px; color: var(--ink); }
 .panel .note { display: none !important; }
 .panel .srcd { margin-top: 18px; }
+.panel details.more { margin-top: 14px; }
+.panel details.more > summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
+.panel .prow { margin-bottom: 4px; }
 .panel .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
 .panel .chip i.sq { border-radius: 2px; }
 .art.sq { border-radius: 50%; }
@@ -824,11 +893,61 @@ rect.core { stroke-dasharray: 3 2.5; }
 /* journey page */
 .app:has(#jview:not([hidden])) { height: 100dvh; }
 .app:has(#jview:not([hidden])) .top, .app:has(#jview:not([hidden])) #mapview { display: none; }
+.app:has(#pview:not([hidden])) { height: 100dvh; }
+.app:has(#pview:not([hidden])) .top, .app:has(#pview:not([hidden])) #mapview { display: none; }
+.pview { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.pview[hidden] { display: none !important; }
+.jp .plead { margin: 14px 0 12px; font-size: 16px; line-height: 1.45; color: var(--ink); }
+.jp .jmap.pmap { background: var(--surface); }
+.jp .pmap svg .pe { fill: none; stroke: var(--muted); stroke-opacity: .28; stroke-width: .9; }
+.jp .pmap svg .pn .core { stroke: var(--surface); stroke-width: 1.6; }
+.jp .pmap svg .pn .gl { color: var(--on-node); fill: currentColor; pointer-events: none; }
+.jp .pmap svg .pn.ph .gl { display: none; }
+.jp .pmap svg text { font: 600 11px var(--font-body); }
+.jp .pmap .jplay { pointer-events: none; }
+.jp .prow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; scrollbar-width: none; }
+.panel .prow { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; padding-bottom: 4px; scrollbar-width: none; }
+.jp .prow::-webkit-scrollbar { display: none; }
+.panel .prow::-webkit-scrollbar { display: none; }
+.jp .pmc { flex: none; width: 86px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 5px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: inherit; }
+.panel .pmc { flex: none; width: 86px; scroll-snap-align: start; display: flex; flex-direction: column; align-items: stretch; gap: 5px; padding: 0; border: 0; background: transparent; color: var(--ink); text-align: left; cursor: pointer; font: inherit; }
+.jp .pmc .pbox { position: relative; display: block; }
+.panel .pmc .pbox { position: relative; display: block; }
+.jp .pmc .pph { width: 100%; height: 64px; border-radius: 10px; }
+.panel .pmc .pph { width: 100%; height: 64px; border-radius: 10px; }
+.jp .pmc b { font: 600 12px/1.2 var(--font-body); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.panel .pmc b { font: 600 12px/1.2 var(--font-body); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.jp .pmc small { font: 500 11px/1.2 var(--font-body); color: var(--muted); }
+.panel .pmc small { font: 500 11px/1.2 var(--font-body); color: var(--muted); }
+.jp .ppc { width: 112px; }
+.jp .ppc .pph { height: 70px; }
+.jp .pbadge { font: 600 10px/1.2 var(--font-body); font-style: normal; color: var(--accent); }
+.jp .pjs { display: grid; gap: 8px; }
+.jp .pj { display: flex; align-items: center; gap: 10px; padding: 6px 12px 6px 6px; min-height: 56px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); text-align: left; cursor: pointer; font: inherit; }
+.jp .pj .pph { width: 44px; height: 44px; border-radius: 10px; }
+.jp .pj .pjt { flex: 1 1 auto; min-width: 0; }
+.jp .pj .pjt i { display: block; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; font-style: normal; color: var(--muted); }
+.jp .pj .pjt b { display: block; font: 700 16px/1.2 var(--font-display); }
+.jp .pj .pjgo { flex: none; color: var(--muted); font-size: 22px; }
+.jp .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
+.panel .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
+.jp .pph svg { width: 40%; height: 40%; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.panel .pph svg { width: 40%; height: 40%; stroke: var(--muted); fill: none; stroke-width: 1.6; }
+.jp .pph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.panel .pph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
+.jp .pchain { display: flex; align-items: flex-start; justify-content: flex-start; gap: 6px; margin: 0 0 12px; max-width: 460px; }
+.jp .pcn { flex: 1 1 0; min-width: 0; max-width: 84px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer; font: inherit; }
+.jp .pcn small { font: 600 11px/1.2 var(--font-body); text-align: center; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; max-width: 100%; }
+.jp .parr { flex: none; margin-top: 16px; color: var(--muted); font-size: 16px; }
+.jp .pchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.jp .pchips button { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 12px 0 10px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--ink); font: 500 13px var(--font-body); cursor: pointer; }
+.jp .pchips button i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
+.jp .pchips button b { color: var(--muted); font-weight: 600; }
 .jview { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .jview[hidden] { display: none !important; }
 .jp { max-width: 720px; margin: 0 auto; padding: 0 0 calc(36px + env(safe-area-inset-bottom, 0px)); }
 .jp .jtop { position: sticky; top: 0; z-index: 3; padding: 0 0 4px; background: var(--bg); }
-.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
+.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
 .jp .jhero { display: flex; gap: 14px; align-items: center; margin: 2px 0 14px; }
 .jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -866,7 +985,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jplay svg { width: 12px; height: 12px; fill: currentColor; }
 .jp .jwhen, .jp .jwhy { margin: 14px 0 0; padding: 2px 0 2px 12px; border-left: 3px solid var(--accent); }
 .jp .jwhy { margin-top: 10px; }
-.jp h3 { margin: 22px 0 8px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp .pstory { margin: 14px 0 0; }
+.jp h3 { margin: 18px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .jp p { margin: 0 0 8px; }
 .jp p.fine { margin: 6px 2px 0; line-height: 1.4; }
 .jp a { color: var(--accent); }
@@ -884,6 +1004,15 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
 .jp details.srcd { margin-top: 22px; }
+.credits p { margin: 8px 0 0; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+.credits a, .srcd .fine a { color: var(--accent); }
+.shbtn { flex: none; width: 40px; height: 34px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--accent); cursor: pointer; padding: 0; }
+.shbtn .ok { display: none; }
+.shbtn.done svg:not(.ok) { display: none; }
+.shbtn.done .ok { display: block; }
+.jp .jtop { display: flex; align-items: center; justify-content: space-between; }
+.gsh { position: absolute; right: 12px; top: 6px; z-index: 14; }
+#webctl:not([hidden]) { top: 50px !important; }
 .jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
@@ -942,6 +1071,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   </section>
 
   <section class="jview" id="jview" aria-label="Journey" hidden></section>
+  <section class="pview" id="pview" aria-label="Place" hidden></section>
 
   <main class="main" id="webview" hidden>
     <div class="stage" id="stage">
@@ -949,6 +1079,8 @@ rect.core { stroke-dasharray: 3 2.5; }
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
+    <p class="gcap" id="gcap">Arrow: food to eater &middot; Dotted ring: key species</p>
+    <button type="button" class="pbk" id="pbk">&#8249; Places</button>
     <div class="psheet p-min" id="psheet"><div class="shead" id="phead"><span class="grab"></span><div class="srow" id="prow"></div></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
   </main>
 
@@ -1095,7 +1227,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return ls.map(function (l) { return l.length > 15 ? l.slice(0, 14).replace(/\s+$/, "") + "…" : l; });
   }
   function sname(s) { return PH && s.length > 15 ? s.slice(0, 14).replace(/\s+$/, "") + "\u2026" : s; }
-  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: false, edits: {}, fx: {} };
+  var state = { eco: null, mode: "layers", sel: null, hov: null, trace: false, env: true, edits: {}, fx: {} };
 
   function isVis(n) { return state.env || !n.cat; }
   function visE(e) { return isVis(BY[e.s]) && isVis(BY[e.t]); }
@@ -1122,8 +1254,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.97 * (ch - 64) * (W + 56) / cw)); }
-    else if (cw < 560) { W = cw; H = Math.max(300, ch - 64); }
+    if (cw < 560) ch -= 30;   /* the one-line caption under the graph */
+    if (cw < 560 && state.mode === "layers") { W = Math.max(cw, 450); H = Math.max(state.env ? 760 : 640, Math.round(0.97 * ch * (W + 56) / cw)); }
+    else if (cw < 560) { W = cw; H = Math.max(300, ch); }
     else if (state.mode === "layers") { W = Math.max(cw, 1120); H = Math.max(ch, state.env ? 640 : 500); }
     else { W = Math.max(cw, 620); H = Math.max(ch, 460); }
   }
@@ -1246,7 +1379,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   var zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) {
     cur = ev.transform;
     root.attr("transform", cur);
-    if (ev.sourceEvent) userMoved = true;
+    if (ev.sourceEvent) { userMoved = true; document.getElementById("webctl").classList.add("moved"); }
     drawGuides();
   });
   svg.call(zoom).on("dblclick.zoom", null);
@@ -1271,13 +1404,13 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     if (!isFinite(minX)) return;
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
-    if (cw < 560) ch = Math.max(240, ch - 64); /* keep clear of the legend and the bottom sheet */
+    if (cw < 560) ch -= 30;
     var k = Math.min(cw / (maxX - minX + 56), ch / (maxY - minY + 56));
     k = Math.max(0.3, Math.min(1.3, k));
-    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, (PH && state.mode === "layers" ? 6 - k * minY : ch / 2 - k * (minY + maxY) / 2)).scale(k);
+    var t = d3.zoomIdentity.translate(cw / 2 - k * (minX + maxX) / 2, ch / 2 - k * (minY + maxY) / 2).scale(k);
     if (animate && !reduce) svg.transition().duration(500).call(zoom.transform, t);
     else svg.call(zoom.transform, t);
-    userMoved = false;
+    userMoved = false; document.getElementById("webctl").classList.remove("moved");
   }
 
   /* ---------- Focus: hover previews direct links, selection pins them, trace follows energy upward ---------- */
@@ -1335,7 +1468,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     var y = cur.applyY(d.y), x = cur.applyX(d.x);
     if (y > visH - 44 || y < 60 || x < 36 || x > cw - 36) focusMoved = true, svg.transition().duration(380).call(zoom.translateTo, d.x, d.y, [cw / 2, Math.max(70, visH * 0.5)]);
   }
-  function select(id) { state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
+  function select(id) { var nn = BY[id]; if (nn && nn.cat && !state.env) setEnv(true);   /* an environment item can only be seen with the environment shown */
+    state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
   function clearSel() { if (!state.sel && !state.hov) return; state.sel = null; state.hov = null; renderPanel(); apply(); if (PH && focusMoved) { focusMoved = false; fit(true); } }
 
   /* ---------- What-if model. Values are percent change from normal. A species you edit is held at that value; every other node is relaxed toward two rules until the numbers settle:
@@ -1425,6 +1559,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     im.onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>"; };
     var pk = document.getElementById("cp-" + e.id); if (pk) pk.innerHTML = box.innerHTML;
     if (ECO === e && !state.sel && !el.webview.hidden) renderPanel();
+    if (M.pid === e.id) pPhoto();
+    pnlPhotos();
     if (M.jid) jPhotos();
   }
   function linkPhoto(c) {
@@ -1435,8 +1571,10 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (M.jid) jPhotos();
   }
   function showPhoto(n) {
+    if (n.isPage) { pShow(n); return; }
     if (n.isEco) { ecoPhoto(n.e); return; }
     if (n.isLink) { linkPhoto(n.c); return; }
+    if (BY[n.id] === n) pnlPhotos();
     if (BY[n.id] !== n || n.photoShown || !photoOf(n)) return;
     n.photoShown = true;
     n.r = n.r0 * 1.3;
@@ -1460,7 +1598,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + slug)
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
-        if (!j || !j.thumbnail || !j.thumbnail.source) return;
+        if (!j) { delete WAIT[title]; return; }   // a failed request can be tried again later; a page with no picture cannot
+        if (!j.thumbnail || !j.thumbnail.source) return;
         var page = j.content_urls && j.content_urls.desktop && j.content_urls.desktop.page;
         var src = j.thumbnail.source, im = new Image();
         im.onload = function () {
@@ -1469,7 +1608,7 @@ rect.core { stroke-dasharray: 3 2.5; }
         };
         im.src = src;
       })
-      .catch(function () {});
+      .catch(function () { delete WAIT[title]; });
   }
   function loadPhotos() {
     if (!window.fetch) return;
@@ -1489,7 +1628,45 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function group(title, edges, key) {
     if (!edges.length) return "";
-    return "<h3>" + title + " (" + edges.length + ")</h3><div class=\"chips\">" + edges.map(function (e) { return chip(BY[e[key]]); }).join("") + "</div>";
+    return "<h3>" + title + " (" + edges.length + ")</h3><div class=\"prow\">" + edges.map(function (e) {
+      var m = BY[e[key]];
+      return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '" style="--c:' + colorVar(m) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
+    }).join("") + "</div>";
+  }
+  /* one line for the kind and the special role; when the role already says it (Keystone predator) it stands alone */
+  function kindLine(n) {
+    var k = kindText(n); if (!n.badge) return k;
+    var last = k.toLowerCase().split(" ").pop();
+    return escH(n.badge.toLowerCase().indexOf(last) >= 0 ? n.badge : k + " \u00B7 " + n.badge);
+  }
+  function factsHTML(ins, outs) {
+    function c(l, kinds) { return l.filter(function (e) { return kinds.indexOf(e.kind) >= 0; }).length; }
+    var eats = c(ins, ["eats", "scav"]), eaten = c(outs, ["eats", "scav"]), f = [];
+    if (eats) f.push("Eats " + eats); if (eaten) f.push("Eaten by " + eaten);
+    if (!f.length && outs.length) f.push("Feeds " + outs.length);
+    return f.length ? '<p class="facts">' + f.join(" \u00B7 ") + "</p>" : "";
+  }
+  function rowHints(root) {
+    (root || document).querySelectorAll(".prow").forEach(function (r) { r.classList.toggle("cont", r.scrollWidth > r.clientWidth + 6 && r.scrollLeft + r.clientWidth < r.scrollWidth - 6); });
+  }
+  document.addEventListener("scroll", function (ev) { var t = ev.target; if (t && t.classList && t.classList.contains("prow")) rowHints(t.parentNode); }, true);
+  addEventListener("resize", function () { rowHints(); });
+  function photoCap(n) { var p = photoOf(n); return p ? '<p class="fine pcap">Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a></p>' : ""; }
+  function pnlPhotos() {
+    if (!state.sel) return;
+    var me = BY[state.sel]; if (me && me.wiki && !photoOf(me) && !WAIT[me.wiki] && window.fetch) { WAIT[me.wiki] = [me]; fetchPhoto(me.wiki); }
+    panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
+      var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
+      if (e && e.imgwiki && !ph && !WAIT[e.imgwiki] && window.fetch) { WAIT[e.imgwiki] = [{ isEco: true, e: e }]; fetchPhoto(e.imgwiki); }
+      if (!ph || b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
+    });
+    panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
+      var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
+      if (m && m.wiki && !ph && !WAIT[m.wiki] && window.fetch) { WAIT[m.wiki] = [m]; fetchPhoto(m.wiki); }   /* a picture that failed earlier gets another try */
+      if (!ph || b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has"); b.classList.add("has");
+    });
   }
   function overviewHTML() {
     var names = { 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" };
@@ -1566,13 +1743,19 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (n.fl) return '<div class="xlink"><h3>Outside input</h3><p><b>' + n.fl.title + '.</b> ' + n.fl.text + '</p></div>';
     return "";
   }
+  /* the same footer on every page: one collapsed "Sources & credits" section */
+  function footHTML(inner, cid) { return '<details class="srcd"><summary>Sources &amp; credits</summary>' + inner + (cid ? '<div class="credits" id="' + cid + '"></div>' : "") + "</details>"; }
+  function shareBtn() {
+    return '<button type="button" class="ibtn shbtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>' +
+      '<svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
+  }
   function srcLinks(list) {
     return '<ul class="srcs">' + list.map(function (s) { return '<li><a href="' + esc(s.url) + '" target="_blank" rel="noopener noreferrer">' + s.title + '</a></li>'; }).join("") + "</ul>";
   }
   function srcHTML(n) {
     var list = (n.src || []).slice();
     if (n.wiki) list.push({ title: "Wikipedia: " + n.wiki, url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(n.wiki.replace(/ /g, "_")) });
-    return list.length ? "<h3>Read more</h3>" + srcLinks(list) : "";
+    return list.length ? srcLinks(list) : "";
   }
   var EVT = { g: "Recorded in GloBI", gg: "GloBI has records for this genus", gf: "GloBI has records for this family", ga: "Added from a GloBI record", a: "From the ecosystem sources and general ecology (no GloBI record found)" };
   function evHTML(ins, outs) {
@@ -1590,15 +1773,20 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hits = [];
     ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, id: m[2] }); }); });
     if (!hits.length) return "";
-    return '<div class="found"><b>Also found in ' + hits.length + (hits.length === 1 ? " ecosystem" : " ecosystems") + '</b><div class="chips">' + hits.slice(0, 8).map(function (h) { return '<button type="button" class="chip" data-jump="' + h.e.id + ":" + h.id + '">' + h.e.short + "</button>"; }).join("") + '</div><button type="button" class="btn" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</button></div>';
+    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + (hits.length > 1 ? '<a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show on the map</a>' : "") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
+      return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
+    }).join("") + "</div>";
   }
-  var P = { set: function () {}, last: undefined };
+  var P = { set: function () {}, toggle: function () {}, last: undefined };
   function renderPanel() {
     var id = state.sel;
+    var ps = document.getElementById("psheet");
+    if (ps) ps.classList.toggle("nosel", !id);
+    stage.classList.toggle("hasel", !!id);
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
-      pr.innerHTML = '<button type="button" class="pclose" aria-label="Close">✕</button>' + (nn ? '<span class="stt">' + nn.name + '</span><span class="scnt">' + kindText(nn) + "</span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
+      pr.innerHTML = (nn ? (photoOf(nn) ? '<span class="sth"><img src="' + esc(photoOf(nn).src) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()"></span>' : "") + '<span class="stx"><span class="stt">' + nn.name + '</span><span class="ssub">' + kindLine(nn) + "</span></span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
       if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
@@ -1608,21 +1796,22 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hasUp = ins.some(flows);
     panel.innerHTML =
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
-      '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + '" style="--c:' + colorVar(n) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
-      '<span class="tlpill">' + kindText(n) + "</span>" +
-      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" + shot(n) +
-      (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
-      "<p>" + n.desc + "</p>" + aboutHTML(n) + linkHTML(n) + whatIfHTML(n) + whereElseHTML(n) +
-      group("Eats", k(ins, "eats"), "s") +
-      group("Scavenges from", k(ins, "scav"), "s") +
-      group("Depends on", k(ins, "res"), "s") +
-      group("Breaks down", k(ins, "det"), "s") +
-      group("Eaten by", k(outs, "eats"), "t") +
+      '<div class="head"><button type="button" class="pchev" data-pchev aria-label="Collapse"></button><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
+      '<span class="tlpill">' + kindLine(n) + "</span>" +
+      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + '</div></div>' +
+      "<p>" + n.desc + "</p>" + aboutHTML(n) +
+      group("What " + n.name + " eats", k(ins, "eats"), "s") +
+      group("What eats " + n.name, k(outs, "eats"), "t") +
+      group(n.name + " scavenges from", k(ins, "scav"), "s") +
+      group(n.name + " depends on", k(ins, "res"), "s") +
+      group(n.name + " breaks down", k(ins, "det"), "s") +
       group("Scavenged by", k(outs, "scav"), "t") +
-      group("Supports", k(outs, "res"), "t") +
+      group(n.name + " supports", k(outs, "res"), "t") +
       group("Broken down by", k(outs, "det"), "t") +
-      evHTML(ins, outs) + srcHTML(n) +
-      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "");
+      (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") +
+      linkHTML(n) + whereElseHTML(n) +
+      footHTML(photoCap(n) + evHTML(ins, outs) + srcHTML(n)) + whatIfHTML(n);
+    pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); });
   }
   function setEdit(id, v) {
     if (!id) return;
@@ -1645,8 +1834,8 @@ rect.core { stroke-dasharray: 3 2.5; }
       return;
     }
     if (ev.target.closest("[data-resetall]")) { clearEdits(); return; }
-    var spb = ev.target.closest("[data-species]"); if (spb) { speciesMap(spb.getAttribute("data-species")); return; }
-    var gt = ev.target.closest("[data-goto]"); if (gt) { showWeb(gt.getAttribute("data-goto")); return; }
+    var spb = ev.target.closest("[data-species]"); if (spb) { ev.preventDefault(); speciesMap(spb.getAttribute("data-species")); return; }
+    var gt = ev.target.closest("[data-goto]"); if (gt) { showPlace(gt.getAttribute("data-goto")); return; }
     var jr = ev.target.closest("[data-journey]"); if (jr) { showJourney(jr.getAttribute("data-journey")); return; }
     var jm = ev.target.closest("[data-jump]");
     if (jm) { var jp = jm.getAttribute("data-jump").split(":"); jump(jp[0], jp[1]); return; }
@@ -1748,17 +1937,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   document.getElementById("env").setAttribute("aria-label", "Show environment");
   el.reset.addEventListener("click", clearEdits);
   [["env", "Show environment: sun, rain, soil"], ["share", "Copy link to this ecosystem"], ["fit", "Fit everything on screen"], ["moreb", "More"], ["vt", "Show web view"]].forEach(function (a) { var b = document.getElementById(a[0]); if (b) { b.setAttribute("aria-label", a[1]); b.setAttribute("title", a[1]); } });
-  stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast"));
-  (function () {
-    var wc = document.getElementById("webctl"), vt = document.getElementById("vt"), kb = document.createElement("button"), kp = document.createElement("div");
-    kb.type = "button"; kb.id = "kbtn"; kb.className = "btn"; kb.setAttribute("aria-label", "What the arrows and rings mean"); kb.setAttribute("title", "Key"); kb.setAttribute("aria-expanded", "false");
-    kp.id = "keypop"; kp.className = "keypop"; kp.innerHTML = '<div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Arrow points from food to eater</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgd" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Eats a dead animal</span></div><div class="keyrow"><svg width="30" height="10" viewBox="0 0 26 10" aria-hidden="true"><path class="lgl lgdot" d="M1 5H19"/><path class="lga" d="M18 1.5L25 5L18 8.5z"/></svg><span>Breaks down dead matter</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.5" style="fill:var(--tl1)"/><circle class="lgr" cx="9" cy="9" r="7.5"/></svg><span>Dotted ring: keystone species</span></div><div class="keyrow"><svg width="30" height="20" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="6.5" style="fill:var(--tl0);stroke:var(--tl0);stroke-dasharray:3 2.5"/></svg><span>Dashed edge: sun, rain, soil</span></div>';
-    wc.insertBefore(kb, vt.nextSibling); stage.appendChild(kp);
-    function shut() { kp.classList.remove("on"); kb.setAttribute("aria-expanded", "false"); }
-    kb.addEventListener("click", function (ev) { ev.stopPropagation(); var o = kp.classList.toggle("on"); kb.setAttribute("aria-expanded", String(o)); });
-    document.addEventListener("pointerdown", function (ev) { if (!ev.target.closest("#keypop, #kbtn")) shut(); }, true);
-    document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") shut(); });
-  })();
+  stage.appendChild(document.getElementById("webctl")); stage.appendChild(document.getElementById("vtoast")); stage.appendChild(document.getElementById("pbk")); (function () { var g = document.createElement("span"); g.className = "gsh"; g.innerHTML = shareBtn(); stage.appendChild(g); })(); stage.appendChild(document.getElementById("gcap"));
   (function () { var wc = document.getElementById("webctl"), mb = document.getElementById("moreb"); wc.setAttribute("data-mode", state.mode); document.getElementById("vt").addEventListener("click", function () { gMode(state.mode === "layers" ? "web" : "layers"); }); mb.addEventListener("click", function () { var o = wc.classList.toggle("mopen"); mb.setAttribute("aria-expanded", String(o)); }); ["share", "fit"].forEach(function (i) { document.getElementById(i).addEventListener("click", function () { wc.classList.remove("mopen"); mb.setAttribute("aria-expanded", "false"); }); }); })();
 
   var rt;
@@ -2354,6 +2533,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function hashState() {
     if (M.jid) return "j=" + M.jid;
+    if (M.pid) return "pg=" + M.pid;
     if (!el.webview.hidden) return "e=" + el.eco.value;
     if (!document.getElementById("peek").hidden && M.peekId) return "p=" + M.peekId;
     if (view.level === "continent") return "r=continent:" + view.cont;
@@ -2378,6 +2558,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var h = ""; try { h = decodeURIComponent(typeof h0 === "string" ? h0 : location.hash.slice(1)); } catch (e) {}
     var m;
     if ((m = /(?:^|&)j=([\w-]+)/.exec(h)) && jbyId(m[1])) showJourney(m[1]);
+    else if ((m = /(?:^|&)pg=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showPlace(m[1]);
     else if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);
     else if ((m = /(?:^|&)p=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) { M.pendingPeek = m[1]; if (M.styleReady) doPendingPeek(); }
     else if ((m = /(?:^|&)r=(\w+):(.+)$/.exec(h))) {
@@ -2386,6 +2567,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       else if (m[1] === "state" && M.stateBy[m[2]]) go("state", m[2]);
     }
   }
+  document.addEventListener("click", function (ev) { var b = ev.target.closest(".shbtn"); if (b) { ev.stopPropagation(); share(b); } }, true);
   function toast(t) { var v = document.getElementById("vtoast"); if (!v) return; v.textContent = t; v.classList.add("on"); clearTimeout(v._t); v._t = setTimeout(function () { v.classList.remove("on"); }, 1600); }
   function share(btn) {
     syncHash();
@@ -2513,7 +2695,9 @@ rect.core { stroke-dasharray: 3 2.5; }
       var sh = document.getElementById("psheet"), hd = document.getElementById("phead"); if (!sh || !hd) return;
       var st = "min", sy = 0, h0 = 0, moved = false, drag = false;
       function setS(s) { st = s; sh.classList.remove("p-min", "p-half", "p-full"); sh.classList.add("p-" + s); sh.style.height = ""; }
-      P.set = setS;
+      P.set = setS; P.toggle = function () { setS(st === "min" ? "half" : "min"); };
+      panel.addEventListener("click", function (ev) { if (ev.target.closest("[data-pchev]")) { ev.stopPropagation(); P.toggle(); } }, true);
+      document.getElementById("pbk").addEventListener("click", function () { el.back.click(); });
       document.getElementById("prow").addEventListener("click", function (e) { if (!e.target.closest(".pclose")) return; e.stopPropagation(); if (state.sel) clearSel(); else el.back.click(); });
       hd.addEventListener("pointerdown", function (e) { if (e.target.closest("button")) return; drag = true; moved = false; sy = e.clientY; h0 = sh.getBoundingClientRect().height; sh.classList.add("drag"); try { hd.setPointerCapture(e.pointerId); } catch (x) {} });
       hd.addEventListener("pointermove", function (e) { if (!drag) return; var dy = e.clientY - sy; if (Math.abs(dy) > 4) moved = true; sh.style.height = Math.max(64, Math.min(innerHeight - 90, h0 - dy)) + "px"; });
@@ -2557,7 +2741,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     cards.addEventListener("click", function (ev) {
       var b = ev.target.closest("[data-eco]");
-      if (b) showWeb(b.getAttribute("data-eco"));
+      if (b) showPlace(b.getAttribute("data-eco"));
     });
     function nav(ev) {
       var b = ev.target.closest("[data-go]");
@@ -2573,7 +2757,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       FL.kind = FL.kind === b.getAttribute("data-kind") ? null : b.getAttribute("data-kind"); view.focus = null; filterView();
     });
     document.getElementById("peek").addEventListener("click", function (ev) {
-      var o = ev.target.closest("[data-open]"); if (o) { showWeb(o.getAttribute("data-open")); return; }
+      var o = ev.target.closest("[data-open]"); if (o) { showPlace(o.getAttribute("data-open")); return; }
       var pk = ev.target.closest("[data-peek]"); if (pk) { peek(pk.getAttribute("data-peek")); return; }
       if (ev.target.closest("[data-closepeek]")) { this.hidden = true; spanHi(null); showTies(null); }
     });
@@ -2624,7 +2808,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     setTimeout(function () { c.classList.remove("hl"); }, 1600);
   }
   M.hlCard = hlCard; M.showTies = function (id) { showTies(id); };
-  M.showJourney = function (id) { showJourney(id); };
+  M.showJourney = function (id) { showJourney(id); }; M.showPlace = function (id) { showPlace(id); }; M.ecoIds = function () { return ECOS.map(function (e) { return e.id; }); };
   M.journeyIds = function () { return CROSS.map(function (c) { return c.id; }); };
   /* the journey page: opens from a journey card, a route on the map, or a linked food web */
   var JV = document.getElementById("jview");
@@ -2675,7 +2859,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     }).join("");
     var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener noreferrer">' + escH(q.t) + "</a></li>"; }).join("");
     var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
-    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button></div>' +
+    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button>' + shareBtn() + '</div>' +
       '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>\u2192</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
       '<div class="jmap' + (rt.right ? " pr" : "") + '" id="jfly" role="button" tabindex="0" aria-label="' + escH(c.go || "Follow the route") + '">' + rt.html + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>' + escH(c.go || "Follow the route") + '</span><span class="jattr">\u00a9 Esri, Maxar</span></div>' +
       '<p class="fine">Routes are simplified; real journeys vary by season and population.</p>' +
@@ -2683,7 +2867,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       "<h3>The story</h3><p>" + escH(c.text) + "</p>" + (c.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(c.matters) + "</p>" : "") +
       '<h3>Places on this route</h3><div class="jends">' + ends + "</div>" +
       (more ? '<h3>More journeys</h3><div class="jmore">' + more + "</div>" : "") +
-      (src ? '<details class="srcd"><summary>Sources</summary><ul class="srcs">' + src + "</ul></details>" : "") + "</article>";
+      footHTML(src ? '<ul class="srcs">' + src + "</ul>" : "", "jcredit") + "</article>";
   }
   function jRoles(c) {
     var id = c.id;
@@ -2701,6 +2885,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     var m = document.getElementById("xi-" + c.id), t = document.getElementById("jp-main");
     if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
     jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
+    var cr = document.getElementById("jcredit"); if (!cr) return;
+    var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
+    cr.innerHTML = lines.map(function (ph) { return "<p>" + creditHTML(ph) + "</p>"; }).join("");
   }
   function jFly(c, pts) {
     var dot = document.getElementById("jdot"); if (!dot) return;
@@ -2719,7 +2906,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function showJourney(id, from) {
     var c = jbyId(id); if (!c) return;
     var sb = document.getElementById("sbody"); if (el.webview.hidden && !el.mapview.hidden && sb) M.jScroll = sb.scrollTop;
-    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1;
+    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1; PV.hidden = true; M.pid = null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
     JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);
@@ -2748,20 +2935,161 @@ rect.core { stroke-dasharray: 3 2.5; }
     else if (t.hasAttribute("data-jopen")) { var p = t.getAttribute("data-jopen").split(":"); JV.hidden = true; var from = M.jid; M.jid = null; showWeb(p[0], function () { select(p[1]); }, from); }
     else if (t.id === "jfly" && c) jFly(c, M.jpts);
   });
+
+  // ---- place page: the place first, then a calm picture of its food web, then the detail ----
+  var PV = document.getElementById("pview");
+  function pData(id) {
+    var e = ECO_BY[id], by = {}, deg = {}, ins = {}, outs = {};
+    e.nodes.forEach(function (n) { by[n.id] = n; deg[n.id] = 0; ins[n.id] = []; outs[n.id] = []; });
+    e.raw.forEach(function (r) { if (by[r[0]] && by[r[1]]) { deg[r[0]]++; deg[r[1]]++; if (!r[2] || KIND[r[2]] === "eats") { outs[r[0]].push(r[1]); ins[r[1]].push(r[0]); } } });
+    return { e: e, by: by, deg: deg, ins: ins, outs: outs, bio: e.nodes.filter(function (n) { return !n.cat; }) };
+  }
+  function pGraphSVG(d) {
+    var W = Math.max(300, Math.min(720, (PV.clientWidth || 640))), H = Math.round(W < 500 ? W * 1.02 : W * 0.62), padX = 22, padT = 22, padB = 80;
+    var rows = [4, 3, 2, 1].map(function (tl) { return d.bio.filter(function (n) { return n.tl === tl; }).sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; }); }).filter(function (r) { return r.length; });
+    var pos = {}, ry = function (i) { return rows.length > 1 ? padT + i * (H - padT - padB) / (rows.length - 1) : H / 2; };
+    function space(r, i) { r.forEach(function (n, j) { pos[n.id] = [padX + (j + 0.5) * (W - 2 * padX) / r.length, ry(i)]; }); }
+    rows.forEach(space);
+    for (var pass = 0; pass < 4; pass++) rows.forEach(function (r, i) {
+      var bc = {}; r.forEach(function (n) { var nb = d.ins[n.id].concat(d.outs[n.id]).filter(function (m) { return pos[m]; }); bc[n.id] = nb.length ? nb.reduce(function (a, m) { return a + pos[m][0]; }, 0) / nb.length : pos[n.id][0]; });
+      r.sort(function (a, b) { return bc[a.id] - bc[b.id]; }); space(r, i);
+    });
+    var edges = "";
+    d.bio.forEach(function (n) { d.outs[n.id].forEach(function (t) { var a = pos[n.id], b = pos[t]; if (!a || !b) return; var mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2; edges += '<path class="pe" d="M' + a[0].toFixed(1) + " " + a[1].toFixed(1) + "Q" + (mx + (b[1] - a[1]) * 0.08).toFixed(1) + " " + my.toFixed(1) + " " + b[0].toFixed(1) + " " + b[1].toFixed(1) + '"/>'; }); });
+    var top = d.bio.slice().sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; }), labelled = {}, lastX = {}, lw = function (n) { return Math.min(16, n.name.length) * 6.2; };
+    top.forEach(function (n) { if (Object.keys(labelled).length >= 9 && n.tl < 4) return; var x = pos[n.id][0], rk = n.tl, ok = true; (lastX[rk] = lastX[rk] || []).forEach(function (q) { if (Math.abs(q[0] - x) < q[1] + lw(n) / 2 + 8) ok = false; }); if (ok) { labelled[n.id] = 1; lastX[rk].push([x, lw(n) / 2]); } });
+    var nodes = d.bio.map(function (n) {
+      var rowN = rows.filter(function (rw) { return rw.indexOf(n) >= 0; })[0].length, r = Math.max(6, Math.min(17, 9 + 1.7 * Math.sqrt(d.deg[n.id]), (W - 2 * padX) / rowN / 2 - 1.5)), q = pos[n.id], gs = r * 1.4, lab = labelled[n.id] ? '<text text-anchor="middle" y="' + (r + 13) + '">' + escH(n.name.length > 16 ? n.name.replace(/^(African|American|Common|Greater|Great|Northern) /, "") : n.name) + "</text>" : "";
+      return '<clipPath id="pcl-' + n.id + '"><circle r="' + r.toFixed(1) + '"/></clipPath><g class="pn" data-r="' + r.toFixed(1) + '" data-node="' + n.id + '" transform="translate(' + q[0].toFixed(1) + " " + q[1].toFixed(1) + ')"><circle class="core" r="' + r.toFixed(1) + '" style="fill:var(--tl' + n.tl + ')"/><g class="gl" transform="translate(' + (-gs / 2).toFixed(1) + "," + (-gs / 2).toFixed(1) + ") scale(" + (gs / 24).toFixed(3) + ')">' + (ICONS[n.ic] || "") + "</g>" + lab + "</g>";
+    }).join("");
+    return '<svg viewBox="0 0 ' + W + " " + H + '" role="img" aria-label="Food web of ' + escH(d.e.name) + ': ' + d.bio.length + ' species in four levels">' + edges + nodes + "</svg>";
+  }
+  var PNAMES = { 4: "Top predator", 3: "Hunter & scavenger", 2: "Plant-eater", 1: "Plant" };
+  var PAGE_CHAINS = { yellowstone: [["aspen", "elk", "wolf"], ["willow", "beaver", "wolf"], ["grass", "elk", "lion"]] };
+  function pChains(d) {
+    var pick = (PAGE_CHAINS[d.e.id] || []).map(function (ids) { return ids.map(function (i) { return d.by[i]; }); }).filter(function (c) { return c.every(Boolean); });
+    if (pick.length) return pick.slice(0, 2);
+    var used = {}, out = [];
+    d.bio.filter(function (n) { return n.tl >= 3 && d.ins[n.id].length; }).sort(function (a, b) { return b.tl - a.tl || d.deg[b.id] - d.deg[a.id]; }).forEach(function (t) {
+      if (out.length >= 2) return;
+      var chain = [t], c = t, g = 0;
+      while (g++ < 5) {
+        var pr = d.ins[c.id].map(function (i) { return d.by[i]; }).filter(function (n) { return !n.cat && n.tl < c.tl && chain.indexOf(n) < 0; }).sort(function (a, b) { return (used[a.id] ? 1 : 0) - (used[b.id] ? 1 : 0) || d.deg[b.id] - d.deg[a.id]; });
+        if (!pr.length) break; chain.unshift(pr[0]); c = pr[0];
+      }
+      if (chain.length >= 3) { chain.forEach(function (n) { used[n.id] = 1; }); out.push(chain); }
+    });
+    return out;
+  }
+  function pLongest(d) {
+    var memo = {}, vis = {};
+    function f(id) { if (memo[id] != null) return memo[id]; if (vis[id]) return 0; vis[id] = 1; var m = 0; d.outs[id].forEach(function (t) { m = Math.max(m, 1 + f(t)); }); vis[id] = 0; return (memo[id] = m); }
+    return d.bio.reduce(function (a, n) { return Math.max(a, f(n.id)); }, 0) + 1;
+  }
+  function pph(n, icons) { return '<span class="pph" data-pid="' + n.id + '" style="--c:' + colorVar(n) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></span>"; }
+  function pHTML(id) {
+    var d = pData(id), e = d.e, byDeg = d.bio.slice().sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; });
+    var plural = { 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants" }, star = byDeg[0] && byDeg[0].id;
+    var card = function (n) { return '<button type="button" class="pmc" data-pnode="' + n.id + '"><span class="pbox">' + pph(n) + "</span><b>" + escH(n.name) + "</b>" + (n.id === star ? '<em class="pbadge">Most connected</em>' : "") + "</button>"; };
+    var rows = [4, 3, 2, 1].map(function (tl) {
+      var g = byDeg.filter(function (n) { return n.tl === tl; });
+      return g.length ? "<h3>" + plural[tl] + " · " + g.length + '</h3><div class="prow">' + g.map(card).join("") + "</div>" : "";
+    }).join("");
+    var env = e.nodes.filter(function (n) { return n.cat; });
+    var eh = env.length ? "<h3>Environment · " + env.length + '</h3><div class="prow">' + env.map(card).join("") + "</div>" : "";
+    var mine = {}; d.bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
+    var near = ECOS.filter(function (o) { return o.id !== id; }).map(function (o) { var c = 0; o.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: o, c: c }; }).filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 10);
+    var sh = near.length ? "<h3>Shares species with</h3>" + '<div class="prow">' + near.map(function (x, i) {
+      return '<button type="button" class="pmc ppc" data-ppage="' + x.e.id + '"><span class="pbox"><span class="pph" data-pid="e-' + x.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[x.e.icon] || "") + "</svg></span>" + "</span><b>" + escH(x.e.short) + "</b><small>" + x.c + " species in common</small>" + (i === 0 ? '<em class="pbadge">Shares the most</em>' : "") + "</button>";
+    }).join("") + "</div>" : "";
+    var js = CROSS.filter(function (c) { return jEnds(c).some(function (x) { return x.eco === id; }); });
+    var jh = js.length ? "<h3>Journeys through here</h3>" + '<div class="pjs">' + js.map(function (c) {
+      var oe = jEnds(c); return '<button type="button" class="pj" data-pjourney="' + c.id + '"><span class="pph" data-pid="j-' + c.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[oe[0].e.icon] || "") + '</svg></span><span class="pjt"><i>' + escH(oe[0].e.short) + " → " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(c.title) + '</b></span><span class="pjgo" aria-hidden="true">›</span></button>';
+    }).join("") + "</div>" : "";
+    var chains = pChains(d), ch = chains.length ? "<h3>Who feeds whom</h3>" + chains.map(function (c) {
+      return '<div class="pchain">' + c.map(function (n, i) { return (i ? '<span class="parr" aria-hidden="true">→</span>' : "") + '<button type="button" class="pcn" data-pnode="' + n.id + '">' + pph(n) + "<small>" + escH(n.name) + "</small></button>"; }).join("") + "</div>";
+    }).join("") + '<p class="fine">Each one feeds the next.</p>' : "";
+    var icon = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>";
+    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button>' + shareBtn() + '</div>' +
+      '<div class="jhero"><span class="jhimg" id="pp-main">' + icon + '</span><div><p class="jkind">' + escH(e.kind || "Place") + "</p><h2>" + escH(e.name) + '</h2><p class="jr">' + escH(e.place || "") + "</p></div></div>" +
+      '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
+      '<p class="fine">' + d.bio.length + " species. Lines run from food to eater.</p>" +
+      (e.story ? '<p class="pstory"><b>The story.</b> ' + escH(e.story) + "</p>" : e.blurb ? '<p class="pstory">' + escH(e.blurb) + "</p>" : "") +
+      (e.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(e.matters) + "</p>" : "") +
+      rows + eh + ch + jh + sh +
+      footHTML((e.sources && e.sources.length ? srcLinks(e.sources) : "") + (e.notes ? '<p class="fine">' + escH(e.notes) + "</p>" : ""), "pcredit") + "</article>";
+  }
+  function pWant(n) {
+    if (PHOTOS[n.wiki]) { pShow(n); return; }
+    if (WAIT[n.wiki]) { WAIT[n.wiki].push(n); return; }
+    WAIT[n.wiki] = [n]; fetchPhoto(n.wiki);
+  }
+  function pShow(n) {
+    var ph = PHOTOS[n.wiki]; if (!ph || M.pid !== n.eco) return;
+    PV.querySelectorAll('.pph[data-pid="' + n.id + '"]').forEach(function (b) {
+      if (b.querySelector("img")) return;
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
+    });
+    PV.querySelectorAll('.pn[data-node="' + n.id + '"]').forEach(function (g) {
+      if (g.querySelector("image")) return;
+      var r = +g.getAttribute("data-r"), NS = "http://www.w3.org/2000/svg", im = document.createElementNS(NS, "image");
+      im.setAttribute("href", ph.src); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
+      im.setAttribute("preserveAspectRatio", "xMidYMin slice"); im.setAttribute("clip-path", "url(#pcl-" + n.id + ")");
+      im.addEventListener("error", function () { im.remove(); g.classList.remove("ph"); });
+      var gl = g.querySelector(".gl"); g.insertBefore(im, gl); g.classList.add("ph");
+    });
+  }
+  function showPlace(id, from) {
+    if (!ECO_BY[id]) return;
+    M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
+    el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
+    PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
+    PV.scrollTop = 0; window.scrollTo(0, 0); syncHash();
+    fetchWeb(id).then(function (ok) {
+      if (M.pid !== id) return;
+      M.loading = null;
+      if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
+      PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
+      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
+      PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
+        var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
+        if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });
+      });
+    });
+  }
+  function pPhoto() {
+    var id = M.pid, m = document.getElementById("pp-main"), c = id && document.getElementById("ci-" + id);
+    if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
+    var cr = document.getElementById("pcredit"), ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki];
+    if (cr) cr.innerHTML = (ph && m && m.querySelector("img") ? "<p>" + creditHTML(ph) + "</p>" : "") + "<p>Species photos via Wikipedia.</p>";
+  }
+  function closePlace() { M.pid = null; PV.hidden = true; showMap(); }
+  PV.addEventListener("keydown", function (ev) { var t = ev.target; if ((ev.key === "Enter" || ev.key === " ") && t.getAttribute && t.getAttribute("role") === "button") { ev.preventDefault(); t.click(); } });
+  PV.addEventListener("click", function (ev) {
+    var id = M.pid; if (!id) return;
+    var t = ev.target.closest("[data-pback],[data-pnode],[data-pjourney],[data-ppage],#pgraph"); if (!t) return;
+    if (t.hasAttribute("data-pback")) closePlace();
+    else if (t.hasAttribute("data-pjourney")) { var jid = t.getAttribute("data-pjourney"); PV.hidden = true; M.pid = null; showJourney(jid); }
+    else if (t.hasAttribute("data-ppage")) showPlace(t.getAttribute("data-ppage"));
+    else if (t.hasAttribute("data-pnode")) { var nid = t.getAttribute("data-pnode"); PV.hidden = true; M.pid = null; showWeb(id, function () { select(nid); }, null, id); }
+    else { var pn = ev.target.closest(".pn"), nd = pn && pn.getAttribute("data-node"); PV.hidden = true; M.pid = null; showWeb(id, nd ? function () { select(nd); } : null, null, id); }
+  });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
   function showMap() {
-    M.loading = null; sim.stop();
+    M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
-    JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Map";
+    JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Places";
     el.h1.textContent = "Connected Earth";
     if (M.map) M.map.resize();
     refreshArcs();
     renderView(false);
     syncHash();
   }
-  function showWeb(id, then, fromJ) {
+  function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
+  function showWeb(id, then, fromJ, fromP) {
+    PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
-    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = fromJ ? "&larr; Journey" : "&larr; Map";
+    JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = "&larr; " + (fromJ ? "Journey" : escH(ECO_BY[id].name)); setPbk();
     el.eco.value = id; M.loading = id;
     var wl = document.getElementById("webload"), ready = !!ECO_BY[id].nodes;
     wl.hidden = ready; wl.textContent = "Loading\u2026"; wl.classList.remove("err");
@@ -2773,7 +3101,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     syncHash();
   }
-  el.back.addEventListener("click", function () { M.loading = null; var f = M.cameFrom; if (f && !el.webview.hidden) { M.cameFrom = null; showJourney(f); } else showMap(); });
+  el.back.addEventListener("click", function () { M.loading = null; var f = M.cameFrom; if (f && !el.webview.hidden) { M.cameFrom = null; showJourney(f); } else if (!el.webview.hidden && el.eco.value) showPlace(el.eco.value); else showMap(); });
 
   M.h0 = location.hash.slice(1);
   buildMap();

@@ -243,8 +243,8 @@ for (const [name, size] of SIZES2) {
     const a = await setup(name, size); await a.open();
     // Places -> open a place -> back: still on Places
     await a.p.click('#cards .card >> nth=0'); await a.p.waitForTimeout(1500);
-    assert.equal(await a.p.evaluate(() => !document.getElementById('webview').hidden), true);
-    await a.p.evaluate(() => document.getElementById('back').click()); await a.p.waitForTimeout(900);
+    assert.equal(await a.p.evaluate(() => !document.getElementById('pview').hidden), true, 'a place opens its page');
+    await a.p.click('#pview [data-pback]'); await a.p.waitForTimeout(900);
     assert.equal(await a.tabOn(), 'Places');
     // Journeys -> open a journey chip -> back: still on Journeys, same filter and card state sane
     await a.open(); await a.tab('journeys'); await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300);
