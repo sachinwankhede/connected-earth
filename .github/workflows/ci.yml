@@ -1,8 +1,17 @@
 name: checks
+# The browser tests are skipped when a change only touches files that cannot affect the app
+# (the data-job workflows, docs, notes and the state queue). Changes to this file still run them.
 on:
   push:
     branches: [main]
+    paths-ignore: &quiet
+      - ".github/workflows/data-*.yml"
+      - "docs/**"
+      - "CLAUDE.md"
+      - "README.md"
+      - "pipeline/state_queue.txt"
   pull_request:
+    paths-ignore: *quiet
   workflow_dispatch:
 jobs:
   check:
