@@ -29,7 +29,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(r.nodes, 30); const ix = ['Top predators', 'Hunters', 'Plant-eaters', 'Plants'].map((x) => r.heads.findIndex((h) => h.startsWith(x))); assert.ok(ix.every((v, i) => v >= 0 && (i === 0 || v === ix[i - 1] + 1)), 'four rows by level in order: ' + r.heads);
     assert.ok(r.heads.includes('Who feeds whom') && r.heads.includes('Journeys through here') && r.heads.includes('Shares species with'));
     assert.ok(r.chips >= 30); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
-    assert.equal(r.back, '‹ Map'); assert.equal(r.web, false); assert.equal(r.map, false);
+    assert.equal(r.back, '‹ Places'); assert.equal(r.web, false); assert.equal(r.map, false);
     assert.deepEqual(errors, []); await b.close();
   });
 

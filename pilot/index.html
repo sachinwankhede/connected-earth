@@ -590,11 +590,17 @@ div.card { cursor: default; }
 #webctl:not(.moved):has(#reset[hidden]) { display: none !important; }
 .gcap { position: fixed; left: 24px; right: 24px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 6; margin: 0; text-align: center; font: 500 12px var(--font-body); color: var(--muted); pointer-events: none; }
 .gcap:has(~ .psheet:not(.nosel)) { display: none; }
+/* a slimmer top: the back link row is 38px tall and the page gives up most of its top padding on phones */
+@media (max-width: 700px) {
+  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { padding-top: 4px; }
+  .jp .jhero { margin: 0 0 12px; }
+  .pbk:not([hidden]) { top: 4px; }
+}
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
 /* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
-.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: fixed; left: 24px; top: 22px; z-index: 14; max-width: calc(100vw - 90px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: fixed; left: 24px; top: 22px; z-index: 14; max-width: calc(100vw - 90px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
 .pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
@@ -926,7 +932,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jview[hidden] { display: none !important; }
 .jp { max-width: 720px; margin: 0 auto; padding: 0 0 calc(36px + env(safe-area-inset-bottom, 0px)); }
 .jp .jtop { position: sticky; top: 0; z-index: 3; padding: 0 0 4px; background: var(--bg); }
-.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
+.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 38px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
 .jp .jhero { display: flex; gap: 14px; align-items: center; margin: 2px 0 14px; }
 .jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
@@ -1051,7 +1057,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
     <p class="gcap" id="gcap">Arrow: food to eater &middot; Dotted ring: key species</p>
-    <button type="button" class="pbk" id="pbk">&#8249; Map</button>
+    <button type="button" class="pbk" id="pbk">&#8249; Places</button>
     <div class="psheet p-min" id="psheet"><div class="shead" id="phead"><span class="grab"></span><div class="srow" id="prow"></div></div><aside class="panel" id="panel" aria-live="polite"></aside></div>
   </main>
 
@@ -3031,7 +3037,7 @@ return maplibregl$1;
       return '<div class="pchain">' + c.map(function (n, i) { return (i ? '<span class="parr" aria-hidden="true">→</span>' : "") + '<button type="button" class="pcn" data-pnode="' + n.id + '">' + pph(n) + "<small>" + escH(n.name) + "</small></button>"; }).join("") + "</div>";
     }).join("") + '<p class="fine">Each one feeds the next.</p>' : "";
     var icon = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>";
-    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Map</button></div>' +
+    return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div>' +
       '<div class="jhero"><span class="jhimg" id="pp-main">' + icon + '</span><div><p class="jkind">' + escH(e.kind || "Place") + "</p><h2>" + escH(e.name) + '</h2><p class="jr">' + escH(e.place || "") + "</p></div></div>" +
       '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
       '<p class="fine">' + d.bio.length + " species. Lines run from food to eater.</p>" +
@@ -3065,7 +3071,7 @@ return maplibregl$1;
     if (!ECO_BY[id]) return;
     M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
-    PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Map</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
+    PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
     PV.scrollTop = 0; window.scrollTo(0, 0); syncHash();
     fetchWeb(id).then(function (ok) {
       if (M.pid !== id) return;
@@ -3101,7 +3107,7 @@ return maplibregl$1;
   function showMap() {
     M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
-    JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Map";
+    JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Places";
     el.h1.textContent = "Connected Earth";
     if (M.map) M.map.resize();
     refreshArcs();
