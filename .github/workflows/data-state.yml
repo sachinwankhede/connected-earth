@@ -51,7 +51,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           ST="${{ steps.pick.outputs.state }}"
-          sed -i "/^$ST\$/d" pipeline/state_queue.txt
+          [ -f pipeline/state_queue.txt ] && sed -i "/^$ST\$/d" pipeline/state_queue.txt || true
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git checkout -B "data/state-$ST"
           rm -f state.log.tmp; cp state.log /tmp/state.log; rm -f state.log validate.log
