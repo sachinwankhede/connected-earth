@@ -53,6 +53,16 @@ describe('place sheet', () => {
       assert.deepEqual(t.errors, []); await t.close();
     });
 
+    test(`${sizeName}: picking an environment item shows the environment so the selection is visible`, async () => {
+      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&pg=yellowstone' });
+      await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
+      const env = await t.page.evaluate(() => { const c = document.querySelector('.prow .pmc[data-pnode]'); return [...document.querySelectorAll('#pview h3')].find((h) => /^Environment/.test(h.textContent)).nextElementSibling.querySelector('[data-pnode]').getAttribute('data-pnode'); });
+      await t.page.click(`#pview [data-pnode="${env}"]`); await t.page.waitForTimeout(2500);
+      const r = await t.page.evaluate(() => { const n = document.querySelector('.node.sel,.node.on'); const b = n && n.getBoundingClientRect(); return { shown: !!n && b.width > 0, env: document.getElementById('env').getAttribute('aria-pressed'), sheet: document.getElementById('psheet').getBoundingClientRect().width > 0 }; });
+      assert.equal(r.env, 'true'); assert.ok(r.shown, 'the selected environment item is on the graph'); assert.ok(r.sheet);
+      assert.deepEqual(t.errors, []); await t.close();
+    });
+
     test(`${sizeName}: auto-generated places show no tag (the flag stays in the data)`, async () => {
       const t = await H.open(browser, H.PILOT, size, { hash: '#stub&e=mocastlewood' });
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false);

@@ -1402,7 +1402,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     var y = cur.applyY(d.y), x = cur.applyX(d.x);
     if (y > visH - 44 || y < 60 || x < 36 || x > cw - 36) focusMoved = true, svg.transition().duration(380).call(zoom.translateTo, d.x, d.y, [cw / 2, Math.max(70, visH * 0.5)]);
   }
-  function select(id) { state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
+  function select(id) { var nn = BY[id]; if (nn && nn.cat && !state.env) setEnv(true);   /* an environment item can only be seen with the environment shown */
+    state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
   function clearSel() { if (!state.sel && !state.hov) return; state.sel = null; state.hov = null; renderPanel(); apply(); if (PH && focusMoved) { focusMoved = false; fit(true); } }
 
   /* ---------- What-if model. Values are percent change from normal. A species you edit is held at that value; every other node is relaxed toward two rules until the numbers settle:
