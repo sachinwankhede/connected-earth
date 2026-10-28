@@ -1,9 +1,8 @@
 name: data-state
 # Builds the next US state's parks (PAD-US list, GBIF species, GloBI feeding links) and opens one pull request for it.
+# Manual runs only for now (Actions tab > data-state > Run workflow); the schedule is added once the quality is checked.
 # One state at a time: nothing new starts while a state pull request is still open. The queue is pipeline/state_queue.txt.
 on:
-  schedule:
-    - cron: "11 */8 * * *"
   workflow_dispatch:
     inputs:
       state: { description: "Two-letter state code (blank = next in the queue)", default: "" }
