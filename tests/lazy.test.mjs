@@ -41,9 +41,7 @@ describe('places load on demand', () => {
       await t.page.fill('#q', 'yellowstone'); await t.page.waitForTimeout(600);
       await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(2000);
       assert.equal(t.webs.length, 1, 'one web fetched: ' + t.webs);
-      assert.ok(await t.page.evaluate(() => !!document.querySelector('#panel .lead')), 'place sheet open');
-      assert.ok(await t.page.evaluate(() => document.querySelectorAll('#svg .node').length > 5), 'graph drawn');
-      assert.equal(await t.page.evaluate(() => document.getElementById('webload').hidden), true);
+      assert.ok(await t.page.evaluate(() => !document.getElementById('pview').hidden && document.querySelectorAll('#pgraph .pn').length > 5), 'place page with its picture');
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
 
@@ -89,13 +87,12 @@ describe('places load on demand', () => {
       const t = await open(size, '', { failWebs: true });
       await t.page.fill('#q', 'yellowstone'); await t.page.waitForTimeout(600);
       await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(1500);
-      assert.match(await t.page.textContent('#webload'), /could not be loaded/);
-      await t.page.evaluate(() => document.getElementById('back').click()); await t.page.waitForTimeout(600);
+      assert.match(await t.page.textContent('#pview'), /could not be loaded/);
+      await t.page.click('#pview [data-pback]'); await t.page.waitForTimeout(600);
       assert.equal(await t.page.evaluate(() => document.getElementById('mapview').hidden), false, 'back on the map');
       t.state.fail = false;
       await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(2000);
-      assert.ok(await t.page.evaluate(() => !!document.querySelector('#panel .lead')), 'opens after retry');
-      assert.equal(await t.page.evaluate(() => document.getElementById('webload').hidden), true);
+      assert.ok(await t.page.evaluate(() => document.querySelectorAll('#pgraph .pn').length > 5), 'opens after retry');
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
   }
