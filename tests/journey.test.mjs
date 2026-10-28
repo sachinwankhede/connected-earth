@@ -93,6 +93,21 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(errors, []); await b.close();
   });
 
+  test(`${name}: the play button stays small and clear of the route and its places on every journey, and no stray dots clutter the map`, async () => {
+    const { b, p, errors } = await start();
+    const ids = await p.evaluate(() => window.__M.journeyIds());
+    for (const id of ids) {
+      await p.evaluate((i) => window.__M.showJourney(i), id); await p.waitForTimeout(350);
+      const r = await p.evaluate(() => {
+        const m = document.getElementById('jfly'), s = m.querySelector('svg'), mr = m.getBoundingClientRect(), pr = m.querySelector('.jplay').getBoundingClientRect(), k = mr.width / s.viewBox.baseVal.width;
+        const hit = window.__M.jpts.filter((q) => { const x = mr.left + q[0] * k, y = mr.top + q[1] * k; return x > pr.left - 14 && x < pr.right + 14 && y > pr.top - 14 && y < pr.bottom + 14; }).length;
+        return { hit, w: Math.round(pr.width), h: Math.round(pr.height), near: m.querySelectorAll('.jnear').length, inside: pr.left >= mr.left && pr.right <= mr.right && pr.bottom <= mr.bottom };
+      });
+      assert.equal(r.hit, 0, id + ' button covers the route'); assert.equal(r.near, 0); assert.ok(r.inside && r.h <= 40 && r.w <= 170, id + ' ' + JSON.stringify(r));
+    }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
   test(`${name}: back, more journeys, the food web and the link in a food web all connect`, async () => {
     const { b, p, errors } = await start();
     if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(500); }
