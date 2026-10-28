@@ -105,6 +105,7 @@ export const GROUPS = {
 };
 
 // What the home line should say for a set of places
+export const HOOK = 'What eats what, and where it travels';
 export function expectedHook(places) {
   const sp = new Set(); let links = 0;
   for (const e of places) {

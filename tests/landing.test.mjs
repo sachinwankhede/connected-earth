@@ -7,7 +7,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
   const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
   await t.page.waitForTimeout(600);
   const r = await t.page.evaluate(() => ({ pitch: document.querySelector('#hook .pitch').textContent, stat: document.querySelector('#hook .stat').textContent, peek: document.getElementById('speek').textContent, sheet: document.getElementById('sheet').className }));
-  assert.match(r.pitch, /Who eats whom/); assert.doesNotMatch(r.stat, /links/); assert.match(r.peek, /Start here/); assert.match(r.sheet, /s-min/);
+  assert.match(r.pitch, /See how nature is connected/); assert.match(r.stat, /What eats what/); assert.match(r.peek, /Start here/); assert.match(r.sheet, /s-min/);
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
   assert.match(await t.page.evaluate(() => document.getElementById('sheet').className), /s-half/);
   assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('speek')).display), 'none', 'peek goes away once the sheet is open (the list shows the same place)');
@@ -31,7 +31,7 @@ test('desktop: plain card wording, continent chips carry counts, no list heading
   assert.deepEqual(r.g, [], 'no list headings');
   assert.match(r.card, /feeding links/);
   assert.equal(r.lbl, 'Browse by continent'); assert.ok(r.counts >= 5, 'continent chips show counts');
-  assert.match(r.stats, /Who eats whom/);
+  assert.match(r.stats, /See how nature is connected/);
   assert.deepEqual(t.errors, []);
   await b.close();
 });
@@ -116,7 +116,7 @@ test('desktop keeps the pitch and counts in the panel', async () => {
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
   await t.page.waitForTimeout(500);
-  assert.match(await t.page.evaluate(() => document.getElementById('stats').textContent), /Who eats whom.*places/);
+  assert.match(await t.page.evaluate(() => document.getElementById('stats').textContent), /See how nature is connected.*where it travels/);
   await b.close();
 });
 
@@ -293,10 +293,10 @@ test('phone: tabs x sheet states - collapsed, half and full, switching from ever
 test('desktop: tabs keep the panel header in step', async () => {
   const a = await setup('desktop', H.SIZES.desktop);
   const stats = () => a.p.evaluate(() => document.getElementById('stats').textContent);
-  assert.match(await stats(), /Who eats whom/);
+  assert.match(await stats(), /See how nature is connected/);
   await a.tab('journeys'); assert.match(await stats(), /^\d+ journeys$/);
   await a.p.click('#regions .chip:text-matches("^Africa")'); await a.p.waitForTimeout(300); assert.match(await stats(), /^\d+ journeys? in Africa$/);
-  await a.tab('places'); assert.match(await stats(), /Who eats whom/);
+  await a.tab('places'); assert.match(await stats(), /See how nature is connected/);
   await a.p.click('#regions .chip >> nth=0'); await a.p.waitForTimeout(500); assert.match(await stats(), /places? in /);
   await a.tab('journeys'); assert.match(await stats(), /in Africa$/, 'journeys filter kept while the map moved');
   await a.tab('places'); assert.match(await stats(), /places? in /);

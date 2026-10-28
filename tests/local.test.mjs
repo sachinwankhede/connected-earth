@@ -15,12 +15,12 @@ for (const [buildName, isPilot] of [['main', false], ['pilot', true]]) describe(
       const t = await H.open(browser, isPilot ? H.PILOT : H.MAIN, size);
       assert.ok(local.length > 0);
       assert.equal(await t.page.getAttribute('#locbtn', 'aria-pressed'), 'false');
-      assert.equal(await H.hookText(t.page), H.expectedHook(national));
+      assert.equal(await H.hookText(t.page), H.HOOK);
       const before = await H.dots(t.page);
       await t.page.click('#locbtn'); await t.page.waitForTimeout(900);
       assert.equal(await t.page.getAttribute('#locbtn', 'aria-pressed'), 'true');
       assert.equal(await H.dots(t.page), before + local.length);
-      assert.equal(await H.hookText(t.page), H.expectedHook(places));
+      assert.equal(await H.hookText(t.page), H.HOOK);
       await t.page.click('#locbtn'); await t.page.waitForTimeout(700);
       assert.equal(await H.dots(t.page), before);
       assert.deepEqual(t.errors, []);

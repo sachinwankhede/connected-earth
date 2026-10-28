@@ -2479,7 +2479,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     m.setPaintProperty("atl-pt", "circle-opacity", f); m.setPaintProperty("atl-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-lb", "text-opacity", f); m.setPaintProperty("atl-f-pt", "circle-opacity", f); m.setPaintProperty("atl-f-pt", "circle-stroke-opacity", f); m.setPaintProperty("atl-f-lb", "text-opacity", f);
   }
   function refreshArcs() { pushTies(); }
-  var PITCH = "Who eats whom, around the world";
+  var PITCH = "See how nature is connected", PITCH2 = "What eats what, and where it travels";
   function heroStats() {
     var sp = {}, ns = 0, np = 0, nl = 0;
     ECOS.forEach(function (e) {
@@ -2530,8 +2530,8 @@ rect.core { stroke-dasharray: 3 2.5; }
       ? heroStats()
       : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
     var hk = document.getElementById("hook");
-    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) { hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + heroStats().replace(/([\d,]+) (places|species)/g, "<b>$1</b> $2") + "</span>"; } }
-    if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + heroStats();
+    if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + PITCH2 + "</span>"; }
+    if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + PITCH2;
     var spk = document.getElementById("speek");
     if (spk) {
       var f1 = view.level === "world" && !FL.q && !FL.kind && !FL.park ? ECOS.filter(function (e) { return !e.li.hidden; })[0] : null;
