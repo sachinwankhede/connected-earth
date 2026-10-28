@@ -60,7 +60,7 @@ describe('places load on demand', () => {
       // pick a species that is also in other places, then jump
       const jumped = await t.page.evaluate(async () => {
         const chips = [...document.querySelectorAll('.node')];
-        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump'); } }
+        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump'); } }
         return null;
       });
       assert.ok(jumped, 'found a species with another place');

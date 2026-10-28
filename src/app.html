@@ -494,7 +494,7 @@ div.card { cursor: default; }
   .sheet.drag { transition: none; }
   body:has(#peek:not([hidden])) .sheet { display: none; }
   .shead { display: block; flex: none; padding: 8px 14px 4px; touch-action: none; cursor: grab; }
-  .grab { display: block; width: 40px; height: 4px; border-radius: 2px; background: var(--line); margin: 0 auto 6px; }
+  .grab { display: block; width: 44px; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--muted) 55%, var(--line)); margin: 0 auto 6px; }
   .srow { display: flex; align-items: center; gap: 8px; min-height: 34px; font: 700 16px var(--font-display); }
   .srow .sbk { border: 0; background: transparent; color: var(--accent); font: 700 15px var(--font-body); padding: 6px 8px 6px 0; min-height: 40px; cursor: pointer; }
   .srow .stt { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -686,7 +686,15 @@ div.card { cursor: default; }
 .panel .art.hasph { position: relative; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); }
 .panel .art.hasph svg { display: none; }
 .panel .art.hasph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%; }
-.panel .pcap { margin: 0 0 6px; }
+.panel .pcap { margin: 6px 0 6px; }
+.prow.cont { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent); }
+.panel .facts { margin: 4px 0 0; font: 600 13px var(--font-body); color: var(--ink); }
+.panel .head .badge { margin-top: 6px; }
+.panel h3.hrow { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.panel h3.hrow a { flex: none; font: 600 12px var(--font-body); letter-spacing: 0; text-transform: none; color: var(--accent); }
+.panel .ppc small, .jp .ppc small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.panel .pph:not(.has), .jp .pph:not(.has) { background: color-mix(in srgb, var(--c, var(--muted)) 16%, var(--surface)); }
+.panel .pph:not(.has) svg, .jp .pph:not(.has) svg { stroke: var(--c, var(--muted)); }
 .panel .fine a { color: var(--accent); }
 #webctl .btn, #webctl #moreb { align-content: center; justify-content: center; }
 .panel .found { margin-top: 18px; }
@@ -1564,9 +1572,21 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (!edges.length) return "";
     return "<h3>" + title + " (" + edges.length + ")</h3><div class=\"prow\">" + edges.map(function (e) {
       var m = BY[e[key]];
-      return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
+      return '<button type="button" class="pmc" data-id="' + m.id + '"><span class="pbox"><span class="pph" data-nid="' + m.id + '" style="--c:' + colorVar(m) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[m.ic] || "") + "</svg></span></span><b>" + escH(m.name) + "</b></button>";
     }).join("") + "</div>";
   }
+  function factsHTML(ins, outs) {
+    function c(l, kinds) { return l.filter(function (e) { return kinds.indexOf(e.kind) >= 0; }).length; }
+    var eats = c(ins, ["eats", "scav"]), eaten = c(outs, ["eats", "scav"]), f = [];
+    if (eats) f.push("Eats " + eats); if (eaten) f.push("Eaten by " + eaten);
+    if (!f.length && outs.length) f.push("Feeds " + outs.length);
+    return f.length ? '<p class="facts">' + f.join(" \u00B7 ") + "</p>" : "";
+  }
+  function rowHints(root) {
+    (root || document).querySelectorAll(".prow").forEach(function (r) { r.classList.toggle("cont", r.scrollWidth > r.clientWidth + 6 && r.scrollLeft + r.clientWidth < r.scrollWidth - 6); });
+  }
+  document.addEventListener("scroll", function (ev) { var t = ev.target; if (t && t.classList && t.classList.contains("prow")) rowHints(t.parentNode); }, true);
+  addEventListener("resize", function () { rowHints(); });
   function photoCap(n) { var p = photoOf(n); return p ? '<p class="fine pcap">Photo via Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a></p>' : ""; }
   function pnlPhotos() {
     if (!state.sel) return;
@@ -1575,13 +1595,13 @@ rect.core { stroke-dasharray: 3 2.5; }
       var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
       if (e && e.imgwiki && !ph && !WAIT[e.imgwiki] && window.fetch) { WAIT[e.imgwiki] = [{ isEco: true, e: e }]; fetchPhoto(e.imgwiki); }
       if (!ph || b.querySelector("img")) return;
-      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im);
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
     panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
       var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
       if (m && m.wiki && !ph && !WAIT[m.wiki] && window.fetch) { WAIT[m.wiki] = [m]; fetchPhoto(m.wiki); }   /* a picture that failed earlier gets another try */
       if (!ph || b.querySelector("img")) return;
-      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im);
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has"); b.classList.add("has");
     });
   }
   function overviewHTML() {
@@ -1683,9 +1703,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hits = [];
     ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, id: m[2] }); }); });
     if (!hits.length) return "";
-    return '<h3>Also found in ' + hits.length + (hits.length === 1 ? " place" : " places") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
-      return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b></button>";
-    }).join("") + '</div>' + (hits.length > 1 ? '<p class="fine"><a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show all on the map</a></p>' : "");
+    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + (hits.length > 1 ? '<a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show on the map</a>' : "") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
+      return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
+    }).join("") + "</div>";
   }
   var P = { set: function () {}, last: undefined };
   function renderPanel() {
@@ -1707,21 +1727,20 @@ rect.core { stroke-dasharray: 3 2.5; }
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
       '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
       '<span class="tlpill">' + kindText(n) + "</span>" +
-      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + "</div></div>" +
-      (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") +
-      "<p>" + n.desc + "</p>" + aboutHTML(n) + photoCap(n) +
-      group("Eats", k(ins, "eats"), "s") +
-      group("Eaten by", k(outs, "eats"), "t") +
-      group("Scavenges from", k(ins, "scav"), "s") +
-      group("Depends on", k(ins, "res"), "s") +
-      group("Breaks down", k(ins, "det"), "s") +
+      "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + factsHTML(ins, outs) + (n.badge ? '<span class="badge">' + n.badge + "</span>" : "") + "</div></div>" +
+      "<p>" + n.desc + "</p>" + aboutHTML(n) +
+      group("What " + n.name + " eats", k(ins, "eats"), "s") +
+      group("What eats " + n.name, k(outs, "eats"), "t") +
+      group(n.name + " scavenges from", k(ins, "scav"), "s") +
+      group(n.name + " depends on", k(ins, "res"), "s") +
+      group(n.name + " breaks down", k(ins, "det"), "s") +
       group("Scavenged by", k(outs, "scav"), "t") +
-      group("Supports", k(outs, "res"), "t") +
+      group(n.name + " supports", k(outs, "res"), "t") +
       group("Broken down by", k(outs, "det"), "t") +
       linkHTML(n) + whereElseHTML(n) +
-      '<details class="more"><summary>More</summary>' + evHTML(ins, outs) + srcHTML(n) +
+      '<details class="more"><summary>More</summary>' + photoCap(n) + evHTML(ins, outs) + srcHTML(n) +
       (hasUp ? '<label class="trace"><input type="checkbox" id="trace"' + (state.trace ? " checked" : "") + '><span>Trace back to its energy source</span></label><p class="trace-note" id="trace-note">' + (state.trace ? traceText() : "") + "</p>" : "") + "</details>" + whatIfHTML(n);
-    pnlPhotos();
+    pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); });
   }
   function setEdit(id, v) {
     if (!id) return;
@@ -2901,7 +2920,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     function f(id) { if (memo[id] != null) return memo[id]; if (vis[id]) return 0; vis[id] = 1; var m = 0; d.outs[id].forEach(function (t) { m = Math.max(m, 1 + f(t)); }); vis[id] = 0; return (memo[id] = m); }
     return d.bio.reduce(function (a, n) { return Math.max(a, f(n.id)); }, 0) + 1;
   }
-  function pph(n, icons) { return '<span class="pph" data-pid="' + n.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></span>"; }
+  function pph(n, icons) { return '<span class="pph" data-pid="' + n.id + '" style="--c:' + colorVar(n) + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></span>"; }
   function pHTML(id) {
     var d = pData(id), e = d.e, byDeg = d.bio.slice().sort(function (a, b) { return d.deg[b.id] - d.deg[a.id]; });
     var plural = { 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants" }, star = byDeg[0] && byDeg[0].id;
@@ -2965,7 +2984,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (M.pid !== id) return;
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
-      PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto();
+      PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
       ECO_BY[id].nodes.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
