@@ -665,12 +665,16 @@ div.card { cursor: default; }
 .panel .head .art svg { width: 40px; height: 40px; }
 .panel .latin { margin: 4px 0 0; font: italic 600 14px var(--font-body); color: var(--muted); }
 /* the name lives in the hero, as on journeys and places; the sheet's top line keeps it only while collapsed */
+@media (min-width: 701px) { .pchev { display: none; } }
+.panel .head { position: relative; }
 @media (max-width: 700px) {
   /* expanded: the top line collapses to a slim grab bar; the chevron floats at the top right of the hero */
   .psheet:not(.p-min) .srow .stt { display: none; }
   .psheet:not(.p-min) #phead { position: relative; padding: 8px 14px 2px; }
   .psheet:not(.p-min) .srow { min-height: 0; height: 0; }
-  .psheet:not(.p-min) .srow::after { position: absolute; right: 18px; top: 22px; margin: 0; }
+  .psheet:not(.p-min) .srow::after { display: none; }
+  .pchev { display: block; position: absolute; right: -8px; top: -8px; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; }
+  .pchev::after { content: ""; position: absolute; left: 15px; top: 13px; width: 9px; height: 9px; border-right: 2px solid var(--muted); border-top: 2px solid var(--muted); transform: rotate(135deg); }
   .psheet:not(.p-min) #panel .head { padding-right: 30px; margin-top: 0; }
 }
 @media (min-width: 701px) { .psheet #phead.shead { display: none; } }
@@ -1788,7 +1792,7 @@ return maplibregl$1;
       return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
     }).join("") + "</div>";
   }
-  var P = { set: function () {}, last: undefined };
+  var P = { set: function () {}, toggle: function () {}, last: undefined };
   function renderPanel() {
     var id = state.sel;
     var ps = document.getElementById("psheet");
@@ -1806,7 +1810,7 @@ return maplibregl$1;
     var hasUp = ins.some(flows);
     panel.innerHTML =
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
-      '<div class="head"><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
+      '<div class="head"><button type="button" class="pchev" data-pchev aria-label="Collapse"></button><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
       '<span class="tlpill">' + kindLine(n) + "</span>" +
       "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + '</div></div>' +
       "<p>" + n.desc + "</p>" + aboutHTML(n) +
@@ -2714,7 +2718,8 @@ return maplibregl$1;
       var sh = document.getElementById("psheet"), hd = document.getElementById("phead"); if (!sh || !hd) return;
       var st = "min", sy = 0, h0 = 0, moved = false, drag = false;
       function setS(s) { st = s; sh.classList.remove("p-min", "p-half", "p-full"); sh.classList.add("p-" + s); sh.style.height = ""; }
-      P.set = setS;
+      P.set = setS; P.toggle = function () { setS(st === "min" ? "half" : "min"); };
+      panel.addEventListener("click", function (ev) { if (ev.target.closest("[data-pchev]")) { ev.stopPropagation(); P.toggle(); } }, true);
       document.getElementById("pbk").addEventListener("click", function () { el.back.click(); });
       document.getElementById("prow").addEventListener("click", function (e) { if (!e.target.closest(".pclose")) return; e.stopPropagation(); if (state.sel) clearSel(); else el.back.click(); });
       hd.addEventListener("pointerdown", function (e) { if (e.target.closest("button")) return; drag = true; moved = false; sy = e.clientY; h0 = sh.getBoundingClientRect().height; sh.classList.add("drag"); try { hd.setPointerCapture(e.pointerId); } catch (x) {} });

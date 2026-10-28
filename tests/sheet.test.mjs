@@ -50,6 +50,13 @@ describe('place sheet', () => {
       await t.page.evaluate(() => document.querySelectorAll('#panel .prow')[1].querySelector('.pmc').click()); await t.page.waitForTimeout(800);
       const after = await t.page.evaluate(() => document.querySelector('#prow .stt').textContent);
       assert.notEqual(after, before, 'selection moved to the tapped species');
+      if (sizeName === 'phone') {
+        const h = () => t.page.evaluate(() => Math.round(document.getElementById('psheet').getBoundingClientRect().height));
+        const full = await h(); await t.page.click('.pchev'); await t.page.waitForTimeout(700);
+        assert.ok((await h()) < 100, 'the chevron collapses the sheet to its top line');
+        await t.page.click('#phead'); await t.page.waitForTimeout(700);
+        assert.ok((await h()) > full - 5, 'tapping the top line opens it again');
+      }
       assert.deepEqual(t.errors, []); await t.close();
     });
 
