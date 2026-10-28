@@ -34,7 +34,7 @@ describe('stored place photos carry a credit line', () => {
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
       await page.waitForTimeout(2000);
       await page.waitForFunction(() => { const i = document.querySelector('#pp-main img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 60000 }).catch(() => {});
-      const r = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); const f = document.getElementById('pcredit'); if (!i) return null; return { src: i.getAttribute('src'), ok: i.naturalWidth > 0, cap: f.textContent, links: [...f.querySelectorAll('a')].map((a) => a.href) }; });
+      const r = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); const f = document.getElementById('pcredit'); if (!i) return null; return { src: i.getAttribute('src'), ok: i.naturalWidth > 0, cap: f.querySelector('ul').textContent, links: [...f.querySelectorAll('a')].map((a) => a.href) }; });
       assert.ok(r, 'photo figure shown');
       assert.ok(r.src.includes('photos/places/' + m.f), 'served from our files: ' + r.src);
       assert.ok(r.ok, 'image loaded');

@@ -22,7 +22,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Credits.** Every photo has its author and licence reachable on the screen that shows it.
 - **Share.** Journey, place and food-web screens each have one share icon (`shareBtn()`), top-right in the same row as the back link. Never a text button.
 - **Closed bottom sheet.** Any bottom sheet in its closed state (landing place card, species sheet) is the same peek card: square photo on the left, small uppercase mono kind line, bold name, chevron on the right, no grab handle. Never a bare title bar.
-- **Sources & credits.** Every content screen (journey, place, species sheet) ends with one collapsed "Sources & credits" section (`footHTML()`): sources, notes and photo credits together. No separate "More" or "Read more". Controls such as the trace toggle sit above it, not inside.
+- **Sources & credits.** Every content screen (journey, place, species sheet) ends with one collapsed "Sources & credits" section built by `footHTML()`. Inside, labelled groups always appear in this order and only when they have content: **Sources** (links), **Photos** (one line each: "Photo: author · licence · Wikimedia Commons"), **Notes** (plain text), **Evidence** (species sheet only). Lists use the same bullet style everywhere. No separate "More" or "Read more". Controls such as the trace toggle sit above it, not inside.
 
 ## Navigation shape
 Map → Place page → Explore (graph) → species sheet. Back always goes one step up and says where. Journeys sit beside places and link both ways.
