@@ -39,6 +39,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       const r = await p.evaluate(() => { const v = [...document.querySelectorAll('.shbtn')].filter((e) => e.getBoundingClientRect().width > 0); const f = [...document.querySelectorAll('details.srcd summary')].filter((e) => e.getBoundingClientRect().width > 0).map((e) => e.textContent.trim()); return { share: v.length, foot: f }; });
       assert.equal(r.share, 1, `${scr}: exactly one share icon`);
       if (scr !== 'explore') assert.deepEqual(r.foot, ['Sources & credits'], `${scr}: shared footer`);
+      const g = await p.evaluate(() => [...document.querySelectorAll('details.srcd')].map((d) => [...d.querySelectorAll('.fgrp:not([hidden]) h4')].map((h) => h.textContent)));
+      const ORDER = ['Sources', 'Photos', 'Notes', 'Evidence'];
+      for (const hs of g) { assert.ok(hs.length > 0, `${scr}: footer has content`); assert.deepEqual(hs, ORDER.filter((x) => hs.includes(x)), `${scr}: footer groups in the standard order`); }
       assert.deepEqual(t.errors, []); await t.close();
     }
     await b.close();

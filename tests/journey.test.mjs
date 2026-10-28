@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Red knot'); assert.match(s.hash, /j=knot/);
     const r = await p.evaluate(() => {
       const j = document.getElementById('jview');
-      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd .srcs a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd .srcs a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text:not(.jemo)')].map((t) => t.textContent) };
+      return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd .fgrp:nth-child(2) .srcs a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd .fgrp:nth-child(2) .srcs a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text:not(.jemo)')].map((t) => t.textContent) };
     });
     assert.deepEqual(r.heads, ['The story', 'Places on this route', 'More journeys']);
     assert.ok(r.srcClosed, 'sources start collapsed'); assert.ok(r.endH <= 96, 'compact place row: ' + r.endH);
@@ -115,6 +115,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const first = await p.evaluate(() => document.querySelector('#xcards li:not([hidden]) .jcard').id.slice(3));
     await p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await p.waitForTimeout(400);
     assert.equal((await shown(p)).page, true);
+    // each more-journeys row has a picture slot, filled from the journey's own photo
+    const mj = await p.evaluate(() => { const bt = document.querySelector('#jview .jmore button'); const id = bt.dataset.jj, slot = bt.querySelector('.jmimg'); const x = document.getElementById('xi-' + id); x.innerHTML = '<img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">'; window.__M.showJourney(window.__M.jid); return { slot: !!slot, filled: !!document.querySelector('#jview .jmore .jmimg img') }; });
+    assert.ok(mj.slot && mj.filled, 'more journeys rows show a photo');
     // more journeys -> another page
     const t1 = (await shown(p)).title;
     await p.click('#jview .jmore button >> nth=0'); await p.waitForTimeout(400);
