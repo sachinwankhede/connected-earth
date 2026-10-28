@@ -115,6 +115,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const first = await p.evaluate(() => document.querySelector('#xcards li:not([hidden]) .jcard').id.slice(3));
     await p.click('#xcards li:not([hidden]) .jcard >> nth=0'); await p.waitForTimeout(400);
     assert.equal((await shown(p)).page, true);
+    // each more-journeys row has a picture slot, filled from the journey's own photo
+    const mj = await p.evaluate(() => { const bt = document.querySelector('#jview .jmore button'); const id = bt.dataset.jj, slot = bt.querySelector('.jmimg'); const x = document.getElementById('xi-' + id); x.innerHTML = '<img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="">'; window.__M.showJourney(window.__M.jid); return { slot: !!slot, filled: !!document.querySelector('#jview .jmore .jmimg img') }; });
+    assert.ok(mj.slot && mj.filled, 'more journeys rows show a photo');
     // more journeys -> another page
     const t1 = (await shown(p)).title;
     await p.click('#jview .jmore button >> nth=0'); await p.waitForTimeout(400);

@@ -592,14 +592,14 @@ div.card { cursor: default; }
 .stage.hasel .gcap { display: none; }
 /* a slimmer top: the back link row is 38px tall and the page gives up most of its top padding on phones */
 @media (max-width: 700px) {
-  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 0; }
+  body:has(#jview:not([hidden])), body:has(#pview:not([hidden])) { margin-top: 0; padding-top: 10px; }
   .jp .jhero { margin: 0 0 12px; }
 }
 /* nothing selected: just the graph (no sheet, no side panel) */
 .psheet.nosel { display: none !important; }
 .main:has(.psheet.nosel) { grid-template-columns: minmax(0, 1fr); }
 /* the one back link: the same look and place on every screen (see docs/DESIGN.md); over the graph it gets a faint backdrop */
-.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 6px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: color-mix(in srgb, var(--surface) 86%, transparent); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.pbk { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; border: 0; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; position: absolute; left: 16px; top: 12px; z-index: 14; max-width: calc(100% - 100px); padding: 0 14px 0 10px; border-radius: 999px; background: var(--surface); }
 .pbk[hidden] { display: none; }
 #moreb { display: none; }
 @media (max-width: 700px) {
@@ -1011,13 +1011,18 @@ rect.core { stroke-dasharray: 3 2.5; }
 .shbtn.done svg:not(.ok) { display: none; }
 .shbtn.done .ok { display: block; }
 .jp .jtop { display: flex; align-items: center; justify-content: space-between; }
-.gsh { position: absolute; right: 12px; top: 6px; z-index: 14; }
-#webctl:not([hidden]) { top: 50px !important; }
+.gsh { position: absolute; right: 12px; top: 12px; z-index: 14; }
+#webctl:not([hidden]) { top: 56px !important; }
 .jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
 .jp .jmore button::after { content: "\203a"; color: var(--muted); font-size: 22px; line-height: 1; }
-.jp .jmore button > span { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.jp .jmore button > .jmt { display: flex; flex-direction: column; gap: 1px; min-width: 0; flex: 1 1 auto; }
+.jp .jmore button { justify-content: flex-start; }
+.jp .jmore button::after { margin-left: auto; }
+.jp .jmore .jmimg { flex: none; width: 44px; height: 44px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
+.jp .jmore .jmimg img { width: 100%; height: 100%; object-fit: cover; }
+.jp .jmore .jmimg svg { width: 22px; height: 22px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
 .jp .jmore button i { font: 600 10.5px var(--font-mono); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .jp .jmore button b { font: 700 16px/1.2 var(--font-display); }
 .jcard .jgo { flex: none; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; padding-left: 2px; }
@@ -2919,7 +2924,7 @@ return maplibregl$1;
       return '<div class="jend" role="button" tabindex="0" data-jopen="' + x.eco + ":" + x.node + '"><span class="jeimg" id="jp-e' + i + '">' + icon(x.e.icon) + '</span><span class="jet">' + (x.flowLabel ? "<small>" + x.flowLabel + "</small>" : "") + "<b>" + escH(x.e.name) + '</b><span class="jrole" id="jrole' + i + '"></span></span></div>';
     }).join("");
     var src = (c.sources || []).map(function (q) { return '<li><a href="' + esc(q.u) + '" target="_blank" rel="noopener noreferrer">' + escH(q.t) + "</a></li>"; }).join("");
-    var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
+    var more = jRelated(c).map(function (o) { var oe = jEnds(o); return '<button type="button" data-jj="' + o.id + '"><span class="jmimg" id="jm-' + o.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[oe[0].e.icon] || "") + '</svg></span><span class="jmt"><i>' + escH(oe[0].e.short) + " \u2192 " + escH(oe[oe.length - 1].e.short) + "</i><b>" + escH(o.title) + "</b></span></button>"; }).join("");
     return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-jback="1">\u2039 Journeys</button>' + shareBtn() + '</div>' +
       '<div class="jhero"><span class="jhimg" id="jp-main">' + icon(fi) + '</span><div><p class="jkind">' + (c.type === "flow" ? "Nutrients carried" : "Animals that travel") + "</p><h2>" + escH(c.title) + '</h2><p class="jr">' + escH(en[0].e.short) + " <i>\u2192</i> " + escH(en[en.length - 1].e.short) + "</p></div></div>" +
       '<div class="jmap' + (rt.right ? " pr" : "") + '" id="jfly" role="button" tabindex="0" aria-label="' + escH(c.go || "Follow the route") + '">' + rt.html + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5v13l11-6.5z"/></svg>' + escH(c.go || "Follow the route") + '</span><span class="jattr">\u00a9 Esri, Maxar</span></div>' +
@@ -2945,6 +2950,7 @@ return maplibregl$1;
     var c = M.jid && jbyId(M.jid); if (!c) return;
     var m = document.getElementById("xi-" + c.id), t = document.getElementById("jp-main");
     if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
+    jRelated(c).forEach(function (o) { var s = document.getElementById("xi-" + o.id), b = document.getElementById("jm-" + o.id); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     var cr = document.getElementById("jcredit"); if (!cr) return;
     var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
