@@ -255,6 +255,13 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .shot a { color: var(--muted); }
 .eyebrow { font: 500 11px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; }
 .latin { font-style: italic; color: var(--muted); }
+.wstory { position: absolute; left: 10px; top: 10px; z-index: 3; margin: 0; max-width: calc(100% - 70px); display: flex; align-items: center; gap: 8px; padding: 7px 13px 7px 10px; border-radius: 18px; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 1px 8px rgba(0,0,0,.14); font: 600 13px/1.2 var(--font-body); color: var(--ink); cursor: pointer; overflow: hidden; -webkit-tap-highlight-color: transparent; }
+.wstory .wsi { color: var(--accent); font-size: 12px; flex: none; }
+.wstory .wst { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.wdot { fill: #fff; stroke: var(--accent); stroke-width: 2.5; pointer-events: none; filter: drop-shadow(0 0 5px var(--accent)); }
+.node.pulse .body { animation: wpulse .8s ease-out; transform-box: fill-box; transform-origin: center; }
+@keyframes wpulse { 0% { transform: scale(1); } 40% { transform: scale(1.4); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .node.pulse .body { animation: none; } }
 .webload { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; margin: 0; padding: 0 24px; text-align: center; color: var(--muted); z-index: 2; pointer-events: none; }
 .webload.err { color: var(--ink); }
 .about { color: var(--muted); font-size: 0.9em; margin-top: -2px; }
@@ -946,6 +953,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   <main class="main" id="webview" hidden>
     <div class="stage" id="stage">
       <p class="webload" id="webload" hidden></p>
+      <p class="wstory" id="wstory" role="button" tabindex="0" hidden></p>
       <svg id="svg" role="group" aria-label="Food web graph. Each node is a species or environmental factor; arrows run from food to eater."></svg>
       <p class="hint">Drag nodes · scroll or pinch to zoom · Esc clears</p>
     </div>
@@ -1166,7 +1174,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       .call(drag)
       .on("click", function (ev, d) { ev.stopPropagation(); select(d.id); })
       .on("keydown", function (ev, d) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); select(d.id); } })
-      .on("pointerenter", function (ev, d) { if (ev.pointerType === "mouse" && !state.sel) { state.hov = d.id; apply(); } })
+      .on("pointerenter", function (ev, d) { if (ev.pointerType === "mouse" && !state.sel) { storyStop(); state.hov = d.id; apply(); } })
       .on("pointerleave", function () { if (state.hov) { state.hov = null; apply(); } });
     node.append("circle").attr("class", "hit").attr("r", function (d) { return d.r + 8; });
     var body = node.append("g").attr("class", "body");
@@ -1335,8 +1343,81 @@ rect.core { stroke-dasharray: 3 2.5; }
     var y = cur.applyY(d.y), x = cur.applyX(d.x);
     if (y > visH - 44 || y < 60 || x < 36 || x > cw - 36) focusMoved = true, svg.transition().duration(380).call(zoom.translateTo, d.x, d.y, [cw / 2, Math.max(70, visH * 0.5)]);
   }
-  function select(id) { state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
-  function clearSel() { if (!state.sel && !state.hov) return; state.sel = null; state.hov = null; renderPanel(); apply(); if (PH && focusMoved) { focusMoved = false; fit(true); } }
+  // Opening story: a pulse of energy runs up one food chain, from a plant to a top predator, then the whole web settles.
+  var STORY = { tok: 0, chains: [], i: 0, dot: null, run: false };
+  var wstory = document.getElementById("wstory");
+  // Hand-picked chains for the best-known places (plant to top predator, by node id); every other place picks its own automatically.
+  var STORY_PICK = { yellowstone: [["aspen", "elk", "wolf"], ["willow", "beaver", "wolf"], ["grass", "elk", "lion"]] };
+  function storyChains() {
+    STORY.eco = state.eco;
+    var pick = (STORY_PICK[state.eco] || []).map(function (ids) { return ids.map(function (i) { return BY[i]; }); }).filter(function (c) { return c.every(function (n) { return n && isVis(n); }); });
+    if (pick.length) return pick;
+    var deg = function (n) { return INS(n.id).length + OUTS(n.id).length; }, used = {}, out = [];
+    NODES.filter(function (n) { return !n.cat && n.tl >= 3 && INS(n.id).length; }).sort(function (a, b) { return b.tl - a.tl || deg(b) - deg(a); }).forEach(function (t) {
+      if (out.length >= 3) return;
+      var chain = [t], c = t, g = 0;
+      while (g++ < 5) {
+        var pr = INS(c.id).map(function (e) { return BY[e.s]; }).filter(function (n) { return !n.cat && n.tl < c.tl && chain.indexOf(n) < 0; })
+          .sort(function (a, b) { return (used[a.id] ? 1 : 0) - (used[b.id] ? 1 : 0) || deg(b) - deg(a); });
+        if (!pr.length) break; chain.unshift(pr[0]); c = pr[0];
+      }
+      if (chain.length >= 3) { chain.forEach(function (n) { used[n.id] = 1; }); out.push(chain); }
+    });
+    return out;
+  }
+  function storyCaption(chain, upto, done) {
+    wstory.innerHTML = '<span class="wsi">' + (done ? "\u21bb" : "\u25b6") + '</span><span class="wst">' + chain.slice(0, upto + 1).map(function (n) { return escH(n.name); }).join(" \u2192 ") + "</span>";
+    wstory.setAttribute("aria-label", "Food chain: " + chain.map(function (n) { return n.name; }).join(", then ") + ". Play again");
+  }
+  function storyStop() {
+    var was = STORY.run; STORY.tok++; STORY.run = false;
+    if (STORY.dot) { STORY.dot.remove(); STORY.dot = null; }
+    if (node) node.classed("pulse", false);
+    if (was) apply();
+  }
+  function storyReady() {
+    storyStop(); STORY.chains = storyChains(); STORY.i = 0;
+    if (!STORY.chains.length) { wstory.hidden = true; return; }
+    storyCaption(STORY.chains[0], STORY.chains[0].length - 1, true); wstory.hidden = !!state.sel;
+  }
+  function storyPlay(replay) {
+    if (!STORY.chains.length || state.sel) return;
+    if (replay) STORY.i++;
+    var chain = STORY.chains[STORY.i % STORY.chains.length];
+    storyStop(); var tok = STORY.tok; STORY.run = true; wstory.hidden = false;
+    var lit = new Set([chain[0].id]), eon = new Set(), k = 0;
+    function paint() {
+      node.classed("dim", function (d) { return !lit.has(d.id); });
+      edge.classed("dim", function (e) { return !eon.has(e); }).classed("on", function (e) { return eon.has(e); }).attr("marker-end", function (e) { return eon.has(e) ? "url(#arr-on)" : "url(#arr)"; });
+    }
+    function pulse(n) { node.filter(function (d) { return d === n; }).classed("pulse", true); setTimeout(function () { if (STORY.tok === tok) node.classed("pulse", false); }, 800); }
+    function end() { if (STORY.tok !== tok) return; storyStop(); storyCaption(chain, chain.length - 1, true); wstory.hidden = !!state.sel; }
+    storyCaption(chain, 0, false); paint(); pulse(chain[0]);
+    if (reduce) { chain.forEach(function (n) { lit.add(n.id); }); paint(); setTimeout(end, 1200); return; }
+    STORY.dot = root.append("circle").attr("class", "wdot").attr("r", 6).style("display", "none");
+    function hop() {
+      if (STORY.tok !== tok) return;
+      if (k >= chain.length - 1) { setTimeout(end, 1400); return; }
+      var a = chain[k], b = chain[k + 1], e = adj.outs[a.id].filter(function (x) { return x.t === b.id; })[0];
+      var pe = e && edge.filter(function (d) { return d === e; }).node();
+      if (!pe) { k++; lit.add(b.id); paint(); hop(); return; }
+      var len = pe.getTotalLength(), t0 = null, dur = 950;
+      STORY.dot.style("display", null);
+      (function step(ts) {
+        if (STORY.tok !== tok) return;
+        if (t0 === null) t0 = ts;
+        var u = Math.min(1, (ts - t0) / dur), q = pe.getPointAtLength(len * (u * u * (3 - 2 * u)));
+        STORY.dot.attr("cx", q.x).attr("cy", q.y);
+        if (u < 1) { requestAnimationFrame(step); return; }
+        k++; lit.add(b.id); eon.add(e); paint(); pulse(b); storyCaption(chain, k, false); setTimeout(hop, 250);
+      })(performance.now());
+    }
+    setTimeout(hop, 600);
+  }
+  wstory.addEventListener("click", function () { storyPlay(true); });
+  wstory.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); storyPlay(true); } });
+  function select(id) { storyStop(); wstory.hidden = true; state.sel = id; state.hov = null; renderPanel(); apply(); panel.scrollTop = 0; if (PH) focusSel(id); }
+  function clearSel() { if (!state.sel && !state.hov) return; state.sel = null; state.hov = null; if (STORY.chains.length) wstory.hidden = false; renderPanel(); apply(); if (PH && focusMoved) { focusMoved = false; fit(true); } }
 
   /* ---------- What-if model. Values are percent change from normal. A species you edit is held at that value; every other node is relaxed toward two rules until the numbers settle:
      1) bottom-up: it follows the average of its food and inputs (scavenged food counts half), damped to 80%
@@ -1715,6 +1796,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     apply();
     el.h1.textContent = ECO.name;
     loadPhotos();
+    if (M.stub) { storyStop(); STORY.chains = storyChains(); STORY.i = 0; wstory.hidden = true; }
+    else { storyReady(); var sid = id; setTimeout(function () { if (state.eco === sid && !el.webview.hidden && !state.sel && !STORY.run) storyPlay(false); }, 700); }
     
   }
 
@@ -1826,6 +1909,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     return on;
   }
   M.go = function (l, a) { go(l, a); };
+  M.ecoIds = function () { return ECOS.map(function (e) { return e.id; }); }; M.openWeb = function (i) { showWeb(i); }; M.storyEco = function () { return STORY.eco; };
+  M.storyPlay = function (r) { storyPlay(r); }; M.storyChains = function () { return STORY.chains.map(function (c) { return c.map(function (n) { return n.id; }); }); };
   function go(level, a) {
     /* moving to another region closes any open place card and its highlighted links */
     view.focus = null; M.tieId = null; M.peekId = null; var pk0 = document.getElementById("peek"); if (pk0) pk0.hidden = true; spanHi(null);
@@ -2719,7 +2804,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function showJourney(id, from) {
     var c = jbyId(id); if (!c) return;
     var sb = document.getElementById("sbody"); if (el.webview.hidden && !el.mapview.hidden && sb) M.jScroll = sb.scrollTop;
-    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1;
+    storyStop(); M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
     JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);
@@ -2750,7 +2835,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
   function showMap() {
-    M.loading = null; sim.stop();
+    storyStop(); M.loading = null; sim.stop();
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Map";
     el.h1.textContent = "Connected Earth";
