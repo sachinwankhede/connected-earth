@@ -62,8 +62,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => window.__M.showJourney('osprey')); await p.waitForTimeout(300);
     const at = () => p.evaluate(() => { const d = document.getElementById('jdot'); return [+d.getAttribute('cx'), +d.getAttribute('cy')]; });
     const a0 = await at();
-    await p.click('#jfly'); await p.waitForTimeout(1500);
-    const mid = await at(); assert.ok(Math.hypot(mid[0] - a0[0], mid[1] - a0[1]) > 20, 'the dot moved');
+    await p.click('#jfly');
+    await p.waitForFunction((s) => { const d = document.getElementById('jdot'); return Math.hypot(+d.getAttribute('cx') - s[0], +d.getAttribute('cy') - s[1]) > 20; }, a0, { timeout: 20000 });
     await p.waitForFunction(() => window.__M.jdone >= 1, null, { timeout: 20000 });
     const end = await at(); assert.ok(Math.hypot(end[0] - a0[0], end[1] - a0[1]) < 2, 'species round trip returns to the start');
     // a nutrient flow is one way
