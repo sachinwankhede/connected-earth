@@ -67,7 +67,8 @@
   "tl": 1,
   "wiki": "Subalpine fir",
   "desc": "Grows at and just below the tree line. Its seeds feed birds and squirrels, and its clumps trap snow and help form meadows.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Abies lasiocarpa, the subalpine fir or Rocky Mountain fir, is a western North American fir tree."
  },
  "abies magnifica": {
   "latin": "Abies magnifica",
@@ -245,7 +246,8 @@
   "tl": 2,
   "wiki": "Surgeonfish",
   "desc": "Grazes algae in schools so seaweed does not overgrow corals.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The Acanthuridae are a family of ray-finned fishes, which includes surgeonfishes, tangs, and unicornfishes."
  },
  "acanthurus": {
   "latin": "Acanthurus",
@@ -253,7 +255,8 @@
   "tl": 2,
   "wiki": "Surgeonfish",
   "desc": "Schooling fish that graze algae around coral reefs.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The Acanthuridae are a family of ray-finned fishes, which includes surgeonfishes, tangs, and unicornfishes."
  },
  "accipiter cooperii": {
   "latin": "Accipiter cooperii",
@@ -771,7 +774,8 @@
   "tl": 2,
   "wiki": "Temminck's sunbird",
   "desc": "A small nectar-feeding bird of Bornean mountain forest, among the most recorded birds near the park.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "Temminck's sunbird is a species of sunbird. It is found in up to 1800 m altitude in Borneo, Sumatra, West Malaysia, and south west Thailand in tropical moist montane forests."
  },
  "aetobatus narinari": {
   "latin": "Aetobatus narinari",
@@ -1366,7 +1370,8 @@
   "tl": 2,
   "wiki": "Turquoise-fronted amazon",
   "desc": "A parrot of Chaco woodland that eats seeds and fruit.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The blue-fronted amazon, also called the blue-fronted parrot, the turquoise-fronted amazon and the turquoise-fronted parrot, is a South American species of amazon parrot and one of the most common…"
  },
  "amazona vittata": {
   "latin": "Amazona vittata",
@@ -1529,7 +1534,8 @@
   "tl": 2,
   "wiki": "White-tailed antelope squirrel",
   "desc": "A day-active omnivore that eats mostly plants and seeds, plus arthropods. Raptors, canids and snakes prey on it.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The white-tailed antelope squirrel is a diurnal species of ground squirrel, scientifically classified in the order Rodentia and family Sciuridae, found in arid regions of the southwestern United…"
  },
  "ammotragus lervia": {
   "latin": "Ammotragus lervia",
@@ -2061,7 +2067,8 @@
   "tl": 2,
   "wiki": "Woodhouse's scrub jay",
   "desc": "A common oak-scrub bird that eats acorns, seeds and insects, and is among the most recorded birds here.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "Woodhouse's scrub jay (Aphelocoma[a] woodhouseii) is a species of scrub jay native to western North America, ranging from southeastern Oregon and southern Idaho to central Mexico."
  },
  "apis dorsata": {
   "latin": "Apis dorsata",
@@ -2105,7 +2112,8 @@
   "tl": 2,
   "wiki": "Striped field mouse",
   "desc": "A small rodent of fields and forest edges that eats seeds and plant material. It is prey for stoats, gulls and wolves.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The striped field mouse is a rodent in the family Muridae. The range of this species stretches from Eastern Europe to Eastern Asia."
  },
  "apodemus draco": {
   "latin": "Apodemus draco",
@@ -2122,7 +2130,8 @@
   "tl": 2,
   "wiki": "Yellow-necked mouse",
   "desc": "A forest rodent that eats seeds and is a main prey of wildcats in the Carpathians.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The yellow-necked mouse, also called yellow-necked field mouse or yellow-necked wood mouse, is closely related to the wood mouse, with which it was long confused."
  },
  "apodemus sylvaticus": {
   "latin": "Apodemus sylvaticus",
@@ -2130,7 +2139,8 @@
   "tl": 2,
   "wiki": "Wood mouse",
   "desc": "A small woodland rodent that eats seeds and fruit, and is food for foxes, martens and snakes.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The wood mouse is a murid rodent native to Europe and northwestern Africa. It is closely related to the yellow-necked mouse (A."
  },
  "apodemus uralensis": {
   "latin": "Apodemus uralensis",
@@ -2138,7 +2148,8 @@
   "tl": 2,
   "wiki": "Ural field mouse",
   "desc": "Small ground-dwelling rodent recorded near the park; a staple prey for herons, harriers and mammals.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The Ural field mouse is a species of rodent in the family Muridae. It is also known as the pygmy field mouse."
  },
  "aporosaura anchietae": {
   "latin": "Aporosaura anchietae",
@@ -2208,7 +2219,8 @@
   "tl": 4,
   "wiki": "Wedge-tailed eagle",
   "desc": "A large eagle that takes rabbits, young kangaroos, lizards and birds, and feeds on carrion and roadkill.",
-  "ic": "goldeneagle"
+  "ic": "goldeneagle",
+  "about": "The wedge-tailed eagle is the largest bird of prey in the continent of Australia. It is also found in southern New Guinea to the north and is distributed as far south as the state of Tasmania."
  },
  "aquila audax fleayi": {
   "latin": "Aquila audax fleayi",
@@ -2216,7 +2228,8 @@
   "tl": 4,
   "wiki": "Tasmanian wedge-tailed eagle",
   "desc": "A large endangered eagle that takes wallabies, possums and rabbits, and feeds on carrion in winter.",
-  "ic": "goldeneagle"
+  "ic": "goldeneagle",
+  "about": "The Tasmanian wedge-tailed eagle is an endangered bird of Tasmania. It is a subspecies of the more common wedge-tailed eagle."
  },
  "aquila chrysaetos": {
   "latin": "Aquila chrysaetos",
@@ -2251,7 +2264,8 @@
   "tl": 3,
   "wiki": "Tawny eagle",
   "desc": "A raptor that hunts and also feeds at carcasses; it is known to take young springbok.",
-  "ic": "goldeneagle"
+  "ic": "goldeneagle",
+  "about": "The tawny eagle is a large bird of prey. Like all eagles, it belongs to the family Accipitridae."
  },
  "aquila verreauxii": {
   "latin": "Aquila verreauxii",
@@ -2259,7 +2273,8 @@
   "tl": 4,
   "wiki": "Verreaux's eagle",
   "desc": "A hyrax specialist: in many areas hyraxes make up most of its diet, so its range follows theirs.",
-  "ic": "goldeneagle"
+  "ic": "goldeneagle",
+  "about": "Verreaux's eagle is a large, mostly African, bird of prey. It is also called the black eagle, especially in southern Africa, not to be confused with the black eagle of south and southeast Asia."
  },
  "aquilegia canadensis": {
   "latin": "Aquilegia canadensis",
@@ -2483,7 +2498,8 @@
   "tl": 3,
   "wiki": "Wedge-tailed shearwater",
   "desc": "A seabird that nests in burrows on Lord Howe and hunts fish, squid and crustaceans at sea, diving to depths of up to 66 m.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The wedge-tailed shearwater is a medium-large shearwater in the seabird family Procellariidae."
  },
  "arenaria and calidris spp.": {
   "latin": "Arenaria and Calidris spp.",
@@ -2971,7 +2987,8 @@
   "tl": 4,
   "wiki": "Stygian owl",
   "desc": "A night hunter of forest and caves, named by Wikipedia as a natural predator of the solenodon.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The Stygian owl is a medium-sized \"typical owl\" in subfamily Striginae. It is found in Mexico, parts of Central America, Cuba, Hispaniola, and 10 countries in South America."
  },
  "asota alienata": {
   "latin": "Asota alienata",
@@ -3757,7 +3774,8 @@
   "tl": 2,
   "wiki": "White-eared hummingbird",
   "desc": "A very commonly recorded bird of the highland forests, feeding on nectar from sages and other flowers.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-eared hummingbird is a species of hummingbird in the \"emeralds\", tribe Trochilini of subfamily Trochilinae. It is found from the southwestern U.S. to Nicaragua."
  },
  "battus philenor": {
   "latin": "Battus philenor",
@@ -4389,7 +4407,8 @@
   "tl": 2,
   "wiki": "Yak",
   "desc": "Grazing livestock herded in the high valleys, which overlap heavily with wild herbivores for pasture.",
-  "ic": "bison"
+  "ic": "bison",
+  "about": "The yak is a species of long-haired domesticated Asian cattle found throughout the Himalayan region, the Tibetan Plateau, Tajikistan, the Pamir Mountains, and as far north as Mongolia and Siberia."
  },
  "bos javanicus": {
   "latin": "Bos javanicus",
@@ -4741,7 +4760,8 @@
   "tl": 2,
   "wiki": "Wild water buffalo",
   "desc": "Grazes grasses and sedges in wet grasslands and swamps. Adults are preyed on by tigers.",
-  "ic": "bison"
+  "ic": "bison",
+  "about": "The wild water buffalo, also called Asian buffalo, Asiatic buffalo and wild buffalo, is a large bovine native to the Indian subcontinent and Southeast Asia. It was first described in 1792."
  },
  "bubalus bubalis": {
   "latin": "Bubalus bubalis",
@@ -4749,7 +4769,8 @@
   "tl": 2,
   "wiki": "Water buffalo",
   "desc": "Introduced grazer that damaged floodplains and wetlands before most were removed. Carcasses feed kites and crows, and crocodiles also take buffalo.",
-  "ic": "bison"
+  "ic": "bison",
+  "about": "The water buffalo, also called domestic water buffalo, Asian water buffalo, and Asiatic water buffalo, is a large domesticated bovine originating in South and Southeast Asia descended from the wild…"
  },
  "bubo ascalaphus": {
   "latin": "Bubo ascalaphus",
@@ -4821,7 +4842,8 @@
   "tl": 2,
   "wiki": "Takin",
   "desc": "A heavy goat-antelope that browses leaves and grasses and eats bamboo shoots and flowers. It retreats into thick bamboo when alarmed.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The takin; is a large species of ungulate of the subfamily Caprinae found in the eastern Himalayas. It includes three subspecies, the Mishmi takin (B. t."
  },
  "bufo bufo": {
   "latin": "Bufo bufo",
@@ -5056,7 +5078,8 @@
   "tl": 3,
   "wiki": "Yacare caiman",
   "desc": "A semi-aquatic reptile of lakes and wetlands. It eats mainly snails and fish, sometimes larger prey such as capybara, and is itself taken by jaguars.",
-  "ic": "croc"
+  "ic": "croc",
+  "about": "The yacare caiman, also known commonly as the jacare caiman, Paraguayan caiman, piranha caiman, red caiman, and southern spectacled caiman, is a species of caiman, a crocodilian in the family…"
  },
  "cakile edentula": {
   "latin": "Cakile edentula",
@@ -5379,7 +5402,8 @@
   "tl": 2,
   "wiki": "Wild Bactrian camel",
   "desc": "A critically endangered camel of the Gobi that survives on sparse desert plants and can drink salty water.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The wild Bactrian camel or simply the wild camel is an endangered species of camel endemic to Northwest China and southwestern Mongolia."
  },
  "camnula pellucida": {
   "latin": "Camnula pellucida",
@@ -5587,7 +5611,8 @@
   "tl": 2,
   "wiki": "West Caucasian tur",
   "desc": "A wild goat found only in the western half of the Caucasus, living on steep, rocky mountain slopes and meadows.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The West Caucasian tur is a mountain-dwelling goat-antelope native to the western half of the Caucasus Mountains range, in Georgia and European Russia."
  },
  "capra hircus": {
   "latin": "Capra hircus",
@@ -5640,7 +5665,8 @@
   "tl": 2,
   "wiki": "Walia ibex",
   "desc": "An endemic wild goat of steep cliffs that browses shrubs, herbs, lichens and grasses; Simien is its main stronghold.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Walia ibex is a critically endangered species of ibex. It is sometimes considered an endemic subspecies of the Alpine ibex."
  },
  "capreolus capreolus": {
   "latin": "Capreolus capreolus",
@@ -6572,7 +6598,8 @@
   "tl": 2,
   "wiki": "Zebra duiker",
   "desc": "A small forest antelope that eats fruit, leaves and seeds and can crack hard fruit shells. It is a threatened species of the Upper Guinea forests.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The zebra duiker is a small antelope found primarily in Liberia, as well as the Ivory Coast, Sierra Leone, and occasionally Guinea."
  },
  "cerambycidae": {
   "latin": "Cerambycidae",
@@ -6661,7 +6688,8 @@
   "tl": 2,
   "wiki": "Yellow-casqued hornbill",
   "desc": "A large canopy hornbill, the most-recorded bird near Gola. It lives in family groups and is listed as Vulnerable.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The yellow-casqued hornbill, also known as the yellow-casqued wattled hornbill, is found in the rainforest of coastal regions of West Africa, for example in Côte d'Ivoire."
  },
  "ceratotherium simum": {
   "latin": "Ceratotherium simum",
@@ -6669,7 +6697,8 @@
   "tl": 2,
   "wiki": "White rhinoceros",
   "desc": "A heavy grazer of the short grass layer. Wikipedia lists it among the park herbivores.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The white rhinoceros, white rhino or square-lipped rhinoceros is the largest extant species of rhinoceros. It has a wide mouth used for grazing and is the most social of all rhino species."
  },
  "cercis canadensis": {
   "latin": "Cercis canadensis",
@@ -6894,7 +6923,8 @@
   "tl": 3,
   "wiki": "Wrinkle-lipped free-tailed bat",
   "desc": "Lives in large cave colonies and flies out to feed on night-flying insects. Its droppings enrich cave and soil nutrients.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The wrinkle-lipped free-tailed bat is a species of bat in the family Molossidae."
  },
  "chaetadelpha wheeleri": {
   "latin": "Chaetadelpha wheeleri",
@@ -7292,7 +7322,8 @@
   "tl": 2,
   "wiki": "Upland goose",
   "desc": "A grazing goose of grassland and wet meadows, one of the best-recorded birds around the park.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The upland goose or Magellan goose is a sheldgoose of the shelduck-sheldgoose subfamily of the Anatidae, the biological family that includes the ducks and most duck-like waterfowl such as the geese…"
  },
  "chlorocebus sabaeus": {
   "latin": "Chlorocebus sabaeus",
@@ -7517,7 +7548,8 @@
   "tl": 3,
   "wiki": "White stork",
   "desc": "Hunts frogs, reptiles, small mammals and crayfish in marsh and pasture, and is a summer visitor that winters in Africa.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The white stork is a large bird in the stork family, Ciconiidae. Its plumage is mainly white, with black on the bird's wings."
  },
  "cinclus cinclus": {
   "latin": "Cinclus cinclus",
@@ -7525,7 +7557,8 @@
   "tl": 3,
   "wiki": "White-throated dipper",
   "desc": "Walks into fast streams to feed on caddis larvae, shrimps and other invertebrates, and sometimes on small fish.",
-  "ic": "osprey"
+  "ic": "osprey",
+  "about": "The white-throated dipper, also known as the European dipper or just dipper, is an aquatic, passerine bird found in Europe, the Middle East, Central Asia, and the Indian subcontinent."
  },
  "cinnyris chalybeus": {
   "latin": "Cinnyris chalybeus",
@@ -7560,7 +7593,8 @@
   "tl": 4,
   "wiki": "Western marsh harrier",
   "desc": "Raptor that hunts over the flats in winter and has been recorded taking shorebirds such as red knot.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The western marsh harrier is a large harrier, a bird of prey from temperate and subtropical western Eurasia and adjacent Africa. It is also known as the Eurasian marsh harrier."
  },
  "circus approximans": {
   "latin": "Circus approximans",
@@ -7568,7 +7602,8 @@
   "tl": 3,
   "wiki": "Swamp harrier",
   "desc": "Bird of prey recorded eating possums and rabbits; it hunts and scavenges across open ground.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The swamp harrier, also known as the Australasian marsh harrier or Australasian harrier, is a large, slim bird of prey widely distributed across Australasia."
  },
  "circus cyaneus": {
   "latin": "Circus cyaneus",
@@ -7685,7 +7720,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Tiny animals that graze algae and feed paddlefish, gizzard shad and silver carp.",
-  "ic": "mayfly"
+  "ic": "mayfly",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "cladonia": {
   "latin": "Cladonia",
@@ -8350,7 +8386,8 @@
   "tl": 1,
   "wiki": "Taiga",
   "desc": "Forest and shrub cover around the lake that feeds and shelters shore animals such as bears and sables.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Taiga or tayga, also known as boreal forest or snow forest, is a biome characterized by coniferous forests consisting mostly of pines, spruces, and larches."
  },
  "connecticut river discharge": {
   "latin": "Connecticut River discharge",
@@ -8502,7 +8539,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Tiny animals that graze algae in the lakes. Sockeye salmon feed extensively on them.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "copepods and larvae": {
   "latin": "Copepods and larvae",
@@ -8510,7 +8548,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Tiny animals that graze phytoplankton. Young menhaden and bay anchovies feed on them.",
-  "ic": "mayfly"
+  "ic": "mayfly",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "copepods and water fleas": {
   "latin": "Copepods and water fleas",
@@ -8518,7 +8557,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Tiny animals that graze algae. Alewife and juvenile fish eat them, and so do filtering mussels.",
-  "ic": "mayfly"
+  "ic": "mayfly",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "copernicia alba": {
   "latin": "Copernicia alba",
@@ -8669,7 +8709,8 @@
   "tl": 3,
   "wiki": "White-necked raven",
   "desc": "Large crow named on the park page as a bird of the mountain; it scavenges carrion and eats insects.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The white-necked raven, also known as the collared raven, is a species of raven native to eastern and southern Africa."
  },
  "corvus brachyrhynchos": {
   "latin": "Corvus brachyrhynchos",
@@ -8713,7 +8754,8 @@
   "tl": 3,
   "wiki": "Thick-billed raven",
   "desc": "A large highland raven that is commonly seen in the park.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The thick-billed raven is a large passerine bird in the family Corvidae. It is endemic to the Horn of Africa, including parts of Ethiopia, Eritrea, Sudan, and Somalia."
  },
  "corvus cryptoleucus": {
   "latin": "Corvus cryptoleucus",
@@ -8739,7 +8781,8 @@
   "tl": 3,
   "wiki": "Torresian crow",
   "desc": "Opportunistic scavenger and omnivore, often at carcasses.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The Torresian crow, also called the Australian crow or Papuan crow, is a passerine bird in the crow family native to the north and west of Australia and nearby islands in Indonesia and Papua New…"
  },
  "corvus ruficollis": {
   "latin": "Corvus ruficollis",
@@ -8819,7 +8862,8 @@
   "tl": 3,
   "wiki": "Townsend's big-eared bat",
   "desc": "Wikipedia says it feeds almost entirely on moths. Pinnacles lists it as breeding in its talus caves, which close during pupping season.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "Townsend's big-eared bat is a species of vesper bat."
  },
  "corythaeola cristata": {
   "latin": "Corythaeola cristata",
@@ -9044,7 +9088,8 @@
   "tl": 4,
   "wiki": "West African crocodile",
   "desc": "Large reptile reported in large numbers in the sanctuary; it is mainly a fish-eating ambush predator of the river and lakes.",
-  "ic": "croc"
+  "ic": "croc",
+  "about": "The West African crocodile, desert crocodile, or sacred crocodile is a species of crocodile related to, and often confused with, the larger Nile crocodile (C. niloticus)."
  },
  "crocothemis servilia": {
   "latin": "Crocothemis servilia",
@@ -9106,7 +9151,8 @@
   "tl": 3,
   "wiki": "Western diamondback rattlesnake",
   "desc": "Ambush predator of rodents, rabbits and birds. Young snakes are eaten by roadrunners, and coyotes also take it.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The western diamondback rattlesnake or western diamond-backed rattlesnake, is a rattlesnake species and member of the viper family, found in the southwestern United States and Mexico."
  },
  "crotalus cerastes": {
   "latin": "Crotalus cerastes",
@@ -9247,7 +9293,8 @@
   "tl": 2,
   "wiki": "Tuco-tuco",
   "desc": "A burrowing rodent of the puna, regularly recorded in the area. It eats roots and plants; the link to its predators is general ecology.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "A tuco-tuco is a neotropical rodent in the family Ctenomyidae found in South America from Peru and central Brazil southward."
  },
  "ctenomys pearsoni": {
   "latin": "Ctenomys pearsoni",
@@ -9255,7 +9302,8 @@
   "tl": 2,
   "wiki": "Tuco-tuco",
   "desc": "A burrowing rodent and the dominant vertebrate of the Cabo Polonio dunes.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "A tuco-tuco is a neotropical rodent in the family Ctenomyidae found in South America from Peru and central Brazil southward."
  },
  "ctenophorus nuchalis": {
   "latin": "Ctenophorus nuchalis",
@@ -9545,7 +9593,8 @@
   "wiki": "Utah prairie dog",
   "desc": "A threatened burrowing rodent reintroduced to the park. Wikipedia calls it a keystone species because its burrowing mixes soil and its burrows shelter other animals.",
   "ic": "gsquirrel",
-  "badge": "Ecosystem engineer"
+  "badge": "Ecosystem engineer",
+  "about": "The Utah prairie dog is the smallest species of prairie dog and is endemic to the south-central steppes of the American state of Utah."
  },
  "cynopterus brachyotis": {
   "latin": "Cynopterus brachyotis",
@@ -9723,7 +9772,8 @@
   "tl": 2,
   "wiki": "Topi",
   "desc": "A grazing antelope that migrates with kob and gazelle across South Sudan plains.",
-  "ic": "pronghorn"
+  "ic": "pronghorn",
+  "about": "Damaliscus lunatus jimela is a subspecies of topi, and is usually just called a topi."
  },
  "damaliscus pygargus": {
   "latin": "Damaliscus pygargus",
@@ -10108,7 +10158,8 @@
   "tl": 3,
   "wiki": "White-backed woodpecker",
   "desc": "Feeds mainly on wood-boring beetles and larvae and needs plenty of standing and fallen dead wood in mature broadleaf forest.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-backed woodpecker is a Eurasian woodpecker belonging to the genus Dendrocopos."
  },
  "dendrocopos major": {
   "latin": "Dendrocopos major",
@@ -10134,7 +10185,8 @@
   "tl": 2,
   "wiki": "White-faced whistling duck",
   "desc": "Abundant wetland duck recorded eating cattail; it feeds on plant matter in shallow water.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-faced whistling duck is a whistling duck that breeds in sub-Saharan Africa and much of South America."
  },
  "dendrohyrax arboreus": {
   "latin": "Dendrohyrax arboreus",
@@ -10385,7 +10437,8 @@
   "tl": 2,
   "wiki": "Sumatran rhinoceros",
   "desc": "A critically small population lives in the park. Wikipedia reports a 2011 camera-trap survey and an estimate of no more than 27 animals.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Sumatran rhinoceros, also known as the Sumatran rhino, hairy rhinoceros or Asian two-horned rhinoceros, is a rare member of the family Rhinocerotidae and one of five extant species of rhinoceros;…"
  },
  "diceros bicornis": {
   "latin": "Diceros bicornis",
@@ -10891,7 +10944,8 @@
   "tl": 2,
   "wiki": "ʻIʻiwi",
   "desc": "A scarlet honeycreeper with a long curved bill, recorded in GloBI feeding on ʻōhiʻa flowers.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The ʻiʻiwi or scarlet honeycreeper is a species of Hawaiian honeycreeper. The ʻiʻiwi is a highly recognizable symbol of Hawaii."
  },
  "drepanotermes": {
   "latin": "Drepanotermes",
@@ -10899,7 +10953,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Termites eat dead plant material such as grass and wood, recycling nutrients in arid soils, and are food for ants, lizards and many others.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "drift detritus": {
   "latin": "Drift detritus",
@@ -11024,7 +11079,8 @@
   "tl": 3,
   "wiki": "White-throated rail",
   "desc": "The last flightless bird of the Indian Ocean region, a flightless form of the white-throated rail found here.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-throated rail or Cuvier's rail is a species of bird in the family Rallidae. It is a fairly large rail, and has a flightless subspecies."
  },
  "dryophytes andersonii": {
   "latin": "Dryophytes andersonii",
@@ -11359,7 +11415,8 @@
   "wiki": "Submerged aquatic vegetation",
   "desc": "Submerged grass beds that give food and shelter, add oxygen and clear the water. Eelgrass in the southern bay has shrunk by more than half since the early 1970s.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Aquatic plants, also referred to as hydrophytes, are vascular plants and non-vascular plants that have adapted to live in aquatic environments."
  },
  "egretta caerulea": {
   "latin": "Egretta caerulea",
@@ -11385,7 +11442,8 @@
   "tl": 3,
   "wiki": "Western reef heron",
   "desc": "Wades in shallows for fish, crustaceans and molluscs; on coasts mudskippers are a regular part of its diet.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The western reef heron, also called the western reef egret, is a medium-sized heron found in Africa and parts of Asia, with vagrancy occurring in Europe and the Americas."
  },
  "egretta sacra": {
   "latin": "Egretta sacra",
@@ -11402,7 +11460,8 @@
   "tl": 2,
   "wiki": "Straw-coloured fruit bat",
   "desc": "A fruit bat that eats fruit, flowers and nectar. It spreads seeds and is the main disperser of the African teak tree.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The straw-coloured fruit bat is a large fruit bat that is the most widely distributed of all the African megabats."
  },
  "elaeagnus angustifolia": {
   "latin": "Elaeagnus angustifolia",
@@ -12385,7 +12444,8 @@
   "tl": 2,
   "wiki": "Thomson's gazelle",
   "desc": "A small, fast grazer of the short-grass plains and the main food of cheetahs.",
-  "ic": "pronghorn"
+  "ic": "pronghorn",
+  "about": "Thomson's gazelle is one of the best known species of gazelles. It is named after explorer Joseph Thomson and is sometimes referred to as a \"tommie\"."
  },
  "eudyptes chrysocome": {
   "latin": "Eudyptes chrysocome",
@@ -12429,7 +12489,8 @@
   "tl": 3,
   "wiki": "Yellow anaconda",
   "desc": "A generalist that hunts in shallow wetland water for wading birds, apple snails, reptiles and mammals, mostly as floods recede.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The yellow anaconda, also known as the Paraguayan anaconda, is a boa species endemic to southern South America."
  },
  "euonymus atropurpureus": {
   "latin": "Euonymus atropurpureus",
@@ -12582,7 +12643,8 @@
   "tl": 2,
   "wiki": "Yellow-whiskered greenbul",
   "desc": "The most-recorded bird near the park. It eats fruit and insects and so helps spread seeds.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The yellow-whiskered greenbul or yellow-whiskered bulbul is a species of the bulbul family of passerine birds. It is found in western and central Africa."
  },
  "eustoma russellianum": {
   "latin": "Eustoma russellianum",
@@ -13273,7 +13335,8 @@
   "tl": 3,
   "wiki": "Tufted puffin",
   "desc": "A diving seabird that nests in burrows on cliffs and islands. Adults eat squid and krill, and chicks are fed mostly fish such as sand lance.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The tufted puffin, also known as crested puffin, is a relatively abundant medium-sized pelagic seabird in the auk family (Alcidae) found throughout the North Pacific Ocean."
  },
  "fregata magnificens": {
   "latin": "Fregata magnificens",
@@ -13461,7 +13524,8 @@
   "tl": 3,
   "wiki": "Walleye pollock",
   "desc": "A schooling cod relative of cold northern seas. It feeds on zooplankton and is key winter food for eagles and sea lions.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The Alaska pollock also known as Pacific pollock or walleye pollock is a marine fish species of the cod genus Gadus and family Gadidae."
  },
  "gaillardia aristata": {
   "latin": "Gaillardia aristata",
@@ -13505,7 +13569,8 @@
   "tl": 4,
   "wiki": "Tiger shark",
   "desc": "A large shark that eats sea turtles, fish and smaller sharks, and also scavenges dead animals.",
-  "ic": "shark"
+  "ic": "shark",
+  "about": "The tiger shark is a species of ground shark, and the only extant member of the genus Galeocerdo and family Galeocerdonidae."
  },
  "galerella pulverulenta": {
   "latin": "Galerella pulverulenta",
@@ -13988,7 +14053,8 @@
   "tl": 2,
   "wiki": "Thornicroft's giraffe",
   "desc": "The Luangwa Valley giraffe browses leaves, including mopane, above where other herbivores can reach.",
-  "ic": "giraffe"
+  "ic": "giraffe",
+  "about": "Thornicroft's giraffe, also known as the Rhodesian giraffe or Luangwa giraffe, is a subspecies of giraffe. It is sometimes considered a species in its own right or a subspecies of the Masai giraffe."
  },
  "glacial lake": {
   "latin": "Glacial lake",
@@ -14158,7 +14224,8 @@
   "tl": 2,
   "wiki": "Western lowland gorilla",
   "desc": "Mainly eats fruit, shoots, leaves and herbaceous stems, switching toward leaves and herbs when fruit is scarce. Listed among the primates of Monte Alen.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The western lowland gorilla is one of two critically endangered subspecies of the western gorilla that lives in montane, primary and secondary forest and lowland swampland in central Africa in Angola…"
  },
  "gorilla gorilla diehli": {
   "latin": "Gorilla gorilla diehli",
@@ -14175,7 +14242,8 @@
   "tl": 2,
   "wiki": "Western lowland gorilla",
   "desc": "Prefers ripe fruit but switches to leaves, herbs and bark when fruit is scarce. Spreads seeds in its dung.",
-  "ic": "grizzly"
+  "ic": "grizzly",
+  "about": "The western lowland gorilla is one of two critically endangered subspecies of the western gorilla that lives in montane, primary and secondary forest and lowland swampland in central Africa in Angola…"
  },
  "granite-derived soil": {
   "latin": "",
@@ -14273,7 +14341,8 @@
   "tl": 3,
   "wiki": "Whooping crane",
   "desc": "The park is the main breeding area of this endangered crane, which nests on marshes and eats animals, tubers and berries.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The whooping crane is an endangered crane species, native to North America, named for its \"whooping\" calls."
  },
  "grus canadensis": {
   "latin": "Grus canadensis",
@@ -14362,7 +14431,8 @@
   "tl": 3,
   "wiki": "Wolverine",
   "desc": "A strong scavenger and predator. GloBI records it eating caribou, ground squirrels, ptarmigan and voles.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The wolverine, also called the carcajou or quickhatch (from East Cree, kwiihkwahaacheew), is the largest land-dwelling member of the family Mustelidae."
  },
  "gunnera magellanica": {
   "latin": "Gunnera magellanica",
@@ -14461,7 +14531,8 @@
   "tl": 3,
   "wiki": "White-backed vulture",
   "desc": "Scavenges carcasses of elephant, buffalo, zebra and antelope.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The white-backed vulture is an Old World vulture in the family Accipitridae, which also includes eagles, kites, buzzards and hawks. It is the most common vulture species in the continent of Africa."
  },
  "gyps coprotheres": {
   "latin": "Gyps coprotheres",
@@ -14569,7 +14640,8 @@
   "tl": 4,
   "wiki": "White-tailed eagle",
   "desc": "A large raptor that takes fish and, per the seal article, can prey on seal pups that leave their dens.",
-  "ic": "baldeagle"
+  "ic": "baldeagle",
+  "about": "The white-tailed eagle, sometimes known as the \"sea eagle\", is a large bird of prey, widely distributed across temperate Eurasia."
  },
  "haliaeetus leucocephalus": {
   "latin": "Haliaeetus leucocephalus",
@@ -14586,7 +14658,8 @@
   "tl": 3,
   "wiki": "White-bellied sea eagle",
   "desc": "A coastal raptor that takes fish about half of its diet, and also hunts waterbirds and reptiles. Nests in tall trees by water.",
-  "ic": "baldeagle"
+  "ic": "baldeagle",
+  "about": "The white-bellied sea eagle, also known as the white-breasted sea eagle, is a large diurnal bird of prey in the family Accipitridae."
  },
  "haliaeetus pelagicus": {
   "latin": "Haliaeetus pelagicus",
@@ -14639,7 +14712,8 @@
   "tl": 3,
   "wiki": "Whistling kite",
   "desc": "Hunts small mammals, birds, fish and reptiles and eats carrion. It hovers at grass fires to catch fleeing prey.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The whistling kite is a medium-sized diurnal raptor found throughout Australia (including coastal islands), New Caledonia and much of New Guinea (excluding the central mountains and the northwest)."
  },
  "halichoerus grypus": {
   "latin": "Halichoerus grypus",
@@ -14899,7 +14973,8 @@
   "tl": 3,
   "wiki": "Sun bear",
   "desc": "An omnivore that eats insects such as termites and ants, honey and fruit including figs. The tiger is its main predator.",
-  "ic": "grizzly"
+  "ic": "grizzly",
+  "about": "The sun bear is a bear species in the family Ursidae found in the tropical forests of Southeast Asia."
  },
  "helenium amarum": {
   "latin": "Helenium amarum",
@@ -15323,7 +15398,8 @@
   "tl": 2,
   "wiki": "ʻApapane",
   "desc": "A native honeycreeper that drinks ʻōhiʻa nectar and pollinates it. It also takes insects and spiders, mostly moths and butterflies in one study.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The ʻapapane is a small, crimson species of Hawaiian honeycreeper endemic to the Hawaiian Islands."
  },
  "hippocamelus bisulcus": {
   "latin": "Hippocamelus bisulcus",
@@ -15567,7 +15643,8 @@
   "tl": 3,
   "wiki": "Striped hyena",
   "desc": "A shy scavenger of the dry forest that cleans up carcasses left by tigers and leopards.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The striped hyena is a species of hyena native to North and East Africa, the Middle East, the Caucasus, Central Asia, and the Indian subcontinent. It is the only extant species in the genus Hyaena."
  },
  "hyalella": {
   "latin": "Hyalella",
@@ -15693,7 +15770,8 @@
   "tl": 2,
   "wiki": "White-lined sphinx",
   "desc": "A hawk-moth whose caterpillars and adults feed on desert flowers and shrubs, and which is eaten by birds and lizards.",
-  "ic": "mayfly"
+  "ic": "mayfly",
+  "about": "Hyles lineata, also known as the white-lined sphinx moth, is a moth of the family Sphingidae."
  },
  "hylobates funereus": {
   "latin": "Hylobates funereus",
@@ -15728,7 +15806,8 @@
   "tl": 3,
   "wiki": "Whio",
   "desc": "Endangered duck of fast, clean mountain rivers that eats mainly midge and caddisfly larvae. Stoats destroy nests and kill nesting females.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The blue duck or whio is a member of the duck, goose and swan family, Anatidae and is endemic to New Zealand. It is the only individual species belonging to the genus Hymenolaimus."
  },
  "hymenophyllum": {
   "latin": "Hymenophyllum",
@@ -15772,7 +15851,8 @@
   "tl": 2,
   "wiki": "True's vole",
   "desc": "A small rodent recorded near the plateau. Voles of this kind are generally plant eaters and are prey for small carnivores and raptors.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "True's vole is a species of rodent in the family Cricetidae. It is found in India and Pakistan."
  },
  "hypericum perforatum": {
   "latin": "Hypericum perforatum",
@@ -16292,7 +16372,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Termites and leafcutter ants are described as main herbivores and decomposers of the Cerrado. Their nests are a food source for anteaters.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "jabiru mycteria": {
   "latin": "Jabiru mycteria",
@@ -16625,7 +16706,8 @@
   "tl": 2,
   "wiki": "Waterbuck",
   "desc": "The most recorded large mammal near the park. Mostly grazes grass and stays close to water.",
-  "ic": "elk"
+  "ic": "elk",
+  "about": "The waterbuck is a large antelope found widely in sub-Saharan Africa. It is in the genus Kobus of the family Bovidae."
  },
  "kobus kob": {
   "latin": "Kobus kob",
@@ -16732,7 +16814,8 @@
   "tl": 3,
   "wiki": "Wrasse",
   "desc": "A varied family of reef fishes that eat small invertebrates; wrasses are common on coral reefs.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The wrasses are a family, Labridae, of marine ray-finned fish, many of which are brightly colored."
  },
  "lactuca graminifolia": {
   "latin": "Lactuca graminifolia",
@@ -16785,7 +16868,8 @@
   "tl": 2,
   "wiki": "Willow ptarmigan",
   "desc": "A ground bird of tundra and shrubland that eats berries, buds and willow, and is prey for foxes, wolves, lynx and eagles.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The willow ptarmigan is a bird in the grouse tribe Tetraonini of the pheasant family Phasianidae. It is also known as the willow grouse."
  },
  "lagopus muta": {
   "latin": "Lagopus muta",
@@ -17217,7 +17301,8 @@
   "tl": 3,
   "wiki": "Yellow-legged gull",
   "desc": "Opportunistic gull that scavenges. Around the Mediterranean it accounts for about half of the predation on flamingo eggs and chicks.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The yellow-legged gull or western yellow-legged gull is a large gull found in Europe, the Middle East and North Africa, which has only recently achieved wide recognition as a distinct species."
  },
  "larus occidentalis": {
   "latin": "Larus occidentalis",
@@ -17225,7 +17310,8 @@
   "tl": 3,
   "wiki": "Western gull",
   "desc": "A gull that breeds on the islands and feeds on fish and scavenged carcasses; GloBI records it eating sea lion and seal.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The western gull is a large white-headed gull that lives on the west coast of North America and the Pacific Ocean. The western gull ranges from British Columbia, Canada, to Baja California, Mexico."
  },
  "larus pacificus": {
   "latin": "Larus pacificus",
@@ -17463,7 +17549,8 @@
   "tl": 2,
   "wiki": "Typical striped grass mouse",
   "desc": "A small rodent of grassland, forest edge and secondary forest up to about 1,700 m. GloBI records the rhinoceros viper eating it.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The typical striped grass mouse is a small rodent of the suborder Myomorpha in the family Muridae."
  },
  "lemur catta": {
   "latin": "Lemur catta",
@@ -17480,7 +17567,8 @@
   "tl": 1,
   "wiki": "Violaceae",
   "desc": "A rainforest tree whose fruit is recorded in GloBI as food for monkeys and many fruit-eating birds.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Violaceae is a family of flowering plants established in 1802, consisting of about 1000 species in about 25 genera. It takes its name from the genus Viola, the violets and pansies."
  },
  "leonurus cardiaca": {
   "latin": "Leonurus cardiaca",
@@ -17640,7 +17728,8 @@
   "tl": 4,
   "wiki": "Weddell seal",
   "desc": "Dives deep for fish, notably toothfish, and squid. Leopard seals and orcas may take it.",
-  "ic": "seal"
+  "ic": "seal",
+  "about": "The Weddell seal is a relatively large and abundant true seal with a circumpolar distribution surrounding Antarctica."
  },
  "leptonycteris yerbabuenae": {
   "latin": "Leptonycteris yerbabuenae",
@@ -17702,7 +17791,8 @@
   "tl": 2,
   "wiki": "White-tipped dove",
   "desc": "A ground-feeding dove of forest floor and edges. It is recorded eating the berries of West Indian milkberry.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-tipped dove is a large New World tropical dove. Its scientific name commemorates the French naturalists Jules and Edouard Verreaux."
  },
  "lepus americanus": {
   "latin": "Lepus americanus",
@@ -17791,7 +17881,8 @@
   "tl": 2,
   "wiki": "Tolai hare",
   "desc": "A hare of steppe and semi-desert that feeds on grasses and shrubs and is prey for foxes and wolves.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The tolai hare is a species of hare native to Central Asia, including much of Mongolia, eastern Iran, Afghanistan, southern Kazakhstan, Turkmenistan, Uzbekistan, Kyrgyzstan, and North and Central…"
  },
  "lepus townsendii": {
   "latin": "Lepus townsendii",
@@ -18116,7 +18207,8 @@
   "tl": 2,
   "wiki": "Warsangli linnet",
   "desc": "A finch found only in Somalia, in dry forest and high shrubland. It is Near Threatened because of habitat loss and is one of the species behind the Daallo bird area.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The Warsangli linnet is a species of finch in the family Fringillidae. It is found only in Somalia."
  },
  "linaria vulgaris": {
   "latin": "Linaria vulgaris",
@@ -18968,7 +19060,8 @@
   "tl": 2,
   "wiki": "Stump-tailed macaque",
   "desc": "One of several macaques in the park. An omnivore that eats fruit, seeds and other plant matter, and also takes some small animals.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The stump-tailed macaque, also called the bear macaque, is a species of macaque native to South Asia and Southeast Asia."
  },
  "macaca cyclopis": {
   "latin": "Macaca cyclopis",
@@ -18994,7 +19087,8 @@
   "tl": 2,
   "wiki": "Yakushima macaque",
   "desc": "A subspecies of the Japanese macaque that eats young leaves, seeds, flowers, fruit and insects, with its diet shifting with season and temperature.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Yakushima macaque is a subspecies of Japanese macaque that is indigenous to Yakushima Island (Kagoshima Prefecture). It is also known as the Yaku macaque."
  },
  "macaca leonina": {
   "latin": "Macaca leonina",
@@ -19038,7 +19132,8 @@
   "tl": 2,
   "wiki": "Toque macaque",
   "desc": "An omnivorous monkey of Sri Lanka that eats fruit, seeds and insects.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The toque macaque is a reddish-brown-coloured Old World monkey endemic to Sri Lanka, where it is known as the riḷawā (Sinhala: රිළවා),."
  },
  "macaranga": {
   "latin": "Macaranga",
@@ -19182,7 +19277,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Chew dead grass and wood, and their mounds enrich the soil around them.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "madoqua saltiana": {
   "latin": "Madoqua saltiana",
@@ -19306,7 +19402,8 @@
   "tl": 4,
   "wiki": "Timor python",
   "desc": "A python of the Lesser Sunda islands that preys on rodents and birds. It is a top land predator in this web.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The Timor python is a Malayopython species native to Southeast Asia. It is a dwarf species, and no subspecies are recognized as being valid."
  },
  "mallomys rothschildi": {
   "latin": "Mallomys rothschildi",
@@ -19513,7 +19610,8 @@
   "tl": 2,
   "wiki": "Yellow-bellied marmot",
   "desc": "A burrowing rodent of rocky meadows that eats green plants and hibernates through the long snow season.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The yellow-bellied marmot, also known as the rock chuck, is a large, stout-bodied ground squirrel in the marmot genus."
  },
  "marmota himalayana": {
   "latin": "Marmota himalayana",
@@ -19584,7 +19682,8 @@
   "tl": 3,
   "wiki": "Yellow-throated marten",
   "desc": "An agile omnivorous marten that hunts small animals and may take panda cubs.",
-  "ic": "fox"
+  "ic": "fox",
+  "about": "The yellow-throated marten is a marten species native to the Himalayas, Southeast and East Asia."
  },
  "martes foina": {
   "latin": "Martes foina",
@@ -19944,7 +20043,8 @@
   "tl": 2,
   "wiki": "Wild turkey",
   "desc": "Leans on hard mast such as acorns in fall and winter and on insects in summer. Poults depend almost entirely on insects for their first month.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The wild turkey is an upland game bird native to North America, one of two extant species of turkey and the heaviest member of the order Galliformes. It is the ancestor to the domestic turkey (M. g."
  },
  "meleagris ocellata": {
   "latin": "Meleagris ocellata",
@@ -20006,7 +20106,8 @@
   "tl": 2,
   "wiki": "White-throated honeyeater",
   "desc": "Small bird of savanna woodland and paperbarks that feeds on nectar and insects.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-throated honeyeater is a bird of the honeyeater family Meliphagidae native to New Guinea and eastern and northern Australia."
  },
  "melosira arctica": {
   "latin": "Melosira arctica",
@@ -20103,7 +20204,8 @@
   "tl": 2,
   "wiki": "Tristram's jird",
   "desc": "A burrowing rodent that eats seeds and leaves. One of the most-recorded mammals in the area, and small prey for many predators.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Tristram's jird is a species of rodent that lives in the Middle East. It is named after the Reverend Henry Baker Tristram who collected the first specimens."
  },
  "merops bulocki": {
   "latin": "Merops bulocki",
@@ -20337,7 +20439,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Tiny drifting animals that graze algae and are eaten by fish larvae and small fish.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "microtus agrestis": {
   "latin": "Microtus agrestis",
@@ -20381,7 +20484,8 @@
   "tl": 2,
   "wiki": "Vole",
   "desc": "Small grass-eating rodent of Tian Shan meadows, and a food source for many predators.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Voles are small rodents that are relatives of lemmings and hamsters, but with a stouter body; a longer, hairy tail; a slightly rounder head; smaller eyes and ears; and differently formed molars…"
  },
  "microtus longicaudus": {
   "latin": "Microtus longicaudus",
@@ -20416,7 +20520,8 @@
   "tl": 2,
   "wiki": "Tundra vole",
   "desc": "A small rodent of wet tundra and a well-recorded species here. It eats sedges and other plants, and is prey for foxes, stoats and wolves.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The tundra vole or root vole is a medium-sized vole found in Northern and Central Europe, Asia, and northwestern North America, including Alaska and northwestern Canada."
  },
  "microtus pennsylvanicus": {
   "latin": "Microtus pennsylvanicus",
@@ -20650,7 +20755,8 @@
   "tl": 3,
   "wiki": "Thorny devil",
   "desc": "A spiny lizard that eats mostly ants and drinks by channelling dew and damp sand to its mouth. Birds and goannas prey on it.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The thorny devil, also known commonly as the mountain devil, thorny lizard, thorny dragon, and moloch, is a species of lizard in the family Agamidae. The species is endemic to Australia."
  },
  "momotus lessonii": {
   "latin": "Momotus lessonii",
@@ -20812,7 +20918,8 @@
   "tl": 3,
   "wiki": "Striped bass",
   "desc": "The bay is one of the biggest breeding areas for this large predator, which eats menhaden, herring, shad and other fish.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The striped bass, also called the Atlantic striped bass, striper, linesider, rock, or rockfish, is an anadromous perciform fish of the family Moronidae found primarily along the Atlantic coast of…"
  },
  "moschus berezovskii": {
   "latin": "Moschus berezovskii",
@@ -21052,7 +21159,8 @@
   "tl": 2,
   "wiki": "Temminck's mouse",
   "desc": "A small African rodent of grassy and bushy habitats; prey for the Great Lakes bush viper.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Temminck's mouse is a species of the genus Mus and of the subgenus Nannomys. It is found throughout West Africa, Central Africa, and East Africa."
  },
  "mus musculus": {
   "latin": "Mus musculus",
@@ -21115,7 +21223,8 @@
   "tl": 2,
   "wiki": "ʻŌmaʻo",
   "desc": "A native thrush that mainly eats fruit, and also takes insects and small invertebrates.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The ʻōmaʻo, also called the Hawaiian thrush, is an endemic species of robin-like bird found only on the island of Hawaii."
  },
  "mycteria americana": {
   "latin": "Mycteria americana",
@@ -21123,7 +21232,8 @@
   "tl": 3,
   "wiki": "Wood stork",
   "desc": "An endangered wader that feeds on fish concentrated in drying pools. Pythons have been found to eat storks.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The wood stork is a large wading bird in the family Ciconiidae (storks)."
  },
  "mycteria leucocephala": {
   "latin": "Mycteria leucocephala",
@@ -21149,7 +21259,8 @@
   "tl": 3,
   "wiki": "Vanikoro flycatcher",
   "desc": "Mainly catches insects from a perch, and also takes lizards and small fruits.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The Vanikoro flycatcher is a species of monarch flycatcher in the family Monarchidae. It has a slightly disjunct distribution, occurring on Vanikoro island and in Fiji."
  },
  "myiarchus barbirostris": {
   "latin": "Myiarchus barbirostris",
@@ -21220,7 +21331,8 @@
   "tl": 2,
   "wiki": "Wood lemming",
   "desc": "A small rodent of mossy spruce forest that eats mosses and the shoots of dwarf shrubs such as cowberry.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The wood lemming is a species of rodent in the family Cricetidae. It belongs to the rodent subfamily Arvicolinae, so is a relative of the voles, lemmings, and muskrats."
  },
  "myosurus minimus": {
   "latin": "Myosurus minimus",
@@ -21453,7 +21565,8 @@
   "tl": 3,
   "wiki": "White-nosed coati",
   "desc": "An omnivore that forages on the ground for insects, small vertebrates, eggs, carrion and fruit.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The white-nosed coati, also known as the coatimundi (), is a species of coati and a member of the family Procyonidae (raccoons and their relatives)."
  },
  "nasua nasua": {
   "latin": "Nasua nasua",
@@ -21542,7 +21655,8 @@
   "tl": 3,
   "wiki": "Sunda clouded leopard",
   "desc": "A tree-climbing cat. Wikipedia lists it as a potential predator of orangutans at Sikundur.",
-  "ic": "lion"
+  "ic": "lion",
+  "about": "The Sunda clouded leopard is a medium-sized wild cat native to Borneo and Sumatra."
  },
  "neofelis nebulosa": {
   "latin": "Neofelis nebulosa",
@@ -21595,7 +21709,8 @@
   "tl": 2,
   "wiki": "White-toothed woodrat",
   "desc": "A packrat for which cacti, especially cholla and prickly pear, are a major part of the diet.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Neotoma leucodon is a species of rodent in the family Cricetidae."
  },
  "neotoma mexicana": {
   "latin": "Neotoma mexicana",
@@ -22282,7 +22397,8 @@
   "tl": 3,
   "wiki": "Walrus",
   "desc": "Digs clams out of the seabed with its whiskers.",
-  "ic": "seal"
+  "ic": "seal",
+  "about": "The walrus is a large pinniped marine mammal with discontinuous distribution about the North Pole in the Arctic Ocean and subarctic seas of the Northern Hemisphere."
  },
  "odocoileus hemionus": {
   "latin": "Odocoileus hemionus",
@@ -22317,7 +22433,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Build mounds and recycle dry grass and wood. They are the main food of sloth bears.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "oecophylla smaragdina": {
   "latin": "Oecophylla smaragdina",
@@ -22461,7 +22578,8 @@
   "tl": 3,
   "wiki": "Yellowstone cutthroat trout",
   "desc": "Yellowstone's native trout. Eats mayflies and fallen grasshoppers, and feeds otters, ospreys, eagles and bears.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The Yellowstone cutthroat trout is a subspecies of Rocky Mountain cutthroat trout. It is a freshwater fish in the salmon family (family Salmonidae)."
  },
  "oncorhynchus gorbuscha": {
   "latin": "Oncorhynchus gorbuscha",
@@ -22551,7 +22669,8 @@
   "tl": 2,
   "wiki": "Tristram's starling",
   "desc": "The most-recorded bird here. It eats fruit and insects, nests on cliffs, and likely spreads desert plant seeds over long distances.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "Tristram's starling, also known as Dead Sea starling or Tristram's grackle, is a species of starling native to the Middle East."
  },
  "onychomys arenicola": {
   "latin": "Onychomys arenicola",
@@ -22712,7 +22831,8 @@
   "tl": 2,
   "wiki": "Tilapia",
   "desc": "Cichlid fish that feed on plants and algae. They are a main food of the African fish eagle.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "Tilapia ( tih-LAH-pee-ə) is the common name for nearly a hundred species of cichlid fish from the coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine, and tilapiine tribes…"
  },
  "oreochromis niloticus": {
   "latin": "Oreochromis niloticus",
@@ -22729,7 +22849,8 @@
   "tl": 2,
   "wiki": "Tilapia",
   "desc": "River fish that graze algae and feed crocodiles.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "Tilapia ( tih-LAH-pee-ə) is the common name for nearly a hundred species of cichlid fish from the coelotilapine, coptodonine, heterotilapine, oreochromine, pelmatolapiine, and tilapiine tribes…"
  },
  "oreoleuciscus potanini": {
   "latin": "Oreoleuciscus potanini",
@@ -23055,7 +23176,8 @@
   "tl": 2,
   "wiki": "Urial",
   "desc": "A wild sheep native to the Hindu Kush and nearby ranges, found on grassland, open woodland and gentle slopes.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The urial, also known as arkars, shapo, or shapu, is a wild sheep native to Central and South Asia. It is listed as Vulnerable on the IUCN Red List."
  },
  "ovophis makazayazaya": {
   "latin": "Ovophis makazayazaya",
@@ -23215,7 +23337,8 @@
   "wiki": "Western chimpanzee",
   "desc": "Taï chimpanzees crack hard nuts with tools and hunt other primates, including red colobus. The subspecies is Critically Endangered.",
   "ic": "quad",
-  "badge": "Ecosystem engineer"
+  "badge": "Ecosystem engineer",
+  "about": "The western chimpanzee or West African chimpanzee is a critically endangered subspecies of the common chimpanzee."
  },
  "panda oleosa": {
   "latin": "Panda oleosa",
@@ -23381,7 +23504,8 @@
   "wiki": "Tiger",
   "desc": "The top predator of the park. Hunts deer and wild boar, and also takes sloth bears and leopards.",
   "ic": "lion",
-  "badge": "Keystone predator"
+  "badge": "Keystone predator",
+  "about": "The tiger is a large cat and a member of the genus Panthera native to Asia."
  },
  "panthera tigris altaica": {
   "latin": "Panthera tigris altaica",
@@ -23563,7 +23687,8 @@
   "tl": 2,
   "wiki": "Yellow baboon",
   "desc": "An opportunistic omnivore of the park that eats fruit and seeds, including baobab.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The yellow baboon is a baboon in the family of Old World monkeys. The species epithet means \"dog-head\" in Greek, due to the dog-like shape of the muzzle and head."
  },
  "papio hamadryas": {
   "latin": "Papio hamadryas",
@@ -23852,7 +23977,8 @@
   "tl": 2,
   "wiki": "White-crowned pigeon",
   "desc": "A fruit-eating pigeon, one of the best-recorded birds near the park. GloBI records link it to pigeon berry fruit.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-crowned pigeon is a fruit and seed-eating species of bird in the dove and pigeon family Columbidae. It is found primarily in the Caribbean."
  },
  "patagioenas squamosa": {
   "latin": "Patagioenas squamosa",
@@ -24112,7 +24238,8 @@
   "tl": 2,
   "wiki": "Western king prawn",
   "desc": "Bottom-dwelling prawn of sandy seabeds that makes up much of the catch of the Shark Bay prawn fishery. A food item for many fish.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "The western king prawn is an edible dendrobranch prawn endemic to western and southern Australia."
  },
  "penaeus semisulcatus": {
   "latin": "Penaeus semisulcatus",
@@ -24291,7 +24418,8 @@
   "tl": 2,
   "wiki": "Yellow perch",
   "desc": "A small lake fish that feeds on zooplankton and insects, and is prey for walleye and loons.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The yellow perch, commonly referred to as perch, striped perch, American perch or preacher is a freshwater ray-finned fish from the perch family Percidae, native to much of central North America,…"
  },
  "perca fluviatilis": {
   "latin": "Perca fluviatilis",
@@ -24551,7 +24679,8 @@
   "tl": 3,
   "wiki": "Tomtit",
   "desc": "A small insect-eating forest bird that hunts beetles, caterpillars, spiders and other invertebrates.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The tomtit is a small passerine bird in the family Petroicidae, the Australasian robins."
  },
  "petromyzon marinus": {
   "latin": "Petromyzon marinus",
@@ -24699,7 +24828,8 @@
   "tl": 3,
   "wiki": "Striated caracara",
   "desc": "A rare raptor of offshore islands. It scavenges and also takes seabird eggs and chicks, penguins and seal pups.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The striated caracara, also known as Forster's caracara, is a Near Threatened bird of prey of the family Falconidae, the falcons and caracaras."
  },
  "phaneroptera nana": {
   "latin": "Phaneroptera nana",
@@ -25022,7 +25152,8 @@
   "tl": 2,
   "wiki": "Yellow-streaked greenbul",
   "desc": "A forest-understorey songbird recorded eating Maesa and Tarenna fruits.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The yellow-streaked greenbul or yellow-streaked bulbul is a species of songbird in the bulbul family, Pycnonotidae. It is found in eastern and south-eastern Africa."
  },
  "phyllodoce empetriformis, luetkea pectinata": {
   "latin": "Phyllodoce empetriformis, Luetkea pectinata",
@@ -25201,7 +25332,8 @@
   "tl": 2,
   "wiki": "Western red colobus",
   "desc": "A leaf- and fruit-eating monkey of the high canopy. Wikipedia calls it a frequent prey of chimpanzees.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The western red colobus, also known as the bay red colobus, rust red colobus or Upper Guinea red colobus, is a species of Old World monkey in West African forests from Senegal to Ghana."
  },
  "piliocolobus preussi": {
   "latin": "Piliocolobus preussi",
@@ -25218,7 +25350,8 @@
   "tl": 2,
   "wiki": "Western red colobus",
   "desc": "Leaf-eating monkeys of the forest canopy. Chimpanzees and crowned eagles hunt them.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The western red colobus, also known as the bay red colobus, rust red colobus or Upper Guinea red colobus, is a species of Old World monkey in West African forests from Senegal to Ghana."
  },
  "pilosella aurantiaca": {
   "latin": "Pilosella aurantiaca",
@@ -25272,7 +25405,8 @@
   "wiki": "Whitebark pine",
   "desc": "A high-elevation pine whose large seeds feed nutcrackers, squirrels and bears. Blister rust and pine beetles threaten it.",
   "ic": "whitebark",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Pinus albicaulis, known by the common names whitebark pine, white bark pine, white pine, pitch pine, scrub pine, and creeping pine, is a conifer tree native to the mountains of the western United…"
  },
  "pinus banksiana": {
   "latin": "Pinus banksiana",
@@ -25300,7 +25434,8 @@
   "wiki": "Swiss pine",
   "desc": "A conifer of the uppermost forest belt in the Alps. On the Aletsch side it forms forest on moraine laid down after the glacier maximum around 1850.",
   "ic": "whitebark",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Pinus cembra, also known as Swiss pine, Swiss stone pine, Arolla pine, Austrian stone pine, or just stone pine, is a species of pine tree in the subgenus Strobus."
  },
  "pinus contorta": {
   "latin": "Pinus contorta",
@@ -25540,7 +25675,8 @@
   "tl": 2,
   "wiki": "White-crowned manakin",
   "desc": "A small fruit-eating forest bird, recorded very often here, that takes berries such as Miconia.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-crowned manakin is a small passerine bird in the manakin family Pipridae. This common and extremely widespread manakin is one of the most easily identified, even in female plumage."
  },
  "piranga rubra": {
   "latin": "Piranga rubra",
@@ -25900,7 +26036,8 @@
   "wiki": "Tussac grass",
   "desc": "A tall coastal grass that grows in dense clumps about 2 m high and dominates the shoreline where it grows. Penguins, albatrosses and seals use it for cover and nesting.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Poa flabellata, commonly known as tussac grass or just tussac, is a tussock grass native to Patagonia, the Falkland Islands, South Georgia and other islands in the South Atlantic."
  },
  "poa glauca": {
   "latin": "Poa glauca",
@@ -25972,7 +26109,8 @@
   "tl": 3,
   "wiki": "Turkestan ground jay",
   "desc": "A ground-living crow of sandy desert with low shrubs, and the best-recorded bird near the reserve. Forages on the ground.",
-  "ic": "raven"
+  "ic": "raven",
+  "about": "The Turkestan ground jay, grey ground jay or Pander's ground-jay is a species of bird in the crow and jay family, Corvidae."
  },
  "podophyllum peltatum": {
   "latin": "Podophyllum peltatum",
@@ -26025,7 +26163,8 @@
   "tl": 2,
   "wiki": "Yellow-rumped tinkerbird",
   "desc": "A small forest barbet recorded eating Maesa and Tarenna fruits.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The yellow-rumped tinkerbird is a bird species in the family Lybiidae, which is native to the moist tropical and subtropical regions of sub-Saharan Africa."
  },
  "pogonocichla stellata": {
   "latin": "Pogonocichla stellata",
@@ -26033,7 +26172,8 @@
   "tl": 3,
   "wiki": "White-starred robin",
   "desc": "A forest-floor songbird that feeds on insects and also takes fruit such as Ilex and Maesa berries.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-starred robin is a species of bird in the Old World flycatcher and chat family Muscicapidae. It is also sometimes more simply called the starred robin."
  },
  "pogonomyrmex californicus": {
   "latin": "Pogonomyrmex californicus",
@@ -26277,7 +26417,8 @@
   "wiki": "Sumatran orangutan",
   "desc": "Mainly a fruit eater that favours figs and gathers at fruiting fig trees. Insects, leaves and bark add to the diet. Wikipedia says the park is one of two remaining habitats.",
   "ic": "quad",
-  "badge": "Keystone grazer"
+  "badge": "Keystone grazer",
+  "about": "The Sumatran orangutan is one of the three species of orangutans."
  },
  "pontederia azurea": {
   "latin": "Pontederia azurea",
@@ -26457,7 +26598,8 @@
   "tl": 2,
   "wiki": "Takahē",
   "desc": "Large flightless rail rediscovered in the Murchison Mountains in 1948. It eats mainly the leaves of snow tussock.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The South Island takahē is a flightless swamphen indigenous to New Zealand and the largest living member of the rail family."
  },
  "posidonia australis": {
   "latin": "Posidonia australis",
@@ -26565,7 +26707,8 @@
   "tl": 2,
   "wiki": "Tullberg's soft-furred mouse",
   "desc": "A small forest rodent that forages on the forest floor and is prey for genets and snakes.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Tullberg's soft-furred mouse or Tullberg's praomys is a species of rodent in the family Muridae in Africa."
  },
  "prenolepis imparis": {
   "latin": "Prenolepis imparis",
@@ -26582,7 +26725,8 @@
   "tl": 2,
   "wiki": "Thomas's langur",
   "desc": "A leaf-monkey of northern Sumatra. GloBI records show it eating fig and Macaranga fruit near the park.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "Thomas's langur, also known as the North Sumatran leaf monkey or Thomas's leaf monkey, is a species of primate in the family Cercopithecidae."
  },
  "prestoea acuminata": {
   "latin": "Prestoea acuminata",
@@ -26617,7 +26761,8 @@
   "tl": 2,
   "wiki": "Tineidae",
   "desc": "Flightless moth whose larvae feed on Kerguelen cabbage, a major part of the native litter-feeding fauna.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Tineidae is a family of moths in the order Lepidoptera described by Pierre André Latreille in 1810. Collectively, they are known as fungus moths or tineid moths."
  },
  "priodontes maximus": {
   "latin": "Priodontes maximus",
@@ -26734,7 +26879,8 @@
   "tl": 2,
   "wiki": "Tome's spiny rat",
   "desc": "A common forest rodent that eats seeds and fruit on the ground and is food for snakes, hawks and small cats.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "Tome's spiny rat, also known as Tomes' spiny rat or the Central American spiny rat, is a species of spiny rat distributed from Honduras to Ecuador."
  },
  "promerops cafer": {
   "latin": "Promerops cafer",
@@ -26751,7 +26897,8 @@
   "tl": 2,
   "wiki": "Verreaux's sifaka",
   "desc": "Mostly a leaf eater, also taking fruit, flowers and bark. Infants are hunted by fossas and harrier-hawks.",
-  "ic": "grizzly"
+  "ic": "grizzly",
+  "about": "Verreaux's sifaka, or the white sifaka, is a medium-sized primate in one of the lemur families, the Indriidae."
  },
  "prosopeia personata": {
   "latin": "Prosopeia personata",
@@ -26805,7 +26952,8 @@
   "tl": 2,
   "wiki": "Tūī",
   "desc": "A common native honeyeater of the park's forests, feeding on nectar and fruit.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The tūī is a medium-sized bird native to New Zealand. It is blue, green, and bronze coloured with a distinctive white throat tuft (poi)."
  },
  "protea repens": {
   "latin": "Protea repens",
@@ -27147,7 +27295,8 @@
   "tl": 2,
   "wiki": "Vanuatu flying fox",
   "desc": "A fruit bat found only in Vanuatu and listed as Vulnerable. Flying foxes are fruit and nectar eaters and are hunted for food on Santo.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Vanuatu flying fox or white flying fox is a species of flying fox in the family Pteropodidae. It is endemic to Vanuatu."
  },
  "pteropus conspicillatus": {
   "latin": "Pteropus conspicillatus",
@@ -28079,7 +28228,8 @@
   "tl": 2,
   "wiki": "Toco toucan",
   "desc": "Swallows whole fruit and drops the seeds far from the parent tree.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The toco toucan is a species of bird in the toucan family Ramphastidae."
  },
  "ramphastos tucanus": {
   "latin": "Ramphastos tucanus",
@@ -28087,7 +28237,8 @@
   "tl": 2,
   "wiki": "White-throated toucan",
   "desc": "The most recorded bird near Yasuni. Large-billed fruit eater that swallows fruit whole.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-throated toucan is a bird in the family Ramphastidae found in South America throughout the Amazon Basin including the adjacent Tocantins and Araguaia River drainage."
  },
  "rana iberica": {
   "latin": "Rana iberica",
@@ -28211,7 +28362,8 @@
   "tl": 2,
   "wiki": "Summit rat",
   "desc": "A night-active rat that licks nectar from giant pitcher lids and defecates into them; one of the most recorded mammals near the park.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The summit rat is a species of rodent in the family Muridae. It is found only on Mount Kinabalu and Mount Tambuyukon, Malaysia, and has been recorded at altitudes of 2,040 to 2,477 m on Mt."
  },
  "rattus colletti": {
   "latin": "Rattus colletti",
@@ -28408,7 +28560,8 @@
   "tl": 3,
   "wiki": "Whale shark",
   "desc": "The biggest fish, a filter feeder on plankton, seen in the island waters.",
-  "ic": "shark"
+  "ic": "shark",
+  "about": "The whale shark is a slow-moving, filter-feeding carpet shark and the largest known extant fish species."
  },
  "rhinella marina": {
   "latin": "Rhinella marina",
@@ -28717,7 +28870,8 @@
   "tl": 2,
   "wiki": "Wreathed hornbill",
   "desc": "A large hornbill recorded by GloBI eating fig and Macaranga fruit near the park.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The wreathed hornbill is an Old World tropical bird of the hornbill family Bucerotidae, also called bar-pouched wreathed hornbill due to its distinctive blue-black band on its lower throat sac."
  },
  "ribes americanum": {
   "latin": "Ribes americanum",
@@ -28932,7 +29086,8 @@
   "tl": 4,
   "wiki": "Titicaca grebe",
   "desc": "A flightless, endangered grebe. Nearly 95% of its prey mass is Orestias. It breeds in the reed belt and drowns in gill nets.",
-  "ic": "osprey"
+  "ic": "osprey",
+  "about": "The Titicaca grebe, also known as the Titicaca flightless grebe or short-winged grebe, is a flightless species of grebe found on the altiplano of Peru and Bolivia."
  },
  "romalea microptera": {
   "latin": "Romalea microptera",
@@ -29312,7 +29467,8 @@
   "tl": 1,
   "wiki": "Willow",
   "desc": "Shrubs of lowland and tundra that moose browse, according to the park service. Hares, ptarmigan, ground squirrels and Dall sheep eat them too.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Willows, also called sallows and osiers, of the genus Salix, comprise around 350 species (plus numerous hybrids) of typically deciduous trees and shrubs."
  },
  "salix alba": {
   "latin": "Salix alba",
@@ -29455,7 +29611,8 @@
   "tl": 1,
   "wiki": "Willow",
   "desc": "Streamside shrubs that feed moose and beaver and hold the banks that trout streams run between.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Willows, also called sallows and osiers, of the genus Salix, comprise around 350 species (plus numerous hybrids) of typically deciduous trees and shrubs."
  },
  "salmo letnica": {
   "latin": "Salmo letnica",
@@ -29644,7 +29801,8 @@
   "tl": 3,
   "wiki": "Walleye",
   "desc": "A top sport fish of the big lakes; adults eat mostly fish, often yellow perch.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The walleye, also called the walleyed pike, yellow pike, yellow pikeperch or yellow pickerel, is a freshwater perciform fish native to most of Canada and to the Northern United States."
  },
  "sandy acidic soil": {
   "latin": "",
@@ -29733,7 +29891,8 @@
   "tl": 2,
   "wiki": "Tufted capuchin",
   "desc": "An omnivorous monkey that eats fruit, including Guatteria, and also insects and small animals.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The tufted capuchin, also known as brown capuchin, black-capped capuchin, or pin monkey, is a New World primate from South America and the Caribbean islands of Trinidad and Margarita."
  },
  "sapajus nigritus": {
   "latin": "Sapajus nigritus",
@@ -29760,7 +29919,8 @@
   "wiki": "Tasmanian devil",
   "desc": "The world's largest surviving marsupial carnivore, mainly a scavenger that favours wombats. Devil facial tumour disease has cut its numbers sharply.",
   "ic": "quad",
-  "badge": "Keystone predator"
+  "badge": "Keystone predator",
+  "about": "The Tasmanian devil is a carnivorous marsupial of the family Dasyuridae."
  },
  "sarcoramphus papa": {
   "latin": "Sarcoramphus papa",
@@ -30505,7 +30665,8 @@
   "tl": 2,
   "wiki": "Tarai gray langur",
   "desc": "A leaf and fruit eating monkey of the forest and its edges, hunted by leopards and tigers.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Tarai gray langur is an Old World monkey, and was formerly considered a subspecies of the northern plains gray langur."
  },
  "semnopithecus johnii": {
   "latin": "Semnopithecus johnii",
@@ -30615,7 +30776,8 @@
   "tl": 3,
   "wiki": "Yellowtail kingfish",
   "desc": "A fast open-water fish that eats other fish and squid. Visitors can hand-feed kingfish at Ned's Beach.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The yellowtail amberjack, yellowtail kingfish, hiramasa or great amberjack is a large fish found in the oceans of the Southern Hemisphere."
  },
  "serrasalmus": {
   "latin": "Serrasalmus",
@@ -30849,7 +31011,8 @@
   "tl": 2,
   "wiki": "White-spotted spinefoot",
   "desc": "A herbivorous fish of the Gulf that eats mainly benthic algae and some seagrass; it is trapped by local fishers.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "Siganus canaliculatus, the white-spotted spinefoot, white-spotted rabbitfish, pearly spinefoot, seagrass rabbitfish, slimy spinefoot or smudgespot spinefoot is a species of marine ray-finned fish, a…"
  },
  "sigaus piliferus": {
   "latin": "Sigaus piliferus",
@@ -31668,7 +31831,8 @@
   "tl": 2,
   "wiki": "Yellow ground squirrel",
   "desc": "A large burrowing ground squirrel of Central Asian deserts and steppe. It eats plants and is prey for raptors and foxes.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The yellow ground squirrel is a large and sturdy ground squirrel species native to Afghanistan, China, Iran, Kazakhstan, Tajikistan, Turkmenistan, Uzbekistan and Russia."
  },
  "spermophilus relictus": {
   "latin": "Spermophilus relictus",
@@ -32326,7 +32490,8 @@
   "tl": 2,
   "wiki": "Streptopelia decaocto",
   "desc": "Eurasian Collared-Dove (Streptopelia decaocto): eats plants or other primary food sources. Recorded 58 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The Eurasian collared dove, often called the collared dove, is a dove species from the genus Streptopelia."
  },
  "strix aluco": {
   "latin": "Strix aluco",
@@ -32334,7 +32499,8 @@
   "tl": 3,
   "wiki": "Tawny owl",
   "desc": "A woodland owl hunting small mammals such as voles at night.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The tawny owl, also called the brown owl, is a stocky, medium-sized owl in the family Strigidae."
  },
  "strix nebulosa": {
   "latin": "Strix nebulosa",
@@ -32369,7 +32535,8 @@
   "tl": 1,
   "wiki": "Strombosia",
   "desc": "Understory and mid-canopy rainforest trees whose fruit is eaten by chimpanzees and guenons, according to GloBI records.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Strombosia is a plant genus of about 10 species in the family Olacaceae. It has also been classified in the family Strombosiaceae."
  },
  "strongylocentrotus purpuratus": {
   "latin": "Strongylocentrotus purpuratus",
@@ -32378,7 +32545,8 @@
   "wiki": "Strongylocentrotus purpuratus",
   "desc": "Grazes kelp, often eating drifting pieces. Without enough predators it can multiply and strip an area bare, leaving an urchin barren.",
   "ic": "shell",
-  "badge": "Keystone grazer"
+  "badge": "Keystone grazer",
+  "about": "Strongylocentrotus purpuratus is a species of sea urchin in the family Strongylocentrotidae, which is commonly known as the purple sea urchin or Pacific purple sea urchin."
  },
  "strongylopus grayii": {
   "latin": "Strongylopus grayii",
@@ -32386,7 +32554,8 @@
   "tl": 3,
   "wiki": "Strongylopus grayii",
   "desc": "A small frog of streams and wet grass that feeds on insects and is eaten by shrikes and snakes.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "Gray's stream frog is a fairly small species of frog in the family Pyxicephalidae."
  },
  "strophostyles helvola": {
   "latin": "Strophostyles helvola",
@@ -32394,7 +32563,8 @@
   "tl": 1,
   "wiki": "Strophostyles helvola",
   "desc": "BEACH PEA (Strophostyles helvola): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Strophostyles helvola, commonly called amberique-bean, annual sand bean, or trailing fuzzybean is a species of flowering plant in the legume family."
  },
  "struthio camelus": {
   "latin": "Struthio camelus",
@@ -32411,7 +32581,8 @@
   "tl": 2,
   "wiki": "Strymon melinus",
   "desc": "Cotton Square Borer (Strymon melinus): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "The gray hairstreak is also called the bean lycaenid or cotton square borer."
  },
  "strymon sylvinus": {
   "latin": "Strymon sylvinus",
@@ -32427,7 +32598,8 @@
   "tl": 1,
   "wiki": "Stuckenia pectinata",
   "desc": "Fennel Pondweed (Stuckenia pectinata): a plant that turns sunlight into food. Recorded 25 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Stuckenia pectinata, commonly called sago pondweed or fennel pondweed, and sometimes called ribbon weed, is a cosmopolitan water plant species that grows in fresh and brackish water on all continents…"
  },
  "sturnella magna": {
   "latin": "Sturnella magna",
@@ -32444,7 +32616,8 @@
   "tl": 2,
   "wiki": "Sturnella neglecta",
   "desc": "Western Meadowlark (Sturnella neglecta): eats plants or other primary food sources. Recorded 179 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The western meadowlark is a medium-sized icterid bird, about 20 cm (7.9 in) in length."
  },
  "sturnus vulgaris": {
   "latin": "Sturnus vulgaris",
@@ -32452,7 +32625,8 @@
   "tl": 3,
   "wiki": "Sturnus vulgaris",
   "desc": "European Starling (Sturnus vulgaris): hunts or scavenges other animals. Recorded 143 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The common starling, also known simply as the starling in Great Britain and Ireland, and as the European starling in North America, is a medium-sized passerine bird in the starling family, Sturnidae."
  },
  "stylophorum diphyllum": {
   "latin": "Stylophorum diphyllum",
@@ -32460,7 +32634,8 @@
   "tl": 1,
   "wiki": "Stylophorum diphyllum",
   "desc": "Celandine-poppy (Stylophorum diphyllum): a plant that turns sunlight into food. Recorded 21 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Stylophorum diphyllum, commonly called the celandine poppy or wood poppy, is an herbaceous plant in the poppy family (Papaveraceae)."
  },
  "styrax redivivus": {
   "latin": "Styrax redivivus",
@@ -32468,7 +32643,8 @@
   "tl": 1,
   "wiki": "Styrax redivivus",
   "desc": "Snowdrop bush (Styrax redivivus): a plant that turns sunlight into food. Recorded 76 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Styrax redivivus, with common names that include snowdrop bush, California styrax, bitternut, drug snowbell, and chaparral snowbell, is a species of flowering plant in the family Styracaceae."
  },
  "suaeda nigra": {
   "latin": "Suaeda nigra",
@@ -32476,7 +32652,8 @@
   "tl": 1,
   "wiki": "Suaeda nigra",
   "desc": "Bush seepweed (Suaeda nigra): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Suaeda nigra, often still known by the former name Suaeda moquinii, is a species of flowering plant in the amaranth family, known by the vernacular names bush seepweed or Mojave sea-blite."
  },
  "sula dactylatra": {
   "latin": "Sula dactylatra",
@@ -32663,7 +32840,8 @@
   "tl": 2,
   "wiki": "Wild boar",
   "desc": "Feral pig (Sus scrofa): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The wild boar, also known as the wild swine, common wild pig, Eurasian wild pig, or simply wild pig, is a suid native to much of Eurasia and North Africa and has been introduced to the Americas and…"
  },
  "swamps & rivers": {
   "latin": "",
@@ -32689,7 +32867,8 @@
   "tl": 1,
   "wiki": "Swietenia macrophylla",
   "desc": "Planted here in the mid 1900s, it now forms much of the tall canopy beside the older native trees.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Swietenia macrophylla, commonly known as mahogany, Honduran mahogany, Honduras mahogany, or big-leaf mahogany is a species of plant in the Meliaceae family."
  },
  "syagrus romanzoffiana": {
   "latin": "Syagrus romanzoffiana",
@@ -32698,7 +32877,8 @@
   "wiki": "Syagrus romanzoffiana",
   "desc": "Its sticky orange-pulped fruit is eaten by toucans, coatis, tapirs, agoutis and many birds, which spread the seeds.",
   "ic": "sage",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Syagrus romanzoffiana, the queen palm, cocos palm or Jerivá, is a palm native to South America, introduced throughout the world as a popular ornamental garden tree. S."
  },
  "sylvia curruca": {
   "latin": "Sylvia curruca",
@@ -32724,7 +32904,8 @@
   "tl": 2,
   "wiki": "Sylvilagus aquaticus",
   "desc": "SWAMP RABBIT (Sylvilagus aquaticus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The swamp rabbit, also known as the cane cutter, swamper, or cane jake, is a species of cottontail rabbit found in the swamps and wetlands of the southern United States."
  },
  "sylvilagus audubonii": {
   "latin": "Sylvilagus audubonii",
@@ -32732,7 +32913,8 @@
   "tl": 2,
   "wiki": "Sylvilagus audubonii",
   "desc": "A small rabbit that is active at dawn and dusk and eats plants. Rattlesnakes, bullsnakes and bobcats take it.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The desert cottontail, also known as Audubon's cottontail, is a New World cottontail rabbit, and a member of the family Leporidae."
  },
  "sylvilagus bachmani": {
   "latin": "Sylvilagus bachmani",
@@ -32749,7 +32931,8 @@
   "tl": 2,
   "wiki": "Sylvilagus floridanus",
   "desc": "Eastern cottontail (Sylvilagus floridanus): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The eastern cottontail is a species of rabbit in the family Leporidae."
  },
  "sylvilagus nuttallii": {
   "latin": "Sylvilagus nuttallii",
@@ -32757,7 +32940,8 @@
   "tl": 2,
   "wiki": "Sylvilagus nuttallii",
   "desc": "Mountain cottontail (Sylvilagus nuttallii): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The mountain cottontail or Nuttall's cottontail is a species of rabbit found in western Canada and the United States."
  },
  "sylvilagus palustris": {
   "latin": "Sylvilagus palustris",
@@ -32774,7 +32958,8 @@
   "tl": 3,
   "wiki": "Sylvisorex",
   "desc": "A small insect-eating mammal of Albertine Rift forest floors, among the more recorded mammals near the park.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "The forest shrews are the members of the genus Sylvisorex. They are mammals in the family Soricidae and are found only in Africa."
  },
  "symbiodiniaceae": {
   "latin": "Symbiodiniaceae",
@@ -32782,7 +32967,8 @@
   "tl": 1,
   "wiki": "Zooxanthellae",
   "desc": "Microscopic algae living inside coral that pass sugars to their host.",
-  "ic": "algae"
+  "ic": "algae",
+  "about": "Zooxanthellae is a colloquial term for photosynthetic single-celled organisms capable of symbiosis with diverse marine invertebrates such as corals, jellyfish, demosponges, and nudibranchs."
  },
  "symphoricarpos orbiculatus": {
   "latin": "Symphoricarpos orbiculatus",
@@ -32790,7 +32976,8 @@
   "tl": 1,
   "wiki": "Symphoricarpos orbiculatus",
   "desc": "Buck Brush (Symphoricarpos orbiculatus): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Symphoricarpos orbiculatus, commonly called coralberry, buckbrush or Indian currant is a woody species of flowering plant in the honeysuckle family."
  },
  "symphyotrichum campestre": {
   "latin": "Symphyotrichum campestre",
@@ -32798,7 +32985,8 @@
   "tl": 1,
   "wiki": "Symphyotrichum campestre",
   "desc": "Western meadow aster (Symphyotrichum campestre): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Symphyotrichum campestre is a species of flowering plant of the family Asteraceae commonly known as western meadow aster."
  },
  "symphyotrichum lateriflorum": {
   "latin": "Symphyotrichum lateriflorum",
@@ -32806,7 +32994,8 @@
   "tl": 1,
   "wiki": "Symphyotrichum lateriflorum",
   "desc": "Calico Aster (Symphyotrichum lateriflorum): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Symphyotrichum lateriflorum is a species of flowering plant in the aster family (Asteraceae)."
  },
  "symphyotrichum racemosum": {
   "latin": "Symphyotrichum racemosum",
@@ -32814,7 +33003,8 @@
   "tl": 1,
   "wiki": "Symphyotrichum racemosum",
   "desc": "Small-head aster (Symphyotrichum racemosum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Symphyotrichum racemosum is a species of flowering plant native to parts of the United States and introduced in Canada. It is known as smooth white oldfield aster and small white aster."
  },
  "symplocarpus foetidus": {
   "latin": "Symplocarpus foetidus",
@@ -32822,7 +33012,8 @@
   "tl": 1,
   "wiki": "Symplocarpus foetidus",
   "desc": "Polecatweed (Symplocarpus foetidus): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Symplocarpus foetidus, commonly known as skunk cabbage or eastern skunk cabbage, is a low-growing plant that grows in wetlands and moist hill slopes of eastern North America."
  },
  "synanthedon exitiosa": {
   "latin": "Synanthedon exitiosa",
@@ -32830,7 +33021,8 @@
   "tl": 2,
   "wiki": "Synanthedon exitiosa",
   "desc": "Peachtree Borer (Synanthedon exitiosa): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Synanthedon exitiosa, the peachtree borer, is a species of moth in the family Sesiidae that is native to North America. The adult female of the species has a wingspan of about 3.5 centimeters."
  },
  "syncerus caffer": {
   "latin": "Syncerus caffer",
@@ -32865,7 +33057,8 @@
   "tl": 1,
   "wiki": "Syzygium",
   "desc": "Rainforest trees whose fruit and flowers feed cassowaries and spectacled flying foxes.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Syzygium () is a genus of flowering plants that belongs to the myrtle family, Myrtaceae."
  },
  "syzygium cumini": {
   "latin": "Syzygium cumini",
@@ -32873,7 +33066,8 @@
   "tl": 1,
   "wiki": "Syzygium cumini",
   "desc": "A fruiting forest tree. GloBI records elephants, macaques, squirrels and many birds eating its fruit.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Syzygium cumini, also known as Java plum, Malabar plum, jambolan, black plum, jamun, jambul, is an evergreen tropical tree in the flowering plant family Myrtaceae, and favored for its fruit, timber,…"
  },
  "tachyoryctes macrocephalus": {
   "latin": "Tachyoryctes macrocephalus",
@@ -32910,7 +33104,8 @@
   "tl": 1,
   "wiki": "Taeniatherum caput-medusae",
   "desc": "Grasses and sedges cover about 45% of the Nuratau site (grassland), growing fast in the damp spring. They are the main forage on the lower slopes and desert fringe.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Taeniatherum is a genus of Eurasian and North African plants in the grass family."
  },
  "tamarindus indica": {
   "latin": "Tamarindus indica",
@@ -32918,7 +33113,8 @@
   "tl": 1,
   "wiki": "Tamarind",
   "desc": "A leafy tree whose pods are a key dry-season food for ring-tailed lemurs.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Tamarind is a leguminous tree bearing edible fruit that is indigenous to tropical Africa and naturalized in Asia. The genus Tamarindus is monotypic, meaning that it contains only this species."
  },
  "tamarix ramosissima": {
   "latin": "Tamarix ramosissima",
@@ -32926,7 +33122,8 @@
   "tl": 1,
   "wiki": "Tamarix ramosissima",
   "desc": "Salt cedar (Tamarix ramosissima): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tamarix ramosissima, commonly known as saltcedar salt cedar, or tamarisk, is a deciduous arching shrub with reddish stems, feathery, pale green foliage, and characteristic small pink flowers."
  },
  "tamias dorsalis": {
   "latin": "Tamias dorsalis",
@@ -32934,7 +33131,8 @@
   "tl": 2,
   "wiki": "Tamias dorsalis",
   "desc": "Cliff chipmunk (Tamias dorsalis): eats plants or other primary food sources. Recorded 36 times near the park in GBIF.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The cliff chipmunk is a small, bushy-tailed squirrel that typically lives along cliff walls or boulder fields bordering Pinyon-juniper woodlands in the Western United States and Mexico (commonly…"
  },
  "tamias minimus": {
   "latin": "Tamias minimus",
@@ -32942,7 +33140,8 @@
   "tl": 2,
   "wiki": "Tamias minimus",
   "desc": "Least chipmunk (Tamias minimus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The least chipmunk is the smallest species of chipmunk and the most widespread in North America."
  },
  "tamias sibiricus": {
   "latin": "Tamias sibiricus",
@@ -32959,7 +33158,8 @@
   "tl": 2,
   "wiki": "Tamias striatus",
   "desc": "Eastern chipmunk (Tamias striatus): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The eastern chipmunk is a chipmunk species found in eastern North America. It is the only living member of the genus Tamias."
  },
  "tamias umbrinus": {
   "latin": "Tamias umbrinus",
@@ -32967,7 +33167,8 @@
   "tl": 2,
   "wiki": "Uinta chipmunk",
   "desc": "The most recorded mammal near the park. A small forest rodent that feeds mainly on seeds and is prey for hawks.",
-  "ic": "rsquirrel"
+  "ic": "rsquirrel",
+  "about": "The Uinta chipmunk or hidden forest chipmunk is a species of chipmunk in the family Sciuridae. It is endemic to the United States."
  },
  "tamiasciurus douglasii": {
   "latin": "Tamiasciurus douglasii",
@@ -32984,7 +33185,8 @@
   "tl": 2,
   "wiki": "Tamiasciurus hudsonicus",
   "desc": "American red squirrel (Tamiasciurus hudsonicus): eats plants or other primary food sources. Recorded 9 times near the park in GBIF.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The American red squirrel is one of three species of tree squirrels currently classified in the genus Tamiasciurus, known as the pine squirrels."
  },
  "tanacetum vulgare": {
   "latin": "Tanacetum vulgare",
@@ -32992,7 +33194,8 @@
   "tl": 1,
   "wiki": "Tanacetum vulgare",
   "desc": "Tansy (Tanacetum vulgare): a plant that turns sunlight into food. Recorded 18 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tansy is a perennial, herbaceous flowering plant in the genus Tanacetum in the family Asteraceae, native to temperate Europe and Asia."
  },
  "tapirella bairdii": {
   "latin": "Tapirella bairdii",
@@ -33028,7 +33231,8 @@
   "tl": 1,
   "wiki": "Taraxacum officinale",
   "desc": "Dandelion (Taraxacum officinale): a plant that turns sunlight into food. Recorded 51 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Taraxacum officinale, the dandelion or common dandelion, is a herbaceous perennial flowering plant in the daisy family, Asteraceae."
  },
  "taraxia tanacetifolia": {
   "latin": "Taraxia tanacetifolia",
@@ -33036,7 +33240,8 @@
   "tl": 1,
   "wiki": "Taraxia tanacetifolia",
   "desc": "Tansyleaf evening primrose (Taraxia tanacetifolia): a plant that turns sunlight into food. Recorded 32 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Taraxia tanacetifolia is a species of evening primrose known by the common name tansyleaf evening primrose."
  },
  "tarenna": {
   "latin": "Tarenna",
@@ -33044,7 +33249,8 @@
   "tl": 1,
   "wiki": "Tarenna",
   "desc": "A shrubby understorey plant of Afromontane forest whose small fruits are eaten by birds.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Tarenna is a genus of flowering plants in the family Rubiaceae. There are about 193 species distributed across the old world tropics of Africa, Asia, Australia, and the Pacific Islands."
  },
  "tauraco schuettii": {
   "latin": "Tauraco schuettii",
@@ -33070,7 +33276,8 @@
   "tl": 3,
   "wiki": "Taxidea taxus",
   "desc": "American badger (Taxidea taxus): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
-  "ic": "otter"
+  "ic": "otter",
+  "about": "The American badger is a North American badger similar in appearance to the European badger, although not closely related."
  },
  "taxodium distichum": {
   "latin": "Taxodium distichum",
@@ -33078,7 +33285,8 @@
   "tl": 1,
   "wiki": "Taxodium distichum",
   "desc": "Extremely flood-tolerant swamp conifer of the Southeast. Floodwaters carry its seeds along, and squirrels eat them.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Taxodium distichum, the bald cypress, bald-cypress, baldcypress, or swamp cypress; French: cyprès chauve; cipre in Louisiana) is a deciduous conifer in the cypress family, Cupressaceae."
  },
  "tayassu pecari": {
   "latin": "Tayassu pecari",
@@ -33086,7 +33294,8 @@
   "tl": 2,
   "wiki": "White-lipped peccary",
   "desc": "A herd-living forest pig that eats fruits, seeds and roots and is prey for jaguars and pumas.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The white-lipped peccary is a species of peccary found in Central and South America and the only extant member of the genus Tayassu. Multiple subspecies have been identified."
  },
  "tegeticula synthetica": {
   "latin": "Tegeticula synthetica",
@@ -33102,7 +33311,8 @@
   "tl": 3,
   "wiki": "Titicaca water frog",
   "desc": "A fully aquatic frog that eats mainly amphipods and snails, and adults also take Orestias fish. Overcollection, pollution and trout have cut its numbers.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "Telmatobius culeus, commonly known as the Titicaca water frog or Lake Titicaca frog, is a medium-large to very large and endangered species of frog in the family Telmatobiidae."
  },
  "tenaxia": {
   "latin": "Tenaxia",
@@ -33129,7 +33339,8 @@
   "tl": 3,
   "wiki": "Tenrec",
   "desc": "Small insect-eating mammals unique to Madagascar, hunted by the fossa.",
-  "ic": "vole"
+  "ic": "vole",
+  "about": "A tenrec () is a mammal belonging to any species within the afrotherian family Tenrecidae, which is endemic to Madagascar."
  },
  "tenualosa ilisha": {
   "latin": "Tenualosa ilisha",
@@ -33146,7 +33357,8 @@
   "tl": 1,
   "wiki": "Tephrosia virginiana",
   "desc": "Goat's rue (Tephrosia virginiana): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tephrosia virginiana, also known as goat-rue, goat's rue, catgut, rabbit pea, Virginia tephrosia, hoary pea, and devil's shoestring is a perennial dicot in family Fabaceae."
  },
  "terathopius ecaudatus": {
   "latin": "Terathopius ecaudatus",
@@ -33163,7 +33375,8 @@
   "tl": 3,
   "wiki": "Teratoscincus scincus",
   "desc": "A nocturnal gecko of sand dunes that shelters in a deep burrow by day and eats insects and other lizards.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Teratoscincus scincus, commonly referred to as the common wonder gecko or the frog-eyed gecko, is a species of lizard in the family Sphaerodactylidae."
  },
  "termites, scarab beetles, fungi, bacteria": {
   "latin": "Termites, scarab beetles, fungi, bacteria",
@@ -33180,7 +33393,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Feed on dead wood and plant litter, and are a main food of giant anteaters and giant armadillos.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "termitoidae": {
   "latin": "Termitoidae",
@@ -33188,7 +33402,8 @@
   "tl": 2,
   "wiki": "Termite",
   "desc": "Break down dead wood and leaf litter and recycle nutrients. Chimpanzees fish them out of mounds with sticks.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus."
  },
  "terpsiphone viridis": {
   "latin": "Terpsiphone viridis",
@@ -33205,7 +33420,8 @@
   "tl": 2,
   "wiki": "Western capercaillie",
   "desc": "Huge grouse of the old pinewoods, feeding on pine shoots and bilberry; its eggs, chicks and adults are taken by predators.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "The western capercaillie, also known as the Eurasian capercaillie, wood grouse, heather cock, cock-of-the-woods, or simply capercaillie , is a heavy member of the grouse tribe and the largest of all…"
  },
  "tetraogallus himalayensis": {
   "latin": "Tetraogallus himalayensis",
@@ -33222,7 +33438,8 @@
   "tl": 2,
   "wiki": "Tettigonia caudata",
   "desc": "A large bush-cricket of dry shrubby ground. It chews leaves and some other insects and feeds lizards and bats.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Tettigonia caudata is a species of bush-crickets belonging to the family Tettigoniidae subfamily Tettigoniinae. It is found over most of Europe mainly in the East."
  },
  "teucrium canadense": {
   "latin": "Teucrium canadense",
@@ -33230,7 +33447,8 @@
   "tl": 1,
   "wiki": "Teucrium canadense",
   "desc": "American Germander (Teucrium canadense): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Teucrium canadense, commonly known as Canada germander, American germander, or wood sage, is a perennial herb in the family Lamiaceae."
  },
  "thalassarche melanophris": {
   "latin": "Thalassarche melanophris",
@@ -33266,7 +33484,8 @@
   "wiki": "Thalassia testudinum",
   "desc": "The main seagrass of the bay. Its meadows shelter young fish and invertebrates, and its dead leaves supply much of the detritus.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Thalassia testudinum, commonly known as turtlegrass, is a species of marine seagrass in the family Hydrocharitaceae."
  },
  "thalassiosira": {
   "latin": "Thalassiosira",
@@ -33292,7 +33511,8 @@
   "tl": 1,
   "wiki": "Thalassodendron ciliatum",
   "desc": "A seagrass of shallow East African and Indian Ocean waters, forming meadows that feed grazers and shelter small fish.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Thalassodendron ciliatum, the sickle-leaved cymodocea, is a species of plant in the Thalassodendron genus of seagrasses in the family Cymodoceaceae."
  },
  "thalictrum thalictroides": {
   "latin": "Thalictrum thalictroides",
@@ -33300,7 +33520,8 @@
   "tl": 1,
   "wiki": "Thalictrum thalictroides",
   "desc": "Rue-anemone (Thalictrum thalictroides): a plant that turns sunlight into food. Recorded 40 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thalictrum thalictroides, the rue-anemone or windflower, is a herbaceous perennial plant native to woodland in eastern North America."
  },
  "thamnophis sirtalis": {
   "latin": "Thamnophis sirtalis",
@@ -33317,7 +33538,8 @@
   "tl": 1,
   "wiki": "Thamnosma montana",
   "desc": "Mohave desertrue (Thamnosma montana): a plant that turns sunlight into food. Recorded 129 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thamnosma montana, the turpentine broom, or Mojave desert-rue, is a shrub in the citrus family Rutaceae. It is native to the deserts of the southwestern United States and northern Mexico."
  },
  "thelesperma filifolium": {
   "latin": "Thelesperma filifolium",
@@ -33325,7 +33547,8 @@
   "tl": 1,
   "wiki": "Thelesperma filifolium",
   "desc": "Stiff greenthread (Thelesperma filifolium): a plant that turns sunlight into food. Recorded 83 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thelesperma filifolium, commonly known as stiff greenthread, or plains greenthread, is a species of flowering plant in the aster family, Asteraceae. It is often found growing in shallow soils."
  },
  "thelypodium brachycarpum": {
   "latin": "Thelypodium brachycarpum",
@@ -33333,7 +33556,8 @@
   "tl": 1,
   "wiki": "Thelypodium brachycarpum",
   "desc": "Short-podded thelypody (Thelypodium brachycarpum): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thelypodium brachycarpum is a species of flowering plant in the mustard family known by the common names shortpod thelypody and short-podded thelypodium."
  },
  "themeda triandra": {
   "latin": "Themeda triandra",
@@ -33341,7 +33565,8 @@
   "tl": 1,
   "wiki": "Themeda triandra",
   "desc": "The tall grass of the plains. Fire and grazing keep it growing back each year.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Themeda triandra is a species of C4 perennial tussock-forming grass widespread in Africa, Australia, Asia and the Pacific."
  },
  "themeda, cymbopogon, arundinella": {
   "latin": "Themeda, Cymbopogon, Arundinella",
@@ -33349,7 +33574,8 @@
   "tl": 1,
   "wiki": "Themeda",
   "desc": "Frost- and fire-resistant tussock grasses cover the high montane grasslands between the shola forest patches.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Themeda is a genus of plants in the grass family native to Asia, Africa, Australia, and Papuasia. There are about 18 to 26 species, many of which are native to Southeast Asia."
  },
  "theobroma subincanum": {
   "latin": "Theobroma subincanum",
@@ -33357,7 +33583,8 @@
   "tl": 1,
   "wiki": "Theobroma",
   "desc": "A forest tree whose fruit is eaten by peccaries, deer, agoutis and monkeys, according to GloBI feeding records.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Theobroma is a genus of flowering plants in the mallow family, Malvaceae. It was previously classified as a member of Sterculiaceae, which has been incorporated into Malvaceae to make it monophyletic."
  },
  "theropithecus gelada": {
   "latin": "Theropithecus gelada",
@@ -33474,7 +33701,8 @@
   "tl": 2,
   "wiki": "Thomomys bottae",
   "desc": "Botta's pocket gopher (Thomomys bottae): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "Botta's pocket gopher is a pocket gopher native to western North America. It is also known in some areas as valley pocket gopher, particularly in California."
  },
  "thraupis palmarum": {
   "latin": "Thraupis palmarum",
@@ -33491,7 +33719,8 @@
   "tl": 1,
   "wiki": "Thrinax radiata",
   "desc": "A coastal palm that is one of the most recorded plants near the reserve. Its fruit is eaten by animals such as spider monkeys.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thrinax radiata, also known as the Florida thatch palm, is a medium to slow growing palm in the family Arecaceae."
  },
  "thryothorus ludovicianus": {
   "latin": "Thryothorus ludovicianus",
@@ -33499,7 +33728,8 @@
   "tl": 3,
   "wiki": "Thryothorus ludovicianus",
   "desc": "Carolina Wren (Thryothorus ludovicianus): hunts or scavenges other animals. Recorded 897 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The Carolina wren is a species of wren common in the eastern United States, the extreme south of Ontario, Canada, the northeast and southeast of Mexico, and into northern Central America."
  },
  "thuja plicata": {
   "latin": "Thuja plicata",
@@ -33507,7 +33737,8 @@
   "tl": 1,
   "wiki": "Thuja plicata",
   "desc": "Western Red-cedar (Thuja plicata): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Thuja plicata is a large coniferous tree in the cypress family, Cupressaceae, native to the Pacific Northwest of North America. Its common name is western redcedar, although it is not a true cedar."
  },
  "thunnus albacares": {
   "latin": "Thunnus albacares",
@@ -33515,7 +33746,8 @@
   "tl": 3,
   "wiki": "Yellowfin tuna",
   "desc": "Fast open-water hunter of flying fish and other baitfish. Industrial fisheries are its main cause of death.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "The yellowfin tuna is a species of tuna found in pelagic waters of tropical and subtropical oceans worldwide."
  },
  "thylogale billardierii": {
   "latin": "Thylogale billardierii",
@@ -33523,7 +33755,8 @@
   "tl": 2,
   "wiki": "Tasmanian pademelon",
   "desc": "A small wallaby that rests in thick cover by day and feeds on grass and shoots in open ground near the forest edge after dark.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The Tasmanian pademelon, also known as the rufous-bellied pademelon or red-bellied pademelon, is the sole species of pademelon found in Tasmania, and was formerly found throughout southeastern…"
  },
  "thylogale stigmatica": {
   "latin": "Thylogale stigmatica",
@@ -33540,7 +33773,8 @@
   "tl": 1,
   "wiki": "Thymus praecox",
   "desc": "A creeping, aromatic herb of thin limestone soils that flowers in the short turf.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Thymus praecox is a species of thyme. A common name is mother of thyme, but \"creeping thyme\" and \"wild thyme\" may be used where Thymus serpyllum, which also shares these names, is not found."
  },
  "thyridopteryx ephemeraeformis": {
   "latin": "Thyridopteryx ephemeraeformis",
@@ -33548,7 +33782,8 @@
   "tl": 2,
   "wiki": "Thyridopteryx ephemeraeformis",
   "desc": "Common bagworm (Thyridopteryx ephemeraeformis): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "The evergreen bagworm, commonly known as bagworm, eastern bagworm, common bagworm, common basket worm, or North American bagworm, is a moth that spins its cocoon in its larval life, decorating it…"
  },
  "tian shan meltwater": {
   "latin": "",
@@ -33565,7 +33800,8 @@
   "tl": 1,
   "wiki": "Tiarella trifoliata",
   "desc": "Sugar-scoop (Tiarella trifoliata): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tiarella trifoliata, the three-leaf foamflower, is a species of flowering plant in the family Saxifragaceae."
  },
  "tidal flats and sabkha": {
   "latin": "",
@@ -33735,7 +33971,8 @@
   "tl": 1,
   "wiki": "Tillandsia usneoides",
   "desc": "Spanish moss (Tillandsia usneoides): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Spanish moss is an epiphytic flowering plant that often grows upon large trees in tropical and subtropical climates."
  },
  "timane river and waterholes": {
   "latin": "",
@@ -33752,7 +33989,8 @@
   "tl": 1,
   "wiki": "Tipularia discolor",
   "desc": "Crippled cranefly (Tipularia discolor): a plant that turns sunlight into food. Recorded 37 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tipularia discolor, the crippled cranefly or crane-fly orchid, is a perennial terrestrial woodland orchid, a member of the family Orchidaceae."
  },
  "tisza river floods": {
   "latin": "",
@@ -33769,7 +34007,8 @@
   "tl": 3,
   "wiki": "Von der Decken's hornbill",
   "desc": "A hornbill of dry bush and coastal woodland in East Africa. It eats insects and other small prey, and fruit.",
-  "ic": "hawk"
+  "ic": "hawk",
+  "about": "Von der Decken's hornbill is a hornbill found in East Africa, especially to the east of the East African Rift, from Ethiopia south to Tanzania."
  },
  "todiramphus sacer": {
   "latin": "Todiramphus sacer",
@@ -33813,7 +34052,8 @@
   "tl": 1,
   "wiki": "Tomostima cuneifolia",
   "desc": "Wedge Leaf Whitlow-grass (Tomostima cuneifolia): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tomostima cuneifolia is a species of flowering plant in the family Brassicaceae known as the wedgeleaf draba or wedgeleaf whitlow-grass."
  },
  "tor putitora": {
   "latin": "Tor putitora",
@@ -33821,7 +34061,8 @@
   "tl": 2,
   "wiki": "Tor putitora",
   "desc": "A large river fish of Himalayan rivers that grazes algae and other foods and feeds the gharial.",
-  "ic": "trout"
+  "ic": "trout",
+  "about": "Tor putitora, known as the golden mahseer, putitor mahseer, or Himalayan mahseer, is an endangered species of cyprinid fish that is found in rapid streams, riverine pools, and lakes in the Himalayan…"
  },
  "townsendia texensis": {
   "latin": "Townsendia texensis",
@@ -33837,7 +34078,8 @@
   "tl": 1,
   "wiki": "Toxicodendron diversilobum",
   "desc": "Pacific poison-oak (Toxicodendron diversilobum): a plant that turns sunlight into food. Recorded 63 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Toxicodendron diversilobum, commonly named Pacific poison oak or western poison oak, is a woody vine or shrub in the sumac family, Anacardiaceae."
  },
  "toxicodendron radicans": {
   "latin": "Toxicodendron radicans",
@@ -33845,7 +34087,8 @@
   "tl": 1,
   "wiki": "Toxicodendron radicans",
   "desc": "Poison Ivy (Toxicodendron radicans): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Toxicodendron radicans, commonly known as eastern poison ivy or poison ivy, is a species of allergenic flowering plant. It has numerous subtaxons and forms both vines and shrubs."
  },
  "toxostoma curvirostre": {
   "latin": "Toxostoma curvirostre",
@@ -33853,7 +34096,8 @@
   "tl": 3,
   "wiki": "Toxostoma curvirostre",
   "desc": "Curve-billed Thrasher (Toxostoma curvirostre): hunts or scavenges other animals. Recorded 2,230 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The curve-billed thrasher is a medium-sized mimid native to most of Mexico and to the deserts of southwestern United States."
  },
  "trachylepis atlantica": {
   "latin": "Trachylepis atlantica",
@@ -33925,7 +34169,8 @@
   "tl": 1,
   "wiki": "Tradescantia occidentalis",
   "desc": "Prairie spiderwort (Tradescantia occidentalis): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tradescantia occidentalis, the prairie spiderwort or western spiderwort, is a plant in the dayflower family, Commelinaceae."
  },
  "tradescantia virginiana": {
   "latin": "Tradescantia virginiana",
@@ -33933,7 +34178,8 @@
   "tl": 1,
   "wiki": "Tradescantia virginiana",
   "desc": "White spiderwort (Tradescantia virginiana): a plant that turns sunlight into food. Recorded 57 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tradescantia virginiana, the Virginia spiderwort, is a species of flowering plant in the family Commelinaceae (the spiderwort family)."
  },
  "tragelaphus buxtoni": {
   "latin": "Tragelaphus buxtoni",
@@ -33986,7 +34232,8 @@
   "tl": 1,
   "wiki": "Trapa natans",
   "desc": "Water Nut (Trapa natans): a plant that turns sunlight into food. Recorded 96 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trapa natans, the water caltrop, is a widespread species of flowering plant in the genus Trapa, family Lythraceae, grown as a food crop."
  },
  "trapelus sanguinolentus": {
   "latin": "Trapelus sanguinolentus",
@@ -33994,7 +34241,8 @@
   "tl": 3,
   "wiki": "Trapelus sanguinolentus",
   "desc": "A common desert lizard that hunts insects by day. It is recorded as prey of the steppe ribbon racer.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Trapelus sanguinolentus, the steppe agama, is a species of agama found in Russia, Kazakhstan, Kyrgyzstan, Tajikistan, Iran, Afghanistan, and China."
  },
  "travertine lake water": {
   "latin": "",
@@ -34011,7 +34259,8 @@
   "tl": 1,
   "wiki": "Trema orientale",
   "desc": "A fast-growing pioneer tree recorded near the reserve, found in forest edges and clearings where it makes small fruits.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Trema orientale is a species of flowering tree in the hemp family, Cannabaceae."
  },
  "tremarctos ornatus": {
   "latin": "Tremarctos ornatus",
@@ -34028,7 +34277,8 @@
   "tl": 1,
   "wiki": "Triadenum fraseri",
   "desc": "Fraser's Marsh St. Johnswort (Triadenum fraseri): a plant that turns sunlight into food. Recorded 15 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Triadenum fraseri, commonly known as bog St. John's wort, Fraser's St."
  },
  "triaenodon obesus": {
   "latin": "Triaenodon obesus",
@@ -34037,7 +34287,8 @@
   "wiki": "Whitetip reef shark",
   "desc": "A reef shark that rests in caves by day and hunts reef fish, octopus and crustaceans at night; Tubbataha is noted for very high densities of it.",
   "ic": "shark",
-  "badge": "Keystone predator"
+  "badge": "Keystone predator",
+  "about": "The whitetip reef shark is a species of requiem shark, in the family Carcharhinidae. It is the only extant species of genus Triaenodon."
  },
  "tribulus terrestris": {
   "latin": "Tribulus terrestris",
@@ -34045,7 +34296,8 @@
   "tl": 1,
   "wiki": "Tribulus terrestris",
   "desc": "Small Caltrops (Tribulus terrestris): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Tribulus terrestris is an annual plant in the caltrop family (Zygophyllaceae) widely distributed around the world."
  },
  "trichechus manatus": {
   "latin": "Trichechus manatus",
@@ -34053,7 +34305,8 @@
   "tl": 2,
   "wiki": "West Indian manatee",
   "desc": "A slow, gentle grazer of seagrass that visits the bay. Boat strikes are a main danger.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The West Indian manatee, also known as the North American manatee, is a large, aquatic mammal native to warm coastal areas of the Caribbean, from the Eastern United States to northern Brazil."
  },
  "trichechus senegalensis": {
   "latin": "Trichechus senegalensis",
@@ -34061,7 +34314,8 @@
   "tl": 2,
   "wiki": "West African manatee",
   "desc": "Lives in the Gambia River. River manatees mostly eat vegetation overhanging the banks and have few natural enemies besides crocodiles and people.",
-  "ic": "whale"
+  "ic": "whale",
+  "about": "The African manatee, also known as the West African manatee, is a species of manatee that inhabits much of Western Africa – from Senegal to Angola."
  },
  "trichodes ornatus": {
   "latin": "Trichodes ornatus",
@@ -34069,7 +34323,8 @@
   "tl": 2,
   "wiki": "Trichodes ornatus",
   "desc": "Common Checkered Beetle (Trichodes ornatus): eats plants or other primary food sources. Recorded 22 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Trichodes ornatus, commonly known as ornate checkered beetle, is a beetle species of checkered beetles belonging to the family Cleridae, subfamily Clerinae which can be found only in North America."
  },
  "trichoglossus haematodus": {
   "latin": "Trichoglossus haematodus",
@@ -34095,7 +34350,8 @@
   "tl": 1,
   "wiki": "Trichoscypha",
   "desc": "Forest trees with fleshy fruit. GloBI records show several monkeys and a forest mouse feeding on them.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Trichoscypha is a genus of plants in the family Anacardiaceae. It includes 32 species native to tropical Africa."
  },
  "trichostema lanatum": {
   "latin": "Trichostema lanatum",
@@ -34103,7 +34359,8 @@
   "tl": 1,
   "wiki": "Trichostema lanatum",
   "desc": "Woolly blue-curls (Trichostema lanatum): a plant that turns sunlight into food. Recorded 48 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trichostema lanatum, also known as woolly bluecurls, is a small evergreen shrub or sub-shrub native to arid coastal chaparral regions of California down to the northern tip of Baja California, Mexico."
  },
  "trichosurus vulpecula": {
   "latin": "Trichosurus vulpecula",
@@ -34120,7 +34377,8 @@
   "tl": 1,
   "wiki": "Trifolium alpinum",
   "desc": "Flowering legume of high pastures. Herbs like this are eaten by grazers in summer, and it is a larval food plant for the mountain clouded yellow butterfly.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Trifolium alpinum is a species of flowering plant in the legume family known by the common name alpine clover. It is native to the Alps."
  },
  "trifolium depauperatum": {
   "latin": "Trifolium depauperatum",
@@ -34128,7 +34386,8 @@
   "tl": 1,
   "wiki": "Trifolium depauperatum",
   "desc": "Dwarf sack clover (Trifolium depauperatum): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trifolium depauperatum is a species of clover known by the common names cowbag clover, poverty clover, and balloon sack clover."
  },
  "trifolium pratense": {
   "latin": "Trifolium pratense",
@@ -34136,7 +34395,8 @@
   "tl": 1,
   "wiki": "Trifolium pratense",
   "desc": "Meadow legume of valley grasslands and shores, eaten by birds and grazers.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trifolium pratense (from Latin prātum, meaning meadow), red clover, is a herbaceous species of flowering plant in the bean family, Fabaceae."
  },
  "trifolium repens": {
   "latin": "Trifolium repens",
@@ -34144,7 +34404,8 @@
   "tl": 1,
   "wiki": "Trifolium repens",
   "desc": "White Clover (Trifolium repens): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trifolium repens, the white clover, is a herbaceous perennial plant in the bean family, Fabaceae (also known as Leguminosae)."
  },
  "trillium": {
   "latin": "Trillium",
@@ -34152,7 +34413,8 @@
   "tl": 1,
   "wiki": "Trillium",
   "desc": "Trilliums, mayapple, phlox and other woodland flowers that carpet the forest floor in spring and are recorded often in the park.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Trillium (trillium, wakerobin, toadshade, tri flower, birthroot, birthwort, and sometimes \"wood lily\") is a genus of about fifty flowering plant species in the family Melanthiaceae."
  },
  "trillium catesbaei": {
   "latin": "Trillium catesbaei",
@@ -34160,7 +34422,8 @@
   "tl": 1,
   "wiki": "Trillium catesbaei",
   "desc": "Bashful wakerobin (Trillium catesbaei): a plant that turns sunlight into food. Recorded 96 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium catesbaei, also known as bashful wakerobin or rosy wake-robin, is a spring flowering perennial plant found in the southeastern United States."
  },
  "trillium cuneatum": {
   "latin": "Trillium cuneatum",
@@ -34168,7 +34431,8 @@
   "tl": 1,
   "wiki": "Trillium cuneatum",
   "desc": "Little sweet Betsy (Trillium cuneatum): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium cuneatum, the little sweet betsy, also known as whip-poor-will flower, large toadshade, purple toadshade, and bloody butcher, is a species of flowering plant in the family Melanthiaceae."
  },
  "trillium erectum": {
   "latin": "Trillium erectum",
@@ -34176,7 +34440,8 @@
   "tl": 1,
   "wiki": "Trillium erectum",
   "desc": "Red Trillium (Trillium erectum): a plant that turns sunlight into food. Recorded 41 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium erectum, the red trillium, also known as wake robin, purple trillium, bethroot, or stinking benjamin, is a species of flowering plant in the family Melanthiaceae."
  },
  "trillium grandiflorum": {
   "latin": "Trillium grandiflorum",
@@ -34184,7 +34449,8 @@
   "tl": 1,
   "wiki": "Trillium grandiflorum",
   "desc": "A spring woodland wildflower of the forest floor. GloBI records white-tailed deer browsing it.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium grandiflorum, the white trillium, large-flowered trillium, great white trillium, white wake-robin or in French: trille blanc, is a species of flowering plant in the family Melanthiaceae."
  },
  "trillium ovatum": {
   "latin": "Trillium ovatum",
@@ -34192,7 +34458,8 @@
   "tl": 1,
   "wiki": "Trillium ovatum",
   "desc": "Pacific trillium (Trillium ovatum): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium ovatum, commonly known as the Pacific trillium, western wakerobin, western white trillium, or western trillium, is a species of flowering plant in the family Melanthiaceae."
  },
  "trillium recurvatum": {
   "latin": "Trillium recurvatum",
@@ -34200,7 +34467,8 @@
   "tl": 1,
   "wiki": "Trillium recurvatum",
   "desc": "Prairie trillium (Trillium recurvatum): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium recurvatum, the prairie trillium, toadshade, or bloody butcher, is a species of perennial herbaceous flowering plant in the family Melanthiaceae."
  },
  "trillium sessile": {
   "latin": "Trillium sessile",
@@ -34208,7 +34476,8 @@
   "tl": 1,
   "wiki": "Trillium sessile",
   "desc": "Sessile trillium (Trillium sessile): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium sessile is a species of flowering plant in the bunchflower family Melanthiaceae."
  },
  "trillium undulatum": {
   "latin": "Trillium undulatum",
@@ -34216,7 +34485,8 @@
   "tl": 1,
   "wiki": "Trillium undulatum",
   "desc": "Painted trillium (Trillium undulatum): a plant that turns sunlight into food. Recorded 30 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium undulatum, commonly called painted trillium, painted lady (not to be confused with the painted lady butterfly), or trille ondulé in French, is a species of flowering plant in the bunchflower…"
  },
  "trillium viridescens": {
   "latin": "Trillium viridescens",
@@ -34224,7 +34494,8 @@
   "tl": 1,
   "wiki": "Trillium viridescens",
   "desc": "Tapertip wakerobin (Trillium viridescens): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Trillium viridescens, also known as the Ozark trillium or tapertip wakerobin, is a species of flowering plant in the family Melanthiaceae."
  },
  "trimeresurus albolabris": {
   "latin": "Trimeresurus albolabris",
@@ -34232,7 +34503,8 @@
   "tl": 3,
   "wiki": "Trimeresurus albolabris",
   "desc": "A tree-dwelling venomous snake that ambushes lizards and other small animals.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Trimeresurus albolabris, the white-lipped pit viper or white-lipped tree viper, is a venomous pit viper species endemic to Southeast Asia."
  },
  "trimeresurus insularis": {
   "latin": "Trimeresurus insularis",
@@ -34240,7 +34512,8 @@
   "tl": 3,
   "wiki": "Trimeresurus insularis",
   "desc": "A venomous tree snake and the most recorded reptile near the park. GloBI records show it eating tree frogs.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Trimeresurus insularis, commonly known as the Indonesian pit viper, Lesser Sunda Islands pit viper, Komodo Island pit viper, Sunda white-lipped pit viper or red-tailed pit viper, also popularly known…"
  },
  "trimeresurus sabahi": {
   "latin": "Trimeresurus sabahi",
@@ -34248,7 +34521,8 @@
   "tl": 4,
   "wiki": "Trimeresurus sabahi",
   "desc": "A Bornean pitviper of mountain forest, usually seen on branches of shrubs; it takes small vertebrates such as frogs and rodents.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Trimeresurus sabahi, commonly known as the Sabah pit viper or Sabah bamboo pitviper, is a venomous pitviper species. If defined narrowly, it is endemic to the island of Borneo."
  },
  "tringa semipalmata": {
   "latin": "Tringa semipalmata",
@@ -34256,7 +34530,8 @@
   "tl": 3,
   "wiki": "Tringa semipalmata",
   "desc": "Willet (Tringa semipalmata): hunts or scavenges other animals. Recorded 78 times near the park in GBIF.",
-  "ic": "osprey"
+  "ic": "osprey",
+  "about": "The saltmarsh willet or willet is a large shorebird in the family Scolopacidae. It is a relatively large and robust sandpiper and is the largest of the species called \"shanks\" in the genus Tringa."
  },
  "trioceros cristatus": {
   "latin": "Trioceros cristatus",
@@ -34273,7 +34548,8 @@
   "tl": 3,
   "wiki": "Trioceros johnstoni",
   "desc": "A highland forest chameleon of the Albertine Rift that catches insects in the shrub layer.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Trioceros johnstoni, known commonly as Johnston's chameleon, Johnston's three-horned chameleon, and the Ruwenzori three-horned chameleon, is a species of chameleon, a lizard in the family…"
  },
  "triodia": {
   "latin": "Triodia",
@@ -34282,7 +34558,8 @@
   "wiki": "Triodia (plant)",
   "desc": "Spiky hummock grasses that cover much of the red sandplain and dunes of central Australia.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Triodia is a large genus of hummock grass endemic to Australia. The species of this genus are known by the common name spinifex, although they are not a part of the coastal genus Spinifex."
  },
  "triphosa haesitata": {
   "latin": "Triphosa haesitata",
@@ -34290,7 +34567,8 @@
   "tl": 2,
   "wiki": "Triphosa haesitata",
   "desc": "Tissue Moth (Triphosa haesitata): eats plants or other primary food sources. Recorded 12 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Triphosa haesitata, the tissue moth or American tissue moth, is a species of geometrid moth in the family Geometridae. It is found in North America."
  },
  "tripsacum dactyloides": {
   "latin": "Tripsacum dactyloides",
@@ -34298,7 +34576,8 @@
   "tl": 1,
   "wiki": "Tripsacum dactyloides",
   "desc": "Eastern Gamagrass (Tripsacum dactyloides): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Tripsacum dactyloides, commonly called eastern gamagrass, or Fakahatchee grass, is a warm-season, sod-forming bunch grass."
  },
  "trirhabda bacharidis": {
   "latin": "Trirhabda bacharidis",
@@ -34306,7 +34585,8 @@
   "tl": 2,
   "wiki": "Trirhabda bacharidis",
   "desc": "Groundselbush beetle (Trirhabda bacharidis): eats plants or other primary food sources. Recorded 26 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Trirhabda bacharidis, known generally as the groundselbush beetle or groundsel bush leaf beetle, is a species of skeletonizing leaf beetle in the family Chrysomelidae."
  },
  "trochilus polytmus": {
   "latin": "Trochilus polytmus",
@@ -34323,7 +34603,8 @@
   "tl": 1,
   "wiki": "Trollius europaeus",
   "desc": "Globeflower and many other flowering herbs of the pastures and meadows above the tree line, part of a flora of about 2,600 plant species.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Trollius europaeus, the globeflower, is a perennial flowering plant of the family Ranunculaceae. The plant is native to Europe and Western Asia and is a protected species in Russia and Bulgaria."
  },
  "troodos rock and thin soil": {
   "latin": "",
@@ -34376,7 +34657,8 @@
   "tl": 2,
   "wiki": "Tropidacris cristata",
   "desc": "A very large tropical grasshopper that chews leaves, and is prey for lizards and birds.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Tropidacris cristata, the giant red-winged grasshopper, is a widespread species of lubber grasshopper in the family Romaleidae from tropical South and Central America, and Mexico."
  },
  "tsuga canadensis": {
   "latin": "Tsuga canadensis",
@@ -34384,7 +34666,8 @@
   "tl": 1,
   "wiki": "Tsuga canadensis",
   "desc": "A shade-tolerant evergreen of the park's cool ravines. GloBI records both deer and beavers feeding on it.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Tsuga canadensis, also known as Canadian hemlock, eastern hemlock-spruce, or eastern hemlock, and in the French-speaking regions of Canada as pruche du Canada, is a coniferous tree in the pine…"
  },
  "tsuga chinensis": {
   "latin": "Tsuga chinensis",
@@ -34393,7 +34676,8 @@
   "wiki": "Tsuga chinensis",
   "desc": "A conifer that dominates a mid-elevation forest belt in the park, roughly between 2,500 and 3,500 m. It shelters many forest animals.",
   "ic": "whitebark",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Tsuga chinensis, commonly referred to as the Taiwan or Chinese hemlock, is a coniferous tree species in the pine family, Pinaceae, native to China, Taiwan, and Vietnam."
  },
  "tsuga heterophylla": {
   "latin": "Tsuga heterophylla",
@@ -34401,7 +34685,8 @@
   "tl": 1,
   "wiki": "Tsuga heterophylla",
   "desc": "A shade-tolerant conifer of the lower, wetter forests where the old-growth stands are found.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Tsuga heterophylla, the western hemlock or western hemlock-spruce, is a species of conifer in the pine family, Pinaceae."
  },
  "tsuga mertensiana": {
   "latin": "Tsuga mertensiana",
@@ -34409,7 +34694,8 @@
   "tl": 1,
   "wiki": "Tsuga mertensiana",
   "desc": "A conifer of deep-snow subalpine forest and one of the most recorded trees around the rim.",
-  "ic": "whitebark"
+  "ic": "whitebark",
+  "about": "Tsuga mertensiana, known as mountain hemlock, is a species of conifer in the pine family, Pinaceae."
  },
  "tundra soil": {
   "latin": "Tundra soil",
@@ -34471,7 +34757,8 @@
   "tl": 3,
   "wiki": "Turdus migratorius",
   "desc": "American Robin (Turdus migratorius): hunts or scavenges other animals. Recorded 33 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The American robin is a migratory bird of the true thrush genus and Turdidae, the wider thrush family."
  },
  "turdus plumbeus": {
   "latin": "Turdus plumbeus",
@@ -34515,7 +34802,8 @@
   "tl": 1,
   "wiki": "Typha",
   "desc": "Tall emergent plants of the park's marshes and beaver ponds, eaten by muskrats and beavers.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Typha is a genus of about 30 species of monocotyledonous flowering plants in the family Typhaceae."
  },
  "typha angustifolia": {
   "latin": "Typha angustifolia",
@@ -34523,7 +34811,8 @@
   "tl": 1,
   "wiki": "Typha angustifolia",
   "desc": "Lesser Bulrush (Typha angustifolia): a plant that turns sunlight into food. Recorded 27 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Typha angustifolia is a perennial herbaceous plant in the genus Typha, native throughout most of Eurasia and locally in northwest Africa; it also occurs widely in North America, where its native…"
  },
  "typha domingensis": {
   "latin": "Typha domingensis",
@@ -34531,7 +34820,8 @@
   "tl": 1,
   "wiki": "Typha domingensis",
   "desc": "A tall emergent marsh plant that grows with reeds in the shallow water of the marshes.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Typha domingensis, known commonly as southern cattail or cumbungi, is a perennial herbaceous plant of the genus Typha."
  },
  "typha latifolia": {
   "latin": "Typha latifolia",
@@ -34539,7 +34829,8 @@
   "tl": 1,
   "wiki": "Typha latifolia",
   "desc": "Bulrush (Typha latifolia): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Typha latifolia is a perennial herbaceous wetland plant in the genus Typha."
  },
  "tyria jacobaeae": {
   "latin": "Tyria jacobaeae",
@@ -34547,7 +34838,8 @@
   "tl": 2,
   "wiki": "Tyria jacobaeae",
   "desc": "Cinnabar (Tyria jacobaeae): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "The cinnabar moth is a brightly coloured Arctiinae moth found as a native species in Europe and western and central Asia then east across the Palearctic to Siberia to China."
  },
  "tyto glaucops": {
   "latin": "Tyto glaucops",
@@ -34584,7 +34876,8 @@
   "tl": 1,
   "wiki": "Ulex minor",
   "desc": "Spiny evergreen shrub that, with heather, dominates the shrublands covering most of the site.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Ulex minor, the dwarf furze or dwarf gorse is an evergreen dwarf shrub in the family Fabaceae, native to eastern England, France, Spain and Portugal. It is restricted to lowland heathland habitats."
  },
  "ulva": {
   "latin": "Ulva",
@@ -34592,7 +34885,8 @@
   "tl": 1,
   "wiki": "Ulva (genus)",
   "desc": "Sea lettuce and other algae grow on the shallow reefs and are a food for green turtles.",
-  "ic": "algae"
+  "ic": "algae",
+  "about": "The sea lettuces comprise the genus Ulva, a group of edible green algae that are widely distributed along the coasts of the world's oceans."
  },
  "ulva and others": {
   "latin": "Ulva and others",
@@ -34609,7 +34903,8 @@
   "tl": 1,
   "wiki": "Uniola paniculata",
   "desc": "Seaoats (Uniola paniculata): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Uniola paniculata, also known as sea oats, seaside oats, araña, and arroz de costa, is a tall subtropical grass that is an important component of coastal sand dune and beach plant communities in the…"
  },
  "unionidae": {
   "latin": "Unionidae",
@@ -34617,7 +34912,8 @@
   "tl": 2,
   "wiki": "Unionidae",
   "desc": "The upper river has dozens of mussel species. They filter algae from the water, and freshwater drum eat them. The NPS reports their numbers are recovering.",
-  "ic": "shell"
+  "ic": "shell",
+  "about": "The Unionidae are a family of freshwater mussels, the largest in the order Unionida, the bivalve molluscs sometimes known as river mussels, or simply as unionids."
  },
  "uria lomvia": {
   "latin": "Uria lomvia",
@@ -34625,7 +34921,8 @@
   "tl": 3,
   "wiki": "Thick-billed murre",
   "desc": "A seabird that dives deep for cod and nests on crowded cliffs.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The thick-billed murre or Brünnich's guillemot is a bird in the auk family (Alcidae). This bird is named after the Danish zoologist Morten Thrane Brünnich."
  },
  "urnisa guttulosa": {
   "latin": "Urnisa guttulosa",
@@ -34642,7 +34939,8 @@
   "tl": 1,
   "wiki": "Urochloa",
   "desc": "Grasses of open patches among the thorn forest, one of the well-recorded plant groups near the park; seeds feed doves and others.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Urochloa, commonly known as signalgrass, is a genus of plants in the grass family, native to tropical and subtropical regions of Eurasia, Africa, Australia, the Americas, and various islands."
  },
  "urocissa ornata": {
   "latin": "Urocissa ornata",
@@ -34659,7 +34957,8 @@
   "tl": 2,
   "wiki": "Uinta ground squirrel",
   "desc": "Common on the valley floor, eats plants and seeds and is prey for coyotes, eagles and bears.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The Uinta ground squirrel, commonly called a \"chisler\" and Potgut in northern Utah, is a species of rodent native to the western United States."
  },
  "urocitellus columbianus": {
   "latin": "Urocitellus columbianus",
@@ -34667,7 +34966,8 @@
   "tl": 2,
   "wiki": "Urocitellus columbianus",
   "desc": "Burrowing squirrel of meadows and slopes that eats plants and bulbs. It is a prey of many predators and one of the best-recorded mammals near the park.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The Columbian ground squirrel is a species of rodent common in certain regions of Canada and the northwestern United States."
  },
  "urocitellus parryii": {
   "latin": "Urocitellus parryii",
@@ -34711,7 +35011,8 @@
   "tl": 2,
   "wiki": "Uromastyx aegyptia",
   "desc": "A large spiny-tailed lizard of open, gravelly desert. It shelters in burrows and feeds mainly on plants and seeds.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Uromastyx aegyptia is a species of lizard in the family Agamidae. The species is native to North Africa and the Middle East."
  },
  "ursus americanus": {
   "latin": "Ursus americanus",
@@ -34719,7 +35020,8 @@
   "tl": 4,
   "wiki": "Ursus americanus",
   "desc": "Black bear (Ursus americanus): a top predator in this web. Recorded 2 times near the park in GBIF.",
-  "ic": "grizzly"
+  "ic": "grizzly",
+  "about": "The American black bear, or simply black bear, is a species of medium-sized bear which is endemic to North America. It is the continent's smallest and most widely distributed bear species."
  },
  "ursus americanus carlottae": {
   "latin": "Ursus americanus carlottae",
@@ -34773,7 +35075,8 @@
   "tl": 3,
   "wiki": "Ussuri brown bear",
   "desc": "Mostly vegetarian, eating acorns, Korean pine seeds and berries. Bears steal about 35% of tiger kills in Sikhote-Alin and can also kill tigers.",
-  "ic": "grizzly"
+  "ic": "grizzly",
+  "about": "The Ussuri brown bear, also known as the Ezo brown bear, or the black grizzly bear, is a subspecies of the brown bear or a population of the Eurasian brown bear (U. a. arctos)."
  },
  "ursus maritimus": {
   "latin": "Ursus maritimus",
@@ -34800,7 +35103,8 @@
   "tl": 1,
   "wiki": "Urtica dioica",
   "desc": "A nutrient-loving plant of clearings and stream edges. Its leaves are the food plant of Small tortoiseshell caterpillars.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Urtica dioica, often known as common nettle, burn nettle, stinging nettle, nettle leaf, or just a nettle or stinger, is a herbaceous perennial flowering plant in the family Urticaceae."
  },
  "usnea": {
   "latin": "Usnea",
@@ -34826,7 +35130,8 @@
   "tl": 1,
   "wiki": "Uvularia grandiflora",
   "desc": "Bellwort (Uvularia grandiflora): a plant that turns sunlight into food. Recorded 24 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Uvularia grandiflora, the large-flowered bellwort or merrybells, is a species of flowering plant in the family Colchicaceae, native to eastern and central North America."
  },
  "vaccinium": {
   "latin": "Vaccinium",
@@ -34834,7 +35139,8 @@
   "tl": 1,
   "wiki": "Vaccinium vitis-idaea",
   "desc": "Low heath shrubs of the subalpine and bog zones. Their berries are eaten by black bears.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium vitis-idaea is a small evergreen shrub in the heath family, Ericaceae. It is known colloquially as the lingonberry, partridgeberry, foxberry, mountain cranberry, or cowberry."
  },
  "vaccinium and others": {
   "latin": "Vaccinium and others",
@@ -34842,7 +35148,8 @@
   "tl": 1,
   "wiki": "Vaccinium",
   "desc": "Blueberries, huckleberries and other soft fruits and greens that feed bears, turkeys and deer in summer.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium ( vak-SIN-ee-əm) is a common and widespread genus of shrubs or dwarf shrubs in the heath family (Ericaceae)."
  },
  "vaccinium angustifolium": {
   "latin": "Vaccinium angustifolium",
@@ -34850,7 +35157,8 @@
   "tl": 1,
   "wiki": "Vaccinium angustifolium",
   "desc": "A low shrub with berries eaten by black bears and browsed by deer.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium angustifolium, commonly known as the wild lowbush blueberry and the low sweet berry is a species of blueberry native to eastern and central Canada, Great Lakes and the northeastern United…"
  },
  "vaccinium arboreum": {
   "latin": "Vaccinium arboreum",
@@ -34858,7 +35166,8 @@
   "tl": 1,
   "wiki": "Vaccinium arboreum",
   "desc": "Farkleberry (Vaccinium arboreum): a plant that turns sunlight into food. Recorded 8 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vaccinium arboreum is a species of Vaccinium native to the southeastern and south-central United States."
  },
  "vaccinium corymbosum": {
   "latin": "Vaccinium corymbosum",
@@ -34866,7 +35175,8 @@
   "tl": 1,
   "wiki": "Vaccinium corymbosum",
   "desc": "A fruiting shrub of the swamp margins and islands whose berries feed birds and mammals.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium corymbosum is a North American species of blueberry with several common names, including highbush blueberry and rabbiteye blueberry."
  },
  "vaccinium macrocarpon": {
   "latin": "Vaccinium macrocarpon",
@@ -34874,7 +35184,8 @@
   "tl": 1,
   "wiki": "Vaccinium macrocarpon",
   "desc": "A low trailing shrub of acidic bogs and wet sands. Its berries are eaten by wildlife and it is grown commercially in the region.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium macrocarpon, also called large cranberry, American cranberry and bearberry, is a North American species of cranberry."
  },
  "vaccinium membranaceum": {
   "latin": "Vaccinium membranaceum",
@@ -34882,7 +35193,8 @@
   "tl": 1,
   "wiki": "Vaccinium membranaceum",
   "desc": "A berry shrub of subalpine slopes. Its berries are eaten by bears and many other animals.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium membranaceum is a species of flowering plant in the heath family Ericaceae, known by the common names thinleaf huckleberry, tall huckleberry, big huckleberry, mountain huckleberry,…"
  },
  "vaccinium myrtilloides": {
   "latin": "Vaccinium myrtilloides",
@@ -34890,7 +35202,8 @@
   "tl": 1,
   "wiki": "Vaccinium myrtilloides",
   "desc": "Canada blueberry (Vaccinium myrtilloides): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vaccinium myrtilloides is a North American species of blueberry with common names including common blueberry, velvetleaf huckleberry, velvetleaf blueberry, Canadian blueberry, and sourtop blueberry."
  },
  "vaccinium myrtillus": {
   "latin": "Vaccinium myrtillus",
@@ -34898,7 +35211,8 @@
   "tl": 1,
   "wiki": "Vaccinium myrtillus",
   "desc": "A low forest-floor shrub whose leaves and berries are eaten by deer and voles.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium myrtillus is a holarctic species of shrub with edible fruit of blue color, known by the common names bilberry, blaeberry, and whortleberry."
  },
  "vaccinium ovatum": {
   "latin": "Vaccinium ovatum",
@@ -34906,7 +35220,8 @@
   "tl": 1,
   "wiki": "Vaccinium ovatum",
   "desc": "California Huckleberry (Vaccinium ovatum): a plant that turns sunlight into food. Recorded 620 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vaccinium ovatum is a North American species of huckleberry in the heather family commonly known as the evergreen huckleberry, winter huckleberry, cynamoka berry and California huckleberry."
  },
  "vaccinium parvifolium": {
   "latin": "Vaccinium parvifolium",
@@ -34914,7 +35229,8 @@
   "tl": 1,
   "wiki": "Vaccinium parvifolium",
   "desc": "Red-huckleberry (Vaccinium parvifolium): a plant that turns sunlight into food. Recorded 61 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vaccinium parvifolium, the red huckleberry, is a species of Vaccinium native to western North America."
  },
  "vaccinium reticulatum": {
   "latin": "Vaccinium reticulatum",
@@ -34922,7 +35238,8 @@
   "tl": 1,
   "wiki": "Vaccinium reticulatum",
   "desc": "A native shrub of volcanic slopes with edible red or yellow berries that birds such as the nēnē eat.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium reticulatum, known as ʻōhelo ʻai in Hawaiian, is a species of Hawaiian Vaccinium."
  },
  "vaccinium spp.": {
   "latin": "Vaccinium spp.",
@@ -34930,7 +35247,8 @@
   "tl": 1,
   "wiki": "Vaccinium",
   "desc": "Low shrubs that Canadian boreal fires encourage. Their berries feed bears and small mammals.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium ( vak-SIN-ee-əm) is a common and widespread genus of shrubs or dwarf shrubs in the heath family (Ericaceae)."
  },
  "vaccinium uliginosum": {
   "latin": "Vaccinium uliginosum",
@@ -34938,7 +35256,8 @@
   "tl": 1,
   "wiki": "Vaccinium uliginosum",
   "desc": "A tundra berry shrub. Wild blueberries are a main part of the bears' diet in Denali, and caribou, ptarmigan and ground squirrels also eat the plant or fruit.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium uliginosum is a Eurasian and North American flowering plant in the heath family. The berries are edible."
  },
  "vaccinium vitis-idaea": {
   "latin": "Vaccinium vitis-idaea",
@@ -34946,7 +35265,8 @@
   "tl": 1,
   "wiki": "Vaccinium vitis-idaea",
   "desc": "Low evergreen shrub with tart berries. GloBI records it eaten by caribou, ptarmigan, longspurs, foxes and ravens.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vaccinium vitis-idaea is a small evergreen shrub in the heath family, Ericaceae. It is known colloquially as the lingonberry, partridgeberry, foxberry, mountain cranberry, or cowberry."
  },
  "vachellia": {
   "latin": "Vachellia",
@@ -34954,7 +35274,8 @@
   "tl": 1,
   "wiki": "Vachellia",
   "desc": "Thorny acacia trees grow in the warm lower parts of the reserve. Nubian ibex browse their leaves, rearing up or climbing into the branches.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vachellia is a genus of flowering plants in the legume family, Fabaceae, commonly known as thorn trees or acacias. It belongs to the subfamily Mimosoideae."
  },
  "vachellia nilotica": {
   "latin": "Vachellia nilotica",
@@ -34962,7 +35283,8 @@
   "tl": 1,
   "wiki": "Vachellia nilotica",
   "desc": "A thorny acacia of dry country. Its pods and leaves are browsed by hoofed animals such as nilgai and blackbuck.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Vachellia nilotica, more commonly known as Acacia nilotica, and by the vernacular names of gum arabic tree, babul, thorn mimosa, Egyptian acacia or thorny acacia, is a flowering tree in the family…"
  },
  "vachellia tortilis": {
   "latin": "Vachellia tortilis",
@@ -34970,7 +35292,8 @@
   "tl": 1,
   "wiki": "Vachellia tortilis",
   "desc": "Thorny acacias grow in wadis where moisture collects. Their leaves and pods are browsed by gazelles, addax and others.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vachellia tortilis, widely known as Acacia tortilis but now attributed to the genus Vachellia in the Fabaceae subfamily Mimosoideae, is the umbrella thorn acacia, also known as umbrella thorn and…"
  },
  "vachellia xanthophloea": {
   "latin": "Vachellia xanthophloea",
@@ -34978,7 +35301,8 @@
   "tl": 1,
   "wiki": "Vachellia xanthophloea",
   "desc": "A yellow-barked acacia of wet ground, recorded in the park.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vachellia xanthophloea is a tree in the family Fabaceae, commonly known in English as the fever tree."
  },
  "valerianella radiata": {
   "latin": "Valerianella radiata",
@@ -34986,7 +35310,8 @@
   "tl": 1,
   "wiki": "Valerianella radiata",
   "desc": "Beaked cornsalad (Valerianella radiata): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Valeriana woodsiana, common name beaked cornsalad, is a plant native to the United States. It is an annual self pollinating flowering plant and besides being edible there are no known uses."
  },
  "valley soil": {
   "latin": "",
@@ -35013,7 +35338,8 @@
   "wiki": "Vallisneria americana",
   "desc": "Underwater plants rooted in the river bed. The FWS and Wikipedia describe submerged vegetation as important for fish and waterfowl. Canvasbacks eat the tubers.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Vallisneria americana, commonly called wild celery, water-celery, tape grass, or eelgrass, is a plant in the family Hydrocharitaceae, the \"tape-grasses\"."
  },
  "vanessa atalanta": {
   "latin": "Vanessa atalanta",
@@ -35021,7 +35347,8 @@
   "tl": 2,
   "wiki": "Vanessa atalanta",
   "desc": "Red Admiral (Vanessa atalanta): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Vanessa atalanta, the red admiral or, previously, the red admirable, is a well-characterized, medium-sized butterfly with black wings, red bands, and white spots."
  },
  "vanessa cardui": {
   "latin": "Vanessa cardui",
@@ -35029,7 +35356,8 @@
   "tl": 2,
   "wiki": "Vanessa cardui",
   "desc": "Painted Lady (Vanessa cardui): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Vanessa cardui is the most widespread of all butterfly species. It is commonly called the painted lady, or formerly in North America the cosmopolitan butterfly."
  },
  "varanus bengalensis": {
   "latin": "Varanus bengalensis",
@@ -35055,7 +35383,8 @@
   "tl": 3,
   "wiki": "Varanus gouldii",
   "desc": "A relentless forager on mice, small mammals, birds, lizards and eggs. Adults also eat carrion.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The sand goanna, also known commonly as Gould's monitor, the racehorse goanna, and the sand monitor, is a species of large Australian monitor lizard in the family Varanidae."
  },
  "varanus griseus": {
   "latin": "Varanus griseus",
@@ -35109,7 +35438,8 @@
   "tl": 3,
   "wiki": "Water monitor",
   "desc": "A large lizard that forages along creeks and mudflats. Tiger remains in the Sundarbans have included water monitors.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "The Asian water monitor is a large varanid lizard native to South and Southeast Asia. It is widely considered to be the second-largest lizard species, after the Komodo dragon."
  },
  "varanus varius": {
   "latin": "Varanus varius",
@@ -35144,7 +35474,8 @@
   "tl": 1,
   "wiki": "Venegasia carpesioides",
   "desc": "Canyon sunflower (Venegasia carpesioides): a plant that turns sunlight into food. Recorded 65 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Venegasia is a genus of North American plants in the tribe Madieae within the family Asteraceae. Venegasia carpesioides is the only known species in the genus."
  },
  "verbascum blattaria": {
   "latin": "Verbascum blattaria",
@@ -35152,7 +35483,8 @@
   "tl": 1,
   "wiki": "Verbascum blattaria",
   "desc": "Moth Mullein (Verbascum blattaria): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbascum blattaria, the moth mullein, is a flowering biennial plant belonging to the figwort family Scrophulariaceae."
  },
  "verbascum thapsus": {
   "latin": "Verbascum thapsus",
@@ -35160,7 +35492,8 @@
   "tl": 1,
   "wiki": "Verbascum thapsus",
   "desc": "Great Mullein (Verbascum thapsus): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbascum thapsus, the great mullein, greater mullein or common mullein, is a species of mullein native to Europe, northern Africa, and Asia, and introduced in the Americas, Australia and New…"
  },
  "verbena canadensis": {
   "latin": "Verbena canadensis",
@@ -35168,7 +35501,8 @@
   "tl": 1,
   "wiki": "Verbena canadensis",
   "desc": "Rose mock vervain (Verbena canadensis): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbena canadensis, commonly known as rose mock vervain, rose verbena, clump verbena or rose vervain is a perennial herbaceous flowering plant in the verbena family (Verbenaceae) with showy pink to…"
  },
  "verbena stricta": {
   "latin": "Verbena stricta",
@@ -35176,7 +35510,8 @@
   "tl": 1,
   "wiki": "Verbena stricta",
   "desc": "Hoary verbena (Verbena stricta): a plant that turns sunlight into food. Recorded 34 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbena stricta, also known as hoary verbena, hoary vervain, tall vervain, or woolly verbena, is a North American wildflower."
  },
  "verbesina alternifolia": {
   "latin": "Verbesina alternifolia",
@@ -35184,7 +35519,8 @@
   "tl": 1,
   "wiki": "Verbesina alternifolia",
   "desc": "Wingstem (Verbesina alternifolia): a plant that turns sunlight into food. Recorded 54 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbesina alternifolia is a species of flowering plant in the family Asteraceae. It is commonly known as wingstem or yellow ironweed."
  },
  "verbesina encelioides": {
   "latin": "Verbesina encelioides",
@@ -35192,7 +35528,8 @@
   "tl": 1,
   "wiki": "Verbesina encelioides",
   "desc": "Golden Crownbeard (Verbesina encelioides): a plant that turns sunlight into food. Recorded 8 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbesina encelioides is a flowering plant in the family Asteraceae."
  },
  "verbesina helianthoides": {
   "latin": "Verbesina helianthoides",
@@ -35200,7 +35537,8 @@
   "tl": 1,
   "wiki": "Verbesina helianthoides",
   "desc": "Gravelweed (Verbesina helianthoides): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Verbesina helianthoides, commonly called yellow crownbeard or gravelweed, is a species of flowering plant in the family Asteraceae."
  },
  "veredas & rio preto streams": {
   "latin": "",
@@ -35217,7 +35555,8 @@
   "tl": 1,
   "wiki": "Veronica anagallis-aquatica",
   "desc": "Blue Water-speedwell (Veronica anagallis-aquatica): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Veronica anagallis-aquatica is a species of flowering plant in the family Plantaginaceae known by the common names water speedwell, blue water-speedwell, and brook pimpernel."
  },
  "veronica persica": {
   "latin": "Veronica persica",
@@ -35225,7 +35564,8 @@
   "tl": 1,
   "wiki": "Veronica persica",
   "desc": "Common Field-speedwell (Veronica persica): a plant that turns sunlight into food. Recorded 51 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Veronica persica is a flowering plant in the family Plantaginaceae."
  },
  "veronicastrum virginicum": {
   "latin": "Veronicastrum virginicum",
@@ -35233,7 +35573,8 @@
   "tl": 1,
   "wiki": "Veronicastrum virginicum",
   "desc": "Blackroot (Veronicastrum virginicum): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Veronicastrum virginicum, or Culver's root, is a species of flowering plant in the plantain family, Plantaginaceae. It is native to the eastern United States and south-eastern Canada."
  },
  "vespa crabro": {
   "latin": "Vespa crabro",
@@ -35241,7 +35582,8 @@
   "tl": 3,
   "wiki": "Vespa crabro",
   "desc": "European Hornet (Vespa crabro): hunts or scavenges other animals. Recorded 2 times near the park in GBIF.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "The European hornet is the largest eusocial wasp native to Europe."
  },
  "vespula consobrina": {
   "latin": "Vespula consobrina",
@@ -35249,7 +35591,8 @@
   "tl": 3,
   "wiki": "Vespula consobrina",
   "desc": "Blackjacket (Vespula consobrina): hunts or scavenges other animals. Recorded 10 times near the park in GBIF.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "Vespula consobrina, commonly known as the blackjacket, is a species of stinging wasp in the family Vespidae, which includes multiple cousin species in the northern hemisphere, such as the German…"
  },
  "vespula maculifrons": {
   "latin": "Vespula maculifrons",
@@ -35257,7 +35600,8 @@
   "tl": 3,
   "wiki": "Vespula maculifrons",
   "desc": "Eastern Yellowjacket (Vespula maculifrons): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "The eastern yellowjacket is a wasp found in eastern North America."
  },
  "vestiaria coccinea": {
   "latin": "Vestiaria coccinea",
@@ -35265,7 +35609,8 @@
   "tl": 2,
   "wiki": "ʻIʻiwi",
   "desc": "A native honeycreeper that drinks nectar from lobelias and ʻōhiʻa and eats small arthropods. Avian malaria is the main driver of its decline.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The ʻiʻiwi or scarlet honeycreeper is a species of Hawaiian honeycreeper. The ʻiʻiwi is a highly recognizable symbol of Hawaii."
  },
  "viburnum acerifolium": {
   "latin": "Viburnum acerifolium",
@@ -35273,7 +35618,8 @@
   "tl": 1,
   "wiki": "Viburnum acerifolium",
   "desc": "Mapleleaf viburnum (Viburnum acerifolium): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Viburnum acerifolium, the mapleleaf viburnum, maple-leaved arrowwood or dockmackie, is a species of Viburnum native to eastern North America."
  },
  "viburnum lantanoides": {
   "latin": "Viburnum lantanoides",
@@ -35281,7 +35627,8 @@
   "tl": 1,
   "wiki": "Viburnum lantanoides",
   "desc": "Hobblebush (Viburnum lantanoides): a plant that turns sunlight into food. Recorded 32 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Viburnum lantanoides is a perennial shrub of the family Viburnaceae (formerly in the Caprifoliaceae), growing 2–4 meters (6.6–13.1 ft) high with pendulous branches that take root where they touch the…"
  },
  "viburnum rufidulum": {
   "latin": "Viburnum rufidulum",
@@ -35289,7 +35636,8 @@
   "tl": 1,
   "wiki": "Viburnum rufidulum",
   "desc": "Blue haw (Viburnum rufidulum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Viburnum rufidulum, also known as the rusty blackhaw, blue haw, rusty nanny-berry, or southern black haw, is a flowering species of shrub or small tree that is common in parts of the Eastern and…"
  },
  "vicia americana": {
   "latin": "Vicia americana",
@@ -35297,7 +35645,8 @@
   "tl": 1,
   "wiki": "Vicia americana",
   "desc": "Peavine (Vicia americana): a plant that turns sunlight into food. Recorded 19 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Vicia americana is a species of legume in the vetch genus known by the common names American vetch and purple vetch. It includes a subspecies known as mat vetch."
  },
  "vicugna vicugna": {
   "latin": "Vicugna vicugna",
@@ -35306,7 +35655,8 @@
   "wiki": "Vicuña",
   "desc": "Wild camelid that grazes low clump grasses on open plains and rests on the slopes at night. Pumas and culpeos prey on it.",
   "ic": "quad",
-  "badge": "Keystone grazer"
+  "badge": "Keystone grazer",
+  "about": "The vicuña or vicuna is a wild South American camelid which lives in high alpine areas of the Andes."
  },
  "vigna unguiculata": {
   "latin": "Vigna unguiculata",
@@ -35323,7 +35673,8 @@
   "tl": 1,
   "wiki": "Viola pedata",
   "desc": "Bird-foot Violet (Viola pedata): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Viola pedata, the birdsfoot violet, bird's-foot violet, or mountain pansy, is a violet native to sandy areas in central and eastern North America."
  },
  "viola sororia": {
   "latin": "Viola sororia",
@@ -35331,7 +35682,8 @@
   "tl": 1,
   "wiki": "Viola sororia",
   "desc": "Bayou Violet (Viola sororia): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Viola sororia ( vy-OH-lə sə-ROR-ee-ə), known commonly as the common blue violet, is a short-stemmed herbaceous perennial plant native to eastern North America."
  },
  "vipera ammodytes": {
   "latin": "Vipera ammodytes",
@@ -35339,7 +35691,8 @@
   "tl": 3,
   "wiki": "Vipera ammodytes",
   "desc": "A venomous snake of rocky Balkan slopes that eats lizards, small mammals and birds.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Vipera ammodytes, commonly known as horned viper, long-nosed viper, nose-horned viper, and sand viper, is a species of viper found in northern Italy, the Balkans, and parts of Asia Minor."
  },
  "vipera aspis": {
   "latin": "Vipera aspis",
@@ -35347,7 +35700,8 @@
   "tl": 3,
   "wiki": "Vipera aspis",
   "desc": "Venomous snake of sunny rocky slopes. GloBI records it eating voles, lizards and small mammals.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Vipera aspis is a viper species found in southwestern Europe. Its common names include asp, asp viper, European asp, and aspic viper, among others."
  },
  "vipera berus": {
   "latin": "Vipera berus",
@@ -35355,7 +35709,8 @@
   "tl": 3,
   "wiki": "Vipera berus",
   "desc": "A venomous snake of forest edges that eats small mammals, lizards and amphibians.",
-  "ic": "snake"
+  "ic": "snake",
+  "about": "Vipera berus, commonly known as the common European adder and the common European viper, is a species of venomous snake in the family Viperidae."
  },
  "vireo bellii": {
   "latin": "Vireo bellii",
@@ -35363,7 +35718,8 @@
   "tl": 3,
   "wiki": "Vireo bellii",
   "desc": "Bell's Vireo (Vireo bellii): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "Bell's vireo is a songbird that migrates between a breeding range in Western North America and a winter range in Central America. It is dull olive-gray above and whitish below."
  },
  "vireo griseus": {
   "latin": "Vireo griseus",
@@ -35371,7 +35727,8 @@
   "tl": 3,
   "wiki": "Vireo griseus",
   "desc": "White-eyed Vireo (Vireo griseus): hunts or scavenges other animals. Recorded 504 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-eyed vireo is a small songbird of the family Vireonidae."
  },
  "vireo olivaceus": {
   "latin": "Vireo olivaceus",
@@ -35379,7 +35736,8 @@
   "tl": 3,
   "wiki": "Vireo olivaceus",
   "desc": "Red-eyed vireo (Vireo olivaceus): hunts or scavenges other animals. Recorded 4,375 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The red-eyed vireo is a small American songbird. It is somewhat warbler-like but not closely related to the New World warblers (Parulidae)."
  },
  "virgin river": {
   "latin": "",
@@ -35396,7 +35754,8 @@
   "tl": 1,
   "wiki": "Vitellaria paradoxa",
   "desc": "A savanna tree whose fruit is eaten by fruit bats and baboons in GloBI records.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Vitellaria paradoxa, commonly known as shea tree, shi tree (, also ), or vitellaria, is a tree of the family Sapotaceae. It is the only species in the genus Vitellaria, and is indigenous to Africa."
  },
  "vitis vinifera": {
   "latin": "Vitis vinifera",
@@ -35468,7 +35827,8 @@
   "tl": 1,
   "wiki": "Vossia cuspidata",
   "desc": "A robust floodplain grass of the Sudd that grows in deeper water and is a main swamp plant.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Vossia is a monotypic genus in the grass family, found in Asia and Africa."
  },
  "vulpes corsac": {
   "latin": "Vulpes corsac",
@@ -35503,7 +35863,8 @@
   "tl": 3,
   "wiki": "Swift fox",
   "desc": "A small desert fox. GloBI records it eating rodents such as brush mice and cotton rats.",
-  "ic": "fox"
+  "ic": "fox",
+  "about": "The swift fox is a small light orange-tan fox around the size of a domestic cat found in the western Great Plains grasslands of North America, such as Montana, Colorado, New Mexico, Kansas, Oklahoma…"
  },
  "vulpes vulpes": {
   "latin": "Vulpes vulpes",
@@ -35637,7 +35998,8 @@
   "tl": 1,
   "wiki": "Washingtonia filifera",
   "desc": "The only palm native to California; grows in the park only at oases with year-round water.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Washingtonia filifera, commonly known as the California fan palm, cotton palm or desert fan palm, is a flowering plant in the family Arecaceae, native to the far southwestern United States and…"
  },
  "wasmannia auropunctata": {
   "latin": "Wasmannia auropunctata",
@@ -35681,7 +36043,8 @@
   "tl": 1,
   "wiki": "Weinmannia",
   "desc": "A cloud-forest tree genus, with Weinmannia pinnata among the broadleaf trees reported in the park.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Weinmannia is a genus of trees and shrubs in the family Cunoniaceae."
  },
  "welwitschia mirabilis": {
   "latin": "Welwitschia mirabilis",
@@ -35689,7 +36052,8 @@
   "tl": 1,
   "wiki": "Welwitschia",
   "desc": "A long-lived plant with two strap-like leaves. It takes up moisture from fog as well as from groundwater.",
-  "ic": "sage"
+  "ic": "sage",
+  "about": "Welwitschia is a monotypic genus of gnetophytes containing only the species Welwitschia mirabilis. It is named after the Austrian botanist Friedrich Welwitsch, who documented the plant in the 1850s."
  },
  "westerly rain": {
   "latin": "",
@@ -35958,7 +36322,8 @@
   "tl": 1,
   "wiki": "Xanthisma spinulosum",
   "desc": "Cut-leaf ironplant (Xanthisma spinulosum): a plant that turns sunlight into food. Recorded 79 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Xanthisma spinulosum, the spiny goldenweed, is a species of flowering plant of the genus Xanthisma native to western North America."
  },
  "xanthocephalus xanthocephalus": {
   "latin": "Xanthocephalus xanthocephalus",
@@ -35966,7 +36331,8 @@
   "tl": 2,
   "wiki": "Xanthocephalus xanthocephalus",
   "desc": "Yellow-headed Blackbird (Xanthocephalus xanthocephalus): eats plants or other primary food sources. Recorded 802 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The yellow-headed blackbird is a medium-sized blackbird with a yellow head. It is the only member of the genus Xanthocephalus."
  },
  "xerospermophilus tereticaudus": {
   "latin": "Xerospermophilus tereticaudus",
@@ -35974,7 +36340,8 @@
   "tl": 2,
   "wiki": "Xerospermophilus tereticaudus",
   "desc": "Round-tailed Ground Squirrel (Xerospermophilus tereticaudus): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
-  "ic": "gsquirrel"
+  "ic": "gsquirrel",
+  "about": "The round-tailed ground squirrel, known as \"Ardillón cola redonda\" in Spanish, live in the desert of the Southwestern United States and Northwestern Mexico."
  },
  "xestospongia muta": {
   "latin": "Xestospongia muta",
@@ -35982,7 +36349,8 @@
   "tl": 2,
   "wiki": "Xestospongia muta",
   "desc": "A reef sponge that filters tiny particles from the water. Sponges are the main food of hawksbill turtles.",
-  "ic": "shell"
+  "ic": "shell",
+  "about": "The giant barrel sponge is the largest species of sponge found growing on Caribbean coral reefs."
  },
  "xyleborus": {
   "latin": "Xyleborus",
@@ -35998,7 +36366,8 @@
   "tl": 2,
   "wiki": "Xylocopa virginica",
   "desc": "Carpenter bee (Xylocopa virginica): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
-  "ic": "ant"
+  "ic": "ant",
+  "about": "Xylocopa virginica, sometimes referred to as the eastern carpenter bee, is a species of bee that extends through the eastern United States and into Canada."
  },
  "xylopia": {
   "latin": "Xylopia",
@@ -36006,7 +36375,8 @@
   "tl": 1,
   "wiki": "Xylopia",
   "desc": "Pepper-fruit trees of the forest. GloBI records show Xylopia quintasii eaten by red colobus, Diana monkeys and mangabeys.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Xylopia is a genus of flowering plants in the family Annonaceae. The genus primarily consists of trees, with some species also being shrubs."
  },
  "year-round rain": {
   "latin": "",
@@ -36032,7 +36402,8 @@
   "tl": 1,
   "wiki": "Yucca baccata",
   "desc": "Banana yucca (Yucca baccata): a plant that turns sunlight into food. Recorded 113 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Yucca baccata is a common species of yucca native to the deserts of the Southwestern United States and three states in Northern Mexico."
  },
  "yucca brevifolia": {
   "latin": "Yucca brevifolia",
@@ -36041,7 +36412,8 @@
   "wiki": "Yucca brevifolia",
   "desc": "The park namesake, dominant in the open Mojave areas. Pollinated by yucca moths, its seeds are moved by ground squirrels.",
   "ic": "sage",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Yucca brevifolia, commonly known as the Joshua tree, yucca palm, tree yucca, or palm tree yucca, is a plant species belonging to the genus Yucca."
  },
  "yucca elata": {
   "latin": "Yucca elata",
@@ -36050,7 +36422,8 @@
   "wiki": "Yucca elata",
   "desc": "A tall succulent that stores water through hot summers and helps hold the dune edges in place. Yucca moth larvae bore into its trunk.",
   "ic": "sage",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Yucca elata is a perennial plant, with common names that include soaptree, soaptree yucca, soapweed, and palmella."
  },
  "yucca glauca": {
   "latin": "Yucca glauca",
@@ -36058,7 +36431,8 @@
   "tl": 1,
   "wiki": "Yucca glauca",
   "desc": "Soapweed yucca (Yucca glauca): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Yucca glauca is a species of perennial evergreen plant, adapted to xeric (dry) growth conditions."
  },
  "yucca schidigera": {
   "latin": "Yucca schidigera",
@@ -36066,7 +36440,8 @@
   "tl": 1,
   "wiki": "Yucca schidigera",
   "desc": "Mohave yucca (Yucca schidigera): a plant that turns sunlight into food. Recorded 148 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Yucca schidigera, also known as the Mojave yucca or Spanish dagger, is a perennial plant in the asparagus family Asparagaceae, native to the southwestern United States and northwestern Mexico."
  },
  "yushania alpina": {
   "latin": "Yushania alpina",
@@ -36074,7 +36449,8 @@
   "tl": 1,
   "wiki": "Yushania alpina",
   "desc": "Forms a nearly continuous belt above the forest, thinner on the drier north side, and shades out most other plants.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Oldeania alpina, the African alpine bamboo, is a perennial bamboo of the family Poaceae and the genus Oldeania."
  },
  "yushania niitakayamensis": {
   "latin": "Yushania niitakayamensis",
@@ -36082,7 +36458,8 @@
   "tl": 1,
   "wiki": "Yushania",
   "desc": "A hardy bamboo of the high mountains that forms dense grassy stands in the subalpine and alpine zone, an open ground-level food source for browsers.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Yushania is a genus of bamboo in the grass family. Recent classification systems place Yushania in the tribe Arundinarieae."
  },
  "zaglossus bruijnii": {
   "latin": "Zaglossus bruijnii",
@@ -36090,7 +36467,8 @@
   "tl": 3,
   "wiki": "Western long-beaked echidna",
   "desc": "An egg-laying mammal of hill and montane forest that feeds mainly on earthworms, unlike the ant-eating short-beaked echidna.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The western long-beaked echidna, also called Bruijin's long-beaked echidna, is one of the four extant echidnas and one of three species of Zaglossus that occurs in New Guinea."
  },
  "zalophus californianus": {
   "latin": "Zalophus californianus",
@@ -36125,7 +36503,8 @@
   "tl": 2,
   "wiki": "Yellow-tailed black cockatoo",
   "desc": "A large cockatoo that feeds on seeds, including those of silver wattle.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The yellow-tailed black cockatoo is a large cockatoo native to the south-east of Australia measuring 55–65 cm (22–26 in) in length. It has a short crest on the top of its head."
  },
  "zapus princeps": {
   "latin": "Zapus princeps",
@@ -36133,7 +36512,8 @@
   "tl": 2,
   "wiki": "Zapus princeps",
   "desc": "Western Jumping Mouse (Zapus princeps): eats plants or other primary food sources. Recorded 10 times near the park in GBIF.",
-  "ic": "quad"
+  "ic": "quad",
+  "about": "The western jumping mouse, is a species of rodent in the family Zapodidae. It is found in Canada and the United States."
  },
  "zea mays": {
   "latin": "Zea mays",
@@ -36150,7 +36530,8 @@
   "tl": 2,
   "wiki": "White-winged dove",
   "desc": "One of the most commonly recorded birds in the park area. It eats seeds and fruit and is taken by coyotes.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-winged dove is a dove whose native range extends from the Southwestern United States through Mexico, Central America, and the Caribbean."
  },
  "zenaida auriculata": {
   "latin": "Zenaida auriculata",
@@ -36167,7 +36548,8 @@
   "tl": 2,
   "wiki": "Zenaida macroura",
   "desc": "Mourning Dove (Zenaida macroura): eats plants or other primary food sources. Recorded 588 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The mourning dove is a member of the dove family, Columbidae. The bird is also known as the American mourning dove, the rain dove, and colloquially as the turtle dove, and it was once known as the…"
  },
  "zephyranthes atamasco": {
   "latin": "Zephyranthes atamasco",
@@ -36175,7 +36557,8 @@
   "tl": 1,
   "wiki": "Zephyranthes atamasco",
   "desc": "Atamasco Lily (Zephyranthes atamasco): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Zephyranthes atamasca, commonly known as the atamasco lily, occasionally as the Easter lily or more generally a rain-lily, is native to the Southern United States."
  },
  "zinnia grandiflora": {
   "latin": "Zinnia grandiflora",
@@ -36183,7 +36566,8 @@
   "tl": 1,
   "wiki": "Zinnia grandiflora",
   "desc": "Rocky Mountain zinnia (Zinnia grandiflora): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF.",
-  "ic": "aspen"
+  "ic": "aspen",
+  "about": "Zinnia grandiflora is a species of flowering plant in the family Asteraceae known by the common names Rocky Mountain zinnia and plains zinnia. It produces a subshrub with yellow-orange flowers."
  },
  "ziziphus mauritiana": {
   "latin": "Ziziphus mauritiana",
@@ -36191,7 +36575,8 @@
   "tl": 1,
   "wiki": "Ziziphus mauritiana",
   "desc": "A thorny dry-country fruit tree recorded in the area, offering fruit to birds and mammals.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Ziziphus mauritiana, also known as Indian jujube, Indian plum, Chinese apple, ber (Hindi: बेर) and dunks, is a tropical, spiny, evergreen shrub or small tree in the buckthorn family Rhamnaceae."
  },
  "ziziphus mucronata": {
   "latin": "Ziziphus mucronata",
@@ -36199,7 +36584,8 @@
   "tl": 1,
   "wiki": "Ziziphus mucronata",
   "desc": "A thorny savanna tree whose fruit and leaves are eaten by many animals.",
-  "ic": "willow"
+  "ic": "willow",
+  "about": "Ziziphus mucronata, known as the buffalo thorn, is a species of tree in the family Rhamnaceae, native to southern Africa. It is deciduous and may grow up to 17 metres tall."
  },
  "zonotrichia albicollis": {
   "latin": "Zonotrichia albicollis",
@@ -36207,7 +36593,8 @@
   "tl": 2,
   "wiki": "Zonotrichia albicollis",
   "desc": "White-throated Sparrow (Zonotrichia albicollis): eats plants or other primary food sources. Recorded 338 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-throated sparrow is a passerine bird of the New World sparrow family Passerellidae. It breeds in northern North America and winters in the southern United States."
  },
  "zonotrichia capensis": {
   "latin": "Zonotrichia capensis",
@@ -36224,7 +36611,8 @@
   "tl": 2,
   "wiki": "Zonotrichia leucophrys",
   "desc": "White-crowned Sparrow (Zonotrichia leucophrys): eats plants or other primary food sources. Recorded 2,500 times near the park in GBIF.",
-  "ic": "meadowlark"
+  "ic": "meadowlark",
+  "about": "The white-crowned sparrow is a species of passerine bird native to North America."
  },
  "zooplankton": {
   "latin": "Zooplankton",
@@ -36232,7 +36620,8 @@
   "tl": 2,
   "wiki": "Zooplankton",
   "desc": "Drifting animals that graze phytoplankton and feed small fish.",
-  "ic": "hopper"
+  "ic": "hopper",
+  "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive."
  },
  "zostera japonica": {
   "latin": "Zostera japonica",
@@ -36240,7 +36629,8 @@
   "tl": 1,
   "wiki": "Zostera japonica",
   "desc": "A seagrass recorded in GBIF near the bay. Seagrass beds shelter young fish and feed grazers, and have been lost to jetty building.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Zostera japonica is a species of aquatic plant in the Zosteraceae family."
  },
  "zostera marina": {
   "latin": "Zostera marina",
@@ -36248,7 +36638,8 @@
   "tl": 1,
   "wiki": "Zostera marina",
   "desc": "A flowering seagrass of sheltered flats. Meadows give young animals cover, and shore crabs eat its seeds.",
-  "ic": "grass"
+  "ic": "grass",
+  "about": "Zostera marina is a flowering vascular plant species as one of many kinds of seagrass, with this species known primarily by the English name of common eelgrass or eelgrass, with seawrack much less…"
  },
  "zostera noltei": {
   "latin": "Zostera noltei",
@@ -36257,7 +36648,8 @@
   "wiki": "Zostera noltei",
   "desc": "Seagrass of sheltered intertidal flats; its beds shelter invertebrates and young fish, and its dead leaves enrich the sediment.",
   "ic": "grass",
-  "badge": "Foundation species"
+  "badge": "Foundation species",
+  "about": "Zostera noltii is a species of seagrass known by the common name dwarf eelgrass."
  },
  "zosterops japonicus": {
   "latin": "Zosterops japonicus",
