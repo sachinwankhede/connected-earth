@@ -10,9 +10,12 @@ def curl(u):
     return None
 def cached(key,fn):
     p=os.path.join(here,'cache',hashlib.md5(key.encode()).hexdigest()+'.json')
-    if os.path.exists(p): return json.load(open(p))
-    v=fn(); 
-    if v is not None: json.dump(v,open(p,'w'))
+    if os.path.exists(p):
+        try: return json.load(open(p))
+        except ValueError: pass            # a half-written file (two threads asked for the same key): fetch again
+    v=fn()
+    if v is not None:
+        t='%s.%d.%d.tmp'%(p,os.getpid(),__import__('threading').get_ident()); json.dump(v,open(t,'w')); os.replace(t,p)   # written whole, then moved into place
     return v
 G={'Mammals':359,'Birds':212,'Reptiles':11592253,'Amphibians':131,'Fish':204,'Insects':216,'Plants':7707728}
 LIM={'Mammals':20,'Birds':34,'Reptiles':10,'Amphibians':8,'Fish':14,'Insects':18,'Plants':30}
