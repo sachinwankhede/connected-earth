@@ -40,9 +40,14 @@ for p in species.files():
     for s in e.get('sources', []): have_url.add(s.get('url', '').split('#')[0])
     have_name.add(norm(e.get('name', '')))
     if e.get('lat') is not None: have_pt.append((e['lat'], e['lon']))
+def toks(s): return {w for w in norm(s).split() if w not in ('national', 'park', 'the', 'of', 'and', 'reserve', 'nature') and len(w) > 2}
+have_toks = [x for x in (toks(n) for n in have_name) if x]
 def ours(c):
     if c['art'] in have_url or norm(c['name']) in have_name: return True
-    return any(km(c['lat'], c['lon'], a, b) < 5 for a, b in have_pt)
+    r = min(60, max(5, math.sqrt(c['area']) / 2)) if c.get('area') else 5   # a big park's point can sit far from ours
+    if any(km(c['lat'], c['lon'], a, b) < r for a, b in have_pt): return True
+    t = toks(c['name'])
+    return bool(t) and any(len(t & h) / len(t | h) >= 0.6 for h in have_toks)
 def pick(L, quota):
     got = []
     for c in sorted(L, key=lambda c: -c['score']):
@@ -57,7 +62,7 @@ cs = {}
 for r in rows:
     name = r['cLabel']['value']
     if name in ('United States of America', 'United States') or re.match(r'^Q\d+$', name): continue
-    cs[name] = (r['c']['value'].rsplit('/', 1)[1], float(r['area']['value']) / 1e6)   # land area in km2
+    cs[name] = (r['c']['value'].rsplit('/', 1)[1], float(r['area']['value']))   # land area in km2 (wdt: gives the value in the unit it was entered, km2)
 want = sorted(cs) if sel.strip().lower() == 'all' else [x.strip() for x in sel.split(',') if x.strip()]
 out = {}; lines = []; total = 0
 for ct in want:
