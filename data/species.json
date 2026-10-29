@@ -370,7 +370,7 @@
   "name": "Red maple",
   "tl": 1,
   "wiki": "Acer rubrum",
-  "desc": "Red maple (Acer rubrum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "desc": "Red maple (Acer rubrum): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Acer rubrum, the red maple, also known as swamp maple, water maple, or soft maple, is a North American tree species. Many of its features, especially its deciduous leaves, are quite variable in form."
  },
@@ -831,6 +831,14 @@
   "desc": "Red Buckeye (Aesculus pavia): a plant that turns sunlight into food. Recorded 26 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Aesculus pavia, known as red buckeye or firecracker plant, is a species of deciduous flowering plant."
+ },
+ "aesculus sylvatica": {
+  "latin": "Aesculus sylvatica",
+  "name": "Painted buckeye",
+  "tl": 1,
+  "wiki": "Aesculus sylvatica",
+  "desc": "Painted buckeye (Aesculus sylvatica): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "aethopyga temminckii": {
   "latin": "Aethopyga temminckii",
@@ -2159,7 +2167,7 @@
   "name": "Green anole",
   "tl": 3,
   "wiki": "Anolis carolinensis",
-  "desc": "Green anole (Anolis carolinensis): hunts or scavenges other animals. Recorded 6 times near the park in GBIF.",
+  "desc": "Green anole (Anolis carolinensis): hunts or scavenges other animals. Recorded 4 times near the park in GBIF.",
   "ic": "quad",
   "about": "Anolis carolinensis or green anole (US: ) (among other names below) is a tree-dwelling species of anole lizard native to the southeastern United States and introduced to islands in the Pacific and…"
  },
@@ -4373,7 +4381,7 @@
   "name": "Tufted Titmouse",
   "tl": 2,
   "wiki": "Baeolophus bicolor",
-  "desc": "Tufted Titmouse (Baeolophus bicolor): eats plants or other primary food sources. Recorded 149 times near the park in GBIF.",
+  "desc": "Tufted Titmouse (Baeolophus bicolor): eats plants or other primary food sources. Recorded 49 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The tufted titmouse is a small songbird native to eastern North America. The species belongs to the tit and chickadee family (Paridae)."
  },
@@ -7207,6 +7215,14 @@
   "desc": "Broad looseflower sedge (Carex laxiflora): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen"
  },
+ "carex lurida": {
+  "latin": "Carex lurida",
+  "name": "Shallow Sedge",
+  "tl": 1,
+  "wiki": "Carex lurida",
+  "desc": "Shallow Sedge (Carex lurida): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "carex microptera": {
   "latin": "Carex microptera",
   "name": "Ovalhead sedge",
@@ -9059,7 +9075,7 @@
  },
  "cirsium horridulum": {
   "latin": "Cirsium horridulum",
-  "name": "Yellow thistle",
+  "name": "Bristly Thistle",
   "tl": 1,
   "wiki": "Cirsium horridulum",
   "desc": "Yellow thistle (Cirsium horridulum): a plant that turns sunlight into food. Recorded 62 times near the park in GBIF.",
@@ -10866,7 +10882,7 @@
   "name": "Timber rattlesnake",
   "tl": 3,
   "wiki": "Crotalus horridus",
-  "desc": "Ambush predator of deciduous forest that winters in limestone crevices. Eats mostly small mammals, especially mice.",
+  "desc": "Timber rattlesnake (Crotalus horridus): hunts or scavenges other animals. Recorded 2 times near the park in GBIF.",
   "ic": "quad",
   "about": "The timber rattlesnake, also known commonly as the banded rattlesnake, and the canebrake rattlesnake in the southern United States, is a species of pit viper in the family Viperidae."
  },
@@ -12528,7 +12544,7 @@
   "name": "Gulf Fritillary",
   "tl": 2,
   "wiki": "Dione vanillae",
-  "desc": "Gulf Fritillary (Dione vanillae): eats plants or other primary food sources. Recorded 64 times near the park in GBIF.",
+  "desc": "Gulf Fritillary (Dione vanillae): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
   "ic": "hopper",
   "about": "The Gulf fritillary or passion butterfly is a bright orange butterfly in the subfamily Heliconiinae of the family Nymphalidae."
  },
@@ -13889,7 +13905,7 @@
   "name": "Silver-spotted Skipper",
   "tl": 2,
   "wiki": "Epargyreus clarus",
-  "desc": "Silver-spotted Skipper (Epargyreus clarus): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "desc": "Silver-spotted Skipper (Epargyreus clarus): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Epargyreus clarus, the silver-spotted skipper, is a butterfly of the family Hesperiidae. It is claimed to be the most recognized skipper in North America."
  },
@@ -14338,6 +14354,14 @@
   "desc": "Desert yellow fleabane (Erigeron linearis): a plant that turns sunlight into food. Recorded 32 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Erigeron linearis is a species of flowering plant in the family Asteraceae known by the common name desert yellow fleabane or narrow leaved fleabane. It is native to western North America."
+ },
+ "erigeron philadelphicus": {
+  "latin": "Erigeron philadelphicus",
+  "name": "Robin's Plantain",
+  "tl": 1,
+  "wiki": "Erigeron philadelphicus",
+  "desc": "Robin's Plantain (Erigeron philadelphicus): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "erigeron pulchellus": {
   "latin": "Erigeron pulchellus",
@@ -15862,6 +15886,14 @@
   "desc": "A diving seabird that nests in burrows on cliffs and islands. Adults eat squid and krill, and chicks are fed mostly fish such as sand lance.",
   "ic": "meadowlark",
   "about": "The tufted puffin, also known as crested puffin, is a relatively abundant medium-sized pelagic seabird in the auk family (Alcidae) found throughout the North Pacific Ocean."
+ },
+ "fraxinus americana": {
+  "latin": "Fraxinus americana",
+  "name": "White Ash",
+  "tl": 1,
+  "wiki": "Fraxinus americana",
+  "desc": "White Ash (Fraxinus americana): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "fregata magnificens": {
   "latin": "Fregata magnificens",
@@ -17540,7 +17572,7 @@
   "name": "Marmorated brown stink bug",
   "tl": 2,
   "wiki": "Halyomorpha halys",
-  "desc": "Marmorated brown stink bug (Halyomorpha halys): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "desc": "Marmorated brown stink bug (Halyomorpha halys): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
   "ic": "hopper",
   "about": "The brown marmorated stink bug is an insect in the family Pentatomidae, native to China, Japan, Korea, and other Asian regions."
  },
@@ -18846,7 +18878,7 @@
  },
  "hyphantria cunea": {
   "latin": "Hyphantria cunea",
-  "name": "Fall webworm",
+  "name": "Fall Webworm",
   "tl": 2,
   "wiki": "Hyphantria cunea",
   "desc": "A moth caterpillar that feeds on the leaves of many trees, including cypress, maple and beech.",
@@ -19023,7 +19055,7 @@
   "name": "Appalachian-tea",
   "tl": 1,
   "wiki": "Ilex glabra",
-  "desc": "Appalachian-tea (Ilex glabra): a plant that turns sunlight into food. Recorded 24 times near the park in GBIF.",
+  "desc": "Appalachian-tea (Ilex glabra): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Ilex glabra, also known as Appalachian tea, evergreen winterberry, Canadian winterberry, gallberry, inkberry, dye-leaves and houx galbre, is a species of evergreen holly native to the coastal plain…"
  },
@@ -19041,7 +19073,7 @@
   "name": "American Holly",
   "tl": 1,
   "wiki": "Ilex opaca",
-  "desc": "American Holly (Ilex opaca): a plant that turns sunlight into food. Recorded 69 times near the park in GBIF.",
+  "desc": "American Holly (Ilex opaca): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Ilex opaca, the American holly, is a species of holly, native to the eastern and south-central United States, from coastal Massachusetts south to central Florida, and west to southeastern Missouri…"
  },
@@ -19207,7 +19239,7 @@
  },
  "ipomoea sagittata": {
   "latin": "Ipomoea sagittata",
-  "name": "Saltmarsh morningglory",
+  "name": "Saltmarsh Morning-Glory",
   "tl": 1,
   "wiki": "Ipomoea sagittata",
   "desc": "Saltmarsh morningglory (Ipomoea sagittata): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
@@ -19718,7 +19750,7 @@
   "name": "Common Buckeye",
   "tl": 2,
   "wiki": "Junonia coenia",
-  "desc": "Common Buckeye (Junonia coenia): eats plants or other primary food sources. Recorded 8 times near the park in GBIF.",
+  "desc": "Common Buckeye (Junonia coenia): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Junonia coenia, known as the common buckeye or buckeye, is a butterfly in the family Nymphalidae."
  },
@@ -21133,7 +21165,7 @@
   "name": "Clouded Skipper",
   "tl": 2,
   "wiki": "Lerema accius",
-  "desc": "Clouded Skipper (Lerema accius): eats plants or other primary food sources. Recorded 29 times near the park in GBIF.",
+  "desc": "Clouded Skipper (Lerema accius): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Lerema accius, the clouded skipper, is a butterfly of the family Hesperiidae."
  },
@@ -22845,6 +22877,14 @@
   "wiki": "Macrotus californicus",
   "desc": "California Leaf-nosed Bat (Macrotus californicus): hunts or scavenges other animals. Recorded 32 times near the park in GBIF.",
   "ic": "quad"
+ },
+ "macrurocampa marthesia": {
+  "latin": "Macrurocampa marthesia",
+  "name": "Mottled Prominent",
+  "tl": 2,
+  "wiki": "Macrurocampa marthesia",
+  "desc": "Mottled Prominent (Macrurocampa marthesia): eats plants or other primary food sources. Recorded 12 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "madia elegans": {
   "latin": "Madia elegans",
@@ -26219,12 +26259,20 @@
   "ic": "hopper",
   "about": "The California tortoiseshell is a butterfly of the family Nymphalidae."
  },
+ "nyssa ogeche": {
+  "latin": "Nyssa ogeche",
+  "name": "Ogeechee tupelo",
+  "tl": 1,
+  "wiki": "Nyssa ogeche",
+  "desc": "Ogeechee tupelo (Nyssa ogeche): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "nyssa sylvatica": {
   "latin": "Nyssa sylvatica",
   "name": "Black Gum",
   "tl": 1,
   "wiki": "Nyssa sylvatica",
-  "desc": "Black Gum (Nyssa sylvatica): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
+  "desc": "Black Gum (Nyssa sylvatica): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "oarisma garita": {
@@ -27814,7 +27862,7 @@
   "name": "Eastern Tiger Swallowtail",
   "tl": 2,
   "wiki": "Papilio glaucus",
-  "desc": "Eastern Tiger Swallowtail (Papilio glaucus): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "desc": "Eastern Tiger Swallowtail (Papilio glaucus): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Papilio glaucus, the eastern tiger swallowtail, is a species of butterfly native to eastern North America."
  },
@@ -31648,6 +31696,14 @@
   "ic": "aspen",
   "about": "Prunus africana, the African cherry, is an African species of cherry growing to 40 metres (130 feet) in height."
  },
+ "prunus alabamensis": {
+  "latin": "Prunus alabamensis",
+  "name": "Alabama cherry",
+  "tl": 1,
+  "wiki": "Prunus alabamensis",
+  "desc": "Alabama cherry (Prunus alabamensis): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "prunus americana": {
   "latin": "Prunus americana",
   "name": "American Plum",
@@ -31673,6 +31729,14 @@
   "desc": "A wild almond of the Central Asian foothills that grows at roughly 1,000 to 1,800 m. The cinereous vulture nests in Bukhara almond trees in this range, per the Key Biodiversity Areas factsheet.",
   "ic": "willow",
   "about": "Prunus bucharica is a species of wild almond native to Tajikistan, Uzbekistan and Afghanistan, preferring to grow at 1000-1800 m above sea level."
+ },
+ "prunus caroliniana": {
+  "latin": "Prunus caroliniana",
+  "name": "Carolina laurel cherry",
+  "tl": 1,
+  "wiki": "Prunus caroliniana",
+  "desc": "Carolina laurel cherry (Prunus caroliniana): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "prunus mahaleb": {
   "latin": "Prunus mahaleb",
@@ -32395,6 +32459,22 @@
   "ic": "aspen",
   "about": "Quercus aquifolioides is a species of oak native to south-central China and Tibet. It is in the subgenus Cerris, section Ilex."
  },
+ "quercus arkansana": {
+  "latin": "Quercus arkansana",
+  "name": "Arkansas oak",
+  "tl": 1,
+  "wiki": "Quercus arkansana",
+  "desc": "Arkansas oak (Quercus arkansana): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "quercus austrina": {
+  "latin": "Quercus austrina",
+  "name": "Bastard white oak",
+  "tl": 1,
+  "wiki": "Quercus austrina",
+  "desc": "Bastard white oak (Quercus austrina): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "quercus boyntonii": {
   "latin": "Quercus boyntonii",
   "name": "Boynton oak",
@@ -32446,6 +32526,22 @@
   "desc": "Oak scrub of the canyon rim. Deer browse it and squirrels and bears eat the acorns; it regrows from root sprouts after fire.",
   "ic": "aspen",
   "about": "Quercus gambelii, with the common name Gambel oak, is a deciduous small tree or large shrub that is widespread in the foothills and lower mountains of western North America."
+ },
+ "quercus geminata": {
+  "latin": "Quercus geminata",
+  "name": "Sand live oak",
+  "tl": 1,
+  "wiki": "Quercus geminata",
+  "desc": "Sand live oak (Quercus geminata): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "quercus georgiana": {
+  "latin": "Quercus georgiana",
+  "name": "Georgia oak",
+  "tl": 1,
+  "wiki": "Quercus georgiana",
+  "desc": "Georgia oak (Quercus georgiana): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "quercus hypoleucoides": {
   "latin": "Quercus hypoleucoides",
@@ -32504,7 +32600,7 @@
   "name": "Catesby's oak",
   "tl": 1,
   "wiki": "Quercus laevis",
-  "desc": "Catesby's oak (Quercus laevis): a plant that turns sunlight into food. Recorded 35 times near the park in GBIF.",
+  "desc": "Catesby's oak (Quercus laevis): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Quercus laevis, the turkey oak, is a member of the red oak group of oaks. It is native to the southeastern United States."
  },
@@ -32534,12 +32630,20 @@
   "ic": "aspen",
   "about": "Quercus macrocarpa, the bur oak or burr oak, is a species of oak tree native to central and eastern North America. It is in the white oak section, Quercus sect."
  },
+ "quercus margaretiae": {
+  "latin": "Quercus margaretiae",
+  "name": "Runner oak",
+  "tl": 1,
+  "wiki": "Quercus margaretiae",
+  "desc": "Runner oak (Quercus margaretiae): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "quercus marilandica": {
   "latin": "Quercus marilandica",
   "name": "Blackjack oak",
   "tl": 1,
   "wiki": "Quercus marilandica",
-  "desc": "Blackjack oak (Quercus marilandica): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "desc": "Blackjack oak (Quercus marilandica): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Quercus marilandica, the blackjack oak, is a small oak, one of the red oak group Quercus sect. Lobatae."
  },
@@ -33670,7 +33774,7 @@
   "name": "Black Sumac",
   "tl": 1,
   "wiki": "Rhus copallina",
-  "desc": "Black Sumac (Rhus copallina): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "desc": "Black Sumac (Rhus copallina): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Rhus copallinum, the winged sumac, shining sumac, dwarf sumac or flameleaf sumac, is a species of flowering plant in the cashew family (Anacardiaceae) that is native to eastern North America."
  },
@@ -34027,6 +34131,14 @@
   "desc": "Prairie rose (Rosa arkansana): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Rosa arkansana, the prairie rose or wild prairie rose, is a species of rose native to a large area of central North America, between the Appalachian and Rocky Mountains from Alberta, Manitoba, and…"
+ },
+ "rosa laevigata": {
+  "latin": "Rosa laevigata",
+  "name": "Cherokee rose",
+  "tl": 1,
+  "wiki": "Rosa laevigata",
+  "desc": "Cherokee rose (Rosa laevigata): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "rosa multiflora": {
   "latin": "Rosa multiflora",
@@ -34854,6 +34966,14 @@
   "desc": "Crimson pitcher sage (Salvia spathacea): a plant that turns sunlight into food. Recorded 73 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Salvia spathacea, the California hummingbird sage or pitcher sage, is a species of flowering plant in the family Lamiaceae, native to southern and central California growing from sea level to 610 m…"
+ },
+ "salvia urticifolia": {
+  "latin": "Salvia urticifolia",
+  "name": "Nettleleaf sage",
+  "tl": 1,
+  "wiki": "Salvia urticifolia",
+  "desc": "Nettleleaf sage (Salvia urticifolia): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "salvinia minima": {
   "latin": "Salvinia minima",
@@ -36504,7 +36624,7 @@
   "name": "Sarsaparilla-vine",
   "tl": 1,
   "wiki": "Smilax pumila",
-  "desc": "Sarsaparilla-vine (Smilax pumila): a plant that turns sunlight into food. Recorded 53 times near the park in GBIF.",
+  "desc": "Sarsaparilla-vine (Smilax pumila): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "smilax rotundifolia": {
@@ -36512,7 +36632,7 @@
   "name": "Common Greenbrier",
   "tl": 1,
   "wiki": "Smilax rotundifolia",
-  "desc": "Common Greenbrier (Smilax rotundifolia): a plant that turns sunlight into food. Recorded 18 times near the park in GBIF.",
+  "desc": "Common Greenbrier (Smilax rotundifolia): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "smilax tamnoides": {
@@ -39252,7 +39372,7 @@
   "name": "Carolina Wren",
   "tl": 3,
   "wiki": "Thryothorus ludovicianus",
-  "desc": "Carolina Wren (Thryothorus ludovicianus): hunts or scavenges other animals. Recorded 897 times near the park in GBIF.",
+  "desc": "Carolina Wren (Thryothorus ludovicianus): hunts or scavenges other animals. Recorded 109 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The Carolina wren is a species of wren common in the eastern United States, the extreme south of Ontario, Canada, the northeast and southeast of Mexico, and into northern Central America."
  },
@@ -40000,6 +40120,14 @@
   "ic": "willow",
   "about": "Trichoscypha is a genus of plants in the family Anacardiaceae. It includes 32 species native to tropical Africa."
  },
+ "trichostema dichotomum": {
+  "latin": "Trichostema dichotomum",
+  "name": "Bastard Pennyroyal",
+  "tl": 1,
+  "wiki": "Trichostema dichotomum",
+  "desc": "Bastard Pennyroyal (Trichostema dichotomum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "trichostema lanatum": {
   "latin": "Trichostema lanatum",
   "name": "Woolly blue-curls",
@@ -40034,6 +40162,14 @@
   "desc": "Flowering legume of high pastures. Herbs like this are eaten by grazers in summer, and it is a larval food plant for the mountain clouded yellow butterfly.",
   "ic": "sage",
   "about": "Trifolium alpinum is a species of flowering plant in the legume family known by the common name alpine clover. It is native to the Alps."
+ },
+ "trifolium arvense": {
+  "latin": "Trifolium arvense",
+  "name": "Hare's-foot Clover",
+  "tl": 1,
+  "wiki": "Trifolium arvense",
+  "desc": "Hare's-foot Clover (Trifolium arvense): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "trifolium aureum": {
   "latin": "Trifolium aureum",
@@ -40084,7 +40220,7 @@
   "name": "Bashful wakerobin",
   "tl": 1,
   "wiki": "Trillium catesbaei",
-  "desc": "Bashful wakerobin (Trillium catesbaei): a plant that turns sunlight into food. Recorded 96 times near the park in GBIF.",
+  "desc": "Bashful wakerobin (Trillium catesbaei): a plant that turns sunlight into food. Recorded 26 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Trillium catesbaei, also known as bashful wakerobin or rosy wake-robin, is a spring flowering perennial plant found in the southeastern United States."
  },
@@ -40926,7 +41062,7 @@
   "name": "Blueberry",
   "tl": 1,
   "wiki": "Vaccinium corymbosum",
-  "desc": "A fruiting shrub of the swamp margins and islands whose berries feed birds and mammals.",
+  "desc": "Blueberry (Vaccinium corymbosum): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Vaccinium corymbosum is a North American species of blueberry with several common names, including highbush blueberry and rabbiteye blueberry."
  },
@@ -41025,6 +41161,14 @@
   "desc": "Low shrubs that Canadian boreal fires encourage. Their berries feed bears and small mammals.",
   "ic": "sage",
   "about": "Vaccinium ( vak-SIN-ee-əm) is a common and widespread genus of shrubs or dwarf shrubs in the heath family (Ericaceae)."
+ },
+ "vaccinium stamineum": {
+  "latin": "Vaccinium stamineum",
+  "name": "Southern-gooseberry",
+  "tl": 1,
+  "wiki": "Vaccinium stamineum",
+  "desc": "Southern-gooseberry (Vaccinium stamineum): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "vaccinium uliginosum": {
   "latin": "Vaccinium uliginosum",
@@ -41312,6 +41456,14 @@
   "desc": "New Mexico vervain (Verbena macdougalii): a plant that turns sunlight into food. Recorded 56 times near the park in GBIF.",
   "ic": "aspen"
  },
+ "verbena rigida": {
+  "latin": "Verbena rigida",
+  "name": "Slender Vervain",
+  "tl": 1,
+  "wiki": "Verbena rigida",
+  "desc": "Slender Vervain (Verbena rigida): a plant that turns sunlight into food. Recorded 16 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "verbena stricta": {
   "latin": "Verbena stricta",
   "name": "Hoary vervain",
@@ -41438,7 +41590,7 @@
   "name": "European Hornet",
   "tl": 3,
   "wiki": "Vespa crabro",
-  "desc": "European Hornet (Vespa crabro): hunts or scavenges other animals. Recorded 2 times near the park in GBIF.",
+  "desc": "European Hornet (Vespa crabro): hunts or scavenges other animals. Recorded 3 times near the park in GBIF.",
   "ic": "ant",
   "about": "The European hornet is the largest eusocial wasp native to Europe."
  },
@@ -41516,7 +41668,7 @@
   "name": "Blue haw",
   "tl": 1,
   "wiki": "Viburnum rufidulum",
-  "desc": "Blue haw (Viburnum rufidulum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "desc": "Blue haw (Viburnum rufidulum): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Viburnum rufidulum, also known as the rusty blackhaw, blue haw, rusty nanny-berry, or southern black haw, is a flowering species of shrub or small tree that is common in parts of the Eastern and…"
  },
@@ -41679,7 +41831,7 @@
   "name": "White-eyed Vireo",
   "tl": 3,
   "wiki": "Vireo griseus",
-  "desc": "White-eyed Vireo (Vireo griseus): hunts or scavenges other animals. Recorded 504 times near the park in GBIF.",
+  "desc": "White-eyed Vireo (Vireo griseus): hunts or scavenges other animals. Recorded 115 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The white-eyed vireo is a small songbird of the family Vireonidae."
  },
@@ -41697,7 +41849,7 @@
   "name": "Blue-headed Vireo",
   "tl": 3,
   "wiki": "Vireo solitarius",
-  "desc": "Blue-headed Vireo (Vireo solitarius): hunts or scavenges other animals. Recorded 5 times near the park in GBIF.",
+  "desc": "Blue-headed Vireo (Vireo solitarius): hunts or scavenges other animals. Recorded 314 times near the park in GBIF.",
   "ic": "meadowlark"
  },
  "virgin river": {
@@ -41723,7 +41875,7 @@
   "name": "Muscadine Grape",
   "tl": 1,
   "wiki": "Vitis rotundifolia",
-  "desc": "Muscadine Grape (Vitis rotundifolia): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
+  "desc": "Muscadine Grape (Vitis rotundifolia): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen"
  },
  "vitis vinifera": {
