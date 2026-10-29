@@ -4,8 +4,9 @@ name: data-worldparks
 on:
   workflow_dispatch:
     inputs:
-      countries: { description: "Comma-separated English country names", default: "Kenya,Brazil,Indonesia" }
-      cap: { description: "Most new parks listed per country", default: "15" }
+      countries: { description: "Comma-separated English country names, or all", default: "all" }
+      divisor: { description: "Quota = sqrt(land km2) / divisor (bigger = fewer parks)", default: "70" }
+      max: { description: "Most parks for any one country", default: "40" }
 permissions:
   contents: write
   pull-requests: write
@@ -19,7 +20,7 @@ jobs:
       - uses: actions/checkout@v5
         with: { ref: main }
       - name: Look up the parks
-        run: python3 pipeline/worldparks.py "${{ github.event.inputs.countries }}" "${{ github.event.inputs.cap }}" > report.md
+        run: python3 pipeline/worldparks.py "${{ github.event.inputs.countries }}" "${{ github.event.inputs.divisor }}" "${{ github.event.inputs.max }}" > report.md
       - name: Commit and open the pull request
         env:
           GH_TOKEN: ${{ github.token }}
@@ -31,5 +32,5 @@ jobs:
           git add -A -- pipeline/reports/worldparks.json pipeline/reports/worldparks.md
           git commit -m "National park candidates: ${{ github.event.inputs.countries }}"
           git push -f origin "$BR"
-          { echo "Candidate national parks from Wikidata, ranked by how many Wikipedia languages cover them (World Heritage first). A list only: no place files are made. Countries: ${{ github.event.inputs.countries }}."; echo; cat report.md; } > /tmp/body.md
+          { echo "Candidate national parks from Wikidata, ranked by how many Wikipedia languages cover them (World Heritage bonus). The quota per country grows with land area (divisor ${{ github.event.inputs.divisor }}, max ${{ github.event.inputs.max }}) and picks are spread at least 200 km apart where possible. A list only: no place files are made. Countries: ${{ github.event.inputs.countries }}."; echo; if [ "$(wc -c < report.md)" -gt 55000 ]; then head -c 40000 report.md | head -n -1; echo; echo "(Report cut here: the whole list is in pipeline/reports/worldparks.md and worldparks.json on this branch.)"; else cat report.md; fi; } > /tmp/body.md
           gh pr create --base main --head "$BR" --title "National park candidates: ${{ github.event.inputs.countries }}" --body-file /tmp/body.md
