@@ -9,6 +9,7 @@ on:
 permissions:
   contents: write
   actions: write
+  pull-requests: write      # to comment why a sync could not finish
 concurrency: data-sync
 jobs:
   sync:

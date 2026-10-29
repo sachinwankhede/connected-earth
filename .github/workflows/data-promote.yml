@@ -23,9 +23,21 @@ jobs:
       - name: Promote
         run: |
           S="${{ github.event.inputs.states }}"
-          if [ -n "$S" ]; then python3 build/promote.py --local --state "$S" | tee promote.log; else python3 build/promote.py --local | tee promote.log; fi
-          python3 build/species.py pack
-          python3 build/build.py --all
+          ARGS="--local"; [ -n "$S" ] && ARGS="--local --state $S"
+          LIMIT=$(grep -o "'index.html': [0-9_]*" build/budget.py | grep -o "[0-9_]*$" | tr -d _)
+          python3 build/species.py pack; python3 build/build.py --all >/dev/null
+          BASE=$(stat -c %s index.html)
+          python3 build/promote.py $ARGS | tee promote.log
+          python3 build/species.py pack; python3 build/build.py --all >/dev/null
+          NOW=$(stat -c %s index.html); N=$(python3 -c "import json;print(len(json.load(open('promoted.json'))['moved']))")
+          echo "index.html: $BASE before, $NOW after $N parks; limit $LIMIT"
+          if [ "$N" != "0" ] && [ "$NOW" -gt "$((LIMIT*97/100))" ]; then
+            K=$(python3 -c "print(max(0,int(($N*($LIMIT*0.97-$BASE))/($NOW-$BASE))))")
+            echo "Over 97% of the size budget: promoting only the best $K of $N parks."
+            git reset -q --hard HEAD; git clean -fdq -e pipeline/work
+            PROMOTE_MAX=$K python3 build/promote.py $ARGS | tee promote.log
+            python3 build/species.py pack; python3 build/build.py --all >/dev/null
+          fi
           python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json) | tee validate.log
           ! grep -q "ERROR" validate.log
           python3 build/budget.py
