@@ -2,6 +2,7 @@
 """syncmain.py: finish a merge of main into a data branch when the only clashes are the shared files that every data job edits.
   data/species.json   rows from both sides are kept (main's row wins when both changed the same species), then `species.py pack` rebuilds it
   data/<id>.json, data-auto/<id>.json  merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
+  data-auto/<id>.json that main promoted to data/: removed here too when the branch only repacked it
   data-auto/order.json  main's order, then the branch's new ids that are not already in main or promoted to data/
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
@@ -10,7 +11,8 @@ os.chdir(ROOT)
 def git(*a): return subprocess.run(('git',) + a, capture_output=True, text=True)
 def show(stage, path):
     r = git('show', ':%d:%s' % (stage, path)); return json.loads(r.stdout) if r.returncode == 0 else None
-conf = [l[3:] for l in git('status', '--porcelain').stdout.splitlines() if l[:2] in ('UU', 'AA', 'DU', 'UD')]
+st = {l[3:]: l[:2] for l in git('status', '--porcelain').stdout.splitlines() if l[:2] in ('UU', 'AA', 'DU', 'UD')}
+conf = list(st)
 GRAPH = ('nodes', 'raw', 'ev', 'tip')   # the food web: rebuilt by regen branches and rewritten by the species repack
 def merge_place(path):
     """Key-by-key three-way merge of one place file. The food web comes from the branch only when the branch rebuilt it (its edges or species ids
@@ -26,6 +28,15 @@ def merge_place(path):
         else: v = t if m == b else m if t == b else t
         if (k in mine or k in theirs) and not (v is None and k not in mine and k not in theirs): out[k] = v
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
+def promoted_on_main(path):
+    """Main moved this pilot place to data/ (a promotion) and the branch only repacked it: let the move stand."""
+    if st[path] != 'UD' or not path.startswith('data-auto/'): return False
+    base, mine = show(1, path), show(2, path)
+    if not (base and mine): return False
+    if (mine.get('raw'), mine.get('ev')) != (base.get('raw'), base.get('ev')): return False
+    git('rm', '-q', '--', path); return True
+gone = [c for c in conf if promoted_on_main(c)]
+conf = [c for c in conf if c not in gone]
 taken = [c for c in conf if c.startswith(('data/', 'data-auto/')) and c.count('/') == 1 and c not in ('data/species.json', 'data/links.json', 'data-auto/order.json') and merge_place(c)]
 conf = [c for c in conf if c not in taken]
 other = [c for c in conf if c not in ('data/species.json', 'data-auto/order.json')]
@@ -39,4 +50,5 @@ if 'data-auto/order.json' in conf:
     seen = set(theirs) | promoted
     json.dump(theirs + [i for i in ours if i not in seen and os.path.exists('data-auto/%s.json' % i)], open('data-auto/order.json', 'w'), ensure_ascii=False)
 print('resolved:', ', '.join(conf) or 'nothing to resolve')
+if gone: print('promoted on main, branch only repacked, so removed from the pilot:', ', '.join(gone))
 if taken: print('merged key by key (branch food web, main for the rest):', ', '.join(taken))
