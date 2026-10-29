@@ -3029,7 +3029,7 @@
   "name": "Butterfly Milkweed",
   "tl": 1,
   "wiki": "Asclepias tuberosa",
-  "desc": "Butterfly Milkweed (Asclepias tuberosa): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "desc": "Butterfly Milkweed (Asclepias tuberosa): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Asclepias tuberosa, commonly known as butterfly weed or pleurisy root, is a species of milkweed native to eastern and southwestern North America."
  },
@@ -6360,14 +6360,6 @@
   "desc": "Hairy-fruit sedge (Carex trichocarpa): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Carex trichocarpa, the hairy-fruited sedge, is a species of Carex native to North America. It is listed as a \"species of special concern\" in Connecticut, the United States."
- },
- "carex typhina": {
-  "latin": "Carex typhina",
-  "name": "Cat-tail sedge",
-  "tl": 1,
-  "wiki": "Carex typhina",
-  "desc": "Cat-tail sedge (Carex typhina): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
-  "ic": "aspen"
  },
  "carex utriculata": {
   "latin": "Carex utriculata",
@@ -12772,14 +12764,6 @@
   "ic": "sage",
   "about": "Erythronium grandiflorum is a North American species of plants in the lily family. It is known by several common names, including yellow avalanche lily, glacier lily, and dogtooth fawn lily."
  },
- "erythronium mesochoreum": {
-  "latin": "Erythronium mesochoreum",
-  "name": "Midland fawnlily",
-  "tl": 1,
-  "wiki": "Erythronium mesochoreum",
-  "desc": "Midland fawnlily (Erythronium mesochoreum): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
-  "ic": "aspen"
- },
  "erythronium montanum": {
   "latin": "Erythronium montanum",
   "name": "Avalanche lily",
@@ -12852,14 +12836,6 @@
   "desc": "A dominant tree of the lowland eucalypt woodlands that cover most of the park. Its leaf litter and fallen wood feed the decomposers.",
   "ic": "aspen",
   "about": "Eucalyptus tetrodonta, commonly known as Darwin stringybark or messmate, and known to the Yolngu peoples of Arnhem Land as gaḏayka, meaning \"the word\" or \"message\", is a species of medium-sized to…"
- },
- "euchaetes egle": {
-  "latin": "Euchaetes egle",
-  "name": "Milkweed Tussock Moth",
-  "tl": 2,
-  "wiki": "Euchaetes egle",
-  "desc": "Milkweed Tussock Moth (Euchaetes egle): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "hopper"
  },
  "euchloe olympia": {
   "latin": "Euchloe olympia",
@@ -32640,7 +32616,7 @@
   "name": "Horse-nettle",
   "tl": 1,
   "wiki": "Solanum carolinense",
-  "desc": "Horse-nettle (Solanum carolinense): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "desc": "Horse-nettle (Solanum carolinense): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Solanum carolinense, the Carolina horsenettle, is not a true nettle, but a member of the Solanaceae, or nightshade family."
  },
@@ -34594,7 +34570,7 @@
   "name": "American Germander",
   "tl": 1,
   "wiki": "Teucrium canadense",
-  "desc": "American Germander (Teucrium canadense): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "desc": "American Germander (Teucrium canadense): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Teucrium canadense, commonly known as Canada germander, American germander, or wood sage, is a perennial herb in the family Lamiaceae."
  },
