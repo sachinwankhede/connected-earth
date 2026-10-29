@@ -43,6 +43,7 @@ jobs:
           mv regen.md /tmp/regen.md; rm -f regen.json regen.log validate.log
           git add -A -- . ':!pipeline/work'
           git commit -m "Rebuild food webs of held parks (${{ github.event.inputs.states }})"
+          bash pipeline/syncstep.sh || true; { echo; cat /tmp/sync.md; } >> /tmp/regen.md
           git push -f origin "$BR"
           gh pr create --base main --head "$BR" --title "Rebuild food webs of held parks (${{ github.event.inputs.states }})" --body-file /tmp/regen.md
           gh workflow run ci.yml --ref "$BR"
