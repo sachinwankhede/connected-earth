@@ -65,8 +65,11 @@ def main(pid):
         if n >= MAX_LINKS: gaps.append(label + ' (not queried this run)'); continue
         n += 1; res = globi(eater, food)
         if res is None: rows.append('| %s | %s | %s -> %s | not queried |' % (label, code, eater, food)); continue
-        cite = next((r.get('study_citation') or r.get('study_title') or '' for r in res if r.get('study_citation') or r.get('study_title')), '')
-        rows.append('| %s | %s | %s -> %s | %d%s record(s); e.g. %s |' % (label, code, eater, food, len(res), '+' if len(res) >= 5 else '', cite[:140].replace('|', '/')))
+        seen = []
+        for r in res:
+            line = '%s %s %s' % (r.get('source_taxon_name') or eater, r.get('interaction_type') or 'eats', r.get('target_taxon_name') or food)
+            if line not in seen: seen.append(line)
+        rows.append('| %s | %s | %s -> %s | %d%s record(s): %s |' % (label, code, eater, food, len(res), '+' if len(res) >= 5 else '', '; '.join(seen[:3]).replace('|', '/')))
     out += ['Source: GloBI <https://www.globalbioticinteractions.org>, retrieved %s. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.\n' % TODAY, '| Link | Code | Query | Records found |', '|---|---|---|---|'] + rows + ['']
     out += ['### Links with no GloBI record (be careful with these)', '\n'.join('- ' + g for g in gaps) or '(none)', '']
     txt = '\n'.join(out)
