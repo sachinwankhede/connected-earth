@@ -60,15 +60,16 @@ describe('places load on demand', () => {
       // pick a species that is also in other places, then jump
       const jumped = await t.page.evaluate(async () => {
         const chips = [...document.querySelectorAll('.node')];
-        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump'); } }
+        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump-sp]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump-sp'); } }
         return null;
       });
       assert.ok(jumped, 'found a species with another place');
       await t.page.waitForTimeout(2500);
-      const [eco, node] = jumped.split(':');
+      const [eco, latin] = jumped.split('|');
       assert.ok(t.webs.some((w) => w === eco + '.json'), 'second web fetched: ' + t.webs);
       assert.equal(await t.page.evaluate(() => document.getElementById('eco').value), eco, 'now in the other place');
-      assert.ok(await t.page.evaluate((n) => !!document.querySelector('.node.sel,.node.on'), node), 'species selected after the jump');
+      assert.ok(await t.page.evaluate(() => !!document.querySelector('.node.sel,.node.on')), 'species selected after the jump');
+      assert.ok(await t.page.evaluate((l) => document.getElementById('panel').textContent.toLowerCase().includes(l.toLowerCase()), latin), 'the species sheet shows the species that was tapped: ' + latin);
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
 

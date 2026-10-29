@@ -55,17 +55,25 @@ HEAVY = ('sources', 'notes', 'tip')
 
 
 def split(ecos, links):
-    """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json."""
+    """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json.
+    The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
+    is [number, that name]. The page expands them back to [latin, name] at start."""
+    import collections
     ends = cross_ends(links); light = []; webs = {}
+    seen = collections.defaultdict(collections.Counter)
+    for e in ecos:
+        for n in e['nodes']:
+            if not n.get('cat') and n.get('latin'): seen[n['latin']][n['name']] += 1
+    spt = [[l, c.most_common(1)[0][0]] for l, c in sorted(seen.items())]; at = {l: i for i, (l, _) in enumerate(spt)}
     for e in ecos:
         nodes = e['nodes']
-        sp = [[n['latin'], n['name'], n['id']] for n in nodes if not n.get('cat') and n.get('latin')]
-        idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'sp': sp,
+        s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
+        idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 's': s,
                'q': ' '.join(n['name'] for n in nodes if n.get('cat')),
                'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY} | {'idx': idx})
-    return light, webs
+    return light, webs, spt
 
 
 def write_webs(webs, about):
@@ -129,9 +137,9 @@ def build(pilot, out_path, write=False):
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
-    light, webs = split(ecos, links)
+    light, webs, spt = split(ecos, links)
     if write: write_webs(webs, about)
-    data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
+    data = json.dumps({'ecos': light, 'spt': spt, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     out = tpl.replace('__LAND__', land).replace('__GEO__', json.dumps(geo, separators=(',', ':'))).replace('__DATA__', data)
     ml = P('node_modules', 'maplibre-gl', 'dist')
