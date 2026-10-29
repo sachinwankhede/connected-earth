@@ -10436,7 +10436,7 @@
   "latin": "",
   "name": "Desert sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Intense sun powers desert plants, but heat sends many animals underground for the day.",
   "ic": "sun",
   "cat": "abiotic"
@@ -12053,7 +12053,7 @@
   "latin": "",
   "name": "Equatorial sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Strong sun near the equator drives fast plant growth in the forest canopy.",
   "ic": "sun",
   "cat": "abiotic"
@@ -16368,7 +16368,7 @@
   "latin": "",
   "name": "Intense sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Thin air at 4,200 to 5,400 m means strong sun for the algae, grasses and cushion plants.",
   "ic": "sun",
   "cat": "abiotic"
@@ -18740,7 +18740,7 @@
   "latin": "",
   "name": "Long summer daylight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Near-constant summer light lets plants and lake algae grow fast in the short warm season.",
   "ic": "sun",
   "cat": "abiotic"
@@ -21740,7 +21740,7 @@
   "latin": "n/a",
   "name": "Sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Light that reaches the forest floor in clearings and leaf-fall seasons drives plant growth.",
   "ic": "sun",
   "cat": "abiotic"
@@ -31304,7 +31304,7 @@
   "latin": "",
   "name": "Short mountain summer",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "At high elevation the growing season is brief, so plants grow fast in summer and animals feed, store fat or hibernate.",
   "ic": "sun",
   "cat": "abiotic"
@@ -31313,7 +31313,7 @@
   "latin": "",
   "name": "Short summer sun",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Meadow plants have only a brief snow-free season, so they flower and set seed quickly once the snow melts.",
   "ic": "sun",
   "cat": "abiotic"
@@ -31978,7 +31978,7 @@
   "latin": "Solar energy",
   "name": "Sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Light powers the algae, eelgrass and marsh grass that start the estuary food web.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33116,7 +33116,7 @@
   "latin": "",
   "name": "Summer sun",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Short alpine summers drive the growth of meadows and scrub above the tree line.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33134,7 +33134,7 @@
   "latin": "",
   "name": "Summer sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Long summer days power a short, intense growing season on the tundra.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33143,7 +33143,7 @@
   "latin": "",
   "name": "Sun",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Sunlight powers the marsh plants and grasses.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33152,7 +33152,7 @@
   "latin": "",
   "name": "Sun and altitude",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Short alpine summers and cold winters set the growing season, from about 450 m in the canyons to over 2,500 m on the peaks.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33179,7 +33179,7 @@
   "latin": "",
   "name": "Sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Plants turn sunlight into food, which starts the whole web.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33188,7 +33188,7 @@
   "latin": "",
   "name": "Sunlight and altitude",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Strong high-altitude light drives growth in meadows and forests between the gorges and the snowline.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33197,7 +33197,7 @@
   "latin": "",
   "name": "Sunlight and dry-season heat",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Strong sun and heat, up to about 40 C in the May to October dry season, drive the savanna growth and its seasonal browning.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33206,7 +33206,7 @@
   "latin": "",
   "name": "Sunlight and heat",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Intense light powers the sparse plant life, but extreme summer heat and dryness limit where plants and animals can live.",
   "ic": "sun",
   "cat": "abiotic"
@@ -35067,7 +35067,7 @@
   "latin": "Tropical sun",
   "name": "Sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Strong year-round sun powers the rainforest canopy and the algae and plankton of the reef.",
   "ic": "sun",
   "cat": "abiotic"
@@ -35076,7 +35076,7 @@
   "latin": "",
   "name": "Tropical sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Year-round warmth and light drive the forest canopy.",
   "ic": "sun",
   "cat": "abiotic"
@@ -36408,7 +36408,7 @@
   "latin": "",
   "name": "Warm sunlight",
   "tl": 0,
-  "wiki": "Sunlight",
+  "wiki": "Sunbeam",
   "desc": "Year-round warmth and light in the subtropical latitudes support tall, layered forest growth.",
   "ic": "sun",
   "cat": "abiotic"
