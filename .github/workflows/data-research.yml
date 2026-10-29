@@ -4,23 +4,25 @@ name: data-research
 on:
   workflow_dispatch:
     inputs:
-      place: { description: "Place id (for example serengeti)", required: true }
+      place: { description: "Place id (serengeti), several (serengeti,whkomodo), or next:N or next:N:prefix (next:40:wh = the next 40 World Heritage places with no story or research yet)", required: true }
 permissions:
   contents: write
 concurrency: data-research
 jobs:
   research:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 180
     steps:
       - uses: actions/checkout@v5
         with: { ref: main }
       - name: Gather
-        run: python3 pipeline/research.py "${{ github.event.inputs.place }}"
+        run: |
+          git fetch -q origin research:refs/remotes/origin/research || true
+          python3 pipeline/researchlist.py "${{ github.event.inputs.place }}"
       - name: Save on the research branch
         run: |
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
-          cp -r research /tmp/research_new
+          cp -r research /tmp/research_new; cp research.ids /tmp/research_ids
           if git ls-remote --exit-code --heads origin research >/dev/null 2>&1; then
             git fetch origin research && git checkout -f -B research origin/research
           else
@@ -29,5 +31,5 @@ jobs:
           mkdir -p research && cp /tmp/research_new/* research/
           git add research
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
-          git commit -m "Research file: ${{ github.event.inputs.place }}"
+          git commit -m "Research files: $(cat /tmp/research_ids 2>/dev/null | cut -c1-120)"
           git push origin research
