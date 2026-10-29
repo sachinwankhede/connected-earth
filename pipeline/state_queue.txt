@@ -14,7 +14,6 @@ MS
 MT
 NC
 ND
-NJ
 NM
 NV
 NY
