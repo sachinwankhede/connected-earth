@@ -19,8 +19,14 @@ on:
   workflow_dispatch:
 jobs:
   check:
+    # The browser tests are split over three runners that work at the same time (node --test-shard); every PR still runs the whole suite.
+    name: check (${{ matrix.shard }}/3)
     runs-on: ubuntu-latest
     timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,7 +48,7 @@ jobs:
       - name: Browser tests
         run: |
           set +e
-          node --test --test-concurrency=2 --test-timeout=300000 tests/*.test.mjs > test.log 2>&1
+          node --test --test-concurrency=2 --test-timeout=300000 --test-shard=${{ matrix.shard }}/3 tests/*.test.mjs > test.log 2>&1
           code=$?
           if [ $code -ne 0 ]; then
             grep -h "panel missing" test.log | head -2 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
