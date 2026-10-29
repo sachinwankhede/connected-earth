@@ -2387,12 +2387,13 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function actOf(c) { return c.type === "species" ? c.ends.some(function (en) { return (EDITS[en.eco] || {})[en.node]; }) : !!(c.from && (EDITS[c.from.eco] || {})[c.from.node]); }
   /* outline the real park or reserve the basemap draws under the selected ecosystem */
-  /* real park outlines (US: PAD-US, simplified) are fetched once, the first time a place opens */
+  /* real park outlines (US: PAD-US, simplified): one small file per park, fetched when that park opens (no file = no outline) */
   var EMPTY_FC = { type: "FeatureCollection", features: [] };
-  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "data/bounds.json";
-  function loadBounds() {
-    if (!M.boundsP) M.boundsP = fetch(BU).then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; });
-    return M.boundsP;
+  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "data/outlines/";
+  function loadBounds(id) {
+    M.boundsP = M.boundsP || {};
+    if (!M.boundsP[id]) M.boundsP[id] = fetch(BU + encodeURIComponent(id) + ".json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    return M.boundsP[id];
   }
   function boundFC(b) {
     return { type: "FeatureCollection", features: b.r.map(function (flat) { var ring = []; for (var i = 0; i < flat.length; i += 2) ring.push([flat[i], flat[i + 1]]); return { type: "Feature", properties: {}, geometry: { type: "Polygon", coordinates: [ring] } }; }) };
@@ -2408,8 +2409,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (!m || !M.styleReady) return;
     if (!id) setBound(null);
     if (id) {
-      loadBounds().then(function (all) {
-        var b = all[id]; if (M.parkId !== id) return;
+      loadBounds(id).then(function (b) {
+        if (M.parkId !== id) return;
         if (!b) { M.noBound = id; parkHiStyle(id); return; }
         setBound(boundFC(b)); M.noBound = null;
         var none = ["==", ["get", "name"], "__none__"];

@@ -20,19 +20,21 @@ describe('real park outlines', () => {
   });
   after(async () => { await browser.close(); srv.close(); });
 
-  const B = JSON.parse(fs.readFileSync(path.join(H.ROOT, 'data/bounds.json'), 'utf8'));
+  // one outline file per park (data/outlines/<id>.json); a park without a file has no outline
+  const OD = path.join(H.ROOT, 'data/outlines');
+  const B = new Proxy({}, { get: (_, id) => (typeof id === 'string' && fs.existsSync(path.join(OD, id + '.json')) ? JSON.parse(fs.readFileSync(path.join(OD, id + '.json'), 'utf8')) : undefined) });
   const all = H.readPlaces(true);
   const withB = all.filter((e) => B[e.id] && !e.auto).slice(0, 1).concat(all.filter((e) => B[e.id] && e.level === 'local').slice(0, 1), all.filter((e) => B[e.id] && e.auto && e.level !== 'local').slice(0, 1));
   const without = all.find((e) => !B[e.id] && e.country !== 'United States of America' && !e.auto);
 
   async function open(size, id, file = 'index.html') {
     const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
-    const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
+    const errors = [], reqs = []; page.on('pageerror', (x) => errors.push(String(x))); page.on('request', (r) => { if (/\/data\/outlines\//.test(r.url())) reqs.push(r.url()); });
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
     await page.goto(base + file + '#stub&p=' + id); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(2500);
-    return { ctx, page, errors };
+    return { ctx, page, errors, reqs };
   }
   const outline = (page) => page.evaluate(() => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return d && d.features ? d.features.length : -1; });
 
@@ -43,6 +45,7 @@ describe('real park outlines', () => {
         const t = await open(size, e.id, e.auto && e.level !== 'local' && !H.readPlaces(false).some((x) => x.id === e.id) ? 'pilot/index.html' : 'index.html');
         const n = await outline(t.page);
         assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn`);
+        assert.ok(t.reqs.length >= 1 && t.reqs.every((u) => u.endsWith('/' + e.id + '.json')), `${e.id}: only this park's outline file is fetched: ${t.reqs}`);
         await t.page.waitForTimeout(900);
         const inView = await t.page.evaluate(([x0, y0, x1, y1]) => { const b = window.__M.map.getBounds(); return b.getWest() <= x0 + 1e-6 && b.getEast() >= x1 - 1e-6 && b.getSouth() <= y0 + 1e-6 && b.getNorth() >= y1 - 1e-6; }, (() => { let a = 999, b = 99, c = -999, d = -99; for (const f of B[e.id].r) for (let i = 0; i < f.length; i += 2) { a = Math.min(a, f[i]); c = Math.max(c, f[i]); b = Math.min(b, f[i + 1]); d = Math.max(d, f[i + 1]); } return [a, b, c, d]; })());
         assert.ok(inView, `${e.id}: the whole outline is in view`);
