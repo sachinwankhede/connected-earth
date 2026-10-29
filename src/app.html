@@ -1206,6 +1206,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     return '<p class="about" data-lat="' + esc(n.latin.toLowerCase()) + '"></p>';
   }
   var ECOS = DATA.ecos;
+  /* Each place lists its species as numbers into one shared table (smaller page); expand them to [latin, name] here. */
+  ECOS.forEach(function (e) { e.idx.sp = e.idx.s.map(function (k) { var t = typeof k === "number" ? DATA.spt[k] : DATA.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; }); delete e.idx.s; });
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
@@ -1807,10 +1809,10 @@ rect.core { stroke-dasharray: 3 2.5; }
   function whereElseHTML(n) {
     if (n.cat || !n.latin) return "";
     var hits = [];
-    ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, id: m[2] }); }); });
+    ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, lat: m[0] }); }); });
     if (!hits.length) return "";
     return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + (hits.length > 1 ? '<a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show on the map</a>' : "") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
-      return '<button type="button" class="pmc ppc" data-jump="' + h.e.id + ":" + h.id + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
+      return '<button type="button" class="pmc ppc" data-jump-sp="' + h.e.id + "|" + esc(h.lat) + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
     }).join("") + "</div>";
   }
   var P = { set: function () {}, toggle: function () {}, last: undefined };
@@ -1873,6 +1875,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     var spb = ev.target.closest("[data-species]"); if (spb) { ev.preventDefault(); speciesMap(spb.getAttribute("data-species")); return; }
     var gt = ev.target.closest("[data-goto]"); if (gt) { showPlace(gt.getAttribute("data-goto")); return; }
     var jr = ev.target.closest("[data-journey]"); if (jr) { showJourney(jr.getAttribute("data-journey")); return; }
+    var js = ev.target.closest("[data-jump-sp]");
+    if (js) { var jq = js.getAttribute("data-jump-sp").split("|"); jumpSp(jq[0], jq[1]); return; }
     var jm = ev.target.closest("[data-jump]");
     if (jm) { var jp = jm.getAttribute("data-jump").split(":"); jump(jp[0], jp[1]); return; }
     var b = ev.target.closest("[data-id]");
@@ -3115,6 +3119,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     else { var pn = ev.target.closest(".pn"), nd = pn && pn.getAttribute("data-node"); PV.hidden = true; M.pid = null; showWeb(id, nd ? function () { select(nd); } : null, null, id); }
   });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
+  /* open a place on a species by its Latin name (the page no longer carries node ids for every place's species) */
+  function jumpSp(eco, latin) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.latin === latin; })[0]; if (n) select(n.id); }); }
   function showMap() {
     M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
