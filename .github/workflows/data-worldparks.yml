@@ -1,0 +1,35 @@
+name: data-worldparks
+# Manual only. Builds a candidate list of national parks outside the US from Wikidata and Wikipedia, per country, ranked, with the ones we already have marked.
+# Opens ONE pull request with the report. It makes no place files; the owner picks what to build next. Never merges.
+on:
+  workflow_dispatch:
+    inputs:
+      countries: { description: "Comma-separated English country names", default: "Kenya,Brazil,Indonesia" }
+      cap: { description: "Most new parks listed per country", default: "15" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-worldparks
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Look up the parks
+        run: python3 pipeline/worldparks.py "${{ github.event.inputs.countries }}" "${{ github.event.inputs.cap }}" > report.md
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BR="data/worldparks-${GITHUB_RUN_ID}"
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "$BR"
+          cp report.md pipeline/reports/worldparks.md
+          git add -A -- pipeline/reports/worldparks.json pipeline/reports/worldparks.md
+          git commit -m "National park candidates: ${{ github.event.inputs.countries }}"
+          git push -f origin "$BR"
+          { echo "Candidate national parks from Wikidata, ranked by how many Wikipedia languages cover them (World Heritage first). A list only: no place files are made. Countries: ${{ github.event.inputs.countries }}."; echo; cat report.md; } > /tmp/body.md
+          gh pr create --base main --head "$BR" --title "National park candidates: ${{ github.event.inputs.countries }}" --body-file /tmp/body.md
