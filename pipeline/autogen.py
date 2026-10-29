@@ -127,7 +127,7 @@ def emit(d):
             if nm_used[nm]>1: nm=nm+' ('+c['latin'].split()[-1]+')'
             xh=round(0.07+0.86*(j+0.5)/n,3) if n>1 else 0.5
             nodes.append(dict(id=i,name=nm,latin=c['latin'],tl=tl,xh=xh,wiki=c['latin'],desc='%s (%s): %s. Recorded %s times near the park in GBIF.'%(nm,c['latin'],ROLE[tl],format(c['records'],',')),ic=icon(c['g'],c,tl)))
-    nodes+= [dict(id='sun',name='Sunlight',latin='',tl=0,xh=0.12,cat='abiotic',wiki='Sun',desc='Plants turn sunlight into food, which starts the whole web.',ic='sun'),
+    nodes+= [dict(id='sun',name='Sunlight',latin='',tl=0,xh=0.12,cat='abiotic',wiki='Sunlight',desc='Plants turn sunlight into food, which starts the whole web.',ic='sun'),
              dict(id='rain',name='Rainfall',latin='',tl=0,xh=0.34,cat='abiotic',wiki='Rain',desc='Rain and river water set how much the plants can grow.',ic='rain'),
              dict(id='soil',name='Soil and nutrients',latin='',tl=0,xh=0.58,cat='abiotic',wiki='Soil',desc='Soil holds the nutrients plants take up.',ic='soil'),
              dict(id='decomp',name='Fungi and bacteria',latin='Decomposer community',tl=0,xh=0.84,cat='decomp',wiki='Decomposer',desc='Break down dead plants and animals and return nutrients to the soil.',ic='decomp')]

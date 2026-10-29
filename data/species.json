@@ -2108,8 +2108,7 @@
   "tl": 3,
   "wiki": "Aphelocoma woodhouseii",
   "desc": "A common oak-scrub bird that eats acorns, seeds and insects, and is among the most recorded birds here.",
-  "ic": "raven",
-  "about": "Woodhouse's scrub jay (Aphelocoma[a] woodhouseii) is a species of scrub jay native to western North America, ranging from southeastern Oregon and southern Idaho to central Mexico."
+  "ic": "raven"
  },
  "apis dorsata": {
   "latin": "Apis dorsata",
@@ -5420,8 +5419,7 @@
   "tl": 2,
   "wiki": "Callospermophilus lateralis",
   "desc": "Golden-mantled ground squirrel (Callospermophilus lateralis): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
-  "ic": "gsquirrel",
-  "about": "The golden-mantled ground squirrel is a ground squirrel native to western North America."
+  "ic": "gsquirrel"
  },
  "calluna vulgaris": {
   "latin": "Calluna vulgaris",
@@ -9809,8 +9807,7 @@
   "tl": 2,
   "wiki": "Cynomys gunnisoni",
   "desc": "Lives in colonies and eats mostly grasses and herbs. Its burrowing loosens soil and creates habitat, and many predators hunt it.",
-  "ic": "gsquirrel",
-  "about": "Gunnison's prairie dog is one of five species of prairie dog. This species belongs to the squirrel family of rodents, and are predominantly related to the North American and Eurasian ground squirrels."
+  "ic": "gsquirrel"
  },
  "cynomys leucurus": {
   "latin": "Cynomys leucurus",
@@ -10571,7 +10568,7 @@
   "latin": "",
   "name": "Desert sunlight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Intense sun powers desert plants, but heat sends many animals underground for the day.",
   "ic": "sun",
   "cat": "abiotic"
@@ -16599,7 +16596,7 @@
   "latin": "",
   "name": "Intense sunlight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Thin air at 4,200 to 5,400 m means strong sun for the algae, grasses and cushion plants.",
   "ic": "sun",
   "cat": "abiotic"
@@ -19027,7 +19024,7 @@
   "latin": "",
   "name": "Long summer daylight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Near-constant summer light lets plants and lake algae grow fast in the short warm season.",
   "ic": "sun",
   "cat": "abiotic"
@@ -22297,8 +22294,7 @@
   "tl": 2,
   "wiki": "Neotoma mexicana",
   "desc": "A generalist that eats berries, nuts, acorns and foliage. It shelters in rock crevices and caves.",
-  "ic": "quad",
-  "about": "The Mexican woodrat is a medium-sized pack rat."
+  "ic": "quad"
  },
  "neotoma stephensi": {
   "latin": "Neotoma stephensi",
@@ -23654,8 +23650,7 @@
   "tl": 2,
   "wiki": "Otospermophilus variegatus",
   "desc": "Rock squirrel (Otospermophilus variegatus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
-  "ic": "gsquirrel",
-  "about": "The rock squirrel is a species of rodent in the family Sciuridae."
+  "ic": "gsquirrel"
  },
  "oulanka river & its floods": {
   "latin": "",
@@ -31735,7 +31730,7 @@
   "latin": "",
   "name": "Short mountain summer",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "At high elevation the growing season is brief, so plants grow fast in summer and animals feed, store fat or hibernate.",
   "ic": "sun",
   "cat": "abiotic"
@@ -31744,7 +31739,7 @@
   "latin": "",
   "name": "Short summer sun",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Meadow plants have only a brief snow-free season, so they flower and set seed quickly once the snow melts.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33555,7 +33550,7 @@
   "latin": "",
   "name": "Summer sun",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Short alpine summers drive the growth of meadows and scrub above the tree line.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33573,7 +33568,7 @@
   "latin": "",
   "name": "Summer sunlight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Long summer days power a short, intense growing season on the tundra.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33591,7 +33586,7 @@
   "latin": "",
   "name": "Sun and altitude",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Short alpine summers and cold winters set the growing season, from about 450 m in the canyons to over 2,500 m on the peaks.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33618,7 +33613,7 @@
   "latin": "",
   "name": "Sunlight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Plants turn sunlight into food, which starts the whole web.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33627,7 +33622,7 @@
   "latin": "",
   "name": "Sunlight and altitude",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Strong high-altitude light drives growth in meadows and forests between the gorges and the snowline.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33636,7 +33631,7 @@
   "latin": "",
   "name": "Sunlight and dry-season heat",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Strong sun and heat, up to about 40 C in the May to October dry season, drive the savanna growth and its seasonal browning.",
   "ic": "sun",
   "cat": "abiotic"
@@ -33645,7 +33640,7 @@
   "latin": "",
   "name": "Sunlight and heat",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Intense light powers the sparse plant life, but extreme summer heat and dryness limit where plants and animals can live.",
   "ic": "sun",
   "cat": "abiotic"
@@ -36879,7 +36874,7 @@
   "latin": "",
   "name": "Warm sunlight",
   "tl": 0,
-  "wiki": "Sun",
+  "wiki": "Sunlight",
   "desc": "Year-round warmth and light in the subtropical latitudes support tall, layered forest growth.",
   "ic": "sun",
   "cat": "abiotic"

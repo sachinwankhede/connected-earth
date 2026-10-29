@@ -26,3 +26,10 @@ test('place story and why-it-matters texts stay within the word limits', () => {
   assert.ok(checked >= 10, 'texts were found to check');
   assert.deepEqual(over, []);
 });
+
+test('place summaries are one short sentence about the place, never a disambiguation page', () => {
+  const sums = JSON.parse(fs.readFileSync(new URL('../pipeline/summaries.json', import.meta.url), 'utf8'));
+  const bad = /may refer to|can refer to|could refer to|share the common name|is a common name that|:\s*$|\(/;
+  const over = Object.entries(sums).filter(([, t]) => t && (words(t) > 40 || bad.test(t))).map(([k, t]) => `${k}: ${t.slice(0, 60)}`);
+  assert.deepEqual(over, []);
+});
