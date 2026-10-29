@@ -2,7 +2,7 @@
 """journeys.py: rank candidate journeys (docs/JOURNEYS.md, "Finding more journeys") into research/journey-candidates.md.
 
 A candidate is a species that lives in places at least 2,500 km apart AND whose Wikipedia article says it migrates
-(a "migrat..." category, or the word in the lead). Residents such as deer, coyote and raven drop out. Ranked by how clear the
+(a "migrat..." category, or sentences saying so anywhere in the article; "non-migratory" does not count). Residents such as deer, coyote and raven drop out. Ranked by how clear the
 evidence is, then by distance, then by how many places it is in. Species that already have a journey are marked.
 Needs the web (Wikipedia), so it runs in a GitHub job (data-journeys). JOURNEYS_OFFLINE=1 skips the web (all evidence 'unknown')."""
 import glob, json, math, os, re, sys, urllib.parse
@@ -55,25 +55,23 @@ def covered(places, links):
             if sp: out.setdefault(sp, j.get('title') or j.get('id'))
     return out
 
+NEG = re.compile(r'non-?migrat|not migrat|nonmigrat|sedentary|does not migrate|do not migrate|never migrate', re.I)
+def mentions(text):
+    """Sentences that say the species migrates (negations such as 'non-migratory' do not count)."""
+    return [x.strip() for x in re.split(r'(?<=[.!?])\s+', text) if re.search(r'migrat', x, re.I) and not NEG.search(x)]
+
 def evidence(titles):
-    """{wiki title: (score, snippet)}: 3 for a migrat* category, plus up to 2 for the word in the lead."""
+    """{wiki title: (score, snippet)}. The whole article is read (one request each, so it is slow but runs in a job):
+    3 for a migrat* category, plus half a point per sentence that says it migrates (at most 5)."""
     import wm
     out = {}
-    for i in range(0, len(titles), 20):
-        b = titles[i:i + 20]
-        d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts|categories&exintro=1&explaintext=1&exlimit=20&cllimit=max&clshow=!hidden&titles=' + urllib.parse.quote('|'.join(b)))
-        q = (d or {}).get('query', {}); redir = {}
-        for k in ('normalized', 'redirects'):
-            for r in q.get(k, []): redir[r['from']] = r['to']
-        pages = {p['title']: p for p in q.get('pages', {}).values()}
-        for t in b:
-            y = t
-            while y in redir and redir[y] != y: y = redir[y]
-            p = pages.get(y) or {}
-            text = p.get('extract') or ''; cats = ' '.join(c['title'] for c in p.get('categories', []))
-            hits = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if re.search(r'migrat', s, re.I)]
-            score = (3 if re.search(r'migrat', cats, re.I) else 0) + min(len(hits), 2)
-            out[t] = (score, (hits[0][:220] if hits else ('category: ' + next((c['title'] for c in p.get('categories', []) if re.search('migrat', c['title'], re.I)), '')) if score else ''))
+    for t in titles:
+        d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts|categories&explaintext=1&exlimit=1&cllimit=max&clshow=!hidden&titles=' + urllib.parse.quote(t))
+        p = next(iter(((d or {}).get('query', {}).get('pages', {})).values()), {})
+        cats = [c['title'] for c in p.get('categories', []) if re.search(r'migrat', c['title'], re.I)]
+        hits = mentions(p.get('extract') or '')
+        score = (3 if cats else 0) + min(len(hits), 10) * 0.5
+        out[t] = (score, (hits[0][:220] if hits else ('category: ' + cats[0] if cats else '')) + ('' if not hits else ' [%d sentences]' % len(hits)))
     return out
 
 if __name__ == '__main__':
@@ -88,7 +86,7 @@ if __name__ == '__main__':
     keep = [c for c in cand if c['score'] > 0] if not OFFLINE else cand
     keep.sort(key=lambda c: (-c['score'], -c['km'], -c['n']))
     out = ['# Journey candidates', '',
-           '%d species live in places %d+ km apart; %d of them are described as migratory on Wikipedia%s. Top %d below. Score: 3 for a migration category plus up to 2 for the word in the article lead (max 5).' % (len(cand), MIN_KM, len(keep), ' (offline run: not checked)' if OFFLINE else '', TOP), '',
+           '%d species live in places %d+ km apart; %d of them are described as migratory on Wikipedia%s. Top %d below. Score: 3 for a migration category plus half a point per sentence in the whole article that says it migrates (max 5 for the sentences, 8 in all).' % (len(cand), MIN_KM, len(keep), ' (offline run: not checked)' if OFFLINE else '', TOP), '',
            '| # | Species | Score | Places | Farthest pair | Existing journey | Evidence |', '|---|---|---|---|---|---|---|']
     for i, c in enumerate(keep[:TOP], 1):
         out.append('| %d | %s (%s) | %s | %d | %s <-> %s, %d km | %s | %s |' % (i, c['name'], c['sp'], c['score'], c['n'], c['a'], c['b'], c['km'], cov.get(c['sp'], ''), c['why'].replace('|', '/')))
