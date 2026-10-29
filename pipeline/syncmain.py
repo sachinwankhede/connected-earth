@@ -4,6 +4,7 @@
   data/<id>.json, data-auto/<id>.json  merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
   data-auto/<id>.json that main promoted to data/: removed here too when the branch only repacked it
   pipeline/names.json  every latin name from both sides; a real common name beats null, main's wins a tie
+  pipeline/state_queue.txt  the states both sides still list (each side removed the ones it finished), in main's order
   data-auto/order.json  main's order, then the branch's new ids that are not already in main or promoted to data/
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
@@ -40,7 +41,8 @@ gone = [c for c in conf if promoted_on_main(c)]
 conf = [c for c in conf if c not in gone]
 taken = [c for c in conf if c.startswith(('data/', 'data-auto/')) and c.count('/') == 1 and c not in ('data/species.json', 'data/links.json', 'data-auto/order.json') and merge_place(c)]
 conf = [c for c in conf if c not in taken]
-other = [c for c in conf if c not in ('data/species.json', 'data-auto/order.json', 'pipeline/names.json')]
+SHARED = ('data/species.json', 'data-auto/order.json', 'pipeline/names.json', 'pipeline/state_queue.txt')
+other = [c for c in conf if c not in SHARED]
 if other: print('Conflicts that need a person:', ', '.join(other)); sys.exit(1)
 if 'data/species.json' in conf:
     ours, theirs = show(2, 'data/species.json') or {}, show(3, 'data/species.json') or {}   # ours = branch, theirs = main
@@ -49,6 +51,10 @@ if 'pipeline/names.json' in conf:
     ours, theirs = show(2, 'pipeline/names.json') or {}, show(3, 'pipeline/names.json') or {}   # {latin: common name or null}; keep every name, a real name beats null
     out = {k: (theirs.get(k) or ours.get(k)) for k in sorted(set(ours) | set(theirs))}
     json.dump(out, open('pipeline/names.json', 'w'), indent=1, ensure_ascii=False)
+if 'pipeline/state_queue.txt' in conf:
+    ours, theirs = git('show', ':2:pipeline/state_queue.txt').stdout, git('show', ':3:pipeline/state_queue.txt').stdout   # text; each side removed the states it finished, so keep only states both still list
+    keep = set(ours.split())
+    open('pipeline/state_queue.txt', 'w').write(''.join(x + '\n' for x in theirs.split() if x in keep))
 if 'data-auto/order.json' in conf:
     ours, theirs = show(2, 'data-auto/order.json') or [], show(3, 'data-auto/order.json') or []
     promoted = {f[:-5] for f in os.listdir('data') if f.endswith('.json')}

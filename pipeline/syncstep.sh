@@ -19,6 +19,6 @@ else
   grep -E "^(resolved|merged|promoted)" /tmp/sync.log | sed 's/^/- /' | cut -c1-300 >> /tmp/sync.md
 fi
 python3 build/species.py pack
-git add -A -- data data-auto pipeline/names.json
+git add -A -- data data-auto pipeline/names.json pipeline/state_queue.txt
 git commit -qm "Repack species after bringing the branch up to date with main" || true
 cat /tmp/sync.md
