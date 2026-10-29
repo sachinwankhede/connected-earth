@@ -1578,7 +1578,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     relayoutTimer = setTimeout(function () { configure(); pendingFit = !userMoved; sim.alpha(0.35).restart(); }, 300);
   }
   function ecoPhoto(e) {
-    var p = PHOTOS[e.imgwiki], box = document.getElementById("ci-" + e.id);
+    var p = PHOTOS[e.imgwiki], box = e.li && e.li.querySelector(".cimg");
     if (!p || !box) return;
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
     var im = box.querySelector("img");
@@ -2131,7 +2131,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   var ICON_CLOSE = '<button type="button" class="ibtn" data-closepeek="1" aria-label="Close card" title="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
   M.peek = function (id) { peek(id); };
   function peek(id) {
-    var e = ECO_BY[id], pe = document.getElementById("peek"), ci = document.getElementById("ci-" + id);
+    var e = ECO_BY[id], pe = document.getElementById("peek"), ci = cimg(id);
     pe.innerHTML = '<div class="pimg">' + (ci ? ci.innerHTML : "") + '</div><div class="pbody"><div class="pact">' + ICON_SHARE + ICON_CLOSE + '</div><span class="where">' + e.place + '</span><h2>' + e.name + '</h2><p>' + e.blurb + '</p>' + (spanText(e) ? '<p class="spans">' + spanText(e) + "</p>" : "") + tiesHTML(id) + '<div class="pbtns"><button type="button" class="btn go" data-open="' + id + '"><span class="long">Open the food web</span><span class="short">Open</span> &rarr;</button></div></div>';
     pe.hidden = false; M.peekId = id; spanHi(e); showTies(id); parkHi(id);
     /* the card floats over the map, so the page never needs to scroll */
@@ -2525,11 +2525,13 @@ rect.core { stroke-dasharray: 3 2.5; }
     }
     kindsHTML();
     var list = ECOS.filter(inRegion);
-    ECOS.forEach(function (e) { e.li.hidden = !inRegion(e); });
+    var dom = false; list.forEach(function (e) { makeCard(e); if (!e.li.parentNode) dom = true; });
+    if (dom) { var mo0 = document.getElementById("morecards"), inl = new Set(list), kids = ECOS.filter(function (e) { return e.li && (e.li.parentNode || inl.has(e)); }).map(function (e) { return e.li; }); if (mo0) kids.push(mo0); document.getElementById("cards").replaceChildren.apply(document.getElementById("cards"), kids); }
+    ECOS.forEach(function (e) { if (e.li) e.li.hidden = true; }); list.forEach(function (e) { e.li.hidden = false; });
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
-    if (M.pgKey !== pgKey) { M.pgKey = pgKey; var nv = ECOS.filter(function (e) { return !e.li.hidden; }).length; M.pageN = nv <= 12 ? nv : 10; }
+    if (M.pgKey !== pgKey) { M.pgKey = pgKey; var nv = list.length; M.pageN = nv <= 12 ? nv : 10; }
     var pm = window.matchMedia && matchMedia("(max-width: 700px)").matches, shown = 0, left = 0;
-    ECOS.forEach(function (e) { e.li.classList.remove("pg"); if (e.li.hidden) return; shown++; if (pm && shown > M.pageN) { e.li.classList.add("pg"); left++; } });
+    list.forEach(function (e) { e.li.classList.remove("pg"); shown++; if (pm && shown > M.pageN) { e.li.classList.add("pg"); left++; } });
     if (!M.moreIO && window.IntersectionObserver) {
       M.moreIO = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting && M.scrolled && M.pageN) { M.moreIO.unobserve(en.target); M.pageN += 15; renderView(false); } }); }, { rootMargin: "0px 0px 120px 0px" });
       var sb2 = document.getElementById("sbody"); if (sb2) sb2.addEventListener("scroll", function () { M.scrolled = true; }, { passive: true });
@@ -2552,9 +2554,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + PITCH2;
     var spk = document.getElementById("speek");
     if (spk) {
-      var f1 = view.level === "world" && !FL.q && !FL.kind && !FL.park ? ECOS.filter(function (e) { return !e.li.hidden; })[0] : null;
+      var f1 = view.level === "world" && !FL.q && !FL.kind && !FL.park ? list[0] : null;
       spk.hidden = !f1;
-      if (f1) { var cb = document.getElementById("ci-" + f1.id); spk.innerHTML = '<span class="pimg" id="cp-' + f1.id + '">' + (cb ? cb.innerHTML : "") + '</span><span class="st"><small>Start here</small><b>' + f1.name + '</b></span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>'; }
+      if (f1) { var cb = cimg(f1.id); spk.innerHTML = '<span class="pimg" id="cp-' + f1.id + '">' + (cb ? cb.innerHTML : "") + '</span><span class="st"><small>Start here</small><b>' + f1.name + '</b></span><svg class="chev" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 15l6-6 6 6"/></svg>'; }
       if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
     }
     M.statsHTML = el.stats.innerHTML; M.region = region;
@@ -2761,14 +2763,16 @@ rect.core { stroke-dasharray: 3 2.5; }
     setTimeout(function () { var tp = document.getElementById("ztip"); if (tp) tp.classList.add("gone"); }, 6000);
     syncCtl();
   }
+  /* a place's list card is built the first time it is needed (shown in the list, or its picture is used elsewhere), not for every place at startup */
+  function makeCard(e) {
+    if (e.li) return e.li;
+    var sp = e.idx.ns, li = document.createElement("li");
+    li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + '</span><span class="go">Open the food web &rarr;</span></button>';
+    e.li = li; ecoPhoto(e);
+    return li;
+  }
+  function cimg(id) { var e = ECO_BY[id]; return e ? makeCard(e).querySelector(".cimg") : null; }
   function buildMap() {
-    var cards = document.getElementById("cards");
-    ECOS.forEach(function (e) {
-      var sp = e.idx.ns;
-      var li = document.createElement("li");
-      li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + '</span><span class="go">Open the food web &rarr;</span></button>';
-      cards.appendChild(li); e.li = li;
-    });
     var xc = document.getElementById("xcards");
     CROSS.forEach(function (c) {
       var en = ecoEnds(c);
@@ -2926,7 +2930,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var m = document.getElementById("xi-" + c.id), t = document.getElementById("jp-main");
     if (m && t && m.querySelector("img")) t.innerHTML = m.innerHTML;
     jRelated(c).forEach(function (o) { var s = document.getElementById("xi-" + o.id), b = document.getElementById("jm-" + o.id); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
-    jEnds(c).forEach(function (x, i) { var s = document.getElementById("ci-" + x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
+    jEnds(c).forEach(function (x, i) { var s = cimg(x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     
     var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
     fillPhotos("jcredit", lines.map(creditHTML));
@@ -3100,7 +3104,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
   }
   function pPhoto() {
-    var id = M.pid, m = document.getElementById("pp-main"), c = id && document.getElementById("ci-" + id);
+    var id = M.pid, m = document.getElementById("pp-main"), c = id && cimg(id);
     if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
     var ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki], l = [];
     if (ph && m && m.querySelector("img")) l.push(creditHTML(ph));
