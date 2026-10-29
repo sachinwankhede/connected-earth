@@ -34,17 +34,21 @@ if __name__=='__main__':
         except OSError: pass
         del man[t]; print('removed non-photo',t,flush=True)
     json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
+    # Places Wikipedia has no usable photo for are remembered in missing.json so later batches do not try them again (a failed download or a network error is retried).
+    ms=os.path.join(out,'missing.json'); miss=json.load(open(ms)) if os.path.exists(ms) else {}
     stat={}; LIMIT=int(os.environ.get('LIMIT','0') or 0); tried=0   # a scheduled run does one batch; 0 = everything left
     for d in sys.argv[2:]:
         for f in sorted(glob.glob(d+'/*.json')):
             if f.endswith(('order.json','links.json')): continue
             e=json.load(open(f)); t=e.get('imgwiki')
-            if not t or t in man: continue
+            if not t or t in man or t in miss: continue
             if LIMIT and tried>=LIMIT: continue
             tried+=1
             try: r=one(e['id'],t,out,man)
             except Exception as ex: r='err '+str(ex)[:50]
             stat[t]=r
+            if r in ('nophoto','notcommons','notphoto'): miss[t]=r; json.dump(miss,open(ms,'w'),ensure_ascii=False,indent=0)
             json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
             if r!='ok': print(t,r,flush=True)
-    print('done',len(man),'photos; problems:',sum(1 for r in stat.values() if r!='ok'))
+    print('done',len(man),'photos;',len(miss),'places with no usable photo; tried',tried,'this run; problems:',sum(1 for r in stat.values() if r not in ('ok','nophoto','notcommons','notphoto')))
+    open(os.path.join(out,'.tried'),'w').write(str(tried))
