@@ -1,0 +1,33 @@
+name: data-research
+# Manual only. Collects the source material for one place into research/<id>.md on the `research` branch
+# (never merged, never part of the app) so a story or a feeding-link check can be written from real sources.
+on:
+  workflow_dispatch:
+    inputs:
+      place: { description: "Place id (for example serengeti)", required: true }
+permissions:
+  contents: write
+concurrency: data-research
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: Gather
+        run: python3 pipeline/research.py "${{ github.event.inputs.place }}"
+      - name: Save on the research branch
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          cp -r research /tmp/research_new
+          if git ls-remote --exit-code --heads origin research >/dev/null 2>&1; then
+            git fetch origin research && git checkout -f -B research origin/research
+          else
+            git checkout -f -B research
+          fi
+          mkdir -p research && cp /tmp/research_new/* research/
+          git add research
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Research file: ${{ github.event.inputs.place }}"
+          git push origin research
