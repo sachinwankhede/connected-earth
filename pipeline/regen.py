@@ -42,6 +42,7 @@ if __name__ == '__main__':
             if not os.path.exists(p): rows.append((before['name'], before['why'], 'not regenerated', False)); continue
             new = json.load(open(p)); old = json.load(open(os.path.join(ROOT, 'data-auto', i + '.json')))
             for k in ('nodes', 'raw', 'ev'): old[k] = new[k]
+            if (old.get('tip') or {}).get('id') not in {n['id'] for n in new['nodes']}: old['tip'] = new.get('tip')     # the tip points at a node of the old web
             json.dump(old, open(os.path.join(ROOT, 'data-auto', i + '.json'), 'w'), ensure_ascii=False)
             after = pc.check(species.load(os.path.join(ROOT, 'data-auto', i + '.json')))
             rows.append((before['name'], before['why'], after['why'], after['pass_'])); done.append(i)
