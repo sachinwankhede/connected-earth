@@ -50,6 +50,10 @@ def cross_ends(links):
     return out
 
 
+# Text that only shows once a place is open (sources, notes, the web's opening tip): kept in webs/<id>.json, not in the page.
+HEAVY = ('sources', 'notes', 'tip')
+
+
 def split(ecos, links):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json."""
     ends = cross_ends(links); light = []; webs = {}
@@ -59,8 +63,8 @@ def split(ecos, links):
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'sp': sp,
                'q': ' '.join(n['name'] for n in nodes if n.get('cat')),
                'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
-        webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})}
-        light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev')} | {'idx': idx})
+        webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
+        light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY} | {'idx': idx})
     return light, webs
 
 
