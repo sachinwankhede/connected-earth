@@ -18,10 +18,10 @@ def load(pid):
 
 def wiki_titles(e):
     t = []
+    if e.get('imgwiki'): t.append(e['imgwiki'])      # the place's own article first: sources can be species pages (Congo Basin: elephant, bonobo)
     for s in (e.get('sources') or []):
         m = re.search(r'wikipedia\.org/wiki/([^#?]+)', s.get('url', ''))
         if m: t.append(urllib.parse.unquote(m.group(1)).replace('_', ' '))
-    if e.get('imgwiki'): t.append(e['imgwiki'])
     seen = []; [seen.append(x) for x in t if x not in seen]; return seen
 
 def wiki_text(title):
@@ -50,7 +50,7 @@ def main(pid):
     sp = [n for n in e['nodes'] if not n.get('cat')]
     out += ['## 3. Species in the app (%d)' % len(sp), ', '.join('%s (%s)' % (n.get('name') or n['id'], n.get('sp') or '') for n in sp) + '\n']
     out += ['## 4. Wikipedia text']
-    for t in wiki_titles(e)[:2]:
+    for t in wiki_titles(e)[:3]:
         title, txt = wiki_text(t)
         out += ['### %s' % (title or t), 'Source: <https://en.wikipedia.org/wiki/%s> (CC BY-SA), retrieved %s.\n' % (urllib.parse.quote((title or t).replace(' ', '_')), TODAY), txt or '(not retrieved)', '']
     out += ['## 5. Feeding links and what GloBI records say']
