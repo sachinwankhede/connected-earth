@@ -12,6 +12,7 @@ Needs the web (Wikipedia), so it runs in a GitHub job. The report goes to names_
 import difflib, json, math, os, re, sys, urllib.parse
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); sys.path.insert(0, here)
+wm = None
 MAX_KM = 80; MIN_SIM = 0.88
 TYPE = re.compile(r'\b(park|recreation area|historic site|historical site|natural area|conservation area|preserve|forest|fish and wildlife area|wildlife area|wildlife refuge|grassland)\b', re.I)
 
@@ -26,26 +27,47 @@ def km(a, b, c, d):
     return 12742 * math.asin(math.sqrt(x))
 
 def choose(cur, state, lat, lon, pages):
-    """pages: [{title, extract, coords:[lat, lon] or None}] in search order. Returns (page, note) or (None, why)."""
+    """pages: [{title, extract, coords:[lat, lon] or None}] in search order. Returns (page, note) or (None, why).
+    One name inside the other ("Illinois Beach" in "Adeline Jay Geo-Karis Illinois Beach") also needs coordinates within 40 km.
+    A title with no park word ("Cahokia Mounds") is only accepted when the article has coordinates within 40 km (a tribe or a town has none close by)."""
     best = None
     for pg in pages:
-        t = base(pg['title'])
-        if not TYPE.search(t): continue
+        t = base(pg['title']); c = pg.get('coords')
         if state.lower() not in (pg['title'] + ' ' + (pg.get('extract') or '')).lower(): continue
-        c = pg.get('coords')
         if c and km(lat, lon, c[0], c[1]) > MAX_KM: continue
+        if not TYPE.search(t) and not (c and km(lat, lon, c[0], c[1]) <= 40): continue
         a, b = core(cur), core(t)
         sim = difflib.SequenceMatcher(None, a, b).ratio() if a and b else 0
+        if a != b and c and km(lat, lon, c[0], c[1]) <= 40 and min(len(a), len(b)) >= 6 and (' %s ' % b in ' %s ' % a or ' %s ' % a in ' %s ' % b): sim = max(sim, 0.9)   # "Illinois Beach" inside "Adeline Jay Geo-Karis Illinois Beach"
         if sim >= MIN_SIM and (best is None or sim > best[0]): best = (sim, pg)
     if not best: return None, 'no close match in ' + state
     return best[1], ('title has a qualifier: ' + best[1]['title']) if base(best[1]['title']) != best[1]['title'] else ''
 
+def _pages(q):
+    d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts|coordinates&exintro=1&explaintext=1&exchars=400&exlimit=max&colimit=max&coprimary=primary&' + q)
+    ps = sorted(((d or {}).get('query', {}).get('pages', {})).values(), key=lambda p: p.get('index', 99))
+    return [dict(title=p['title'], extract=p.get('extract', ''), coords=[p['coordinates'][0]['lat'], p['coordinates'][0]['lon']] if p.get('coordinates') else None) for p in ps if 'missing' not in p]
+
+_list = {}
+def state_list(state):
+    """Titles linked from Wikipedia's list of the state's parks (several spellings of that page's name are tried)."""
+    if state in _list: return _list[state]
+    out = []
+    for t in ('List of %s state parks', 'List of state parks of %s', 'List of state parks in %s', 'List of %s state parks and recreation areas'):
+        cont = ''
+        while True:
+            d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=links&pllimit=max&plnamespace=0&titles=%s%s' % (urllib.parse.quote(t % state), cont))
+            for pg in ((d or {}).get('query', {}).get('pages', {})).values(): out += [l['title'] for l in pg.get('links', [])]
+            c = (d or {}).get('continue', {}).get('plcontinue')
+            if not c: break
+            cont = '&plcontinue=' + urllib.parse.quote(c)
+    _list[state] = list(dict.fromkeys(out)); return _list[state]
+
 def lookup(name, state):
-    import wm
-    q = urllib.parse.quote(name + ' ' + state)
-    d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrlimit=6&gsrsearch=%s&prop=extracts|coordinates&exintro=1&explaintext=1&exchars=400&exlimit=max&colimit=max&coprimary=primary' % q)
-    pages = sorted(((d or {}).get('query', {}).get('pages', {})).values(), key=lambda p: p.get('index', 99))
-    return [dict(title=p['title'], extract=p.get('extract', ''), coords=[p['coordinates'][0]['lat'], p['coordinates'][0]['lon']] if p.get('coordinates') else None) for p in pages]
+    pages = _pages('generator=search&gsrlimit=6&gsrsearch=%s' % urllib.parse.quote(name + ' ' + state))
+    near = sorted(state_list(state), key=lambda t: -difflib.SequenceMatcher(None, core(name), core(t)).ratio())[:4]
+    if near: pages += _pages('titles=' + urllib.parse.quote('|'.join(near)))
+    return pages
 
 def short(n): return re.sub(r' (State )?(Park|Recreation Area)$', '', n)[:20]
 def wurl(t): return 'https://en.wikipedia.org/wiki/' + urllib.parse.quote(t.replace(' ', '_'), safe="_(),'")
@@ -62,11 +84,15 @@ def selftest():
     pg, _ = choose('Silver Springs', 'Illinois', 41.6, -88.4, [P('Silver Springs State Fish and Wildlife Area')]); t('short name', pg and pg['title'], 'Silver Springs State Fish and Wildlife Area')
     pg, _ = choose('Pool No. 26 - Stump Lake', 'Illinois', 39.0, -90.6, [P('Stump Lake Park')]); t('no close match left alone', pg, None)
     pg, _ = choose('Cahokia Mounds State Historical Site', 'Illinois', 38.65, -90.06, [P('Cahokia Mounds State Historic Site')]); t('historical vs historic', pg and pg['title'], 'Cahokia Mounds State Historic Site')
+    pg, _ = choose('Adeline Jay Geo-Karis Illinois Beach State Park', 'Illinois', 42.4, -87.8, [P('Illinois Beach State Park', c=[42.42, -87.81])]); t('long official name contains the Wikipedia one', pg and pg['title'], 'Illinois Beach State Park')
+    pg, _ = choose('Cahokia Mounds State Historical Site', 'Illinois', 38.65, -90.06, [P('Cahokia Mounds', c=[38.65, -90.06])]); t('no park word but coordinates close', pg and pg['title'], 'Cahokia Mounds')
+    pg, _ = choose('Illini State Park', 'Illinois', 41.3, -88.9, [P('Illini', c=[40.0, -88.0])]); t('no park word and far away rejected', pg, None)
+    pg, _ = choose('Lincolns New Salem State Park', 'Illinois', 40.02, -89.84, [P("Lincoln's New Salem State Historic Site", c=[40.02, -89.84])]); t('apostrophe', pg and pg['title'], "Lincoln's New Salem State Historic Site")
     if not all(x[1] for x in ok): sys.exit(1)
 
 if __name__ == '__main__':
     if '--selftest' in sys.argv: selftest(); sys.exit(0)
-    import state
+    import state, wm
     st = sys.argv[1].upper(); full = state.STATES[st]; d = os.path.join(ROOT, 'data-auto'); rows = []; changed = 0
     for f in sorted(os.listdir(d)):
         if not (f.startswith(st.lower()) and f.endswith('.json')) or f == 'order.json': continue
