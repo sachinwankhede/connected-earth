@@ -1,6 +1,5 @@
 AK
 AL
-CA
 CT
 DE
 GA
