@@ -392,6 +392,114 @@
    ],
    "go": "Swim the route",
    "mark": "🐢"
+  },
+  {
+   "id": "monarch",
+   "type": "species",
+   "title": "Monarch butterfly",
+   "ends": [
+    {
+     "eco": "usgatewaynationalrecreat",
+     "node": "monarchbutterf"
+    },
+    {
+     "eco": "whmonarch",
+     "node": "monarch"
+    }
+   ],
+   "text": "Monarchs from the northeastern United States and southeastern Canada travel 1,200 to 2,800 miles or more to the mountain forests of central Mexico, including the Monarch Butterfly Biosphere Reserve. No single butterfly flies the whole round trip; it takes several generations.",
+   "imgwiki": "Monarch butterfly",
+   "when": "Monarchs head south in late summer and autumn, rest in Mexico from early November to mid-March, and their offspring come back north through spring and summer.",
+   "matters": "Milkweed is the monarch caterpillar's only host plant. Its loss and climate change have disturbed breeding and migration, and numbers have fallen over the past two decades.",
+   "sources": [
+    {
+     "t": "Wikipedia: Monarch butterfly",
+     "u": "https://en.wikipedia.org/wiki/Monarch_butterfly"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦋"
+  },
+  {
+   "id": "whitepelican",
+   "type": "species",
+   "title": "Great white pelican",
+   "ends": [
+    {
+     "eco": "whdanube",
+     "node": "wpelican"
+    },
+    {
+     "eco": "xisrael",
+     "node": "pelican"
+    }
+   ],
+   "text": "More than half of Eurasia's great white pelicans breed in the Danube Delta. Many western birds probably stop over in Israel on their autumn migration, as at the Hula Valley. The full routes are only partly known.",
+   "imgwiki": "Great white pelican",
+   "when": "They reach the Danube in late March or early April and leave after breeding, between September and late November.",
+   "matters": "The species is listed under the Convention on Migratory Species. Where European pelicans spend winter is not exactly known.",
+   "sources": [
+    {
+     "t": "Wikipedia: Great white pelican",
+     "u": "https://en.wikipedia.org/wiki/Great_white_pelican"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
+  },
+  {
+   "id": "marshharrier",
+   "type": "species",
+   "title": "Western marsh harrier",
+   "ends": [
+    {
+     "eco": "whhortobagy",
+     "node": "harrier"
+    },
+    {
+     "eco": "xsenegal",
+     "node": "harrier"
+    }
+   ],
+   "text": "Western marsh harriers breed across Europe, and most populations migrate. Many winter in the Sahel and the Nile basin, others in Arabia and the Indian subcontinent. Birds from wetlands like Hortobágy in Hungary may winter in the Sahel, where Djoudj in Senegal lies.",
+   "imgwiki": "Western marsh harrier",
+   "when": "Migratory birds spend winter in warmer regions and return to breed in Europe.",
+   "matters": "Marsh harriers are strongly tied to wetlands, especially those rich in reeds. Both ends of this trip are protected wetlands.",
+   "sources": [
+    {
+     "t": "Wikipedia: Western marsh harrier",
+     "u": "https://en.wikipedia.org/wiki/Western_marsh_harrier"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🦅"
+  },
+  {
+   "id": "snowgoose",
+   "type": "species",
+   "title": "Snow goose",
+   "ends": [
+    {
+     "eco": "arctic",
+     "node": "goose"
+    },
+    {
+     "eco": "xusde",
+     "node": "snowgoose"
+    }
+   ],
+   "text": "Snow geese nest north of the treeline. Greater snow geese fly the Atlantic Flyway to winter on the Atlantic coastal plain, around places like Delaware Bay. Spring flights can cover more than 3,000 miles back to the tundra.",
+   "imgwiki": "Snow goose",
+   "when": "They nest from late May to mid-August and spend more than half the year travelling between nesting and wintering areas.",
+   "matters": "Geese have moved from coastal marsh to farm fields, and their numbers have grown. Too many geese now overgraze the tundra where they breed.",
+   "sources": [
+    {
+     "t": "Wikipedia: Snow goose",
+     "u": "https://en.wikipedia.org/wiki/Snow_goose"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   }
  ],
  "order": [
