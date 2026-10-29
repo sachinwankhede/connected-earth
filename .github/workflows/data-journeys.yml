@@ -1,0 +1,31 @@
+name: data-journeys
+# Manual only. Ranks candidate journeys (species in places 2,500+ km apart that Wikipedia says migrate) into research/journey-candidates.md
+# on the `research` branch (never merged, never part of the app). See pipeline/journeys.py and docs/JOURNEYS.md.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: data-research
+jobs:
+  journeys:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: Rank the candidates
+        run: python3 pipeline/journeys.py
+      - name: Save on the research branch
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          cp -r research /tmp/research_new
+          if git ls-remote --exit-code --heads origin research >/dev/null 2>&1; then
+            git fetch origin research && git checkout -f -B research origin/research
+          else
+            git checkout -f -B research
+          fi
+          mkdir -p research && cp /tmp/research_new/* research/
+          git add research
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Journey candidates"
+          git push origin research
