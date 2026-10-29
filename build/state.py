@@ -77,6 +77,7 @@ if __name__ == '__main__':
             json.dump(e, open(os.path.join(ROOT, 'data-auto', f), 'w'), ensure_ascii=False)
             if e['id'] not in order and not os.path.exists(os.path.join(ROOT, 'data', f)): order.append(e['id'])
         json.dump(order, open(os.path.join(ROOT, 'data-auto', 'order.json'), 'w'))
+        run(['python3', 'pipeline/wikinames.py', st], {})                   # real Wikipedia names and source links (needs the web)
         run(['python3', 'build/species.py', 'pack'], {})
         run(['python3', 'pipeline/bounds.py'], {})
     import promote_check as pc, species
