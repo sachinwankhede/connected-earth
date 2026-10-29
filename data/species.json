@@ -194,6 +194,14 @@
   "ic": "willow",
   "about": "Acacia ligulata is a flowering plant in the family Fabaceae. It is a dense, rounded shrub with bright yellow flower heads and is widespread in all states of mainland Australia."
  },
+ "acalymma vittatum": {
+  "latin": "Acalymma vittatum",
+  "name": "Striped Cucumber Beetle",
+  "tl": 2,
+  "wiki": "Acalymma vittatum",
+  "desc": "Striped Cucumber Beetle (Acalymma vittatum): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "acalypha radians": {
   "latin": "Acalypha radians",
   "name": "Cardinal feather",
@@ -313,9 +321,9 @@
   "latin": "Accipiter striatus",
   "name": "Sharp-shinned hawk",
   "tl": 3,
-  "wiki": "Sharp-shinned hawk",
+  "wiki": "Accipiter striatus",
   "desc": "A small woodland hawk that hunts birds and small mammals, including red squirrels.",
-  "ic": "hawk",
+  "ic": "baldeagle",
   "about": "The sharp-shinned hawk or northern sharp-shinned hawk, colloquially often nicknamed sharpie, is a small hawk, with males being the smallest hawks in the United States and Canada, but with the species…"
  },
  "acer": {
@@ -448,7 +456,7 @@
   "name": "Yarrow",
   "tl": 1,
   "wiki": "Achillea millefolium",
-  "desc": "Yarrow (Achillea millefolium): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
+  "desc": "Yarrow (Achillea millefolium): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Achillea millefolium, commonly known as yarrow () or common yarrow, is a flowering plant in the family Asteraceae."
  },
@@ -747,6 +755,14 @@
   "ic": "quad",
   "badge": "Keystone grazer",
   "about": "The addax, also known as the white antelope and the screwhorn antelope, is an antelope native to the Sahara."
+ },
+ "adelges tsugae": {
+  "latin": "Adelges tsugae",
+  "name": "Hemlock Woolly Adelgid",
+  "tl": 2,
+  "wiki": "Adelges tsugae",
+  "desc": "Hemlock Woolly Adelgid (Adelges tsugae): eats plants or other primary food sources. Recorded 22 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "adelinia grande": {
   "latin": "Adelinia grande",
@@ -2396,6 +2412,14 @@
   "ic": "hopper",
   "about": "Antheraea polyphemus, the Polyphemus moth, is a North American member of the family Saturniidae, the giant silk moths. It is a tan-colored moth, with an average wingspan of 15 cm (6 in)."
  },
+ "anthidium oblongatum": {
+  "latin": "Anthidium oblongatum",
+  "name": "Oblong Wool Carder Bee",
+  "tl": 2,
+  "wiki": "Anthidium oblongatum",
+  "desc": "Oblong Wool Carder Bee (Anthidium oblongatum): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
+  "ic": "ant"
+ },
  "anthocharis sara": {
   "latin": "Anthocharis sara",
   "name": "Sara Orangetip",
@@ -3555,6 +3579,14 @@
   "desc": "Purple milkweed (Asclepias purpurascens): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Asclepias purpurascens, or the purple milkweed, is a herbaceous plant species. It is in the genus Asclepias, making it a type of milkweed."
+ },
+ "asclepias quadrifolia": {
+  "latin": "Asclepias quadrifolia",
+  "name": "Four-leaf milkweed",
+  "tl": 1,
+  "wiki": "Asclepias quadrifolia",
+  "desc": "Four-leaf milkweed (Asclepias quadrifolia): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "asclepias speciosa": {
   "latin": "Asclepias speciosa",
@@ -4794,6 +4826,14 @@
   "desc": "A shrubby birch of sheltered Pamir valleys, one of the few tree-like plants in the park.",
   "ic": "willow",
   "about": "A birch is a thin-leaved deciduous hardwood tree of the genus Betula (), in the family Betulaceae, which also includes alders, hazels, and hornbeams."
+ },
+ "bicyrtes quadrifasciatus": {
+  "latin": "Bicyrtes quadrifasciatus",
+  "name": "Four-banded Stink Bug Wasp",
+  "tl": 2,
+  "wiki": "Bicyrtes quadrifasciatus",
+  "desc": "Four-banded Stink Bug Wasp (Bicyrtes quadrifasciatus): eats plants or other primary food sources. Recorded 5 times near the park in GBIF.",
+  "ic": "ant"
  },
  "bidens alba": {
   "latin": "Bidens alba",
@@ -6038,7 +6078,7 @@
   "name": "Broad-winged Hawk",
   "tl": 3,
   "wiki": "Buteo platypterus",
-  "desc": "Broad-winged Hawk (Buteo platypterus): hunts or scavenges other animals. Recorded 622 times near the park in GBIF.",
+  "desc": "Broad-winged Hawk (Buteo platypterus): hunts or scavenges other animals. Recorded 922 times near the park in GBIF.",
   "ic": "baldeagle",
   "about": "The broad-winged hawk is a medium-sized hawk of the genus Buteo."
  },
@@ -7173,6 +7213,14 @@
   "ic": "grass",
   "about": "Carex atrata, called black alpine sedge, is a widespread species of flowering plant in the genus Carex, native to Greenland, Iceland, and most of Europe, plus scattered locations across temperate…"
  },
+ "carex aurea": {
+  "latin": "Carex aurea",
+  "name": "Golden sedge",
+  "tl": 1,
+  "wiki": "Carex aurea",
+  "desc": "Golden sedge (Carex aurea): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "carex aureolensis": {
   "latin": "Carex aureolensis",
   "name": "Broad-scaled sedge",
@@ -7432,6 +7480,14 @@
   "desc": "Field oval sedge (Carex molesta): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Carex molesta is a species of sedge known by the common name troublesome sedge."
+ },
+ "carex novae-angliae": {
+  "latin": "Carex novae-angliae",
+  "name": "New England Sedge",
+  "tl": 1,
+  "wiki": "Carex novae-angliae",
+  "desc": "New England Sedge (Carex novae-angliae): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "carex pachystachya": {
   "latin": "Carex pachystachya",
@@ -11250,7 +11306,7 @@
   "name": "Timber rattlesnake",
   "tl": 3,
   "wiki": "Crotalus horridus",
-  "desc": "Timber rattlesnake (Crotalus horridus): hunts or scavenges other animals. Recorded 2 times near the park in GBIF.",
+  "desc": "Timber rattlesnake (Crotalus horridus): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
   "ic": "quad",
   "about": "The timber rattlesnake, also known commonly as the banded rattlesnake, and the canebrake rattlesnake in the southern United States, is a species of pit viper in the family Viperidae."
  },
@@ -11404,6 +11460,14 @@
   "desc": "A common agamid lizard of the sandplain that eats insects, and is itself taken by hawks, falcons and goannas.",
   "ic": "snake",
   "about": "The central netted dragon or central netted ground dragon is a species of agamid lizard occurring in a wide range of arid to semiarid regions of Australia."
+ },
+ "ctenucha virginica": {
+  "latin": "Ctenucha virginica",
+  "name": "Virginia Ctenucha",
+  "tl": 2,
+  "wiki": "Ctenucha virginica",
+  "desc": "Virginia Ctenucha (Ctenucha virginica): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "cucurbita foetidissima": {
   "latin": "Cucurbita foetidissima",
@@ -13009,6 +13073,14 @@
   "tl": 2,
   "wiki": "Diplolepis rosae",
   "desc": "Bedeguar Gall Causer (Diplolepis rosae): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
+  "ic": "ant"
+ },
+ "diplolepis spinosa": {
+  "latin": "Diplolepis spinosa",
+  "name": "Many-spined twig gall wasp",
+  "tl": 2,
+  "wiki": "Diplolepis spinosa",
+  "desc": "Many-spined twig gall wasp (Diplolepis spinosa): eats plants or other primary food sources. Recorded 11 times near the park in GBIF.",
   "ic": "ant"
  },
  "dipodomys compactus": {
@@ -15062,7 +15134,7 @@
   "name": "Eastern Pondhawk",
   "tl": 3,
   "wiki": "Erythemis simplicicollis",
-  "desc": "Predatory dragonfly of ponds and marshes that catches other insects, including butterflies like the Gulf fritillary.",
+  "desc": "Eastern Pondhawk (Erythemis simplicicollis): hunts or scavenges other animals. Recorded 15 times near the park in GBIF.",
   "ic": "mayfly",
   "about": "Erythemis simplicicollis, the eastern pondhawk, also known as the common pondhawk, is a dragonfly of the family Libellulidae, native to the eastern two-thirds of the United States and southern…"
  },
@@ -17971,11 +18043,11 @@
  },
  "halichoerus grypus": {
   "latin": "Halichoerus grypus",
-  "name": "Gray seal",
+  "name": "Grey seal",
   "tl": 3,
-  "wiki": "Gray seal",
+  "wiki": "Halichoerus grypus",
   "desc": "Hunts fish, especially sand eels, and hauls out in large numbers on outer Cape beaches.",
-  "ic": "seal",
+  "ic": "quad",
   "about": "The grey seal, or gray seal in the United States, is a large seal of the family Phocidae, which are commonly referred to as \"true seals\" or \"earless seals\"."
  },
  "halictus confusus": {
@@ -18949,6 +19021,14 @@
   "desc": "Hairy-fronted Small-Mason (Hoplitis pilosifrons): eats plants or other primary food sources. Recorded 78 times near the park in GBIF.",
   "ic": "ant"
  },
+ "hoplitis producta": {
+  "latin": "Hoplitis producta",
+  "name": "Produced Small-Mason",
+  "tl": 2,
+  "wiki": "Hoplitis producta",
+  "desc": "Produced Small-Mason (Hoplitis producta): eats plants or other primary food sources. Recorded 9 times near the park in GBIF.",
+  "ic": "ant"
+ },
  "hordeum jubatum": {
   "latin": "Hordeum jubatum",
   "name": "Foxtail Barley",
@@ -19710,6 +19790,14 @@
   "ic": "aspen",
   "about": "Ilex vomitoria, commonly known as yaupon () or yaupon holly, is a species of holly that is native to southeastern North America."
  },
+ "ilexia intractata": {
+  "latin": "Ilexia intractata",
+  "name": "Black-dotted Ruddy Moth",
+  "tl": 2,
+  "wiki": "Ilexia intractata",
+  "desc": "Black-dotted Ruddy Moth (Ilexia intractata): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "imantodes cenchoa": {
   "latin": "Imantodes cenchoa",
   "name": "Blunthead treesnake",
@@ -19724,7 +19812,7 @@
   "name": "Orange Balsam",
   "tl": 1,
   "wiki": "Impatiens capensis",
-  "desc": "A moisture-loving wildflower of wet ground and stream edges. GloBI records cottontails and groundhogs eating it.",
+  "desc": "Orange Balsam (Impatiens capensis): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Impatiens capensis, the orange jewelweed, common jewelweed, spotted jewelweed, jewelweed, spotted touch-me-not, or orange balsam, is an annual plant in the family Balsaminaceae that is native to…"
  },
@@ -21200,7 +21288,7 @@
   "latin": "Larus smithsonianus",
   "name": "American herring gull",
   "tl": 3,
-  "wiki": "American herring gull",
+  "wiki": "Larus smithsonianus",
   "desc": "A generalist that eats shore invertebrates such as mussels, fish, eggs and carrion. It drops shellfish on rocks to crack them.",
   "ic": "osprey",
   "about": "The American herring gull, also known as the Arctic herring gull or Smithsonian gull, is a large gull that breeds in North America, where it is treated by the American Ornithological Society as…"
@@ -21229,6 +21317,14 @@
   "desc": "Cresson's Dialictus (Lasioglossum cressonii): eats plants or other primary food sources. Recorded 152 times near the park in GBIF.",
   "ic": "ant",
   "about": "Lasioglossum cressonii (Robertson, 1890) is a species in the sweat bee genus Lasioglossum, family Halictidae."
+ },
+ "lasioglossum ephialtum": {
+  "latin": "Lasioglossum ephialtum",
+  "name": "Nightmare Sweat Bee",
+  "tl": 2,
+  "wiki": "Lasioglossum ephialtum",
+  "desc": "Nightmare Sweat Bee (Lasioglossum ephialtum): eats plants or other primary food sources. Recorded 15 times near the park in GBIF.",
+  "ic": "ant"
  },
  "lasioglossum laevissimum": {
   "latin": "Lasioglossum laevissimum",
@@ -22345,6 +22441,14 @@
   "badge": "Foundation species",
   "about": "Lithocarpus is a genus in the beech family, Fagaceae. Trees in this genus are commonly known as the stone oaks and differ from Quercus primarily because they produce insect-pollinated flowers on…"
  },
+ "lithophane hemina": {
+  "latin": "Lithophane hemina",
+  "name": "Brown Pinion",
+  "tl": 2,
+  "wiki": "Lithophane hemina",
+  "desc": "Brown Pinion (Lithophane hemina): eats plants or other primary food sources. Recorded 23 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "lithospermum canescens": {
   "latin": "Lithospermum canescens",
   "name": "Indian-paint",
@@ -22620,6 +22724,14 @@
   "tl": 1,
   "wiki": "Lonicera fragrantissima",
   "desc": "January Jasmine (Lonicera fragrantissima): a plant that turns sunlight into food. Recorded 25 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "lonicera hirsuta": {
+  "latin": "Lonicera hirsuta",
+  "name": "Hairy Honeysuckle",
+  "tl": 1,
+  "wiki": "Lonicera hirsuta",
+  "desc": "Hairy Honeysuckle (Lonicera hirsuta): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen"
  },
  "lonicera hispidula": {
@@ -23225,7 +23337,7 @@
   "name": "Spongy (gypsy) moth",
   "tl": 2,
   "wiki": "Spongy moth",
-  "desc": "An introduced moth whose caterpillars strip oak and other leaves. Infestations from the early 1990s weakened the park's oak forests.",
+  "desc": "Asian gypsy moth (Lymantria dispar): eats plants or other primary food sources. Recorded 6 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Lymantria dispar, also known as the gypsy moth, and in the United States, the spongy moth, is a species of moth in the family Erebidae native to Europe and Asia."
  },
@@ -27857,6 +27969,14 @@
   "ic": "hopper",
   "about": "Orthetrum sabina, the slender skimmer or green marsh hawk, is a species of dragonfly in the family Libellulidae."
  },
+ "orthosia hibisci": {
+  "latin": "Orthosia hibisci",
+  "name": "Green Fruitworm",
+  "tl": 2,
+  "wiki": "Orthosia hibisci",
+  "desc": "Green Fruitworm (Orthosia hibisci): eats plants or other primary food sources. Recorded 23 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "oryctolagus cuniculus": {
   "latin": "Oryctolagus cuniculus",
   "name": "European rabbit",
@@ -29811,7 +29931,7 @@
   "name": "White-footed mouse",
   "tl": 2,
   "wiki": "Peromyscus leucopus",
-  "desc": "White-footed mouse (Peromyscus leucopus): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "desc": "White-footed mouse (Peromyscus leucopus): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
   "ic": "quad",
   "about": "The white-footed mouse is a rodent native to North America from southern Canada to the Southwestern United States and Mexico."
  },
@@ -30314,6 +30434,14 @@
   "ic": "seal",
   "about": "The harbor (or harbour) seal, also known as the common seal, is a true seal found along temperate and Arctic marine coastlines of the Northern Hemisphere."
  },
+ "phocoena phocoena": {
+  "latin": "Phocoena phocoena",
+  "name": "Harbor porpoise",
+  "tl": 3,
+  "wiki": "Phocoena phocoena",
+  "desc": "Harbor porpoise (Phocoena phocoena): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
+  "ic": "quad"
+ },
  "phoebis agarithe": {
   "latin": "Phoebis agarithe",
   "name": "Orange giant sulphur",
@@ -30568,6 +30696,14 @@
   "ic": "hopper",
   "about": "The longhorn beetles (Cerambycidae), also known as long-horned or longicorns (whose larvae are often referred to as roundheaded borers), are a large family of beetles, with over 35,000 species…"
  },
+ "physalis peruviana": {
+  "latin": "Physalis peruviana",
+  "name": "Cape-gooseberry",
+  "tl": 1,
+  "wiki": "Physalis peruviana",
+  "desc": "Cape-gooseberry (Physalis peruviana): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "physalis walteri": {
   "latin": "Physalis walteri",
   "name": "Walter's groundcherry",
@@ -30708,6 +30844,14 @@
   "desc": "A conifer of the Caucasus forests. Winter-feeding chamois use conifer needles and bark, and squirrels take conifer seed.",
   "ic": "aspen",
   "about": "Picea orientalis, commonly known as the Oriental spruce or Caucasian spruce, is a species of spruce native to the Caucasus and adjacent northeast Turkey."
+ },
+ "picea rubens": {
+  "latin": "Picea rubens",
+  "name": "Red Spruce",
+  "tl": 1,
+  "wiki": "Picea rubens",
+  "desc": "Red Spruce (Picea rubens): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "picea schrenkiana": {
   "latin": "Picea schrenkiana",
@@ -31039,11 +31183,11 @@
  },
  "pinus rigida": {
   "latin": "Pinus rigida",
-  "name": "Pitch pine",
+  "name": "Pitch Pine",
   "tl": 1,
   "wiki": "Pinus rigida",
   "desc": "A hardy pine of sandy, poor soils that dominates much of the Cape's pine barrens woodland.",
-  "ic": "whitebark",
+  "ic": "aspen",
   "about": "Pinus rigida, the pitch pine, is a small-to-medium-sized conifer in the family Pinaceae."
  },
  "pinus sibirica": {
@@ -31066,7 +31210,7 @@
  },
  "pinus strobus": {
   "latin": "Pinus strobus",
-  "name": "Eastern white pine",
+  "name": "Weymouth Pine",
   "tl": 1,
   "wiki": "Pinus strobus",
   "desc": "Weymouth Pine (Pinus strobus): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
@@ -32447,6 +32591,14 @@
   "desc": "Rare Skipper (Problema bulenta): eats plants or other primary food sources. Recorded 9 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Problema bulenta, the rare skipper, is a butterfly of the family Hesperiidae. It is hard to find within the United States."
+ },
+ "probole amicaria": {
+  "latin": "Probole amicaria",
+  "name": "Friendly Probole",
+  "tl": 2,
+  "wiki": "Probole amicaria",
+  "desc": "Friendly Probole (Probole amicaria): eats plants or other primary food sources. Recorded 58 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "procambarus alleni": {
   "latin": "Procambarus alleni",
@@ -35332,6 +35484,14 @@
   "desc": "A bramble of forest openings. Its fruit and leaves feed moose, bumble bees, foxes and birds.",
   "ic": "sage",
   "about": "Rubus idaeus is a red-fruited species of Rubus native to Eurasia and commonly cultivated in other temperate regions."
+ },
+ "rubus laciniatus": {
+  "latin": "Rubus laciniatus",
+  "name": "Parsley-leaved Bramble",
+  "tl": 1,
+  "wiki": "Rubus laciniatus",
+  "desc": "Parsley-leaved Bramble (Rubus laciniatus): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "rubus neomexicanus": {
   "latin": "Rubus neomexicanus",
@@ -38263,7 +38423,7 @@
   "name": "Salt-marsh Goldenrod",
   "tl": 1,
   "wiki": "Solidago sempervirens",
-  "desc": "A coastal wildflower of dunes and marsh edges, common on Block Island and the Rhode Island shore.",
+  "desc": "Salt-marsh Goldenrod (Solidago sempervirens): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Solidago sempervirens, the seaside goldenrod or salt-marsh goldenrod, is a plant species in the genus Solidago of the family Asteraceae."
  },
@@ -41051,7 +41211,7 @@
   "name": "Poison Ivy",
   "tl": 1,
   "wiki": "Toxicodendron radicans",
-  "desc": "Poison Ivy (Toxicodendron radicans): a plant that turns sunlight into food. Recorded 18 times near the park in GBIF.",
+  "desc": "Poison Ivy (Toxicodendron radicans): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Toxicodendron radicans, commonly known as eastern poison ivy or poison ivy, is a species of allergenic flowering plant. It has numerous subtaxons and forms both vines and shrubs."
  },
@@ -41497,7 +41657,7 @@
   "name": "Red Clover",
   "tl": 1,
   "wiki": "Trifolium pratense",
-  "desc": "Meadow legume of valley grasslands and shores, eaten by birds and grazers.",
+  "desc": "Red Clover (Trifolium pratense): a plant that turns sunlight into food. Recorded 8 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Trifolium pratense (from Latin prātum, meaning meadow), red clover, is a herbaceous species of flowering plant in the bean family, Fabaceae."
  },
@@ -41506,7 +41666,7 @@
   "name": "White Clover",
   "tl": 1,
   "wiki": "Trifolium repens",
-  "desc": "White Clover (Trifolium repens): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
+  "desc": "White Clover (Trifolium repens): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Trifolium repens, the white clover, is a herbaceous perennial plant in the bean family, Fabaceae (also known as Leguminosae)."
  },
@@ -41773,6 +41933,14 @@
   "ic": "meadowlark",
   "about": "The red-billed streamertail, also known as the doctor bird, or swallow tail hummingbird, is a species of hummingbird in the \"emeralds\", tribe Trochilini of the subfamily Trochilinae."
  },
+ "troglodytes aedon": {
+  "latin": "Troglodytes aedon",
+  "name": "House Wren",
+  "tl": 3,
+  "wiki": "Troglodytes aedon",
+  "desc": "House Wren (Troglodytes aedon): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
+  "ic": "meadowlark"
+ },
  "trollius europaeus and others": {
   "latin": "Trollius europaeus and others",
   "name": "Mountain meadow herbs",
@@ -41842,7 +42010,7 @@
   "tl": 1,
   "wiki": "Tsuga canadensis",
   "desc": "Eastern Hemlock-spruce (Tsuga canadensis): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
-  "ic": "willow",
+  "ic": "aspen",
   "about": "Tsuga canadensis, also known as Canadian hemlock, eastern hemlock-spruce, or eastern hemlock, and in the French-speaking regions of Canada as pruche du Canada, is a coniferous tree in the pine…"
  },
  "tsuga chinensis": {
@@ -42631,6 +42799,14 @@
   "ic": "hopper",
   "about": "Vanessa cardui is the most widespread of all butterfly species. It is commonly called the painted lady, or formerly in North America the cosmopolitan butterfly."
  },
+ "vanessa virginiensis": {
+  "latin": "Vanessa virginiensis",
+  "name": "American Painted Lady",
+  "tl": 2,
+  "wiki": "Vanessa virginiensis",
+  "desc": "American Painted Lady (Vanessa virginiensis): eats plants or other primary food sources. Recorded 10 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "varanus bengalensis": {
   "latin": "Varanus bengalensis",
   "name": "Bengal monitor",
@@ -43098,6 +43274,14 @@
   "tl": 1,
   "wiki": "Vinca minor",
   "desc": "Lesser Periwinkle (Vinca minor): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "viola canadensis": {
+  "latin": "Viola canadensis",
+  "name": "Canada violet",
+  "tl": 1,
+  "wiki": "Viola canadensis",
+  "desc": "Canada violet (Viola canadensis): a plant that turns sunlight into food. Recorded 43 times near the park in GBIF.",
   "ic": "aspen"
  },
  "viola eriocarpa": {
