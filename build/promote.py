@@ -9,9 +9,14 @@ ids=sys.argv[1:]
 if ids[:1]==['--from-codes']:
     ids=[k for k,v in json.load(open(os.path.join(ROOT,'pipeline/nps/codes.json'))).items() if v['code']]
 if ids[:1]==['--local']:
+    # --local [--state AR,KY]: every local (state) park in the pilot, or only those of the given states
+    from state import STATES
+    st={STATES[c] for c in ids[2].upper().split(',')} if ids[1:2]==['--state'] and len(ids)>2 else None
     ids=[]
     for f in sorted(os.listdir(os.path.join(ROOT,'data-auto'))):
-        if f.endswith('.json') and f!='order.json' and json.load(open(os.path.join(ROOT,'data-auto',f))).get('level')=='local': ids.append(f[:-5])
+        if not f.endswith('.json') or f=='order.json': continue
+        d=json.load(open(os.path.join(ROOT,'data-auto',f)))
+        if d.get('level')=='local' and (st is None or st & set(d.get('states') or [])): ids.append(f[:-5])
     LOCAL=True
 else: LOCAL=False
 order=json.load(open(os.path.join(ROOT,'data-auto/order.json')))
@@ -29,3 +34,4 @@ for i in movedids:
     if i not in lk['order']: lk['order'].append(i)
 json.dump(lk,open(L,'w'),indent=1,ensure_ascii=False)
 print(len(moved),'promoted;',len(held),'held:',held)
+open(os.path.join(ROOT,'promoted.json'),'w').write(json.dumps({'moved':movedids,'held':[[n,w] for n,w in held]}))
