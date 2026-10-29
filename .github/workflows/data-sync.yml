@@ -1,5 +1,5 @@
 name: data-sync
-# Manual only. Brings a data branch up to date with main when the shared files clash (data/species.json, data-auto/order.json),
+# Manual only. Brings a data branch up to date with main (the same step every data job now runs before opening its pull request; see pipeline/syncstep.sh),
 # rebuilds the species table, pushes, and starts the checks on the branch (a push from Actions does not start them by itself).
 # Anything else that clashes stops the run so a person can look.
 on:
@@ -20,13 +20,17 @@ jobs:
       - name: Merge main
         env:
           BR: ${{ github.event.inputs.branch }}
+          GH_TOKEN: ${{ github.token }}
         run: |
-          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
-          if git merge --no-edit origin/main; then echo "Merged without clashes."; else git show origin/main:pipeline/syncmain.py > /tmp/syncmain.py; SYNC_ROOT="$PWD" python3 /tmp/syncmain.py; fi   # main's copy of the script, so older branches get the newest rules
-          python3 build/species.py pack
-          git add -A
-          git commit -m "Bring $BR up to date with main" || echo "nothing to commit"
-          git push origin "HEAD:$BR"
+          git fetch -q origin main; git show origin/main:pipeline/syncstep.sh > /tmp/syncstep.sh   # main's copy: an older branch does not have it
+          if bash /tmp/syncstep.sh; then
+            git push origin "HEAD:$BR"
+          else
+            # say why on the pull request, because the job log cannot be read from outside
+            N=$(gh pr list --head "$BR" --state open --json number --jq '.[0].number')
+            [ -n "$N" ] && gh pr comment "$N" --body "data-sync could not finish: $(cat /tmp/sync.md)" || true
+            exit 1
+          fi
       - name: Start the checks
         env:
           GH_TOKEN: ${{ github.token }}
