@@ -1,0 +1,45 @@
+name: data-outlines
+# Manual only. Tries again for the park outlines that are missing (PAD-US, US Geological Survey), for every US park or for the ids given,
+# and opens one pull request with the new files and a list of the parks that still have none. Nothing reaches the live site until it is merged.
+on:
+  workflow_dispatch:
+    inputs:
+      ids: { description: "Place ids, space-separated. Blank = every US park without an outline", default: "" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-outlines
+jobs:
+  outlines:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Fetch the missing outlines
+        run: python3 pipeline/bounds.py ${{ github.event.inputs.ids }} | tee outlines.log
+      - name: Check the size budget
+        run: |
+          python3 build/species.py pack
+          python3 build/build.py --all
+          python3 build/budget.py
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          BR="data/outlines-${GITHUB_RUN_ID}"
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "$BR"
+          git add -A -- data/outlines
+          if git diff --cached --quiet; then echo "No new outlines."; exit 0; fi
+          N=$(git diff --cached --name-only | wc -l)
+          git commit -m "Park outlines: $N more"
+          bash pipeline/syncstep.sh || true
+          git push -f origin "$BR"
+          { echo "Automatic run of the data-outlines workflow: $N new outlines from PAD-US."; echo; echo "Still without an outline:"; grep '^none' outlines.log | cut -d' ' -f2- | sed 's/^/- /'; echo; cat /tmp/sync.md; } > /tmp/body.md
+          gh pr create --base main --head "$BR" --title "Park outlines: $N more" --body-file /tmp/body.md
+          gh workflow run ci.yml --ref "$BR"
