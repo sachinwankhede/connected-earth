@@ -3100,7 +3100,7 @@ return maplibregl$1;
       '<div class="jhero"><span class="jhimg" id="pp-main">' + icon + '</span><div><p class="jkind">' + escH(e.kind || "Place") + "</p><h2>" + escH(e.name) + '</h2><p class="jr">' + escH(e.place || "") + "</p></div></div>" +
       '<div class="jmap pmap" id="pgraph" role="button" tabindex="0" aria-label="Explore the food web of ' + escH(e.name) + '">' + pGraphSVG(d) + '<span class="jplay"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Explore the food web</span></div>' +
       '<p class="fine">' + d.bio.length + " species. Lines run from food to eater.</p>" +
-      (e.story ? '<p class="pstory"><b>The story.</b> ' + escH(e.story) + "</p>" : e.blurb ? '<p class="pstory">' + escH(e.blurb) + "</p>" : "") +
+      (e.story ? '<p class="pstory"><b>The story.</b> ' + escH(e.story) + "</p>" : e.summary ? '<p class="pstory">' + escH(e.summary) + "</p>" : e.blurb ? '<p class="pstory">' + escH(e.blurb) + "</p>" : "") +
       (e.matters ? '<p class="jwhy"><b>Why it matters.</b> ' + escH(e.matters) + "</p>" : "") +
       rows + eh + ch + jh + sh +
       footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
