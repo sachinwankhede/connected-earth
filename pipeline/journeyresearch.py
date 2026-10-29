@@ -24,10 +24,10 @@ def article(title):
     return p.get('title', title), p.get('extract') or '', [c['title'] for c in p.get('categories', []) if re.search(r'migrat', c['title'], re.I)]
 
 def sections(text):
-    parts = re.split(r'\n(={2,})\s*(.+?)\s*\1\n', text)       # [lead, eq, heading, body, eq, heading, body ...]
+    parts = re.split(r'\n==\s*([^=\n][^\n]*?)\s*==\n', text)       # top-level headings only (sub-sections stay inside their section): [lead, heading, body, heading, body ...]
     out = [('Lead', parts[0].strip()[:900])]; used = len(out[0][1])
-    for i in range(1, len(parts) - 2, 3):
-        head, body = parts[i + 1], re.sub(r'\n+', '\n', parts[i + 2]).strip()
+    for i in range(1, len(parts) - 1, 2):
+        head, body = parts[i], re.sub(r'\n+', '\n', parts[i + 1]).strip()
         if body and WANT.search(head) and used < TOTAL:
             out.append((head, body[:SEC])); used += min(len(body), SEC)
     return out
