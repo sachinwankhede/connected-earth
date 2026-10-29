@@ -1,0 +1,37 @@
+name: data-journeyresearch
+# Manual only. For each species on the shortlist (or the ones typed in), saves what Wikipedia says about where it breeds, winters and
+# migrates, plus every place in the app that has it, to research/journey-research.md on the `research` branch (never merged).
+# The journey ends are then chosen by hand where the text supports a real route.
+on:
+  workflow_dispatch:
+    inputs:
+      species: { description: "Latin names, comma-separated (blank = the shortlist in pipeline/journeyresearch.py)", default: "" }
+permissions:
+  contents: write
+concurrency: data-research
+jobs:
+  research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: Gather
+        env:
+          SPECIES: ${{ github.event.inputs.species }}
+        run: |
+          if [ -n "$SPECIES" ]; then IFS=',' read -ra L <<< "$SPECIES"; python3 pipeline/journeyresearch.py "${L[@]}"; else python3 pipeline/journeyresearch.py; fi
+      - name: Save on the research branch
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          cp research/journey-research.md /tmp/journey-research.md
+          if git ls-remote --exit-code --heads origin research >/dev/null 2>&1; then
+            git fetch origin research && git checkout -f -B research origin/research
+          else
+            git checkout -f -B research
+          fi
+          mkdir -p research && cp /tmp/journey-research.md research/
+          git add research
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit -m "Journey research: species and their places"
+          git push origin research
