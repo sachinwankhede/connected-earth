@@ -1,6 +1,6 @@
 name: checks
 # The browser tests are skipped when a change only touches files that cannot affect the app
-# (the data-job workflows, the data-job scripts in pipeline/, docs, notes and the state queue). Changes to this file still run them.
+# (the data-job workflows, the data-job scripts in pipeline/ and build/state.py and promote*.py, docs, notes and the state queue). Changes to this file still run them.
 on:
   push:
     branches: [main]
@@ -11,6 +11,9 @@ on:
       - "README.md"
       - "pipeline/state_queue.txt"
       - "pipeline/*.py"
+      - "build/state.py"
+      - "build/promote.py"
+      - "build/promote_check.py"
   pull_request:
     paths-ignore: *quiet
   workflow_dispatch:
