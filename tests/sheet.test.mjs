@@ -52,9 +52,11 @@ describe('place sheet', () => {
       assert.notEqual(after, before, 'selection moved to the tapped species');
       if (sizeName === 'phone') {
         const h = () => t.page.evaluate(() => Math.round(document.getElementById('psheet').getBoundingClientRect().height));
-        await t.page.waitForTimeout(2000); const full = await h(); await t.page.click('.pchev'); await t.page.waitForTimeout(700);
+        await t.page.waitForTimeout(2000); const full = await h(); await t.page.click('.pchev');
+        await t.page.waitForFunction(() => document.getElementById('psheet').getBoundingClientRect().height < 100, null, { timeout: 5000 }).catch(() => {});
         const hh = await h(); assert.ok(hh < 100, 'the chevron collapses the sheet to its top line: ' + hh + ' ' + await t.page.evaluate(() => document.getElementById('psheet').className));
-        await t.page.click('#phead'); await t.page.waitForTimeout(700);
+        await t.page.click('#phead');
+        await t.page.waitForFunction((f) => document.getElementById('psheet').getBoundingClientRect().height > f - 5, full, { timeout: 5000 }).catch(() => {});
         assert.ok((await h()) > full - 5, 'tapping the top line opens it again');
       }
       assert.deepEqual(t.errors, []); await t.close();
