@@ -23057,6 +23057,14 @@
   "badge": "Foundation species",
   "about": "Lithocarpus is a genus in the beech family, Fagaceae. Trees in this genus are commonly known as the stone oaks and differ from Quercus primarily because they produce insect-pollinated flowers on…"
  },
+ "lithophane patefacta": {
+  "latin": "Lithophane patefacta",
+  "name": "Branded Pinion",
+  "tl": 2,
+  "wiki": "Lithophane patefacta",
+  "desc": "Branded Pinion (Lithophane patefacta): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "lithospermum canescens": {
   "latin": "Lithospermum canescens",
   "name": "Indian-paint",
@@ -29996,7 +30004,7 @@
   "name": "Foxglove-tree",
   "tl": 1,
   "wiki": "Paulownia tomentosa",
-  "desc": "Foxglove-tree (Paulownia tomentosa): a plant that turns sunlight into food. Recorded 44 times near the park in GBIF.",
+  "desc": "Foxglove-tree (Paulownia tomentosa): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Paulownia tomentosa, common names princess tree, empress tree, or foxglove-tree, is a deciduous hardwood tree in the family Paulowniaceae, native to central and eastern China and the Korean…"
  },
@@ -41814,10 +41822,10 @@
  },
  "tipularia discolor": {
   "latin": "Tipularia discolor",
-  "name": "Crippled cranefly",
+  "name": "Crippled Cranefly",
   "tl": 1,
   "wiki": "Tipularia discolor",
-  "desc": "Crippled cranefly (Tipularia discolor): a plant that turns sunlight into food. Recorded 37 times near the park in GBIF.",
+  "desc": "Crippled Cranefly (Tipularia discolor): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Tipularia discolor, the crippled cranefly or crane-fly orchid, is a perennial terrestrial woodland orchid, a member of the family Orchidaceae."
  },
