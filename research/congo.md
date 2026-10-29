@@ -18,6 +18,55 @@ Democratic Republic of the Congo, Congo, Gabon and Cameroon. Coordinates -0.5, 2
 Fig trees (ficus spp.), irvingia (irvingia gabonensis and relatives), marantaceae (marantaceae), lianas (woody lianas and saplings), Riverbank grasses (poaceae), bat (eidolon helvum), colobus (piliocolobus spp.), chimp (pan troglodytes), bonobo (pan paniscus), gorilla (gorilla gorilla gorilla), elephant (loxodonta cyclotis), okapi (okapia johnstoni), duiker (cephalophus spp.), termites (termitoidae), hippo (hippopotamus amphibius), fish (cichlids, catfish and others), goldencat (caracal aurata), croc (crocodylus niloticus), leopard (panthera pardus), eagle (stephanoaetus coronatus), sun (sunlight), rain (rainfall), Litter fungi and microbes (decomposer community), peat (peatland soil), flood (seasonal flooding)
 
 ## 4. Wikipedia text
+### Congo Basin
+Source: <https://en.wikipedia.org/wiki/Congo_Basin> (CC BY-SA), retrieved 2026-10-29.
+
+The Congo Basin is the sedimentary basin of the Congo River. The Congo Basin is located in Central Africa, in a region known as west equatorial Africa. The region is sometimes known simply as the Congo. It contains some of the largest tropical rainforests in the world and is an important source of water used in agriculture and energy generation.
+The rainforest in the Congo Basin is the largest rainforest in Africa and second only to the Amazon rainforest in size, with 300 million hectares compared to the 800 million hectares in the Amazon. Because of its size and diversity the basin's forest is important for mitigating climate change in its role as a carbon sink. However, deforestation and degradation of the ecology by the impacts of climate change may increase stress on the forest ecosystem, in turn making the hydrology of the basin more variable. A 2012 study finds that the variability in precipitation caused by climate change will negatively affect economic activity in the basin.
+Eight sites of the Congo Basin are inscribed on the World Heritage List, five being also on the list of World Heritage in Danger (all five located in Democratic Republic of the Congo). Fourteen percent of the humid forest is designated as protected.
+
+== Geology ==
+The Congo Basin is a large depression within the Congo Craton, making it a patch of relatively recent (Phanerozoic-aged, and mostly Mesozoic and onwards) sedimentary rock within a large, otherwise ancient (Archean-aged) piece of exposed continental crust. The deformation of the craton began as early as the late Cambrian or early Ordovician and continued over the Paleozoic, but the deformation over this period led to rapid erosion of much of the Paleozoic rock, creating a large unconformity. Sediment started to rapidly accumulate in the basin from the Mesozoic (Triassic) up to the present day.
+Deposits throughout the Jurassic suggest the presence of a freshwater, lacustrine habitat in the basin, and this continued into the Early Cretaceous. By the start of the Late Cretaceous, a connection with the Trans-Saharan seaway led to a significant marine incursion into the basin (evidence of an earlier, Late Jurassic marine intrusion is disputed), causing it to serve as a connection between the southern Atlantic Ocean and the Tethys Ocean. Many of the formations deposited by these freshwater and marine habitats are rich in pollen, invertebrate, and vertebrate (primarily fish) fossils. Kimberlite pipes that are thought to have formed during the Cretaceous, possibly due to a shock from a sudden decrease in the rate of seafloor spreading of the southern Mid-Atlantic Ridge, are the source of the region's famous diamonds.
+By the Cenozoic, an uplift in the borders of the Cuvette Centrale had blocked any further marine connections. During the Paleogene, high rainfall turned the basin into a series of marshy ponds and swamps. A shift to more arid conditions with seasonal droughts occurred with the start of the Neogene. Later in the Neogene, a sudden shift to fluvial deposits suggests a dramatic return to wetter conditions.
+The following sedimentary geological formations have been deposited in the basin:
+
+Late Carboniferous/Permian - Lukuga Formation (part of the Lower Karoo)
+Early Triassic to Early Jurassic - Haute Lueki Formation (part of Upper Karoo)
+Late Jurassic - Stanleyville Formation
+Early Cretaceous - Loia Formation, Kamina Series
+Late Cretaceous - Bokungu Formation, Kwango Series (Nsele Group, Inzia Group)
+Paleogene - Kwango Formation, Kalahari System, Sables Bateke Series
+Neogene - Limons Series, Kalahari System, Sables Bateke Series
+
+== Description ==
+
+Congo is a traditional name for the equatorial Middle Africa that lies between the Gulf of Guinea and the African Great Lakes. The basin begins in the highlands of the East African Rift system with input from the Chambeshi, the Uele and Ubangi rivers in the upper reaches and the Lualaba River draining wetlands in the middle reaches. Because of the young age and active uplift of the East African Rift at the headwaters, the sediment load of the Congo River is very large, but the drainage basin occupies large areas of low relief throughout much of its area. It is delineated largely by swells including the Bie, Mayumbe, Adamlia, Nile-Congo, East African, and Zambian Swells.
+
+The basin ends where the Congo River empties into the Gulf of Guinea. The basin is a total of 3.7 million square kilometres and is home to some of the largest undisturbed stands of tropical rainforest on the planet, in addition to large wetlands.
+
+Countries wholly or partially in the Congo region:
+
+== History ==
+
+The first inhabitants of the Congo Basin area were believed to be pygmies, and at that time, the dense forests and wet climate kept the population of the region low, with the prevention of hunter-gatherer society, whose remnants of their culture survive to the present day. Eventually Bantu peoples migrated there and founded the Kingdom of Kongo.Belgium, France, and Portugal later established colonial control over the entire region by the late 19th century. The General Act of the Berlin Conference of 1885 gave a precise definition to the "conventional basin" of the Congo, which included the entire actual basin plus some other areas. The General Act bound its signatories to neutrality within the conventional basin, but this was not respected during the First World War. The World Resources Institute estimates that 80 million people live in and around the Congo Basin.
+
+== Climate ==
+The Congo Basin is a globally important climatic region with annual rainfall of between 1,500 to 2,000 millimetres (59 to 79 in). It is one of three hotspots of deep convection (thunderstorms) in the tropics, the other two being over the Maritime continent and the Amazon. These three regions together drive the climate circulation of the tropics and beyond. The Congo Basin has the highest lightning strike frequency of anywhere on the planet. The high rainfall supports the second-largest rainforest on Earth, which is a globally significant carbon sink and an important component of the global carbon cycle.
+Averaged across the basin, there are two major rainfall seasons in March to May and September to November. In both hemispheres the rainfall maximises in September to November, at above 210 millimetres (8.3 in) per month. In northern hemisphere winter, rainfall is relatively low to the north of the equator (less than 80 millimetres (3.1 in) per month). In southern hemisphere winter, rainfall is instead lower to the south of the equator (<80 mm per month). The annual rhythm of the wind systems which carry water vapour account for the rainfall seasonality. Much of the rainfall is derived from large Mesoscale convective systems. The systems last over 11 hours on average and have a mean size exceeding 500 square kilometres (120,000 acres) in some parts of the Congo Basin.
+
+Temperatures in the Congo Basin (usually between 20 and 30 °C) are lower than in the African desert regions to the north (Sahara) and to the south (Kalahari). The differences in temperature between the deserts and the Congo Basin is important for driving wind systems known as African easterly jets, which affect climate and weather in the Sahel and Southern Africa.
+Future climate projections indicate that the region will get hotter in response to global climate change. There is more uncertainty over how average rainfall in the region will change, with the climate models used by the Intergovernmental Panel on Climate Change disagreeing on core elements of the rainfall distribution in the region. While the average rainfall change is uncertain, it is likely that extreme rainfall events will become more extreme owing to the increases in water vapour in the atmosphere.
+Owing to the global climatic importance of the Congo Basin, it has been suggested that along with the Amazon, severe changes in the rainfall or climate of the Congo Rainforest could act as a 'tipping point', with widespread impacts on the Earth climate system.
+
+== Flora and fauna ==
+The Congo forest is home to the okapi, African forest elephant, pygmy hippopotamus, bongo (antelope), chimpanzee, bonobo and the Congo peafowl. Its apex predator is the leopard, which are larger than their savanna counterparts due to lack of competition from other large predators. The basin is home to the endangered western lowland gorilla. The Congo Basin is the largest forest in Africa. More than 10,000 plant species can be found in and around the forest. The humid forests cover 1.6 million km2. The Congo Basin is an important source of African teak, used for building furniture and flooring. An estimated 40 million people depend on these woodlands, surviving on traditional livelihoods.
+
+== Ecology and protection ==
+
+At a global level, Congo's forests act as the planet's second lung, counterpart to the rapidly dwindling Amazon. They are a huge "carbon sink", trapping carbon that could otherwise re
+[...trimmed]
+
 ### African forest elephant
 Source: <https://en.wikipedia.org/wiki/African_forest_elephant> (CC BY-SA), retrieved 2026-10-29.
 
