@@ -4,7 +4,8 @@ name: data-photos
 on:
   workflow_dispatch:
     inputs:
-      limit: { description: "Places to try this run (0 = all left)", default: "120" }
+      limit: { description: "Places to try per round (0 = all left)", default: "120" }
+      rounds: { description: "Rounds in this run; it stops early when nothing is left to try", default: "1" }
 permissions:
   contents: write
   pull-requests: write
@@ -13,7 +14,7 @@ concurrency: data-photos
 jobs:
   batch:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 170
     steps:
       - uses: actions/checkout@v5
         with: { ref: main }
@@ -26,7 +27,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Fetch the next batch of photos
-        run: LIMIT="${{ github.event.inputs.limit || '120' }}" python3 pipeline/photos.py photos/places data data-auto
+        run: |
+          for R in $(seq 1 "${{ github.event.inputs.rounds || '1' }}"); do
+            echo "== round $R"
+            LIMIT="${{ github.event.inputs.limit || '120' }}" python3 pipeline/photos.py photos/places data data-auto
+            [ "$(cat photos/places/.tried)" = "0" ] && { echo "Nothing left to try."; break; }
+          done
+          rm -f photos/places/.tried
       - name: Commit and open or update the pull request
         env:
           GH_TOKEN: ${{ github.token }}
