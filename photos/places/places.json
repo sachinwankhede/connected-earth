@@ -39,14 +39,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Chesapeakelandsat.jpeg",
 "w": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
 },
-"Congo Basin": {
-"f": "congo.jpg",
-"a": "Kmusser",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Congobasinmap.png",
-"w": "https://en.wikipedia.org/wiki/Congo_Basin"
-},
 "Everglades National Park": {
 "f": "everglades.jpg",
 "a": "Everglades NPS from Homestead, Florida, United States",
@@ -575,14 +567,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Zion_angels_landing_view.jpg",
 "w": "https://en.wikipedia.org/wiki/Zion_National_Park"
 },
-"Ozark National Scenic Riverways": {
-"f": "ozarks.jpg",
-"a": "Original content by Kbh3rd plus inclusion of the work Map_of_USA_MO.svg originally created by en:User:Wapcaplet",
-"l": "CC BY 3.0",
-"lu": "https://creativecommons.org/licenses/by/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:MO_locator_ONSR_%2B_EP_NWSR.png",
-"w": "https://en.wikipedia.org/wiki/Ozark_National_Scenic_Riverways"
-},
 "Hoh Rain Forest": {
 "f": "pnwrainforest.jpg",
 "a": "User:Doug Dolde",
@@ -678,14 +662,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:An_Outpost_for_Evolution_at_Aldabra_Atoll.jpg",
 "w": "https://en.wikipedia.org/wiki/Aldabra"
-},
-"Banc d'Arguin National Park": {
-"f": "wharguin.jpg",
-"a": "Unknown author",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Bancdarguin_map_lg.jpg",
-"w": "https://en.wikipedia.org/wiki/Banc_d%27Arguin_National_Park"
 },
 "Bale Mountains National Park": {
 "f": "whbale.jpg",
@@ -1567,14 +1543,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ple%C5%A1n%C3%A9_jezero.jpg",
 "w": "https://en.wikipedia.org/wiki/%C5%A0umava_National_Park"
 },
-"Lake Abbe": {
-"f": "xdjibouti.jpg",
-"a": "Skilla1st",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Lake_Abbe_Map.png",
-"w": "https://en.wikipedia.org/wiki/Lake_Abbe"
-},
 "Los Haitises National Park": {
 "f": "xdomrep.jpg",
 "a": "Anton Bielousov",
@@ -1678,14 +1646,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:L%27Archipel_des_Bijagos_vu_par_Sentinel_2.jpg",
 "w": "https://en.wikipedia.org/wiki/Bijag%C3%B3s_Islands"
-},
-"Pic Macaya National Park": {
-"f": "xhaiti.jpg",
-"a": "Angela268",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Pic_Macaya_national_park_topographic_map.jpg",
-"w": "https://en.wikipedia.org/wiki/Pic_Macaya_National_Park"
 },
 "Río Plátano Biosphere Reserve": {
 "f": "xhonduras.jpg",
@@ -1935,14 +1895,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Top_of_El_Yunque%2C_from_the_Yokah%C3%BA_Tower%2C_an_observation_tower_built_in_1963_%28cropped%29.jpg",
 "w": "https://en.wikipedia.org/wiki/El_Yunque_National_Forest"
 },
-"Al Reem Biosphere Reserve": {
-"f": "xqatar.jpg",
-"a": "Davide Mauro",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Al_Reem_Biosphere_Reserve_map.jpg",
-"w": "https://en.wikipedia.org/wiki/Al_Reem_Biosphere_Reserve"
-},
 "Farasan Islands": {
 "f": "xsaudi.jpg",
 "a": "NASA/Terry Virts",
@@ -2135,14 +2087,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Konza1.jpg",
 "w": "https://en.wikipedia.org/wiki/Konza_Prairie_Biological_Station"
 },
-"Pascagoula River": {
-"f": "xusms.jpg",
-"a": "Kmusser",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Pascagoularivermap.png",
-"w": "https://en.wikipedia.org/wiki/Pascagoula_River"
-},
 "Platte River": {
 "f": "xusne.jpg",
 "a": "Babymestizo",
@@ -2206,14 +2150,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Sentob_valley.jpg",
 "w": "https://en.wikipedia.org/wiki/Nuratau_Mountains"
-},
-"Espiritu Santo": {
-"f": "xvanuatu.jpg",
-"a": "United States Bureau of Yards and Docks",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Map_of_Espiritu_Santo.jpg",
-"w": "https://en.wikipedia.org/wiki/Espiritu_Santo"
 },
 "South Luangwa National Park": {
 "f": "xzambia.jpg",
@@ -2910,5 +2846,941 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Marshes_and_woodlands_of_Agassiz_National_Wildlife_Refuge.jpg",
 "w": "https://en.wikipedia.org/wiki/Agassiz_National_Wildlife_Refuge"
+},
+"Alligator River National Wildlife Refuge": {
+"f": "usalligatorrivernational.jpg",
+"a": "U.S. Fish and Wildlife Service Headquarters",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Point_Peter_aerial_photo_%285687225461%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Alligator_River_National_Wildlife_Refuge"
+},
+"Apache National Forest": {
+"f": "usapachenationalforest.jpg",
+"a": "Forest Service from USA",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Apache_National_Forest_%285532623292%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Apache_National_Forest"
+},
+"Apostle Islands National Lakeshore": {
+"f": "usapostleislandsnational.jpg",
+"a": "NPS Photo",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Big_waves_on_Devils_Island_shoreline_%28e99f5cd1-548c-439d-962d-0c03204c2bf8%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Apostle_Islands_National_Lakeshore"
+},
+"Arapaho National Wildlife Refuge": {
+"f": "usarapahonationalwildlif.jpg",
+"a": "Matthew Trump",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:DSCN2554_arapahonatlwildliferefuge_600.jpg",
+"w": "https://en.wikipedia.org/wiki/Arapaho_National_Wildlife_Refuge"
+},
+"Aroostook National Wildlife Refuge": {
+"f": "usaroostooknationalwildl.jpg",
+"a": "U. S. Fish and Wildlife Service - Northeast Region",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Photo_of_the_Week_-_Moose_in_mist_%28ME%29_%2812637633223%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Aroostook_National_Wildlife_Refuge"
+},
+"Baca National Wildlife Refuge": {
+"f": "usbacanationalwildlifere.jpg",
+"a": "Fred Bauder",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:BacaView.jpg",
+"w": "https://en.wikipedia.org/wiki/Baca_National_Wildlife_Refuge"
+},
+"Benton Lake National Wildlife Refuge": {
+"f": "usbentonlakenationalwild.jpg",
+"a": "USFWS Mountain-Prairie",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_photograph_of_Benton_Lake_%288600350473%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Benton_Lake_National_Wildlife_Refuge"
+},
+"Bitter Creek National Wildlife Refuge": {
+"f": "usbittercreeknationalwil.jpg",
+"a": "Pacific Southwest Region from Sacramento, US",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:California_condor_at_Bitter_Creek_NWR_%286391185515%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Bitter_Creek_National_Wildlife_Refuge"
+},
+"Bitter Lake National Wildlife Refuge": {
+"f": "usbitterlakenationalwild.jpg",
+"a": "J Dykstra",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bitter_Lakes_New_Mexico.jpg",
+"w": "https://en.wikipedia.org/wiki/Bitter_Lake_National_Wildlife_Refuge"
+},
+"Black Hills National Forest": {
+"f": "usblackhillsnationalfore.jpg",
+"a": "Jake DeGroot",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Needles_from_Harney_Peak.JPG",
+"w": "https://en.wikipedia.org/wiki/Black_Hills_National_Forest"
+},
+"Boise National Forest": {
+"f": "usboisenationalforest.jpg",
+"a": "U.S. Forest Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Boise_National_Forest_10_%28cropped%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Boise_National_Forest"
+},
+"Buffalo Lake National Wildlife Refuge": {
+"f": "usbuffalolakenationalwil.jpg",
+"a": "Leaflet",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Buffalo_Lake_Texas_Blind_2009.jpg",
+"w": "https://en.wikipedia.org/wiki/Buffalo_Lake_National_Wildlife_Refuge"
+},
+"Cape May National Wildlife Refuge": {
+"f": "uscapemaynationalwildlif.jpg",
+"a": "Zeete",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cape_May_NWR_-_Office.jpg",
+"w": "https://en.wikipedia.org/wiki/Cape_May_National_Wildlife_Refuge"
+},
+"Cape Romain National Wildlife Refuge": {
+"f": "uscaperomainnationalwild.jpg",
+"a": "Billy Shaw/USFWS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Terns_on_Cape_Island.JPG",
+"w": "https://en.wikipedia.org/wiki/Cape_Romain_National_Wildlife_Refuge"
+},
+"Chattahoochee National Forest": {
+"f": "uschattahoocheenationalf.jpg",
+"a": "Thomson200",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Cool_Springs_Overlook%2C_Fort_Mountain%2C_Georgia_April_2016.jpg",
+"w": "https://en.wikipedia.org/wiki/Chattahoochee%E2%80%93Oconee_National_Forest"
+},
+"Chautauqua National Wildlife Refuge": {
+"f": "uschautauquanationalwild.jpg",
+"a": "Photo by Jacob Randa/USFWS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Chautauqua_NWR_Snow_Geese.jpg",
+"w": "https://en.wikipedia.org/wiki/Chautauqua_National_Wildlife_Refuge"
+},
+"Chequamegon National Forest": {
+"f": "uschequamegonnationalfor.jpg",
+"a": "MDuchek",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:BlackjackSpringsWilderness.jpg",
+"w": "https://en.wikipedia.org/wiki/Chequamegon%E2%80%93Nicolet_National_Forest"
+},
+"Cherokee National Forest": {
+"f": "uscherokeenationalforest.jpg",
+"a": "AppalachianCentrist",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Chimney_Rocks_-_Cherokee_National_Forest_-_Del_Rio%2C_TN.jpg",
+"w": "https://en.wikipedia.org/wiki/Cherokee_National_Forest"
+},
+"Chimborazo Park": {
+"f": "uschimborazopark.jpg",
+"a": "Taber Andrew Bain from Richmond, Virginia",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lady_Liberty_of_Chimborazo.jpg",
+"w": "https://en.wikipedia.org/wiki/Chimborazo_Park"
+},
+"Coconino National Forest": {
+"f": "uscoconinonationalforest.jpg",
+"a": "Bob Blasi; Coconino National Forest",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:San_Francisco_Peaks%2C_winter.jpg",
+"w": "https://en.wikipedia.org/wiki/Coconino_National_Forest"
+},
+"Columbia National Wildlife Refuge": {
+"f": "uscolumbianationalwildli.jpg",
+"a": "stevevoght",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Drumheller_Channels_National_Natural_Landmark_overlook.jpg",
+"w": "https://en.wikipedia.org/wiki/Columbia_National_Wildlife_Refuge"
+},
+"Comanche National Grassland": {
+"f": "uscomanchenationalgrassl.jpg",
+"a": "Jeffrey Beall",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Comanche_National_Grassland.JPG",
+"w": "https://en.wikipedia.org/wiki/Comanche_National_Grassland"
+},
+"Crab Orchard National Wildlife Refuge": {
+"f": "uscraborchardnationalwil.jpg",
+"a": "Paul Sableman from St. Louis, MO",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Crab_Orchard_Lake.jpg",
+"w": "https://en.wikipedia.org/wiki/Crab_Orchard_National_Wildlife_Refuge"
+},
+"Crescent Lake National Wildlife Refuge": {
+"f": "uscrescentlakenationalwi.jpg",
+"a": "Leupold, James C.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pronghorn_Antelope_USFWS.jpg",
+"w": "https://en.wikipedia.org/wiki/Crescent_Lake_National_Wildlife_Refuge"
+},
+"Croatan National Forest": {
+"f": "uscroatannationalforest.jpg",
+"a": "Bill Lea",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Patsy_pond_croatan_nf.jpg",
+"w": "https://en.wikipedia.org/wiki/Croatan_National_Forest"
+},
+"Crooked River National Grassland": {
+"f": "uscrookedrivernationalgr.jpg",
+"a": "U.S. Forest Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Crooked_River_National_Grassland.jpg",
+"w": "https://en.wikipedia.org/wiki/Crooked_River_National_Grassland"
+},
+"Curlew National Grassland": {
+"f": "uscurlewnationalgrasslan.jpg",
+"a": "Ken Timothy",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mule_Deer_Curlew.jpg",
+"w": "https://en.wikipedia.org/wiki/Curlew_National_Grassland"
+},
+"Desoto National Wildlife Refuge": {
+"f": "usdesotonationalwildlife.jpg",
+"a": "US Army Corps of Engineers (Omaha)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Calhoun-desoto-Corp_of_Eng._6-20-11-A_386.JPG",
+"w": "https://en.wikipedia.org/wiki/DeSoto_National_Wildlife_Refuge"
+},
+"Dixie National Forest": {
+"f": "usdixienationalforest.jpg",
+"a": "Joseph Cesare",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:RedRockUtah.jpg",
+"w": "https://en.wikipedia.org/wiki/Dixie_National_Forest"
+},
+"Ebey's Landing National Historical Reserve": {
+"f": "usebeyslandingnationalhi.jpg",
+"a": "Blervis",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Ebey%27s_Landing_Fall_2024.jpg",
+"w": "https://en.wikipedia.org/wiki/Ebey%27s_Landing_National_Historical_Reserve"
+},
+"Edwin B. Forsythe National Wildlife Refuge": {
+"f": "usedwinbforsythenational.jpg",
+"a": "Hornbaker Chelsi, U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Holgate_beach_bulkhead.jpg",
+"w": "https://en.wikipedia.org/wiki/Edwin_B._Forsythe_National_Wildlife_Refuge"
+},
+"Fish Springs National Wildlife Refuge": {
+"f": "usfishspringsnationalwil.jpg",
+"a": "David Jolley Staplegunther (talk).",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Fish_Springs_Utah.jpg",
+"w": "https://en.wikipedia.org/wiki/Fish_Springs_National_Wildlife_Refuge"
+},
+"Fossil Butte National Monument": {
+"f": "usfossilbuttenationalmon.jpg",
+"a": "TigerScientist",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Fossil_Butte_National_Monument_entrance_sign.jpg",
+"w": "https://en.wikipedia.org/wiki/Fossil_Butte_National_Monument"
+},
+"Francis Marion National Forest": {
+"f": "usfrancismarionnationalf.jpg",
+"a": "Daniel Barcelona",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Francis_Marion_NF1.jpg",
+"w": "https://en.wikipedia.org/wiki/Francis_Marion_National_Forest"
+},
+"Gateway Arch National Park": {
+"f": "usgatewayarchnationalpar.jpg",
+"a": "Lewis Hulbert",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Gateway_Arch%2C_St._Louis.jpg",
+"w": "https://en.wikipedia.org/wiki/Gateway_Arch_National_Park"
+},
+"George Washington National Forest": {
+"f": "usgeorgewashingtonnation.jpg",
+"a": "Aneta Kaluzna",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:White_Rocks_Little_Sluice_Mountain_GWNF.jpg",
+"w": "https://en.wikipedia.org/wiki/George_Washington_and_Jefferson_National_Forests"
+},
+"Gifford Pinchot National Forest": {
+"f": "usgiffordpinchotnational.jpg",
+"a": "Walter Siegmund (talk)",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:OldSnowy_15A.JPG",
+"w": "https://en.wikipedia.org/wiki/Gifford_Pinchot_National_Forest"
+},
+"Gila National Forest": {
+"f": "usgilanationalforest.jpg",
+"a": "Zereshk",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Gila_Natl_Forest_Nima1.JPG",
+"w": "https://en.wikipedia.org/wiki/Gila_National_Forest"
+},
+"Hart Mountain National Antelope Refuge": {
+"f": "ushartmountainnationalan.jpg",
+"a": "atul666",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hart_Mountain_National_Antelope_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Hart_Mountain_National_Antelope_Refuge"
+},
+"Hiawatha National Forest": {
+"f": "ushiawathanationalforest.jpg",
+"a": "© 2004 Matthew Trump",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Hiawatha_National_Forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Hiawatha_National_Forest"
+},
+"Hoosier National Forest": {
+"f": "ushoosiernationalforest.jpg",
+"a": "Quentin Melson",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hoosier_National_Forest_Sign.jpg",
+"w": "https://en.wikipedia.org/wiki/Hoosier_National_Forest"
+},
+"Horicon National Wildlife Refuge": {
+"f": "ushoriconnationalwildlif.jpg",
+"a": "Allen C from Prairie du Sac, WI, USA",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:HoriconMarshBoardwalk.jpg",
+"w": "https://en.wikipedia.org/wiki/Horicon_Marsh"
+},
+"Iroquois National Wildlife Refuge": {
+"f": "usiroquoisnationalwildli.jpg",
+"a": "U. S. Fish and Wildlife Service - Northeast Region",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Iroquois_National_Wildlife_Refuge%2C_New_York._Credit-_USFWS_%2811738370896%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Iroquois_National_Wildlife_Refuge"
+},
+"J. Clark Salyer National Wildlife Refuge": {
+"f": "usjclarksalyernationalwi.jpg",
+"a": "USFWS Mountain-Prairie",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Swan_Family_%2815678398946%29.jpg",
+"w": "https://en.wikipedia.org/wiki/J._Clark_Salyer_National_Wildlife_Refuge"
+},
+"Jefferson National Forest": {
+"f": "usjeffersonnationalfores.jpg",
+"a": "Aneta Kaluzna",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:White_Rocks_Little_Sluice_Mountain_GWNF.jpg",
+"w": "https://en.wikipedia.org/wiki/George_Washington_and_Jefferson_National_Forests"
+},
+"Kaibab National Forest": {
+"f": "uskaibabnationalforest.jpg",
+"a": "Kaibab National Forest",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:DeMotte_Campground_in_the_Fall%2C_North_Kaibab_Ranger_District_%285055024279%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Kaibab_National_Forest"
+},
+"Klamath Marsh National Wildlife Refuge": {
+"f": "usklamathmarshnationalwi.jpg",
+"a": "Pacific Southwest Region U.S. Fish and Wildlife Service, photographer unknown",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Klamath_Marsh_and_Mount_Thielsen.jpg",
+"w": "https://en.wikipedia.org/wiki/Klamath_Marsh_National_Wildlife_Refuge"
+},
+"Kofa National Wildlife Refuge": {
+"f": "uskofanationalwildlifere.jpg",
+"a": "U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bighornsheep_kofa_nwr.jpg",
+"w": "https://en.wikipedia.org/wiki/Kofa_National_Wildlife_Refuge"
+},
+"Lake Chelan National Recreation Area": {
+"f": "uslakechelannationalrecr.jpg",
+"a": "National Park Service Digital Image Archives",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Chelan_National_Recreation_Area_LACH7098.jpg",
+"w": "https://en.wikipedia.org/wiki/Lake_Chelan_National_Recreation_Area"
+},
+"Lincoln National Forest": {
+"f": "uslincolnnationalforest.jpg",
+"a": "Dsw3131",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lincoln_National_Forest_along_Crest_Trail-Terrain.jpg",
+"w": "https://en.wikipedia.org/wiki/Lincoln_National_Forest"
+},
+"Little Missouri National Grassland": {
+"f": "uslittlemissourinational.jpg",
+"a": "Travellers & Tinkers",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:I94NatlGrassland.jpg",
+"w": "https://en.wikipedia.org/wiki/Little_Missouri_National_Grassland"
+},
+"Little Pend Oreille National Wildlife Refuge": {
+"f": "uslittlependoreillenatio.jpg",
+"a": "Dan Brauner, LPO NWR",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Little_Pend_Oreille_NWR_snow.jpg",
+"w": "https://en.wikipedia.org/wiki/Little_Pend_Oreille_National_Wildlife_Refuge"
+},
+"Lolo National Forest": {
+"f": "uslolonationalforest.jpg",
+"a": "rainy-lake.jpg, linked at http://www.fs.fed.us/r1/lolo/recreation/",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Rainy_Lake_in_Lolo_National_Forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Lolo_National_Forest"
+},
+"Los Padres National Forest": {
+"f": "uslospadresnationalfores.jpg",
+"a": "Taken by Antandrus",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Los_Padres_S.jpg",
+"w": "https://en.wikipedia.org/wiki/Los_Padres_National_Forest"
+},
+"Lost Trail National Wildlife Refuge": {
+"f": "uslosttrailnationalwildl.jpg",
+"a": "USFWS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lost_Trail_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Lost_Trail_National_Wildlife_Refuge"
+},
+"Lower Klamath National Wildlife Refuge": {
+"f": "uslowerklamathnationalwi.jpg",
+"a": "Frank Schulenburg",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lower_Klamath_National_Wildlife_Refuge%2C_January_2022-2001.jpg",
+"w": "https://en.wikipedia.org/wiki/Lower_Klamath_National_Wildlife_Refuge"
+},
+"Lyndon B. Johnson National Grassland": {
+"f": "uslyndonbjohnsonnational.jpg",
+"a": "Eapender at English Wikipedia",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:LBJ_Grasslands_Hillside.jpg",
+"w": "https://en.wikipedia.org/wiki/Lyndon_B._Johnson_National_Grassland"
+},
+"Maggie L. Walker": {
+"f": "usmaggielwalker.jpg",
+"a": "National Park Service",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Maggie_L_Walker_National_Historic_Site_%2835403023113%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Maggie_L._Walker"
+},
+"Manistee National Forest": {
+"f": "usmanisteenationalforest.jpg",
+"a": "RomanKahler",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Red_Pines_in_the_Manistee_National_Forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Manistee_National_Forest"
+},
+"Mark Twain National Forest": {
+"f": "usmarktwainnationalfores.jpg",
+"a": "Kbh3rd",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:St._Francis_River_at_Silver_Mines_Recreation_Area_2.jpg",
+"w": "https://en.wikipedia.org/wiki/Mark_Twain_National_Forest"
+},
+"Maxwell National Wildlife Refuge": {
+"f": "usmaxwellnationalwildlif.jpg",
+"a": "Z Glyph",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Maxwell_National_Wildlife_Refuge%2C_October_2015_-_panoramio.jpg",
+"w": "https://en.wikipedia.org/wiki/Maxwell_National_Wildlife_Refuge"
+},
+"Mendocino National Forest": {
+"f": "usmendocinonationalfores.jpg",
+"a": "Marcia Wright",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Rattlesnake_creek.jpg",
+"w": "https://en.wikipedia.org/wiki/Mendocino_National_Forest"
+},
+"Mingo National Wildlife Refuge": {
+"f": "usmingonationalwildlifer.jpg",
+"a": "USFWSmidwest",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mingo_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Mingo_National_Wildlife_Refuge"
+},
+"Modoc National Forest": {
+"f": "usmodocnationalforest.jpg",
+"a": "Jim Gumm",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Modoc_National_Forest.jpg",
+"w": "https://en.wikipedia.org/wiki/Modoc_National_Forest"
+},
+"Mojave National Preserve": {
+"f": "usmojavenationalpreserve.jpg",
+"a": "InyoCima",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Cima_Road-Mojave_National_Preserve.JPG",
+"w": "https://en.wikipedia.org/wiki/Mojave_National_Preserve"
+},
+"Monomoy National Wildlife Refuge": {
+"f": "usmonomoynationalwildlif.jpg",
+"a": "James T. Weliver; U. S. Fish and Wildlife Service - Northeast Region",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Tern_at_monomoy.jpg",
+"w": "https://en.wikipedia.org/wiki/Monomoy_National_Wildlife_Refuge"
+},
+"Monte Vista National Wildlife Refuge": {
+"f": "usmontevistanationalwild.jpg",
+"a": "U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Monte_Vista_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Monte_Vista_National_Wildlife_Refuge"
+},
+"Moosehorn National Wildlife Refuge": {
+"f": "usmoosehornnationalwildl.jpg",
+"a": "Credit: USFWS",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Moosehorn_national_wildlife_refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Moosehorn_National_Wildlife_Refuge"
+},
+"Nebraska National Forest": {
+"f": "usnebraskanationalforest.jpg",
+"a": "Bkell",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Nebraska_National_Forest%2C_Bessey_Ranger_District%2C_no._5.jpg",
+"w": "https://en.wikipedia.org/wiki/Nebraska_National_Forest"
+},
+"Oconee National Forest": {
+"f": "usoconeenationalforest.jpg",
+"a": "Thomson200",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Cool_Springs_Overlook%2C_Fort_Mountain%2C_Georgia_April_2016.jpg",
+"w": "https://en.wikipedia.org/wiki/Chattahoochee%E2%80%93Oconee_National_Forest"
+},
+"Ohio River Islands National Wildlife Refuge": {
+"f": "usohioriverislandsnation.jpg",
+"a": "Butler Janet, U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:An_aerial_view_of_the_ohio_river_islands_national_wildlife_refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Ohio_River_Islands_National_Wildlife_Refuge"
+},
+"Oregon Caves National Monument and Preserve": {
+"f": "usoregoncavesnationalmon.jpg",
+"a": "Oregon Caves from Cave Junction, USA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Paradise_Lost_%289939473016%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Oregon_Caves_National_Monument_and_Preserve"
+},
+"Ottawa National Forest": {
+"f": "usottawanationalforest.jpg",
+"a": "Joseph O'Brien, USDA Forest Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pinus_strobus_Syvania.jpg",
+"w": "https://en.wikipedia.org/wiki/Ottawa_National_Forest"
+},
+"Ottawa National Wildlife Refuge": {
+"f": "usottawanationalwildlife.jpg",
+"a": "U.S. Fish and Wildlife Service Headquarters",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sandhill_crane_%289151947909%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Ottawa_National_Wildlife_Refuge"
+},
+"Ouachita National Forest": {
+"f": "usouachitanationalforest.jpg",
+"a": "Aaron Walden",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Ouachitanationalforestpicture.jpg",
+"w": "https://en.wikipedia.org/wiki/Ouachita_National_Forest"
+},
+"Pee Dee National Wildlife Refuge": {
+"f": "uspeedeenationalwildlife.jpg",
+"a": "ncwetlands.org",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Scene_Sullivan_impndmnt_PeeDee_NWR_ncwetlands_KG_%283%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Pee_Dee_National_Wildlife_Refuge"
+},
+"Piedmont National Wildlife Refuge": {
+"f": "uspiedmontnationalwildli.jpg",
+"a": "Chris M Morris",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Little_Falling_Creek_%285746324069%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Piedmont_National_Wildlife_Refuge"
+},
+"Plumas National Forest": {
+"f": "usplumasnationalforest.jpg",
+"a": "Plumas National Forest",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Bucks_Lake.jpg",
+"w": "https://en.wikipedia.org/wiki/Plumas_National_Forest"
+},
+"Pocosin Lakes National Wildlife Refuge": {
+"f": "uspocosinlakesnationalwi.jpg",
+"a": "Eric H. Christensen",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pocosin_Lakes_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Pocosin_Lakes_National_Wildlife_Refuge"
+},
+"Port Louisa National Wildlife Refuge": {
+"f": "usportlouisanationalwild.jpg",
+"a": "USFWSmidwest",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Mississippi_River_Sunrise_%2830213605624%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Port_Louisa_National_Wildlife_Refuge"
+},
+"Quivira National Wildlife Refuge": {
+"f": "usquiviranationalwildlif.jpg",
+"a": "Ngresonance at English Wikipedia",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Quivirabirds.jpg",
+"w": "https://en.wikipedia.org/wiki/Quivira_National_Wildlife_Refuge"
+},
+"Red Rock Lakes National Wildlife Refuge": {
+"f": "usredrocklakesnationalwi.jpg",
+"a": "Austin Lynch",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Red_Rock_Lakes_NWR_Entrance.jpg",
+"w": "https://en.wikipedia.org/wiki/Red_Rock_Lakes_National_Wildlife_Refuge"
+},
+"Rice Lake National Wildlife Refuge": {
+"f": "usricelakenationalwildli.jpg",
+"a": "Unknown authorUnknown author or not provided",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Rice_shacks_on_Big_Rice_Lake%2C_Aitken_County%2C_Minnesota_-_NARA_-_285209.jpg",
+"w": "https://en.wikipedia.org/wiki/Rice_Lake_National_Wildlife_Refuge"
+},
+"Rocky Mountain Arsenal National Wildlife Refuge": {
+"f": "usrockymountainarsenalna.jpg",
+"a": "Oborseth",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mule-deer.jpg",
+"w": "https://en.wikipedia.org/wiki/Rocky_Mountain_Arsenal_National_Wildlife_Refuge"
+},
+"Routt National Forest": {
+"f": "usrouttnationalforest.jpg",
+"a": "Wusel007",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Esterbrook_Medicine_Bow_NF.jpg",
+"w": "https://en.wikipedia.org/wiki/Medicine_Bow%E2%80%93Routt_National_Forest"
+},
+"Salt Plains National Wildlife Refuge": {
+"f": "ussaltplainsnationalwild.jpg",
+"a": "Shujianyang",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Salt_Plains_of_Oklahoma.jpg",
+"w": "https://en.wikipedia.org/wiki/Salt_Plains_National_Wildlife_Refuge"
+},
+"Sam D. Hamilton Noxubee National Wildlife Refuge": {
+"f": "ussamdhamiltonnoxubeenat.jpg",
+"a": "U.S. Fish and Wildlife Service Southeast Region",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sam_D._Hamilton_Noxubee_sign_%287420064372%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Sam_D._Hamilton_Noxubee_National_Wildlife_Refuge"
+},
+"San Bernardino National Forest": {
+"f": "ussanbernardinonationalf.jpg",
+"a": "Scottthezombie (talk) (Transferred by JaumeBG/Originally uploaded by Scottthezombie)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:PineTreesInBigBear.JPG",
+"w": "https://en.wikipedia.org/wiki/San_Bernardino_National_Forest"
+},
+"San Juan National Forest": {
+"f": "ussanjuannationalforest.jpg",
+"a": "National Park Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:San_Juan_National_Forest.jpg",
+"w": "https://en.wikipedia.org/wiki/San_Juan_National_Forest"
+},
+"San Luis National Wildlife Refuge": {
+"f": "ussanluisnationalwildlif.jpg",
+"a": "Hank chapot at English Wikipedia",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:San_Luis_National_Wildlife_Refuge.JPG",
+"w": "https://en.wikipedia.org/wiki/San_Luis_National_Wildlife_Refuge"
+},
+"Seedskadee National Wildlife Refuge": {
+"f": "usseedskadeenationalwild.jpg",
+"a": "Tom Koerner/USFWS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Seedskadee_nwr_sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Seedskadee_National_Wildlife_Refuge"
+},
+"Seney National Wildlife Refuge": {
+"f": "usseneynationalwildlifer.jpg",
+"a": "Hollingsworth, John and Karen",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pinus_resinosa_forest_USFWS.jpg",
+"w": "https://en.wikipedia.org/wiki/Seney_National_Wildlife_Refuge"
+},
+"Sevilleta National Wildlife Refuge": {
+"f": "ussevilletanationalwildl.jpg",
+"a": "U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:A_group_of_pronghorns_frolic_antilocapra_americana.jpg",
+"w": "https://en.wikipedia.org/wiki/Sevilleta_National_Wildlife_Refuge"
+},
+"Shawnee National Forest": {
+"f": "usshawneenationalforest.jpg",
+"a": "Daniel Schwen",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Garden_of_the_Gods_Sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Shawnee_National_Forest"
+},
+"Sheldon National Wildlife Refuge": {
+"f": "ussheldonnationalwildlif.jpg",
+"a": "Famartin",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:2014-07-06_15_18_34_Desert_near_an_old_windmill_along_Nevada_State_Route_140_%28Adel_Road%29_near_the_eastern_edge_of_the_Sheldon_National_Wildlife_Refuge%2C_Nevada.JPG",
+"w": "https://en.wikipedia.org/wiki/Sheldon_National_Wildlife_Refuge"
+},
+"Sherburne National Wildlife Refuge": {
+"f": "ussherburnenationalwildl.jpg",
+"a": "Lorie Shaull",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Coyote_walking_on_iced-over_pond_at_Sherburne_National_Wildlife_Refugee%2C_Minnesota.jpg",
+"w": "https://en.wikipedia.org/wiki/Sherburne_National_Wildlife_Refuge"
+},
+"Sheyenne National Grassland": {
+"f": "ussheyennenationalgrassl.jpg",
+"a": "Zlew42",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Sheyenne_National_Grassland_Entrance.jpg",
+"w": "https://en.wikipedia.org/wiki/Sheyenne_National_Grassland"
+},
+"Shiawassee National Wildlife Refuge": {
+"f": "usshiawasseenationalwild.jpg",
+"a": "Drdpw",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:SNWR-072015f.jpg",
+"w": "https://en.wikipedia.org/wiki/Shiawassee_National_Wildlife_Refuge"
+},
+"Sonny Bono Salton Sea National Wildlife Refuge": {
+"f": "ussonnybonosaltonseanati.jpg",
+"a": "U.S. Fish and Wildlife Service",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Sonny_Bono_Salton_Sea_National_Wildlife_Refuge_-_Waterfowl_at_Hazard_Ponds.png",
+"w": "https://en.wikipedia.org/wiki/Sonny_Bono_Salton_Sea_National_Wildlife_Refuge"
+},
+"Stillwater National Wildlife Refuge": {
+"f": "usstillwaternationalwild.jpg",
+"a": "USFWS",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Stillwater_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Stillwater_National_Wildlife_Refuge"
+},
+"Sunkhaze Meadows National Wildlife Refuge": {
+"f": "ussunkhazemeadowsnationa.jpg",
+"a": "Fredlyfish4",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sunkhaze_Meadows_National_Wildlife_Refuge.JPG",
+"w": "https://en.wikipedia.org/wiki/Sunkhaze_Meadows_National_Wildlife_Refuge"
+},
+"Superior National Forest": {
+"f": "ussuperiornationalforest.jpg",
+"a": "No machine-readable author provided. MisterSquirrel~commonswiki assumed (based on copyright claims).",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:View_from_Eagle_Mountain_Minnesota.jpg",
+"w": "https://en.wikipedia.org/wiki/Superior_National_Forest"
+},
+"Talladega National Forest": {
+"f": "ustalladeganationalfores.jpg",
+"a": "Amann09 (talk · contribs)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Cheaha_Lake_in_the_Fall.jpg",
+"w": "https://en.wikipedia.org/wiki/Talladega_National_Forest"
+},
+"Tamarac National Wildlife Refuge": {
+"f": "ustamaracnationalwildlif.jpg",
+"a": "USFWS Midwest",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Tamarac_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Tamarac_National_Wildlife_Refuge"
+},
+"Tensas River National Wildlife Refuge": {
+"f": "ustensasrivernationalwil.jpg",
+"a": "Timothy Holdiness",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Tensas_River_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Tensas_River_National_Wildlife_Refuge"
+},
+"Thunder Basin National Grassland": {
+"f": "usthunderbasinnationalgr.jpg",
+"a": "U.S. Department of Agriculture",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Thunder_Basin_National_Grassland_%2848431873601%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Thunder_Basin_National_Grassland"
+},
+"Tonto National Forest": {
+"f": "ustontonationalforest.jpg",
+"a": "Janet Ward, NOAA.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Desert_Foliage_And_Canyon_In_Arizona.jpg",
+"w": "https://en.wikipedia.org/wiki/Tonto_National_Forest"
+},
+"Umbagog National Wildlife Refuge": {
+"f": "usumbagognationalwildlif.jpg",
+"a": "U.S. Fish and Wildlife Service Headquarters",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Umbagog_National_Wildlife_Refuge%2C_ME_%285626757865%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Umbagog_National_Wildlife_Refuge"
+},
+"Uwharrie National Forest": {
+"f": "usuwharrienationalforest.jpg",
+"a": "US Forest Service - Southern Region",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kings_Mountain_Point.jpg",
+"w": "https://en.wikipedia.org/wiki/Uwharrie_National_Forest"
+},
+"Valentine National Wildlife Refuge": {
+"f": "usvalentinenationalwildl.jpg",
+"a": "USFWS Mountain-Prairie",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Valentine_National_Wildlife_Refuge_%285393448041%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Valentine_National_Wildlife_Refuge"
+},
+"Waccamaw National Wildlife Refuge": {
+"f": "uswaccamawnationalwildli.jpg",
+"a": "Myrtle Beach TheDigitel",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Waccamaw_National_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Waccamaw_National_Wildlife_Refuge"
+},
+"Wenatchee National Forest": {
+"f": "uswenatcheenationalfores.jpg",
+"a": "Miguel Vieira from Walnut Creek, CA, USA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:View_from_Maple_Pass.jpg",
+"w": "https://en.wikipedia.org/wiki/Okanogan%E2%80%93Wenatchee_National_Forest"
+},
+"White River National Forest": {
+"f": "uswhiterivernationalfore.jpg",
+"a": "U.S. Department of Agriculture",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:20111025-FS-SM-0002_-_Flickr_-_USDAgov.jpg",
+"w": "https://en.wikipedia.org/wiki/White_River_National_Forest"
+},
+"Wichita Mountains Wildlife Refuge": {
+"f": "uswichitamountainswildli.jpg",
+"a": "U.S. Fish and Wildlife Service Headquarters",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Coreopsis%2C_Wichita_Mountains_Wildlife_Refuge.jpg",
+"w": "https://en.wikipedia.org/wiki/Wichita_Mountains_Wildlife_Refuge"
+},
+"Willamette National Forest": {
+"f": "uswillamettenationalfore.jpg",
+"a": "Matthew Trump",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Breitenbush_River_in_western_Oregon%2C_north_of_Detroit.jpg",
+"w": "https://en.wikipedia.org/wiki/Willamette_National_Forest"
+},
+"Willapa National Wildlife Refuge": {
+"f": "uswillapanationalwildlif.jpg",
+"a": "OlympiaBuebird",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Willapa_National_Wildlife_Refuge_01.jpg",
+"w": "https://en.wikipedia.org/wiki/Willapa_National_Wildlife_Refuge"
+},
+"William B. Bankhead National Forest": {
+"f": "uswilliambbankheadnation.jpg",
+"a": "Rian Castillo from Vestavia Hills, USA",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Clear_Creek_Bankhead_NF.jpg",
+"w": "https://en.wikipedia.org/wiki/William_B._Bankhead_National_Forest"
 }
 }
