@@ -1,0 +1,34 @@
+name: data-sync
+# Manual only. Brings a data branch up to date with main when the shared files clash (data/species.json, data-auto/order.json),
+# rebuilds the species table, pushes, and starts the checks on the branch (a push from Actions does not start them by itself).
+# Anything else that clashes stops the run so a person can look.
+on:
+  workflow_dispatch:
+    inputs:
+      branch: { description: "Branch to bring up to date (for example data/states-10b)", required: true }
+permissions:
+  contents: write
+  actions: write
+concurrency: data-sync
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: "${{ github.event.inputs.branch }}", fetch-depth: 0 }
+      - name: Merge main
+        env:
+          BR: ${{ github.event.inputs.branch }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          if git merge --no-edit origin/main; then echo "Merged without clashes."; else python3 pipeline/syncmain.py; fi
+          python3 build/species.py pack
+          git add -A
+          git commit -m "Bring $BR up to date with main" || echo "nothing to commit"
+          git push origin "HEAD:$BR"
+      - name: Start the checks
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BR: ${{ github.event.inputs.branch }}
+        run: gh workflow run ci.yml --ref "$BR"
