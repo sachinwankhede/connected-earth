@@ -37,9 +37,34 @@ jobs:
   deploy:
     needs: verify
     runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.d.outputs.page_url }}
     environment:
       name: github-pages
       url: ${{ steps.d.outputs.page_url }}
     steps:
       - id: d
         uses: actions/deploy-pages@v4
+  live:
+    # After the site is published: load it as a visitor would and fail loudly if a file is missing. Pages can take a minute or two to switch over, so it retries for 3 minutes.
+    needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: The live site serves the page and its data files
+        env:
+          URL: ${{ needs.deploy.outputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}
+        run: |
+          U="${URL%/}/"
+          fail=1
+          for i in $(seq 1 18); do
+            ok=1
+            curl -fsS "$U" | grep -q "Connected Earth" || ok=0
+            curl -fsS "${U}pilot/" | grep -q "Connected Earth" || ok=0
+            curl -fsS "${U}webs/yellowstone.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['nodes'])>5" || ok=0
+            curl -fsS "${U}webs/about.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d)>300" || ok=0
+            curl -fsS "${U}sw.js" | grep -q "atlas-shell-" || ok=0
+            [ $ok = 1 ] && { fail=0; break; }
+            echo "not ready yet (try $i)"; sleep 10
+          done
+          [ $fail = 0 ] && echo "Live site OK: $U" || { echo "::error::The live site is missing files after deploy: $U"; exit 1; }
