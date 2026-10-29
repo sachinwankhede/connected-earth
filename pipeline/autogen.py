@@ -71,8 +71,8 @@ def build(d):
         chosen[c['tl']].append(c); seen.add(c['latin']); gcount[c['g']]+=1
     # Plants are picked above by how often they are recorded. Re-pick them so the plants that the chosen animals are recorded eating
     # (by species or genus) come first: family-level matches alone made over half of all links weak (docs/PROMOTION.md rule 4).
-    # Off unless LINKSWAP=1 (the data-linktest workflow compares before and after; the default is switched on once the numbers are in).
-    if os.environ.get('LINKSWAP','0')=='1':
+    # On by default (LINKSWAP=0 turns it off; the data-linktest workflow compares both). Tested on AR and KY: passing parks 11 to 25 and 4 to 17, family-level share 52% to 22% and 62% to 32%; a 20-link spot check found none wrong.
+    if os.environ.get('LINKSWAP','1')!='0':
         eaters=[c for tl in (2,3,4) for c in chosen[tl]]
         def strong(p):
             n=0
