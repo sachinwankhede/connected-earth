@@ -535,6 +535,37 @@
    ],
    "go": "Fly the route",
    "mark": "🐦"
+  },
+  {
+   "id": "arcticfox",
+   "type": "species",
+   "title": "The Arctic fox that walked to Canada",
+   "ends": [
+    {
+     "eco": "whsvalbard",
+     "node": "fox"
+    },
+    {
+     "eco": "arctic",
+     "node": "arcticfox"
+    }
+   ],
+   "text": "In 2019 a young female Arctic fox, fitted with a GPS tracker on Svalbard, walked to Greenland in 21 days and carried on to Ellesmere Island in Canada: about 3,500 km in 76 days. Foxes in Canada also travel from the Canadian archipelago to Greenland, and foxes in years with few lemmings are more likely to make trips over sea ice.",
+   "imgwiki": "Arctic fox",
+   "when": "The 2019 fox set out from Svalbard in March.",
+   "matters": "Arctic foxes are not stuck on one island. Sea ice links Svalbard, Greenland and Canada, and a fox can cross all three.",
+   "sources": [
+    {
+     "t": "Wikipedia: Arctic fox",
+     "u": "https://en.wikipedia.org/wiki/Arctic_fox"
+    },
+    {
+     "t": "CBS News: Arctic fox walks from Norway to Canada",
+     "u": "https://www.cbsnews.com/news/scientists-speechless-after-arctic-fox-makes-76-day-trek-from-norway-to-canada"
+    }
+   ],
+   "go": "Follow the fox",
+   "mark": "🦊"
   }
  ],
  "order": [
@@ -929,6 +960,17 @@
   "armountnebo",
   "arolddavidsonville",
   "arpinnaclemountain",
-  "arqueenwihelmina"
+  "arqueenwihelmina",
+  "ardaisy",
+  "ardegray",
+  "ardevilsden",
+  "arhobbsstateparkco",
+  "arjacksonport",
+  "arlakecatherine",
+  "arlakecharles",
+  "armillwood",
+  "arpetitjean",
+  "artoltecmoundsarch",
+  "arvillagecreek"
  ]
 }
