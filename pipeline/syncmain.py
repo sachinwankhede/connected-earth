@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """syncmain.py: finish a merge of main into a data branch when the only clashes are the shared files that every data job edits.
   data/species.json   rows from both sides are kept (main's row wins when both changed the same species), then `species.py pack` rebuilds it
-  data/<id>.json, data-auto/<id>.json  merged key by key: the branch keeps its food web (nodes, raw, ev, tip), main keeps everything else
+  data/<id>.json, data-auto/<id>.json  merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
   data-auto/order.json  main's order, then the branch's new ids that are not already in main or promoted to data/
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
@@ -13,14 +13,17 @@ def show(stage, path):
 conf = [l[3:] for l in git('status', '--porcelain').stdout.splitlines() if l[:2] in ('UU', 'AA', 'DU', 'UD')]
 GRAPH = ('nodes', 'raw', 'ev', 'tip')   # the food web: rebuilt by regen branches and rewritten by the species repack
 def merge_place(path):
-    """Key-by-key three-way merge of one place file. A key only one side changed takes that side; when both changed it, the branch keeps its
-    food web (the rebuild is the point of the branch) and main keeps everything else (stories, photos, names). The repack follows."""
+    """Key-by-key three-way merge of one place file. The food web comes from the branch only when the branch rebuilt it (its edges or species ids
+    differ from the base; a repack alone does not), otherwise from main. Any other key: the side that changed it wins, main when both did. The repack follows."""
     base, mine, theirs = show(1, path), show(2, path), show(3, path)
     if not (base and mine and theirs): return False
+    ids = lambda d: [n.get('id') for n in d.get('nodes', [])]
+    rebuilt = (mine.get('raw'), mine.get('ev'), ids(mine)) != (base.get('raw'), base.get('ev'), ids(base))   # the repack alone never changes these
     out = {}
     for k in dict.fromkeys(list(mine) + list(theirs)):
         m, b, t = mine.get(k), base.get(k), theirs.get(k)
-        v = t if m == b else m if t == b else (m if k in GRAPH else t)
+        if k in GRAPH: v = m if rebuilt else t
+        else: v = t if m == b else m if t == b else t
         if (k in mine or k in theirs) and not (v is None and k not in mine and k not in theirs): out[k] = v
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
 taken = [c for c in conf if c.startswith(('data/', 'data-auto/')) and c.count('/') == 1 and c not in ('data/species.json', 'data/links.json', 'data-auto/order.json') and merge_place(c)]
