@@ -141,7 +141,9 @@ def build(pilot, out_path, write=False):
     if write: write_webs(webs, about)
     data = json.dumps({'ecos': light, 'spt': spt, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
-    out = tpl.replace('__LAND__', land).replace('__GEO__', json.dumps(geo, separators=(',', ':'))).replace('__DATA__', data)
+    # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
+    lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
+    out = tpl.replace('__LAND__', land).replace('__GEO__', lit(json.dumps(geo, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
     out = out.replace('/*__MLJS__*/', open(os.path.join(ml, 'maplibre-gl.js')).read())
