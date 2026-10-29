@@ -56,7 +56,7 @@ def state_list(state):
     for t in ('List of %s state parks', 'List of state parks of %s', 'List of state parks in %s', 'List of %s state parks and recreation areas'):
         cont = ''
         while True:
-            d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&prop=links&pllimit=max&plnamespace=0&titles=%s%s' % (urllib.parse.quote(t % state), cont))
+            d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=links&pllimit=max&plnamespace=0&titles=%s%s' % (urllib.parse.quote(t % state), cont))
             for pg in ((d or {}).get('query', {}).get('pages', {})).values(): out += [l['title'] for l in pg.get('links', [])]
             c = (d or {}).get('continue', {}).get('plcontinue')
             if not c: break
