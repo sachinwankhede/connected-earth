@@ -32,8 +32,11 @@ describe('chip dimming follows the map', () => {
       const t = await H.open(browser, H.PILOT, size);
       const places = H.readPlaces(true);
       await check(t, places, false);
-      await t.page.click('#locbtn'); await t.page.waitForTimeout(900);
-      await check(t, places, true);
+      await t.page.click('#locbtn');
+      for (let i = 0; ; i++) {   // the chips settle after the map finishes moving; retry instead of a fixed wait
+        await t.page.waitForTimeout(500);
+        try { await check(t, places, true); break; } catch (e) { if (i >= 8) throw e; }
+      }
       assert.deepEqual(t.errors, []);
       await t.close();
     });
