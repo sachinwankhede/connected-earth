@@ -500,6 +500,41 @@
    ],
    "go": "Fly the route",
    "mark": "🐦"
+  },
+  {
+   "id": "prairiegulf",
+   "type": "species",
+   "title": "Prairie wetlands to the Gulf Coast",
+   "ends": [
+    {
+     "eco": "usagassiznationalwildlif",
+     "node": "redwingedblack"
+    },
+    {
+     "eco": "usgulfislandsnationalsea",
+     "node": "redwingedblack"
+    }
+   ],
+   "text": "Red-winged blackbirds that breed in northern marshes like Agassiz in Minnesota move south for the winter, to the southern United States. Mallards and Canada geese make similar trips, wintering in the southern United States and northern Mexico. Not every bird goes: in mild climates some Canada geese now stay all year.",
+   "imgwiki": "Red-winged blackbird",
+   "when": "Northern birds go south for the winter and return north to breed.",
+   "matters": "Wintering flocks of red-winged blackbirds can top a million birds, so the places where they rest in winter hold huge numbers.",
+   "sources": [
+    {
+     "t": "Wikipedia: Red-winged blackbird",
+     "u": "https://en.wikipedia.org/wiki/Red-winged_blackbird"
+    },
+    {
+     "t": "Wikipedia: Mallard",
+     "u": "https://en.wikipedia.org/wiki/Mallard"
+    },
+    {
+     "t": "Wikipedia: Canada goose",
+     "u": "https://en.wikipedia.org/wiki/Canada_goose"
+    }
+   ],
+   "go": "Fly the route",
+   "mark": "🐦"
   }
  ],
  "order": [
@@ -884,6 +919,7 @@
   "motrailoftears",
   "mowakonda",
   "mowashington",
-  "mowestonbend"
+  "mowestonbend",
+  "usagassiznationalwildlif"
  ]
 }
