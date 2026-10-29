@@ -7,7 +7,7 @@ on:
       states: { description: "Two-letter codes, comma-separated", default: "AR" }
       ref: { description: "Branch with the new plant pick", default: "main" }
 permissions:
-  contents: read
+  contents: write
 concurrency: data-linktest
 jobs:
   test:
@@ -30,5 +30,12 @@ jobs:
             WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
             WORK=$N python3 pipeline/names.py --from-data $N/out > /dev/null 2>&1
             WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
-            python3 pipeline/linkcompare.py $ST $B $N | tee -a "$GITHUB_STEP_SUMMARY"
+            python3 pipeline/linkcompare.py $ST $B $N | tee -a "$GITHUB_STEP_SUMMARY" /tmp/linktest.md
           done
+      - name: Save the result on the research branch
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          cp /tmp/linktest.md /tmp/linktest_new.md
+          if git ls-remote --exit-code --heads origin research >/dev/null 2>&1; then git fetch origin research && git checkout -f -B research origin/research; else git checkout -f -B research; fi
+          mkdir -p research && cp /tmp/linktest_new.md "research/linktest-${GITHUB_RUN_ID}.md"
+          git add research && git commit -m "Link test result" && git push origin research
