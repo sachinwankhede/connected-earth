@@ -8,7 +8,7 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
 def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
 # Files that are logos, seals, flags or drawings are not photos of the place
-NOTPHOTO=re.compile(r'logo|arrowhead|emblem|coat[_ ]of[_ ]arms|seal[_ ]of|(^|[_ ])flag([_ .]|$)|\.svg',re.I)
+NOTPHOTO=re.compile(r'logo|arrowhead|emblem|coat[_ ]of[_ ]arms|seal[_ ]of|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|topograph|locator|diagram|[_ -]chart|waterfowl_counts|(^|[/:])White[_ ]River[_ ]National[_ ]Wildlife[_ ]Refuge\.jpg$',re.I)
 def one(i,title,out,man):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_')))
     th=(j or {}).get('thumbnail')
