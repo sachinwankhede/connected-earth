@@ -14,7 +14,6 @@ MS
 MT
 NC
 ND
-SD
 TX
 UT
 VA

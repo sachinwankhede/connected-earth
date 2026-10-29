@@ -3593,6 +3593,14 @@
   "desc": "Redring milkweed (Asclepias variegata): a plant that turns sunlight into food. Recorded 15 times near the park in GBIF.",
   "ic": "aspen"
  },
+ "asclepias verticillata": {
+  "latin": "Asclepias verticillata",
+  "name": "Horsetail milkweed",
+  "tl": 1,
+  "wiki": "Asclepias verticillata",
+  "desc": "Horsetail milkweed (Asclepias verticillata): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "asclepias viridiflora": {
   "latin": "Asclepias viridiflora",
   "name": "Green antelopehorn milkweed",
@@ -6019,6 +6027,14 @@
   "ic": "hawk",
   "about": "The Puerto Rican broad-winged hawk is an endangered subspecies of the broad-winged hawk (B. platypterus). It is a small hawk that occurs in Puerto Rico, inhabiting the Toro Negro State Forest."
  },
+ "buteo regalis": {
+  "latin": "Buteo regalis",
+  "name": "Ferruginous Hawk",
+  "tl": 3,
+  "wiki": "Buteo regalis",
+  "desc": "Ferruginous Hawk (Buteo regalis): hunts or scavenges other animals. Recorded 4 times near the park in GBIF.",
+  "ic": "baldeagle"
+ },
  "buteo ridgwayi": {
   "latin": "Buteo ridgwayi",
   "name": "Ridgway's hawk",
@@ -7173,7 +7189,7 @@
   "name": "Shortbeak Sedge",
   "tl": 1,
   "wiki": "Carex brevior",
-  "desc": "Shortbeak Sedge (Carex brevior): a plant that turns sunlight into food. Recorded 9 times near the park in GBIF.",
+  "desc": "Shortbeak Sedge (Carex brevior): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "carex bushii": {
@@ -7391,6 +7407,14 @@
   "tl": 1,
   "wiki": "Carex nudata",
   "desc": "Naked sedge (Carex nudata): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "carex oligocarpa": {
+  "latin": "Carex oligocarpa",
+  "name": "Eastern few-fruit sedge",
+  "tl": 1,
+  "wiki": "Carex oligocarpa",
+  "desc": "Eastern few-fruit sedge (Carex oligocarpa): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "carex olneyi": {
@@ -10517,7 +10541,7 @@
   "name": "Red-osier Dogwood",
   "tl": 1,
   "wiki": "Cornus sericea",
-  "desc": "Red-osier Dogwood (Cornus sericea): a plant that turns sunlight into food. Recorded 17 times near the park in GBIF.",
+  "desc": "Red-osier Dogwood (Cornus sericea): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "cornus unalaschkensis": {
@@ -22359,6 +22383,14 @@
   "desc": "Trumpet Honeysuckle (Lonicera sempervirens): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF.",
   "ic": "aspen"
  },
+ "lonicera tatarica": {
+  "latin": "Lonicera tatarica",
+  "name": "Tartarian Honeysuckle",
+  "tl": 1,
+  "wiki": "Lonicera tatarica",
+  "desc": "Tartarian Honeysuckle (Lonicera tatarica): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "lontra canadensis": {
   "latin": "Lontra canadensis",
   "name": "North American river otter",
@@ -29787,6 +29819,14 @@
   "ic": "hopper",
   "about": "Phaneroptera nana, common name southern sickle bush-cricket, is a species in the family Tettigoniidae and subfamily Phaneropterinae."
  },
+ "phasianus colchicus": {
+  "latin": "Phasianus colchicus",
+  "name": "Ring-necked Pheasant",
+  "tl": 2,
+  "wiki": "Phasianus colchicus",
+  "desc": "Ring-necked Pheasant (Phasianus colchicus): eats plants or other primary food sources. Recorded 5 times near the park in GBIF.",
+  "ic": "meadowlark"
+ },
  "phegopteris hexagonoptera": {
   "latin": "Phegopteris hexagonoptera",
   "name": "Broad beech fern",
@@ -34572,6 +34612,14 @@
   "ic": "aspen",
   "about": "Ribes cereum is a species of currant known by the common names wax currant and squaw currant; the pedicellare variety is known as whisky currant. The species is native to western North America."
  },
+ "ribes cynosbati": {
+  "latin": "Ribes cynosbati",
+  "name": "American gooseberry",
+  "tl": 1,
+  "wiki": "Ribes cynosbati",
+  "desc": "American gooseberry (Ribes cynosbati): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "ribes malvaceum": {
   "latin": "Ribes malvaceum",
   "name": "Chaparral current",
@@ -34981,11 +35029,11 @@
  },
  "rubus idaeus": {
   "latin": "Rubus idaeus",
-  "name": "Red raspberry",
+  "name": "Raspberry",
   "tl": 1,
   "wiki": "Rubus idaeus",
   "desc": "A bramble of forest openings. Its fruit and leaves feed moose, bumble bees, foxes and birds.",
-  "ic": "sage",
+  "ic": "aspen",
   "about": "Rubus idaeus is a red-fruited species of Rubus native to Eurasia and commonly cultivated in other temperate regions."
  },
  "rubus laciniatus": {
@@ -37047,6 +37095,14 @@
   "ic": "water",
   "cat": "abiotic"
  },
+ "shepherdia argentea": {
+  "latin": "Shepherdia argentea",
+  "name": "Buffalo-berry",
+  "tl": 1,
+  "wiki": "Shepherdia argentea",
+  "desc": "Buffalo-berry (Shepherdia argentea): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "shepherdia canadensis": {
   "latin": "Shepherdia canadensis",
   "name": "Canadian buffaloberry",
@@ -37927,6 +37983,14 @@
   "tl": 1,
   "wiki": "Solidago curtisii",
   "desc": "Mountain decumbent goldenrod (Solidago curtisii): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "solidago flexicaulis": {
+  "latin": "Solidago flexicaulis",
+  "name": "Zig-zag goldenrod",
+  "tl": 1,
+  "wiki": "Solidago flexicaulis",
+  "desc": "Zig-zag goldenrod (Solidago flexicaulis): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
  "solidago rugosa": {
@@ -39653,7 +39717,7 @@
   "name": "Least chipmunk",
   "tl": 2,
   "wiki": "Tamias minimus",
-  "desc": "Least chipmunk (Tamias minimus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
+  "desc": "Least chipmunk (Tamias minimus): eats plants or other primary food sources. Recorded 354 times near the park in GBIF.",
   "ic": "gsquirrel",
   "about": "The least chipmunk is the smallest species of chipmunk and the most widespread in North America."
  },
@@ -41662,6 +41726,14 @@
   "desc": "Bulrush (Typha latifolia): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Typha latifolia is a perennial herbaceous wetland plant in the genus Typha."
+ },
+ "tyrannus tyrannus": {
+  "latin": "Tyrannus tyrannus",
+  "name": "Eastern Kingbird",
+  "tl": 3,
+  "wiki": "Tyrannus tyrannus",
+  "desc": "Eastern Kingbird (Tyrannus tyrannus): hunts or scavenges other animals. Recorded 24 times near the park in GBIF.",
+  "ic": "meadowlark"
  },
  "tyria jacobaeae": {
   "latin": "Tyria jacobaeae",
