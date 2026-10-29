@@ -2,3 +2,7 @@ node_modules
 dist/
 __pycache__/
 names_report.md
+index.html
+pilot/index.html
+sw.js
+webs/

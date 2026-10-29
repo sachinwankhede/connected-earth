@@ -26,10 +26,8 @@ jobs:
         run: |
           python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json) | tee validate.log
           ! grep -q "ERROR" validate.log
-      - name: Built files are current
-        run: |
-          npm run build
-          git diff --exit-code -- index.html pilot/index.html sw.js webs || (echo "Built files are out of date: run npm run build and commit." && exit 1)
+      - name: Build the pages (not committed; built here so the site always matches the source)
+        run: npm run build
       - name: Size budget
         run: python3 build/budget.py
       - name: The built page loads
