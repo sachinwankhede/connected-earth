@@ -20,13 +20,18 @@ if ids[:1]==['--local']:
     LOCAL=True
 else: LOCAL=False
 order=json.load(open(os.path.join(ROOT,'data-auto/order.json')))
-moved=[];held=[];movedids=[]
+moved=[];held=[];movedids=[];cands=[]
+MAX=int(os.environ.get('PROMOTE_MAX') or 0)   # promote only the best MAX (most species + links first); the data-promote workflow sets it to fit the size budget
 for i in ids:
     p=os.path.join(ROOT,'data-auto',i+'.json')
     if not os.path.exists(p): continue
     e=species.load(p); r=pc.check(e)
     if not r['pass_'] or (not r['official'] and not LOCAL): held.append((e['name'],r['why'] or ['no official list'])); continue
-    subprocess.run(['git','mv',p,os.path.join(ROOT,'data',i+'.json')],check=True,cwd=ROOT); moved.append(e['name']); movedids.append(i)
+    cands.append((r['species']+r['links'],i,p,e['name']))
+cands.sort(key=lambda c:(-c[0],c[1]))
+for n,(score,i,p,name) in enumerate(cands):
+    if MAX and n>=MAX: held.append((name,['kept in the pilot to stay inside the size budget'])); continue
+    subprocess.run(['git','mv',p,os.path.join(ROOT,'data',i+'.json')],check=True,cwd=ROOT); moved.append(name); movedids.append(i)
 order=[x for x in order if x not in movedids]
 json.dump([x for x in order if os.path.exists(os.path.join(ROOT,'data-auto',x+'.json'))],open(os.path.join(ROOT,'data-auto/order.json'),'w'))
 L=os.path.join(ROOT,'data','links.json'); lk=json.load(open(L))
