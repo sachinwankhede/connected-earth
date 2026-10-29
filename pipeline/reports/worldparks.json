@@ -1,0 +1,6564 @@
+{
+ "Afghanistan": {
+  "land_km2": 1,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ajar Valley National Park",
+    "lon": 67.0,
+    "lat": 34.0,
+    "art": "https://en.wikipedia.org/wiki/Ajar_Valley_Nature_Reserve",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 9
+   },
+   {
+    "name": "Nuristan National Park",
+    "lon": 70.7,
+    "lat": 35.2,
+    "art": "https://en.wikipedia.org/wiki/Nuristan_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Albania": {
+  "land_km2": 0,
+  "found": 12,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Butrint National Park",
+    "lon": 20.020278,
+    "lat": 39.746111,
+    "art": "https://en.wikipedia.org/wiki/Butrint_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 94,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Valbonë Valley National Park",
+    "lon": 19.88777778,
+    "lat": 42.45333333,
+    "art": "https://en.wikipedia.org/wiki/Valbona_Valley",
+    "sl": 27,
+    "wh": false,
+    "area": 80,
+    "year": "1966",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Shebenik National Park",
+    "lon": 20.450021,
+    "lat": 41.222643,
+    "art": "https://en.wikipedia.org/wiki/Shebenik_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 339,
+    "year": "2008",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   }
+  ]
+ },
+ "Algeria": {
+  "land_km2": 2,
+  "found": 9,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "El Kala National Park",
+    "lon": 8.41666667,
+    "lat": 36.81666667,
+    "art": "https://en.wikipedia.org/wiki/El_Kala_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 800,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Djurdjura National Park",
+    "lon": 4.1333,
+    "lat": 36.4667,
+    "art": "https://en.wikipedia.org/wiki/Djurdjura_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 82,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Tlemcen National Park",
+    "lon": -1.459733,
+    "lat": 34.706346,
+    "art": "https://en.wikipedia.org/wiki/Tlemcen_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 8225,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Andorra": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Angola": {
+  "land_km2": 1,
+  "found": 11,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Quissama National Park",
+    "lon": 13.58333333,
+    "lat": -9.75,
+    "art": "https://en.wikipedia.org/wiki/Qui%C3%A7ama_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 9960,
+    "year": "1957",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Cameia National Park",
+    "lon": 21.66666667,
+    "lat": -11.88333333,
+    "art": "https://en.wikipedia.org/wiki/Cameia_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 1445,
+    "year": "1957",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Iona National Park",
+    "lon": 12.33333333,
+    "lat": -16.66666667,
+    "art": "https://en.wikipedia.org/wiki/Iona_National_Park",
+    "sl": 23,
+    "wh": false,
+    "area": 15200,
+    "year": "1964",
+    "cat": "II",
+    "have": false,
+    "score": 23
+   }
+  ]
+ },
+ "Antigua and Barbuda": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Argentina": {
+  "land_km2": 3,
+  "found": 35,
+  "have": 3,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Los Alerces National Park",
+    "lon": -71.89888889,
+    "lat": -42.8075,
+    "art": "https://en.wikipedia.org/wiki/Los_Alerces_National_Park",
+    "sl": 34,
+    "wh": true,
+    "area": 1884,
+    "year": "1937",
+    "cat": "II",
+    "have": false,
+    "score": 49
+   },
+   {
+    "name": "Talampaya National Park",
+    "lon": -67.811194,
+    "lat": -29.79575,
+    "art": "https://en.wikipedia.org/wiki/Talampaya_National_Park",
+    "sl": 41,
+    "wh": false,
+    "area": 2138,
+    "year": "1997",
+    "cat": "II",
+    "have": false,
+    "score": 41
+   },
+   {
+    "name": "Nahuel Huapi National Park",
+    "lon": -71.501456621,
+    "lat": -41.003690915,
+    "art": "https://en.wikipedia.org/wiki/Nahuel_Huapi_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 7050,
+    "year": "1934",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   }
+  ]
+ },
+ "Armenia": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Dilijan National Park",
+    "lon": 45.02138889,
+    "lat": 40.65638889,
+    "art": "https://en.wikipedia.org/wiki/Dilijan_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 240,
+    "year": "2002",
+    "cat": null,
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "Sevan National Park",
+    "lon": 45.33444444,
+    "lat": 40.34611111,
+    "art": "https://en.wikipedia.org/wiki/Sevan_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 1501,
+    "year": "1978",
+    "cat": null,
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Arevik National Park",
+    "lon": 46.15,
+    "lat": 39.0,
+    "art": "https://en.wikipedia.org/wiki/Arevik_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 344,
+    "year": "2009",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Australia": {
+  "land_km2": 8,
+  "found": 134,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Purnululu National Park",
+    "lon": 128.546055,
+    "lat": -17.448789,
+    "art": "https://en.wikipedia.org/wiki/Purnululu_National_Park",
+    "sl": 48,
+    "wh": true,
+    "area": 796,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 63
+   },
+   {
+    "name": "Port Campbell National Park",
+    "lon": 143.0625,
+    "lat": -38.65027778,
+    "art": "https://en.wikipedia.org/wiki/Port_Campbell_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 175,
+    "year": "1964",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Lamington National Park",
+    "lon": 153.115,
+    "lat": -28.1422,
+    "art": "https://en.wikipedia.org/wiki/Lamington_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 2059,
+    "year": "1915",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   }
+  ]
+ },
+ "Austria": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Gesäuse National Park",
+    "lon": 14.6489,
+    "lat": 47.5922,
+    "art": "https://en.wikipedia.org/wiki/Ges%C3%A4use_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 16,
+    "year": "2002",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Danube-Auen National Park",
+    "lon": 16.7167,
+    "lat": 48.1833,
+    "art": "https://en.wikipedia.org/wiki/Danube-Auen_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 93,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Kalkalpen National Park",
+    "lon": 14.37361111,
+    "lat": 47.79,
+    "art": "https://en.wikipedia.org/wiki/Nationalpark_Kalkalpen",
+    "sl": 26,
+    "wh": false,
+    "area": 209,
+    "year": "1997",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   }
+  ]
+ },
+ "Azerbaijan": {
+  "land_km2": 0,
+  "found": 8,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Göygöl National Park",
+    "lon": 46.3225,
+    "lat": 40.40583333,
+    "art": "https://en.wikipedia.org/wiki/G%C3%B6yg%C3%B6l_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 128,
+    "year": "2008",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Shirvan National Park",
+    "lon": 49.01555556,
+    "lat": 39.5475,
+    "art": "https://en.wikipedia.org/wiki/Shirvan_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 544,
+    "year": "2003",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Zengezur National Park",
+    "lon": 45.923333333,
+    "lat": 39.035277777,
+    "art": "https://en.wikipedia.org/wiki/Zangezur_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 428,
+    "year": "2004",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "Bahrain": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Bangladesh": {
+  "land_km2": 0,
+  "found": 18,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Lawachara National Park",
+    "lon": 91.78361111,
+    "lat": 24.31972222,
+    "art": "https://en.wikipedia.org/wiki/Lawachara_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 12,
+    "year": "1996",
+    "cat": "V",
+    "have": false,
+    "score": 11
+   },
+   {
+    "name": "Ramsagar National Park",
+    "lon": 88.488776,
+    "lat": 25.666833,
+    "art": "https://en.wikipedia.org/wiki/Ramsagar_National_Park",
+    "sl": 10,
+    "wh": false,
+    "area": null,
+    "year": "2001",
+    "cat": null,
+    "have": false,
+    "score": 10
+   },
+   {
+    "name": "Medhakachhapia National Park",
+    "lon": 92.15601667,
+    "lat": 21.68765556,
+    "art": "https://en.wikipedia.org/wiki/Medhakachhapia_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Barbados": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Queen's Park, Bridgetown",
+    "lon": -59.6091,
+    "lat": 13.0983,
+    "art": "https://en.wikipedia.org/wiki/Queen%27s_Park,_Bridgetown_(Barbados)",
+    "sl": 1,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 1
+   }
+  ]
+ },
+ "Belarus": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Belavezhskaya Pushcha National Park",
+    "lon": 23.82,
+    "lat": 52.44,
+    "art": "https://en.wikipedia.org/wiki/Belovezhskaya_Pushcha_National_Park",
+    "sl": 38,
+    "wh": false,
+    "area": 1500,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 38
+   },
+   {
+    "name": "Braslaw Lakes National Park",
+    "lon": 27.05388889,
+    "lat": 55.59611111,
+    "art": "https://en.wikipedia.org/wiki/Braslaw_Lakes",
+    "sl": 32,
+    "wh": false,
+    "area": 691,
+    "year": "1995",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Pripyatsky National Park",
+    "lon": 28.0,
+    "lat": 52.0,
+    "art": "https://en.wikipedia.org/wiki/Pripyatsky_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 1880,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Belgium": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "De Zoom - Kalmthoutse Heide",
+    "lon": 4.4036,
+    "lat": 51.3969,
+    "art": "https://en.wikipedia.org/wiki/De_Zoom%E2%80%93Kalmthoutse_Heide_Cross-Border_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 38,
+    "year": "2001",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Hoge Kempen National Park",
+    "lon": 5.66666667,
+    "lat": 51.0,
+    "art": "https://en.wikipedia.org/wiki/Hoge_Kempen_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 58,
+    "year": "2006",
+    "cat": null,
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "National Park Entre-Sambre-et-Meuse",
+    "lon": 4.33,
+    "lat": 50.075,
+    "art": "https://en.wikipedia.org/wiki/National_Park_Entre-Sambre-et-Meuse",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": "2022",
+    "cat": null,
+    "have": false,
+    "score": 5
+   }
+  ]
+ },
+ "Belize": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Chiquibul National Park",
+    "lon": -88.9375,
+    "lat": 16.71027778,
+    "art": "https://en.wikipedia.org/wiki/Chiquibul_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": 1157,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Sarstoon-Temash National Park",
+    "lon": -88.999,
+    "lat": 15.942513,
+    "art": "https://en.wikipedia.org/wiki/Sarstoon-Temash_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 169,
+    "year": "1994",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   },
+   {
+    "name": "Five Blues Lake National Park",
+    "lon": -88.58,
+    "lat": 17.135,
+    "art": "https://en.wikipedia.org/wiki/Five_Blues_Lake_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 16,
+    "year": "1994",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Benin": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 2,
+  "quota": 3,
+  "new": []
+ },
+ "Bhutan": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Jigme Dorji National Park",
+    "lon": 89.51666667,
+    "lat": 27.75,
+    "art": "https://en.wikipedia.org/wiki/Jigme_Dorji_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 4316,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Jigme Singye Wangchuck National Park",
+    "lon": 90.43333333,
+    "lat": 27.16666667,
+    "art": "https://en.wikipedia.org/wiki/Jigme_Singye_Wangchuck_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 1730,
+    "year": "1995",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   },
+   {
+    "name": "Phrumsengla National Park",
+    "lon": 90.9778,
+    "lat": 27.2831,
+    "art": "https://en.wikipedia.org/wiki/Phrumsengla_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 905,
+    "year": "1998",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "Bolivia": {
+  "land_km2": 1,
+  "found": 10,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Noel Kempff Mercado National Park",
+    "lon": -60.84667,
+    "lat": -14.23028,
+    "art": "https://en.wikipedia.org/wiki/Noel_Kempff_Mercado_National_Park",
+    "sl": 44,
+    "wh": true,
+    "area": 15234,
+    "year": "1979",
+    "cat": null,
+    "have": false,
+    "score": 59
+   },
+   {
+    "name": "Madidi National Park and Integrated Management Natural Area",
+    "lon": -68.333333333,
+    "lat": -14.333333333,
+    "art": "https://en.wikipedia.org/wiki/Madidi_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 18958,
+    "year": "1995",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Sajama National Park",
+    "lon": -68.91666667,
+    "lat": -18.08333333,
+    "art": "https://en.wikipedia.org/wiki/Sajama_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 1002,
+    "year": "1938",
+    "cat": null,
+    "have": false,
+    "score": 26
+   }
+  ]
+ },
+ "Bosnia and Herzegovina": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kozara National Park",
+    "lon": 16.89166667,
+    "lat": 45.00833333,
+    "art": "https://en.wikipedia.org/wiki/Kozara_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 34,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Una National Park",
+    "lon": 16.158055555,
+    "lat": 44.496944444,
+    "art": "https://en.wikipedia.org/wiki/Una_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 198,
+    "year": "2008",
+    "cat": null,
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "National park Drina",
+    "lon": 19.35,
+    "lat": 44.000277777,
+    "art": "https://en.wikipedia.org/wiki/Drina_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 63,
+    "year": "2017",
+    "cat": null,
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Botswana": {
+  "land_km2": 1,
+  "found": 2,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Nxai Pan National Park",
+    "lon": 24.76888889,
+    "lat": -20.04166667,
+    "art": "https://en.wikipedia.org/wiki/Nxai_Pan_National_Park",
+    "sl": 20,
+    "wh": false,
+    "area": null,
+    "year": "1992",
+    "cat": "Ib",
+    "have": false,
+    "score": 20
+   }
+  ]
+ },
+ "Brazil": {
+  "land_km2": 9,
+  "found": 72,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Jaú National Park",
+    "lon": -62.617222222,
+    "lat": -2.170277777,
+    "art": "https://en.wikipedia.org/wiki/Ja%C3%BA_National_Park",
+    "sl": 52,
+    "wh": true,
+    "area": 23673,
+    "year": "1980",
+    "cat": "II",
+    "have": false,
+    "score": 67
+   },
+   {
+    "name": "Lençóis Maranhenses National Park",
+    "lon": -43.133333333,
+    "lat": -2.483333333,
+    "art": "https://en.wikipedia.org/wiki/Len%C3%A7%C3%B3is_Maranhenses_National_Park",
+    "sl": 48,
+    "wh": true,
+    "area": 73,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 63
+   },
+   {
+    "name": "Serra da Capivara National Park",
+    "lon": -42.55,
+    "lat": -8.6667,
+    "art": "https://en.wikipedia.org/wiki/Serra_da_Capivara_National_Park",
+    "sl": 47,
+    "wh": true,
+    "area": 1008,
+    "year": "1979",
+    "cat": "II",
+    "have": false,
+    "score": 62
+   }
+  ]
+ },
+ "Brunei": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Bulgaria": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Rila National Park",
+    "lon": 23.5833,
+    "lat": 42.1833,
+    "art": "https://en.wikipedia.org/wiki/Rila_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 810,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Central Balkan National Park",
+    "lon": 24.78138889,
+    "lat": 42.72027778,
+    "art": "https://en.wikipedia.org/wiki/Central_Balkan_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 717,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   }
+  ]
+ },
+ "Burkina Faso": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kaboré Tambi National Park",
+    "lon": -1.3226,
+    "lat": 11.5335,
+    "art": "https://en.wikipedia.org/wiki/Kabor%C3%A9_Tambi_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 2427,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Deux Balés National Park",
+    "lon": -2.97111111,
+    "lat": 11.66527778,
+    "art": "https://en.wikipedia.org/wiki/Deux_Bal%C3%A9s_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 610,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Burundi": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Rusizi National Park",
+    "lon": 29.230671,
+    "lat": -3.247723,
+    "art": "https://en.wikipedia.org/wiki/Rusizi_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 90,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Ruvubu National Park",
+    "lon": 30.373,
+    "lat": -3.111,
+    "art": "https://en.wikipedia.org/wiki/Ruvubu_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 508,
+    "year": "1980",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   }
+  ]
+ },
+ "Cambodia": {
+  "land_km2": 0,
+  "found": 9,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Preah Monivong National Park",
+    "lon": 104.03222455,
+    "lat": 10.86204693,
+    "art": "https://en.wikipedia.org/wiki/Preah_Monivong_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 1423,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Virachey National Park",
+    "lon": 106.998,
+    "lat": 14.3257,
+    "art": "https://en.wikipedia.org/wiki/Virachey_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": null,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Phnom Kulen National Park",
+    "lon": 104.0957,
+    "lat": 13.6062,
+    "art": "https://en.wikipedia.org/wiki/Phnom_Kulen_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 375,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "Cameroon": {
+  "land_km2": 0,
+  "found": 17,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Lobéké National Park",
+    "lon": 15.75,
+    "lat": 2.25,
+    "art": "https://en.wikipedia.org/wiki/Lob%C3%A9k%C3%A9_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 2179,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Bénoué National Park",
+    "lon": 13.83333333,
+    "lat": 8.33333333,
+    "art": "https://en.wikipedia.org/wiki/B%C3%A9nou%C3%A9_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 1800,
+    "year": "1968",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Waza National Park",
+    "lon": 14.4167,
+    "lat": 11.2667,
+    "art": "https://en.wikipedia.org/wiki/Waza_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 170,
+    "year": "1934",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Canada": {
+  "land_km2": 10,
+  "found": 54,
+  "have": 7,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kluane National Park and Reserve",
+    "lon": -137.829166666,
+    "lat": 60.453611111,
+    "art": "https://en.wikipedia.org/wiki/Kluane_National_Park_and_Reserve",
+    "sl": 43,
+    "wh": false,
+    "area": 21980,
+    "year": "1972",
+    "cat": "II",
+    "have": false,
+    "score": 43
+   },
+   {
+    "name": "Yoho National Park",
+    "lon": -116.487,
+    "lat": 51.3953,
+    "art": "https://en.wikipedia.org/wiki/Yoho_National_Park",
+    "sl": 40,
+    "wh": false,
+    "area": 1313,
+    "year": "1886",
+    "cat": "II",
+    "have": false,
+    "score": 40
+   },
+   {
+    "name": "Waterton Lakes National Park",
+    "lon": -113.933333333,
+    "lat": 49.05,
+    "art": "https://en.wikipedia.org/wiki/Waterton_Lakes_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 505,
+    "year": "1895",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   }
+  ]
+ },
+ "Cape Verde": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Fogo National Park",
+    "lon": -24.364655555,
+    "lat": 14.958072222,
+    "art": "https://en.wikipedia.org/wiki/Fogo_Natural_Park",
+    "sl": 8,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 8
+   }
+  ]
+ },
+ "Central African Republic": {
+  "land_km2": 1,
+  "found": 5,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Manovo-Gounda St. Floris National Park",
+    "lon": 21.5,
+    "lat": 8.5,
+    "art": "https://en.wikipedia.org/wiki/Manovo-Gounda_St._Floris_National_Park",
+    "sl": 55,
+    "wh": true,
+    "area": 17400,
+    "year": "1979",
+    "cat": "II",
+    "have": false,
+    "score": 70
+   },
+   {
+    "name": "Dzanga-Ndoki National Park",
+    "lon": 16.1667,
+    "lat": 2.5,
+    "art": "https://en.wikipedia.org/wiki/Dzanga-Ndoki_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 17880,
+    "year": "1990",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Andre Felix National Park",
+    "lon": 23.343888888,
+    "lat": 9.440833333,
+    "art": "https://en.wikipedia.org/wiki/Andre_Felix_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 1700,
+    "year": "1960",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "Chad": {
+  "land_km2": 1,
+  "found": 6,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Zakouma National Park",
+    "lon": 19.647777777,
+    "lat": 10.847777777,
+    "art": "https://en.wikipedia.org/wiki/Zakouma_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 3000,
+    "year": "1963",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Manda National Park",
+    "lon": 17.940277777,
+    "lat": 9.294166666,
+    "art": "https://en.wikipedia.org/wiki/Manda_National_Park",
+    "sl": 12,
+    "wh": false,
+    "area": 1140,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 12
+   },
+   {
+    "name": "Goz Beïda National Park",
+    "lon": 21.333055555,
+    "lat": 12.166666666,
+    "art": "https://en.wikipedia.org/wiki/Goz_Be%C3%AFda_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 3000,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Chile": {
+  "land_km2": 1,
+  "found": 43,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Rapa Nui National Park",
+    "lon": -109.348579,
+    "lat": -27.072877,
+    "art": "https://en.wikipedia.org/wiki/Rapa_Nui_National_Park",
+    "sl": 39,
+    "wh": true,
+    "area": 67,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 54
+   },
+   {
+    "name": "Bernardo O'Higgins National Park",
+    "lon": -74.0,
+    "lat": -50.0,
+    "art": "https://en.wikipedia.org/wiki/Bernardo_O%27Higgins_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 35259,
+    "year": "1969",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Lauca National Park",
+    "lon": -69.353889,
+    "lat": -18.244444,
+    "art": "https://en.wikipedia.org/wiki/Lauca_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 1379,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   }
+  ]
+ },
+ "Colombia": {
+  "land_km2": 1,
+  "found": 20,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Los Katíos National Park",
+    "lon": -77.15,
+    "lat": 7.8,
+    "art": "https://en.wikipedia.org/wiki/Los_Kat%C3%ADos_National_Park",
+    "sl": 42,
+    "wh": true,
+    "area": 720,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 57
+   },
+   {
+    "name": "Chiribiquete National Park",
+    "lon": -72.8054,
+    "lat": 0.700607,
+    "art": "https://en.wikipedia.org/wiki/Chiribiquete_National_Park",
+    "sl": 35,
+    "wh": true,
+    "area": 27634,
+    "year": "1989",
+    "cat": "II",
+    "have": false,
+    "score": 50
+   },
+   {
+    "name": "Tayrona National Natural Park",
+    "lon": -73.997,
+    "lat": 11.31,
+    "art": "https://en.wikipedia.org/wiki/Tayrona_National_Natural_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 225,
+    "year": "1969",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Comoros": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Coelacanth National Park",
+    "lon": 42.883333333,
+    "lat": -12.05,
+    "art": "https://en.wikipedia.org/wiki/Coelacanth_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 4
+   },
+   {
+    "name": "Shisiwani National Park",
+    "lon": 44.202805555,
+    "lat": -12.165472222,
+    "art": "https://en.wikipedia.org/wiki/Shisiwani_National_Park",
+    "sl": 2,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 2
+   }
+  ]
+ },
+ "Costa Rica": {
+  "land_km2": 0,
+  "found": 26,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Manuel Antonio National Park",
+    "lon": -84.13583333,
+    "lat": 9.37555556,
+    "art": "https://en.wikipedia.org/wiki/Manuel_Antonio_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 682,
+    "year": "1972",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Tortuguero National Park",
+    "lon": -83.4967,
+    "lat": 10.4232,
+    "art": "https://en.wikipedia.org/wiki/Tortuguero_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 312,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Santa Rosa National Park",
+    "lon": -85.775,
+    "lat": 10.88361111,
+    "art": "https://en.wikipedia.org/wiki/Santa_Rosa_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": null,
+    "year": "1972",
+    "cat": "II",
+    "have": false,
+    "score": 13
+   }
+  ]
+ },
+ "Croatia": {
+  "land_km2": 0,
+  "found": 6,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Krka National Park",
+    "lon": 15.972777777,
+    "lat": 43.801944444,
+    "art": "https://en.wikipedia.org/wiki/Krka_National_Park",
+    "sl": 42,
+    "wh": false,
+    "area": 111,
+    "year": "1985",
+    "cat": null,
+    "have": false,
+    "score": 42
+   },
+   {
+    "name": "Paklenica",
+    "lon": 15.29022,
+    "lat": 44.44359,
+    "art": "https://en.wikipedia.org/wiki/Paklenica",
+    "sl": 32,
+    "wh": false,
+    "area": 95,
+    "year": "1949",
+    "cat": null,
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Risnjak National Park",
+    "lon": 14.651,
+    "lat": 45.431,
+    "art": "https://en.wikipedia.org/wiki/Risnjak_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 63,
+    "year": "1953",
+    "cat": null,
+    "have": false,
+    "score": 26
+   }
+  ]
+ },
+ "Cuba": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Alexander von Humboldt National Park",
+    "lon": -74.857897,
+    "lat": 20.496745,
+    "art": "https://en.wikipedia.org/wiki/Alejandro_de_Humboldt_National_Park",
+    "sl": 43,
+    "wh": true,
+    "area": 7068,
+    "year": "2001",
+    "cat": "II",
+    "have": false,
+    "score": 58
+   },
+   {
+    "name": "Desembarco del Granma National Park",
+    "lon": -77.633333,
+    "lat": 19.883333,
+    "art": "https://en.wikipedia.org/wiki/Desembarco_del_Granma_National_Park",
+    "sl": 38,
+    "wh": true,
+    "area": 419,
+    "year": "1985",
+    "cat": "II",
+    "have": false,
+    "score": 53
+   },
+   {
+    "name": "Caguanes National Park",
+    "lon": -79.12916667,
+    "lat": 22.37972222,
+    "art": "https://en.wikipedia.org/wiki/Caguanes_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Cyprus": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Czech Republic": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Podyjí National Park",
+    "lon": 15.89722222,
+    "lat": 48.84777778,
+    "art": "https://en.wikipedia.org/wiki/Podyj%C3%AD_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 63,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Krkonoše National Park",
+    "lon": 15.74027778,
+    "lat": 50.73611111,
+    "art": "https://en.wikipedia.org/wiki/Krkono%C5%A1e_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 364,
+    "year": "1963",
+    "cat": "V",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "Democratic Republic of the Congo": {
+  "land_km2": 2,
+  "found": 8,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Garamba National Park",
+    "lon": 29.25,
+    "lat": 4.0,
+    "art": "https://en.wikipedia.org/wiki/Garamba_National_Park",
+    "sl": 59,
+    "wh": true,
+    "area": 5000,
+    "year": "1938",
+    "cat": "II",
+    "have": false,
+    "score": 74
+   },
+   {
+    "name": "Kahuzi-Biéga National Park",
+    "lon": 28.758666666,
+    "lat": -2.314805555,
+    "art": "https://en.wikipedia.org/wiki/Kahuzi-Bi%C3%A9ga_National_Park",
+    "sl": 56,
+    "wh": true,
+    "area": 6000,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 71
+   },
+   {
+    "name": "Maiko National Park",
+    "lon": 27.56666667,
+    "lat": -0.4,
+    "art": "https://en.wikipedia.org/wiki/Maiko_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 10830,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   }
+  ]
+ },
+ "Djibouti": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Day Forest National Park",
+    "lon": 42.683333333,
+    "lat": 11.8,
+    "art": "https://en.wikipedia.org/wiki/Day_Forest_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 14,
+    "year": "1939",
+    "cat": null,
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Yoboki National Park",
+    "lon": 42.1047,
+    "lat": 11.5103,
+    "art": "https://en.wikipedia.org/wiki/Yoboki_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Dominica": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Morne Trois Pitons National Park",
+    "lon": -61.283333,
+    "lat": 15.266667,
+    "art": "https://en.wikipedia.org/wiki/Morne_Trois_Pitons_National_Park",
+    "sl": 36,
+    "wh": true,
+    "area": 69,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 51
+   },
+   {
+    "name": "Cabrits National Park",
+    "lon": -61.473,
+    "lat": 15.586,
+    "art": "https://en.wikipedia.org/wiki/Cabrits_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": 215,
+    "year": "1986",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Morne Diablotin National Park",
+    "lon": -61.4,
+    "lat": 15.5,
+    "art": "https://en.wikipedia.org/wiki/Morne_Diablotin_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 36,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Dominican Republic": {
+  "land_km2": 0,
+  "found": 10,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Jaragua National Park",
+    "lon": -71.499023,
+    "lat": 17.789228,
+    "art": "https://en.wikipedia.org/wiki/Jaragua_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 1374,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   },
+   {
+    "name": "Cotubanamá National Park",
+    "lon": -68.683,
+    "lat": 18.2283,
+    "art": "https://en.wikipedia.org/wiki/Cotubanam%C3%A1_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": 796,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Monte Cristi National Park",
+    "lon": -71.702271,
+    "lat": 19.777042,
+    "art": "https://en.wikipedia.org/wiki/Monte_Cristi_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": null,
+    "year": "1983",
+    "cat": null,
+    "have": false,
+    "score": 8
+   }
+  ]
+ },
+ "Ecuador": {
+  "land_km2": 0,
+  "found": 13,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Sangay National Park",
+    "lon": -78.333333333,
+    "lat": -1.833333333,
+    "art": "https://en.wikipedia.org/wiki/Sangay_National_Park",
+    "sl": 46,
+    "wh": true,
+    "area": 2719,
+    "year": "1979",
+    "cat": null,
+    "have": false,
+    "score": 61
+   },
+   {
+    "name": "Galápagos National Park",
+    "lon": -90.0,
+    "lat": -0.333333333,
+    "art": "https://en.wikipedia.org/wiki/Gal%C3%A1pagos_National_Park",
+    "sl": 23,
+    "wh": false,
+    "area": 7745,
+    "year": "1959",
+    "cat": null,
+    "have": false,
+    "score": 23
+   },
+   {
+    "name": "Machalilla National Park",
+    "lon": -80.83,
+    "lat": -1.5625,
+    "art": "https://en.wikipedia.org/wiki/Machalilla_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": null,
+    "year": "1979",
+    "cat": null,
+    "have": false,
+    "score": 19
+   }
+  ]
+ },
+ "Egypt": {
+  "land_km2": 1,
+  "found": 7,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ras Muhammad National Park",
+    "lon": 34.209722222,
+    "lat": 27.769444444,
+    "art": "https://en.wikipedia.org/wiki/Ras_Muhammad_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 850,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "White Desert",
+    "lon": 28.200441666,
+    "lat": 27.277336111,
+    "art": "https://en.wikipedia.org/wiki/White_Desert_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": null,
+    "year": "2002",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Wadi el Gamal National Park",
+    "lon": 35.0487,
+    "lat": 24.3521,
+    "art": "https://en.wikipedia.org/wiki/Wadi_El_Gemal_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": null,
+    "year": "2003",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "El Salvador": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Montecristo National Park",
+    "lon": -89.388419444,
+    "lat": 14.382413888,
+    "art": "https://en.wikipedia.org/wiki/Montecristo_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": 20,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 9
+   },
+   {
+    "name": "Los Volcanes National Park",
+    "lon": -89.6233,
+    "lat": 13.8272,
+    "art": "https://en.wikipedia.org/wiki/Los_Volcanes_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 7
+   },
+   {
+    "name": "El Boqueron National Park",
+    "lon": -89.28333333,
+    "lat": 13.73333333,
+    "art": "https://en.wikipedia.org/wiki/El_Boquer%C3%B3n_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Equatorial Guinea": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Altos de Nsork National Park",
+    "lon": 11.12,
+    "lat": 1.16,
+    "art": "https://en.wikipedia.org/wiki/Altos_de_Nsork_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 800,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Pico Basilé National Park",
+    "lon": 8.76666667,
+    "lat": 3.58333333,
+    "art": "https://en.wikipedia.org/wiki/Pico_Basil%C3%A9_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 330,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Eritrea": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Semenawi Bahri National Park",
+    "lon": 38.9355,
+    "lat": 15.5992,
+    "art": "https://en.wikipedia.org/wiki/Semenawi_Bahri_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Dahlak Marine National Park",
+    "lon": 40.104,
+    "lat": 15.648,
+    "art": "https://en.wikipedia.org/wiki/Dahlak_Marine_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Estonia": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Eswatini": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Ethiopia": {
+  "land_km2": 1,
+  "found": 14,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Awash National Park",
+    "lon": 40.0,
+    "lat": 9.0,
+    "art": "https://en.wikipedia.org/wiki/Awash_National_Park",
+    "sl": 35,
+    "wh": false,
+    "area": 753,
+    "year": "1969",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   },
+   {
+    "name": "Nechisar National Park",
+    "lon": 37.5833,
+    "lat": 6.033330555,
+    "art": "https://en.wikipedia.org/wiki/Nechisar_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 514,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Yangudi Rassa National Park",
+    "lon": 40.8333,
+    "lat": 11.0,
+    "art": "https://en.wikipedia.org/wiki/Yangudi_Rassa_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 4731,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   }
+  ]
+ },
+ "Federated States of Micronesia": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Fiji": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Finland": {
+  "land_km2": 0,
+  "found": 40,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Lemmenjoki National Park",
+    "lon": 25.87152,
+    "lat": 68.61185,
+    "art": "https://en.wikipedia.org/wiki/Lemmenjoki_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 2858,
+    "year": "1956",
+    "cat": "Ib",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Kauhaneva–Pohjankangas National Park",
+    "lon": 22.412583333,
+    "lat": 62.177277777,
+    "art": "https://en.wikipedia.org/wiki/Kauhaneva%E2%80%93Pohjankangas_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 67,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Koli National Park",
+    "lon": 29.88722222,
+    "lat": 63.0575,
+    "art": "https://en.wikipedia.org/wiki/Koli_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 29,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "France": {
+  "land_km2": 1,
+  "found": 11,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Pyrénées National Park",
+    "lon": -0.175833333,
+    "lat": 42.8275,
+    "art": "https://en.wikipedia.org/wiki/Pyr%C3%A9n%C3%A9es_National_Park",
+    "sl": 35,
+    "wh": false,
+    "area": 457,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   },
+   {
+    "name": "Vanoise National Park",
+    "lon": 6.83333,
+    "lat": 45.3333,
+    "art": "https://en.wikipedia.org/wiki/Vanoise_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 528,
+    "year": "1963",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Réunion National Park",
+    "lon": 55.5,
+    "lat": -21.15,
+    "art": "https://en.wikipedia.org/wiki/R%C3%A9union_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 1054,
+    "year": "2007",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   }
+  ]
+ },
+ "Gabon": {
+  "land_km2": 0,
+  "found": 13,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ivindo National Park",
+    "lon": 12.63,
+    "lat": 0.088,
+    "art": "https://en.wikipedia.org/wiki/Ivindo_National_Park",
+    "sl": 32,
+    "wh": true,
+    "area": 1823,
+    "year": "2002",
+    "cat": null,
+    "have": false,
+    "score": 47
+   },
+   {
+    "name": "Loango National Park",
+    "lon": 9.56666667,
+    "lat": -2.16666667,
+    "art": "https://en.wikipedia.org/wiki/Loango_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 1550,
+    "year": "2002",
+    "cat": null,
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Akanda National Park",
+    "lon": 9.55,
+    "lat": 0.61666667,
+    "art": "https://en.wikipedia.org/wiki/Akanda_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": "2002",
+    "cat": null,
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Georgia": {
+  "land_km2": 0,
+  "found": 13,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Borjomi-Kharagauli National Park",
+    "lon": 43.13153,
+    "lat": 41.86165,
+    "art": "https://en.wikipedia.org/wiki/Borjomi-Kharagauli_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 647,
+    "year": "1995",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Vashlovani National Park",
+    "lon": 46.383333333,
+    "lat": 41.2,
+    "art": "https://en.wikipedia.org/wiki/Vashlovani_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 251,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Algeti National Park",
+    "lon": 44.3023089,
+    "lat": 41.7216141,
+    "art": "https://en.wikipedia.org/wiki/Algeti_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 88,
+    "year": "1965",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   }
+  ]
+ },
+ "Germany": {
+  "land_km2": 0,
+  "found": 15,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Berchtesgaden National Park",
+    "lon": 12.96,
+    "lat": 47.57,
+    "art": "https://en.wikipedia.org/wiki/Berchtesgaden_National_Park",
+    "sl": 40,
+    "wh": false,
+    "area": 208,
+    "year": "1978",
+    "cat": "II",
+    "have": false,
+    "score": 40
+   },
+   {
+    "name": "Eifel National Park",
+    "lon": 6.43333,
+    "lat": 50.6167,
+    "art": "https://en.wikipedia.org/wiki/Eifel_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 108,
+    "year": "2004",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Müritz National Park",
+    "lon": 12.8367,
+    "lat": 53.4364,
+    "art": "https://en.wikipedia.org/wiki/M%C3%BCritz_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 322,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   }
+  ]
+ },
+ "Ghana": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kakum National Park",
+    "lon": -1.383333333,
+    "lat": 5.353611111,
+    "art": "https://en.wikipedia.org/wiki/Kakum_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 375,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Bui National Park",
+    "lon": -2.36275,
+    "lat": 8.29983,
+    "art": "https://en.wikipedia.org/wiki/Bui_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 17
+   },
+   {
+    "name": "Digya National Park",
+    "lon": -0.28333,
+    "lat": 7.41667,
+    "art": "https://en.wikipedia.org/wiki/Digya_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 3473,
+    "year": "1971",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   }
+  ]
+ },
+ "Greece": {
+  "land_km2": 0,
+  "found": 12,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Mount Olympus",
+    "lon": 22.35,
+    "lat": 40.083333333,
+    "art": "https://en.wikipedia.org/wiki/Mount_Olympus",
+    "sl": 109,
+    "wh": true,
+    "area": 191,
+    "year": "1938",
+    "cat": null,
+    "have": false,
+    "score": 124
+   },
+   {
+    "name": "National Marine Park of Zakynthos",
+    "lon": 20.9,
+    "lat": 37.7833,
+    "art": "https://en.wikipedia.org/wiki/National_Marine_Park_of_Zakynthos",
+    "sl": 16,
+    "wh": false,
+    "area": 104,
+    "year": "1999",
+    "cat": "IV",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Dadia-Lefkimi-Soufli Forest National Park",
+    "lon": 26.216944444,
+    "lat": 41.13,
+    "art": "https://en.wikipedia.org/wiki/Dadia-Lefkimi-Soufli_Forest_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 428,
+    "year": "2006",
+    "cat": "VI",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Grenada": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Guatemala": {
+  "land_km2": 0,
+  "found": 19,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Dulce River",
+    "lon": -88.87222222,
+    "lat": 15.7475,
+    "art": "https://en.wikipedia.org/wiki/Dulce_River_(Guatemala)",
+    "sl": 22,
+    "wh": false,
+    "area": null,
+    "year": "1955",
+    "cat": null,
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Sierra del Lacandón",
+    "lon": -91.0861,
+    "lat": 17.1951,
+    "art": "https://en.wikipedia.org/wiki/Sierra_del_Lacand%C3%B3n",
+    "sl": 10,
+    "wh": false,
+    "area": null,
+    "year": "1990",
+    "cat": null,
+    "have": false,
+    "score": 10
+   },
+   {
+    "name": "Laguna El Pino",
+    "lon": -90.393888888,
+    "lat": 14.344444444,
+    "art": "https://en.wikipedia.org/wiki/El_Pino_Lake",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": "1955",
+    "cat": null,
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Guinea": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "National Park of Upper Niger",
+    "lon": -10.2,
+    "lat": 10.5,
+    "art": "https://en.wikipedia.org/wiki/National_Park_of_Upper_Niger",
+    "sl": 15,
+    "wh": false,
+    "area": 6740,
+    "year": "1952",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Badiar National Park",
+    "lon": -13.3167,
+    "lat": 12.6167,
+    "art": "https://en.wikipedia.org/wiki/Badiar_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 382,
+    "year": "1985",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Guinea-Bissau": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Cantanhez Forest National Park",
+    "lon": -15.02992,
+    "lat": 11.20404,
+    "art": "https://en.wikipedia.org/wiki/Cantanhez_Forests_National_Park",
+    "sl": 12,
+    "wh": false,
+    "area": 680,
+    "year": "1980",
+    "cat": null,
+    "have": false,
+    "score": 12
+   },
+   {
+    "name": "Orango Islands National Park",
+    "lon": -16.13805,
+    "lat": 11.06582,
+    "art": "https://en.wikipedia.org/wiki/Orango_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 1582,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   },
+   {
+    "name": "João Vieira and Poilão Marine National Park",
+    "lon": -15.71522,
+    "lat": 10.9505,
+    "art": "https://en.wikipedia.org/wiki/Jo%C3%A3o_Vieira_and_Poil%C3%A3o_Marine_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": 495,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Guyana": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kaieteur National Park",
+    "lon": -59.41666667,
+    "lat": 5.21666667,
+    "art": "https://en.wikipedia.org/wiki/Kaieteur_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 627,
+    "year": "1929",
+    "cat": "VI",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "Haiti": {
+  "land_km2": 0,
+  "found": 5,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "National History Park",
+    "lon": -72.243888888,
+    "lat": 19.573611111,
+    "art": "https://en.wikipedia.org/wiki/National_History_Park",
+    "sl": 19,
+    "wh": true,
+    "area": 253,
+    "year": null,
+    "cat": "III",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "La Visite National Park",
+    "lon": -71.98472222,
+    "lat": 18.33444444,
+    "art": "https://en.wikipedia.org/wiki/La_Visite_National_Park",
+    "sl": 12,
+    "wh": false,
+    "area": 30,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 12
+   },
+   {
+    "name": "Grande Colline National Park",
+    "lon": -74.10277778,
+    "lat": 18.40416667,
+    "art": "https://en.wikipedia.org/wiki/Grande_Colline_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": 1510,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Honduras": {
+  "land_km2": 0,
+  "found": 17,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Celaque National Park",
+    "lon": -88.70722222,
+    "lat": 14.53555556,
+    "art": "https://en.wikipedia.org/wiki/Celaque_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 266,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Pico Bonito National Park",
+    "lon": -86.87222222,
+    "lat": 15.60972222,
+    "art": "https://en.wikipedia.org/wiki/Pico_Bonito_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 1073,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   },
+   {
+    "name": "Patuca National Park",
+    "lon": -85.44638889,
+    "lat": 14.43194444,
+    "art": "https://en.wikipedia.org/wiki/Patuca_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": null,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   }
+  ]
+ },
+ "Hungary": {
+  "land_km2": 0,
+  "found": 10,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Aggtelek National Park",
+    "lon": 20.483333333,
+    "lat": 48.466666666,
+    "art": "https://en.wikipedia.org/wiki/Aggtelek_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 202,
+    "year": "1985",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Danube-Drava National Park",
+    "lon": 18.22636,
+    "lat": 46.08635,
+    "art": "https://en.wikipedia.org/wiki/Danube-Drava_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 498,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Fertő-Hanság National Park",
+    "lon": 16.739,
+    "lat": 47.660805555,
+    "art": "https://en.wikipedia.org/wiki/Fert%C5%91-Hans%C3%A1g_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 237,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Iceland": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Thingvellir National Park",
+    "lon": -21.125,
+    "lat": 64.258055555,
+    "art": "https://en.wikipedia.org/wiki/%C3%9Eingvellir",
+    "sl": 62,
+    "wh": true,
+    "area": 228,
+    "year": "1928",
+    "cat": "II",
+    "have": false,
+    "score": 77
+   },
+   {
+    "name": "Skaftafell National Park",
+    "lon": -16.97166667,
+    "lat": 64.01555556,
+    "art": "https://en.wikipedia.org/wiki/Skaftafell",
+    "sl": 30,
+    "wh": false,
+    "area": 1700,
+    "year": "1967",
+    "cat": null,
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Jökulsárgljúfur National Park",
+    "lon": -16.520555555,
+    "lat": 65.918888888,
+    "art": "https://en.wikipedia.org/wiki/J%C3%B6kuls%C3%A1rglj%C3%BAfur_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 150,
+    "year": "1973",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   }
+  ]
+ },
+ "India": {
+  "land_km2": 3,
+  "found": 111,
+  "have": 5,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Sundarbans National Park",
+    "lon": 88.75,
+    "lat": 21.75,
+    "art": "https://en.wikipedia.org/wiki/Sundarbans_National_Park",
+    "sl": 58,
+    "wh": true,
+    "area": 1330,
+    "year": "1984",
+    "cat": "II",
+    "have": false,
+    "score": 73
+   },
+   {
+    "name": "Kevladev National Park",
+    "lon": 77.516667,
+    "lat": 27.166667,
+    "art": "https://en.wikipedia.org/wiki/Keoladeo_National_Park",
+    "sl": 57,
+    "wh": true,
+    "area": 29,
+    "year": "1971",
+    "cat": "II",
+    "have": false,
+    "score": 72
+   },
+   {
+    "name": "Khangchendzonga National Park",
+    "lon": 88.3123,
+    "lat": 27.6563,
+    "art": "https://en.wikipedia.org/wiki/Khangchendzonga_National_Park",
+    "sl": 41,
+    "wh": true,
+    "area": 1784,
+    "year": "1977",
+    "cat": "II",
+    "have": false,
+    "score": 56
+   }
+  ]
+ },
+ "Indonesia": {
+  "land_km2": 2,
+  "found": 48,
+  "have": 4,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Bromo Tengger Semeru National Park",
+    "lon": 112.9607,
+    "lat": -8.0252,
+    "art": "https://en.wikipedia.org/wiki/Bromo_Tengger_Semeru_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 503,
+    "year": "1982",
+    "cat": "II",
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "Kerinci Seblat National Park",
+    "lon": 101.48333333,
+    "lat": -2.41666667,
+    "art": "https://en.wikipedia.org/wiki/Kerinci_Seblat_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 13753,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Tanjung Puting",
+    "lon": 111.88,
+    "lat": -2.88,
+    "art": "https://en.wikipedia.org/wiki/Tanjung_Puting",
+    "sl": 26,
+    "wh": false,
+    "area": 4150,
+    "year": "1982",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   }
+  ]
+ },
+ "Iran": {
+  "land_km2": 2,
+  "found": 9,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Golestan National Park",
+    "lon": 55.81,
+    "lat": 37.23,
+    "art": "https://en.wikipedia.org/wiki/Golestan_National_Park",
+    "sl": 23,
+    "wh": false,
+    "area": 910,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 23
+   },
+   {
+    "name": "Kavir National Park",
+    "lon": 52.14,
+    "lat": 34.65,
+    "art": "https://en.wikipedia.org/wiki/Kavir_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 4422,
+    "year": "1964",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Tandooreh National Park",
+    "lon": 58.682277777,
+    "lat": 37.583472222,
+    "art": "https://en.wikipedia.org/wiki/Tandooreh_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 355,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Iraq": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Ireland": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Killarney National Park",
+    "lon": -9.50664,
+    "lat": 52.02099,
+    "art": "https://en.wikipedia.org/wiki/Killarney_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 10289,
+    "year": "1932",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Glenveagh National Park",
+    "lon": -8.05,
+    "lat": 55.016666666,
+    "art": "https://en.wikipedia.org/wiki/Glenveagh",
+    "sl": 27,
+    "wh": false,
+    "area": 1605,
+    "year": "1984",
+    "cat": null,
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Wicklow Mountains National Park",
+    "lon": -6.398,
+    "lat": 53.018,
+    "art": "https://en.wikipedia.org/wiki/Wicklow_Mountains_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 205,
+    "year": "1991",
+    "cat": null,
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Israel": {
+  "land_km2": 0,
+  "found": 31,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ein Gedi",
+    "lon": 35.394444444,
+    "lat": 31.466666666,
+    "art": "https://en.wikipedia.org/wiki/Ein_Gedi_Nature_Reserve",
+    "sl": 36,
+    "wh": false,
+    "area": 14,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Sepphoris",
+    "lon": 35.279166666,
+    "lat": 32.753055555,
+    "art": "https://en.wikipedia.org/wiki/Sepphoris",
+    "sl": 30,
+    "wh": false,
+    "area": 16,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Eilat's Coral Beach",
+    "lon": 34.922,
+    "lat": 29.508,
+    "art": "https://en.wikipedia.org/wiki/Eilat%27s_Coral_Beach",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": "1964",
+    "cat": null,
+    "have": false,
+    "score": 5
+   }
+  ]
+ },
+ "Italy": {
+  "land_km2": 0,
+  "found": 25,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Cilento, Vallo di Diano and Alburni National Park",
+    "lon": 15.2,
+    "lat": 40.2,
+    "art": "https://en.wikipedia.org/wiki/Parco_Nazionale_del_Cilento,_Vallo_di_Diano_e_Alburni",
+    "sl": 31,
+    "wh": false,
+    "area": 1782,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Abruzzo, Lazio and Molise National Park",
+    "lon": 13.786472222,
+    "lat": 41.808388888,
+    "art": "https://en.wikipedia.org/wiki/Abruzzo,_Lazio_and_Molise_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 497,
+    "year": "1922",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Stelvio National Park",
+    "lon": 10.506,
+    "lat": 46.466,
+    "art": "https://en.wikipedia.org/wiki/Stelvio_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 597,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   }
+  ]
+ },
+ "Ivory Coast": {
+  "land_km2": 0,
+  "found": 8,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Assagny National Park",
+    "lon": -4.88333333,
+    "lat": 5.2,
+    "art": "https://en.wikipedia.org/wiki/Assagny_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 194,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   },
+   {
+    "name": "Banco National Park",
+    "lon": -4.05198097,
+    "lat": 5.394539,
+    "art": "https://en.wikipedia.org/wiki/Banco_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 34,
+    "year": "1953",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Mont Péko National Park",
+    "lon": -7.23888889,
+    "lat": 7.025,
+    "art": "https://en.wikipedia.org/wiki/Mont_P%C3%A9ko_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 340,
+    "year": "1968",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Jamaica": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Japan": {
+  "land_km2": 0,
+  "found": 36,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Akan Mashu National Park",
+    "lon": 144.26666667,
+    "lat": 43.51666667,
+    "art": "https://en.wikipedia.org/wiki/Akan_Mashu_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 905,
+    "year": "1934",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "Fuji-Hakone-Izu National Park",
+    "lon": 139.0,
+    "lat": 34.666667,
+    "art": "https://en.wikipedia.org/wiki/Fuji-Hakone-Izu_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 1668,
+    "year": "1936",
+    "cat": "V",
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Yanbaru National Park",
+    "lon": 128.25,
+    "lat": 26.75,
+    "art": "https://en.wikipedia.org/wiki/Yambaru_National_Park",
+    "sl": 14,
+    "wh": true,
+    "area": 37,
+    "year": "2016",
+    "cat": "IV",
+    "have": false,
+    "score": 29
+   }
+  ]
+ },
+ "Jordan": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Kazakhstan": {
+  "land_km2": 3,
+  "found": 13,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Altyn-Emel National Park",
+    "lon": 78.8,
+    "lat": 44.0,
+    "art": "https://en.wikipedia.org/wiki/Altyn-Emel_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 3077,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Burabay National Park",
+    "lon": 70.30000001,
+    "lat": 53.08333334,
+    "art": "https://en.wikipedia.org/wiki/Burabay_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 1295,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Karkaraly National Park",
+    "lon": 75.41666667,
+    "lat": 49.41666667,
+    "art": "https://en.wikipedia.org/wiki/Karkaraly_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 1121,
+    "year": "1998",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Kenya": {
+  "land_km2": 1,
+  "found": 25,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Amboseli National Park",
+    "lon": 37.25,
+    "lat": -2.65,
+    "art": "https://en.wikipedia.org/wiki/Amboseli_National_Park",
+    "sl": 42,
+    "wh": false,
+    "area": 392,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 42
+   },
+   {
+    "name": "Aberdare National Park",
+    "lon": 36.69916667,
+    "lat": -0.38,
+    "art": "https://en.wikipedia.org/wiki/Aberdare_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 766,
+    "year": "1950",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Sibiloi National Park",
+    "lon": 36.3425,
+    "lat": 3.960555555,
+    "art": "https://en.wikipedia.org/wiki/Sibiloi_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 1571,
+    "year": "1973",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   }
+  ]
+ },
+ "Kingdom of Denmark": {
+  "land_km2": 2,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Kingdom of the Netherlands": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Kiribati": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Kosovo": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "National park Bjeshkët e Nemuna",
+    "lon": 20.16666667,
+    "lat": 42.66666667,
+    "art": "https://en.wikipedia.org/wiki/Bjeshk%C3%ABt_e_Nemuna_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": 630,
+    "year": "2012",
+    "cat": "II",
+    "have": false,
+    "score": 13
+   }
+  ]
+ },
+ "Kuwait": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Kyrgyzstan": {
+  "land_km2": 0,
+  "found": 5,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ala-Archa National Park",
+    "lon": 74.484558,
+    "lat": 42.547516,
+    "art": "https://en.wikipedia.org/wiki/Ala-Archa_Nature_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 194,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Besh-Tash State Nature Park",
+    "lon": 72.3027,
+    "lat": 42.2878,
+    "art": "https://en.wikipedia.org/wiki/Besh-Tash_Nature_Park",
+    "sl": 8,
+    "wh": false,
+    "area": null,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Kara-Buura State Nature Park",
+    "lon": 71.016666666,
+    "lat": 42.366666666,
+    "art": "https://en.wikipedia.org/wiki/Kara-Buura_Nature_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": "2005",
+    "cat": "II",
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Laos": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Latvia": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Slītere National Park",
+    "lon": 22.29444444,
+    "lat": 57.62416667,
+    "art": "https://en.wikipedia.org/wiki/Sl%C4%ABtere_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 265,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Rāzna National Park",
+    "lon": 27.5,
+    "lat": 56.26666667,
+    "art": "https://en.wikipedia.org/wiki/R%C4%81zna_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 596,
+    "year": "2007",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Ķemeri National Park",
+    "lon": 23.5125,
+    "lat": 56.9517,
+    "art": "https://en.wikipedia.org/wiki/%C4%B6emeri_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 382,
+    "year": "1997",
+    "cat": null,
+    "have": false,
+    "score": 28
+   }
+  ]
+ },
+ "Lebanon": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Lesotho": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ts'ehlanyane National Park",
+    "lon": 28.458,
+    "lat": -28.924,
+    "art": "https://en.wikipedia.org/wiki/Ts%27ehlanyane_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Liberia": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Lofa-Mano National Park",
+    "lon": -10.58333333,
+    "lat": 7.46666666,
+    "art": "https://en.wikipedia.org/wiki/Lofa-Mano_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": "1979",
+    "cat": null,
+    "have": false,
+    "score": 9
+   },
+   {
+    "name": "Cape Mount Nature Conservation Unit",
+    "lon": -11.37337442,
+    "lat": 6.80663518,
+    "art": "https://en.wikipedia.org/wiki/Cape_Mount_Nature_Conservation_Unit",
+    "sl": 3,
+    "wh": false,
+    "area": null,
+    "year": "1977",
+    "cat": "II",
+    "have": false,
+    "score": 3
+   },
+   {
+    "name": "Grebo-Krahn National Park",
+    "lon": -7.6,
+    "lat": 5.5,
+    "art": "https://en.wikipedia.org/wiki/Grebo-Krahn_National_Park",
+    "sl": 2,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 2
+   }
+  ]
+ },
+ "Libya": {
+  "land_km2": 2,
+  "found": 6,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "El-Kouf National Park",
+    "lon": 21.205,
+    "lat": 32.74333333,
+    "art": "https://en.wikipedia.org/wiki/El-Kouf_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 9
+   },
+   {
+    "name": "Abughilan National Park",
+    "lon": 13.03,
+    "lat": 32.265,
+    "art": "https://en.wikipedia.org/wiki/Abughilan_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": null,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 6
+   },
+   {
+    "name": "Algharabolli National Park",
+    "lon": 13.783,
+    "lat": 32.784,
+    "art": "https://en.wikipedia.org/wiki/Algharabolli_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Liechtenstein": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Lithuania": {
+  "land_km2": 0,
+  "found": 5,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Trakai Historical National Park",
+    "lon": 24.9361,
+    "lat": 54.639,
+    "art": "https://en.wikipedia.org/wiki/Trakai_Historical_National_Park",
+    "sl": 35,
+    "wh": false,
+    "area": 82,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   },
+   {
+    "name": "Aukštaitija National Park",
+    "lon": 26.0067,
+    "lat": 55.3711,
+    "art": "https://en.wikipedia.org/wiki/Auk%C5%A1taitija_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 406,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "Žemaitija National Park",
+    "lon": 21.889,
+    "lat": 56.044,
+    "art": "https://en.wikipedia.org/wiki/%C5%BDemaitija_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 2172,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   }
+  ]
+ },
+ "Luxembourg": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Madagascar": {
+  "land_km2": 1,
+  "found": 10,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Marojejy National Park",
+    "lon": 49.706,
+    "lat": -14.435,
+    "art": "https://en.wikipedia.org/wiki/Marojejy_National_Park",
+    "sl": 33,
+    "wh": false,
+    "area": 598,
+    "year": "1952",
+    "cat": "II",
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Isalo National Park",
+    "lon": 45.2884,
+    "lat": -22.4351,
+    "art": "https://en.wikipedia.org/wiki/Isalo_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 8154,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Ranomafana National Park",
+    "lon": 47.43,
+    "lat": -21.22,
+    "art": "https://en.wikipedia.org/wiki/Ranomafana_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 416,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "Malawi": {
+  "land_km2": 0,
+  "found": 5,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Liwonde National Park",
+    "lon": 35.333333333,
+    "lat": -14.833333333,
+    "art": "https://en.wikipedia.org/wiki/Liwonde_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 548,
+    "year": "1973",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Nyika National Park",
+    "lon": 33.833333333,
+    "lat": -10.666666666,
+    "art": "https://en.wikipedia.org/wiki/Nyika_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 3214,
+    "year": "1965",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Kasungu National Park",
+    "lon": 33.166666666,
+    "lat": -13.0,
+    "art": "https://en.wikipedia.org/wiki/Kasungu_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 2316,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "Malaysia": {
+  "land_km2": 0,
+  "found": 22,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Gunung Mulu National Park",
+    "lon": 114.8125,
+    "lat": 4.0425,
+    "art": "https://en.wikipedia.org/wiki/Gunung_Mulu_National_Park",
+    "sl": 49,
+    "wh": true,
+    "area": 52864,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 64
+   },
+   {
+    "name": "Bako National Park",
+    "lon": 110.466667,
+    "lat": 1.716667,
+    "art": "https://en.wikipedia.org/wiki/Bako_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 27,
+    "year": "1957",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Tunku Abdul Rahman National Park",
+    "lon": 116.0,
+    "lat": 5.96667,
+    "art": "https://en.wikipedia.org/wiki/Tunku_Abdul_Rahman_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 49,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Maldives": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Mali": {
+  "land_km2": 1,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Boucle du Baoulé National Park",
+    "lon": -8.8833,
+    "lat": 14.0833,
+    "art": "https://en.wikipedia.org/wiki/Boucle_du_Baoul%C3%A9_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 3330,
+    "year": "1982",
+    "cat": null,
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Bafing National Park",
+    "lon": -10.81666667,
+    "lat": 13.8,
+    "art": "https://en.wikipedia.org/wiki/Bafing_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": null,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Kouroufing National Park",
+    "lon": -10.41666667,
+    "lat": 12.83333333,
+    "art": "https://en.wikipedia.org/wiki/Kouroufing_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": null,
+    "year": "2002",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Malta": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Marshall Islands": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Mauritania": {
+  "land_km2": 1,
+  "found": 2,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Diawling National Park",
+    "lon": -16.35,
+    "lat": 16.4167,
+    "art": "https://en.wikipedia.org/wiki/Diawling_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 130,
+    "year": "1990",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "Mauritius": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Black River Gorges National Park",
+    "lon": 57.416666666,
+    "lat": -20.416666666,
+    "art": "https://en.wikipedia.org/wiki/Black_River_Gorges_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 66,
+    "year": "1994",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Bras d'Eau National Park",
+    "lon": 57.7216,
+    "lat": -20.1441,
+    "art": "https://en.wikipedia.org/wiki/Bras_d%27Eau_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": 5,
+    "year": "2011",
+    "cat": "II",
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Mexico": {
+  "land_km2": 2,
+  "found": 37,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Lagunas de Montebello National Park",
+    "lon": -91.680555555,
+    "lat": 16.0775,
+    "art": "https://en.wikipedia.org/wiki/Lagunas_de_Montebello_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 64,
+    "year": "1959",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Iztaccíhuatl–Popocatépetl National Park",
+    "lon": -98.65499,
+    "lat": 19.13681,
+    "art": "https://en.wikipedia.org/wiki/Iztacc%C3%ADhuatl%E2%80%93Popocat%C3%A9petl_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 398,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Parque Nacional Cumbres de Monterrey",
+    "lon": -100.18,
+    "lat": 25.23,
+    "art": "https://en.wikipedia.org/wiki/Cumbres_de_Monterrey_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 1774,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   }
+  ]
+ },
+ "Moldova": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Orhei National Park",
+    "lon": 28.966666666,
+    "lat": 47.3,
+    "art": "https://en.wikipedia.org/wiki/Orhei_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 338,
+    "year": "2013",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   }
+  ]
+ },
+ "Monaco": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Mongolia": {
+  "land_km2": 2,
+  "found": 16,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Gorkhi-Terelj National Park",
+    "lon": 107.576005555,
+    "lat": 48.150202777,
+    "art": "https://en.wikipedia.org/wiki/Gorkhi-Terelj_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 2931,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Altai Tavan Bogd National Park",
+    "lon": 88.616666666,
+    "lat": 48.55,
+    "art": "https://en.wikipedia.org/wiki/Altai_Tavan_Bogd_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 6561,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Onon-Balj National Park",
+    "lon": 111.758055555,
+    "lat": 49.246666666,
+    "art": "https://en.wikipedia.org/wiki/Onon-Balj_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 2924,
+    "year": "2000",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Montenegro": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Biogradska Gora",
+    "lon": 19.60194444,
+    "lat": 42.89805556,
+    "art": "https://en.wikipedia.org/wiki/Biogradska_Gora",
+    "sl": 27,
+    "wh": false,
+    "area": 56,
+    "year": "1952",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Prokletije National Park",
+    "lon": 19.913888888,
+    "lat": 42.531666666,
+    "art": "https://en.wikipedia.org/wiki/Prokletije_National_Park_(Montenegro)",
+    "sl": 11,
+    "wh": false,
+    "area": 166,
+    "year": "2009",
+    "cat": null,
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Morocco": {
+  "land_km2": 0,
+  "found": 10,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Souss-Massa National Park",
+    "lon": -9.67,
+    "lat": 30.075,
+    "art": "https://en.wikipedia.org/wiki/Souss-Massa_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 340,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Khenifiss National Park",
+    "lon": -12.37,
+    "lat": 27.972,
+    "art": "https://en.wikipedia.org/wiki/Khenifiss_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 1850,
+    "year": "2006",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Toubkal National Park",
+    "lon": -7.83333,
+    "lat": 31.0833,
+    "art": "https://en.wikipedia.org/wiki/Toubkal_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 380,
+    "year": "1942",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   }
+  ]
+ },
+ "Mozambique": {
+  "land_km2": 1,
+  "found": 8,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Maputo National Park",
+    "lon": 32.8,
+    "lat": -26.5,
+    "art": "https://en.wikipedia.org/wiki/Maputo_National_Park",
+    "sl": 17,
+    "wh": true,
+    "area": 1718,
+    "year": "2021",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Limpopo National Park",
+    "lon": 32.13333333,
+    "lat": -23.86666667,
+    "art": "https://en.wikipedia.org/wiki/Limpopo_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 10000,
+    "year": "2001",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Bazaruto National Park",
+    "lon": 35.465927,
+    "lat": -21.665724,
+    "art": "https://en.wikipedia.org/wiki/Bazaruto_Archipelago_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 1430,
+    "year": "1971",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "Myanmar": {
+  "land_km2": 1,
+  "found": 10,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Alaungdaw Kathapa National Park",
+    "lon": 95.53333333,
+    "lat": 23.6,
+    "art": "https://en.wikipedia.org/wiki/Alaungdaw_Kathapa_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": null,
+    "year": "1893",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   },
+   {
+    "name": "Khakaborazi National Park",
+    "lon": 97.87,
+    "lat": 28.135,
+    "art": "https://en.wikipedia.org/wiki/Hkakaborazi_National_Park",
+    "sl": 10,
+    "wh": false,
+    "area": null,
+    "year": "1996",
+    "cat": "II",
+    "have": false,
+    "score": 10
+   },
+   {
+    "name": "Mount Victoria National Park",
+    "lon": 93.9,
+    "lat": 21.23333333,
+    "art": "https://en.wikipedia.org/wiki/Natmataung_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": null,
+    "year": "1994",
+    "cat": "II",
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Namibia": {
+  "land_km2": 1,
+  "found": 6,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Namib-Naukluft National Park",
+    "lon": 15.32972222,
+    "lat": -24.54638889,
+    "art": "https://en.wikipedia.org/wiki/Namib-Naukluft_National_Park",
+    "sl": 35,
+    "wh": false,
+    "area": 49789,
+    "year": "1979",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   },
+   {
+    "name": "Nkasa Rupara National Park",
+    "lon": 23.65,
+    "lat": -18.4,
+    "art": "https://en.wikipedia.org/wiki/Nkasa_Rupara_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": "1990",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Skeleton Coast National Park",
+    "lon": 12.72,
+    "lat": -19.19,
+    "art": "https://en.wikipedia.org/wiki/Skeleton_Coast_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": "1971",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Nauru": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Nepal": {
+  "land_km2": 0,
+  "found": 13,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Langtang National Park",
+    "lon": 85.5531,
+    "lat": 28.1738,
+    "art": "https://en.wikipedia.org/wiki/Langtang_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 1710,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Makalu Barun National Park",
+    "lon": 87.11362679,
+    "lat": 27.75693134,
+    "art": "https://en.wikipedia.org/wiki/Makalu_Barun_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 2330,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Bardiya National Park",
+    "lon": 81.47,
+    "lat": 28.47,
+    "art": "https://en.wikipedia.org/wiki/Bardiya_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 968,
+    "year": "1988",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "New Zealand": {
+  "land_km2": 0,
+  "found": 14,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Aoraki / Mount Cook National Park",
+    "lon": 170.1,
+    "lat": -43.7333,
+    "art": "https://en.wikipedia.org/wiki/Aoraki_/_Mount_Cook_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 707,
+    "year": "1953",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Abel Tasman National Park",
+    "lon": 172.9715,
+    "lat": -40.900027777,
+    "art": "https://en.wikipedia.org/wiki/Abel_Tasman_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 2253,
+    "year": "1942",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "Egmont National Park",
+    "lon": 174.1,
+    "lat": -39.266666666,
+    "art": "https://en.wikipedia.org/wiki/Egmont_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 342,
+    "year": "1900",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   }
+  ]
+ },
+ "Nicaragua": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Volcán Maderas",
+    "lon": -85.5078535,
+    "lat": 11.4452535,
+    "art": "https://en.wikipedia.org/wiki/Volc%C3%A1n_Maderas_Natural_Reserve",
+    "sl": 1,
+    "wh": false,
+    "area": 26,
+    "year": "2013",
+    "cat": "II",
+    "have": false,
+    "score": 1
+   }
+  ]
+ },
+ "Niger": {
+  "land_km2": 1,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Nigeria": {
+  "land_km2": 1,
+  "found": 6,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Yankari National Park",
+    "lon": 10.5,
+    "lat": 9.3,
+    "art": "https://en.wikipedia.org/wiki/Yankari_Game_Reserve",
+    "sl": 21,
+    "wh": false,
+    "area": 2244,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Kainji National Park",
+    "lon": 4.554719444,
+    "lat": 10.3684,
+    "art": "https://en.wikipedia.org/wiki/Kainji_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 5340,
+    "year": "1979",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Gashaka Gumti National Park",
+    "lon": 11.52,
+    "lat": 7.35,
+    "art": "https://en.wikipedia.org/wiki/Gashaka_Gumti_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 7,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "North Korea": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "North Macedonia": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Mavrovo National Park",
+    "lon": 20.666944444,
+    "lat": 41.637222222,
+    "art": "https://en.wikipedia.org/wiki/Mavrovo_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 722,
+    "year": "1949",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Pelister National Park",
+    "lon": 21.191,
+    "lat": 40.981,
+    "art": "https://en.wikipedia.org/wiki/Pelister_National_Park",
+    "sl": 23,
+    "wh": false,
+    "area": 172,
+    "year": "1948",
+    "cat": "II",
+    "have": false,
+    "score": 23
+   },
+   {
+    "name": "Galičica National Park",
+    "lon": 20.85,
+    "lat": 41.0,
+    "art": "https://en.wikipedia.org/wiki/Gali%C4%8Dica_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 228,
+    "year": "1958",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   }
+  ]
+ },
+ "Norway": {
+  "land_km2": 0,
+  "found": 50,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Rondane National Park",
+    "lon": 9.833333333,
+    "lat": 61.833333333,
+    "art": "https://en.wikipedia.org/wiki/Rondane_National_Park",
+    "sl": 30,
+    "wh": false,
+    "area": 964,
+    "year": "1962",
+    "cat": "II",
+    "have": false,
+    "score": 30
+   },
+   {
+    "name": "Børgefjell National Park",
+    "lon": 13.9,
+    "lat": 65.1833,
+    "art": "https://en.wikipedia.org/wiki/B%C3%B8rgefjell_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 1447,
+    "year": "1963",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Ånderdalen National Park",
+    "lon": 17.266666666,
+    "lat": 69.2,
+    "art": "https://en.wikipedia.org/wiki/%C3%85nderdalen_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 134,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "Oman": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Al Saleel National Park",
+    "lon": 59.197,
+    "lat": 22.363,
+    "art": "https://en.wikipedia.org/wiki/Al_Saleel_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": 220,
+    "year": "1997",
+    "cat": null,
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Pakistan": {
+  "land_km2": 1,
+  "found": 26,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Khunjerab National Park",
+    "lon": 75.08333333,
+    "lat": 36.95,
+    "art": "https://en.wikipedia.org/wiki/Khunjerab_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": null,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Kirthar National Park",
+    "lon": 67.58333333,
+    "lat": 25.7,
+    "art": "https://en.wikipedia.org/wiki/Kirthar_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 3087,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Chitral Gol National Park",
+    "lon": 71.66666667,
+    "lat": 35.93333333,
+    "art": "https://en.wikipedia.org/wiki/Chitral_Gol_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Palau": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Palestine": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Qumran",
+    "lon": 35.459944301,
+    "lat": 31.741900825,
+    "art": "https://en.wikipedia.org/wiki/Qumran",
+    "sl": 51,
+    "wh": false,
+    "area": null,
+    "year": "-010",
+    "cat": null,
+    "have": false,
+    "score": 51
+   }
+  ]
+ },
+ "Panama": {
+  "land_km2": 0,
+  "found": 7,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Coiba",
+    "lon": -81.79,
+    "lat": 7.48,
+    "art": "https://en.wikipedia.org/wiki/Coiba",
+    "sl": 44,
+    "wh": true,
+    "area": 2701,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 59
+   },
+   {
+    "name": "Chagres National Park",
+    "lon": -79.5,
+    "lat": 9.4,
+    "art": "https://en.wikipedia.org/wiki/Chagres_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 1290,
+    "year": "1985",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Gulf of Chiriquí National Marine Park",
+    "lon": -82.3035906,
+    "lat": 8.1130935,
+    "art": "https://en.wikipedia.org/wiki/Gulf_of_Chiriqu%C3%AD_National_Marine_Park",
+    "sl": 12,
+    "wh": false,
+    "area": null,
+    "year": "1994",
+    "cat": null,
+    "have": false,
+    "score": 12
+   }
+  ]
+ },
+ "Papua New Guinea": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Paraguay": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Cerro Cora National Park",
+    "lon": -56.0179,
+    "lat": -22.6514,
+    "art": "https://en.wikipedia.org/wiki/Cerro_Cor%C3%A1_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 12038,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   },
+   {
+    "name": "Nacunday National Park",
+    "lon": -54.67083333,
+    "lat": -26.04861111,
+    "art": "https://en.wikipedia.org/wiki/Nacunday_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": null,
+    "year": "1975",
+    "cat": null,
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Ypoá National Park",
+    "lon": -57.4289,
+    "lat": -25.9114,
+    "art": "https://en.wikipedia.org/wiki/Ypo%C3%A1_National_Park",
+    "sl": 7,
+    "wh": false,
+    "area": 1000,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "People's Republic of China": {
+  "land_km2": 10,
+  "found": 14,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Jiuzhaigou Valley",
+    "lon": 103.9,
+    "lat": 33.2,
+    "art": "https://en.wikipedia.org/wiki/Jiuzhaigou",
+    "sl": 57,
+    "wh": true,
+    "area": 720,
+    "year": "1978",
+    "cat": "V",
+    "have": false,
+    "score": 72
+   },
+   {
+    "name": "Zhangjiajie National Forest Park",
+    "lon": 110.416,
+    "lat": 29.3274,
+    "art": "https://en.wikipedia.org/wiki/Zhangjiajie_National_Forest_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 479,
+    "year": "1982",
+    "cat": "V",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Pudacuo National Park",
+    "lon": 99.99527778,
+    "lat": 27.825,
+    "art": "https://en.wikipedia.org/wiki/Potatson_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": null,
+    "year": "2007",
+    "cat": null,
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Peru": {
+  "land_km2": 1,
+  "found": 16,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Huascarán National Park",
+    "lon": -77.4,
+    "lat": -9.4,
+    "art": "https://en.wikipedia.org/wiki/Huascar%C3%A1n_National_Park",
+    "sl": 43,
+    "wh": true,
+    "area": 3400,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 58
+   },
+   {
+    "name": "Amotape Hills National Park",
+    "lon": -80.58996,
+    "lat": -4.14778,
+    "art": "https://en.wikipedia.org/wiki/Cerros_de_Amotape_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 151561,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Cordillera Azul National Park",
+    "lon": -75.94,
+    "lat": -7.75,
+    "art": "https://en.wikipedia.org/wiki/Cordillera_Azul_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 135319,
+    "year": "2001",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "Philippines": {
+  "land_km2": 0,
+  "found": 27,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Puerto Princesa Subterranean River National Park",
+    "lon": 118.916666666,
+    "lat": 10.166666666,
+    "art": "https://en.wikipedia.org/wiki/Puerto_Princesa_Subterranean_River_National_Park",
+    "sl": 50,
+    "wh": true,
+    "area": 222,
+    "year": "1971",
+    "cat": "III",
+    "have": false,
+    "score": 65
+   },
+   {
+    "name": "Hundred Islands National Park",
+    "lon": 120.033333333,
+    "lat": 16.2,
+    "art": "https://en.wikipedia.org/wiki/Hundred_Islands_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": null,
+    "year": "1940",
+    "cat": "V",
+    "have": false,
+    "score": 13
+   },
+   {
+    "name": "Mounts Iglit–Baco National Park",
+    "lon": 121.21666667,
+    "lat": 12.9,
+    "art": "https://en.wikipedia.org/wiki/Mounts_Iglit%E2%80%93Baco_Natural_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 754,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Poland": {
+  "land_km2": 0,
+  "found": 23,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Białowieża National Park",
+    "lon": 23.866666666,
+    "lat": 52.766666666,
+    "art": "https://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_National_Park",
+    "sl": 41,
+    "wh": false,
+    "area": 105,
+    "year": "1932",
+    "cat": "II",
+    "have": false,
+    "score": 41
+   },
+   {
+    "name": "Słowiński National Park",
+    "lon": 17.3069,
+    "lat": 54.703202777,
+    "art": "https://en.wikipedia.org/wiki/Slovincian_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 186,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Tatra National Park",
+    "lon": 19.933333,
+    "lat": 49.25,
+    "art": "https://en.wikipedia.org/wiki/Tatra_National_Park,_Poland",
+    "sl": 35,
+    "wh": false,
+    "area": 21164,
+    "year": "1954",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   }
+  ]
+ },
+ "Portugal": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Qatar": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Umm Tais National Park",
+    "lon": 51.283,
+    "lat": 26.15,
+    "art": "https://en.wikipedia.org/wiki/Umm_Tais_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": null,
+    "year": "2006",
+    "cat": null,
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Republic of the Congo": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Odzala National Park",
+    "lon": 14.9,
+    "lat": 0.8,
+    "art": "https://en.wikipedia.org/wiki/Odzala-Kokoua_National_Park",
+    "sl": 29,
+    "wh": true,
+    "area": 13546,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 44
+   },
+   {
+    "name": "Nouabalé-Ndoki National Park",
+    "lon": 16.554166666,
+    "lat": 2.442777777,
+    "art": "https://en.wikipedia.org/wiki/Nouabal%C3%A9-Ndoki_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 4065,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Conkouati-Douli National Park",
+    "lon": 11.47,
+    "lat": -3.905,
+    "art": "https://en.wikipedia.org/wiki/Conkouati-Douli_National_Park",
+    "sl": 10,
+    "wh": false,
+    "area": 5050,
+    "year": "1999",
+    "cat": "II",
+    "have": false,
+    "score": 10
+   }
+  ]
+ },
+ "Romania": {
+  "land_km2": 0,
+  "found": 11,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Retezat National Park",
+    "lon": 22.833333333,
+    "lat": 45.333333333,
+    "art": "https://en.wikipedia.org/wiki/Retezat_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 380,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "Cheile Nerei-Beușnița National Park",
+    "lon": 21.8882,
+    "lat": 44.951194,
+    "art": "https://en.wikipedia.org/wiki/Nera_Gorge-Beu%C8%99ni%C8%9Ba_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 368,
+    "year": "1990",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Călimani National Park",
+    "lon": 25.168,
+    "lat": 47.127,
+    "art": "https://en.wikipedia.org/wiki/C%C4%83limani_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 24,
+    "year": "1990",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   }
+  ]
+ },
+ "Russia": {
+  "land_km2": 17,
+  "found": 60,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Yugyd Va National Park",
+    "lon": 59.0123,
+    "lat": 64.4631,
+    "art": "https://en.wikipedia.org/wiki/Yugyd_Va_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 18917,
+    "year": "1994",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Russian Arctic National Park",
+    "lon": 60.9,
+    "lat": 75.7,
+    "art": "https://en.wikipedia.org/wiki/Russian_Arctic_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 14260,
+    "year": "2009",
+    "cat": null,
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Bashkiria National Park",
+    "lon": 56.683333333,
+    "lat": 53.016666666,
+    "art": "https://en.wikipedia.org/wiki/Bashkiriya_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 823,
+    "year": "1986",
+    "cat": "II",
+    "have": false,
+    "score": 29
+   }
+  ]
+ },
+ "Rwanda": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Volcanoes National Park",
+    "lon": 29.4925,
+    "lat": -1.4675,
+    "art": "https://en.wikipedia.org/wiki/Volcanoes_National_Park",
+    "sl": 32,
+    "wh": false,
+    "area": 130,
+    "year": "1969",
+    "cat": "II",
+    "have": false,
+    "score": 32
+   },
+   {
+    "name": "Akagera National Park",
+    "lon": 30.783333333,
+    "lat": -1.633333333,
+    "art": "https://en.wikipedia.org/wiki/Akagera_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 1100,
+    "year": "1934",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   }
+  ]
+ },
+ "Saint Kitts and Nevis": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Saint Lucia": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Saint Vincent and the Grenadines": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Samoa": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "O Le Pupu-Puʿe National Park",
+    "lon": -171.726025,
+    "lat": -13.980449,
+    "art": "https://en.wikipedia.org/wiki/O_Le_Pupu-Pu%CA%BFe_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 4
+   },
+   {
+    "name": "Lake Lanoto'o National Park",
+    "lon": -171.833333333,
+    "lat": -13.9,
+    "art": "https://en.wikipedia.org/wiki/Lake_Lanoto%27o_National_Park",
+    "sl": 2,
+    "wh": false,
+    "area": 85,
+    "year": "2003",
+    "cat": null,
+    "have": false,
+    "score": 2
+   }
+  ]
+ },
+ "San Marino": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Saudi Arabia": {
+  "land_km2": 2,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Asir National Park",
+    "lon": 42.352294,
+    "lat": 18.310203,
+    "art": "https://en.wikipedia.org/wiki/Asir_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": 4500,
+    "year": "1981",
+    "cat": "V",
+    "have": false,
+    "score": 6
+   }
+  ]
+ },
+ "Senegal": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Niokolo-Koba National Park",
+    "lon": -12.722222222,
+    "lat": 13.074166666,
+    "art": "https://en.wikipedia.org/wiki/Niokolo-Koba_National_Park",
+    "sl": 60,
+    "wh": true,
+    "area": 9130,
+    "year": "1954",
+    "cat": "II",
+    "have": false,
+    "score": 75
+   },
+   {
+    "name": "Saloum Delta National Park",
+    "lon": -16.757232934,
+    "lat": 13.805659775,
+    "art": "https://en.wikipedia.org/wiki/Saloum_Delta_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 760,
+    "year": "1976",
+    "cat": "II",
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "Basse Casamance National Park",
+    "lon": -16.563888888,
+    "lat": 12.379444444,
+    "art": "https://en.wikipedia.org/wiki/Basse_Casamance_National_Park",
+    "sl": 9,
+    "wh": false,
+    "area": 50,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 9
+   }
+  ]
+ },
+ "Serbia": {
+  "land_km2": 0,
+  "found": 6,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Tara National Park",
+    "lon": 19.305,
+    "lat": 43.9067,
+    "art": "https://en.wikipedia.org/wiki/Tara_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 250,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   },
+   {
+    "name": "Kopaonik National Park",
+    "lon": 20.81250001,
+    "lat": 43.28527779,
+    "art": "https://en.wikipedia.org/wiki/Kopaonik_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 118,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Stara Planina National Park",
+    "lon": 22.68611111,
+    "lat": 43.36147222,
+    "art": "https://en.wikipedia.org/wiki/Stara_Planina_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Seychelles": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Praslin National Park",
+    "lon": 55.7333,
+    "lat": -4.33333,
+    "art": "https://en.wikipedia.org/wiki/Praslin_National_Park_and_surrounding_areas_Important_Bird_Area",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 5
+   },
+   {
+    "name": "National Park",
+    "lon": 55.87,
+    "lat": -4.32,
+    "art": "https://en.wikipedia.org/wiki/Ramos_National_Park",
+    "sl": 2,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 2
+   }
+  ]
+ },
+ "Sierra Leone": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Outamba-Kilimi National Park",
+    "lon": -12.02611111,
+    "lat": 9.77194444,
+    "art": "https://en.wikipedia.org/wiki/Outamba-Kilimi_National_Park",
+    "sl": 12,
+    "wh": false,
+    "area": null,
+    "year": "1986",
+    "cat": "II",
+    "have": false,
+    "score": 12
+   }
+  ]
+ },
+ "Singapore": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Slovakia": {
+  "land_km2": 0,
+  "found": 9,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Tatra National Park",
+    "lon": 19.91944444,
+    "lat": 49.18027778,
+    "art": "https://en.wikipedia.org/wiki/Tatra_National_Park,_Slovakia",
+    "sl": 43,
+    "wh": false,
+    "area": 743,
+    "year": "1949",
+    "cat": "II",
+    "have": false,
+    "score": 43
+   },
+   {
+    "name": "Slovak Paradise National Park",
+    "lon": 20.4,
+    "lat": 48.90833333,
+    "art": "https://en.wikipedia.org/wiki/Slovak_Paradise_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 194,
+    "year": "2016",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Low Tatras National Park",
+    "lon": 19.6325,
+    "lat": 48.92555556,
+    "art": "https://en.wikipedia.org/wiki/Low_Tatras_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 728,
+    "year": "1978",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   }
+  ]
+ },
+ "Slovenia": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Solomon Islands": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Somalia": {
+  "land_km2": 1,
+  "found": 4,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kismayo National Park",
+    "lon": 42.54536538,
+    "lat": -0.35817283,
+    "art": "https://en.wikipedia.org/wiki/Kismayo_National_Park",
+    "sl": 6,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 6
+   },
+   {
+    "name": "Hargeisa National Park",
+    "lon": 44.5,
+    "lat": 10.0,
+    "art": "https://en.wikipedia.org/wiki/Hargeisa_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 4
+   },
+   {
+    "name": "Jilib National Park",
+    "lon": 47.116667,
+    "lat": 3.783333,
+    "art": "https://en.wikipedia.org/wiki/Jilib_National_Park",
+    "sl": 2,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 2
+   }
+  ]
+ },
+ "South Africa": {
+  "land_km2": 1,
+  "found": 24,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Addo Elephant National Park",
+    "lon": 25.7458,
+    "lat": -33.4461,
+    "art": "https://en.wikipedia.org/wiki/Addo_Elephant_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 1640,
+    "year": "1931",
+    "cat": null,
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "Augrabies Falls National Park",
+    "lon": 20.338333,
+    "lat": -28.591111,
+    "art": "https://en.wikipedia.org/wiki/Augrabies_Falls_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 820,
+    "year": "1966",
+    "cat": null,
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Agulhas National Park",
+    "lon": 20.00666667,
+    "lat": -34.82722222,
+    "art": "https://en.wikipedia.org/wiki/Agulhas_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 57,
+    "year": "1998",
+    "cat": null,
+    "have": false,
+    "score": 24
+   }
+  ]
+ },
+ "South Korea": {
+  "land_km2": 0,
+  "found": 21,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Seoraksan National Park",
+    "lon": 128.416,
+    "lat": 38.125,
+    "art": "https://en.wikipedia.org/wiki/Seoraksan_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 174,
+    "year": "1965",
+    "cat": "Ia",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Hallasan National Park",
+    "lon": 126.53333333,
+    "lat": 33.36666667,
+    "art": "https://en.wikipedia.org/wiki/Hallasan_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": 91,
+    "year": "1970",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Jirisan National Park",
+    "lon": 127.632,
+    "lat": 35.29,
+    "art": "https://en.wikipedia.org/wiki/Jirisan_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 47175,
+    "year": "1967",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "South Sudan": {
+  "land_km2": 1,
+  "found": 6,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Boma National Park",
+    "lon": 33.914,
+    "lat": 6.489,
+    "art": "https://en.wikipedia.org/wiki/Boma_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 22800,
+    "year": "1986",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Bandingilo National Park",
+    "lon": 32.2775,
+    "lat": 5.43277778,
+    "art": "https://en.wikipedia.org/wiki/Bandingilo_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 10000,
+    "year": "1992",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Southern National Park",
+    "lon": 28.28333333,
+    "lat": 6.55,
+    "art": "https://en.wikipedia.org/wiki/Southern_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 22800,
+    "year": "1939",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   }
+  ]
+ },
+ "Spain": {
+  "land_km2": 1,
+  "found": 16,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Teide National Park",
+    "lon": -16.6181,
+    "lat": 28.2647,
+    "art": "https://en.wikipedia.org/wiki/Teide_National_Park",
+    "sl": 61,
+    "wh": true,
+    "area": 190,
+    "year": "1954",
+    "cat": "II",
+    "have": false,
+    "score": 76
+   },
+   {
+    "name": "Picos de Europa National Park",
+    "lon": -4.84,
+    "lat": 43.21,
+    "art": "https://en.wikipedia.org/wiki/Picos_de_Europa_National_Park",
+    "sl": 35,
+    "wh": false,
+    "area": 661,
+    "year": "1918",
+    "cat": "II",
+    "have": false,
+    "score": 35
+   },
+   {
+    "name": "Timanfaya National Park",
+    "lon": -13.779722222,
+    "lat": 29.011388888,
+    "art": "https://en.wikipedia.org/wiki/Timanfaya_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 52,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   }
+  ]
+ },
+ "Sri Lanka": {
+  "land_km2": 0,
+  "found": 25,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Bundala National Park",
+    "lon": 81.225,
+    "lat": 6.213888888,
+    "art": "https://en.wikipedia.org/wiki/Bundala_National_Park",
+    "sl": 29,
+    "wh": false,
+    "area": 62,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 29
+   },
+   {
+    "name": "Horton Plains National Park",
+    "lon": 80.8,
+    "lat": 6.8,
+    "art": "https://en.wikipedia.org/wiki/Horton_Plains_National_Park",
+    "sl": 21,
+    "wh": false,
+    "area": 32,
+    "year": "1969",
+    "cat": "II",
+    "have": false,
+    "score": 21
+   },
+   {
+    "name": "Wilpattu National Park",
+    "lon": 80.0,
+    "lat": 8.43333,
+    "art": "https://en.wikipedia.org/wiki/Wilpattu_National_Park",
+    "sl": 18,
+    "wh": false,
+    "area": 1085,
+    "year": "1938",
+    "cat": "II",
+    "have": false,
+    "score": 18
+   }
+  ]
+ },
+ "Sudan": {
+  "land_km2": 2,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Dinder National Park",
+    "lon": 35.2333,
+    "lat": 12.0,
+    "art": "https://en.wikipedia.org/wiki/Dinder_National_Park",
+    "sl": 20,
+    "wh": false,
+    "area": 10000,
+    "year": "1935",
+    "cat": "II",
+    "have": false,
+    "score": 20
+   },
+   {
+    "name": "Radom National Park",
+    "lon": 24.1167,
+    "lat": 9.3667,
+    "art": "https://en.wikipedia.org/wiki/Radom_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": null,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   },
+   {
+    "name": "Suakin Archipelago National Park",
+    "lon": 38.4882,
+    "lat": 18.7386,
+    "art": "https://en.wikipedia.org/wiki/Suakin_Archipelago_National_Park",
+    "sl": 4,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 4
+   }
+  ]
+ },
+ "Suriname": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Sweden": {
+  "land_km2": 0,
+  "found": 22,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Stora Sjöfallet National Park",
+    "lon": 17.993649696,
+    "lat": 67.566898179,
+    "art": "https://en.wikipedia.org/wiki/Stora_Sj%C3%B6fallet_National_Park",
+    "sl": 27,
+    "wh": true,
+    "area": 1280,
+    "year": "1909",
+    "cat": "II",
+    "have": false,
+    "score": 42
+   },
+   {
+    "name": "Hamra National Park",
+    "lon": 14.807980747,
+    "lat": 61.756866112,
+    "art": "https://en.wikipedia.org/wiki/Hamra_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 13,
+    "year": "1909",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Söderåsen National Park",
+    "lon": 13.230089159,
+    "lat": 56.02414328,
+    "art": "https://en.wikipedia.org/wiki/S%C3%B6der%C3%A5sen",
+    "sl": 25,
+    "wh": false,
+    "area": 16,
+    "year": "2001",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "Switzerland": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Swiss National Park",
+    "lon": 10.095,
+    "lat": 46.7,
+    "art": "https://en.wikipedia.org/wiki/Swiss_National_Park",
+    "sl": 40,
+    "wh": false,
+    "area": 170,
+    "year": "1914",
+    "cat": "Ia",
+    "have": false,
+    "score": 40
+   }
+  ]
+ },
+ "Syria": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Nimrod Fortress",
+    "lon": 35.714722222,
+    "lat": 33.252777777,
+    "art": "https://en.wikipedia.org/wiki/Nimrod_Castle",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": "http",
+    "cat": null,
+    "have": false,
+    "score": 16
+   },
+   {
+    "name": "Kursi",
+    "lon": 35.650377777,
+    "lat": 32.826086111,
+    "art": "https://en.wikipedia.org/wiki/Kursi,_Sea_of_Galilee",
+    "sl": 10,
+    "wh": false,
+    "area": null,
+    "year": "0500",
+    "cat": null,
+    "have": false,
+    "score": 10
+   }
+  ]
+ },
+ "São Tomé and Príncipe": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Taiwan": {
+  "land_km2": 0,
+  "found": 9,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Taroko National Park",
+    "lon": 121.333333,
+    "lat": 24.166667,
+    "art": "https://en.wikipedia.org/wiki/Taroko_National_Park",
+    "sl": 34,
+    "wh": false,
+    "area": 920,
+    "year": "1986",
+    "cat": "II",
+    "have": false,
+    "score": 34
+   },
+   {
+    "name": "Kenting National Park",
+    "lon": 120.79694444,
+    "lat": 21.98,
+    "art": "https://en.wikipedia.org/wiki/Kenting_National_Park",
+    "sl": 26,
+    "wh": false,
+    "area": 333,
+    "year": "1984",
+    "cat": "II",
+    "have": false,
+    "score": 26
+   },
+   {
+    "name": "Kinmen National Park",
+    "lon": 118.364,
+    "lat": 24.4477,
+    "art": "https://en.wikipedia.org/wiki/Kinmen_National_Park",
+    "sl": 16,
+    "wh": false,
+    "area": null,
+    "year": "1995",
+    "cat": "II",
+    "have": false,
+    "score": 16
+   }
+  ]
+ },
+ "Tajikistan": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Tanzania": {
+  "land_km2": 1,
+  "found": 19,
+  "have": 2,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Gombe National Park",
+    "lon": 29.633333333,
+    "lat": -4.666666666,
+    "art": "https://en.wikipedia.org/wiki/Gombe_National_Park",
+    "sl": 39,
+    "wh": false,
+    "area": 52,
+    "year": "1968",
+    "cat": "II",
+    "have": false,
+    "score": 39
+   },
+   {
+    "name": "Arusha National Park",
+    "lon": 36.833333333,
+    "lat": -3.25,
+    "art": "https://en.wikipedia.org/wiki/Arusha_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 552,
+    "year": "1960",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   },
+   {
+    "name": "Mikumi National Park",
+    "lon": 37.15,
+    "lat": -7.35,
+    "art": "https://en.wikipedia.org/wiki/Mikumi_National_Park",
+    "sl": 31,
+    "wh": false,
+    "area": 3230,
+    "year": "1964",
+    "cat": "II",
+    "have": false,
+    "score": 31
+   }
+  ]
+ },
+ "Thailand": {
+  "land_km2": 1,
+  "found": 126,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kaeng Krachan National Park",
+    "lon": 99.453333333,
+    "lat": 12.798888888,
+    "art": "https://en.wikipedia.org/wiki/Kaeng_Krachan_National_Park",
+    "sl": 36,
+    "wh": false,
+    "area": 2915,
+    "year": "1981",
+    "cat": "II",
+    "have": false,
+    "score": 36
+   },
+   {
+    "name": "Khao Sok",
+    "lon": 98.530278,
+    "lat": 8.936667,
+    "art": "https://en.wikipedia.org/wiki/Khao_Sok_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 739,
+    "year": "1980",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Tarutao National Park",
+    "lon": 99.644722222,
+    "lat": 6.595277777,
+    "art": "https://en.wikipedia.org/wiki/Tarutao_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 262,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   }
+  ]
+ },
+ "The Bahamas": {
+  "land_km2": 0,
+  "found": 12,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Inagua National Park",
+    "lon": -73.372,
+    "lat": 21.082,
+    "art": "https://en.wikipedia.org/wiki/Inagua_National_Park",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 5
+   },
+   {
+    "name": "Abaco National Park",
+    "lon": -77.203,
+    "lat": 25.966,
+    "art": "https://en.wikipedia.org/wiki/Abaco_National_Park",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 5
+   },
+   {
+    "name": "Conception Island National Park",
+    "lon": -75.05,
+    "lat": 23.48,
+    "art": "https://en.wikipedia.org/wiki/Conception_Island_National_Park",
+    "sl": 3,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 3
+   }
+  ]
+ },
+ "The Gambia": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kiang West National Park",
+    "lon": -15.91666667,
+    "lat": 13.38333333,
+    "art": "https://en.wikipedia.org/wiki/Kiang_West_National_Park",
+    "sl": 15,
+    "wh": false,
+    "area": 19,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 15
+   },
+   {
+    "name": "Niumi National Park",
+    "lon": -16.5,
+    "lat": 13.56666667,
+    "art": "https://en.wikipedia.org/wiki/Niumi_National_Park",
+    "sl": 11,
+    "wh": false,
+    "area": 4940,
+    "year": "1987",
+    "cat": "II",
+    "have": false,
+    "score": 11
+   }
+  ]
+ },
+ "Timor-Leste": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 1,
+  "quota": 3,
+  "new": []
+ },
+ "Togo": {
+  "land_km2": 0,
+  "found": 3,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kéran National Park",
+    "lon": 0.6279782,
+    "lat": 10.2001046,
+    "art": "https://en.wikipedia.org/wiki/K%C3%A9ran_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": 1436,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 13
+   },
+   {
+    "name": "Fazao Mafakassa National Park",
+    "lon": 1.0,
+    "lat": 9.0,
+    "art": "https://en.wikipedia.org/wiki/Fazao_Malfakassa_National_Park",
+    "sl": 12,
+    "wh": false,
+    "area": 690,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 12
+   },
+   {
+    "name": "Fosse aux Lions National Park",
+    "lon": 0.159073,
+    "lat": 10.7524,
+    "art": "https://en.wikipedia.org/wiki/Fosse_aux_Lions_National_Park",
+    "sl": 8,
+    "wh": false,
+    "area": 16,
+    "year": "1954",
+    "cat": "II",
+    "have": false,
+    "score": 8
+   }
+  ]
+ },
+ "Tonga": {
+  "land_km2": 0,
+  "found": 1,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "'Eua National Park",
+    "lon": -174.90753,
+    "lat": -21.40171,
+    "art": "https://en.wikipedia.org/wiki/%CA%BBEua_National_Park",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 5
+   }
+  ]
+ },
+ "Trinidad and Tobago": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Tunisia": {
+  "land_km2": 0,
+  "found": 10,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Ichkeul National Park",
+    "lon": 9.655444,
+    "lat": 37.123444,
+    "art": "https://en.wikipedia.org/wiki/Ichkeul_National_Park",
+    "sl": 40,
+    "wh": true,
+    "area": 126,
+    "year": "1980",
+    "cat": null,
+    "have": false,
+    "score": 55
+   },
+   {
+    "name": "Bou-Hedma National Park",
+    "lon": 9.5,
+    "lat": 34.416667,
+    "art": "https://en.wikipedia.org/wiki/Bou-Hedma_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": null,
+    "year": "1980",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Sidi Toui National Park",
+    "lon": 11.35,
+    "lat": 32.8,
+    "art": "https://en.wikipedia.org/wiki/Sidi_Toui_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": 6315,
+    "year": "1993",
+    "cat": null,
+    "have": false,
+    "score": 13
+   }
+  ]
+ },
+ "Turkey": {
+  "land_km2": 1,
+  "found": 36,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Göreme National Park",
+    "lon": 34.863055555,
+    "lat": 38.652777777,
+    "art": "https://en.wikipedia.org/wiki/G%C3%B6reme_Historical_National_Park",
+    "sl": 37,
+    "wh": false,
+    "area": 96,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 37
+   },
+   {
+    "name": "Yedigöller National Park",
+    "lon": 31.756388888,
+    "lat": 40.940833333,
+    "art": "https://en.wikipedia.org/wiki/Yedig%C3%B6ller_National_Park",
+    "sl": 20,
+    "wh": false,
+    "area": null,
+    "year": "1965",
+    "cat": "II",
+    "have": false,
+    "score": 20
+   },
+   {
+    "name": "Saklıkent Canyon",
+    "lon": 29.4034195,
+    "lat": 36.4687843,
+    "art": "https://en.wikipedia.org/wiki/Sakl%C4%B1kent_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 124,
+    "year": "1996",
+    "cat": null,
+    "have": false,
+    "score": 19
+   }
+  ]
+ },
+ "Turkmenistan": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Tuvalu": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Uganda": {
+  "land_km2": 0,
+  "found": 10,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Rwenzori Mountains National Park",
+    "lon": 29.95,
+    "lat": 0.4,
+    "art": "https://en.wikipedia.org/wiki/Rwenzori_Mountains_National_Park",
+    "sl": 46,
+    "wh": true,
+    "area": 996,
+    "year": "1991",
+    "cat": "II",
+    "have": false,
+    "score": 61
+   },
+   {
+    "name": "Kidepo Valley National Park",
+    "lon": 33.80694444,
+    "lat": 3.93,
+    "art": "https://en.wikipedia.org/wiki/Kidepo_Valley_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 1399,
+    "year": "1958",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Mount Elgon National Park",
+    "lon": 34.583333333,
+    "lat": 1.133333333,
+    "art": "https://en.wikipedia.org/wiki/Mount_Elgon_National_Park",
+    "sl": 20,
+    "wh": false,
+    "area": 169,
+    "year": "1968",
+    "cat": "II",
+    "have": false,
+    "score": 20
+   }
+  ]
+ },
+ "Ukraine": {
+  "land_km2": 1,
+  "found": 49,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Carpathian National Nature Park",
+    "lon": 24.583333333,
+    "lat": 48.3,
+    "art": "https://en.wikipedia.org/wiki/Carpathian_National_Nature_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 516,
+    "year": "1980",
+    "cat": "II",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Azov-Syvash National Nature Park",
+    "lon": 34.38472223,
+    "lat": 46.10277779,
+    "art": "https://en.wikipedia.org/wiki/Azov%E2%80%93Syvash_National_Nature_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 526,
+    "year": "1993",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Shatsk National Natural Park",
+    "lon": 23.82,
+    "lat": 51.517,
+    "art": "https://en.wikipedia.org/wiki/Shatsk_National_Natural_Park",
+    "sl": 20,
+    "wh": false,
+    "area": null,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 20
+   }
+  ]
+ },
+ "United Arab Emirates": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "United Kingdom": {
+  "land_km2": 0,
+  "found": 14,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "New Forest",
+    "lon": -1.618055555,
+    "lat": 50.863055555,
+    "art": "https://en.wikipedia.org/wiki/New_Forest",
+    "sl": 33,
+    "wh": false,
+    "area": null,
+    "year": "2005",
+    "cat": null,
+    "have": false,
+    "score": 33
+   },
+   {
+    "name": "Loch Lomond and The Trossachs National Park",
+    "lon": -4.61667,
+    "lat": 56.25,
+    "art": "https://en.wikipedia.org/wiki/Loch_Lomond_and_The_Trossachs_National_Park",
+    "sl": 28,
+    "wh": false,
+    "area": 1865,
+    "year": "2002",
+    "cat": "V",
+    "have": false,
+    "score": 28
+   },
+   {
+    "name": "Pembrokeshire Coast National Park",
+    "lon": -5.08333,
+    "lat": 51.8333,
+    "art": "https://en.wikipedia.org/wiki/Pembrokeshire_Coast_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": 620,
+    "year": "1952",
+    "cat": "V",
+    "have": false,
+    "score": 25
+   }
+  ]
+ },
+ "Uruguay": {
+  "land_km2": 0,
+  "found": 4,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Santa Teresa National Park",
+    "lon": -53.566953981,
+    "lat": -33.99745308,
+    "art": "https://en.wikipedia.org/wiki/Santa_Teresa_National_Park",
+    "sl": 13,
+    "wh": false,
+    "area": 10,
+    "year": null,
+    "cat": null,
+    "have": false,
+    "score": 13
+   },
+   {
+    "name": "Anchorena Park",
+    "lon": -57.98063889,
+    "lat": -34.27958333,
+    "art": "https://en.wikipedia.org/wiki/Anchorena_Presidential_Estate",
+    "sl": 8,
+    "wh": false,
+    "area": 14,
+    "year": "1908",
+    "cat": null,
+    "have": false,
+    "score": 8
+   },
+   {
+    "name": "Esteros de Farrapos e Islas del Río Uruguay National Park",
+    "lon": -58.108611111,
+    "lat": -32.778888888,
+    "art": "https://en.wikipedia.org/wiki/Parque_Nacional_de_los_Esteros_de_Farrapos_e_Islas_del_R%C3%ADo_Uruguay",
+    "sl": 7,
+    "wh": false,
+    "area": 168,
+    "year": "2008",
+    "cat": "II",
+    "have": false,
+    "score": 7
+   }
+  ]
+ },
+ "Uzbekistan": {
+  "land_km2": 0,
+  "found": 2,
+  "have": 0,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Zaamin National Park",
+    "lon": 68.501,
+    "lat": 39.613,
+    "art": "https://en.wikipedia.org/wiki/Zaamin_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": null,
+    "year": "1926",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "Ugom Chatkal State National Natural Park",
+    "lon": 70.43417,
+    "lat": 41.8625,
+    "art": "https://en.wikipedia.org/wiki/Ugam-Chatkal_National_Park",
+    "sl": 5,
+    "wh": false,
+    "area": null,
+    "year": null,
+    "cat": "II",
+    "have": false,
+    "score": 5
+   }
+  ]
+ },
+ "Vanuatu": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Vatican City": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Venezuela": {
+  "land_km2": 1,
+  "found": 40,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Médanos de Coro National Park",
+    "lon": -69.737630555,
+    "lat": 11.606419444,
+    "art": "https://en.wikipedia.org/wiki/M%C3%A9danos_de_Coro_National_Park",
+    "sl": 22,
+    "wh": false,
+    "area": 9128,
+    "year": "1974",
+    "cat": "II",
+    "have": false,
+    "score": 22
+   },
+   {
+    "name": "Henri Pittier National Park",
+    "lon": -67.619,
+    "lat": 10.38,
+    "art": "https://en.wikipedia.org/wiki/Henri_Pittier_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 1074,
+    "year": "1937",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   },
+   {
+    "name": "El Guacharo National Park",
+    "lon": -63.553853611,
+    "lat": 10.171760388,
+    "art": "https://en.wikipedia.org/wiki/Cueva_del_Gu%C3%A1charo_National_Park",
+    "sl": 14,
+    "wh": false,
+    "area": 629,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 14
+   }
+  ]
+ },
+ "Vietnam": {
+  "land_km2": 0,
+  "found": 31,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Cát Tiên National Park",
+    "lon": 107.151388888,
+    "lat": 11.347222222,
+    "art": "https://en.wikipedia.org/wiki/C%C3%A1t_Ti%C3%AAn_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 739,
+    "year": "1978",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Cuc Phuong National Park",
+    "lon": 105.60833333,
+    "lat": 20.31666667,
+    "art": "https://en.wikipedia.org/wiki/C%C3%BAc_Ph%C6%B0%C6%A1ng_National_Park",
+    "sl": 23,
+    "wh": false,
+    "area": 224,
+    "year": "1960",
+    "cat": "II",
+    "have": false,
+    "score": 23
+   },
+   {
+    "name": "Ba Bể National Park",
+    "lon": 105.615277777,
+    "lat": 22.405277777,
+    "art": "https://en.wikipedia.org/wiki/Ba_B%E1%BB%83_National_Park",
+    "sl": 20,
+    "wh": false,
+    "area": 100,
+    "year": "1992",
+    "cat": null,
+    "have": false,
+    "score": 20
+   }
+  ]
+ },
+ "Yemen": {
+  "land_km2": 0,
+  "found": 0,
+  "have": 0,
+  "quota": 3,
+  "new": []
+ },
+ "Zambia": {
+  "land_km2": 1,
+  "found": 19,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Kafue National Park",
+    "lon": 25.7,
+    "lat": -15.28,
+    "art": "https://en.wikipedia.org/wiki/Kafue_National_Park",
+    "sl": 24,
+    "wh": false,
+    "area": 22400,
+    "year": "1950",
+    "cat": "II",
+    "have": false,
+    "score": 24
+   },
+   {
+    "name": "Lower Zambezi National Park",
+    "lon": 29.33333333,
+    "lat": -15.75,
+    "art": "https://en.wikipedia.org/wiki/Lower_Zambezi_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 4092,
+    "year": "1983",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   },
+   {
+    "name": "Liuwa Plain National Park",
+    "lon": 22.5,
+    "lat": -14.66666667,
+    "art": "https://en.wikipedia.org/wiki/Liuwa_Plain_National_Park",
+    "sl": 17,
+    "wh": false,
+    "area": 3369,
+    "year": "1972",
+    "cat": "II",
+    "have": false,
+    "score": 17
+   }
+  ]
+ },
+ "Zimbabwe": {
+  "land_km2": 0,
+  "found": 11,
+  "have": 1,
+  "quota": 3,
+  "new": [
+   {
+    "name": "Hwange National Park",
+    "lon": 26.955,
+    "lat": -18.735,
+    "art": "https://en.wikipedia.org/wiki/Hwange_National_Park",
+    "sl": 27,
+    "wh": false,
+    "area": 14651,
+    "year": "1930",
+    "cat": "II",
+    "have": false,
+    "score": 27
+   },
+   {
+    "name": "Matobo National Park",
+    "lon": 28.508,
+    "lat": -20.55,
+    "art": "https://en.wikipedia.org/wiki/Matobo_National_Park",
+    "sl": 25,
+    "wh": false,
+    "area": null,
+    "year": "1926",
+    "cat": "II",
+    "have": false,
+    "score": 25
+   },
+   {
+    "name": "Gonarezhou National Park",
+    "lon": 31.66666667,
+    "lat": -21.66666667,
+    "art": "https://en.wikipedia.org/wiki/Gonarezhou_National_Park",
+    "sl": 19,
+    "wh": false,
+    "area": 5053,
+    "year": "1975",
+    "cat": "II",
+    "have": false,
+    "score": 19
+   }
+  ]
+ }
+}
