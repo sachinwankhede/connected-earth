@@ -1,0 +1,45 @@
+name: data-names
+# Manual only. For one state, replaces each park's name and Wikipedia source link with the real Wikipedia article's (see pipeline/wikinames.py)
+# and opens one pull request with a before/after table. Nothing reaches the live site until that pull request is merged.
+on:
+  workflow_dispatch:
+    inputs:
+      state: { description: "Two-letter state code (for example IL)", required: true }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-names
+jobs:
+  names:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Look up the names
+        run: python3 pipeline/wikinames.py "${{ github.event.inputs.state }}"
+      - name: Fold into the species table and rebuild
+        run: |
+          python3 build/species.py pack
+          python3 build/build.py --all
+          python3 build/budget.py
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ST=$(echo "${{ github.event.inputs.state }}" | tr a-z A-Z)
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/names-$ST"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing to change"; exit 0; fi
+          git commit -m "Park names from Wikipedia: $ST"
+          git push -f origin "data/names-$ST"
+          { echo "Automatic run of the data-names workflow for $ST. Each park's name and Wikipedia link now come from the matching Wikipedia article (same state, within 80 km, close name). Parks with no close match are unchanged."; echo; cat names_report.md; } > /tmp/body.md
+          if [ -z "$(gh pr list --head "data/names-$ST" --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base main --head "data/names-$ST" --title "Park names from Wikipedia: $ST" --body-file /tmp/body.md
+          fi
+          gh workflow run ci.yml --ref "data/names-$ST"
