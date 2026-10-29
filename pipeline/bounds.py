@@ -11,10 +11,19 @@ OUT=os.path.join(ROOT,'data','bounds.json')
 STOP=set('national state park forest refuge wildlife nwr monument historic site memorial recreation area preserve seashore lakeshore river the of and wilderness natural conservation'.split())
 import unicodedata
 def toks(s): return {w for w in re.findall(r'[a-z]+',unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode().lower().replace("'s",'s')) if w not in STOP and len(w)>2}
-def get(p):
+def get(p, empty_ok=False):
+    """The service sometimes answers with no 'features', or an empty list, when asked quickly; that looked like 'no match'
+    (17 of 23 Iowa parks). So wait and ask again. An empty list is accepted as real only after 3 empty answers (empty_ok)."""
+    err = RuntimeError('PAD-US gave no answer'); empties = 0
     for t in range(6):
-        try: return json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
-        except Exception as e: err=e; time.sleep(5*(t+1))
+        try:
+            j = json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
+            if j.get('features'): return j
+            empties += 1; err = RuntimeError('PAD-US gave no features')
+            if empty_ok and 'features' in j and empties >= 3: return j
+        except Exception as e: err=e
+        time.sleep(3*(t+1))
+    if empty_ok: return {'features': []}
     raise err
 def places():
     for p in species.files():
@@ -25,7 +34,7 @@ def fetch(e):
     off=0.01 if big else 0.0006
     p=dict(geometry='%s,%s'%(e['lon'],e['lat']),geometryType='esriGeometryPoint',inSR='4326',spatialRel='esriSpatialRelIntersects',distance=40000 if big else 4000,units='esriSRUnit_Meter',
            outFields='Unit_Nm,Des_Tp,GIS_Acres',returnGeometry='true',outSR='4326',maxAllowableOffset=off,f='json',resultRecordCount=200)
-    fs=get(p).get('features',[])
+    fs=get(p,True).get('features',[])   # an empty list is a real answer for a place outside PAD-US; retried a few times first
     want=toks(e['name'])|toks(e.get('short',''))
     best=[]
     sc={}
