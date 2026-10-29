@@ -3,7 +3,6 @@ AL
 CA
 CT
 DE
-FL
 GA
 HI
 ID
