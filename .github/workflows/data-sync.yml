@@ -22,7 +22,8 @@ jobs:
           BR: ${{ github.event.inputs.branch }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          if bash pipeline/syncstep.sh; then
+          git fetch -q origin main; git show origin/main:pipeline/syncstep.sh > /tmp/syncstep.sh   # main's copy: an older branch does not have it
+          if bash /tmp/syncstep.sh; then
             git push origin "HEAD:$BR"
           else
             # say why on the pull request, because the job log cannot be read from outside
