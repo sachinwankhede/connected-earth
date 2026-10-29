@@ -14,7 +14,6 @@ MS
 MT
 NC
 ND
-PA
 RI
 SC
 SD
