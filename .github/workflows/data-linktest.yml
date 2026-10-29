@@ -1,0 +1,34 @@
+name: data-linktest
+# Manual only. Builds a state's parks twice in a scratch folder (nothing is committed): once with the old plant pick (LINKSWAP=0)
+# and once with the new one, from the same downloaded drafts, and prints parks / passing / family-level share before and after.
+on:
+  workflow_dispatch:
+    inputs:
+      states: { description: "Two-letter codes, comma-separated", default: "AR" }
+      ref: { description: "Branch with the new plant pick", default: "main" }
+permissions:
+  contents: read
+concurrency: data-linktest
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: "${{ github.event.inputs.ref }}" }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Build each state before and after
+        run: |
+          for ST in $(echo "${{ github.event.inputs.states }}" | tr ',' ' '); do
+            L=$(echo $ST | tr A-Z a-z)
+            export SCRATCH=/tmp/scratch; mkdir -p $SCRATCH
+            LINKSWAP=0 python3 build/state.py $ST --top 25 --scratch > /tmp/before_$ST.log 2>&1 || { echo "$ST failed"; tail -5 /tmp/before_$ST.log; continue; }
+            B=$SCRATCH/state_$ST; N=$SCRATCH/state_${ST}_new
+            rm -rf $N; mkdir -p $N; cp -r $B/. $N/; rm -rf $N/out
+            WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
+            WORK=$N python3 pipeline/names.py --from-data $N/out > /dev/null 2>&1
+            WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
+            python3 pipeline/linkcompare.py $ST $B $N | tee -a "$GITHUB_STEP_SUMMARY"
+          done

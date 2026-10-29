@@ -69,6 +69,23 @@ def build(d):
         if c['latin'] in seen or gcount[c['g']]>=quota[c['g']] or len(chosen[c['tl']])>=cap[c['tl']]: continue
         if sum(1 for x in chosen[c['tl']] if x['family']==c['family'])>=2: continue
         chosen[c['tl']].append(c); seen.add(c['latin']); gcount[c['g']]+=1
+    # Plants are picked above by how often they are recorded. Re-pick them so the plants that the chosen animals are recorded eating
+    # (by species or genus) come first: family-level matches alone made over half of all links weak (docs/PROMOTION.md rule 4).
+    # Off unless LINKSWAP=1 (the data-linktest workflow compares before and after; the default is switched on once the numbers are in).
+    if os.environ.get('LINKSWAP','0')=='1':
+        eaters=[c for tl in (2,3,4) for c in chosen[tl]]
+        def strong(p):
+            n=0
+            for c in eaters:
+                T=set(t.lower() for t in d['eats'].get(c['latin'],[]) or [])
+                if p['latin'].lower() in T or (p['genus'] and p['genus'].lower() in T): n+=1
+            return n
+        plants=[c for c in cand if c['tl']==1]; seenp=set(); newp=[]
+        for c in sorted(plants,key=lambda c:(-strong(c),-c['records'])):
+            if c['latin'] in seenp or len(newp)>=quota['Plants'] or len(newp)>=cap[1]: continue
+            if sum(1 for x in newp if x['family']==c['family'])>=2: continue
+            newp.append(c); seenp.add(c['latin'])
+        chosen[1]=newp
     # ---- edges from GloBI ----
     def mk_edges(sel):
         by={x['latin']:x for x in sel}; E={}
