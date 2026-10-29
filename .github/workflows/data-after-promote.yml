@@ -1,0 +1,17 @@
+name: data-after-promote
+# Runs when a promotion pull request (branch data/promote-*) is merged: starts data-photos for every place that still has no photo,
+# so the newly promoted parks get theirs. Photos open their own pull request; nothing is merged here.
+on:
+  pull_request:
+    types: [closed]
+permissions:
+  actions: write
+jobs:
+  photos:
+    if: github.event.pull_request.merged == true && startsWith(github.event.pull_request.head.ref, 'data/promote-')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start data-photos for the new parks
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run data-photos.yml --repo "$GITHUB_REPOSITORY" --ref main -f limit=0 -f rounds=1
