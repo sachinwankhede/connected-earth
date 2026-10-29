@@ -1,0 +1,39 @@
+name: data-syncall
+# Manual only. After any merge to main: brings EVERY open data pull request that conflicts with (or is behind) main up to date, one after another,
+# with the same step as data-sync (pipeline/syncstep.sh), pushes each and starts its checks. A branch that needs a person gets a comment saying why.
+# Never merges.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-sync
+jobs:
+  syncall:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main, fetch-depth: 0 }
+      - name: Sync each open data pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          cp pipeline/syncstep.sh /tmp/syncstep.sh
+          for N in $(gh pr list --state open --json number,headRefName --jq '.[]|select(.headRefName|startswith("data/"))|.number'); do
+            sleep 3
+            S=$(gh api repos/${{ github.repository }}/pulls/$N --jq .mergeable_state)
+            if [ "$S" = "unknown" ]; then sleep 10; S=$(gh api repos/${{ github.repository }}/pulls/$N --jq .mergeable_state); fi
+            BR=$(gh api repos/${{ github.repository }}/pulls/$N --jq .head.ref)
+            case "$S" in dirty|behind) ;; *) echo "#$N $BR: $S, leaving it"; continue;; esac
+            echo "== #$N $BR ($S)"
+            git fetch -q origin "$BR" && git checkout -q -B work "origin/$BR"
+            if bash /tmp/syncstep.sh; then
+              git push origin "HEAD:$BR" && gh workflow run ci.yml --ref "$BR"
+            else
+              gh pr comment "$N" --body "data-syncall could not bring this up to date: $(cat /tmp/sync.md)"
+            fi
+            git checkout -q main
+          done

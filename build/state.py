@@ -36,6 +36,8 @@ def seed(st, top):
             a = f['attributes']; r = rows.setdefault(a['Unit_Nm'], dict(acres=0, mgr=a['Mang_Name'])); r['acres'] += a['GIS_Acres'] or 0
         if not d.get('exceededTransferLimit'): break
         off += 1000
+    NOT_PARKS = re.compile(r'golf|country club|tennis|racquet|wildlife refuge|\bNWR\b|cemetery|speedway|fairground', re.I)   # PAD-US lists some clubs and federal refuges as state parks
+    for n in [n for n in rows if NOT_PARKS.search(n)]: print('skipped (not a state park):', n); del rows[n]
     names = sorted(rows, key=lambda n: -rows[n]['acres'])[:top + 6]      # a few extra: duplicates are dropped below, then the list is cut to `top`
     import points
     out = []
