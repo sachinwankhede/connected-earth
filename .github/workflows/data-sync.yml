@@ -15,14 +15,14 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with: { ref: "${{ github.event.inputs.branch }}", fetch-depth: 0 }
       - name: Merge main
         env:
           BR: ${{ github.event.inputs.branch }}
         run: |
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
-          if git merge --no-edit origin/main; then echo "Merged without clashes."; else python3 pipeline/syncmain.py; fi
+          if git merge --no-edit origin/main; then echo "Merged without clashes."; else git show origin/main:pipeline/syncmain.py > /tmp/syncmain.py; SYNC_ROOT="$PWD" python3 /tmp/syncmain.py; fi   # main's copy of the script, so older branches get the newest rules
           python3 build/species.py pack
           git add -A
           git commit -m "Bring $BR up to date with main" || echo "nothing to commit"
