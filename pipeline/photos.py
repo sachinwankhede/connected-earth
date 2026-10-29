@@ -29,7 +29,7 @@ def one(i,title,out,man):
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
     man=json.load(open(mp)) if os.path.exists(mp) else {}
-    for t in [t for t,v in man.items() if NOTPHOTO.search(v.get('p',''))]:   # drop logos stored by earlier runs
+    for t in [t for t,v in man.items() if NOTPHOTO.search(urllib.parse.unquote(v.get('p','').split('File:')[-1]))]:   # drop logos stored by earlier runs
         try: os.remove(os.path.join(out,man[t]['f']))
         except OSError: pass
         del man[t]; print('removed non-photo',t,flush=True)
