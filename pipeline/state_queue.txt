@@ -14,4 +14,3 @@ MS
 MT
 NC
 ND
-WY
