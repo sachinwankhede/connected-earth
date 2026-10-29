@@ -1187,11 +1187,23 @@ rect.core { stroke-dasharray: 3 2.5; }
   };
 
   var DATA = __DATA__;
-  var ABOUT = DATA.about || {};
+  var ABOUT = null, ABOUT_P = null;
+  function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
+  function aboutText(n) { var t = ABOUT && ABOUT[n.latin.toLowerCase()]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
+  // Long species descriptions live in webs/about.json, fetched the first time a species sheet opens.
+  function loadAbout() {
+    if (!ABOUT_P) ABOUT_P = fetch(WB + "about.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (a) { ABOUT = a; return true; }).catch(function () { ABOUT_P = null; return false; });
+    return ABOUT_P;
+  }
   function aboutHTML(n) {
-    var t = n.latin && ABOUT[n.latin.toLowerCase()];
-    if (!t) return "";
-    return '<p class="about">' + t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a></p>';
+    if (!n.latin) return "";
+    if (ABOUT) { var t = aboutText(n); return t ? '<p class="about">' + t + "</p>" : ""; }
+    loadAbout().then(function (ok) {
+      var el = ok && document.querySelector('.about[data-lat="' + n.latin.toLowerCase().replace(/"/g, "") + '"]');
+      if (!el) return;
+      var t = aboutText(n); if (t) el.innerHTML = t; else el.remove();
+    });
+    return '<p class="about" data-lat="' + esc(n.latin.toLowerCase()) + '"></p>';
   }
   var ECOS = DATA.ecos;
   var COUPLE = DATA.couple;

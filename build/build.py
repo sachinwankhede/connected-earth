@@ -68,12 +68,13 @@ def split(ecos, links):
     return light, webs
 
 
-def write_webs(webs):
+def write_webs(webs, about):
     d = P('webs'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
-        if f.endswith('.json') and f[:-5] not in webs: os.remove(os.path.join(d, f))
+        if f.endswith('.json') and f[:-5] not in webs and f != 'about.json': os.remove(os.path.join(d, f))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
+    open(os.path.join(d, 'about.json'), 'w').write(json.dumps(about, separators=(',', ':'), ensure_ascii=False))
 
 
 def check(ecos, links, tpl, geo):
@@ -129,8 +130,8 @@ def build(pilot, out_path, write=False):
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
     light, webs = split(ecos, links)
-    if write: write_webs(webs)
-    data = json.dumps({'about': about, 'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
+    if write: write_webs(webs, about)
+    data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     out = tpl.replace('__LAND__', land).replace('__GEO__', json.dumps(geo, separators=(',', ':'))).replace('__DATA__', data)
     ml = P('node_modules', 'maplibre-gl', 'dist')
