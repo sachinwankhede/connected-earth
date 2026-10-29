@@ -3965,7 +3965,7 @@
   "name": "Broadleaf milkweed",
   "tl": 1,
   "wiki": "Asclepias latifolia",
-  "desc": "Broadleaf milkweed (Asclepias latifolia): a plant that turns sunlight into food. Recorded 34 times near the park in GBIF.",
+  "desc": "Broadleaf milkweed (Asclepias latifolia): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Asclepias latifolia is a species of milkweed, also known by the common name broadleaf milkweed."
  },
@@ -8171,6 +8171,14 @@
   "ic": "aspen",
   "about": "The genus Carex, the sedges, is one of the largest genera of flowering plants, containing over 2000 species, according to the Royal Botanic Gardens at Kew."
  },
+ "carex folliculata": {
+  "latin": "Carex folliculata",
+  "name": "Long Sedge",
+  "tl": 1,
+  "wiki": "Carex folliculata",
+  "desc": "Long Sedge (Carex folliculata): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "carex fraseriana": {
   "latin": "Carex fraseriana",
   "name": "Fraser's sedge",
@@ -10037,7 +10045,7 @@
   "name": "Green Stink Bug",
   "tl": 2,
   "wiki": "Chinavia hilaris",
-  "desc": "Green Stink Bug (Chinavia hilaris): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "desc": "Green Stink Bug (Chinavia hilaris): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
   "ic": "hopper"
  },
  "chindwin headwaters": {
@@ -16477,7 +16485,7 @@
   "name": "Cushion buckwheat",
   "tl": 1,
   "wiki": "Eriogonum ovalifolium",
-  "desc": "Cushion buckwheat (Eriogonum ovalifolium): a plant that turns sunlight into food. Recorded 285 times near the park in GBIF.",
+  "desc": "Cushion buckwheat (Eriogonum ovalifolium): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Eriogonum ovalifolium is a species of wild buckwheat known by the common name cushion buckwheat."
  },
@@ -16634,7 +16642,7 @@
   "name": "Dreamy Duskywing",
   "tl": 2,
   "wiki": "Erynnis icelus",
-  "desc": "Dreamy Duskywing (Erynnis icelus): eats plants or other primary food sources. Recorded 16 times near the park in GBIF.",
+  "desc": "Dreamy Duskywing (Erynnis icelus): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Erynnis icelus, also known as the dreamy duskywing or aspen dusky wing, is a species of butterfly in the family Hesperiidae. It is found in boreal North America."
  },
@@ -17345,7 +17353,7 @@
   "name": "Grass-leaved Goldenrod",
   "tl": 1,
   "wiki": "Euthamia graminifolia",
-  "desc": "Grass-leaved Goldenrod (Euthamia graminifolia): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "desc": "Grass-leaved Goldenrod (Euthamia graminifolia): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen"
  },
  "eutrapela clemataria": {
@@ -17362,14 +17370,6 @@
   "tl": 1,
   "wiki": "Eutrochium dubium",
   "desc": "Coastal Plain Joe-pyeweed (Eutrochium dubium): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
-  "ic": "aspen"
- },
- "eutrochium fistulosum": {
-  "latin": "Eutrochium fistulosum",
-  "name": "Trumpetweed",
-  "tl": 1,
-  "wiki": "Eutrochium fistulosum",
-  "desc": "Trumpetweed (Eutrochium fistulosum): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
   "ic": "aspen"
  },
  "eutropis multifasciata": {
@@ -19191,14 +19191,6 @@
   "desc": "American licorice (Glycyrrhiza lepidota): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
   "ic": "aspen"
  },
- "gnaphalium uliginosum": {
-  "latin": "Gnaphalium uliginosum",
-  "name": "Marsh Cudweed",
-  "tl": 1,
-  "wiki": "Gnaphalium uliginosum",
-  "desc": "Marsh Cudweed (Gnaphalium uliginosum): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
-  "ic": "aspen"
- },
  "goodyera oblongifolia": {
   "latin": "Goodyera oblongifolia",
   "name": "Menzie's giant rattlesnake-plantain",
@@ -20377,6 +20369,14 @@
   "ic": "hopper",
   "about": "Hemaris diffinis, the snowberry clearwing, is a moth of the family Sphingidae. This moth is sometimes called \"hummingbird moth\" or \"flying lobster\"."
  },
+ "hemaris thysbe": {
+  "latin": "Hemaris thysbe",
+  "name": "Common Clear-wing",
+  "tl": 2,
+  "wiki": "Hemaris thysbe",
+  "desc": "Common Clear-wing (Hemaris thysbe): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "hemerocallis fulva": {
   "latin": "Hemerocallis fulva",
   "name": "Orange Day-lily",
@@ -20684,6 +20684,14 @@
   "tl": 1,
   "wiki": "Hieracium paniculatum",
   "desc": "Allegheny Hawkweed (Hieracium paniculatum): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "hieracium venosum": {
+  "latin": "Hieracium venosum",
+  "name": "Rattlesnake Hawkweed",
+  "tl": 1,
+  "wiki": "Hieracium venosum",
+  "desc": "Rattlesnake Hawkweed (Hieracium venosum): a plant that turns sunlight into food. Recorded 55 times near the park in GBIF.",
   "ic": "aspen"
  },
  "hierophis cypriensis": {
@@ -27360,14 +27368,6 @@
   "desc": "A hard clam buried in bay sediments that filters plankton from the water. Long harvested in Rhode Island.",
   "ic": "shell",
   "about": "The hard clam, also known as the round clam, hard-shell (or hard-shelled) clam, or the quahog, is an edible marine bivalve mollusk that is native to the eastern shores of North America and Central…"
- },
- "mergus merganser": {
-  "latin": "Mergus merganser",
-  "name": "Common Merganser",
-  "tl": 2,
-  "wiki": "Mergus merganser",
-  "desc": "Common Merganser (Mergus merganser): eats plants or other primary food sources. Recorded 14 times near the park in GBIF.",
-  "ic": "meadowlark"
  },
  "mergus serrator": {
   "latin": "Mergus serrator",
@@ -35358,7 +35358,7 @@
   "name": "Fremont cottonwood",
   "tl": 1,
   "wiki": "Populus fremontii",
-  "desc": "Fremont's cottonwood (Populus fremontii): a plant that turns sunlight into food. Recorded 38 times near the park in GBIF.",
+  "desc": "Fremont's cottonwood (Populus fremontii): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "willow",
   "badge": "Foundation species",
   "about": "Populus fremontii, commonly known as Frémont's cottonwood, is a cottonwood native to riparian zones of the Southwestern United States and northern through central Mexico."
@@ -38720,14 +38720,6 @@
   "desc": "Bloodberry (Rivina humilis): a plant that turns sunlight into food. Recorded 28 times near the park in GBIF.",
   "ic": "aspen"
  },
- "robinia neomexicana": {
-  "latin": "Robinia neomexicana",
-  "name": "New Mexico Locust",
-  "tl": 1,
-  "wiki": "Robinia neomexicana",
-  "desc": "New Mexico Locust (Robinia neomexicana): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
-  "ic": "aspen"
- },
  "robinia pseudoacacia": {
   "latin": "Robinia pseudoacacia",
   "name": "False acacia",
@@ -41076,7 +41068,7 @@
   "name": "Twoleaf senna",
   "tl": 1,
   "wiki": "Senna roemeriana",
-  "desc": "Twoleaf senna (Senna roemeriana): a plant that turns sunlight into food. Recorded 79 times near the park in GBIF.",
+  "desc": "Twoleaf senna (Senna roemeriana): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Senna roemeriana, the twoleaf senna, is a species of flowering plant in the family Fabaceae, native to the US states of New Mexico and Texas, and to northern Mexico."
  },
@@ -46847,14 +46839,6 @@
   "ic": "aspen",
   "about": "Uvularia grandiflora, the large-flowered bellwort or merrybells, is a species of flowering plant in the family Colchicaceae, native to eastern and central North America."
  },
- "uvularia sessilifolia": {
-  "latin": "Uvularia sessilifolia",
-  "name": "Sessile-leaf Bellwort",
-  "tl": 1,
-  "wiki": "Uvularia sessilifolia",
-  "desc": "Sessile-leaf Bellwort (Uvularia sessilifolia): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
-  "ic": "aspen"
- },
  "vaccinium": {
   "latin": "Vaccinium",
   "name": "Cowberry and bilberry",
@@ -47569,6 +47553,14 @@
   "desc": "Common Field-speedwell (Veronica persica): a plant that turns sunlight into food. Recorded 51 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Veronica persica is a flowering plant in the family Plantaginaceae."
+ },
+ "veronica scutellata": {
+  "latin": "Veronica scutellata",
+  "name": "Marsh Speedwell",
+  "tl": 1,
+  "wiki": "Veronica scutellata",
+  "desc": "Marsh Speedwell (Veronica scutellata): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "veronicastrum virginicum": {
   "latin": "Veronicastrum virginicum",
