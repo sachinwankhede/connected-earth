@@ -40,11 +40,11 @@ def choose(cur, state, lat, lon, pages):
         sim = difflib.SequenceMatcher(None, a, b).ratio() if a and b else 0
         if near is None or sim > near[0]: near = (sim, pg['title'])
         if sim >= MIN_SIM and (best is None or sim > best[0]): best = (sim, pg)
-    if not best: return None, 'no close match in %s%s' % (state, (' (closest: %s, %.2f)' % (near[1], near[0])) if near else ' (no park pages found)')
+    if not best: return None, 'no close match in %s%s' % (state, (' (closest: %s, %.2f)' % (near[1], near[0])) if near else ' (no park pages found; search %s, list %s titles, list pages %s)' % (LAST.get('search'), LAST.get('listed'), LAST.get('listpages')))
     return best[1], ('title has a qualifier: ' + best[1]['title']) if base(best[1]['title']) != best[1]['title'] else ''
 
-def _pages(q):
-    d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts|coordinates&exintro=1&explaintext=1&exchars=400&exlimit=max&colimit=max&coprimary=primary&' + q)
+def _pages(q, redirects=False):
+    d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json%s&prop=extracts|coordinates&exintro=1&explaintext=1&exchars=400&exlimit=max&colimit=max&coprimary=primary&%s' % ('&redirects=1' if redirects else '', q))
     ps = sorted(((d or {}).get('query', {}).get('pages', {})).values(), key=lambda p: p.get('index', 99))
     return [dict(title=p['title'], extract=p.get('extract', ''), coords=[p['coordinates'][0]['lat'], p['coordinates'][0]['lon']] if p.get('coordinates') else None) for p in ps if 'missing' not in p]
 
@@ -63,11 +63,14 @@ def state_list(state):
             cont = '&plcontinue=' + urllib.parse.quote(c)
     _list[state] = list(dict.fromkeys(out)); return _list[state]
 
+LAST = {}
 def lookup(name, state):
     pages = _pages('generator=search&gsrlimit=6&gsrsearch=%s' % urllib.parse.quote(name + ' ' + state))
-    near = sorted(state_list(state), key=lambda t: -difflib.SequenceMatcher(None, core(name), core(t)).ratio())[:4]
-    if near: pages += _pages('titles=' + urllib.parse.quote('|'.join(near)))
-    return pages
+    lst = state_list(state)
+    near = sorted(lst, key=lambda t: -difflib.SequenceMatcher(None, core(name), core(t)).ratio())[:4]
+    extra = _pages('titles=' + urllib.parse.quote('|'.join(near)), True) if near else []
+    LAST.update(search=len(pages), listed=len(lst), listpages=len(extra))
+    return pages + extra
 
 def short(n): return re.sub(r' (State )?(Park|Recreation Area)$', '', n)[:20]
 def wurl(t): return 'https://en.wikipedia.org/wiki/' + urllib.parse.quote(t.replace(' ', '_'), safe="_(),'")
