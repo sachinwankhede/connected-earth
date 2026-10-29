@@ -1,9 +1,7 @@
 name: data-about
-# Fetches the next batch of species descriptions from Wikipedia and opens (or updates) one pull request.
+# Manual runs only (refresh is parked). Fetches the next batch of species descriptions from Wikipedia and opens (or updates) one pull request.
 # Nothing reaches the live site until that pull request is merged.
 on:
-  schedule:
-    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       limit: { description: "Titles to fetch this run (0 = all left)", default: "1000" }

@@ -16,6 +16,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Species sheet.** Photo on the left, kind and Latin name on the right, one line, then photo rows (Eats, Eaten by, Also found in places), More, and What if last.
 - **Section headings.** Small mono caps label (`.jp h3`). Same on every page.
 - **Story blocks.** "The story" is plain text with a bold lead-in; "Why it matters" has the accent bar (`.jwhy`). Journeys and places use the same blocks.
+- **Text length.** On a place page, "The story" is at most 60 words and "Why it matters" at most 40, so both fit a phone screen without scrolling. Anything longer goes in the sources, not the text. `tests/textlength.test.mjs` enforces it.
 - **Photo rows.** Horizontal rows of small photo cards: photo, name, at most one small line below. Badges go under the name, never on the photo.
 - **Tappable rows.** Photo, title, one muted line, chevron on the right (`.jend`, `.pj`).
 - **Fonts.** Display font for names and titles, body font for text, mono for small labels. Sizes: page title 24, row title 16, body 16, card name 12–13, label 11, fine print 12.
