@@ -17,6 +17,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Section headings.** Small mono caps label (`.jp h3`). Same on every page.
 - **Story blocks.** "The story" is plain text with a bold lead-in; "Why it matters" has the accent bar (`.jwhy`). Journeys and places use the same blocks.
 - **Text length.** On a place page, "The story" is at most 60 words and "Why it matters" at most 40, so both fit a phone screen without scrolling. Anything longer goes in the sources, not the text. `tests/textlength.test.mjs` enforces it.
+- **Place summary.** A state park or refuge with no story shows one plain sentence from the first line of its Wikipedia article (no lead-in, same spot and look as the story). At most 40 words, with brackets removed, and none when the article is a disambiguation page or about something else. The Wikipedia article is credited in the place's Sources & credits. `tests/textlength.test.mjs` enforces it.
 - **Photo rows.** Horizontal rows of small photo cards: photo, name, at most one small line below. Badges go under the name, never on the photo.
 - **Tappable rows.** Photo, title, one muted line, chevron on the right (`.jend`, `.pj`).
 - **Fonts.** Display font for names and titles, body font for text, mono for small labels. Sizes: page title 24, row title 16, body 16, card name 12–13, label 11, fine print 12.

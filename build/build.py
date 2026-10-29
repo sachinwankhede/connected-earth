@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/*.json (hand-built places),
 data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
 """
-import json, re, sys, os, hashlib
+import json, re, sys, os, hashlib, urllib.parse
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -24,7 +24,17 @@ def load_places(pilot):
         for i in json.load(open(P('data-auto', 'order.json'))):
             ecos.append(json.load(open(P('data-auto', i + '.json'))))
     tab = species.table()
-    return links, [species.join(e, tab) for e in ecos]
+    ecos = [species.join(e, tab) for e in ecos]
+    sp = P('pipeline', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
+    for e in ecos:
+        if e.get('park') and not e.get('story'):
+            for src in e.get('sources', []):
+                m = re.search(r'wikipedia\.org/wiki/([^#?]+)', src.get('url', '')) if src.get('title', '').startswith('Wikipedia:') else None
+                if m:
+                    t = sums.get(urllib.parse.unquote(m.group(1)).replace('_', ' '))
+                    if t: e['summary'] = t
+                    break
+    return links, ecos
 
 
 def cross_ends(links):
