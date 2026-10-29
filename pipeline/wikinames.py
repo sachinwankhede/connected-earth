@@ -7,13 +7,15 @@
 The park list from PAD-US sometimes has typos ("Horshoe Lake", "Morraine Hills"), and the Wikipedia source link was built
 from that name, so it could point at a page that does not exist. For each park this finds the Wikipedia article in the same
 state, close in name and within 80 km of the park, then sets name, short and the Wikipedia source from that article's title.
-No close match: the park is left as it is and listed in the report. Ids and file names never change.
+No close match: the park is left as it is and listed in the report. FIXES at the top ({place id: right spelling}) holds the few typos the search cannot find; the right spelling is searched instead. Ids and file names never change.
 Needs the web (Wikipedia), so it runs in a GitHub job. The report goes to names_report.md for the pull request."""
 import difflib, json, math, os, re, sys, urllib.parse
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); sys.path.insert(0, here)
 wm = None
 MAX_KM = 80; MIN_SIM = 0.88
+# Typos the Wikipedia search cannot find, by place id: the right spelling is searched instead.
+FIXES = {'ilhorshoelake': 'Horseshoe Lake State Park', 'illincolnsnewsalem': "Lincoln's New Salem State Historic Site"}
 TYPE = re.compile(r'\b(park|recreation area|historic site|historical site|natural area|conservation area|preserve|forest|fish and wildlife area|wildlife area|wildlife refuge|grassland)\b', re.I)
 
 def base(title): return re.sub(r'\s*\([^)]*\)\s*$', '', title).strip()
@@ -101,7 +103,11 @@ if __name__ == '__main__':
         if not (f.startswith(st.lower()) and f.endswith('.json')) or f == 'order.json': continue
         e = json.load(open(os.path.join(d, f)))
         if not e.get('park') or not e.get('nodes'): continue
-        pg, note = choose(e['name'], full, e['lat'], e['lon'], lookup(e['name'], full))
+        qn = FIXES.get(e['id'], e['name'])      # a hand-corrected spelling (FIXES at the top of this file) is searched instead of the typo
+        pg, note = choose(qn, full, e['lat'], e['lon'], lookup(qn, full))
+        if not pg and qn != e['name']:
+            old = e['name']; e['name'] = qn; e['short'] = short(qn); json.dump(e, open(os.path.join(d, f), 'w'), ensure_ascii=False); changed += 1
+            rows.append('| %s | %s | spelling fixed by hand, no Wikipedia page matched (%s); source link NOT changed |' % (old, qn, note)); continue
         if not pg: rows.append('| %s | (unchanged) | %s |' % (e['name'], note)); continue
         new = base(pg['title']); src = 'Wikipedia: ' + new; url = wurl(pg['title']); old = e['name']; dirty = False
         if new != old: e['name'] = new; e['short'] = short(new); dirty = True
