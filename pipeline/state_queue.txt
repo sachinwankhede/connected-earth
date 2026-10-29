@@ -14,7 +14,6 @@ MS
 MT
 NC
 ND
-VA
 VT
 WA
 WV

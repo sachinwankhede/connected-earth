@@ -370,7 +370,7 @@
   "name": "Red maple",
   "tl": 1,
   "wiki": "Acer rubrum",
-  "desc": "Red maple (Acer rubrum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "desc": "Red maple (Acer rubrum): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Acer rubrum, the red maple, also known as swamp maple, water maple, or soft maple, is a North American tree species. Many of its features, especially its deciduous leaves, are quite variable in form."
  },
@@ -11225,7 +11225,7 @@
   "name": "Timber rattlesnake",
   "tl": 3,
   "wiki": "Crotalus horridus",
-  "desc": "Ambush predator of deciduous forest that winters in limestone crevices. Eats mostly small mammals, especially mice.",
+  "desc": "Timber rattlesnake (Crotalus horridus): hunts or scavenges other animals. Recorded 1 times near the park in GBIF.",
   "ic": "quad",
   "about": "The timber rattlesnake, also known commonly as the banded rattlesnake, and the canebrake rattlesnake in the southern United States, is a species of pit viper in the family Viperidae."
  },
@@ -11974,7 +11974,7 @@
   "name": "Monarch butterfly",
   "tl": 2,
   "wiki": "Danaus plexippus",
-  "desc": "Monarch butterfly (Danaus plexippus): eats plants or other primary food sources. Recorded 8 times near the park in GBIF.",
+  "desc": "Monarch butterfly (Danaus plexippus): eats plants or other primary food sources. Recorded 16 times near the park in GBIF.",
   "ic": "hopper",
   "about": "The monarch butterfly or simply monarch is a milkweed butterfly (subfamily Danainae) in the family Nymphalidae."
  },
@@ -13695,6 +13695,14 @@
   "ic": "sage",
   "about": "Echinacea angustifolia, the narrow-leaved purple coneflower or blacksamson echinacea, is a species of flowering plant in the family Asteraceae."
  },
+ "echinacea laevigata": {
+  "latin": "Echinacea laevigata",
+  "name": "Smooth purple-coneflower",
+  "tl": 1,
+  "wiki": "Echinacea laevigata",
+  "desc": "Smooth purple-coneflower (Echinacea laevigata): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "echinacea pallida": {
   "latin": "Echinacea pallida",
   "name": "Pale echinacea",
@@ -14402,6 +14410,14 @@
   "wiki": "Epilobium leptophyllum",
   "desc": "Bog Willowherb (Epilobium leptophyllum): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
   "ic": "aspen"
+ },
+ "epimecis hortaria": {
+  "latin": "Epimecis hortaria",
+  "name": "Tulip-tree Beauty",
+  "tl": 2,
+  "wiki": "Epimecis hortaria",
+  "desc": "Tulip-tree Beauty (Epimecis hortaria): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "epinephelus": {
   "latin": "Epinephelus",
@@ -17940,7 +17956,7 @@
   "latin": "Haliaeetus leucocephalus",
   "name": "Bald eagle",
   "tl": 4,
-  "wiki": "Bald eagle",
+  "wiki": "Haliaeetus leucocephalus",
   "desc": "A large raptor that eats fish and carrion along the bay. Its numbers recovered after the DDT era.",
   "ic": "baldeagle",
   "about": "The bald eagle is a bird of prey found in North America. A sea eagle, it has two known subspecies and forms a species pair with the white-tailed eagle, which occupies the same niche as the bald eagle…"
@@ -18368,6 +18384,14 @@
   "tl": 1,
   "wiki": "Helianthus laciniatus",
   "desc": "Jagged-edge sunflower (Helianthus laciniatus): a plant that turns sunlight into food. Recorded 8 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "helianthus laetiflorus": {
+  "latin": "Helianthus laetiflorus",
+  "name": "Cheerful sunflower",
+  "tl": 1,
+  "wiki": "Helianthus laetiflorus",
+  "desc": "Cheerful sunflower (Helianthus laetiflorus): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen"
  },
  "helianthus mollis": {
@@ -19485,7 +19509,7 @@
  },
  "hyphantria cunea": {
   "latin": "Hyphantria cunea",
-  "name": "Fall webworm",
+  "name": "Fall Webworm",
   "tl": 2,
   "wiki": "Hyphantria cunea",
   "desc": "A moth caterpillar that feeds on the leaves of many trees, including cypress, maple and beech.",
@@ -19561,6 +19585,14 @@
   "desc": "Eats fruit, fungi and invertebrates on the forest floor and scatter-hoards fruit, which can help seeds establish.",
   "ic": "quad",
   "about": "The musky rat-kangaroo is a small marsupial found only in the rainforests of northeastern Australia. First described in the later 19th century, the only other species are known from fossil specimens."
+ },
+ "hypsopygia olinalis": {
+  "latin": "Hypsopygia olinalis",
+  "name": "Yellow-fringed Dolichomia Moth",
+  "tl": 2,
+  "wiki": "Hypsopygia olinalis",
+  "desc": "Yellow-fringed Dolichomia Moth (Hypsopygia olinalis): eats plants or other primary food sources. Recorded 39 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "hystrix indica": {
   "latin": "Hystrix indica",
@@ -19704,7 +19736,7 @@
   "name": "American Holly",
   "tl": 1,
   "wiki": "Ilex opaca",
-  "desc": "American Holly (Ilex opaca): a plant that turns sunlight into food. Recorded 69 times near the park in GBIF.",
+  "desc": "American Holly (Ilex opaca): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Ilex opaca, the American holly, is a species of holly, native to the eastern and south-central United States, from coastal Massachusetts south to central Florida, and west to southeastern Missouri…"
  },
@@ -20185,6 +20217,14 @@
   "tl": 1,
   "wiki": "Juglans microcarpa",
   "desc": "Texas walnut (Juglans microcarpa): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
+  "ic": "aspen"
+ },
+ "juglans nigra": {
+  "latin": "Juglans nigra",
+  "name": "Black Walnut",
+  "tl": 1,
+  "wiki": "Juglans nigra",
+  "desc": "Black Walnut (Juglans nigra): a plant that turns sunlight into food. Recorded 23 times near the park in GBIF.",
   "ic": "aspen"
  },
  "juglans regia": {
@@ -23753,6 +23793,14 @@
   "ic": "aspen",
   "about": "Magnolia macrophylla, the bigleaf magnolia, is a deciduous magnolia native to the southeastern United States."
  },
+ "magnolia tripetala": {
+  "latin": "Magnolia tripetala",
+  "name": "Umbrella magnolia",
+  "tl": 1,
+  "wiki": "Magnolia tripetala",
+  "desc": "Umbrella magnolia (Magnolia tripetala): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
+  "ic": "aspen"
+ },
  "magnolia virginiana": {
   "latin": "Magnolia virginiana",
   "name": "Sweetbay",
@@ -25661,6 +25709,14 @@
   "ic": "snake",
   "badge": "Apex predator",
   "about": "The green tree python, is a species of snake in the family Pythonidae. The species is native to New Guinea, some islands in Indonesia, and the Cape York Peninsula in Australia."
+ },
+ "morella cerifera": {
+  "latin": "Morella cerifera",
+  "name": "Bayberry",
+  "tl": 1,
+  "wiki": "Morella cerifera",
+  "desc": "Bayberry (Morella cerifera): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "morone saxatilis": {
   "latin": "Morone saxatilis",
@@ -30654,7 +30710,7 @@
   "name": "Pearl Crescent",
   "tl": 2,
   "wiki": "Phyciodes tharos",
-  "desc": "Pearl Crescent (Phyciodes tharos): eats plants or other primary food sources. Recorded 5 times near the park in GBIF.",
+  "desc": "Pearl Crescent (Phyciodes tharos): eats plants or other primary food sources. Recorded 4 times near the park in GBIF.",
   "ic": "hopper",
   "about": "The pearl crescent is a species of butterfly from North America."
  },
@@ -31790,6 +31846,14 @@
   "desc": "Broad-winged Skipper (Poanes viator): eats plants or other primary food sources. Recorded 18 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Poanes viator, the broad-winged skipper, is a skipper butterfly found in North America."
+ },
+ "pococera aplastella": {
+  "latin": "Pococera aplastella",
+  "name": "Aspen Webworm Moth",
+  "tl": 2,
+  "wiki": "Pococera aplastella",
+  "desc": "Aspen Webworm Moth (Pococera aplastella): eats plants or other primary food sources. Recorded 33 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "podarcis siculus": {
   "latin": "Podarcis siculus",
@@ -35067,7 +35131,7 @@
   "name": "Fragrant sumac",
   "tl": 1,
   "wiki": "Rhus aromatica",
-  "desc": "Fragrant sumac (Rhus aromatica): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
+  "desc": "Fragrant sumac (Rhus aromatica): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Rhus aromatica, commonly known as fragrant sumac, smooth sumac, aromatic sumac, lemon sumac, skunk bush, polecat bush, polecat sumac, or simply sumac, is a deciduous shrub in the family Anacardiaceae…"
  },
@@ -38134,7 +38198,7 @@
   "name": "Common Greenbrier",
   "tl": 1,
   "wiki": "Smilax rotundifolia",
-  "desc": "Common Greenbrier (Smilax rotundifolia): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "desc": "Common Greenbrier (Smilax rotundifolia): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen"
  },
  "smilax tamnoides": {
@@ -38672,6 +38736,14 @@
   "desc": "Salt-marsh Goldenrod (Solidago sempervirens): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Solidago sempervirens, the seaside goldenrod or salt-marsh goldenrod, is a plant species in the genus Solidago of the family Asteraceae."
+ },
+ "solidago sphacelata": {
+  "latin": "Solidago sphacelata",
+  "name": "Autumn goldenrod",
+  "tl": 1,
+  "wiki": "Solidago sphacelata",
+  "desc": "Autumn goldenrod (Solidago sphacelata): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "solidago uliginosa": {
   "latin": "Solidago uliginosa",
@@ -40430,7 +40502,7 @@
   "name": "Eastern chipmunk",
   "tl": 2,
   "wiki": "Tamias striatus",
-  "desc": "Eastern chipmunk (Tamias striatus): eats plants or other primary food sources. Recorded 9 times near the park in GBIF.",
+  "desc": "Eastern chipmunk (Tamias striatus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
   "ic": "gsquirrel",
   "about": "The eastern chipmunk is a chipmunk species found in eastern North America. It is the only living member of the genus Tamias."
  },
@@ -41501,6 +41573,14 @@
   "desc": "Syrphid Fly (Toxomerus marginatus): eats plants or other primary food sources. Recorded 1 times near the park in GBIF.",
   "ic": "hopper"
  },
+ "toxomerus politus": {
+  "latin": "Toxomerus politus",
+  "name": "Corn Fly",
+  "tl": 2,
+  "wiki": "Toxomerus politus",
+  "desc": "Corn Fly (Toxomerus politus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
+  "ic": "hopper"
+ },
  "toxostoma curvirostre": {
   "latin": "Toxostoma curvirostre",
   "name": "Curve-billed Thrasher",
@@ -42379,8 +42459,8 @@
  "tursiops truncatus": {
   "latin": "Tursiops truncatus",
   "name": "Common bottlenose dolphin",
-  "tl": 4,
-  "wiki": "Common bottlenose dolphin",
+  "tl": 3,
+  "wiki": "Tursiops truncatus",
   "desc": "Visits the bay seasonally or year-round and eats fish including menhaden.",
   "ic": "whale",
   "about": "The common bottlenose dolphin or Atlantic bottlenose dolphin is one of three species of bottlenose dolphin in the genus Tursiops."
@@ -42484,6 +42564,14 @@
   "desc": "Spiny evergreen shrub that, with heather, dominates the shrublands covering most of the site.",
   "ic": "sage",
   "about": "Ulex minor, the dwarf furze or dwarf gorse is an evergreen dwarf shrub in the family Fabaceae, native to eastern England, France, Spain and Portugal. It is restricted to lowland heathland habitats."
+ },
+ "ulmus alata": {
+  "latin": "Ulmus alata",
+  "name": "Wahoo elm",
+  "tl": 1,
+  "wiki": "Ulmus alata",
+  "desc": "Wahoo elm (Ulmus alata): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "ulmus crassifolia": {
   "latin": "Ulmus crassifolia",
@@ -42807,6 +42895,14 @@
   "desc": "Blueberry (Vaccinium corymbosum): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Vaccinium corymbosum is a North American species of blueberry with several common names, including highbush blueberry and rabbiteye blueberry."
+ },
+ "vaccinium erythrocarpum": {
+  "latin": "Vaccinium erythrocarpum",
+  "name": "Bearberry",
+  "tl": 1,
+  "wiki": "Vaccinium erythrocarpum",
+  "desc": "Bearberry (Vaccinium erythrocarpum): a plant that turns sunlight into food. Recorded 61 times near the park in GBIF.",
+  "ic": "aspen"
  },
  "vaccinium macrocarpon": {
   "latin": "Vaccinium macrocarpon",
@@ -43474,7 +43570,7 @@
   "name": "Black Haw",
   "tl": 1,
   "wiki": "Viburnum prunifolium",
-  "desc": "Black Haw (Viburnum prunifolium): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF.",
+  "desc": "Black Haw (Viburnum prunifolium): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
   "ic": "aspen"
  },
  "viburnum rufidulum": {
@@ -44492,6 +44588,14 @@
   "desc": "An egg-laying mammal of hill and montane forest that feeds mainly on earthworms, unlike the ant-eating short-beaked echidna.",
   "ic": "quad",
   "about": "The western long-beaked echidna, also called Bruijin's long-beaked echidna, is one of the four extant echidnas and one of three species of Zaglossus that occurs in New Guinea."
+ },
+ "zale galbanata": {
+  "latin": "Zale galbanata",
+  "name": "Maple Zale",
+  "tl": 2,
+  "wiki": "Zale galbanata",
+  "desc": "Maple Zale (Zale galbanata): eats plants or other primary food sources. Recorded 3 times near the park in GBIF.",
+  "ic": "hopper"
  },
  "zalophus californianus": {
   "latin": "Zalophus californianus",
