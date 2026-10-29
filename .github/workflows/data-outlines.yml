@@ -20,8 +20,10 @@ jobs:
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
-      - name: Fetch the missing outlines
+      - name: Fetch the missing outlines from PAD-US (US parks)
         run: python3 pipeline/bounds.py ${{ github.event.inputs.ids }} | tee outlines.log
+      - name: Try Wikidata and OpenStreetMap for the rest
+        run: python3 pipeline/bounds_more.py ${{ github.event.inputs.ids }} | tee outlines_more.log
       - name: Check the size budget
         run: |
           python3 build/species.py pack
@@ -34,12 +36,16 @@ jobs:
           BR="data/outlines-${GITHUB_RUN_ID}"
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git checkout -B "$BR"
+          # the list of places still without an outline is always kept on the branch data/outlines-report (no pull request), so it can be read
+          git stash -q -u -- pipeline/reports/outlines_missing.md; git checkout -q -B data/outlines-report; git stash pop -q
+          git add -f pipeline/reports/outlines_missing.md; git commit -qm "Places without an outline" || true; git push -q -f origin data/outlines-report
+          git checkout -q -B "$BR" origin/main 2>/dev/null || git checkout -q -B "$BR" main
           git add -A -- data/outlines
           if git diff --cached --quiet; then echo "No new outlines."; exit 0; fi
           N=$(git diff --cached --name-only | wc -l)
           git commit -m "Park outlines: $N more"
           bash pipeline/syncstep.sh || true
           git push -f origin "$BR"
-          { echo "Automatic run of the data-outlines workflow: $N new outlines from PAD-US."; echo; echo "Still without an outline:"; grep '^none' outlines.log | cut -d' ' -f2- | sed 's/^/- /'; echo; cat /tmp/sync.md; } > /tmp/body.md
+          { echo "Automatic run of the data-outlines workflow: $N new outlines (PAD-US for US parks, then Wikidata/Commons and OpenStreetMap; each file says which in its s key)."; echo; echo "Places still without an outline are listed in pipeline/reports/outlines_missing.md on the branch data/outlines-report."; echo; grep -h '^ok' outlines_more.log | head -80 | sed 's/^/- /'; echo; cat /tmp/sync.md; } > /tmp/body.md
           gh pr create --base main --head "$BR" --title "Park outlines: $N more" --body-file /tmp/body.md
           gh workflow run ci.yml --ref "$BR"
