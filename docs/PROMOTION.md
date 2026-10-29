@@ -5,9 +5,10 @@ Agreed rule (Oct 2026). Places are drafted in `data-auto/` (shown in the pilot).
 1. **Species.** They come from an official list for that place (for example NPSpecies), or from sightings inside the park outline when no official list exists.
 2. **Links.** Every feeding link has a GloBI record at species, genus or family level, shown in the place's evidence list. Nothing obviously wrong.
 3. **Spot check.** 10 random links from the batch are checked against published sources. More than one obviously wrong means the batch does not ship (wrong ones are fixed either way).
-4. **Floors.** With an official list: at least 8 species, 3 plants, 10 links. Without one: at least 12 species, 5 plants, 15 links.
-5. **Checks.** `build/validate.py` reports no errors and the test suite passes.
-6. **Photo.** A stored photo with a credit line, or the plain icon when Wikipedia has none.
+4. **Family-level links.** No more than 60% of a place's links may rest only on a family-level GloBI record (the eater is recorded eating the plant's family, not that species); such places stay in the pilot.
+5. **Floors.** With an official list: at least 8 species, 3 plants, 10 links. Without one: at least 12 species, 5 plants, 15 links.
+6. **Checks.** `build/validate.py` reports no errors and the test suite passes.
+7. **Photo.** A stored photo with a credit line, or the plain icon when Wikipedia has none.
 
 All places on main look alike (no visible tiers); the evidence list carries the detail.
 Passing batches are merged without asking; each batch is one commit so it can be reverted. Failing places stay in the pilot.
