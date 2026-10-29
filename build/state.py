@@ -36,7 +36,7 @@ def seed(st, top):
             a = f['attributes']; r = rows.setdefault(a['Unit_Nm'], dict(acres=0, mgr=a['Mang_Name'])); r['acres'] += a['GIS_Acres'] or 0
         if not d.get('exceededTransferLimit'): break
         off += 1000
-    names = sorted(rows, key=lambda n: -rows[n]['acres'])[:top]
+    names = sorted(rows, key=lambda n: -rows[n]['acres'])[:top + 6]      # a few extra: duplicates are dropped below, then the list is cut to `top`
     import points
     out = []
     for n in names:
@@ -48,7 +48,10 @@ def seed(st, top):
         i = st.lower() + slug(n)
         out.append(dict(id=i, name=n, short=re.sub(r' (State )?(Park|Recreation Area)$', '', n)[:20], states=[STATES[st]], kind=kind(n), lat=round(sum(ys) / len(ys), 4), lon=round(sum(xs) / len(xs), 4),
                         radius=radius, points=pts if k > 1 else None, acres=round(acres), des='SP', mgr=rows[n]['mgr']))
-    return out
+    import dupes
+    kept, dropped = dupes.dedupe(out)
+    for a, b in dropped: print('dropped duplicate', a, '(same place as %s)' % b)
+    return kept[:top]
 
 def run(cmd, env):
     print('$', ' '.join(cmd), flush=True)
