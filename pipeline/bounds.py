@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """bounds.py: real park outlines from PAD-US (US Geological Survey, public domain) for US places.
 For each US place, ask PAD-US for protected areas around the place point, keep the pieces whose name matches the place,
-simplify and write data/bounds.json {place id: [ring, ...]} with rings as flat [lon,lat,...] lists rounded to 4 decimals.
-Resumable: places already in bounds.json are skipped.  Usage: bounds.py [id ...]"""
+simplify and write one file per place, data/outlines/<place id>.json = {"n": unit name, "r": [ring, ...]} with rings as flat [lon,lat,...]
+lists rounded to 4 decimals (the app fetches a park's file when the park opens; no file = no outline).
+Resumable: places that already have a file are skipped.  Usage: bounds.py [id ...]"""
 import json,os,re,sys,time,urllib.request,urllib.parse
 here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here)
 sys.path.insert(0,os.path.join(ROOT,'build')); import species
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
-OUT=os.path.join(ROOT,'data','bounds.json')
+OUT=os.path.join(ROOT,'data','outlines')
+def path(i): return os.path.join(OUT,i+'.json')
 STOP=set('national state park forest refuge wildlife nwr monument historic site memorial recreation area preserve seashore lakeshore river the of and wilderness natural conservation'.split())
 import unicodedata
 def toks(s): return {w for w in re.findall(r'[a-z]+',unicodedata.normalize('NFKD',s).encode('ascii','ignore').decode().lower().replace("'s",'s')) if w not in STOP and len(w)>2}
@@ -56,15 +58,14 @@ def fetch(e):
         out.append(flat)
     return top,out
 if __name__=='__main__':
-    res=json.load(open(OUT)) if os.path.exists(OUT) else {}
-    want=sys.argv[1:]; miss=[]
+    os.makedirs(OUT,exist_ok=True)
+    want=sys.argv[1:]; miss=[]; have=sum(1 for f in os.listdir(OUT) if f.endswith('.json'))
     for e in places():
         if want and e['id'] not in want: continue
-        if e['id'] in res: continue
+        if os.path.exists(path(e['id'])): continue
         try: r=fetch(e)
         except Exception as ex: print('ERR',e['id'],ex); continue
         if not r: miss.append(e['id']); print('none',e['id'],e['name'],flush=True); continue
-        res[e['id']]={'n':r[0],'r':r[1]}
-        json.dump(res,open(OUT,'w'),separators=(',',':'))
+        json.dump({'n':r[0],'r':r[1]},open(path(e['id']),'w'),separators=(',',':'),ensure_ascii=False); have+=1
         print('ok',e['id'],r[0],len(r[1]),flush=True)
-    print(len(res),'outlines;',len(miss),'without a match')
+    print(have,'outlines;',len(miss),'without a match')

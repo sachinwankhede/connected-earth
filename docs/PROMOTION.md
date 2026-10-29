@@ -24,7 +24,7 @@ After generating or editing places, run `python3 build/species.py pack`; CI fail
 The page carries only a light index of each place (name, location, species names, counts). A place's full web (species, links, evidence) lives in `webs/<id>.json`, written by `python3 build/build.py --all` and fetched the first time the place is opened. Commit `webs/` with the built pages; CI fails if they are stale.
 
 ## Tests and budget
-`npm run test:quick` (about 1 minute) for everyday changes; `npm test` (about 3 minutes) before anything is called done; CI runs the full set. `npm run budget` fails if the pages or data grow past the limits in `build/budget.py`.
+`npm run test:quick` (about 1 minute) for everyday changes; `npm test` (about 3 minutes) before anything is called done; CI runs the full set. `npm run budget` fails if the pages or data grow past the limits in `build/budget.py`. Park outlines are one small file per park in `data/outlines/<id>.json`, fetched when the park opens (written by `pipeline/bounds.py`; no file means no outline). `pipeline/splitbounds.py` converts the old single `data/bounds.json` if a branch still has one.
 
 ## Adding a state
 `python3 build/state.py IL --top 25` seeds the largest state parks from PAD-US, drafts species (GBIF) and feeding links (GloBI), generates the places, adds them to the pilot (`data-auto/`), packs the shared species table and fetches outlines, then prints which places pass the promotion floors. Add `--scratch` to try it without touching the repo. Photos and Wikipedia lines are slow (Wikimedia throttles): run `pipeline/fetch_all.sh` and leave it going. Promote with `python3 build/promote.py --local` after the 10-link spot check.
