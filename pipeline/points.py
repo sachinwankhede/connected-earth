@@ -1,13 +1,20 @@
 #!/usr/bin/env python3
 """points.py <Unit name> [k]: pick k sample points spread across a protected area using its PAD-US outline.
 Prints JSON [[lon,lat],...]. Large or fragmented units are sampled in several places instead of one."""
-import sys,json,math,urllib.request,urllib.parse
+import sys,json,math,time,urllib.request,urllib.parse
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 def rings(name):
     out=[];off=0
     while True:
         p=dict(where="Unit_Nm='%s'"%name.replace("'","''"),outFields='Unit_Nm',returnGeometry='true',outSR='4326',maxAllowableOffset='0.02',resultOffset=off,resultRecordCount=200,f='json')
-        j=json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180)); fs=j.get('features',[])
+        fs=None
+        for t in range(6):      # the server sometimes answers with no features when asked quickly; wait and ask again
+            try:
+                j=json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180))
+                if 'features' in j: fs=j['features']; break
+            except Exception: pass
+            time.sleep(3*(t+1))
+        if fs is None: raise RuntimeError('PAD-US did not answer for '+name)
         for f in fs: out+=f['geometry']['rings']
         if len(fs)<200: return out
         off+=200
@@ -20,6 +27,7 @@ def inside(x,y,r):
     return c
 def pick(name,k=5,grid=40):
     R=rings(name)
+    if not R: raise RuntimeError('no outline found for '+name)
     # only outer rings (clockwise in ArcGIS) with some size
     xs=[p[0] for r in R for p in r];ys=[p[1] for r in R for p in r]
     x0,x1,y0,y1=min(xs),max(xs),min(ys),max(ys); cand=[]

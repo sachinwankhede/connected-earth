@@ -41,7 +41,8 @@ def seed(st, top):
     out = []
     for n in names:
         acres = rows[n]['acres']; k = 1 if acres < 3000 else 3 if acres < 20000 else 5
-        pts = points.pick(n, k)
+        try: pts = points.pick(n, k)
+        except Exception as ex: print('skipped', n, '-', ex); continue
         xs = [p[0] for p in pts]; ys = [p[1] for p in pts]
         radius = round(max(1.5, min(12, (acres * 0.004047) ** 0.5 / 2)), 1)
         i = st.lower() + slug(n)
