@@ -666,7 +666,7 @@
   "name": "Luna Moth",
   "tl": 2,
   "wiki": "Actias luna",
-  "desc": "A large moth whose caterpillars feed on the leaves of trees such as sweetgum. It is often recorded around the park.",
+  "desc": "Luna Moth (Actias luna): eats plants or other primary food sources. Recorded 9 times near the park in GBIF.",
   "ic": "hopper",
   "about": "The luna moth, also called the American moon moth, is a Nearctic moth in the family Saturniidae, subfamily Saturniinae, a group commonly named the giant silk moths."
  },
@@ -2103,7 +2103,7 @@
   "name": "Green anole",
   "tl": 3,
   "wiki": "Anolis carolinensis",
-  "desc": "GREEN ANOLE (Anolis carolinensis): hunts or scavenges other animals. Recorded 1,043 times near the park in GBIF.",
+  "desc": "Green anole (Anolis carolinensis): hunts or scavenges other animals. Recorded 31 times near the park in GBIF.",
   "ic": "quad",
   "about": "Anolis carolinensis or green anole (US: ) (among other names below) is a tree-dwelling species of anole lizard native to the southeastern United States and introduced to islands in the Pacific and…"
  },
@@ -4269,7 +4269,7 @@
   "name": "Tufted Titmouse",
   "tl": 2,
   "wiki": "Baeolophus bicolor",
-  "desc": "Tufted Titmouse (Baeolophus bicolor): eats plants or other primary food sources. Recorded 3,910 times near the park in GBIF.",
+  "desc": "Tufted Titmouse (Baeolophus bicolor): eats plants or other primary food sources. Recorded 149 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The tufted titmouse is a small songbird native to eastern North America. The species belongs to the tit and chickadee family (Paridae)."
  },
@@ -6979,7 +6979,7 @@
   "name": "Tissue sedge",
   "tl": 1,
   "wiki": "Carex hyalina",
-  "desc": "Tissue sedge (Carex hyalina): a plant that turns sunlight into food. Recorded 7 times near the park in GBIF.",
+  "desc": "Tissue sedge (Carex hyalina): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen"
  },
  "carex interior": {
@@ -12221,7 +12221,7 @@
   "name": "Eastern Persimmon",
   "tl": 1,
   "wiki": "Diospyros virginiana",
-  "desc": "Eastern Persimmon (Diospyros virginiana): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
+  "desc": "Eastern Persimmon (Diospyros virginiana): a plant that turns sunlight into food. Recorded 4 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Diospyros virginiana is a persimmon species commonly called the American persimmon, common persimmon, eastern persimmon, simmon, possumwood, possum apples, or sugar plum."
  },
@@ -15499,7 +15499,7 @@
   "name": "American Coot",
   "tl": 3,
   "wiki": "Fulica americana",
-  "desc": "American coot (Fulica americana): hunts or scavenges other animals. Recorded 303 times near the park in GBIF.",
+  "desc": "American Coot (Fulica americana): hunts or scavenges other animals. Recorded 247 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The American coot, also known as a mud hen or pouldeau, is a bird of the family Rallidae."
  },
@@ -16818,7 +16818,7 @@
   "name": "House Finch",
   "tl": 2,
   "wiki": "Haemorhous mexicanus",
-  "desc": "House Finch (Haemorhous mexicanus): eats plants or other primary food sources. Recorded 101 times near the park in GBIF.",
+  "desc": "House Finch (Haemorhous mexicanus): eats plants or other primary food sources. Recorded 80 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The house finch is a North American bird in the finch family. It is native to Mexico and southwestern United States, but has since been introduced to the eastern part of North America and Hawaiʻi,…"
  },
@@ -17318,7 +17318,7 @@
   "name": "Indian Heliotrope",
   "tl": 1,
   "wiki": "Heliotropium indicum",
-  "desc": "Indian Heliotrope (Heliotropium indicum): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
+  "desc": "Indian Heliotrope (Heliotropium indicum): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Heliotropium indicum, commonly known as Indian heliotrope or Indian turnsole, is an annual, hirsute plant. It has a curved arrangement of small flowers and velvety broad green leaves."
  },
@@ -23024,7 +23024,7 @@
   "name": "Two-striped grasshopper",
   "tl": 2,
   "wiki": "Melanoplus bivittatus",
-  "desc": "A large grasshopper that chews grasses and forbs and feeds birds such as prairie-chickens.",
+  "desc": "Two-striped Grasshopper (Melanoplus bivittatus): eats plants or other primary food sources. Recorded 21 times near the park in GBIF.",
   "ic": "hopper",
   "about": "Melanoplus bivittatus, the two-striped grasshopper, is a species of grasshopper belonging to the family Acrididae."
  },
@@ -23763,7 +23763,7 @@
   "name": "Northern Mockingbird",
   "tl": 3,
   "wiki": "Mimus polyglottos",
-  "desc": "NORTHERN MOCKINGBIRD (Mimus polyglottos): hunts or scavenges other animals. Recorded 586 times near the park in GBIF.",
+  "desc": "Northern Mockingbird (Mimus polyglottos): hunts or scavenges other animals. Recorded 84 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The northern mockingbird is a mockingbird commonly found in North America, of the family Mimidae. The species is also found in some parts of the Caribbean, as well as on the Hawaiian Islands."
  },
@@ -29859,7 +29859,7 @@
   "name": "Carolina Chickadee",
   "tl": 2,
   "wiki": "Poecile carolinensis",
-  "desc": "Carolina Chickadee (Poecile carolinensis): eats plants or other primary food sources. Recorded 180 times near the park in GBIF.",
+  "desc": "Carolina Chickadee (Poecile carolinensis): eats plants or other primary food sources. Recorded 112 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The Carolina chickadee is a small, non-migratory passerine bird in the tit family Paridae. It has a black cap and bib, and distinctive white cheeks."
  },
@@ -30216,7 +30216,7 @@
   "name": "Aquatic plants",
   "tl": 1,
   "wiki": "Pontederia crassipes",
-  "desc": "Floating and submerged plants of the beels, or flood lakes. Rhinos eat them, but invasive water hyacinth can choke the water bodies.",
+  "desc": "Water-hyacinth (Pontederia crassipes): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
   "ic": "water",
   "about": "Pontederia crassipes, commonly known as common water hyacinth, is an aquatic plant native to South America, naturalized throughout the world, and often invasive outside its native range."
  },
@@ -35033,7 +35033,7 @@
   "name": "Pine Warbler",
   "tl": 3,
   "wiki": "Setophaga pinus",
-  "desc": "Pine Warbler (Setophaga pinus): hunts or scavenges other animals. Recorded 232 times near the park in GBIF.",
+  "desc": "Pine Warbler (Setophaga pinus): hunts or scavenges other animals. Recorded 72 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The pine warbler is a small songbird of the New World warbler family Parulidae."
  },
@@ -35167,7 +35167,7 @@
   "name": "Eastern Bluebird",
   "tl": 3,
   "wiki": "Sialia sialis",
-  "desc": "Eastern Bluebird (Sialia sialis): hunts or scavenges other animals. Recorded 30 times near the park in GBIF.",
+  "desc": "Eastern Bluebird (Sialia sialis): hunts or scavenges other animals. Recorded 53 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The eastern bluebird is a small North American migratory thrush found in open woodlands, farmlands, and orchards."
  },
@@ -35394,7 +35394,7 @@
   "name": "White-breasted Nuthatch",
   "tl": 3,
   "wiki": "Sitta carolinensis",
-  "desc": "White-breasted Nuthatch (Sitta carolinensis): hunts or scavenges other animals. Recorded 6 times near the park in GBIF.",
+  "desc": "White-breasted Nuthatch (Sitta carolinensis): hunts or scavenges other animals. Recorded 105 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The white-breasted nuthatch is a species of bird in the nuthatch family Sittidae. It is a medium-sized nuthatch, measuring approximately 15.5 cm (6.1 in) in length."
  },
@@ -36820,7 +36820,7 @@
   "name": "Clasping jewelflower",
   "tl": 1,
   "wiki": "Streptanthus maculatus",
-  "desc": "Clasping jewelflower (Streptanthus maculatus): a plant that turns sunlight into food. Recorded 23 times near the park in GBIF.",
+  "desc": "Clasping jewelflower (Streptanthus maculatus): a plant that turns sunlight into food. Recorded 42 times near the park in GBIF.",
   "ic": "aspen"
  },
  "streptopelia decaocto": {
@@ -37258,7 +37258,7 @@
   "name": "SWAMP RABBIT",
   "tl": 2,
   "wiki": "Sylvilagus aquaticus",
-  "desc": "SWAMP RABBIT (Sylvilagus aquaticus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
+  "desc": "Swamp rabbit (Sylvilagus aquaticus): eats plants or other primary food sources. Recorded 2 times near the park in GBIF.",
   "ic": "quad",
   "about": "The swamp rabbit, also known as the cane cutter, swamper, or cane jake, is a species of cottontail rabbit found in the swamps and wetlands of the southern United States."
  },
@@ -37947,7 +37947,7 @@
   "name": "Rue-anemone",
   "tl": 1,
   "wiki": "Thalictrum thalictroides",
-  "desc": "Rue-anemone (Thalictrum thalictroides): a plant that turns sunlight into food. Recorded 40 times near the park in GBIF.",
+  "desc": "Rue-anemone (Thalictrum thalictroides): a plant that turns sunlight into food. Recorded 14 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Thalictrum thalictroides, the rue-anemone or windflower, is a herbaceous perennial plant native to woodland in eastern North America."
  },
@@ -38465,7 +38465,7 @@
   "name": "Crippled cranefly",
   "tl": 1,
   "wiki": "Tipularia discolor",
-  "desc": "Crippled cranefly (Tipularia discolor): a plant that turns sunlight into food. Recorded 37 times near the park in GBIF.",
+  "desc": "Crippled Cranefly (Tipularia discolor): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Tipularia discolor, the crippled cranefly or crane-fly orchid, is a perennial terrestrial woodland orchid, a member of the family Orchidaceae."
  },
@@ -40433,7 +40433,7 @@
   "name": "Bird-foot Violet",
   "tl": 1,
   "wiki": "Viola pedata",
-  "desc": "Bird-foot Violet (Viola pedata): a plant that turns sunlight into food. Recorded 20 times near the park in GBIF.",
+  "desc": "Bird-foot Violet (Viola pedata): a plant that turns sunlight into food. Recorded 6 times near the park in GBIF.",
   "ic": "aspen",
   "about": "Viola pedata, the birdsfoot violet, bird's-foot violet, or mountain pansy, is a violet native to sandy areas in central and eastern North America."
  },
@@ -40520,7 +40520,7 @@
   "name": "Red-eyed Vireo",
   "tl": 3,
   "wiki": "Vireo olivaceus",
-  "desc": "Red-eyed vireo (Vireo olivaceus): hunts or scavenges other animals. Recorded 4,375 times near the park in GBIF.",
+  "desc": "Red-eyed Vireo (Vireo olivaceus): hunts or scavenges other animals. Recorded 54 times near the park in GBIF.",
   "ic": "meadowlark",
   "about": "The red-eyed vireo is a small American songbird. It is somewhat warbler-like but not closely related to the New World warblers (Parulidae)."
  },
