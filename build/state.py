@@ -31,7 +31,7 @@ def kind(name):
 def seed(st, top):
     rows = {}; off = 0
     while True:
-        d = get(dict(where="State_Nm='%s' AND Des_Tp='SP' AND Mang_Type='STAT'" % st, outFields='Unit_Nm,GIS_Acres,Mang_Name', returnGeometry='false', resultOffset=off, resultRecordCount=1000))
+        d = get(dict(where="State_Nm='%s' AND Des_Tp='SP' AND Mang_Type IN ('STAT','UNK')" % st, outFields='Unit_Nm,GIS_Acres,Mang_Name', returnGeometry='false', resultOffset=off, resultRecordCount=1000))
         for f in d.get('features', []):
             a = f['attributes']; r = rows.setdefault(a['Unit_Nm'], dict(acres=0, mgr=a['Mang_Name'])); r['acres'] += a['GIS_Acres'] or 0
         if not d.get('exceededTransferLimit'): break
