@@ -71,7 +71,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(r.has && r.order, 'the story and why it matters sit between the picture and the species rows'); assert.ok(r.len > 120 && r.matters > 80);
     assert.ok(r.envCards >= 2 && r.envImgs === r.envCards, 'environment items show photos: ' + JSON.stringify(r));
     // a place without a story has neither section
-    const none = await p.evaluate(() => window.__M.ecoIds().filter((i) => !['yellowstone', 'serengeti', 'amazon', 'everglades', 'galapagos'].includes(i))[0]);
+    const withStory = H.readPlaces(false).filter((e) => e.story).map((e) => e.id);
+    const none = await p.evaluate((skip) => window.__M.ecoIds().filter((i) => !skip.includes(i))[0], withStory);
     await p.evaluate((i) => window.__M.showPlace(i), none); await ready(p);
     r = await p.evaluate(() => { const v = document.getElementById('pview'); return { why: !!v.querySelector('.jwhy'), story: /The story\./.test(v.textContent) }; });
     assert.ok(!r.why && !r.story, 'no empty story sections');
