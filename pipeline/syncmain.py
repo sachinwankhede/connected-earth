@@ -5,7 +5,7 @@
   data-auto/order.json  main's order, then the branch's new ids that are not already in main or promoted to data/
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ROOT = os.environ.get('SYNC_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SYNC_ROOT: run main's copy of this script inside a branch checkout
 os.chdir(ROOT)
 def git(*a): return subprocess.run(('git',) + a, capture_output=True, text=True)
 def show(stage, path):
