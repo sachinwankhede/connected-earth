@@ -28,19 +28,19 @@ def km(a, b, c, d):
 
 def choose(cur, state, lat, lon, pages):
     """pages: [{title, extract, coords:[lat, lon] or None}] in search order. Returns (page, note) or (None, why).
-    One name inside the other ("Illinois Beach" in "Adeline Jay Geo-Karis Illinois Beach") also needs coordinates within 40 km.
-    A title with no park word ("Cahokia Mounds") is only accepted when the article has coordinates within 40 km (a tribe or a town has none close by)."""
-    best = None
+    Only titles with a park word are accepted ("Cahokia", "Chain O'Lakes" alone are a site and a lake, not the park), and the name must be close.
+"""
+    best = None; near = None
     for pg in pages:
         t = base(pg['title']); c = pg.get('coords')
         if state.lower() not in (pg['title'] + ' ' + (pg.get('extract') or '')).lower(): continue
         if c and km(lat, lon, c[0], c[1]) > MAX_KM: continue
-        if not TYPE.search(t) and not (c and km(lat, lon, c[0], c[1]) <= 40): continue
+        if not TYPE.search(t): continue
         a, b = core(cur), core(t)
         sim = difflib.SequenceMatcher(None, a, b).ratio() if a and b else 0
-        if a != b and c and km(lat, lon, c[0], c[1]) <= 40 and min(len(a), len(b)) >= 6 and (' %s ' % b in ' %s ' % a or ' %s ' % a in ' %s ' % b): sim = max(sim, 0.9)   # "Illinois Beach" inside "Adeline Jay Geo-Karis Illinois Beach"
+        if near is None or sim > near[0]: near = (sim, pg['title'])
         if sim >= MIN_SIM and (best is None or sim > best[0]): best = (sim, pg)
-    if not best: return None, 'no close match in ' + state
+    if not best: return None, 'no close match in %s%s' % (state, (' (closest: %s, %.2f)' % (near[1], near[0])) if near else ' (no park pages found)')
     return best[1], ('title has a qualifier: ' + best[1]['title']) if base(best[1]['title']) != best[1]['title'] else ''
 
 def _pages(q):
@@ -84,10 +84,10 @@ def selftest():
     pg, _ = choose('Silver Springs', 'Illinois', 41.6, -88.4, [P('Silver Springs State Fish and Wildlife Area')]); t('short name', pg and pg['title'], 'Silver Springs State Fish and Wildlife Area')
     pg, _ = choose('Pool No. 26 - Stump Lake', 'Illinois', 39.0, -90.6, [P('Stump Lake Park')]); t('no close match left alone', pg, None)
     pg, _ = choose('Cahokia Mounds State Historical Site', 'Illinois', 38.65, -90.06, [P('Cahokia Mounds State Historic Site')]); t('historical vs historic', pg and pg['title'], 'Cahokia Mounds State Historic Site')
-    pg, _ = choose('Adeline Jay Geo-Karis Illinois Beach State Park', 'Illinois', 42.4, -87.8, [P('Illinois Beach State Park', c=[42.42, -87.81])]); t('long official name contains the Wikipedia one', pg and pg['title'], 'Illinois Beach State Park')
-    pg, _ = choose('Cahokia Mounds State Historical Site', 'Illinois', 38.65, -90.06, [P('Cahokia Mounds', c=[38.65, -90.06])]); t('no park word but coordinates close', pg and pg['title'], 'Cahokia Mounds')
-    pg, _ = choose('Illini State Park', 'Illinois', 41.3, -88.9, [P('Illini', c=[40.0, -88.0])]); t('no park word and far away rejected', pg, None)
+    pg, _ = choose('Cahokia Mounds State Historical Site', 'Illinois', 38.65, -90.06, [P('Cahokia', c=[38.65, -90.06])]); t('a site named in part is not the park', pg, None)
+    pg, _ = choose("Chain O'Lakes State Park", 'Illinois', 42.4, -88.2, [P("Chain O'Lakes", c=[42.4, -88.2]), P("Chain O'Lakes State Park (Illinois)", c=[42.4, -88.2])]); t('the lake is not the park', pg and pg['title'], "Chain O'Lakes State Park (Illinois)")
     pg, _ = choose('Lincolns New Salem State Park', 'Illinois', 40.02, -89.84, [P("Lincoln's New Salem State Historic Site", c=[40.02, -89.84])]); t('apostrophe', pg and pg['title'], "Lincoln's New Salem State Historic Site")
+    pg, note = choose('Pool No. 26 - Stump Lake', 'Illinois', 39.0, -90.6, [P('Stump Lake Park')]); t('report names the closest page', 'closest: Stump Lake Park' in note, True)
     if not all(x[1] for x in ok): sys.exit(1)
 
 if __name__ == '__main__':
