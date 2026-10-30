@@ -1,6 +1,6 @@
 name: perf
 # Manual only. Loads the live site in a real browser on a GitHub runner (phone profile and desktop profile) and times the first load and the taps
-# (filters, state parks, open and back for a place and a journey). The result is added to the history on the branch "perf" (no pull request, nothing
+# (filters, state parks, open and back for a place and a journey). The result is added to the history on the branch "perf-data" (no pull request, nothing
 # to merge, never blocks anything) and shown in the run summary. A metric more than 15% worse than the last run is marked.
 on:
   workflow_dispatch:
@@ -20,12 +20,12 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - name: Get the history from the perf branch
+      - name: Get the history from the perf-data branch
         run: |
-          if git ls-remote --exit-code --heads origin perf >/dev/null 2>&1; then
-            git clone --depth 1 --branch perf "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" perf-data
+          if git ls-remote --exit-code --heads origin perf-data >/dev/null 2>&1; then
+            git clone --depth 1 --branch perf-data "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" perf-data
           else
-            mkdir perf-data; git -C perf-data init -q -b perf
+            mkdir perf-data; git -C perf-data init -q -b perf-data
             git -C perf-data remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
             echo '[]' > perf-data/history.json
           fi
@@ -33,7 +33,7 @@ jobs:
         run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url }}" --runs "${{ github.event.inputs.runs }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
       - name: Summary
         run: cat perf-out.md >> "$GITHUB_STEP_SUMMARY"
-      - name: Save to the perf branch
+      - name: Save to the perf-data branch
         run: |
           node -e "const fs=require('fs');const h=JSON.parse(fs.readFileSync('perf-data/history.json','utf8'));h.push(JSON.parse(fs.readFileSync('perf-out.json','utf8')));fs.writeFileSync('perf-data/history.json',JSON.stringify(h))"
           cp perf-out.md perf-data/latest.md
@@ -41,6 +41,6 @@ jobs:
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git add history.json latest.md
           git commit -q -m "perf: $(date -u +%F' '%H:%M) UTC"
-          if ! OUT=$(git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/perf 2>&1); then
+          if ! OUT=$(git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/perf-data 2>&1); then
             echo "::error::push failed: $(echo "$OUT" | tr '\n' ' ' | sed 's/x-access-token:[^@]*@//')"; exit 1
           fi
