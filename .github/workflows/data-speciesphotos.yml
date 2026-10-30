@@ -1,0 +1,33 @@
+name: data-speciesphotos
+# Manual only. Looks up one Wikipedia thumbnail link for every species (about 115 batched requests for all of them) and opens one pull request with
+# photos/species.json. Links only, no image files. Nothing reaches the live site until it is merged, and the app does not read the file yet.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Titles to try (0 = all left)", default: "0" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-speciesphotos
+jobs:
+  species:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Look up the thumbnails
+        run: python3 pipeline/speciesphotos.py photos/species.json "${{ github.event.inputs.limit || '0' }}" | tee speciesphotos.log | tail -5
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/speciesphotos-${GITHUB_RUN_ID}"
+          git add photos/species.json photos/species_missing.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          N=$(python3 -c "import json;print(len(json.load(open('photos/species.json'))))"); M=$(python3 -c "import json;print(len(json.load(open('photos/species_missing.json'))))")
+          git commit -m "Species photo links: $N found, $M with no picture"
+          git push -f origin HEAD
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species photo links ($N found, $M with no picture)" --body "Automatic run of data-speciesphotos. Thumbnail links only; the app does not use the file yet. Sample of 10 to spot check:
+$(python3 -c "import json,random;m=json.load(open('photos/species.json'));random.seed(1);[print('- https://en.wikipedia.org/wiki/'+v[1]) for k,v in random.sample(sorted(m.items()),10)]")"
