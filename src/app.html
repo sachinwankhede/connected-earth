@@ -2771,7 +2771,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (e.li) return e.li;
     var sp = e.idx.ns, li = document.createElement("li");
     li.innerHTML = '<button type="button" class="card" data-eco="' + e.id + '"><div class="cimg" id="ci-' + e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></div><span class="where">' + e.place + "</span>" + (spanText(e) ? '<span class="span">Spans ' + (e.countries.length > 1 ? e.countries.length + " countries" : e.states.length + " states") + "</span>" : "") + "<h2>" + e.name + "</h2><p>" + e.blurb + '</p><span class="where">' + sp + " species \u00b7 " + e.idx.nr + ' feeding links' + '</span><span class="go">Open the food web &rarr;</span></button>';
-    e.li = li; ecoPhoto(e);
+    e.li = li; if (M.wantPhoto) M.wantPhoto(e); else ecoPhoto(e);
     return li;
   }
   function cimg(id) { var e = ECO_BY[id]; return e ? makeCard(e).querySelector(".cimg") : null; }
@@ -3165,14 +3165,16 @@ rect.core { stroke-dasharray: 3 2.5; }
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
     function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
-  if (window.fetch) ECOS.forEach(function (e) {
-    if (!e.imgwiki) return;
+  /* a place's picture is looked up when its list card is built (or its picture is needed elsewhere), not for every place at startup: that was over 300 Wikipedia requests on every open */
+  M.wantPhoto = function (e) {
+    if (!window.fetch || !e.imgwiki) return;
     var tt = e.imgwiki; stored(tt);
     if (PHOTOS[tt]) { ecoPhoto(e); return; }
     var fresh = !WAIT[tt];
     (WAIT[tt] = WAIT[tt] || []).push({ isEco: true, e: e });
     if (fresh) fetchPhoto(tt);
-  });
+  };
+  ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
   if (window.fetch) CROSS.forEach(function (c) {
     var tt = c.imgwiki;
     if (!tt) return; stored(tt);
