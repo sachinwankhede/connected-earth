@@ -79,6 +79,13 @@ def from_osm(e, qid):
         t = toks(x.get('name', '') or x.get('display_name', '').split(',')[0])
         if near and want and len(want & t) / len(want | t) >= 0.5 and x.get('category') in ('boundary', 'leisure', 'landuse', 'natural') and best is None: best = rings_of(g)
     return best
+def plausible(e, rings):
+    # the outline must be about where the place is: the centre of its box within max(30, 0.6 x its width) km of the place's point
+    xs = [x for r in rings for x, y in r]; ys = [y for r in rings for x, y in r]
+    if not xs: return False
+    cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
+    span = max(km(min(ys), min(xs), max(ys), min(xs)), km(cy, min(xs), cy, max(xs)))
+    return km(e['lat'], e['lon'], cy, cx) <= max(30, 0.6 * span)
 def places():
     for p in species.files():
         e = json.load(open(p))
@@ -95,6 +102,7 @@ if __name__ == '__main__':
             if not rings:
                 rings = from_osm(e, qid); src = 'osm'
         except Exception as ex: print('ERR', e['id'], ex, flush=True)
+        if rings and not plausible(e, rings): print('far from the place, dropped', e['id'], e['name'], src, flush=True); rings = None
         out = pack(rings) if rings else []
         if not out: missing.append(e); print('none', e['id'], e['name'], flush=True); continue
         json.dump({'n': e['name'], 'r': out, 's': src}, open(path(e['id']), 'w'), separators=(',', ':'), ensure_ascii=False); got += 1
