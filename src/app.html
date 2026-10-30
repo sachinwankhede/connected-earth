@@ -3166,23 +3166,39 @@ rect.core { stroke-dasharray: 3 2.5; }
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
     function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
   /* a place's picture is looked up when its list card is built (or its picture is needed elsewhere), not for every place at startup: that was over 300 Wikipedia requests on every open */
-  M.wantPhoto = function (e) {
+  /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
+  M.photoGo = false; var HELD = [];
+  M.releasePhotos = function () {
+    if (M.photoGo) return;
+    M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
+    if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
+  };
+  var wp = M.wantPhoto = function (e) {
     if (!window.fetch || !e.imgwiki) return;
+    if (!M.photoGo) { if (!e.held) { e.held = 1; HELD.push(function () { e.held = 0; wp(e); }); } return; }
     var tt = e.imgwiki; stored(tt);
     if (PHOTOS[tt]) { ecoPhoto(e); return; }
     var fresh = !WAIT[tt];
     (WAIT[tt] = WAIT[tt] || []).push({ isEco: true, e: e });
     if (fresh) fetchPhoto(tt);
   };
+  function crossPhotos() {
+    CROSS.forEach(function (c) {
+      var tt = c.imgwiki;
+      if (!tt) return; stored(tt);
+      if (PHOTOS[tt]) { linkPhoto(c); return; }
+      var fresh = !WAIT[tt];
+      (WAIT[tt] = WAIT[tt] || []).push({ isLink: true, c: c });
+      if (fresh) fetchPhoto(tt);
+    });
+  }
   ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
-  if (window.fetch) CROSS.forEach(function (c) {
-    var tt = c.imgwiki;
-    if (!tt) return; stored(tt);
-    if (PHOTOS[tt]) { linkPhoto(c); return; }
-    var fresh = !WAIT[tt];
-    (WAIT[tt] = WAIT[tt] || []).push({ isLink: true, c: c });
-    if (fresh) fetchPhoto(tt);
-  });
+  if (window.fetch) HELD.push(crossPhotos);
+  var go = function () { M.releasePhotos(); };
+  addEventListener("pointerdown", go, { once: true, capture: true }); addEventListener("keydown", go, { once: true, capture: true });
+  setTimeout(go, 9000);
+  if (/[#&](pg|p|e|j)=/.test(location.hash)) go();   // a link straight to a place or journey needs its picture now
+  else if (M.map) M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); go(); } });
   });
 })();
 </script>
