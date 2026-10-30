@@ -1639,8 +1639,21 @@ rect.core { stroke-dasharray: 3 2.5; }
       })
       .catch(function () { delete WAIT[title]; });
   }
+  /* species pictures come from one stored list of thumbnail links (photos/species.json), loaded the first time a food web needs them, so opening a web makes no Wikipedia call for them.
+     A species the list does not have (or a list that cannot be loaded) falls back to the live lookup. */
+  var SPX = null;
   function loadPhotos() {
     if (!window.fetch) return;
+    if (SPX === null) {
+      SPX = false;
+      var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+      fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
+        Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0], page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
+        SPX = true; loadPhotos();
+      });
+      return;
+    }
+    if (SPX === false) return;
     NODES.forEach(function (n) {
       if (!n.wiki) return;
       if (PHOTOS[n.wiki]) { showPhoto(n); return; }
