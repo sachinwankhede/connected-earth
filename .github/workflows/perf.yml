@@ -1,14 +1,17 @@
 name: perf
 # Manual only. Loads the live site in a real browser on a GitHub runner (phone profile and desktop profile) and times the first load and the taps
 # (filters, state parks, open and back for a place and a journey). The result is added to the history on the branch "perf-data" (no pull request, nothing
-# to merge, never blocks anything) and shown in the run summary. A metric more than 15% worse than the last run is marked.
+# to merge, never blocks anything) and shown in the run summary. Runs every night; when a metric is marked worse, it opens (or comments on) one issue called "Site got slower". A metric more than 15% worse than the last run is marked.
 on:
+  schedule:
+    - cron: '17 8 * * *'   # every night, about 3 am in St. Louis
   workflow_dispatch:
     inputs:
       url: { description: "Page to test", default: "https://sachinwankhede.github.io/connected-earth/" }
       runs: { description: "Runs per profile (the median is kept)", default: "5" }
 permissions:
   contents: write
+  issues: write
 concurrency: perf
 jobs:
   perf:
@@ -30,7 +33,7 @@ jobs:
             echo '[]' > perf-data/history.json
           fi
       - name: Measure
-        run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url }}" --runs "${{ github.event.inputs.runs }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
+        run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}" --runs "${{ github.event.inputs.runs || '5' }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
       - name: Summary
         run: cat perf-out.md >> "$GITHUB_STEP_SUMMARY"
       - name: Save to the perf-data branch
@@ -43,4 +46,13 @@ jobs:
           git commit -q -m "perf: $(date -u +%F' '%H:%M) UTC"
           if ! OUT=$(git push "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git" HEAD:refs/heads/perf-data 2>&1); then
             echo "::error::push failed: $(echo "$OUT" | tr '\n' ' ' | sed 's/x-access-token:[^@]*@//')"; exit 1
+          fi
+      - name: Open an issue when something got slower
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '⚠' perf-out.md; then
+            { echo "Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; echo; echo "Lines marked with a warning sign are more than 15% worse than the previous run:"; echo; grep '⚠' perf-out.md; } > issue.md
+            N=$(gh issue list --state open --search '"Site got slower" in:title' --json number --jq '.[0].number')
+            if [ -n "$N" ]; then gh issue comment "$N" --body-file issue.md; else gh issue create --title "Site got slower" --body-file issue.md; fi
           fi

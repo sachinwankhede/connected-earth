@@ -1,0 +1,27 @@
+name: status
+# Writes the project status (open pull requests, running jobs, the state queue, finished research) into one issue called "Project status"
+# every morning, and on demand, so it can be read from a phone. Read-only otherwise: it changes nothing but that issue.
+on:
+  schedule:
+    - cron: '7 11 * * *'   # about 6 am in St. Louis
+  workflow_dispatch:
+permissions:
+  contents: read
+  pull-requests: read
+  actions: read
+  issues: write
+concurrency: status
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - name: Write the status issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          { echo "Updated $(date -u +'%Y-%m-%d %H:%M') UTC by the status workflow."; echo; echo '```'; bash pipeline/status.sh 2>&1; echo '```'; } > status.md
+          N=$(gh issue list --state open --search '"Project status" in:title' --json number --jq '.[0].number')
+          if [ -n "$N" ]; then gh issue edit "$N" --body-file status.md; else gh issue create --title "Project status" --body-file status.md; fi
