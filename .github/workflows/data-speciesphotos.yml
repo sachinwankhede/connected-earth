@@ -29,5 +29,10 @@ jobs:
           N=$(python3 -c "import json;print(len(json.load(open('photos/species.json'))))"); M=$(python3 -c "import json;print(len(json.load(open('photos/species_missing.json'))))")
           git commit -m "Species photo links: $N found, $M with no picture"
           git push -f origin HEAD
-          gh pr create --base main --head "$(git branch --show-current)" --title "Species photo links ($N found, $M with no picture)" --body "Automatic run of data-speciesphotos. Thumbnail links only; the app does not use the file yet. Sample of 10 to spot check:
-$(python3 -c "import json,random;m=json.load(open('photos/species.json'));random.seed(1);[print('- https://en.wikipedia.org/wiki/'+v[1]) for k,v in random.sample(sorted(m.items()),10)]")"
+          python3 - > body.md <<'PY'
+          import json, random
+          m = json.load(open('photos/species.json')); random.seed(1)
+          print('Automatic run of data-speciesphotos. Thumbnail links only; the app does not use the file until it is wired in. Sample of 10 to spot check:')
+          for k, v in random.sample(sorted(m.items()), 10): print('- https://en.wikipedia.org/wiki/' + v[1])
+          PY
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species photo links ($N found, $M with no picture)" --body-file body.md
