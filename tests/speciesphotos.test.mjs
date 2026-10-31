@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
+const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../photos/species.json', import.meta.url), 'utf8'));
+
 // Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.
 describe('photos use only stored manifests', () => {
   let browser, srv, base, title = '';
@@ -13,7 +15,10 @@ describe('photos use only stored manifests', () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
       const u = decodeURIComponent(q.url.split('?')[0]);
-      if (u.endsWith('/photos/species.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(title ? { [title]: ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'] } : {})); }
+      if (u.endsWith('/photos/species.json')) {
+        const entry = title === 'Bottlenose dolphin' ? approvedSpeciesPhotos[title] : ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
+        r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(title ? { [title]: entry } : {}));
+      }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
       let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
       if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
@@ -71,6 +76,31 @@ describe('photos use only stored manifests', () => {
       assert.deepEqual(errors, []);
       await page.goto(base + 'index.html#pg=yellowstone');
       await page.waitForFunction(() => document.querySelectorAll('#pgraph image[loading="lazy"]').length > 0, null, { timeout: 30000 });
+      await ctx.close();
+    });
+
+    test(`${sizeName}: the Bottlenose dolphin alias uses its approved photo`, async () => {
+      assert.deepEqual(approvedSpeciesPhotos['Bottlenose dolphin'], approvedSpeciesPhotos['Common bottlenose dolphin'],
+        'the alias points to the same approved image and Wikipedia attribution');
+      const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
+      const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
+      await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
+      await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
+      title = 'Bottlenose dolphin';
+      await page.goto(base + 'index.html#e=gulf');
+      await page.waitForFunction(() => {
+        const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
+        return dolphin && dolphin.querySelector('image.photo[loading="lazy"]');
+      }, null, { timeout: 30000 });
+      const webPhoto = await page.evaluate(() => {
+        const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
+        return dolphin && dolphin.querySelector('image.photo')?.getAttribute('href');
+      });
+      assert.ok(webPhoto && webPhoto.includes('/120px-Tursiops_truncatus_01-cropped.jpg'),
+        'food web resolves the alias to the smaller approved Commons thumbnail');
+      await page.goto(base + 'index.html#pg=gulf');
+      await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), null, { timeout: 30000 });
+      assert.deepEqual(errors, []);
       await ctx.close();
     });
 
