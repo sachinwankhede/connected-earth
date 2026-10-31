@@ -14,9 +14,11 @@ export const PILOT = path.join(ROOT, 'pilot', 'index.html');
 // so tests load the built files from a small local web server instead, as the real site does.
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json', '.css': 'text/css', '.svg': 'image/svg+xml' };
 let serverP = null;
+let serverOffline = false;
 function server() {
   if (!serverP) serverP = new Promise((resolve) => {
     const srv = http.createServer((req, res) => {
+      if (serverOffline) { req.socket.destroy(); return; }
       const rel = decodeURIComponent((req.url || '/').split('?')[0].split('#')[0]);
       const f = path.join(ROOT, rel === '/' ? 'index.html' : rel);
       if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.statusCode = 404; res.end(); return; }
@@ -27,6 +29,7 @@ function server() {
   return serverP;
 }
 export async function urlFor(file) { const srv = await server(); return `http://127.0.0.1:${srv.address().port}/` + path.relative(ROOT, file).split(path.sep).join('/'); }
+export function setServerOffline(offline) { serverOffline = offline; }
 
 export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 1280, height: 800 } };
 

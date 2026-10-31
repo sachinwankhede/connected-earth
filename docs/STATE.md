@@ -14,7 +14,7 @@ Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the 
 - Do not use `pkill -f` / `pgrep -f` (it killed my own shell). Always `git fetch origin +main:refs/remotes/origin/main` before comparing with main. The GitHub GraphQL API is blocked from sessions: use `gh api` REST calls (create PRs with `gh api repos/.../pulls`).
 - A new workflow file can only be dispatched after it is on main (or, if it already existed, from its branch).
 - A Git branch named `perf` is impossible while `perf/species-index` exists; perf history lives on branch `perf-data`.
-- The service worker caches the app shell: the phone may need two close-and-reopen cycles to show a new deploy.
+- The service worker fetches app/data from the network first, with app-shell fallback for offline navigations; map styles refresh from the network while tiles and media are cached first (up to 1,500 runtime resources). The phone may need two close-and-reopen cycles to show a new deploy.
 
 ## What exists (jobs and tools)
 Manual workflows: data-about, data-photos, data-state(s), data-research (`place`: id, list or `next:N[:prefix]`), data-journeys, data-journeyresearch, data-names, data-sync, data-syncall, data-regen, data-promote, data-linktest, data-outlines, data-worldparks, data-speciesphotos, data-after-promote (automatic: a merged `data/promote-*` PR starts data-photos). Scheduled: data-photos (daily 12:17 UTC; one bounded round of up to 120 places), perf (nightly 08:17 UTC; opens the issue "Site got slower" when a metric is over 15% worse), status (daily 11:07 UTC; issue "Project status"). Deploy: pages.yml. CI: ci.yml (sharded).
