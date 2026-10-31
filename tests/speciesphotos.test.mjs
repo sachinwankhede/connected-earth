@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
-// Missing photo entries keep the app's existing icons; listed entries still load their approved thumbnail URLs.
+// Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.
 describe('photos use only stored manifests', () => {
   let browser, srv, base, title = '';
   const speciesTitle = H.readPlaces(false).find((e) => e.id === 'yellowstone').nodes.find((n) => n.wiki).wiki;
@@ -55,7 +55,7 @@ describe('photos use only stored manifests', () => {
       await ctx.close();
     });
 
-    test(`${sizeName}: a listed species still loads its approved thumbnail without a Wikipedia lookup`, async () => {
+    test(`${sizeName}: a listed species uses a smaller lazy thumbnail without a Wikipedia lookup`, async () => {
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = [], lookups = [], thumbnails = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
@@ -64,8 +64,34 @@ describe('photos use only stored manifests', () => {
       title = speciesTitle;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
-      assert.ok(thumbnails.some((u) => u.includes('9/99/Test.jpg/330px-Test.jpg')), 'manifest thumbnail requested');
+      const lazy = await page.locator('#svg image.photo[loading="lazy"]').count();
+      assert.ok(lazy > 0, 'food-web species photos are marked for native lazy loading');
+      assert.ok(thumbnails.some((u) => u.includes('9/99/Test.jpg/120px-Test.jpg')), 'smaller Wikimedia thumbnail variant requested');
       assert.deepEqual(lookups, [], 'listed photos do not need a Wikipedia API lookup');
+      assert.deepEqual(errors, []);
+      await page.goto(base + 'index.html#pg=yellowstone');
+      await page.waitForFunction(() => document.querySelectorAll('#pgraph image[loading="lazy"]').length > 0, null, { timeout: 30000 });
+      await ctx.close();
+    });
+
+    test(`${sizeName}: the canonical Coyote photo key matches its common-name alias`, async () => {
+      const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
+      const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
+      await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
+      await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
+      title = 'Canis latrans';
+      await page.goto(base + 'index.html#e=yellowstone');
+      await page.waitForFunction(() => {
+        const coyote = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'coyote');
+        return coyote && coyote.querySelector('image.photo[loading="lazy"]');
+      }, null, { timeout: 30000 });
+      const webPhoto = await page.evaluate(() => {
+        const coyote = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'coyote');
+        return coyote && coyote.querySelector('image.photo')?.getAttribute('href');
+      });
+      assert.ok(webPhoto && webPhoto.includes('/120px-Test.jpg'), 'food web resolves the canonical Latin-keyed photo');
+      await page.goto(base + 'index.html#pg=yellowstone');
+      await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), null, { timeout: 30000 });
       assert.deepEqual(errors, []);
       await ctx.close();
     });
