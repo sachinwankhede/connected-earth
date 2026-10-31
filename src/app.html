@@ -1557,8 +1557,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (!state.sel && !state.hov) { edge.classed("dim", false).classed("rip", function (e) { return anyE && rippleEdge(e); }); } else apply();
   }
 
-  /* ---------- Photos: each node's lead image comes from the Wikipedia summary API at runtime. Where the host page blocks outside requests (for example inside Claude's viewer) nothing loads and the drawn icons stay. ---------- */
-  var PHOTOS = {}, WAIT = {};
+  /* ---------- Photos: only approved photos from the stored manifests are shown. ---------- */
+  var PHOTOS = {};
   function esc(u) { return String(u).replace(/"/g, "%22").replace(/</g, "%3C"); }
   function escH(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
   function creditHTML(p) {
@@ -1622,25 +1622,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     paint();
     relayoutSoon();
   }
-  function fetchPhoto(title) {
-    var slug = encodeURIComponent(title.replace(/ /g, "_"));
-    fetch("https://en.wikipedia.org/api/rest_v1/page/summary/" + slug)
-      .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (j) {
-        if (!j) { delete WAIT[title]; return; }   // a failed request can be tried again later; a page with no picture cannot
-        if (!j.thumbnail || !j.thumbnail.source) return;
-        var page = j.content_urls && j.content_urls.desktop && j.content_urls.desktop.page;
-        var src = j.thumbnail.source, im = new Image();
-        im.onload = function () {
-          PHOTOS[title] = { src: src, page: page || "https://en.wikipedia.org/wiki/" + slug };
-          (WAIT[title] || []).forEach(showPhoto);
-        };
-        im.src = src;
-      })
-      .catch(function () { delete WAIT[title]; });
-  }
-  /* species pictures come from one stored list of thumbnail links (photos/species.json), loaded the first time a food web needs them, so opening a web makes no Wikipedia call for them.
-     A species the list does not have (or a list that cannot be loaded) falls back to the live lookup. */
+  /* Species pictures come from the stored thumbnail list (photos/species.json); missing entries keep their drawn icons. */
   var SPX = null;
   function loadPhotos() {
     if (!window.fetch) return;
@@ -1655,11 +1637,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     }
     if (SPX === false) return;
     NODES.forEach(function (n) {
-      if (!n.wiki) return;
-      if (PHOTOS[n.wiki]) { showPhoto(n); return; }
-      if (WAIT[n.wiki]) { if (WAIT[n.wiki].indexOf(n) < 0) WAIT[n.wiki].push(n); return; }
-      WAIT[n.wiki] = [n];
-      fetchPhoto(n.wiki);
+      if (n.wiki && PHOTOS[n.wiki]) showPhoto(n);
     });
   }
 
@@ -1695,16 +1673,13 @@ rect.core { stroke-dasharray: 3 2.5; }
   addEventListener("resize", function () { rowHints(); });
   function pnlPhotos() {
     if (!state.sel) return;
-    var me = BY[state.sel]; if (me && me.wiki && !photoOf(me) && !WAIT[me.wiki] && window.fetch) { WAIT[me.wiki] = [me]; fetchPhoto(me.wiki); }
     panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
       var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
-      if (e && e.imgwiki && !ph && !WAIT[e.imgwiki] && window.fetch) { WAIT[e.imgwiki] = [{ isEco: true, e: e }]; fetchPhoto(e.imgwiki); }
       if (!ph || b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
     panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
       var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
-      if (m && m.wiki && !ph && !WAIT[m.wiki] && window.fetch) { WAIT[m.wiki] = [m]; fetchPhoto(m.wiki); }   /* a picture that failed earlier gets another try */
       if (!ph || b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has"); b.classList.add("has");
     });
@@ -3082,9 +3057,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
   }
   function pWant(n) {
-    if (PHOTOS[n.wiki]) { pShow(n); return; }
-    if (WAIT[n.wiki]) { WAIT[n.wiki].push(n); return; }
-    WAIT[n.wiki] = [n]; fetchPhoto(n.wiki);
+    if (n.wiki && PHOTOS[n.wiki]) pShow(n);
   }
   function pShow(n) {
     var ph = PHOTOS[n.wiki]; if (!ph || M.pid !== n.eco) return;
@@ -3178,7 +3151,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
     function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
-  /* a place's picture is looked up when its list card is built (or its picture is needed elsewhere), not for every place at startup: that was over 300 Wikipedia requests on every open */
+  /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
   M.photoGo = false; var HELD = [];
   M.releasePhotos = function () {
@@ -3187,22 +3160,16 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
   var wp = M.wantPhoto = function (e) {
-    if (!window.fetch || !e.imgwiki) return;
+    if (!e.imgwiki) return;
     if (!M.photoGo) { if (!e.held) { e.held = 1; HELD.push(function () { e.held = 0; wp(e); }); } return; }
     var tt = e.imgwiki; stored(tt);
     if (PHOTOS[tt]) { ecoPhoto(e); return; }
-    var fresh = !WAIT[tt];
-    (WAIT[tt] = WAIT[tt] || []).push({ isEco: true, e: e });
-    if (fresh) fetchPhoto(tt);
   };
   function crossPhotos() {
     CROSS.forEach(function (c) {
       var tt = c.imgwiki;
       if (!tt) return; stored(tt);
       if (PHOTOS[tt]) { linkPhoto(c); return; }
-      var fresh = !WAIT[tt];
-      (WAIT[tt] = WAIT[tt] || []).push({ isLink: true, c: c });
-      if (fresh) fetchPhoto(tt);
     });
   }
   ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
