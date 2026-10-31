@@ -1,7 +1,9 @@
 name: data-photos
-# Manual runs only (refresh is parked). Fetches the next batch of place photos (with author and licence) from Wikipedia and opens (or updates) one pull request.
+# Runs daily and manually. Fetches the next batch of place photos (with author and licence) from Wikipedia and opens (or updates) one pull request.
 # Nothing reaches the live site until that pull request is merged.
 on:
+  schedule:
+    - cron: '17 12 * * *'   # daily at 12:17 UTC
   workflow_dispatch:
     inputs:
       limit: { description: "Places to try per round (0 = all left)", default: "120" }
@@ -27,10 +29,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Fetch the next batch of photos
+        env:
+          LIMIT: ${{ github.event_name == 'schedule' && '120' || github.event.inputs.limit || '120' }}
+          ROUNDS: ${{ github.event_name == 'schedule' && '1' || github.event.inputs.rounds || '1' }}
         run: |
-          for R in $(seq 1 "${{ github.event.inputs.rounds || '1' }}"); do
+          for R in $(seq 1 "$ROUNDS"); do
             echo "== round $R"
-            LIMIT="${{ github.event.inputs.limit || '120' }}" python3 pipeline/photos.py photos/places data data-auto
+            LIMIT="$LIMIT" python3 pipeline/photos.py photos/places data data-auto
             [ "$(cat photos/places/.tried)" = "0" ] && { echo "Nothing left to try."; break; }
           done
           rm -f photos/places/.tried
