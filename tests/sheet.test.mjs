@@ -58,9 +58,13 @@ describe('place sheet', () => {
       await t.page.waitForFunction(() => document.querySelector('#panel .art.hasph img'), null, { timeout: 30000 });
       const lay = await t.page.evaluate(() => { const a = document.querySelector('#panel .art').getBoundingClientRect(), l = document.querySelector('#panel .latin').getBoundingClientRect(); return { photoLeft: a.right <= l.left, close: !!document.querySelector('.pclose'), found: [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in \d+ other place/.test(h.textContent)) }; });
       assert.ok(lay.photoLeft, 'photo on the left, details on the right'); assert.equal(lay.close, false, 'no close button'); assert.ok(lay.found, 'Also found in is a row of places');
-      await t.page.waitForFunction(() => { const c = document.querySelectorAll('#panel .pph[data-eid]'); return c.length > 0 && [...c].every((x) => x.querySelector('img')); }, null, { timeout: 30000 });
+      await t.page.waitForFunction(() => [...document.querySelectorAll('#panel .pph[data-eid]')].some((x) => x.querySelector('img')), null, { timeout: 30000 });
+      const placePhotos = await t.page.evaluate(() => { const c = [...document.querySelectorAll('#panel .pph[data-eid]')]; return { total: c.length, images: c.filter((x) => x.querySelector('img')).length, placeholders: c.filter((x) => !x.querySelector('img') && x.querySelector('svg')).length }; });
+      assert.ok(placePhotos.images > 0 && placePhotos.placeholders > 0, 'approved place photos show while missing ones keep their icons');
       assert.deepEqual(r.heads.slice(0, 2), ['What Elk eats', 'What eats Elk']); assert.ok(r.whatIfLast, 'What if is the last thing'); assert.ok(r.moreClosed && r.moreBeforeWhatIf);
-      await t.page.waitForFunction(() => { const c = document.querySelectorAll('#panel .prow .pmc .pph'); return c.length > 0 && [...c].every((x) => x.querySelector('img')); }, null, { timeout: 30000 });
+      await t.page.waitForFunction(() => [...document.querySelectorAll('#panel .prow .pmc .pph')].some((x) => x.querySelector('img')), null, { timeout: 30000 });
+      const speciesPhotos = await t.page.evaluate(() => { const c = [...document.querySelectorAll('#panel .prow .pmc .pph')]; return { total: c.length, images: c.filter((x) => x.querySelector('img')).length, placeholders: c.filter((x) => !x.querySelector('img') && x.querySelector('svg')).length }; });
+      assert.ok(speciesPhotos.images > 0 && speciesPhotos.placeholders > 0, 'approved species photos show while missing ones keep their icons');
       // tapping a neighbour moves the selection to it
       const before = await t.page.evaluate(() => document.querySelector('#panel h2, #prow .stt').textContent);
       await t.page.evaluate(() => document.querySelectorAll('#panel .prow')[1].querySelector('.pmc').click()); await t.page.waitForTimeout(800);
