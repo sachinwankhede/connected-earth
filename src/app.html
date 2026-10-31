@@ -1623,21 +1623,25 @@ rect.core { stroke-dasharray: 3 2.5; }
     relayoutSoon();
   }
   /* Species pictures come from the stored thumbnail list (photos/species.json); missing entries keep their drawn icons. */
-  var SPX = null;
-  function loadPhotos() {
+  var SPX = null, SPX_WAIT = [];
+  function withSpeciesPhotos(done) {
     if (!window.fetch) return;
-    if (SPX === null) {
-      SPX = false;
-      var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
-      fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
-        Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0], page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
-        SPX = true; loadPhotos();
+    if (SPX === true) { done(); return; }
+    SPX_WAIT.push(done);
+    if (SPX !== null) return;
+    SPX = false;
+    var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+    fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
+      Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0], page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
+      SPX = true;
+      var waiting = SPX_WAIT; SPX_WAIT = []; waiting.forEach(function (f) { f(); });
+    });
+  }
+  function loadPhotos() {
+    withSpeciesPhotos(function () {
+      NODES.forEach(function (n) {
+        if (n.wiki && PHOTOS[n.wiki]) showPhoto(n);
       });
-      return;
-    }
-    if (SPX === false) return;
-    NODES.forEach(function (n) {
-      if (n.wiki && PHOTOS[n.wiki]) showPhoto(n);
     });
   }
 
@@ -3057,7 +3061,9 @@ rect.core { stroke-dasharray: 3 2.5; }
       footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
   }
   function pWant(n) {
-    if (n.wiki && PHOTOS[n.wiki]) pShow(n);
+    if (!n.wiki) return;
+    if (PHOTOS[n.wiki]) { pShow(n); return; }
+    withSpeciesPhotos(function () { if (PHOTOS[n.wiki]) pShow(n); });
   }
   function pShow(n) {
     var ph = PHOTOS[n.wiki]; if (!ph || M.pid !== n.eco) return;

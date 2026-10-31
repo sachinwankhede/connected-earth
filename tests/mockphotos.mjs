@@ -1,5 +1,10 @@
 // Test helper: answers Wikipedia photo requests with generated pictures so photo features can be checked offline.
+import fs from 'node:fs';
 import zlib from 'node:zlib';
+import { readPlaces } from './helper.mjs';
+const speciesManifest = JSON.parse(fs.readFileSync(new URL('../photos/species.json', import.meta.url), 'utf8'));
+const placeManifest = JSON.parse(fs.readFileSync(new URL('../photos/places/places.json', import.meta.url), 'utf8'));
+const speciesTitles = new Set(readPlaces(true).flatMap((e) => e.nodes.map((n) => n.wiki).filter(Boolean)));
 function crc(buf) { let c, crcT = []; for (let n = 0; n < 256; n++) { c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; crcT[n] = c >>> 0; } let x = 0xffffffff; for (const b of buf) x = crcT[(x ^ b) & 0xff] ^ (x >>> 8); return (x ^ 0xffffffff) >>> 0; }
 function chunk(t, d) { const len = Buffer.alloc(4); len.writeUInt32BE(d.length); const td = Buffer.concat([Buffer.from(t), d]); const c = Buffer.alloc(4); c.writeUInt32BE(crc(td)); return Buffer.concat([len, td, c]); }
 export function png(seed, w = 48, h = 48) {
@@ -10,9 +15,12 @@ export function png(seed, w = 48, h = 48) {
   return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
 }
 export async function mockPhotos(page) {
-  await page.route(/en\.wikipedia\.org\/api\/rest_v1\/page\/summary\//, (r) => {
-    const t = decodeURIComponent(r.request().url().split('/summary/')[1]);
-    r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ thumbnail: { source: 'https://upload.wikimedia.org/mock/' + encodeURIComponent(t) + '.png' }, content_urls: { desktop: { page: 'https://en.wikipedia.org/wiki/' + t } } }) });
+  const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [`mock/${encodeURIComponent(title)}.png`, speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
+  const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
+  await page.route(/\/photos\/(species|places\/places)\.json(?:\?|$)/, (r) => {
+    const body = r.request().url().includes('/photos/species.json') ? species : places;
+    return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
   });
-  await page.route(/upload\.wikimedia\.org\/mock\//, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.route(/\/photos\/places\/mock\/|thumb\.wikimedia\.org\/.*\/mock\//, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.reload();
 }
