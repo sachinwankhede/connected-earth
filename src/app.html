@@ -1210,27 +1210,36 @@ rect.core { stroke-dasharray: 3 2.5; }
     return '<p class="about" data-lat="' + esc(n.latin.toLowerCase()) + '"></p>';
   }
   var ECOS = DATA.ecos;
-  /* Each place lists its species as numbers into one shared table (smaller page); expand them to [latin, name] here. */
-  ECOS.forEach(function (e) { e.idx.sp = e.idx.s.map(function (k) { var t = typeof k === "number" ? DATA.spt[k] : DATA.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; }); delete e.idx.s; });
+  /* Each place lists its species as numbers into one shared table (smaller page); expand them to [latin, name] the first time a place's list is read
+     (opening a place, searching, drawing ties), not for all places at start, so the first paint does not pay for it. */
+  ECOS.forEach(function (e) {
+    var s = e.idx.s, sp = null; delete e.idx.s;
+    Object.defineProperty(e.idx, "sp", { configurable: true, enumerable: true, get: function () {
+      if (!sp) sp = s.map(function (k) { var t = typeof k === "number" ? DATA.spt[k] : DATA.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
+      return sp;
+    } });
+  });
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
   var ECO_BY = {};
   ECOS.forEach(function (e) { ECO_BY[e.id] = e; });
   /* Shared-species ties between ecosystems (species present in 2 to 10 webs, so ubiquitous ones don't swamp the map) */
-  var TIES = {};
-  (function () {
-    var by = {};
+  var TIES = null;   /* built the first time a place's ties are asked for, not at start */
+  function buildTies() {
+    var ties = {}, by = {};
     ECOS.forEach(function (e) { e.idx.sp.forEach(function (n) { (by[n[0]] = by[n[0]] || []).push({ eco: e.id, name: n[1] }); }); });
     Object.keys(by).forEach(function (k) {
       var g = by[k]; if (g.length < 2 || g.length > 10) return;
       g.forEach(function (a) { g.forEach(function (b) {
         if (a.eco === b.eco) return;
-        var t = (TIES[a.eco] = TIES[a.eco] || {}); (t[b.eco] = t[b.eco] || []).push(a.name);
+        var t = (ties[a.eco] = ties[a.eco] || {}); (t[b.eco] = t[b.eco] || []).push(a.name);
       }); });
     });
-  })();
+    return ties;
+  }
   function tiesFor(id) {
+    if (!TIES) TIES = buildTies();
     var t = TIES[id] || {};
     return Object.keys(t).map(function (o) { return { eco: o, spp: t[o] }; }).sort(function (a, b) { return b.spp.length - a.spp.length || (a.eco < b.eco ? -1 : 1); });
   }
@@ -2594,17 +2603,6 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function refreshArcs() { pushTies(); }
   var PITCH = "See how nature is connected", PITCH2 = "What eats what, and where it travels";
-  function heroStats() {
-    var sp = {}, ns = 0, np = 0, nl = 0;
-    ECOS.forEach(function (e) {
-      if (e.level === "local" && !FL.local) return;
-      np++;
-      e.idx.sp.forEach(function (n) { var k = n[0].toLowerCase(); if (!sp[k]) { sp[k] = 1; ns++; } });
-      nl += e.idx.nl;
-    });
-    var f = function (x) { return x.toLocaleString("en-US"); };
-    return f(np) + " places \u00b7 " + f(ns) + " species";
-  }
   function filterView() {
     renderView(false);
     var m = M.map; if (!m || !M.styleReady) return;
@@ -2643,7 +2641,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     document.getElementById("regions").innerHTML = chipsHTML(); kfade();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
     if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" : view.level === "world"
-      ? heroStats()
+      ? ""   /* the home view shows the pitch below; the places-and-species count that used to be computed here was always replaced by it */
       : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
     var hk = document.getElementById("hook");
     if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + PITCH2 + "</span>"; }
