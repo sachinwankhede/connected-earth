@@ -2775,6 +2775,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       var done = function () { if (!bt.parentNode) return; bt.classList.add("gone"); setTimeout(function () { if (bt.parentNode) bt.parentNode.removeChild(bt); }, 450); };
       m.once("idle", done); setTimeout(done, 20000);   /* the outline never stays if the map fails to draw */
     })();
+    var mh = M.mapHooks || []; M.mapHooks = []; mh.forEach(function (f) { f(); });
     window._atlas = M;
     document.getElementById("map").parentNode.appendChild(document.getElementById("peek"));
     m.on("style.load", onStyle);
@@ -3330,7 +3331,10 @@ rect.core { stroke-dasharray: 3 2.5; }
   addEventListener("pointerdown", go, { once: true, capture: true }); addEventListener("keydown", go, { once: true, capture: true });
   setTimeout(go, 9000);
   if (/[#&](pg|p|e|j)=/.test(location.hash)) go();   // a link straight to a place or journey needs its picture now
-  else if (M.map) M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); go(); } });
+  else {
+    var hookIdle = function () { if (M.styleReady && M.map.loaded()) { go(); return; } M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); go(); } }); };
+    if (M.map) hookIdle(); else M.mapHooks = (M.mapHooks || []).concat(hookIdle);   // the map library can arrive after this point: hook the map when it is created
+  }
   });
 })();
 </script>
