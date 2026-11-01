@@ -1379,6 +1379,7 @@ rect.core { stroke-dasharray: 3 2.5; }
         pendingFit = false;
         stretchWeb();
         fit(true);
+        if (activeLayoutKey) rememberLayout(activeLayoutKey);
       }
       if (cacheAfterResize) {
         cacheAfterResize = false;
@@ -1976,7 +1977,6 @@ rect.core { stroke-dasharray: 3 2.5; }
     return e._wp;
   }
   function loadEco(id) {
-    var profile = window.__CE_LAYOUT_PROFILE__ ? { start: performance.now() } : null;
     sim.stop();
     cacheAfterResize = false;
     ECO = ECO_BY[id];
@@ -1995,9 +1995,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       n.r0 = n.r;
       n.lw = Math.max.apply(null, labLines(n.name).map(function (l) { return l.length; })) * 6.1;
     });
-    var buildStart = profile ? performance.now() : 0;
     build();
-    if (profile) profile.buildMs = performance.now() - buildStart;
     applyEnv();
     renderPanel();
     dims();
@@ -2010,7 +2008,6 @@ rect.core { stroke-dasharray: 3 2.5; }
       d.y = rowY(d.tl) + Math.cos(i * 3.7) * 6;
     });
     configure();
-    var tickStart = profile ? performance.now() : 0;
     if (!cacheHit) {
       for (var i = 0; i < 120; i++) sim.tick();
       rememberLayout(key);
@@ -2018,7 +2015,6 @@ rect.core { stroke-dasharray: 3 2.5; }
       LAYOUT_CACHE_ORDER = LAYOUT_CACHE_ORDER.filter(function (k) { return k !== key; });
       LAYOUT_CACHE_ORDER.push(key);
     }
-    if (profile) profile.tickMs = performance.now() - tickStart;
     ticked();
     cur = d3.zoomIdentity;
     fit(false);
@@ -2027,7 +2023,6 @@ rect.core { stroke-dasharray: 3 2.5; }
     apply();
     el.h1.textContent = ECO.name;
     loadPhotos();
-    if (profile) M.layoutInfo = { cacheHit: cacheHit, ticks: cacheHit ? 0 : 120, buildMs: profile.buildMs, tickMs: profile.tickMs, setupMs: performance.now() - profile.start };
     
   }
 
