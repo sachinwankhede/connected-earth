@@ -1,5 +1,5 @@
 name: data-photos
-# Runs daily and manually. Fetches the next batch of place photos (with author and licence) from Wikipedia and opens (or updates) one pull request.
+# Runs daily and manually. Fetches place photos with Wikimedia credit and verified file metadata, then opens or updates a reviewable pull request.
 # Nothing reaches the live site until that pull request is merged.
 on:
   schedule:
@@ -38,6 +38,8 @@ jobs:
             LIMIT="$LIMIT" python3 pipeline/photos.py photos/places data data-auto
             [ "$(cat photos/places/.tried)" = "0" ] && { echo "Nothing left to try."; break; }
           done
+          python3 pipeline/photo_registry.py migrate photos/places/places.json photos/places
+          python3 pipeline/photo_registry.py validate
           rm -f photos/places/.tried
       - name: Commit and open or update the pull request
         env:

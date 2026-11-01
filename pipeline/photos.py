@@ -2,9 +2,10 @@
 """photos.py: store each place's photo in the repo with its author and licence.
 Usage: photos.py <outdir> <data-dir> [<data-dir>...]   writes <outdir>/<id>.jpg and <outdir>/places.json (resumable)
 Source: Wikipedia page summary (thumbnail, 330px wide) + file metadata from the English Wikipedia API (Commons files)."""
-import sys,os,re,json,glob,time,html,urllib.request,urllib.parse
+import sys,os,re,json,glob,time,html,urllib.request,urllib.parse,datetime
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
+from photo_registry import ALLOWED_IMAGE_HOSTS, cache_active, failure_class, negative_entry, safe_https
 def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
 # Files that are logos, seals, flags or drawings are not photos of the place
@@ -13,6 +14,7 @@ def one(i,title,out,man):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_')))
     th=(j or {}).get('thumbnail')
     if not th: return 'nophoto'
+    if not safe_https(th.get('source'), ALLOWED_IMAGE_HOSTS): return 'source-rejected'
     m=re.search(r'/commons/thumb/\w/\w\w/([^/]+)/',th['source'])
     if not m: return 'notcommons'
     fn=urllib.parse.unquote(m.group(1)); path=os.path.join(out,i+'.jpg')
@@ -24,7 +26,8 @@ def one(i,title,out,man):
     q=get('https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json&titles='+urllib.parse.quote('File:'+fn))
     md=(list((q or {}).get('query',{}).get('pages',{}).values()) or [{}])[0].get('imageinfo',[{}])[0].get('extmetadata',{})
     v=lambda k: strip((md.get(k) or {}).get('value'))
-    man[title]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')))
+    now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+    man[title]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')),checkedAt=now,fetchedAt=now)
     return 'ok'
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
@@ -41,13 +44,17 @@ if __name__=='__main__':
         for f in sorted(glob.glob(d+'/*.json')):
             if f.endswith(('order.json','links.json')): continue
             e=json.load(open(f)); t=e.get('imgwiki')
-            if not t or t in man or t in miss: continue
+            if not t or t in man or (t in miss and cache_active(miss[t])): continue
             if LIMIT and tried>=LIMIT: continue
             tried+=1
             try: r=one(e['id'],t,out,man)
             except Exception as ex: r='err '+str(ex)[:50]
             stat[t]=r
-            if r in ('nophoto','notcommons','notphoto'): miss[t]=r; json.dump(miss,open(ms,'w'),ensure_ascii=False,indent=0)
+            if failure_class(r) == 'permanent':
+                old=miss.get(t); attempts=(old.get('attempts',0) if isinstance(old,dict) else 0)+1
+                miss[t]=negative_entry(r,attempts); json.dump(miss,open(ms,'w'),ensure_ascii=False,indent=0)
+            elif r == 'ok':
+                miss.pop(t,None); json.dump(miss,open(ms,'w'),ensure_ascii=False,indent=0)
             json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
             if r!='ok': print(t,r,flush=True)
     print('done',len(man),'photos;',len(miss),'places with no usable photo; tried',tried,'this run; problems:',sum(1 for r in stat.values() if r not in ('ok','nophoto','notcommons','notphoto')))
