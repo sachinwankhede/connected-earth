@@ -15,6 +15,7 @@ permissions:
 concurrency: perf
 jobs:
   perf:
+    if: github.ref != 'refs/heads/sachinwankhede-profile-explore-setup'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -56,3 +57,19 @@ jobs:
             N=$(gh issue list --state open --search '"Site got slower" in:title' --json number --jq '.[0].number')
             if [ -n "$N" ]; then gh issue comment "$N" --body-file issue.md; else gh issue create --title "Site got slower" --body-file issue.md; fi
           fi
+
+  explore-layout-profile:
+    if: github.ref == 'refs/heads/sachinwankhede-profile-explore-setup'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: python3 build/build.py --all
+      - name: Measure cold and warm Explore layouts
+        run: node tests/perf/explore-cache-profile.mjs --runs 5 | tee explore-layout-profile.txt >> "$GITHUB_STEP_SUMMARY"

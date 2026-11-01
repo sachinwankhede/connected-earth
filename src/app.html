@@ -1380,8 +1380,26 @@ rect.core { stroke-dasharray: 3 2.5; }
         stretchWeb();
         fit(true);
       }
+      if (cacheAfterResize) {
+        cacheAfterResize = false;
+        if (activeLayoutKey) rememberLayout(activeLayoutKey);
+      }
     });
   sim.stop();
+  var LAYOUT_CACHE = Object.create(null), LAYOUT_CACHE_ORDER = [], activeLayoutKey = null, cacheAfterResize = false;
+  function layoutKey(id) {
+    return JSON.stringify([
+      id, PH, state.mode, state.env, W, H, stage.clientWidth, stage.clientHeight,
+      NODES.map(function (n) { return [n.id, n.cat || "", n.tl, n.xh, n.r, n.lw]; }),
+      EDGES.map(function (e) { return [e.s, e.t, e.kind]; })
+    ]);
+  }
+  function rememberLayout(key) {
+    LAYOUT_CACHE[key] = NODES.map(function (n) { return [n.x, n.y]; });
+    LAYOUT_CACHE_ORDER = LAYOUT_CACHE_ORDER.filter(function (k) { return k !== key; });
+    LAYOUT_CACHE_ORDER.push(key);
+    if (LAYOUT_CACHE_ORDER.length > 12) delete LAYOUT_CACHE[LAYOUT_CACHE_ORDER.shift()];
+  }
 
   function stretchWeb() {
     if (!(PH && state.mode === "web")) return;
@@ -1958,6 +1976,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     return e._wp;
   }
   function loadEco(id) {
+    var profile = window.__CE_LAYOUT_PROFILE__ ? { start: performance.now() } : null;
+    sim.stop();
+    cacheAfterResize = false;
     ECO = ECO_BY[id];
     state.eco = id; state.sel = null; state.hov = null; state.edits = EDITS[id] = EDITS[id] || {}; state.fx = {};
     NODES = ECO.nodes; BY = {}; adj = { ins: {}, outs: {} };
@@ -1974,24 +1995,39 @@ rect.core { stroke-dasharray: 3 2.5; }
       n.r0 = n.r;
       n.lw = Math.max.apply(null, labLines(n.name).map(function (l) { return l.length; })) * 6.1;
     });
+    var buildStart = profile ? performance.now() : 0;
     build();
+    if (profile) profile.buildMs = performance.now() - buildStart;
     applyEnv();
+    renderPanel();
     dims();
-    NODES.forEach(function (d, i) {
+    var key = layoutKey(id), cached = LAYOUT_CACHE[key], cacheHit = !!cached && cached.length === NODES.length;
+    activeLayoutKey = key;
+    M.layoutInfo = { cacheHit: cacheHit, ticks: cacheHit ? 0 : 120 };
+    if (cacheHit) NODES.forEach(function (d, i) { d.x = cached[i][0]; d.y = cached[i][1]; });
+    else NODES.forEach(function (d, i) {
       d.x = PAD + d.xh * (W - 2 * PAD) + Math.sin(i * 7.1) * 6;
       d.y = rowY(d.tl) + Math.cos(i * 3.7) * 6;
     });
     configure();
-    for (var i = 0; i < 120; i++) sim.tick();
+    var tickStart = profile ? performance.now() : 0;
+    if (!cacheHit) {
+      for (var i = 0; i < 120; i++) sim.tick();
+      rememberLayout(key);
+    } else {
+      LAYOUT_CACHE_ORDER = LAYOUT_CACHE_ORDER.filter(function (k) { return k !== key; });
+      LAYOUT_CACHE_ORDER.push(key);
+    }
+    if (profile) profile.tickMs = performance.now() - tickStart;
     ticked();
     cur = d3.zoomIdentity;
     fit(false);
     drawGuides();
-    renderPanel();
     paint();
     apply();
     el.h1.textContent = ECO.name;
     loadPhotos();
+    if (profile) M.layoutInfo = { cacheHit: cacheHit, ticks: cacheHit ? 0 : 120, buildMs: profile.buildMs, tickMs: profile.tickMs, setupMs: performance.now() - profile.start };
     
   }
 
@@ -2036,9 +2072,19 @@ rect.core { stroke-dasharray: 3 2.5; }
         if (!ECO || !stage.clientWidth) return;
         var ow = W, oh = H;
         dims();
-        if (ow === W && oh === H) { if (!userMoved) fit(false); drawGuides(); return; }
+        if (ow === W && oh === H) {
+          if (!userMoved) fit(false);
+          drawGuides();
+          if (!cacheAfterResize) {
+            activeLayoutKey = layoutKey(state.eco);
+            rememberLayout(activeLayoutKey);
+          }
+          return;
+        }
         configure(); drawGuides();
         pendingFit = !userMoved;
+        activeLayoutKey = layoutKey(state.eco);
+        cacheAfterResize = true;
         sim.alpha(0.5).restart();
       }, 120);
     }).observe(stage);
