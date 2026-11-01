@@ -283,7 +283,9 @@ async function returningVisit(browser, name) {
       const u = new URL(rq.url());
       if (u.origin !== origin || !(rq.resourceType() === 'document' || u.pathname.endsWith('/') || u.pathname.endsWith('.html'))) return;
       const sz = await rq.sizes();
-      docs.push({ status: res.status(), fromSW: res.fromServiceWorker(), bodyBytes: sz.responseBodySize });
+      let sw = false;
+      try { sw = !!rq.serviceWorker(); } catch (e) {}
+      docs.push({ sw, status: res.status(), fromSW: res.fromServiceWorker(), bodyBytes: sz.responseBodySize >= 0 ? sz.responseBodySize : null });
     } catch (e) {}
   });
   const throttle = async (p) => {
@@ -314,9 +316,14 @@ async function returningVisit(browser, name) {
       controlled: !!(navigator.serviceWorker && navigator.serviceWorker.controller),
     };
   });
-  const doc = docs[0] || null;
+  // the page's own document response (possibly answered by the worker) and the worker's own network fetch of the document, if any
+  const pageDoc = docs.find((d) => !d.sw) || null, swDoc = docs.find((d) => d.sw) || null;
   await ctx.close();
-  return { ...m, swReady, docStatus: doc && doc.status, docFromSW: doc && doc.fromSW, docBodyBytes: doc && doc.bodyBytes };
+  return {
+    ...m, swReady,
+    docStatus: pageDoc && pageDoc.status, docFromSW: pageDoc && pageDoc.fromSW,
+    swFetchStatus: swDoc && swDoc.status, swFetchBytes: swDoc && swDoc.bodyBytes,
+  };
 }
 
 const FLAT = {
@@ -361,7 +368,8 @@ function summarize(runs) {
     metrics: Object.fromEntries(['fcp', 'domInteractive', 'load', 'mapLoaded', 'blockingMs'].map((k) => [k, { p50: percentile(col(k), 0.5), p95: percentile(col(k), 0.95) }])),
     docStatuses: Object.fromEntries([...new Set(rv.map((x) => x.docStatus))].map((st) => [String(st), count((x) => x.docStatus === st)])),
     docFromSW: count((x) => x.docFromSW),
-    docBodyBytesP50: percentile(col('docBodyBytes'), 0.5),
+    swFetchStatuses: Object.fromEntries([...new Set(rv.map((x) => x.swFetchStatus))].map((st) => [String(st), count((x) => x.swFetchStatus === st)])),
+    swFetchBytesP50: percentile(col('swFetchBytes'), 0.5),
   };
   return s;
 }
@@ -418,7 +426,7 @@ for (const name of Object.keys(PROFILES)) {
     const rt = s.returning;
     md += `\n### Returning visit, service worker on (observational)\n\n`;
     md += `A first visit installs the service worker and fills its caches; a second page in the same browser context is then timed. Throttling is attached to the page, so requests made by the service worker itself may not be slowed: read the document line below to see whether the page was downloaded again or only re-checked. Not compared with history and never raises a warning.\n\n`;
-    md += `Samples: ${rt.samples}; service worker ready: ${rt.swReady}; page controlled by the worker on the second visit: ${rt.controlled}. Document request: status ${Object.entries(rt.docStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; answered by the worker: ${rt.docFromSW}; body bytes on the wire (p50): ${fmt(rt.docBodyBytesP50)}.\n\n`;
+    md += `Samples: ${rt.samples}; service worker ready: ${rt.swReady}; page controlled by the worker on the second visit: ${rt.controlled}. Page document: status ${Object.entries(rt.docStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; answered by the worker: ${rt.docFromSW}. The worker's own network fetch of the document: status ${Object.entries(rt.swFetchStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'} (304 means re-checked only, 200 means downloaded again); body bytes (p50): ${fmt(rt.swFetchBytesP50)}.\n\n`;
     md += `| Metric | p50 (ms) | p95 (ms) |\n|---|---:|---:|\n`;
     for (const [k, label] of [['fcp', 'First contentful paint'], ['domInteractive', 'DOM interactive'], ['load', 'Load event'], ['mapLoaded', 'Map loaded'], ['blockingMs', 'Blocking time before map loaded']]) md += `| ${label} | ${fmt(rt.metrics[k].p50)} | ${fmt(rt.metrics[k].p95)} |\n`;
   }
