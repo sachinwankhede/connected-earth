@@ -1213,23 +1213,23 @@ rect.core { stroke-dasharray: 3 2.5; }
   /* The species lists are not in the page (smaller first load). Every place starts with an empty list; webs/species-index.json (the shared species table plus
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
-  var SPX = { p: null, ready: false, failedAt: 0 };
+  var SPIDX = { p: null, ready: false, failedAt: 0 };
   ECOS.forEach(function (e) { e.idx.sp = []; });
   function loadSpecies() {
-    if (SPX.ready) return Promise.resolve(true);
-    if (SPX.p) return SPX.p;
-    if (SPX.failedAt && Date.now() - SPX.failedAt < 30000) return Promise.resolve(false);
-    SPX.p = fetch(WB + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+    if (SPIDX.ready) return Promise.resolve(true);
+    if (SPIDX.p) return SPIDX.p;
+    if (SPIDX.failedAt && Date.now() - SPIDX.failedAt < 30000) return Promise.resolve(false);
+    SPIDX.p = fetch((typeof WB === "string" ? WB : "webs/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
       ECOS.forEach(function (e) {
         e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
         e._s = null;
       });
-      TIES = null; SPX.ready = true; return true;
-    }).catch(function () { SPX.p = null; SPX.failedAt = Date.now(); return false; });
-    return SPX.p;
+      TIES = null; SPIDX.ready = true; return true;
+    }).catch(function () { SPIDX.p = null; SPIDX.failedAt = Date.now(); return false; });
+    return SPIDX.p;
   }
   /* a search can match species names, so make sure the lists are in, then filter again with them */
-  function wantSpecies() { if (!SPX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) filterView(); }); }
+  function wantSpecies() { if (!SPIDX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) filterView(); }); }
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
@@ -1250,7 +1250,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return ties;
   }
   function tiesFor(id) {
-    if (!SPX.ready) { loadSpecies().then(function (ok) { if (ok) refreshArcs(); }); return []; }
+    if (!SPIDX.ready) { loadSpecies().then(function (ok) { if (ok) refreshArcs(); }); return []; }
     if (!TIES) TIES = buildTies();
     var t = TIES[id] || {};
     return Object.keys(t).map(function (o) { return { eco: o, spp: t[o] }; }).sort(function (a, b) { return b.spp.length - a.spp.length || (a.eco < b.eco ? -1 : 1); });
