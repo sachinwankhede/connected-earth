@@ -101,7 +101,7 @@ for (const [name, profile] of Object.entries(PROFILES)) {
         const j = window.__webParses.find((e) => e.url.endsWith(`/webs/${s.id}.json`));
         return { setup: s, routeReadyMs: r.t - n.t, fetchMs: w ? w.responseEnd - w.startTime : null, parseMs: j?.ms ?? null, transferBytes: w?.transferSize ?? null };
       });
-      await page.locator('#back').click();
+      await page.evaluate(() => document.getElementById('back').click());
       await page.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'));
       await page.locator('#pview #pgraph').click();
       await page.waitForFunction(() => window.__exploreProfile.routeReady.length >= 2 && !document.getElementById('webview').hidden && document.getElementById('webload')?.hidden && document.querySelector('#svg .node'));
