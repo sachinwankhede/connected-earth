@@ -33,6 +33,13 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - Place pictures wait for the map (map drawn, a touch, 9 s, or a link to a place). Food-web species photos use smaller thumbnail variants and native lazy loading.
 - After adding or promoting places run `python3 build/species.py pack`. A data branch that clashes with main only on `data/species.json` or `data-auto/order.json`: use data-sync.
 
+## Latency plan (started 2026-11-01)
+- Findings (phone profile, five-sample medians from `perf-data` `latest.md`): first paint 0.4 s; app data, cards and map style all ready at 5.2 s (same moment as DOM interactive); first tile 5.7 s; map loaded 7.4 s; first photo decoded 7.9 s; long tasks block the main thread for about 1.3 s.
+- Why: the built page is one file, 699 KB gzip, so at 1.6 Mbps the download alone is about 3.5 s. Of it, roughly 376 KB gzip is our own code and data (places 157 KB, species table 61 KB, state/country geometry 72 KB, app 64 KB, land 17 KB) and about 307 KB is MapLibre plus D3 (D3 about 92 KB). The per-place detail (`webs/`, 12.8 MB raw) already loads on demand; the weak spots are card text for all 1,272 places and the species table loading before first paint, and everything inlined in one file that is re-sent on every deploy.
+- Rough, unmeasured estimates of what each could save on the phone profile: defer D3 about 0.5 s; slim places index about 0.5 s; species table on demand about 0.3 s; earlier connection to the tile hosts perhaps 0.5 to 1 s. Together about 1.5 to 2 s of 7.4 s.
+- Gap: the perf harness blocks service workers and always loads as a first visit. The service worker fetches the page with `cache: "no-cache"` on every open, so a returning visit is a re-check or a re-download; which one is not measured yet. `tests/perf/perf.mjs` now has an observational returning-visit section (service worker on, document status and bytes on the wire).
+- Order of work: (1) measure the returning visit on Actions; (2) agree how to compare an experiment branch with main in one job on the same runner; (3) experiments on separate branches, one change each: slim places index, species table on demand, D3 on demand, earlier tile-host connection; (4) compare, then the owner merges winners one at a time and checks on his iPhone.
+
 ## Waiting on the owner (last known)
 - #148 two more park outlines (CI green); #141 world-parks candidate list (rerun with size-scaled quotas; review quotas, then choose which become stories).
 - data-research `next:120` results, then draft stories in batches of about 40 (draft file, review file sent to him, PR only after his approval).

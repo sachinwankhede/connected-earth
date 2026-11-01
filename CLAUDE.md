@@ -5,6 +5,12 @@
 - Build with `python3 build/build.py --all` (index.html, pilot/index.html, sw.js and webs/ are built by CI and the deploy and are not committed; never hand-edit them). Test only the affected area while iterating; the full suite runs in CI before merging to main.
 - Merging to main and deleting branches or previews is the owner's call; ask first.
 
+## Ground rules
+1. **Code and data are treated differently.** Claude manages code (branches, small pull requests, tests). Data is managed by GitHub jobs that open pull requests; Claude does not hand-edit it or read the data folders. The owner merges.
+2. **Performance is critical for scaling.** That needs (a) correct data modelling: only what the first paint needs is loaded up front, detail loads on demand, and no file is written by two jobs at once; (b) a way to measure: `tests/perf`, same workflow and profile, no overlapping runs; (c) safe experiments: one change per pull request, measured before and after on the same profile, easy to revert, merged only by the owner. Size budgets already block a pull request; perf budgets are planned.
+3. **GitHub does the heavy work.** Web pulls, builds, perf runs and A/B comparisons run as Actions jobs, in parallel whenever they share neither a concurrency group nor a file. Claude does the inference and the small code changes, and keeps sessions small; continuity lives in this file and `docs/STATE.md`.
+4. **The owner's iPhone is the final check;** synthetic numbers only guide. Offline and install behaviour are constraints, not afterthoughts. The owner's review time is the scarce resource, so batches stay readable. Decisions are written down in the repo.
+
 ## Keep the context small (do this first)
 Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
 - **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `pipeline/*.py`, `tests/`, `.github/workflows/`, `docs/`.
