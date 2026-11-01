@@ -72,4 +72,6 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: python3 build/build.py --all
       - name: Measure cold and warm Explore layouts
-        run: node tests/perf/explore-cache-profile.mjs --runs 5 | tee explore-layout-profile.txt >> "$GITHUB_STEP_SUMMARY"
+        run: |
+          node tests/perf/explore-cache-profile.mjs --runs 5 | tee explore-layout-profile.txt
+          cat explore-layout-profile.txt >> "$GITHUB_STEP_SUMMARY"
