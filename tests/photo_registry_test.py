@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import datetime
 from email.message import Message
+import json
 import os
 import struct
 import sys
@@ -46,6 +47,32 @@ class PhotoRegistryTests(unittest.TestCase):
         self.assertFalse(photo_registry.safe_species_asset("http://upload.wikimedia.org/a.jpg"))
         self.assertFalse(photo_registry.safe_species_asset("https://example.com/a.jpg"))
         self.assertFalse(photo_registry.safe_species_asset("../a.jpg"))
+
+    def test_species_metadata_requires_explicit_attribution_license_and_commons_page(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = os.path.join(tmp, "repo")
+            os.makedirs(os.path.join(root, "pipeline"))
+            photos = os.path.join(root, "photos")
+            os.makedirs(os.path.join(photos, "places"))
+            with open(os.path.join(photos, "places", "places.json"), "w", encoding="utf-8") as f:
+                json.dump({}, f)
+            with open(os.path.join(photos, "species.json"), "w", encoding="utf-8") as f:
+                json.dump({"Verified species": ["2/2f/File.jpg/330px-File.jpg", "Species"]}, f)
+            metadata = os.path.join(photos, "species_metadata.json")
+            record = {
+                "a": "Photographer", "l": "CC BY 4.0",
+                "lu": "https://creativecommons.org/licenses/by/4.0",
+                "p": "https://commons.wikimedia.org/wiki/File:File.jpg"
+            }
+            with patch.object(photo_registry, "__file__", os.path.join(root, "pipeline", "photo_registry.py")):
+                with open(metadata, "w", encoding="utf-8") as f:
+                    json.dump({"Verified species": record}, f)
+                photo_registry.validate()
+                record["a"] = "Unknown author"
+                with open(metadata, "w", encoding="utf-8") as f:
+                    json.dump({"Verified species": record}, f)
+                with self.assertRaisesRegex(ValueError, "missing an explicit author"):
+                    photo_registry.validate()
 
     def test_wikimedia_retry_after_is_bounded(self):
         headers = Message()

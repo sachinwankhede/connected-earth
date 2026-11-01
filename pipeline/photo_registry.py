@@ -185,9 +185,30 @@ def validate():
     for title, row in species.items():
         if not isinstance(row, list) or len(row) < 2 or not safe_species_asset(row[0]):
             errors.append(f"{title}: invalid or unsupported species image URL")
+    with open(os.path.join(root, "photos", "species_metadata.json"), encoding="utf-8") as f:
+        species_metadata = json.load(f)
+    for title, credit in species_metadata.items():
+        if title not in species:
+            errors.append(f"{title}: species metadata has no matching photo")
+            continue
+        if not isinstance(credit, dict):
+            errors.append(f"{title}: species photo metadata must be an object")
+            continue
+        if not isinstance(credit.get("a"), str) or not credit["a"].strip() or credit["a"].strip().lower() == "unknown author":
+            errors.append(f"{title}: species photo metadata is missing an explicit author")
+        license_id = credit.get("l", "").strip() if isinstance(credit.get("l"), str) else ""
+        if not license_id or license_id.lower().startswith("see "):
+            errors.append(f"{title}: species photo metadata is missing an explicit license")
+        license_url = credit.get("lu", "")
+        if license_url and not safe_https(license_url, ALLOWED_LICENSE_HOSTS):
+            errors.append(f"{title}: species photo license URL must use HTTPS on an allowed license host")
+        if license_id and not license_url and license_id.lower() not in {"public domain", "cc0"}:
+            errors.append(f"{title}: species photo metadata is missing a license URL")
+        if not safe_https(credit.get("p"), {"commons.wikimedia.org"}):
+            errors.append(f"{title}: species photo metadata has an invalid Commons file page")
     if errors:
         raise ValueError("\n".join(errors))
-    print(f"validated {len(places)} local place candidates and {len(species)} legacy species candidates")
+    print(f"validated {len(places)} local place candidates, {len(species)} species candidates, and {len(species_metadata)} species credits")
 
 
 if __name__ == "__main__":
