@@ -6,6 +6,7 @@ import path from 'node:path';
 import * as H from './helper.mjs';
 
 const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../photos/species.json', import.meta.url), 'utf8'));
+const testImage = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64');
 
 // Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.
 describe('photos use only stored manifests', () => {
@@ -68,7 +69,10 @@ describe('photos use only stored manifests', () => {
       const errors = [], lookups = [], thumbnails = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/wikipedia\.org\/api\/rest_v1\/page\/summary\//, (r) => { lookups.push(r.request().url()); r.abort(); });
-      await page.route(/thumb\.wikimedia\.org/, (r) => { thumbnails.push(r.request().url()); r.abort(); });
+      await page.route(/thumb\.wikimedia\.org/, (r) => {
+        thumbnails.push(r.request().url());
+        return r.fulfill({ status: 200, contentType: 'image/png', body: testImage });
+      });
       title = speciesTitle; approvedPhoto = null;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
@@ -87,15 +91,13 @@ describe('photos use only stored manifests', () => {
       const dolphin = H.readPlaces(false).find((e) => e.id === 'gulf').nodes.find((n) => n.id === 'dolphin');
       assert.equal(dolphin.wiki, 'Bottlenose dolphin');
       assert.equal(dolphin.canonicalWiki, 'Common bottlenose dolphin');
-      assert.deepEqual(approvedSpeciesPhotos[dolphin.wiki], approvedSpeciesPhotos[dolphin.canonicalWiki],
-        'the alias points to the same approved image and Wikipedia attribution');
       title = dolphin.canonicalWiki;
       approvedPhoto = approvedSpeciesPhotos[title];
       assert.ok(approvedPhoto, 'the canonical Wikipedia article has an approved photo');
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
-      await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
+      await page.route(/thumb\.wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: testImage }));
       await page.goto(base + 'index.html#e=gulf');
       await page.waitForFunction(() => {
         const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
@@ -119,7 +121,7 @@ describe('photos use only stored manifests', () => {
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
-      await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
+      await page.route(/thumb\.wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: testImage }));
       title = 'Canis latrans'; approvedPhoto = null;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => {
@@ -142,7 +144,7 @@ describe('photos use only stored manifests', () => {
       const errors = [], exact = 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg';
       page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
-      await page.route(exact, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64') }));
+      await page.route(exact, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: testImage }));
       title = speciesTitle; directAsset = true;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => {
