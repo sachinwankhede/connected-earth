@@ -3,6 +3,7 @@
 //   node tests/perf/perf.mjs --url https://... --runs 5 --history perf-data/history.json --out perf-out.json --md perf-out.md
 import { chromium } from 'playwright';
 import fs from 'node:fs';
+import { INITIAL_STAGE_DEFINITIONS, summarizeInitialStages } from './metrics.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const URL_ = arg('url', 'https://sachinwankhede.github.io/connected-earth/');
@@ -21,7 +22,17 @@ const percentile = (a, p) => {
 };
 
 const INIT = () => {
-  window.__p = { lt: [], mapLoaded: null };
+  window.__p = { lt: [], mapLoaded: null, stages: {} };
+  const mark = (name, time = performance.now()) => {
+    if (window.__p.stages[name] == null) window.__p.stages[name] = time;
+  };
+  const isVisiblePhoto = (img) => {
+    if (!img.matches('#cards img, #speek img') || !img.naturalWidth) return false;
+    const r = img.getBoundingClientRect(), s = getComputedStyle(img);
+    return s.visibility !== 'hidden' && s.display !== 'none' && r.width > 0 && r.height > 0 &&
+      r.right > 0 && r.bottom > 0 && r.left < innerWidth && r.top < innerHeight;
+  };
+  const tileUrl = (url) => /\/MapServer\/tile\/|tiles\.openfreemap\.org\/planet\/\d+\/\d+\/\d+\.pbf(?:$|\?)/i.test(url);
   window.__perfResourceClass = (url) => {
     let u;
     try { u = new URL(url); } catch { return 'other'; }
@@ -32,7 +43,34 @@ const INIT = () => {
     return 'other';
   };
   try { new PerformanceObserver((l) => l.getEntries().forEach((e) => window.__p.lt.push([e.startTime, e.duration]))).observe({ type: 'longtask', buffered: true }); } catch (e) {}
-  const iv = setInterval(() => { try { if (window.__M && __M.map && __M.map.loaded && __M.map.loaded() && !window.__p.mapLoaded) { window.__p.mapLoaded = performance.now(); clearInterval(iv); } } catch (e) {} }, 40);
+  try {
+    new PerformanceObserver((l) => l.getEntries().forEach((e) => {
+      if (tileUrl(e.name)) mark('mapFirstTileResponse', e.responseEnd);
+    })).observe({ type: 'resource', buffered: true });
+  } catch (e) {}
+  document.addEventListener('load', (event) => {
+    const img = event.target;
+    if (!(img instanceof HTMLImageElement) || !isVisiblePhoto(img)) return;
+    mark('firstVisiblePhotoLoad');
+    if (img.decode) img.decode().then(() => mark('firstVisiblePhotoDecode')).catch(() => {});
+  }, true);
+  const iv = setInterval(() => {
+    try {
+      const m = window.__M;
+      if (window.__p.stages.appDataReady == null && m && typeof m.ecoIds === 'function' && m.ecoIds().length) mark('appDataReady');
+      if (window.__p.stages.cardsDomRendered == null) {
+        const heading = document.querySelector('#cards > li .card h2');
+        if (heading && heading.textContent.trim()) mark('cardsDomRendered');
+      }
+      if (window.__p.stages.mapStyleReady == null && m && m.styleReady) mark('mapStyleReady');
+      if (window.__p.stages.photoHoldRelease == null && m && m.photoGo) mark('photoHoldRelease');
+      if (window.__p.mapLoaded == null && m && m.map && m.map.loaded && m.map.loaded()) {
+        if (!window.__p.mapLoaded) window.__p.mapLoaded = performance.now();
+        mark('mapLoaded', window.__p.mapLoaded);
+      }
+    } catch (e) {}
+  }, 20);
+  window.__p.stageInterval = iv;
 };
 
 async function measuredRoute(page, hash, kind, label) {
@@ -182,13 +220,32 @@ async function oneRun(browser, name) {
     const n = performance.getEntriesByType('navigation')[0], f = performance.getEntriesByName('first-contentful-paint')[0];
     const ml = window.__p.mapLoaded;
     const tbt = window.__p.lt.filter(([s]) => ml == null || s < ml).reduce((a, [, d]) => a + Math.max(0, d - 50), 0);
-    return { fcp: f && f.startTime, dcl: n.domContentLoadedEventEnd, load: n.loadEventEnd, mapLoaded: ml, tbtToMap: tbt, longTasks: window.__p.lt.length };
+    const photoEnd = window.__p.stages.firstVisiblePhotoDecode || window.__p.stages.photoHoldRelease || ml || performance.now();
+    const longTasks = window.__p.lt.filter(([s]) => s <= photoEnd);
+    if (window.__p.stageInterval) clearInterval(window.__p.stageInterval);
+    return {
+      fcp: f && f.startTime, dcl: n.domContentLoadedEventEnd, load: n.loadEventEnd, mapLoaded: ml, tbtToMap: tbt, longTasks: window.__p.lt.length,
+      initialStages: {
+        domInteractive: n.domInteractive,
+        domContentLoaded: n.domContentLoadedEventEnd,
+        load: n.loadEventEnd,
+        firstContentfulPaint: f && f.startTime,
+        ...window.__p.stages,
+      },
+      initialLongTasks: {
+        count: longTasks.length,
+        durationMs: longTasks.reduce((a, [, d]) => a + d, 0),
+        blockingMs: longTasks.reduce((a, [, d]) => a + Math.max(0, d - 50), 0),
+      },
+    };
   });
   Object.assign(r, m);
   r.kbTotal = Object.values(bytes).reduce((a, b) => a + b.kb, 0);
   r.requests = Object.values(bytes).reduce((a, b) => a + b.n, 0);
   r.wikipediaRequests = (bytes['en.wikipedia.org'] || { n: 0 }).n;
   r.hosts = bytes;
+  r.initialStages = m.initialStages;
+  r.initialLongTasks = m.initialLongTasks;
   // taps
   const T = {};
   const put = (k, v) => { T[k] = v; };
@@ -217,7 +274,7 @@ const FLAT = {
 function summarize(runs) {
   const s = {};
   for (const [k, f] of Object.entries(FLAT)) s[k] = median(runs.map(f));
-  const names = Object.keys(runs[0].taps);
+  const names = runs.length ? Object.keys(runs[0].taps) : [];
   for (const n of names) { s['tap: ' + n + ' (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].ms)); s['tap: ' + n + ' blocked (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].blocked)); }
   const h = {}; for (const r of runs) for (const [k, v] of Object.entries(r.hosts)) { h[k] = h[k] || []; h[k].push(v); }
   s.hosts = Object.fromEntries(Object.entries(h).map(([k, v]) => [k, { requests: median(v.map((x) => x.n)), kb: Math.round(median(v.map((x) => x.kb))) }]));
@@ -241,6 +298,7 @@ function summarize(runs) {
       return [k, { requests: median(values.map((x) => x.requests)), kb: Math.round(median(values.map((x) => x.kb))) }];
     }));
   }
+  s.initialLoad = summarizeInitialStages(runs, RUNS);
   return s;
 }
 
@@ -258,7 +316,7 @@ for (const name of Object.keys(PROFILES)) {
       rs.push(run);
     } catch (e) { console.error(name, 'run', i, 'failed:', e.message); }
   }
-  result[name] = rs.length ? summarize(rs) : null;
+  result[name] = summarize(rs);
 }
 await browser.close();
 fs.writeFileSync(OUT, JSON.stringify(result, null, 1));
@@ -269,15 +327,26 @@ try { const h = JSON.parse(fs.readFileSync(HIST, 'utf8')); prev = h[h.length - 1
 const fmt = (v) => (v == null ? 'n/a' : Math.round(v).toString());
 let md = `# Site speed, ${result.when.slice(0, 16).replace('T', ' ')} UTC\n\n${URL_}  \nMedian of ${RUNS} runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Results depend on the runner and network used for this URL. A mark ⚠ means more than 15% worse than the previous run.\n`;
 for (const name of Object.keys(PROFILES)) {
-  const s = result[name]; if (!s) { md += `\n## ${name}\n\nNo run finished.\n`; continue; }
+  const s = result[name];
   md += `\n## ${name}\n\n| Metric | Now | Previous | Change |\n|---|---|---|---|\n`;
   for (const [k, v] of Object.entries(s)) {
-    if (k === 'hosts' || k === 'navigation' || k === 'navigationResources') continue;
+    if (k === 'hosts' || k === 'navigation' || k === 'navigationResources' || k === 'initialLoad') continue;
     const pv = prev && prev[name] && prev[name][k]; const d = v != null && pv ? (v - pv) / pv : null;
     const lowerIsBetter = true; const flag = d != null && d > 0.15 && v - pv > 20 ? ' ⚠' : '';
     md += `| ${k} | ${fmt(v)} | ${fmt(pv)} | ${d == null ? '' : (d > 0 ? '+' : '') + Math.round(d * 100) + '%'}${flag} |\n`;
   }
   md += `\nBy host: ` + Object.entries(s.hosts).sort((a, b) => b[1].kb - a[1].kb).slice(0, 8).map(([h, x]) => `${h} ${x.requests} req / ${x.kb} KB`).join('; ') + '\n';
+  md += `\n### Initial Places-page load stages (observational)\n\n`;
+  md += `Each run starts in a fresh browser context with service workers blocked; the Chromium process is reused, and the origin/CDN may already be warm. Phone runs use the same 4x CPU, 1.6 Mbps, 150 ms profile as the other measurements. These are descriptive p50/p95 timings, not regression thresholds. App, DOM, map-state, and photo-hold timestamps are observation/poll times; map tile response timing is from Resource Timing. Cross-origin timing data is not used to infer asset sizes.\n\n`;
+  md += `Requested runs: ${s.initialLoad.attemptedRuns}; completed: ${s.initialLoad.completedRuns}; failed: ${s.initialLoad.failedRuns}.\n\n`;
+  md += `| Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |\n|---|---:|---:|---:|---:|---|\n`;
+  for (const [phase, v] of Object.entries(s.initialLoad.phases)) {
+    const label = INITIAL_STAGE_DEFINITIONS[phase].label;
+    md += `| ${label} | ${v.samples} | ${v.failures} | ${fmt(v.p50)} | ${fmt(v.p95)} | ${v.method} |\n`;
+  }
+  const lt = s.initialLoad.longTasks;
+  if (!s.initialLoad.completedRuns) md += `No run finished.\n\n`;
+  md += `\nLong tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): ${lt.samples} samples, ${lt.failures} failures. Count p50/p95 ${fmt(lt.count.p50)}/${fmt(lt.count.p95)}; total duration ${fmt(lt.durationMs.p50)}/${fmt(lt.durationMs.p95)} ms; blocking time over 50 ms ${fmt(lt.blockingMs.p50)}/${fmt(lt.blockingMs.p95)} ms.\n`;
   md += `\n### Navigation readiness (observational)\n\n`;
   md += `Cold open is the first route after loading the base page in a fresh browser context; warm open returns to the map and reopens the route in that same context, allowing app-level data reuse. Service workers are blocked. Place readiness requires its visible heading and food-web nodes; food-web readiness requires a visible graph with nodes and a hidden loading indicator. Species selection is measured from a synthetic node click to the selected-node state. These p50/p95 values are not compared with history or used to raise regression warnings.\n\n`;
   md += `| Route phase | Ready samples | p50 (ms) | p95 (ms) |\n|---|---:|---:|---:|\n`;
