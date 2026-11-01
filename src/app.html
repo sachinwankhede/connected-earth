@@ -1210,15 +1210,26 @@ rect.core { stroke-dasharray: 3 2.5; }
     return '<p class="about" data-lat="' + esc(n.latin.toLowerCase()) + '"></p>';
   }
   var ECOS = DATA.ecos;
-  /* Each place lists its species as numbers into one shared table (smaller page); expand them to [latin, name] the first time a place's list is read
-     (opening a place, searching, drawing ties), not for all places at start, so the first paint does not pay for it. */
-  ECOS.forEach(function (e) {
-    var s = e.idx.s, sp = null; delete e.idx.s;
-    Object.defineProperty(e.idx, "sp", { configurable: true, enumerable: true, get: function () {
-      if (!sp) sp = s.map(function (k) { var t = typeof k === "number" ? DATA.spt[k] : DATA.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
-      return sp;
-    } });
-  });
+  /* The species lists are not in the page (smaller first load). Every place starts with an empty list; webs/species-index.json (the shared species table plus
+     each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
+     the lists in as [latin, name]. */
+  var SPX = { p: null, ready: false, failedAt: 0 };
+  ECOS.forEach(function (e) { e.idx.sp = []; });
+  function loadSpecies() {
+    if (SPX.ready) return Promise.resolve(true);
+    if (SPX.p) return SPX.p;
+    if (SPX.failedAt && Date.now() - SPX.failedAt < 30000) return Promise.resolve(false);
+    SPX.p = fetch(WB + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+      ECOS.forEach(function (e) {
+        e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
+        e._s = null;
+      });
+      TIES = null; SPX.ready = true; return true;
+    }).catch(function () { SPX.p = null; SPX.failedAt = Date.now(); return false; });
+    return SPX.p;
+  }
+  /* a search can match species names, so make sure the lists are in, then filter again with them */
+  function wantSpecies() { if (!SPX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) filterView(); }); }
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
@@ -1239,6 +1250,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return ties;
   }
   function tiesFor(id) {
+    if (!SPX.ready) { loadSpecies().then(function (ok) { if (ok) refreshArcs(); }); return []; }
     if (!TIES) TIES = buildTies();
     var t = TIES[id] || {};
     return Object.keys(t).map(function (o) { return { eco: o, spp: t[o] }; }).sort(function (a, b) { return b.spp.length - a.spp.length || (a.eco < b.eco ? -1 : 1); });
@@ -1986,7 +1998,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
   var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "webs/";
-  function fetchWeb(id) {
+  /* opening a place also waits for the species index, so "Shares species with" and "Also found in" are complete the first time they show */
+  function fetchWeb(id) { return Promise.all([fetchWebData(id), loadSpecies()]).then(function (r) { return r[0]; }); }
+  function fetchWebData(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
     if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; return true; }).catch(function () { e._wp = null; return false; });
@@ -2333,7 +2347,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   /* "Found in N ecosystems": every web that holds the same species, shown on the map */
   function speciesMap(name) {
-    FL.q = name.toLowerCase(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
+    FL.q = name.toLowerCase(); wantSpecies(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name;
     document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);
@@ -2887,7 +2901,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       if (b) go(b.getAttribute("data-go"), b.getAttribute("data-a"));
     }
     document.getElementById("crumbs").addEventListener("click", nav);
-    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
+    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); if (FL.q) wantSpecies(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
@@ -3274,6 +3288,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   M.releasePhotos = function () {
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
+    setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
   var wp = M.wantPhoto = function (e) {

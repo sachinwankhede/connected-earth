@@ -13,11 +13,12 @@ def size(p): return os.path.getsize(os.path.join(ROOT, p))
 for p, lim in LIMITS.items():
     n = size(p); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (p, n, lim, 'ok' if ok else 'OVER'))
-ws = [(f, size('webs/' + f)) for f in os.listdir(os.path.join(ROOT, 'webs')) if f != 'about.json']
+SPECIES_INDEX_MAX = 600_000   # webs/species-index.json: the species table and every place's species list, fetched once after the map has drawn
+ws = [(f, size('webs/' + f)) for f in os.listdir(os.path.join(ROOT, 'webs')) if f not in ('about.json', 'species-index.json')]
 tot = sum(n for _, n in ws); big = max(ws, key=lambda x: x[1])
 os_ = [(f, size('data/outlines/' + f)) for f in os.listdir(os.path.join(ROOT, 'data', 'outlines'))]
 obig = max(os_, key=lambda x: x[1]); otot = sum(n for _, n in os_)
-for label, n, lim in (('species descriptions (webs/about.json)', size('webs/about.json'), ABOUT_MAX), ('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
+for label, n, lim in (('species descriptions (webs/about.json)', size('webs/about.json'), ABOUT_MAX), ('species index (webs/species-index.json)', size('webs/species-index.json'), SPECIES_INDEX_MAX),('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
     ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.exit(1 if bad else 0)
