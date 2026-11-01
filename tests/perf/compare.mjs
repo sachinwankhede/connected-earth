@@ -29,6 +29,7 @@ function flatten(s) {
   if (lt && lt.blockingMs && Number.isFinite(lt.blockingMs.p50)) m['long-task blocking before first photo (ms)'] = lt.blockingMs.p50;
   const rv = s.returning && s.returning.metrics;
   if (rv) for (const [k, label] of Object.entries(RETURNING_LABELS)) if (rv[k] && Number.isFinite(rv[k].p50)) m['returning: ' + label + ' (ms)'] = rv[k].p50;
+  for (const [k, v] of Object.entries(s.navigation || {})) if (v && Number.isFinite(v.p50)) m['open: ' + k + ' (ms)'] = v.p50;
   return m;
 }
 

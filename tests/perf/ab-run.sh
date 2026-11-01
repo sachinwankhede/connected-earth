@@ -11,7 +11,7 @@ for i in $(seq 1 "$RUNS"); do
   for s in $ORDER; do
     if [ "$s" = a ]; then URL=$URLA; else URL=$URLB; fi
     echo "run $i side $s ($URL)"
-    node tests/perf/perf.mjs --url "$URL" --runs 1 --nav 0 --out "$OUT/$s/run-$i.json" --md "$OUT/$s/run-$i.md" > "$OUT/$s/run-$i.log" 2>&1 \
+    node tests/perf/perf.mjs --url "$URL" --runs 1 --nav "${NAV:-0}" --out "$OUT/$s/run-$i.json" --md "$OUT/$s/run-$i.md" > "$OUT/$s/run-$i.log" 2>&1 \
       || echo "  run $i side $s failed; see $OUT/$s/run-$i.log"
   done
 done
