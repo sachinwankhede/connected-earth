@@ -20,7 +20,9 @@ describe('photos use only stored manifests', () => {
         const entry = directAsset
           ? ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page']
           : approvedPhoto || ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
-        r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(title ? { [title]: entry } : {}));
+        const titles = Array.isArray(title) ? title : title ? [title] : [];
+        const manifest = Object.fromEntries(titles.map((t) => [t, entry]));
+        r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(manifest));
       }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
       let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
@@ -145,13 +147,12 @@ describe('photos use only stored manifests', () => {
       page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(exact, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: testImage }));
-      title = speciesTitle; directAsset = true;
+      title = [speciesTitle, 'Osprey']; directAsset = true;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => {
         const image = document.querySelector('#svg image.photo');
         return image && image.getAttribute('href') === 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg';
       }, null, { timeout: 30000 });
-      title = 'Osprey';
       await page.goto(base + 'index.html#j=osprey');
       await page.waitForFunction(() => {
         const main = document.querySelector('#jview #jp-main img');
