@@ -14,9 +14,16 @@
 <link rel="preconnect" href="https://server.arcgisonline.com" crossorigin>
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link rel="preload" as="fetch" href="https://tiles.openfreemap.org/planet" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500&display=swap">
+<script>
+/* fonts are our own files (fonts/), not Google's: no extra hosts to connect to, and they are cached with the app. Base path as for webs/. */
+(function () {
+  var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "fonts/";
+  var f = [["Bricolage Grotesque", "bricolage-grotesque-latin-wght-normal", "normal", "200 800"], ["Instrument Sans", "instrument-sans-latin-wght-normal", "normal", "400 700"], ["Instrument Sans", "instrument-sans-latin-wght-italic", "italic", "400 700"]], css = "";
+  f.forEach(function (x) { css += '@font-face{font-family:"' + x[0] + '";font-style:' + x[2] + ";font-weight:" + x[3] + ";font-display:swap;src:url(" + b + x[1] + '.woff2) format("woff2")}'; });
+  var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
+  [f[0], f[1]].forEach(function (x) { var l = document.createElement("link"); l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = ""; l.href = b + x[1] + ".woff2"; document.head.appendChild(l); });
+})();
+</script>
 <style>
 /* Layout: one screen with two views. A world map with a pin per ecosystem, and a graph stage with a species card beside it (below it on phones). */
 :root {
@@ -45,7 +52,7 @@
   --down: #C2185B;
   --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --font-body: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  --font-mono: var(--font-body);   /* the small uppercase labels use the body font (the separate mono font was dropped to save a download) */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
