@@ -1,5 +1,5 @@
-// perf.mjs: loads the site in a real Chromium with a phone-like and a desktop profile, times the page load and the main taps,
-// and prints a markdown report compared with the previous run. Never fails the build: it only reports.
+// perf.mjs: loads the site in Chromium with phone-like and desktop profiles and reports page, map, tap, and route readiness metrics.
+// Route metrics include cold/warm place and food-web opens plus selected-species response time.
 //   node tests/perf/perf.mjs --url https://... --runs 5 --history perf-data/history.json --out perf-out.json --md perf-out.md
 import { chromium } from 'playwright';
 import fs from 'node:fs';
@@ -11,13 +11,141 @@ const PROFILES = {
   phone: { viewport: { width: 390, height: 800 }, cpu: 4, net: { offline: false, latency: 150, downloadThroughput: (1.6e6) / 8, uploadThroughput: (750e3) / 8 } },
   desktop: { viewport: { width: 1280, height: 800 }, cpu: 1, net: null },
 };
+const NAV_PLACE = 'yellowstone', NAV_TIMEOUT = 90000;
 const median = (a) => { a = a.filter((x) => x != null).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : null; };
+const percentile = (a, p) => {
+  a = a.filter((x) => x != null).sort((x, y) => x - y);
+  if (!a.length) return null;
+  const i = (a.length - 1) * p, lo = Math.floor(i), hi = Math.ceil(i);
+  return a[lo] + (a[hi] - a[lo]) * (i - lo);
+};
 
 const INIT = () => {
   window.__p = { lt: [], mapLoaded: null };
+  window.__perfResourceClass = (url) => {
+    let u;
+    try { u = new URL(url); } catch { return 'other'; }
+    if (/\/webs\/[^/]+\.json$/.test(u.pathname)) return 'web data';
+    if (/\/data\/[^/]+\.json$/.test(u.pathname)) return 'place data';
+    if (/\/photos\//.test(u.pathname) || /wikimedia\.org$/.test(u.hostname)) return 'photos';
+    if (/openfreemap|arcgis/.test(u.hostname)) return 'map';
+    return 'other';
+  };
   try { new PerformanceObserver((l) => l.getEntries().forEach((e) => window.__p.lt.push([e.startTime, e.duration]))).observe({ type: 'longtask', buffered: true }); } catch (e) {}
   const iv = setInterval(() => { try { if (window.__M && __M.map && __M.map.loaded && __M.map.loaded() && !window.__p.mapLoaded) { window.__p.mapLoaded = performance.now(); clearInterval(iv); } } catch (e) {} }, 40);
 };
+
+async function measuredRoute(page, hash, kind, label) {
+  await page.evaluate((h) => {
+    performance.clearResourceTimings();
+    window.__perfNavStart = performance.now();
+    location.hash = h;
+  }, hash);
+  try {
+    await page.waitForFunction((k) => {
+      if (k === 'place') {
+        const view = document.getElementById('pview');
+        return view && !view.hidden && view.querySelector('h2') && view.querySelector('#pgraph .pn');
+      }
+      const view = document.getElementById('webview'), loading = document.getElementById('webload');
+      return view && !view.hidden && loading && loading.hidden && document.querySelector('#svg .node');
+    }, kind, { timeout: NAV_TIMEOUT });
+  } catch (e) {
+    console.error('navigation', label, 'not ready:', e.message);
+    return { readyMs: null, resources: {} };
+  }
+  return page.evaluate(() => {
+    const end = performance.now(), start = window.__perfNavStart, resources = {};
+    for (const e of performance.getEntriesByType('resource')) {
+      if (e.startTime < start || e.startTime > end || e.responseEnd > end) continue;
+      const k = window.__perfResourceClass(e.name);
+      resources[k] = resources[k] || { requests: 0, kb: 0 };
+      resources[k].requests++;
+      resources[k].kb += e.transferSize / 1000;
+    }
+    return { readyMs: end - start, resources };
+  });
+}
+
+async function measuredSpeciesSelection(page) {
+  const started = await page.evaluate(() => {
+    const node = document.querySelector('#svg .node');
+    if (!node) return false;
+    performance.clearResourceTimings();
+    window.__perfNavStart = performance.now();
+    node.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    return true;
+  });
+  if (!started) {
+    console.error('navigation species selection skipped: no food-web node was available');
+    return { readyMs: null, resources: {} };
+  }
+  try {
+    await page.waitForFunction(() => document.querySelector('#svg .node.sel'), null, { timeout: NAV_TIMEOUT });
+  } catch (e) {
+    console.error('navigation species selection not ready:', e.message);
+    return { readyMs: null, resources: {} };
+  }
+  return page.evaluate(() => {
+    const end = performance.now(), start = window.__perfNavStart, resources = {};
+    for (const e of performance.getEntriesByType('resource')) {
+      if (e.startTime < start || e.startTime > end || e.responseEnd > end) continue;
+      const k = window.__perfResourceClass(e.name);
+      resources[k] = resources[k] || { requests: 0, kb: 0 };
+      resources[k].requests++;
+      resources[k].kb += e.transferSize / 1000;
+    }
+    return { readyMs: end - start, resources };
+  });
+}
+
+async function navigationScenario(browser, name, kind) {
+  const prof = PROFILES[name];
+  let ctx;
+  const missing = { readyMs: null, resources: {} };
+  let firstOpen = missing, repeatOpen = missing, speciesSelection = null;
+  try {
+    ctx = await browser.newContext({ viewport: prof.viewport, serviceWorkers: 'block' });
+    const p = await ctx.newPage();
+    await p.addInitScript(INIT);
+    const c = await ctx.newCDPSession(p);
+    await c.send('Network.enable');
+    if (prof.cpu > 1) await c.send('Emulation.setCPUThrottlingRate', { rate: prof.cpu });
+    if (prof.net) await c.send('Network.emulateNetworkConditions', prof.net);
+    const base = new URL(URL_); base.hash = '';
+    await p.goto(base.toString(), { waitUntil: 'load', timeout: 120000 });
+    try { await p.waitForFunction(() => window.__p && window.__p.mapLoaded, null, { timeout: MAP_WAIT }); }
+    catch (e) { console.error('navigation baseline map not ready; continuing:', e.message); }
+    await p.waitForTimeout(1000);
+
+    const isPlace = kind === 'place', hash = isPlace ? `#pg=${NAV_PLACE}` : `#e=${NAV_PLACE}`;
+    firstOpen = await measuredRoute(p, hash, isPlace ? 'place' : 'web', `${kind} cold open`);
+    speciesSelection = isPlace ? null : await measuredSpeciesSelection(p);
+    if (!isPlace) {
+      await p.evaluate(() => document.getElementById('back').click());
+      await p.waitForFunction(() => {
+        const view = document.getElementById('pview');
+        return view && !view.hidden && view.querySelector('h2') && view.querySelector('#pgraph .pn');
+      }, null, { timeout: NAV_TIMEOUT });
+    }
+    await p.click('#pview [data-pback]');
+    await p.waitForFunction(() => { const v = document.getElementById('mapview'); return v && !v.hidden; }, null, { timeout: NAV_TIMEOUT });
+    repeatOpen = await measuredRoute(p, hash, isPlace ? 'place' : 'web', `${kind} warm open`);
+  } catch (e) {
+    console.error('navigation', kind, 'scenario failed:', e.message);
+  } finally {
+    if (ctx) {
+      try { await ctx.close(); } catch (e) { console.error('navigation', kind, 'context close failed:', e.message); }
+    }
+  }
+  return { firstOpen, repeatOpen, ...(kind === 'web' ? { speciesSelection } : {}) };
+}
+
+async function navigationMeasurements(browser, name) {
+  const place = await navigationScenario(browser, name, 'place');
+  const web = await navigationScenario(browser, name, 'web');
+  return { place, web };
+}
 
 // one tap: click an element in the page, wait for the second frame after it, and add up the long tasks in the next second
 async function tap(p, sel, opts = {}) {
@@ -93,14 +221,43 @@ function summarize(runs) {
   for (const n of names) { s['tap: ' + n + ' (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].ms)); s['tap: ' + n + ' blocked (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].blocked)); }
   const h = {}; for (const r of runs) for (const [k, v] of Object.entries(r.hosts)) { h[k] = h[k] || []; h[k].push(v); }
   s.hosts = Object.fromEntries(Object.entries(h).map(([k, v]) => [k, { requests: median(v.map((x) => x.n)), kb: Math.round(median(v.map((x) => x.kb))) }]));
+  const navPhases = {
+    'place cold open': (r) => r.navigation.place.firstOpen,
+    'place warm open': (r) => r.navigation.place.repeatOpen,
+    'food-web cold open': (r) => r.navigation.web.firstOpen,
+    'food-web warm open': (r) => r.navigation.web.repeatOpen,
+    'species selection': (r) => r.navigation.web.speciesSelection,
+  };
+  s.navigation = {};
+  s.navigationResources = {};
+  for (const [phase, get] of Object.entries(navPhases)) {
+    const samples = runs.map((r) => get(r)).filter(Boolean);
+    const times = samples.map((x) => x.readyMs);
+    s.navigation[phase] = { n: times.filter((x) => x != null).length, p50: percentile(times, 0.5), p95: percentile(times, 0.95) };
+    const successful = samples.filter((x) => x.readyMs != null);
+    const classes = new Set(successful.flatMap((x) => Object.keys(x.resources)));
+    s.navigationResources[phase] = Object.fromEntries([...classes].map((k) => {
+      const values = successful.map((x) => x.resources[k] || { requests: 0, kb: 0 });
+      return [k, { requests: median(values.map((x) => x.requests)), kb: Math.round(median(values.map((x) => x.kb))) }];
+    }));
+  }
   return s;
 }
 
-const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH || undefined });
+const browser = await chromium.launch({
+  executablePath: process.env.CHROMIUM_PATH || undefined,
+  args: process.env.CHROMIUM_PATH ? ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'] : [],
+});
 const result = { when: new Date().toISOString(), url: URL_, runs: RUNS, sha: process.env.GITHUB_SHA || '' };
 for (const name of Object.keys(PROFILES)) {
   const rs = [];
-  for (let i = 0; i < RUNS; i++) { try { rs.push(await oneRun(browser, name)); } catch (e) { console.error(name, 'run', i, 'failed:', e.message); } }
+  for (let i = 0; i < RUNS; i++) {
+    try {
+      const run = await oneRun(browser, name);
+      run.navigation = await navigationMeasurements(browser, name);
+      rs.push(run);
+    } catch (e) { console.error(name, 'run', i, 'failed:', e.message); }
+  }
   result[name] = rs.length ? summarize(rs) : null;
 }
 await browser.close();
@@ -110,17 +267,26 @@ fs.writeFileSync(OUT, JSON.stringify(result, null, 1));
 let prev = null;
 try { const h = JSON.parse(fs.readFileSync(HIST, 'utf8')); prev = h[h.length - 1]; } catch (e) {}
 const fmt = (v) => (v == null ? 'n/a' : Math.round(v).toString());
-let md = `# Site speed, ${result.when.slice(0, 16).replace('T', ' ')} UTC\n\n${URL_}  \nMedian of ${RUNS} runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Both load from a GitHub runner over the real internet. A mark ⚠ means more than 15% worse than the previous run.\n`;
+let md = `# Site speed, ${result.when.slice(0, 16).replace('T', ' ')} UTC\n\n${URL_}  \nMedian of ${RUNS} runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Results depend on the runner and network used for this URL. A mark ⚠ means more than 15% worse than the previous run.\n`;
 for (const name of Object.keys(PROFILES)) {
   const s = result[name]; if (!s) { md += `\n## ${name}\n\nNo run finished.\n`; continue; }
   md += `\n## ${name}\n\n| Metric | Now | Previous | Change |\n|---|---|---|---|\n`;
   for (const [k, v] of Object.entries(s)) {
-    if (k === 'hosts') continue;
+    if (k === 'hosts' || k === 'navigation' || k === 'navigationResources') continue;
     const pv = prev && prev[name] && prev[name][k]; const d = v != null && pv ? (v - pv) / pv : null;
     const lowerIsBetter = true; const flag = d != null && d > 0.15 && v - pv > 20 ? ' ⚠' : '';
     md += `| ${k} | ${fmt(v)} | ${fmt(pv)} | ${d == null ? '' : (d > 0 ? '+' : '') + Math.round(d * 100) + '%'}${flag} |\n`;
   }
   md += `\nBy host: ` + Object.entries(s.hosts).sort((a, b) => b[1].kb - a[1].kb).slice(0, 8).map(([h, x]) => `${h} ${x.requests} req / ${x.kb} KB`).join('; ') + '\n';
+  md += `\n### Navigation readiness (observational)\n\n`;
+  md += `Cold open is the first route after loading the base page in a fresh browser context; warm open returns to the map and reopens the route in that same context, allowing app-level data reuse. Service workers are blocked. Place readiness requires its visible heading and food-web nodes; food-web readiness requires a visible graph with nodes and a hidden loading indicator. Species selection is measured from a synthetic node click to the selected-node state. These p50/p95 values are not compared with history or used to raise regression warnings.\n\n`;
+  md += `| Route phase | Ready samples | p50 (ms) | p95 (ms) |\n|---|---:|---:|---:|\n`;
+  for (const [phase, v] of Object.entries(s.navigation)) md += `| ${phase} | ${v.n} | ${fmt(v.p50)} | ${fmt(v.p95)} |\n`;
+  md += `\nMedian resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):\n\n| Route phase | Resource class | Requests | KB |\n|---|---|---:|---:|\n`;
+  for (const [phase, classes] of Object.entries(s.navigationResources)) {
+    if (!Object.keys(classes).length) md += `| ${phase} | none recorded | 0 | 0 |\n`;
+    else for (const [resource, v] of Object.entries(classes)) md += `| ${phase} | ${resource} | ${fmt(v.requests)} | ${fmt(v.kb)} |\n`;
+  }
 }
 fs.writeFileSync(MD, md);
 console.log(md);
