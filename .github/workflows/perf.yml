@@ -9,12 +9,18 @@ on:
     inputs:
       url: { description: "Page to test", default: "https://sachinwankhede.github.io/connected-earth/" }
       runs: { description: "Runs per profile (the median is kept)", default: "5" }
+      profile:
+        description: "Measurement to run"
+        type: choice
+        options: [standard, explore-setup]
+        default: standard
 permissions:
   contents: write
   issues: write
 concurrency: perf
 jobs:
   perf:
+    if: github.event_name != 'workflow_dispatch' || inputs.profile != 'explore-setup'
     runs-on: ubuntu-latest
     timeout-minutes: 40
     steps:
@@ -56,3 +62,16 @@ jobs:
             N=$(gh issue list --state open --search '"Site got slower" in:title' --json number --jq '.[0].number')
             if [ -n "$N" ]; then gh issue comment "$N" --body-file issue.md; else gh issue create --title "Site got slower" --body-file issue.md; fi
           fi
+
+  explore-setup:
+    if: github.event_name == 'workflow_dispatch' && inputs.profile == 'explore-setup'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Measure Explore graph setup
+        run: node tests/perf/explore-profile.mjs --runs "${{ github.event.inputs.runs || '5' }}"
