@@ -42,8 +42,15 @@ jobs:
           git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Validate photo sources and metadata
         run: python3 pipeline/photo_registry.py validate
+      - name: Informational data-quality summary
+        if: matrix.shard == 1
+        continue-on-error: true
+        run: python3 build/data_quality.py >> "$GITHUB_STEP_SUMMARY"
       - name: Photo registry pipeline tests
         run: python3 tests/photo_registry_test.py
+      - name: Data-quality summary tests
+        if: matrix.shard == 1
+        run: python3 tests/data_quality_test.py
       - name: Build the pages (index.html, pilot, sw.js and webs are built here, not committed)
         run: npm run build
       - name: Size budget
