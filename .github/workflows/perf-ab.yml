@@ -10,6 +10,7 @@ on:
     inputs:
       ref_b: { description: "Branch to test (B)", required: true }
       ref_a: { description: "Baseline (A)", default: "main" }
+      nav: { description: "1 = also time opening a place, a food web and the place pictures (slower runs)", default: "0" }
       runs: { description: "Runs per side (A and B alternate)", default: "5" }
 permissions:
   contents: read
@@ -23,6 +24,7 @@ jobs:
     timeout-minutes: 90
     env:
       REF_A: ${{ github.event.inputs.ref_a }}
+      NAV: ${{ github.event.inputs.nav }}
       REF_B: ${{ github.event.inputs.ref_b }}
       RUNS: ${{ github.event.inputs.runs }}
     steps:
