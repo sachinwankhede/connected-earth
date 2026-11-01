@@ -31,6 +31,25 @@ test('adapts legacy place and species records to the shared candidate shape', ()
   assert.equal(species.reviewStatus, 'legacy');
 });
 
+test('exposes verified species attribution without changing legacy review status', () => {
+  const metadata = {
+    a: 'Photographer',
+    l: 'CC BY 4.0',
+    lu: 'https://creativecommons.org/licenses/by/4.0',
+    p: 'https://commons.wikimedia.org/wiki/File:Exact_file.jpg'
+  };
+  const species = Registry.speciesCandidate(['2/2f/Exact_file.jpg/330px-Exact_file.jpg', 'Species'], 'Species', 1, metadata);
+  assert.equal(species.author, 'Photographer');
+  assert.equal(species.licenseId, 'CC BY 4.0');
+  assert.equal(species.licenseUrl, metadata.lu);
+  assert.deepEqual(species.legacyCredit, metadata);
+  assert.equal(species.sourcePageUrl, 'https://en.wikipedia.org/wiki/Species');
+  assert.equal(species.reviewStatus, 'legacy');
+  const registry = {};
+  Registry.register(registry, 'Species', species);
+  assert.deepEqual(registry.Species.credit, metadata);
+});
+
 test('keeps already-absolute Wikimedia assets unchanged and rejects unsafe candidates', () => {
   const direct = 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Exact_file.jpg';
   assert.equal(Registry.speciesCandidate([direct, 'Species']).assetUrl, direct);

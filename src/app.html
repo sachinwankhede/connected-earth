@@ -1689,7 +1689,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     paint();
     relayoutSoon();
   }
-  /* Species pictures come from the stored thumbnail list (photos/species.json); missing entries keep their drawn icons. */
+  /* Species pictures and optional image-specific credits come from stored Wikimedia manifests. */
   var SPX = null, SPX_WAIT = [];
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;
@@ -1698,9 +1698,16 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (SPX !== null) return;
     SPX = false;
     var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
-    fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
+    function manifest(path) {
+      return fetch(base + path).then(function (r) {
+        if (!r.ok) { console.warn("Could not load " + path + ": HTTP " + r.status); return {}; }
+        return r.json();
+      }).catch(function (e) { console.warn("Could not load " + path, e); return {}; });
+    }
+    Promise.all([manifest("photos/species.json"), manifest("photos/species_metadata.json")]).then(function (manifests) {
+      var m = manifests[0], credits = manifests[1];
       Object.keys(m).forEach(function (t) {
-        var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1);
+        var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1, credits[t]);
         if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
       });
       CROSS.forEach(function (c) { if (c.imgwiki && PHOTOS[c.imgwiki]) linkPhoto(c); });

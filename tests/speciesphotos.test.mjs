@@ -24,6 +24,7 @@ describe('photos use only stored manifests', () => {
         const manifest = Object.fromEntries(titles.map((t) => [t, entry]));
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(manifest));
       }
+      if (u.endsWith('/photos/species_metadata.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
       let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
       if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }

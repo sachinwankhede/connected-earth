@@ -54,10 +54,11 @@ def main():
             json.loads(source.read_text())
             copy_file(source, source.relative_to(ROOT).as_posix(), expected)
 
-    for relative in ('photos/species.json', 'photos/places/places.json'):
+    for relative in ('photos/species.json', 'photos/species_metadata.json', 'photos/places/places.json'):
         copy_file(ROOT / relative, relative, expected)
 
     json.loads((DEST / 'photos/species.json').read_text())
+    json.loads((DEST / 'photos/species_metadata.json').read_text())
     place_photos = json.loads((ROOT / 'photos/places/places.json').read_text())
     for record in place_photos.values():
         path = place_image_path(record['f'])
@@ -82,6 +83,7 @@ def main():
 
     runtime_markers = (
         'photos/species.json',
+        'photos/species_metadata.json',
         'photos/places/',
         'data/outlines/',
         'webs/',

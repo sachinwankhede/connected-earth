@@ -34,19 +34,26 @@
       value.replace(/\/(page1-)?330px-/, function (_, page) { return "/" + (page || "") + "120px-"; });
   }
 
-  function speciesCandidate(value, sourcePage, priority) {
+  function speciesCandidate(value, sourcePage, priority, metadata) {
     if (!Array.isArray(value) || value.length < 2) return null;
     var assetUrl = speciesAsset(value[0]);
     var page = wikiUrl(value[1]);
+    var credit = metadata && typeof metadata === "object" ? metadata : null;
     if (!assetUrl) return null;
     return {
       provider: "wikimedia-commons",
       assetUrl: assetUrl,
       sourcePageUrl: page,
-      author: null,
-      licenseId: null,
-      licenseUrl: null,
+      author: credit && credit.a || null,
+      licenseId: credit && credit.l || null,
+      licenseUrl: credit && credit.lu || null,
       reviewStatus: "legacy",
+      legacyCredit: credit && credit.a && credit.l && credit.p ? {
+        a: credit.a,
+        l: credit.l,
+        lu: credit.lu || "",
+        p: credit.p
+      } : null,
       checkedAt: value.checkedAt || null,
       fetchedAt: value.fetchedAt || null,
       mediaType: null,
