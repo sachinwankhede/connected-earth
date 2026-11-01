@@ -1568,7 +1568,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">Wikimedia Commons</a>';
   }
-  function photoOf(n) { return n.wiki ? PHOTOS[n.wiki] : null; }
+  function photoOf(n) { return (n.wiki && PHOTOS[n.wiki]) || (n.latin && PHOTOS[n.latin]) || null; }
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";
@@ -1617,12 +1617,16 @@ rect.core { stroke-dasharray: 3 2.5; }
     d3.select("#clip-" + n.id + " circle").attr("r", n.r - 1.8);
     g.select(".body").append("image").attr("class", "photo").attr("href", photoOf(n).src)
       .attr("x", -n.r).attr("y", -n.r).attr("width", 2 * n.r).attr("height", 2 * n.r)
-      .attr("preserveAspectRatio", "xMidYMin slice").attr("clip-path", "url(#clip-" + n.id + ")");
+      .attr("preserveAspectRatio", "xMidYMin slice").attr("clip-path", "url(#clip-" + n.id + ")")
+      .attr("loading", "lazy");
     if (state.sel === n.id) renderPanel();
     paint();
     relayoutSoon();
   }
   /* Species pictures come from the stored thumbnail list (photos/species.json); missing entries keep their drawn icons. */
+  function speciesThumbnail(src) {
+    return src.replace(/\/(page1-)?330px-/, function (_, page) { return "/" + (page || "") + "120px-"; });
+  }
   var SPX = null, SPX_WAIT = [];
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;
@@ -1632,7 +1636,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     SPX = false;
     var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
     fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
-      Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: "https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0], page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
+      Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: speciesThumbnail("https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0]), page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
       SPX = true;
       var waiting = SPX_WAIT; SPX_WAIT = []; waiting.forEach(function (f) { f(); });
     });
@@ -1640,7 +1644,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function loadPhotos() {
     withSpeciesPhotos(function () {
       NODES.forEach(function (n) {
-        if (n.wiki && PHOTOS[n.wiki]) showPhoto(n);
+        if (photoOf(n)) showPhoto(n);
       });
     });
   }
@@ -3061,12 +3065,12 @@ rect.core { stroke-dasharray: 3 2.5; }
       footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
   }
   function pWant(n) {
-    if (!n.wiki) return;
-    if (PHOTOS[n.wiki]) { pShow(n); return; }
-    withSpeciesPhotos(function () { if (PHOTOS[n.wiki]) pShow(n); });
+    if (!n.wiki && !n.latin) return;
+    if (photoOf(n)) { pShow(n); return; }
+    withSpeciesPhotos(function () { if (photoOf(n)) pShow(n); });
   }
   function pShow(n) {
-    var ph = PHOTOS[n.wiki]; if (!ph || M.pid !== n.eco) return;
+    var ph = photoOf(n); if (!ph || M.pid !== n.eco) return;
     PV.querySelectorAll('.pph[data-pid="' + n.id + '"]').forEach(function (b) {
       if (b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
@@ -3074,7 +3078,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     PV.querySelectorAll('.pn[data-node="' + n.id + '"]').forEach(function (g) {
       if (g.querySelector("image")) return;
       var r = +g.getAttribute("data-r"), NS = "http://www.w3.org/2000/svg", im = document.createElementNS(NS, "image");
-      im.setAttribute("href", ph.src); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
+      im.setAttribute("href", ph.src); im.setAttribute("loading", "lazy"); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
       im.setAttribute("preserveAspectRatio", "xMidYMin slice"); im.setAttribute("clip-path", "url(#pcl-" + n.id + ")");
       im.addEventListener("error", function () { im.remove(); g.classList.remove("ph"); });
       var gl = g.querySelector(".gl"); g.insertBefore(im, gl); g.classList.add("ph");
@@ -3091,7 +3095,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
-      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki }); });
+      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, latin: n.latin }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });

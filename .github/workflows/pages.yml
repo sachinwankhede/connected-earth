@@ -32,8 +32,10 @@ jobs:
         run: python3 build/budget.py
       - name: The built page loads
         run: test -s index.html && grep -q "Connected Earth" index.html
+      - name: Stage and verify the Pages payload
+        run: python3 build/pages_payload.py
       - uses: actions/upload-pages-artifact@v3
-        with: { path: . }
+        with: { path: dist/pages }
   deploy:
     needs: verify
     runs-on: ubuntu-latest
