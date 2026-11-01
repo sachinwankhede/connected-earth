@@ -9,14 +9,14 @@ const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../photos/spec
 
 // Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.
 describe('photos use only stored manifests', () => {
-  let browser, srv, base, title = '';
+  let browser, srv, base, title = '', approvedPhoto = null;
   const speciesTitle = H.readPlaces(false).find((e) => e.id === 'yellowstone').nodes.find((n) => n.wiki).wiki;
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
       const u = decodeURIComponent(q.url.split('?')[0]);
       if (u.endsWith('/photos/species.json')) {
-        const entry = title === 'Bottlenose dolphin' ? approvedSpeciesPhotos[title] : ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
+        const entry = approvedPhoto || ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(title ? { [title]: entry } : {}));
       }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
@@ -35,7 +35,7 @@ describe('photos use only stored manifests', () => {
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/wikipedia\.org\/api\/rest_v1\/page\/summary\//, (r) => { lookups.push(decodeURIComponent(r.request().url().split('/summary/')[1]).replace(/_/g, ' ')); r.abort(); });
       await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
-      title = '';
+      title = ''; approvedPhoto = null;
       await page.goto(base + 'index.html#pg=yellowstone');
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
       await page.waitForSelector('#pview article .pph svg', { timeout: 30000 });
@@ -66,7 +66,7 @@ describe('photos use only stored manifests', () => {
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/wikipedia\.org\/api\/rest_v1\/page\/summary\//, (r) => { lookups.push(r.request().url()); r.abort(); });
       await page.route(/thumb\.wikimedia\.org/, (r) => { thumbnails.push(r.request().url()); r.abort(); });
-      title = speciesTitle;
+      title = speciesTitle; approvedPhoto = null;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
       const lazy = await page.locator('#svg image.photo[loading="lazy"]').count();
@@ -79,14 +79,17 @@ describe('photos use only stored manifests', () => {
       await ctx.close();
     });
 
-    test(`${sizeName}: the Bottlenose dolphin alias uses its approved photo`, async () => {
-      assert.deepEqual(approvedSpeciesPhotos['Bottlenose dolphin'], approvedSpeciesPhotos['Common bottlenose dolphin'],
-        'the alias points to the same approved image and Wikipedia attribution');
+    test(`${sizeName}: a species wiki alias uses its canonical approved photo`, async () => {
+      const dolphin = H.readPlaces(false).find((e) => e.id === 'gulf').nodes.find((n) => n.id === 'dolphin');
+      assert.equal(dolphin.wiki, 'Bottlenose dolphin');
+      assert.equal(dolphin.canonicalWiki, 'Common bottlenose dolphin');
+      title = dolphin.canonicalWiki;
+      approvedPhoto = approvedSpeciesPhotos[title];
+      assert.ok(approvedPhoto, 'the canonical Wikipedia article has an approved photo');
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
-      title = 'Bottlenose dolphin';
       await page.goto(base + 'index.html#e=gulf');
       await page.waitForFunction(() => {
         const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
@@ -97,11 +100,12 @@ describe('photos use only stored manifests', () => {
         return dolphin && dolphin.querySelector('image.photo')?.getAttribute('href');
       });
       assert.ok(webPhoto && webPhoto.includes('/120px-Tursiops_truncatus_01-cropped.jpg'),
-        'food web resolves the alias to the smaller approved Commons thumbnail');
+        'food web resolves the alias to the canonical article thumbnail');
       await page.goto(base + 'index.html#pg=gulf');
       await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), null, { timeout: 30000 });
       assert.deepEqual(errors, []);
       await ctx.close();
+      approvedPhoto = null;
     });
 
     test(`${sizeName}: the canonical Coyote photo key matches its common-name alias`, async () => {
@@ -109,7 +113,7 @@ describe('photos use only stored manifests', () => {
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
-      title = 'Canis latrans';
+      title = 'Canis latrans'; approvedPhoto = null;
       await page.goto(base + 'index.html#e=yellowstone');
       await page.waitForFunction(() => {
         const coyote = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'coyote');

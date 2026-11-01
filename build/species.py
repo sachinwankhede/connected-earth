@@ -8,7 +8,7 @@ The build calls join() so the app receives full nodes either way."""
 import json, os, re, sys, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TABLE = os.path.join(ROOT, 'data', 'species.json')
-ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'desc', 'ic', 'cat', 'badge']
+ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic', 'cat', 'badge']
 SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
 
@@ -22,6 +22,8 @@ def join(eco, tab):
         base = {k: v for k, v in tab.get(n['sp'], {}).items() if k != 'about'} if 'sp' in n else None
         full = {**(base or {}), **{k: v for k, v in n.items() if k not in ('sp', 'no')}}
         for f in n.get('no', []): full.pop(f, None)
+        if base and base.get('wiki') and full.get('wiki') and full['wiki'] != base['wiki']:
+            full['canonicalWiki'] = base['wiki']
         out.append({k: full[k] for k in ORDER if k in full} | {k: v for k, v in full.items() if k not in ORDER})
     eco['nodes'] = out
     return eco
