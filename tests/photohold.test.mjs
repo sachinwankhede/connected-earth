@@ -5,6 +5,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
+const isPicture = (url) => /photos\/places\/.+\.jpg|rest_v1\/page\/summary|thumb\.wikimedia/.test(url);
+const isPlacePicture = (url) => /photos\/places\/.+\.jpg/.test(url);
+
 // Pictures wait for the map: nothing is asked for until the map has drawn, the person touches the page, or a link goes straight to a place.
 describe('pictures wait for the map', () => {
   let browser, srv, base;
@@ -25,11 +28,14 @@ describe('pictures wait for the map', () => {
       const errors = [], pics = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/openfreemap|arcgis/, () => {});   // these requests never answer, so the map never finishes drawing
-      page.on('request', (r) => { if (/photos\/places\/.+\.jpg|rest_v1\/page\/summary|thumb\.wikimedia/.test(r.url())) pics.push(r.url()); });
+      page.on('request', (r) => { if (isPicture(r.url())) pics.push(r.url()); });
       await page.route(/wikipedia|wikimedia/, (r) => r.abort());
-      await page.goto(base + 'index.html', { waitUntil: 'domcontentloaded' }); await page.waitForTimeout(4000);
+      await page.goto(base + 'index.html', { waitUntil: 'domcontentloaded' });
+      await page.waitForFunction(() => window.__M && window.__M.releasePhotos && window.__M.photoGo === false, null, { timeout: 15000 });
       assert.deepEqual(pics, [], 'nothing asked for while the map is still drawing');
-      await page.mouse.click(size.width / 2, size.height / 2); await page.waitForTimeout(2500);
+      const pictureRequest = page.waitForRequest((r) => isPicture(r.url()), { timeout: 15000 });
+      await page.mouse.click(size.width / 2, size.height / 2);
+      await pictureRequest;
       assert.ok(pics.length > 0, 'pictures are asked for after a touch');
       assert.deepEqual(errors, []);
       await ctx.close();
@@ -39,8 +45,10 @@ describe('pictures wait for the map', () => {
     const ctx = await browser.newContext({ viewport: H.SIZES.desktop }); const page = await ctx.newPage();
     const pics = [];
     await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
-    page.on('request', (r) => { if (/photos\/places\/.+\.jpg/.test(r.url())) pics.push(r.url()); });
-    await page.goto(base + 'index.html#pg=yellowstone'); await page.waitForTimeout(3000);
+    page.on('request', (r) => { if (isPlacePicture(r.url())) pics.push(r.url()); });
+    const pictureRequest = page.waitForRequest((r) => isPlacePicture(r.url()), { timeout: 15000 });
+    await page.goto(base + 'index.html#pg=yellowstone', { waitUntil: 'domcontentloaded' });
+    await pictureRequest;
     assert.ok(pics.length > 0, 'the place picture was requested without waiting');
     await ctx.close();
   });
