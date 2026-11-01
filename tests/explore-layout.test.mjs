@@ -15,6 +15,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const browser = await H.launch();
     const t = await H.open(browser, H.MAIN, size, { hash: '#stub' });
     const p = t.page;
+    await p.route('**/photos/species.json', (route) => route.fulfill({ contentType: 'application/json', body: '{}' }));
     const openWeb = async (id) => {
       await p.evaluate((ecoId) => { location.hash = '#stub&e=' + ecoId; }, id);
       await p.waitForFunction(() => {
@@ -40,7 +41,6 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
     try {
       await openWeb('yellowstone');
-      await p.waitForTimeout(3200);
       const cold = await snapshot();
       assert.equal(cold.layout.cacheHit, false, JSON.stringify(cold.layout));
       assert.equal(cold.layout.ticks, 120);
@@ -51,7 +51,6 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
       await returnToMap('yellowstone');
       await openWeb('yellowstone');
-      await p.waitForTimeout(3200);
       const warm = await snapshot();
       assert.equal(warm.layout.cacheHit, true, JSON.stringify(warm.layout));
       assert.equal(warm.layout.ticks, 0);
@@ -86,7 +85,6 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
       await returnToMap('yellowstone');
       await openWeb('yellowstone');
-      await p.waitForTimeout(3200);
       const resizedWarm = await snapshot();
       assert.equal(resizedWarm.layout.cacheHit, true, JSON.stringify(resizedWarm.layout));
       assert.equal(resizedWarm.layout.ticks, 0);
