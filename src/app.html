@@ -1229,7 +1229,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return SPIDX.p;
   }
   /* a search can match species names, so make sure the lists are in, then filter again with them */
-  function wantSpecies() { if (!SPIDX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) filterView(); }); }
+  function wantSpecies() { if (!SPIDX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) { M.pgKey = null; filterView(); } }); }   /* pgKey reset: the page size was worked out from the matches found before the species arrived */
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
