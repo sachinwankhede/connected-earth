@@ -2885,7 +2885,14 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   (function () {
     var sh = document.getElementById("sheet"), sb = document.getElementById("sbody");
-    function fade() { if (sh && sb) sh.classList.toggle("atend", sb.scrollTop + sb.clientHeight >= sb.scrollHeight - 8); }
+    var fadeFrame = null;
+    function fade() {
+      if (fadeFrame !== null) return;
+      fadeFrame = requestAnimationFrame(function () {
+        fadeFrame = null;
+        if (sh && sb) sh.classList.toggle("atend", sb.scrollTop + sb.clientHeight >= sb.scrollHeight - 8);
+      });
+    }
     if (sb) { sb.addEventListener("scroll", fade, { passive: true }); new MutationObserver(fade).observe(sb, { childList: true, subtree: true, attributes: true, attributeFilter: ["hidden", "class"] }); }
     if (sh) new MutationObserver(fade).observe(sh, { attributes: true, attributeFilter: ["class", "style"] });
     addEventListener("resize", fade); setTimeout(fade, 300);
