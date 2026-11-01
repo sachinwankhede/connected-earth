@@ -1129,7 +1129,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 </div>
 
 <style>/*__MLCSS__*/</style>
-<script>/*__MLJS__*/</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>__PHOTO_REGISTRY__</script>
 <script>
@@ -2776,6 +2775,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       var done = function () { if (!bt.parentNode) return; bt.classList.add("gone"); setTimeout(function () { if (bt.parentNode) bt.parentNode.removeChild(bt); }, 450); };
       m.once("idle", done); setTimeout(done, 20000);   /* the outline never stays if the map fails to draw */
     })();
+    var mh = M.mapHooks || []; M.mapHooks = []; mh.forEach(function (f) { f(); });
     window._atlas = M;
     document.getElementById("map").parentNode.appendChild(document.getElementById("peek"));
     m.on("style.load", onStyle);
@@ -3293,7 +3293,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   M.h0 = location.hash.slice(1);
   buildMap();
-  initMap();
+  if (window.maplibregl) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
@@ -3331,9 +3331,15 @@ rect.core { stroke-dasharray: 3 2.5; }
   addEventListener("pointerdown", go, { once: true, capture: true }); addEventListener("keydown", go, { once: true, capture: true });
   setTimeout(go, 9000);
   if (/[#&](pg|p|e|j)=/.test(location.hash)) go();   // a link straight to a place or journey needs its picture now
-  else if (M.map) M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); go(); } });
+  else {
+    var hookIdle = function () { if (M.styleReady && M.map.loaded()) { go(); return; } M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); go(); } }); };
+    if (M.map) hookIdle(); else M.mapHooks = (M.mapHooks || []).concat(hookIdle);   // the map library can arrive after this point: hook the map when it is created
+  }
   });
 })();
 </script>
+
+<script>/*__MLJS__*/</script>
+<script>if (window.__mapReady) { var __mr = window.__mapReady; window.__mapReady = null; __mr(); }</script>
 
 <script>if("serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href)) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });</script>
