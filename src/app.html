@@ -3213,7 +3213,11 @@ rect.core { stroke-dasharray: 3 2.5; }
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
-      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin }); });
+      /* the food-web preview draws every species with its own picture and SVG images are not lazy: ask for the top levels first, a few at a time, so the first ones are not stuck behind dozens of others */
+      ECO_BY[id].nodes.filter(function (n) { return n.wiki || n.latin; }).sort(function (a, b) { return (b.tl || 0) - (a.tl || 0); }).forEach(function (n, i) {
+        var go = function () { if (M.pid === id) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin }); };
+        if (i < 12) go(); else setTimeout(go, 400 + Math.floor((i - 12) / 8) * 400);
+      });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });
