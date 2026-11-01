@@ -11,6 +11,11 @@
 3. **GitHub does the heavy work.** Web pulls, builds, perf runs and A/B comparisons run as Actions jobs, in parallel whenever they share neither a concurrency group nor a file. Claude does the inference and the small code changes, and keeps sessions small; continuity lives in this file and `docs/STATE.md`.
 4. **The owner's iPhone is the final check;** synthetic numbers only guide. Offline and install behaviour are constraints, not afterthoughts. The owner's review time is the scarce resource, so batches stay readable. Decisions are written down in the repo.
 
+## Items and status
+- **The item is the outcome; a pull request is the means.** Every piece of work is one GitHub issue (title = the outcome) with a theme label (`theme:latency`, `theme:data`, `theme:photos`, `theme:process`) and, while open, a status label (`status:idea`, `status:doing`, `status:waiting-owner`). Closed = done. The body holds the goal, decisions and numbers.
+- Every pull request says `Part of #N` or `Closes #N` in its body. When a PR merges or a job finishes, update the item (label, body, close it) in the same turn. Open a new item when a new topic comes up in conversation, not only when a PR is opened.
+- `bash pipeline/status.sh` and the issue "Project status" show items first (waiting on the owner, doing, not started, done), then the PRs with their item and any PR without one. REST only (`gh api`); GraphQL is blocked from sessions, so no Projects board.
+
 ## Keep the context small (do this first)
 Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
 - **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `pipeline/*.py`, `tests/`, `.github/workflows/`, `docs/`.
