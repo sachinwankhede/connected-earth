@@ -38,7 +38,7 @@ jobs:
       - name: Build both sides the way the deploy does
         run: |
           for s in a b; do
-            (cd "side-$s" && npm ci && python3 build/build.py --all && python3 build/pages_payload.py)
+            (cd "side-$s" && { [ -f build/pages_payload.py ] || cp ../build/pages_payload.py build/; } && npm ci && python3 build/build.py --all && python3 build/pages_payload.py)   # an older ref has no pages_payload.py: use main's
           done
       - name: Serve both and measure, alternating
         run: |
