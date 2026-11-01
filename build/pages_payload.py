@@ -45,6 +45,9 @@ def main():
     for relative in ROOT_FILES:
         copy_file(ROOT / relative, relative, expected)
 
+    for font in sorted((ROOT / 'fonts').glob('*.woff2')):
+        copy_file(font, font.relative_to(ROOT).as_posix(), expected)
+
     for directory in ('webs', 'data/outlines'):
         source_dir = ROOT / directory
         files = sorted(source_dir.glob('*.json'))
