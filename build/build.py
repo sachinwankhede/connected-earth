@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/*.json (hand-built places),
 data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
 """
-import json, re, sys, os, hashlib, urllib.parse
+import json, re, sys, os, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -167,12 +167,14 @@ def boot_html(land_json):
     d = []
     for poly in land['coordinates']:
         for ring in poly:
-            pts = [(round(x + 180, 1), round(80 - y, 1)) for x, y in ring if -60 <= y <= 80 or True]
+            pts = [(round(x + 180, 1), round(80 - y, 1)) for x, y in ring]
+            if max(x for x, _ in pts) - min(x for x, _ in pts) > 300:   # a ring that crosses the date line (Russia's far east): move its western end to the other side so it draws as one shape
+                pts = [(round(x + 360, 1) if x < 90 else x, y) for x, y in pts]
             pts = [p for i, p in enumerate(pts) if i == 0 or p != pts[i - 1]]
-            if len(pts) < 4: continue
+            if len(pts) < 4 or max(y for _, y in pts) > 135: continue   # Antarctica is outside the picture and its ring wraps the globe
             d.append('M' + 'L'.join('%g %g' % p for p in pts) + 'Z')
     return ('<div id="boot" aria-hidden="true"><svg viewBox="30 8 220 112" preserveAspectRatio="xMidYMid meet"><path d="' + ''.join(d) + '"/></svg>'
-            '<div class="bt"><b>Connected Earth</b><span>See how nature is connected</span></div></div>')
+            '<div class="bt"><img src="data:image/png;base64,' + base64.b64encode(open(P('icon-192.png'), 'rb').read()).decode() + '" alt="" width="72" height="72"><b>Connected Earth</b><span>See how nature is connected</span></div></div>')
 
 
 def build_id(html):
