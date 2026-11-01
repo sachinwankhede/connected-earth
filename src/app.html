@@ -139,15 +139,17 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .sel { border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 7px 10px; font-weight: 600; font-size: 13px; max-width: 200px; }
 
 .mapview { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 14px; }
-/* shown at once while the page's scripts and the map download: the world outline, the name, one line; removed when the map has drawn */
-#boot { position: absolute; inset: 0; z-index: 2; pointer-events: none; background: linear-gradient(180deg, var(--sea-a), var(--sea-b)); transition: opacity .35s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-#boot.gone { opacity: 0; }
-#boot svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-#boot svg path { fill: #E7E9DA; stroke: none; }
-#boot .bt { position: relative; text-align: center; color: var(--ink); text-shadow: 0 1px 8px rgba(255,255,255,.7); padding: 0 24px; }
-#boot .bt img { display: block; margin: 0 auto 12px; width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 4px 16px rgba(20,34,27,.25); }
-#boot .bt b { display: block; font-weight: 700; font-size: clamp(22px, 5vw, 34px); line-height: 1.1; font-family: var(--font-display); }
-#boot .bt span { display: block; margin-top: 6px; font-size: 14px; opacity: .8; }
+/* the start screen: shown at once while the page's scripts and the map download (the big logo and the name, nothing else), removed when the map has drawn */
+#boot { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; background: var(--bg); transition: opacity .4s ease; }
+#boot.gone { opacity: 0; pointer-events: none; }
+#boot .bt { text-align: center; color: var(--ink); padding: 0 24px; }
+#boot .bt img { display: block; margin: 0 auto 20px; width: min(42vw, 160px); height: auto; aspect-ratio: 1; border-radius: 22%; box-shadow: 0 8px 28px rgba(20,34,27,.28); }
+#boot .bt b { display: block; font-weight: 700; font-size: clamp(24px, 6vw, 34px); line-height: 1.1; font-family: var(--font-display); }
+#boot .bt span { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); }
+#boot .bar { display: block; width: 120px; height: 3px; margin: 28px auto 0; border-radius: 2px; background: var(--line); position: relative; overflow: hidden; }
+#boot .bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; border-radius: 2px; background: var(--accent, #1d6f8c); animation: bootbar 1.3s ease-in-out infinite; }
+@keyframes bootbar { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
+@media (prefers-reduced-motion: reduce) { #boot .bar::after { animation: none; width: 100%; opacity: .5; } }
 .mapbox { position: relative; flex: none; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: linear-gradient(180deg, var(--sea-a), var(--sea-b)); }
 #map { display: block; width: 100%; height: min(70vh, 640px); min-height: 380px; background: var(--sea-a); }
 #map.dragging { cursor: grabbing; }
