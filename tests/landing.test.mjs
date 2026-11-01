@@ -243,6 +243,8 @@ for (const [name, size] of SIZES2) {
     assert.equal(await a.vis('#xcards'), true);
     // typing a search applies to places, so the Places tab comes forward with the matches
     await a.p.fill('#q', 'osprey'); await a.p.waitForTimeout(800);
+    // an animal name is found through the species index, which arrives a moment after the first keystroke
+    await a.p.waitForFunction(() => [...document.querySelectorAll('#cards li:not(.morerow)')].some((x) => !x.hidden && !x.classList.contains('pg')), null, { timeout: 10000 });
     assert.equal(await a.tabOn(), 'Places', 'a search brings the Places tab forward');
     assert.equal(await a.vis('#xcards'), false);
     assert.ok((await a.nP()) >= 1);
