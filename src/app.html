@@ -1568,7 +1568,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">Wikimedia Commons</a>';
   }
-  function photoOf(n) { return (n.wiki && PHOTOS[n.wiki]) || (n.latin && PHOTOS[n.latin]) || null; }
+  function photoOf(n) { return (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";
@@ -1592,11 +1592,15 @@ rect.core { stroke-dasharray: 3 2.5; }
     pnlPhotos();
     if (M.jid) jPhotos();
   }
-  function linkPhoto(c) {
+  function linkPhoto(c, refresh) {
     var p = PHOTOS[c.imgwiki], box = document.getElementById("xi-" + c.id);
-    if (!p || !box) return;
+    if (!p || !box || box.querySelector("img")) return;
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
     box.querySelector("img").onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[ECO_BY[ecoEnds(c)[0].eco].icon] || "") + "</svg>"; };
+    if (refresh !== false && M.jid) jPhotos();
+  }
+  function loadJourneyPhotos() {
+    CROSS.forEach(function (c) { linkPhoto(c, false); });
     if (M.jid) jPhotos();
   }
   function showPhoto(n) {
@@ -2827,6 +2831,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function setTab(t) {
     M.tab = t;
+    if (t === "journeys") withSpeciesPhotos(loadJourneyPhotos);
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) sb.classList.toggle("tab-j", t === "journeys");
     Array.prototype.forEach.call(document.querySelectorAll("[data-tab]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tab") === t ? "true" : "false"); });
@@ -2956,6 +2961,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
     JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);
     jPhotos(); jRoles(c); syncHash(); jSat(rt.tiles, id);
+    withSpeciesPhotos(loadJourneyPhotos);
   }
   // try one tile first: if the imagery is unreachable nothing else is requested and the plain map stays
   function jSat(tiles, id) {
@@ -3095,7 +3101,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
-      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, latin: n.latin }); });
+      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });

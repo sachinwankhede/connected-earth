@@ -10,6 +10,17 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await t.page.waitForTimeout(700);
     return { b, p: t.page, errors };
   }
+  async function startWithPhotos(hash = '#stub') {
+    const b = await H.launch(), ctx = await b.newContext({ viewport: size }), p = await ctx.newPage();
+    const errors = [], png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64');
+    p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
+    await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
+    await p.route(/thumb\.wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png }));
+    const url = await H.urlFor(H.MAIN);
+    await p.goto(url + hash);
+    await p.waitForTimeout(700);
+    return { b, p, errors, url };
+  }
   const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('jview').hidden, map: !document.getElementById('mapview').hidden, web: !document.getElementById('webview').hidden, hash: location.hash, title: (document.querySelector('#jview h2') || {}).textContent }));
 
   test(`${name}: a journey page has the route, the story, both ends, sources and more journeys`, async () => {
@@ -26,6 +37,35 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(r.land > 100 && r.arc && r.dots === 2 && r.ends === 2 && r.src >= 1 && r.more >= 1 && r.when);
     assert.deepEqual(r.labels, ['Wadden Sea', "Banc d'Arguin"]);
     assert.ok(r.over <= 1, 'no sideways scroll: ' + r.over);
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: approved species photos fill journey cards and direct pages; unmatched routes keep icons`, async () => {
+    const { b, p, errors, url } = await startWithPhotos();
+    if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(500); }
+    await p.click('[data-tab="journeys"]:visible');
+    await p.waitForSelector('#xi-osprey img[loading="lazy"]');
+    const card = await p.locator('#xi-osprey img').getAttribute('src');
+    assert.ok(card.includes('/120px-'), 'journey cards use the smaller approved manifest thumbnail');
+
+    await p.goto(url + '#stub&j=osprey');
+    await p.waitForSelector('#jview #jp-main img[loading="lazy"]');
+    const hero = await p.evaluate(() => ({
+      src: document.querySelector('#jp-main img')?.getAttribute('src'),
+      credit: document.getElementById('jcredit')?.textContent || '',
+      article: [...document.querySelectorAll('#jcredit a')].some((a) => a.href === 'https://en.wikipedia.org/wiki/Osprey')
+    }));
+    assert.ok(hero.src && hero.src.includes('/120px-'), 'direct journey links load an approved thumbnail');
+    assert.ok(hero.credit.includes('Photo: Wikipedia') && hero.article, 'the journey retains its photo article credit');
+
+    for (const id of ['dust', 'nutrients', 'monarch', 'prairiegulf']) {
+      await p.evaluate((journey) => window.__M.showJourney(journey), id);
+      const fallback = await p.evaluate(() => ({
+        photo: !!document.querySelector('#jp-main img'),
+        icon: !!document.querySelector('#jp-main svg')
+      }));
+      assert.deepEqual(fallback, { photo: false, icon: true }, id + ' has no approved manifest match and keeps its fallback');
+    }
     assert.deepEqual(errors, []); await b.close();
   });
 

@@ -37,7 +37,12 @@ export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 128
 export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
 const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'species.json'), 'utf8'));
 // Same join as build/species.py: a place keeps only what differs from the shared species row.
-const join = (e) => ({ ...e, nodes: e.nodes.map((n) => { const { sp, no, ...rest } = n; const full = { ...(TABLE[sp] || {}), ...rest }; for (const f of no || []) delete full[f]; return full; }) });
+const join = (e) => ({ ...e, nodes: e.nodes.map((n) => {
+  const { sp, no, ...rest } = n, base = TABLE[sp] || {}, full = { ...base, ...rest };
+  for (const f of no || []) delete full[f];
+  if (base.wiki && full.wiki && full.wiki !== base.wiki) full.canonicalWiki = base.wiki;
+  return full;
+}) });
 export function readPlaces(pilot) {
   const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json', 'bounds.json'].includes(f))
     .map((f) => join(JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8'))));
