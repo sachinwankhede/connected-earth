@@ -147,7 +147,7 @@ def build(pilot, out_path, write=False):
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
-    out = tpl.replace('__LAND__', land).replace('__GEO__', lit(json.dumps(geo, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
+    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps(geo, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
@@ -159,6 +159,20 @@ def build(pilot, out_path, write=False):
     open(out_path, 'w').write(out)
     print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
     return out
+
+
+def boot_html(land_json):
+    """The placeholder shown while the page's scripts and the map download: the land outline as one SVG path (equirectangular, 1 decimal), the name and one line."""
+    land = json.loads(land_json)
+    d = []
+    for poly in land['coordinates']:
+        for ring in poly:
+            pts = [(round(x + 180, 1), round(80 - y, 1)) for x, y in ring if -60 <= y <= 80 or True]
+            pts = [p for i, p in enumerate(pts) if i == 0 or p != pts[i - 1]]
+            if len(pts) < 4: continue
+            d.append('M' + 'L'.join('%g %g' % p for p in pts) + 'Z')
+    return ('<div id="boot" aria-hidden="true"><svg viewBox="30 8 220 112" preserveAspectRatio="xMidYMid meet"><path d="' + ''.join(d) + '"/></svg>'
+            '<div class="bt"><b>Connected Earth</b><span>See how nature is connected</span></div></div>')
 
 
 def build_id(html):
