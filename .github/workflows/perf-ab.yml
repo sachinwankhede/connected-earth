@@ -1,0 +1,62 @@
+name: perf-ab
+# Manual. Compares a branch (B) with main (A) in one job, so both run on the same machine under the same conditions: it checks out both, builds each
+# the way the deploy does, serves each from localhost the way GitHub Pages serves it (gzip, ETag, 304), and measures them one run at a time,
+# alternating which goes first. The phone profile (4x slower CPU, 1.6 Mbps, 150 ms) and the desktop profile are both used.
+# The result is a table in the run summary and a comment on the open pull request for B. Nothing is merged or published and the perf history is not touched.
+# Absolute numbers are not comparable with the live-site perf runs (no real internet); only the difference between A and B is meaningful.
+# Jobs for different branches can run at the same time: each gets its own machine. To measure the noise, run it once with both refs set to main.
+on:
+  workflow_dispatch:
+    inputs:
+      ref_b: { description: "Branch to test (B)", required: true }
+      ref_a: { description: "Baseline (A)", default: "main" }
+      runs: { description: "Runs per side (A and B alternate)", default: "5" }
+permissions:
+  contents: read
+  pull-requests: write
+concurrency:
+  group: perf-ab-${{ github.event.inputs.ref_b }}
+  cancel-in-progress: false
+jobs:
+  ab:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      REF_A: ${{ github.event.inputs.ref_a }}
+      REF_B: ${{ github.event.inputs.ref_b }}
+      RUNS: ${{ github.event.inputs.runs }}
+    steps:
+      - uses: actions/checkout@v5   # the measuring code, the same for both sides
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - uses: actions/checkout@v5
+        with: { ref: "${{ github.event.inputs.ref_a }}", path: side-a }
+      - uses: actions/checkout@v5
+        with: { ref: "${{ github.event.inputs.ref_b }}", path: side-b }
+      - name: Build both sides the way the deploy does
+        run: |
+          for s in a b; do
+            (cd "side-$s" && npm ci && python3 build/build.py --all && python3 build/pages_payload.py)
+          done
+      - name: Serve both and measure, alternating
+        run: |
+          node tests/perf/serve.mjs side-a/dist/pages 8801 &
+          node tests/perf/serve.mjs side-b/dist/pages 8802 &
+          sleep 2
+          bash tests/perf/ab-run.sh "$RUNS" out http://localhost:8801/ http://localhost:8802/
+      - name: Compare
+        run: |
+          node tests/perf/compare.mjs --a out/a --b out/b \
+            --label-a "$REF_A ($(git -C side-a rev-parse --short HEAD))" --label-b "$REF_B ($(git -C side-b rev-parse --short HEAD))" --md out/compare.md
+          cat out/compare.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: perf-ab, path: out }
+      - name: Post the result on the pull request for B
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh api "repos/$GITHUB_REPOSITORY/pulls?state=open&head=$GITHUB_REPOSITORY_OWNER:$REF_B" --jq '.[0].number // empty')
+          if [ -n "$N" ]; then gh api "repos/$GITHUB_REPOSITORY/issues/$N/comments" -F body=@out/compare.md --silent && echo "posted on #$N"; else echo "no open pull request for $REF_B"; fi

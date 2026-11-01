@@ -14,6 +14,7 @@ const PROFILES = {
 };
 const NAV_PLACE = 'yellowstone', NAV_TIMEOUT = 90000;
 const RETURNING = arg('returning', '1') !== '0';
+const NAV = arg('nav', '1') !== '0';   // --nav 0 skips the route-readiness measurements (used by the A/B comparison, which does not need them)
 const median = (a) => { a = a.filter((x) => x != null).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : null; };
 const percentile = (a, p) => {
   a = a.filter((x) => x != null).sort((x, y) => x - y);
@@ -387,7 +388,7 @@ for (const name of Object.keys(PROFILES)) {
   for (let i = 0; i < RUNS; i++) {
     try {
       const run = await oneRun(browser, name);
-      run.navigation = await navigationMeasurements(browser, name);
+      run.navigation = NAV ? await navigationMeasurements(browser, name) : { place: {}, web: {} };
       if (RETURNING) {
         try { run.returning = await returningVisit(browser, name); } catch (e) { console.error(name, 'run', i, 'returning visit failed:', e.message); }
       }
