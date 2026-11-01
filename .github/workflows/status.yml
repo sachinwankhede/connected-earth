@@ -22,6 +22,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
         run: |
-          { echo "Updated $(date -u +'%Y-%m-%d %H:%M') UTC by the status workflow."; echo; echo '```'; bash pipeline/status.sh 2>&1; echo '```'; } > status.md
+          { echo "Updated $(date -u +'%Y-%m-%d %H:%M') UTC by the status workflow."; echo; echo "What is done and what is pending: the issue \"Work tracker\" (kept by Claude)."; echo; echo '```'; bash pipeline/status.sh 2>&1; echo '```'; } > status.md
           N=$(gh issue list --state open --search '"Project status" in:title' --json number --jq '.[0].number')
           if [ -n "$N" ]; then gh issue edit "$N" --body-file status.md; else gh issue create --title "Project status" --body-file status.md; fi
