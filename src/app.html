@@ -1135,6 +1135,11 @@ rect.core { stroke-dasharray: 3 2.5; }
 (function () {
   "use strict";
 
+  /* the map library is the last thing in this page to arrive, so the map cannot ask for its first pictures until then; on a phone the first ones are known, so ask now and the map finds them in the browser's cache */
+  if (window.fetch && innerWidth <= 700 && !/[#&]stub/.test(location.href)) {
+    ["Noto%20Sans%20Bold/0-255.pbf"].forEach(function (g) { fetch("https://tiles.openfreemap.org/fonts/" + g, { mode: "cors", credentials: "omit" }).catch(function () {}); });
+    for (var wy = 0; wy < 4; wy++) for (var wx = 0; wx < 3; wx++) fetch("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/2/" + wy + "/" + wx, { mode: "cors", credentials: "omit" }).catch(function () {});
+  }
   var LAND = __LAND__;
   var GEO = __GEO__;
 
