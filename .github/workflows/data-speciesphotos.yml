@@ -1,6 +1,6 @@
 name: data-speciesphotos
-# Manual only. Looks up one Wikipedia thumbnail link for every species (about 115 batched requests for all of them) and opens one pull request with
-# photos/species.json. Links only, no image files. Nothing reaches the live site until it is merged, and the app does not read the file yet.
+# Manual only. Looks up Wikimedia thumbnail links for species and opens a human-reviewable pull request.
+# Existing manifest shape is retained; new candidates are limited to Wikimedia and nothing reaches the live site until the pull request is merged.
 on:
   workflow_dispatch:
     inputs:
@@ -18,6 +18,8 @@ jobs:
         with: { ref: main }
       - name: Look up the thumbnails
         run: python3 pipeline/speciesphotos.py photos/species.json "${{ github.event.inputs.limit || '0' }}" | tee speciesphotos.log | tail -5
+      - name: Validate photo sources and legacy metadata
+        run: python3 pipeline/photo_registry.py validate
       - name: Commit and open the pull request
         env:
           GH_TOKEN: ${{ github.token }}

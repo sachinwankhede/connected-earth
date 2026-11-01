@@ -1116,6 +1116,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 <style>/*__MLCSS__*/</style>
 <script>/*__MLJS__*/</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>__PHOTO_REGISTRY__</script>
 <script>
 (function () {
   "use strict";
@@ -1561,6 +1562,40 @@ rect.core { stroke-dasharray: 3 2.5; }
   var PHOTOS = {};
   function esc(u) { return String(u).replace(/"/g, "%22").replace(/</g, "%3C"); }
   function escH(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  function photoAttrs(p, mode) {
+    return ' data-photo-key="' + encodeURIComponent(p.key) + '" data-photo-url="' + encodeURIComponent(p.src) + '" data-photo-index="0" onerror="photoFallback(this,\'' + (mode || "remove") + '\')"';
+  }
+  function bindPhoto(img, p, mode) {
+    img.setAttribute("data-photo-key", encodeURIComponent(p.key));
+    img.setAttribute("data-photo-url", encodeURIComponent(p.src));
+    img.setAttribute("data-photo-index", "0");
+    img.onerror = function () { photoFallback(img, mode || "remove"); };
+  }
+  function photoFallback(img, mode) {
+    var key = img.getAttribute("data-photo-key") || "", p;
+    try { key = decodeURIComponent(key); } catch (e) {}
+    p = PHOTOS[key];
+    if (p && p.candidates) {
+      var index = parseInt(img.getAttribute("data-photo-index") || "0", 10), attempted = {}, currentUrl = img.getAttribute("data-photo-url") || "";
+      try { currentUrl = decodeURIComponent(currentUrl); } catch (e) {}
+      var actualIndex = p.candidates.findIndex(function (c) { return c.assetUrl === currentUrl; });
+      if (actualIndex >= 0) index = actualIndex;
+      p.candidates.slice(0, index + 1).forEach(function (c) { attempted[c.assetUrl] = true; });
+      var next = PhotoRegistry.nextCandidate(p.candidates, index, attempted);
+      if (next) {
+        img.setAttribute("data-photo-index", next.index);
+        img.setAttribute("data-photo-url", encodeURIComponent(next.url));
+        if (img.namespaceURI === "http://www.w3.org/2000/svg") img.setAttribute("href", next.url);
+        else img.src = next.url;
+        return true;
+      }
+    }
+    if (mode === "parent" && img.parentNode) img.parentNode.remove();
+    else if (mode === "art" && img.parentNode) { img.parentNode.classList.remove("hasph"); img.remove(); }
+    else img.remove();
+    return false;
+  }
+  window.photoFallback = photoFallback;
   function creditHTML(p) {
     var c = p.credit;
     if (!c) return 'Photo: Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">article</a>';
@@ -1572,7 +1607,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";
-    return '<figure class="shot"><img src="' + esc(p.src) + '" alt="' + n.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()">' +
+    return '<figure class="shot"><img src="' + esc(p.src) + '" alt="' + n.name + '" referrerpolicy="no-referrer"' + photoAttrs(p, "parent") + '>' +
       '<figcaption>Photo via Wikipedia · <a href="' + esc(p.page) + '" target="_blank" rel="noopener">read the article</a></figcaption></figure>';
   }
   var relayoutTimer;
@@ -1583,9 +1618,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function ecoPhoto(e) {
     var p = PHOTOS[e.imgwiki], box = e.li && e.li.querySelector(".cimg");
     if (!p || !box) return;
-    box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
+    box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
     var im = box.querySelector("img");
-    im.onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>"; };
+    im.onerror = function () { if (!photoFallback(im, "remove")) box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>"; };
     var pk = document.getElementById("cp-" + e.id); if (pk) pk.innerHTML = box.innerHTML;
     if (ECO === e && !state.sel && !el.webview.hidden) renderPanel();
     if (M.pid === e.id) pPhoto();
@@ -1595,8 +1630,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function linkPhoto(c, refresh) {
     var p = PHOTOS[c.imgwiki], box = document.getElementById("xi-" + c.id);
     if (!p || !box || box.querySelector("img")) return;
-    box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy">';
-    box.querySelector("img").onerror = function () { box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[ECO_BY[ecoEnds(c)[0].eco].icon] || "") + "</svg>"; };
+    box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
+    var im = box.querySelector("img");
+    im.onerror = function () { if (!photoFallback(im, "remove")) box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[ECO_BY[ecoEnds(c)[0].eco].icon] || "") + "</svg>"; };
     if (refresh !== false && M.jid) jPhotos();
   }
   function loadJourneyPhotos() {
@@ -1620,17 +1656,21 @@ rect.core { stroke-dasharray: 3 2.5; }
     g.select(".glyph").style("display", "none");
     d3.select("#clip-" + n.id + " circle").attr("r", n.r - 1.8);
     g.select(".body").append("image").attr("class", "photo").attr("href", photoOf(n).src)
+      .attr("data-photo-key", encodeURIComponent(photoOf(n).key)).attr("data-photo-url", encodeURIComponent(photoOf(n).src)).attr("data-photo-index", "0")
       .attr("x", -n.r).attr("y", -n.r).attr("width", 2 * n.r).attr("height", 2 * n.r)
       .attr("preserveAspectRatio", "xMidYMin slice").attr("clip-path", "url(#clip-" + n.id + ")")
-      .attr("loading", "lazy");
+      .attr("loading", "lazy").on("error", function () {
+        if (!photoFallback(this, "remove")) {
+          d3.select(this).remove();
+          g.select(".glyph").style("display", null);
+          n.photoShown = false;
+        }
+      });
     if (state.sel === n.id) renderPanel();
     paint();
     relayoutSoon();
   }
   /* Species pictures come from the stored thumbnail list (photos/species.json); missing entries keep their drawn icons. */
-  function speciesThumbnail(src) {
-    return src.replace(/\/(page1-)?330px-/, function (_, page) { return "/" + (page || "") + "120px-"; });
-  }
   var SPX = null, SPX_WAIT = [];
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;
@@ -1640,9 +1680,14 @@ rect.core { stroke-dasharray: 3 2.5; }
     SPX = false;
     var base = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
     fetch(base + "photos/species.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }).then(function (m) {
-      Object.keys(m).forEach(function (t) { if (!PHOTOS[t]) PHOTOS[t] = { src: speciesThumbnail("https://thumb.wikimedia.org/wikipedia/commons/thumb/" + m[t][0]), page: "https://en.wikipedia.org/wiki/" + m[t][1] }; });
+      Object.keys(m).forEach(function (t) {
+        var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1);
+        if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
+      });
+      CROSS.forEach(function (c) { if (c.imgwiki && PHOTOS[c.imgwiki]) linkPhoto(c); });
       SPX = true;
       var waiting = SPX_WAIT; SPX_WAIT = []; waiting.forEach(function (f) { f(); });
+      if (M.jid) jPhotos();
     });
   }
   function loadPhotos() {
@@ -1688,12 +1733,12 @@ rect.core { stroke-dasharray: 3 2.5; }
     panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
       var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
       if (!ph || b.querySelector("img")) return;
-      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
     panel.querySelectorAll(".pph[data-nid]").forEach(function (b) {
       var m = BY[b.getAttribute("data-nid")], ph = m && photoOf(m);
       if (!ph || b.querySelector("img")) return;
-      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has"); b.classList.add("has");
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has"); b.classList.add("has");
     });
   }
   function overviewHTML() {
@@ -1716,7 +1761,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function emptyHTML() {
     var t = ECO.tip, n = BY[t.id];
-    var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"><figcaption>' + creditHTML(PHOTOS[ECO.imgwiki]) + '</figcaption></figure>' : "";
+    var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer"' + photoAttrs(PHOTOS[ECO.imgwiki], "parent") + '><figcaption>' + creditHTML(PHOTOS[ECO.imgwiki]) + '</figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
       footHTML({ sources: ECO.sources, notes: ECO.notes }) +
@@ -1827,7 +1872,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var pr = document.getElementById("prow");
     if (pr) {
       var nn = id && BY[id];
-      pr.innerHTML = (nn ? (photoOf(nn) ? '<span class="sth"><img src="' + esc(photoOf(nn).src) + '" alt="" referrerpolicy="no-referrer" onerror="this.remove()"></span>' : "") + '<span class="stx"><span class="stt">' + nn.name + '</span><span class="ssub">' + kindLine(nn) + "</span></span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
+      pr.innerHTML = (nn ? (photoOf(nn) ? '<span class="sth"><img src="' + esc(photoOf(nn).src) + '" alt="" referrerpolicy="no-referrer"' + photoAttrs(photoOf(nn), "remove") + '></span>' : "") + '<span class="stx"><span class="stt">' + nn.name + '</span><span class="ssub">' + kindLine(nn) + "</span></span>" : '<span class="stt">' + ECO.name + '</span><span class="scnt">' + ECO.nodes.filter(function (n) { return !n.cat; }).length + ' species</span>');
       if (window.matchMedia && matchMedia("(max-width: 700px)").matches && P.last !== id) P.set(id && !P.keepMin ? "half" : "min");
       P.last = id;
     }
@@ -1837,7 +1882,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     var hasUp = ins.some(flows);
     panel.innerHTML =
       '<button type="button" class="x" data-clear aria-label="Clear selection">&times;</button>' +
-      '<div class="head"><button type="button" class="pchev" data-pchev aria-label="Collapse"></button><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer" onerror="this.parentNode.classList.remove(\'hasph\');this.remove()">' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
+      '<div class="head"><button type="button" class="pchev" data-pchev aria-label="Collapse"></button><div class="art' + (n.cat === "abiotic" ? " sq" : "") + (photoOf(n) ? " hasph" : "") + '" style="--c:' + colorVar(n) + '">' + (photoOf(n) ? '<img src="' + esc(photoOf(n).src) + '" alt="' + escH(n.name) + '" referrerpolicy="no-referrer"' + photoAttrs(photoOf(n), "art") + '>' : "") + '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n.ic] || "") + "</svg></div><div>" +
       '<span class="tlpill">' + kindLine(n) + "</span>" +
       "<h2>" + n.name + "</h2>" + (n.latin ? '<p class="latin">' + n.latin + "</p>" : "") + '</div></div>' +
       "<p>" + n.desc + "</p>" + aboutHTML(n) +
@@ -3079,14 +3124,14 @@ rect.core { stroke-dasharray: 3 2.5; }
     var ph = photoOf(n); if (!ph || M.pid !== n.eco) return;
     PV.querySelectorAll('.pph[data-pid="' + n.id + '"]').forEach(function (b) {
       if (b.querySelector("img")) return;
-      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; im.onerror = function () { im.remove(); }; im.src = ph.src; b.appendChild(im); b.classList.add("has");
+      var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
     PV.querySelectorAll('.pn[data-node="' + n.id + '"]').forEach(function (g) {
       if (g.querySelector("image")) return;
       var r = +g.getAttribute("data-r"), NS = "http://www.w3.org/2000/svg", im = document.createElementNS(NS, "image");
-      im.setAttribute("href", ph.src); im.setAttribute("loading", "lazy"); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
+      im.setAttribute("href", ph.src); im.setAttribute("data-photo-key", encodeURIComponent(ph.key)); im.setAttribute("data-photo-url", encodeURIComponent(ph.src)); im.setAttribute("data-photo-index", "0"); im.setAttribute("loading", "lazy"); im.setAttribute("x", -r); im.setAttribute("y", -r); im.setAttribute("width", 2 * r); im.setAttribute("height", 2 * r);
       im.setAttribute("preserveAspectRatio", "xMidYMin slice"); im.setAttribute("clip-path", "url(#pcl-" + n.id + ")");
-      im.addEventListener("error", function () { im.remove(); g.classList.remove("ph"); });
+      im.addEventListener("error", function () { if (!photoFallback(im, "remove")) g.classList.remove("ph"); });
       var gl = g.querySelector(".gl"); g.insertBefore(im, gl); g.classList.add("ph");
     });
   }
@@ -3166,7 +3211,10 @@ rect.core { stroke-dasharray: 3 2.5; }
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
-    function stored(t) { var m = man[t]; if (m && !PHOTOS[t]) PHOTOS[t] = { src: PB + m.f, page: m.w, credit: m }; }
+    function stored(t) {
+      var m = man[t], candidate = m && PhotoRegistry.placeCandidate(m, PB);
+      if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
+    }
   /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
   M.photoGo = false; var HELD = [];

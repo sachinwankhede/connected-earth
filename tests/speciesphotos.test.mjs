@@ -9,14 +9,16 @@ const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../photos/spec
 
 // Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.
 describe('photos use only stored manifests', () => {
-  let browser, srv, base, title = '', approvedPhoto = null;
+  let browser, srv, base, title = '', approvedPhoto = null, directAsset = false;
   const speciesTitle = H.readPlaces(false).find((e) => e.id === 'yellowstone').nodes.find((n) => n.wiki).wiki;
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
       const u = decodeURIComponent(q.url.split('?')[0]);
       if (u.endsWith('/photos/species.json')) {
-        const entry = approvedPhoto || ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
+        const entry = directAsset
+          ? ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page']
+          : approvedPhoto || ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(title ? { [title]: entry } : {}));
       }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
@@ -35,7 +37,7 @@ describe('photos use only stored manifests', () => {
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
       await page.route(/wikipedia\.org\/api\/rest_v1\/page\/summary\//, (r) => { lookups.push(decodeURIComponent(r.request().url().split('/summary/')[1]).replace(/_/g, ' ')); r.abort(); });
       await page.route(/thumb\.wikimedia\.org/, (r) => r.abort());
-      title = ''; approvedPhoto = null;
+      title = ''; approvedPhoto = null; directAsset = false;
       await page.goto(base + 'index.html#pg=yellowstone');
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
       await page.waitForSelector('#pview article .pph svg', { timeout: 30000 });
@@ -61,6 +63,7 @@ describe('photos use only stored manifests', () => {
     });
 
     test(`${sizeName}: a listed species uses a smaller lazy thumbnail without a Wikipedia lookup`, async () => {
+      directAsset = false;
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = [], lookups = [], thumbnails = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
@@ -80,9 +83,12 @@ describe('photos use only stored manifests', () => {
     });
 
     test(`${sizeName}: a species wiki alias uses its canonical approved photo`, async () => {
+      directAsset = false;
       const dolphin = H.readPlaces(false).find((e) => e.id === 'gulf').nodes.find((n) => n.id === 'dolphin');
       assert.equal(dolphin.wiki, 'Bottlenose dolphin');
       assert.equal(dolphin.canonicalWiki, 'Common bottlenose dolphin');
+      assert.deepEqual(approvedSpeciesPhotos[dolphin.wiki], approvedSpeciesPhotos[dolphin.canonicalWiki],
+        'the alias points to the same approved image and Wikipedia attribution');
       title = dolphin.canonicalWiki;
       approvedPhoto = approvedSpeciesPhotos[title];
       assert.ok(approvedPhoto, 'the canonical Wikipedia article has an approved photo');
@@ -109,6 +115,7 @@ describe('photos use only stored manifests', () => {
     });
 
     test(`${sizeName}: the canonical Coyote photo key matches its common-name alias`, async () => {
+      directAsset = false;
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
@@ -127,6 +134,30 @@ describe('photos use only stored manifests', () => {
       await page.goto(base + 'index.html#pg=yellowstone');
       await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), null, { timeout: 30000 });
       assert.deepEqual(errors, []);
+      await ctx.close();
+    });
+
+    test(`${sizeName}: an absolute Wikimedia asset URL is used unchanged`, async () => {
+      const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
+      const errors = [], exact = 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg';
+      page.on('pageerror', (x) => errors.push(String(x)));
+      await page.route(/openfreemap|arcgis|amazonaws|fonts|cdnjs/, (r) => r.abort());
+      await page.route(exact, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64') }));
+      title = speciesTitle; directAsset = true;
+      await page.goto(base + 'index.html#e=yellowstone');
+      await page.waitForFunction(() => {
+        const image = document.querySelector('#svg image.photo');
+        return image && image.getAttribute('href') === 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg';
+      }, null, { timeout: 30000 });
+      title = 'Osprey';
+      await page.goto(base + 'index.html#j=osprey');
+      await page.waitForFunction(() => {
+        const main = document.querySelector('#jview #jp-main img');
+        const related = document.querySelector('#jview .jmore img');
+        return main && related && main.src === 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg';
+      }, null, { timeout: 30000 });
+      assert.deepEqual(errors, []);
+      directAsset = false;
       await ctx.close();
     });
   }

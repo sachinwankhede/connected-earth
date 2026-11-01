@@ -12,7 +12,7 @@ def _pace():
     _last[0] = time.time()
 
 def get(url, raw=False, tries=6):
-    errs = 0
+    errs = 0; throttles = 0
     while True:
         _pace()
         try:
@@ -21,8 +21,12 @@ def get(url, raw=False, tries=6):
             return b if raw else json.loads(b)
         except urllib.error.HTTPError as e:
             if e.code in (429, 503):
+                throttles += 1
+                if throttles >= tries: raise RuntimeError('too many throttles for ' + url[:100])
                 ra = e.headers.get('Retry-After')
-                wait = (int(ra) if ra and ra.isdigit() else 15) + random.uniform(1, 5)
+                retry_after = int(ra) if ra and ra.isdigit() else 15
+                if retry_after > 300: raise RuntimeError('retry-after exceeds bounded wait for ' + url[:100])
+                wait = retry_after + random.uniform(1, 5)
                 _gap[0] = min(30.0, _gap[0] * 1.5 + 1)  # slow down after a throttle
                 time.sleep(wait); continue
             if e.code == 404: return None
