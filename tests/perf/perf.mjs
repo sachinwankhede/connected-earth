@@ -143,7 +143,7 @@ async function navigationScenario(browser, name, kind) {
   const prof = PROFILES[name];
   let ctx;
   const missing = { readyMs: null, resources: {} };
-  let firstOpen = missing, repeatOpen = missing, speciesSelection = null;
+  let firstOpen = missing, repeatOpen = missing, speciesSelection = null, pictures = missing, firstPicture = missing;
   try {
     ctx = await browser.newContext({ viewport: prof.viewport, serviceWorkers: 'block' });
     const p = await ctx.newPage();
@@ -160,6 +160,17 @@ async function navigationScenario(browser, name, kind) {
 
     const isPlace = kind === 'place', hash = isPlace ? `#pg=${NAV_PLACE}` : `#e=${NAV_PLACE}`;
     firstOpen = await measuredRoute(p, hash, isPlace ? 'place' : 'web', `${kind} cold open`);
+    if (isPlace && firstOpen.readyMs != null) {
+      // the pictures a place page asks for (food-web preview circles and species cards): when the first and the last one arrived, counted from the tap
+      await p.waitForTimeout(8000);
+      const pics = await p.evaluate(() => {
+        const start = window.__perfNavStart, e = performance.getEntriesByType('resource').filter((x) => x.startTime >= start && /thumb\.wikimedia|upload\.wikimedia|\/photos\//.test(x.name));
+        if (!e.length) return null;
+        const kb = e.reduce((a, x) => a + x.transferSize, 0) / 1000;
+        return { first: Math.min(...e.map((x) => x.responseEnd)) - start, last: Math.max(...e.map((x) => x.responseEnd)) - start, n: e.length, kb };
+      });
+      if (pics) { firstPicture = { readyMs: pics.first, resources: {} }; pictures = { readyMs: pics.last, resources: { pictures: { requests: pics.n, kb: pics.kb } } }; }
+    }
     speciesSelection = isPlace ? null : await measuredSpeciesSelection(p);
     if (!isPlace) {
       await p.evaluate(() => document.getElementById('back').click());
@@ -178,7 +189,7 @@ async function navigationScenario(browser, name, kind) {
       try { await ctx.close(); } catch (e) { console.error('navigation', kind, 'context close failed:', e.message); }
     }
   }
-  return { firstOpen, repeatOpen, ...(kind === 'web' ? { speciesSelection } : {}) };
+  return { firstOpen, repeatOpen, ...(kind === 'web' ? { speciesSelection } : { pictures, firstPicture }) };
 }
 
 async function navigationMeasurements(browser, name) {
@@ -341,6 +352,8 @@ function summarize(runs) {
   const navPhases = {
     'place cold open': (r) => r.navigation.place.firstOpen,
     'place warm open': (r) => r.navigation.place.repeatOpen,
+    'place first picture arrived': (r) => r.navigation.place.firstPicture,
+    'place last picture arrived': (r) => r.navigation.place.pictures,
     'food-web cold open': (r) => r.navigation.web.firstOpen,
     'food-web warm open': (r) => r.navigation.web.repeatOpen,
     'species selection': (r) => r.navigation.web.speciesSelection,
