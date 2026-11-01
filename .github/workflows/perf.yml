@@ -33,6 +33,8 @@ jobs:
             echo '[]' > perf-data/history.json
           fi
       - name: Measure
+        env:
+          PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS: "1"   # lets the returning-visit section see the worker's own fetch of the page
         run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}" --runs "${{ github.event.inputs.runs || '5' }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
       - name: Summary
         run: cat perf-out.md >> "$GITHUB_STEP_SUMMARY"
