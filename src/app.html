@@ -1129,7 +1129,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 </div>
 
 <style>/*__MLCSS__*/</style>
-<script>/*__MLJS__*/</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>__PHOTO_REGISTRY__</script>
 <script>
@@ -3293,7 +3292,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   M.h0 = location.hash.slice(1);
   buildMap();
-  initMap();
+  if (window.maplibregl) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
@@ -3335,5 +3334,8 @@ rect.core { stroke-dasharray: 3 2.5; }
   });
 })();
 </script>
+
+<script>/*__MLJS__*/</script>
+<script>if (window.__mapReady) { var __mr = window.__mapReady; window.__mapReady = null; __mr(); }</script>
 
 <script>if("serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href)) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });</script>
