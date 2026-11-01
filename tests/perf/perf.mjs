@@ -236,7 +236,16 @@ async function oneRun(browser, name) {
     const photoEnd = window.__p.stages.firstVisiblePhotoDecode || window.__p.stages.photoHoldRelease || ml || performance.now();
     const longTasks = window.__p.lt.filter(([s]) => s <= photoEnd);
     if (window.__p.stageInterval) clearInterval(window.__p.stageInterval);
+    // what the map asks for, by kind: when the first request started and when the last answer arrived, from the start of the page load
+    const mapTl = {};
+    const kind = (u) => /server\.arcgisonline\.com/.test(u) ? 'satellite tiles' : /openfreemap\.org\/fonts\//.test(u) ? 'map glyphs' : /openfreemap\.org\/planet\/\d+\/\d+\/\d+\/\d+/.test(u) ? 'vector tiles' : /openfreemap\.org\/(planet|styles)/.test(u) ? 'map style and index' : /amazonaws/.test(u) ? 'terrain tiles' : null;
+    for (const e of performance.getEntriesByType('resource')) {
+      const k = kind(e.name); if (!k) continue;
+      const g = mapTl[k] = mapTl[k] || { n: 0, first: Infinity, last: 0 };
+      g.n++; g.first = Math.min(g.first, e.startTime); g.last = Math.max(g.last, e.responseEnd);
+    }
     return {
+      mapTl,
       fcp: f && f.startTime, dcl: n.domContentLoadedEventEnd, load: n.loadEventEnd, mapLoaded: ml, tbtToMap: tbt, longTasks: window.__p.lt.length,
       initialStages: {
         domInteractive: n.domInteractive,
@@ -338,7 +347,9 @@ async function returningVisit(browser, name) {
   };
 }
 
+const MAP_KINDS = ['map style and index', 'vector tiles', 'map glyphs', 'satellite tiles', 'terrain tiles'];
 const FLAT = {
+  ...Object.fromEntries(MAP_KINDS.flatMap((k) => [[`map: ${k}, first request (ms)`, (r) => r.mapTl && r.mapTl[k] && r.mapTl[k].first], [`map: ${k}, last answer (ms)`, (r) => r.mapTl && r.mapTl[k] && r.mapTl[k].last], [`map: ${k}, requests`, (r) => r.mapTl && r.mapTl[k] && r.mapTl[k].n]])),
   'first paint (ms)': (r) => r.fcp, 'page loaded (ms)': (r) => r.load, 'map drawn (ms)': (r) => r.mapLoaded, 'blocked before map (ms)': (r) => r.tbtToMap,
   'download (KB)': (r) => r.kbTotal, 'requests': (r) => r.requests, 'Wikipedia requests': (r) => r.wikipediaRequests,
 };
