@@ -5,6 +5,15 @@
 - Build with `python3 build/build.py --all` (index.html, pilot/index.html, sw.js and webs/ are built by CI and the deploy and are not committed; never hand-edit them). Test only the affected area while iterating; the full suite runs in CI before merging to main.
 - Merging to main and deleting branches or previews is the owner's call; ask first.
 
+## Keep the context small (do this first)
+Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
+- **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `pipeline/*.py`, `tests/`, `.github/workflows/`, `docs/`.
+- **Data (do not open; query one file or one key with a script):** `data/` (1,275 places, 25 MB), `data-auto/` (pilot, 278 places), `data/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `pipeline/reports/`, `pipeline/*.json`.
+- **Built or generated (never read or edit):** `index.html`, `pilot/index.html`, `sw.js`, `webs/`, `node_modules/`.
+- To answer a question about the data, run a short Python/`jq` command that prints only the counts or the few records needed; to see jobs and PRs use `bash pipeline/status.sh` or the issue "Project status".
+- Do not poll for job results in a loop in the main session; start a background wait and read only the final line.
+- Prefer a fresh session per topic. Update `docs/STATE.md` before ending one.
+
 ## Data jobs and workflows
 - Discuss the design before building a workflow or scheduled job. Run one job by hand first to judge quality and timing before choosing a schedule or order.
 - Heavy web pulls run as GitHub Actions jobs, not from the sandbox. Trigger them and leave them in the background; work on other things meanwhile. Dispatch jobs that share a concurrency group one at a time (a pending run is replaced by the next).
