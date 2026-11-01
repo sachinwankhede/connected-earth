@@ -14,6 +14,7 @@ const PROFILES = {
 };
 const NAV_PLACE = 'yellowstone', NAV_TIMEOUT = 90000;
 const RETURNING = arg('returning', '1') !== '0';
+const NAV = arg('nav', '1') !== '0';   // --nav 0 skips the route-readiness measurements (used by the A/B comparison, which does not need them)
 const median = (a) => { a = a.filter((x) => x != null).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : null; };
 const percentile = (a, p) => {
   a = a.filter((x) => x != null).sort((x, y) => x - y);
@@ -371,8 +372,9 @@ function summarize(runs) {
     swFetchStatuses: Object.fromEntries([...new Set(rv.map((x) => x.swFetchStatus))].map((st) => [String(st), count((x) => x.swFetchStatus === st)])),
     swFetchBytesP50: percentile(col('swFetchBytes'), 0.5),
     // the worker asks the server to re-check the page; a 304 reaches Playwright as a 200 with an empty body, so an empty body means re-checked only
-    swRechecked: count((x) => x.swFetchStatus === 304 || x.swFetchBytes === 0),
-    swDownloaded: count((x) => x.swFetchBytes > 0),
+    // (observed on the live site: about 150 bytes, which is far too small to be the page, so the cut-off is 10 KB rather than zero)
+    swRechecked: count((x) => x.swFetchStatus === 304 || (x.swFetchBytes != null && x.swFetchBytes < 10000)),
+    swDownloaded: count((x) => x.swFetchBytes != null && x.swFetchBytes >= 10000),
   };
   return s;
 }
@@ -387,7 +389,7 @@ for (const name of Object.keys(PROFILES)) {
   for (let i = 0; i < RUNS; i++) {
     try {
       const run = await oneRun(browser, name);
-      run.navigation = await navigationMeasurements(browser, name);
+      run.navigation = NAV ? await navigationMeasurements(browser, name) : { place: {}, web: {} };
       if (RETURNING) {
         try { run.returning = await returningVisit(browser, name); } catch (e) { console.error(name, 'run', i, 'returning visit failed:', e.message); }
       }
@@ -429,7 +431,7 @@ for (const name of Object.keys(PROFILES)) {
     const rt = s.returning;
     md += `\n### Returning visit, service worker on (observational)\n\n`;
     md += `A first visit installs the service worker and fills its caches; a second page in the same browser context is then timed. Throttling is attached to the page, so requests made by the service worker itself may not be slowed: read the document line below to see whether the page was downloaded again or only re-checked. Not compared with history and never raises a warning.\n\n`;
-    md += `Samples: ${rt.samples}; service worker ready: ${rt.swReady}; page controlled by the worker on the second visit: ${rt.controlled}. Page document: status ${Object.entries(rt.docStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; answered by the worker: ${rt.docFromSW}. The worker's own network fetch of the document: re-checked only (empty body or 304): ${rt.swRechecked}; downloaded again (body bytes on the wire): ${rt.swDownloaded}; status ${Object.entries(rt.swFetchStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; body bytes (p50): ${fmt(rt.swFetchBytesP50)}. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.\n\n`;
+    md += `Samples: ${rt.samples}; service worker ready: ${rt.swReady}; page controlled by the worker on the second visit: ${rt.controlled}. Page document: status ${Object.entries(rt.docStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; answered by the worker: ${rt.docFromSW}. The worker's own network fetch of the document: re-checked only (304, or under 10 KB on the wire): ${rt.swRechecked}; downloaded again (10 KB or more): ${rt.swDownloaded}; status ${Object.entries(rt.swFetchStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; body bytes (p50): ${fmt(rt.swFetchBytesP50)}. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.\n\n`;
     md += `| Metric | p50 (ms) | p95 (ms) |\n|---|---:|---:|\n`;
     for (const [k, label] of [['fcp', 'First contentful paint'], ['domInteractive', 'DOM interactive'], ['load', 'Load event'], ['mapLoaded', 'Map loaded'], ['blockingMs', 'Blocking time before map loaded']]) md += `| ${label} | ${fmt(rt.metrics[k].p50)} | ${fmt(rt.metrics[k].p95)} |\n`;
   }
