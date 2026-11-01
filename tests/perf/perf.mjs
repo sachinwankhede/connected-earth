@@ -13,6 +13,7 @@ const PROFILES = {
   desktop: { viewport: { width: 1280, height: 800 }, cpu: 1, net: null },
 };
 const NAV_PLACE = 'yellowstone', NAV_TIMEOUT = 90000;
+const RETURNING = arg('returning', '1') !== '0';
 const median = (a) => { a = a.filter((x) => x != null).sort((x, y) => x - y); return a.length ? a[Math.floor(a.length / 2)] : null; };
 const percentile = (a, p) => {
   a = a.filter((x) => x != null).sort((x, y) => x - y);
@@ -267,6 +268,57 @@ async function oneRun(browser, name) {
   return r;
 }
 
+// Returning visit: the first visit installs the service worker and fills its caches; the second visit (a new page in the same browser context)
+// is what a person who opens the app again sees. Observational only. Playwright's CDP throttling is attached to the page, so requests made by the
+// service worker itself may not be slowed; the document request is therefore also recorded (status, served by the worker or not, bytes on the wire),
+// so the report shows whether the page was re-downloaded or only re-checked.
+async function returningVisit(browser, name) {
+  const prof = PROFILES[name];
+  const ctx = await browser.newContext({ viewport: prof.viewport });
+  const origin = new URL(URL_).origin;
+  let docs = [];
+  ctx.on('response', async (res) => {
+    try {
+      const rq = res.request();
+      const u = new URL(rq.url());
+      if (u.origin !== origin || !(rq.resourceType() === 'document' || u.pathname.endsWith('/') || u.pathname.endsWith('.html'))) return;
+      const sz = await rq.sizes();
+      docs.push({ status: res.status(), fromSW: res.fromServiceWorker(), bodyBytes: sz.responseBodySize });
+    } catch (e) {}
+  });
+  const throttle = async (p) => {
+    const c = await ctx.newCDPSession(p);
+    await c.send('Network.enable');
+    if (prof.cpu > 1) await c.send('Emulation.setCPUThrottlingRate', { rate: prof.cpu });
+    if (prof.net) await c.send('Network.emulateNetworkConditions', prof.net);
+  };
+  const first = await ctx.newPage();
+  await throttle(first);
+  await first.goto(URL_, { waitUntil: 'load', timeout: 120000 });
+  const swReady = await first.evaluate(() => (navigator.serviceWorker ? Promise.race([navigator.serviceWorker.ready.then(() => true), new Promise((r) => setTimeout(() => r(false), 20000))]) : false));
+  await first.waitForTimeout(4000);
+  await first.close();
+  docs = [];
+  const p = await ctx.newPage();
+  await p.addInitScript(INIT);
+  await throttle(p);
+  await p.goto(URL_, { waitUntil: 'load', timeout: 120000 });
+  try { await p.waitForFunction(() => window.__p && window.__p.mapLoaded, null, { timeout: MAP_WAIT }); } catch (e) {}
+  await p.waitForTimeout(1500);
+  const m = await p.evaluate(() => {
+    const n = performance.getEntriesByType('navigation')[0], f = performance.getEntriesByName('first-contentful-paint')[0];
+    const ml = window.__p.mapLoaded;
+    return {
+      fcp: f && f.startTime, domInteractive: n.domInteractive, load: n.loadEventEnd, mapLoaded: ml,
+      blockingMs: window.__p.lt.filter(([s]) => ml == null || s < ml).reduce((a, [, d]) => a + Math.max(0, d - 50), 0),
+      controlled: !!(navigator.serviceWorker && navigator.serviceWorker.controller),
+    };
+  });
+  const doc = docs[0] || null;
+  await ctx.close();
+  return { ...m, swReady, docStatus: doc && doc.status, docFromSW: doc && doc.fromSW, docBodyBytes: doc && doc.bodyBytes };
+}
+
 const FLAT = {
   'first paint (ms)': (r) => r.fcp, 'page loaded (ms)': (r) => r.load, 'map drawn (ms)': (r) => r.mapLoaded, 'blocked before map (ms)': (r) => r.tbtToMap,
   'download (KB)': (r) => r.kbTotal, 'requests': (r) => r.requests, 'Wikipedia requests': (r) => r.wikipediaRequests,
@@ -299,6 +351,18 @@ function summarize(runs) {
     }));
   }
   s.initialLoad = summarizeInitialStages(runs, RUNS);
+  const rv = runs.map((r) => r.returning).filter(Boolean);
+  const col = (k) => rv.map((x) => x[k]).filter(Number.isFinite);
+  const count = (f) => rv.filter(f).length;
+  s.returning = {
+    samples: rv.length,
+    controlled: count((x) => x.controlled),
+    swReady: count((x) => x.swReady),
+    metrics: Object.fromEntries(['fcp', 'domInteractive', 'load', 'mapLoaded', 'blockingMs'].map((k) => [k, { p50: percentile(col(k), 0.5), p95: percentile(col(k), 0.95) }])),
+    docStatuses: Object.fromEntries([...new Set(rv.map((x) => x.docStatus))].map((st) => [String(st), count((x) => x.docStatus === st)])),
+    docFromSW: count((x) => x.docFromSW),
+    docBodyBytesP50: percentile(col('docBodyBytes'), 0.5),
+  };
   return s;
 }
 
@@ -313,6 +377,9 @@ for (const name of Object.keys(PROFILES)) {
     try {
       const run = await oneRun(browser, name);
       run.navigation = await navigationMeasurements(browser, name);
+      if (RETURNING) {
+        try { run.returning = await returningVisit(browser, name); } catch (e) { console.error(name, 'run', i, 'returning visit failed:', e.message); }
+      }
       rs.push(run);
     } catch (e) { console.error(name, 'run', i, 'failed:', e.message); }
   }
@@ -330,7 +397,7 @@ for (const name of Object.keys(PROFILES)) {
   const s = result[name];
   md += `\n## ${name}\n\n| Metric | Now | Previous | Change |\n|---|---|---|---|\n`;
   for (const [k, v] of Object.entries(s)) {
-    if (k === 'hosts' || k === 'navigation' || k === 'navigationResources' || k === 'initialLoad') continue;
+    if (k === 'hosts' || k === 'navigation' || k === 'navigationResources' || k === 'initialLoad' || k === 'returning') continue;
     const pv = prev && prev[name] && prev[name][k]; const d = v != null && pv ? (v - pv) / pv : null;
     const lowerIsBetter = true; const flag = d != null && d > 0.15 && v - pv > 20 ? ' ⚠' : '';
     md += `| ${k} | ${fmt(v)} | ${fmt(pv)} | ${d == null ? '' : (d > 0 ? '+' : '') + Math.round(d * 100) + '%'}${flag} |\n`;
@@ -347,6 +414,14 @@ for (const name of Object.keys(PROFILES)) {
   const lt = s.initialLoad.longTasks;
   if (!s.initialLoad.completedRuns) md += `No run finished.\n\n`;
   md += `\nLong tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): ${lt.samples} samples, ${lt.failures} failures. Count p50/p95 ${fmt(lt.count.p50)}/${fmt(lt.count.p95)}; total duration ${fmt(lt.durationMs.p50)}/${fmt(lt.durationMs.p95)} ms; blocking time over 50 ms ${fmt(lt.blockingMs.p50)}/${fmt(lt.blockingMs.p95)} ms.\n`;
+  if (RETURNING) {
+    const rt = s.returning;
+    md += `\n### Returning visit, service worker on (observational)\n\n`;
+    md += `A first visit installs the service worker and fills its caches; a second page in the same browser context is then timed. Throttling is attached to the page, so requests made by the service worker itself may not be slowed: read the document line below to see whether the page was downloaded again or only re-checked. Not compared with history and never raises a warning.\n\n`;
+    md += `Samples: ${rt.samples}; service worker ready: ${rt.swReady}; page controlled by the worker on the second visit: ${rt.controlled}. Document request: status ${Object.entries(rt.docStatuses).map(([st, n]) => `${st} x${n}`).join(', ') || 'n/a'}; answered by the worker: ${rt.docFromSW}; body bytes on the wire (p50): ${fmt(rt.docBodyBytesP50)}.\n\n`;
+    md += `| Metric | p50 (ms) | p95 (ms) |\n|---|---:|---:|\n`;
+    for (const [k, label] of [['fcp', 'First contentful paint'], ['domInteractive', 'DOM interactive'], ['load', 'Load event'], ['mapLoaded', 'Map loaded'], ['blockingMs', 'Blocking time before map loaded']]) md += `| ${label} | ${fmt(rt.metrics[k].p50)} | ${fmt(rt.metrics[k].p95)} |\n`;
+  }
   md += `\n### Navigation readiness (observational)\n\n`;
   md += `Cold open is the first route after loading the base page in a fresh browser context; warm open returns to the map and reopens the route in that same context, allowing app-level data reuse. Service workers are blocked. Place readiness requires its visible heading and food-web nodes; food-web readiness requires a visible graph with nodes and a hidden loading indicator. Species selection is measured from a synthetic node click to the selected-node state. These p50/p95 values are not compared with history or used to raise regression warnings.\n\n`;
   md += `| Route phase | Ready samples | p50 (ms) | p95 (ms) |\n|---|---:|---:|---:|\n`;
