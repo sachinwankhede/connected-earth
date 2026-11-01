@@ -1,4 +1,4 @@
-# Site speed, 2026-11-01 03:06 UTC
+# Site speed, 2026-11-01 15:13 UTC
 
 https://sachinwankhede.github.io/connected-earth/  
 Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Results depend on the runner and network used for this URL. A mark ⚠ means more than 15% worse than the previous run.
@@ -7,33 +7,33 @@ Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. De
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| first paint (ms) | 468 | 425 | +10% |
-| page loaded (ms) | 5893 | 5483 | +7% |
-| map drawn (ms) | 7632 | 7273 | +5% |
-| blocked before map (ms) | 1688 | 1740 | -3% |
-| download (KB) | 1205 | 1143 | +5% |
+| first paint (ms) | 423 | 468 | -10% |
+| page loaded (ms) | 6023 | 5893 | +2% |
+| map drawn (ms) | 7388 | 7632 | -3% |
+| blocked before map (ms) | 1273 | 1688 | -25% |
+| download (KB) | 1206 | 1205 | +0% |
 | requests | 24 | 24 | 0% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 148 | 142 | +4% |
-| tap: filter on blocked (ms) | 151 | 131 | +15% |
-| tap: filter off (ms) | 145 | 133 | +9% |
-| tap: filter off blocked (ms) | 146 | 134 | +9% |
-| tap: state parks on (ms) | 445 | 482 | -8% |
-| tap: state parks on blocked (ms) | 155 | 112 | +38% ⚠ |
-| tap: state parks off (ms) | 192 | 179 | +7% |
-| tap: state parks off blocked (ms) | 131 | 97 | +35% ⚠ |
-| tap: open place (ms) | 41 | 39 | +5% |
-| tap: open place blocked (ms) | 39 | 51 | -24% |
-| tap: back from place (ms) | 294 | 302 | -3% |
-| tap: back from place blocked (ms) | 260 | 228 | +14% |
-| tap: journeys tab (ms) | 48 | 43 | +12% |
+| tap: filter on (ms) | 133 | 148 | -10% |
+| tap: filter on blocked (ms) | 72 | 151 | -52% |
+| tap: filter off (ms) | 129 | 145 | -11% |
+| tap: filter off blocked (ms) | 53 | 146 | -64% |
+| tap: state parks on (ms) | 411 | 445 | -8% |
+| tap: state parks on blocked (ms) | 95 | 155 | -39% |
+| tap: state parks off (ms) | 167 | 192 | -13% |
+| tap: state parks off blocked (ms) | 63 | 131 | -52% |
+| tap: open place (ms) | 33 | 41 | -20% |
+| tap: open place blocked (ms) | 26 | 39 | -33% |
+| tap: back from place (ms) | 264 | 294 | -10% |
+| tap: back from place blocked (ms) | 145 | 260 | -44% |
+| tap: journeys tab (ms) | 40 | 48 | -17% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 286 | 285 | +0% |
-| tap: open journey blocked (ms) | 6 | 2 | +200% |
-| tap: back from journey (ms) | 282 | 274 | +3% |
-| tap: back from journey blocked (ms) | 183 | 184 | -1% |
+| tap: open journey (ms) | 233 | 286 | -19% |
+| tap: open journey blocked (ms) | 0 | 6 | -100% |
+| tap: back from journey (ms) | 241 | 282 | -15% |
+| tap: back from journey blocked (ms) | 111 | 183 | -39% |
 
-By host: sachinwankhede.github.io 21 req / 1447 KB; server.arcgisonline.com 28 req / 132 KB; fonts.gstatic.com 6 req / 130 KB; thumb.wikimedia.org 12 req / 79 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
+By host: sachinwankhede.github.io 22 req / 1449 KB; server.arcgisonline.com 28 req / 132 KB; fonts.gstatic.com 6 req / 130 KB; thumb.wikimedia.org 12 req / 79 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -43,20 +43,20 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 5305 | 5438 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 5305 | 5438 | Navigation Timing |
-| Load event | 5 | 0 | 5893 | 6132 | Navigation Timing |
-| First contentful paint | 5 | 0 | 468 | 585 | Paint Timing |
-| App data ready | 5 | 0 | 5300 | 5568 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 5301 | 5568 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 5301 | 5568 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 5877 | 6038 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 7632 | 7684 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 7631 | 7684 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 8088 | 8138 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 8109 | 8162 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 5166 | 5529 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 5167 | 5529 | Navigation Timing |
+| Load event | 5 | 0 | 6023 | 6142 | Navigation Timing |
+| First contentful paint | 5 | 0 | 423 | 737 | Paint Timing |
+| App data ready | 5 | 0 | 5161 | 5524 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 5161 | 5524 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 5161 | 5524 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 5692 | 6123 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 7388 | 7753 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 7388 | 7753 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 7841 | 8219 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 7862 | 8236 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 25/26; total duration 2981/3023 ms; blocking time over 50 ms 1688/1763 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 14/15; total duration 1976/2094 ms; blocking time over 50 ms 1273/1346 ms.
 
 ### Navigation readiness (observational)
 
@@ -64,11 +64,11 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 340 | 343 |
-| place warm open | 5 | 213 | 220 |
-| food-web cold open | 5 | 465 | 469 |
-| food-web warm open | 5 | 345 | 359 |
-| species selection | 5 | 180 | 184 |
+| place cold open | 5 | 313 | 326 |
+| place warm open | 5 | 176 | 221 |
+| food-web cold open | 5 | 416 | 419 |
+| food-web warm open | 5 | 204 | 217 |
+| species selection | 5 | 163 | 203 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
@@ -84,33 +84,33 @@ Median resources observed during each phase (requests / KB reported by Resource 
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| first paint (ms) | 247 | 179 | +38% ⚠ |
-| page loaded (ms) | 663 | 598 | +11% |
-| map drawn (ms) | 1809 | 1706 | +6% |
-| blocked before map (ms) | 802 | 790 | +2% |
-| download (KB) | 2781 | 2719 | +2% |
+| first paint (ms) | 125 | 247 | -49% |
+| page loaded (ms) | 508 | 663 | -23% |
+| map drawn (ms) | 1445 | 1809 | -20% |
+| blocked before map (ms) | 571 | 802 | -29% |
+| download (KB) | 2782 | 2781 | +0% |
 | requests | 67 | 67 | 0% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 137 | 129 | +6% |
-| tap: filter on blocked (ms) | 412 | 368 | +12% |
-| tap: filter off (ms) | 146 | 140 | +4% |
-| tap: filter off blocked (ms) | 401 | 365 | +10% |
-| tap: state parks on (ms) | 327 | 339 | -4% |
-| tap: state parks on blocked (ms) | 334 | 300 | +11% |
-| tap: state parks off (ms) | 224 | 212 | +6% |
-| tap: state parks off blocked (ms) | 316 | 259 | +22% ⚠ |
-| tap: open place (ms) | 15 | 13 | +15% |
+| tap: filter on (ms) | 111 | 137 | -19% |
+| tap: filter on blocked (ms) | 251 | 412 | -39% |
+| tap: filter off (ms) | 117 | 146 | -20% |
+| tap: filter off blocked (ms) | 245 | 401 | -39% |
+| tap: state parks on (ms) | 277 | 327 | -15% |
+| tap: state parks on blocked (ms) | 214 | 334 | -36% |
+| tap: state parks off (ms) | 177 | 224 | -21% |
+| tap: state parks off blocked (ms) | 176 | 316 | -44% |
+| tap: open place (ms) | 14 | 15 | -7% |
 | tap: open place blocked (ms) | 0 | 0 |  |
-| tap: back from place (ms) | 297 | 291 | +2% |
-| tap: back from place blocked (ms) | 472 | 386 | +22% ⚠ |
-| tap: journeys tab (ms) | 16 | 13 | +23% |
+| tap: back from place (ms) | 243 | 297 | -18% |
+| tap: back from place blocked (ms) | 288 | 472 | -39% |
+| tap: journeys tab (ms) | 12 | 16 | -25% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 79 | 72 | +10% |
+| tap: open journey (ms) | 62 | 79 | -22% |
 | tap: open journey blocked (ms) | 0 | 0 |  |
-| tap: back from journey (ms) | 260 | 249 | +4% |
-| tap: back from journey blocked (ms) | 410 | 358 | +15% |
+| tap: back from journey (ms) | 205 | 260 | -21% |
+| tap: back from journey blocked (ms) | 296 | 410 | -28% |
 
-By host: sachinwankhede.github.io 147 req / 3805 KB; thumb.wikimedia.org 46 req / 348 KB; fonts.gstatic.com 14 req / 185 KB; server.arcgisonline.com 40 req / 175 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
+By host: sachinwankhede.github.io 148 req / 3807 KB; thumb.wikimedia.org 46 req / 348 KB; fonts.gstatic.com 14 req / 185 KB; server.arcgisonline.com 40 req / 175 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -120,20 +120,20 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 662 | 688 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 662 | 688 | Navigation Timing |
-| Load event | 5 | 0 | 663 | 689 | Navigation Timing |
-| First contentful paint | 5 | 0 | 247 | 287 | Paint Timing |
-| App data ready | 5 | 0 | 553 | 583 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 553 | 583 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 553 | 583 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 658 | 681 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 1809 | 1833 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 1809 | 1833 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 1829 | 1875 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 1855 | 1899 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 507 | 516 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 507 | 516 | Navigation Timing |
+| Load event | 5 | 0 | 508 | 517 | Navigation Timing |
+| First contentful paint | 5 | 0 | 125 | 165 | Paint Timing |
+| App data ready | 5 | 0 | 419 | 431 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 419 | 431 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 419 | 431 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 465 | 484 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 1445 | 1482 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 1445 | 1482 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 1469 | 1496 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 1482 | 1522 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 11/11; total duration 1352/1370 ms; blocking time over 50 ms 802/820 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 10/11; total duration 1071/1122 ms; blocking time over 50 ms 571/582 ms.
 
 ### Navigation readiness (observational)
 
@@ -141,11 +141,11 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 56 | 58 |
-| place warm open | 5 | 64 | 166 |
-| food-web cold open | 5 | 100 | 102 |
-| food-web warm open | 5 | 195 | 290 |
-| species selection | 5 | 228 | 230 |
+| place cold open | 5 | 42 | 43 |
+| place warm open | 5 | 56 | 132 |
+| food-web cold open | 5 | 72 | 79 |
+| food-web warm open | 5 | 176 | 178 |
+| species selection | 5 | 176 | 192 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
