@@ -6,7 +6,7 @@ echo "== Items (open issues; closed means done)"
 for st in waiting-owner doing idea; do
   case $st in waiting-owner) h="WAITING ON YOU";; doing) h="DOING";; idea) h="NOT STARTED";; esac
   echo "-- $h"
-  gh api "repos/$R/issues?state=open&labels=status:$st&per_page=100" --jq '.[]|select(.pull_request|not)|"  #\(.number) [\([.labels[].name|select(startswith("theme:"))|sub("theme:";"")]|join(","))] \(.title)  | refs: \([.body|scan("#[0-9]+")]|unique|join(" "))"'
+  gh api "repos/$R/issues?state=open&labels=status:$st&per_page=100" --jq '.[]|select(.pull_request|not)|"* \(.title)  [\([.labels[].name|select(startswith("theme:"))|sub("theme:";"")]|join(","))]  (#\(.number))\n" + ([.body // ""|split("\n")[]|select(test("^\\*\\*(What I need from you|Status|Running now|Done|Next|Expected gain):"))|"    "+gsub("\\*\\*";"")]|join("\n"))'
 done
 echo; echo "-- DONE (closed, last 8)"
 gh api "repos/$R/issues?state=closed&per_page=8&sort=updated" --jq '.[]|select(.pull_request|not)|select([.labels[].name|startswith("theme:")]|any)|"  #\(.number) \(.title)"'
