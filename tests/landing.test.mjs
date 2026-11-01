@@ -135,6 +135,31 @@ test('phone: a soft fade at the bottom of the open sheet says the list continues
   await b.close();
 });
 
+test('phone: sheet fade coalesces repeated scroll and resize measurements into one frame', async () => {
+  const b = await H.launch();
+  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const measurements = await t.page.evaluate(async () => {
+    const sb = document.getElementById('sbody');
+    let proto = sb;
+    while (proto && !Object.getOwnPropertyDescriptor(proto, 'scrollHeight')) proto = Object.getPrototypeOf(proto);
+    const getScrollHeight = Object.getOwnPropertyDescriptor(proto, 'scrollHeight').get;
+    let count = 0;
+    Object.defineProperty(sb, 'scrollHeight', {
+      configurable: true,
+      get() { count++; return getScrollHeight.call(this); },
+    });
+    for (let i = 0; i < 20; i++) {
+      sb.dispatchEvent(new Event('scroll'));
+      window.dispatchEvent(new Event('resize'));
+    }
+    await new Promise(requestAnimationFrame);
+    return count;
+  });
+  assert.equal(measurements, 1, 'repeated triggers in one frame should read scrollHeight once');
+  assert.deepEqual(t.errors, []);
+  await b.close();
+});
+
 test('phone: tabs come first in the open sheet; the title row only appears for a region, with its count; collapsed home keeps its title', async () => {
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
