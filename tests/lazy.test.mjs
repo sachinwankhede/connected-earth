@@ -22,11 +22,11 @@ describe('places load on demand', () => {
 
   async function open(size, hash, { failWebs = false } = {}) {
     const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
-    const errors = [], webs = [];
+    const errors = [], webs = [], index = [];
     page.on('pageerror', (x) => errors.push(String(x)));
     const state = { fail: failWebs };
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-    await page.route(/\/webs\//, (r) => { webs.push(r.request().url().split('/webs/')[1]); return state.fail ? r.abort() : r.continue(); });
+    await page.route(/\/webs\//, (r) => { const f = r.request().url().split('/webs/')[1]; (f === 'species-index.json' ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(1500);
