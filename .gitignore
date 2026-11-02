@@ -8,3 +8,4 @@ sw.js
 webs/
 maplibre-gl-*.js
 geo-states.json
+d3-*.js

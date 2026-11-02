@@ -19,6 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const url = await H.urlFor(H.MAIN);
     await p.goto(url + hash);
     await p.waitForTimeout(700);
+    await p.evaluate(() => window.__M && window.__M.loadD3 && window.__M.loadD3()); await p.waitForFunction(() => window.d3, null, { timeout: 30000 }).catch(() => {});
     return { b, p, errors, url };
   }
   const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('jview').hidden, map: !document.getElementById('mapview').hidden, web: !document.getElementById('webview').hidden, hash: location.hash, title: (document.querySelector('#jview h2') || {}).textContent }));

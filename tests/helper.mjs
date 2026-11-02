@@ -82,6 +82,8 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   await page.goto((await urlFor(file)) + hash);
   if (hash) await page.reload();
   await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
+  await page.evaluate(() => window.__M && window.__M.loadD3 && window.__M.loadD3());   // the diagram library is its own file: have it ready before the test opens a food web or journey
+  await page.waitForFunction(() => window.d3, null, { timeout: 30000 }).catch(() => {});
   await page.waitForTimeout(500);
   if (extraCss) await page.addStyleTag({ content: extraCss });
   return { ctx, page, errors, close: () => ctx.close() };

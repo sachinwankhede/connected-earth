@@ -31,6 +31,9 @@
   var done = function () { var f = window.__mapReady; window.__mapReady = null; window.__mapLib = 1; if (f) f(); };
   var sc = document.createElement("script"); sc.async = true; sc.src = b + "maplibre-gl-__MLVER__.js"; sc.onload = done; sc.onerror = done;
   document.head.appendChild(sc);
+  if (/[#&](e|j)=/.test(location.hash)) {   /* a link straight to a food web or journey needs the diagram library: ask for it now, in parallel with the page */
+    var d = document.createElement("script"); d.async = true; d.setAttribute("data-d3", "1"); d.src = b + "d3-__D3VER__.js"; document.head.appendChild(d);
+  }
 })();
 </script>
 <style>
@@ -1141,7 +1144,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 </div>
 
 <style>/*__MLCSS__*/</style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script>__PHOTO_REGISTRY__</script>
 <script>
 (function () {
@@ -1322,8 +1324,8 @@ rect.core { stroke-dasharray: 3 2.5; }
   };
   var stage = document.getElementById("stage");
   var panel = document.getElementById("panel");
-  var svg = d3.select("#svg");
-  var W = 1120, H = 560, PAD = 70, cur = d3.zoomIdentity, userMoved = false, pendingFit = true;
+  var svg;   /* the diagram library (D3) is its own file, loaded when a food web or journey map is first needed: see initWeb() */
+  var W = 1120, H = 560, PAD = 70, cur = null, userMoved = false, pendingFit = true;
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function updateStats() {
@@ -1341,25 +1343,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function rowY(tl) { var top = 64, bot = H - 64, lo = state.env ? 0 : 1; return top + (4 - tl) / (4 - lo) * (bot - top); }
 
   /* ---------- Graph scaffolding ---------- */
-  var defs = svg.append("defs");
-  ["arr", "arr-on"].forEach(function (id) {
-    defs.append("marker").attr("id", id).attr("viewBox", "0 0 8 8").attr("refX", 7).attr("refY", 4)
-      .attr("markerWidth", 7).attr("markerHeight", 7).attr("markerUnits", "userSpaceOnUse").attr("orient", "auto")
-      .append("path").attr("d", "M0,0.5 L7.5,4 L0,7.5 z").attr("class", "arrowhead" + (id === "arr-on" ? " on" : ""));
-  });
-  var guideG = svg.append("g").attr("class", "guides");
-  var guide = guideG.selectAll("g").data([4, 3, 2, 1, 0]).join("g");
-  guide.append("line");
-  guide.append("text").text(function (d) { return ({ 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" })[d]; });
-  var root = svg.append("g").attr("class", "root");
-  var edgeG = root.append("g");
-  var nodeG = root.append("g");
-  var edge = null, node = null;
+  var defs, guideG, guide, root, edgeG, nodeG, edge = null, node = null;
 
-  var drag = d3.drag()
-    .on("start", function (ev, d) { if (!ev.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
-    .on("drag", function (ev, d) { d.fx = ev.x; d.fy = ev.y; })
-    .on("end", function (ev, d) { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; });
+  var drag;
 
   function build() {
     edgeG.selectAll("*").remove();
@@ -1414,7 +1400,51 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
 
   /* ---------- Forces ---------- */
-  var sim = d3.forceSimulation()
+  var sim = { stop: function () {}, alpha: function () { return { restart: function () {} }; } };   /* stands in until the library has arrived */
+  var LAYOUT_CACHE = Object.create(null), LAYOUT_CACHE_ORDER = [], activeLayoutKey = null, cacheAfterResize = false;
+  /* the diagram library is not in the page: it arrives as d3-__D3VER__.js (about 280 KB) when a food web or journey map is first opened, or in the quiet time after the map */
+  var D3Q = [], D3S = 0;
+  function loadD3() {
+    if (window.d3 || D3S) return;
+    D3S = 1;
+    var early = document.querySelector("script[data-d3]");
+    if (early) {   /* already asked for in the page head */
+      early.addEventListener("load", function () { D3S = 2; var q = D3Q; D3Q = []; q.forEach(function (f) { f(); }); });
+      early.addEventListener("error", function () { D3S = 0; var q = D3Q; D3Q = []; q.forEach(function (f) { f(false); }); });
+      return;
+    }
+    var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+    var sc = document.createElement("script"); sc.async = true; sc.src = b + "d3-__D3VER__.js";
+    sc.onload = function () { D3S = 2; var q = D3Q; D3Q = []; q.forEach(function (f) { f(); }); };
+    sc.onerror = function () { D3S = 0; var q = D3Q; D3Q = []; q.forEach(function (f) { f(false); }); };
+    document.head.appendChild(sc);
+  }
+  var WEBINIT = false;
+  function withD3(cb) {
+    if (window.d3) { if (!WEBINIT) { WEBINIT = true; initWeb(); } cb(true); return; }
+    D3Q.push(function (ok) { if (ok === false) { cb(false); return; } withD3(cb); });
+    loadD3();
+  }
+  function initWeb() {
+    svg = d3.select("#svg"); cur = d3.zoomIdentity;
+  defs = svg.append("defs");
+  ["arr", "arr-on"].forEach(function (id) {
+    defs.append("marker").attr("id", id).attr("viewBox", "0 0 8 8").attr("refX", 7).attr("refY", 4)
+      .attr("markerWidth", 7).attr("markerHeight", 7).attr("markerUnits", "userSpaceOnUse").attr("orient", "auto")
+      .append("path").attr("d", "M0,0.5 L7.5,4 L0,7.5 z").attr("class", "arrowhead" + (id === "arr-on" ? " on" : ""));
+  });
+  guideG = svg.append("g").attr("class", "guides");
+  guide = guideG.selectAll("g").data([4, 3, 2, 1, 0]).join("g");
+  guide.append("line");
+  guide.append("text").text(function (d) { return ({ 4: "Top predators", 3: "Hunters & scavengers", 2: "Plant-eaters", 1: "Plants", 0: "Environment" })[d]; });
+  root = svg.append("g").attr("class", "root");
+  edgeG = root.append("g");
+  nodeG = root.append("g");
+  drag = d3.drag()
+    .on("start", function (ev, d) { if (!ev.active) sim.alphaTarget(0.25).restart(); d.fx = d.x; d.fy = d.y; })
+    .on("drag", function (ev, d) { d.fx = ev.x; d.fy = ev.y; })
+    .on("end", function (ev, d) { if (!ev.active) sim.alphaTarget(0); d.fx = null; d.fy = null; });
+  sim = d3.forceSimulation()
     .force("link", d3.forceLink().id(function (d) { return d.id; }))
     .force("charge", d3.forceManyBody())
     .force("collide", d3.forceCollide())
@@ -1435,7 +1465,15 @@ rect.core { stroke-dasharray: 3 2.5; }
       }
     });
   sim.stop();
-  var LAYOUT_CACHE = Object.create(null), LAYOUT_CACHE_ORDER = [], activeLayoutKey = null, cacheAfterResize = false;
+  zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) {
+    cur = ev.transform;
+    root.attr("transform", cur);
+    if (ev.sourceEvent) { userMoved = true; document.getElementById("webctl").classList.add("moved"); }
+    drawGuides();
+  });
+  svg.call(zoom).on("dblclick.zoom", null);
+  svg.on("click", function () { clearSel(); });
+  }
   function layoutKey(id) {
     return JSON.stringify([
       id, PH, state.mode, state.env, W, H, stage.clientWidth, stage.clientHeight,
@@ -1473,14 +1511,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
 
   /* ---------- Zoom and fit ---------- */
-  var zoom = d3.zoom().scaleExtent([0.3, 3]).on("zoom", function (ev) {
-    cur = ev.transform;
-    root.attr("transform", cur);
-    if (ev.sourceEvent) { userMoved = true; document.getElementById("webctl").classList.add("moved"); }
-    drawGuides();
-  });
-  svg.call(zoom).on("dblclick.zoom", null);
-  svg.on("click", function () { clearSel(); });
+  var zoom;
 
   function drawGuides() {
     var w = stage.clientWidth;
@@ -3117,6 +3148,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function showJourney(id, from) {
     var c = jbyId(id); if (!c) return;
+    if (!window.d3) { withD3(function (ok) { if (ok) showJourney(id, from); }); return; }   /* the journey map is drawn with D3: wait for the library */
     var sb = document.getElementById("sbody"); if (el.webview.hidden && !el.mapview.hidden && sb) M.jScroll = sb.scrollTop;
     M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1; PV.hidden = true; M.pid = null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
@@ -3314,8 +3346,13 @@ rect.core { stroke-dasharray: 3 2.5; }
     fetchWeb(id).then(function (ok) {
       if (M.loading !== id) return;
       if (!ok) { wl.hidden = false; wl.textContent = "This place could not be loaded. Check your connection and try again."; wl.classList.add("err"); return; }
-      M.loading = null; wl.hidden = true;
-      loadEco(id); syncHash(); if (then) then();
+      if (!window.d3) { wl.hidden = false; wl.textContent = "Loading\u2026"; }
+      withD3(function (okd) {
+        if (M.loading !== id) return;
+        if (!okd) { wl.hidden = false; wl.textContent = "This place could not be loaded. Check your connection and try again."; wl.classList.add("err"); return; }
+        M.loading = null; wl.hidden = true;
+        loadEco(id); syncHash(); if (then) then();
+      });
     });
     syncHash();
   }
@@ -3336,9 +3373,11 @@ rect.core { stroke-dasharray: 3 2.5; }
   /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
   M.photoGo = false; var HELD = [];
+  M.loadD3 = loadD3;   /* the tests start the library download by hand */
   M.releasePhotos = function () {
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
+    setTimeout(loadD3, 4500);   /* the diagram library follows the map, so the first food web opens at once */
     setTimeout(ensureStates, 4000);   /* the US state outlines follow the map too */
     setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
