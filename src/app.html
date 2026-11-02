@@ -3286,6 +3286,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function showPlace(id, from) {
     if (!ECO_BY[id]) return;
+    loadD3();   /* a place page usually leads into its food web: start the diagram library now */
     M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
     PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
@@ -3377,7 +3378,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   M.releasePhotos = function () {
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
-    setTimeout(loadD3, 4500);   /* the diagram library follows the map, so the first food web opens at once */
+    setTimeout(loadD3, 2000);   /* the diagram library follows the map, so the first food web opens at once */
     setTimeout(ensureStates, 4000);   /* the US state outlines follow the map too */
     setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
