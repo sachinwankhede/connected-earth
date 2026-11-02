@@ -13,5 +13,6 @@ for i in $(seq 1 "$RUNS"); do
     echo "run $i side $s ($URL)"
     node tests/perf/perf.mjs --url "$URL" --runs 1 --nav "${NAV:-0}" --out "$OUT/$s/run-$i.json" --md "$OUT/$s/run-$i.md" > "$OUT/$s/run-$i.log" 2>&1 \
       || echo "  run $i side $s failed; see $OUT/$s/run-$i.log"
+    grep -A40 "^PICTURES" "$OUT/$s/run-$i.log" | sed "s/^/  [$s] /" || true
   done
 done
