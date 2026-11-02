@@ -2358,21 +2358,23 @@ rect.core { stroke-dasharray: 3 2.5; }
   var EMPTY = { type: "FeatureCollection", features: [] };
   var LK = {}; CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { LK[en.eco] = 1; }); });
   var DOT = window.matchMedia && matchMedia("(pointer: coarse)").matches ? 6.5 : 4.5;
-  function satStyle() {
+  function satStyle(deferLabels) {
     var lab = { "text-font": ["Noto Sans Bold"] }, pnt = { "text-color": "#ffffff", "text-halo-color": "rgba(0,0,0,0.7)", "text-halo-width": 1.5 }, nm = ["coalesce", ["get", "name:latin"], ["get", "name"]];
     function pl(id, cls, minz, maxz, size, extra) { var l = { id: id, type: "symbol", source: "openmaptiles", "source-layer": "place", filter: ["in", ["get", "class"], ["literal", cls]], minzoom: minz, layout: { "text-field": nm, "text-font": lab["text-font"], "text-size": size }, paint: pnt }; if (maxz) l.maxzoom = maxz; if (extra) for (var k in extra) l.layout[k] = extra[k]; return l; }
+    var L = [pl("sat-country", ["country"], 1, 6, 12, { "text-transform": "uppercase", "text-letter-spacing": 0.12 }),
+      pl("sat-state", ["state"], 4, 8, 11, { "text-transform": "uppercase", "text-letter-spacing": 0.08 }),
+      pl("sat-city", ["city"], 3, 0, ["interpolate", ["linear"], ["zoom"], 3, 11, 10, 16]),
+      pl("sat-town", ["town"], 7, 0, 12),
+      pl("sat-village", ["village", "suburb"], 10, 0, 11)];
+    M.satLabelLayers = L;
     return { version: 8, name: "satellite", glyphs: GLYPHS, sources: {
       sat: { type: "raster", tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" },
       openmaptiles: { type: "vector", url: "https://tiles.openfreemap.org/planet" } },
     layers: [
       { id: "sat", type: "raster", source: "sat" },
       { id: "park", type: "fill", source: "openmaptiles", "source-layer": "park", paint: { "fill-color": "#000000", "fill-opacity": 0 } },
-      { id: "sat-state-line", type: "line", source: "openmaptiles", "source-layer": "boundary", minzoom: 3, filter: ["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1], ["!=", ["get", "disputed"], 1]], layout: { "line-join": "round" }, paint: { "line-color": "#ffffff", "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.35, 6, 0.7], "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.6, 8, 1.4], "line-dasharray": [4, 2.5] } },
-      pl("sat-country", ["country"], 1, 6, 12, { "text-transform": "uppercase", "text-letter-spacing": 0.12 }),
-      pl("sat-state", ["state"], 4, 8, 11, { "text-transform": "uppercase", "text-letter-spacing": 0.08 }),
-      pl("sat-city", ["city"], 3, 0, ["interpolate", ["linear"], ["zoom"], 3, 11, 10, 16]),
-      pl("sat-town", ["town"], 7, 0, 12),
-      pl("sat-village", ["village", "suburb"], 10, 0, 11)] };
+      { id: "sat-state-line", type: "line", source: "openmaptiles", "source-layer": "boundary", minzoom: 3, filter: ["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1], ["!=", ["get", "disputed"], 1]], layout: { "line-join": "round" }, paint: { "line-color": "#ffffff", "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.35, 6, 0.7], "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.6, 8, 1.4], "line-dasharray": [4, 2.5] } }
+    ].concat(deferLabels ? [{ id: "sat-label-slot", type: "symbol", source: "openmaptiles", "source-layer": "place", filter: ["==", ["get", "class"], "__none__"] }] : L) };   /* the slot holds the place where the labels will go: our own layers are placed relative to it */
   }
   function sheetMode() { return window.matchMedia && matchMedia("(max-width: 700px)").matches; }
   function stubStyle() { return { version: 8, name: "plain", sources: {}, glyphs: GLYPHS, layers: [{ id: "bg", type: "background", paint: { "background-color": cssv("--sea-a", "#cfe6f4") } }] }; }
@@ -2830,7 +2832,15 @@ rect.core { stroke-dasharray: 3 2.5; }
   function initMap() {
     var box = document.getElementById("map");
     if (!window.maplibregl) { box.innerHTML = '<p class="fine" style="padding:16px">The map library did not load. The ecosystem cards below still work.</p>'; return; }
-    var m = M.map = new maplibregl.Map({ container: "map", style: M.stub ? stubStyle() : M.mode === "satellite" ? satStyle() : STYLES[M.mode], center: [10, 25], zoom: 1.2, minZoom: 0.6, maxZoom: 17, renderWorldCopies: false, maxPitch: 75, fadeDuration: 120, attributionControl: { compact: true } });
+    var m = M.map = new maplibregl.Map({ container: "map", style: M.stub ? stubStyle() : M.mode === "satellite" ? satStyle(true) : STYLES[M.mode], center: [10, 25], zoom: 1.2, minZoom: 0.6, maxZoom: 17, renderWorldCopies: false, maxPitch: 75, fadeDuration: 120, attributionControl: { compact: true } });
+    if (!M.stub && M.mode === "satellite") {   /* the satellite draws first; the place names (and their font file) follow, so they do not hold up the first draw */
+      var addLabels = function () {
+        if (!M.satLabelLayers || !m.getLayer("sat") || m.getLayer("sat-country")) return;
+        var before = m.getLayer("sat-label-slot") ? "sat-label-slot" : undefined;
+        M.satLabelLayers.forEach(function (l) { m.addLayer(l, before); });
+      };
+      m.once("idle", addLabels); setTimeout(addLabels, 8000);
+    }
     setTimeout(function () { var at = document.querySelector(".maplibregl-ctrl-attrib"); if (at) at.classList.remove("maplibregl-compact-show"); }, 600);
     (function () {
       var bt = document.getElementById("boot");
