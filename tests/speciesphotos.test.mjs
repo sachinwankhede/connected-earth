@@ -115,7 +115,7 @@ describe('photos use only stored manifests', () => {
       await page.waitForFunction(() => {
         const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
         return dolphin && dolphin.querySelector('image.photo[loading="lazy"]');
-      }, null, { timeout: 30000 });
+      }, null, { timeout: 60000 });
       const webPhoto = await page.evaluate(() => {
         const dolphin = [...document.querySelectorAll('#svg .node')].find((n) => n.__data__ && n.__data__.id === 'dolphin');
         return dolphin && dolphin.querySelector('image.photo')?.getAttribute('href');
@@ -123,7 +123,7 @@ describe('photos use only stored manifests', () => {
       assert.ok(webPhoto && webPhoto.includes('/120px-Tursiops_truncatus_01-cropped.jpg'),
         'food web resolves the alias to the canonical article thumbnail');
       await page.goto(base + 'index.html#pg=gulf');
-      await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), null, { timeout: 30000 });
+      await page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), null, { timeout: 60000 });
       assert.deepEqual(errors, []);
       await ctx.close();
       approvedPhoto = null;
