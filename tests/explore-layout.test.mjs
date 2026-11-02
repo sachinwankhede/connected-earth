@@ -16,6 +16,11 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const t = await H.open(browser, H.MAIN, size, { hash: '#stub' });
     const p = t.page;
     await p.route('**/photos/species.json', (route) => route.fulfill({ contentType: 'application/json', body: '{}' }));
+    await p.route(/\/webs\/[\w-]+\.json(?:\?|$)/, async (route) => {   // no pictures: a place also carries its own picture entries now
+      if (/(about|species-index)\.json/.test(route.request().url())) return route.fallback();
+      const res = await route.fetch(), w = await res.json(); w.ph = {}; w.phm = {};
+      return route.fulfill({ response: res, body: JSON.stringify(w) });
+    });
     const openWeb = async (id) => {
       await p.evaluate((ecoId) => { location.hash = '#stub&e=' + ecoId; }, id);
       await p.waitForFunction(() => {
