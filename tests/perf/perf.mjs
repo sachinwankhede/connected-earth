@@ -166,9 +166,13 @@ async function navigationScenario(browser, name, kind) {
       const pics = await p.evaluate(() => {
         const start = window.__perfNavStart, e = performance.getEntriesByType('resource').filter((x) => x.startTime >= start && /thumb\.wikimedia|upload\.wikimedia|\/photos\//.test(x.name));
         if (!e.length) return null;
+        // one line per picture so a slow place page can be explained: waiting to start, connection setup, wait for first byte, download, size
+        window.__picRows = e.sort((a, b) => a.startTime - b.startTime).map((x) => [x.name.replace(/^https:\/\//, '').slice(0, 70), Math.round(x.startTime - start), Math.round(x.connectEnd - x.connectStart), Math.round(x.responseStart - x.requestStart), Math.round(x.responseEnd - x.responseStart), Math.round(x.transferSize / 100) / 10, x.nextHopProtocol].join(' | '));
         const kb = e.reduce((a, x) => a + x.transferSize, 0) / 1000;
         return { first: Math.min(...e.map((x) => x.responseEnd)) - start, last: Math.max(...e.map((x) => x.responseEnd)) - start, n: e.length, kb };
       });
+      const rows = await p.evaluate(() => window.__picRows || []);
+      if (rows.length) console.log('PICTURES (url | started ms after tap | connect ms | wait ms | download ms | KB | protocol)\n' + rows.join('\n'));
       if (pics) { firstPicture = { readyMs: pics.first, resources: {} }; pictures = { readyMs: pics.last, resources: { pictures: { requests: pics.n, kb: pics.kb } } }; }
     }
     speciesSelection = isPlace ? null : await measuredSpeciesSelection(p);
