@@ -29,3 +29,21 @@ Rules:
 3. **Short, stable addresses** (by id or hash), not long Wikimedia paths repeated twice per entry.
 4. **Global lists are only for search or review jobs,** never read to open a place.
 5. The photo jobs keep one writer per file and open pull requests that the owner merges.
+
+## Data contract: a static API (added 2026-11-02, item #241)
+Principle: everything the app shows comes from data we host. The app reads it through **one data-access module**, never by fetching files from scattered places in the code. The only external reads left are the base map (vector tiles, satellite imagery, elevation) and the links to Wikipedia pages that people open themselves. No runtime lookups of text or pictures from Wikipedia or Wikimedia.
+
+The site is static, so each "API" is a file with a fixed shape. If a server is ever needed, only the module changes.
+
+| Call | Static file | Notes |
+|---|---|---|
+| Manifest | `api/manifest.json` | version and content hash of every file below; the app and service worker use it to know what changed |
+| List places | `api/places/index-<region>.json` | id, name, position, kind, region, tier, flags; one file per continent (more shards when needed); paged cards come from `api/places/cards-<region>.json` |
+| Get place | `api/places/<id>.json` | food web, story, why it matters, sources, and the picture entries of its own species |
+| List species | `api/species/index.json` | id, names, group; paged files when large |
+| Get species | `api/species/<id>.json` | description, picture entry, which places have it |
+| Search | `api/search.json` | names and search words for places and species; searched in the browser; a server endpoint could replace it |
+| Related places | in Get place | neighbours precomputed by the build, not computed in the browser |
+| Pictures | `img/species/<hash>.webp`, packed per place | our own copies with credit and licence (item #238) |
+
+Rules: ids are stable and short; files are versioned by the manifest; each file has one writer job; the service worker caches by manifest hash. Filters that the file layout cannot answer (for example kind and country together) are done in the browser over the loaded index.
