@@ -13,6 +13,8 @@ import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import species
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
+from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)
 
 
@@ -157,6 +159,8 @@ def build(pilot, out_path, write=False):
     phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
     src_ph = json.load(open(phf)) if os.path.exists(phf) else {}
     phm_all = json.load(open(phmf)) if os.path.exists(phmf) else {}
+    for _c in phm_all.values():
+        if isinstance(_c, dict) and _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
     hf = P('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}

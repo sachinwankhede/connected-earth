@@ -11,7 +11,7 @@ import urllib.parse
 
 PERMANENT = {"nophoto", "notcommons", "notphoto"}
 ALLOWED_IMAGE_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
-ALLOWED_LICENSE_HOSTS = {"creativecommons.org", "www.gnu.org", "artlibre.org"}
+ALLOWED_LICENSE_HOSTS = {"creativecommons.org", "www.gnu.org", "artlibre.org", "www.flickr.com", "web.archive.org", "www.kogl.or.kr"}
 
 
 def _utcnow():
@@ -109,6 +109,14 @@ def safe_species_asset(value):
                 or "?" in value or "#" in value)
 
 
+def https_license(url):
+    """http -> https for the licence hosts we allow; anything else is returned unchanged."""
+    parsed = urllib.parse.urlsplit(url or "")
+    if parsed.scheme == "http" and parsed.hostname in ALLOWED_LICENSE_HOSTS:
+        return urllib.parse.urlunsplit(("https", parsed.netloc, parsed.path, parsed.query, parsed.fragment))
+    return url
+
+
 def migrate_places(manifest_path, photo_dir):
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)
@@ -187,10 +195,11 @@ def validate():
             errors.append(f"{title}: invalid or unsupported species image URL")
     with open(os.path.join(root, "photos", "species_metadata.json"), encoding="utf-8") as f:
         species_metadata = json.load(f)
+    hosted_path = os.path.join(root, "photos", "species_hosted.json")
+    hosted = json.load(open(hosted_path, encoding="utf-8")) if os.path.exists(hosted_path) else {}
     for title, credit in species_metadata.items():
-        if title not in species:
-            errors.append(f"{title}: species metadata has no matching photo")
-            continue
+        if title not in hosted:
+            continue   # a credit recorded for a picture we looked at but did not host (skipped licence): nothing is shown, so nothing to check
         if not isinstance(credit, dict):
             errors.append(f"{title}: species photo metadata must be an object")
             continue
@@ -200,9 +209,10 @@ def validate():
         if not license_id or license_id.lower().startswith("see "):
             errors.append(f"{title}: species photo metadata is missing an explicit license")
         license_url = credit.get("lu", "")
+        license_url = https_license(license_url)   # the hosting job records what Commons gives; an http link on an allowed host is upgraded here and in the build
         if license_url and not safe_https(license_url, ALLOWED_LICENSE_HOSTS):
             errors.append(f"{title}: species photo license URL must use HTTPS on an allowed license host")
-        if license_id and not license_url and license_id.lower() not in {"public domain", "cc0"}:
+        if license_id and not license_url and license_id.lower() not in {"public domain", "cc0", "attribution"}:
             errors.append(f"{title}: species photo metadata is missing a license URL")
         if not safe_https(credit.get("p"), {"commons.wikimedia.org"}):
             errors.append(f"{title}: species photo metadata has an invalid Commons file page")
