@@ -39,6 +39,9 @@ def main():
         for t in batch:
             f = files.get(t); em = info.get((f or '').replace(' ', '_'))
             lic = strip((em or {}).get('LicenseShortName', {}).get('value'))
+            if em:   # credits are recorded for every picture looked up, hosted or not
+                meta[t] = {'a': strip(em.get('Artist', {}).get('value')) or 'Unknown', 'l': lic or 'unknown', 'lu': strip(em.get('LicenseUrl', {}).get('value')),
+                           'p': 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(f)}
             if not em or not FREE.match(lic): skipped[t] = lic or 'no licence found'; continue
             raw = wm.get(BASE + man[t][0], raw=True)
             if not raw: skipped[t] = 'download failed'; continue
@@ -48,8 +51,6 @@ def main():
             except Exception as e:
                 skipped[t] = 'bad image'; continue
             hosted[t] = name
-            meta[t] = {'a': strip(em.get('Artist', {}).get('value')) or 'Unknown', 'l': lic, 'lu': strip(em.get('LicenseUrl', {}).get('value')),
-                       'p': 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(f)}
         for p, d in ((HOSTED, hosted), (META, meta), (SKIPPED, skipped)): json.dump(d, open(p, 'w'), indent=0, sort_keys=True)
         print('done', min(i + 50, len(todo)), 'hosted', len(hosted), 'skipped', len(skipped), flush=True)
 if __name__ == '__main__': main()
