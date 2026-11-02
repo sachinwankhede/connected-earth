@@ -3364,6 +3364,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
   M.photoGo = false; var HELD = [];
+  M.loadD3 = loadD3;   /* the tests start the library download by hand */
   M.releasePhotos = function () {
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
