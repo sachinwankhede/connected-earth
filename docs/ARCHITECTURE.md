@@ -47,3 +47,13 @@ The site is static, so each "API" is a file with a fixed shape. If a server is e
 | Pictures | `img/species/<hash>.webp`, packed per place | our own copies with credit and licence (item #238) |
 
 Rules: ids are stable and short; files are versioned by the manifest; each file has one writer job; the service worker caches by manifest hash. Filters that the file layout cannot answer (for example kind and country together) are done in the browser over the loaded index.
+
+## Compute at build, read at runtime (added 2026-11-02)
+Rule: nothing that can be worked out ahead of time is worked out on the phone. The build (or a job) computes it, writes it as data, and the app only reads and draws. Runtime search, scans over every place, and layout simulations are the things to remove.
+To precompute, in order of cost on the open path:
+1. Food-web layouts: node positions stored per place (##259).
+2. Search: a ready-made word index (##260).
+3. Region, kind and park lists with counts (##261).
+4. Related places (#252), species counts and link counts (#258), badges and rankings (##262).
+5. Journeys per place (##263) and species to places (#253).
+The app then needs no scan of all places and no simulation to show a screen.
