@@ -3322,6 +3322,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
     setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
+    setTimeout(function () { withSpeciesPhotos(function () {}); }, 3000);   /* the species picture list (174 KB) is fetched in the quiet time after the map, so a place page finds it already here and its pictures start at once */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
   var wp = M.wantPhoto = function (e) {
