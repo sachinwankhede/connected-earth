@@ -12,7 +12,7 @@ from build.data_quality import report
 class DataQualityReportTest(unittest.TestCase):
     def test_report_counts_metadata_outlines_and_unresolved_endpoints(self):
         with tempfile.TemporaryDirectory() as root:
-            for directory in ("photos/places", "photos", "data/outlines", "data"):
+            for directory in ("photos/places", "photos", "data/outlines", "data/places", "data/journeys"):
                 os.makedirs(os.path.join(root, directory), exist_ok=True)
 
             valid_photo = {
@@ -29,7 +29,7 @@ class DataQualityReportTest(unittest.TestCase):
                 "Incomplete": {"a": "Unknown", "sha256": 5},
             })
             self.write_json(root, "photos/species.json", {"Legacy species": ["image.jpg", "Species"]})
-            self.write_json(root, "data/links.json", {
+            self.write_json(root, "data/journeys/links.json", {
                 "order": ["eco1", "eco2"],
                 "cross": [
                     {"id": "resolved", "ends": [
@@ -42,8 +42,8 @@ class DataQualityReportTest(unittest.TestCase):
                     ]},
                 ],
             })
-            self.write_json(root, "data/eco1.json", {"nodes": [{"id": "hare"}]})
-            self.write_json(root, "data/eco2.json", {"nodes": [{"id": "fox"}]})
+            self.write_json(root, "data/places/eco1.json", {"nodes": [{"id": "hare"}]})
+            self.write_json(root, "data/places/eco2.json", {"nodes": [{"id": "fox"}]})
             with open(os.path.join(root, "data/outlines/eco1.json"), "w", encoding="utf-8") as outline:
                 outline.write("{}")
 

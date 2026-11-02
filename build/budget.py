@@ -2,7 +2,7 @@
 """budget.py: fail if the built pages or data grow past agreed sizes (bytes, uncompressed). Raise a limit on purpose, in this file."""
 import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species.json': 4_000_000}
+LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species/species.json': 4_000_000}
 WEB_MAX = 250_000      # one place's web file
 ABOUT_MAX = 1_000_000   # webs/about.json: the species descriptions, fetched once on the first species sheet
 WEBS_TOTAL = 25_000_000       # fetched one at a time, so only the deploy size grows

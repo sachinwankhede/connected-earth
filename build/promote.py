@@ -31,10 +31,10 @@ for i in ids:
 cands.sort(key=lambda c:(-c[0],c[1]))
 for n,(score,i,p,name) in enumerate(cands):
     if MAX and n>=MAX: held.append((name,['kept in the pilot to stay inside the size budget'])); continue
-    subprocess.run(['git','mv',p,os.path.join(ROOT,'data',i+'.json')],check=True,cwd=ROOT); moved.append(name); movedids.append(i)
+    subprocess.run(['git','mv',p,os.path.join(ROOT,'data','places',i+'.json')],check=True,cwd=ROOT); moved.append(name); movedids.append(i)
 order=[x for x in order if x not in movedids]
 json.dump([x for x in order if os.path.exists(os.path.join(ROOT,'data-auto',x+'.json'))],open(os.path.join(ROOT,'data-auto/order.json'),'w'))
-L=os.path.join(ROOT,'data','links.json'); lk=json.load(open(L))
+L=os.path.join(ROOT,'data','journeys','links.json'); lk=json.load(open(L))
 for i in movedids:
     if i not in lk['order']: lk['order'].append(i)
 json.dump(lk,open(L,'w'),indent=1,ensure_ascii=False)

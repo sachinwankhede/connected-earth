@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
 import fs from 'node:fs';
-const sums = JSON.parse(fs.readFileSync(new URL('../data/places/summaries.json', import.meta.url), 'utf8'));
+const sums = JSON.parse(fs.readFileSync(new URL('../data/text/summaries.json', import.meta.url), 'utf8'));
 // the same rule build.py uses: the park's first Wikipedia source names the article
 const summaryOf = (e) => { const s = (e.sources || []).find((x) => /^Wikipedia:/.test(x.title)), m = s && /wikipedia\.org\/wiki\/([^#?]+)/.exec(s.url || ''); return (m && sums[decodeURIComponent(m[1]).replace(/_/g, ' ')]) || ''; };
 const places = H.readPlaces(true).map((e) => ({ ...e, summary: summaryOf(e) }));
@@ -23,7 +23,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     return { b, r, errors };
   }
   test(`${name}: a park with a summary shows it as plain text, under the picture, with no story lead-in`, async () => {
-    if (!Object.keys(sums).length) return;   // nothing fetched yet (the data-about job fills data/places/summaries.json)
+    if (!Object.keys(sums).length) return;   // nothing fetched yet (the data-about job fills data/text/summaries.json)
     assert.ok(withSummary.length > 0, 'some parks have a summary');
     for (const e of [withSummary[0], withSummary[withSummary.length - 1]]) {
       const { b, r, errors } = await show(e.id);

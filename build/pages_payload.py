@@ -80,7 +80,7 @@ def main():
         if icon['src'] not in expected:
             raise SystemExit('missing manifest icon: ' + icon['src'])
 
-    links = json.loads((ROOT / 'data/links.json').read_text())
+    links = json.loads((ROOT / 'data/journeys/links.json').read_text())
     web_ids = set(links['order'])
     web_ids.update(json.loads((ROOT / 'data-auto/order.json').read_text()))
     missing_webs = sorted(web_id for web_id in web_ids if 'webs/' + web_id + '.json' not in expected)

@@ -15,7 +15,7 @@ def km(a, b, c, d):
     return 12742 * math.asin(math.sqrt(x))
 
 def load():
-    tab = json.load(open(os.path.join(ROOT, 'data', 'species.json')))
+    tab = json.load(open(os.path.join(ROOT, 'data', 'species', 'species.json')))
     places = []
     for d in ('data', 'data-auto'):
         for f in sorted(glob.glob(os.path.join(ROOT, d, '*.json'))):
@@ -23,7 +23,7 @@ def load():
             try: e = json.load(open(f))
             except Exception: continue
             if isinstance(e, dict) and e.get('nodes'): places.append(e)
-    links = json.load(open(os.path.join(ROOT, 'data', 'links.json')))
+    links = json.load(open(os.path.join(ROOT, 'data', 'journeys', 'links.json')))
     return tab, places, links
 
 def species_level(r):
