@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
-const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../photos/species.json', import.meta.url), 'utf8'));
+const approvedSpeciesPhotos = JSON.parse(fs.readFileSync(new URL('../../photos/species.json', import.meta.url), 'utf8'));
 const testImage = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGP4DwQACfsD/fteaysAAAAASUVORK5CYII=', 'base64');
 
 // Missing photo entries keep the app's existing icons; listed entries use smaller approved thumbnail variants.

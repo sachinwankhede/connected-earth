@@ -5,10 +5,10 @@
   "description": "Connected Earth: a map of food webs",
   "scripts": {
     "build": "python3 build/build.py --all",
-    "validate": "python3 build/validate.py $(ls data/*.json data-auto/*.json | grep -v -e order.json -e links.json -e species.json -e bounds.json)",
-    "test": "node --test --test-concurrency=2 tests/*.test.mjs",
+    "validate": "python3 build/validate.py $(ls data/places/*.json data-auto/*.json | grep -v -e order.json)",
+    "test": "node --test --test-concurrency=2 tests/app/*.test.mjs",
     "budget": "python3 build/budget.py",
-    "test:quick": "node --test --test-concurrency=2 tests/smoke.test.mjs tests/sheet.test.mjs tests/home.test.mjs tests/filters.test.mjs"
+    "test:quick": "node --test --test-concurrency=2 tests/app/smoke.test.mjs tests/app/sheet.test.mjs tests/app/home.test.mjs tests/app/filters.test.mjs"
   },
   "dependencies": {
     "d3": "7.9.0",

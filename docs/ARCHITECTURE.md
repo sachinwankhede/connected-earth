@@ -69,3 +69,6 @@ Nothing the build reads may live in the jobs folder.
 
 ## No web reads at run time (owner rule, 2 Nov)
 The app reads everything it shows from data we host. The only accepted outside reads are the base map tiles (and the map style and fonts they need). There is no fallback to another site when our copy is missing: a missing species picture shows the placeholder, and a data check fails the pull request when a listed picture has no hosted file or credit. A browser test (item below #238) fails on any other outside request.
+
+## Tests and CI by kind of change (added 2026-11-02, items #269 and #272)
+Tests live in `tests/app/` (browser and app code), `tests/data/` (data files, no browser), `tests/jobs/` (job scripts and the CI rules) and `tests/perf/` (speed harness). `build/ci_changes.py` decides what a change needs: app changes run everything; data changes run validation, the pack check, build, size budgets, data tests and one smoke test; job changes run only the job self-tests; docs, notes, data-job workflows and job state files run nothing. The `gate` job always runs and is the one check to require.

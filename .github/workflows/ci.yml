@@ -1,28 +1,39 @@
 name: checks
-# The browser tests are skipped when a change only touches files that cannot affect the app
-# (the data-job workflows, the status workflow, the data-job scripts in jobs/ (py and sh) and build/state.py and promote*.py, docs, notes and the state queue). Changes to this file still run them.
+# Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
+#   app  (src, build, app tests, fonts, package files, this file...): everything, including the browser tests.
+#   data (data, data-auto, photos, data tests): validation, pack check, build, size budgets, data tests and one smoke test.
+#   jobs (job scripts, lib, job tests, state/promote tools): the job self-tests only.
+#   docs, notes, the data-job workflows and job state files run nothing.
+# The "gate" job always runs and passes when every job that was needed passed, so it is the one check to require.
 on:
   push:
     branches: [main]
-    paths-ignore: &quiet
-      - ".github/workflows/data-*.yml"
-      - "docs/**"
-      - "CLAUDE.md"
-      - "README.md"
-      - "jobs/state_queue.txt"
-      - "jobs/*.py"
-      - "jobs/*.sh"
-      - ".github/workflows/status.yml"
-      - "build/state.py"
-      - "build/promote.py"
-      - "build/promote_check.py"
   pull_request:
-    paths-ignore: *quiet
   workflow_dispatch:
 jobs:
-  check:
-    # The browser tests are split over three runners that work at the same time (node --test-shard); every PR still runs the whole suite.
-    name: check (${{ matrix.shard }}/3)
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.kinds.outputs.app }}
+      data: ${{ steps.kinds.outputs.data }}
+      jobs: ${{ steps.kinds.outputs.jobs }}
+    steps:
+      - uses: actions/checkout@v5
+        with: { fetch-depth: 0 }
+      - id: kinds
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            printf 'app=true\ndata=true\njobs=true\n' | tee -a "$GITHUB_OUTPUT"
+          else
+            git fetch -q origin main
+            git diff --name-only origin/main...HEAD | python3 build/ci_changes.py | tee -a "$GITHUB_OUTPUT"
+          fi
+
+  app:
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
+    # The browser tests are split over three runners that work at the same time (node --test-shard).
+    name: app (${{ matrix.shard }}/3)
     runs-on: ubuntu-latest
     timeout-minutes: 40
     strategy:
@@ -44,15 +55,6 @@ jobs:
           git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Validate photo sources and metadata
         run: python3 lib/photo_registry.py validate
-      - name: Informational data-quality summary
-        if: matrix.shard == 1
-        continue-on-error: true
-        run: python3 build/data_quality.py >> "$GITHUB_STEP_SUMMARY"
-      - name: Photo registry pipeline tests
-        run: python3 tests/photo_registry_test.py
-      - name: Data-quality summary tests
-        if: matrix.shard == 1
-        run: python3 tests/data_quality_test.py
       - name: Build the pages (index.html, pilot, sw.js and webs are built here, not committed)
         run: npm run build
       - name: Size budget
@@ -61,7 +63,7 @@ jobs:
       - name: Browser tests
         run: |
           set +e
-          node --test --test-concurrency=2 --test-timeout=300000 --test-shard=${{ matrix.shard }}/3 tests/*.test.mjs > test.log 2>&1
+          node --test --test-concurrency=2 --test-timeout=300000 --test-shard=${{ matrix.shard }}/3 tests/app/*.test.mjs > test.log 2>&1
           code=$?
           if [ $code -ne 0 ]; then
             grep -h "panel missing" test.log | head -2 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
@@ -71,3 +73,69 @@ jobs:
           exit $code
         env:
           CI: "1"
+
+  data:
+    needs: changes
+    if: needs.changes.outputs.data == 'true' && needs.changes.outputs.app != 'true'
+    name: data
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Validate auto-generated data
+        run: |
+          python3 build/validate.py $(ls data/places/*.json data-auto/*.json | grep -v -e order.json) | tee validate.log
+          ! grep -q "ERROR" validate.log
+      - name: Shared species table is current
+        run: |
+          python3 build/species.py pack
+          git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
+      - name: Validate photo sources and metadata
+        run: python3 lib/photo_registry.py validate
+      - name: Informational data-quality summary
+        continue-on-error: true
+        run: python3 build/data_quality.py >> "$GITHUB_STEP_SUMMARY"
+      - name: Data tests
+        run: |
+          python3 tests/data/data_quality_test.py
+          node --test tests/data/*.test.mjs
+      - name: Build the pages
+        run: npm run build
+      - name: Size budget
+        run: python3 build/budget.py
+      - run: npx playwright install --with-deps chromium
+      - name: One smoke test (the app still opens with this data)
+        run: node --test --test-timeout=300000 tests/app/smoke.test.mjs
+        env:
+          CI: "1"
+
+  jobs:
+    needs: changes
+    if: needs.changes.outputs.jobs == 'true'
+    name: jobs
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Job self-tests
+        run: |
+          python3 tests/jobs/photo_registry_test.py
+          python3 tests/jobs/ci_changes_test.py
+          python3 -m unittest tests/jobs/sync_test.py
+          node --test tests/jobs/*.test.mjs
+
+  gate:
+    # Always runs. Passes when every needed job passed (skipped jobs were not needed).
+    if: always()
+    needs: [changes, app, data, jobs]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every needed job passed
+        run: |
+          echo '${{ toJSON(needs) }}' | python3 -c "import json,sys; n=json.load(sys.stdin); bad={k:v['result'] for k,v in n.items() if v['result'] in ('failure','cancelled')}; print(bad or 'ok'); sys.exit(1 if bad else 0)"

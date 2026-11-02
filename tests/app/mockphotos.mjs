@@ -2,8 +2,8 @@
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import { readPlaces } from './helper.mjs';
-const speciesManifest = JSON.parse(fs.readFileSync(new URL('../photos/species.json', import.meta.url), 'utf8'));
-const placeManifest = JSON.parse(fs.readFileSync(new URL('../photos/places/places.json', import.meta.url), 'utf8'));
+const speciesManifest = JSON.parse(fs.readFileSync(new URL('../../photos/species.json', import.meta.url), 'utf8'));
+const placeManifest = JSON.parse(fs.readFileSync(new URL('../../photos/places/places.json', import.meta.url), 'utf8'));
 const speciesTitles = new Set(readPlaces(true).flatMap((e) => e.nodes.map((n) => n.wiki).filter(Boolean)));
 function crc(buf) { let c, crcT = []; for (let n = 0; n < 256; n++) { c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; crcT[n] = c >>> 0; } let x = 0xffffffff; for (const b of buf) x = crcT[(x ^ b) & 0xff] ^ (x >>> 8); return (x ^ 0xffffffff) >>> 0; }
 function chunk(t, d) { const len = Buffer.alloc(4); len.writeUInt32BE(d.length); const td = Buffer.concat([Buffer.from(t), d]); const c = Buffer.alloc(4); c.writeUInt32BE(crc(td)); return Buffer.concat([len, td, c]); }

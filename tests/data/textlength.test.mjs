@@ -7,7 +7,7 @@ const MAX = { story: 60, matters: 40 };
 const words = (t) => String(t || '').trim().split(/\s+/).filter(Boolean).length;
 
 test('place story and why-it-matters texts stay within the word limits', () => {
-  const dirs = ['../data/places/', '../data-auto/'];
+  const dirs = ['../../data/places/', '../../data-auto/'];
   const over = [];
   let checked = 0;
   for (const d of dirs) {
@@ -28,7 +28,7 @@ test('place story and why-it-matters texts stay within the word limits', () => {
 });
 
 test('place summaries are one short sentence about the place, never a disambiguation page', () => {
-  const sums = JSON.parse(fs.readFileSync(new URL('../data/text/summaries.json', import.meta.url), 'utf8'));
+  const sums = JSON.parse(fs.readFileSync(new URL('../../data/text/summaries.json', import.meta.url), 'utf8'));
   const bad = /may refer to|can refer to|could refer to|share the common name|is a common name that|:\s*$|\(/;
   const over = Object.entries(sums).filter(([, t]) => t && (words(t) > 40 || bad.test(t))).map(([k, t]) => `${k}: ${t.slice(0, 60)}`);
   assert.deepEqual(over, []);

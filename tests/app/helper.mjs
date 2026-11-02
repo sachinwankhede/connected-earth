@@ -7,7 +7,7 @@ import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const MAIN = path.join(ROOT, 'index.html');
 export const PILOT = path.join(ROOT, 'pilot', 'index.html');
 // The app fetches its place files with fetch(). Newer Chromium builds (as on CI) refuse fetch() on file:// pages,
