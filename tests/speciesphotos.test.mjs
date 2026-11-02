@@ -26,6 +26,16 @@ describe('photos use only stored manifests', () => {
       }
       if (u.endsWith('/photos/species_metadata.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }
+      if (/\/webs\/[\w-]+\.json$/.test(u) && !/(about|species-index)\.json$/.test(u) && fs.existsSync(path.join(H.ROOT, u))) {
+        // a place carries its own species picture entries: give it the entries this test wants (the same ones the old global manifest held)
+        const w = JSON.parse(fs.readFileSync(path.join(H.ROOT, u), 'utf8'));
+        const entry = directAsset
+          ? ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page']
+          : approvedPhoto || ['9/99/Test.jpg/330px-Test.jpg', 'Test_page'];
+        const titles = Array.isArray(title) ? title : title ? [title] : [];
+        w.ph = Object.fromEntries(titles.map((t) => [t, entry])); w.phm = {};
+        r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
+      }
       let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
       if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
       r.writeHead(200, { 'Content-Type': f.endsWith('.html') ? 'text/html; charset=utf-8' : f.endsWith('.json') ? 'application/json' : 'application/octet-stream' }); r.end(fs.readFileSync(f));

@@ -55,7 +55,7 @@ HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out 
 UNUSED = ('link_ideas',)   # in the source data but never read by the app
 
 
-def split(ecos, links):
+def split(ecos, links, phs=None, phm=None):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json.
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
@@ -73,6 +73,10 @@ def split(ecos, links):
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only: they go with the species lists, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: they go to webs/species-index.json, loaded after the map has drawn
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
+        if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
+            keys = {k for n in nodes for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
+            webs[e['id']]['ph'] = {k: phs[k] for k in sorted(keys) if k in phs}
+            webs[e['id']]['phm'] = {k: phm[k] for k in sorted(keys) if phm and k in phm}
         light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY + UNUSED} | {'idx': idx})
     return light, webs, spt, sidx, qs
 
@@ -141,7 +145,10 @@ def build(pilot, out_path, write=False):
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
-    light, webs, spt, sidx, qs = split(ecos, links)
+    phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
+    phs = json.load(open(phf)) if os.path.exists(phf) else None
+    phm = json.load(open(phmf)) if os.path.exists(phmf) else {}
+    light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs})
     data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
