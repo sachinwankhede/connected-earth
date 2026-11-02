@@ -69,7 +69,7 @@ def split(ecos, links, phs=None, phm=None):
     for e in ecos:
         nodes = e['nodes']
         s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
-        idx = {'ns': sum(1 for n in nodes if not n.get('cat')), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
+        idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only: they go with the species lists, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: they go to webs/species-index.json, loaded after the map has drawn
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
