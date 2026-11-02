@@ -1,6 +1,6 @@
 const V = "__BUILD__";
 const SHELL = "atlas-shell-" + V, RT = "atlas-rt";
-const SHELL_FILES = ["./", "./index.html", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
+const SHELL_FILES = ["./", "./index.html", "./maplibre-gl-__MLVER__.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 const RT_HOSTS = ["tiles.openfreemap.org", "server.arcgisonline.com", "s3.amazonaws.com", "upload.wikimedia.org", "thumb.wikimedia.org"];
 const RT_MAX = 1500;
 self.addEventListener("install", e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(SHELL_FILES)).then(() => self.skipWaiting())); });
