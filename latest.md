@@ -1,4 +1,4 @@
-# Site speed, 2026-11-01 19:47 UTC
+# Site speed, 2026-11-02 18:25 UTC
 
 https://sachinwankhede.github.io/connected-earth/  
 Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Results depend on the runner and network used for this URL. A mark ⚠ means more than 15% worse than the previous run.
@@ -7,33 +7,48 @@ Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. De
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| first paint (ms) | 428 | 412 | +4% |
-| page loaded (ms) | 5358 | 6170 | -13% |
-| map drawn (ms) | 6854 | 7653 | -10% |
-| blocked before map (ms) | 1691 | 1887 | -10% |
-| download (KB) | 1226 | 1206 | +2% |
-| requests | 25 | 24 | +4% |
+| map: map style and index, first request (ms) | 182 | n/a |  |
+| map: map style and index, last answer (ms) | 396 | n/a |  |
+| map: map style and index, requests | 1 | n/a |  |
+| map: vector tiles, first request (ms) | n/a | n/a |  |
+| map: vector tiles, last answer (ms) | n/a | n/a |  |
+| map: vector tiles, requests | n/a | n/a |  |
+| map: map glyphs, first request (ms) | 4032 | n/a |  |
+| map: map glyphs, last answer (ms) | 5068 | n/a |  |
+| map: map glyphs, requests | 1 | n/a |  |
+| map: satellite tiles, first request (ms) | 3617 | n/a |  |
+| map: satellite tiles, last answer (ms) | 4797 | n/a |  |
+| map: satellite tiles, requests | 12 | n/a |  |
+| map: terrain tiles, first request (ms) | n/a | n/a |  |
+| map: terrain tiles, last answer (ms) | n/a | n/a |  |
+| map: terrain tiles, requests | n/a | n/a |  |
+| first paint (ms) | 397 | 428 | -7% |
+| page loaded (ms) | 3576 | 5358 | -33% |
+| map drawn (ms) | 5451 | 6854 | -20% |
+| blocked before map (ms) | 719 | 1691 | -57% |
+| download (KB) | 1078 | 1226 | -12% |
+| requests | 26 | 25 | +4% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 159 | 155 | +3% |
-| tap: filter on blocked (ms) | 151 | 154 | -2% |
-| tap: filter off (ms) | 149 | 137 | +9% |
-| tap: filter off blocked (ms) | 141 | 150 | -6% |
-| tap: state parks on (ms) | 577 | 583 | -1% |
-| tap: state parks on blocked (ms) | 164 | 175 | -6% |
-| tap: state parks off (ms) | 262 | 218 | +20% ⚠ |
-| tap: state parks off blocked (ms) | 151 | 127 | +19% ⚠ |
-| tap: open place (ms) | 46 | 40 | +15% |
-| tap: open place blocked (ms) | 76 | 51 | +49% ⚠ |
-| tap: back from place (ms) | 338 | 309 | +9% |
-| tap: back from place blocked (ms) | 270 | 251 | +8% |
-| tap: journeys tab (ms) | 65 | 52 | +25% |
+| tap: filter on (ms) | 97 | 159 | -39% |
+| tap: filter on blocked (ms) | 18 | 151 | -88% |
+| tap: filter off (ms) | 96 | 149 | -36% |
+| tap: filter off blocked (ms) | 21 | 141 | -85% |
+| tap: state parks on (ms) | 114 | 577 | -80% |
+| tap: state parks on blocked (ms) | 33 | 164 | -80% |
+| tap: state parks off (ms) | 90 | 262 | -66% |
+| tap: state parks off blocked (ms) | 15 | 151 | -90% |
+| tap: open place (ms) | 29 | 46 | -37% |
+| tap: open place blocked (ms) | 39 | 76 | -49% |
+| tap: back from place (ms) | 235 | 338 | -30% |
+| tap: back from place blocked (ms) | 123 | 270 | -54% |
+| tap: journeys tab (ms) | 29 | 65 | -55% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 326 | 330 | -1% |
-| tap: open journey blocked (ms) | 8 | 6 | +33% |
-| tap: back from journey (ms) | 287 | 291 | -1% |
-| tap: back from journey blocked (ms) | 172 | 186 | -8% |
+| tap: open journey (ms) | 236 | 326 | -28% |
+| tap: open journey blocked (ms) | 0 | 8 | -100% |
+| tap: back from journey (ms) | 148 | 287 | -48% |
+| tap: back from journey blocked (ms) | 44 | 172 | -74% |
 
-By host: sachinwankhede.github.io 24 req / 1469 KB; server.arcgisonline.com 28 req / 132 KB; fonts.gstatic.com 6 req / 130 KB; thumb.wikimedia.org 12 req / 79 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
+By host: sachinwankhede.github.io 36 req / 1584 KB; thumb.wikimedia.org 45 req / 362 KB; server.arcgisonline.com 28 req / 132 KB; tiles.openfreemap.org 4 req / 48 KB;  8 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -43,20 +58,20 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 4599 | 4725 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 4599 | 4725 | Navigation Timing |
-| Load event | 5 | 0 | 5358 | 5463 | Navigation Timing |
-| First contentful paint | 5 | 0 | 428 | 586 | Paint Timing |
-| App data ready | 5 | 0 | 4594 | 4721 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 4594 | 4721 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 4594 | 4721 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 5172 | 5321 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 6854 | 7017 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 6857 | 7021 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 7315 | 7480 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 7332 | 7500 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 3174 | 3329 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 3175 | 3329 | Navigation Timing |
+| Load event | 5 | 0 | 3576 | 3721 | Navigation Timing |
+| First contentful paint | 5 | 0 | 397 | 605 | Paint Timing |
+| App data ready | 5 | 0 | 3177 | 3323 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 3177 | 3323 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 3575 | 3712 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 4042 | 4177 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 5451 | 5615 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 5450 | 5615 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 5898 | 6065 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 5911 | 6088 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 25/26; total duration 2941/3106 ms; blocking time over 50 ms 1691/1856 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 12/13; total duration 1331/1363 ms; blocking time over 50 ms 719/737 ms.
 
 ### Returning visit, service worker on (observational)
 
@@ -66,11 +81,11 @@ Samples: 5; service worker ready: 5; page controlled by the worker on the second
 
 | Metric | p50 (ms) | p95 (ms) |
 |---|---:|---:|
-| First contentful paint | 156 | 184 |
-| DOM interactive | 1662 | 1760 |
-| Load event | 1678 | 1776 |
-| Map loaded | 3177 | 3254 |
-| Blocking time before map loaded | 1678 | 1715 |
+| First contentful paint | 113 | 123 |
+| DOM interactive | 790 | 815 |
+| Load event | 793 | 819 |
+| Map loaded | 1798 | 1880 |
+| Blocking time before map loaded | 754 | 780 |
 
 ### Navigation readiness (observational)
 
@@ -78,19 +93,24 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 1085 | 1120 |
-| place warm open | 5 | 228 | 238 |
-| food-web cold open | 5 | 1211 | 1222 |
-| food-web warm open | 5 | 273 | 313 |
-| species selection | 5 | 209 | 254 |
+| place cold open | 5 | 1158 | 1165 |
+| place warm open | 5 | 190 | 208 |
+| place first picture arrived | 5 | 1270 | 1276 |
+| place last picture arrived | 5 | 4846 | 4848 |
+| food-web cold open | 5 | 2112 | 2119 |
+| food-web warm open | 5 | 438 | 443 |
+| species selection | 5 | 114 | 135 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
 | Route phase | Resource class | Requests | KB |
 |---|---|---:|---:|
-| place cold open | web data | 2 | 145 |
+| place cold open | web data | 2 | 165 |
 | place warm open | none recorded | 0 | 0 |
-| food-web cold open | web data | 2 | 145 |
+| place first picture arrived | none recorded | 0 | 0 |
+| place last picture arrived | pictures | 39 | 505 |
+| food-web cold open | web data | 2 | 165 |
+| food-web cold open | other | 1 | 94 |
 | food-web warm open | none recorded | 0 | 0 |
 | species selection | none recorded | 0 | 0 |
 
@@ -98,33 +118,48 @@ Median resources observed during each phase (requests / KB reported by Resource 
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| first paint (ms) | 133 | 184 | -28% |
-| page loaded (ms) | 564 | 626 | -10% |
-| map drawn (ms) | 1600 | 1640 | -2% |
-| blocked before map (ms) | 740 | 739 | +0% |
-| download (KB) | 2802 | 2782 | +1% |
-| requests | 68 | 67 | +1% |
+| map: map style and index, first request (ms) | 25 | n/a |  |
+| map: map style and index, last answer (ms) | 74 | n/a |  |
+| map: map style and index, requests | 1 | n/a |  |
+| map: vector tiles, first request (ms) | n/a | n/a |  |
+| map: vector tiles, last answer (ms) | n/a | n/a |  |
+| map: vector tiles, requests | n/a | n/a |  |
+| map: map glyphs, first request (ms) | 537 | n/a |  |
+| map: map glyphs, last answer (ms) | 563 | n/a |  |
+| map: map glyphs, requests | 1 | n/a |  |
+| map: satellite tiles, first request (ms) | 268 | n/a |  |
+| map: satellite tiles, last answer (ms) | 302 | n/a |  |
+| map: satellite tiles, requests | 16 | n/a |  |
+| map: terrain tiles, first request (ms) | n/a | n/a |  |
+| map: terrain tiles, last answer (ms) | n/a | n/a |  |
+| map: terrain tiles, requests | n/a | n/a |  |
+| first paint (ms) | 155 | 133 | +16% ⚠ |
+| page loaded (ms) | 255 | 564 | -55% |
+| map drawn (ms) | 1183 | 1600 | -26% |
+| blocked before map (ms) | 395 | 740 | -47% |
+| download (KB) | 2599 | 2802 | -7% |
+| requests | 65 | 68 | -4% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 138 | 136 | +1% |
-| tap: filter on blocked (ms) | 379 | 374 | +1% |
-| tap: filter off (ms) | 139 | 143 | -3% |
-| tap: filter off blocked (ms) | 361 | 360 | +0% |
-| tap: state parks on (ms) | 358 | 359 | 0% |
-| tap: state parks on blocked (ms) | 308 | 309 | 0% |
-| tap: state parks off (ms) | 213 | 218 | -2% |
-| tap: state parks off blocked (ms) | 267 | 271 | -1% |
-| tap: open place (ms) | 15 | 15 | 0% |
+| tap: filter on (ms) | 102 | 138 | -26% |
+| tap: filter on blocked (ms) | 219 | 379 | -42% |
+| tap: filter off (ms) | 110 | 139 | -21% |
+| tap: filter off blocked (ms) | 258 | 361 | -29% |
+| tap: state parks on (ms) | 252 | 358 | -30% |
+| tap: state parks on blocked (ms) | 186 | 308 | -40% |
+| tap: state parks off (ms) | 176 | 213 | -17% |
+| tap: state parks off blocked (ms) | 155 | 267 | -42% |
+| tap: open place (ms) | 12 | 15 | -20% |
 | tap: open place blocked (ms) | 0 | 0 |  |
-| tap: back from place (ms) | 314 | 300 | +5% |
-| tap: back from place blocked (ms) | 414 | 392 | +6% |
-| tap: journeys tab (ms) | 16 | 15 | +7% |
+| tap: back from place (ms) | 230 | 314 | -27% |
+| tap: back from place blocked (ms) | 279 | 414 | -33% |
+| tap: journeys tab (ms) | 24 | 16 | +50% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 78 | 78 | 0% |
+| tap: open journey (ms) | 57 | 78 | -27% |
 | tap: open journey blocked (ms) | 0 | 0 |  |
-| tap: back from journey (ms) | 257 | 252 | +2% |
-| tap: back from journey blocked (ms) | 385 | 364 | +6% |
+| tap: back from journey (ms) | 135 | 257 | -47% |
+| tap: back from journey blocked (ms) | 188 | 385 | -51% |
 
-By host: sachinwankhede.github.io 150 req / 3826 KB; thumb.wikimedia.org 46 req / 347 KB; fonts.gstatic.com 14 req / 185 KB; server.arcgisonline.com 40 req / 175 KB; tiles.openfreemap.org 4 req / 48 KB; fonts.googleapis.com 2 req / 1 KB;  6 req / 0 KB
+By host: sachinwankhede.github.io 162 req / 3943 KB; thumb.wikimedia.org 46 req / 365 KB; server.arcgisonline.com 40 req / 175 KB; tiles.openfreemap.org 4 req / 48 KB;  8 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -134,20 +169,20 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 563 | 582 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 563 | 582 | Navigation Timing |
-| Load event | 5 | 0 | 564 | 583 | Navigation Timing |
-| First contentful paint | 5 | 0 | 133 | 186 | Paint Timing |
-| App data ready | 5 | 0 | 455 | 469 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 455 | 469 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 455 | 469 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 546 | 611 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 1600 | 1730 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 1712 | 1730 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 1724 | 1824 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 1745 | 1849 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 141 | 149 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 141 | 149 | Navigation Timing |
+| Load event | 5 | 0 | 255 | 258 | Navigation Timing |
+| First contentful paint | 5 | 0 | 155 | 160 | Paint Timing |
+| App data ready | 5 | 0 | 129 | 138 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 129 | 138 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 256 | 259 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 286 | 292 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 1183 | 1784 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 1183 | 1784 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 1207 | 1799 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 1243 | 1823 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 11/11; total duration 1331/1344 ms; blocking time over 50 ms 781/794 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 10/16; total duration 891/1369 ms; blocking time over 50 ms 413/589 ms.
 
 ### Returning visit, service worker on (observational)
 
@@ -157,11 +192,11 @@ Samples: 5; service worker ready: 5; page controlled by the worker on the second
 
 | Metric | p50 (ms) | p95 (ms) |
 |---|---:|---:|
-| First contentful paint | 76 | 80 |
-| DOM interactive | 489 | 494 |
-| Load event | 492 | 497 |
-| Map loaded | 1628 | 1698 |
-| Blocking time before map loaded | 748 | 756 |
+| First contentful paint | 58 | 66 |
+| DOM interactive | 159 | 165 |
+| Load event | 262 | 273 |
+| Map loaded | 1099 | 1226 |
+| Blocking time before map loaded | 329 | 408 |
 
 ### Navigation readiness (observational)
 
@@ -169,19 +204,23 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 63 | 65 |
-| place warm open | 5 | 162 | 178 |
-| food-web cold open | 5 | 118 | 128 |
-| food-web warm open | 5 | 239 | 280 |
-| species selection | 5 | 240 | 252 |
+| place cold open | 5 | 55 | 57 |
+| place warm open | 5 | 121 | 123 |
+| place first picture arrived | 5 | 52 | 58 |
+| place last picture arrived | 5 | 283 | 284 |
+| food-web cold open | 5 | 171 | 174 |
+| food-web warm open | 5 | 163 | 187 |
+| species selection | 5 | 25 | 26 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
 | Route phase | Resource class | Requests | KB |
 |---|---|---:|---:|
-| place cold open | web data | 2 | 145 |
+| place cold open | web data | 2 | 165 |
 | place warm open | none recorded | 0 | 0 |
-| food-web cold open | web data | 2 | 145 |
+| place first picture arrived | none recorded | 0 | 0 |
+| place last picture arrived | pictures | 40 | 537 |
+| food-web cold open | web data | 2 | 165 |
+| food-web cold open | other | 1 | 94 |
 | food-web warm open | none recorded | 0 | 0 |
-| species selection | web data | 1 | 184 |
-| species selection | photos | 0 | 0 |
+| species selection | other | 1 | 0 |
