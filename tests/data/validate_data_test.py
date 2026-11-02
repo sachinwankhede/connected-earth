@@ -8,7 +8,7 @@ def put(root, rel, obj):
     if isinstance(obj, bytes): open(p, 'wb').write(obj)
     else: json.dump(obj, open(p, 'w'))
 
-SP = {'a b': {'latin': 'A b', 'name': 'AB', 'tl': 2, 'wiki': 'A b', 'desc': 'd', 'ic': 'x'}}
+SP = {'a b': {'latin': 'A b', 'name': 'AB', 'tl': 2, 'wiki': 'A b', 'desc': 'd', 'ic': 'x', 'sid': 'a-b', 'sk': 'taxon'}}
 
 class DataFormat(unittest.TestCase):
     def test_clean_tree_has_no_problems(self):
@@ -26,7 +26,7 @@ class DataFormat(unittest.TestCase):
             put(r, 'data/outlines/stray.json', {})
             put(r, 'photos/species_hosted.json', {'A b': 'missing.webp'}); put(r, 'photos/species/orphan.webp', b'x')
             errs, warns = check(r); text = ' | '.join(errs + warns)
-            for want in ('missing ic', 'not the lowercase Latin', 'tl is not a whole', 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
+            for want in ('missing ic', 'own sid', 'sk must be', 'not the lowercase Latin', 'tl is not a whole', 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
                 self.assertIn(want, text)
 
 if __name__ == '__main__': unittest.main()

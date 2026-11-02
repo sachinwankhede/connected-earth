@@ -23,6 +23,10 @@ def check(root):
             if f not in v: errs.append('species %r: missing %s' % (k, f))
         if v.get('latin') and k != v['latin'].lower(): errs.append('species %r: key is not the lowercase Latin name' % k)
         if 'tl' in v and not isinstance(v['tl'], int): errs.append('species %r: tl is not a whole number' % k)
+    sids = [v.get('sid') for v in sp.values()]
+    if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
+    for k, v in sp.items():
+        if v.get('sk') not in ('taxon', 'group', 'resource'): errs.append('species %r: sk must be taxon, group or resource' % k)
     ids = place_ids(root)
     links = load(root, 'data', 'journeys', 'links.json')
     if links is not None:

@@ -12,6 +12,24 @@ ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic
 SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
 
+GROUP = re.compile(r' spp\.?|,| and |\(|&|/')
+def slug(k): return re.sub(r'[^a-z0-9]+', '-', k.lower()).strip('-')
+def kind_of(k, row):
+    """taxon = one kind of organism at any rank (species, genus, family); group = several named together (a genus, 'bacteria, fungi and worms'); resource = a non-living input (soil, rain, sunlight)."""
+    if row.get('cat'): return 'resource'
+    return 'group' if GROUP.search(k) else 'taxon'
+def assign(new, old):
+    """Every row gets a stable id (sid) and a kind (sk). An id is given once and never recomputed from the name, so it survives renames and merges."""
+    used = {r['sid'] for r in old.values() if r.get('sid')}
+    for k in sorted(new):
+        o = old.get(k, {})
+        sid = o.get('sid')
+        if not sid:
+            base = slug(k) or 'x'; sid = base; n = 2
+            while sid in used: sid = '%s-%d' % (base, n); n += 1
+            used.add(sid)
+        new[k]['sid'] = sid; new[k]['sk'] = o.get('sk') or kind_of(k, new[k])
+
 def table():
     return json.load(open(TABLE)) if os.path.exists(TABLE) else {}
 
@@ -19,7 +37,7 @@ def join(eco, tab):
     out = []
     for n in eco['nodes']:
         if 'sp' in n and n['sp'] not in tab: raise SystemExit('%s: species %s is not in data/species/species.json (run build/species.py pack)' % (eco.get('id'), n['sp']))
-        base = {k: v for k, v in tab.get(n['sp'], {}).items() if k != 'about'} if 'sp' in n else None
+        base = {k: v for k, v in tab.get(n['sp'], {}).items() if k not in ('about', 'sid', 'sk')} if 'sp' in n else None
         full = {**(base or {}), **{k: v for k, v in n.items() if k not in ('sp', 'no')}}
         for f in n.get('no', []): full.pop(f, None)
         if base and base.get('wiki') and full.get('wiki') and full['wiki'] != base['wiki']:
@@ -53,6 +71,7 @@ def pack():
             if v != 'null': row[f] = json.loads(v)
         if old.get(k, {}).get('about'): row['about'] = old[k]['about']
         new[k] = row
+    assign(new, old)
     for p, e in ecos.items():
         slim = []
         for n in e['nodes']:
