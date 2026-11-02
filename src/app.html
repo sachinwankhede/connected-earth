@@ -1240,7 +1240,7 @@ rect.core { stroke-dasharray: 3 2.5; }
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
   var SPIDX = { p: null, ready: false, failedAt: 0 };
-  ECOS.forEach(function (e) { e.idx.sp = []; });
+  ECOS.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; });
   function loadSpecies() {
     if (SPIDX.ready) return Promise.resolve(true);
     if (SPIDX.p) return SPIDX.p;
@@ -1248,6 +1248,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     SPIDX.p = fetch((typeof WB === "string" ? WB : "webs/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
       ECOS.forEach(function (e) {
         e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
+        e.idx.q = (d.q && d.q[e.id]) || "";   /* the words search matches besides the species: they come with the species lists */
         e._s = null;
       });
       TIES = null; SPIDX.ready = true; return true;

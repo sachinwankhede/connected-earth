@@ -60,7 +60,7 @@ def split(ecos, links):
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
     import collections
-    ends = cross_ends(links); light = []; webs = {}; sidx = {}
+    ends = cross_ends(links); light = []; webs = {}; sidx = {}; qs = {}
     seen = collections.defaultdict(collections.Counter)
     for e in ecos:
         for n in e['nodes']:
@@ -69,13 +69,12 @@ def split(ecos, links):
     for e in ecos:
         nodes = e['nodes']
         s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
-        idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'),
-               'q': ' '.join(n['name'] for n in nodes if n.get('cat')),
-               'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
+        idx = {'ns': sum(1 for n in nodes if not n.get('cat')), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
+        qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only: they go with the species lists, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: they go to webs/species-index.json, loaded after the map has drawn
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY + UNUSED} | {'idx': idx})
-    return light, webs, spt, sidx
+    return light, webs, spt, sidx, qs
 
 
 def write_webs(webs, about, species_index=None):
@@ -142,8 +141,8 @@ def build(pilot, out_path, write=False):
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
-    light, webs, spt, sidx = split(ecos, links)
-    if write: write_webs(webs, about, {'spt': spt, 's': sidx})
+    light, webs, spt, sidx, qs = split(ecos, links)
+    if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs})
     data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
