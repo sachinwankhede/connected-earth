@@ -147,11 +147,12 @@ def build(pilot, out_path, write=False):
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
-    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps(geo, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
+    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
     mlver = ml_version()
+    open(P('geo-states.json'), 'w').write(json.dumps(geo['states'], separators=(',', ':'), ensure_ascii=False))   # US state outlines: their own file, fetched after the map
     shutil.copyfile(os.path.join(ml, 'maplibre-gl.js'), P('maplibre-gl-%s.js' % mlver))   # the map library is its own file (not part of the page): see the loader in src/app.html
     out = out.replace('__MLVER__', mlver)
     tag = '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>'
