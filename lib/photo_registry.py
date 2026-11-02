@@ -212,7 +212,7 @@ def validate():
         license_url = https_license(license_url)   # the hosting job records what Commons gives; an http link on an allowed host is upgraded here and in the build
         if license_url and not safe_https(license_url, ALLOWED_LICENSE_HOSTS):
             errors.append(f"{title}: species photo license URL must use HTTPS on an allowed license host")
-        if license_id and not license_url and license_id.lower() not in {"public domain", "cc0", "attribution"}:
+        if license_id and not license_url and license_id.lower() not in {"public domain", "cc0", "attribution", "copyrighted free use", "no restrictions"}   # these Commons licences have no licence page; the credit links the file page instead (#290):
             errors.append(f"{title}: species photo metadata is missing a license URL")
         if not safe_https(credit.get("p"), {"commons.wikimedia.org"}):
             errors.append(f"{title}: species photo metadata has an invalid Commons file page")
