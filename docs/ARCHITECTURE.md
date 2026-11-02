@@ -72,3 +72,6 @@ The app reads everything it shows from data we host. The only accepted outside r
 
 ## Tests and CI by kind of change (added 2026-11-02, items #269 and #272)
 Tests live in `tests/app/` (browser and app code), `tests/data/` (data files, no browser), `tests/jobs/` (job scripts and the CI rules) and `tests/perf/` (speed harness). `build/ci_changes.py` decides what a change needs: app changes run everything; data changes run validation, the pack check, build, size budgets, data tests and one smoke test; job changes run only the job self-tests; docs, notes, data-job workflows and job state files run nothing. The `gate` job always runs and is the one check to require.
+
+## Species descriptions: one small file each (added 2026-11-02, item #276 step 1)
+The build writes `webs/species/<id>.json` ({"t": text}) for every species that has a description, and the app asks for that one file when a species sheet opens. The id is the species id (`sid`); the app derives it from the Latin name with the same rule as `build/species.py` (`slug`), and the build refuses a description whose id is not that slug. The bulk `webs/about.json` is gone. The source table `data/species/species.json` is unchanged; moving the source itself to one file per species is step 2.

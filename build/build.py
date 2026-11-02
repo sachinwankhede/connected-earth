@@ -84,13 +84,18 @@ def split(ecos, links, phs=None, phm=None):
 def write_webs(webs, about, species_index=None):
     d = P('webs'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
-        if f.endswith('.json') and f[:-5] not in webs and f not in ('about.json', 'species-index.json'): os.remove(os.path.join(d, f))
+        if f.endswith('.json') and f[:-5] not in webs and f != 'species-index.json': os.remove(os.path.join(d, f))
     if species_index is not None:
         # the table and the lists are written together, so the file is consistent whichever page (main or pilot) reads it
         open(os.path.join(d, 'species-index.json'), 'w').write(json.dumps(species_index, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
-    open(os.path.join(d, 'about.json'), 'w').write(json.dumps(about, separators=(',', ':'), ensure_ascii=False))
+    # one small file per species with a description, named by the species id (the app asks for webs/species/<id>.json when its sheet opens)
+    sd = os.path.join(d, 'species'); os.makedirs(sd, exist_ok=True); keep = set()
+    for sid, text in about.items():
+        open(os.path.join(sd, sid + '.json'), 'w').write(json.dumps({'t': text}, separators=(',', ':'), ensure_ascii=False)); keep.add(sid + '.json')
+    for f in os.listdir(sd):
+        if f not in keep: os.remove(os.path.join(sd, f))
 
 
 def check(ecos, links, tpl, geo):
@@ -144,7 +149,9 @@ def build(pilot, out_path, write=False):
         print('\n'.join(errs)); sys.exit(1)
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
-    about = {k: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
+    about = {tab[k]['sid']: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
+    for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
+        if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
     phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
     phs = json.load(open(phf)) if os.path.exists(phf) else None
     phm = json.load(open(phmf)) if os.path.exists(phmf) else {}

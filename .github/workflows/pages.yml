@@ -64,7 +64,7 @@ jobs:
             curl -fsS "$U" | grep -q "Connected Earth" || ok=0
             curl -fsS "${U}pilot/" | grep -q "Connected Earth" || ok=0
             curl -fsS "${U}webs/yellowstone.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['nodes'])>5" || ok=0
-            curl -fsS "${U}webs/about.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d)>300" || ok=0
+            curl -fsS "${U}webs/species/abies-balsamea.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['t'])>30" || ok=0
             curl -fsS "${U}sw.js" | grep -q "atlas-shell-" || ok=0
             [ $ok = 1 ] && { fail=0; break; }
             echo "not ready yet (try $i)"; sleep 10
