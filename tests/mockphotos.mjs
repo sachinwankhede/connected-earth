@@ -21,6 +21,14 @@ export async function mockPhotos(page) {
     const body = r.request().url().includes('/photos/species.json') ? species : places;
     return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
   });
+  // a place carries its own species picture entries now: give each place file the mocked entries for its species
+  await page.route(/\/webs\/[\w-]+\.json(?:\?|$)/, async (r) => {
+    if (/(about|species-index)\.json/.test(r.request().url())) return r.fallback();
+    const res = await r.fetch(), w = await res.json();
+    w.ph = {}; w.phm = {};
+    for (const n of w.nodes || []) for (const k of [n.wiki, n.canonicalWiki, n.latin]) if (k && species[k]) w.ph[k] = species[k];
+    return r.fulfill({ response: res, body: JSON.stringify(w) });
+  });
   await page.route(/\/photos\/places\/mock\/|thumb\.wikimedia\.org\/.*\/mock\//, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
   await page.reload();
 }

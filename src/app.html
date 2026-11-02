@@ -1765,6 +1765,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
   }
   function loadPhotos() {
+    if (ECO && ECO.phLocal) { NODES.forEach(function (n) { if (photoOf(n)) showPhoto(n); }); return; }   /* the place carries its own picture entries */
     withSpeciesPhotos(function () {
       NODES.forEach(function (n) {
         if (photoOf(n)) showPhoto(n);
@@ -2032,7 +2033,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function fetchWebData(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
-    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.story = w.story; e.matters = w.matters; e.summary = w.summary; return true; }).catch(function () { e._wp = null; return false; });
+    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.story = w.story; e.matters = w.matters; e.summary = w.summary;
+      if (w.ph) { e.phLocal = true; Object.keys(w.ph).forEach(function (t) { var c = PhotoRegistry.speciesCandidate(w.ph[t], w.ph[t] && w.ph[t][1], 1, (w.phm || {})[t]); if (c) PhotoRegistry.register(PHOTOS, t, c); }); }   /* this place's own species pictures: no list of every species is needed to show them */
+      return true; }).catch(function () { e._wp = null; return false; });
     return e._wp;
   }
   function loadEco(id) {
@@ -3235,6 +3238,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function pWant(n) {
     if (!n.wiki && !n.latin) return;
     if (photoOf(n)) { pShow(n); return; }
+    var pe = ECO_BY[n.eco]; if (pe && pe.phLocal && !/^[ej]-/.test(n.id)) return;   /* the place carries its own entries: a species without one has no picture */
     withSpeciesPhotos(function () { if (photoOf(n)) pShow(n); });
   }
   function pShow(n) {
