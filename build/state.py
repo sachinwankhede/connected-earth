@@ -6,7 +6,7 @@
   python3 build/state.py IL --report              just re-run the promotion check for that state's places
 
 Steps (each one resumes where it stopped): 1 seed the park list from PAD-US (largest state parks first), 2 species near each
-park (GBIF) and who eats whom (GloBI), 3 common names, 4 generate the places, 5 add to data-auto (pilot), 6 shared species
+park (GBIF) and who eats whom (GloBI), 3 common names, 4 generate the places, 5 add to data/places as pilot places (stage pilot), 6 shared species
 table, 7 outlines, 8 promotion check. Photos and Wikipedia lines come from jobs/fetch_all.sh (slow, run separately).
 Promotion to main is a separate step: python3 build/promote.py --local (or ids)."""
 import json, os, re, subprocess, sys, urllib.parse, urllib.request
@@ -77,20 +77,24 @@ if __name__ == '__main__':
         outs = [f for f in os.listdir(os.path.join(work, 'out')) if f.endswith('.json')]
         print(len(outs), 'places generated in', work)
         if scratch: sys.exit(0)
-        order = json.load(open(os.path.join(ROOT, 'data-auto', 'order.json')))
+        PO = os.path.join(ROOT, 'data', 'journeys', 'pilot-order.json'); order = json.load(open(PO))
         for f in sorted(outs):
             e = json.load(open(os.path.join(work, 'out', f))); e['park'] = True; e['level'] = 'local'
-            json.dump(e, open(os.path.join(ROOT, 'data-auto', f), 'w'), ensure_ascii=False)
-            if e['id'] not in order and not os.path.exists(os.path.join(ROOT, 'data', 'places', f)): order.append(e['id'])
-        json.dump(order, open(os.path.join(ROOT, 'data-auto', 'order.json'), 'w'))
+            old = os.path.join(ROOT, 'data', 'places', f)
+            if os.path.exists(old) and json.load(open(old)).get('stage') != 'pilot': continue   # already on the main app: never overwrite
+            e['stage'] = 'pilot'
+            json.dump(e, open(old, 'w'), ensure_ascii=False)
+            if e['id'] not in order: order.append(e['id'])
+        json.dump(order, open(PO, 'w'))
         run(['python3', 'jobs/wikinames.py', st], {})                   # real Wikipedia names and source links (needs the web)
         run(['python3', 'build/species.py', 'pack'], {})
         run(['python3', 'jobs/bounds.py'], {})
     import promote_check as pc, species
-    ids = [f[:-5] for f in os.listdir(os.path.join(ROOT, 'data-auto')) if f.startswith(st.lower()) and f.endswith('.json') and f != 'order.json']
+    ids = [f[:-5] for f in os.listdir(os.path.join(ROOT, 'data', 'places')) if f.startswith(st.lower()) and f.endswith('.json')]
+    ids = [i for i in ids if json.load(open(os.path.join(ROOT, 'data', 'places', i + '.json'))).get('stage') == 'pilot']
     ok = 0; held = []
     for i in sorted(ids):
-        r = pc.check(species.load(os.path.join(ROOT, 'data-auto', i + '.json')))
+        r = pc.check(species.load(os.path.join(ROOT, 'data', 'places', i + '.json')))
         if r['pass_']: ok += 1
         else: held.append((r['name'], r['why']))
     print('%d places for %s: %d pass the promotion floors; %d held: %s' % (len(ids), st, ok, len(held), held))

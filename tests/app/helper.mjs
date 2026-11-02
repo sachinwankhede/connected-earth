@@ -46,7 +46,8 @@ const join = (e) => ({ ...e, nodes: e.nodes.map((n) => {
 export function readPlaces(pilot) {
   const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json', 'bounds.json'].includes(f))
     .map((f) => join(JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8'))));
-  return pilot ? [...dir('data/places'), ...dir('data-auto')] : dir('data/places');
+  const all = dir('data/places');   // the pilot places are in data/places too, marked stage: pilot
+  return pilot ? all : all.filter((e) => e.stage !== 'pilot');
 }
 
 // One Chromium per test file (each file runs in its own process). Starting a browser is slow with software rendering,

@@ -21,7 +21,7 @@ def cands(name):
 if __name__=='__main__':
     P={p['id']:p for p in json.load(open(os.path.join(root,'pipeline/reports/us-parks.json')))}
     res=json.load(open(os.path.join(here,'codes.json'))) if os.path.exists(os.path.join(here,'codes.json')) else {}
-    for f in sorted(glob.glob(os.path.join(root,'data-auto','us*.json'))):
+    for f in sorted(glob.glob(os.path.join(root,'data','places','us*.json'))):
         e=json.load(open(f)); p=P.get(e['id'],{})
         if p.get('des') not in ('NP','NM','NRA','NLS','WSR') or e['id'] in res: continue
         key=[x for x in re.sub(r"[^a-z ]",' ',e['name'].lower()).split() if x not in STOP|{'national','area'}][:2]

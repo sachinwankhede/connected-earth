@@ -31,7 +31,9 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - Outlines: `data/outlines/<id>.json` (PAD-US, then Wikidata/Commons, then OpenStreetMap; `bounds_more.py` drops a match whose box is far from the place).
 - Size budgets in `build/budget.py` (index 3.6 MB, pilot 4.2, species 4, webs 25, outlines 20).
 - Place pictures wait for the map (map drawn, a touch, 9 s, or a link to a place). Food-web species photos use smaller thumbnail variants and native lazy loading.
-- After adding or promoting places run `python3 build/species.py pack`. A data branch that clashes with main only on `data/species/species.json` or `data-auto/order.json`: use data-sync.
+- After adding or promoting places run `python3 build/species.py pack`. A data branch that clashes with main only on `data/species/species.json` or `data/journeys/pilot-order.json`: use data-sync.
+
+- **Data folder structure done (#267, 2026-11-02):** `data/{places,journeys,species,outlines,geo}/` is the only build input. The pilot places moved from `data-auto/` into `data/places/` with `"stage": "pilot"` (`tier` already means overview/detailed, so it could not be reused); the pilot order is `data/journeys/pilot-order.json`. Promotion flips the stage in place instead of moving the file. Waiting on the owner to merge before the next data-photos run (12:17 UTC) and not while another data job runs.
 
 ## Latency plan (started 2026-11-01)
 - **Photos are data too (2026-11-02):** per-place picture entries (#237) and our own small WebP copies packed per place (#238); see `docs/ARCHITECTURE.md`.

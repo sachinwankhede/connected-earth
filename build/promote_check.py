@@ -22,9 +22,9 @@ def check(e):
     return dict(id=e['id'],name=e['name'],official=official,species=len(sp),plants=len(pl),links=len(links),photo=ph,pass_=not why,why=why)
 if __name__=='__main__':
     want=set(sys.argv[1:]); rows=[]
-    for f in sorted(glob.glob(os.path.join(ROOT,'data-auto','*.json'))):
-        if f.endswith('order.json'): continue
+    for f in sorted(glob.glob(os.path.join(ROOT,'data','places','*.json'))):
         e=species.load(f)
+        if e.get('stage')!='pilot': continue
         if want and e['id'] not in want: continue
         rows.append(check(e))
     ok=[r for r in rows if r['pass_']]

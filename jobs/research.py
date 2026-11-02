@@ -11,9 +11,8 @@ OFFLINE = bool(os.environ.get('RESEARCH_OFFLINE'))
 TODAY = datetime.date.today().isoformat()
 
 def load(pid):
-    for d in ('data', 'data-auto'):
-        p = os.path.join(ROOT, d, pid + '.json')
-        if os.path.exists(p): return json.load(open(p))
+    p = os.path.join(ROOT, 'data', 'places', pid + '.json')
+    if os.path.exists(p): return json.load(open(p))
     sys.exit('no such place: ' + pid)
 
 def wiki_titles(e):

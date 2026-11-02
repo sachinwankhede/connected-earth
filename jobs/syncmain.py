@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """syncmain.py: finish a merge of main into a data branch when the only clashes are the shared files that every data job edits.
   data/species/species.json   rows from both sides are kept (main's row wins when both changed the same species), then `species.py pack` rebuilds it
-  data/places/<id>.json, data-auto/<id>.json  merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
-  data-auto/<id>.json that main promoted to data/: removed here too when the branch only repacked it
+  data/places/<id>.json  (pilot places too: they carry stage "pilot" until promoted) merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
   jobs/names.json  every latin name from both sides; a real common name beats null, main's wins a tie
   jobs/state_queue.txt  the states both sides still list (each side removed the ones it finished), in main's order
-  data-auto/order.json  main's order, then the branch's new ids that are not already in main or promoted to data/
+  data/journeys/pilot-order.json  main's order, then the branch's new pilot ids (a promotion drops the stage key, so the id leaves the list)
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
 ROOT = os.environ.get('SYNC_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SYNC_ROOT: run main's copy of this script inside a branch checkout
@@ -15,6 +14,7 @@ def show(stage, path):
     r = git('show', ':%d:%s' % (stage, path)); return json.loads(r.stdout) if r.returncode == 0 else None
 st = {l[3:]: l[:2] for l in git('status', '--porcelain').stdout.splitlines() if l[:2] in ('UU', 'AA', 'DU', 'UD')}
 conf = list(st)
+GONE = object()
 GRAPH = ('nodes', 'raw', 'ev', 'tip')   # the food web: rebuilt by regen branches and rewritten by the species repack
 def merge_place(path):
     """Key-by-key three-way merge of one place file. The food web comes from the branch only when the branch rebuilt it (its edges or species ids
@@ -25,23 +25,14 @@ def merge_place(path):
     rebuilt = (mine.get('raw'), mine.get('ev'), ids(mine)) != (base.get('raw'), base.get('ev'), ids(base))   # the repack alone never changes these
     out = {}
     for k in dict.fromkeys(list(mine) + list(theirs)):
-        m, b, t = mine.get(k), base.get(k), theirs.get(k)
+        m, b, t = mine.get(k, GONE), base.get(k, GONE), theirs.get(k, GONE)   # GONE: the key is absent on that side (a promotion drops "stage")
         if k in GRAPH: v = m if rebuilt else t
         else: v = t if m == b else m if t == b else t
-        if (k in mine or k in theirs) and not (v is None and k not in mine and k not in theirs): out[k] = v
+        if v is not GONE: out[k] = v
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
-def promoted_on_main(path):
-    """Main moved this pilot place to data/ (a promotion) and the branch only repacked it: let the move stand."""
-    if st[path] != 'UD' or not path.startswith('data-auto/'): return False
-    base, mine = show(1, path), show(2, path)
-    if not (base and mine): return False
-    if (mine.get('raw'), mine.get('ev')) != (base.get('raw'), base.get('ev')): return False
-    git('rm', '-q', '--', path); return True
-gone = [c for c in conf if promoted_on_main(c)]
-conf = [c for c in conf if c not in gone]
-taken = [c for c in conf if ((c.startswith('data/places/') and c.count('/') == 2) or (c.startswith('data-auto/') and c.count('/') == 1)) and c != 'data-auto/order.json' and merge_place(c)]
+taken = [c for c in conf if c.startswith('data/places/') and c.count('/') == 2 and merge_place(c)]
 conf = [c for c in conf if c not in taken]
-SHARED = ('data/species/species.json', 'data-auto/order.json', 'jobs/names.json', 'jobs/state_queue.txt')
+SHARED = ('data/species/species.json', 'data/journeys/pilot-order.json', 'jobs/names.json', 'jobs/state_queue.txt')
 other = [c for c in conf if c not in SHARED]
 if other: print('Conflicts that need a person:', ', '.join(other)); sys.exit(1)
 if 'data/species/species.json' in conf:
@@ -55,11 +46,13 @@ if 'jobs/state_queue.txt' in conf:
     ours, theirs = git('show', ':2:jobs/state_queue.txt').stdout, git('show', ':3:jobs/state_queue.txt').stdout   # text; each side removed the states it finished, so keep only states both still list
     keep = set(ours.split())
     open('jobs/state_queue.txt', 'w').write(''.join(x + '\n' for x in theirs.split() if x in keep))
-if 'data-auto/order.json' in conf:
-    ours, theirs = show(2, 'data-auto/order.json') or [], show(3, 'data-auto/order.json') or []
-    promoted = {f[:-5] for f in (os.listdir('data/places') if os.path.isdir('data/places') else []) if f.endswith('.json')}
-    seen = set(theirs) | promoted
-    json.dump(theirs + [i for i in ours if i not in seen and os.path.exists('data-auto/%s.json' % i)], open('data-auto/order.json', 'w'), ensure_ascii=False)
+if 'data/journeys/pilot-order.json' in conf:
+    ours, theirs = show(2, 'data/journeys/pilot-order.json') or [], show(3, 'data/journeys/pilot-order.json') or []
+    def pilot(i):
+        p = 'data/places/%s.json' % i
+        if not os.path.exists(p): return False
+        try: return json.load(open(p)).get('stage') == 'pilot'
+        except Exception: return False
+    json.dump(theirs + [i for i in ours if i not in set(theirs) and pilot(i)], open('data/journeys/pilot-order.json', 'w'), ensure_ascii=False)
 print('resolved:', ', '.join(conf) or 'nothing to resolve')
-if gone: print('promoted on main, branch only repacked, so removed from the pilot:', ', '.join(gone))
 if taken: print('merged key by key (branch food web, main for the rest):', ', '.join(taken))

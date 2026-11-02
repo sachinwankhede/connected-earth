@@ -29,6 +29,7 @@ def check(path):
         if k in e and not (isinstance(e[k],str) and lo<=len(e[k])<=hi): errs.append('%s must be text of %d-%d characters'%(k,lo,hi))
     if ('matters' in e) and 'story' not in e: errs.append('matters needs a story')
     if e['tier'] not in ('overview','detailed'): errs.append('tier must be overview or detailed')
+    if e.get('stage','main') not in ('pilot','main'): errs.append('stage must be pilot or main (absent means main)')
     if not (isinstance(e['sources'],list) and 1<=len(e['sources'])<=8 and all(s.get('url','').startswith('https://') and s.get('title') for s in e['sources'])): errs.append('need 1-8 sources (aim for 3 or more) with title and https url')
     if len(e['sources'])<3: warn.append('only %d sources; aim for 3 or more'%len(e['sources']))
     ids=[n['id'] for n in e['nodes']]

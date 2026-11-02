@@ -17,12 +17,10 @@ def km(a, b, c, d):
 def load():
     tab = json.load(open(os.path.join(ROOT, 'data', 'species', 'species.json')))
     places = []
-    for d in ('data', 'data-auto'):
-        for f in sorted(glob.glob(os.path.join(ROOT, d, '*.json'))):
-            if f.endswith(('order.json', 'links.json', 'species.json', 'bounds.json')): continue
-            try: e = json.load(open(f))
-            except Exception: continue
-            if isinstance(e, dict) and e.get('nodes'): places.append(e)
+    for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
+        try: e = json.load(open(f))
+        except Exception: continue
+        if isinstance(e, dict) and e.get('nodes'): places.append(e)
     links = json.load(open(os.path.join(ROOT, 'data', 'journeys', 'links.json')))
     return tab, places, links
 

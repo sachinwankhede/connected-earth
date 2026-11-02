@@ -10,9 +10,8 @@ def load(root, *p):
 
 def place_ids(root):
     ids = set()
-    for d in ('data/places', 'data-auto'):
-        full = os.path.join(root, d)
-        if os.path.isdir(full): ids |= {f[:-5] for f in os.listdir(full) if f.endswith('.json') and f != 'order.json'}
+    full = os.path.join(root, 'data/places')
+    if os.path.isdir(full): ids |= {f[:-5] for f in os.listdir(full) if f.endswith('.json')}
     return ids
 
 def check(root):

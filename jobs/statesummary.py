@@ -19,7 +19,7 @@ for line in open(summ):
         rows.append('| %s | FAILED | | | | | | |' % st); failed.append((st, t.strip().splitlines()[-25:])); continue
     rows.append('| %s | %s | %s | %s | %s | %d | %d | %d |' % (st, m.group(1) if m else '?', m.group(2) if m else '?', m.group(3) if m else '?',
                 ', '.join('%s %d' % (LABEL.get(k, k), n) for k, n in why.most_common()) or '-', dup, skip, miss))
-print('Automatic batch from the data-states workflow: the largest state parks of each state, added to the pilot (data-auto). Not shown in the main app until promoted.\n')
+print('Automatic batch from the data-states workflow: the largest state parks of each state, added to the pilot (stage pilot in data/places). Not shown in the main app until promoted.\n')
 print('| State | Parks | Pass | Held | Held for (parks) | Duplicates dropped | Skipped (no outline from PAD-US) | Missing map outlines |\n|---|---|---|---|---|---|---|---|')
 print('\n'.join(rows))
 if budget and os.path.exists(budget): print('\nSize budget:\n```\n' + open(budget).read() + '```')

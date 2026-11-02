@@ -35,7 +35,7 @@ jobs:
         run: |
           for R in $(seq 1 "$ROUNDS"); do
             echo "== round $R"
-            LIMIT="$LIMIT" python3 jobs/photos.py photos/places data/places data-auto
+            LIMIT="$LIMIT" python3 jobs/photos.py photos/places data/places
             [ "$(cat photos/places/.tried)" = "0" ] && { echo "Nothing left to try."; break; }
           done
           python3 lib/photo_registry.py migrate photos/places/places.json photos/places
