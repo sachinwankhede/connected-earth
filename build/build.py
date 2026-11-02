@@ -51,7 +51,8 @@ def cross_ends(links):
 
 
 # Text that only shows once a place is open (sources, notes, the web's opening tip): kept in webs/<id>.json, not in the page.
-HEAVY = ('sources', 'notes', 'tip')
+HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out of the page: they go to webs/<id>.json and load when the place opens
+UNUSED = ('link_ideas',)   # in the source data but never read by the app
 
 
 def split(ecos, links):
@@ -73,7 +74,7 @@ def split(ecos, links):
                'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         sidx[e['id']] = s   # the species lists are not in the page: they go to webs/species-index.json, loaded after the map has drawn
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
-        light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY} | {'idx': idx})
+        light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY + UNUSED} | {'idx': idx})
     return light, webs, spt, sidx
 
 
