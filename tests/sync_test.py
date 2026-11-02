@@ -38,16 +38,16 @@ class SyncTests(unittest.TestCase):
     def promote(self):
         # main moves the place to data/ and rewrites it (packing, story, photo...), so git cannot pair the two files as a rename and reports modify/delete
         os.remove(os.path.join(self.r.dir, 'data-auto/p.json'))
-        self.r.put('data/p.json', {'id': 'p', 'name': 'Promoted', 'story': 'S', 'imgwiki': 'I', 'level': 'local', 'sources': [{'t': 'x'}] * 5, 'nodes': [{'id': 'zz', 'sp': 'q', 'xh': 9}] * 6, 'raw': [], 'ev': {}})
+        self.r.put('data/places/p.json', {'id': 'p', 'name': 'Promoted', 'story': 'S', 'imgwiki': 'I', 'level': 'local', 'sources': [{'t': 'x'}] * 5, 'nodes': [{'id': 'zz', 'sp': 'q', 'xh': 9}] * 6, 'raw': [], 'ev': {}})
         self.r.commit('promote')
 
     def test_repack_on_branch_new_story_on_main(self):
-        self.start({'data/p.json': place()})
-        self.r.checkout('feature'); self.r.put('data/p.json', place(nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('repack')
-        self.r.checkout('main'); self.r.put('data/p.json', place(story='A story.')); self.r.commit('story')
+        self.start({'data/places/p.json': place()})
+        self.r.checkout('feature'); self.r.put('data/places/p.json', place(nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('repack')
+        self.r.checkout('main'); self.r.put('data/places/p.json', place(story='A story.')); self.r.commit('story')
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
-        e = self.r.get('data/p.json'); self.assertEqual(e['story'], 'A story.'); self.assertEqual(e['nodes'], place()['nodes'])   # main's story and main's web
+        e = self.r.get('data/places/p.json'); self.assertEqual(e['story'], 'A story.'); self.assertEqual(e['nodes'], place()['nodes'])   # main's story and main's web
 
     def test_branch_rebuilt_web_is_kept_while_main_changes_the_rest(self):
         self.start({'data-auto/p.json': place()})
@@ -65,7 +65,7 @@ class SyncTests(unittest.TestCase):
         self.r.checkout('main'); self.promote()
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
-        self.assertFalse(self.r.exists('data-auto/p.json')); self.assertTrue(self.r.exists('data/p.json'))
+        self.assertFalse(self.r.exists('data-auto/p.json')); self.assertTrue(self.r.exists('data/places/p.json'))
 
     def test_promotion_on_main_stops_when_branch_rebuilt_the_place(self):
         self.start({'data-auto/p.json': place()})
@@ -75,17 +75,17 @@ class SyncTests(unittest.TestCase):
         out = self.r.sync(); self.assertEqual(out.returncode, 1); self.assertIn('need a person', out.stdout)
 
     def test_names_and_species_and_order_are_unioned(self):
-        self.start({'pipeline/names.json': {'a': None, 'b': 'B'}, 'data/species.json': {'x': {'name': 'X'}}, 'data-auto/order.json': ['o1']})
+        self.start({'pipeline/names.json': {'a': None, 'b': 'B'}, 'data/species/species.json': {'x': {'name': 'X'}}, 'data-auto/order.json': ['o1']})
         self.r.checkout('feature')
-        self.r.put('pipeline/names.json', {'a': None, 'b': 'B', 'c': 'C'}); self.r.put('data/species.json', {'x': {'name': 'X'}, 'f': {'name': 'F'}})
+        self.r.put('pipeline/names.json', {'a': None, 'b': 'B', 'c': 'C'}); self.r.put('data/species/species.json', {'x': {'name': 'X'}, 'f': {'name': 'F'}})
         self.r.put('data-auto/order.json', ['o1', 'of']); self.r.put('data-auto/of.json', place(id='of')); self.r.commit('feature')
         self.r.checkout('main')
-        self.r.put('pipeline/names.json', {'a': 'A', 'b': 'B', 'd': 'D'}); self.r.put('data/species.json', {'x': {'name': 'X'}, 'm': {'name': 'M'}})
+        self.r.put('pipeline/names.json', {'a': 'A', 'b': 'B', 'd': 'D'}); self.r.put('data/species/species.json', {'x': {'name': 'X'}, 'm': {'name': 'M'}})
         self.r.put('data-auto/order.json', ['o1', 'om']); self.r.put('data-auto/om.json', place(id='om')); self.r.commit('main')
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
         self.assertEqual(self.r.get('pipeline/names.json'), {'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D'})
-        self.assertEqual(set(self.r.get('data/species.json')), {'x', 'f', 'm'})
+        self.assertEqual(set(self.r.get('data/species/species.json')), {'x', 'f', 'm'})
         self.assertEqual(self.r.get('data-auto/order.json'), ['o1', 'om', 'of'])
 
     def test_other_files_always_need_a_person(self):

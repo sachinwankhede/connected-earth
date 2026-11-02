@@ -33,7 +33,7 @@ def photo_metadata(root):
 
 
 def place_ids(root):
-    links = read_json(os.path.join(root, "data", "links.json"))
+    links = read_json(os.path.join(root, "data", "journeys", "links.json"))
     return links, list(links["order"])
 
 
@@ -46,7 +46,7 @@ def outline_coverage(root, ids):
 def cross_link_endpoints(root, links, ids):
     nodes_by_place = {}
     for place_id in ids:
-        ecosystem = read_json(os.path.join(root, "data", place_id + ".json"))
+        ecosystem = read_json(os.path.join(root, "data", "places", place_id + ".json"))
         nodes_by_place[place_id] = {node["id"] for node in ecosystem["nodes"]}
 
     total = unresolved = 0
@@ -76,8 +76,8 @@ def report(root=ROOT):
         "| Indicator | Count | Definition and caveats |",
         "|---|---:|---|",
         f"| Place-photo metadata fields present | {complete}/{photo_total} | Candidate records in `photos/places/places.json` with supported MIME type, positive integer dimensions, 64-character SHA-256, non-empty author/license, and an HTTPS Commons source page. Existing photo validation separately checks these values against local image files. |",
-        f"| Place outlines present | {outlines}/{place_total} | Place IDs in `data/links.json` `order` with a corresponding `data/outlines/<id>.json` file; absence does not necessarily mean an outline is expected. |",
-        f"| Unresolved cross-place link endpoints | {unresolved}/{endpoint_total} | Endpoints in `data/links.json` `cross` whose place or node ID is not found in the main-app place files. This follows the endpoint integrity check used by the build. |",
+        f"| Place outlines present | {outlines}/{place_total} | Place IDs in `data/journeys/links.json` `order` with a corresponding `data/outlines/<id>.json` file; absence does not necessarily mean an outline is expected. |",
+        f"| Unresolved cross-place link endpoints | {unresolved}/{endpoint_total} | Endpoints in `data/journeys/links.json` `cross` whose place or node ID is not found in the main-app place files. This follows the endpoint integrity check used by the build. |",
         f"| Species-photo attribution metadata | unavailable ({len(species)} legacy candidates) | `photos/species.json` stores image paths and labels, not author/license records, so comparable completeness cannot be counted from this source. |",
         "",
     ))

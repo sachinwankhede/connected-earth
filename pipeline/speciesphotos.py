@@ -11,7 +11,7 @@ def main():
     out = sys.argv[1]; limit = int(sys.argv[2]) if len(sys.argv) > 2 else 0
     man = json.load(open(out)) if os.path.exists(out) else {}
     ms = out[:-5] + '_missing.json'; miss = json.load(open(ms)) if os.path.exists(ms) else {}
-    sp = json.load(open('data/species.json'))
+    sp = json.load(open('data/species/species.json'))
     todo = sorted({v['wiki'] for v in sp.values() if v.get('wiki')} - set(man) - {t for t, entry in miss.items() if cache_active(entry)})
     if limit: todo = todo[:limit]
     print(len(todo), 'titles to try', flush=True)

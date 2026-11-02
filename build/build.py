@@ -5,7 +5,7 @@
   python3 build/build.py --out FILE       build the main app to FILE
   python3 build/build.py --pilot --out F  build with the auto-generated places included
 
-Source: src/app.html (one file, with placeholders), data/*.json (hand-built places),
+Source: src/app.html (one file, with placeholders), data/places/*.json (hand-built places),
 data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
 """
 import json, re, sys, os, shutil, hashlib, urllib.parse, base64
@@ -17,15 +17,15 @@ P = lambda *a: os.path.join(ROOT, *a)
 
 
 def load_places(pilot):
-    links = json.load(open(P('data', 'links.json')))
+    links = json.load(open(P('data', 'journeys', 'links.json')))
     order = list(links['order'])
-    ecos = [json.load(open(P('data', i + '.json'))) for i in order]
+    ecos = [json.load(open(P('data', 'places', i + '.json'))) for i in order]
     if pilot:
         for i in json.load(open(P('data-auto', 'order.json'))):
             ecos.append(json.load(open(P('data-auto', i + '.json'))))
     tab = species.table()
     ecos = [species.join(e, tab) for e in ecos]
-    sp = P('data', 'places', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
+    sp = P('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
     for e in ecos:
         if e.get('park') and not e.get('story'):
             for src in e.get('sources', []):

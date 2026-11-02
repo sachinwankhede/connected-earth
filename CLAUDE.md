@@ -19,7 +19,7 @@
 ## Keep the context small (do this first)
 Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
 - **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `pipeline/*.py`, `tests/`, `.github/workflows/`, `docs/`.
-- **Data (do not open; query one file or one key with a script):** `data/` (1,275 places, 25 MB), `data-auto/` (pilot, 278 places), `data/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `pipeline/reports/`, `pipeline/*.json`.
+- **Data (do not open; query one file or one key with a script):** `data/` (1,275 places, 25 MB), `data-auto/` (pilot, 278 places), `data/species/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `pipeline/reports/`, `pipeline/*.json`.
 - **Built or generated (never read or edit):** `index.html`, `pilot/index.html`, `sw.js`, `webs/`, `node_modules/`.
 - To answer a question about the data, run a short Python/`jq` command that prints only the counts or the few records needed; to see jobs and PRs use `bash pipeline/status.sh` or the issue "Project status".
 - Do not poll for job results in a loop in the main session; start a background wait and read only the final line.
@@ -32,5 +32,5 @@ Most of this repo is data, not code. Never read, cat, grep -r or list whole data
 - Batch sizes: about 15 places per story batch and 15 states per state batch. Stories are the part that needs the owner's review, so keep a batch within what he can read in one sitting.
 - Content rules: story at most 60 words, why-it-matters at most 40; park summaries are one Wikipedia sentence; journeys only where the source text supports a real route.
 - Promotion follows `docs/PROMOTION.md` (including the 60% family-level hold rule). Use the `data-promote` workflow; the 10-link spot check goes in the pull request.
-- A data branch that clashes with main only on `data/species.json` or `data-auto/order.json` is brought up to date with the `data-sync` workflow. Run `python3 build/species.py pack` after adding or promoting places.
+- A data branch that clashes with main only on `data/species/species.json` or `data-auto/order.json` is brought up to date with the `data-sync` workflow. Run `python3 build/species.py pack` after adding or promoting places.
 - `bash pipeline/status.sh` shows open pull requests, running jobs, the state queue and finished research.

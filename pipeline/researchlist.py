@@ -14,10 +14,10 @@ def pick(spec):
     if not spec.startswith('next:'): return [s.strip() for s in spec.split(',') if s.strip()]
     a = spec.split(':'); n = int(a[1]); pre = a[2] if len(a) > 2 else ''
     done = have(); out = []
-    order = json.load(open(os.path.join(ROOT, 'data', 'links.json')))['order']
+    order = json.load(open(os.path.join(ROOT, 'data', 'journeys', 'links.json')))['order']
     for i in order:
         if len(out) >= n: break
-        p = os.path.join(ROOT, 'data', i + '.json')
+        p = os.path.join(ROOT, 'data', 'places', i + '.json')
         if not i.startswith(pre) or i in done or not os.path.exists(p) or json.load(open(p)).get('story'): continue
         out.append(i)
     return out

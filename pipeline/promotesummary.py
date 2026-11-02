@@ -14,7 +14,7 @@ if r['held']:
     print('\n</details>\n')
 links = []
 for i in r['moved']:
-    e = species.load(os.path.join(ROOT, 'data', i + '.json')); nm = {n['id']: n for n in e['nodes']}
+    e = species.load(os.path.join(ROOT, 'data', 'places', i + '.json')); nm = {n['id']: n for n in e['nodes']}
     for a, b, *k in e['raw']:
         if (k and k[0] != 's') or a not in nm or b not in nm: continue
         ev = (e.get('ev') or {}).get('%s>%s' % (a, b))

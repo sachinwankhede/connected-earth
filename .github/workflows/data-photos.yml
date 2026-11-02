@@ -35,7 +35,7 @@ jobs:
         run: |
           for R in $(seq 1 "$ROUNDS"); do
             echo "== round $R"
-            LIMIT="$LIMIT" python3 pipeline/photos.py photos/places data data-auto
+            LIMIT="$LIMIT" python3 pipeline/photos.py photos/places data/places data-auto
             [ "$(cat photos/places/.tried)" = "0" ] && { echo "Nothing left to try."; break; }
           done
           python3 pipeline/photo_registry.py migrate photos/places/places.json photos/places

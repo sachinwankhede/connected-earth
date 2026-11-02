@@ -31,7 +31,7 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - Outlines: `data/outlines/<id>.json` (PAD-US, then Wikidata/Commons, then OpenStreetMap; `bounds_more.py` drops a match whose box is far from the place).
 - Size budgets in `build/budget.py` (index 3.6 MB, pilot 4.2, species 4, webs 25, outlines 20).
 - Place pictures wait for the map (map drawn, a touch, 9 s, or a link to a place). Food-web species photos use smaller thumbnail variants and native lazy loading.
-- After adding or promoting places run `python3 build/species.py pack`. A data branch that clashes with main only on `data/species.json` or `data-auto/order.json`: use data-sync.
+- After adding or promoting places run `python3 build/species.py pack`. A data branch that clashes with main only on `data/species/species.json` or `data-auto/order.json`: use data-sync.
 
 ## Latency plan (started 2026-11-01)
 - **Photos are data too (2026-11-02):** per-place picture entries (#237) and our own small WebP copies packed per place (#238); see `docs/ARCHITECTURE.md`.

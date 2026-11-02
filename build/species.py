@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared species table. data/species.json holds one row per species (key = lowercase Latin name):
+"""Shared species table. data/species/species.json holds one row per species (key = lowercase Latin name):
 the usual name, wiki page, icon, description, trophic level, category and badge.
 A place file keeps for each species only its id, latin, position (xh) and whatever differs from the shared row.
   python3 build/species.py pack   fold place files into the table and slim them (safe to repeat)
@@ -7,7 +7,7 @@ A place file keeps for each species only its id, latin, position (xh) and whatev
 The build calls join() so the app receives full nodes either way."""
 import json, os, re, sys, collections
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TABLE = os.path.join(ROOT, 'data', 'species.json')
+TABLE = os.path.join(ROOT, 'data', 'species', 'species.json')
 ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic', 'cat', 'badge']
 SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
@@ -18,7 +18,7 @@ def table():
 def join(eco, tab):
     out = []
     for n in eco['nodes']:
-        if 'sp' in n and n['sp'] not in tab: raise SystemExit('%s: species %s is not in data/species.json (run build/species.py pack)' % (eco.get('id'), n['sp']))
+        if 'sp' in n and n['sp'] not in tab: raise SystemExit('%s: species %s is not in data/species/species.json (run build/species.py pack)' % (eco.get('id'), n['sp']))
         base = {k: v for k, v in tab.get(n['sp'], {}).items() if k != 'about'} if 'sp' in n else None
         full = {**(base or {}), **{k: v for k, v in n.items() if k not in ('sp', 'no')}}
         for f in n.get('no', []): full.pop(f, None)
@@ -32,7 +32,7 @@ def load(path):
     return join(json.load(open(path)), table())
 
 def files():
-    for d in ('data', 'data-auto'):
+    for d in ('data/places', 'data-auto'):
         for f in sorted(os.listdir(os.path.join(ROOT, d))):
             if f.endswith('.json') and f not in ('links.json', 'order.json', 'species.json', 'bounds.json'):
                 yield os.path.join(ROOT, d, f)
