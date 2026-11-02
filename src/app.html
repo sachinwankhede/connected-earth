@@ -19,7 +19,7 @@
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "fonts/";
   var f = [["Bricolage Grotesque", "bricolage-grotesque-latin-wght-normal", "normal", "200 800"], ["Instrument Sans", "instrument-sans-latin-wght-normal", "normal", "400 700"], ["Instrument Sans", "instrument-sans-latin-wght-italic", "italic", "400 700"]], css = "";
-  f.forEach(function (x) { css += '@font-face{font-family:"' + x[0] + '";font-style:' + x[2] + ";font-weight:" + x[3] + ";font-display:swap;src:url(" + b + x[1] + '.woff2) format("woff2")}'; });
+  f.forEach(function (x) { css += '@font-face{font-family:"' + x[0] + '";font-style:' + x[2] + ";font-weight:" + x[3] + ";font-display:block;src:url(" + b + x[1] + '.woff2) format("woff2")}'; });
   var st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
   [f[0], f[1]].forEach(function (x) { var l = document.createElement("link"); l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = ""; l.href = b + x[1] + ".woff2"; document.head.appendChild(l); });
 })();
