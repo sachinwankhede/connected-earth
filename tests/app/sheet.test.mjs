@@ -27,10 +27,10 @@ describe('place sheet', () => {
       await t.close();
     });
 
-    test(`${sizeName}: the long species description arrives after the sheet opens (fetched once from webs/about.json)`, async () => {
+    test(`${sizeName}: the long species description arrives after the sheet opens (one small file per species, fetched once)`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page);
-      let hits = 0; t.page.on('request', (r) => { if (/webs\/about\.json/.test(r.url())) hits++; });
+      let hits = 0; t.page.on('request', (r) => { if (/webs\/species\/[a-z0-9-]+\.json/.test(r.url())) hits++; });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       assert.equal(hits, 0, 'nothing is fetched before a species sheet opens');
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
@@ -38,7 +38,11 @@ describe('place sheet', () => {
       await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(300);
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Bison/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40; }, null, { timeout: 30000 });
-      assert.equal(hits, 1, 'fetched once, then reused');
+      assert.equal(hits, 2, 'one description file per species opened');
+      await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(300);
+      await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
+      await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40; }, null, { timeout: 30000 });
+      assert.equal(hits, 2, 'a species opened again is not fetched again');
       assert.deepEqual(t.errors, []);
       await t.close();
     });

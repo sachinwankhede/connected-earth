@@ -53,7 +53,7 @@ def main():
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):
         copy_file(font, font.relative_to(ROOT).as_posix(), expected)
 
-    for directory in ('webs', 'data/outlines'):
+    for directory in ('webs', 'webs/species', 'data/outlines'):
         source_dir = ROOT / directory
         files = sorted(source_dir.glob('*.json'))
         if not files:
@@ -86,8 +86,8 @@ def main():
     missing_webs = sorted(web_id for web_id in web_ids if 'webs/' + web_id + '.json' not in expected)
     if missing_webs:
         raise SystemExit('missing generated web JSON: ' + ', '.join(missing_webs[:10]))
-    if 'webs/about.json' not in expected:
-        raise SystemExit('missing generated species descriptions: webs/about.json')
+    if not any(name.startswith('webs/species/') for name in expected):
+        raise SystemExit('missing generated species descriptions: webs/species/')
 
     runtime_markers = (
         'photos/species.json',

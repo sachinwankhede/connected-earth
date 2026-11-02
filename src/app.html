@@ -1219,23 +1219,26 @@ rect.core { stroke-dasharray: 3 2.5; }
   };
 
   var DATA = __DATA__;
-  var ABOUT = null, ABOUT_P = null;
+  var ABOUT = {}, ABOUT_P = {};   /* species id -> description text, or null when there is none; filled one species at a time */
   function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
-  function aboutText(n) { var t = ABOUT && ABOUT[n.latin.toLowerCase()]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
-  // Long species descriptions live in webs/about.json, fetched the first time a species sheet opens.
-  function loadAbout() {
-    if (!ABOUT_P) ABOUT_P = fetch(WB + "about.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (a) { ABOUT = a; return true; }).catch(function () { ABOUT_P = null; return false; });
-    return ABOUT_P;
+  function sidOf(n) { return n.latin.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }   /* the same id the build gives the species (build/species.py slug) */
+  function aboutText(n) { var t = ABOUT[sidOf(n)]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
+  // A species' long description is its own small file, webs/species/<id>.json, fetched when its sheet opens (no file for a species without one).
+  function loadAbout(n) {
+    var id = sidOf(n);
+    if (!(id in ABOUT_P)) ABOUT_P[id] = fetch(WB + "species/" + id + ".json").then(function (r) { if (r.status === 404) return null; if (!r.ok) throw 0; return r.json(); }).then(function (a) { ABOUT[id] = a && a.t || null; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
+    return ABOUT_P[id];
   }
   function aboutHTML(n) {
     if (!n.latin) return "";
-    if (ABOUT) { var t = aboutText(n); return t ? '<p class="about">' + t + "</p>" : ""; }
-    loadAbout().then(function (ok) {
-      var el = ok && document.querySelector('.about[data-lat="' + n.latin.toLowerCase().replace(/"/g, "") + '"]');
+    var id = sidOf(n);
+    if (id in ABOUT) { var t = aboutText(n); return t ? '<p class="about">' + t + "</p>" : ""; }
+    loadAbout(n).then(function (ok) {
+      var el = ok && document.querySelector('.about[data-lat="' + id + '"]');
       if (!el) return;
       var t = aboutText(n); if (t) el.innerHTML = t; else el.remove();
     });
-    return '<p class="about" data-lat="' + esc(n.latin.toLowerCase()) + '"></p>';
+    return '<p class="about" data-lat="' + id + '"></p>';
   }
   var ECOS = DATA.ecos;
   /* The species lists are not in the page (smaller first load). Every place starts with an empty list; webs/species-index.json (the shared species table plus
