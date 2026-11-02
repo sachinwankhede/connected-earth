@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/*.json (hand-built places),
 data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
 """
-import json, re, sys, os, hashlib, urllib.parse
+import json, re, sys, os, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -161,18 +161,11 @@ def build(pilot, out_path, write=False):
     return out
 
 
-def boot_html(land_json):
-    """The placeholder shown while the page's scripts and the map download: the land outline as one SVG path (equirectangular, 1 decimal), the name and one line."""
-    land = json.loads(land_json)
-    d = []
-    for poly in land['coordinates']:
-        for ring in poly:
-            pts = [(round(x + 180, 1), round(80 - y, 1)) for x, y in ring if -60 <= y <= 80 or True]
-            pts = [p for i, p in enumerate(pts) if i == 0 or p != pts[i - 1]]
-            if len(pts) < 4: continue
-            d.append('M' + 'L'.join('%g %g' % p for p in pts) + 'Z')
-    return ('<div id="boot" aria-hidden="true"><svg viewBox="30 8 220 112" preserveAspectRatio="xMidYMid meet"><path d="' + ''.join(d) + '"/></svg>'
-            '<div class="bt"><b>Connected Earth</b><span>See how nature is connected</span></div></div>')
+def boot_html(land_json=None):
+    """The start screen shown while the page's scripts and the map download: the app logo, big, and the name. Removed (fade) when the map has drawn."""
+    icon = base64.b64encode(open(P('icon-192.png'), 'rb').read()).decode()
+    return ('<div id="boot" aria-hidden="true"><div class="bt"><img src="data:image/png;base64,' + icon + '" alt="" width="160" height="160">'
+            '<b>Connected Earth</b><span>See how nature is connected</span><i class="bar"></i></div></div>')
 
 
 def build_id(html):
