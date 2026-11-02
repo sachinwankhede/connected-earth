@@ -20,3 +20,12 @@ Also on the list: diagram library (D3) on demand (#186).
 
 ## Trade-off
 Moving data out of the page means a short wait the first time you open a region, a place or search, instead of a longer wait at the start. The first screen must never wait for these.
+
+## Photos are data too (added 2026-11-02)
+Findings: to open one place the app downloads a list for all 4,802 species (644 KB raw, 176 KB gzip) and, at start, a list for all 1,144 places (601 KB raw, 119 KB gzip). A place needs about 30 species entries.
+Rules:
+1. **A picture entry belongs to the thing it shows.** A place's own file carries the entries of its own species (about 5 KB); a card's picture entry travels with the card data. No global list is needed to open a place (#237).
+2. **Our own small copies.** A GitHub job downloads each species picture once, shrinks it (about 96 px WebP), keeps credit and licence, and writes one packed file per place (#238). Credits stay in the metadata files and are still shown.
+3. **Short, stable addresses** (by id or hash), not long Wikimedia paths repeated twice per entry.
+4. **Global lists are only for search or review jobs,** never read to open a place.
+5. The photo jobs keep one writer per file and open pull requests that the owner merges.
