@@ -3335,8 +3335,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Places";
     el.h1.textContent = "Connected Earth";
     if (M.map) { var mc = M.map.getContainer(), rk = mc.clientWidth + "x" + mc.clientHeight; if (M.rk !== rk) { M.rk = rk; M.map.resize(); } }   /* resizing the map canvas is costly: only when the size really changed */
-    refreshArcs();
-    renderView(false);
+    renderView(false);   /* renderView already refreshes the map's connection lines (pushTies); the separate refresh that ran here repeated that work on every back tap */
     syncHash();
   }
   function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
