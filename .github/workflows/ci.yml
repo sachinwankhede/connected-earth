@@ -132,6 +132,7 @@ jobs:
         run: |
           python3 tests/jobs/photo_registry_test.py
           python3 tests/jobs/ci_changes_test.py
+          python3 tests/jobs/hostphotos_test.py
           python3 -m unittest tests/jobs/sync_test.py
           node --test tests/jobs/*.test.mjs
 
