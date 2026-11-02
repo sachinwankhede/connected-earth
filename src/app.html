@@ -140,8 +140,8 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 
 .mapview { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 14px; }
 /* the start screen: shown at once while the page's scripts and the map download (the big logo and the name, nothing else), removed when the map has drawn */
-#boot { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; background: var(--bg); transition: opacity .4s ease; }
-#boot.gone { opacity: 0; pointer-events: none; }
+#boot { position: fixed; inset: 0; z-index: 1000; pointer-events: none; display: flex; align-items: center; justify-content: center; background: var(--bg); transition: opacity .4s ease; }
+#boot.gone { opacity: 0; }
 #boot .bt { text-align: center; color: var(--ink); padding: 0 24px; }
 #boot .bt img { display: block; margin: 0 auto 20px; width: min(42vw, 160px); height: auto; aspect-ratio: 1; border-radius: 22%; box-shadow: 0 8px 28px rgba(20,34,27,.28); }
 #boot .bt b { display: block; font-weight: 700; font-size: clamp(24px, 6vw, 34px); line-height: 1.1; font-family: var(--font-display); }
@@ -2776,7 +2776,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       var bt = document.getElementById("boot");
       if (!bt) return;
       var done = function () { if (!bt.parentNode) return; bt.classList.add("gone"); setTimeout(function () { if (bt.parentNode) bt.parentNode.removeChild(bt); }, 450); };
-      m.once("idle", done); setTimeout(done, 20000);   /* the outline never stays if the map fails to draw */
+      m.once("idle", done); m.once("load", done); setTimeout(done, 7000);   /* the start screen never stays if the map is slow, blocked or offline */
     })();
     var mh = M.mapHooks || []; M.mapHooks = []; mh.forEach(function (f) { f(); });
     window._atlas = M;
