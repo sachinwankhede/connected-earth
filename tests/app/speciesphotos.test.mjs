@@ -5,13 +5,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
-const hosted = JSON.parse(fs.readFileSync(new URL('../../photos/species_hosted.json', import.meta.url), 'utf8'));
 const testImage = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGP4DwQACfsD/fteaysAAAAASUVORK5CYII=', 'base64');
 const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in these tests
 
 // Species pictures are our own hosted copies. A missing entry keeps the placeholder; nothing is ever fetched from another site.
+// These tests never read the real hosted list (photos/species_hosted.json): the server answers every picture-entry request
+// (webs/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
 describe('species pictures come only from our hosted copies', () => {
-  let browser, srv, base, titles = [], entry = null;
+  let browser, srv, base, pics = {};
   const speciesTitle = H.readPlaces(false).find((e) => e.id === 'yellowstone').nodes.find((n) => n.wiki).wiki;
   before(async () => {
     browser = await H.launch();
@@ -19,10 +20,11 @@ describe('species pictures come only from our hosted copies', () => {
       const u = decodeURIComponent(q.url.split('?')[0]);
       if (u === '/photos/species/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
-      if (/\/webs\/[\w-]+\.json$/.test(u) && !/(species-index|species-pictures)\.json$/.test(u) && entry !== undefined && titles !== null && fs.existsSync(path.join(H.ROOT, u))) {
-        // give the place exactly the picture entries this test wants (null = leave the real ones)
+      if (u.endsWith('/webs/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
+      if (/\/webs\/[\w-]+\.json$/.test(u) && !u.endsWith('/webs/species-index.json') && fs.existsSync(path.join(H.ROOT, u))) {
+        // give the place exactly the picture entries this test wants
         const w = JSON.parse(fs.readFileSync(path.join(H.ROOT, u), 'utf8'));
-        w.ph = Object.fromEntries(titles.map((t) => [t, entry])); w.phm = {};
+        w.ph = { ...pics }; w.phm = {};
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
       }
       let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
@@ -52,7 +54,7 @@ describe('species pictures come only from our hosted copies', () => {
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: absent photos keep place and species placeholders and read nothing from another site`, async () => {
-      titles = []; entry = null;
+      pics = {};
       const t = await open(size);
       await t.page.goto(base + 'index.html#pg=yellowstone');
       await t.page.waitForSelector('#pview article .pph svg', { timeout: 30000 });
@@ -74,7 +76,7 @@ describe('species pictures come only from our hosted copies', () => {
     });
 
     test(`${sizeName}: a listed species uses its hosted copy as a lazy thumbnail`, async () => {
-      titles = [speciesTitle]; entry = [FAKE, 'Test_page'];
+      pics = { [speciesTitle]: [FAKE, 'Test_page'] };
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=yellowstone');
       await t.page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
@@ -89,12 +91,11 @@ describe('species pictures come only from our hosted copies', () => {
     });
 
     test(`${sizeName}: a species wiki alias uses its canonical hosted picture`, async () => {
-      titles = null; entry = null;   // the real entries the build wrote
       const dolphin = H.readPlaces(false).find((e) => e.id === 'gulf').nodes.find((n) => n.id === 'dolphin');
       assert.equal(dolphin.wiki, 'Bottlenose dolphin');
       assert.equal(dolphin.canonicalWiki, 'Common bottlenose dolphin');
-      const want = hosted[dolphin.canonicalWiki];
-      assert.ok(want, 'the canonical Wikipedia article has a hosted picture');
+      const want = FAKE;
+      pics = { [dolphin.canonicalWiki]: [FAKE, 'Test_page'] };   // only the canonical article has a picture, the node itself is named by the alias
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=gulf');
       await t.page.waitForFunction(() => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'dolphin'); return n && n.querySelector('image.photo[loading="lazy"]'); }, null, { timeout: 60000 });
@@ -108,9 +109,8 @@ describe('species pictures come only from our hosted copies', () => {
     });
 
     test(`${sizeName}: the canonical Coyote picture key matches its common-name alias`, async () => {
-      titles = null; entry = null;
-      const want = hosted['Canis latrans'];
-      assert.ok(want, 'Canis latrans has a hosted picture');
+      const want = FAKE;
+      pics = { 'Canis latrans': [FAKE, 'Test_page'] };   // keyed by the Latin name only
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=yellowstone');
       await t.page.waitForFunction(() => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, null, { timeout: 60000 });
@@ -123,7 +123,8 @@ describe('species pictures come only from our hosted copies', () => {
     });
 
     test(`${sizeName}: an entry that points to another site is never used`, async () => {
-      titles = [speciesTitle, 'Osprey']; entry = ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page'];
+      const other = ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page'];
+      pics = { [speciesTitle]: other, Osprey: other };
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=yellowstone');
       await t.page.waitForSelector('#svg .node .glyph', { timeout: 30000 });
