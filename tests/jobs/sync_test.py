@@ -1,7 +1,7 @@
 """Tests for jobs/syncmain.py: every kind of clash the data jobs have produced, built as a small throwaway git repository.
 Run: python3 -m unittest tests/sync_test.py   (or node --test tests/sync.test.mjs, which CI runs)"""
 import json, os, shutil, subprocess, sys, tempfile, unittest
-HERE = os.path.dirname(os.path.abspath(__file__)); SCRIPT = os.path.join(os.path.dirname(HERE), 'jobs', 'syncmain.py')
+HERE = os.path.dirname(os.path.abspath(__file__)); SCRIPT = os.path.join(os.path.dirname(os.path.dirname(HERE)), 'jobs', 'syncmain.py')
 
 def git(cwd, *a, check=True):
     return subprocess.run(('git',) + a, cwd=cwd, capture_output=True, text=True, check=check)

@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
 test('every stored place photo is a photo with credit and a file on disk', () => {
-  const dir = new URL('../photos/places/', import.meta.url);
+  const dir = new URL('../../photos/places/', import.meta.url);
   const man = JSON.parse(fs.readFileSync(new URL('places.json', dir), 'utf8'));
   const notPhoto = /logo|arrowhead|emblem|coat[_ ]of[_ ]arms|seal[_ ]of|(^|[_ ])flag([_ .]|$)|\.svg/i;
   const bad = [];

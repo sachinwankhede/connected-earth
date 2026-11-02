@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { INITIAL_STAGE_DEFINITIONS, summarizeInitialStages } from './perf/metrics.mjs';
+import { INITIAL_STAGE_DEFINITIONS, summarizeInitialStages } from '../perf/metrics.mjs';
 
 test('initial-load stage summary reports p50/p95, methods, samples, and failures', () => {
   const summary = summarizeInitialStages([

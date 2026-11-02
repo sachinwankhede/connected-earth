@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
 import fs from 'node:fs';
-const sums = JSON.parse(fs.readFileSync(new URL('../data/text/summaries.json', import.meta.url), 'utf8'));
+const sums = JSON.parse(fs.readFileSync(new URL('../../data/text/summaries.json', import.meta.url), 'utf8'));
 // the same rule build.py uses: the park's first Wikipedia source names the article
 const summaryOf = (e) => { const s = (e.sources || []).find((x) => /^Wikipedia:/.test(x.title)), m = s && /wikipedia\.org\/wiki\/([^#?]+)/.exec(s.url || ''); return (m && sums[decodeURIComponent(m[1]).replace(/_/g, ' ')]) || ''; };
 const places = H.readPlaces(true).map((e) => ({ ...e, summary: summaryOf(e) }));

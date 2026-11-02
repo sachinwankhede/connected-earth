@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 const require = createRequire(import.meta.url);
-const Registry = require('../src/photo-registry.js');
+const Registry = require('../../src/photo-registry.js');
 
 const legacyPlace = {
   f: 'park.jpg',
