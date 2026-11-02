@@ -62,11 +62,12 @@ describe('species pictures come only from our hosted copies', () => {
       }));
       assert.ok(place.heroIcon && !place.heroPhoto, 'place hero keeps its placeholder');
       assert.ok(place.speciesIcons > 0 && place.speciesPhotos === 0, 'place page species cards keep their placeholders');
+      await t.page.goto('about:blank');   // a fresh page: the journey pictures the place page may have loaded must not leak into this check
       await t.page.goto(base + 'index.html#e=yellowstone');
       await t.page.waitForSelector('#svg .node .glyph', { timeout: 30000 });
       await t.page.waitForTimeout(1000);
       const species = await t.page.evaluate(() => ({ photos: document.querySelectorAll('#svg .node image.photo').length, icons: document.querySelectorAll('#svg .node .glyph').length }));
-      assert.ok(species.icons > 0 && species.photos === 0, 'food-web species keep their placeholders');
+      assert.ok(species.icons > 0 && species.photos === 0, 'food-web species keep their placeholders ');
       assert.deepEqual(t.outside, [], 'nothing is requested from another site');
       assert.deepEqual(t.errors, []);
       await t.ctx.close();

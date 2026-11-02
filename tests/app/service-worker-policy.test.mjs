@@ -50,7 +50,7 @@ function worker() {
   };
 }
 
-test('service worker refreshes map style metadata and reuses cached tiles and thumbnails offline', async () => {
+test('service worker refreshes map style metadata and reuses cached tiles offline and leaves pictures from other sites alone', async () => {
   const sw = worker();
   const style = 'https://tiles.openfreemap.org/styles/liberty';
   const tile = 'https://tiles.openfreemap.org/planet/0/0/0.pbf';
@@ -69,10 +69,7 @@ test('service worker refreshes map style metadata and reuses cached tiles and th
   assert.equal(await (await sw.request(tile)).text(), 'cached tile');
   assert.deepEqual(sw.calls, [style, style]);
 
-  sw.setOffline(false);
-  assert.equal(await (await sw.request(thumbnail)).text(), `network:${thumbnail}`);
-  assert.deepEqual(sw.calls, [style, style, thumbnail]);
-  sw.setOffline(true);
-  assert.equal(await (await sw.request(thumbnail)).text(), `network:${thumbnail}`);
-  assert.deepEqual(sw.calls, [style, style, thumbnail]);
+  // pictures are our own hosted files now: the worker no longer touches another site's pictures at all
+  assert.equal(await sw.request(thumbnail), undefined);
+  assert.deepEqual(sw.calls, [style, style]);
 });

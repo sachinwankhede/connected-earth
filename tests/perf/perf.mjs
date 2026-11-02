@@ -40,7 +40,7 @@ const INIT = () => {
     try { u = new URL(url); } catch { return 'other'; }
     if (/\/webs\/[^/]+\.json$/.test(u.pathname)) return 'web data';
     if (/\/data\/[^/]+\.json$/.test(u.pathname)) return 'place data';
-    if (/\/photos\//.test(u.pathname) || /wikimedia\.org$/.test(u.hostname)) return 'photos';
+    if (/\/photos\//.test(u.pathname)) return 'photos';
     if (/openfreemap|arcgis/.test(u.hostname)) return 'map';
     return 'other';
   };
@@ -164,7 +164,7 @@ async function navigationScenario(browser, name, kind) {
       // the pictures a place page asks for (food-web preview circles and species cards): when the first and the last one arrived, counted from the tap
       await p.waitForTimeout(8000);
       const pics = await p.evaluate(() => {
-        const start = window.__perfNavStart, e = performance.getEntriesByType('resource').filter((x) => x.startTime >= start && /thumb\.wikimedia|upload\.wikimedia|\/photos\//.test(x.name));
+        const start = window.__perfNavStart, e = performance.getEntriesByType('resource').filter((x) => x.startTime >= start && /\/photos\//.test(x.name));
         if (!e.length) return null;
         // one line per picture so a slow place page can be explained: waiting to start, connection setup, wait for first byte, download, size
         window.__picRows = e.sort((a, b) => a.startTime - b.startTime).map((x) => [x.name.replace(/^https:\/\//, '').slice(0, 70), Math.round(x.startTime - start), Math.round(x.connectEnd - x.connectStart), Math.round(x.responseStart - x.requestStart), Math.round(x.responseEnd - x.responseStart), Math.round(x.transferSize / 100) / 10, x.nextHopProtocol].join(' | '));
