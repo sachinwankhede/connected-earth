@@ -2,7 +2,7 @@ name: checks
 # Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
 #   app  (src, build, app tests, fonts, package files, this file...): everything, including the browser tests.
 #   data (data, data-auto, photos, data tests): validation, pack check, build, size budgets, data tests and one smoke test.
-#   jobs (job scripts, lib, job tests, state/promote tools): the job self-tests only.
+#   job scripts (data-job scripts in jobs/, lib, job tests, state/promote tools): the job self-tests only.
 #   docs, notes, the data-job workflows and job state files run nothing.
 # The "gate" job always runs and passes when every job that was needed passed, so it is the one check to require.
 on:
@@ -112,10 +112,10 @@ jobs:
         env:
           CI: "1"
 
-  jobs:
+  job-scripts:
     needs: changes
     if: needs.changes.outputs.jobs == 'true'
-    name: jobs
+    name: job scripts
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -133,7 +133,7 @@ jobs:
   gate:
     # Always runs. Passes when every needed job passed (skipped jobs were not needed).
     if: always()
-    needs: [changes, app, data, jobs]
+    needs: [changes, app, data, job-scripts]
     runs-on: ubuntu-latest
     steps:
       - name: Every needed job passed
