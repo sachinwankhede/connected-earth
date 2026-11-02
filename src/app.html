@@ -3334,7 +3334,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Places";
     el.h1.textContent = "Connected Earth";
-    if (M.map) M.map.resize();
+    if (M.map) { var mc = M.map.getContainer(), rk = mc.clientWidth + "x" + mc.clientHeight; if (M.rk !== rk) { M.rk = rk; M.map.resize(); } }   /* resizing the map canvas is costly: only when the size really changed */
     refreshArcs();
     renderView(false);
     syncHash();
