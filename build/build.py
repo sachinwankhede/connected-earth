@@ -155,9 +155,9 @@ def build(pilot, out_path, write=False):
     open(P('geo-states.json'), 'w').write(json.dumps(geo['states'], separators=(',', ':'), ensure_ascii=False))   # US state outlines: their own file, fetched after the map
     shutil.copyfile(os.path.join(ml, 'maplibre-gl.js'), P('maplibre-gl-%s.js' % mlver))   # the map library is its own file (not part of the page): see the loader in src/app.html
     out = out.replace('__MLVER__', mlver)
-    tag = '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>'
-    assert tag in out, 'd3 script tag not found in src/app.html'
-    out = out.replace(tag, '<script>' + open(P('node_modules', 'd3', 'dist', 'd3.min.js')).read() + '</script>', 1)
+    d3ver = json.load(open(P('node_modules', 'd3', 'package.json')))['version']
+    shutil.copyfile(P('node_modules', 'd3', 'dist', 'd3.min.js'), P('d3-%s.js' % d3ver))   # the diagram library is its own file, loaded when a food web or journey map is first needed
+    out = out.replace('__D3VER__', d3ver)
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w').write(out)
     print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
