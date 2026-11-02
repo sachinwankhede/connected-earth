@@ -13,6 +13,8 @@ import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import species
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
+from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)
 
 
@@ -81,13 +83,15 @@ def split(ecos, links, phs=None, phm=None):
     return light, webs, spt, sidx, qs
 
 
-def write_webs(webs, about, species_index=None):
+def write_webs(webs, about, species_index=None, pictures=None):
     d = P('webs'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
-        if f.endswith('.json') and f[:-5] not in webs and f != 'species-index.json': os.remove(os.path.join(d, f))
+        if f.endswith('.json') and f[:-5] not in webs and f not in ('species-index.json', 'species-pictures.json'): os.remove(os.path.join(d, f))
     if species_index is not None:
         # the table and the lists are written together, so the file is consistent whichever page (main or pilot) reads it
         open(os.path.join(d, 'species-index.json'), 'w').write(json.dumps(species_index, separators=(',', ':'), ensure_ascii=False))
+    if pictures is not None:   # every hosted picture's entry and credit, for the journey and related-place views
+        open(os.path.join(d, 'species-pictures.json'), 'w').write(json.dumps(pictures, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
     # one small file per species with a description, named by the species id (the app asks for webs/species/<id>.json when its sheet opens)
@@ -153,10 +157,25 @@ def build(pilot, out_path, write=False):
     for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
         if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
     phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
-    phs = json.load(open(phf)) if os.path.exists(phf) else None
-    phm = json.load(open(phmf)) if os.path.exists(phmf) else {}
+    src_ph = json.load(open(phf)) if os.path.exists(phf) else {}
+    phm_all = json.load(open(phmf)) if os.path.exists(phmf) else {}
+    for _c in phm_all.values():
+        if isinstance(_c, dict) and _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
+    hf = P('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
+    # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
+    phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
+    phm = {t: phm_all[t] for t in phs if t in phm_all}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
-    if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs})
+    # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
+    byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set()
+    for c in links['cross']:
+        if c.get('imgwiki'): jt.add(c['imgwiki'])
+    for eco_id, node_ids in cross_ends(links).items():
+        for nid in node_ids:
+            n = byid.get(eco_id, {}).get(nid)
+            if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
+    jp = {t: phs[t] for t in sorted(jt) if t in phs}
+    if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
     data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast

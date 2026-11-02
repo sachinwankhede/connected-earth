@@ -24,14 +24,13 @@
     return "https://en.wikipedia.org/wiki/" + encodeURIComponent(decoded.replace(/ /g, "_"));
   }
 
+  // Species pictures are our own hosted copies: an entry holds the hosted file name (12 hex digits and .webp), and the file is read from
+  // <species base>/<name>. Nothing else is accepted, so a picture is never fetched from another site.
+  var speciesBase = "photos/species/";
+  function setSpeciesBase(base) { speciesBase = String(base || "photos/species/"); }
   function speciesAsset(value) {
-    if (typeof value !== "string" || !value) return null;
-    if (/^https:\/\//i.test(value)) return httpsUrl(value, ALLOWED_HOSTS) ? value : null;
-    var decoded = value;
-    try { decoded = decodeURIComponent(value); } catch (e) { return null; }
-    if (/^[a-z][a-z0-9+.-]*:/i.test(value) || value.charAt(0) === "/" || decoded.split("/").some(function (part) { return part === "." || part === ".."; }) || /[?#]/.test(value)) return null;
-    return "https://thumb.wikimedia.org/wikipedia/commons/thumb/" +
-      value.replace(/\/(page1-)?330px-/, function (_, page) { return "/" + (page || "") + "120px-"; });
+    if (typeof value !== "string" || !/^[0-9a-f]{12}\.webp$/.test(value)) return null;
+    return speciesBase + value;
   }
 
   function speciesCandidate(value, sourcePage, priority, metadata) {
@@ -41,7 +40,7 @@
     var credit = metadata && typeof metadata === "object" ? metadata : null;
     if (!assetUrl) return null;
     return {
-      provider: "wikimedia-commons",
+      provider: "hosted",
       assetUrl: assetUrl,
       sourcePageUrl: page,
       author: credit && credit.a || null,
@@ -143,6 +142,7 @@
     placeCandidate: placeCandidate,
     register: register,
     speciesCandidate: speciesCandidate,
+    setSpeciesBase: setSpeciesBase,
     validateCandidate: validateCandidate,
     wikiUrl: wikiUrl
   };

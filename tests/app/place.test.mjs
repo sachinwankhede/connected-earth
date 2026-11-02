@@ -35,7 +35,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: species show their photos in the picture, the cards and the chains, and fall back to icons without them`, async () => {
     const { b, p, errors } = await start();
-    // no photos available: icons stay, nothing breaks
+    // no photos available (this place's entries removed): icons stay, nothing breaks
+    await p.route(/\/webs\/yellowstone\.json/, async (rt) => { const res = await rt.fetch(), w = await res.json(); w.ph = {}; w.phm = {}; await rt.fulfill({ response: res, body: JSON.stringify(w) }); });
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p); await p.waitForTimeout(1500);
     let r = await p.evaluate(() => ({ img: document.querySelectorAll('#pgraph image').length, gl: [...document.querySelectorAll('#pgraph .pn .gl')].filter((g) => g.getBoundingClientRect().width > 0).length }));
     assert.equal(r.img, 0); assert.ok(r.gl >= 25, 'icons shown');

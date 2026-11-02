@@ -19,14 +19,15 @@ const legacyPlace = {
 
 test('adapts legacy place and species records to the shared candidate shape', () => {
   const place = Registry.placeCandidate(legacyPlace, 'photos/places/');
-  const species = Registry.speciesCandidate(['2/2f/File.jpg/330px-File.jpg', 'Species_name']);
+  const species = Registry.speciesCandidate(['a1b2c3d4e5f6.webp', 'Species_name']);
   assert.equal(place.provider, 'wikimedia-commons');
   assert.equal(place.assetUrl, 'photos/places/park.jpg');
   assert.equal(place.licenseId, 'CC BY 4.0');
   assert.equal(place.mirrorHash, 'abc');
   assert.equal(place.mediaType, 'image/jpeg');
   assert.deepEqual([place.width, place.height], [900, 600]);
-  assert.equal(species.assetUrl, 'https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/File.jpg/120px-File.jpg');
+  assert.equal(species.assetUrl, 'photos/species/a1b2c3d4e5f6.webp');
+  assert.equal(species.provider, 'hosted');
   assert.equal(species.sourcePageUrl, 'https://en.wikipedia.org/wiki/Species_name');
   assert.equal(species.reviewStatus, 'legacy');
 });
@@ -38,7 +39,7 @@ test('exposes verified species attribution without changing legacy review status
     lu: 'https://creativecommons.org/licenses/by/4.0',
     p: 'https://commons.wikimedia.org/wiki/File:Exact_file.jpg'
   };
-  const species = Registry.speciesCandidate(['2/2f/Exact_file.jpg/330px-Exact_file.jpg', 'Species'], 'Species', 1, metadata);
+  const species = Registry.speciesCandidate(['a1b2c3d4e5f6.webp', 'Species'], 'Species', 1, metadata);
   assert.equal(species.author, 'Photographer');
   assert.equal(species.licenseId, 'CC BY 4.0');
   assert.equal(species.licenseUrl, metadata.lu);
@@ -50,12 +51,20 @@ test('exposes verified species attribution without changing legacy review status
   assert.deepEqual(registry.Species.credit, metadata);
 });
 
-test('keeps already-absolute Wikimedia assets unchanged and rejects unsafe candidates', () => {
-  const direct = 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Exact_file.jpg';
-  assert.equal(Registry.speciesCandidate([direct, 'Species']).assetUrl, direct);
+test('accepts only hosted file names: no address on another site is ever used', () => {
+  assert.equal(Registry.speciesCandidate(['https://upload.wikimedia.org/wikipedia/commons/a/a0/Exact_file.jpg', 'Species']), null);
   assert.equal(Registry.speciesCandidate(['http://upload.wikimedia.org/a.jpg', 'Species']), null);
   assert.equal(Registry.speciesCandidate(['https://example.com/a.jpg', 'Species']), null);
+  assert.equal(Registry.speciesCandidate(['2/2f/File.jpg/330px-File.jpg', 'Species']), null);
   assert.equal(Registry.speciesCandidate(['../private/a.jpg', 'Species']), null);
+  assert.equal(Registry.speciesCandidate(['a1b2c3d4e5f6.png', 'Species']), null);
+});
+
+test('reads hosted files from the base the page sets', () => {
+  Registry.setSpeciesBase('/connected-earth/photos/species/');
+  assert.equal(Registry.speciesCandidate(['a1b2c3d4e5f6.webp', 'Species']).assetUrl, '/connected-earth/photos/species/a1b2c3d4e5f6.webp');
+  Registry.setSpeciesBase();
+  assert.equal(Registry.speciesCandidate(['a1b2c3d4e5f6.webp', 'Species']).assetUrl, 'photos/species/a1b2c3d4e5f6.webp');
 });
 
 test('requires complete secure metadata before a candidate can be approved', () => {
@@ -80,18 +89,18 @@ test('requires complete secure metadata before a candidate can be approved', () 
 
 test('preserves local-first ordering and advances to the next approved or legacy candidate', () => {
   const registry = {};
-  const species = Registry.speciesCandidate(['a/b/File.jpg/330px-File.jpg', 'Species'], 'Species', 1);
+  const species = Registry.speciesCandidate(['a1b2c3d4e5f6.webp', 'Species'], 'Species', 1);
   Registry.register(registry, 'Species', species);
   const place = Registry.placeCandidate(legacyPlace, 'photos/places/');
   Registry.register(registry, 'Species', place);
   Registry.register(registry, 'Species', { ...species, assetUrl: 'https://upload.wikimedia.org/next.jpg', reviewStatus: 'pending-review', priority: 2 });
   assert.deepEqual(registry.Species.candidates.map((c) => c.assetUrl), [
     'photos/places/park.jpg',
-    'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/b/File.jpg/120px-File.jpg'
+    'photos/species/a1b2c3d4e5f6.webp'
   ]);
   assert.deepEqual(Registry.nextCandidate(registry.Species.candidates, 0, { 'photos/places/park.jpg': true }), {
     index: 1,
-    url: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/a/b/File.jpg/120px-File.jpg'
+    url: 'photos/species/a1b2c3d4e5f6.webp'
   });
   assert.equal(Registry.nextCandidate(registry.Species.candidates, 1, {}), null);
 });

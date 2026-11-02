@@ -6,8 +6,7 @@ import path from 'node:path';
 import * as H from './helper.mjs';
 
 // Owner rule: the app reads everything from data we host. The only outside hosts are the base map tiles.
-// Species pictures still come from Wikimedia until item #238 wires in our own copies; flip this to false in that change.
-const SPECIES_PICTURES_FROM_WIKIMEDIA = true;
+const SPECIES_PICTURES_FROM_WIKIMEDIA = false;   // our own hosted copies are wired in (#238)
 const MAP_HOSTS = /(^|\.)(arcgisonline\.com|openfreemap\.org|amazonaws\.com)$/;
 const WIKIMEDIA = /(^|\.)wikimedia\.org$/;
 // Request and byte budgets for the first view and for opening a place: counts and sizes do not jitter like timings do, so they can block a change.

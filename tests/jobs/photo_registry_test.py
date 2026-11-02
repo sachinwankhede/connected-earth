@@ -59,6 +59,8 @@ class PhotoRegistryTests(unittest.TestCase):
                 json.dump({}, f)
             with open(os.path.join(photos, "species.json"), "w", encoding="utf-8") as f:
                 json.dump({"Verified species": ["2/2f/File.jpg/330px-File.jpg", "Species"]}, f)
+            with open(os.path.join(photos, "species_hosted.json"), "w", encoding="utf-8") as f:
+                json.dump({"Verified species": "0123456789ab.webp"}, f)   # only credits of hosted pictures are checked
             metadata = os.path.join(photos, "species_metadata.json")
             record = {
                 "a": "Photographer", "l": "CC BY 4.0",

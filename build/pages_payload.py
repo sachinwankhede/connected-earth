@@ -62,11 +62,14 @@ def main():
             json.loads(source.read_text())
             copy_file(source, source.relative_to(ROOT).as_posix(), expected)
 
-    for relative in ('photos/species.json', 'photos/species_metadata.json', 'photos/places/places.json'):
-        copy_file(ROOT / relative, relative, expected)
-
-    json.loads((DEST / 'photos/species.json').read_text())
-    json.loads((DEST / 'photos/species_metadata.json').read_text())
+    copy_file(ROOT / 'photos/places/places.json', 'photos/places/places.json', expected)
+    # our own copies of the species pictures (the app reads these; the Wikimedia links in photos/species.json are job input, not published)
+    hosted = json.loads((ROOT / 'photos/species_hosted.json').read_text()) if (ROOT / 'photos/species_hosted.json').exists() else {}
+    for name in sorted(set(hosted.values())):
+        source = ROOT / 'photos/species' / name
+        if not source.is_file():
+            raise SystemExit('hosted species picture missing: photos/species/' + name)
+        copy_file(source, 'photos/species/' + name, expected)
     place_photos = json.loads((ROOT / 'photos/places/places.json').read_text())
     for record in place_photos.values():
         path = place_image_path(record['f'])
@@ -90,8 +93,7 @@ def main():
         raise SystemExit('missing generated species descriptions: webs/species/')
 
     runtime_markers = (
-        'photos/species.json',
-        'photos/species_metadata.json',
+        'photos/species/',
         'photos/places/',
         'data/outlines/',
         'webs/',

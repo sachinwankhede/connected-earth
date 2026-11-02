@@ -15,7 +15,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const errors = [], png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64');
     p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
     await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
-    await p.route(/thumb\.wikimedia\.org/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png }));
+    await p.route(/\/webs\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: { Osprey: ['0123456789ab.webp', 'Osprey'] }, phm: {} }) }));   // a hosted picture entry for the osprey journey
+    await p.route(/\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png }));
     const url = await H.urlFor(H.MAIN);
     await p.goto(url + hash);
     await p.waitForTimeout(700);
@@ -47,7 +48,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="journeys"]:visible');
     await p.waitForSelector('#xi-osprey img[loading="lazy"]');
     const card = await p.locator('#xi-osprey img').getAttribute('src');
-    assert.ok(card.includes('/120px-'), 'journey cards use the smaller approved manifest thumbnail');
+    assert.ok(/\/photos\/species\/[0-9a-f]{12}\.webp$/.test(card), 'journey cards use our hosted picture');
 
     await p.goto(url + '#stub&j=osprey');
     await p.waitForSelector('#jview #jp-main img[loading="lazy"]');
@@ -56,7 +57,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       credit: document.getElementById('jcredit')?.textContent || '',
       article: [...document.querySelectorAll('#jcredit a')].some((a) => a.href === 'https://en.wikipedia.org/wiki/Osprey')
     }));
-    assert.ok(hero.src && hero.src.includes('/120px-'), 'direct journey links load an approved thumbnail');
+    assert.ok(hero.src && /\/photos\/species\/[0-9a-f]{12}\.webp$/.test(hero.src), 'direct journey links load our hosted picture');
     assert.ok(hero.credit.includes('Photo: Wikipedia') && hero.article, 'the journey retains its photo article credit');
 
     for (const id of ['dust', 'nutrients', 'monarch', 'prairiegulf']) {
