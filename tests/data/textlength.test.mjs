@@ -7,7 +7,7 @@ const MAX = { story: 60, matters: 40 };
 const words = (t) => String(t || '').trim().split(/\s+/).filter(Boolean).length;
 
 test('place story and why-it-matters texts stay within the word limits', () => {
-  const dirs = ['../../data/places/', '../../data-auto/'];
+  const dirs = ['../../data/places/'];
   const over = [];
   let checked = 0;
   for (const d of dirs) {

@@ -6,7 +6,7 @@ import json, os, random, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); sys.path.insert(0, os.path.join(ROOT, 'build'))
 import species
 r = json.load(open(sys.argv[1]))
-print('Moves passing state parks from the pilot (data-auto) to the main app (data). Not merged by the job: the owner merges after the spot check below.\n')
+print('Moves passing state parks from the pilot (stage pilot in data/places) to the main app. Not merged by the job: the owner merges after the spot check below.\n')
 print('Promoted: %d parks. Held back: %d.\n' % (len(r['moved']), len(r['held'])))
 if r['held']:
     print('<details><summary>Held back</summary>\n')

@@ -58,11 +58,11 @@ To precompute, in order of cost on the open path:
 5. Journeys per place (##263) and species to places (#253).
 The app then needs no scan of all places and no simulation to show a screen.
 
-## Folder layout (added 2026-11-02, item #267; stages 1 to 3 done; folding the pilot places into data/ is left)
+## Folder layout (added 2026-11-02, item #267; all stages done)
 Code, data and jobs are kept apart, so a change can say which of the three it touches.
 - `src/`, `build/`, `tests/`, `fonts/`: code.
 - `data/places/<id>.json`: one file per place (written only by data jobs). `data/journeys/links.json`: the order of places and the journeys between them. `data/species/species.json`: the species table; `data/species/about.json`: species descriptions. `data/text/summaries.json`: one-sentence park summaries. `data/outlines/`: place outlines. `data/geo/`: country, state and land outlines.
-- `data-auto/`: the pilot places (folds into `data/` later, with a tier field).
+- Pilot places are in `data/places/` too, marked `"stage": "pilot"` (absent means main; `tier` stays overview/detailed). Their order is `data/journeys/pilot-order.json`; the main order is `links.json`. The main build loads the places listed in `links.json`; the pilot build adds the pilot list. Promoting a place drops `stage` and adds it to `links.json`; the file does not move. (`data-auto/` was folded in on 2 Nov, item #267.)
 - `photos/`: place photos, species picture references, our hosted species pictures (`photos/species/`) and their credits.
 - `jobs/`: job scripts and their own state (queue, names, reports, park lists). `lib/`: code shared by the build and the jobs (the photo registry). Anything the build reads lives in `data/` or `lib/`, never in `jobs/`.
 Nothing the build reads may live in the jobs folder.

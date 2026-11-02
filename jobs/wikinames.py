@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """wikinames.py: give each park of one state its real Wikipedia name.
 
-  python3 jobs/wikinames.py IL            fix names and Wikipedia source links for the IL parks in data-auto
+  python3 jobs/wikinames.py IL            fix names and Wikipedia source links for the IL parks in data/places (pilot places only)
   python3 jobs/wikinames.py --selftest    check the matching rules without the web
 
 The park list from PAD-US sometimes has typos ("Horshoe Lake", "Morraine Hills"), and the Wikipedia source link was built
@@ -98,10 +98,11 @@ def selftest():
 if __name__ == '__main__':
     if '--selftest' in sys.argv: selftest(); sys.exit(0)
     import state, wm
-    st = sys.argv[1].upper(); full = state.STATES[st]; d = os.path.join(ROOT, 'data-auto'); rows = []; changed = 0
+    st = sys.argv[1].upper(); full = state.STATES[st]; d = os.path.join(ROOT, 'data', 'places'); rows = []; changed = 0
     for f in sorted(os.listdir(d)):
         if not (f.startswith(st.lower()) and f.endswith('.json')) or f == 'order.json': continue
         e = json.load(open(os.path.join(d, f)))
+        if e.get('stage') != 'pilot': continue
         if not e.get('park') or not e.get('nodes'): continue
         qn = FIXES.get(e['id'], e['name'])      # a hand-corrected spelling (FIXES at the top of this file) is searched instead of the typo
         pg, note = choose(qn, full, e['lat'], e['lon'], lookup(qn, full))

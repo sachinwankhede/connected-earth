@@ -1,6 +1,6 @@
 # Moving a place from the pilot to the main app
 
-Agreed rule (Oct 2026). Places are drafted in `data-auto/` (shown in the pilot). A place moves to `data/` (main) when all of these hold:
+Agreed rule (Oct 2026). Places are drafted in `data/places/` with `"stage": "pilot"` (shown in the pilot). A place becomes main (its `stage` is dropped and it joins the order in `data/journeys/links.json`) when all of these hold:
 
 1. **Species.** They come from an official list for that place (for example NPSpecies), or from sightings inside the park outline when no official list exists.
 2. **Links.** Every feeding link has a GloBI record at species, genus or family level, shown in the place's evidence list. Nothing obviously wrong.
@@ -27,5 +27,5 @@ The page carries only a light index of each place (name, location, species names
 `npm run test:quick` (about 1 minute) for everyday changes; `npm test` (about 3 minutes) before anything is called done; CI runs the full set. `npm run budget` fails if the pages or data grow past the limits in `build/budget.py`. Park outlines are one small file per park in `data/outlines/<id>.json`, fetched when the park opens (written by `jobs/bounds.py`; no file means no outline). `jobs/splitbounds.py` converts the old single `data/bounds.json` if a branch still has one.
 
 ## Adding a state
-`python3 build/state.py IL --top 25` seeds the largest state parks from PAD-US, drafts species (GBIF) and feeding links (GloBI), generates the places, adds them to the pilot (`data-auto/`), packs the shared species table and fetches outlines, then prints which places pass the promotion floors. Add `--scratch` to try it without touching the repo. Photos and Wikipedia lines are slow (Wikimedia throttles): run `jobs/fetch_all.sh` and leave it going. Promote with `python3 build/promote.py --local` after the 10-link spot check.
+`python3 build/state.py IL --top 25` seeds the largest state parks from PAD-US, drafts species (GBIF) and feeding links (GloBI), generates the places, adds them to the pilot (`stage: pilot` in `data/places/`), packs the shared species table and fetches outlines, then prints which places pass the promotion floors. Add `--scratch` to try it without touching the repo. Photos and Wikipedia lines are slow (Wikimedia throttles): run `jobs/fetch_all.sh` and leave it going. Promote with `python3 build/promote.py --local` after the 10-link spot check.
 Known limit: species are sightings within a circle around each park point, not strictly inside its outline. Small parks next to busy places can pick up neighbours' sightings; querying by the real outline (now stored in `data/bounds.json`) would tighten this.

@@ -5,8 +5,8 @@
   python3 build/build.py --out FILE       build the main app to FILE
   python3 build/build.py --pilot --out F  build with the auto-generated places included
 
-Source: src/app.html (one file, with placeholders), data/places/*.json (hand-built places),
-data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
+Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
+listed in data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
 """
 import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 
@@ -23,8 +23,8 @@ def load_places(pilot):
     order = list(links['order'])
     ecos = [json.load(open(P('data', 'places', i + '.json'))) for i in order]
     if pilot:
-        for i in json.load(open(P('data-auto', 'order.json'))):
-            ecos.append(json.load(open(P('data-auto', i + '.json'))))
+        for i in json.load(open(P('data', 'journeys', 'pilot-order.json'))):
+            ecos.append(json.load(open(P('data', 'places', i + '.json'))))
     tab = species.table()
     ecos = [species.join(e, tab) for e in ecos]
     sp = P('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
@@ -54,7 +54,7 @@ def cross_ends(links):
 
 # Text that only shows once a place is open (sources, notes, the web's opening tip): kept in webs/<id>.json, not in the page.
 HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out of the page: they go to webs/<id>.json and load when the place opens
-UNUSED = ('link_ideas',)   # in the source data but never read by the app
+UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the app (stage only tells the build which places are pilot-only)
 
 
 def split(ecos, links, phs=None, phm=None):

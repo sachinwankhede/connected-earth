@@ -10,7 +10,7 @@ class Repo:
     def __init__(self):
         self.dir = tempfile.mkdtemp(prefix='synctest_')
         git(self.dir, 'init', '-q', '-b', 'main'); git(self.dir, 'config', 'user.email', 't@t'); git(self.dir, 'config', 'user.name', 't')
-        for d in ('data', 'data-auto', 'jobs'): os.makedirs(os.path.join(self.dir, d))
+        for d in ('data', 'jobs'): os.makedirs(os.path.join(self.dir, d))
     def put(self, path, obj):
         p = os.path.join(self.dir, path); os.makedirs(os.path.dirname(p), exist_ok=True)
         open(p, 'w').write(obj if isinstance(obj, str) else json.dumps(obj, ensure_ascii=False))
@@ -36,8 +36,7 @@ class SyncTests(unittest.TestCase):
         self.r.commit('base'); self.r.branch('feature'); self.r.checkout('main')
 
     def promote(self):
-        # main moves the place to data/ and rewrites it (packing, story, photo...), so git cannot pair the two files as a rename and reports modify/delete
-        os.remove(os.path.join(self.r.dir, 'data-auto/p.json'))
+        # main promotes the place in the same file: the stage key is dropped and the place is rewritten (packing, story, photo...)
         self.r.put('data/places/p.json', {'id': 'p', 'name': 'Promoted', 'story': 'S', 'imgwiki': 'I', 'level': 'local', 'sources': [{'t': 'x'}] * 5, 'nodes': [{'id': 'zz', 'sp': 'q', 'xh': 9}] * 6, 'raw': [], 'ev': {}})
         self.r.commit('promote')
 
@@ -50,43 +49,44 @@ class SyncTests(unittest.TestCase):
         e = self.r.get('data/places/p.json'); self.assertEqual(e['story'], 'A story.'); self.assertEqual(e['nodes'], place()['nodes'])   # main's story and main's web
 
     def test_branch_rebuilt_web_is_kept_while_main_changes_the_rest(self):
-        self.start({'data-auto/p.json': place()})
+        self.start({'data/places/p.json': place(stage='pilot')})
         new = {'raw': [['a', 'c']], 'ev': {'a>c': ['gg', 'x', 'z']}, 'nodes': [{'id': 'a', 'sp': 'x', 'xh': 1}, {'id': 'c', 'sp': 'z', 'xh': 2}], 'tip': {'id': 'c'}}
-        self.r.checkout('feature'); self.r.put('data-auto/p.json', place(**new)); self.r.commit('regen')
-        self.r.checkout('main'); self.r.put('data-auto/p.json', place(imgwiki='Photo', nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('photo and repack')
+        self.r.checkout('feature'); self.r.put('data/places/p.json', place(stage='pilot', **new)); self.r.commit('regen')
+        self.r.checkout('main'); self.r.put('data/places/p.json', place(stage='pilot', imgwiki='Photo', nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('photo and repack')
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
-        e = self.r.get('data-auto/p.json')
+        e = self.r.get('data/places/p.json')
         self.assertEqual(e['raw'], new['raw']); self.assertEqual(e['tip'], new['tip']); self.assertEqual(e['imgwiki'], 'Photo')
 
     def test_promotion_on_main_stands_when_branch_only_repacked(self):
-        self.start({'data-auto/p.json': place()})
-        self.r.checkout('feature'); self.r.put('data-auto/p.json', place(nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('repack')
+        self.start({'data/places/p.json': place(stage='pilot')})
+        self.r.checkout('feature'); self.r.put('data/places/p.json', place(stage='pilot', nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('repack')
         self.r.checkout('main'); self.promote()
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
-        self.assertFalse(self.r.exists('data-auto/p.json')); self.assertTrue(self.r.exists('data/places/p.json'))
+        e = self.r.get('data/places/p.json'); self.assertNotIn('stage', e); self.assertEqual(e['name'], 'Promoted')
 
-    def test_promotion_on_main_stops_when_branch_rebuilt_the_place(self):
-        self.start({'data-auto/p.json': place()})
-        self.r.checkout('feature'); self.r.put('data-auto/p.json', place(raw=[['a', 'c']])); self.r.commit('regen')
+    def test_promotion_on_main_keeps_the_branch_web_when_branch_rebuilt_the_place(self):
+        self.start({'data/places/p.json': place(stage='pilot')})
+        self.r.checkout('feature'); self.r.put('data/places/p.json', place(stage='pilot', raw=[['a', 'c']])); self.r.commit('regen')
         self.r.checkout('main'); self.promote()
         self.r.checkout('feature'); self.r.merge_main()
-        out = self.r.sync(); self.assertEqual(out.returncode, 1); self.assertIn('need a person', out.stdout)
+        out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+        e = self.r.get('data/places/p.json'); self.assertNotIn('stage', e); self.assertEqual(e['raw'], [['a', 'c']])
 
     def test_names_and_species_and_order_are_unioned(self):
-        self.start({'jobs/names.json': {'a': None, 'b': 'B'}, 'data/species/species.json': {'x': {'name': 'X'}}, 'data-auto/order.json': ['o1']})
+        self.start({'jobs/names.json': {'a': None, 'b': 'B'}, 'data/species/species.json': {'x': {'name': 'X'}}, 'data/journeys/pilot-order.json': ['o1']})
         self.r.checkout('feature')
         self.r.put('jobs/names.json', {'a': None, 'b': 'B', 'c': 'C'}); self.r.put('data/species/species.json', {'x': {'name': 'X'}, 'f': {'name': 'F'}})
-        self.r.put('data-auto/order.json', ['o1', 'of']); self.r.put('data-auto/of.json', place(id='of')); self.r.commit('feature')
+        self.r.put('data/journeys/pilot-order.json', ['o1', 'of']); self.r.put('data/places/of.json', place(id='of', stage='pilot')); self.r.commit('feature')
         self.r.checkout('main')
         self.r.put('jobs/names.json', {'a': 'A', 'b': 'B', 'd': 'D'}); self.r.put('data/species/species.json', {'x': {'name': 'X'}, 'm': {'name': 'M'}})
-        self.r.put('data-auto/order.json', ['o1', 'om']); self.r.put('data-auto/om.json', place(id='om')); self.r.commit('main')
+        self.r.put('data/journeys/pilot-order.json', ['o1', 'om']); self.r.put('data/places/om.json', place(id='om', stage='pilot')); self.r.commit('main')
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
         self.assertEqual(self.r.get('jobs/names.json'), {'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D'})
         self.assertEqual(set(self.r.get('data/species/species.json')), {'x', 'f', 'm'})
-        self.assertEqual(self.r.get('data-auto/order.json'), ['o1', 'om', 'of'])
+        self.assertEqual(self.r.get('data/journeys/pilot-order.json'), ['o1', 'om', 'of'])
 
     def test_other_files_always_need_a_person(self):
         self.start({'docs/notes.md': 'base\n'})

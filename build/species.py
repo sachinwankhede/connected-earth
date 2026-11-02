@@ -50,10 +50,12 @@ def load(path):
     return join(json.load(open(path)), table())
 
 def files():
-    for d in ('data/places', 'data-auto'):
-        for f in sorted(os.listdir(os.path.join(ROOT, d))):
-            if f.endswith('.json') and f not in ('links.json', 'order.json', 'species.json', 'bounds.json'):
-                yield os.path.join(ROOT, d, f)
+    d = 'data/places'
+    names = [f for f in os.listdir(os.path.join(ROOT, d)) if f.endswith('.json') and f not in ('links.json', 'order.json', 'species.json', 'bounds.json')]
+    pilot = lambda f: json.load(open(os.path.join(ROOT, d, f))).get('stage') == 'pilot'
+    # main places first, then the pilot ones, each sorted by name: the pack counts votes in this order, and a tie goes to the first seen
+    for f in sorted(names, key=lambda f: (pilot(f), f)):
+        yield os.path.join(ROOT, d, f)
 
 def pack():
     tab = table(); ecos = {}

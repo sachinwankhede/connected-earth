@@ -1,7 +1,7 @@
 name: checks
 # Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
 #   app  (src, build, app tests, fonts, package files, this file...): everything, including the browser tests.
-#   data (data, data-auto, photos, data tests): validation, pack check, build, size budgets, data tests and one smoke test.
+#   data (data, photos, data tests): validation, pack check, build, size budgets, data tests and one smoke test.
 #   job scripts (data-job scripts in jobs/, lib, job tests, state/promote tools): the job self-tests only.
 #   docs, notes, the data-job workflows and job state files run nothing.
 # The "gate" job always runs and passes when every job that was needed passed, so it is the one check to require.
@@ -47,7 +47,7 @@ jobs:
       - run: npm ci
       - name: Validate auto-generated data
         run: |
-          python3 build/validate.py $(ls data/places/*.json data-auto/*.json | grep -v -e order.json) | tee validate.log
+          python3 build/validate.py $(ls data/places/*.json) | tee validate.log
           ! grep -q "ERROR" validate.log
       - name: Data format (species table, journeys, outlines, hosted pictures)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
@@ -56,7 +56,7 @@ jobs:
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: |
           python3 build/species.py pack
-          git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
+          git diff --exit-code -- data || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Validate photo sources and metadata
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 lib/photo_registry.py validate
@@ -93,7 +93,7 @@ jobs:
       - run: npm ci
       - name: Validate auto-generated data
         run: |
-          python3 build/validate.py $(ls data/places/*.json data-auto/*.json | grep -v -e order.json) | tee validate.log
+          python3 build/validate.py $(ls data/places/*.json) | tee validate.log
           ! grep -q "ERROR" validate.log
       - name: Data format (species table, journeys, outlines, hosted pictures)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
@@ -102,7 +102,7 @@ jobs:
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: |
           python3 build/species.py pack
-          git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
+          git diff --exit-code -- data || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Validate photo sources and metadata
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 lib/photo_registry.py validate

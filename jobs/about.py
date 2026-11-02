@@ -32,7 +32,7 @@ import glob, re
 MAXW=40
 def place_titles():
     out=set()
-    for f in glob.glob(os.path.join(ROOT,'data','*.json'))+glob.glob(os.path.join(ROOT,'data-auto','*.json')):
+    for f in glob.glob(os.path.join(ROOT,'data','places','*.json')):
         if f.endswith(('order.json','links.json','species.json','bounds.json')): continue
         try: e=json.load(open(f))
         except Exception: continue

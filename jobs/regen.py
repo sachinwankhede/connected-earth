@@ -11,9 +11,11 @@ from state import STATES, seed
 WORTH = ('plants', 'links', 'family-level')
 def held(st):
     out = {}
-    for f in sorted(os.listdir(os.path.join(ROOT, 'data-auto'))):
-        if not f.startswith(st.lower()) or not f.endswith('.json') or f == 'order.json': continue
-        e = species.load(os.path.join(ROOT, 'data-auto', f)); r = pc.check(e)
+    for f in sorted(os.listdir(os.path.join(ROOT, 'data', 'places'))):
+        if not f.startswith(st.lower()) or not f.endswith('.json'): continue
+        e = species.load(os.path.join(ROOT, 'data', 'places', f))
+        if e.get('stage') != 'pilot': continue
+        r = pc.check(e)
         if r['pass_'] or any(w.startswith('species') for w in r['why']): continue
         if any(w.startswith(WORTH) for w in r['why']): out[e['id']] = r
     return out
@@ -40,11 +42,11 @@ if __name__ == '__main__':
         for i, before in H.items():
             p = os.path.join(work, 'out', i + '.json')
             if not os.path.exists(p): rows.append((before['name'], before['why'], 'not regenerated', False)); continue
-            new = json.load(open(p)); old = json.load(open(os.path.join(ROOT, 'data-auto', i + '.json')))
+            new = json.load(open(p)); old = json.load(open(os.path.join(ROOT, 'data', 'places', i + '.json')))
             for k in ('nodes', 'raw', 'ev'): old[k] = new[k]
             if (old.get('tip') or {}).get('id') not in {n['id'] for n in new['nodes']}: old['tip'] = new.get('tip')     # the tip points at a node of the old web
-            json.dump(old, open(os.path.join(ROOT, 'data-auto', i + '.json'), 'w'), ensure_ascii=False)
-            after = pc.check(species.load(os.path.join(ROOT, 'data-auto', i + '.json')))
+            json.dump(old, open(os.path.join(ROOT, 'data', 'places', i + '.json'), 'w'), ensure_ascii=False)
+            after = pc.check(species.load(os.path.join(ROOT, 'data', 'places', i + '.json')))
             rows.append((before['name'], before['why'], after['why'], after['pass_'])); done.append(i)
     with open(os.path.join(ROOT, 'regen.md'), 'w') as f:
         n = sum(1 for r in rows if r[3])
