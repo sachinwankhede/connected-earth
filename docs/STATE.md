@@ -1,6 +1,6 @@
 # Project state (read this first in a new session)
 
-Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the work. For what is running right now, read the issue "Project status" (refreshed daily) or run `bash pipeline/status.sh`. Rules for the code and the jobs are in `CLAUDE.md`, `docs/DESIGN.md`, `docs/PROMOTION.md` and `docs/JOURNEYS.md`.
+Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the work. For what is running right now, read the issue "Project status" (refreshed daily) or run `bash jobs/status.sh`. Rules for the code and the jobs are in `CLAUDE.md`, `docs/DESIGN.md`, `docs/PROMOTION.md` and `docs/JOURNEYS.md`.
 
 ## How we work (decisions)
 - Short replies; Sachin tests on a real iPhone.
@@ -46,7 +46,7 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - Next candidates (design chat first): fewer or smaller pictures on a place page, D3 on demand, deferring card data of hidden places, perf budgets in CI. `perf-ab` takes `nav=1` to also time place opens and place pictures.
 - Order of work: (1) measure the returning visit on Actions; (2) agree how to compare an experiment branch with main in one job on the same runner; (3) experiments on separate branches, one change each: slim places index, species table on demand, D3 on demand, earlier tile-host connection; (4) compare, then the owner merges winners one at a time and checks on his iPhone.
 
-## Items and status\nOne GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash pipeline/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.\n\n## Waiting on the owner (last known)
+## Items and status\nOne GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.\n\n## Waiting on the owner (last known)
 - #148 two more park outlines (CI green); #141 world-parks candidate list (rerun with size-scaled quotas; review quotas, then choose which become stories).
 - data-research `next:120` results, then draft stories in batches of about 40 (draft file, review file sent to him, PR only after his approval).
 - A new data-photos PR may appear (about 129 places lacked a photo).

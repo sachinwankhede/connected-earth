@@ -27,10 +27,10 @@ jobs:
             LINKSWAP=0 python3 build/state.py $ST --top 25 --scratch > /tmp/before_$ST.log 2>&1 || { echo "$ST failed"; tail -5 /tmp/before_$ST.log; continue; }
             B=$SCRATCH/state_$ST; N=$SCRATCH/state_${ST}_new
             rm -rf $N; mkdir -p $N; cp -r $B/. $N/; rm -rf $N/out
-            WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
-            WORK=$N python3 pipeline/names.py --from-data $N/out > /dev/null 2>&1
-            WORK=$N LINKSWAP=1 python3 pipeline/autogen.py > /dev/null 2>&1
-            python3 pipeline/linkcompare.py $ST $B $N | tee -a "$GITHUB_STEP_SUMMARY" /tmp/linktest.md
+            WORK=$N LINKSWAP=1 python3 jobs/autogen.py > /dev/null 2>&1
+            WORK=$N python3 jobs/names.py --from-data $N/out > /dev/null 2>&1
+            WORK=$N LINKSWAP=1 python3 jobs/autogen.py > /dev/null 2>&1
+            python3 jobs/linkcompare.py $ST $B $N | tee -a "$GITHUB_STEP_SUMMARY" /tmp/linktest.md
           done
       - name: Save the result on the research branch
         run: |

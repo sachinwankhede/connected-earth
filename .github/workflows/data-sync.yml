@@ -1,5 +1,5 @@
 name: data-sync
-# Manual only. Brings a data branch up to date with main (the same step every data job now runs before opening its pull request; see pipeline/syncstep.sh),
+# Manual only. Brings a data branch up to date with main (the same step every data job now runs before opening its pull request; see jobs/syncstep.sh),
 # rebuilds the species table, pushes, and starts the checks on the branch (a push from Actions does not start them by itself).
 # Anything else that clashes stops the run so a person can look.
 on:
@@ -23,7 +23,7 @@ jobs:
           BR: ${{ github.event.inputs.branch }}
           GH_TOKEN: ${{ github.token }}
         run: |
-          git fetch -q origin main; git show origin/main:pipeline/syncstep.sh > /tmp/syncstep.sh   # main's copy: an older branch does not have it
+          git fetch -q origin main; git show origin/main:jobs/syncstep.sh > /tmp/syncstep.sh   # main's copy: an older branch does not have it
           if bash /tmp/syncstep.sh; then
             git push origin "HEAD:$BR"
           else

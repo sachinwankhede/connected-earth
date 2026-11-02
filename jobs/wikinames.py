@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """wikinames.py: give each park of one state its real Wikipedia name.
 
-  python3 pipeline/wikinames.py IL            fix names and Wikipedia source links for the IL parks in data-auto
-  python3 pipeline/wikinames.py --selftest    check the matching rules without the web
+  python3 jobs/wikinames.py IL            fix names and Wikipedia source links for the IL parks in data-auto
+  python3 jobs/wikinames.py --selftest    check the matching rules without the web
 
 The park list from PAD-US sometimes has typos ("Horshoe Lake", "Morraine Hills"), and the Wikipedia source link was built
 from that name, so it could point at a page that does not exist. For each park this finds the Wikipedia article in the same

@@ -18,7 +18,7 @@ jobs:
       - name: Gather
         run: |
           git fetch -q origin research:refs/remotes/origin/research || true
-          python3 pipeline/researchlist.py "${{ github.event.inputs.place }}"
+          python3 jobs/researchlist.py "${{ github.event.inputs.place }}"
       - name: Save on the research branch
         run: |
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"

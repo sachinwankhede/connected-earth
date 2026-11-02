@@ -3,7 +3,7 @@
   1. Wikidata/Wikimedia Commons: the park's Wikipedia article -> Wikidata item -> its map boundary file (property P3896, CC0).
   2. OpenStreetMap, through Nominatim: a boundary whose Wikidata id is the park's, or else one with a matching name that lies within 30 km of the park's point.
 Writes data/outlines/<id>.json = {"n": name, "r": [flat ring, ...], "s": "wikidata" | "osm"} (same shape as bounds.py; "s" is the source) and
-pipeline/reports/outlines_missing.md listing the places that still have none. Resumable: places with a file are skipped.
+jobs/reports/outlines_missing.md listing the places that still have none. Resumable: places with a file are skipped.
 OpenStreetMap data is (c) OpenStreetMap contributors, ODbL: the app's credits say so."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)

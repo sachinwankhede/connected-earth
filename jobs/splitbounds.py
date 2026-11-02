@@ -3,7 +3,7 @@
 {place id: {"n": name, "r": [ring, ...]}}) to one file per park in data/outlines/<id>.json.
 A branch that still writes the old file (for example a data-states batch started before the switch) is converted with:
     git merge origin/main   # modify/delete conflict on data/bounds.json
-    git checkout --theirs data/bounds.json && python3 pipeline/splitbounds.py data/bounds.json && git rm -f data/bounds.json
+    git checkout --theirs data/bounds.json && python3 jobs/splitbounds.py data/bounds.json && git rm -f data/bounds.json
 Existing per-park files are kept unless --force. Prints how many files were written and skipped."""
 import json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

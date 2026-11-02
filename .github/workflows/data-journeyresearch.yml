@@ -5,7 +5,7 @@ name: data-journeyresearch
 on:
   workflow_dispatch:
     inputs:
-      species: { description: "Latin names, comma-separated (blank = the shortlist in pipeline/journeyresearch.py)", default: "" }
+      species: { description: "Latin names, comma-separated (blank = the shortlist in jobs/journeyresearch.py)", default: "" }
 permissions:
   contents: write
 concurrency: data-research
@@ -20,7 +20,7 @@ jobs:
         env:
           SPECIES: ${{ github.event.inputs.species }}
         run: |
-          if [ -n "$SPECIES" ]; then IFS=',' read -ra L <<< "$SPECIES"; python3 pipeline/journeyresearch.py "${L[@]}"; else python3 pipeline/journeyresearch.py; fi
+          if [ -n "$SPECIES" ]; then IFS=',' read -ra L <<< "$SPECIES"; python3 jobs/journeyresearch.py "${L[@]}"; else python3 jobs/journeyresearch.py; fi
       - name: Save on the research branch
         run: |
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"

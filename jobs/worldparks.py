@@ -6,7 +6,7 @@ Rank = number of Wikipedia languages (a good stand-in for how well known a park 
 Picking is greedy: the best-ranked park first, then parks 200 km or more from those already picked, then the rest, so a quota spreads over the country.
 Parks under 5 km2 are dropped (forts, museums and city parks that Wikidata files as national parks).
 Parks we already have (same Wikipedia article, same name, or a place within 5 km) are marked 'have'. Writes
-pipeline/reports/worldparks.json (the list) and prints a markdown report. Only a list: no place files are made here."""
+jobs/reports/worldparks.json (the list) and prints a markdown report. Only a list: no place files are made here."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species
