@@ -45,6 +45,8 @@ def main():
     for relative in ROOT_FILES:
         copy_file(ROOT / relative, relative, expected)
 
+    copy_file(ROOT / 'geo-states.json', 'geo-states.json', expected)
+
     for lib in sorted(ROOT.glob('maplibre-gl-*.js')):
         copy_file(lib, lib.name, expected)
 

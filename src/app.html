@@ -2198,8 +2198,8 @@ rect.core { stroke-dasharray: 3 2.5; }
     view.focus = null; M.tieId = null; M.peekId = null; var pk0 = document.getElementById("peek"); if (pk0) pk0.hidden = true; spanHi(null);
     if (level === "world") view = { level: "world", cont: null, country: null, state: null };
     else if (level === "continent") view = { level: "continent", cont: a, country: null, state: null };
-    else if (level === "country") view = { level: "country", cont: M.countryBy[a].cont, country: a, state: null };
-    else view = { level: "state", cont: "North America", country: US, state: a };
+    else if (level === "country") { view = { level: "country", cont: M.countryBy[a].cont, country: a, state: null }; if (a === US) ensureStates(); }
+    else { view = { level: "state", cont: "North America", country: US, state: a }; ensureStates(); }
     renderView(true);
   }
   function crumbHTML() {
@@ -2293,7 +2293,6 @@ rect.core { stroke-dasharray: 3 2.5; }
   function cssv(n, d) { var v = getComputedStyle(document.documentElement).getPropertyValue(n).trim(); return v || d; }
   M.countryBy = {}; M.stateBy = {};
   GEO.countries.forEach(function (c) { M.countryBy[c.name] = c; });
-  GEO.states.forEach(function (s) { M.stateBy[s.name] = s; });
   /* make every ring continuous across the antimeridian (and close polar rings) so polygons don't streak across the map */
   function unwrapRing(r) {
     var o = [], off = 0, prev = null;
@@ -2307,7 +2306,21 @@ rect.core { stroke-dasharray: 3 2.5; }
     return { type: "MultiPolygon", coordinates: g.coordinates.map(function (poly) { return poly.map(unwrapRing); }) };
   }
   var GJ_C = { type: "FeatureCollection", features: GEO.countries.map(function (c) { return { type: "Feature", properties: { name: c.name, cont: c.cont }, geometry: unwrapGeom(c.g) }; }) };
-  var GJ_S = { type: "FeatureCollection", features: GEO.states.map(function (s) { return { type: "Feature", properties: { name: s.name }, geometry: unwrapGeom(s.g) }; }) };
+  var GJ_S = { type: "FeatureCollection", features: [] };
+  /* the US state outlines are their own file (geo-states.json), fetched in the quiet time after the map, or at once when a state is asked for */
+  M.statesP = null;
+  function ensureStates() {
+    if (M.statesP) return M.statesP;
+    var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+    M.statesP = (window.fetch ? fetch(b + "geo-states.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }) : Promise.reject()).then(function (st) {
+      st.forEach(function (x) { M.stateBy[x.name] = x; });
+      GJ_S.features = st.map(function (x) { return { type: "Feature", properties: { name: x.name }, geometry: unwrapGeom(x.g) }; });
+      var src = M.map && M.styleReady && M.map.getSource("atl-s"); if (src) src.setData(GJ_S);
+      if (view.level === "state") renderView(true);
+      return true;
+    }).catch(function () { M.statesP = null; return false; });
+    return M.statesP;
+  }
   var EMPTY = { type: "FeatureCollection", features: [] };
   var LK = {}; CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { LK[en.eco] = 1; }); });
   var DOT = window.matchMedia && matchMedia("(pointer: coarse)").matches ? 6.5 : 4.5;
@@ -2745,7 +2758,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     else if ((m = /(?:^|&)r=(\w+):(.+)$/.exec(h))) {
       if (m[1] === "continent" && CONT_BOX[m[2]]) go("continent", m[2]);
       else if (m[1] === "country" && M.countryBy[m[2]]) go("country", m[2]);
-      else if (m[1] === "state" && M.stateBy[m[2]]) go("state", m[2]);
+      else if (m[1] === "state") { var sn = m[2]; ensureStates().then(function () { if (M.stateBy[sn]) go("state", sn); }); }
     }
   }
   document.addEventListener("click", function (ev) { var b = ev.target.closest(".shbtn"); if (b) { ev.stopPropagation(); share(b); } }, true);
@@ -3326,6 +3339,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   M.releasePhotos = function () {
     if (M.photoGo) return;
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
+    setTimeout(ensureStates, 4000);   /* the US state outlines follow the map too */
     setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
