@@ -58,7 +58,7 @@ To precompute, in order of cost on the open path:
 5. Journeys per place (##263) and species to places (#253).
 The app then needs no scan of all places and no simulation to show a screen.
 
-## Folder layout (added 2026-11-02, item #267; stages 1 and 2 done, stages 1 to 3 done; folding the pilot places into data/ is left)
+## Folder layout (added 2026-11-02, item #267; stages 1 to 3 done; folding the pilot places into data/ is left)
 Code, data and jobs are kept apart, so a change can say which of the three it touches.
 - `src/`, `build/`, `tests/`, `fonts/`: code.
 - `data/places/<id>.json`: one file per place (written only by data jobs). `data/journeys/links.json`: the order of places and the journeys between them. `data/species/species.json`: the species table; `data/species/about.json`: species descriptions. `data/text/summaries.json`: one-sentence park summaries. `data/outlines/`: place outlines. `data/geo/`: country, state and land outlines.
