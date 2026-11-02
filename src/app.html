@@ -31,6 +31,9 @@
   var done = function () { var f = window.__mapReady; window.__mapReady = null; window.__mapLib = 1; if (f) f(); };
   var sc = document.createElement("script"); sc.async = true; sc.src = b + "maplibre-gl-__MLVER__.js"; sc.onload = done; sc.onerror = done;
   document.head.appendChild(sc);
+  if (/[#&](e|j)=/.test(location.hash)) {   /* a link straight to a food web or journey needs the diagram library: ask for it now, in parallel with the page */
+    var d = document.createElement("script"); d.async = true; d.setAttribute("data-d3", "1"); d.src = b + "d3-__D3VER__.js"; document.head.appendChild(d);
+  }
 })();
 </script>
 <style>
@@ -1404,6 +1407,12 @@ rect.core { stroke-dasharray: 3 2.5; }
   function loadD3() {
     if (window.d3 || D3S) return;
     D3S = 1;
+    var early = document.querySelector("script[data-d3]");
+    if (early) {   /* already asked for in the page head */
+      early.addEventListener("load", function () { D3S = 2; var q = D3Q; D3Q = []; q.forEach(function (f) { f(); }); });
+      early.addEventListener("error", function () { D3S = 0; var q = D3Q; D3Q = []; q.forEach(function (f) { f(false); }); });
+      return;
+    }
     var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
     var sc = document.createElement("script"); sc.async = true; sc.src = b + "d3-__D3VER__.js";
     sc.onload = function () { D3S = 2; var q = D3Q; D3Q = []; q.forEach(function (f) { f(); }); };
