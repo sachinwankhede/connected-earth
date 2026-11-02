@@ -25,7 +25,7 @@ def load_places(pilot):
             ecos.append(json.load(open(P('data-auto', i + '.json'))))
     tab = species.table()
     ecos = [species.join(e, tab) for e in ecos]
-    sp = P('pipeline', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
+    sp = P('data', 'places', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
     for e in ecos:
         if e.get('park') and not e.get('story'):
             for src in e.get('sources', []):
@@ -137,8 +137,8 @@ def check(ecos, links, tpl, geo):
 def build(pilot, out_path, write=False):
     links, ecos = load_places(pilot)
     tpl = open(P('src', 'app.html')).read()
-    land = open(P('src', 'land.json')).read().strip()
-    geo = json.load(open(P('src', 'geo.json')))
+    land = open(P('data', 'geo', 'land.json')).read().strip()
+    geo = json.load(open(P('data', 'geo', 'geo.json')))
     errs = check(ecos, links, tpl, geo)
     if errs:
         print('\n'.join(errs)); sys.exit(1)

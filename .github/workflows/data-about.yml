@@ -24,7 +24,7 @@ jobs:
         run: |
           git checkout -B data/about
           if [ -n "$(gh pr list --head data/about --state open --json number --jq '.[0].number')" ]; then
-            git fetch origin data/about && git checkout origin/data/about -- pipeline/about.json
+            git fetch origin data/about && git checkout origin/data/about -- data/species/about.json
           fi
         env:
           GH_TOKEN: ${{ github.token }}
@@ -45,7 +45,7 @@ jobs:
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
-          N=$(python3 -c "import json;d=json.load(open('pipeline/about.json'));print(sum(1 for v in d.values() if v))")
+          N=$(python3 -c "import json;d=json.load(open('data/species/about.json'));print(sum(1 for v in d.values() if v))")
           git commit -m "Species descriptions from Wikipedia: $N so far"
           git push -f origin data/about
           if [ -z "$(gh pr list --head data/about --state open --json number --jq '.[0].number')" ]; then

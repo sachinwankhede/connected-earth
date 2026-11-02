@@ -6,7 +6,7 @@ ROOT=os.path.dirname(here)
 tpl=open(os.path.join(ROOT,'src','app.html')).read()
 i0=tpl.index('var ICONS = {'); i1=tpl.index('\n  };',i0)
 ICONS=set(re.findall(r"^\s{4}(\w+):",tpl[i0:i1],re.M))
-geo=json.load(open(os.path.join(ROOT,'src','geo.json')))
+geo=json.load(open(os.path.join(ROOT,'data','geo','geo.json')))
 C={c['name']:c['cont'] for c in geo['countries']}; S={s['name'] for s in geo['states']}
 sys.path.insert(0,here)
 import species
