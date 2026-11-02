@@ -66,3 +66,6 @@ Code, data and jobs are kept apart, so a change can say which of the three it to
 - `photos/`: place photos, species picture references, our hosted species pictures (`photos/species/`) and their credits.
 - `jobs/`: job scripts and their own state (queue, names, reports, park lists). `lib/`: code shared by the build and the jobs (the photo registry). Anything the build reads lives in `data/` or `lib/`, never in `jobs/`.
 Nothing the build reads may live in the jobs folder.
+
+## No web reads at run time (owner rule, 2 Nov)
+The app reads everything it shows from data we host. The only accepted outside reads are the base map tiles (and the map style and fonts they need). There is no fallback to another site when our copy is missing: a missing species picture shows the placeholder, and a data check fails the pull request when a listed picture has no hosted file or credit. A browser test (item below #238) fails on any other outside request.
