@@ -8,7 +8,6 @@ For each Wikipedia title in photos/species.json (only the species of one place w
 Writes photos/species_hosted.json {title: file name} and adds credits to photos/species_metadata.json. Resumable; polite pace via wm.py."""
 import sys, os, io, re, json, hashlib, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
-from PIL import Image
 OUT = 'photos/species'; HOSTED = 'photos/species_hosted.json'; META = 'photos/species_metadata.json'; SKIPPED = 'photos/species_hosted_skipped.json'
 BASE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
 # Free licences only. Added 2026-11 (#290): Copyrighted free use, No restrictions, Free Art Licence (FAL), KOGL Type 1, LGPL. Anything else stays unhosted.
@@ -37,6 +36,7 @@ def titles_for(place, man):
     wikis = {sp[n['sp']].get('wiki') for n in d['nodes'] if n.get('sp') in sp}
     return sorted(t for t in wikis if t in man)
 def main():
+    from PIL import Image   # imported here so the helpers above can be tested without Pillow
     place = sys.argv[1] if len(sys.argv) > 1 else 'all'; limit = int(sys.argv[2]) if len(sys.argv) > 2 else 0
     man = json.load(open('photos/species.json')); hosted = load(HOSTED, {}); meta = load(META, {}); skipped = load(SKIPPED, {})
     todo = [t for t in titles_for(place, man) if t not in hosted and (t not in skipped or retry(skipped[t]))]
