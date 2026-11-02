@@ -47,6 +47,15 @@ describe('species pictures come only from our hosted copies', () => {
     });
     return { ctx, page, errors, outside };
   }
+  // Wait for a condition in the page. A timeout names the stage that was reached (hash, diagram library, drawn nodes, place graph),
+  // so a slow runner and a picture that never arrives can be told apart; the wait itself is never lengthened to hide a stall.
+  async function until(page, fn, what, arg = null, timeout = 60000) {
+    try { await page.waitForFunction(fn, arg, { timeout, polling: 100 }); }
+    catch (e) {
+      const where = await page.evaluate(() => ({ hash: location.hash, d3: typeof window.d3, nodes: document.querySelectorAll('#svg .node').length, photos: document.querySelectorAll('#svg image.photo').length, pgraph: !!document.querySelector('#pgraph'), pn: document.querySelectorAll('#pgraph .pn').length })).catch(() => 'page gone');
+      throw new Error(`timed out waiting for ${what}; the page was at ${JSON.stringify(where)}`);
+    }
+  }
   const nodeHref = (page, id) => page.evaluate((id) => {
     const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === id);
     return n && n.querySelector('image.photo') ? n.querySelector('image.photo').getAttribute('href') : null;
@@ -98,11 +107,11 @@ describe('species pictures come only from our hosted copies', () => {
       pics = { [dolphin.canonicalWiki]: [FAKE, 'Test_page'] };   // only the canonical article has a picture, the node itself is named by the alias
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=gulf');
-      await t.page.waitForFunction(() => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'dolphin'); return n && n.querySelector('image.photo[loading="lazy"]'); }, null, { timeout: 60000 });
+      await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'dolphin'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the dolphin node to draw its picture in the food web');
       const href = await nodeHref(t.page, 'dolphin');
       assert.ok(href && href.endsWith('photos/species/' + want), 'food web resolves the alias to the canonical hosted file: ' + href);
       await t.page.goto(base + 'index.html#pg=gulf');
-      await t.page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), null, { timeout: 60000 });
+      await until(t.page, () => document.querySelector('#pgraph .pn[data-node="dolphin"] image[loading="lazy"]'), 'the dolphin node to draw its picture in the place graph');
       assert.deepEqual(t.outside, []);
       assert.deepEqual(t.errors, []);
       await t.ctx.close();
@@ -113,11 +122,11 @@ describe('species pictures come only from our hosted copies', () => {
       pics = { 'Canis latrans': [FAKE, 'Test_page'] };   // keyed by the Latin name only
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=yellowstone');
-      await t.page.waitForFunction(() => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, null, { timeout: 60000 });
+      await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the coyote node to draw its picture in the food web');
       const href = await nodeHref(t.page, 'coyote');
       assert.ok(href && href.endsWith('photos/species/' + want), 'food web resolves the canonical Latin-keyed picture: ' + href);
       await t.page.goto(base + 'index.html#pg=yellowstone');
-      await t.page.waitForFunction(() => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), null, { timeout: 60000 });
+      await until(t.page, () => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), 'the coyote node to draw its picture in the place graph');
       assert.deepEqual(t.errors, []);
       await t.ctx.close();
     });
