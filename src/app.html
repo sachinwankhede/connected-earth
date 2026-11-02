@@ -1804,7 +1804,9 @@ rect.core { stroke-dasharray: 3 2.5; }
   function pnlPhotos() {
     if (!state.sel) return;
     panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
-      var e = ECO_BY[b.getAttribute("data-eid")], ph = e && e.imgwiki && PHOTOS[e.imgwiki];
+      var e = ECO_BY[b.getAttribute("data-eid")];
+      if (e && e.imgwiki && !e.li) makeCard(e);   /* cards are built only when needed now: a related place shown here asks for its picture by building its card */
+      var ph = e && e.imgwiki && PHOTOS[e.imgwiki];
       if (!ph || b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
@@ -3250,6 +3252,7 @@ rect.core { stroke-dasharray: 3 2.5; }
       ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
+        if (w && k.charAt(0) === "e" && !o.li) makeCard(o);   /* a related place's picture is registered when its card is built, and cards are built on demand now */
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });
       });
     });
