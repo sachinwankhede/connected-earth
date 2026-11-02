@@ -23,15 +23,60 @@
 "expiresAt": "2027-04-30T18:00:54.178698+00:00",
 "attempts": 1
 },
-"Edward \"ted\" and Pat Jones-confluence Point State Park": "nophoto",
-"Grand Gulf State Park": "nophoto",
-"Lake of The Ozarks State Park": "nophoto",
-"Lewis and Clark State Park": "nophoto",
-"Saint Joe State Park": "nophoto",
-"Stockton State Park": "nophoto",
-"Table Rock State Park": "nophoto",
-"Ozark National Scenic Riverways": "notphoto",
-"Cumberland Island National Seashore": "nophoto",
+"Edward \"ted\" and Pat Jones-confluence Point State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:00.264409+00:00",
+"expiresAt": "2027-05-01T21:47:00.264409+00:00",
+"attempts": 1
+},
+"Grand Gulf State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:01.775150+00:00",
+"expiresAt": "2027-05-01T21:47:01.775150+00:00",
+"attempts": 1
+},
+"Lake of The Ozarks State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:04.136208+00:00",
+"expiresAt": "2027-05-01T21:47:04.136208+00:00",
+"attempts": 1
+},
+"Lewis and Clark State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:07.775210+00:00",
+"expiresAt": "2027-05-01T21:47:07.775210+00:00",
+"attempts": 1
+},
+"Saint Joe State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:10.158552+00:00",
+"expiresAt": "2027-05-01T21:47:10.158552+00:00",
+"attempts": 1
+},
+"Stockton State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:11.772589+00:00",
+"expiresAt": "2027-05-01T21:47:11.772589+00:00",
+"attempts": 1
+},
+"Table Rock State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:13.777638+00:00",
+"expiresAt": "2027-05-01T21:47:13.777638+00:00",
+"attempts": 1
+},
+"Ozark National Scenic Riverways": {
+"status": "notphoto",
+"checkedAt": "2026-11-02T21:56:56.367084+00:00",
+"expiresAt": "2027-05-01T21:56:56.367084+00:00",
+"attempts": 1
+},
+"Cumberland Island National Seashore": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:58:06.523659+00:00",
+"expiresAt": "2027-05-01T21:58:06.523659+00:00",
+"attempts": 1
+},
 "Delaware Water Gap National Recreation Area": "notcommons",
 "Fredericksburg and Spot. National Military Park": "nophoto",
 "George Washington Memorial Parkway": "notphoto",
@@ -327,30 +372,100 @@
 "Kingdom Come State Park": "nophoto",
 "Edmund A. Babler Memorial State Park": "nophoto",
 "Great River National Wildlife Refuge": "nophoto",
-"Lake Wappappello State Park": "nophoto",
+"Lake Wappappello State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:06.125603+00:00",
+"expiresAt": "2027-05-01T21:47:06.125603+00:00",
+"attempts": 1
+},
 "Ozark Cavefish National Wildlife Refuge": "nophoto",
 "Saint Francois State Park": "nophoto",
-"East Fork State Park": "nophoto",
-"Lake Milton State Park": "nophoto",
+"East Fork State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:48.806239+00:00",
+"expiresAt": "2027-05-01T21:53:48.806239+00:00",
+"attempts": 1
+},
+"Lake Milton State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:50.819227+00:00",
+"expiresAt": "2027-05-01T21:53:50.819227+00:00",
+"attempts": 1
+},
 "Mosquito Creek State Park": "nophoto",
 "Muskingum River State Park": "nophoto",
 "Rocky Fork State Park": "nophoto",
 "Shawnee State Park": "nophoto",
-"Big Hill Pond": "nophoto",
-"Big Ridge": "nophoto",
+"Big Hill Pond": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:34.747248+00:00",
+"expiresAt": "2027-05-01T21:57:34.747248+00:00",
+"attempts": 1
+},
+"Big Ridge": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:36.532208+00:00",
+"expiresAt": "2027-05-01T21:57:36.532208+00:00",
+"attempts": 1
+},
 "Chickasaw": "notphoto",
-"Cumberland Trail": "nophoto",
-"Edgar Evins": "nophoto",
-"Fort Pillow": "nophoto",
-"Frozen Head": "nophoto",
-"Henry Horton": "nophoto",
+"Cumberland Trail": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:38.531952+00:00",
+"expiresAt": "2027-05-01T21:57:38.531952+00:00",
+"attempts": 1
+},
+"Edgar Evins": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:40.684405+00:00",
+"expiresAt": "2027-05-01T21:57:40.684405+00:00",
+"attempts": 1
+},
+"Fort Pillow": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:42.533191+00:00",
+"expiresAt": "2027-05-01T21:57:42.533191+00:00",
+"attempts": 1
+},
+"Frozen Head": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:44.531449+00:00",
+"expiresAt": "2027-05-01T21:57:44.531449+00:00",
+"attempts": 1
+},
+"Henry Horton": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:46.533135+00:00",
+"expiresAt": "2027-05-01T21:57:46.533135+00:00",
+"attempts": 1
+},
 "Johnsonville": "nophoto",
-"Long Hunter": "nophoto",
+"Long Hunter": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:48.805066+00:00",
+"expiresAt": "2027-05-01T21:57:48.805066+00:00",
+"attempts": 1
+},
 "Montgomery Bell": "notcommons",
-"Panther Creek": "nophoto",
-"Pickett": "nophoto",
+"Panther Creek": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:50.535151+00:00",
+"expiresAt": "2027-05-01T21:57:50.535151+00:00",
+"attempts": 1
+},
+"Pickett": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:52.541659+00:00",
+"expiresAt": "2027-05-01T21:57:52.541659+00:00",
+"attempts": 1
+},
 "Reelfoot": "nophoto",
-"Tims Ford": "nophoto",
+"Tims Ford": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:54.847102+00:00",
+"expiresAt": "2027-05-01T21:57:54.847102+00:00",
+"attempts": 1
+},
 "Bald Knob National Wildlife Refuge": "notphoto",
 "Bear River Migratory Bird Refuge": "nophoto",
 "Beltrami Wildlife Management Area": "nophoto",
@@ -817,34 +932,174 @@
 "expiresAt": "2027-04-30T18:02:30.199090+00:00",
 "attempts": 1
 },
-"Baxter State Park Scientific Management Area": "nophoto",
-"Holbrook Island Sanctuary State Park": "nophoto",
-"Mount Kineo State Park": "nophoto",
-"Peaks-Kenny State Park": "nophoto",
-"Range Ponds State Park": "nophoto",
-"Craig Lake State Park": "nophoto",
-"Hoffmaster State Park (P.J. Hoffmaster)": "nophoto",
-"Kal-Haven Trail Sesq. State Park": "nophoto",
-"Mackinac State Park": "nophoto",
-"River Bend Township Park": "nophoto",
-"Silver Lake State Park": "nophoto",
-"White Pine Trail State Park": "notcommons",
-"John W. Kyle State Park": "nophoto",
-"Lake Lowndes State Park": "nophoto",
-"Lefleur's Bluff State Park": "nophoto",
-"Legion Lake State Park": "nophoto",
-"Natchez State Park": "nophoto",
-"Percy Quinn State Park": "nophoto",
-"Shepard State Park": "nophoto",
-"Cooney State Park": "nophoto",
-"Fish Creek State Park": "nophoto",
-"Pirogue Island State Park": "nophoto",
-"Bald Head Island State Natural Area": "nophoto",
-"Bushy Lake State Natural Area": "nophoto",
-"Carver's Creek State Park": "nophoto",
-"Chowan Swamp State Natural Area": "nophoto",
-"Lake Phelps State Lake": "nophoto",
-"Yellow Mountain State Natural Area": "nophoto",
+"Baxter State Park Scientific Management Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:35.934916+00:00",
+"expiresAt": "2027-05-01T21:46:35.934916+00:00",
+"attempts": 1
+},
+"Holbrook Island Sanctuary State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:37.853341+00:00",
+"expiresAt": "2027-05-01T21:46:37.853341+00:00",
+"attempts": 1
+},
+"Mount Kineo State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:40.021183+00:00",
+"expiresAt": "2027-05-01T21:46:40.021183+00:00",
+"attempts": 1
+},
+"Peaks-Kenny State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:41.778901+00:00",
+"expiresAt": "2027-05-01T21:46:41.778901+00:00",
+"attempts": 1
+},
+"Range Ponds State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:43.779423+00:00",
+"expiresAt": "2027-05-01T21:46:43.779423+00:00",
+"attempts": 1
+},
+"Craig Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:45.773403+00:00",
+"expiresAt": "2027-05-01T21:46:45.773403+00:00",
+"attempts": 1
+},
+"Hoffmaster State Park (P.J. Hoffmaster)": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:47.966040+00:00",
+"expiresAt": "2027-05-01T21:46:47.966040+00:00",
+"attempts": 1
+},
+"Kal-Haven Trail Sesq. State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:50.928928+00:00",
+"expiresAt": "2027-05-01T21:46:50.928928+00:00",
+"attempts": 1
+},
+"Mackinac State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:51.971314+00:00",
+"expiresAt": "2027-05-01T21:46:51.971314+00:00",
+"attempts": 1
+},
+"River Bend Township Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:54.039663+00:00",
+"expiresAt": "2027-05-01T21:46:54.039663+00:00",
+"attempts": 1
+},
+"Silver Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:46:55.772055+00:00",
+"expiresAt": "2027-05-01T21:46:55.772055+00:00",
+"attempts": 1
+},
+"White Pine Trail State Park": {
+"status": "notcommons",
+"checkedAt": "2026-11-02T21:46:57.777814+00:00",
+"expiresAt": "2027-05-01T21:46:57.777814+00:00",
+"attempts": 1
+},
+"John W. Kyle State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:15.775222+00:00",
+"expiresAt": "2027-05-01T21:47:15.775222+00:00",
+"attempts": 1
+},
+"Lake Lowndes State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:17.776225+00:00",
+"expiresAt": "2027-05-01T21:47:17.776225+00:00",
+"attempts": 1
+},
+"Lefleur's Bluff State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:20.905746+00:00",
+"expiresAt": "2027-05-01T21:47:20.905746+00:00",
+"attempts": 1
+},
+"Legion Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:22.003838+00:00",
+"expiresAt": "2027-05-01T21:47:22.003838+00:00",
+"attempts": 1
+},
+"Natchez State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:23.863293+00:00",
+"expiresAt": "2027-05-01T21:47:23.863293+00:00",
+"attempts": 1
+},
+"Percy Quinn State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:26.212700+00:00",
+"expiresAt": "2027-05-01T21:47:26.212700+00:00",
+"attempts": 1
+},
+"Shepard State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:27.798652+00:00",
+"expiresAt": "2027-05-01T21:47:27.798652+00:00",
+"attempts": 1
+},
+"Cooney State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:29.845794+00:00",
+"expiresAt": "2027-05-01T21:47:29.845794+00:00",
+"attempts": 1
+},
+"Fish Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:47:31.776740+00:00",
+"expiresAt": "2027-05-01T21:47:31.776740+00:00",
+"attempts": 1
+},
+"Pirogue Island State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:09.186144+00:00",
+"expiresAt": "2027-05-01T21:50:09.186144+00:00",
+"attempts": 1
+},
+"Bald Head Island State Natural Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:11.400990+00:00",
+"expiresAt": "2027-05-01T21:50:11.400990+00:00",
+"attempts": 1
+},
+"Bushy Lake State Natural Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:13.831708+00:00",
+"expiresAt": "2027-05-01T21:50:13.831708+00:00",
+"attempts": 1
+},
+"Carver's Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:15.365225+00:00",
+"expiresAt": "2027-05-01T21:50:15.365225+00:00",
+"attempts": 1
+},
+"Chowan Swamp State Natural Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:18.125180+00:00",
+"expiresAt": "2027-05-01T21:50:18.125180+00:00",
+"attempts": 1
+},
+"Lake Phelps State Lake": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:19.421496+00:00",
+"expiresAt": "2027-05-01T21:50:19.421496+00:00",
+"attempts": 1
+},
+"Yellow Mountain State Natural Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:21.442402+00:00",
+"expiresAt": "2027-05-01T21:50:21.442402+00:00",
+"attempts": 1
+},
 "Shuyak Island State Park": "nophoto",
 "Wood-tikchik State Park": "nophoto",
 "Chickasaw State Park": "nophoto",
@@ -857,7 +1112,12 @@
 "James Branch Nature Preserve": "nophoto",
 "Sunset Lake": "nophoto",
 "Enid Nesbitt Memorial State Park": "nophoto",
-"Harriman State Park": "nophoto",
+"Harriman State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:42.827402+00:00",
+"expiresAt": "2027-05-01T21:53:42.827402+00:00",
+"attempts": 1
+},
 "Priest Lake State Park": "nophoto",
 "Caney Creek Lake State Park": "nophoto",
 "Vardie Parsons Park": "nophoto",
@@ -869,67 +1129,372 @@
 "Florewood River Plantation State Park": "nophoto",
 "Brush Lake State Park": "nophoto",
 "Thompson Chain-of-Lakes State Park": "nophoto",
-"Lake Metigoshe State Park": "nophoto",
-"Little Missouri State Park": "nophoto",
-"Myron Atkinson Park": "nophoto",
-"Pioneer State Library Park": "nophoto",
-"Ponca State Park": "nophoto",
-"Cathedral Ledge State Park": "nophoto",
-"Manchester-Portsmouth RR Bed": "nophoto",
-"Northwood Meadows State Park": "nophoto",
-"Pisgah State Park": "nophoto",
-"Pisgah State Park - Critria 1 lands": "nophoto",
-"Sunapee State Park": "nophoto",
-"White Lake State Park": "nophoto",
-"Buck Mountain": "nophoto",
-"Troy Meadows State Park": "nophoto",
-"City Of Rocks State Park": "nophoto",
-"Hyde Memorial State Park": "nophoto",
-"Living Desert State Park": "nophoto",
-"Percha Dam State Park": "nophoto",
-"Big Bend of the Colorado State Park": "nophoto",
-"Whitewater Park At Rock": "nophoto",
-"Gilgo State Park": "nophoto",
-"Goose Pond Mountain": "nophoto",
-"Schunnemunk State Park": "nophoto",
-"Sterling Forest State Park": "nophoto",
-"Arrowhead State Park": "notphoto",
-"Boiling State Parkrings State Park": "nophoto",
-"Hochatown State Park": "nophoto",
-"Lake Eufula State Park": "nophoto",
-"Lake Murray State Resort Park": "nophoto",
-"Mcgee Creek State Park": "nophoto",
-"Quartz Mountain State Resort Park": "nophoto",
-"Robbers Cave State Resort Park": "nophoto",
-"Wister State Park": "nophoto",
-"Finn Rock Park": "nophoto",
-"Gearheart Ocean State Park": "nophoto",
-"North Santiam River State Park": "nophoto",
-"Rodakowski Park": "nophoto",
-"State Park & Rec Dept 1": "nophoto",
-"Evansburg State Park": "notcommons",
-"Pymatuning State Park": "nophoto",
-"Ricketts Glenn State Park": "nophoto",
-"Beavertail": "nophoto",
-"Burlingame": "nophoto",
-"Cocumcussoc": "nophoto",
-"East Bay Bikepath": "nophoto",
-"East Beach": "nophoto",
-"John L. Curran Fishing Area": "nophoto",
-"Queens Forth Historic Site": "nophoto",
-"Sayles Finishing": "nophoto",
-"Scarborough Beach": "nophoto",
-"South Shore Management Area": "nophoto",
-"Baker Creek State Park": "nophoto",
-"Cheraw State Park": "nophoto",
-"Jones Gap State Park": "nophoto",
-"Lake Greenwood State Park": "nophoto",
-"Hartford Beach": "nophoto",
-"Cooper Lake State Park - South Sulphur Unit": "nophoto",
-"Lake Somerville State Park - Nails Creek Unit": "nophoto",
-"Lake Somerville Trailway State Park": "nophoto",
-"Powderhorn State Park": "nophoto",
-"Sheldon Lake State Park & Environmental Learning Center": "nophoto",
+"Lake Metigoshe State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:23.187104+00:00",
+"expiresAt": "2027-05-01T21:50:23.187104+00:00",
+"attempts": 1
+},
+"Little Missouri State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:25.182614+00:00",
+"expiresAt": "2027-05-01T21:50:25.182614+00:00",
+"attempts": 1
+},
+"Myron Atkinson Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:27.572078+00:00",
+"expiresAt": "2027-05-01T21:50:27.572078+00:00",
+"attempts": 1
+},
+"Pioneer State Library Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:29.688328+00:00",
+"expiresAt": "2027-05-01T21:50:29.688328+00:00",
+"attempts": 1
+},
+"Ponca State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:31.193527+00:00",
+"expiresAt": "2027-05-01T21:50:31.193527+00:00",
+"attempts": 1
+},
+"Cathedral Ledge State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:34.737509+00:00",
+"expiresAt": "2027-05-01T21:50:34.737509+00:00",
+"attempts": 1
+},
+"Manchester-Portsmouth RR Bed": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:35.374005+00:00",
+"expiresAt": "2027-05-01T21:50:35.374005+00:00",
+"attempts": 1
+},
+"Northwood Meadows State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:37.184287+00:00",
+"expiresAt": "2027-05-01T21:50:37.184287+00:00",
+"attempts": 1
+},
+"Pisgah State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:39.188465+00:00",
+"expiresAt": "2027-05-01T21:50:39.188465+00:00",
+"attempts": 1
+},
+"Pisgah State Park - Critria 1 lands": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:41.389435+00:00",
+"expiresAt": "2027-05-01T21:50:41.389435+00:00",
+"attempts": 1
+},
+"Sunapee State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:43.611790+00:00",
+"expiresAt": "2027-05-01T21:50:43.611790+00:00",
+"attempts": 1
+},
+"White Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:45.210102+00:00",
+"expiresAt": "2027-05-01T21:50:45.210102+00:00",
+"attempts": 1
+},
+"Buck Mountain": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:47.183547+00:00",
+"expiresAt": "2027-05-01T21:50:47.183547+00:00",
+"attempts": 1
+},
+"Troy Meadows State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:49.452788+00:00",
+"expiresAt": "2027-05-01T21:50:49.452788+00:00",
+"attempts": 1
+},
+"City Of Rocks State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:51.400739+00:00",
+"expiresAt": "2027-05-01T21:50:51.400739+00:00",
+"attempts": 1
+},
+"Hyde Memorial State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:53.204182+00:00",
+"expiresAt": "2027-05-01T21:50:53.204182+00:00",
+"attempts": 1
+},
+"Living Desert State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:55.407907+00:00",
+"expiresAt": "2027-05-01T21:50:55.407907+00:00",
+"attempts": 1
+},
+"Percha Dam State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:57.186069+00:00",
+"expiresAt": "2027-05-01T21:50:57.186069+00:00",
+"attempts": 1
+},
+"Big Bend of the Colorado State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:50:59.533274+00:00",
+"expiresAt": "2027-05-01T21:50:59.533274+00:00",
+"attempts": 1
+},
+"Whitewater Park At Rock": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:51:01.375104+00:00",
+"expiresAt": "2027-05-01T21:51:01.375104+00:00",
+"attempts": 1
+},
+"Gilgo State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:38.817304+00:00",
+"expiresAt": "2027-05-01T21:53:38.817304+00:00",
+"attempts": 1
+},
+"Goose Pond Mountain": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:41.246596+00:00",
+"expiresAt": "2027-05-01T21:53:41.246596+00:00",
+"attempts": 1
+},
+"Schunnemunk State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:45.503278+00:00",
+"expiresAt": "2027-05-01T21:53:45.503278+00:00",
+"attempts": 1
+},
+"Sterling Forest State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:46.816779+00:00",
+"expiresAt": "2027-05-01T21:53:46.816779+00:00",
+"attempts": 1
+},
+"Arrowhead State Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-02T21:53:52.817874+00:00",
+"expiresAt": "2027-05-01T21:53:52.817874+00:00",
+"attempts": 1
+},
+"Boiling State Parkrings State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:54.948952+00:00",
+"expiresAt": "2027-05-01T21:53:54.948952+00:00",
+"attempts": 1
+},
+"Hochatown State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:56.812897+00:00",
+"expiresAt": "2027-05-01T21:53:56.812897+00:00",
+"attempts": 1
+},
+"Lake Eufula State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:53:59.459474+00:00",
+"expiresAt": "2027-05-01T21:53:59.459474+00:00",
+"attempts": 1
+},
+"Lake Murray State Resort Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:54:01.439015+00:00",
+"expiresAt": "2027-05-01T21:54:01.439015+00:00",
+"attempts": 1
+},
+"Mcgee Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:54:03.230822+00:00",
+"expiresAt": "2027-05-01T21:54:03.230822+00:00",
+"attempts": 1
+},
+"Quartz Mountain State Resort Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:55:22.984599+00:00",
+"expiresAt": "2027-05-01T21:55:22.984599+00:00",
+"attempts": 1
+},
+"Robbers Cave State Resort Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:55:24.782973+00:00",
+"expiresAt": "2027-05-01T21:55:24.782973+00:00",
+"attempts": 1
+},
+"Wister State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:44.710800+00:00",
+"expiresAt": "2027-05-01T21:56:44.710800+00:00",
+"attempts": 1
+},
+"Finn Rock Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:46.851623+00:00",
+"expiresAt": "2027-05-01T21:56:46.851623+00:00",
+"attempts": 1
+},
+"Gearheart Ocean State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:48.841114+00:00",
+"expiresAt": "2027-05-01T21:56:48.841114+00:00",
+"attempts": 1
+},
+"North Santiam River State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:50.704236+00:00",
+"expiresAt": "2027-05-01T21:56:50.704236+00:00",
+"attempts": 1
+},
+"Rodakowski Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:52.544507+00:00",
+"expiresAt": "2027-05-01T21:56:52.544507+00:00",
+"attempts": 1
+},
+"State Park & Rec Dept 1": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:56:54.521001+00:00",
+"expiresAt": "2027-05-01T21:56:54.521001+00:00",
+"attempts": 1
+},
+"Evansburg State Park": {
+"status": "notcommons",
+"checkedAt": "2026-11-02T21:56:58.377127+00:00",
+"expiresAt": "2027-05-01T21:56:58.377127+00:00",
+"attempts": 1
+},
+"Pymatuning State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:00.380202+00:00",
+"expiresAt": "2027-05-01T21:57:00.380202+00:00",
+"attempts": 1
+},
+"Ricketts Glenn State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:04.393644+00:00",
+"expiresAt": "2027-05-01T21:57:04.393644+00:00",
+"attempts": 1
+},
+"Beavertail": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:04.532538+00:00",
+"expiresAt": "2027-05-01T21:57:04.532538+00:00",
+"attempts": 1
+},
+"Burlingame": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:06.533636+00:00",
+"expiresAt": "2027-05-01T21:57:06.533636+00:00",
+"attempts": 1
+},
+"Cocumcussoc": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:08.779989+00:00",
+"expiresAt": "2027-05-01T21:57:08.779989+00:00",
+"attempts": 1
+},
+"East Bay Bikepath": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:10.669498+00:00",
+"expiresAt": "2027-05-01T21:57:10.669498+00:00",
+"attempts": 1
+},
+"East Beach": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:12.533398+00:00",
+"expiresAt": "2027-05-01T21:57:12.533398+00:00",
+"attempts": 1
+},
+"John L. Curran Fishing Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:14.715571+00:00",
+"expiresAt": "2027-05-01T21:57:14.715571+00:00",
+"attempts": 1
+},
+"Queens Forth Historic Site": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:17.411386+00:00",
+"expiresAt": "2027-05-01T21:57:17.411386+00:00",
+"attempts": 1
+},
+"Sayles Finishing": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:18.765357+00:00",
+"expiresAt": "2027-05-01T21:57:18.765357+00:00",
+"attempts": 1
+},
+"Scarborough Beach": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:20.531213+00:00",
+"expiresAt": "2027-05-01T21:57:20.531213+00:00",
+"attempts": 1
+},
+"South Shore Management Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:23.072562+00:00",
+"expiresAt": "2027-05-01T21:57:23.072562+00:00",
+"attempts": 1
+},
+"Baker Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:24.529815+00:00",
+"expiresAt": "2027-05-01T21:57:24.529815+00:00",
+"attempts": 1
+},
+"Cheraw State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:26.535962+00:00",
+"expiresAt": "2027-05-01T21:57:26.535962+00:00",
+"attempts": 1
+},
+"Jones Gap State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:28.529467+00:00",
+"expiresAt": "2027-05-01T21:57:28.529467+00:00",
+"attempts": 1
+},
+"Lake Greenwood State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:30.530639+00:00",
+"expiresAt": "2027-05-01T21:57:30.530639+00:00",
+"attempts": 1
+},
+"Hartford Beach": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:32.867338+00:00",
+"expiresAt": "2027-05-01T21:57:32.867338+00:00",
+"attempts": 1
+},
+"Cooper Lake State Park - South Sulphur Unit": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:56.739593+00:00",
+"expiresAt": "2027-05-01T21:57:56.739593+00:00",
+"attempts": 1
+},
+"Lake Somerville State Park - Nails Creek Unit": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:57:58.970408+00:00",
+"expiresAt": "2027-05-01T21:57:58.970408+00:00",
+"attempts": 1
+},
+"Lake Somerville Trailway State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:58:01.055173+00:00",
+"expiresAt": "2027-05-01T21:58:01.055173+00:00",
+"attempts": 1
+},
+"Powderhorn State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:58:02.654466+00:00",
+"expiresAt": "2027-05-01T21:58:02.654466+00:00",
+"attempts": 1
+},
+"Sheldon Lake State Park & Environmental Learning Center": {
+"status": "nophoto",
+"checkedAt": "2026-11-02T21:58:05.117102+00:00",
+"expiresAt": "2027-05-01T21:58:05.117102+00:00",
+"attempts": 1
+},
 "Antelope Island State Park": "notphoto",
 "Deer Creek State Park": "nophoto",
 "Escalante State Park": "nophoto",
