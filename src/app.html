@@ -24,6 +24,15 @@
   [f[0], f[1]].forEach(function (x) { var l = document.createElement("link"); l.rel = "preload"; l.as = "font"; l.type = "font/woff2"; l.crossOrigin = ""; l.href = b + x[1] + ".woff2"; document.head.appendChild(l); });
 })();
 </script>
+<script>
+/* the map library is its own file, requested right now, so it downloads alongside the rest of the page instead of behind it; the app starts the map when it has arrived (window.__mapReady) */
+(function () {
+  var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+  var done = function () { var f = window.__mapReady; window.__mapReady = null; window.__mapLib = 1; if (f) f(); };
+  var sc = document.createElement("script"); sc.async = true; sc.src = b + "maplibre-gl-__MLVER__.js"; sc.onload = done; sc.onerror = done;
+  document.head.appendChild(sc);
+})();
+</script>
 <style>
 /* Layout: one screen with two views. A world map with a pin per ecosystem, and a graph stage with a species card beside it (below it on phones). */
 :root {
@@ -3296,7 +3305,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 
   M.h0 = location.hash.slice(1);
   buildMap();
-  if (window.maplibregl) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
+  if (window.maplibregl || window.__mapLib) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
@@ -3341,8 +3350,5 @@ rect.core { stroke-dasharray: 3 2.5; }
   });
 })();
 </script>
-
-<script>/*__MLJS__*/</script>
-<script>if (window.__mapReady) { var __mr = window.__mapReady; window.__mapReady = null; __mr(); }</script>
 
 <script>if("serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href)) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });</script>

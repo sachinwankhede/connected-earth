@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/*.json (hand-built places),
 data-auto/*.json (auto-generated places, pilot only), node_modules (d3, maplibre-gl).
 """
-import json, re, sys, os, hashlib, urllib.parse, base64
+import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -151,7 +151,9 @@ def build(pilot, out_path, write=False):
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
-    out = out.replace('/*__MLJS__*/', open(os.path.join(ml, 'maplibre-gl.js')).read())
+    mlver = ml_version()
+    shutil.copyfile(os.path.join(ml, 'maplibre-gl.js'), P('maplibre-gl-%s.js' % mlver))   # the map library is its own file (not part of the page): see the loader in src/app.html
+    out = out.replace('__MLVER__', mlver)
     tag = '<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>'
     assert tag in out, 'd3 script tag not found in src/app.html'
     out = out.replace(tag, '<script>' + open(P('node_modules', 'd3', 'dist', 'd3.min.js')).read() + '</script>', 1)
@@ -168,13 +170,17 @@ def boot_html(land_json=None):
             '<b>Connected Earth</b><span>See how nature is connected</span><i class="bar"></i></div></div>')
 
 
+def ml_version():
+    return json.load(open(P('node_modules', 'maplibre-gl', 'package.json')))['version']
+
+
 def build_id(html):
     return hashlib.md5(html.encode()).hexdigest()[:8]
 
 
 def stamp_sw(main_html):
     bid = build_id(main_html)
-    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid))
+    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()))
     print('sw.js stamped', bid)
 
 

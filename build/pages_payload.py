@@ -45,6 +45,9 @@ def main():
     for relative in ROOT_FILES:
         copy_file(ROOT / relative, relative, expected)
 
+    for lib in sorted(ROOT.glob('maplibre-gl-*.js')):
+        copy_file(lib, lib.name, expected)
+
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):
         copy_file(font, font.relative_to(ROOT).as_posix(), expected)
 
