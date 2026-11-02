@@ -21,7 +21,7 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: Rebuild the held parks
-        run: python3 pipeline/regen.py "${{ github.event.inputs.states }}" 2>&1 | tee regen.log
+        run: python3 jobs/regen.py "${{ github.event.inputs.states }}" 2>&1 | tee regen.log
       - name: Checks
         run: |
           N=$(python3 -c "import json;print(len(json.load(open('regen.json'))['ids']))")
@@ -41,9 +41,9 @@ jobs:
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git checkout -B "$BR"
           mv regen.md /tmp/regen.md; rm -f regen.json regen.log validate.log
-          git add -A -- . ':!pipeline/work'
+          git add -A -- . ':!jobs/work'
           git commit -m "Rebuild food webs of held parks (${{ github.event.inputs.states }})"
-          bash pipeline/syncstep.sh || true; { echo; cat /tmp/sync.md; } >> /tmp/regen.md
+          bash jobs/syncstep.sh || true; { echo; cat /tmp/sync.md; } >> /tmp/regen.md
           git push -f origin "$BR"
           gh pr create --base main --head "$BR" --title "Rebuild food webs of held parks (${{ github.event.inputs.states }})" --body-file /tmp/regen.md
           gh workflow run ci.yml --ref "$BR"

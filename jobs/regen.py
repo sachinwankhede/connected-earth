@@ -5,7 +5,7 @@ Everything else on the place (name, photo, sources, notes, story) is kept. Parks
 Writes regen.md (before/after table, for the pull request body) and regen.json ({'ids': [...]})."""
 import json, os, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, 'build')); sys.path.insert(0, os.path.join(ROOT, 'pipeline'))
+sys.path.insert(0, os.path.join(ROOT, 'build')); sys.path.insert(0, os.path.join(ROOT, 'jobs'))
 import promote_check as pc, species
 from state import STATES, seed
 WORTH = ('plants', 'links', 'family-level')
@@ -28,15 +28,15 @@ if __name__ == '__main__':
         H = held(st)
         print(st, len(H), 'held for plants/links:', ', '.join(H))
         if not H: continue
-        work = os.path.join(ROOT, 'pipeline', 'work', 'regen_' + st); os.makedirs(work, exist_ok=True)
+        work = os.path.join(ROOT, 'jobs', 'work', 'regen_' + st); os.makedirs(work, exist_ok=True)
         pp = os.path.join(work, 'parks.json')
         if not os.path.exists(pp):
             ps = [p for p in seed(st, 40) if p['id'] in H]       # same ranking as the original build
             json.dump([{k: v for k, v in p.items() if v is not None} for p in ps], open(pp, 'w'), indent=1)
             print(len(ps), 'of', len(H), 'parks found again in the PAD-US list')
         env = {'WORK': work}
-        run(['python3', 'pipeline/draft.py', 'all'], env); run(['python3', 'pipeline/autogen.py'], env)
-        run(['python3', 'pipeline/names.py', '--from-data', os.path.join(work, 'out')], env); run(['python3', 'pipeline/autogen.py'], env)
+        run(['python3', 'jobs/draft.py', 'all'], env); run(['python3', 'jobs/autogen.py'], env)
+        run(['python3', 'jobs/names.py', '--from-data', os.path.join(work, 'out')], env); run(['python3', 'jobs/autogen.py'], env)
         for i, before in H.items():
             p = os.path.join(work, 'out', i + '.json')
             if not os.path.exists(p): rows.append((before['name'], before['why'], 'not regenerated', False)); continue

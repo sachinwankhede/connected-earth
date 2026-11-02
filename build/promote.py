@@ -7,7 +7,7 @@ sys.path.insert(0,os.path.join(ROOT,'build'))
 import promote_check as pc, species
 ids=sys.argv[1:]
 if ids[:1]==['--from-codes']:
-    ids=[k for k,v in json.load(open(os.path.join(ROOT,'pipeline/nps/codes.json'))).items() if v['code']]
+    ids=[k for k,v in json.load(open(os.path.join(ROOT,'jobs/nps/codes.json'))).items() if v['code']]
 if ids[:1]==['--local']:
     # --local [--state AR,KY]: every local (state) park in the pilot, or only those of the given states
     from state import STATES

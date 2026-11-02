@@ -64,5 +64,5 @@ Code, data and jobs are kept apart, so a change can say which of the three it to
 - `data/places/<id>.json`: one file per place (written only by data jobs). `data/journeys/links.json`: the order of places and the journeys between them. `data/species/species.json`: the species table; `data/species/about.json`: species descriptions. `data/text/summaries.json`: one-sentence park summaries. `data/outlines/`: place outlines. `data/geo/`: country, state and land outlines.
 - `data-auto/`: the pilot places (folds into `data/` later, with a tier field).
 - `photos/`: place photos, species picture references, our hosted species pictures (`photos/species/`) and their credits.
-- `pipeline/`: job scripts and their state (queue, names, reports). Stage 3 renames it `jobs/` and moves anything the build uses into `lib/` or `data/`.
+- `jobs/`: job scripts and their state (queue, names, reports). Stage 3 renames it `jobs/` and moves anything the build uses into `lib/` or `data/`.
 Nothing the build reads may live in the jobs folder.

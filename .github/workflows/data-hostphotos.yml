@@ -18,7 +18,7 @@ jobs:
         with: { ref: main }
       - run: pip install pillow
       - name: Host the pictures
-        run: python3 pipeline/hostphotos.py "${{ github.event.inputs.place || 'gulf' }}" "${{ github.event.inputs.limit || '0' }}" | tee host.log | tail -5
+        run: python3 jobs/hostphotos.py "${{ github.event.inputs.place || 'gulf' }}" "${{ github.event.inputs.limit || '0' }}" | tee host.log | tail -5
       - name: Commit and open the pull request
         env:
           GH_TOKEN: ${{ github.token }}

@@ -7,7 +7,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from pipeline.photo_registry import safe_https
+from lib.photo_registry import safe_https
 
 
 def read_json(path):

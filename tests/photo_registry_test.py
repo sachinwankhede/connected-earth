@@ -10,7 +10,8 @@ import unittest
 import urllib.error
 from unittest.mock import patch
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "pipeline"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "lib"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "jobs"))
 import photo_registry
 import wm
 
@@ -51,7 +52,7 @@ class PhotoRegistryTests(unittest.TestCase):
     def test_species_metadata_requires_explicit_attribution_license_and_commons_page(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = os.path.join(tmp, "repo")
-            os.makedirs(os.path.join(root, "pipeline"))
+            os.makedirs(os.path.join(root, "lib"))
             photos = os.path.join(root, "photos")
             os.makedirs(os.path.join(photos, "places"))
             with open(os.path.join(photos, "places", "places.json"), "w", encoding="utf-8") as f:
@@ -64,7 +65,7 @@ class PhotoRegistryTests(unittest.TestCase):
                 "lu": "https://creativecommons.org/licenses/by/4.0",
                 "p": "https://commons.wikimedia.org/wiki/File:File.jpg"
             }
-            with patch.object(photo_registry, "__file__", os.path.join(root, "pipeline", "photo_registry.py")):
+            with patch.object(photo_registry, "__file__", os.path.join(root, "lib", "photo_registry.py")):
                 with open(metadata, "w", encoding="utf-8") as f:
                     json.dump({"Verified species": record}, f)
                 photo_registry.validate()

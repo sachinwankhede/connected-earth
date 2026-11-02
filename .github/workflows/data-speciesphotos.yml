@@ -17,9 +17,9 @@ jobs:
       - uses: actions/checkout@v5
         with: { ref: main }
       - name: Look up the thumbnails
-        run: python3 pipeline/speciesphotos.py photos/species.json "${{ github.event.inputs.limit || '0' }}" | tee speciesphotos.log | tail -5
+        run: python3 jobs/speciesphotos.py photos/species.json "${{ github.event.inputs.limit || '0' }}" | tee speciesphotos.log | tail -5
       - name: Validate photo sources and legacy metadata
-        run: python3 pipeline/photo_registry.py validate
+        run: python3 lib/photo_registry.py validate
       - name: Commit and open the pull request
         env:
           GH_TOKEN: ${{ github.token }}

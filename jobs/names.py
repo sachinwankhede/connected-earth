@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """names.py: find a common English name for species that only have a Latin name.
 Uses the Wikipedia page title (it is the common name when one exists) and GBIF's English vernacular names.
-Writes pipeline/names.json  {latin: common}. Usage: names.py latin1 latin2 ... | names.py --from-data data-auto"""
+Writes jobs/names.json  {latin: common}. Usage: names.py latin1 latin2 ... | names.py --from-data data-auto"""
 import re,sys,json,os,glob,urllib.request,urllib.parse,time
 here=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(os.path.dirname(here),'build')); import species; P=os.path.join(here,'names.json')
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}

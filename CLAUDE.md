@@ -14,14 +14,14 @@
 ## Items and status
 - **The item is the outcome; a pull request is the means.** Every piece of work is one GitHub issue (title = the outcome) with a theme label (`theme:latency`, `theme:data`, `theme:photos`, `theme:process`) and, while open, a status label (`status:idea`, `status:doing`, `status:waiting-owner`). Closed = done. The body holds the goal, decisions and numbers.
 - Every pull request says `Part of #N` or `Closes #N` in its body. When a PR merges or a job finishes, update the item (label, body, close it) in the same turn. Open a new item when a new topic comes up in conversation, not only when a PR is opened.
-- `bash pipeline/status.sh` and the issue "Project status" show items first (waiting on the owner, doing, not started, done), then the PRs with their item and any PR without one. REST only (`gh api`); GraphQL is blocked from sessions, so no Projects board.
+- `bash jobs/status.sh` and the issue "Project status" show items first (waiting on the owner, doing, not started, done), then the PRs with their item and any PR without one. REST only (`gh api`); GraphQL is blocked from sessions, so no Projects board.
 
 ## Keep the context small (do this first)
 Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
-- **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `pipeline/*.py`, `tests/`, `.github/workflows/`, `docs/`.
-- **Data (do not open; query one file or one key with a script):** `data/` (1,275 places, 25 MB), `data-auto/` (pilot, 278 places), `data/species/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `pipeline/reports/`, `pipeline/*.json`.
+- **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `jobs/*.py`, `tests/`, `.github/workflows/`, `docs/`.
+- **Data (do not open; query one file or one key with a script):** `data/` (1,275 places, 25 MB), `data-auto/` (pilot, 278 places), `data/species/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `jobs/reports/`, `jobs/*.json`.
 - **Built or generated (never read or edit):** `index.html`, `pilot/index.html`, `sw.js`, `webs/`, `node_modules/`.
-- To answer a question about the data, run a short Python/`jq` command that prints only the counts or the few records needed; to see jobs and PRs use `bash pipeline/status.sh` or the issue "Project status".
+- To answer a question about the data, run a short Python/`jq` command that prints only the counts or the few records needed; to see jobs and PRs use `bash jobs/status.sh` or the issue "Project status".
 - Do not poll for job results in a loop in the main session; start a background wait and read only the final line.
 - Prefer a fresh session per topic. Update `docs/STATE.md` before ending one.
 
@@ -33,4 +33,4 @@ Most of this repo is data, not code. Never read, cat, grep -r or list whole data
 - Content rules: story at most 60 words, why-it-matters at most 40; park summaries are one Wikipedia sentence; journeys only where the source text supports a real route.
 - Promotion follows `docs/PROMOTION.md` (including the 60% family-level hold rule). Use the `data-promote` workflow; the 10-link spot check goes in the pull request.
 - A data branch that clashes with main only on `data/species/species.json` or `data-auto/order.json` is brought up to date with the `data-sync` workflow. Run `python3 build/species.py pack` after adding or promoting places.
-- `bash pipeline/status.sh` shows open pull requests, running jobs, the state queue and finished research.
+- `bash jobs/status.sh` shows open pull requests, running jobs, the state queue and finished research.

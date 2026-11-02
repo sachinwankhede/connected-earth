@@ -5,6 +5,7 @@ Source: Wikipedia page summary (thumbnail, 330px wide) + file metadata from the 
 import sys,os,re,json,glob,time,html,urllib.request,urllib.parse,datetime
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
+sys.path.insert(0,os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, cache_active, failure_class, negative_entry, safe_https
 def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()

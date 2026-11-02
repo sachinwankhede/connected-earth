@@ -1,6 +1,6 @@
 name: checks
 # The browser tests are skipped when a change only touches files that cannot affect the app
-# (the data-job workflows, the status workflow, the data-job scripts in pipeline/ (py and sh) and build/state.py and promote*.py, docs, notes and the state queue). Changes to this file still run them.
+# (the data-job workflows, the status workflow, the data-job scripts in jobs/ (py and sh) and build/state.py and promote*.py, docs, notes and the state queue). Changes to this file still run them.
 on:
   push:
     branches: [main]
@@ -9,9 +9,9 @@ on:
       - "docs/**"
       - "CLAUDE.md"
       - "README.md"
-      - "pipeline/state_queue.txt"
-      - "pipeline/*.py"
-      - "pipeline/*.sh"
+      - "jobs/state_queue.txt"
+      - "jobs/*.py"
+      - "jobs/*.sh"
       - ".github/workflows/status.yml"
       - "build/state.py"
       - "build/promote.py"
@@ -43,7 +43,7 @@ jobs:
           python3 build/species.py pack
           git diff --exit-code -- data data-auto || (echo "Run python3 build/species.py pack and commit." && exit 1)
       - name: Validate photo sources and metadata
-        run: python3 pipeline/photo_registry.py validate
+        run: python3 lib/photo_registry.py validate
       - name: Informational data-quality summary
         if: matrix.shard == 1
         continue-on-error: true

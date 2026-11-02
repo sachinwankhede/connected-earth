@@ -1,5 +1,5 @@
 name: data-names
-# Manual only. For one state, replaces each park's name and Wikipedia source link with the real Wikipedia article's (see pipeline/wikinames.py)
+# Manual only. For one state, replaces each park's name and Wikipedia source link with the real Wikipedia article's (see jobs/wikinames.py)
 # and opens one pull request with a before/after table. Nothing reaches the live site until that pull request is merged.
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: Look up the names
-        run: python3 pipeline/wikinames.py "${{ github.event.inputs.state }}"
+        run: python3 jobs/wikinames.py "${{ github.event.inputs.state }}"
       - name: Fold into the species table and rebuild
         run: |
           python3 build/species.py pack

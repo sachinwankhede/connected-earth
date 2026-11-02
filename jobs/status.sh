@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# status.sh: what is open, what is running, what is queued. Needs the gh CLI. Usage: bash pipeline/status.sh
+# status.sh: what is open, what is running, what is queued. Needs the gh CLI. Usage: bash jobs/status.sh
 R=${REPO:-sachinwankhede/connected-earth}
 # Items first: one issue per item (an outcome), a theme label (theme:*) and a status label (status:*). A pull request is the means, not the item.
 echo "== Items (open issues; closed means done)"
@@ -22,5 +22,5 @@ for n in $(gh api "repos/$R/pulls?state=open" --jq '.[].number'); do
 done
 echo; echo "== Running or waiting jobs"
 for s in in_progress queued; do gh api "repos/$R/actions/runs?status=$s" --jq '.workflow_runs[]|"\(.status)  \(.name)  \(.head_branch)  since \(.run_started_at)"'; done
-echo; echo "== State queue (first 15)"; gh api "repos/$R/contents/pipeline/state_queue.txt?ref=main" --jq .content | base64 -d | head -15 | tr '\n' ' '; echo
+echo; echo "== State queue (first 15)"; gh api "repos/$R/contents/jobs/state_queue.txt?ref=main" --jq .content | base64 -d | head -15 | tr '\n' ' '; echo
 echo; echo "== Research on the research branch"; gh api "repos/$R/contents/research?ref=research" --jq '.[].name' 2>/dev/null | sed 's/\.md$//' | tr '\n' ' '; echo
