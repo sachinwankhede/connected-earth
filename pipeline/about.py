@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""about.py: fetch the first sentences of each species' Wikipedia page into pipeline/about.json {wiki title: text}.
+"""about.py: fetch the first sentences of each species' Wikipedia page into data/species/about.json {wiki title: text}.
 Resumable. Uses the polite Wikimedia client in wm.py. Text is CC BY-SA: credited on the Credits page and linked from each species.
 After it finishes: python3 build/species.py about && python3 build/build.py --all
-It also fetches a one-sentence summary for each state park or refuge without a story (pipeline/summaries.json {wiki title: sentence}); build.py shows it on the place page."""
+It also fetches a one-sentence summary for each state park or refuge without a story (data/places/summaries.json {wiki title: sentence}); build.py shows it on the place page."""
 import json,os,sys,urllib.parse
-here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here); OUT=os.path.join(here,'about.json'); SUMS=os.path.join(here,'summaries.json')
+here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here); OUT=os.path.join(ROOT,'data','species','about.json'); SUMS=os.path.join(ROOT,'data','places','summaries.json')
 sys.path.insert(0,os.path.join(ROOT,'build')); sys.path.insert(0,here)
 import species, wm
 tab=species.table(); got=json.load(open(OUT)) if os.path.exists(OUT) else {}

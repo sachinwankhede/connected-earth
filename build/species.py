@@ -81,7 +81,7 @@ def clean(t):
 # Wikipedia titles that land on a page that is not about the species: disambiguation pages, people, towns, myths.
 NOT_ABOUT = re.compile(r"may refer to|can refer to|could refer to|share the common name|is a common name that|:\s*$|\b(given name|female name|male name|surname|unincorporated community|census-designated|is a (village|town|city|municipality|commune)|is an? (album|film|song|band|novel|company|television))\b", re.I)
 def about():
-    tab = table(); src = json.load(open(os.path.join(ROOT, 'pipeline', 'about.json'))); n = 0
+    tab = table(); src = json.load(open(os.path.join(ROOT, 'data', 'species', 'about.json'))); n = 0
     for r in tab.values():
         t = clean(src.get(r.get('wiki'), ''))
         if t and len(t) > 30 and not r.get('cat') and not NOT_ABOUT.search(t): r['about'] = t; n += 1
