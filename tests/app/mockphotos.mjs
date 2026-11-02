@@ -1,6 +1,7 @@
 // Test helper: answers Wikipedia photo requests with generated pictures so photo features can be checked offline.
 import fs from 'node:fs';
 import zlib from 'node:zlib';
+import crypto from 'node:crypto';
 import { readPlaces } from './helper.mjs';
 const speciesManifest = JSON.parse(fs.readFileSync(new URL('../../photos/species.json', import.meta.url), 'utf8'));
 const placeManifest = JSON.parse(fs.readFileSync(new URL('../../photos/places/places.json', import.meta.url), 'utf8'));
@@ -14,21 +15,20 @@ export function png(seed, w = 48, h = 48) {
   const ihdr = Buffer.alloc(13); ihdr.writeUInt32BE(w, 0); ihdr.writeUInt32BE(h, 4); ihdr[8] = 8; ihdr[9] = 2;
   return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
 }
+const hostedName = (title) => crypto.createHash('sha1').update(title).digest('hex').slice(0, 12) + '.webp';   // the same shape as a real hosted file name
 export async function mockPhotos(page) {
-  const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [`mock/${encodeURIComponent(title)}.png`, speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
+  const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
   const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
-  await page.route(/\/photos\/(species|places\/places)\.json(?:\?|$)/, (r) => {
-    const body = r.request().url().includes('/photos/species.json') ? species : places;
-    return r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(body) });
-  });
+  await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(places) }));
+  await page.route(/\/webs\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: species, phm: {} }) }));
   // a place carries its own species picture entries now: give each place file the mocked entries for its species
   await page.route(/\/webs\/[\w-]+\.json(?:\?|$)/, async (r) => {
-    if (/(about|species-index)\.json/.test(r.request().url())) return r.fallback();
+    if (/(species-index|species-pictures)\.json/.test(r.request().url())) return r.fallback();
     const res = await r.fetch(), w = await res.json();
     w.ph = {}; w.phm = {};
     for (const n of w.nodes || []) for (const k of [n.wiki, n.canonicalWiki, n.latin]) if (k && species[k]) w.ph[k] = species[k];
     return r.fulfill({ response: res, body: JSON.stringify(w) });
   });
-  await page.route(/\/photos\/places\/mock\/|thumb\.wikimedia\.org\/.*\/mock\//, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.route(/\/photos\/places\/mock\/|\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
   await page.reload();
 }
