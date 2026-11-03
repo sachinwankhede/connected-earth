@@ -17158,5 +17158,20 @@
 "reviewStatus": "approved",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
+},
+"Bear River Migratory Bird Refuge": {
+"f": "usbearrivermigratorybird.jpg",
+"a": "RhetoricallySpeaking",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Bear_River_Migratory_Bird_Refuge_at_Sunset.jpg",
+"w": "https://en.wikipedia.org/wiki/Bear_River_Migratory_Bird_Refuge",
+"checkedAt": "2026-11-03T19:45:41.107658+00:00",
+"fetchedAt": "2026-11-03T19:45:41.107658+00:00",
+"mt": "image/jpeg",
+"width": 330,
+"height": 220,
+"sha256": "ba9bfd88d2470f7ddd20eed9442583185769d1fa1fd3f427a64bdc097e9962ce",
+"reviewStatus": "approved"
 }
 }
