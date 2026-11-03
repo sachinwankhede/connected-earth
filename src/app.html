@@ -37,12 +37,20 @@
 })();
 </script>
 <script>
-/* the places are two files (api/places/index*.json and cards*.json), requested right now, in parallel with the page's own scripts; the app starts when both have arrived */
+/* the places arrive in two parts (api/places/main|pilot/, item #313): the world-level places right now (index-world.json + cards-world.json, requested in parallel
+   with the page's own scripts; the app starts when both have arrived), and the local places later (index-local.json + cards-local.json, window.__LOCALS(), fetched when the
+   map has drawn or the first time something needs them) */
 (function () {
-  var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/";
-  var get = function (n) { return fetch(b + n + "__PLACES_SFX__.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
+  var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/__PLACES_DIR__/";
+  var get = function (n) { return fetch(b + n + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
   /* every place in the index must have its card, or the page would show places without a name or text: treat that as "the places did not load" */
-  window.__PLACES = window.fetch ? Promise.all([get("index"), get("cards")]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }) : Promise.reject(0);
+  var pair = function (a, c) { return Promise.all([get(a), get(c)]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }); };
+  /* a link straight to a place may be to a local one: then they come with the first load, so the link opens as it always did */
+  var link = /[#&](pg|p|e)=/.test(location.hash);
+  window.__PLACES = !window.fetch ? Promise.reject(0) : !link ? pair("index-world", "cards-world") : Promise.all([pair("index-world", "cards-world"), pair("index-local", "cards-local")]).then(function (r) {
+    window.__LOCALS_IN = 1; return [r[0][0].concat(r[1][0]), Object.assign({}, r[0][1], r[1][1])];
+  });
+  window.__LOCALS = function () { return window.fetch ? pair("index-local", "cards-local") : Promise.reject(0); };
 })();
 </script>
 <style>
@@ -1249,24 +1257,45 @@ window.__PLACES.then(function (PL) {
     });
     return '<p class="about" data-lat="' + id + '"></p>';
   }
-  /* Places: the one way to read them. The index (map, filters, regions) and the cards (names and text) arrive as two files; each place is the two put together. */
-  var ECOS = PL[0].map(function (i) { var c = PL[1][i.id]; for (var k in c) i[k] = c[k]; return i; });
-  var Places = { all: function () { return ECOS; }, get: function (id) { return ECO_BY[id]; } };
+  /* Places: the one way to read them. The index (map, filters, regions) and the cards (names and text) arrive as two files; each place is the two put together.
+     The page starts with the world-level places; the local places (NLOCAL of them, hidden unless the local button is on or a search is typed) are fetched after the map has drawn,
+     or at once when something needs them (the local button, a search, Near me, a link to one). Places.done is true when they are in. */
+  var NLOCAL = __NLOCAL__;
+  function join(PLx) { return PLx[0].map(function (i) { var c = PLx[1][i.id]; for (var k in c) i[k] = c[k]; return i; }); }
+  var ECOS = join(PL);
+  var Places = {
+    all: function () { return ECOS; }, get: function (id) { return ECO_BY[id]; },
+    done: !NLOCAL || !!window.__LOCALS_IN, nLocal: NLOCAL, total: ECOS.length + (window.__LOCALS_IN ? 0 : NLOCAL), p: null, failedAt: 0,
+    loadLocals: function () {
+      if (Places.done) return Promise.resolve(true);
+      if (Places.p) return Places.p;
+      if (Places.failedAt && Date.now() - Places.failedAt < 30000) return Promise.resolve(false);
+      Places.p = window.__LOCALS().then(function (r) {
+        var add = join(r);
+        add.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; ECOS.push(e); ECO_BY[e.id] = e; addEcoOption(e); if (SPIDX.d) fillSpecies(e, SPIDX.d); });
+        Places.done = true; TIES = null;
+        if (FL.local || FL.q) { M.pgKey = null; filterView(); }   /* only then are the new places on the screen */
+        return true;
+      }).catch(function () { Places.p = null; Places.failedAt = Date.now(); return false; });
+      return Places.p;
+    }
+  };
   /* The species lists are not in the page (smaller first load). Every place starts with an empty list; api/species-index.json (the shared species table plus
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
-  var SPIDX = { p: null, ready: false, failedAt: 0 };
+  var SPIDX = { p: null, ready: false, failedAt: 0, d: null };
   ECOS.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; });
+  function fillSpecies(e, d) {
+    e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
+    e.idx.q = (d.q && d.q[e.id]) || "";   /* the words search matches besides the species: they come with the species lists */
+    e._s = null;
+  }
   function loadSpecies() {
     if (SPIDX.ready) return Promise.resolve(true);
     if (SPIDX.p) return SPIDX.p;
     if (SPIDX.failedAt && Date.now() - SPIDX.failedAt < 30000) return Promise.resolve(false);
     SPIDX.p = fetch((typeof WB === "string" ? WB : "api/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
-      ECOS.forEach(function (e) {
-        e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
-        e.idx.q = (d.q && d.q[e.id]) || "";   /* the words search matches besides the species: they come with the species lists */
-        e._s = null;
-      });
+      SPIDX.d = d; ECOS.forEach(function (e) { fillSpecies(e, d); });
       TIES = null; SPIDX.ready = true; return true;
     }).catch(function () { SPIDX.p = null; SPIDX.failedAt = Date.now(); return false; });
     return SPIDX.p;
@@ -1276,7 +1305,7 @@ window.__PLACES.then(function (PL) {
   /* Search reads the ready-made word index (api/search/, written by the build, item #260): each query word is looked up by prefix in one small file named by its
      first two letters, and a place is a match when every word finds it. Place numbers are positions in ECOS (same page order). Until the files have arrived the
      list filters on the card text alone; if they cannot be had, search falls back to the old scan (SRCH.ok = false). */
-  var SRCH = { ok: true, base: "api/search__PLACES_SFX__/", meta: null, bk: {} };
+  var SRCH = { ok: true, base: "api/search__PLACES_SFX__/", meta: null, bk: {}, rows: {} };
   function srchGet(f) { return fetch(SRCH.base + f).then(function (r) { if (!r.ok) throw 0; return r.json(); }); }
   function srchWords(t) { return t.toLowerCase().replace(/['\u2019]/g, "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(function (w) { return w.length > 0; }); }
   function srchBucket(k) {
@@ -1290,18 +1319,26 @@ window.__PLACES.then(function (PL) {
     for (var i = lo; i < b.w.length && b.w[i].lastIndexOf(w, 0) === 0; i++) { var t = 0; b.p[i].forEach(function (d) { t += d; out.add(t); }); }
     return out;
   }
+  /* the id of place number n (its position in the full list) is in the rows files: 256 places each, [id, name, place, lat, lon, continent, state] */
+  function srchRows(k) { return SRCH.rows[k] || (SRCH.rows[k] = srchGet("rows-" + k + ".json")); }
   function srchRun(q) {
     var ws = srchWords(q).filter(function (w) { return w.length >= 2; });
     if (!ws.length || !SRCH.ok) return Promise.resolve(null);
     if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
-    return SRCH.meta.then(function (m) {
-      if (m.n !== ECOS.length) throw 0;   /* not the same list as the page: do not trust the numbers */
-      return Promise.all(ws.map(function (w) { return m.buckets.indexOf(w.slice(0, 2)) < 0 ? new Set() : srchBucket(w.slice(0, 2)).then(function (b) { return srchPrefix(b, w); }); }));
-    }).then(function (sets) {
-      sets.sort(function (a, b) { return a.size - b.size; });
-      var hits = new Set();
-      sets[0].forEach(function (n) { if (sets.every(function (x) { return x.has(n); }) && ECOS[n]) hits.add(ECOS[n].id); });
-      return hits;
+    return Promise.all([SRCH.meta, Places.loadLocals()]).then(function (r) {
+      var m = r[0];
+      if (!r[1] || m.n !== Places.total) throw 0;   /* not the same list as the page, or the local places did not come: do not trust the numbers */
+      return Promise.all(ws.map(function (w) { return m.buckets.indexOf(w.slice(0, 2)) < 0 ? new Set() : srchBucket(w.slice(0, 2)).then(function (b) { return srchPrefix(b, w); }); })).then(function (sets) {
+        sets.sort(function (a, b) { return a.size - b.size; });
+        var nums = []; sets[0].forEach(function (n) { if (sets.every(function (x) { return x.has(n); })) nums.push(n); });
+        var ks = []; nums.forEach(function (n) { var k = Math.floor(n / m.rows); if (ks.indexOf(k) < 0) ks.push(k); });
+        return Promise.all(ks.map(srchRows)).then(function (files) {
+          var by = {}; ks.forEach(function (k, i) { by[k] = files[i]; });
+          var hits = new Set();
+          nums.forEach(function (n) { var row = by[Math.floor(n / m.rows)][n % m.rows]; if (row && ECO_BY[row[0]]) hits.add(row[0]); });
+          return hits;
+        });
+      });
     }).catch(function () { SRCH.ok = false; SRCH.meta = null; return null; });
   }
   /* a typed query: filter on the card text at once, then on the index when it arrives */
@@ -2346,7 +2383,7 @@ window.__PLACES.then(function (PL) {
   var KGROUPS = [["Forest", ["Forest"]], ["Grass & desert", ["Grassland", "Desert"]], ["Freshwater", ["Lakes & wetlands"]], ["Ocean", ["Coast & ocean"]], ["Cold & high", ["Polar & mountain"]], ["Urban", ["Urban"]]];
   function kindsOf(label) { for (var i = 0; i < KGROUPS.length; i++) if (KGROUPS[i][0] === label) return KGROUPS[i][1]; return [label]; }
   function kindsHTML() {
-    var nl = ECOS.filter(function (e) { return e.level === "local"; }).length, lb = document.getElementById("locbtn");
+    var nl = Places.nLocal, lb = document.getElementById("locbtn");
     if (lb) { lb.style.display = nl ? "" : "none"; lb.setAttribute("aria-pressed", FL.local ? "true" : "false"); }
     document.getElementById("kinds").innerHTML = KGROUPS.map(function (g) {
       var n = ECOS.filter(function (e) { return g[1].indexOf(e.kind) >= 0 && (FL.local || e.level !== "local"); }).length;
@@ -2370,7 +2407,10 @@ window.__PLACES.then(function (PL) {
   var ICON_SHARE = '<button type="button" class="ibtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
   var ICON_CLOSE = '<button type="button" class="ibtn" data-closepeek="1" aria-label="Close card" title="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
   M.peek = function (id) { peek(id); };
+  /* a place that is not loaded yet (a local one, before the local places have come): fetch them, then do it again */
+  function notYet(id, again) { if (ECO_BY[id] || Places.done) return false; Places.loadLocals().then(function (ok) { if (ok) again(); }); return true; }
   function peek(id) {
+    if (notYet(id, function () { peek(id); })) return;
     var e = ECO_BY[id], pe = document.getElementById("peek"), ci = cimg(id);
     pe.innerHTML = '<div class="pimg">' + (ci ? ci.innerHTML : "") + '</div><div class="pbody"><div class="pact">' + ICON_SHARE + ICON_CLOSE + '</div><span class="where">' + e.place + '</span><h2>' + e.name + '</h2><p>' + e.blurb + '</p>' + (spanText(e) ? '<p class="spans">' + spanText(e) + "</p>" : "") + tiesHTML(id) + '<div class="pbtns"><button type="button" class="btn go" data-open="' + id + '"><span class="long">Open the food web</span><span class="short">Open</span> &rarr;</button></div></div>';
     pe.hidden = false; M.peekId = id; spanHi(e); showTies(id); parkHi(id);
@@ -2842,7 +2882,8 @@ window.__PLACES.then(function (PL) {
   }
   function applyHash(h0) {
     var h = ""; try { h = decodeURIComponent(typeof h0 === "string" ? h0 : location.hash.slice(1)); } catch (e) {}
-    var m;
+    var m, want = /(?:^|&)(?:pg|e|p)=([\w-]+)/.exec(h);
+    if (want && !ECO_BY[want[1]] && !Places.done) { Places.loadLocals().then(function (ok) { if (ok) applyHash(h0); }); return; }   /* a link to a local place: they come first */
     if ((m = /(?:^|&)j=([\w-]+)/.exec(h)) && jbyId(m[1])) showJourney(m[1]);
     else if ((m = /(?:^|&)pg=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showPlace(m[1]);
     else if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);
@@ -2864,6 +2905,7 @@ window.__PLACES.then(function (PL) {
   }
   function nearMe() {
     var pe = document.getElementById("peek");
+    if (!Places.done) { pe.innerHTML = '<div class="nearlist"><div class="nhead"><h2>Near you</h2>' + ICON_CLOSE + '</div><p>Finding places…</p></div>'; pe.hidden = false; Places.loadLocals().then(function (ok) { if (ok) nearMe(); }); return; }
     function msg(t) { M.peekId = null; pe.innerHTML = '<div class="nearlist"><div class="nhead"><h2>Near you</h2>' + ICON_CLOSE + '</div><p>' + t + '</p></div>'; pe.hidden = false; }
     if (!navigator.geolocation) { msg("This browser can't share your location."); return; }
     msg("Finding your location…");
@@ -3014,6 +3056,12 @@ window.__PLACES.then(function (PL) {
     syncCtl();
   }
   /* a place's list card is built the first time it is needed (shown in the list, or its picture is used elsewhere), not for every place at startup */
+  function addEcoOption(e) {
+    if (!el.eco) return;
+    var o = document.createElement("option");
+    o.value = e.id; o.textContent = e.name;
+    el.eco.appendChild(o);
+  }
   function makeCard(e) {
     if (e.li) return e.li;
     var sp = e.idx.ns, li = document.createElement("li");
@@ -3044,7 +3092,7 @@ window.__PLACES.then(function (PL) {
     }
     document.getElementById("crumbs").addEventListener("click", nav);
     document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); searchFor(FL.q); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
-    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); });
+    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
       if (pk) { FL.park = !FL.park; view.focus = null; filterView(); return; }
@@ -3057,11 +3105,7 @@ window.__PLACES.then(function (PL) {
       if (ev.target.closest("[data-closepeek]")) { this.hidden = true; spanHi(null); showTies(null); }
     });
     document.getElementById("regions").addEventListener("click", nav);
-    ECOS.forEach(function (e) {
-      var o = document.createElement("option");
-      o.value = e.id; o.textContent = e.name;
-      el.eco.appendChild(o);
-    });
+    ECOS.forEach(addEcoOption);
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
   function applyJ() {
@@ -3347,6 +3391,7 @@ window.__PLACES.then(function (PL) {
     });
   }
   function showPlace(id, from) {
+    if (notYet(id, function () { showPlace(id, from); })) return;
     if (!ECO_BY[id]) return;
     M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
@@ -3398,6 +3443,7 @@ window.__PLACES.then(function (PL) {
   }
   function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
   function showWeb(id, then, fromJ, fromP) {
+    if (notYet(id, function () { showWeb(id, then, fromJ, fromP); })) return;
     PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
     JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = "&larr; " + (fromJ ? "Journey" : escH(ECO_BY[id].name)); setPbk();
@@ -3440,6 +3486,7 @@ window.__PLACES.then(function (PL) {
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
     setTimeout(loadD3, 4500);   /* the diagram library follows the map, so the first food web opens at once */
     setTimeout(ensureStates, 4000);   /* the US state outlines follow the map too */
+    setTimeout(Places.loadLocals, 2500);   /* the local places follow the map too */
     setTimeout(loadSpecies, 1500);   /* the species index follows the map and the first pictures, not before them */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
