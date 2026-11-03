@@ -48,6 +48,8 @@ The site is static, so each "API" is a file with a fixed shape. If a server is e
 | Related places | in Get place | neighbours precomputed by the build, not computed in the browser |
 | Pictures | `img/species/<hash>.webp`, packed per place | our own copies with credit and licence (item #238) |
 
+**Places files, step 1 (#228, 2026-11-03):** the build now also writes `api/places/index.json` (id, short, lat, lon, kind, icon, level, tier, auto, park, cont, country, countries, states; a list in page order) and `api/places/cards.json` (everything else of the light place, keyed by id: name, place, blurb, imgwiki, idx counts, side). Merged they equal the light place the page still carries (`tests/data/places_split_test.py`); any new field goes to the cards file unless added to `INDEX_FIELDS` in `build/build.py`. The pilot build writes `index-pilot.json` and `cards-pilot.json` (a different place set; two builds never write one file); each build deletes other files in `api/places/`. **The app does not read these files yet** (step 2), and `DATA.ecos` is still in the page.
+
 Rules: ids are stable and short; files are versioned by the manifest; each file has one writer job; the service worker caches by manifest hash. Filters that the file layout cannot answer (for example kind and country together) are done in the browser over the loaded index.
 
 ## Compute at build, read at runtime (added 2026-11-02)
