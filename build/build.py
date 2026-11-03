@@ -109,6 +109,56 @@ def write_places(light, pilot):
         open(os.path.join(d, name + sfx + '.json'), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
+# The search index (item #260, step 1): a ready-made word list, so a query is a lookup and not a scan of every place. The app does not read it yet.
+# Place numbers are the places' positions in the page order of the same build. Words of a place: its name, place line, short name, kind, the common and Latin
+# names of its species and its environment words (what the page's search string holds today). Accents and apostrophes are dropped; letters and digits only.
+SEARCH_ROWS = 256   # places per rows file
+
+
+def search_words(text):
+    import unicodedata
+    t = unicodedata.normalize('NFKD', text.lower().replace("'", '').replace('\u2019', ''))
+    t = ''.join(c for c in t if not unicodedata.combining(c))
+    return {w for w in re.findall(r'[a-z0-9]+', t) if len(w) >= 2}
+
+
+def search_bucket(word):
+    return word[:2]   # words are letters and digits only, at least 2 long
+
+
+def split_search(light, spt, sidx, qs):
+    """(meta, buckets, rows). buckets: {two letters: {'w': sorted words, 'p': [place numbers, each list delta-coded]}}; rows: list of files, each a list of
+    [id, name, place, lat, lon, continent, first state] for SEARCH_ROWS places in page order (enough to show a result and fly to it without any region loaded)."""
+    posting = {}
+    for n, e in enumerate(light):
+        names = []
+        for k in sidx[e['id']]:
+            lat, common = (spt[k][0], spt[k][1]) if isinstance(k, int) else (spt[k[0]][0], k[1])
+            names += [common, lat]
+        for w in search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)):
+            posting.setdefault(w, []).append(n)
+    buckets = {}
+    for w in sorted(posting):
+        b = buckets.setdefault(search_bucket(w), {'w': [], 'p': []})
+        ns = posting[w]   # already ascending
+        b['w'].append(w); b['p'].append([v - (ns[i - 1] if i else 0) for i, v in enumerate(ns)])
+    flat = [[e['id'], e['name'], e['place'], round(e['lat'], 2), round(e['lon'], 2), e.get('cont') or '', (e.get('states') or [''])[0]] for e in light]
+    rows = [flat[i:i + SEARCH_ROWS] for i in range(0, len(flat), SEARCH_ROWS)]
+    meta = {'n': len(light), 'rows': SEARCH_ROWS, 'buckets': sorted(buckets)}
+    return meta, buckets, rows
+
+
+def write_search(light, spt, sidx, qs, pilot):
+    """api/search/ (main) or api/search-pilot/: meta.json, w-<two letters>.json, rows-<n>.json. One build writes one folder; it replaces the folder's old files."""
+    d = os.path.join(P('api'), 'search-pilot' if pilot else 'search'); os.makedirs(d, exist_ok=True)
+    meta, buckets, rows = split_search(light, spt, sidx, qs)
+    files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)}
+    for f in os.listdir(d):
+        if f not in files: os.remove(os.path.join(d, f))
+    for f, obj in files.items():
+        open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+
+
 def write_webs(webs, about, species_index=None, pictures=None):
     d = P('api'); os.makedirs(d, exist_ok=True)
     if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
@@ -203,7 +253,7 @@ def build(pilot, out_path, write=False, places=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: write_places(light, pilot)
+    if places: write_places(light, pilot); write_search(light, spt, sidx, qs, pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast

@@ -28,4 +28,12 @@ PLACES_CARDS_MAX = 500_000   # api/places/cards[-pilot].json: card and place-pag
 for f, lim in (('index.json', PLACES_INDEX_MAX), ('index-pilot.json', PLACES_INDEX_MAX), ('cards.json', PLACES_CARDS_MAX), ('cards-pilot.json', PLACES_CARDS_MAX)):
     n = size('api/places/' + f); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % ('api/places/' + f, n, lim, 'ok' if ok else 'OVER'))
+SEARCH_WORDS_MAX = 60_000     # api/search[-pilot]/w-<two letters>.json: one bucket of the word list, fetched when a query starts with those letters (#260)
+SEARCH_ROWS_MAX = 60_000      # api/search[-pilot]/rows-<n>.json: result lines of 256 places
+SEARCH_TOTAL_MAX = 2_000_000  # one search folder, all files (only the deploy size grows)
+for d in ('search', 'search-pilot'):
+    fs = [(f, size('api/%s/%s' % (d, f))) for f in os.listdir(os.path.join(ROOT, 'api', d))]
+    for label, n, lim in (('api/%s/ total' % d, sum(n for _, n in fs), SEARCH_TOTAL_MAX), ('api/%s/ largest w-*' % d, max(n for f, n in fs if f.startswith('w-')), SEARCH_WORDS_MAX), ('api/%s/ largest rows-*' % d, max(n for f, n in fs if f.startswith('rows-')), SEARCH_ROWS_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.exit(1 if bad else 0)
