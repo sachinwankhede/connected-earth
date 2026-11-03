@@ -22,7 +22,8 @@ def load():
         try: e = json.load(open(f))
         except Exception: continue
         if isinstance(e, dict) and e.get('nodes'): places.append(e)
-    links = json.load(open(os.path.join(ROOT, 'data', 'journeys', 'links.json')))
+    import journeydata
+    links = journeydata.links()
     return tab, places, links
 
 def species_level(r):

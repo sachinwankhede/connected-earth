@@ -14,7 +14,8 @@ def pick(spec):
     if not spec.startswith('next:'): return [s.strip() for s in spec.split(',') if s.strip()]
     a = spec.split(':'); n = int(a[1]); pre = a[2] if len(a) > 2 else ''
     done = have(); out = []
-    order = json.load(open(os.path.join(ROOT, 'data', 'journeys', 'links.json')))['order']
+    sys.path.insert(0, os.path.join(ROOT, 'build')); import journeydata
+    order = journeydata.order()[0]
     for i in order:
         if len(out) >= n: break
         p = os.path.join(ROOT, 'data', 'places', i + '.json')

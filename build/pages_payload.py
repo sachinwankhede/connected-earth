@@ -83,9 +83,10 @@ def main():
         if icon['src'] not in expected:
             raise SystemExit('missing manifest icon: ' + icon['src'])
 
-    links = json.loads((ROOT / 'data/journeys/links.json').read_text())
-    web_ids = set(links['order'])
-    web_ids.update(json.loads((ROOT / 'data/journeys/pilot-order.json').read_text()))
+    import sys; sys.path.insert(0, str(ROOT / 'build')); import journeydata
+    main_ids, pilot_ids = journeydata.order(str(ROOT))
+    web_ids = set(main_ids)
+    web_ids.update(pilot_ids)
     missing_webs = sorted(web_id for web_id in web_ids if 'api/' + web_id + '.json' not in expected)
     if missing_webs:
         raise SystemExit('missing generated web JSON: ' + ', '.join(missing_webs[:10]))
