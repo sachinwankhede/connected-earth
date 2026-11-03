@@ -1240,10 +1240,26 @@ window.__PLACES.then(function (PL) {
   function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
   function sidOf(n) { return n.latin.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }   /* the same id the build gives the species (build/species.py slug) */
   function aboutText(n) { var t = ABOUT[sidOf(n)]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
+  /* ---------- Data: the one place that knows where the app's data files are and how to read them (#241). Every read of a file we host goes through here; the map library, the head loader that starts the world places early, and the later steps of #241 are the only exceptions for now.
+     json(url, missing): the parsed file; a 404 gives `missing` when that is given, anything else that is not a success is an error. Callers keep their own memo and error handling. ---------- */
+  var Data = (function () {
+    var root = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
+    function json(url, missing) {
+      if (!window.fetch) return Promise.reject();
+      return fetch(url).then(function (r) { if (r.status === 404 && missing !== undefined) return missing; if (!r.ok) throw 0; return r.json(); });
+    }
+    return {
+      root: root,
+      json: json,
+      species: function (id) { return json(root + "api/species/" + id + ".json", null); },   /* a species' long description; null when it has none */
+      bounds: function (id) { return json(root + "data/outlines/" + encodeURIComponent(id) + ".json").catch(function () { return null; }); },   /* a park's outline; null when missing or unreadable */
+      states: function () { return json(root + "geo-states.json"); }   /* the US state outlines */
+    };
+  })();
   // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
   function loadAbout(n) {
     var id = sidOf(n);
-    if (!(id in ABOUT_P)) ABOUT_P[id] = fetch(WB + "species/" + id + ".json").then(function (r) { if (r.status === 404) return null; if (!r.ok) throw 0; return r.json(); }).then(function (a) { ABOUT[id] = a && a.t || null; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
+    if (!(id in ABOUT_P)) ABOUT_P[id] = Data.species(id).then(function (a) { ABOUT[id] = a && a.t || null; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
     return ABOUT_P[id];
   }
   function aboutHTML(n) {
@@ -2449,8 +2465,7 @@ window.__PLACES.then(function (PL) {
   M.statesP = null;
   function ensureStates() {
     if (M.statesP) return M.statesP;
-    var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
-    M.statesP = (window.fetch ? fetch(b + "geo-states.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }) : Promise.reject()).then(function (st) {
+    M.statesP = Data.states().then(function (st) {
       st.forEach(function (x) { M.stateBy[x.name] = x; });
       GJ_S.features = st.map(function (x) { return { type: "Feature", properties: { name: x.name }, geometry: unwrapGeom(x.g) }; });
       var src = M.map && M.styleReady && M.map.getSource("atl-s"); if (src) src.setData(GJ_S);
@@ -2709,10 +2724,9 @@ window.__PLACES.then(function (PL) {
   /* outline the real park or reserve the basemap draws under the selected ecosystem */
   /* real park outlines (US: PAD-US, simplified): one small file per park, fetched when that park opens (no file = no outline) */
   var EMPTY_FC = { type: "FeatureCollection", features: [] };
-  var BU = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "data/outlines/";
   function loadBounds(id) {
     M.boundsP = M.boundsP || {};
-    if (!M.boundsP[id]) M.boundsP[id] = fetch(BU + encodeURIComponent(id) + ".json").then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
+    if (!M.boundsP[id]) M.boundsP[id] = Data.bounds(id);
     return M.boundsP[id];
   }
   function boundFC(b) {
