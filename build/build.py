@@ -85,7 +85,7 @@ def split(ecos, links, phs=None, phm=None):
 
 # The places the page lists, in two files (item #228, step 1). INDEX: what the map, the filters and the region lists read. CARDS: the rest (card and place-page text).
 # A field not listed here goes to CARDS, so nothing is ever lost; the two files together hold exactly the light place. The app does not read them yet.
-INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'country', 'countries', 'states')
+INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'conts', 'country', 'countries', 'states')
 
 
 def split_places(light):
