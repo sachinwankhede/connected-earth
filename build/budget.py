@@ -23,4 +23,9 @@ ab = [size('api/species/' + f) for f in os.listdir(os.path.join(ROOT, 'api', 'sp
 for label, n, lim in (('species descriptions (api/species/, total)', sum(ab), ABOUT_MAX), ('largest species description file', max(ab), ABOUT_ONE_MAX), ('species index (api/species-index.json)', size('api/species-index.json'), SPECIES_INDEX_MAX),('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
     ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+PLACES_INDEX_MAX = 500_000   # api/places/index[-pilot].json: what the map and filters read (item #228; the app does not read it yet)
+PLACES_CARDS_MAX = 500_000   # api/places/cards[-pilot].json: card and place-page text of every place
+for f, lim in (('index.json', PLACES_INDEX_MAX), ('index-pilot.json', PLACES_INDEX_MAX), ('cards.json', PLACES_CARDS_MAX), ('cards-pilot.json', PLACES_CARDS_MAX)):
+    n = size('api/places/' + f); ok = n <= lim; bad += not ok
+    print('%-22s %9d / %9d %s' % ('api/places/' + f, n, lim, 'ok' if ok else 'OVER'))
 sys.exit(1 if bad else 0)

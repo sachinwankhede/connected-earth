@@ -83,6 +83,32 @@ def split(ecos, links, phs=None, phm=None):
     return light, webs, spt, sidx, qs
 
 
+# The places the page lists, in two files (item #228, step 1). INDEX: what the map, the filters and the region lists read. CARDS: the rest (card and place-page text).
+# A field not listed here goes to CARDS, so nothing is ever lost; the two files together hold exactly the light place. The app does not read them yet.
+INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'country', 'countries', 'states')
+
+
+def split_places(light):
+    """(index, cards): index is a list in page order; cards is {id: the other fields}. index[i] merged with cards[id] is the light place."""
+    index = [{k: e[k] for k in INDEX_FIELDS if k in e} for e in light]
+    cards = {e['id']: {k: v for k, v in e.items() if k not in INDEX_FIELDS} for e in light}
+    return index, cards
+
+
+PLACES_FILES = ('index.json', 'cards.json', 'index-pilot.json', 'cards-pilot.json')
+
+
+def write_places(light, pilot):
+    """api/places/index[-pilot].json and cards[-pilot].json. Main and pilot are different place sets, so each build writes only its own pair."""
+    d = os.path.join(P('api'), 'places'); os.makedirs(d, exist_ok=True)
+    for f in os.listdir(d):
+        if f not in PLACES_FILES: os.remove(os.path.join(d, f))   # stale files
+    sfx = '-pilot' if pilot else ''
+    index, cards = split_places(light)
+    for name, obj in (('index', index), ('cards', cards)):
+        open(os.path.join(d, name + sfx + '.json'), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+
+
 def write_webs(webs, about, species_index=None, pictures=None):
     d = P('api'); os.makedirs(d, exist_ok=True)
     if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
@@ -144,7 +170,7 @@ def check(ecos, links, tpl, geo):
     return errs
 
 
-def build(pilot, out_path, write=False):
+def build(pilot, out_path, write=False, places=False):
     links, ecos = load_places(pilot)
     tpl = open(P('src', 'app.html')).read()
     land = open(P('data', 'geo', 'land.json')).read().strip()
@@ -177,6 +203,7 @@ def build(pilot, out_path, write=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
+    if places: write_places(light, pilot)
     data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
@@ -222,8 +249,8 @@ def stamp_sw(main_html):
 if __name__ == '__main__':
     a = sys.argv[1:]
     if '--all' in a:
-        main = build(False, P('index.html'))
-        build(True, P('pilot', 'index.html'), write=True)
+        main = build(False, P('index.html'), places=True)
+        build(True, P('pilot', 'index.html'), write=True, places=True)
         stamp_sw(main)
     else:
         out = a[a.index('--out') + 1] if '--out' in a else P('dist', 'index.html')
