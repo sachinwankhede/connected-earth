@@ -1,0 +1,32 @@
+{
+ "pos": 9,
+ "id": "caribouwest",
+ "type": "species",
+ "title": "Western Arctic caribou",
+ "ends": [
+  {
+   "eco": "npkobukvalley",
+   "node": "caribou"
+  },
+  {
+   "eco": "npgatesarctic",
+   "node": "caribou"
+  }
+ ],
+ "text": "The Western Arctic caribou herd migrates across northern Alaska and passes through both Kobuk Valley and Gates of the Arctic. Its river crossings in autumn are a major event at Kobuk.",
+ "imgwiki": "Caribou",
+ "when": "Move north in spring to calve and south again before winter; river crossings at Kobuk peak in autumn.",
+ "matters": "Caribou follow food across a huge area. Wolves, bears and people along the route depend on their passing.",
+ "sources": [
+  {
+   "t": "Wikipedia: Western Arctic Caribou Herd",
+   "u": "https://en.wikipedia.org/wiki/Western_Arctic_Caribou_Herd"
+  },
+  {
+   "t": "Wikipedia: Caribou",
+   "u": "https://en.wikipedia.org/wiki/Caribou"
+  }
+ ],
+ "go": "Follow the herd",
+ "mark": "🦌"
+}

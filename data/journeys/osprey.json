@@ -1,0 +1,28 @@
+{
+ "pos": 0,
+ "id": "osprey",
+ "type": "species",
+ "title": "Osprey",
+ "ends": [
+  {
+   "eco": "yellowstone",
+   "node": "osprey"
+  },
+  {
+   "eco": "amazon",
+   "node": "osprey"
+  }
+ ],
+ "text": "Ospreys that nest on Yellowstone's rivers and lakes fly south each autumn, and many winter on rivers in South America, including the Amazon basin. The same birds depend on fish in both places.",
+ "imgwiki": "Osprey",
+ "when": "Leaves Yellowstone in late summer and autumn and returns in spring.",
+ "matters": "Ospreys eat almost only fish, so they need clean, fish-rich water at both ends of the trip. Harm to either end hurts the same birds.",
+ "sources": [
+  {
+   "t": "Wikipedia: Osprey",
+   "u": "https://en.wikipedia.org/wiki/Osprey"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🦅"
+}

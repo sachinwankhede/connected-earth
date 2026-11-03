@@ -1,0 +1,28 @@
+{
+ "pos": 16,
+ "id": "snowgoose",
+ "type": "species",
+ "title": "Snow goose",
+ "ends": [
+  {
+   "eco": "arctic",
+   "node": "goose"
+  },
+  {
+   "eco": "xusde",
+   "node": "snowgoose"
+  }
+ ],
+ "text": "Snow geese nest north of the treeline. Greater snow geese fly the Atlantic Flyway to winter on the Atlantic coastal plain, around places like Delaware Bay. Spring flights can cover more than 3,000 miles back to the tundra.",
+ "imgwiki": "Snow goose",
+ "when": "They nest from late May to mid-August and spend more than half the year travelling between nesting and wintering areas.",
+ "matters": "Geese have moved from coastal marsh to farm fields, and their numbers have grown. Too many geese now overgraze the tundra where they breed.",
+ "sources": [
+  {
+   "t": "Wikipedia: Snow goose",
+   "u": "https://en.wikipedia.org/wiki/Snow_goose"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🐦"
+}
