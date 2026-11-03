@@ -2490,7 +2490,7 @@ window.__PLACES.then(function (PL) {
     m.setPaintProperty("atl-pt", "circle-radius", fm ? ["interpolate", ["linear"], ["zoom"], 1, 1.6, 2.4, 2.6, 3.5, DOT] : ["interpolate", ["linear"], ["zoom"], 1, DOT - 1.5, 5, DOT]);
     m.setPaintProperty("atl-f-pt", "circle-radius", ["interpolate", ["linear"], ["zoom"], 0.6, 3.6, 2.4, 5, 3.5, DOT + 2]);
     m.setPaintProperty("atl-f-pt", "circle-stroke-width", ["interpolate", ["linear"], ["zoom"], 0.6, 0.6, 3.5, 1.2]);
-    ["atl-lb", "atl-pt", "atl-cl", "atl-cl-n"].forEach(function (l) { if (m.getLayer(l)) m.setLayoutProperty(l, "visibility", fm ? "none" : "visible"); });
+    ["atl-lb", "atl-pt", "atl-cl", "atl-cl-n"].forEach(function (l) { if (m.getLayer(l)) m.setLayoutProperty(l, "visibility", fm || (M.lblHold && l !== "atl-pt" && l !== "atl-cl") ? "none" : "visible"); });
     if (m.getLayer("atl-n-pt")) m.setLayoutProperty("atl-n-pt", "visibility", fm ? "visible" : "none");
     m.setPaintProperty("atl-pt", "circle-stroke-width", fm ? ["interpolate", ["linear"], ["zoom"], 1, 0.15, 2.4, 0.3, 3.5, 0.7] : 0.7);
   }
@@ -2624,7 +2624,25 @@ window.__PLACES.then(function (PL) {
     renderView(false);
     if (M.spanE) spanHi(M.spanE);
     if (M.pendingPeek) doPendingPeek();
+    holdLabels();
     document.documentElement.setAttribute("data-map", "ready");
+  }
+  /* Labels after the first draw: text layers need the label font (glyph files), and the map is not "loaded" until they arrive. Hide every text layer until the map has loaded without them, then show them (a hidden layer asks for no font). Only for the first style; later style switches show labels at once. */
+  M.lblHold = true; M.lblIds = [];
+  function holdLabels() {
+    if (!M.lblHold) return;
+    var m = M.map;
+    (m.getStyle().layers || []).forEach(function (l) {
+      if (l.type === "symbol" && l.layout && l.layout["text-field"] && M.lblIds.indexOf(l.id) < 0) M.lblIds.push(l.id);
+    });
+    M.lblIds.forEach(function (id) { if (m.getLayer(id)) m.setLayoutProperty(id, "visibility", "none"); });
+  }
+  function showLabels() {
+    if (!M.lblHold) return;
+    M.lblHold = false;
+    var m = M.map; if (!m || !M.styleReady) return;
+    M.lblIds.forEach(function (id) { if (m.getLayer(id)) m.setLayoutProperty(id, "visibility", "visible"); });
+    dotStyle(); applyView();
   }
   function applyTerrain(quiet) {
     var m = M.map; if (!m || !m.getSource("atl-dem")) { if (m && M.styleReady && !M.tilt && m.getPitch() > 0 && !quiet) m.easeTo({ pitch: 0, bearing: 0, duration: 500 }); return; }
@@ -2669,7 +2687,7 @@ window.__PLACES.then(function (PL) {
     var F0 = ["==", ["get", "name"], "__none__"];
     function vis(id, on) { if (m.getLayer(id)) m.setLayoutProperty(id, "visibility", on ? "visible" : "none"); }
     vis("atl-s-fill", US_); vis("atl-s-line", US_); vis("atl-s-hi", US_); vis("atl-s-out", view.level === "state");
-    vis("atl-c-fill", !US_); vis("atl-src", view.level === "world"); vis("atl-src-lb", view.level === "world");
+    vis("atl-c-fill", !US_); vis("atl-src", view.level === "world"); vis("atl-src-lb", view.level === "world" && !M.lblHold);
     m.setFilter("atl-c-out", view.level === "continent" ? ["!=", ["get", "cont"], view.cont] : view.level === "country" ? ["!=", ["get", "name"], view.country] : view.level === "state" ? ["!=", ["get", "name"], US] : F0);
     m.setFilter("atl-s-out", view.level === "state" ? ["!=", ["get", "name"], view.state] : F0);
   }
@@ -2950,6 +2968,7 @@ window.__PLACES.then(function (PL) {
     window._atlas = M;
     document.getElementById("map").parentNode.appendChild(document.getElementById("peek"));
     m.on("style.load", onStyle);
+    m.once("load", function () { setTimeout(showLabels, 0); }); setTimeout(showLabels, 9000);   /* labels follow the first draw; the timer is only a safety net */
     m.on("error", function (ev) {
       if (window._mlerr) window._mlerr.push(String(ev.error && ev.error.message).slice(0, 160));
       if (!M.styleReady && !M.stub) { M.stub = true; M.styleFail = true; M.want = M.want || M.mode; m.setStyle(stubStyle(), { diff: false }); scheduleRetry(); }
