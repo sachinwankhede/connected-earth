@@ -120,3 +120,6 @@ The app used to scan every place's species list for "Shares species with", "Also
 
 **4b step 1 (positions carry region membership, 3 Nov, #313):** `positions.json` and `positions-local.json` now carry `g` (the table of distinct [continents, countries, states], 233 on the main set) and two more numbers per row: the index into `g` (so `inRegion` can be answered without the place's card) and the shard key (`world`, a US state or a continent) that says which file holds the card. The app does not read the files yet. Sizes (gz, main): positions 10.1 KB, positions-local 24.7 KB, so a directory of all places is about 35 KB gz (pilot about 42 KB). The one-fetch locals files cost about 48 KB gz; the saving of 4b is therefore smaller than first estimated and only real on visits that never open a local place.
 
+## Map first tiles (#244)
+The satellite style has two raster layers on the same tile address. `sat0` counts the 256 px pictures as 512 and is capped at zoom 1, so the opening world view on a phone (zoom 0.6) asks for about 4 tiles instead of about 12; `sat` (normal detail) exists only from zoom 1 and fades in over `sat0` between zoom 1 and 1.2. A layer outside its zoom range asks for no tiles. The cost is a softer picture before the first zoom-in. On a phone the map is created at its fit zoom (0.6) so no detailed tiles are asked for before the fit.
+
