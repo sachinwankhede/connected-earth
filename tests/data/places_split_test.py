@@ -30,7 +30,7 @@ def check(pilot, sfx):
 
 n = check(False, ''); m = check(True, '-pilot')
 assert n > 1000 and m > n, 'main and pilot sets'
-extra = set(os.listdir(os.path.join(ROOT, 'api', 'places'))) - set(B.PLACES_FILES) if os.path.isdir(os.path.join(ROOT, 'api', 'places')) else set()
+extra = set(os.listdir(os.path.join(ROOT, 'api', 'places'))) - set(B.PLACES_FILES) - {'main', 'pilot'} if os.path.isdir(os.path.join(ROOT, 'api', 'places')) else set()
 assert not extra, 'stale files in api/places: %s' % sorted(extra)
 assert set(B.INDEX_FIELDS) >= {'id', 'lat', 'lon', 'kind', 'short', 'conts', 'countries', 'states'}   # what the map, the region filter and the continent counts read (src/app.html inRegion)
 print('places split ok: main %d, pilot %d' % (n, m))

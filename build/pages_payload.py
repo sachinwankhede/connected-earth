@@ -53,7 +53,7 @@ def main():
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):
         copy_file(font, font.relative_to(ROOT).as_posix(), expected)
 
-    for directory in ('api', 'api/species', 'api/places', 'api/search', 'api/search-pilot', 'data/outlines'):
+    for directory in ('api', 'api/species', 'api/places', 'api/places/main', 'api/places/pilot', 'api/search', 'api/search-pilot', 'data/outlines'):
         source_dir = ROOT / directory
         files = sorted(source_dir.glob('*.json'))
         if not files:
