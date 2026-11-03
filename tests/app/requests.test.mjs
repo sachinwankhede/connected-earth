@@ -11,7 +11,8 @@ const MAP_HOSTS = /(^|\.)(arcgisonline\.com|openfreemap\.org|amazonaws\.com)$/;
 const WIKIMEDIA = /(^|\.)wikimedia\.org$/;
 // Request and byte budgets for the first view and for opening a place: counts and sizes do not jitter like timings do, so they can block a change.
 // Measured on 2 Nov 2026: 6 requests, 2,691 KB raw (page, 3 fonts, map library, place photo list). Raise one only with a reason written in the pull request.
-const BUDGET = { phone: { startRequests: 7, startKB: 2900 }, desktop: { startRequests: 7, startKB: 2900 } };
+// 9 since #228 step 2 (was 7): the places are two files (api/places/index.json and cards.json) instead of being inside the page.
+const BUDGET = { phone: { startRequests: 9, startKB: 2900 }, desktop: { startRequests: 9, startKB: 2900 } };
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.woff2': 'font/woff2', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml' };
 
 describe('the app reads only data we host', () => {
