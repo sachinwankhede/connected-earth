@@ -15,7 +15,8 @@ def km(a, b, c, d):
     return 12742 * math.asin(math.sqrt(x))
 
 def load():
-    tab = json.load(open(os.path.join(ROOT, 'data', 'species', 'species.json')))
+    sys.path.insert(0, os.path.join(ROOT, 'build')); import species
+    tab = species.table()
     places = []
     for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
         try: e = json.load(open(f))
