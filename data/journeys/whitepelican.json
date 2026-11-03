@@ -1,0 +1,28 @@
+{
+ "pos": 14,
+ "id": "whitepelican",
+ "type": "species",
+ "title": "Great white pelican",
+ "ends": [
+  {
+   "eco": "whdanube",
+   "node": "wpelican"
+  },
+  {
+   "eco": "xisrael",
+   "node": "pelican"
+  }
+ ],
+ "text": "More than half of Eurasia's great white pelicans breed in the Danube Delta. Many western birds probably stop over in Israel on their autumn migration, as at the Hula Valley. The full routes are only partly known.",
+ "imgwiki": "Great white pelican",
+ "when": "They reach the Danube in late March or early April and leave after breeding, between September and late November.",
+ "matters": "The species is listed under the Convention on Migratory Species. Where European pelicans spend winter is not exactly known.",
+ "sources": [
+  {
+   "t": "Wikipedia: Great white pelican",
+   "u": "https://en.wikipedia.org/wiki/Great_white_pelican"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🐦"
+}

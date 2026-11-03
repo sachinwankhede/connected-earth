@@ -1,0 +1,28 @@
+{
+ "pos": 12,
+ "id": "greenturtleB",
+ "type": "species",
+ "title": "Green sea turtle (Caribbean)",
+ "ends": [
+  {
+   "eco": "npbiscayne",
+   "node": "greenturtle"
+  },
+  {
+   "eco": "npvirginislands",
+   "node": "greenturtle"
+  }
+ ],
+ "text": "Green turtles tagged in Florida have been tracked to feeding grounds across the Caribbean, where seagrass beds such as those in the Virgin Islands support them.",
+ "imgwiki": "Green sea turtle",
+ "when": "Adults nest in summer and travel between feeding and nesting sites; hatchlings go to sea.",
+ "matters": "Turtles graze seagrass, which keeps it healthy. They need both safe nesting beaches and seagrass beds.",
+ "sources": [
+  {
+   "t": "Wikipedia: Green sea turtle",
+   "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  }
+ ],
+ "go": "Swim the route",
+ "mark": "🐢"
+}

@@ -1,0 +1,32 @@
+{
+ "pos": 8,
+ "id": "altiplano",
+ "type": "species",
+ "title": "Altiplano flamingos",
+ "ends": [
+  {
+   "eco": "whuyuni",
+   "node": "chilean"
+  },
+  {
+   "eco": "whtiticaca",
+   "node": "flamingo"
+  }
+ ],
+ "text": "Chilean flamingos move between high-altitude lakes on the Andean plateau, from the salt lakes of southern Bolivia to Lake Titicaca. Shallow lakes dry up and fill with the seasons.",
+ "imgwiki": "Chilean flamingo",
+ "when": "Move with the seasons as shallow lakes fill and dry up.",
+ "matters": "Chilean flamingos feed in shallow salt lakes, so they need several lakes across the plateau.",
+ "sources": [
+  {
+   "t": "Wikipedia: Chilean flamingo",
+   "u": "https://en.wikipedia.org/wiki/Chilean_flamingo"
+  },
+  {
+   "t": "Wikipedia: Altiplano",
+   "u": "https://en.wikipedia.org/wiki/Altiplano"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🦩"
+}

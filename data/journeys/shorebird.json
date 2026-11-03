@@ -1,0 +1,32 @@
+{
+ "pos": 1,
+ "id": "shorebird",
+ "type": "species",
+ "title": "Migratory shorebirds",
+ "ends": [
+  {
+   "eco": "arctic",
+   "node": "shorebird"
+  },
+  {
+   "eco": "reef",
+   "node": "shorebird"
+  }
+ ],
+ "text": "Shorebirds such as ruddy turnstones breed on Arctic tundra and winter on coasts as far south as Australia, including reef flats. Losing winter feeding grounds hurts the Arctic breeding population.",
+ "imgwiki": "Ruddy turnstone",
+ "when": "Breed on the Arctic tundra in summer, then travel south for the northern winter.",
+ "matters": "Their long trip depends on a few feeding stops. Losing winter feeding grounds hurts the Arctic breeding population.",
+ "sources": [
+  {
+   "t": "Wikipedia: Ruddy turnstone",
+   "u": "https://en.wikipedia.org/wiki/Ruddy_turnstone"
+  },
+  {
+   "t": "Wikipedia: Shorebird",
+   "u": "https://en.wikipedia.org/wiki/Shorebird"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🐦"
+}

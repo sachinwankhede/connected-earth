@@ -1,0 +1,28 @@
+{
+ "pos": 15,
+ "id": "marshharrier",
+ "type": "species",
+ "title": "Western marsh harrier",
+ "ends": [
+  {
+   "eco": "whhortobagy",
+   "node": "harrier"
+  },
+  {
+   "eco": "xsenegal",
+   "node": "harrier"
+  }
+ ],
+ "text": "Western marsh harriers breed across Europe, and most populations migrate. Many winter in the Sahel and the Nile basin, others in Arabia and the Indian subcontinent. Birds from wetlands like Hortobágy in Hungary may winter in the Sahel, where Djoudj in Senegal lies.",
+ "imgwiki": "Western marsh harrier",
+ "when": "Migratory birds spend winter in warmer regions and return to breed in Europe.",
+ "matters": "Marsh harriers are strongly tied to wetlands, especially those rich in reeds. Both ends of this trip are protected wetlands.",
+ "sources": [
+  {
+   "t": "Wikipedia: Western marsh harrier",
+   "u": "https://en.wikipedia.org/wiki/Western_marsh_harrier"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🦅"
+}

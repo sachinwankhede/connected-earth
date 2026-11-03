@@ -1,0 +1,32 @@
+{
+ "pos": 5,
+ "id": "chesosprey",
+ "type": "species",
+ "title": "Osprey (Chesapeake)",
+ "ends": [
+  {
+   "eco": "chesapeake",
+   "node": "osprey"
+  },
+  {
+   "eco": "amazon",
+   "node": "osprey"
+  }
+ ],
+ "text": "Ospreys that breed around the Chesapeake Bay head south each autumn, and many winter in northern South America, including the Amazon basin. They return in spring to the same bay.",
+ "imgwiki": "Osprey",
+ "when": "Leave the bay in autumn and return in spring.",
+ "matters": "Ospreys need fish at the bay and on their winter rivers. Harm to either end hurts the same birds.",
+ "sources": [
+  {
+   "t": "Wikipedia: Osprey",
+   "u": "https://en.wikipedia.org/wiki/Osprey"
+  },
+  {
+   "t": "Wikipedia: Chesapeake Bay",
+   "u": "https://en.wikipedia.org/wiki/Chesapeake_Bay"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🦅"
+}
