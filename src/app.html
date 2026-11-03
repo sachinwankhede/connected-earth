@@ -1273,6 +1273,47 @@ window.__PLACES.then(function (PL) {
   }
   /* a search can match species names, so make sure the lists are in, then filter again with them */
   function wantSpecies() { if (!SPIDX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) { M.pgKey = null; filterView(); } }); }   /* pgKey reset: the page size was worked out from the matches found before the species arrived */
+  /* Search reads the ready-made word index (api/search/, written by the build, item #260): each query word is looked up by prefix in one small file named by its
+     first two letters, and a place is a match when every word finds it. Place numbers are positions in ECOS (same page order). Until the files have arrived the
+     list filters on the card text alone; if they cannot be had, search falls back to the old scan (SRCH.ok = false). */
+  var SRCH = { ok: true, base: "api/search__PLACES_SFX__/", meta: null, bk: {} };
+  function srchGet(f) { return fetch(SRCH.base + f).then(function (r) { if (!r.ok) throw 0; return r.json(); }); }
+  function srchWords(t) { return t.toLowerCase().replace(/['\u2019]/g, "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(function (w) { return w.length > 0; }); }
+  function srchBucket(k) {
+    if (!SRCH.bk[k]) SRCH.bk[k] = srchGet("w-" + k + ".json");
+    return SRCH.bk[k];
+  }
+  /* the place numbers of every word that starts with w (a Set) */
+  function srchPrefix(b, w) {
+    var lo = 0, hi = b.w.length, out = new Set();
+    while (lo < hi) { var mid = (lo + hi) >> 1; if (b.w[mid] < w) lo = mid + 1; else hi = mid; }
+    for (var i = lo; i < b.w.length && b.w[i].lastIndexOf(w, 0) === 0; i++) { var t = 0; b.p[i].forEach(function (d) { t += d; out.add(t); }); }
+    return out;
+  }
+  function srchRun(q) {
+    var ws = srchWords(q).filter(function (w) { return w.length >= 2; });
+    if (!ws.length || !SRCH.ok) return Promise.resolve(null);
+    if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
+    return SRCH.meta.then(function (m) {
+      if (m.n !== ECOS.length) throw 0;   /* not the same list as the page: do not trust the numbers */
+      return Promise.all(ws.map(function (w) { return m.buckets.indexOf(w.slice(0, 2)) < 0 ? new Set() : srchBucket(w.slice(0, 2)).then(function (b) { return srchPrefix(b, w); }); }));
+    }).then(function (sets) {
+      sets.sort(function (a, b) { return a.size - b.size; });
+      var hits = new Set();
+      sets[0].forEach(function (n) { if (sets.every(function (x) { return x.has(n); }) && ECOS[n]) hits.add(ECOS[n].id); });
+      return hits;
+    }).catch(function () { SRCH.ok = false; SRCH.meta = null; return null; });
+  }
+  /* a typed query: filter on the card text at once, then on the index when it arrives */
+  function searchFor(q) {
+    FL.hits = null; FL.exact = false;
+    if (!q) return;
+    srchRun(q).then(function (hits) {
+      if (FL.q !== q || FL.exact) return;
+      if (hits) FL.hits = hits; else if (!SRCH.ok) wantSpecies();   /* no index: the old scan needs the species lists */
+      M.pgKey = null; filterView();
+    });
+  }
   var COUPLE = DATA.couple;
   var SRC = DATA.src;
   var CROSS = DATA.cross;
@@ -2202,11 +2243,16 @@ window.__PLACES.then(function (PL) {
   var KC_BASE = Object.assign({}, KC);
   // brighter set for the dark satellite imagery; chips and map dots always use the same set
   var KC_SAT = { "Forest": "#43c779", "Grassland": "#f0c040", "Desert": "#ff8f4a", "Lakes & wetlands": "#5f95ff", "Coast & ocean": "#2fd4de", "Polar & mountain": "#b79cff", "Urban": "#ff6fa8" };
-  var FL = { q: "", kind: null, park: false, local: false };
+  var FL = { q: "", kind: null, park: false, local: false, hits: null, exact: false };   /* hits: ids the word index found for q; exact: q is a species name from a link, matched as a whole string over the species lists */
   function pass(e) {
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
     if (FL.park && !e.park) return false;
     if (e.level === "local" && !FL.local && !FL.q) return false;
+    if (FL.q && !FL.exact && SRCH.ok) {
+      if (FL.hits) return FL.hits.has(e.id);
+      if (!e._n) e._n = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "")).toLowerCase();   /* until the index arrives: the card text */
+      return e._n.indexOf(FL.q) >= 0;
+    }
     if (FL.q) {
       if (!e._s) e._s = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "") + " " + e.idx.sp.map(function (n) { return n[1] + " " + n[0]; }).join(" ") + " " + e.idx.q).toLowerCase();
       return e._s.indexOf(FL.q) >= 0;
@@ -2435,7 +2481,7 @@ window.__PLACES.then(function (PL) {
   }
   /* "Found in N ecosystems": every web that holds the same species, shown on the map */
   function speciesMap(name) {
-    FL.q = name.toLowerCase(); wantSpecies(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
+    FL.q = name.toLowerCase(); FL.hits = null; FL.exact = true; wantSpecies(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name;
     document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);
@@ -2997,7 +3043,7 @@ window.__PLACES.then(function (PL) {
       if (b) go(b.getAttribute("data-go"), b.getAttribute("data-a"));
     }
     document.getElementById("crumbs").addEventListener("click", nav);
-    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); if (FL.q) wantSpecies(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
+    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); searchFor(FL.q); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
