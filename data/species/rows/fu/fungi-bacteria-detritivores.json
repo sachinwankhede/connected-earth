@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fungi, bacteria & detritivores",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants, animals and seaweed, and return nutrients to the soil and sea.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-bacteria-detritivores",
+ "sk": "resource",
+ "src": "legacy"
+}

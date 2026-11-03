@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake Ira Lalaro wetland",
+ "tl": 0,
+ "wiki": "Wetland",
+ "desc": "The park's large freshwater lake and flood plain; its marshy margins grow grasses and are grazed by village livestock.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-ira-lalaro-wetland",
+ "sk": "resource",
+ "src": "legacy"
+}

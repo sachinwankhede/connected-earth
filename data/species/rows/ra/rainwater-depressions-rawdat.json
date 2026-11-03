@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rainwater depressions (rawdat)",
+ "tl": 0,
+ "wiki": "Qatar",
+ "desc": "Shallow depressions called rawdat collect rainwater and hold richer plant life than the surrounding rocky desert.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rainwater-depressions-rawdat",
+ "sk": "resource",
+ "src": "legacy"
+}

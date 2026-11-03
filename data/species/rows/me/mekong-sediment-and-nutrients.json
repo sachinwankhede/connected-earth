@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mekong sediment and nutrients",
+ "tl": 0,
+ "wiki": "Mekong",
+ "desc": "Floodwater from the Mekong carries silt and nutrients into the lake; sediment-bound phosphorus helps feed its algae.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mekong-sediment-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

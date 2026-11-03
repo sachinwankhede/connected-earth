@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrient-rich mud",
+ "tl": 0,
+ "wiki": "Mud",
+ "desc": "Oxygen-poor mangrove mud holds the nutrients released by decomposing leaves and wood.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "nutrient-rich-mud",
+ "sk": "resource",
+ "src": "legacy"
+}

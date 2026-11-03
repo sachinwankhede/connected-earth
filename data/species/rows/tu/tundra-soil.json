@@ -1,0 +1,12 @@
+{
+ "latin": "Tundra soil",
+ "name": "Tundra soil",
+ "tl": 0,
+ "wiki": "Tundra",
+ "desc": "Thin, cold soils over permafrost where nutrients are released slowly.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "tundra-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

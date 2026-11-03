@@ -1,0 +1,12 @@
+{
+ "latin": "Neocalanus",
+ "name": "Copepods and zooplankton",
+ "tl": 2,
+ "wiki": "Copepod",
+ "desc": "Tiny crustaceans that graze the spring bloom and pass its energy on to young salmon and schooling fish.",
+ "ic": "hopper",
+ "about": "Copepods are a group of small crustaceans found in nearly every freshwater and saltwater habitat.",
+ "sid": "neocalanus",
+ "sk": "taxon",
+ "src": "legacy"
+}

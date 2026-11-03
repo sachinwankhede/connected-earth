@@ -1,0 +1,12 @@
+{
+ "latin": "Drepanotermes",
+ "name": "Harvester termites",
+ "tl": 2,
+ "wiki": "Termite",
+ "desc": "Termites eat dead plant material such as grass and wood, recycling nutrients in arid soils, and are food for ants, lizards and many others.",
+ "ic": "hopper",
+ "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus.",
+ "sid": "drepanotermes",
+ "sk": "taxon",
+ "src": "legacy"
+}

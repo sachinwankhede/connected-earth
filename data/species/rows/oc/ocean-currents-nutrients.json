@@ -1,0 +1,12 @@
+{
+ "latin": "Ocean currents & nutrients",
+ "name": "Ocean currents & nutrients",
+ "tl": 0,
+ "wiki": "Ocean current",
+ "desc": "Open-ocean water around the islands carries nutrients and plankton that the reefs and fish depend on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "ocean-currents-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

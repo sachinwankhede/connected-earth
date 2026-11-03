@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Mediterranean climate with rain falling mostly in winter, which suits fynbos plants.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "winter-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

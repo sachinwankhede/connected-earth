@@ -1,0 +1,13 @@
+{
+ "latin": "Crassostrea virginica",
+ "name": "Eastern oyster",
+ "tl": 2,
+ "wiki": "Eastern oyster",
+ "desc": "A filter feeder that strains plankton from the water, clearing it as it feeds. Its reefs give hard surfaces and shelter to many other species.",
+ "ic": "shell",
+ "badge": "Ecosystem engineer",
+ "about": "The eastern oyster—also called the Atlantic oyster, American oyster, or East Coast oyster—is a species of true oyster native to eastern North and South America.",
+ "sid": "crassostrea-virginica",
+ "sk": "taxon",
+ "src": "legacy"
+}

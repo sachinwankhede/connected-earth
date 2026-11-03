@@ -1,0 +1,11 @@
+{
+ "latin": "Tragelaphus scriptus",
+ "name": "Bushbuck",
+ "tl": 2,
+ "wiki": "Bushbuck",
+ "desc": "A shy antelope of forest edges and thickets that browses leaves and shoots.",
+ "ic": "muledeer",
+ "sid": "tragelaphus-scriptus",
+ "sk": "taxon",
+ "src": "legacy"
+}

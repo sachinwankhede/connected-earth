@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Karst springs and Prespa seepage",
+ "tl": 0,
+ "wiki": "Lake Prespa",
+ "desc": "Springs on the eastern shore give about half of the lake's inflow, and over a fifth comes underground from Lake Prespa.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "karst-springs-and-prespa-seepage",
+ "sk": "resource",
+ "src": "legacy"
+}

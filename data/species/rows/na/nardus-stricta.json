@@ -1,0 +1,13 @@
+{
+ "latin": "Nardus stricta",
+ "name": "Mat-grass pasture",
+ "tl": 1,
+ "wiki": "Nardus",
+ "desc": "A tough tussock grass that makes up much of the upland summer pasture grazed by flocks and wild herbivores.",
+ "ic": "grass",
+ "badge": "Foundation species",
+ "about": "Nardus is a genus of plants belonging to the grass family, containing the single species Nardus stricta, known as matgrass. It is placed in its own tribe Nardeae within the subfamily Pooideae.",
+ "sid": "nardus-stricta",
+ "sk": "taxon",
+ "src": "legacy"
+}

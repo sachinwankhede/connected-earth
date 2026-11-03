@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Streams & gallery forest",
+ "tl": 0,
+ "wiki": "Gallery forest",
+ "desc": "Strips of forest along watercourses hold moisture through the dry season and shelter plants and animals that need damp ground.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "streams-gallery-forest",
+ "sk": "resource",
+ "src": "legacy"
+}

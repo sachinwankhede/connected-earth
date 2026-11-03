@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mineral licks",
+ "tl": 0,
+ "wiki": "Mineral lick",
+ "desc": "Natural mineral-rich spots that forest ungulates, elephants and tapirs visit to supplement their diet.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "mineral-licks",
+ "sk": "resource",
+ "src": "legacy"
+}

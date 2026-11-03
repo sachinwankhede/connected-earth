@@ -1,0 +1,13 @@
+{
+ "latin": "Eschrichtius robustus",
+ "name": "Gray whale",
+ "tl": 3,
+ "wiki": "Gray whale",
+ "desc": "Migrates to the reserve lagoons to calve in winter. It scoops up seafloor sediment and strains out crustaceans.",
+ "ic": "whale",
+ "badge": "Keystone grazer",
+ "about": "The gray whale, also known as the grey whale, is a baleen whale that migrates between feeding and breeding grounds yearly.",
+ "sid": "eschrichtius-robustus",
+ "sk": "taxon",
+ "src": "legacy"
+}

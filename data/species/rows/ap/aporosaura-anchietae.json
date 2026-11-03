@@ -1,0 +1,11 @@
+{
+ "latin": "Aporosaura anchietae",
+ "name": "Sand-diving lizard",
+ "tl": 2,
+ "wiki": "Aporosaura anchietae",
+ "desc": "A dune lizard that dives into sand to escape heat and enemies. It eats wind-blown seeds and insects and is itself prey for snakes.",
+ "ic": "snake",
+ "sid": "aporosaura-anchietae",
+ "sk": "taxon",
+ "src": "legacy"
+}

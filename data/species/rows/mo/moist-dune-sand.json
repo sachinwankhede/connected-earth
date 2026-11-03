@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Moist dune sand",
+ "tl": 0,
+ "wiki": "Dune",
+ "desc": "Wikipedia says moist sand just under the surface lets dune plants, the tiger beetle and Ord's kangaroo rat survive here.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "moist-dune-sand",
+ "sk": "resource",
+ "src": "legacy"
+}

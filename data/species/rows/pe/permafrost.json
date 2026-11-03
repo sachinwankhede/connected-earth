@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Permafrost",
+ "tl": 0,
+ "wiki": "Permafrost",
+ "desc": "Wikipedia describes the park's permafrost as discontinuous and the shallow permafrost as thawing. Frozen ground limits tree growth and holds water near the surface.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "permafrost",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow cover & ice crusts",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Snow shelters tundra plants through winter and melts into summer water. Rain falling on snow can freeze into an ice crust that locks reindeer out of their food.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "snow-cover-ice-crusts",
+ "sk": "resource",
+ "src": "legacy"
+}

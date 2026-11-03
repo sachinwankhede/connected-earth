@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peaty acid soil",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Cool, wet ground builds acidic peat soils under much of the moorland and bog, favouring heather and cottongrass.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "peaty-acid-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

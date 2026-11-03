@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "East Australian Current",
+ "tl": 0,
+ "wiki": "East Australian Current",
+ "desc": "Warm water carried south by this current lets the most southerly true coral reef grow, and mixes tropical and temperate marine life.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "east-australian-current",
+ "sk": "resource",
+ "src": "legacy"
+}

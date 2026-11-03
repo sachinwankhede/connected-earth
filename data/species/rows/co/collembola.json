@@ -1,0 +1,12 @@
+{
+ "latin": "Collembola",
+ "name": "Leaf-litter invertebrates",
+ "tl": 2,
+ "wiki": "Springtail",
+ "desc": "Springtails, mites and other tiny animals of the leaf litter that feed on decaying leaves and fungi.",
+ "ic": "ant",
+ "about": "Springtails (class Collembola) form the largest of the three lineages of modern hexapods that are no longer considered insects, the others being Protura and Diplura.",
+ "sid": "collembola",
+ "sk": "taxon",
+ "src": "legacy"
+}

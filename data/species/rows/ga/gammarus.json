@@ -1,0 +1,12 @@
+{
+ "latin": "Gammarus",
+ "name": "Freshwater shrimps",
+ "tl": 2,
+ "wiki": "Gammarus",
+ "desc": "Small amphipod crustaceans that shred leaves and graze algae in streams and lake shallows. A favourite food of the dipper.",
+ "ic": "hopper",
+ "about": "Gammarus is an amphipod crustacean genus in the family Gammaridae. It contains more than 200 described species, making it one of the most species-rich genera of crustaceans.",
+ "sid": "gammarus",
+ "sk": "taxon",
+ "src": "legacy"
+}

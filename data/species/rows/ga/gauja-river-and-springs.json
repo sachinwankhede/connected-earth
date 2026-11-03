@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Gauja River and springs",
+ "tl": 0,
+ "wiki": "Gauja",
+ "desc": "The park follows the old valley of the Gauja River, with springs and sandstone cliffs. Water and wet floodplain soils feed riverside trees.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "gauja-river-and-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

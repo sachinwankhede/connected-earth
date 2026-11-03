@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Spawning rivers and streams",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Small, short rivers where salmon and other salmonids return to spawn, carrying ocean nutrients inland.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "spawning-rivers-and-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

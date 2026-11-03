@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nitrogen from land and sewage",
+ "tl": 0,
+ "wiki": "Nutrient pollution",
+ "desc": "Nitrogen is a key nutrient for the bay's algae. Cuts in wastewater nitrogen since 2006 have been followed by smaller annual phytoplankton blooms.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "nitrogen-from-land-and-sewage",
+ "sk": "resource",
+ "src": "legacy"
+}

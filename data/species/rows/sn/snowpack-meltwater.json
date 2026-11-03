@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack & meltwater",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "The mountains collect snow that feeds streams, springs and meadows in dry surroundings; the park even holds a small glacier.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

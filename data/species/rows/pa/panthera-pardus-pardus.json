@@ -1,0 +1,13 @@
+{
+ "latin": "Panthera pardus pardus",
+ "name": "African leopard",
+ "tl": 4,
+ "wiki": "African leopard",
+ "desc": "The main large predator of the forest, taking monkeys, hyraxes and small antelope.",
+ "ic": "lion",
+ "badge": "Keystone predator",
+ "about": "The African leopard is the nominate subspecies of the leopard, native to Africa.",
+ "sid": "panthera-pardus-pardus",
+ "sk": "taxon",
+ "src": "legacy"
+}

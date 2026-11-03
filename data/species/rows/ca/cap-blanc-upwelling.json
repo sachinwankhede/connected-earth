@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cap Blanc upwelling",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Permanent upwelling at Cap Blanc brings nutrients that help make these waters among the richest fishing grounds in the region.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cap-blanc-upwelling",
+ "sk": "resource",
+ "src": "legacy"
+}

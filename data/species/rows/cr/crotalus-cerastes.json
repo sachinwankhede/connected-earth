@@ -1,0 +1,11 @@
+{
+ "latin": "Crotalus cerastes",
+ "name": "Sidewinder",
+ "tl": 3,
+ "wiki": "Sidewinder",
+ "desc": "A small desert rattlesnake that hunts rodents and lizards, moving by a looping sidewinding motion over sand.",
+ "ic": "snake",
+ "sid": "crotalus-cerastes",
+ "sk": "taxon",
+ "src": "legacy"
+}

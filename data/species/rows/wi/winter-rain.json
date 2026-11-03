@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Most rain on the islands falls in the cooler months, which sets the growing season for scrub and wildflowers.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "winter-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

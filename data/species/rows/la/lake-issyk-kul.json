@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake Issyk-Kul",
+ "tl": 0,
+ "wiki": "Issyk-Kul",
+ "desc": "A huge, deep lake with no outlet. It is slightly salty (about 0.6%), so it rarely freezes even at 1,607 m, and it holds many wintering waterbirds.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-issyk-kul",
+ "sk": "resource",
+ "src": "legacy"
+}

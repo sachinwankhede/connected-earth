@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Highland soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients recycled from dead plants and dung in the cool plateau soil feed the grasses, heath and lobelia.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "highland-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

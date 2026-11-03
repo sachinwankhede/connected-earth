@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Kobuk River",
+ "tl": 0,
+ "wiki": "Kobuk River",
+ "desc": "The river divides the park. Caribou cross it each year, and its valley is a wetland that supports willows and sedges.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "kobuk-river",
+ "sk": "resource",
+ "src": "legacy"
+}

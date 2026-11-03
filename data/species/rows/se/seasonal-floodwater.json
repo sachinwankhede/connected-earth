@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal floodwater",
+ "tl": 0,
+ "wiki": "Chobe River",
+ "desc": "Chobe and Linyanti floodwater spreads across the floodplains in the wet season and shrinks in the dry season.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seasonal-floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

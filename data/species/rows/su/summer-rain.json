@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Summer rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain wets the sand sheet and shrublands and helps seeds sprout.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "summer-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

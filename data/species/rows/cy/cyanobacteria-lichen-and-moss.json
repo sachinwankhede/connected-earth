@@ -1,0 +1,12 @@
+{
+ "latin": "Cyanobacteria, lichen and moss",
+ "name": "Biological soil crust",
+ "tl": 0,
+ "wiki": "Biological soil crust",
+ "desc": "A living skin of cyanobacteria, fungi, lichen, moss and algae that protects sandy desert soil from erosion.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "cyanobacteria-lichen-and-moss",
+ "sk": "resource",
+ "src": "legacy"
+}

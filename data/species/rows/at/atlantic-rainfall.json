@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Atlantic rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Mountains block moist Atlantic air, giving very heavy rain, roughly 1,600 mm a year low down and about 3,200 mm on the heights.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "atlantic-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

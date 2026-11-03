@@ -1,0 +1,12 @@
+{
+ "latin": "Dendroctonus ponderosae",
+ "name": "Mountain pine beetle",
+ "tl": 2,
+ "wiki": "Mountain pine beetle",
+ "desc": "A bark beetle that kills conifers. The park page says warmer winters let it survive and reproduce faster, raising tree mortality.",
+ "ic": "hopper",
+ "about": "The mountain pine beetle is a species of bark beetle native to the forests of western North America from Mexico to central British Columbia.",
+ "sid": "dendroctonus-ponderosae",
+ "sk": "taxon",
+ "src": "legacy"
+}

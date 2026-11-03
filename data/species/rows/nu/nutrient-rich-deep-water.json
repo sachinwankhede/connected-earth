@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrient-rich deep water",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Currents lift nutrient-rich deep ocean water along the peninsula. Together with melting ice, it fuels spring plankton blooms.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "nutrient-rich-deep-water",
+ "sk": "resource",
+ "src": "legacy"
+}

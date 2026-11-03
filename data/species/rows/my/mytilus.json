@@ -1,0 +1,11 @@
+{
+ "latin": "Mytilus",
+ "name": "Blue mussels",
+ "tl": 2,
+ "wiki": "Mytilus",
+ "desc": "Shellfish of rocky shores that filter plankton from the water. Sea otters crack them open.",
+ "ic": "shell",
+ "sid": "mytilus",
+ "sk": "taxon",
+ "src": "legacy"
+}

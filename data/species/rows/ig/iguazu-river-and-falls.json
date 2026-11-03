@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Iguazu River and falls",
+ "tl": 0,
+ "wiki": "Iguazu Falls",
+ "desc": "The river runs about 23 km through the park past the falls. Spray and river moisture keep the riverbank forest dense and green.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "iguazu-river-and-falls",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain soil and leaf litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Forest litter and mountain soils hold the nutrients that trees and meadow plants draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mountain-soil-and-leaf-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mineral salt lick",
+ "tl": 0,
+ "wiki": "Mineral lick",
+ "desc": "The Poung Nyied salt lick draws sambar and other animals from a wide area, giving them minerals.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "mineral-salt-lick",
+ "sk": "resource",
+ "src": "legacy"
+}

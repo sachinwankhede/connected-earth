@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil and litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Leaf litter and soil hold the nutrients that the rainforest trees draw back up.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-and-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

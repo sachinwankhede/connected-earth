@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & snow",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "Precipitation is scarce in this semi-arid country, and it controls how green the grass gets.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

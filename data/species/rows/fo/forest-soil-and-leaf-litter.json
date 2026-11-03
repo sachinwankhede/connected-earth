@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil and leaf litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients released from dead leaves, fruit and animals are taken up again by roots in the litter layer.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-and-leaf-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

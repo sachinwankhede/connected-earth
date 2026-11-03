@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Plants turn sunlight into food, which starts the whole web.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon rains",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Heavy monsoon rain feeds the rivers and keeps the forest evergreen.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-rains",
+ "sk": "resource",
+ "src": "legacy"
+}

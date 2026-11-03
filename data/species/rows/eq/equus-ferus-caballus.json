@@ -1,0 +1,12 @@
+{
+ "latin": "Equus ferus caballus",
+ "name": "Camargue horse",
+ "tl": 2,
+ "wiki": "Camargue horse",
+ "desc": "A hardy white horse that lives semi-wild in the Rhone delta marshes. Its wide hooves suit the soggy ground, and gardians ride it to herd cattle.",
+ "ic": "quad",
+ "about": "The Camargue or French: Cheval de Camargue, Occitan: Caval de Camarga or Camargués, is a traditional French breed of working horse indigenous to the Camargue wetlands in the département of…",
+ "sid": "equus-ferus-caballus",
+ "sk": "taxon",
+ "src": "legacy"
+}

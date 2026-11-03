@@ -1,0 +1,12 @@
+{
+ "latin": "Lepus arcticus",
+ "name": "Arctic hare",
+ "tl": 2,
+ "wiki": "Arctic hare",
+ "desc": "A large hare of the tundra that browses low plants such as heather and willow.",
+ "ic": "quad",
+ "about": "The Arctic hare is a species of hare highly adapted to living in the Arctic tundra and other icy biomes.",
+ "sid": "lepus-arcticus",
+ "sk": "taxon",
+ "src": "legacy"
+}

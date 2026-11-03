@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Low-intensity fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Frequent, low fires are part of the natural cycle in ponderosa pine forest, clearing litter and keeping the forest open.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "low-intensity-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

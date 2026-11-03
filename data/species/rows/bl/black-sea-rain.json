@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Black Sea rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Moist air from the Black Sea coast waters the northern slopes and supports their forests.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "black-sea-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fungi and decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Fungi, bacteria and soil animals recycle fallen leaves, wood and carcasses back into the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-and-decomposers",
+ "sk": "resource",
+ "src": "legacy"
+}

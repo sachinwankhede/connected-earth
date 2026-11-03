@@ -1,0 +1,12 @@
+{
+ "latin": "Dolichotis patagonum",
+ "name": "Patagonian mara",
+ "tl": 2,
+ "wiki": "Patagonian mara",
+ "desc": "A large cavy that eats mostly grasses and shrubs such as Atriplex lampa and Lycium. Foxes and birds of prey hunt the young.",
+ "ic": "vole",
+ "about": "The Patagonian mara is a rodent in the mara genus Dolichotis. It is also known as the Patagonian cavy or Patagonian hare.",
+ "sid": "dolichotis-patagonum",
+ "sk": "taxon",
+ "src": "legacy"
+}

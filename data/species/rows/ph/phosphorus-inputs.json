@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Phosphorus inputs",
+ "tl": 0,
+ "wiki": "Eutrophication",
+ "desc": "Household wastewater has raised phosphorus in the sediments about 3.5-fold in a century, a main threat to the lake.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "phosphorus-inputs",
+ "sk": "resource",
+ "src": "legacy"
+}

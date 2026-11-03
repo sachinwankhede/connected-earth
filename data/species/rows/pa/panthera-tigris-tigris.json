@@ -1,0 +1,13 @@
+{
+ "latin": "Panthera tigris tigris",
+ "name": "Bengal tiger",
+ "tl": 4,
+ "wiki": "Bengal tiger",
+ "desc": "The only tigers living in mangroves. They swim between islands and eat deer, boar, fish, crabs and monitors.",
+ "ic": "lion",
+ "badge": "Apex predator",
+ "about": "The Bengal tiger is a population of the Panthera tigris tigris subspecies. It ranks among the largest of wild cats.",
+ "sid": "panthera-tigris-tigris",
+ "sk": "taxon",
+ "src": "legacy"
+}

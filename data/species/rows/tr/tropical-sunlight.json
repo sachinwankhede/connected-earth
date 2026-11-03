@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tropical sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Year-round warmth and light drive the forest canopy.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "tropical-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

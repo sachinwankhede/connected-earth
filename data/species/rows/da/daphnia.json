@@ -1,0 +1,12 @@
+{
+ "latin": "Daphnia",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Daphnia",
+ "desc": "Tiny animals drifting in lakes that graze algae and are the main food of sockeye in fresh water.",
+ "ic": "hopper",
+ "about": "Daphnia is a genus of small planktonic crustaceans, 0.2–6.0 mm (0.01–0.24 in) in length.",
+ "sid": "daphnia",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Waterholes & pans",
+ "tl": 0,
+ "wiki": "Water",
+ "desc": "Shallow pans and waterholes. In the dry winter, wildebeest, zebra and impala gather at them.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "waterholes-pans",
+ "sk": "resource",
+ "src": "legacy"
+}

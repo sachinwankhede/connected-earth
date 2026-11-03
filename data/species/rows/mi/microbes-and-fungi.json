@@ -1,0 +1,12 @@
+{
+ "latin": "Microbes and fungi",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Microbes and fungi break down dead plants, droppings and carcasses slowly in the cold and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "microbes-and-fungi",
+ "sk": "resource",
+ "src": "legacy"
+}

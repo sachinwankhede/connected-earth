@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Loose sand and gravel soils are poor in nutrients; dead matter returning to them is what lets plants grow.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

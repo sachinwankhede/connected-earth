@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Deadwood and forest soil",
+ "tl": 0,
+ "wiki": "Dead wood",
+ "desc": "Almost half the forest wood is dead, far more than in managed forests, and it slowly returns nutrients to the soil.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "deadwood-and-forest-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

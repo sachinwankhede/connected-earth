@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Coastal fog",
+ "tl": 0,
+ "wiki": "Fog",
+ "desc": "Cold Benguela Current air makes thick fog for much of the year. Plants and beetles drink from it where almost no rain falls.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "coastal-fog",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Drift sea ice",
+ "tl": 0,
+ "wiki": "Sea ice",
+ "desc": "Ice from the Sea of Okhotsk is carried south each winter and reaches Shiretoko. As it melts in spring it releases nutrients that help start the plankton bloom.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "drift-sea-ice",
+ "sk": "resource",
+ "src": "legacy"
+}

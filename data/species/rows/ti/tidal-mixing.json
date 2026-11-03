@@ -1,0 +1,12 @@
+{
+ "latin": "Tidal mixing",
+ "name": "Tides and salt water",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides reach about 58 miles up the river, mixing fresh and salt water and flooding the marsh twice a day.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-mixing",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,13 @@
+{
+ "latin": "Salvelinus namaycush",
+ "name": "Lake trout",
+ "tl": 4,
+ "wiki": "Lake trout",
+ "desc": "The native top predator, nearly wiped out by lampreys and overfishing. Hatchery stocking helps rebuild it.",
+ "ic": "trout",
+ "badge": "Keystone predator",
+ "about": "The lake trout is a freshwater char living mainly in lakes in Northern North America. Other names for it include mackinaw, namaycush, lake char (or charr), touladi, togue, laker, and grey trout.",
+ "sid": "salvelinus-namaycush",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Delta silt & nutrients",
+ "tl": 0,
+ "wiki": "Sediment",
+ "desc": "The Ganges, Brahmaputra and Meghna deliver mud and nutrients that feed the forest and the tidal flats.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "delta-silt-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

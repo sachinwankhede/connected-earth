@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Clay licks",
+ "tl": 0,
+ "wiki": "Clay lick",
+ "desc": "Exposed riverbank clay where parrots and some mammals come to eat soil. Reasons are still debated.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "clay-licks",
+ "sk": "resource",
+ "src": "legacy"
+}

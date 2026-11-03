@@ -1,0 +1,12 @@
+{
+ "latin": "Lama glama",
+ "name": "Llama",
+ "tl": 2,
+ "wiki": "Llama",
+ "desc": "Herded by local communities for wool and meat. Grazing by llamas and alpacas is a conservation concern in the reserve.",
+ "ic": "quad",
+ "about": "The llama is a domesticated South American camelid, widely used as a meat and pack animal by Andean cultures since the pre-Columbian era. Llamas are social animals and live with others as a herd.",
+ "sid": "lama-glama",
+ "sk": "taxon",
+ "src": "legacy"
+}

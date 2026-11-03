@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Delta silt and nutrients",
+ "tl": 0,
+ "wiki": "Shatt al-Arab",
+ "desc": "Sediment from the Tigris-Euphrates river system built the muddy delta coast of the northern Gulf, and river water carries nutrients to the bays.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "delta-silt-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

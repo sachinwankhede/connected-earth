@@ -1,0 +1,12 @@
+{
+ "latin": "Decomposer community",
+ "name": "Fungi and bacteria",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants and animals and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "decomposer-community",
+ "sk": "resource",
+ "src": "legacy"
+}

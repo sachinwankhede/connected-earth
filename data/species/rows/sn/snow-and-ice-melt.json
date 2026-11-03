@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and ice melt",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "Winter snow and the ice field of Yolyn Am feed meltwater into the mountain valleys and the dry plains below.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-ice-melt",
+ "sk": "resource",
+ "src": "legacy"
+}

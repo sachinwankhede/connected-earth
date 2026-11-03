@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon floods",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Wet-season rain floods the plains for months, spreading nutrients and filling billabongs that support plants, fish and waterbirds.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

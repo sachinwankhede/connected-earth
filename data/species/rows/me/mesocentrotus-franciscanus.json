@@ -1,0 +1,13 @@
+{
+ "latin": "Mesocentrotus franciscanus",
+ "name": "Red sea urchin",
+ "tl": 2,
+ "wiki": "Mesocentrotus franciscanus",
+ "desc": "Grazes kelp. Without sea otters, which were hunted out in the fur trade, urchins can multiply and threaten kelp forests.",
+ "ic": "shell",
+ "badge": "Keystone grazer",
+ "about": "The red sea urchin is a sea urchin found in the northeastern Pacific Ocean from Alaska to Baja California.",
+ "sid": "mesocentrotus-franciscanus",
+ "sk": "taxon",
+ "src": "legacy"
+}

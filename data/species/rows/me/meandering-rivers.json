@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Meandering rivers",
+ "tl": 0,
+ "wiki": "Madre de Dios River",
+ "desc": "Rivers and oxbow lakes carry fish and keep shifting the floodplain forest.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "meandering-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

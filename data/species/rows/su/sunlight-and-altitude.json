@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sunlight and altitude",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Strong high-altitude light drives growth in meadows and forests between the gorges and the snowline.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sunlight-and-altitude",
+ "sk": "resource",
+ "src": "legacy"
+}

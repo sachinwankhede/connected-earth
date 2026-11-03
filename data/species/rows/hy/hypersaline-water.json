@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Hypersaline water",
+ "tl": 0,
+ "wiki": "Hypersaline lake",
+ "desc": "Hamelin Pool is about twice as salty as normal seawater, which suits stromatolite builders and keeps out animals that would graze them.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "hypersaline-water",
+ "sk": "resource",
+ "src": "legacy"
+}

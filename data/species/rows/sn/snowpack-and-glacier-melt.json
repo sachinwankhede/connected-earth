@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack and glacier melt",
+ "tl": 0,
+ "wiki": "Snowpack",
+ "desc": "Winter snow and melting glaciers feed the streams and lakes and set the length of the growing season on the high slopes. Glaciers in the park have shrunk sharply since the 1800s.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-and-glacier-melt",
+ "sk": "resource",
+ "src": "legacy"
+}

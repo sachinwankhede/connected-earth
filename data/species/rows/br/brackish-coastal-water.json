@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Brackish coastal water",
+ "tl": 0,
+ "wiki": "Brackish water",
+ "desc": "Salty water along the southern coast and lagoons supports mangroves, which tolerate salt.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "brackish-coastal-water",
+ "sk": "resource",
+ "src": "legacy"
+}

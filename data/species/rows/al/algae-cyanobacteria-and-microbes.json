@@ -1,0 +1,12 @@
+{
+ "latin": "Algae, cyanobacteria and microbes",
+ "name": "Periphyton",
+ "tl": 1,
+ "wiki": "Periphyton",
+ "desc": "A living mat of algae and microbes on submerged plants and surfaces. In the Everglades it grows where sawgrass is sparse and feeds larval insects and amphibians.",
+ "ic": "algae",
+ "about": "Periphyton is a complex mixture of algae, cyanobacteria, heterotrophic microbes, and detritus that is attached to submerged surfaces in most aquatic ecosystems.",
+ "sid": "algae-cyanobacteria-and-microbes",
+ "sk": "group",
+ "src": "legacy"
+}

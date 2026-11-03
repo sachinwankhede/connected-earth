@@ -1,0 +1,12 @@
+{
+ "latin": "Gyps coprotheres",
+ "name": "Cape vulture",
+ "tl": 3,
+ "wiki": "Cape vulture",
+ "desc": "A cliff-nesting scavenger that eats the soft tissue of carcasses and breeds in Lesotho. Endangered.",
+ "ic": "hawk",
+ "about": "The Cape vulture, also known as Cape griffon and Kolbe's vulture, is an Old World vulture in the family Accipitridae.",
+ "sid": "gyps-coprotheres",
+ "sk": "taxon",
+ "src": "legacy"
+}

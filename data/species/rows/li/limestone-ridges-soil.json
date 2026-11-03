@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone ridges & soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "The park sits on parallel limestone ridges above swampy lowlands, which shape where water and trees are.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-ridges-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

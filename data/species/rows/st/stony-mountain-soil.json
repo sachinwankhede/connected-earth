@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Stony mountain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, rocky soils on dry slopes hold the steppe, juniper and oak communities, which cover the reserve in altitude bands.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "stony-mountain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

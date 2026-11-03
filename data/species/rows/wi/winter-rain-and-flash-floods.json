@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter rain and flash floods",
+ "tl": 0,
+ "wiki": "Flash flood",
+ "desc": "Rain is scarce because mountain ranges block moisture. Rare wet winters trigger wildflower blooms and brief shallow lakes on the valley floor.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "winter-rain-and-flash-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

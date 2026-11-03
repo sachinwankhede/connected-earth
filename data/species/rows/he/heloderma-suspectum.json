@@ -1,0 +1,12 @@
+{
+ "latin": "Heloderma suspectum",
+ "name": "Gila monster",
+ "tl": 3,
+ "wiki": "Gila monster",
+ "desc": "A slow venomous lizard that raids burrows and nests for eggs and small animals.",
+ "ic": "snake",
+ "about": "The Gila monster is a species of venomous lizard native to the Southwestern United States and the northwestern Mexican state of Sonora.",
+ "sid": "heloderma-suspectum",
+ "sk": "taxon",
+ "src": "legacy"
+}

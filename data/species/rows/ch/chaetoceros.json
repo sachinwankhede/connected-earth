@@ -1,0 +1,12 @@
+{
+ "latin": "Chaetoceros",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Microscopic algae drifting in the bay. They use sunlight and dissolved nutrients and feed the plankton, oysters and fish that fill the water.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "chaetoceros",
+ "sk": "taxon",
+ "src": "legacy"
+}

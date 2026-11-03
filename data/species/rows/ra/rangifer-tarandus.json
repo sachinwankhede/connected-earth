@@ -1,0 +1,12 @@
+{
+ "latin": "Rangifer tarandus",
+ "name": "Caribou",
+ "tl": 2,
+ "wiki": "Reindeer",
+ "desc": "Migrates in large herds, eating lichen in winter and sedges in summer.",
+ "ic": "elk",
+ "about": "The reindeer or caribou is a species of deer with circumpolar distribution, native to the Arctic, subarctic, tundra, boreal, and mountainous regions of Northern Europe, Siberia, and North America.",
+ "sid": "rangifer-tarandus",
+ "sk": "taxon",
+ "src": "legacy"
+}

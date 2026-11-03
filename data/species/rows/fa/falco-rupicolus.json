@@ -1,0 +1,12 @@
+{
+ "latin": "Falco rupicolus",
+ "name": "Rock kestrel",
+ "tl": 3,
+ "wiki": "Rock kestrel",
+ "desc": "A small falcon that hunts lizards and insects from cliffs and open ground.",
+ "ic": "hawk",
+ "about": "The rock kestrel is a bird of prey species belonging to the kestrel group of the falcon family Falconidae. It was previously considered a subspecies of the common kestrel.",
+ "sid": "falco-rupicolus",
+ "sk": "taxon",
+ "src": "legacy"
+}

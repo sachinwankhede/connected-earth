@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lime-rich karst water",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "Water running through limestone and dolomite becomes loaded with calcium carbonate, the material of the tufa barriers.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lime-rich-karst-water",
+ "sk": "resource",
+ "src": "legacy"
+}

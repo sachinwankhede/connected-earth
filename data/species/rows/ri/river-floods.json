@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River floods",
+ "tl": 0,
+ "wiki": "Flood",
+ "desc": "Monsoon floods and erosion along the Rapti and Narayani keep reshaping banks and sandbars, opening new ground for kans grass.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

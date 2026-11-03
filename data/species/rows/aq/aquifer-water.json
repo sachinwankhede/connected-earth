@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Aquifer water",
+ "tl": 0,
+ "wiki": "Aquifer",
+ "desc": "The Kirkwood-Cohansey aquifer under the Barrens feeds its bogs, swamps and vernal pools.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "aquifer-water",
+ "sk": "resource",
+ "src": "legacy"
+}

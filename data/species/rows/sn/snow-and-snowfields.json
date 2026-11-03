@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and snowfields",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Snow insulates the ground in winter and its meltwater wets the tundra in spring. Perennial snowfields in the Brooks Range have shrunk a great deal since 1985.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-snowfields",
+ "sk": "resource",
+ "src": "legacy"
+}

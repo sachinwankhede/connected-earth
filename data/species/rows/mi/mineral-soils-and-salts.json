@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mineral soils and salts",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Volcanic, mineral-rich ground and salt flats around the lake. Little organic matter builds up in the heat.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mineral-soils-and-salts",
+ "sk": "resource",
+ "src": "legacy"
+}

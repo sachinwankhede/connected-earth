@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil & peat",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients in wetland soils feed the plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-peat",
+ "sk": "resource",
+ "src": "legacy"
+}

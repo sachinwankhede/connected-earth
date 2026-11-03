@@ -1,0 +1,12 @@
+{
+ "latin": "Marine algae",
+ "name": "Ocean phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Microscopic algae at the base of the ocean food web that feeds young salmon.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "marine-algae",
+ "sk": "taxon",
+ "src": "legacy"
+}

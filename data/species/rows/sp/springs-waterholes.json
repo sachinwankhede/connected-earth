@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Springs & waterholes",
+ "tl": 0,
+ "wiki": "Water",
+ "desc": "Dry-season waterholes fed by springs concentrate wildlife, so animals gather and are easier for predators to find.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "springs-waterholes",
+ "sk": "resource",
+ "src": "legacy"
+}

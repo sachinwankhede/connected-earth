@@ -1,0 +1,12 @@
+{
+ "latin": "Corvus cryptoleucus",
+ "name": "Chihuahuan raven",
+ "tl": 3,
+ "wiki": "Chihuahuan raven",
+ "desc": "A scavenging crow that eats insects, small animals and carrion in open desert country.",
+ "ic": "raven",
+ "about": "The Chihuahuan raven is a species in the family Corvidae that is native to the United States and Mexico.",
+ "sid": "corvus-cryptoleucus",
+ "sk": "taxon",
+ "src": "legacy"
+}

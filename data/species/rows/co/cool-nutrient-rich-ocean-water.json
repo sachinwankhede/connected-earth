@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool nutrient-rich ocean water",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Cool, nutrient-bearing water from the open Pacific supports plankton, kelp and the animals that feed on them.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cool-nutrient-rich-ocean-water",
+ "sk": "resource",
+ "src": "legacy"
+}

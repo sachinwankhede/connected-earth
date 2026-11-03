@@ -1,0 +1,12 @@
+{
+ "latin": "Cuon alpinus",
+ "name": "Dhole",
+ "tl": 4,
+ "wiki": "Dhole",
+ "desc": "A pack-hunting wild dog that takes medium and large deer such as sambar and muntjac, mostly avoiding the tiger's largest prey.",
+ "ic": "wolf",
+ "about": "The dhole is a canid native to South, East and Southeast Asia.",
+ "sid": "cuon-alpinus",
+ "sk": "taxon",
+ "src": "legacy"
+}

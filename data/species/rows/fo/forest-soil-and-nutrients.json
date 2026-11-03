@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil and nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Leaf litter and dead wood break down into the nutrients that feed the beech and fir forest.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Senegal River floodwater",
+ "tl": 0,
+ "wiki": "Senegal River",
+ "desc": "The sanctuary lies in the Senegal River delta, a chain of lakes, backwaters and channels that depend on river water.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "senegal-river-floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

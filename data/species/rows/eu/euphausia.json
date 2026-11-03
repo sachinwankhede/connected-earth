@@ -1,0 +1,12 @@
+{
+ "latin": "Euphausia",
+ "name": "Krill and zooplankton",
+ "tl": 2,
+ "wiki": "Krill",
+ "desc": "Small shrimp-like crustaceans that graze phytoplankton and feed fish, penguins and seabirds.",
+ "ic": "hopper",
+ "about": "Krill (Euphausiids) (sing.: krill) are small and exclusively marine crustaceans of the order Euphausiacea, found in all of the world's oceans.",
+ "sid": "euphausia",
+ "sk": "taxon",
+ "src": "legacy"
+}

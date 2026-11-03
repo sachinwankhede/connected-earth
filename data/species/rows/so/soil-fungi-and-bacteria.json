@@ -1,0 +1,12 @@
+{
+ "latin": "Soil fungi and bacteria",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants and animals, including fallen saguaros, and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "soil-fungi-and-bacteria",
+ "sk": "resource",
+ "src": "legacy"
+}

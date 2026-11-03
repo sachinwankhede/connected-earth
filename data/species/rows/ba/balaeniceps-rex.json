@@ -1,0 +1,13 @@
+{
+ "latin": "Balaeniceps rex",
+ "name": "Shoebill",
+ "tl": 3,
+ "wiki": "Shoebill",
+ "desc": "A giant wading bird for which the Sudd is a major stronghold; it hunts large fish such as lungfish in papyrus swamp.",
+ "ic": "hawk",
+ "badge": "Keystone predator",
+ "about": "The shoebill, also known as the whale-headed stork, whalebill, and shoe-billed stork, is a large long-legged wading bird. It is named for its enormous, shoe-shaped bill.",
+ "sid": "balaeniceps-rex",
+ "sk": "taxon",
+ "src": "legacy"
+}

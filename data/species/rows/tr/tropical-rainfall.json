@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tropical rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Heavy, year-round rain feeds the rivers and keeps the lowland forest and peat swamps wet.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "tropical-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

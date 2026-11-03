@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rivers",
+ "tl": 0,
+ "wiki": "Limpopo River",
+ "desc": "Eastward-flowing rivers such as the Olifants, Letaba and Sabie bring water and support thickets along their banks.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

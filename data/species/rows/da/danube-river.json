@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Danube river",
+ "tl": 0,
+ "wiki": "Danube",
+ "desc": "The Danube cuts the long Iron Gates gorge here. Dams raised the river and formed a large reservoir with new wetlands along its edge.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "danube-river",
+ "sk": "resource",
+ "src": "legacy"
+}

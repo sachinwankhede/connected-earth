@@ -1,0 +1,12 @@
+{
+ "latin": "Hydroprogne caspia",
+ "name": "Caspian tern",
+ "tl": 3,
+ "wiki": "Caspian tern",
+ "desc": "Large tern that plunges for fish, hunting over bays and sometimes travelling far from its colony to feed.",
+ "ic": "hawk",
+ "about": "The Caspian tern is the world's largest species of tern, with a subcosmopolitan but scattered distribution. Despite its extensive range, it is monotypic of its genus, and has no accepted subspecies.",
+ "sid": "hydroprogne-caspia",
+ "sk": "taxon",
+ "src": "legacy"
+}

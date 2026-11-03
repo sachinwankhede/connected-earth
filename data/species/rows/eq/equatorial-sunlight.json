@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Equatorial sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Strong sun near the equator drives fast plant growth in the forest canopy.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "equatorial-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

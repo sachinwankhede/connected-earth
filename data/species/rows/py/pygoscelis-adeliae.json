@@ -1,0 +1,12 @@
+{
+ "latin": "Pygoscelis adeliae",
+ "name": "Adelie penguin",
+ "tl": 3,
+ "wiki": "Adélie penguin",
+ "desc": "Ice-dependent penguin that feeds on krill. Leopard seals hunt it.",
+ "ic": "meadowlark",
+ "about": "The Adélie penguin is a species of penguin common along the entire coast of the Antarctic continent.",
+ "sid": "pygoscelis-adeliae",
+ "sk": "taxon",
+ "src": "legacy"
+}

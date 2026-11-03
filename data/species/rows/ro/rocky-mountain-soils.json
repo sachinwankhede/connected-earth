@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rocky mountain soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, rocky and often limestone-based soils; bristlecone pines dominate dolomite ground where few other plants grow.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "rocky-mountain-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

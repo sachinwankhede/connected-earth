@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal lagoon",
+ "tl": 0,
+ "wiki": "Lagoon",
+ "desc": "A large, shallow lagoon of seagrass, mudflats and mangroves that empties and refills with the tides.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-lagoon",
+ "sk": "resource",
+ "src": "legacy"
+}

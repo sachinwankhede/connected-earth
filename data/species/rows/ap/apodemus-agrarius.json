@@ -1,0 +1,12 @@
+{
+ "latin": "Apodemus agrarius",
+ "name": "Striped field mouse",
+ "tl": 2,
+ "wiki": "Striped field mouse",
+ "desc": "A small rodent of fields and forest edges that eats seeds and plant material. It is prey for stoats, gulls and wolves.",
+ "ic": "vole",
+ "about": "The striped field mouse is a rodent in the family Muridae. The range of this species stretches from Eastern Europe to Eastern Asia.",
+ "sid": "apodemus-agrarius",
+ "sk": "taxon",
+ "src": "legacy"
+}

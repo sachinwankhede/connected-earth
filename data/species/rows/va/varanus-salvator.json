@@ -1,0 +1,12 @@
+{
+ "latin": "Varanus salvator",
+ "name": "Water monitor",
+ "tl": 3,
+ "wiki": "Water monitor",
+ "desc": "A large lizard that forages along creeks and mudflats. Tiger remains in the Sundarbans have included water monitors.",
+ "ic": "snake",
+ "about": "The Asian water monitor is a large varanid lizard native to South and Southeast Asia. It is widely considered to be the second-largest lizard species, after the Komodo dragon.",
+ "sid": "varanus-salvator",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,13 @@
+{
+ "latin": "Acropora spp.",
+ "name": "Reef-building coral",
+ "tl": 2,
+ "wiki": "Acropora",
+ "desc": "Builds the limestone reef that shelters thousands of other species. It bleaches when warm water drives out its algae.",
+ "ic": "coral",
+ "badge": "Foundation species",
+ "about": "Acropora is a genus of small polyp stony coral in the phylum Cnidaria. Some of its species are known as table coral, elkhorn coral, and staghorn coral.",
+ "sid": "acropora-spp",
+ "sk": "group",
+ "src": "legacy"
+}

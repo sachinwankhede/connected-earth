@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold nutrient-rich water",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Cool, nutrient-bearing Atlantic water feeds plankton, and plankton feed the fish that the seals depend on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-nutrient-rich-water",
+ "sk": "resource",
+ "src": "legacy"
+}

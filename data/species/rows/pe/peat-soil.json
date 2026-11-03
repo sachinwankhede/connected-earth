@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peat soil",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Slowly built organic soil in which marsh plants root.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "peat-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

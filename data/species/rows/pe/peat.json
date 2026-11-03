@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peat",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Waterlogged, acid ground made of slowly decaying moss. Wikipedia says the High Fens bogs are over 10,000 years old.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "peat",
+ "sk": "resource",
+ "src": "legacy"
+}

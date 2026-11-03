@@ -1,0 +1,12 @@
+{
+ "latin": "Canis adustus",
+ "name": "Side-striped jackal",
+ "tl": 3,
+ "wiki": "Side-striped jackal",
+ "desc": "An omnivorous canid that takes small prey, fruit and carrion. It is present in the park.",
+ "ic": "fox",
+ "about": "The side-striped jackal is a canine native to Central and Southern Africa.",
+ "sid": "canis-adustus",
+ "sk": "taxon",
+ "src": "legacy"
+}

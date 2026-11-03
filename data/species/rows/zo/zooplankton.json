@@ -1,0 +1,12 @@
+{
+ "latin": "Zooplankton",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Zooplankton",
+ "desc": "Drifting animals that graze phytoplankton and feed small fish.",
+ "ic": "hopper",
+ "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive.",
+ "sid": "zooplankton",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Ocypode",
+ "name": "Ghost crab",
+ "tl": 3,
+ "wiki": "Ghost crab",
+ "desc": "A burrowing beach crab that scavenges carrion and takes turtle hatchlings.",
+ "ic": "hopper",
+ "about": "Ghost crabs are semiterrestrial crabs of the subfamily Ocypodinae, from Ancient Greek ὠκύς (okús), meaning \"swift\", and πούς (poús), meaning \"foot\".",
+ "sid": "ocypode",
+ "sk": "taxon",
+ "src": "legacy"
+}

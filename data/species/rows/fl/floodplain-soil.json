@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Floodplain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soil that stores the nutrients plants draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "floodplain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

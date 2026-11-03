@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil and peat nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients held in wetland soil are recycled from dead plants and animals and feed new plant growth.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-and-peat-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

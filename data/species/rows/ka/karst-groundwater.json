@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Karst groundwater",
+ "tl": 0,
+ "wiki": "Cenote",
+ "desc": "Rain sinks straight through the porous limestone and surfaces as cenotes and springs, supplying the freshwater that wetlands and mangroves depend on.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "karst-groundwater",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Canyon soil and sediment",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin sandy soils and river-borne sediment give plants a place to root across the canyon floor and mesas.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "canyon-soil-and-sediment",
+ "sk": "resource",
+ "src": "legacy"
+}

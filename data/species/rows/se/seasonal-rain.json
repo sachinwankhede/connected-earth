@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain on the steep, rocky hillsides drives growth in the dry forest and runs off to the bays.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "seasonal-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tisza River floods",
+ "tl": 0,
+ "wiki": "Tisza",
+ "desc": "The Tisza shaped this plain; its changing course is thought to have started the alkalinisation of the soils about 10,000 years ago.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tisza-river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

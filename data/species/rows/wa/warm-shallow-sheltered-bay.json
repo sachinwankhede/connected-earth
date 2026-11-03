@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm, shallow, sheltered bay",
+ "tl": 0,
+ "wiki": "Shark Bay",
+ "desc": "The bay is shallow, about 9 m deep on average, and its sheltered sandy floors carry some of the largest seagrass meadows known.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-shallow-sheltered-bay",
+ "sk": "resource",
+ "src": "legacy"
+}

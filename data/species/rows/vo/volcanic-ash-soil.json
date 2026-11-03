@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Volcanic ash soil",
+ "tl": 0,
+ "wiki": "Volcanic ash",
+ "desc": "Ash and pumice from the eruption of Mount Mazama left sandy, fast-draining soils that hold little water.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "volcanic-ash-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

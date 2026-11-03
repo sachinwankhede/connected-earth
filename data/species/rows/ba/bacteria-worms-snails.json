@@ -1,0 +1,12 @@
+{
+ "latin": "Bacteria, worms, snails",
+ "name": "Bacteria & decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants and animals and return nutrients to the water. Decaying blooms use up oxygen.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "bacteria-worms-snails",
+ "sk": "resource",
+ "src": "legacy"
+}

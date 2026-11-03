@@ -1,0 +1,12 @@
+{
+ "latin": "Scleractinia",
+ "name": "Reef corals",
+ "tl": 2,
+ "wiki": "Scleractinia",
+ "desc": "Hard corals on the outer reefs and in the lagoon. Bleaching in 2016 cut hard coral cover on seaward reefs by over half, and juveniles have since returned.",
+ "ic": "coral",
+ "about": "Scleractinia, also called stony corals or hard corals, are marine animals in the phylum Cnidaria that build themselves a hard skeleton.",
+ "sid": "scleractinia",
+ "sk": "taxon",
+ "src": "legacy"
+}

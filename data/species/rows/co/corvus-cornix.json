@@ -1,0 +1,12 @@
+{
+ "latin": "Corvus cornix",
+ "name": "Hooded crow",
+ "tl": 3,
+ "wiki": "Hooded crow",
+ "desc": "An opportunistic bird that cleans up carrion left by larger predators.",
+ "ic": "raven",
+ "about": "The hooded crow, also colloquially called just hoodie, is a Eurasian bird subspecies of the carrion crow in the genus Corvus.",
+ "sid": "corvus-cornix",
+ "sk": "taxon",
+ "src": "legacy"
+}

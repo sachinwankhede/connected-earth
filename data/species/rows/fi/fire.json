@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Lightning fires, mostly in the wet season, and deep peat fires in dry spells renew sawgrass marshes.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "fire",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal flats and sabkha",
+ "tl": 0,
+ "wiki": "Tidal flat",
+ "desc": "Tidal mudflats and salt flats line the coast of the reserve islands and host wintering waders and mangroves.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-flats-and-sabkha",
+ "sk": "resource",
+ "src": "legacy"
+}

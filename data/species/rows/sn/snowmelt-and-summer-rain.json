@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowmelt and summer rain",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "The park receives roughly 15 to 18 inches of precipitation a year, more than nearby Zion, and it feeds the plateau's trees and meadows.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "snowmelt-and-summer-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

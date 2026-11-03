@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce seasonal rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Only roughly 100 to 200 mm of rain falls a year in the Afar region, so brief wadi flows matter for plants and animals.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-seasonal-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Poor, dry soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils over limestone and sand in the west and south, with low and erratic winter rain, favour drought-adapted plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "poor-dry-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

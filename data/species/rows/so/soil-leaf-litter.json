@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil & leaf litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Forest litter and thin karst soils hold the nutrients the trees draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-leaf-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & Rock Creek",
+ "tl": 0,
+ "wiki": "Rock Creek (Potomac River tributary)",
+ "desc": "Rain feeds Rock Creek, the stream running through the park. Stormwater runoff from the surrounding city pollutes the waterways.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-rock-creek",
+ "sk": "resource",
+ "src": "legacy"
+}

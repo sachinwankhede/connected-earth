@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow & winter cold",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Long cold winters bury forage, so winter food and shelter shape which animals thrive.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-winter-cold",
+ "sk": "resource",
+ "src": "legacy"
+}

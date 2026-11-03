@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and cool ocean water",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides and ocean exchange flush the bay, bringing cooler, saltier water in from Rhode Island Sound.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides-and-cool-ocean-water",
+ "sk": "resource",
+ "src": "legacy"
+}

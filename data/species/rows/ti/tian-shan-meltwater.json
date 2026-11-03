@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tian Shan meltwater",
+ "tl": 0,
+ "wiki": "Tian Shan",
+ "desc": "Snowmelt and glacier streams from the surrounding mountains: about 118 rivers and streams feed the lake and water the valleys and shores.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "tian-shan-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

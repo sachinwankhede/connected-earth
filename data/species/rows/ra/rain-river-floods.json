@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & river floods",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Daily rain and yearly river floods carry nutrients and open the forest to fish.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

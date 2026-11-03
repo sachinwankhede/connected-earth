@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rivers and lake water",
+ "tl": 0,
+ "wiki": "Wetland",
+ "desc": "Slow rivers, Lake Paliastomi and flooded marshes make up more than half of the protected area and carry water and nutrients across the plain.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rivers-and-lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

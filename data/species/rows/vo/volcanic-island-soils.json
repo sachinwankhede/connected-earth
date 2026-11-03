@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Volcanic island soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils over rugged volcanic hills support the savanna grasses and dry deciduous woodland of the islands.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "volcanic-island-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

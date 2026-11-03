@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrients and runoff",
+ "tl": 0,
+ "wiki": "Nutrient pollution",
+ "desc": "Nutrients from land and recycled from dead matter feed plankton and algae. Excess runoff favours algae over coral.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "nutrients-and-runoff",
+ "sk": "resource",
+ "src": "legacy"
+}

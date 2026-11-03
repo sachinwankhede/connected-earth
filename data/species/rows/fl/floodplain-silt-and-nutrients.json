@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Floodplain silt and nutrients",
+ "tl": 0,
+ "wiki": "Alluvium",
+ "desc": "Silt and dissolved nutrients left by the river and by decaying plants feed the wetland vegetation.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "floodplain-silt-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

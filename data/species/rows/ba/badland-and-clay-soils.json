@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Badland and clay soils",
+ "tl": 0,
+ "wiki": "Painted Desert (United States)",
+ "desc": "Erodible clay soils of the Painted Desert hold little water and nutrients, so the grassland on better soils is a prized, slow-recovering resource.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "badland-and-clay-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

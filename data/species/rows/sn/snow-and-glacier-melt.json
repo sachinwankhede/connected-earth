@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and glacier melt",
+ "tl": 0,
+ "wiki": "Glacier",
+ "desc": "Snow and ice cap the summit. Most of the ice cover has vanished since 1912, and the forest below acts as the main water reservoir.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-glacier-melt",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Drifting algae",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Microscopic algae that bloom where cold, nutrient-rich water is pushed up around the islands. They feed the zooplankton and small fish that the marine food web rests on.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "drifting-algae",
+ "sk": "taxon",
+ "src": "legacy"
+}

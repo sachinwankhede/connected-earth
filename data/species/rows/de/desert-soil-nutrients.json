@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Desert soil & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sandy, thin soil that holds nutrients plants draw on, topped by the crust.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "desert-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Thin alpine soil",
+ "name": "Thin alpine soil",
+ "tl": 0,
+ "wiki": "Alpine tundra",
+ "desc": "Poor, shallow soils above the treeline; plants there are dwarfed and deep rooted.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-alpine-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

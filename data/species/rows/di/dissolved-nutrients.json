@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Dissolved nutrients",
+ "tl": 0,
+ "wiki": "Nutrient",
+ "desc": "River inflow and recycled nutrients feed algal growth in the lake.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "dissolved-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

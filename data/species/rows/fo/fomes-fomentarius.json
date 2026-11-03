@@ -1,0 +1,12 @@
+{
+ "latin": "Fomes fomentarius",
+ "name": "Deadwood fungi",
+ "tl": 0,
+ "wiki": "Fomes fomentarius",
+ "desc": "Bracket fungi such as tinder fungus rot dead beech wood, returning nutrients and making wood softer for beetles.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fomes-fomentarius",
+ "sk": "resource",
+ "src": "legacy"
+}

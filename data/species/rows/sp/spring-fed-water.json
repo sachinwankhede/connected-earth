@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Spring-fed water",
+ "tl": 0,
+ "wiki": "Spring (hydrology)",
+ "desc": "Springs keep Ozark streams cool and clear year round, the habitat that hellbenders and smallmouth bass need.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "spring-fed-water",
+ "sk": "resource",
+ "src": "legacy"
+}

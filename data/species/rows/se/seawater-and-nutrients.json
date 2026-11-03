@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seawater and nutrients",
+ "tl": 0,
+ "wiki": "Seawater",
+ "desc": "Salty, nutrient-bearing water of the bay and its tidal flats, which feeds plankton and mangroves. Pollution and silt cloud it.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seawater-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

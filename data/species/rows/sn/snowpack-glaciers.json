@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack & glaciers",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep winter snow buries the high meadows and sets how early plants can grow. Its melt feeds the streams.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-glaciers",
+ "sk": "resource",
+ "src": "legacy"
+}

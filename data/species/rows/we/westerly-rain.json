@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Westerly rain",
+ "tl": 0,
+ "wiki": "Fiordland",
+ "desc": "Moist westerly winds off the Tasman Sea drop more than seven metres of rain a year on much of the park, feeding the temperate rainforest.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "westerly-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

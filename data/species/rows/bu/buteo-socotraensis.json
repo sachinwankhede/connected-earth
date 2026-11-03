@@ -1,0 +1,12 @@
+{
+ "latin": "Buteo socotraensis",
+ "name": "Socotra buzzard",
+ "tl": 4,
+ "wiki": "Socotra buzzard",
+ "desc": "An island-only buzzard that nests on cliffs and hunts mainly reptiles and large invertebrates.",
+ "ic": "hawk",
+ "about": "The Socotra buzzard is a medium to large bird of prey that is sometimes considered a subspecies of the widespread common buzzard. As its name implies, it is native to the island of Socotra, Yemen.",
+ "sid": "buteo-socotraensis",
+ "sk": "taxon",
+ "src": "legacy"
+}

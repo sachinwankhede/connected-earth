@@ -1,0 +1,12 @@
+{
+ "latin": "Groundwater",
+ "name": "Ephemeral river water",
+ "tl": 0,
+ "wiki": "Groundwater",
+ "desc": "Dry rivers carry flood pulses and keep groundwater close to the surface, supporting trees, Welwitschia and elephants.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "groundwater",
+ "sk": "resource",
+ "src": "legacy"
+}

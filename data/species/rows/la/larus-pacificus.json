@@ -1,0 +1,12 @@
+{
+ "latin": "Larus pacificus",
+ "name": "Pacific gull",
+ "tl": 3,
+ "wiki": "Pacific gull",
+ "desc": "A big gull that eats fish, crabs, cephalopods and other seashore animals, and scavenges scraps. Drops shellfish onto rocks to break them.",
+ "ic": "hawk",
+ "about": "The Pacific gull is a gull, native to the coasts of Australia.",
+ "sid": "larus-pacificus",
+ "sk": "taxon",
+ "src": "legacy"
+}

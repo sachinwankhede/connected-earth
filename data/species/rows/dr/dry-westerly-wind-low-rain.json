@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Dry westerly wind & low rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The peninsula is a cold desert with roughly 240 mm of rain a year and winds mainly from the west, which keeps the vegetation low and shrubby.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "dry-westerly-wind-low-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon upwelling",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Summer monsoon winds draw nutrient-rich water to the surface of the Arabian Sea, making it one of the most productive seas on Earth.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "monsoon-upwelling",
+ "sk": "resource",
+ "src": "legacy"
+}

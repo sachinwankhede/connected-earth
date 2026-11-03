@@ -1,0 +1,13 @@
+{
+ "latin": "Pseudorca crassidens",
+ "name": "False killer whale",
+ "tl": 4,
+ "wiki": "False killer whale",
+ "desc": "A toothed whale that preys on large fish such as adult yellowfin tuna.",
+ "ic": "whale",
+ "badge": "Apex predator",
+ "about": "The false killer whale is a species of oceanic dolphin that is the only extant representative of the genus Pseudorca. It is found in oceans worldwide but mainly in tropical regions.",
+ "sid": "pseudorca-crassidens",
+ "sk": "taxon",
+ "src": "legacy"
+}

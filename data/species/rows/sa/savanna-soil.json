@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Savanna soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Shallow soils on the rocky cliffs and deeper soils on summits and escarpments support different woodland.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "savanna-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

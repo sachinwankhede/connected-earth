@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Winter snow cover decides when meadows green up and pushes animals such as chamois down to lower, forested slopes.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack",
+ "sk": "resource",
+ "src": "legacy"
+}

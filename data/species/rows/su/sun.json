@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sun",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Sunlight powers the marsh plants and grasses.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sun",
+ "sk": "resource",
+ "src": "legacy"
+}

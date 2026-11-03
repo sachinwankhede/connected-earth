@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sand dunes & soils",
+ "tl": 0,
+ "wiki": "Sand dune",
+ "desc": "Fixed and mobile dunes and sandy soils carry the pine, scrub and cork oak woodland beside the marsh.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sand-dunes-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

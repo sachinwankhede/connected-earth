@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seabed sediment",
+ "tl": 0,
+ "wiki": "Sediment",
+ "desc": "Sandy and muddy bottom where seagrass roots, burrowing animals and buried organic matter are found.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "seabed-sediment",
+ "sk": "resource",
+ "src": "legacy"
+}

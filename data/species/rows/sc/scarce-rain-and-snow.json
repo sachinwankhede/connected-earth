@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce rain and snow",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "The park is cold semi-arid, with about 413 mm of precipitation a year, so water is the main limit on plant growth.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-rain-and-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

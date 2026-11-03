@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold, snowy winters",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep cold and snow shape which plants survive and push animals such as ibex to lower slopes in winter.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "cold-snowy-winters",
+ "sk": "resource",
+ "src": "legacy"
+}

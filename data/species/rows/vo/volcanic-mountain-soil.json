@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Volcanic mountain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, young soils built on volcanic rock and glacial debris support the forests and meadows.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "volcanic-mountain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

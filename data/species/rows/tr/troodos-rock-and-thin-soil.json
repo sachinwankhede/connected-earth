@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Troodos rock and thin soil",
+ "tl": 0,
+ "wiki": "Troodos Ophiolite",
+ "desc": "The massif is an uplifted slab of ancient oceanic crust; the golden oak is restricted to its igneous rocks.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "troodos-rock-and-thin-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

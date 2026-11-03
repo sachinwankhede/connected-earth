@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Kuroshio warm current",
+ "tl": 0,
+ "wiki": "Kuroshio Current",
+ "desc": "A warm ocean current flows past the Ryukyu islands and keeps the sea around the island warm, supporting its plankton and marine life.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "kuroshio-warm-current",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Marsh mud & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Tidal sediment holds the nutrients that marsh plants draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "marsh-mud-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

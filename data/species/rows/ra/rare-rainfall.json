@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rare rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain is scarce and unpredictable across the Sahara. A shower can briefly turn dry wadis and sand green with grasses.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rare-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

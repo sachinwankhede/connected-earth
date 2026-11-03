@@ -1,0 +1,12 @@
+{
+ "latin": "Lagoon water",
+ "name": "Warm, clear lagoon water",
+ "tl": 0,
+ "wiki": "Sea surface temperature",
+ "desc": "Shallow, sheltered water inside the barrier reefs lets light reach seagrass beds and reef flats. Heat waves and silt are threats to such water.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lagoon-water",
+ "sk": "resource",
+ "src": "legacy"
+}

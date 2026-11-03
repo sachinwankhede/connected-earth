@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil and deadwood",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Forest soil and rotting wood store nutrients that trees and shrubs draw on once decomposers release them.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-and-deadwood",
+ "sk": "resource",
+ "src": "legacy"
+}

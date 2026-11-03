@@ -1,0 +1,12 @@
+{
+ "latin": "Freshwater algae",
+ "name": "River algae and plants",
+ "tl": 1,
+ "wiki": "Algae",
+ "desc": "Algae and water plants growing in the rivers and wetlands that cross the dry forest.",
+ "ic": "algae",
+ "about": "Algae are any of a large and diverse group of photosynthetic organisms. It excludes the land plants (embryophytes).",
+ "sid": "freshwater-algae",
+ "sk": "taxon",
+ "src": "legacy"
+}

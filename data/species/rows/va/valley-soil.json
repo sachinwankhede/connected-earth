@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Valley soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soil of the valley floor holds the mopane woodland and grassland; dung and dead matter return nutrients to it.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "valley-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

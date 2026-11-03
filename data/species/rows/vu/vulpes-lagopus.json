@@ -1,0 +1,12 @@
+{
+ "latin": "Vulpes lagopus",
+ "name": "Arctic fox",
+ "tl": 3,
+ "wiki": "Arctic fox",
+ "desc": "Hunts lemmings, raids nests and follows polar bears and wolves to scavenge.",
+ "ic": "fox",
+ "about": "The Arctic fox, also known as the white fox, polar fox, or snow fox, is a small species of fox native to the Arctic regions of the Northern Hemisphere and common throughout the Arctic tundra.",
+ "sid": "vulpes-lagopus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrient-poor sandy soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Fynbos grows on poor, acid sands from Table Mountain sandstone and similar rocks.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "nutrient-poor-sandy-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

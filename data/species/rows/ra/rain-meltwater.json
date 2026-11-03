@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & meltwater",
+ "tl": 0,
+ "wiki": "Krimml Waterfalls",
+ "desc": "Water from rain and melting snow feeds streams and waterfalls such as the Krimml Waterfalls and keeps the alpine meadows watered.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rain-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

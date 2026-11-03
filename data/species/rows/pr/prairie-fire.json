@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Prairie fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Fire is one of the environmental factors the park manages, including prescribed burns that clear old growth.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "prairie-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

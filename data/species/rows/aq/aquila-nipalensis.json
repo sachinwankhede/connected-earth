@@ -1,0 +1,12 @@
+{
+ "latin": "Aquila nipalensis",
+ "name": "Steppe eagle",
+ "tl": 3,
+ "wiki": "Steppe eagle",
+ "desc": "A large eagle of open country that hunts ground squirrels, marmots, voles and hares.",
+ "ic": "hawk",
+ "about": "The steppe eagle is a large bird of prey. Like all eagles, it belongs to the family Accipitridae.",
+ "sid": "aquila-nipalensis",
+ "sk": "taxon",
+ "src": "legacy"
+}

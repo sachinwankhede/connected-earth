@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Braided channels & sandbars",
+ "tl": 0,
+ "wiki": "Sandbar",
+ "desc": "The broad, shallow, braided river with shifting sandbars is the open roosting habitat cranes use at night.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "braided-channels-sandbars",
+ "sk": "resource",
+ "src": "legacy"
+}

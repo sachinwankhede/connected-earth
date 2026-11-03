@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River nutrients",
+ "tl": 0,
+ "wiki": "Nutrient pollution",
+ "desc": "Nitrogen and phosphorus carried by the Mississippi, mostly from farm runoff and sewage, fuel the summer blooms.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "river-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

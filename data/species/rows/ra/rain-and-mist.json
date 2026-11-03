@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and mist",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Frequent cloud and rain on the volcano slopes keep the montane forest, bamboo and vine zones growing.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

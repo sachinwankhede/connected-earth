@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin rocky soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Shallow soils on the canyon rim hold little water and nutrients, so decomposers recycling dead matter matter to the plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-rocky-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

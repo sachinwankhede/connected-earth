@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Valley soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Alluvial valley soils and forest litter supply nutrients to the plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "valley-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

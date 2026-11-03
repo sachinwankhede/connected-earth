@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rainy season",
+ "tl": 0,
+ "wiki": "Rainy season",
+ "desc": "Seasonal rain raises the river and floods low ground, and manatees move up rivers in the wet season.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rainy-season",
+ "sk": "resource",
+ "src": "legacy"
+}

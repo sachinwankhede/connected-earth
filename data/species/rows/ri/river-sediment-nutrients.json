@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River sediment & nutrients",
+ "tl": 0,
+ "wiki": "Sediment",
+ "desc": "The rivers drain much of Alabama and deliver silt and nutrients that build the delta soils.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-sediment-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

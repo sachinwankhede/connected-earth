@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Luangwa River floods",
+ "tl": 0,
+ "wiki": "Luangwa River",
+ "desc": "The meandering river floods the plains each wet season and leaves lagoons that keep fish, hippos and crocodiles through the dry season.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "luangwa-river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

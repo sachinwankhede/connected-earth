@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sparse stony soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sandy, well-drained, nutrient-poor ground that yareta prefers and the grasses must make do with.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sparse-stony-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

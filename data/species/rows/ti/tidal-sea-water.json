@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal sea water",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Twice-daily tides flood the coastal mangroves and bring in salt water and sediment.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-sea-water",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Termites, scarab beetles, fungi, bacteria",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Beetles, termites and microbes break down dung, dead plants and carcasses, returning nutrients to the sand.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "termites-scarab-beetles-fungi-bacteria",
+ "sk": "resource",
+ "src": "legacy"
+}

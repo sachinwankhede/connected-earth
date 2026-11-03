@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Saline limestone soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Alkaline, mineral-rich soils around the pan. Salty dust blown from the pan adds minerals to soils downwind.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "saline-limestone-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

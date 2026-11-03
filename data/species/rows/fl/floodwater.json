@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Floodwater",
+ "tl": 0,
+ "wiki": "Iberá Wetlands",
+ "desc": "Rain fills the wetland, which is rainfall-fed. Shallow water supports the aquatic plants that deer and capybara eat.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

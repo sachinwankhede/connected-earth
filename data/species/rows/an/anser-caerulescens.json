@@ -1,0 +1,12 @@
+{
+ "latin": "Anser caerulescens",
+ "name": "Snow goose",
+ "tl": 2,
+ "wiki": "Snow goose",
+ "desc": "Nests on the tundra in summer and grazes sedges.",
+ "ic": "meadowlark",
+ "about": "The snow goose is a species of goose native to North America. Both white and dark morphs exist, the latter often known as blue goose.",
+ "sid": "anser-caerulescens",
+ "sk": "taxon",
+ "src": "legacy"
+}

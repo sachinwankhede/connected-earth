@@ -1,0 +1,12 @@
+{
+ "latin": "Aptenodytes patagonicus",
+ "name": "King penguin",
+ "tl": 3,
+ "wiki": "King penguin",
+ "desc": "Breeds in large colonies at Kerguelen, about 240,000 to 280,000 pairs. Eats mostly lanternfish and squid.",
+ "ic": "hawk",
+ "about": "The king penguin is the second largest species of penguin, smaller than but somewhat similar in appearance to the emperor penguin. King penguins mainly eat lanternfish, squid, and krill.",
+ "sid": "aptenodytes-patagonicus",
+ "sk": "taxon",
+ "src": "legacy"
+}

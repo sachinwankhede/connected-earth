@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Meltwater and rivers",
+ "tl": 0,
+ "wiki": "Meltwater",
+ "desc": "Snow and glacier melt feeds the lakes, mires and the river delta that wets the valleys and lowlands of the site.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "meltwater-and-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon rain and mist",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Moist air from the Sichuan basin rises against the mountains, giving the wet climate that keeps the forest and bamboo lush.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-rain-and-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Summer sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Long summer days power a short, intense growing season on the tundra.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "summer-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

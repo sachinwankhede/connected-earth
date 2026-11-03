@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal salinity",
+ "tl": 0,
+ "wiki": "Salinity",
+ "desc": "Tides and the balance of fresh and salt water set which trees survive. Rising sea level and less river flow push salt further inland.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-salinity",
+ "sk": "resource",
+ "src": "legacy"
+}

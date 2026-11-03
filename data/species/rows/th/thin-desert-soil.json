@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Hot, dry conditions limit soil formation, so slopes stay stony and plants depend on what nutrients decomposers release.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

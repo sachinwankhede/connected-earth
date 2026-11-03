@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Summer sun",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Short alpine summers drive the growth of meadows and scrub above the tree line.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "summer-sun",
+ "sk": "resource",
+ "src": "legacy"
+}

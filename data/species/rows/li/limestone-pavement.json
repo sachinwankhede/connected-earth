@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone pavement",
+ "tl": 0,
+ "wiki": "Limestone pavement",
+ "desc": "Bare limestone covers much of the uplands; the cracks hold ferns and flowers and the thin soil suits low specialist plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-pavement",
+ "sk": "resource",
+ "src": "legacy"
+}

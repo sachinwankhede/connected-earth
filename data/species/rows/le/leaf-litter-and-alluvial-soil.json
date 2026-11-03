@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Leaf litter and alluvial soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Forest floor and river deposits where nutrients are recycled for trees and grasses.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "leaf-litter-and-alluvial-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

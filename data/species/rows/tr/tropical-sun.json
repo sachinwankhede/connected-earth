@@ -1,0 +1,12 @@
+{
+ "latin": "Tropical sun",
+ "name": "Sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Strong year-round sun powers the rainforest canopy and the algae and plankton of the reef.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "tropical-sun",
+ "sk": "resource",
+ "src": "legacy"
+}

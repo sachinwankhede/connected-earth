@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mesa soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, well-drained soils on the mesa tops hold the roots of the woodland and recycle nutrients from dead matter.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mesa-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

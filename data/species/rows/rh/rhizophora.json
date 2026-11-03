@@ -1,0 +1,13 @@
+{
+ "latin": "Rhizophora",
+ "name": "Mangroves",
+ "tl": 1,
+ "wiki": "Rhizophora",
+ "desc": "Aldabra has seven mangrove species lining the lagoon edge, forming a key part of the coastal ecosystem.",
+ "ic": "willow",
+ "badge": "Foundation species",
+ "about": "Rhizophora is a genus of tropical mangrove trees, sometimes collectively called true mangroves. The most notable species is the red mangrove but some other species and a few natural hybrids are known.",
+ "sid": "rhizophora",
+ "sk": "taxon",
+ "src": "legacy"
+}

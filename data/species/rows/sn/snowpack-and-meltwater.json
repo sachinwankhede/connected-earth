@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack and meltwater",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Winter snow insulates low shrubs and hares, and the spring melt waters the tundra.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-and-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

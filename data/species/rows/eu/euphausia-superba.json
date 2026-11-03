@@ -1,0 +1,13 @@
+{
+ "latin": "Euphausia superba",
+ "name": "Antarctic krill",
+ "tl": 2,
+ "wiki": "Antarctic krill",
+ "desc": "Swarming crustacean that filters phytoplankton and scrapes ice algae. Whales, seals, penguins, squid and fish all eat it.",
+ "ic": "hopper",
+ "badge": "Keystone grazer",
+ "about": "Antarctic krill is a species of krill found in the Antarctic waters of the Southern Ocean.",
+ "sid": "euphausia-superba",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake Superior",
+ "tl": 0,
+ "wiki": "Lake Superior",
+ "desc": "The cold lake surrounds the island and strongly shapes its lowland temperatures. Sheltered bays and inland lakes hold aquatic plants.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-superior",
+ "sk": "resource",
+ "src": "legacy"
+}

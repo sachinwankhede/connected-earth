@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, nutrient-poor mountain soils. Pitcher plants make up for scarce nitrogen by catching insects and animal droppings.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mountain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

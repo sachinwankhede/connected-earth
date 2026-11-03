@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Westerly rain and snow",
+ "tl": 0,
+ "wiki": "Rain shadow",
+ "desc": "The Andes catch Pacific moisture on the west side, leaving the steppe to the east dry. This sets the line between forest and grassland.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "westerly-rain-and-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

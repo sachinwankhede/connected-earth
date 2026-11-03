@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rio Grande & springs",
+ "tl": 0,
+ "wiki": "Rio Grande",
+ "desc": "The river and desert springs create a green riparian strip and isolated wet habitats across the dry landscape.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rio-grande-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrient-rich soil built from leaf litter and dead matter supports the forest plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

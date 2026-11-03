@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Retreating glaciers",
+ "tl": 0,
+ "wiki": "Glacier",
+ "desc": "Glaciers have been receding for decades, leaving bare ground where plants then colonise in stages.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "retreating-glaciers",
+ "sk": "resource",
+ "src": "legacy"
+}

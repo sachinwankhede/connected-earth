@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, easily eroded soils of the Colorado Plateau. Nitrogen and nutrients are scarce and the crust helps hold the soil in place.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

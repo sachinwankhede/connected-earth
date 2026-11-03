@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Atlantic rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet Atlantic weather feeds the plants of the thin soils and the Burren's seasonal lakes.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "atlantic-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

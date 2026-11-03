@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wildland fire",
+ "tl": 0,
+ "wiki": "Prescribed burn",
+ "desc": "Shortleaf pine responds well to fire, which reduces competing trees and prepares soil for seedlings. Fire management is part of the park's work.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "wildland-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

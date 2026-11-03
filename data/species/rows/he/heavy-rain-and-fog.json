@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Heavy rain and fog",
+ "tl": 0,
+ "wiki": "Rain forest",
+ "desc": "Winter rain and summer fog drip keep the forest constantly wet; the Hoh and Quinault valleys are among the rainiest places in the continental US.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "heavy-rain-and-fog",
+ "sk": "resource",
+ "src": "legacy"
+}

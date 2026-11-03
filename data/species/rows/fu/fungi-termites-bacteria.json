@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fungi, termites & bacteria",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down fallen leaves, wood and dead animals and return nutrients to the thin soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-termites-bacteria",
+ "sk": "resource",
+ "src": "legacy"
+}

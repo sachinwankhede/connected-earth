@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fungi and soil microbes",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants, carcasses and spawned-out salmon and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-and-soil-microbes",
+ "sk": "resource",
+ "src": "legacy"
+}

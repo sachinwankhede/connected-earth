@@ -1,0 +1,12 @@
+{
+ "latin": "Nitrogen and phosphorus",
+ "name": "Nutrient runoff",
+ "tl": 0,
+ "wiki": "Nutrient pollution",
+ "desc": "Nitrogen and phosphorus from farms, towns, sewage and air pollution wash into the bay and fuel algal blooms.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "nitrogen-and-phosphorus",
+ "sk": "resource",
+ "src": "legacy"
+}

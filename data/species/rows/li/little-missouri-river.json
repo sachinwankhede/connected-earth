@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Little Missouri River",
+ "tl": 0,
+ "wiki": "Little Missouri River",
+ "desc": "The river that carved the badlands and runs through all three units of the park.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "little-missouri-river",
+ "sk": "resource",
+ "src": "legacy"
+}

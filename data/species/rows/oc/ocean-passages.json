@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Ocean passages",
+ "tl": 0,
+ "wiki": "Lagoons of New Caledonia",
+ "desc": "Natural gaps in the barrier reef, such as the Boulari passage, let ocean water flow into and out of the lagoon.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "ocean-passages",
+ "sk": "resource",
+ "src": "legacy"
+}

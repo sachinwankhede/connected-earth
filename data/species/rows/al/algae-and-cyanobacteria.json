@@ -1,0 +1,12 @@
+{
+ "latin": "Algae and cyanobacteria",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Drifting algae in the shallow lagoon. Nutrient-rich water has led to confirmed algal blooms there.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "algae-and-cyanobacteria",
+ "sk": "group",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Kalahari sand and soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sandy soils recycle dung and dead plants into nutrients for grasses and trees.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "kalahari-sand-and-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

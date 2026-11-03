@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and cloud mist",
+ "tl": 0,
+ "wiki": "Cloud forest",
+ "desc": "Heavy rainfall and cloud on the Andean slope feed the park's forests and bromeliads.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-cloud-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

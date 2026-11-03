@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold Gulf of Maine water",
+ "tl": 0,
+ "wiki": "Gulf of Maine",
+ "desc": "Cold, nutrient-bearing water along the coast feeds plankton and seaweed.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-gulf-of-maine-water",
+ "sk": "resource",
+ "src": "legacy"
+}

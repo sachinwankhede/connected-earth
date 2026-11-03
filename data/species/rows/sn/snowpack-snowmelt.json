@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack & snowmelt",
+ "tl": 0,
+ "wiki": "Snowpack",
+ "desc": "Winter snow feeds meadows and streams through the dry summer. The park page says warming brings earlier melt, drier summers and a longer fire season.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

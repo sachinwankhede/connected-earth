@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Volcanic soils",
+ "tl": 0,
+ "wiki": "Volcanic soil",
+ "desc": "Pumice and ash soils are nutrient-poor, but red tussock tolerates them across the volcanic plateau.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "volcanic-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Diama Dam",
+ "tl": 0,
+ "wiki": "Diama Dam",
+ "desc": "Operating since 1988, the downstream dam changed the water balance and salinity, and invasive reeds and floating plants spread afterwards.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "diama-dam",
+ "sk": "resource",
+ "src": "legacy"
+}

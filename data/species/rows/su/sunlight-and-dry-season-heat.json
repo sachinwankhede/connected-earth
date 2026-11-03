@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sunlight and dry-season heat",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Strong sun and heat, up to about 40 C in the May to October dry season, drive the savanna growth and its seasonal browning.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sunlight-and-dry-season-heat",
+ "sk": "resource",
+ "src": "legacy"
+}

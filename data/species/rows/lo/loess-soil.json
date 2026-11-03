@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Loess soil",
+ "tl": 0,
+ "wiki": "Loess",
+ "desc": "Deep wind-blown silt, over 90 feet thick in places, forms the steep ridges and holds the roots of prairie plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "loess-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

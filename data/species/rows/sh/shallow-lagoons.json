@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Shallow lagoons",
+ "tl": 0,
+ "wiki": "Ojo de Liebre Lagoon",
+ "desc": "Warm, sheltered lagoons where eelgrass grows. They are the calving grounds for gray whales each winter.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "shallow-lagoons",
+ "sk": "resource",
+ "src": "legacy"
+}

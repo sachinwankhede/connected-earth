@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil & peat",
+ "tl": 0,
+ "wiki": "Peat swamp forest",
+ "desc": "Soils and peat swamps store nutrients and carbon. Wikipedia notes the park peat swamp forests hold carbon at high density.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-peat",
+ "sk": "resource",
+ "src": "legacy"
+}

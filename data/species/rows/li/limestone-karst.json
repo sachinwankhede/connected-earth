@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone karst",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "The drowned limestone towers and islets that give the bay its shape. Thin soils and caves shelter plants and animals.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-karst",
+ "sk": "resource",
+ "src": "legacy"
+}

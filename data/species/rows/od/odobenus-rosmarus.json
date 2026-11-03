@@ -1,0 +1,12 @@
+{
+ "latin": "Odobenus rosmarus",
+ "name": "Walrus",
+ "tl": 3,
+ "wiki": "Walrus",
+ "desc": "Digs clams out of the seabed with its whiskers.",
+ "ic": "seal",
+ "about": "The walrus is a large pinniped marine mammal with discontinuous distribution about the North Pole in the Arctic Ocean and subarctic seas of the Northern Hemisphere.",
+ "sid": "odobenus-rosmarus",
+ "sk": "taxon",
+ "src": "legacy"
+}

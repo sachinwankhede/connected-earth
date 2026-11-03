@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrient-poor sandstone soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Acidic soils from sandstone are low in nutrients, which shapes the stunted shrubs and the carnivorous plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "nutrient-poor-sandstone-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

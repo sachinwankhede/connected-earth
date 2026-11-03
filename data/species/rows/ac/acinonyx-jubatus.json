@@ -1,0 +1,12 @@
+{
+ "latin": "Acinonyx jubatus",
+ "name": "Cheetah",
+ "tl": 3,
+ "wiki": "Cheetah",
+ "desc": "Sprints after gazelles on open plains, often losing kills to larger predators.",
+ "ic": "lion",
+ "about": "The cheetah is a species of large feline and the only living member of the genus Acinonyx.",
+ "sid": "acinonyx-jubatus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain, fog and snow",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "Moisture from the Gulf of St. Lawrence and a snowy winter shape the plants that grow here, from forest to coastal bog.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-fog-and-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin limestone soil",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "Shallow soil over limestone; litter decay by microbes recycles nutrients to the forest.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-limestone-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

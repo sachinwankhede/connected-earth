@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Glaciers and snowmelt",
+ "tl": 0,
+ "wiki": "Glacier",
+ "desc": "About a dozen small glaciers and alpine tarns feed streams but are shrinking fast and may vanish within decades.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "glaciers-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

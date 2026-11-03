@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal grazing (transhumance)",
+ "tl": 0,
+ "wiki": "Transhumance",
+ "desc": "Flocks and herds are driven to high summer pastures each year, a long-running practice that helps keep the uplands open.",
+ "ic": "quad",
+ "cat": "abiotic",
+ "sid": "seasonal-grazing-transhumance",
+ "sk": "resource",
+ "src": "legacy"
+}

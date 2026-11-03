@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter ice",
+ "tl": 0,
+ "wiki": "Lake Baikal",
+ "desc": "The lake is frozen for about four to five months, and the clear ice lets light in for under-ice algae. Seals dig dens in it.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-ice",
+ "sk": "resource",
+ "src": "legacy"
+}

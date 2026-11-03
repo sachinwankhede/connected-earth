@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Zambezi floodwater",
+ "tl": 0,
+ "wiki": "Zambezi",
+ "desc": "After the rains the floodplain becomes a set of lakes and pools. As they shrink, big animals gather near the water that is left.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "zambezi-floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

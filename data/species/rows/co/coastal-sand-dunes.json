@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Coastal sand dunes",
+ "tl": 0,
+ "wiki": "Dune",
+ "desc": "A sandy barrier separates the lagoon from the sea; salt-tolerant plants and later pines settle and stabilise it.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "coastal-sand-dunes",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter & monsoon rain",
+ "tl": 0,
+ "wiki": "North American monsoon",
+ "desc": "Two rainy seasons, winter rain and the summer monsoon, give this desert unusually rich plant life.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "winter-monsoon-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

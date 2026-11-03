@@ -1,0 +1,12 @@
+{
+ "latin": "Buteo oreophilus",
+ "name": "Mountain buzzard",
+ "tl": 3,
+ "wiki": "Mountain buzzard",
+ "desc": "A raptor of montane forest, listed for Kibira; it hunts small mammals, reptiles and insects from perches.",
+ "ic": "hawk",
+ "about": "The mountain buzzard is a bird of prey that lives in montane forests in East Africa, it and the forest buzzard of southern Africa were, until recently, considered to be a single species.",
+ "sid": "buteo-oreophilus",
+ "sk": "taxon",
+ "src": "legacy"
+}

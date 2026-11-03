@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone soil and nutrients",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "Thin soils over Dinaric limestone hold the nutrients that alpine meadows, bogs and forests draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-soil-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

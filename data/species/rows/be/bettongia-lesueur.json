@@ -1,0 +1,13 @@
+{
+ "latin": "Bettongia lesueur",
+ "name": "Boodie",
+ "tl": 2,
+ "wiki": "Boodie",
+ "desc": "Burrowing bettong that eats seeds, roots, fungi, grasses and more. Its digging turns over soil and spreads seeds and fungi.",
+ "ic": "quad",
+ "badge": "Ecosystem engineer",
+ "about": "The boodie, also known as the burrowing bettong or Lesueur's rat-kangaroo, is a small, furry, rat-like mammal native to Australia.",
+ "sid": "bettongia-lesueur",
+ "sk": "taxon",
+ "src": "legacy"
+}

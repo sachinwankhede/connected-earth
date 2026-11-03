@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cloud and rain",
+ "tl": 0,
+ "wiki": "Cloud forest",
+ "desc": "Moist air rising over the high peaks feeds the humid broadleaf cloud forest and the streams that drain the massif.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "cloud-and-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

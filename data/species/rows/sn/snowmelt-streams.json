@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowmelt & streams",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Winter snowpack melts into the rivers and soils that carry algae, willows and meadow grasses through the dry summer.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "snowmelt-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

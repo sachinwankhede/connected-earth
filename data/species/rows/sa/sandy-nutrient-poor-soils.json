@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy, nutrient-poor soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Some forest here grows on pure white sand, where nutrients are scarce and recycled quickly from fallen leaves and wood.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-nutrient-poor-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

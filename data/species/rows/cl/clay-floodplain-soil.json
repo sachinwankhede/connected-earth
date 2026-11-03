@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Clay floodplain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Heavy, poorly draining clays hold floodwater and trap sediment and nutrients that feed the swamp plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "clay-floodplain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

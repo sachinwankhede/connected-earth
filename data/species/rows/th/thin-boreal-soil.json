@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin boreal soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soils on the island are thin, so shallow-rooted trees dominate and nutrients cycle quickly through leaf litter.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-boreal-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

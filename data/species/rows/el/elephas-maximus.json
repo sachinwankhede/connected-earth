@@ -1,0 +1,13 @@
+{
+ "latin": "Elephas maximus",
+ "name": "Asian elephant",
+ "tl": 2,
+ "wiki": "Asian elephant",
+ "desc": "A huge grazer and browser of grass, leaves and bark that moves through forest and grassland.",
+ "ic": "elephant",
+ "badge": "Ecosystem engineer",
+ "about": "The Asian elephant, also known as the Asiatic elephant, is the only living species in the genus Elephas.",
+ "sid": "elephas-maximus",
+ "sk": "taxon",
+ "src": "legacy"
+}

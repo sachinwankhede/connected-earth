@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Marisma flooding",
+ "tl": 0,
+ "wiki": "Marsh",
+ "desc": "Seasonal flooding of the Guadalquivir delta marshes makes the shallow lagoons that waterbirds and wintering waterfowl depend on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "marisma-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

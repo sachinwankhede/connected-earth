@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Weathered volcanic rock and rotting leaf litter feed the forest trees.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-nutrients-2",
+ "sk": "resource",
+ "src": "legacy"
+}

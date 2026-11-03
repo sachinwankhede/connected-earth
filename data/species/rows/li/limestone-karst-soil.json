@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone karst soil",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "Thin soils sit over limestone hills 200 to 300 m high, separated by sinkholes and riddled with caves.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-karst-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

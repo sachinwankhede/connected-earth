@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Hot, salty shallow water",
+ "tl": 0,
+ "wiki": "Persian Gulf",
+ "desc": "The Gulf is shallow and very saline. Its seagrasses tolerate a wide range of salinity, which helps them hold the shallows.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "hot-salty-shallow-water",
+ "sk": "resource",
+ "src": "legacy"
+}

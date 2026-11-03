@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "South Nahanni River and meltwater",
+ "tl": 0,
+ "wiki": "South Nahanni River",
+ "desc": "The river and its tributaries run the length of the reserve and water the willow thickets, sedge meadows and river flats.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "south-nahanni-river-and-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

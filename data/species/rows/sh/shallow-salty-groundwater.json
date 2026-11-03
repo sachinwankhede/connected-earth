@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Shallow salty groundwater",
+ "tl": 0,
+ "wiki": "Groundwater",
+ "desc": "Groundwater lies only a few feet under the dunes, deeper to the east and shallower to the west, and it is very salty.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "shallow-salty-groundwater",
+ "sk": "resource",
+ "src": "legacy"
+}

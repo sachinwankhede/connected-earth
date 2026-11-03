@@ -1,0 +1,12 @@
+{
+ "latin": "Megascolecidae",
+ "name": "Earthworms",
+ "tl": 2,
+ "wiki": "Earthworm",
+ "desc": "Soil animals that eat leaf litter and mix it into the soil. They are the food of the long-beaked echidna.",
+ "ic": "hopper",
+ "about": "An earthworm is a soil-dwelling terrestrial invertebrate that belongs to the phylum Annelida.",
+ "sid": "megascolecidae",
+ "sk": "taxon",
+ "src": "legacy"
+}

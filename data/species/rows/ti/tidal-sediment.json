@@ -1,0 +1,12 @@
+{
+ "latin": "Tidal sediment",
+ "name": "Marsh mud and nutrients",
+ "tl": 0,
+ "wiki": "Salt marsh",
+ "desc": "Muddy marsh soil holds the nutrients that cordgrass takes up.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "tidal-sediment",
+ "sk": "resource",
+ "src": "legacy"
+}

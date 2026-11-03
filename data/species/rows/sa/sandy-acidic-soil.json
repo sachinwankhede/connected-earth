@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy acidic soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sandy, acid, nutrient-poor soil is why the region is called the Barrens.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-acidic-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

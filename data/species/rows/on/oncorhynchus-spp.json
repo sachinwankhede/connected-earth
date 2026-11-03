@@ -1,0 +1,13 @@
+{
+ "latin": "Oncorhynchus spp.",
+ "name": "Pacific salmon",
+ "tl": 3,
+ "wiki": "Pacific salmon",
+ "desc": "Grow at sea, then swim up rivers to spawn and die, bringing ocean nutrients into the forest.",
+ "ic": "trout",
+ "badge": "Keystone species",
+ "about": "Oncorhynchus is a genus of ray-finned fish in the subfamily Salmoninae of the family Salmonidae, native to coldwater tributaries of the North Pacific basin.",
+ "sid": "oncorhynchus-spp",
+ "sk": "group",
+ "src": "legacy"
+}

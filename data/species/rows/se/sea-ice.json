@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sea ice",
+ "tl": 0,
+ "wiki": "Sea ice",
+ "desc": "A platform for algae, seals and bears. It shrinks every year as the Arctic warms.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "sea-ice",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Manas River floods",
+ "tl": 0,
+ "wiki": "Manas River",
+ "desc": "The Manas River and its tributaries spread silt across the plains and keep the early-growth riverside grassland renewed.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "manas-river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

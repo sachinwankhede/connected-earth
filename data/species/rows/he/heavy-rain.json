@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Heavy rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet tropical climate across the park, from the Arafura coast to the summits.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "heavy-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Clethrionomys glareolus",
+ "name": "Bank vole",
+ "tl": 2,
+ "wiki": "Bank vole",
+ "desc": "A small rodent of woodland floors eating seeds, berries and green plants; prey of wildcats and adders.",
+ "ic": "vole",
+ "about": "The bank vole is a small vole with red-brown fur and some grey patches, with a tail about half as long as its body.",
+ "sid": "clethrionomys-glareolus",
+ "sk": "taxon",
+ "src": "legacy"
+}

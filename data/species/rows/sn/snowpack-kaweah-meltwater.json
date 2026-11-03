@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack & Kaweah meltwater",
+ "tl": 0,
+ "wiki": "Snowpack",
+ "desc": "Most precipitation falls in winter, as heavy snow at Lodgepole elevation. Meltwater feeds the Kaweah River drainage and the forests and woodlands it crosses.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-kaweah-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

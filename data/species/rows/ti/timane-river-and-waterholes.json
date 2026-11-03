@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Timane River and waterholes",
+ "tl": 0,
+ "wiki": "Gran Chaco",
+ "desc": "The Timane River runs through old channels toward Cerro Leon and feeds an inland basin; seasonal pools matter for wildlife in a dry land.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "timane-river-and-waterholes",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold soils and nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Permafrost and cold slow decay, so nutrients recycle slowly. Salmon carcasses add marine nitrogen along streams.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "cold-soils-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

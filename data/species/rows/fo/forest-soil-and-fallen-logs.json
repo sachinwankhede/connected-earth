@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil and fallen logs",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Fallen redwoods hold moisture and slowly return nutrients to the soil, and act as nursery sites for seedlings and homes for salamanders.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-and-fallen-logs",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mist & seasonal rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The scarp catches moisture rising from the Gulf of Aden coast, and the two main rains (April to June and October to November) support the forest.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "mist-seasonal-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

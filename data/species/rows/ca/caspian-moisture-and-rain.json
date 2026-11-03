@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Caspian moisture and rain",
+ "tl": 0,
+ "wiki": "Orographic lift",
+ "desc": "The Alborz range catches moist air from the Caspian Sea, giving the northern slopes far more rain than the dry country to the south.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "caspian-moisture-and-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

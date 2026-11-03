@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Canyon springs",
+ "tl": 0,
+ "wiki": "Spring (hydrology)",
+ "desc": "The range is mostly limestone with little surface water, so seeps, springs and McKittrick Creek sustain the canyon trees.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "canyon-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

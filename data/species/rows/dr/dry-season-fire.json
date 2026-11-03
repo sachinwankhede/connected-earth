@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Dry-season fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Savanna vegetation here is adapted to periodic fire, which helps keep trees from taking over open grassland.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "dry-season-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

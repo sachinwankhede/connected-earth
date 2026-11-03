@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack and snowmelt",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "Winter snow on the high slopes melts into streams and glacial lakes, watering the pastures below.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

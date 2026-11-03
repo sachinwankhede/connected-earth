@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sand dunes & soil",
+ "tl": 0,
+ "wiki": "Sand dune",
+ "desc": "Dunes rise to nearly 200 feet inland from the beach, and the NPS says all stages of plant succession can be seen on the youngest ones.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sand-dunes-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

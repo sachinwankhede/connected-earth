@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wet coastal ground",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Tussac forms dense stands on wet ground close to the shore, and dead plant matter and seabird waste are recycled there.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "wet-coastal-ground",
+ "sk": "resource",
+ "src": "legacy"
+}

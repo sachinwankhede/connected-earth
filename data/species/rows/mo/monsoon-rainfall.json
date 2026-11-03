@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon rainfall",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Heavy seasonal rain keeps the lowland forest wet year round and feeds the rivers that cross the reserve.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

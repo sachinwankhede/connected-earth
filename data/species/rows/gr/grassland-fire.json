@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Grassland fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Periodic burning has kept tall grassland open, though Wikipedia notes it can also threaten pygmy hogs sheltering in it.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "grassland-fire",
+ "sk": "resource",
+ "src": "legacy"
+}
