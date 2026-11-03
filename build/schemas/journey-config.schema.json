@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Journey settings: data/journeys/config.json (#277)",
+  "type": "object",
+  "required": ["couple", "src"],
+  "additionalProperties": false,
+  "properties": {"couple": {"type": "number"}, "src": {"type": "object"}}
+}

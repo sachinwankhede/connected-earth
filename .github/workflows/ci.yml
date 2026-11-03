@@ -49,6 +49,8 @@ jobs:
         run: |
           python3 build/validate.py $(ls data/places/*.json) | tee validate.log
           ! grep -q "ERROR" validate.log
+      - name: Install the schema checker (used by the data format check)
+        run: python3 -m pip install --break-system-packages jsonschema==4.26.0
       - name: Data format (species table, journeys, outlines, hosted pictures)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 build/validate_data.py
@@ -98,6 +100,8 @@ jobs:
         run: |
           python3 build/validate.py $(ls data/places/*.json) | tee validate.log
           ! grep -q "ERROR" validate.log
+      - name: Install the schema checker (used by the data format check)
+        run: python3 -m pip install --break-system-packages jsonschema==4.26.0
       - name: Data format (species table, journeys, outlines, hosted pictures)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 build/validate_data.py
