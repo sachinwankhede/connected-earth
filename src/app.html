@@ -41,7 +41,8 @@
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/";
   var get = function (n) { return fetch(b + n + "__PLACES_SFX__.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
-  window.__PLACES = window.fetch ? Promise.all([get("index"), get("cards")]) : Promise.reject(0);
+  /* every place in the index must have its card, or the page would show places without a name or text: treat that as "the places did not load" */
+  window.__PLACES = window.fetch ? Promise.all([get("index"), get("cards")]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }) : Promise.reject(0);
 })();
 </script>
 <style>

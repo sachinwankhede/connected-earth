@@ -48,3 +48,21 @@ test('if the places files do not arrive the start screen says so, with a link to
     await ctx.close();
   }
 });
+
+test('if a place has no card the start screen says the places did not load, instead of showing a place without text', async () => {
+  const browser = await H.launch();
+  const ctx = await browser.newContext({ serviceWorkers: 'block' });
+  const page = await ctx.newPage();
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(String(e)));
+  try {
+    await block(ctx);
+    await ctx.route(/api\/places\/cards\.json/, (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
+    await page.goto(await H.urlFor(H.MAIN));
+    await page.waitForFunction(() => /did not load/.test(document.getElementById('boot')?.textContent || ''), null, { timeout: 15000 });
+    assert.equal(await page.locator('#boot a').count(), 1);
+    assert.deepEqual(errors, []);
+  } finally {
+    await ctx.close();
+  }
+});
