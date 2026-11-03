@@ -6,7 +6,7 @@ LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species/
 WEB_MAX = 250_000      # one place's web file
 ABOUT_MAX = 1_200_000   # api/species/: all the species description files together (each is fetched alone, when its sheet opens)
 ABOUT_ONE_MAX = 4_000   # one species description file
-WEBS_TOTAL = 27_000_000       # fetched one at a time, so only the deploy size grows (raised from 25 MB when related places and ties moved into the place files, #252)
+WEBS_TOTAL = 25_000_000       # fetched one at a time, so only the deploy size grows
 OUTLINE_MAX = 400_000   # one park's outline file (fetched when the park opens)
 OUTLINES_TOTAL = 20_000_000
 bad = 0
@@ -36,6 +36,13 @@ SPECIES_PLACES_TOTAL_MAX = 1_500_000  # one folder, all files (only the deploy s
 for d in ('species-places', 'species-places-pilot'):
     fs = [size('api/%s/%s' % (d, f)) for f in os.listdir(os.path.join(ROOT, 'api', d))]
     for label, n, lim in (('api/%s/ total' % d, sum(fs), SPECIES_PLACES_TOTAL_MAX), ('api/%s/ largest' % d, max(fs), SPECIES_PLACES_ONE_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+TIES_ONE_MAX = 250_000        # api/ties[-pilot]/<region>.json: the ties of every place of a region, fetched on the first tap in that region (the world file is the largest; #252)
+TIES_TOTAL_MAX = 1_000_000    # one folder, all files (only the deploy size grows)
+for d in ('ties', 'ties-pilot'):
+    fs = [size('api/%s/%s' % (d, f)) for f in os.listdir(os.path.join(ROOT, 'api', d))]
+    for label, n, lim in (('api/%s/ total' % d, sum(fs), TIES_TOTAL_MAX), ('api/%s/ largest' % d, max(fs), TIES_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 PLACES_REGION_ONE_MAX = 300_000   # one file in api/places/main|pilot/ (cards-local.json, all local places together, is the largest; item #313)
