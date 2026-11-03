@@ -53,7 +53,7 @@ def main():
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):
         copy_file(font, font.relative_to(ROOT).as_posix(), expected)
 
-    for directory in ('api', 'api/species', 'data/outlines'):
+    for directory in ('api', 'api/species', 'api/places', 'data/outlines'):
         source_dir = ROOT / directory
         files = sorted(source_dir.glob('*.json'))
         if not files:
@@ -89,6 +89,9 @@ def main():
     missing_webs = sorted(web_id for web_id in web_ids if 'api/' + web_id + '.json' not in expected)
     if missing_webs:
         raise SystemExit('missing generated web JSON: ' + ', '.join(missing_webs[:10]))
+    for name in ('index', 'cards', 'index-pilot', 'cards-pilot'):   # the app cannot start without its places files (#228)
+        if 'api/places/' + name + '.json' not in expected:
+            raise SystemExit('missing places file: api/places/' + name + '.json')
     if not any(name.startswith('api/species/') for name in expected):
         raise SystemExit('missing generated species descriptions: api/species/')
 
