@@ -52,13 +52,13 @@ def cross_ends(links):
     return out
 
 
-# Text that only shows once a place is open (sources, notes, the web's opening tip): kept in webs/<id>.json, not in the page.
-HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out of the page: they go to webs/<id>.json and load when the place opens
+# Text that only shows once a place is open (sources, notes, the web's opening tip): kept in api/<id>.json, not in the page.
+HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out of the page: they go to api/<id>.json and load when the place opens
 UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the app (stage only tells the build which places are pilot-only)
 
 
 def split(ecos, links, phs=None, phm=None):
-    """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for webs/<id>.json.
+    """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for api/<id>.json.
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
     import collections
@@ -73,7 +73,7 @@ def split(ecos, links, phs=None, phm=None):
         s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only: they go with the species lists, not in the page
-        sidx[e['id']] = s   # the species lists are not in the page: they go to webs/species-index.json, loaded after the map has drawn
+        sidx[e['id']] = s   # the species lists are not in the page: they go to api/species-index.json, loaded after the map has drawn
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             keys = {k for n in nodes for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
@@ -84,7 +84,8 @@ def split(ecos, links, phs=None, phm=None):
 
 
 def write_webs(webs, about, species_index=None, pictures=None):
-    d = P('webs'); os.makedirs(d, exist_ok=True)
+    d = P('api'); os.makedirs(d, exist_ok=True)
+    if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
     for f in os.listdir(d):
         if f.endswith('.json') and f[:-5] not in webs and f not in ('species-index.json', 'species-pictures.json'): os.remove(os.path.join(d, f))
     if species_index is not None:
@@ -94,7 +95,7 @@ def write_webs(webs, about, species_index=None, pictures=None):
         open(os.path.join(d, 'species-pictures.json'), 'w').write(json.dumps(pictures, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
-    # one small file per species with a description, named by the species id (the app asks for webs/species/<id>.json when its sheet opens)
+    # one small file per species with a description, named by the species id (the app asks for api/species/<id>.json when its sheet opens)
     sd = os.path.join(d, 'species'); os.makedirs(sd, exist_ok=True); keep = set()
     for sid, text in about.items():
         open(os.path.join(sd, sid + '.json'), 'w').write(json.dumps({'t': text}, separators=(',', ':'), ensure_ascii=False)); keep.add(sid + '.json')

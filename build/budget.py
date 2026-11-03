@@ -4,7 +4,7 @@ import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species/species.json': 4_000_000}
 WEB_MAX = 250_000      # one place's web file
-ABOUT_MAX = 1_200_000   # webs/species/: all the species description files together (each is fetched alone, when its sheet opens)
+ABOUT_MAX = 1_200_000   # api/species/: all the species description files together (each is fetched alone, when its sheet opens)
 ABOUT_ONE_MAX = 4_000   # one species description file
 WEBS_TOTAL = 25_000_000       # fetched one at a time, so only the deploy size grows
 OUTLINE_MAX = 400_000   # one park's outline file (fetched when the park opens)
@@ -14,13 +14,13 @@ def size(p): return os.path.getsize(os.path.join(ROOT, p))
 for p, lim in LIMITS.items():
     n = size(p); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (p, n, lim, 'ok' if ok else 'OVER'))
-SPECIES_INDEX_MAX = 600_000   # webs/species-index.json: the species table and every place's species list, fetched once after the map has drawn
-ws = [(f, size('webs/' + f)) for f in os.listdir(os.path.join(ROOT, 'webs')) if f != 'species-index.json' and os.path.isfile(os.path.join(ROOT, 'webs', f))]
+SPECIES_INDEX_MAX = 600_000   # api/species-index.json: the species table and every place's species list, fetched once after the map has drawn
+ws = [(f, size('api/' + f)) for f in os.listdir(os.path.join(ROOT, 'api')) if f != 'species-index.json' and os.path.isfile(os.path.join(ROOT, 'api', f))]
 tot = sum(n for _, n in ws); big = max(ws, key=lambda x: x[1])
 os_ = [(f, size('data/outlines/' + f)) for f in os.listdir(os.path.join(ROOT, 'data', 'outlines'))]
 obig = max(os_, key=lambda x: x[1]); otot = sum(n for _, n in os_)
-ab = [size('webs/species/' + f) for f in os.listdir(os.path.join(ROOT, 'webs', 'species'))]
-for label, n, lim in (('species descriptions (webs/species/, total)', sum(ab), ABOUT_MAX), ('largest species description file', max(ab), ABOUT_ONE_MAX), ('species index (webs/species-index.json)', size('webs/species-index.json'), SPECIES_INDEX_MAX),('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
+ab = [size('api/species/' + f) for f in os.listdir(os.path.join(ROOT, 'api', 'species'))]
+for label, n, lim in (('species descriptions (api/species/, total)', sum(ab), ABOUT_MAX), ('largest species description file', max(ab), ABOUT_ONE_MAX), ('species index (api/species-index.json)', size('api/species-index.json'), SPECIES_INDEX_MAX),('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
     ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.exit(1 if bad else 0)

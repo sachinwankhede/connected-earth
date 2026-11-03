@@ -21,9 +21,9 @@ export async function mockPhotos(page) {
   const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
   const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
   await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(places) }));
-  await page.route(/\/webs\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: species, phm: {} }) }));
+  await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: species, phm: {} }) }));
   // a place carries its own species picture entries now: give each place file the mocked entries for its species
-  await page.route(/\/webs\/[\w-]+\.json(?:\?|$)/, async (r) => {
+  await page.route(/\/api\/[\w-]+\.json(?:\?|$)/, async (r) => {
     if (/(species-index|species-pictures)\.json/.test(r.request().url())) return r.fallback();
     const res = await r.fetch(), w = await res.json();
     w.ph = {}; w.phm = {};

@@ -5,7 +5,7 @@ Why: the page is one file with all places, outlines and the diagram library insi
 ## Rules
 1. **The page holds code only** (app, styles, start screen). No places data, outlines or diagram library in it.
 2. **First-screen places file:** per place only id, name, position, kind and region (about 40 to 60 bytes). Split by continent so a phone fetches only what it shows.
-3. **Detail on demand:** card text, pictures, story and food web load when a card is near the screen or a place opens (food webs already do: `webs/`).
+3. **Detail on demand:** card text, pictures, story and food web load when a card is near the screen or a place opens (food webs already do: `api/`).
 4. **Outlines:** the country outlines (145 KB raw) draw the home map, so they stay up front. The US state outlines (125 KB raw) are only needed once you go into the US, so they get their own file loaded then.
 5. **Search has its own file,** fetched in the quiet time after the first screen. Search shows "getting ready" until it arrives (owner agreed).
 6. **Offline:** not a promise for all places. The shell (page, icons) and the places you opened are kept by the service worker. Do not add a background download of everything (owner decision).
@@ -34,6 +34,8 @@ Rules:
 Principle: everything the app shows comes from data we host. The app reads it through **one data-access module**, never by fetching files from scattered places in the code. The only external reads left are the base map (vector tiles, satellite imagery, elevation) and the links to Wikipedia pages that people open themselves. No runtime lookups of text or pictures from Wikipedia or Wikimedia.
 
 The site is static, so each "API" is a file with a fixed shape. If a server is ever needed, only the module changes.
+
+**Folder today (#305, 2026-11-03):** the build's published data folder is `api/` (it was `webs/`; the build deletes a stale `webs/`). For now the files keep their old names inside it: `api/<id>.json` (one place), `api/species-index.json`, `api/species-pictures.json`, `api/species/<id>.json`. The per-place files move to `api/places/` together with the manifest (#241); the table below is the target layout.
 
 | Call | Static file | Notes |
 |---|---|---|
@@ -74,4 +76,4 @@ The app reads everything it shows from data we host. The only accepted outside r
 Tests live in `tests/app/` (browser and app code), `tests/data/` (data files, no browser), `tests/jobs/` (job scripts and the CI rules) and `tests/perf/` (speed harness). `build/ci_changes.py` decides what a change needs: app changes run everything; data changes run validation, the pack check, build, size budgets, data tests and one smoke test; job changes run only the job self-tests; docs, notes, data-job workflows and job state files run nothing. The `gate` job always runs and is the one check to require.
 
 ## Species descriptions: one small file each (added 2026-11-02, item #276 step 1)
-The build writes `webs/species/<id>.json` ({"t": text}) for every species that has a description, and the app asks for that one file when a species sheet opens. The id is the species id (`sid`); the app derives it from the Latin name with the same rule as `build/species.py` (`slug`), and the build refuses a description whose id is not that slug. The bulk `webs/about.json` is gone. The source table `data/species/species.json` is unchanged; moving the source itself to one file per species is step 2.
+The build writes `api/species/<id>.json` ({"t": text}) for every species that has a description, and the app asks for that one file when a species sheet opens. The id is the species id (`sid`); the app derives it from the Latin name with the same rule as `build/species.py` (`slug`), and the build refuses a description whose id is not that slug. The bulk `api/about.json` is gone. The source table `data/species/species.json` is unchanged; moving the source itself to one file per species is step 2.

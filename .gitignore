@@ -5,7 +5,7 @@ names_report.md
 index.html
 pilot/index.html
 sw.js
-webs/
+api/
 maplibre-gl-*.js
 geo-states.json
 d3-*.js
