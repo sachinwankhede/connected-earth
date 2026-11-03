@@ -224,6 +224,77 @@ def write_search(light, spt, sidx, qs, pilot):
         open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
+# Species shared between places (items #252 and #253), worked out by the build so the app does not scan every place's species list.
+# Same answers the app used to compute: RELATED (top 10 places by species in common, "Shares species with"), TIES (places that share a species found in
+# 2 to 10 places, with the species names, for the map arcs) and SPECIES_PLACES (the places of each species found in 2 or more places, "Also found in").
+RELATED_N = 10
+
+
+def species_overlap(ecos):
+    """-> (related, ties, species_places) for this set of places, in the order of the list. related[id] = [[id, species in common], ...] (at most 10, most first, ties in page order);
+    ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[latin] = [place ids in page order]."""
+    ids = [e['id'] for e in ecos]
+    lists = {e['id']: [(n['latin'], n['name']) for n in e['nodes'] if not n.get('cat') and n.get('latin')] for e in ecos}
+    by = {}
+    for i in ids:
+        for lat, name in lists[i]: by.setdefault(lat, []).append((i, name))
+    related = {}
+    for p in ids:
+        c = {}
+        for lat in {l for l, _ in lists[p]}:
+            for o, _ in by[lat]:
+                if o != p: c[o] = c.get(o, 0) + 1
+        related[p] = [[o, c[o]] for o in sorted((o for o in ids if o in c), key=lambda o: -c[o])[:RELATED_N]]
+    ties = {}
+    for lat, g in by.items():
+        if len(g) < 2 or len(g) > 10: continue
+        for a, an in g:
+            for b, _ in g:
+                if a != b: ties.setdefault(a, {}).setdefault(b, []).append(an)
+    ties = {a: [[b, t[b]] for b in sorted(t, key=lambda b: (-len(t[b]), b))] for a, t in ties.items()}
+    sp = {}
+    for lat, g in by.items():
+        places = list(dict.fromkeys(i for i, _ in g))
+        if len(places) >= 2: sp[lat] = places
+    return related, ties, sp
+
+
+def species_bucket(latin):
+    """The file a species is in: its first two letters or digits (the Latin name lower-cased, anything else dropped), padded with _."""
+    return (re.sub(r'[^a-z0-9]', '', latin.lower()) + '__')[:2]
+
+
+def split_species_places(sp):
+    files = {}
+    for lat in sorted(sp): files.setdefault(species_bucket(lat), {})[lat] = sp[lat]
+    return {'%s.json' % k: v for k, v in sorted(files.items())}
+
+
+def write_species_places(sp, pilot):
+    """api/species-places/ (main) or api/species-places-pilot/: one file per two-letter bucket. One build writes one folder."""
+    d = os.path.join(P('api'), 'species-places-pilot' if pilot else 'species-places'); os.makedirs(d, exist_ok=True)
+    files = split_species_places(sp)
+    for f in os.listdir(d):
+        if f not in files: os.remove(os.path.join(d, f))
+    for f, obj in files.items():
+        open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+
+
+def add_overlap(webs, ecos, main_ids):
+    """Put related places and ties into each place's own file. The files are shared by the main and the pilot page, so a place keeps the answer for the main set
+    ('rel', 'ties', only for a main place) and, when the pilot set gives another answer or the place is pilot-only, the pilot one ('relp', 'tiesp')."""
+    mrel, mties, _ = species_overlap([e for e in ecos if e['id'] in main_ids])
+    prel, pties, _ = species_overlap(ecos)
+    for e in ecos:
+        i, w = e['id'], webs[e['id']]
+        for key, m, pl in (('rel', mrel, prel), ('ties', mties, pties)):
+            mine, theirs = m.get(i, []), pl.get(i, [])
+            if i in main_ids and mine: w[key] = mine
+            if i not in main_ids or mine != theirs:
+                if theirs: w[key + 'p'] = theirs
+                elif i in main_ids: w[key + 'p'] = []
+
+
 def write_webs(webs, about, species_index=None, pictures=None):
     d = P('api'); os.makedirs(d, exist_ok=True)
     if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
@@ -317,8 +388,9 @@ def build(pilot, out_path, write=False, places=False):
             n = byid.get(eco_id, {}).get(nid)
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
+    if write: add_overlap(webs, ecos, set(links['order']))
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); write_species_places(species_overlap(ecos)[2], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast

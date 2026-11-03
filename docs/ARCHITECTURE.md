@@ -101,3 +101,9 @@ Design rules this gives (to be decided before step 4b is coded):
 4. **Group E is a blocker, not a detail.** Region loading does not remove the scan; it makes it wrong, because a place's neighbours may live in a region that has not loaded. #252 and #253 must land first, so the app reads the answer and no longer computes it.
 5. **The species index (134 KB gz) is larger than all place files together** and is only needed for group E and species search. After #252/#253 it can be dropped from start-up.
 6. Tests that call `__M.showPlace(id)` or open places by link must wait for the card, so the test helpers need a "place ready" wait.
+
+## Species shared between places, computed by the build (items #252, #253, PR A)
+The app used to scan every place's species list for "Shares species with", "Also found in" and the map arcs. The build now writes the answers (the app still scans until PR B):
+- **In each place's own file `api/<id>.json`:** `rel` (top 10 places by species in common, `[[id, count], ...]`) and `ties` (places sharing a species found in 2 to 10 places, `[[id, [names]], ...]`). These files are shared by the main and the pilot page, so a main place keeps the main-set answer in `rel`/`ties` and, when the pilot set gives another answer (the pilot page has more places), also `relp`/`tiesp`. A pilot-only place has only `relp`/`tiesp`. The app reads `relp || rel` on the pilot page and `rel` on the main page.
+- **`api/species-places/<two characters>.json` (main) and `api/species-places-pilot/`:** the places of each species found in 2 or more places, in page order, in the file of the first two letters or digits of its Latin name (`species_bucket` in `build/build.py`). Fetched when a species is selected.
+- Test: `tests/data/species_links_test.py` compares all of it with a brute-force scan written the way the old browser code worked, for the main and the pilot set.
