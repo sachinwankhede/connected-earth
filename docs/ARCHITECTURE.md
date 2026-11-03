@@ -25,7 +25,7 @@ Moving data out of the page means a short wait the first time you open a region,
 Findings: to open one place the app downloads a list for all 4,802 species (644 KB raw, 176 KB gzip) and, at start, a list for all 1,144 places (601 KB raw, 119 KB gzip). A place needs about 30 species entries.
 Rules:
 1. **A picture entry belongs to the thing it shows.** A place's own file carries the entries of its own species (about 5 KB); a card's picture entry travels with the card data. No global list is needed to open a place (#237).
-2. **Our own small copies.** A GitHub job downloads each species picture once, shrinks it (about 96 px WebP), keeps credit and licence, and writes one packed file per place (#238). Credits stay in the metadata files and are still shown.
+2. **Our own small copies.** A GitHub job downloads each species picture once, shrinks it (about 96 px WebP), keeps credit and licence, and packs each place's entries into the place's own file as `ph` and `phm` (#238). Credits stay in the metadata files and are still shown.
 3. **Short, stable addresses** (by id or hash), not long Wikimedia paths repeated twice per entry.
 4. **Global lists are only for search or review jobs,** never read to open a place.
 5. The photo jobs keep one writer per file and open pull requests that the owner merges.
@@ -46,7 +46,7 @@ The site is static, so each "API" is a file with a fixed shape. If a server is e
 | Get species | `api/species/<id>.json` | description, picture entry, which places have it |
 | Search | `api/search/meta.json`, `w-<two letters>.json`, `rows-<n>.json` (pilot: `api/search-pilot/`) | #260 step 1 (2026-11-03, build only, the app does not read it yet). Word list in buckets by first two letters: sorted words, each with delta-coded place numbers (page order of that build); rows files hold 256 places each as `[id, name, place, lat, lon, continent, first state]`, enough to show a result and fly to it with no region loaded. Words: name, place line, short, kind, species common and Latin names, environment words; accents and apostrophes dropped. A query word matches by prefix. The app reads it since #260 step 2 (falls back to the species-list scan if the files cannot be fetched). |
 | Related places | in Get place | neighbours precomputed by the build, not computed in the browser |
-| Pictures | `img/species/<hash>.webp`, packed per place | our own copies with credit and licence (item #238) |
+| Pictures | `photos/species/<file>.webp` (hosted copies; each place's file carries its own `ph`/`phm` entries) | our own copies with credit and licence (item #238) |
 
 **Update (#313 step 4a, 3 Nov):** `api/places/index.json`, `cards.json` and the `-pilot` pair are no longer written; the app reads only `api/places/main|pilot/` (world files first, locals after). The paragraph below is the history of how they were split.
 

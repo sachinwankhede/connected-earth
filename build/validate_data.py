@@ -56,6 +56,10 @@ def check(root):
             m = meta.get(t)
             if not m or not m.get('a') or not m.get('l'): errs.append('hosted picture for %r: author or licence missing' % t)
         for f in files - set(hosted.values()): errs.append('photos/species/%s is not listed in species_hosted.json' % f)
+        listed = load(root, 'photos', 'species.json')   # every species in the picture list is hosted or skipped on purpose (#238): none is left to a missing picture by accident
+        if listed is not None:
+            skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
+            for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
     return errs, warns
 
 if __name__ == '__main__':
