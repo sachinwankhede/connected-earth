@@ -9,14 +9,15 @@ const built = fs.existsSync(R + 'index.html') && fs.existsSync(R + 'api/search/m
 
 function lookup(fetchOverride) {
   const html = fs.readFileSync(R + 'index.html', 'utf8');
-  const code = html.match(/  var SRCH = [\s\S]*?\n  \/\* a typed query/)[0].replace(/\n  \/\* a typed query$/, '');
+  const dataCode = html.match(/  var Data = \(function \(\) \{[\s\S]*?\n  \}\)\(\);/)[0];   // the app's Data module: the lookup reads its files through it
+  const code = dataCode + '\n' + html.match(/  var SRCH = [\s\S]*?\n  \/\* a typed query/)[0].replace(/\n  \/\* a typed query$/, '');
   const rd = (n) => JSON.parse(fs.readFileSync(R + 'api/places/main/' + n + '.json', 'utf8'));
   const ECOS = rd('index-world').concat(rd('index-local'));
   let fetch = (u) => fs.existsSync(R + u) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(R + u, 'utf8'))) }) : Promise.resolve({ ok: false });
   const ECO_BY = Object.fromEntries(ECOS.map((e) => [e.id, e]));   // every place is loaded here (the page loads the local ones before it looks up)
   const Places = { loadLocals: () => Promise.resolve(true), total: ECOS.length };
   if (fetchOverride) fetch = fetchOverride;
-  const ctx = vm.createContext({ ECOS, ECO_BY, Places, fetch, Promise, Set, Date });
+  const ctx = vm.createContext({ ECOS, ECO_BY, Places, fetch, Promise, Set, Date, location: { pathname: '/' }, window: { fetch } });
   vm.runInContext(code + ';this.srchRun = srchRun; this.SRCH = SRCH;', ctx);
   return ctx;
 }

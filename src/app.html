@@ -1253,7 +1253,11 @@ window.__PLACES.then(function (PL) {
       json: json,
       species: function (id) { return json(root + "api/species/" + id + ".json", null); },   /* a species' long description; null when it has none */
       bounds: function (id) { return json(root + "data/outlines/" + encodeURIComponent(id) + ".json").catch(function () { return null; }); },   /* a park's outline; null when missing or unreadable */
-      states: function () { return json(root + "geo-states.json"); }   /* the US state outlines */
+      states: function () { return json(root + "geo-states.json"); },   /* the US state outlines */
+      place: function (id) { return json(root + "api/" + id + ".json"); },   /* a place's full web (nodes, links, evidence, story, its species' picture entries) */
+      speciesPlaces: function (k) { return json(root + "api/species-places__PLACES_SFX__/" + k + ".json", {}); },   /* which places a species is in; {} when there is no file */
+      ties: function (k) { return json(root + "api/ties__PLACES_SFX__/" + k + ".json", {}); },   /* the ties of one region; {} when there is no file */
+      search: function (f) { return json("api/search__PLACES_SFX__/" + f); }   /* a search file (meta, word bucket or rows); a page-relative address, as before */
     };
   })();
   // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
@@ -1302,7 +1306,7 @@ window.__PLACES.then(function (PL) {
   function sppBucket(l) { return (l.toLowerCase().replace(/[^a-z0-9]/g, "") + "__").slice(0, 2); }
   function sppFile(l) {
     var k = sppBucket(l);
-    if (!SPPL.f[k]) SPPL.f[k] = fetch(WB + "species-places__PLACES_SFX__/" + k + ".json").then(function (r) { return r.status === 404 ? {} : r.ok ? r.json() : Promise.reject(0); }).catch(function () { SPPL.f[k] = null; return {}; });
+    if (!SPPL.f[k]) SPPL.f[k] = Data.speciesPlaces(k).catch(function () { SPPL.f[k] = null; return {}; });
     return SPPL.f[k];
   }
   /* a promise of the ids of the places that list the species (this one too), in page order; the local places it names are loaded first when they are not yet */
@@ -1316,8 +1320,8 @@ window.__PLACES.then(function (PL) {
   /* Search reads the ready-made word index (api/search/, written by the build, item #260): each query word is looked up by prefix in one small file named by its
      first two letters, and a place is a match when every word finds it. Place numbers are positions in ECOS (same page order). Until the files have arrived the
      list filters on the card text alone; if they cannot be had, the list stays on the card text alone and the index is tried again after 30 s. */
-  var SRCH = { failedAt: 0, base: "api/search__PLACES_SFX__/", meta: null, bk: {}, rows: {} };
-  function srchGet(f) { return fetch(SRCH.base + f).then(function (r) { if (!r.ok) throw 0; return r.json(); }); }
+  var SRCH = { failedAt: 0, meta: null, bk: {}, rows: {} };
+  function srchGet(f) { return Data.search(f); }
   function srchWords(t) { return t.toLowerCase().replace(/['\u2019]/g, "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(function (w) { return w.length > 0; }); }
   function srchBucket(k) {
     if (!SRCH.bk[k]) SRCH.bk[k] = srchGet("w-" + k + ".json");
@@ -1374,7 +1378,7 @@ window.__PLACES.then(function (PL) {
   function slugOf(t) { return t.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
   function tieRegion(e) { return e.level === "local" ? slugOf(e.countries.indexOf("United States of America") >= 0 && e.states && e.states.length ? e.states[0] : e.conts[0]) : "world"; }
   function loadTies(k) {
-    if (!TIESD.f[k]) TIESD.f[k] = fetch(WB + "ties__PLACES_SFX__/" + k + ".json").then(function (r) { return r.status === 404 ? {} : r.ok ? r.json() : Promise.reject(0); }).then(function (d) {
+    if (!TIESD.f[k]) TIESD.f[k] = Data.ties(k).then(function (d) {
       TIESD.d[k] = d; refreshArcs(); if (M.peekId) fillPeekTies(M.peekId); return true;
     }).catch(function () { TIESD.f[k] = null; return false; });
     return TIESD.f[k];
@@ -2175,7 +2179,7 @@ window.__PLACES.then(function (PL) {
   function fetchWebData(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
-    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.rel = PILOT && w.relp ? w.relp : (w.rel || []); e.story = w.story; e.matters = w.matters; e.summary = w.summary;
+    if (!e._wp) e._wp = Data.place(id).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.rel = PILOT && w.relp ? w.relp : (w.rel || []); e.story = w.story; e.matters = w.matters; e.summary = w.summary;
       if (w.ph) { e.phLocal = true; Object.keys(w.ph).forEach(function (t) { var c = PhotoRegistry.speciesCandidate(w.ph[t], w.ph[t] && w.ph[t][1], 1, (w.phm || {})[t]); if (c) PhotoRegistry.register(PHOTOS, t, c); }); }   /* this place's own species pictures: no list of every species is needed to show them */
       return true; }).catch(function () { e._wp = null; return false; });
     return e._wp;
