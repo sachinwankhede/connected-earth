@@ -4,7 +4,7 @@
   data/places/<id>.json  (pilot places too: they carry stage "pilot" until promoted) merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
   jobs/names.json  every latin name from both sides; a real common name beats null, main's wins a tie
   jobs/state_queue.txt  the states both sides still list (each side removed the ones it finished), in main's order
-  data/journeys/pilot-order.json  main's order, then the branch's new pilot ids (a promotion drops the stage key, so the id leaves the list)
+  (place order is in data/order/, one new file per job, and journeys are one file each, so neither needs a rule here: #277)
 Any other conflicting file is left alone and the script exits 1, so a person looks at it."""
 import json, os, subprocess, sys
 ROOT = os.environ.get('SYNC_ROOT') or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # SYNC_ROOT: run main's copy of this script inside a branch checkout
@@ -32,7 +32,7 @@ def merge_place(path):
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
 taken = [c for c in conf if c.startswith('data/places/') and c.count('/') == 2 and merge_place(c)]
 conf = [c for c in conf if c not in taken]
-SHARED = ('data/journeys/pilot-order.json', 'jobs/names.json', 'jobs/state_queue.txt')
+SHARED = ('jobs/names.json', 'jobs/state_queue.txt')
 other = [c for c in conf if c not in SHARED]
 if other: print('Conflicts that need a person:', ', '.join(other)); sys.exit(1)
 if 'jobs/names.json' in conf:
@@ -43,13 +43,5 @@ if 'jobs/state_queue.txt' in conf:
     ours, theirs = git('show', ':2:jobs/state_queue.txt').stdout, git('show', ':3:jobs/state_queue.txt').stdout   # text; each side removed the states it finished, so keep only states both still list
     keep = set(ours.split())
     open('jobs/state_queue.txt', 'w').write(''.join(x + '\n' for x in theirs.split() if x in keep))
-if 'data/journeys/pilot-order.json' in conf:
-    ours, theirs = show(2, 'data/journeys/pilot-order.json') or [], show(3, 'data/journeys/pilot-order.json') or []
-    def pilot(i):
-        p = 'data/places/%s.json' % i
-        if not os.path.exists(p): return False
-        try: return json.load(open(p)).get('stage') == 'pilot'
-        except Exception: return False
-    json.dump(theirs + [i for i in ours if i not in set(theirs) and pilot(i)], open('data/journeys/pilot-order.json', 'w'), ensure_ascii=False)
 print('resolved:', ', '.join(conf) or 'nothing to resolve')
 if taken: print('merged key by key (branch food web, main for the rest):', ', '.join(taken))
