@@ -26,7 +26,7 @@ describe('places load on demand', () => {
     page.on('pageerror', (x) => errors.push(String(x)));
     const state = { fail: failWebs };
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-    await page.route(/\/webs\//, (r) => { const f = r.request().url().split('/webs/')[1]; (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
+    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(1500);
@@ -73,13 +73,13 @@ describe('places load on demand', () => {
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
 
-    test(`${sizeName}: the pilot page loads webs from the shared webs folder`, async () => {
+    test(`${sizeName}: the pilot page loads webs from the shared api folder`, async () => {
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
-      const urls = []; page.on('request', (r) => { if (r.url().includes('/webs/')) urls.push(r.url()); });
+      const urls = []; page.on('request', (r) => { if (r.url().includes('/api/')) urls.push(r.url()); });
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
       await page.goto(base + 'pilot/index.html#stub&e=mocastlewood'); await page.reload();
       await page.waitForTimeout(3000);
-      assert.ok(urls.some((u) => u.endsWith('/webs/mocastlewood.json') && !u.includes('/pilot/')), 'urls: ' + urls);
+      assert.ok(urls.some((u) => u.endsWith('/api/mocastlewood.json') && !u.includes('/pilot/')), 'urls: ' + urls);
       assert.ok(await page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       await ctx.close();
     });

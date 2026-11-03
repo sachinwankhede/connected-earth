@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link rel="preload" as="fetch" href="https://tiles.openfreemap.org/planet" crossorigin>
 <script>
-/* fonts are our own files (fonts/), not Google's: no extra hosts to connect to, and they are cached with the app. Base path as for webs/. */
+/* fonts are our own files (fonts/), not Google's: no extra hosts to connect to, and they are cached with the app. Base path as for api/. */
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "fonts/";
   var f = [["Bricolage Grotesque", "bricolage-grotesque-latin-wght-normal", "normal", "200 800"], ["Instrument Sans", "instrument-sans-latin-wght-normal", "normal", "400 700"], ["Instrument Sans", "instrument-sans-latin-wght-italic", "italic", "400 700"]], css = "";
@@ -1223,7 +1223,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
   function sidOf(n) { return n.latin.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }   /* the same id the build gives the species (build/species.py slug) */
   function aboutText(n) { var t = ABOUT[sidOf(n)]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
-  // A species' long description is its own small file, webs/species/<id>.json, fetched when its sheet opens (no file for a species without one).
+  // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
   function loadAbout(n) {
     var id = sidOf(n);
     if (!(id in ABOUT_P)) ABOUT_P[id] = fetch(WB + "species/" + id + ".json").then(function (r) { if (r.status === 404) return null; if (!r.ok) throw 0; return r.json(); }).then(function (a) { ABOUT[id] = a && a.t || null; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
@@ -1241,7 +1241,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     return '<p class="about" data-lat="' + id + '"></p>';
   }
   var ECOS = DATA.ecos;
-  /* The species lists are not in the page (smaller first load). Every place starts with an empty list; webs/species-index.json (the shared species table plus
+  /* The species lists are not in the page (smaller first load). Every place starts with an empty list; api/species-index.json (the shared species table plus
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
   var SPIDX = { p: null, ready: false, failedAt: 0 };
@@ -1250,7 +1250,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (SPIDX.ready) return Promise.resolve(true);
     if (SPIDX.p) return SPIDX.p;
     if (SPIDX.failedAt && Date.now() - SPIDX.failedAt < 30000) return Promise.resolve(false);
-    SPIDX.p = fetch((typeof WB === "string" ? WB : "webs/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
+    SPIDX.p = fetch((typeof WB === "string" ? WB : "api/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
       ECOS.forEach(function (e) {
         e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
         e.idx.q = (d.q && d.q[e.id]) || "";   /* the words search matches besides the species: they come with the species lists */
@@ -1772,7 +1772,7 @@ rect.core { stroke-dasharray: 3 2.5; }
     relayoutSoon();
   }
   /* Species pictures are our own hosted copies (photos/species/<file>.webp). A place brings the entries for its own species; the journey and related-place
-     views read webs/species-pictures.json (every hosted picture's entry and credit). There is no fallback to another site: a species without a hosted copy shows the placeholder. */
+     views read api/species-pictures.json (every hosted picture's entry and credit). There is no fallback to another site: a species without a hosted copy shows the placeholder. */
   var SPX = null, SPX_WAIT = [];
   PhotoRegistry.setSpeciesBase(location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/species/");
   function withSpeciesPhotos(done) {
@@ -2059,7 +2059,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   }
   function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
-  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "webs/";
+  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/";
   /* opening a place also waits for the species index, so "Shares species with" and "Also found in" are complete the first time they show */
   function fetchWeb(id) { return Promise.all([fetchWebData(id), loadSpecies()]).then(function (r) { return r[0]; }); }
   function fetchWebData(id) {

@@ -16,7 +16,7 @@ test('service worker serves cached data and the app shell offline without substi
     });
     await page.waitForFunction(() => !!navigator.serviceWorker.controller);
 
-    const dataUrl = new URL('webs/species-index.json', appUrl).href;
+    const dataUrl = new URL('api/species-index.json', appUrl).href;
     const online = await page.evaluate(async (url) => {
       const response = await fetch(url);
       return { ok: response.ok, type: response.headers.get('content-type'), value: await response.json() };
@@ -37,7 +37,7 @@ test('service worker serves cached data and the app shell offline without substi
 
     const uncachedData = await page.evaluate(async () => {
       try {
-        const response = await fetch('./webs/not-cached.json');
+        const response = await fetch('./api/not-cached.json');
         return { resolved: true, type: response.headers.get('content-type') };
       } catch {
         return { resolved: false };

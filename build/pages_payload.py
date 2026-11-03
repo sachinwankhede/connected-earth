@@ -53,7 +53,7 @@ def main():
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):
         copy_file(font, font.relative_to(ROOT).as_posix(), expected)
 
-    for directory in ('webs', 'webs/species', 'data/outlines'):
+    for directory in ('api', 'api/species', 'data/outlines'):
         source_dir = ROOT / directory
         files = sorted(source_dir.glob('*.json'))
         if not files:
@@ -86,17 +86,17 @@ def main():
     links = json.loads((ROOT / 'data/journeys/links.json').read_text())
     web_ids = set(links['order'])
     web_ids.update(json.loads((ROOT / 'data/journeys/pilot-order.json').read_text()))
-    missing_webs = sorted(web_id for web_id in web_ids if 'webs/' + web_id + '.json' not in expected)
+    missing_webs = sorted(web_id for web_id in web_ids if 'api/' + web_id + '.json' not in expected)
     if missing_webs:
         raise SystemExit('missing generated web JSON: ' + ', '.join(missing_webs[:10]))
-    if not any(name.startswith('webs/species/') for name in expected):
-        raise SystemExit('missing generated species descriptions: webs/species/')
+    if not any(name.startswith('api/species/') for name in expected):
+        raise SystemExit('missing generated species descriptions: api/species/')
 
     runtime_markers = (
         'photos/species/',
         'photos/places/',
         'data/outlines/',
-        'webs/',
+        'api/',
         'sw.js',
         'manifest.webmanifest',
     )

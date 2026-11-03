@@ -38,7 +38,7 @@ const INIT = () => {
   window.__perfResourceClass = (url) => {
     let u;
     try { u = new URL(url); } catch { return 'other'; }
-    if (/\/webs\/[^/]+\.json$/.test(u.pathname)) return 'web data';
+    if (/\/api\/[^/]+\.json$/.test(u.pathname)) return 'web data';
     if (/\/data\/[^/]+\.json$/.test(u.pathname)) return 'place data';
     if (/\/photos\//.test(u.pathname)) return 'photos';
     if (/openfreemap|arcgis/.test(u.hostname)) return 'map';

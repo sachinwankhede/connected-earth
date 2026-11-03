@@ -10,7 +10,7 @@ const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in th
 
 // Species pictures are our own hosted copies. A missing entry keeps the placeholder; nothing is ever fetched from another site.
 // These tests never read the real hosted list (photos/species_hosted.json): the server answers every picture-entry request
-// (webs/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
+// (api/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
 describe('species pictures come only from our hosted copies', () => {
   let browser, srv, base, pics = {};
   const speciesTitle = H.readPlaces(false).find((e) => e.id === 'yellowstone').nodes.find((n) => n.wiki).wiki;
@@ -20,8 +20,8 @@ describe('species pictures come only from our hosted copies', () => {
       const u = decodeURIComponent(q.url.split('?')[0]);
       if (u === '/photos/species/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
-      if (u.endsWith('/webs/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
-      if (/\/webs\/[\w-]+\.json$/.test(u) && !u.endsWith('/webs/species-index.json') && fs.existsSync(path.join(H.ROOT, u))) {
+      if (u.endsWith('/api/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
+      if (/\/api\/[\w-]+\.json$/.test(u) && !u.endsWith('/api/species-index.json') && fs.existsSync(path.join(H.ROOT, u))) {
         // give the place exactly the picture entries this test wants
         const w = JSON.parse(fs.readFileSync(path.join(H.ROOT, u), 'utf8'));
         w.ph = { ...pics }; w.phm = {};

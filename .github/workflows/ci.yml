@@ -60,7 +60,7 @@ jobs:
       - name: Validate photo sources and metadata
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 lib/photo_registry.py validate
-      - name: Build the pages (index.html, pilot, sw.js and webs are built here, not committed)
+      - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
       - name: Size budget
