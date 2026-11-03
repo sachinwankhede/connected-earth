@@ -36,6 +36,15 @@
   }
 })();
 </script>
+<script>
+/* the places are two files (api/places/index*.json and cards*.json), requested right now, in parallel with the page's own scripts; the app starts when both have arrived */
+(function () {
+  var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/";
+  var get = function (n) { return fetch(b + n + "__PLACES_SFX__.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
+  /* every place in the index must have its card, or the page would show places without a name or text: treat that as "the places did not load" */
+  window.__PLACES = window.fetch ? Promise.all([get("index"), get("cards")]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }) : Promise.reject(0);
+})();
+</script>
 <style>
 /* Layout: one screen with two views. A world map with a pin per ecosystem, and a graph stage with a species card beside it (below it on phones). */
 :root {
@@ -1146,7 +1155,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 <style>/*__MLCSS__*/</style>
 <script>__PHOTO_REGISTRY__</script>
 <script>
-(function () {
+window.__PLACES.then(function (PL) {
   "use strict";
 
   var LAND = __LAND__;
@@ -1240,7 +1249,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     });
     return '<p class="about" data-lat="' + id + '"></p>';
   }
-  var ECOS = DATA.ecos;
+  /* Places: the one way to read them. The index (map, filters, regions) and the cards (names and text) arrive as two files; each place is the two put together. */
+  var ECOS = PL[0].map(function (i) { var c = PL[1][i.id]; for (var k in c) i[k] = c[k]; return i; });
+  var Places = { all: function () { return ECOS; }, get: function (id) { return ECO_BY[id]; } };
   /* The species lists are not in the page (smaller first load). Every place starts with an empty list; api/species-index.json (the shared species table plus
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
@@ -3410,7 +3421,9 @@ rect.core { stroke-dasharray: 3 2.5; }
     if (M.map) hookIdle(); else M.mapHooks = (M.mapHooks || []).concat(hookIdle);   // the map library can arrive after this point: hook the map when it is created
   }
   });
-})();
+}, function () {   /* the places did not arrive (offline on a first visit, or a server error): say so, with a plain link to try again */
+  var t = document.querySelector("#boot .bt"); if (t) t.innerHTML = '<b>Connected Earth</b><span>The places did not load. <a href="">Try again</a></span>';
+});
 </script>
 
 <script>if("serviceWorker" in navigator && /^https:|^http:\/\/localhost/.test(location.href)) window.addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){}); });</script>

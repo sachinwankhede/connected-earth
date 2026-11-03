@@ -85,7 +85,7 @@ def split(ecos, links, phs=None, phm=None):
 
 # The places the page lists, in two files (item #228, step 1). INDEX: what the map, the filters and the region lists read. CARDS: the rest (card and place-page text).
 # A field not listed here goes to CARDS, so nothing is ever lost; the two files together hold exactly the light place. The app does not read them yet.
-INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'country', 'countries', 'states')
+INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'conts', 'country', 'countries', 'states')
 
 
 def split_places(light):
@@ -204,10 +204,11 @@ def build(pilot, out_path, write=False, places=False):
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
     if places: write_places(light, pilot)
-    data = json.dumps({'ecos': light, 'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
+    data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
+    tpl = tpl.replace('__PLACES_SFX__', '-pilot' if pilot else '')
     out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
