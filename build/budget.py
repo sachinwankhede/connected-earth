@@ -36,4 +36,11 @@ for d in ('search', 'search-pilot'):
     for label, n, lim in (('api/%s/ total' % d, sum(n for _, n in fs), SEARCH_TOTAL_MAX), ('api/%s/ largest w-*' % d, max(n for f, n in fs if f.startswith('w-')), SEARCH_WORDS_MAX), ('api/%s/ largest rows-*' % d, max(n for f, n in fs if f.startswith('rows-')), SEARCH_ROWS_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+PLACES_REGION_ONE_MAX = 150_000   # one file in api/places/main|pilot/ (the world cards file is the largest; item #313)
+PLACES_REGION_TOTAL_MAX = 1_500_000   # all files of one folder (only the deploy size grows; a phone fetches a few of them)
+for d in ('main', 'pilot'):
+    fs = [(f, size('api/places/%s/%s' % (d, f))) for f in os.listdir(os.path.join(ROOT, 'api', 'places', d))]
+    for label, n, lim in (('api/places/%s/ total' % d, sum(n for _, n in fs), PLACES_REGION_TOTAL_MAX), ('api/places/%s/ largest file' % d, max(n for _, n in fs), PLACES_REGION_ONE_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.exit(1 if bad else 0)

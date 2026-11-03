@@ -105,6 +105,65 @@ def split_places(light):
     return index, cards
 
 
+# Places by region (item #313, step 2): the same places as index.json and cards.json, cut for loading one region at a time. The app does not read them yet.
+# api/places/main/ (pilot: api/places/pilot/) holds: positions.json (what the world map draws: the places that are not "local"), positions-local.json,
+# index-world.json + cards-world.json (those places in the two formats), index-<region>.json + cards-<region>.json (the local places of one region), counts.json.
+# A local place's region is its US state, or its continent when it is not in a state of the US. A place is in exactly one file; a reader merges by id.
+def slug(t):
+    import unicodedata
+    t = ''.join(c for c in unicodedata.normalize('NFKD', t.lower()) if not unicodedata.combining(c))
+    return re.sub(r'[^a-z0-9]+', '-', t).strip('-')
+
+
+def region_key(e):
+    return slug(e['states'][0]) if 'United States of America' in e['countries'] and e.get('states') else slug(e['conts'][0])
+
+
+def split_regions(light):
+    """{file name: content} for api/places/<main|pilot>/. Counts are [not local, local] so the app can answer any combination of the local button, kind and parks."""
+    index, cards = split_places(light)
+    kinds = sorted({e['kind'] for e in index})
+    loc = [e.get('level') == 'local' for e in index]
+    files = {}
+    def pos(rows):
+        return {'kinds': kinds, 'p': [[e['id'], e['short'], e['lat'], e['lon'], kinds.index(e['kind']), (1 if e.get('auto') else 0) | (2 if e.get('park') else 0)] for e in rows]}
+    world = [e for e, l in zip(index, loc) if not l]
+    files['positions.json'] = pos(world)
+    files['positions-local.json'] = pos([e for e, l in zip(index, loc) if l])
+    files['index-world.json'] = world
+    files['cards-world.json'] = {e['id']: cards[e['id']] for e in world}
+    shards = {}
+    for e, l in zip(index, loc):
+        if l: shards.setdefault(region_key(e), []).append(e)
+    for k, rows in sorted(shards.items()):
+        files['index-%s.json' % k] = rows
+        files['cards-%s.json' % k] = {e['id']: cards[e['id']] for e in rows}
+    regions = {}
+    def add(name, e, l):
+        r = regions.setdefault(name, {'n': [0, 0], 'k': {}, 'p': [0, 0], 's': set()})
+        r['n'][l] += 1; r['k'].setdefault(e['kind'], [0, 0])[l] += 1
+        if e.get('park'): r['p'][l] += 1
+        if l: r['s'].add(region_key(e))
+    for e, l in zip(index, loc):
+        l = int(l)
+        add('w', e, l)
+        for c in e['conts']: add('c:' + c, e, l)
+        for c in e['countries']: add('k:' + c, e, l)
+        for c in e.get('states') or []: add('s:' + c, e, l)
+    for r in regions.values(): r['s'] = sorted(r['s'])
+    files['counts.json'] = {'kinds': kinds, 'regions': regions}
+    return files
+
+
+def write_regions(light, pilot):
+    d = os.path.join(P('api'), 'places', 'pilot' if pilot else 'main'); os.makedirs(d, exist_ok=True)
+    files = split_regions(light)
+    for f in os.listdir(d):
+        if f not in files: os.remove(os.path.join(d, f))
+    for f, obj in files.items():
+        open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+
+
 PLACES_FILES = ('index.json', 'cards.json', 'index-pilot.json', 'cards-pilot.json')
 
 
@@ -112,7 +171,7 @@ def write_places(light, pilot):
     """api/places/index[-pilot].json and cards[-pilot].json. Main and pilot are different place sets, so each build writes only its own pair."""
     d = os.path.join(P('api'), 'places'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
-        if f not in PLACES_FILES: os.remove(os.path.join(d, f))   # stale files
+        if f not in PLACES_FILES and os.path.isfile(os.path.join(d, f)): os.remove(os.path.join(d, f))   # stale files (the folders main/ and pilot/ are written by write_regions)
     sfx = '-pilot' if pilot else ''
     index, cards = split_places(light)
     for name, obj in (('index', index), ('cards', cards)):
@@ -263,7 +322,7 @@ def build(pilot, out_path, write=False, places=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: write_places(light, pilot); write_search(light, spt, sidx, qs, pilot)
+    if places: write_places(light, pilot); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
