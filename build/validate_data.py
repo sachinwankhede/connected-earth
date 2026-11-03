@@ -95,6 +95,36 @@ def check(root):
         if listed is not None:
             skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
             for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
+    # job-written lists (#255, PR 2): one schema each. Old-format records and empty values are warnings, not errors, until the jobs that wrote them are cleaned up
+    about = load(root, 'data', 'species', 'about.json')
+    if about is not None:
+        shape(about, 'about', 'data/species/about.json', errs)
+        empty = sorted(k for k, v in about.items() if v == '')
+        if empty: warns.append('data/species/about.json: %d empty sentence(s), first %r' % (len(empty), empty[0]))
+    sums = load(root, 'data', 'text', 'summaries.json')
+    if sums is not None: shape(sums, 'summaries', 'data/text/summaries.json', errs)
+    names = load(root, 'jobs', 'names.json')
+    if names is not None: shape(names, 'names', 'jobs/names.json', errs)
+    sm = load(root, 'photos', 'species_missing.json')
+    if sm is not None: shape(sm, 'species-missing', 'photos/species_missing.json', errs)
+    pm = load(root, 'photos', 'places', 'missing.json')
+    if pm is not None:
+        old = sorted(k for k, v in pm.items() if isinstance(v, str))
+        if old: warns.append('photos/places/missing.json: %d old-format record(s) (plain text), first %r; the daily photo run stamps them' % (len(old), old[0]))
+        shape({k: v for k, v in pm.items() if not isinstance(v, str)}, 'photo-missing', 'photos/places/missing.json', errs)
+        for k, v in pm.items():
+            if isinstance(v, dict) and isinstance(v.get('checkedAt'), str) and isinstance(v.get('expiresAt'), str) and v['expiresAt'] <= v['checkedAt']:
+                errs.append('photos/places/missing.json [%s]: expiresAt is not after checkedAt' % k)
+    geo = load(root, 'data', 'geo', 'geo.json')
+    if geo is not None:
+        shape(geo, 'geo', 'data/geo/geo.json', errs)
+        for kind in ('countries', 'states'):
+            ids = [f.get('id') for f in geo.get(kind, []) if isinstance(f, dict)]
+            for i in sorted({i for i in ids if ids.count(i) > 1}, key=str):
+                if i == 'undefined': warns.append('data/geo/geo.json %s: %d features have the id "undefined" (a lost id from the source file; Kosovo, N. Cyprus, Somaliland)' % (kind, ids.count(i)))
+                else: errs.append('data/geo/geo.json %s: id %r is repeated' % (kind, i))
+    land = load(root, 'data', 'geo', 'land.json')
+    if land is not None: shape(land, 'land', 'data/geo/land.json', errs)
     return errs, warns
 
 if __name__ == '__main__':
