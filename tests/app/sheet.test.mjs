@@ -60,6 +60,7 @@ describe('place sheet', () => {
         return { heads, whatIfLast: last === wi, moreClosed: !!more && !more.open, moreBeforeWhatIf: top(more) < top(wi), cards: pn.querySelectorAll('.prow .pmc').length };
       });
       await t.page.waitForFunction(() => document.querySelector('#panel .art.hasph img'), null, { timeout: 30000 });
+      await t.page.waitForFunction(() => !document.getElementById('where-else'), null, { timeout: 30000 });   // the places of the species come in a small file of their own
       const lay = await t.page.evaluate(() => { const a = document.querySelector('#panel .art').getBoundingClientRect(), l = document.querySelector('#panel .latin').getBoundingClientRect(); return { photoLeft: a.right <= l.left, close: !!document.querySelector('.pclose'), found: [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in \d+ other place/.test(h.textContent)) }; });
       assert.ok(lay.photoLeft, 'photo on the left, details on the right'); assert.equal(lay.close, false, 'no close button'); assert.ok(lay.found, 'Also found in is a row of places');
       await t.page.waitForFunction(() => [...document.querySelectorAll('#panel .pph[data-eid]')].some((x) => x.querySelector('img')), null, { timeout: 30000 });
