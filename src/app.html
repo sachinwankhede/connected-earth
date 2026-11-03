@@ -25,11 +25,11 @@
 })();
 </script>
 <script>
-/* the map library is its own file, requested right now, so it downloads alongside the rest of the page instead of behind it; the app starts the map when it has arrived (window.__mapReady) */
+/* the map library is its own file, requested right now at high priority (a script added from script is "low" by default, which let it arrive after everything else, #350), so it downloads alongside the rest of the page instead of behind it; the app starts the map when it has arrived (window.__mapReady) */
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "");
   var done = function () { var f = window.__mapReady; window.__mapReady = null; window.__mapLib = 1; if (f) f(); };
-  var sc = document.createElement("script"); sc.async = true; sc.src = b + "maplibre-gl-__MLVER__.js"; sc.onload = done; sc.onerror = done;
+  var sc = document.createElement("script"); sc.async = true; sc.setAttribute("fetchpriority", "high"); sc.src = b + "maplibre-gl-__MLVER__.js"; sc.onload = done; sc.onerror = done;
   document.head.appendChild(sc);
   if (/[#&](e|j)=/.test(location.hash)) {   /* a link straight to a food web or journey needs the diagram library: ask for it now, in parallel with the page */
     var d = document.createElement("script"); d.async = true; d.setAttribute("data-d3", "1"); d.src = b + "d3-__D3VER__.js"; document.head.appendChild(d);

@@ -123,3 +123,6 @@ The app used to scan every place's species list for "Shares species with", "Also
 ## Map first tiles (#244)
 The satellite style has two raster layers on the same tile address. `sat0` counts the 256 px pictures as 512 and is capped at zoom 1, so the opening world view on a phone (zoom 0.6) asks for about 4 tiles instead of about 12; `sat` (normal detail) exists only from zoom 1 and fades in over `sat0` between zoom 1 and 1.2. A layer outside its zoom range asks for no tiles. The cost is a softer picture before the first zoom-in. On a phone the map is created at its fit zoom (0.6) so no detailed tiles are asked for before the fit.
 
+## Map library priority (#350, experiment)
+The map library is added by a small head script. A script added that way is fetched at low priority by default, so on the phone line it arrived after the page and everything else, and the map cannot start before it. The script now carries `fetchpriority="high"`. One change, to be kept only if perf-ab shows map drawn earlier without a later app-data-ready or cards stage.
+
