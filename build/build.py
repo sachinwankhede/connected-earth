@@ -125,8 +125,15 @@ def split_regions(light):
     kinds = sorted({e['kind'] for e in index})
     loc = [e.get('level') == 'local' for e in index]
     files = {}
+    # region membership: the distinct (continents, countries, states) of all places are a table g, and a row names its entry (the app answers inRegion from it);
+    # the entry also holds the shard a local place lives in, so one lookup finds the file to fetch for its card
+    mem = {}
+    for e in index:
+        mem.setdefault((tuple(e['conts']), tuple(e['countries']), tuple(e.get('states') or [])), len(mem))
+    groups = [[list(c), list(k), list(st)] for c, k, st in mem]
     def pos(rows):
-        return {'kinds': kinds, 'p': [[e['id'], e['short'], e['lat'], e['lon'], kinds.index(e['kind']), (1 if e.get('auto') else 0) | (2 if e.get('park') else 0)] for e in rows]}
+        return {'kinds': kinds, 'g': groups, 'p': [[e['id'], e['short'], e['lat'], e['lon'], kinds.index(e['kind']), (1 if e.get('auto') else 0) | (2 if e.get('park') else 0),
+                                                    mem[(tuple(e['conts']), tuple(e['countries']), tuple(e.get('states') or []))], region_key(e) if e.get('level') == 'local' else 'world'] for e in rows]}
     world = [e for e, l in zip(index, loc) if not l]
     files['positions.json'] = pos(world)
     files['positions-local.json'] = pos([e for e, l in zip(index, loc) if l])

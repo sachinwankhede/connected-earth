@@ -40,6 +40,8 @@ def check(pilot, folder):
         assert [r[0] for r in got] == [e['id'] for e in want], fn
         for r, e in zip(got, want):
             assert r[1] == e['short'] and r[2] == e['lat'] and r[3] == e['lon'] and kinds[r[4]] == e['kind'] and r[5] == (1 if e.get('auto') else 0) + (2 if e.get('park') else 0), e['id']
+            g = files[fn]['g'][r[6]]   # membership and shard key
+            assert g == [e['conts'], e['countries'], e.get('states') or []] and r[7] == (B.region_key(e) if e.get('level') == 'local' else 'world'), e['id']
     # counts: every region, brute force
     regions = files['counts.json']['regions']
     def members(name):
