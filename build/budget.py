@@ -6,7 +6,7 @@ LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species/
 WEB_MAX = 250_000      # one place's web file
 ABOUT_MAX = 1_200_000   # api/species/: all the species description files together (each is fetched alone, when its sheet opens)
 ABOUT_ONE_MAX = 4_000   # one species description file
-WEBS_TOTAL = 25_000_000       # fetched one at a time, so only the deploy size grows
+WEBS_TOTAL = 27_000_000       # fetched one at a time, so only the deploy size grows (raised from 25 MB when related places and ties moved into the place files, #252)
 OUTLINE_MAX = 400_000   # one park's outline file (fetched when the park opens)
 OUTLINES_TOTAL = 20_000_000
 bad = 0
@@ -29,6 +29,13 @@ SEARCH_TOTAL_MAX = 2_000_000  # one search folder, all files (only the deploy si
 for d in ('search', 'search-pilot'):
     fs = [(f, size('api/%s/%s' % (d, f))) for f in os.listdir(os.path.join(ROOT, 'api', d))]
     for label, n, lim in (('api/%s/ total' % d, sum(n for _, n in fs), SEARCH_TOTAL_MAX), ('api/%s/ largest w-*' % d, max(n for f, n in fs if f.startswith('w-')), SEARCH_WORDS_MAX), ('api/%s/ largest rows-*' % d, max(n for f, n in fs if f.startswith('rows-')), SEARCH_ROWS_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+SPECIES_PLACES_ONE_MAX = 40_000       # api/species-places[-pilot]/<two letters>.json: the places of every species with those first letters, fetched when a species is selected (#253)
+SPECIES_PLACES_TOTAL_MAX = 1_500_000  # one folder, all files (only the deploy size grows)
+for d in ('species-places', 'species-places-pilot'):
+    fs = [size('api/%s/%s' % (d, f)) for f in os.listdir(os.path.join(ROOT, 'api', d))]
+    for label, n, lim in (('api/%s/ total' % d, sum(fs), SPECIES_PLACES_TOTAL_MAX), ('api/%s/ largest' % d, max(fs), SPECIES_PLACES_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 PLACES_REGION_ONE_MAX = 300_000   # one file in api/places/main|pilot/ (cards-local.json, all local places together, is the largest; item #313)
