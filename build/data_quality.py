@@ -33,7 +33,8 @@ def photo_metadata(root):
 
 
 def place_ids(root):
-    links = read_json(os.path.join(root, "data", "journeys", "links.json"))
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import journeydata
+    links = journeydata.links(root)
     return links, list(links["order"])
 
 

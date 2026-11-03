@@ -6,24 +6,24 @@
   python3 build/build.py --pilot --out F  build with the auto-generated places included
 
 Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
-listed in data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
+listed in data/order/ since #277, before that data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
 """
 import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import species
+import species, journeydata
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
 from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)
 
 
 def load_places(pilot):
-    links = json.load(open(P('data', 'journeys', 'links.json')))
-    order = list(links['order'])
+    links = journeydata.links()
+    order, pilot_order = journeydata.order()
     ecos = [json.load(open(P('data', 'places', i + '.json'))) for i in order]
     if pilot:
-        for i in json.load(open(P('data', 'journeys', 'pilot-order.json'))):
+        for i in pilot_order:
             ecos.append(json.load(open(P('data', 'places', i + '.json'))))
     tab = species.table()
     ecos = [species.join(e, tab) for e in ecos]

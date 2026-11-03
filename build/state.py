@@ -77,7 +77,8 @@ if __name__ == '__main__':
         outs = [f for f in os.listdir(os.path.join(work, 'out')) if f.endswith('.json')]
         print(len(outs), 'places generated in', work)
         if scratch: sys.exit(0)
-        PO = os.path.join(ROOT, 'data', 'journeys', 'pilot-order.json'); order = json.load(open(PO))
+        import journeydata; NEW = journeydata.order_is_new(ROOT); newids = []
+        PO = os.path.join(ROOT, 'data', 'journeys', 'pilot-order.json'); order = [] if NEW else json.load(open(PO))
         for f in sorted(outs):
             e = json.load(open(os.path.join(work, 'out', f))); e['park'] = True; e['level'] = 'local'
             old = os.path.join(ROOT, 'data', 'places', f)
@@ -85,7 +86,9 @@ if __name__ == '__main__':
             e['stage'] = 'pilot'
             json.dump(e, open(old, 'w'), ensure_ascii=False)
             if e['id'] not in order: order.append(e['id'])
-        json.dump(order, open(PO, 'w'))
+            newids.append(e['id'])
+        if NEW: print('order file:', journeydata.add_segment(ROOT, newids, 'state-' + st))   # a new file in data/order/: never an existing one
+        else: json.dump(order, open(PO, 'w'))
         run(['python3', 'jobs/wikinames.py', st], {})                   # real Wikipedia names and source links (needs the web)
         run(['python3', 'build/species.py', 'pack'], {})
         run(['python3', 'jobs/bounds.py'], {})

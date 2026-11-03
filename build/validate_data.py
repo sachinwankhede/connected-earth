@@ -28,14 +28,16 @@ def check(root):
     for k, v in sp.items():
         if v.get('sk') not in ('taxon', 'group', 'resource'): errs.append('species %r: sk must be taxon, group or resource' % k)
     ids = place_ids(root)
-    links = load(root, 'data', 'journeys', 'links.json')
-    if links is not None:
-        order = links.get('order', [])
+    import journeydata
+    errs += journeydata.order_problems(root)
+    has_links = os.path.exists(os.path.join(root, 'data', 'journeys', 'links.json'))
+    if has_links or journeydata.journeys_are_new(root):
+        order = journeydata.order(root)[0]
         if len(order) != len(set(order)): errs.append('journeys: place order has duplicates')
         for i in order:
             if i not in ids: errs.append('journeys: ordered place %r has no file' % i)
         seen = set()
-        for c in links.get('cross', []):
+        for c in journeydata.journeys(root):
             cid = c.get('id')
             if not cid or cid in seen: errs.append('journeys: missing or repeated id %r' % cid)
             seen.add(cid)
