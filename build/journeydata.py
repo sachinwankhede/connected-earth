@@ -64,6 +64,12 @@ def journeys(root=None):
             c = _load(os.path.join(d, f)); rows.append((c.pop('pos', 0), c.get('id', f[:-5]), c))
     return [c for _, _, c in sorted(rows, key=lambda r: (r[0], r[1]))]
 
+def raw_journeys(root=None):
+    """[(where, journey object)] exactly as stored (with `pos`), for the data check."""
+    if not journeys_are_new(root): return [('journey %s' % c.get('id'), c) for c in _load(_p(root, 'data', 'journeys', 'links.json')).get('cross', [])]
+    d = _p(root, 'data', 'journeys')
+    return [('journey file %s' % f, _load(os.path.join(d, f))) for f in sorted(os.listdir(d)) if f.endswith('.json') and f != 'config.json']
+
 def config(root=None):
     src = _load(_p(root, 'data', 'journeys', 'config.json' if journeys_are_new(root) else 'links.json'))
     return {'couple': src.get('couple'), 'src': src.get('src')}

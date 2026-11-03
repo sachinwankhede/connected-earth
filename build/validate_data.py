@@ -8,6 +8,18 @@ def load(root, *p):
     path = os.path.join(root, *p)
     return json.load(open(path)) if os.path.exists(path) else None
 
+SCHEMAS = os.path.join(HERE, 'schemas')
+_validators = {}
+def shape(obj, kind, where, errs):
+    """Check one object against build/schemas/<kind>.schema.json (the written contract of that file); one error line per problem, with the path of the bad value."""
+    import jsonschema
+    if kind not in _validators:
+        schema = json.load(open(os.path.join(SCHEMAS, kind + '.schema.json')))
+        _validators[kind] = jsonschema.Draft202012Validator(schema)
+    for e in sorted(_validators[kind].iter_errors(obj), key=lambda e: [str(p) for p in e.absolute_path]):
+        path = '/'.join(str(p) for p in e.absolute_path)
+        errs.append('%s%s: %s' % (where, ' [%s]' % path if path else '', e.message[:160]))
+
 def place_ids(root):
     ids = set()
     full = os.path.join(root, 'data/places')
@@ -18,15 +30,26 @@ def check(root):
     errs = []; warns = []
     sys.path.insert(0, HERE); import species
     sp = species.table(root)
+    rows_dir = os.path.join(root, 'data', 'species', 'rows')
+    if os.path.isdir(rows_dir):   # one file per species (#276): each is checked on its own, and sits where its sid says
+        keys = {}
+        for d in sorted(os.listdir(rows_dir)):
+            for f in sorted(os.listdir(os.path.join(rows_dir, d))):
+                if not f.endswith('.json'): continue
+                r = json.load(open(os.path.join(rows_dir, d, f)))
+                shape(r, 'species-row', 'species file %s/%s' % (d, f), errs)
+                if isinstance(r, dict) and isinstance(r.get('sid'), str) and (d, f) != (r['sid'][:2], r['sid'] + '.json'):
+                    errs.append('species file %s/%s: a row with sid %r belongs in %s/%s.json' % (d, f, r['sid'], r['sid'][:2], r['sid']))
+                if isinstance(r, dict) and r.get('name'):
+                    k = (r.get('latin') or r['name']).lower()
+                    if k in keys: errs.append('species files %s and %s have the same table key %r (the loader keeps only one)' % (keys[k], '%s/%s' % (d, f), k))
+                    keys.setdefault(k, '%s/%s' % (d, f))
+    else:
+        for k, v in sp.items(): shape(v, 'species-row', 'species %r' % k, errs)
     for k, v in sp.items():
-        for f in ('latin', 'name', 'tl', 'wiki', 'desc', 'ic'):
-            if f not in v: errs.append('species %r: missing %s' % (k, f))
         if v.get('latin') and k != v['latin'].lower(): errs.append('species %r: key is not the lowercase Latin name' % k)
-        if 'tl' in v and not isinstance(v['tl'], int): errs.append('species %r: tl is not a whole number' % k)
     sids = [v.get('sid') for v in sp.values()]
     if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
-    for k, v in sp.items():
-        if v.get('sk') not in ('taxon', 'group', 'resource'): errs.append('species %r: sk must be taxon, group or resource' % k)
     ids = place_ids(root)
     import journeydata
     errs += journeydata.order_problems(root)
@@ -37,18 +60,27 @@ def check(root):
         for i in order:
             if i not in ids: errs.append('journeys: ordered place %r has no file' % i)
         seen = set()
-        for c in journeydata.journeys(root):
+        for where, c in journeydata.raw_journeys(root):
+            shape(c, 'journey', where, errs)
+            if not isinstance(c, dict): continue
             cid = c.get('id')
             if not cid or cid in seen: errs.append('journeys: missing or repeated id %r' % cid)
             seen.add(cid)
-            for f in ('type', 'title', 'text'):
-                if not c.get(f): errs.append('journey %r: missing %s' % (cid, f))
-            for en in c.get('ends', []):
-                if en.get('eco') not in ids: errs.append('journey %r: place %r has no file' % (cid, en.get('eco')))
+            for en in list(c.get('ends') or []) + [c.get('from'), c.get('to')]:
+                if isinstance(en, dict) and en.get('eco') not in ids: errs.append('journey %r: place %r has no file' % (cid, en.get('eco')))
+        if journeydata.journeys_are_new(root): shape(json.load(open(os.path.join(root, 'data', 'journeys', 'config.json'))), 'journey-config', 'journeys/config.json', errs)
     od = os.path.join(root, 'data', 'outlines')
     if os.path.isdir(od):
-        for f in os.listdir(od):
-            if f.endswith('.json') and f[:-5] not in ids: warns.append('outline %s has no place' % f)
+        for f in sorted(os.listdir(od)):
+            if not f.endswith('.json'): continue
+            if f[:-5] not in ids: errs.append('outline %s has no place' % f)   # an error since #255 (a leftover usually means a rename went wrong)
+            o = json.load(open(os.path.join(od, f)))
+            shape(o, 'outline', 'outline %s' % f, errs)
+            for n, ring in enumerate(o.get('r', []) if isinstance(o, dict) and isinstance(o.get('r'), list) else []):
+                if not isinstance(ring, list) or any(not isinstance(v, (int, float)) for v in ring): continue   # the shape check reports it
+                if len(ring) % 2: errs.append('outline %s: ring %d has an odd number of values (it is [lon, lat, ...])' % (f, n))
+                elif any(not -180 <= ring[i] <= 180 or not -90 <= ring[i + 1] <= 90 for i in range(0, len(ring), 2)):
+                    errs.append('outline %s: ring %d has a point outside lon -180..180 / lat -90..90' % (f, n))
     hosted = load(root, 'photos', 'species_hosted.json')
     if hosted is not None:
         meta = load(root, 'photos', 'species_metadata.json') or {}

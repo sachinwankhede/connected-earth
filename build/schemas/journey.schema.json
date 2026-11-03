@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "One journey: data/journeys/<id>.json (#277)",
+  "type": "object",
+  "required": ["id", "type", "title", "text"],
+  "additionalProperties": false,
+  "properties": {
+    "pos": {"type": "integer", "minimum": 0, "description": "place among the journey cards"},
+    "id": {"type": "string", "pattern": "^[A-Za-z][A-Za-z0-9]*$"},
+    "type": {"enum": ["species", "flow"]},
+    "title": {"type": "string", "minLength": 1},
+    "text": {"type": "string", "minLength": 1},
+    "when": {"type": "string"},
+    "matters": {"type": "string"},
+    "go": {"type": "string"},
+    "mark": {"type": "string"},
+    "imgwiki": {"type": "string"},
+    "ends": {"type": "array", "items": {"$ref": "#/$defs/end"}},
+    "from": {"$ref": "#/$defs/end"},
+    "to": {"$ref": "#/$defs/end"},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["t", "u"], "additionalProperties": false, "properties": {"t": {"type": "string", "minLength": 1}, "u": {"type": "string", "pattern": "^https://"}}}}
+  },
+  "allOf": [
+    {"if": {"properties": {"type": {"const": "species"}}}, "then": {"required": ["ends"]}},
+    {"if": {"properties": {"type": {"const": "flow"}}}, "then": {"required": ["from", "to"]}}
+  ],
+  "$defs": {"end": {"type": "object", "required": ["eco", "node"], "properties": {"eco": {"type": "string"}, "node": {"type": "string"}}}}
+}

@@ -27,7 +27,40 @@ class DataFormat(unittest.TestCase):
             put(r, 'data/outlines/stray.json', {})
             put(r, 'photos/species_hosted.json', {'A b': 'missing.webp'}); put(r, 'photos/species/orphan.webp', b'x'); put(r, 'photos/species.json', {'A b': [], 'Left out': []})
             errs, warns = check(r); text = ' | '.join(errs + warns)
-            for want in ('neither hosted nor', 'missing ic', 'own sid', 'sk must be', 'not the lowercase Latin', 'tl is not a whole', 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
+            for want in ('neither hosted nor', "'ic' is a required property", 'own sid', "'sk' is a required property", 'not the lowercase Latin', "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
+                self.assertIn(want, text)
+
+class SchemasAndCrossFileRules(unittest.TestCase):
+    """The schema files (build/schemas/) and the rules that look across files (#255)."""
+    def tree(self, r):
+        put(r, 'data/places/p.json', {}); put(r, 'data/order/0000-main.json', ['p'])
+        put(r, 'data/species/rows/a-/a-b.json', SP['a b'])
+    def test_clean_rows_layout(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r); self.assertEqual(check(r), ([], []))
+    def test_species_row_problems(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/species/rows/zz/a-b.json', {**SP['a b'], 'sid': 'a-b', 'name': 'AB again'})   # wrong folder, same table key as ab/a-b.json
+            put(r, 'data/species/rows/c-/c-d.json', {**SP['a b'], 'latin': 'C d', 'sid': 'c-d', 'sk': 'taxon', 'at': 'yesterday', 'extra': 1, 'cat': 'rock'})
+            errs, _ = check(r); text = ' | '.join(errs)
+            for want in ('belongs in a-/a-b.json', 'same table key', "'yesterday' does not match", "Additional properties are not allowed ('extra'", "'rock' is not one of"):
+                self.assertIn(want, text)
+    def test_outline_problems(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/outlines/p.json', {'n': 'P', 'r': [[0, 0, 1, 1, 2, 2, 3], [0, 0, 1, 1, 2, 95]], 's': 'google'})
+            put(r, 'data/outlines/stray.json', {'n': 'S', 'r': [[0, 0, 1, 1, 2, 2]]})
+            errs, _ = check(r); text = ' | '.join(errs)
+            for want in ('ring 0 has an odd number', 'ring 1 has a point outside', "'google' is not one of", 'outline stray.json has no place'):
+                self.assertIn(want, text)
+    def test_journey_files_and_config(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/journeys/config.json', {'couple': 'half'})
+            put(r, 'data/journeys/f.json', {'pos': 0, 'id': 'f', 'type': 'flow', 'title': 'F', 'text': 't', 'to': {'eco': 'p', 'node': 'n'}})
+            errs, _ = check(r); text = ' | '.join(errs)
+            for want in ("'from' is a required property", "'src' is a required property", "'half' is not of type 'number'"):
                 self.assertIn(want, text)
 
 if __name__ == '__main__': unittest.main()
