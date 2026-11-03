@@ -70,3 +70,40 @@ jobs:
             echo "not ready yet (try $i)"; sleep 10
           done
           [ $fail = 0 ] && echo "Live site OK: $U" || { echo "::error::The live site is missing files after deploy: $U"; exit 1; }
+  alert:
+    # Keeps one issue "Deploy failing" in step with the deploy: opened (or commented on) when any job above failed, closed when a deploy succeeds.
+    # A cancelled run (a newer push replaced it) changes nothing.
+    needs: [verify, deploy, live]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPO: ${{ github.repository }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      SHA: ${{ github.sha }}
+      RESULTS: ${{ needs.verify.result }} ${{ needs.deploy.result }} ${{ needs.live.result }}
+    steps:
+      - name: Open, update or close the "Deploy failing" issue
+        run: |
+          echo "job results: $RESULTS"
+          open=$(gh api "repos/$REPO/issues?state=open&labels=theme:process&per_page=100" --jq '[.[] | select(.title == "Deploy failing")][0].number // empty')
+          case " $RESULTS " in
+            *" failure "*)
+              body="The deploy failed for commit \`${SHA:0:7}\`: $RUN_URL
+          Job results (verify, deploy, live): $RESULTS. Read the log of the failed job."
+              if [ -n "$open" ]; then
+                gh api "repos/$REPO/issues/$open/comments" -f body="Failed again for commit \`${SHA:0:7}\`: $RUN_URL ($RESULTS)"
+              else
+                gh api "repos/$REPO/issues" -f title="Deploy failing" -f 'labels[]=theme:process' -f body="$body
+          This issue closes by itself when a deploy succeeds."
+              fi ;;
+            " success success success ")
+              if [ -n "$open" ]; then
+                gh api "repos/$REPO/issues/$open/comments" -f body="Deploy succeeded for commit \`${SHA:0:7}\`: $RUN_URL. Closing."
+                gh api -X PATCH "repos/$REPO/issues/$open" -f state=closed -f state_reason=completed
+              fi ;;
+            *) echo "cancelled or skipped: nothing to do" ;;
+          esac
