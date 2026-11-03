@@ -84,12 +84,22 @@ def split(ecos, links, phs=None, phm=None):
 
 
 # The places the page lists, in two files (item #228, step 1). INDEX: what the map, the filters and the region lists read. CARDS: the rest (card and place-page text).
-# A field not listed here goes to CARDS, so nothing is ever lost; the two files together hold exactly the light place. The app does not read them yet.
-INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'tier', 'auto', 'park', 'cont', 'conts', 'country', 'countries', 'states')
+# A field not listed here goes to CARDS, unless it is listed in NOT_SHIPPED. The two files together hold the light place minus the not-shipped fields.
+INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'auto', 'park', 'conts', 'countries', 'states')
+# Fields the app never reads (item #313, step 1; checked by searching src/app.html): they stay in the source data, they are only left out of the files.
+# tier, cont and country are the singular forms of what the app reads as conts and countries; side and ly are unused; idx.nl (the number of links of one kind) too.
+NOT_SHIPPED = ('tier', 'cont', 'country', 'side', 'ly')
+NOT_SHIPPED_IDX = ('nl',)
+
+
+def shipped(e):
+    """The light place as the files carry it: without the fields the app never reads."""
+    return {k: ({a: b for a, b in v.items() if a not in NOT_SHIPPED_IDX} if k == 'idx' else v) for k, v in e.items() if k not in NOT_SHIPPED}
 
 
 def split_places(light):
-    """(index, cards): index is a list in page order; cards is {id: the other fields}. index[i] merged with cards[id] is the light place."""
+    """(index, cards): index is a list in page order; cards is {id: the other fields}. index[i] merged with cards[id] is shipped(the light place)."""
+    light = [shipped(e) for e in light]
     index = [{k: e[k] for k in INDEX_FIELDS if k in e} for e in light]
     cards = {e['id']: {k: v for k, v in e.items() if k not in INDEX_FIELDS} for e in light}
     return index, cards
