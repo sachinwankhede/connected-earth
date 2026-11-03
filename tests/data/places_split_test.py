@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The two places files (item #228, step 1): index + cards must hold exactly the light place of the page (minus the fields the app never reads, #313), with no field in both."""
+"""The split of a place into index + cards (item #228, #313) must hold exactly the light place of the page (minus the fields the app never reads, #313), with no field in both."""
 import json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
@@ -21,16 +21,11 @@ def check(pilot, sfx):
         assert {**i, **c} == B.shipped(e), e['id'] + ': index + cards is not the light place'
         assert not any(f in i or f in c for f in B.NOT_SHIPPED), e['id'] + ': a not-shipped field is in the files'
         assert 'nl' not in c['idx'], e['id'] + ': idx.nl is in the cards'
-    # the built files (when the build has run) are exactly this split
-    d = os.path.join(ROOT, 'api', 'places')
-    for name, want in (('index', index), ('cards', cards)):
-        p = os.path.join(d, name + sfx + '.json')
-        if os.path.exists(p): assert json.load(open(p)) == want, p + ' differs from the split'
     return len(light)
 
 n = check(False, ''); m = check(True, '-pilot')
 assert n > 1000 and m > n, 'main and pilot sets'
-extra = set(os.listdir(os.path.join(ROOT, 'api', 'places'))) - set(B.PLACES_FILES) - {'main', 'pilot'} if os.path.isdir(os.path.join(ROOT, 'api', 'places')) else set()
-assert not extra, 'stale files in api/places: %s' % sorted(extra)
+extra = [f for f in os.listdir(os.path.join(ROOT, 'api', 'places')) if os.path.isfile(os.path.join(ROOT, 'api', 'places', f))] if os.path.isdir(os.path.join(ROOT, 'api', 'places')) else []
+assert not extra, 'the first places files are not written any more: %s' % sorted(extra)
 assert set(B.INDEX_FIELDS) >= {'id', 'lat', 'lon', 'kind', 'short', 'conts', 'countries', 'states'}   # what the map, the region filter and the continent counts read (src/app.html inRegion)
 print('places split ok: main %d, pilot %d' % (n, m))

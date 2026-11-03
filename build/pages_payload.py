@@ -89,7 +89,7 @@ def main():
     missing_webs = sorted(web_id for web_id in web_ids if 'api/' + web_id + '.json' not in expected)
     if missing_webs:
         raise SystemExit('missing generated web JSON: ' + ', '.join(missing_webs[:10]))
-    for name in ('index', 'cards', 'index-pilot', 'cards-pilot'):   # the app cannot start without its places files (#228)
+    for name in ('main/index-world', 'main/cards-world', 'pilot/index-world', 'pilot/cards-world'):   # the app cannot start without its world places files (#313)
         if 'api/places/' + name + '.json' not in expected:
             raise SystemExit('missing places file: api/places/' + name + '.json')
     if not any(name.startswith('api/species/') for name in expected):
