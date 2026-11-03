@@ -17,6 +17,8 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      stamp: ${{ steps.stamp.outputs.stamp }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -34,6 +36,17 @@ jobs:
         run: test -s index.html && grep -q "Connected Earth" index.html
       - name: Stage and verify the Pages payload
         run: python3 build/pages_payload.py
+      - name: The build stamp (the live site is compared with it after the deploy)
+        id: stamp
+        run: |
+          stamp=$(grep -o 'const V = "[0-9a-f]*"' sw.js | grep -o '[0-9a-f]\{8\}')
+          test -n "$stamp"
+          echo "stamp=$stamp" >> "$GITHUB_OUTPUT"
+      - name: Rehearse the live-site check on the staged payload
+        run: |
+          (cd dist/pages && python3 -m http.server 8765 >/dev/null 2>&1 &)
+          sleep 2
+          python3 build/live_check.py http://127.0.0.1:8765/ "${{ steps.stamp.outputs.stamp }}" --tries 3 --wait 2
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist/pages }
   deploy:
@@ -48,28 +61,19 @@ jobs:
       - id: d
         uses: actions/deploy-pages@v4
   live:
-    # After the site is published: load it as a visitor would and fail loudly if a file is missing. Pages can take a minute or two to switch over, so it retries for 3 minutes.
-    needs: deploy
+    # After the site is published: fetch the live sw.js and index.html, compare their build stamp with the one just built, and check
+    # that the key data files answer (build/live_check.py). Pages can take a minute or two to switch over, so it retries for 3 minutes.
+    # A failure here fails the run, and the alert job below then opens the "Deploy failing" issue.
+    needs: [verify, deploy]
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     steps:
-      - name: The live site serves the page and its data files
+      - uses: actions/checkout@v5
+      - name: The live site is the build just deployed
         env:
           URL: ${{ needs.deploy.outputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}
-        run: |
-          U="${URL%/}/"
-          fail=1
-          for i in $(seq 1 18); do
-            ok=1
-            curl -fsS "$U" | grep -q "Connected Earth" || ok=0
-            curl -fsS "${U}pilot/" | grep -q "Connected Earth" || ok=0
-            curl -fsS "${U}api/yellowstone.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['nodes'])>5" || ok=0
-            curl -fsS "${U}api/species/abies-balsamea.json" | python3 -c "import json,sys; d=json.load(sys.stdin); assert len(d['t'])>30" || ok=0
-            curl -fsS "${U}sw.js" | grep -q "atlas-shell-" || ok=0
-            [ $ok = 1 ] && { fail=0; break; }
-            echo "not ready yet (try $i)"; sleep 10
-          done
-          [ $fail = 0 ] && echo "Live site OK: $U" || { echo "::error::The live site is missing files after deploy: $U"; exit 1; }
+          STAMP: ${{ needs.verify.outputs.stamp }}
+        run: python3 build/live_check.py "$URL" "$STAMP" --tries 18 --wait 10
   alert:
     # Keeps one issue "Deploy failing" in step with the deploy: opened (or commented on) when any job above failed, closed when a deploy succeeds.
     # A cancelled run (a newer push replaced it) changes nothing.
