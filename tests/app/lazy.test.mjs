@@ -26,12 +26,12 @@ describe('places load on demand', () => {
     page.on('pageerror', (x) => errors.push(String(x)));
     const state = { fail: failWebs };
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|search(-pilot)?|species-places(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228) and the search files the word index (#260), not a place's web */
+    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|search(-pilot)?|species-places(-pilot)?|ties(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228) and the search files the word index (#260), not a place's web */
       (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForTimeout(1500);
-    return { ctx, page, errors, webs, state };
+    return { ctx, page, errors, webs, index, state };
   }
   const places = H.readPlaces(false);
 
@@ -43,6 +43,18 @@ describe('places load on demand', () => {
       await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(2000);
       assert.equal(t.webs.length, 1, 'one web fetched: ' + t.webs);
       assert.ok(await t.page.evaluate(() => !document.getElementById('pview').hidden && document.querySelectorAll('#pgraph .pn').length > 5), 'place page with its picture');
+      assert.deepEqual(t.errors, []); await t.ctx.close();
+    });
+
+    test(`${sizeName}: no species index at start; the first card in a region fetches that region's ties file once`, async () => {
+      const t = await open(size, '');
+      await t.page.waitForTimeout(2500);
+      assert.deepEqual(t.index, [], 'the species index is not fetched at start');
+      const ties = []; t.page.on('request', (r) => { const m = /\/api\/(ties(?:-pilot)?\/[\w-]+\.json)/.exec(r.url()); if (m) ties.push(m[1]); });
+      const ids = places.filter((x) => x.level !== 'local').slice(0, 2).map((x) => x.id);
+      for (const id of ids) { await t.page.evaluate((i) => window.__M.peek(i), id); await t.page.waitForTimeout(1200); }
+      assert.deepEqual(ties, ['ties/world.json'], 'one ties file for two world places: ' + ties);
+      assert.deepEqual(t.index, [], 'cards and arcs do not need the species index');
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
 
