@@ -21,7 +21,7 @@ describe('species pictures come only from our hosted copies', () => {
       if (u === '/photos/species/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
       if (u.endsWith('/api/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
-      if (/\/api\/[\w-]+\.json$/.test(u) && !u.endsWith('/api/species-index.json') && fs.existsSync(path.join(H.ROOT, u))) {
+      if (/\/api\/[\w-]+\.json$/.test(u) && fs.existsSync(path.join(H.ROOT, u))) {
         // give the place exactly the picture entries this test wants
         const w = JSON.parse(fs.readFileSync(path.join(H.ROOT, u), 'utf8'));
         w.ph = { ...pics }; w.phm = {};

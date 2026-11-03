@@ -1272,7 +1272,7 @@ window.__PLACES.then(function (PL) {
       if (Places.failedAt && Date.now() - Places.failedAt < 30000) return Promise.resolve(false);
       Places.p = window.__LOCALS().then(function (r) {
         var add = join(r);
-        add.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; ECOS.push(e); ECO_BY[e.id] = e; addEcoOption(e); if (SPIDX.d) fillSpecies(e, SPIDX.d); });
+        add.forEach(function (e) { ECOS.push(e); ECO_BY[e.id] = e; addEcoOption(e); });
         Places.done = true;
         if (FL.local || FL.q) { M.pgKey = null; filterView(); }   /* only then are the new places on the screen */
         return true;
@@ -1280,10 +1280,6 @@ window.__PLACES.then(function (PL) {
       return Places.p;
     }
   };
-  /* The species lists are not in the page (smaller first load). Every place starts with an empty list; api/species-index.json (the shared species table plus
-     each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
-     the lists in as [latin, name]. */
-  var SPIDX = { p: null, ready: false, failedAt: 0, d: null };
   /* Related places and the places of a species come from the build, not from a scan of every place: a place file carries rel (relp on the pilot page),
      api/species-places/<first two letters>.json lists the places of each species found in two or more places (items #252, #253). */
   var PILOT = "__PLACES_DIR__" === "pilot", SPPL = { f: {}, d: {} };
@@ -1301,28 +1297,10 @@ window.__PLACES.then(function (PL) {
     });
   }
   function relatedFor(e, n) { return (e.rel || []).filter(function (x) { return ECO_BY[x[0]]; }).slice(0, n).map(function (x) { return { e: ECO_BY[x[0]], c: x[1] }; }); }
-  ECOS.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; });
-  function fillSpecies(e, d) {
-    e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
-    e.idx.q = (d.q && d.q[e.id]) || "";   /* the words search matches besides the species: they come with the species lists */
-    e._s = null;
-  }
-  function loadSpecies() {
-    if (SPIDX.ready) return Promise.resolve(true);
-    if (SPIDX.p) return SPIDX.p;
-    if (SPIDX.failedAt && Date.now() - SPIDX.failedAt < 30000) return Promise.resolve(false);
-    SPIDX.p = fetch((typeof WB === "string" ? WB : "api/") + "species-index.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (d) {
-      SPIDX.d = d; ECOS.forEach(function (e) { fillSpecies(e, d); });
-      SPIDX.ready = true; return true;
-    }).catch(function () { SPIDX.p = null; SPIDX.failedAt = Date.now(); return false; });
-    return SPIDX.p;
-  }
-  /* a search can match species names, so make sure the lists are in, then filter again with them */
-  function wantSpecies() { if (!SPIDX.ready) loadSpecies().then(function (ok) { if (ok && FL.q) { M.pgKey = null; filterView(); } }); }   /* pgKey reset: the page size was worked out from the matches found before the species arrived */
   /* Search reads the ready-made word index (api/search/, written by the build, item #260): each query word is looked up by prefix in one small file named by its
      first two letters, and a place is a match when every word finds it. Place numbers are positions in ECOS (same page order). Until the files have arrived the
-     list filters on the card text alone; if they cannot be had, search falls back to the old scan (SRCH.ok = false). */
-  var SRCH = { ok: true, base: "api/search__PLACES_SFX__/", meta: null, bk: {}, rows: {} };
+     list filters on the card text alone; if they cannot be had, the list stays on the card text alone and the index is tried again after 30 s. */
+  var SRCH = { failedAt: 0, base: "api/search__PLACES_SFX__/", meta: null, bk: {}, rows: {} };
   function srchGet(f) { return fetch(SRCH.base + f).then(function (r) { if (!r.ok) throw 0; return r.json(); }); }
   function srchWords(t) { return t.toLowerCase().replace(/['\u2019]/g, "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(function (w) { return w.length > 0; }); }
   function srchBucket(k) {
@@ -1340,7 +1318,7 @@ window.__PLACES.then(function (PL) {
   function srchRows(k) { return SRCH.rows[k] || (SRCH.rows[k] = srchGet("rows-" + k + ".json")); }
   function srchRun(q) {
     var ws = srchWords(q).filter(function (w) { return w.length >= 2; });
-    if (!ws.length || !SRCH.ok) return Promise.resolve(null);
+    if (!ws.length || (SRCH.failedAt && Date.now() - SRCH.failedAt < 30000)) return Promise.resolve(null);
     if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
     return Promise.all([SRCH.meta, Places.loadLocals()]).then(function (r) {
       var m = r[0];
@@ -1356,15 +1334,15 @@ window.__PLACES.then(function (PL) {
           return hits;
         });
       });
-    }).catch(function () { SRCH.ok = false; SRCH.meta = null; return null; });
+    }).catch(function () { SRCH.failedAt = Date.now(); SRCH.meta = null; return null; });
   }
   /* a typed query: filter on the card text at once, then on the index when it arrives */
   function searchFor(q) {
-    FL.hits = null; FL.exact = false;
+    FL.hits = null;
     if (!q) return;
     srchRun(q).then(function (hits) {
-      if (FL.q !== q || FL.exact) return;
-      if (hits) FL.hits = hits; else if (!SRCH.ok) wantSpecies();   /* no index: the old scan needs the species lists */
+      if (FL.q !== q) return;
+      if (hits) FL.hits = hits;
       M.pgKey = null; filterView();
     });
   }
@@ -2307,19 +2285,15 @@ window.__PLACES.then(function (PL) {
   var KC_BASE = Object.assign({}, KC);
   // brighter set for the dark satellite imagery; chips and map dots always use the same set
   var KC_SAT = { "Forest": "#43c779", "Grassland": "#f0c040", "Desert": "#ff8f4a", "Lakes & wetlands": "#5f95ff", "Coast & ocean": "#2fd4de", "Polar & mountain": "#b79cff", "Urban": "#ff6fa8" };
-  var FL = { q: "", kind: null, park: false, local: false, hits: null, exact: false };   /* hits: ids the word index found for q; exact: q is a species name from a link, matched as a whole string over the species lists */
+  var FL = { q: "", kind: null, park: false, local: false, hits: null };   /* hits: ids the word index (or a species' places file) found for q; until then the card text decides */
   function pass(e) {
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
     if (FL.park && !e.park) return false;
     if (e.level === "local" && !FL.local && !FL.q) return false;
     if (FL.q && FL.hits) return FL.hits.has(e.id);
-    if (FL.q && !FL.exact && SRCH.ok) {
-      if (!e._n) e._n = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "")).toLowerCase();   /* until the index arrives: the card text */
-      return e._n.indexOf(FL.q) >= 0;
-    }
     if (FL.q) {
-      if (!e._s) e._s = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "") + " " + e.idx.sp.map(function (n) { return n[1] + " " + n[0]; }).join(" ") + " " + e.idx.q).toLowerCase();
-      return e._s.indexOf(FL.q) >= 0;
+      if (!e._n) e._n = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "")).toLowerCase();   /* until the index arrives, or when it cannot: the card text */
+      return e._n.indexOf(FL.q) >= 0;
     }
     return true;
   }
@@ -2552,10 +2526,10 @@ window.__PLACES.then(function (PL) {
     return [[b[0], b[1]], [b[2], b[3]]];
   }
   /* "Found in N ecosystems": every web that holds the same species, shown on the map */
-  function speciesMap(name, latin) {   /* the places of a species come from its small file (api/species-places); without a Latin name the old scan over the species lists is used */
+  function speciesMap(name, latin) {   /* the places of a species come from its small file (api/species-places); without a Latin name the word index is used */
     var q = name.toLowerCase();
-    FL.q = q; FL.hits = latin ? new Set() : null; FL.exact = !latin;
-    if (latin) sppPlaces(latin).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); M.pgKey = null; filterView(); } }); else wantSpecies(); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
+    FL.q = q; FL.hits = latin ? new Set() : null;
+    if (latin) sppPlaces(latin).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name;
     document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);

@@ -72,8 +72,8 @@ def split(ecos, links, phs=None, phm=None):
         nodes = e['nodes']
         s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
-        qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only: they go with the species lists, not in the page
-        sidx[e['id']] = s   # the species lists are not in the page: they go to api/species-index.json, loaded after the map has drawn
+        qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
+        sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             keys = {k for n in nodes for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
@@ -320,14 +320,11 @@ def add_overlap(webs, ecos, main_ids):
             elif i in main_ids: w['relp'] = []
 
 
-def write_webs(webs, about, species_index=None, pictures=None):
+def write_webs(webs, about, pictures=None):
     d = P('api'); os.makedirs(d, exist_ok=True)
     if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
     for f in os.listdir(d):
-        if f.endswith('.json') and f[:-5] not in webs and f not in ('species-index.json', 'species-pictures.json'): os.remove(os.path.join(d, f))
-    if species_index is not None:
-        # the table and the lists are written together, so the file is consistent whichever page (main or pilot) reads it
-        open(os.path.join(d, 'species-index.json'), 'w').write(json.dumps(species_index, separators=(',', ':'), ensure_ascii=False))
+        if f.endswith('.json') and f[:-5] not in webs and f != 'species-pictures.json': os.remove(os.path.join(d, f))
     if pictures is not None:   # every hosted picture's entry and credit, for the journey and related-place views
         open(os.path.join(d, 'species-pictures.json'), 'w').write(json.dumps(pictures, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
@@ -414,7 +411,7 @@ def build(pilot, out_path, write=False, places=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: add_overlap(webs, ecos, set(links['order']))
-    if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
+    if write: write_webs(webs, about, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
     if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
