@@ -45,6 +45,7 @@ jobs/testing-on-github
 jobs/unknown-credit
 landing
 notag
+pad
 perf-ab-old-refs
 perf-budget
 perf-search-typing
@@ -67,6 +68,7 @@ species-files
 species-ids
 species-links-app
 species-links-build
+tagline
 test/alias-photo-flake
 test/fixture-hosted-photos
 ties-by-region-app
