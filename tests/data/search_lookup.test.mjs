@@ -12,7 +12,9 @@ function lookup() {
   const code = html.match(/  var SRCH = [\s\S]*?\n  \/\* a typed query/)[0].replace(/\n  \/\* a typed query$/, '');
   const ECOS = JSON.parse(fs.readFileSync(R + 'api/places/index.json', 'utf8'));
   const fetch = (u) => fs.existsSync(R + u) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(R + u, 'utf8'))) }) : Promise.resolve({ ok: false });
-  const ctx = vm.createContext({ ECOS, fetch, Promise, Set });
+  const ECO_BY = Object.fromEntries(ECOS.map((e) => [e.id, e]));   // every place is loaded here (the page loads the local ones before it looks up)
+  const Places = { loadLocals: () => Promise.resolve(true), total: ECOS.length };
+  const ctx = vm.createContext({ ECOS, ECO_BY, Places, fetch, Promise, Set });
   vm.runInContext(code + ';this.srchRun = srchRun; this.SRCH = SRCH;', ctx);
   return ctx;
 }

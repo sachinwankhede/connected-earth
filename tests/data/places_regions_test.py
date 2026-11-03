@@ -15,7 +15,7 @@ def check(pilot, folder):
     by = {e['id']: e for e in index}
     # every place is in exactly one of the world file and the region shards, with the same content as the two big files
     seen = {}
-    parts = [('world', files['index-world.json'], files['cards-world.json'])] + [(f[6:-5], files[f], files['cards-' + f[6:]]) for f in sorted(files) if f.startswith('index-') and f != 'index-world.json']
+    parts = [('world', files['index-world.json'], files['cards-world.json'])] + [(f[6:-5], files[f], files['cards-' + f[6:]]) for f in sorted(files) if f.startswith('index-') and f not in ('index-world.json', 'index-local.json')]
     for name, rows, cs in parts:
         assert [e['id'] for e in rows] and set(cs) == {e['id'] for e in rows}, name + ': index and cards list the same places'
         for e in rows:
@@ -24,6 +24,9 @@ def check(pilot, folder):
             assert e == by[e['id']] and cs[e['id']] == cards[e['id']], e['id'] + ' differs from index.json / cards.json'
     assert set(seen) == set(by), 'every place is in a file'
     assert all((by[i].get('level') == 'local') == (n != 'world') for i, n in seen.items()), 'world holds the places that are not local, shards the local ones'
+    # index-local / cards-local: all the local places together, in page order, each as in index.json / cards.json
+    want = [e for e in index if e.get('level') == 'local']
+    assert files['index-local.json'] == want and files['cards-local.json'] == {e['id']: cards[e['id']] for e in want}, 'the local files hold every local place'
     # a local place is in the shard of its state (or its continent outside the US states)
     for i, n in seen.items():
         if n != 'world': assert n == B.region_key(by[i]), i

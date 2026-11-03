@@ -151,6 +151,9 @@ def split_regions(light):
         for c in e['countries']: add('k:' + c, e, l)
         for c in e.get('states') or []: add('s:' + c, e, l)
     for r in regions.values(): r['s'] = sorted(r['s'])
+    locs = [e for e, l in zip(index, loc) if l]   # all the local places together: what the app fetches in one go when it needs them all (before it loads one region at a time)
+    files['index-local.json'] = locs
+    files['cards-local.json'] = {e['id']: cards[e['id']] for e in locs}
     files['counts.json'] = {'kinds': kinds, 'regions': regions}
     return files
 
@@ -328,6 +331,7 @@ def build(pilot, out_path, write=False, places=False):
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
     tpl = tpl.replace('__PLACES_SFX__', '-pilot' if pilot else '')
+    tpl = tpl.replace('__PLACES_DIR__', 'pilot' if pilot else 'main').replace('__NLOCAL__', str(sum(1 for e in light if e.get('level') == 'local')))
     out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
