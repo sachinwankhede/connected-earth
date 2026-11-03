@@ -123,3 +123,6 @@ The app used to scan every place's species list for "Shares species with", "Also
 ## Map first tiles (#244)
 The satellite style has two raster layers on the same tile address. `sat0` counts the 256 px pictures as 512 and is capped at zoom 1, so the opening world view on a phone (zoom 0.6) asks for about 4 tiles instead of about 12; `sat` (normal detail) exists only from zoom 1 and fades in over `sat0` between zoom 1 and 1.2. A layer outside its zoom range asks for no tiles. The cost is a softer picture before the first zoom-in. On a phone the map is created at its fit zoom (0.6) so no detailed tiles are asked for before the fit.
 
+## Early satellite tiles (#247, experiment)
+The head asks, at low priority and with `rel=preload as=fetch`, for the 4 world tiles (zoom 1) the map asks for first, unless the link has a `#` place or journey. The map's request for the same address should be answered from that download; perf-ab shows a second download as 8 satellite requests. This is an experiment on a branch: merged only if perf-ab shows the first tile earlier, map drawn not later, and still 4 satellite requests.
+

@@ -15,6 +15,14 @@
 <link rel="preconnect" href="https://tiles.openfreemap.org" crossorigin>
 <link rel="preload" as="fetch" href="https://tiles.openfreemap.org/planet" crossorigin>
 <script>
+/* the 4 world tiles the map asks for first (item #247): start them now, at low priority so the page and the map library keep the line. The map's own request for the same address is answered from this one (same address, cors, no credentials); a second download would show as 8 satellite requests in perf-ab. Not for a link to a place (the opening view differs) or the stub test mode. */
+(function () {
+  if (location.hash.length > 1 || /[#&?]stub/.test(location.href)) return;
+  var u = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/1/";
+  [[0, 0], [0, 1], [1, 0], [1, 1]].forEach(function (p) { var l = document.createElement("link"); l.rel = "preload"; l.as = "fetch"; l.crossOrigin = "anonymous"; l.setAttribute("fetchpriority", "low"); l.href = u + p[0] + "/" + p[1]; document.head.appendChild(l); });
+})();
+</script>
+<script>
 /* fonts are our own files (fonts/), not Google's: no extra hosts to connect to, and they are cached with the app. Base path as for api/. */
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "fonts/";
