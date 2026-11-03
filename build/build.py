@@ -105,7 +105,7 @@ def split_places(light):
     return index, cards
 
 
-# Places by region (item #313, step 2): the same places as index.json and cards.json, cut for loading one region at a time. The app does not read them yet.
+# Places by region (item #313, step 2): the same places as the split (index and cards), cut for loading one region at a time. The app does not read them yet.
 # api/places/main/ (pilot: api/places/pilot/) holds: positions.json (what the world map draws: the places that are not "local"), positions-local.json,
 # index-world.json + cards-world.json (those places in the two formats), index-<region>.json + cards-<region>.json (the local places of one region), counts.json.
 # A local place's region is its US state, or its continent when it is not in a state of the US. A place is in exactly one file; a reader merges by id.
@@ -167,18 +167,11 @@ def write_regions(light, pilot):
         open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
-PLACES_FILES = ('index.json', 'cards.json', 'index-pilot.json', 'cards-pilot.json')
-
-
-def write_places(light, pilot):
-    """api/places/index[-pilot].json and cards[-pilot].json. Main and pilot are different place sets, so each build writes only its own pair."""
+def clear_old_places_files():
+    """The first places files (api/places/index.json, cards.json and the -pilot pair) are not written any more: the app reads api/places/main|pilot/ (#313). Old copies are removed."""
     d = os.path.join(P('api'), 'places'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
-        if f not in PLACES_FILES and os.path.isfile(os.path.join(d, f)): os.remove(os.path.join(d, f))   # stale files (the folders main/ and pilot/ are written by write_regions)
-    sfx = '-pilot' if pilot else ''
-    index, cards = split_places(light)
-    for name, obj in (('index', index), ('cards', cards)):
-        open(os.path.join(d, name + sfx + '.json'), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+        if os.path.isfile(os.path.join(d, f)): os.remove(os.path.join(d, f))
 
 
 # The search index (item #260, step 1): a ready-made word list, so a query is a lookup and not a scan of every place. The app does not read it yet.
@@ -325,7 +318,7 @@ def build(pilot, out_path, write=False, places=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: write_webs(webs, about, {'spt': spt, 's': sidx, 'q': qs}, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: write_places(light, pilot); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast

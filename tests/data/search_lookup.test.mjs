@@ -5,12 +5,13 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const R = new URL('../../', import.meta.url).pathname;
-const built = fs.existsSync(R + 'index.html') && fs.existsSync(R + 'api/search/meta.json') && fs.existsSync(R + 'api/places/index.json');
+const built = fs.existsSync(R + 'index.html') && fs.existsSync(R + 'api/search/meta.json') && fs.existsSync(R + 'api/places/main/index-world.json');
 
 function lookup() {
   const html = fs.readFileSync(R + 'index.html', 'utf8');
   const code = html.match(/  var SRCH = [\s\S]*?\n  \/\* a typed query/)[0].replace(/\n  \/\* a typed query$/, '');
-  const ECOS = JSON.parse(fs.readFileSync(R + 'api/places/index.json', 'utf8'));
+  const rd = (n) => JSON.parse(fs.readFileSync(R + 'api/places/main/' + n + '.json', 'utf8'));
+  const ECOS = rd('index-world').concat(rd('index-local'));
   const fetch = (u) => fs.existsSync(R + u) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(R + u, 'utf8'))) }) : Promise.resolve({ ok: false });
   const ECO_BY = Object.fromEntries(ECOS.map((e) => [e.id, e]));   // every place is loaded here (the page loads the local ones before it looks up)
   const Places = { loadLocals: () => Promise.resolve(true), total: ECOS.length };

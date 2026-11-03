@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The places cut by region (item #313, step 2): together the files hold exactly the places of index.json and cards.json, each place once, and the counts are right."""
+"""The places cut by region (item #313, step 2): together the files hold exactly the places of the split (index and cards), each place once, and the counts are right."""
 import json, os, sys, itertools
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
@@ -13,7 +13,7 @@ def check(pilot, folder):
     index, cards = B.split_places(light)
     files = B.split_regions(light)
     by = {e['id']: e for e in index}
-    # every place is in exactly one of the world file and the region shards, with the same content as the two big files
+    # every place is in exactly one of the world file and the region shards, with the same content as the split
     seen = {}
     parts = [('world', files['index-world.json'], files['cards-world.json'])] + [(f[6:-5], files[f], files['cards-' + f[6:]]) for f in sorted(files) if f.startswith('index-') and f not in ('index-world.json', 'index-local.json')]
     for name, rows, cs in parts:
@@ -21,10 +21,10 @@ def check(pilot, folder):
         for e in rows:
             assert e['id'] not in seen, e['id'] + ' is in two files'
             seen[e['id']] = name
-            assert e == by[e['id']] and cs[e['id']] == cards[e['id']], e['id'] + ' differs from index.json / cards.json'
+            assert e == by[e['id']] and cs[e['id']] == cards[e['id']], e['id'] + ' differs from the split'
     assert set(seen) == set(by), 'every place is in a file'
     assert all((by[i].get('level') == 'local') == (n != 'world') for i, n in seen.items()), 'world holds the places that are not local, shards the local ones'
-    # index-local / cards-local: all the local places together, in page order, each as in index.json / cards.json
+    # index-local / cards-local: all the local places together, in page order, each as in the split
     want = [e for e in index if e.get('level') == 'local']
     assert files['index-local.json'] == want and files['cards-local.json'] == {e['id']: cards[e['id']] for e in want}, 'the local files hold every local place'
     # a local place is in the shard of its state (or its continent outside the US states)
