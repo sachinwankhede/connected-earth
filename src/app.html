@@ -39,7 +39,7 @@
 <script>
 /* the places arrive in two parts (api/places/main|pilot/, item #313): the world-level places right now (index-world.json + cards-world.json, requested in parallel
    with the page's own scripts; the app starts when both have arrived), and the local places later (index-local.json + cards-local.json, window.__LOCALS(), fetched when the
-   map has drawn or the first time something needs them) */
+   first time something needs them: the local button, a search, Near me or a link to a local place; since 3 Nov they no longer follow the map by themselves) */
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/__PLACES_DIR__/";
   var get = function (n) { return fetch(b + n + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
@@ -3493,7 +3493,6 @@ window.__PLACES.then(function (PL) {
     M.photoGo = true; var h = HELD; HELD = []; h.forEach(function (f) { f(); });
     setTimeout(loadD3, 4500);   /* the diagram library follows the map, so the first food web opens at once */
     setTimeout(ensureStates, 4000);   /* the US state outlines follow the map too */
-    setTimeout(Places.loadLocals, 2500);   /* the local places follow the map too */
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
   var wp = M.wantPhoto = function (e) {
