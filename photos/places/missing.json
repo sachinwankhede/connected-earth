@@ -77,9 +77,24 @@
 "expiresAt": "2027-05-01T21:58:06.523659+00:00",
 "attempts": 1
 },
-"Delaware Water Gap National Recreation Area": "notcommons",
-"Fredericksburg and Spot. National Military Park": "nophoto",
-"George Washington Memorial Parkway": "notphoto",
+"Delaware Water Gap National Recreation Area": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:46:04.809155+00:00",
+"expiresAt": "2027-05-02T19:46:04.809155+00:00",
+"attempts": 1
+},
+"Fredericksburg and Spot. National Military Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:11.261355+00:00",
+"expiresAt": "2027-05-02T19:46:11.261355+00:00",
+"attempts": 1
+},
+"George Washington Memorial Parkway": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:46:12.821412+00:00",
+"expiresAt": "2027-05-02T19:46:12.821412+00:00",
+"attempts": 1
+},
 "Banc d'Arguin National Park": "notphoto",
 "Canadian Rocky Mountain Parks": "notphoto",
 "Camargue": "nophoto",
@@ -109,7 +124,12 @@
 "expiresAt": "2027-04-30T17:58:52.186055+00:00",
 "attempts": 1
 },
-"Wooly Hollow State Park": "nophoto",
+"Wooly Hollow State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:34:51.546443+00:00",
+"expiresAt": "2027-05-02T19:34:51.546443+00:00",
+"attempts": 1
+},
 "Fort Verde State Historic Park": {
 "status": "notcommons",
 "checkedAt": "2026-11-01T17:58:54.180348+00:00",
@@ -146,7 +166,12 @@
 "expiresAt": "2027-04-30T17:59:04.186838+00:00",
 "attempts": 1
 },
-"Arkansas Headwaters Recreation Area - BLM Site": "nophoto",
+"Arkansas Headwaters Recreation Area - BLM Site": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:34:53.691019+00:00",
+"expiresAt": "2027-05-02T19:34:53.691019+00:00",
+"attempts": 1
+},
 "Lone Mesa State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:59:06.185941+00:00",
@@ -165,7 +190,12 @@
 "expiresAt": "2027-04-30T17:59:32.576236+00:00",
 "attempts": 1
 },
-"George Wyth State Park": "nophoto",
+"George Wyth State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:26.563964+00:00",
+"expiresAt": "2027-05-02T19:36:26.563964+00:00",
+"attempts": 1
+},
 "Honey Creek State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:00:06.187231+00:00",
@@ -196,7 +226,12 @@
 "expiresAt": "2027-04-30T18:00:18.853743+00:00",
 "attempts": 1
 },
-"Castle Rock State Park": "nophoto",
+"Castle Rock State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:32.303082+00:00",
+"expiresAt": "2027-05-02T19:36:32.303082+00:00",
+"attempts": 1
+},
 "Chain O'Lakes State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:00:20.190460+00:00",
@@ -257,7 +292,12 @@
 "expiresAt": "2027-04-30T18:00:38.239075+00:00",
 "attempts": 1
 },
-"Pool No. 26 - Stump Lake": "nophoto",
+"Pool No. 26 - Stump Lake": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:35.824503+00:00",
+"expiresAt": "2027-05-02T19:36:35.824503+00:00",
+"attempts": 1
+},
 "Pyramid State Recreation Area": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:00:40.193832+00:00",
@@ -270,7 +310,12 @@
 "expiresAt": "2027-04-30T18:00:42.893857+00:00",
 "attempts": 1
 },
-"Silver Springs": "nophoto",
+"Silver Springs": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:36.315596+00:00",
+"expiresAt": "2027-05-02T19:36:36.315596+00:00",
+"attempts": 1
+},
 "Mccormick's Creek State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:00:44.663322+00:00",
@@ -319,7 +364,12 @@
 "expiresAt": "2027-04-30T18:01:00.196573+00:00",
 "attempts": 1
 },
-"Hillsdale State Park": "nophoto",
+"Hillsdale State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:39.187319+00:00",
+"expiresAt": "2027-05-02T19:36:39.187319+00:00",
+"attempts": 1
+},
 "Kaw River State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:01:02.187346+00:00",
@@ -344,7 +394,12 @@
 "expiresAt": "2027-04-30T18:01:08.194813+00:00",
 "attempts": 1
 },
-"Toronto State Park": "nophoto",
+"Toronto State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:40.519640+00:00",
+"expiresAt": "2027-05-02T19:36:40.519640+00:00",
+"attempts": 1
+},
 "Tuttle Creek State Parks": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:01:10.379664+00:00",
@@ -369,17 +424,42 @@
 "expiresAt": "2027-04-30T18:01:16.191583+00:00",
 "attempts": 1
 },
-"Kingdom Come State Park": "nophoto",
-"Edmund A. Babler Memorial State Park": "nophoto",
-"Great River National Wildlife Refuge": "nophoto",
+"Kingdom Come State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:42.311231+00:00",
+"expiresAt": "2027-05-02T19:36:42.311231+00:00",
+"attempts": 1
+},
+"Edmund A. Babler Memorial State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:58.816117+00:00",
+"expiresAt": "2027-05-02T19:36:58.816117+00:00",
+"attempts": 1
+},
+"Great River National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:37:00.305780+00:00",
+"expiresAt": "2027-05-02T19:37:00.305780+00:00",
+"attempts": 1
+},
 "Lake Wappappello State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:47:06.125603+00:00",
 "expiresAt": "2027-05-01T21:47:06.125603+00:00",
 "attempts": 1
 },
-"Ozark Cavefish National Wildlife Refuge": "nophoto",
-"Saint Francois State Park": "nophoto",
+"Ozark Cavefish National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:37:02.305837+00:00",
+"expiresAt": "2027-05-02T19:37:02.305837+00:00",
+"attempts": 1
+},
+"Saint Francois State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:37:04.932959+00:00",
+"expiresAt": "2027-05-02T19:37:04.932959+00:00",
+"attempts": 1
+},
 "East Fork State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:53:48.806239+00:00",
@@ -392,10 +472,30 @@
 "expiresAt": "2027-05-01T21:53:50.819227+00:00",
 "attempts": 1
 },
-"Mosquito Creek State Park": "nophoto",
-"Muskingum River State Park": "nophoto",
-"Rocky Fork State Park": "nophoto",
-"Shawnee State Park": "nophoto",
+"Mosquito Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:29.984806+00:00",
+"expiresAt": "2027-05-02T19:42:29.984806+00:00",
+"attempts": 1
+},
+"Muskingum River State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:31.755848+00:00",
+"expiresAt": "2027-05-02T19:42:31.755848+00:00",
+"attempts": 1
+},
+"Rocky Fork State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:33.754840+00:00",
+"expiresAt": "2027-05-02T19:42:33.754840+00:00",
+"attempts": 1
+},
+"Shawnee State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:35.757997+00:00",
+"expiresAt": "2027-05-02T19:42:35.757997+00:00",
+"attempts": 1
+},
 "Big Hill Pond": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:34.747248+00:00",
@@ -408,7 +508,12 @@
 "expiresAt": "2027-05-01T21:57:36.532208+00:00",
 "attempts": 1
 },
-"Chickasaw": "notphoto",
+"Chickasaw": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:45:26.807572+00:00",
+"expiresAt": "2027-05-02T19:45:26.807572+00:00",
+"attempts": 1
+},
 "Cumberland Trail": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:38.531952+00:00",
@@ -439,14 +544,24 @@
 "expiresAt": "2027-05-01T21:57:46.533135+00:00",
 "attempts": 1
 },
-"Johnsonville": "nophoto",
+"Johnsonville": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:28.824654+00:00",
+"expiresAt": "2027-05-02T19:45:28.824654+00:00",
+"attempts": 1
+},
 "Long Hunter": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:48.805066+00:00",
 "expiresAt": "2027-05-01T21:57:48.805066+00:00",
 "attempts": 1
 },
-"Montgomery Bell": "notcommons",
+"Montgomery Bell": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:45:30.822937+00:00",
+"expiresAt": "2027-05-02T19:45:30.822937+00:00",
+"attempts": 1
+},
 "Panther Creek": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:50.535151+00:00",
@@ -459,40 +574,174 @@
 "expiresAt": "2027-05-01T21:57:52.541659+00:00",
 "attempts": 1
 },
-"Reelfoot": "nophoto",
+"Reelfoot": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:33.222885+00:00",
+"expiresAt": "2027-05-02T19:45:33.222885+00:00",
+"attempts": 1
+},
 "Tims Ford": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:54.847102+00:00",
 "expiresAt": "2027-05-01T21:57:54.847102+00:00",
 "attempts": 1
 },
-"Bald Knob National Wildlife Refuge": "notphoto",
-"Bear River Migratory Bird Refuge": "nophoto",
-"Beltrami Wildlife Management Area": "nophoto",
-"Bosque Del Apache National Wildlife Refuge": "nophoto",
-"Bowdoin National Wildlife Refuge": "nophoto",
-"Buffalo Gap National Grassland": "notcommons",
-"Carlsbad Wildife Refuge": "nophoto",
-"Carolina Sandhills National Wildlife Refuge": "notcommons",
-"Charles M. Russell National Wildlife Refuge": "nophoto",
-"Cheney Wildlife Area": "nophoto",
-"Chickasaw National Wildlife Refuge": "nophoto",
-"C. J. Strike Wildlife Management Area": "nophoto",
-"Dale Bumpers White River National Wildlife Refuge": "notphoto",
-"Don Edwards San Francisco Bay National Wildlife Refuge": "notphoto",
-"Finger Lakes National Forest": "notcommons",
-"Gila River Waterfowl Management Area": "nophoto",
-"Jackson County Waterfowl Area And Refuge": "nophoto",
-"Lenore Game Range": "nophoto",
-"Loess Bluffs National Wildlife Refuge": "notphoto",
-"Midewin Other": "nophoto",
-"Montezuma National Wildlife Refuge": "nophoto",
-"Nezperce National Forest": "notcommons",
-"Silvio O. Conte National Fish And Wildlife Refuge": "nophoto",
-"Upper Mississippi River National Wildlife And Fish Refuge": "nophoto",
-"Upper Souris National Wildlife Refuge": "nophoto",
-"Volta Wildlife Area": "nophoto",
-"Wheeler National Wildlife Refuge": "nophoto",
+"Bald Knob National Wildlife Refuge": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:45:34.814797+00:00",
+"expiresAt": "2027-05-02T19:45:34.814797+00:00",
+"attempts": 1
+},
+"Beltrami Wildlife Management Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:43.226623+00:00",
+"expiresAt": "2027-05-02T19:45:43.226623+00:00",
+"attempts": 1
+},
+"Bosque Del Apache National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:45.025095+00:00",
+"expiresAt": "2027-05-02T19:45:45.025095+00:00",
+"attempts": 1
+},
+"Bowdoin National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:46.817689+00:00",
+"expiresAt": "2027-05-02T19:45:46.817689+00:00",
+"attempts": 1
+},
+"Buffalo Gap National Grassland": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:45:48.813700+00:00",
+"expiresAt": "2027-05-02T19:45:48.813700+00:00",
+"attempts": 1
+},
+"Carlsbad Wildife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:51.219117+00:00",
+"expiresAt": "2027-05-02T19:45:51.219117+00:00",
+"attempts": 1
+},
+"Carolina Sandhills National Wildlife Refuge": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:45:52.896662+00:00",
+"expiresAt": "2027-05-02T19:45:52.896662+00:00",
+"attempts": 1
+},
+"Charles M. Russell National Wildlife Refuge": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:45:54.816440+00:00",
+"expiresAt": "2027-05-02T19:45:54.816440+00:00",
+"attempts": 1
+},
+"Cheney Wildlife Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:57.041471+00:00",
+"expiresAt": "2027-05-02T19:45:57.041471+00:00",
+"attempts": 1
+},
+"Chickasaw National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:58.818957+00:00",
+"expiresAt": "2027-05-02T19:45:58.818957+00:00",
+"attempts": 1
+},
+"C. J. Strike Wildlife Management Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:01.756947+00:00",
+"expiresAt": "2027-05-02T19:46:01.756947+00:00",
+"attempts": 1
+},
+"Dale Bumpers White River National Wildlife Refuge": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:46:02.816137+00:00",
+"expiresAt": "2027-05-02T19:46:02.816137+00:00",
+"attempts": 1
+},
+"Don Edwards San Francisco Bay National Wildlife Refuge": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:46:06.816599+00:00",
+"expiresAt": "2027-05-02T19:46:06.816599+00:00",
+"attempts": 1
+},
+"Finger Lakes National Forest": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:46:09.398288+00:00",
+"expiresAt": "2027-05-02T19:46:09.398288+00:00",
+"attempts": 1
+},
+"Gila River Waterfowl Management Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:15.382752+00:00",
+"expiresAt": "2027-05-02T19:46:15.382752+00:00",
+"attempts": 1
+},
+"Jackson County Waterfowl Area And Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:17.443076+00:00",
+"expiresAt": "2027-05-02T19:46:17.443076+00:00",
+"attempts": 1
+},
+"Lenore Game Range": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:19.549880+00:00",
+"expiresAt": "2027-05-02T19:46:19.549880+00:00",
+"attempts": 1
+},
+"Loess Bluffs National Wildlife Refuge": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:46:20.818224+00:00",
+"expiresAt": "2027-05-02T19:46:20.818224+00:00",
+"attempts": 1
+},
+"Midewin Other": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:23.199864+00:00",
+"expiresAt": "2027-05-02T19:46:23.199864+00:00",
+"attempts": 1
+},
+"Montezuma National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:24.817138+00:00",
+"expiresAt": "2027-05-02T19:46:24.817138+00:00",
+"attempts": 1
+},
+"Nezperce National Forest": {
+"status": "notcommons",
+"checkedAt": "2026-11-03T19:46:27.153476+00:00",
+"expiresAt": "2027-05-02T19:46:27.153476+00:00",
+"attempts": 1
+},
+"Silvio O. Conte National Fish And Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:29.695747+00:00",
+"expiresAt": "2027-05-02T19:46:29.695747+00:00",
+"attempts": 1
+},
+"Upper Mississippi River National Wildlife And Fish Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:31.173427+00:00",
+"expiresAt": "2027-05-02T19:46:31.173427+00:00",
+"attempts": 1
+},
+"Upper Souris National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:32.818572+00:00",
+"expiresAt": "2027-05-02T19:46:32.818572+00:00",
+"attempts": 1
+},
+"Volta Wildlife Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:34.818380+00:00",
+"expiresAt": "2027-05-02T19:46:34.818380+00:00",
+"attempts": 1
+},
+"Wheeler National Wildlife Refuge": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:36.818868+00:00",
+"expiresAt": "2027-05-02T19:46:36.818868+00:00",
+"attempts": 1
+},
 "Chippewa Moraine State Recreation Area": "nophoto",
 "Devils Lake State Park-Iansr": "nophoto",
 "Menominee River State Recreation Area": "nophoto",
@@ -1100,35 +1349,150 @@
 "expiresAt": "2027-05-01T21:50:21.442402+00:00",
 "attempts": 1
 },
-"Shuyak Island State Park": "nophoto",
-"Wood-tikchik State Park": "nophoto",
-"Chickasaw State Park": "nophoto",
-"Hurricane Creek Park": "nophoto",
-"Beaver Brook State Park Scenic Reserve": "nophoto",
-"Selden Neck Island State Park": "nophoto",
-"Deerfield Golf and Tennis Club": "nophoto",
-"Doe Bridge Nature Preserve": "nophoto",
-"Garrisons Lake Golf Club": "nophoto",
-"James Branch Nature Preserve": "nophoto",
-"Sunset Lake": "nophoto",
-"Enid Nesbitt Memorial State Park": "nophoto",
+"Shuyak Island State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:33:26.001315+00:00",
+"expiresAt": "2027-05-02T19:33:26.001315+00:00",
+"attempts": 1
+},
+"Wood-tikchik State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:33:27.903893+00:00",
+"expiresAt": "2027-05-02T19:33:27.903893+00:00",
+"attempts": 1
+},
+"Chickasaw State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:33:30.243197+00:00",
+"expiresAt": "2027-05-02T19:33:30.243197+00:00",
+"attempts": 1
+},
+"Hurricane Creek Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:33:32.132164+00:00",
+"expiresAt": "2027-05-02T19:33:32.132164+00:00",
+"attempts": 1
+},
+"Beaver Brook State Park Scenic Reserve": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:34:55.341191+00:00",
+"expiresAt": "2027-05-02T19:34:55.341191+00:00",
+"attempts": 1
+},
+"Selden Neck Island State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:34:57.818347+00:00",
+"expiresAt": "2027-05-02T19:34:57.818347+00:00",
+"attempts": 1
+},
+"Deerfield Golf and Tennis Club": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:34:59.231068+00:00",
+"expiresAt": "2027-05-02T19:34:59.231068+00:00",
+"attempts": 1
+},
+"Doe Bridge Nature Preserve": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:35:01.985044+00:00",
+"expiresAt": "2027-05-02T19:35:01.985044+00:00",
+"attempts": 1
+},
+"Garrisons Lake Golf Club": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:35:03.805262+00:00",
+"expiresAt": "2027-05-02T19:35:03.805262+00:00",
+"attempts": 1
+},
+"James Branch Nature Preserve": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:35:05.485640+00:00",
+"expiresAt": "2027-05-02T19:35:05.485640+00:00",
+"attempts": 1
+},
+"Sunset Lake": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:35:06.965466+00:00",
+"expiresAt": "2027-05-02T19:35:06.965466+00:00",
+"attempts": 1
+},
+"Enid Nesbitt Memorial State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:28.537804+00:00",
+"expiresAt": "2027-05-02T19:36:28.537804+00:00",
+"attempts": 1
+},
 "Harriman State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:53:42.827402+00:00",
 "expiresAt": "2027-05-01T21:53:42.827402+00:00",
 "attempts": 1
 },
-"Priest Lake State Park": "nophoto",
-"Caney Creek Lake State Park": "nophoto",
-"Vardie Parsons Park": "nophoto",
-"Taconic Trail State Park": "nophoto",
-"St Marys River Sp": "nophoto",
-"Appalachian Trail Corridor": "nophoto",
-"Branch Lake": "nophoto",
-"Spednic Saint Croix International Waterway": "nophoto",
-"Florewood River Plantation State Park": "nophoto",
-"Brush Lake State Park": "nophoto",
-"Thompson Chain-of-Lakes State Park": "nophoto",
+"Priest Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:30.333260+00:00",
+"expiresAt": "2027-05-02T19:36:30.333260+00:00",
+"attempts": 1
+},
+"Caney Creek Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:44.688638+00:00",
+"expiresAt": "2027-05-02T19:36:44.688638+00:00",
+"attempts": 1
+},
+"Vardie Parsons Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:46.725932+00:00",
+"expiresAt": "2027-05-02T19:36:46.725932+00:00",
+"attempts": 1
+},
+"Taconic Trail State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:48.581458+00:00",
+"expiresAt": "2027-05-02T19:36:48.581458+00:00",
+"attempts": 1
+},
+"St Marys River Sp": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:50.938554+00:00",
+"expiresAt": "2027-05-02T19:36:50.938554+00:00",
+"attempts": 1
+},
+"Appalachian Trail Corridor": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:52.550153+00:00",
+"expiresAt": "2027-05-02T19:36:52.550153+00:00",
+"attempts": 1
+},
+"Branch Lake": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:54.917120+00:00",
+"expiresAt": "2027-05-02T19:36:54.917120+00:00",
+"attempts": 1
+},
+"Spednic Saint Croix International Waterway": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:36:56.571409+00:00",
+"expiresAt": "2027-05-02T19:36:56.571409+00:00",
+"attempts": 1
+},
+"Florewood River Plantation State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:37:06.308303+00:00",
+"expiresAt": "2027-05-02T19:37:06.308303+00:00",
+"attempts": 1
+},
+"Brush Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:37:08.313095+00:00",
+"expiresAt": "2027-05-02T19:37:08.313095+00:00",
+"attempts": 1
+},
+"Thompson Chain-of-Lakes State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:39:45.424024+00:00",
+"expiresAt": "2027-05-02T19:39:45.424024+00:00",
+"attempts": 1
+},
 "Lake Metigoshe State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:50:23.187104+00:00",
@@ -1495,29 +1859,144 @@
 "expiresAt": "2027-05-01T21:58:05.117102+00:00",
 "attempts": 1
 },
-"Antelope Island State Park": "notphoto",
-"Deer Creek State Park": "nophoto",
-"Escalante State Park": "nophoto",
-"Seven Bends State Park": "nophoto",
-"Bomoseen State Park": "nophoto",
-"Burton Island State Park": "nophoto",
-"Button Bay State Park": "nophoto",
-"Camels Hump State Park": "nophoto",
-"Darling State Park": "nophoto",
-"Emerald Lake State Park": "nophoto",
-"Green River Reservoir State Park": "nophoto",
-"Hazens Notch State Park": "nophoto",
-"Lake Carmi State Park": "nophoto",
-"Lowell Lake State Park": "nophoto",
-"Molly’s Falls Pond State Park": "nophoto",
-"Mt. Philo State Park": "nophoto",
-"Niquette Bay State Park": "nophoto",
-"North Hero State Park": "nophoto",
-"Perry Holbrook Memorial State Park": "nophoto",
-"Beacon Rock": "nophoto",
-"Brooks Memorial": "nophoto",
-"Columbia Hills": "nophoto",
-"Fields Spring": "nophoto",
+"Antelope Island State Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-03T19:46:38.821393+00:00",
+"expiresAt": "2027-05-02T19:46:38.821393+00:00",
+"attempts": 1
+},
+"Deer Creek State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:43.035234+00:00",
+"expiresAt": "2027-05-02T19:46:43.035234+00:00",
+"attempts": 1
+},
+"Escalante State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:45.277237+00:00",
+"expiresAt": "2027-05-02T19:46:45.277237+00:00",
+"attempts": 1
+},
+"Seven Bends State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:23.925388+00:00",
+"expiresAt": "2027-05-02T19:49:23.925388+00:00",
+"attempts": 1
+},
+"Bomoseen State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:25.921086+00:00",
+"expiresAt": "2027-05-02T19:49:25.921086+00:00",
+"attempts": 1
+},
+"Burton Island State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:27.926233+00:00",
+"expiresAt": "2027-05-02T19:49:27.926233+00:00",
+"attempts": 1
+},
+"Button Bay State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:30.498959+00:00",
+"expiresAt": "2027-05-02T19:49:30.498959+00:00",
+"attempts": 1
+},
+"Camels Hump State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:32.212869+00:00",
+"expiresAt": "2027-05-02T19:49:32.212869+00:00",
+"attempts": 1
+},
+"Darling State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:34.385206+00:00",
+"expiresAt": "2027-05-02T19:49:34.385206+00:00",
+"attempts": 1
+},
+"Emerald Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:36.563603+00:00",
+"expiresAt": "2027-05-02T19:49:36.563603+00:00",
+"attempts": 1
+},
+"Green River Reservoir State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:37.926042+00:00",
+"expiresAt": "2027-05-02T19:49:37.926042+00:00",
+"attempts": 1
+},
+"Hazens Notch State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:40.535981+00:00",
+"expiresAt": "2027-05-02T19:49:40.535981+00:00",
+"attempts": 1
+},
+"Lake Carmi State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:41.942947+00:00",
+"expiresAt": "2027-05-02T19:49:41.942947+00:00",
+"attempts": 1
+},
+"Lowell Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:43.923692+00:00",
+"expiresAt": "2027-05-02T19:49:43.923692+00:00",
+"attempts": 1
+},
+"Molly’s Falls Pond State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:46.755962+00:00",
+"expiresAt": "2027-05-02T19:49:46.755962+00:00",
+"attempts": 1
+},
+"Mt. Philo State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:47.924178+00:00",
+"expiresAt": "2027-05-02T19:49:47.924178+00:00",
+"attempts": 1
+},
+"Niquette Bay State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:49.924838+00:00",
+"expiresAt": "2027-05-02T19:49:49.924838+00:00",
+"attempts": 1
+},
+"North Hero State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:51.925035+00:00",
+"expiresAt": "2027-05-02T19:49:51.925035+00:00",
+"attempts": 1
+},
+"Perry Holbrook Memorial State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:54.351900+00:00",
+"expiresAt": "2027-05-02T19:49:54.351900+00:00",
+"attempts": 1
+},
+"Beacon Rock": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:55.925609+00:00",
+"expiresAt": "2027-05-02T19:49:55.925609+00:00",
+"attempts": 1
+},
+"Brooks Memorial": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:58.248892+00:00",
+"expiresAt": "2027-05-02T19:49:58.248892+00:00",
+"attempts": 1
+},
+"Columbia Hills": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:59.926048+00:00",
+"expiresAt": "2027-05-02T19:49:59.926048+00:00",
+"attempts": 1
+},
+"Fields Spring": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:50:02.154618+00:00",
+"expiresAt": "2027-05-02T19:50:02.154618+00:00",
+"attempts": 1
+},
 "Miller Peninsula": "nophoto",
 "Millersylvania Memorial": "nophoto",
 "Nisqually": "nophoto",
@@ -1530,19 +2009,84 @@
 "Hawk Springs": "nophoto",
 "Keyhole Reservoir State Park": "nophoto",
 "Sinks Canyon": "nophoto",
-"Grahams Island State Park": "nophoto",
-"Umbagog State Park": "nophoto",
-"Capitol Complex": "nophoto",
-"Walker Lake State Park": "nophoto",
-"Black Mesa State Park & Nature Preserve": "nophoto",
-"Fort Cobb State Park": "nophoto",
-"Glass Mountains State Park": "nophoto",
-"Barview Wayside Park": "nophoto",
-"Brandon South Jetty Park": "nophoto",
-"Deadwood Park": "nophoto",
-"South Dakota Game Fish and Parks - Wildlife Division": "nophoto",
-"Danger Cave State Park": "nophoto",
-"Natural Bridge State Park": "nophoto",
+"Grahams Island State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:39:46.992330+00:00",
+"expiresAt": "2027-05-02T19:39:46.992330+00:00",
+"attempts": 1
+},
+"Umbagog State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:39:50.738189+00:00",
+"expiresAt": "2027-05-02T19:39:50.738189+00:00",
+"attempts": 1
+},
+"Capitol Complex": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:39:51.820046+00:00",
+"expiresAt": "2027-05-02T19:39:51.820046+00:00",
+"attempts": 1
+},
+"Walker Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:39:53.192675+00:00",
+"expiresAt": "2027-05-02T19:39:53.192675+00:00",
+"attempts": 1
+},
+"Black Mesa State Park & Nature Preserve": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:37.981595+00:00",
+"expiresAt": "2027-05-02T19:42:37.981595+00:00",
+"attempts": 1
+},
+"Fort Cobb State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:39.756689+00:00",
+"expiresAt": "2027-05-02T19:42:39.756689+00:00",
+"attempts": 1
+},
+"Glass Mountains State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:42:41.960740+00:00",
+"expiresAt": "2027-05-02T19:42:41.960740+00:00",
+"attempts": 1
+},
+"Barview Wayside Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:19.110738+00:00",
+"expiresAt": "2027-05-02T19:45:19.110738+00:00",
+"attempts": 1
+},
+"Brandon South Jetty Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:21.026244+00:00",
+"expiresAt": "2027-05-02T19:45:21.026244+00:00",
+"attempts": 1
+},
+"Deadwood Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:23.617875+00:00",
+"expiresAt": "2027-05-02T19:45:23.617875+00:00",
+"attempts": 1
+},
+"South Dakota Game Fish and Parks - Wildlife Division": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:45:25.401232+00:00",
+"expiresAt": "2027-05-02T19:45:25.401232+00:00",
+"attempts": 1
+},
+"Danger Cave State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:46:41.177264+00:00",
+"expiresAt": "2027-05-02T19:46:41.177264+00:00",
+"attempts": 1
+},
+"Natural Bridge State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-03T19:49:22.799363+00:00",
+"expiresAt": "2027-05-02T19:49:22.799363+00:00",
+"attempts": 1
+},
 "Riverside": "nophoto",
 "Sucia Island": "notphoto",
 "Bear River State Park": "nophoto",
