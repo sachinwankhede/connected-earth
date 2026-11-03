@@ -169,13 +169,13 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 
 .mapview { flex: 1; min-height: 0; overflow: auto; display: flex; flex-direction: column; gap: 14px; }
 /* the start screen: shown at once while the page's scripts and the map download (the big logo and the name, nothing else), removed when the map has drawn */
-#boot { position: fixed; inset: 0; z-index: 1000; pointer-events: none; display: flex; align-items: center; justify-content: center; background: var(--bg); transition: opacity .4s ease; }
+#boot { position: fixed; inset: 0; z-index: 1000; pointer-events: none; display: flex; align-items: center; justify-content: center; background: #0b2230; transition: opacity .4s ease; }   /* dark ocean blue, close to the satellite map's opening look, in light and dark mode alike (#344) */
 #boot.gone { opacity: 0; }
-#boot .bt { text-align: center; color: var(--ink); padding: 0 24px; }
+#boot .bt { text-align: center; color: #eef5f3; padding: 0 24px; }
 #boot .bt img { display: block; margin: 0 auto 20px; width: min(42vw, 160px); height: auto; aspect-ratio: 1; border-radius: 22%; box-shadow: 0 8px 28px rgba(20,34,27,.28); }
 #boot .bt b { display: block; font-weight: 700; font-size: clamp(24px, 6vw, 34px); line-height: 1.1; font-family: var(--font-display); }
-#boot .bt span { display: block; margin-top: 8px; font-size: 15px; color: var(--muted); }
-#boot .bar { display: block; width: 120px; height: 3px; margin: 28px auto 0; border-radius: 2px; background: var(--line); position: relative; overflow: hidden; }
+#boot .bt span { display: block; margin-top: 8px; font-size: 15px; color: rgba(238,245,243,.72); }
+#boot .bar { display: block; width: 120px; height: 3px; margin: 28px auto 0; border-radius: 2px; background: rgba(255,255,255,.18); position: relative; overflow: hidden; }
 #boot .bar::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; border-radius: 2px; background: var(--accent, #1d6f8c); animation: bootbar 1.3s ease-in-out infinite; }
 @keyframes bootbar { 0% { transform: translateX(-100%); } 100% { transform: translateX(300%); } }
 @media (prefers-reduced-motion: reduce) { #boot .bar::after { animation: none; width: 100%; opacity: .5; } }
