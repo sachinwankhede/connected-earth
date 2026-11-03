@@ -217,6 +217,22 @@ async function tap(p, sel, opts = {}) {
   }, [sel, opts]);
 }
 
+// typing into the search box (item #260): set the text, fire the input event, wait for the second frame, then add up the long tasks in the next second.
+// The first query on a page is the cold one (it builds the search strings, or fetches the first word files); the following ones are warm.
+async function typeQ(p, text, opts = {}) {
+  return p.evaluate(async ([text, opts]) => {
+    const q = document.getElementById('q');
+    if (!q) return null;
+    const t0 = performance.now();
+    q.value = text; q.dispatchEvent(new Event('input', { bubbles: true }));
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+    const t1 = performance.now();
+    await new Promise((r) => setTimeout(r, opts.settle || 1500));
+    const blocked = window.__p.lt.filter(([s]) => s >= t0 && s < t0 + 1000).reduce((a, [, d]) => a + Math.max(0, d - 50), 0);
+    return { ms: Math.round(t1 - t0), blocked: Math.round(blocked) };
+  }, [text, opts]);
+}
+
 async function oneRun(browser, name) {
   const prof = PROFILES[name];
   const ctx = await browser.newContext({ viewport: prof.viewport, serviceWorkers: 'block' });
@@ -288,6 +304,13 @@ async function oneRun(browser, name) {
   put('journeys tab', await tap(p, '[data-tab="journeys"]'));
   put('open journey', await tap(p, '#xcards li:not([hidden]) .jcard', { settle: 1500 }));
   put('back from journey', await tap(p, '[data-jback]', { settle: 1200 }));
+  // search: a fresh page, then four queries typed one after the other (observational; the cold one first)
+  await p.goto(URL_, { waitUntil: 'load', timeout: 120000 });
+  await p.waitForTimeout(5000);
+  put('search ma (cold)', await typeQ(p, 'ma'));
+  put('search mar', await typeQ(p, 'mar'));
+  put('search mari', await typeQ(p, 'mari'));
+  put('search osprey', await typeQ(p, 'osprey'));
   r.taps = T;
   await ctx.close();
   return r;
