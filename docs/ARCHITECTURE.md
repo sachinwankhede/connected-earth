@@ -81,3 +81,23 @@ Tests live in `tests/app/` (browser and app code), `tests/data/` (data files, no
 
 ## Species descriptions: one small file each (added 2026-11-02, item #276 step 1)
 The build writes `api/species/<id>.json` ({"t": text}) for every species that has a description, and the app asks for that one file when a species sheet opens. The id is the species id (`sid`); the app derives it from the Latin name with the same rule as `build/species.py` (`slug`), and the build refuses a description whose id is not that slug. The bulk `api/about.json` is gone. The source table `data/species/species.json` is unchanged; moving the source itself to one file per species is step 2.
+
+## What the app does with "all places" (audit for #313 step 4b, 3 Nov)
+`ECOS` (the full list of loaded places) is read in about 30 places of `src/app.html`. Loading one region at a time only works if each use is served by something smaller. The uses fall into six groups:
+
+| Group | Where (functions) | What it really needs | Served by |
+|---|---|---|---|
+| A. Map dots and fitting | `ecoFC`, `flagFC`, visible-in-view count, `mapFit`, fit-to-region | id, lat, lon, kind, flags, level, and region membership (`inRegion`: continents, countries, states) | positions file, **if it also carries region membership** (today it has id, short, lat, lon, kind, flags only) |
+| B. Counts and browse lists | continent, country, state browse rows, per-kind counts, "N results" | counts per region and kind, with park, local and query filters applied | `counts.json` for the plain case; positions for any filtered case; search hits for a query |
+| C. Card list and paging | the list built from `ECOS.filter(inRegion)`, card DOM, photo wanting | the cards of the region being listed | the shard of that region, loaded when the list opens |
+| D. Near me | `nearMe` | positions of every place to rank, then cards of the nearest five | positions, then 5 cards by id |
+| E. Species overlap | related places on a place page, the same species in other places, the species ties graph, the species-to-places lookup | for each species, which places hold it | **not placeable by region.** Needs the precomputed related-places (#252) and species-to-places (#253) data; today it scans every place's species list from the 134 KB gz species index |
+| F. Start-up loops | species filling for all places, place dropdown options, `ECO_BY` fill, the old search-text fallback, map label de-duplication (`short` of every place), test hook `ecoIds` | mostly ids and short names | positions (id, short); species and search text come with the index and search files |
+
+Design rules this gives (to be decided before step 4b is coded):
+1. **A light directory of all places stays in memory** (positions plus region membership, about 12 to 15 KB gz). Groups A, B, D and F read it. It replaces `ECOS` for everything except card text.
+2. **Cards are fetched by id**, through one function that finds the shard (region key stored in the directory) and returns a promise. Every place page, peek, card list and Near me row goes through it. This is the "not yet" guard of step 3 made the normal path, not a patch.
+3. **Positions must carry region membership** (or the shard key plus enough to answer `inRegion`). This is a build change in `split_regions` and the first thing to do.
+4. **Group E is a blocker, not a detail.** Region loading does not remove the scan; it makes it wrong, because a place's neighbours may live in a region that has not loaded. #252 and #253 must land first, so the app reads the answer and no longer computes it.
+5. **The species index (134 KB gz) is larger than all place files together** and is only needed for group E and species search. After #252/#253 it can be dropped from start-up.
+6. Tests that call `__M.showPlace(id)` or open places by link must wait for the card, so the test helpers need a "place ready" wait.
