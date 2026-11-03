@@ -1284,6 +1284,23 @@ window.__PLACES.then(function (PL) {
      each place's list as numbers into it) is fetched after the map has drawn, or sooner when a place is opened, a search is typed or ties are drawn, and fills
      the lists in as [latin, name]. */
   var SPIDX = { p: null, ready: false, failedAt: 0, d: null };
+  /* Related places and the places of a species come from the build, not from a scan of every place: a place file carries rel (relp on the pilot page),
+     api/species-places/<first two letters>.json lists the places of each species found in two or more places (items #252, #253). */
+  var PILOT = "__PLACES_DIR__" === "pilot", SPPL = { f: {}, d: {} };
+  function sppBucket(l) { return (l.toLowerCase().replace(/[^a-z0-9]/g, "") + "__").slice(0, 2); }
+  function sppFile(l) {
+    var k = sppBucket(l);
+    if (!SPPL.f[k]) SPPL.f[k] = fetch(WB + "species-places__PLACES_SFX__/" + k + ".json").then(function (r) { return r.status === 404 ? {} : r.ok ? r.json() : Promise.reject(0); }).catch(function () { SPPL.f[k] = null; return {}; });
+    return SPPL.f[k];
+  }
+  /* a promise of the ids of the places that list the species (this one too), in page order; the local places it names are loaded first when they are not yet */
+  function sppPlaces(l) {
+    return sppFile(l).then(function (d) {
+      var ids = d[l] || [];
+      return (!Places.done && ids.some(function (i) { return !ECO_BY[i]; }) ? Places.loadLocals() : Promise.resolve()).then(function () { if (SPPL.f[sppBucket(l)]) SPPL.d[l] = ids; return ids; });
+    });
+  }
+  function relatedFor(e, n) { return (e.rel || []).filter(function (x) { return ECO_BY[x[0]]; }).slice(0, n).map(function (x) { return { e: ECO_BY[x[0]], c: x[1] }; }); }
   ECOS.forEach(function (e) { e.idx.sp = []; e.idx.q = ""; });
   function fillSpecies(e, d) {
     e.idx.sp = (d.s[e.id] || []).map(function (k) { var t = typeof k === "number" ? d.spt[k] : d.spt[k[0]]; return [t[0], typeof k === "number" ? t[1] : k[1]]; });
@@ -1949,9 +1966,7 @@ window.__PLACES.then(function (PL) {
       var g = bio.filter(function (n) { return n.tl === tl; }).sort(function (a, b) { return deg(b) - deg(a); });
       if (g.length) h += "<h3>" + names[tl] + " \u00b7 " + g.length + '</h3><div class="chips">' + g.map(chip).join("") + "</div>";
     });
-    var mine = {}; bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
-    var near = ECOS.filter(function (e) { return e.id !== state.eco; }).map(function (e) { var c = 0; e.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: e, c: c }; })
-      .filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 8);
+    var near = relatedFor(ECO_BY[state.eco], 8);
     if (near.length) h += "<h3>Shares species with</h3>" + '<div class="chips">' + near.map(function (x) { return '<button type="button" class="chip" data-goto="' + x.e.id + '">' + x.e.short + " <b>" + x.c + "</b></button>"; }).join("") + "</div>";
     var env = NODES.filter(function (n) { return n.cat; });
     if (env.length) h += "<h3>Environment \u00b7 " + env.length + '</h3><div class="chips">' + env.map(chip).join("") + "</div>";
@@ -2052,14 +2067,21 @@ window.__PLACES.then(function (PL) {
     });
     return rows.length ? '<details class="evd"><summary>Evidence for feeding links (' + rows.length + ")</summary><ul>" + rows.join("") + "</ul></details>" : "";
   }
-  function whereElseHTML(n) {
-    if (n.cat || !n.latin) return "";
-    var hits = [];
-    ECOS.forEach(function (e) { if (e.id === state.eco) return; e.idx.sp.forEach(function (m) { if (m[0] === n.latin) hits.push({ e: e, lat: m[0] }); }); });
+  function whereHTML(n, ids) {
+    var hits = ids.filter(function (i) { return i !== state.eco && ECO_BY[i]; }).map(function (i) { return { e: ECO_BY[i], lat: n.latin }; });
     if (!hits.length) return "";
     return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + (hits.length > 1 ? '<a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '">Show on the map</a>' : "") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
       return '<button type="button" class="pmc ppc" data-jump-sp="' + h.e.id + "|" + esc(h.lat) + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
     }).join("") + "</div>";
+  }
+  function whereElseHTML(n) {
+    if (n.cat || !n.latin) return "";
+    if (SPPL.d[n.latin]) return whereHTML(n, SPPL.d[n.latin]);
+    sppPlaces(n.latin).then(function (ids) {   /* the places of this species are a small file of their own: the row fills in when it arrives */
+      var el = document.getElementById("where-else");
+      if (el && el.getAttribute("data-latin") === n.latin && state.sel && BY[state.sel] === n) { el.outerHTML = whereHTML(n, ids); pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); }); }
+    });
+    return '<div id="where-else" data-latin="' + esc(n.latin) + '"></div>';
   }
   var P = { set: function () {}, toggle: function () {}, last: undefined };
   function renderPanel() {
@@ -2150,11 +2172,17 @@ window.__PLACES.then(function (PL) {
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
   var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/";
   /* opening a place also waits for the species index, so "Shares species with" and "Also found in" are complete the first time they show */
-  function fetchWeb(id) { return Promise.all([fetchWebData(id), loadSpecies()]).then(function (r) { return r[0]; }); }
+  function fetchWeb(id) {
+    return Promise.all([fetchWebData(id), loadSpecies()]).then(function (r) {
+      var e = ECO_BY[id];
+      if (r[0] && !Places.done && e.rel && e.rel.some(function (x) { return !ECO_BY[x[0]]; })) return Places.loadLocals().then(function () { return true; });   /* a related place that is local must be there to be drawn */
+      return r[0];
+    });
+  }
   function fetchWebData(id) {
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
-    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.story = w.story; e.matters = w.matters; e.summary = w.summary;
+    if (!e._wp) e._wp = fetch(WB + id + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.rel = PILOT && w.relp ? w.relp : (w.rel || []); e.story = w.story; e.matters = w.matters; e.summary = w.summary;
       if (w.ph) { e.phLocal = true; Object.keys(w.ph).forEach(function (t) { var c = PhotoRegistry.speciesCandidate(w.ph[t], w.ph[t] && w.ph[t][1], 1, (w.phm || {})[t]); if (c) PhotoRegistry.register(PHOTOS, t, c); }); }   /* this place's own species pictures: no list of every species is needed to show them */
       return true; }).catch(function () { e._wp = null; return false; });
     return e._wp;
@@ -3347,8 +3375,7 @@ window.__PLACES.then(function (PL) {
     }).join("");
     var env = e.nodes.filter(function (n) { return n.cat; });
     var eh = env.length ? "<h3>Environment · " + env.length + '</h3><div class="prow">' + env.map(card).join("") + "</div>" : "";
-    var mine = {}; d.bio.forEach(function (n) { if (n.latin) mine[n.latin] = 1; });
-    var near = ECOS.filter(function (o) { return o.id !== id; }).map(function (o) { var c = 0; o.idx.sp.forEach(function (m) { if (mine[m[0]]) c++; }); return { e: o, c: c }; }).filter(function (x) { return x.c > 0; }).sort(function (a, b) { return b.c - a.c; }).slice(0, 10);
+    var near = relatedFor(e, 10);
     var sh = near.length ? "<h3>Shares species with</h3>" + '<div class="prow">' + near.map(function (x, i) {
       return '<button type="button" class="pmc ppc" data-ppage="' + x.e.id + '"><span class="pbox"><span class="pph" data-pid="e-' + x.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[x.e.icon] || "") + "</svg></span>" + "</span><b>" + escH(x.e.short) + "</b><small>" + x.c + " species in common</small>" + (i === 0 ? '<em class="pbadge">Shares the most</em>' : "") + "</button>";
     }).join("") + "</div>" : "";

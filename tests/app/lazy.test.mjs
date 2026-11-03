@@ -26,7 +26,7 @@ describe('places load on demand', () => {
     page.on('pageerror', (x) => errors.push(String(x)));
     const state = { fail: failWebs };
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|search(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228) and the search files the word index (#260), not a place's web */
+    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|search(-pilot)?|species-places(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228) and the search files the word index (#260), not a place's web */
       (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
@@ -61,7 +61,7 @@ describe('places load on demand', () => {
       // pick a species that is also in other places, then jump
       const jumped = await t.page.evaluate(async () => {
         const chips = [...document.querySelectorAll('.node')];
-        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); const j = document.querySelector('#panel [data-jump-sp]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump-sp'); } }
+        for (const c of chips) { c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300)); for (let w = 0; w < 40 && document.getElementById('where-else'); w++) await new Promise((r) => setTimeout(r, 100)); const j = document.querySelector('#panel [data-jump-sp]'); if (j && [...document.querySelectorAll('#panel h3')].some((h) => /^Also found in/.test(h.textContent))) { j.click(); return j.getAttribute('data-jump-sp'); } }
         return null;
       });
       assert.ok(jumped, 'found a species with another place');
