@@ -32,7 +32,8 @@ def load(p, d): return json.load(open(p)) if os.path.exists(p) else d
 def strip(s): return re.sub(r'<[^>]+>', '', s or '').replace('&amp;', '&').strip()
 def titles_for(place, man):
     if place in ('', 'all'): return sorted(man)
-    sp = json.load(open('data/species/species.json')); d = json.load(open('data/%s.json' % place))
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'build')); import species
+    sp = species.table(); d = json.load(open('data/%s.json' % place))
     wikis = {sp[n['sp']].get('wiki') for n in d['nodes'] if n.get('sp') in sp}
     return sorted(t for t in wikis if t in man)
 def main():

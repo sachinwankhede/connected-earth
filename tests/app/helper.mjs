@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import http from 'node:http';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadSpecies } from '../speciestable.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const MAIN = path.join(ROOT, 'index.html');
@@ -35,7 +36,7 @@ export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 128
 
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
 export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
-const TABLE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'species', 'species.json'), 'utf8'));
+const TABLE = loadSpecies(ROOT);
 // Same join as build/species.py: a place keeps only what differs from the shared species row.
 const join = (e) => ({ ...e, nodes: e.nodes.map((n) => {
   const { sp, no, ...rest } = n, base = TABLE[sp] || {}, full = { ...base, ...rest };

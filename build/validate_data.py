@@ -16,7 +16,8 @@ def place_ids(root):
 
 def check(root):
     errs = []; warns = []
-    sp = load(root, 'data', 'species', 'species.json') or {}
+    sys.path.insert(0, HERE); import species
+    sp = species.table(root)
     for k, v in sp.items():
         for f in ('latin', 'name', 'tl', 'wiki', 'desc', 'ic'):
             if f not in v: errs.append('species %r: missing %s' % (k, f))
