@@ -1,0 +1,12 @@
+{
+ "latin": "Connecticut River discharge",
+ "name": "River flow",
+ "tl": 0,
+ "wiki": "Connecticut River",
+ "desc": "Spring floods bring fresh water, silt and nutrients down to the estuary and Long Island Sound.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "connecticut-river-discharge",
+ "sk": "resource",
+ "src": "legacy"
+}

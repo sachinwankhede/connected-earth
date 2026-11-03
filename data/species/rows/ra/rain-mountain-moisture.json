@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & mountain moisture",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The park gets roughly 50 inches of rain a year with no dry season, plus winter snow, which keeps the ridge forests and streams moist.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-mountain-moisture",
+ "sk": "resource",
+ "src": "legacy"
+}

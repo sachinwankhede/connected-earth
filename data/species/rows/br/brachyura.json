@@ -1,0 +1,12 @@
+{
+ "latin": "Brachyura",
+ "name": "Crabs",
+ "tl": 2,
+ "wiki": "Crab",
+ "desc": "Crabs of mudflats and mangroves feed on algae, leaf litter and dead matter and are prey for waders, fish and herons.",
+ "ic": "hopper",
+ "about": "Crabs are decapod crustaceans, either the Brachyura (the \"true crabs\") or various groups within the closely related Anomura (hermit crabs, porcelain crabs etc), characterised by having a heavily…",
+ "sid": "brachyura",
+ "sk": "taxon",
+ "src": "legacy"
+}

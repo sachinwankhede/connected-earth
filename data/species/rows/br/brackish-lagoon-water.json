@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Brackish lagoon water",
+ "tl": 0,
+ "wiki": "Lagoon",
+ "desc": "A shallow, low-salinity lagoon cut off from the Adriatic by a sand strip, rich in algae and dense aquatic plants.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "brackish-lagoon-water",
+ "sk": "resource",
+ "src": "legacy"
+}

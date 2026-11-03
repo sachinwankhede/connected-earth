@@ -1,0 +1,12 @@
+{
+ "latin": "Melanosuchus niger",
+ "name": "Black caiman",
+ "tl": 4,
+ "wiki": "Black caiman",
+ "desc": "The largest predator in the flooded forest, eating fish, capybaras and anything else it can ambush.",
+ "ic": "croc",
+ "about": "The black caiman is a crocodilian reptile endemic to South America.",
+ "sid": "melanosuchus-niger",
+ "sk": "taxon",
+ "src": "legacy"
+}

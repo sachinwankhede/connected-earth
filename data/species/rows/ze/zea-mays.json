@@ -1,0 +1,12 @@
+{
+ "latin": "Zea mays",
+ "name": "Maize",
+ "tl": 1,
+ "wiki": "Maize",
+ "desc": "A farm crop around the lake. GloBI records show wood mice and brown bears eating it.",
+ "ic": "grass",
+ "about": "Maize, also known as corn, is a tall stout grass that produces cereal grain.",
+ "sid": "zea-mays",
+ "sk": "taxon",
+ "src": "legacy"
+}

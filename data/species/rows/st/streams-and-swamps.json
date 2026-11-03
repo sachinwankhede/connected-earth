@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Streams and swamps",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Rivers and wet hollows give shy water-loving animals such as the pygmy hippo daytime cover and cool, moist ground.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "streams-and-swamps",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,13 @@
+{
+ "latin": "Cryptoprocta ferox",
+ "name": "Fossa",
+ "tl": 4,
+ "wiki": "Fossa (animal)",
+ "desc": "Madagascar's largest land predator. Lemurs make up over half of its diet, plus tenrecs, lizards, birds and rodents.",
+ "ic": "lion",
+ "badge": "Keystone predator",
+ "about": "The fossa is a slender, long-tailed, cat-like mammal that is endemic to Madagascar. It is a member of the carnivoran family Eupleridae.",
+ "sid": "cryptoprocta-ferox",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Midsummer daylight",
+ "tl": 0,
+ "wiki": "Midnight sun",
+ "desc": "Near-continuous summer light drives a short, intense growing season, while the winters are dark and cold.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "midsummer-daylight",
+ "sk": "resource",
+ "src": "legacy"
+}

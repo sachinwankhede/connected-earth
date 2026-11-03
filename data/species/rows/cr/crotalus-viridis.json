@@ -1,0 +1,11 @@
+{
+ "latin": "Crotalus viridis",
+ "name": "Prairie rattlesnake",
+ "tl": 3,
+ "wiki": "Prairie rattlesnake",
+ "desc": "A venomous snake that preys on small mammals, including prairie dogs, and shelters in burrows.",
+ "ic": "snake",
+ "sid": "crotalus-viridis",
+ "sk": "taxon",
+ "src": "legacy"
+}

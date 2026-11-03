@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & spring recharge",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain soaking into the mountains feeds the hot springs and the forest, which is why the park is managed to protect the water system.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-spring-recharge",
+ "sk": "resource",
+ "src": "legacy"
+}

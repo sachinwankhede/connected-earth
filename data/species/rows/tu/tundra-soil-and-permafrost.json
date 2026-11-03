@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tundra soil and permafrost",
+ "tl": 0,
+ "wiki": "Permafrost",
+ "desc": "Island ground that was never glaciated. Its thin, cold soil feeds sedges, willows and the meadows of the warmer valleys.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "tundra-soil-and-permafrost",
+ "sk": "resource",
+ "src": "legacy"
+}

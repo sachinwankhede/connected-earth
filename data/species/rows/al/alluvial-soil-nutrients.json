@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Alluvial soil & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "River-borne silt and leaf litter build the rich, wet soils of the floodplain.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "alluvial-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Blackwater and rain",
+ "tl": 0,
+ "wiki": "Blackwater river",
+ "desc": "The swamp depends on rainfall, and decaying plants stain the water tea-coloured. The Suwannee and St. Marys rivers drain it.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "blackwater-and-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

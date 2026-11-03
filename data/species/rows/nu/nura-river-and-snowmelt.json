@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nura River and snowmelt",
+ "tl": 0,
+ "wiki": "Nura (river)",
+ "desc": "Spring snowmelt and the Nura River fill the lake basins; water levels vary from season to season.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "nura-river-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

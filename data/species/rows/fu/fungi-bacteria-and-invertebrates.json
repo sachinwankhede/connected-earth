@@ -1,0 +1,12 @@
+{
+ "latin": "Fungi, bacteria and invertebrates",
+ "name": "Soil decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Fungi, bacteria and soil invertebrates break down dead leaves, wood and carcasses and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-bacteria-and-invertebrates",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool ocean nutrients",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Cool, nutrient-rich water from the Pacific feeds plankton blooms along the coast. This is general ecology and illustrative.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cool-ocean-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

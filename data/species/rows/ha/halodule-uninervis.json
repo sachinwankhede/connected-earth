@@ -1,0 +1,12 @@
+{
+ "latin": "Halodule uninervis",
+ "name": "Seagrass",
+ "tl": 1,
+ "wiki": "Seagrass",
+ "desc": "Underwater meadows that shelter young fish and feed turtles and dugongs.",
+ "ic": "grass",
+ "about": "Seagrasses are the only embryophytes (commonly referred to as \"land plants\") which grow in marine environments.",
+ "sid": "halodule-uninervis",
+ "sk": "taxon",
+ "src": "legacy"
+}

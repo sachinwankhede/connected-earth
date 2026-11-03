@@ -1,0 +1,12 @@
+{
+ "latin": "Thalassiosira",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Microscopic drifting algae in the surrounding sea, the base of the open-water food chain.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "thalassiosira",
+ "sk": "taxon",
+ "src": "legacy"
+}

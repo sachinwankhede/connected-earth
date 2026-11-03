@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Drifting sand and dunes",
+ "tl": 0,
+ "wiki": "Sand dune",
+ "desc": "The spit is a long sand ridge with some of Europe's highest moving dunes. Sand shapes which plants can grow and where forest can take hold.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "drifting-sand-and-dunes",
+ "sk": "resource",
+ "src": "legacy"
+}

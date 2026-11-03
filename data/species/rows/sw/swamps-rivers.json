@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Swamps & rivers",
+ "tl": 0,
+ "wiki": "Swamp",
+ "desc": "Swamp and seasonally flooded forest make up about a quarter of the park, with the Sinoe River on its west side. Home to the pygmy hippo.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "swamps-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

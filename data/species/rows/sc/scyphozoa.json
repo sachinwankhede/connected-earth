@@ -1,0 +1,12 @@
+{
+ "latin": "Scyphozoa",
+ "name": "Jellyfish",
+ "tl": 3,
+ "wiki": "Jellyfish",
+ "desc": "Drifting predators of plankton and a main food of loggerhead turtles at sea.",
+ "ic": "shell",
+ "about": "Jellyfish, also known as sea jellies or simply jellies, are the medusa-phase of certain gelatinous members of the subphylum Medusozoa, which is a major part of the phylum Cnidaria.",
+ "sid": "scyphozoa",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowmelt and glacier water",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "Meltwater from winter snow and the glaciers around Belukha feeds the meadows and the rivers below.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "snowmelt-and-glacier-water",
+ "sk": "resource",
+ "src": "legacy"
+}

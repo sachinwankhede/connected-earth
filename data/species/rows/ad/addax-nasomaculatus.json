@@ -1,0 +1,13 @@
+{
+ "latin": "Addax nasomaculatus",
+ "name": "Addax",
+ "tl": 2,
+ "wiki": "Addax",
+ "desc": "A critically endangered antelope that grazes desert grasses and browses shrubs, and can go a very long time without drinking.",
+ "ic": "quad",
+ "badge": "Keystone grazer",
+ "about": "The addax, also known as the white antelope and the screwhorn antelope, is an antelope native to the Sahara.",
+ "sid": "addax-nasomaculatus",
+ "sk": "taxon",
+ "src": "legacy"
+}

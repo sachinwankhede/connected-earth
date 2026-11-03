@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Awash River inflow",
+ "tl": 0,
+ "wiki": "Awash River",
+ "desc": "The Awash is the lake's main source of water. It has no outflow, so salts build up and the level swings with river supply.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "awash-river-inflow",
+ "sk": "resource",
+ "src": "legacy"
+}

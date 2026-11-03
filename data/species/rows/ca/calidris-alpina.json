@@ -1,0 +1,12 @@
+{
+ "latin": "Calidris alpina",
+ "name": "Dunlin",
+ "tl": 3,
+ "wiki": "Dunlin",
+ "desc": "Small wintering shorebird that probes mudflats in flocks for molluscs, worms and crustaceans.",
+ "ic": "meadowlark",
+ "about": "The dunlin is a small wader in the genus Calidris. The English name is a dialect form of \"dunling\", first recorded in 1531–1532.",
+ "sid": "calidris-alpina",
+ "sk": "taxon",
+ "src": "legacy"
+}

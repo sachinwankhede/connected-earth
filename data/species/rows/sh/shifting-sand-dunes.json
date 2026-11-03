@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Shifting sand dunes",
+ "tl": 0,
+ "wiki": "Sand dune",
+ "desc": "Wind and waves keep the sandy shore moving; only plants adapted to salt spray and drifting sand can hold it.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "shifting-sand-dunes",
+ "sk": "resource",
+ "src": "legacy"
+}

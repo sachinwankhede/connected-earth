@@ -1,0 +1,13 @@
+{
+ "latin": "Panthera tigris",
+ "name": "Tiger",
+ "tl": 4,
+ "wiki": "Tiger",
+ "desc": "The top predator of the park. Hunts deer and wild boar, and also takes sloth bears and leopards.",
+ "ic": "lion",
+ "badge": "Keystone predator",
+ "about": "The tiger is a large cat and a member of the genus Panthera native to Asia.",
+ "sid": "panthera-tigris",
+ "sk": "taxon",
+ "src": "legacy"
+}

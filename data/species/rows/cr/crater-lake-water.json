@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Crater Lake water",
+ "tl": 0,
+ "wiki": "Crater Lake",
+ "desc": "A very deep caldera lake with no streams flowing in or out; its water comes from rain and snow falling directly on it.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "crater-lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

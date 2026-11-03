@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm lagoon water",
+ "tl": 0,
+ "wiki": "Coral reef",
+ "desc": "The enclosed lagoon is shallow, averaging about 25 m deep, and warm and clear enough for reef corals and seagrass to thrive.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-lagoon-water",
+ "sk": "resource",
+ "src": "legacy"
+}

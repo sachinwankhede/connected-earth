@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peat and poor soils",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Bogs on the coast are rich in peat, and the ultramafic Tablelands have stony, nutrient-poor soil. Plant growth is limited by what the ground supplies.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "peat-and-poor-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Drift detritus",
+ "name": "Wind-blown plant debris",
+ "tl": 0,
+ "wiki": "Detritus",
+ "desc": "Dry plant matter carried by wind from the interior feeds dune invertebrates, which in turn support reptiles.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "drift-detritus",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Copepoda",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Copepod",
+ "desc": "Tiny animals of the plankton that graze phytoplankton and feed corals and fish.",
+ "ic": "hopper",
+ "about": "Copepods are a group of small crustaceans found in nearly every freshwater and saltwater habitat.",
+ "sid": "copepoda",
+ "sk": "taxon",
+ "src": "legacy"
+}

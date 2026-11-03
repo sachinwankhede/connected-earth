@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Muddy tidal flats",
+ "tl": 0,
+ "wiki": "Sabkha",
+ "desc": "Sheltered, muddy intertidal shores and salt flats where mangroves root, and where dead plant matter is broken down.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "muddy-tidal-flats",
+ "sk": "resource",
+ "src": "legacy"
+}

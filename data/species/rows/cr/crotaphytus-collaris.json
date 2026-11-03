@@ -1,0 +1,11 @@
+{
+ "latin": "Crotaphytus collaris",
+ "name": "Collared lizard",
+ "tl": 3,
+ "wiki": "Collared lizard",
+ "desc": "A big-headed lizard of rocky desert ground that hunts insects and smaller lizards. Hawks and rattlesnakes eat it.",
+ "ic": "snake",
+ "sid": "crotaphytus-collaris",
+ "sk": "taxon",
+ "src": "legacy"
+}

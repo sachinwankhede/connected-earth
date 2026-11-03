@@ -1,0 +1,12 @@
+{
+ "latin": "Soil and sediment nutrients",
+ "name": "Nutrients",
+ "tl": 0,
+ "wiki": "Nutrient cycle",
+ "desc": "Nutrients from forest litter, mangrove mud and recycled dead matter support plant growth on land and in the shallows.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-and-sediment-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

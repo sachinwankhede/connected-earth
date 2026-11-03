@@ -1,0 +1,12 @@
+{
+ "latin": "Arctonyx collaris",
+ "name": "Greater hog badger",
+ "tl": 2,
+ "wiki": "Greater hog badger",
+ "desc": "A rooting forest omnivore that feeds on invertebrates and plant matter in leaf litter.",
+ "ic": "quad",
+ "about": "The greater hog badger is a very large terrestrial mustelid native to Southeast Asia.",
+ "sid": "arctonyx-collaris",
+ "sk": "taxon",
+ "src": "legacy"
+}

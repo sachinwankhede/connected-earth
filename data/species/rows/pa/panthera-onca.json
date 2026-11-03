@@ -1,0 +1,13 @@
+{
+ "latin": "Panthera onca",
+ "name": "Jaguar",
+ "tl": 4,
+ "wiki": "Jaguar",
+ "desc": "Hunts capybaras, tapirs, sloths and caimans, with a bite strong enough to crush skulls and shells.",
+ "ic": "lion",
+ "badge": "Keystone predator",
+ "about": "The jaguar is a large cat species and the only living member of the genus Panthera that is native to the Americas.",
+ "sid": "panthera-onca",
+ "sk": "taxon",
+ "src": "legacy"
+}

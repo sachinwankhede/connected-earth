@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Leaf litter and decaying wood build the soil that the trees and shrubs draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Typha",
+ "name": "Cattails",
+ "tl": 1,
+ "wiki": "Typha",
+ "desc": "Tall emergent plants of the park's marshes and beaver ponds, eaten by muskrats and beavers.",
+ "ic": "grass",
+ "about": "Typha is a genus of about 30 species of monocotyledonous flowering plants in the family Typhaceae.",
+ "sid": "typha",
+ "sk": "taxon",
+ "src": "legacy"
+}

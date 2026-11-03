@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Clear fast streams",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Cold, oxygen-rich mountain streams with permanent flow are the home of aquatic insect larvae and of the desman.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "clear-fast-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

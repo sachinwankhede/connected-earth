@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Alkaline soils",
+ "tl": 0,
+ "wiki": "Alkali soil",
+ "desc": "Salty, alkaline soils on the Great Plain keep much of the puszta treeless and favour salt-tolerant grasses and herbs.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "alkaline-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

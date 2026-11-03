@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal river flooding",
+ "tl": 0,
+ "wiki": "Flood",
+ "desc": "The Essequibo, Siparuni and Burro-Burro rivers bound and cross the reserve. Rising water spreads into low forest and swamp.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seasonal-river-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

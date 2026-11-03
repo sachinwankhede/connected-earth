@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Springs & seeps",
+ "tl": 0,
+ "wiki": "Spring (hydrology)",
+ "desc": "Rattlesnake Springs and Oak Spring are rare permanent water in the park, and Rattlesnake Springs is a wooded oasis with over 300 bird species recorded.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "springs-seeps",
+ "sk": "resource",
+ "src": "legacy"
+}

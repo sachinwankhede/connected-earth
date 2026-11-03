@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowmelt and marsh",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "Melting snow feeds streams and the deep marshy soil of the flat ground between mountains, watering the plateau through summer.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "snowmelt-and-marsh",
+ "sk": "resource",
+ "src": "legacy"
+}

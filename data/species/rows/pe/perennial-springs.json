@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Perennial springs",
+ "tl": 0,
+ "wiki": "Spring (hydrology)",
+ "desc": "Springs such as Ein Prat, Ein Mabuah and Ein Qelt keep Wadi Qelt flowing in places and draw wildlife.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "perennial-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

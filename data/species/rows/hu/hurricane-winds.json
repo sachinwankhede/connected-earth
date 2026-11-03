@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Hurricane winds",
+ "tl": 0,
+ "wiki": "Tropical cyclone",
+ "desc": "Hugo, Georges, Irma and Maria damaged the forest and cut parrot numbers. Open gaps let pioneer trees such as pumpwood take over.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "hurricane-winds",
+ "sk": "resource",
+ "src": "legacy"
+}

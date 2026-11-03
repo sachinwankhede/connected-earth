@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal flooding",
+ "tl": 0,
+ "wiki": "Congo River",
+ "desc": "Rivers flood the swamp forests and riverbank grasses, spreading water and nutrients.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seasonal-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

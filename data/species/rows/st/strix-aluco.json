@@ -1,0 +1,12 @@
+{
+ "latin": "Strix aluco",
+ "name": "Tawny owl",
+ "tl": 3,
+ "wiki": "Tawny owl",
+ "desc": "A woodland owl hunting small mammals such as voles at night.",
+ "ic": "hawk",
+ "about": "The tawny owl, also called the brown owl, is a stocky, medium-sized owl in the family Strigidae.",
+ "sid": "strix-aluco",
+ "sk": "taxon",
+ "src": "legacy"
+}

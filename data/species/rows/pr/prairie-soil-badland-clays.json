@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Prairie soil & badland clays",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soils on the benches hold the grass roots; the eroding badland slopes stay mostly bare.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "prairie-soil-badland-clays",
+ "sk": "resource",
+ "src": "legacy"
+}

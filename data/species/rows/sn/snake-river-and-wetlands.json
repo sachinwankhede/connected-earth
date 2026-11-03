@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snake River and wetlands",
+ "tl": 0,
+ "wiki": "Snake River",
+ "desc": "Rises on the Yellowstone Plateau and runs through the valley, with side channels and wetlands such as Willow Flats and Oxbow Bend that support willow, cottonwood and aspen.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "snake-river-and-wetlands",
+ "sk": "resource",
+ "src": "legacy"
+}

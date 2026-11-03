@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Freshwater inflow",
+ "tl": 0,
+ "wiki": "River",
+ "desc": "The Caroni River meets the Gulf of Paria here, mixing fresh and salt water and carrying silt and nutrients into the swamp.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "freshwater-inflow",
+ "sk": "resource",
+ "src": "legacy"
+}

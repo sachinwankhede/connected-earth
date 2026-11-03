@@ -1,0 +1,12 @@
+{
+ "latin": "Equus caballus",
+ "name": "Wild horse",
+ "tl": 2,
+ "wiki": "Mustang",
+ "desc": "Free-roaming horses live in the South Unit. Park staff manage the herd size, and a fence keeps horses and bison inside the park.",
+ "ic": "quad",
+ "about": "The mustang is a free-roaming horse of the Western United States, descended from horses brought to the Americas by the Spanish conquistadors.",
+ "sid": "equus-caballus",
+ "sk": "taxon",
+ "src": "legacy"
+}

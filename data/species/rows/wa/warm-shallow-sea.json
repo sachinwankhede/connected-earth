@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm shallow sea",
+ "tl": 0,
+ "wiki": "Red Sea",
+ "desc": "The Red Sea around the islands is warm and salty, with shallow banks where seagrass beds and coral grow.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-shallow-sea",
+ "sk": "resource",
+ "src": "legacy"
+}

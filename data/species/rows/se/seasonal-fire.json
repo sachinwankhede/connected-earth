@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Fire shapes the Cerrado, and many of its plants have thick, corky bark or other traits that let them survive it.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "seasonal-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

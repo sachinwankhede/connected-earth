@@ -1,0 +1,13 @@
+{
+ "latin": "Quercus, Carya",
+ "name": "Oaks & hickories",
+ "tl": 1,
+ "wiki": "Oak",
+ "desc": "Dominant trees of the drier forest. Their acorns and nuts are the fall mast that bears, turkeys, deer and squirrels fatten on.",
+ "ic": "willow",
+ "badge": "Foundation species",
+ "about": "An oak is a hardwood tree or shrub in the genus Quercus of the beech family. They have spirally arranged leaves, often with lobed edges, and a nut called an acorn, borne within a cup.",
+ "sid": "quercus-carya",
+ "sk": "group",
+ "src": "legacy"
+}

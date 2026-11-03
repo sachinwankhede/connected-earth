@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "White Nile flood pulse",
+ "tl": 0,
+ "wiki": "White Nile",
+ "desc": "Water from upstream spreads across the flat clay plain each wet season, flooding the swamp and shrinking back in the dry season. It sets which plants grow where.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "white-nile-flood-pulse",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,13 @@
+{
+ "latin": "Bryophyta",
+ "name": "Mosses",
+ "tl": 1,
+ "wiki": "Bryophyte",
+ "desc": "Mosses, with algae and bacteria, give tufa a surface to build on. They help trigger the limestone deposits that form the barriers.",
+ "ic": "sage",
+ "badge": "Ecosystem engineer",
+ "about": "Bryophytes () are a group of land plants (embryophytes), sometimes treated as a taxonomic division referred to as Bryophyta sensu lato, that contains three groups of non-vascular land plants: the…",
+ "sid": "bryophyta",
+ "sk": "taxon",
+ "src": "legacy"
+}

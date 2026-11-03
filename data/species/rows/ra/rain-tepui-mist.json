@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & tepui mist",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The Gran Sabana gets roughly 1,600 to 2,200 mm of rain a year, with a rainy season of about ten months.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-tepui-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

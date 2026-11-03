@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Ocean currents",
+ "tl": 0,
+ "wiki": "Ocean current",
+ "desc": "The island is the first landmark met by the North Equatorial Countercurrent, where currents meet and carry larvae and plankton across the Pacific.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "ocean-currents",
+ "sk": "resource",
+ "src": "legacy"
+}

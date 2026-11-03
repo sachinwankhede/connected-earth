@@ -1,0 +1,12 @@
+{
+ "latin": "Snow",
+ "name": "Winter snowpack",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Lake Helen gets roughly 600 to 700 inches a year, and meltwater feeds meadows and forests into summer.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow",
+ "sk": "resource",
+ "src": "legacy"
+}

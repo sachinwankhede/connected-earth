@@ -1,0 +1,11 @@
+{
+ "latin": "Diatoms living in and under ice",
+ "name": "Sea-ice algae",
+ "tl": 1,
+ "wiki": "Sea ice algae",
+ "desc": "Algae growing in channels and on the underside of sea ice, a spring food supply for krill.",
+ "ic": "algae",
+ "sid": "diatoms-living-in-and-under-ice",
+ "sk": "group",
+ "src": "legacy"
+}

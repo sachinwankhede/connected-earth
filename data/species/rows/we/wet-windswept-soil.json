@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wet, windswept soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Kerguelen cabbage grows where soil water stays high, in a climate with constant wind.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "wet-windswept-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

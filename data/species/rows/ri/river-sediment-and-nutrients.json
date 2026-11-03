@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River sediment and nutrients",
+ "tl": 0,
+ "wiki": "Shkumbin",
+ "desc": "The lagoon was formed from sediment carried down by the Shkumbin and Seman rivers, which also feed it with nutrients.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-sediment-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

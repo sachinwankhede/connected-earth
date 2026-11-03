@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lakes & waterholes",
+ "tl": 0,
+ "wiki": "Lake",
+ "desc": "The park holds many lakes and streams, Padam Talao being the largest. In a dry landscape they draw grazers and the crocodiles that live in them.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lakes-waterholes",
+ "sk": "resource",
+ "src": "legacy"
+}

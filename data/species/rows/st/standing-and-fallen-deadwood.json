@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Standing and fallen deadwood",
+ "tl": 0,
+ "wiki": "Dead wood",
+ "desc": "In unmanaged old forest, dead trees are left to stand and rot. They house beetles, fungi and the birds that feed on them.",
+ "ic": "aspen",
+ "cat": "abiotic",
+ "sid": "standing-and-fallen-deadwood",
+ "sk": "resource",
+ "src": "legacy"
+}

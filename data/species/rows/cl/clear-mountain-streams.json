@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Clear mountain streams",
+ "tl": 0,
+ "wiki": "River",
+ "desc": "Cold, fast, clean streams drain the granite uplands and support trout, otters and the rare Pyrenean desman.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "clear-mountain-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

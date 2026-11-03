@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Springs and oases",
+ "tl": 0,
+ "wiki": "Oasis",
+ "desc": "Natural oases, springs and seeps are rare water sources vital to resident wildlife, and support the native fan palm.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "springs-and-oases",
+ "sk": "resource",
+ "src": "legacy"
+}

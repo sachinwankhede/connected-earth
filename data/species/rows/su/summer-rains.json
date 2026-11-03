@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Summer rains",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rains fill pans and swell the rivers, and turn the grasslands green.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "summer-rains",
+ "sk": "resource",
+ "src": "legacy"
+}

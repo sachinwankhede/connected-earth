@@ -1,0 +1,12 @@
+{
+ "latin": "Midnight sun",
+ "name": "Midnight sun",
+ "tl": 0,
+ "wiki": "Midnight sun",
+ "desc": "Long summer daylight gives a short, intense growing season on the tundra; winter is dark.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "midnight-sun",
+ "sk": "resource",
+ "src": "legacy"
+}

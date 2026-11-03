@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wet-season rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain falls mainly from May to November and feeds the grasslands, lakes and the Harenna Forest.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "wet-season-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

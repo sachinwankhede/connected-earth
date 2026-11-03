@@ -1,0 +1,12 @@
+{
+ "latin": "Fifth season",
+ "name": "Spring flood",
+ "tl": 0,
+ "wiki": "Soomaa National Park",
+ "desc": "Snowmelt from the uplands spreads over meadows and forests each spring, flooding up to 175 square kilometres.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "fifth-season",
+ "sk": "resource",
+ "src": "legacy"
+}

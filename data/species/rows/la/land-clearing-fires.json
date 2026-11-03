@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Land-clearing fires",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "UNESCO lists regular fires set for farming and grazing around the reserve as a threat. Fire also shapes the grassland.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "land-clearing-fires",
+ "sk": "resource",
+ "src": "legacy"
+}

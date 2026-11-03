@@ -1,0 +1,13 @@
+{
+ "latin": "Mustela nigripes",
+ "name": "Black-footed ferret",
+ "tl": 3,
+ "wiki": "Black-footed ferret",
+ "desc": "Lives in prairie dog burrows and eats mostly prairie dogs. Reintroduced near the park; about 100 live in the park.",
+ "ic": "fox",
+ "badge": "Keystone predator",
+ "about": "The black-footed ferret, also known as the American polecat or prairie dog hunter, is a mustelid species native to central North America.",
+ "sid": "mustela-nigripes",
+ "sk": "taxon",
+ "src": "legacy"
+}

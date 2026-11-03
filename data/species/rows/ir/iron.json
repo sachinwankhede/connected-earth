@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Iron",
+ "tl": 0,
+ "wiki": "Iron fertilization",
+ "desc": "Scarce in surface water, so it limits how much phytoplankton can grow.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "iron",
+ "sk": "resource",
+ "src": "legacy"
+}

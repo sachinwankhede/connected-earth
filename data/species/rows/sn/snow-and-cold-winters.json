@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and cold winters",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep snow and cold shape winter foraging, and heavy snowfall on the high peaks feeds streams in spring.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-cold-winters",
+ "sk": "resource",
+ "src": "legacy"
+}

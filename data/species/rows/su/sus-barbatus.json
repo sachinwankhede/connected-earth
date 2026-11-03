@@ -1,0 +1,11 @@
+{
+ "latin": "Sus barbatus",
+ "name": "Bornean bearded pig",
+ "tl": 2,
+ "wiki": "Bearded pig",
+ "desc": "A forest pig that roots through the leaf litter for fallen fruit, seeds and invertebrates.",
+ "ic": "quad",
+ "sid": "sus-barbatus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Spring rain & snowmelt",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Moisture comes mainly in the cooler months, so plant growth surges in spring and slows in the hot dry summer.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "spring-rain-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

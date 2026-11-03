@@ -1,0 +1,12 @@
+{
+ "latin": "Copepods and water fleas",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Zooplankton",
+ "desc": "Tiny animals that graze algae. Alewife and juvenile fish eat them, and so do filtering mussels.",
+ "ic": "mayfly",
+ "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive.",
+ "sid": "copepods-and-water-fleas",
+ "sk": "group",
+ "src": "legacy"
+}

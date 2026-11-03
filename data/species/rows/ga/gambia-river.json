@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Gambia River",
+ "tl": 0,
+ "wiki": "Gambia River",
+ "desc": "The slow, wide river that holds the islands of the park and supports water plants, fish and wet forest.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "gambia-river",
+ "sk": "resource",
+ "src": "legacy"
+}

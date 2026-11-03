@@ -1,0 +1,13 @@
+{
+ "latin": "Acropora palmata",
+ "name": "Elkhorn coral",
+ "tl": 2,
+ "wiki": "Elkhorn coral",
+ "desc": "Branching reef-builder of the shallow reef crest. It takes in food from plankton as well as from its algal partners.",
+ "ic": "coral",
+ "badge": "Foundation species",
+ "about": "Elkhorn coral is an important reef-building coral in the Caribbean. The species has a complex structure with many branches which resemble that of elk antlers; hence, the common name.",
+ "sid": "acropora-palmata",
+ "sk": "taxon",
+ "src": "legacy"
+}

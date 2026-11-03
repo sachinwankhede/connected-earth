@@ -1,0 +1,12 @@
+{
+ "latin": "Fungi and bacteria",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead leaves, wood and animals and return nutrients to the volcanic soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-and-bacteria",
+ "sk": "resource",
+ "src": "legacy"
+}

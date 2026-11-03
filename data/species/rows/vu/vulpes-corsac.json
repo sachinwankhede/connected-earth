@@ -1,0 +1,12 @@
+{
+ "latin": "Vulpes corsac",
+ "name": "Corsac fox",
+ "tl": 3,
+ "wiki": "Corsac fox",
+ "desc": "A small steppe fox that hunts jerboas, hares and waterbirds, with GloBI records of these meals.",
+ "ic": "fox",
+ "about": "The Corsac fox, also known as a corsac, is a medium-sized fox found in steppes, semi-deserts and deserts in Central Asia, ranging into Mongolia and northern China.",
+ "sid": "vulpes-corsac",
+ "sk": "taxon",
+ "src": "legacy"
+}

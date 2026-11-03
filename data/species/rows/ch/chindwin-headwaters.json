@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Chindwin headwaters",
+ "tl": 0,
+ "wiki": "Chindwin River",
+ "desc": "The Tanai and other streams drain the valley and form the head of the Chindwin River, watering the lowlands.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "chindwin-headwaters",
+ "sk": "resource",
+ "src": "legacy"
+}

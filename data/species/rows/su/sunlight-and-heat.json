@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sunlight and heat",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Intense light powers the sparse plant life, but extreme summer heat and dryness limit where plants and animals can live.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sunlight-and-heat",
+ "sk": "resource",
+ "src": "legacy"
+}

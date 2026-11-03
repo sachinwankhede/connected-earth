@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Poor acidic soils",
+ "tl": 0,
+ "wiki": "Oxisol",
+ "desc": "Cerrado soils are well drained and mostly acidic and low in nutrients, which helps set what can grow.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "poor-acidic-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

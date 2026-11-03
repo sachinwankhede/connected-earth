@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Young soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils left behind by ice build up as plants grow and die and as nitrogen is added.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "young-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

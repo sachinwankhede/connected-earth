@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Virgin River",
+ "tl": 0,
+ "wiki": "Virgin River",
+ "desc": "Its North Fork carved Zion Canyon, and the river corridor supports cottonwood, willow and boxelder along its banks.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "virgin-river",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Grassland fires",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Seasonal bushfires burn off old grass in the park, and fresh growth follows for grazers such as gaur.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "grassland-fires",
+ "sk": "resource",
+ "src": "legacy"
+}

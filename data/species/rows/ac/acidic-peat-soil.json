@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Acidic peat soil",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Buttongrass moor grows on damp, nutrient-poor, acidic peat soils in western Tasmania.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "acidic-peat-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

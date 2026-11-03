@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Short summer sun",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Meadow plants have only a brief snow-free season, so they flower and set seed quickly once the snow melts.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "short-summer-sun",
+ "sk": "resource",
+ "src": "legacy"
+}

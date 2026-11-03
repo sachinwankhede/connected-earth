@@ -1,0 +1,12 @@
+{
+ "latin": "Felis margarita",
+ "name": "Sand cat",
+ "tl": 4,
+ "wiki": "Sand cat",
+ "desc": "A small desert cat that hunts at night for rodents and birds, and also kills lizards and venomous snakes. It gets most of its water from prey.",
+ "ic": "lion",
+ "about": "The sand cat is a small wild cat that inhabits sandy and stony deserts far from water sources. With its sandy to light grey fur, it is well camouflaged in a desert environment.",
+ "sid": "felis-margarita",
+ "sk": "taxon",
+ "src": "legacy"
+}

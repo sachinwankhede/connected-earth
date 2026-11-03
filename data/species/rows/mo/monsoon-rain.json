@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon rain",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Summer monsoon rain waters the lower slopes and forests.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

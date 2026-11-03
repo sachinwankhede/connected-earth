@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and sea mist",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Moist ocean air rising over the Serra do Mar slopes brings heavy rain to the escarpment forests, which keeps them lush.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-sea-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peat bogs and streams",
+ "tl": 0,
+ "wiki": "Bog",
+ "desc": "The Bohemian Forest holds peat bogs and sources of rivers such as the Vltava, Otava and Uhlava, which keep soils wet.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "peat-bogs-and-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

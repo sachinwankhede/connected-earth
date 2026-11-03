@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain springs",
+ "tl": 0,
+ "wiki": "Spring (hydrology)",
+ "desc": "About fifty springs make Nimba a water tower for the Cavally, Cestos and Sassandra rivers.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "mountain-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

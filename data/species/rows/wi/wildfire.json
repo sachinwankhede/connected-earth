@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wildfire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "A natural recurring disturbance that renews the forest and opens jack pine cones. It creates young forest where aspen, berries and moose food thrive.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "wildfire",
+ "sk": "resource",
+ "src": "legacy"
+}

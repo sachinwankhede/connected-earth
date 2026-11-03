@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm, salty Red Sea water",
+ "tl": 0,
+ "wiki": "Red Sea",
+ "desc": "The enclosed Red Sea is warm and salty, and its clear water carries drifting plankton across the shallow shelf around the islands.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-salty-red-sea-water",
+ "sk": "resource",
+ "src": "legacy"
+}

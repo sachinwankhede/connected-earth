@@ -1,0 +1,12 @@
+{
+ "latin": "Corvus tasmanicus",
+ "name": "Forest raven",
+ "tl": 3,
+ "wiki": "Forest raven",
+ "desc": "The most-recorded bird near the site. It feeds on carrion such as dead wallabies and pademelons.",
+ "ic": "raven",
+ "about": "The forest raven, also commonly known as the Tasmanian raven, is a passerine bird in the family Corvidae native to Tasmania and parts of southern Victoria, such as Wilsons Promontory and Portland.",
+ "sid": "corvus-tasmanicus",
+ "sk": "taxon",
+ "src": "legacy"
+}

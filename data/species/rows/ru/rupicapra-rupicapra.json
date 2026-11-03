@@ -1,0 +1,12 @@
+{
+ "latin": "Rupicapra rupicapra",
+ "name": "Chamois",
+ "tl": 2,
+ "wiki": "Chamois",
+ "desc": "Eats alpine grasses and herbs in summer and conifers in winter, moving down to pine forest. A main prey of wolves and a regular carrion source.",
+ "ic": "quad",
+ "about": "The chamois, or Alpine chamois, is a species of goat-antelope native to mountainous parts of Europe and Western Asia, from the Pyrenees and the Cantabrian Mountain Range, the Alps, the Apennines, the…",
+ "sid": "rupicapra-rupicapra",
+ "sk": "taxon",
+ "src": "legacy"
+}

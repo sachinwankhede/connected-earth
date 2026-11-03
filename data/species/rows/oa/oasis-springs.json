@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Oasis springs",
+ "tl": 0,
+ "wiki": "Oasis",
+ "desc": "Scattered springs and seeps are the water that desert plants, wild asses, camels and bears gather around.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "oasis-springs",
+ "sk": "resource",
+ "src": "legacy"
+}

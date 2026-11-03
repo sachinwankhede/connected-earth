@@ -1,0 +1,12 @@
+{
+ "latin": "n/a",
+ "name": "Sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Light that reaches the forest floor in clearings and leaf-fall seasons drives plant growth.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "n-a",
+ "sk": "resource",
+ "src": "legacy"
+}

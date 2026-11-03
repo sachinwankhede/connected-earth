@@ -1,0 +1,12 @@
+{
+ "latin": "Porifera",
+ "name": "Marine sponges",
+ "tl": 2,
+ "wiki": "Sponge",
+ "desc": "Filter feeders on the reef that strain tiny particles from the water. They are the main food of hawksbill turtles.",
+ "ic": "shell",
+ "about": "Sponges or sea sponges are primarily marine invertebrates of the animal phylum Porifera. They are filter feeders that are typically bound to the seabed, being sessile.",
+ "sid": "porifera",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy soil and dunes",
+ "tl": 0,
+ "wiki": "Sand",
+ "desc": "Loose sand holds little organic matter. Deep-rooted shrubs help anchor it, and returning nutrients feed the plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-soil-and-dunes",
+ "sk": "resource",
+ "src": "legacy"
+}

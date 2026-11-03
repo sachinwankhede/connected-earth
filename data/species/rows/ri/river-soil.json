@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Damp, flooded riverbank soil that feeds palms, trees and grasses.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

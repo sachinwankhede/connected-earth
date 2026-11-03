@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, rocky soil over limestone. Dead plants and animals break down slowly here and return nutrients to it.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

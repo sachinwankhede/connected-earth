@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter snow cover",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep winter snow covers the ground plants and small mammals live under, and makes food hard to reach for grazers and ground-feeding birds.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-snow-cover",
+ "sk": "resource",
+ "src": "legacy"
+}

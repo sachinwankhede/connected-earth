@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter snow and frost",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Snowfall and hard frost shape the high plateau, and snowmelt feeds the streams and pools that supply water downstream.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-snow-and-frost",
+ "sk": "resource",
+ "src": "legacy"
+}

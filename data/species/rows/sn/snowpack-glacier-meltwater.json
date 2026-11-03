@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowpack & glacier meltwater",
+ "tl": 0,
+ "wiki": "Snowpack",
+ "desc": "Winter snow and glaciers feed the headwaters of major rivers rising in the mountains and water the valleys through summer.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowpack-glacier-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

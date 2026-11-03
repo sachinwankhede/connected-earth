@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Southern Patagonian Ice Field",
+ "tl": 0,
+ "wiki": "Southern Patagonian Ice Field",
+ "desc": "The great ice cap feeds dozens of glaciers such as Perito Moreno, which end in Lake Argentino and shape the valleys and rivers.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "southern-patagonian-ice-field",
+ "sk": "resource",
+ "src": "legacy"
+}

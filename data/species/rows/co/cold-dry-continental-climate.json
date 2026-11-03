@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold dry continental climate",
+ "tl": 0,
+ "wiki": "Continental climate",
+ "desc": "Cold winters and dry air shape the semi-desert, steppe and spruce zones, so water supply sets where plants can grow.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "cold-dry-continental-climate",
+ "sk": "resource",
+ "src": "legacy"
+}

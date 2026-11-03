@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool water temperature",
+ "tl": 0,
+ "wiki": "California Current",
+ "desc": "Giant kelp does best in cool water, mostly below about 21 C. Warm El Nino water has been known to kill it.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cool-water-temperature",
+ "sk": "resource",
+ "src": "legacy"
+}

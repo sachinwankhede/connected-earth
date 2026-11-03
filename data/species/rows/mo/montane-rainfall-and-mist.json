@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Montane rainfall and mist",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Frequent rain and cloud on the Congo-Nile divide keep this high-altitude forest moist and growing.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "montane-rainfall-and-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

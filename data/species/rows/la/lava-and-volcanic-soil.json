@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lava and volcanic soil",
+ "tl": 0,
+ "wiki": "Lava",
+ "desc": "New flows start as bare rock, and pioneers such as ʻōhiʻa colonise them and slowly build soil.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "lava-and-volcanic-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

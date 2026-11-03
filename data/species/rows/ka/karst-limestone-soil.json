@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Karst limestone soil",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "The park sits on a forested karst landscape of limestone, with sinkholes, caves and thin soils.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "karst-limestone-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

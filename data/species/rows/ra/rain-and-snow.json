@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and snow",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "Mount Washington receives very high precipitation, about 91 inches a year, feeding moist forests and alpine plants.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

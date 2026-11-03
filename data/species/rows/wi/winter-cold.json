@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter cold",
+ "tl": 0,
+ "wiki": "Frost",
+ "desc": "Joshua tree blooming depends on timely rain and a winter freeze.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-cold",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Bottom-water oxygen",
+ "tl": 0,
+ "wiki": "Hypoxia (environmental)",
+ "desc": "In summer the layered water traps oxygen-poor water near the bottom, where dissolved oxygen can drop to near zero.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "bottom-water-oxygen",
+ "sk": "resource",
+ "src": "legacy"
+}

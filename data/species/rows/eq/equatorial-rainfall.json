@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Equatorial rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Heavy, year-round rain keeps the Congo Basin forest wet and feeds the rivers and swamps around the reserve.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "equatorial-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rocky soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "The park is hilly with rocky ground and open meadows, between roughly 215 and 505 m above sea level.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "rocky-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

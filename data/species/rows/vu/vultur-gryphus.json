@@ -1,0 +1,12 @@
+{
+ "latin": "Vultur gryphus",
+ "name": "Andean condor",
+ "tl": 3,
+ "wiki": "Andean condor",
+ "desc": "A huge scavenger that glides over the steppe and ice field, feeding on carcasses of guanacos, hares and livestock.",
+ "ic": "hawk",
+ "about": "The Andean condor is a South American New World vulture and is the only extant member of the genus Vultur. It is found in the Andes mountains and adjacent Pacific coasts of western South America.",
+ "sid": "vultur-gryphus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter snow",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep mountain snow covers the high meadows for months and pushes grazers down into the forest; meltwater feeds the slopes in spring.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-snow",
+ "sk": "resource",
+ "src": "legacy"
+}

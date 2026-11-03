@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Marshes and fishponds",
+ "tl": 0,
+ "wiki": "Wetland",
+ "desc": "Marshes and artificial fishponds, first dug in 1914-1918 and again in the 1950s, add reed beds and open water to the grassland.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "marshes-and-fishponds",
+ "sk": "resource",
+ "src": "legacy"
+}

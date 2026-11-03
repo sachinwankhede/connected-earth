@@ -1,0 +1,12 @@
+{
+ "latin": "Halodule",
+ "name": "Seagrass",
+ "tl": 1,
+ "wiki": "Seagrass",
+ "desc": "Underwater meadows in shallow lagoons and bays, grazed by green turtles and, in places, manatees.",
+ "ic": "grass",
+ "about": "Seagrasses are the only embryophytes (commonly referred to as \"land plants\") which grow in marine environments.",
+ "sid": "halodule",
+ "sk": "taxon",
+ "src": "legacy"
+}

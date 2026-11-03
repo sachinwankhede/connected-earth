@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Island soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Many islands began as termite mounds. Salts gather in island centres, and nutrients wash through the flooded margins.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "island-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal flood pulse",
+ "tl": 0,
+ "wiki": "Tonlé Sap",
+ "desc": "Monsoon rains reverse the flow of the Tonlé Sap River, and the lake swells from roughly 2,500 km2 to over 16,000 km2, drowning forest and fields.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seasonal-flood-pulse",
+ "sk": "resource",
+ "src": "legacy"
+}

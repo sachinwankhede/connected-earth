@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil and nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soil holds the nutrients plants take up.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

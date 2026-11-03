@@ -1,0 +1,13 @@
+{
+ "latin": "Panthera leo",
+ "name": "Lion",
+ "tl": 4,
+ "wiki": "Lion",
+ "desc": "Lions on the Skeleton Coast prey on seals and shorebirds. Inland they also hunt oryx and springbok.",
+ "ic": "lion",
+ "badge": "Keystone predator",
+ "about": "The lion is a large cat of the genus Panthera, currently ranging only in Sub-Saharan Africa and India.",
+ "sid": "panthera-leo",
+ "sk": "taxon",
+ "src": "legacy"
+}

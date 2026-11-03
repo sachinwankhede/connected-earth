@@ -1,0 +1,12 @@
+{
+ "latin": "Myrmecophaga tridactyla",
+ "name": "Giant anteater",
+ "tl": 3,
+ "wiki": "Giant anteater",
+ "desc": "Rips open ant and termite nests and licks up thousands of insects.",
+ "ic": "quad",
+ "about": "The giant anteater is a large insectivorous mammal native to Central and South America. It is the largest of the four living species of anteaters, which are classified with sloths in the order Pilosa.",
+ "sid": "myrmecophaga-tridactyla",
+ "sk": "taxon",
+ "src": "legacy"
+}

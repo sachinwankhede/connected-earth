@@ -1,0 +1,12 @@
+{
+ "latin": "Odontotermes",
+ "name": "Termites",
+ "tl": 2,
+ "wiki": "Termite",
+ "desc": "Build mounds and recycle dry grass and wood. They are the main food of sloth bears.",
+ "ic": "ant",
+ "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus.",
+ "sid": "odontotermes",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce, seasonal rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The islands have one of the driest climates in Indonesia, with roughly 800 to 1,000 mm of rain a year, so growth is tied to the wet season.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-seasonal-rain-2",
+ "sk": "resource",
+ "src": "legacy"
+}

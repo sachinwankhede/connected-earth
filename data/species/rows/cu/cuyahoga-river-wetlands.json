@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cuyahoga River & wetlands",
+ "tl": 0,
+ "wiki": "Cuyahoga River",
+ "desc": "The river runs through the park and feeds floodplains, marshes and beaver ponds that many species rely on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cuyahoga-river-wetlands",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow & glacier melt",
+ "tl": 0,
+ "wiki": "Glacier",
+ "desc": "The park holds glaciers such as the Pasterze; winter snow cover and summer meltwater shape which plants grow and where animals can feed.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-glacier-melt",
+ "sk": "resource",
+ "src": "legacy"
+}

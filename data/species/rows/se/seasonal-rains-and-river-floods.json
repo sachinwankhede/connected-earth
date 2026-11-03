@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal rains and river floods",
+ "tl": 0,
+ "wiki": "Wet season",
+ "desc": "The wet season fills the Comoé River and its tributaries and its seasonal ponds; many ponds dry out in the dry season.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "seasonal-rains-and-river-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

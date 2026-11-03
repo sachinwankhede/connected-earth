@@ -1,0 +1,12 @@
+{
+ "latin": "Camelus ferus",
+ "name": "Wild Bactrian camel",
+ "tl": 2,
+ "wiki": "Wild Bactrian camel",
+ "desc": "A critically endangered camel of the Gobi that survives on sparse desert plants and can drink salty water.",
+ "ic": "quad",
+ "about": "The wild Bactrian camel or simply the wild camel is an endangered species of camel endemic to Northwest China and southwestern Mongolia.",
+ "sid": "camelus-ferus",
+ "sk": "taxon",
+ "src": "legacy"
+}

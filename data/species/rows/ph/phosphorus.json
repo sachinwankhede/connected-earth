@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Phosphorus",
+ "tl": 0,
+ "wiki": "Phosphorus",
+ "desc": "The nutrient that limits algae growth in the open lake. Mussels hold much of it near the shore and bottom.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "phosphorus",
+ "sk": "resource",
+ "src": "legacy"
+}

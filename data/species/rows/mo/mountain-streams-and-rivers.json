@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain streams and rivers",
+ "tl": 0,
+ "wiki": "Uvs Lake",
+ "desc": "Rivers such as the Tes carry mountain water down to the basin, which has no outflow to the sea.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "mountain-streams-and-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

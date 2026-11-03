@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain is scarce and irregular; the park lost roughly 39% of its annual precipitation between 1895 and 2016, and plants and animals depend on it.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

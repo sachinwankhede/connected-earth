@@ -1,0 +1,13 @@
+{
+ "latin": "Vicugna vicugna",
+ "name": "Vicuña",
+ "tl": 2,
+ "wiki": "Vicuña",
+ "desc": "Wild camelid that grazes low clump grasses on open plains and rests on the slopes at night. Pumas and culpeos prey on it.",
+ "ic": "quad",
+ "badge": "Keystone grazer",
+ "about": "The vicuña or vicuna is a wild South American camelid which lives in high alpine areas of the Andes.",
+ "sid": "vicugna-vicugna",
+ "sk": "taxon",
+ "src": "legacy"
+}

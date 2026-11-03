@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Glacial rivers",
+ "tl": 0,
+ "wiki": "Glacier",
+ "desc": "Glaciers cover a large part of the park and feed the silty rivers that salmon run up from the coast.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "glacial-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

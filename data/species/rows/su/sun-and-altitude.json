@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sun and altitude",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Short alpine summers and cold winters set the growing season, from about 450 m in the canyons to over 2,500 m on the peaks.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "sun-and-altitude",
+ "sk": "resource",
+ "src": "legacy"
+}

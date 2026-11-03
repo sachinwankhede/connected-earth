@@ -1,0 +1,12 @@
+{
+ "latin": "Soil",
+ "name": "Volcanic soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soils on volcanic rock supply nutrients to the park's forests and meadows.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil",
+ "sk": "resource",
+ "src": "legacy"
+}

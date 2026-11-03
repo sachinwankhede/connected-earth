@@ -1,0 +1,12 @@
+{
+ "latin": "Strix nebulosa",
+ "name": "Great gray owl",
+ "tl": 3,
+ "wiki": "Great grey owl",
+ "desc": "Hunts small rodents by sound, even under snow, and sometimes takes squirrels or hares. Nests in old raptor nests and broken-topped trees.",
+ "ic": "hawk",
+ "about": "The great grey owl (also great gray owl in American English) is a true owl, and is the world's largest species of owl by length.",
+ "sid": "strix-nebulosa",
+ "sk": "taxon",
+ "src": "legacy"
+}

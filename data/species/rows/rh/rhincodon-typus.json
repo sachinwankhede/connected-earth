@@ -1,0 +1,12 @@
+{
+ "latin": "Rhincodon typus",
+ "name": "Whale shark",
+ "tl": 3,
+ "wiki": "Whale shark",
+ "desc": "The biggest fish, a filter feeder on plankton, seen in the island waters.",
+ "ic": "shark",
+ "about": "The whale shark is a slow-moving, filter-feeding carpet shark and the largest known extant fish species.",
+ "sid": "rhincodon-typus",
+ "sk": "taxon",
+ "src": "legacy"
+}

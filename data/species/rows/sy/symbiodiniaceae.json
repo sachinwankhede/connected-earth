@@ -1,0 +1,12 @@
+{
+ "latin": "Symbiodiniaceae",
+ "name": "Zooxanthellae",
+ "tl": 1,
+ "wiki": "Zooxanthellae",
+ "desc": "Microscopic algae living inside coral that pass sugars to their host.",
+ "ic": "algae",
+ "about": "Zooxanthellae is a colloquial term for photosynthetic single-celled organisms capable of symbiosis with diverse marine invertebrates such as corals, jellyfish, demosponges, and nudibranchs.",
+ "sid": "symbiodiniaceae",
+ "sk": "taxon",
+ "src": "legacy"
+}

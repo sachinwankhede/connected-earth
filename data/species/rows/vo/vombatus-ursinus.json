@@ -1,0 +1,13 @@
+{
+ "latin": "Vombatus ursinus",
+ "name": "Common wombat",
+ "tl": 2,
+ "wiki": "Common wombat",
+ "desc": "A burrowing grazer of grass and other plants. Its tunnels are used by many other animals and its digging turns over the soil.",
+ "ic": "quad",
+ "badge": "Ecosystem engineer",
+ "about": "The common wombat, also known as the bare-nosed wombat, is a marsupial, one of three extant species of wombats and the sole extant member of the genus Vombatus.",
+ "sid": "vombatus-ursinus",
+ "sk": "taxon",
+ "src": "legacy"
+}

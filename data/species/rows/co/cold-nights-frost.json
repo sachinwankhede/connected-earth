@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold nights & frost",
+ "tl": 0,
+ "wiki": "Frost",
+ "desc": "On the high plateaus frost kills forest seedlings, which helps keep grassland open between shola patches.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "cold-nights-frost",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and winter cold",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Deep winter snow and cold limit food for herbivores and cover carcasses, shaping when bears, wolves and ravens eat.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-winter-cold",
+ "sk": "resource",
+ "src": "legacy"
+}

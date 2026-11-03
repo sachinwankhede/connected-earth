@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River silt & nutrients",
+ "tl": 0,
+ "wiki": "Sediment",
+ "desc": "The Danube carries sediment and nutrients into the delta. Upstream dams have cut the sediment supply.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-silt-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

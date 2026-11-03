@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool, wet mountain climate",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "Rain and snow on the Carpathian slopes keep the beech and fir forest moist.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "cool-wet-mountain-climate",
+ "sk": "resource",
+ "src": "legacy"
+}

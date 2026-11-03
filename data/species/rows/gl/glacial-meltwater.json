@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Glacial meltwater",
+ "tl": 0,
+ "wiki": "Meltwater",
+ "desc": "Cold, silty meltwater flows into the fjords and mixes with sea water, affecting where plankton grows.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "glacial-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

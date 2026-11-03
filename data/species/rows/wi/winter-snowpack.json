@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter snowpack",
+ "tl": 0,
+ "wiki": "Snowpack",
+ "desc": "Crater Lake gets several metres of snow a year and it lingers for about eight months. It waters the slopes as it melts and feeds the lake.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "winter-snowpack",
+ "sk": "resource",
+ "src": "legacy"
+}

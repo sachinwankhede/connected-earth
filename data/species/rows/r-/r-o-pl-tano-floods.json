@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Río Plátano floods",
+ "tl": 0,
+ "wiki": "Río Plátano",
+ "desc": "The river and its lagoons carry water and silt through the lowlands and shape the wetlands and gallery forest.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "r-o-pl-tano-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

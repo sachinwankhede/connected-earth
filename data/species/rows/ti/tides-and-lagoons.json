@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and lagoons",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides flood the mangrove and seagrass shallows with salt water and move nutrients and larvae in and out.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides-and-lagoons",
+ "sk": "resource",
+ "src": "legacy"
+}

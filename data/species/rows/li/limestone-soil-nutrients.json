@@ -1,0 +1,12 @@
+{
+ "latin": "Limestone soil nutrients",
+ "name": "Limestone soil nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients in the reserve's limestone soils, returned by decomposers.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

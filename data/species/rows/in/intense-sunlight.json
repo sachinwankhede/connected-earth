@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Intense sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Thin air at 4,200 to 5,400 m means strong sun for the algae, grasses and cushion plants.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "intense-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

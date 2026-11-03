@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil and soil crust",
+ "tl": 0,
+ "wiki": "Biological soil crust",
+ "desc": "Crusts of lichens, algae, fungi and cyanobacteria slow erosion, add nitrogen and help soil hold moisture.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-and-soil-crust",
+ "sk": "resource",
+ "src": "legacy"
+}

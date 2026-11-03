@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Highland mist",
+ "tl": 0,
+ "wiki": "Fog",
+ "desc": "Cliffs and mountains catch cloud and mist, creating wetter refuges where many endemic plants grow.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "highland-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

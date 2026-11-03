@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & snowmelt",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "Under 10 inches of rain fall a year, and unpredictably. The soil crust absorbs and holds what does arrive.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

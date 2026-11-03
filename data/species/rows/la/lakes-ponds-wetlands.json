@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lakes, ponds & wetlands",
+ "tl": 0,
+ "wiki": "Adirondack Park",
+ "desc": "Thousands of lakes and ponds and a huge network of streams make water central to life in the park.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lakes-ponds-wetlands",
+ "sk": "resource",
+ "src": "legacy"
+}

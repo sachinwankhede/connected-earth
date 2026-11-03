@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River-valley soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sandy, nutrient-rich floodplain soil under the meadows, fields and cottonwood groves.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-valley-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

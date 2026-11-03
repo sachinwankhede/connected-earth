@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Swampy lowlands",
+ "tl": 0,
+ "wiki": "Wetland",
+ "desc": "Low wet ground between the limestone ridges where water collects and forest meets wetland.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "swampy-lowlands",
+ "sk": "resource",
+ "src": "legacy"
+}

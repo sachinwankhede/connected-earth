@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Permafrost & peatlands",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Cold, waterlogged bogs and fens that hold large stores of carbon. Black spruce, tamarack and mosses are among the plants that live there.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "permafrost-peatlands",
+ "sk": "resource",
+ "src": "legacy"
+}

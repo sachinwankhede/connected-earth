@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm subtropical sea",
+ "tl": 0,
+ "wiki": "Ocean",
+ "desc": "Warm, clear open ocean around the islands supports reef algae, plankton and the fish that seabirds and whales feed on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-subtropical-sea",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Fungi, bacteria and insects break down dead plants and animals, returning nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "decomposers",
+ "sk": "resource",
+ "src": "legacy"
+}

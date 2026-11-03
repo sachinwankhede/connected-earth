@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake Urema floods",
+ "tl": 0,
+ "wiki": "Lake Urema",
+ "desc": "Seasonal flooding spreads water over the floodplain, from about 10 km2 in dry spells to about 200 km2 in wet years.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-urema-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

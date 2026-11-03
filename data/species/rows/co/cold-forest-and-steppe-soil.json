@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold forest and steppe soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Young glacial soils that recycle nutrients slowly in the cold.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "cold-forest-and-steppe-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

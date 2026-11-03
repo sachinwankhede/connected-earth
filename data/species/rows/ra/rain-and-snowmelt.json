@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and snowmelt",
+ "tl": 0,
+ "wiki": "Karst",
+ "desc": "Water sinks quickly into the limestone, and underground rivers drain some of the glacial lakes, so streams and lakes matter more than the dry slopes suggest.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

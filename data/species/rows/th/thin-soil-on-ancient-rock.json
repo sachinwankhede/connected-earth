@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin soil on ancient rock",
+ "tl": 0,
+ "wiki": "Canadian Shield",
+ "desc": "The park sits on very old Canadian Shield bedrock, with glacial scours and deposits shaping where soil and water collect.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-soil-on-ancient-rock",
+ "sk": "resource",
+ "src": "legacy"
+}

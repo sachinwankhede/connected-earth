@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Fiord seawater",
+ "tl": 0,
+ "wiki": "Fiord",
+ "desc": "Glaciers carved deep fiords along the coast, and their cool, steep-sided waters feed the marine plankton.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "fiord-seawater",
+ "sk": "resource",
+ "src": "legacy"
+}

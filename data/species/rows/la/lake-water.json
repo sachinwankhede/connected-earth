@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake water",
+ "tl": 0,
+ "wiki": "Lake Titicaca",
+ "desc": "Cool, clear freshwater at high altitude with oxygen that is limited by elevation. Reeds and underwater plants grow in its shallows.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

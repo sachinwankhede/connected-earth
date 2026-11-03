@@ -1,0 +1,13 @@
+{
+ "latin": "Sphagnum",
+ "name": "Peat moss",
+ "tl": 1,
+ "wiki": "Sphagnum",
+ "desc": "Moss that builds the raised bogs. Wikipedia says its slowly decaying remains accumulate as peat and its wet carpets hold many times their dry weight in water.",
+ "ic": "grass",
+ "badge": "Foundation species",
+ "about": "Sphagnum is a genus of approximately 380 species of mosses, commonly known as sphagnum moss, also bog moss and quacker moss (although that term is also sometimes used for peat).",
+ "sid": "sphagnum",
+ "sk": "taxon",
+ "src": "legacy"
+}

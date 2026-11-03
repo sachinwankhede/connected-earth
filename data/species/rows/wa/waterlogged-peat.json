@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Waterlogged peat",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Peat layers built up over thousands of years underlie the bogs and marshes; they hold water and nutrients that the plants draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "waterlogged-peat",
+ "sk": "resource",
+ "src": "legacy"
+}

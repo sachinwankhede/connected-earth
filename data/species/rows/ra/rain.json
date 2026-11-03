@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet Pacific air dumps heavy precipitation on the mountain, feeding the old-growth forest on its lower slopes.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain",
+ "sk": "resource",
+ "src": "legacy"
+}

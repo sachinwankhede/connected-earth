@@ -1,0 +1,11 @@
+{
+ "latin": "Engraulis encrasicolus, Sardinops sagax",
+ "name": "Cape anchovy & sardine",
+ "tl": 2,
+ "wiki": "Cape anchovy",
+ "desc": "Small schooling fish that eat plankton and feed the seals and seabirds of the Skeleton Coast.",
+ "ic": "trout",
+ "sid": "engraulis-encrasicolus-sardinops-sagax",
+ "sk": "group",
+ "src": "legacy"
+}

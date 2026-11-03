@@ -1,0 +1,13 @@
+{
+ "latin": "Eelgrass and widgeon grass",
+ "name": "Underwater grasses",
+ "tl": 1,
+ "wiki": "Submerged aquatic vegetation",
+ "desc": "Submerged grass beds that give food and shelter, add oxygen and clear the water. Eelgrass in the southern bay has shrunk by more than half since the early 1970s.",
+ "ic": "grass",
+ "badge": "Foundation species",
+ "about": "Aquatic plants, also referred to as hydrophytes, are vascular plants and non-vascular plants that have adapted to live in aquatic environments.",
+ "sid": "eelgrass-and-widgeon-grass",
+ "sk": "group",
+ "src": "legacy"
+}

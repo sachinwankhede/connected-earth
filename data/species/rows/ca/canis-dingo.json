@@ -1,0 +1,12 @@
+{
+ "latin": "Canis dingo",
+ "name": "Dingo",
+ "tl": 4,
+ "wiki": "Dingo",
+ "desc": "Top land predator that hunts wallabies, rodents, birds and young buffalo. Dingo predation is a major cause of quoll losses.",
+ "ic": "wolf",
+ "about": "The dingo is a lineage of dog found in Australia. It is a medium-sized canine that possesses a lean, hardy body adapted for speed, agility, and stamina.",
+ "sid": "canis-dingo",
+ "sk": "taxon",
+ "src": "legacy"
+}

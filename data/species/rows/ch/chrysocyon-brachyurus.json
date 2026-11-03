@@ -1,0 +1,13 @@
+{
+ "latin": "Chrysocyon brachyurus",
+ "name": "Maned wolf",
+ "tl": 3,
+ "wiki": "Maned wolf",
+ "desc": "An omnivore that eats mostly plant matter, especially wolf apple, plus armadillos, rodents and birds. Its dung helps leafcutter fungus gardens and seed germination.",
+ "ic": "wolf",
+ "badge": "Keystone predator",
+ "about": "The maned wolf is a large canine of South America. It is found in Argentina, Brazil, Bolivia, Peru, and Paraguay, and is almost locally extinct in Uruguay.",
+ "sid": "chrysocyon-brachyurus",
+ "sk": "taxon",
+ "src": "legacy"
+}

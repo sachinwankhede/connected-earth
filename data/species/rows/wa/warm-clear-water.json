@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm clear water",
+ "tl": 0,
+ "wiki": "Florida Current",
+ "desc": "Warm, nutrient-poor water from the Gulf Stream system keeps the water clear. A 1977 cold snap killed about 96% of shallow branching coral here.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-clear-water",
+ "sk": "resource",
+ "src": "legacy"
+}

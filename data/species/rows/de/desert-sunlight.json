@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Desert sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Intense sun powers desert plants, but heat sends many animals underground for the day.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "desert-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

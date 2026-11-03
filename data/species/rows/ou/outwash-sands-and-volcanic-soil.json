@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Outwash sands and volcanic soil",
+ "tl": 0,
+ "wiki": "Outwash plain",
+ "desc": "Young, nutrient-poor soils of glacial sand and volcanic ash that plants colonise slowly and that dead matter helps enrich.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "outwash-sands-and-volcanic-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

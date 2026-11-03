@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow cover",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Long winters bury willow and lichen under snow, forcing caribou to dig for food. Meltwater feeds tundra plants in spring.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-cover",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Water",
+ "name": "River pools",
+ "tl": 0,
+ "wiki": "Pendjari River",
+ "desc": "The Arly, Pendjari and Mekrou rivers and their pools hold water for animals in the dry season and feed the riverside forest.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "water",
+ "sk": "resource",
+ "src": "legacy"
+}

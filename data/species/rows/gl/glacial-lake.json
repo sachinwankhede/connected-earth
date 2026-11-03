@@ -1,0 +1,12 @@
+{
+ "latin": "Glacial lake",
+ "name": "Glacial lakes",
+ "tl": 0,
+ "wiki": "Glacial lake",
+ "desc": "The park has 118 glacial lakes, and Snezhnika, Europe's southernmost glacier, still survives.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "glacial-lake",
+ "sk": "resource",
+ "src": "legacy"
+}

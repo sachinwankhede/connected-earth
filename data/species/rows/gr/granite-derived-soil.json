@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Granite-derived soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils over granite hold nutrients that plants and meadows draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "granite-derived-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

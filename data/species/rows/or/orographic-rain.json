@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Orographic rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Moist air rising up the southern slope drops its heaviest rain in the forest belt, while the northern slopes and alpine zone are much drier.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "orographic-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

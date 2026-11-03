@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal flooding",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Seawater floods and drains the low mudflats and salt marshes, bringing food in and exposing invertebrates to wading birds at low tide.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce rain and snowmelt",
+ "tl": 0,
+ "wiki": "Snowmelt",
+ "desc": "The puna is dry. Meltwater and rare rain feed the grasslands, bogs and lagoons.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-rain-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Wet-season rains",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain falls mostly in the wet season, and the Cerrado has a strong dry season from about April to September.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "wet-season-rains",
+ "sk": "resource",
+ "src": "legacy"
+}

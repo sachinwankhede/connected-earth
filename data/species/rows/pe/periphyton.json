@@ -1,0 +1,12 @@
+{
+ "latin": "Periphyton",
+ "name": "River algae",
+ "tl": 1,
+ "wiki": "Periphyton",
+ "desc": "Green films on rocks in the Mara and Grumeti rivers that feed fish.",
+ "ic": "algae",
+ "about": "Periphyton is a complex mixture of algae, cyanobacteria, heterotrophic microbes, and detritus that is attached to submerged surfaces in most aquatic ecosystems.",
+ "sid": "periphyton",
+ "sk": "taxon",
+ "src": "legacy"
+}

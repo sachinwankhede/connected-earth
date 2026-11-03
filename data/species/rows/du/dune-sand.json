@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Dune sand",
+ "tl": 0,
+ "wiki": "Erg (landform)",
+ "desc": "The Gran Desierto de Altar is North America's largest field of active sand dunes, a loose, fast-draining habitat for burrowers and specialised plants.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "dune-sand",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Martes zibellina",
+ "name": "Sable",
+ "tl": 3,
+ "wiki": "Sable",
+ "desc": "A forest-dwelling marten of the taiga. It can take seal pups that leave their ice dens.",
+ "ic": "quad",
+ "about": "The sable is a species of marten, a small omnivorous mammal primarily inhabiting the forest environments of Russia, from the Ural Mountains throughout Siberia, and northern Mongolia.",
+ "sid": "martes-zibellina",
+ "sk": "taxon",
+ "src": "legacy"
+}

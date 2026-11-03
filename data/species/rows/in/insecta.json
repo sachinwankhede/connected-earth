@@ -1,0 +1,12 @@
+{
+ "latin": "Insecta",
+ "name": "Forest insects",
+ "tl": 2,
+ "wiki": "Insect",
+ "desc": "Beetles, caterpillars and other insects feeding on forest foliage; food for birds.",
+ "ic": "hopper",
+ "about": "Insects are invertebrates of the class Insecta. They are the largest group within the arthropod phylum.",
+ "sid": "insecta",
+ "sk": "taxon",
+ "src": "legacy"
+}

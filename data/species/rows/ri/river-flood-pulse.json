@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River flood pulse",
+ "tl": 0,
+ "wiki": "Flood",
+ "desc": "The Pascagoula floods its low forests in the wet season. This moves seeds and nutrients and keeps cypress swamp and bottomland forest wet.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "river-flood-pulse",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Permafrost soil",
+ "tl": 0,
+ "wiki": "Permafrost",
+ "desc": "Frozen ground limits roots to a thin summer layer and locks away carbon.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "permafrost-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

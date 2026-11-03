@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Monsoon and typhoon rain",
+ "tl": 0,
+ "wiki": "Monsoon",
+ "desc": "Heavy seasonal rain keeps the mountain forests wet and feeds the streams that carve the steep valleys.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "monsoon-and-typhoon-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

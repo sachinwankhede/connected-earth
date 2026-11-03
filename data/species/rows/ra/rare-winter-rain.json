@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rare winter rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain is scarce and irregular. After a shower, desert plants leaf out quickly and herds can follow the new growth.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rare-winter-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

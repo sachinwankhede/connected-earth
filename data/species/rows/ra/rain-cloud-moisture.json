@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & cloud moisture",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Cool, humid summers and dry winters, with cloud-forest moisture, support the oyamel forest.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-cloud-moisture",
+ "sk": "resource",
+ "src": "legacy"
+}

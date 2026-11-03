@@ -1,0 +1,12 @@
+{
+ "latin": "Mustela erminea",
+ "name": "Stoat",
+ "tl": 3,
+ "wiki": "Stoat",
+ "desc": "A small weasel that hunts voles, lemmings and birds. GloBI records both foxes and wolves eating it.",
+ "ic": "quad",
+ "about": "The stoat, also known as the Eurasian ermine or ermine, is a species of mustelid native to Eurasia and the northern regions of North America.",
+ "sid": "mustela-erminea",
+ "sk": "taxon",
+ "src": "legacy"
+}

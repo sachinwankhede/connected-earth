@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Glacier meltwater",
+ "tl": 0,
+ "wiki": "Aletsch Glacier",
+ "desc": "The Aletsch Glacier is the longest in the Alps. Its ice and meltwater feed streams and wet ground below, while its retreat leaves fresh moraine for plants to colonise.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "glacier-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

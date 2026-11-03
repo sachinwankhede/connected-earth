@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool upland air",
+ "tl": 0,
+ "wiki": "Alpine climate",
+ "desc": "Cooler air at high elevation keeps mosquitoes and avian malaria down, so it is a refuge for native forest birds.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "cool-upland-air",
+ "sk": "resource",
+ "src": "legacy"
+}

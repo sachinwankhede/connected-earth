@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "A wet season from about October to April brings most of the water. Baobab trunks swell and shrink with it, and the long dry season leaves the forest mostly leafless.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "seasonal-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

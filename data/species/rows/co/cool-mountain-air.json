@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool mountain air",
+ "tl": 0,
+ "wiki": "Montane ecosystems",
+ "desc": "Temperature falls with height, so forest type changes from lowland to montane oak, rhododendron and conifer zones.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "cool-mountain-air",
+ "sk": "resource",
+ "src": "legacy"
+}

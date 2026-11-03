@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and rock run-off",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rainfall is low and irregular. Rain also pours off the rock domes and concentrates water and nutrients in drainage lines and at their bases.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-rock-run-off",
+ "sk": "resource",
+ "src": "legacy"
+}

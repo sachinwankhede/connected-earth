@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and river flooding",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Coastal tides and flooding rivers soak the swamps and mangroves along the Pacific side of the site.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides-and-river-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

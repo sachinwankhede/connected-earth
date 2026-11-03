@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter burning",
+ "tl": 0,
+ "wiki": "Controlled burn",
+ "desc": "Park staff burn tall grass in winter, and animals gather on the burnt patches to eat new shoots.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "winter-burning",
+ "sk": "resource",
+ "src": "legacy"
+}

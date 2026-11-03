@@ -1,0 +1,12 @@
+{
+ "latin": "Solar energy",
+ "name": "Sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Light powers the algae, eelgrass and marsh grass that start the estuary food web.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "solar-energy",
+ "sk": "resource",
+ "src": "legacy"
+}

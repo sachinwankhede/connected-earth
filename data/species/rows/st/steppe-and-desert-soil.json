@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Steppe and desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Dry, often salty soils hold the nutrients that grasses, shrubs and trees draw on, and are replenished by decomposers.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "steppe-and-desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

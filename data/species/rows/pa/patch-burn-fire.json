@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Patch-burn fire",
+ "tl": 0,
+ "wiki": "Controlled burn",
+ "desc": "The preserve burns roughly a third of the prairie each year. Fire keeps brush out and draws bison to fresh regrowth.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "patch-burn-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

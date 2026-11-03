@@ -1,0 +1,13 @@
+{
+ "latin": "Osphranter rufus",
+ "name": "Red kangaroo",
+ "tl": 2,
+ "wiki": "Red kangaroo",
+ "desc": "The largest marsupial of the desert, grazing mostly green grasses and forbs and browsing shrubs when food is scarce. It can go long periods without drinking.",
+ "ic": "quad",
+ "badge": "Keystone grazer",
+ "about": "The red kangaroo is the largest of all kangaroos, the largest terrestrial mammal native to Australia, and the largest extant marsupial.",
+ "sid": "osphranter-rufus",
+ "sk": "taxon",
+ "src": "legacy"
+}

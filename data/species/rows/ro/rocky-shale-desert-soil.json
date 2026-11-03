@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rocky shale & desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "The Nurata range is mostly shales, sandstone and limestone, with soils thin and dry in places.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "rocky-shale-desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

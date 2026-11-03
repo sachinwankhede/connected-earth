@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Desert soil and nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin rocky soils hold the minerals and organic matter that annual plants use after winter rains.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "desert-soil-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

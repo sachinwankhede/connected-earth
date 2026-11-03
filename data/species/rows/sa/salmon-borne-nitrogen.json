@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Salmon-borne nitrogen",
+ "tl": 0,
+ "wiki": "Marine-derived nutrients",
+ "desc": "Nitrogen from the ocean arrives in spawning salmon and is spread along streams by floods and by animals that carry and eat the carcasses.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "salmon-borne-nitrogen",
+ "sk": "resource",
+ "src": "legacy"
+}

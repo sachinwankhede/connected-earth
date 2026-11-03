@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Antarctic Convergence",
+ "tl": 0,
+ "wiki": "Antarctic Convergence",
+ "desc": "The Southern Ocean boundary where cold and warmer waters meet, which concentrates plankton and the fish and squid that feed on it.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "antarctic-convergence",
+ "sk": "resource",
+ "src": "legacy"
+}

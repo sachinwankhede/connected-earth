@@ -1,0 +1,12 @@
+{
+ "latin": "Pomatomus saltatrix",
+ "name": "Bluefish",
+ "tl": 4,
+ "wiki": "Bluefish",
+ "desc": "A fast schooling predator that hunts forage fish such as menhaden.",
+ "ic": "trout",
+ "about": "The bluefish is the only extant species of the family Pomatomidae. It is a marine pelagic fish found around the world in temperate and subtropical waters, except for the northern Pacific Ocean.",
+ "sid": "pomatomus-saltatrix",
+ "sk": "taxon",
+ "src": "legacy"
+}

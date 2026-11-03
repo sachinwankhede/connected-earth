@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain soil and litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Forest litter and meadow soil hold the nutrients that rhododendron, bamboo and conifers draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mountain-soil-and-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

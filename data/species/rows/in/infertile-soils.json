@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Infertile soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "The park's soils are poor and unsuited to farming, so nutrients returned by dung and decay matter to plant growth.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "infertile-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

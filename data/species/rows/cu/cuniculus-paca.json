@@ -1,0 +1,12 @@
+{
+ "latin": "Cuniculus paca",
+ "name": "Lowland paca",
+ "tl": 2,
+ "wiki": "Lowland paca",
+ "desc": "A large nocturnal rodent that eats fruit, seeds and leaves; illegal hunting has reduced it in the region.",
+ "ic": "quad",
+ "about": "The lowland paca, also known as the spotted paca, is a species of rodent. It has coarse dark brown to black fur, a pale underbelly, and typically 3–5 rows of white spots along its sides.",
+ "sid": "cuniculus-paca",
+ "sk": "taxon",
+ "src": "legacy"
+}

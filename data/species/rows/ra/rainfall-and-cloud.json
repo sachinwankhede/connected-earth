@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rainfall and cloud",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Trade winds rise over the mountains and drop heavy rain, in places over six metres a year, with no distinct dry season.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rainfall-and-cloud",
+ "sk": "resource",
+ "src": "legacy"
+}

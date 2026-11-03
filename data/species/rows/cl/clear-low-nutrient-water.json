@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Clear, low-nutrient water",
+ "tl": 0,
+ "wiki": "Oligotroph",
+ "desc": "Ohrid is oligotrophic, with very low phosphorus and clarity to about 22 m, which suits its many endemic species.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "clear-low-nutrient-water",
+ "sk": "resource",
+ "src": "legacy"
+}

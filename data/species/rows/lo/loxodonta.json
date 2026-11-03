@@ -1,0 +1,13 @@
+{
+ "latin": "Loxodonta",
+ "name": "African elephant",
+ "tl": 2,
+ "wiki": "African elephant",
+ "desc": "Eats bark, leaves and fruit, and spreads seeds through its dung as it moves through the forest.",
+ "ic": "elephant",
+ "badge": "Ecosystem engineer",
+ "about": "African elephants are members of the genus Loxodonta comprising two living elephant species, the African bush elephant (L. africana) and the smaller African forest elephant (L. cyclotis).",
+ "sid": "loxodonta",
+ "sk": "taxon",
+ "src": "legacy"
+}

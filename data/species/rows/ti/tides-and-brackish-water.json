@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and brackish water",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides flood the channels and lagoons twice a day, setting the salinity that mangroves tolerate and moving crabs, fish and larvae in and out.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "tides-and-brackish-water",
+ "sk": "resource",
+ "src": "legacy"
+}

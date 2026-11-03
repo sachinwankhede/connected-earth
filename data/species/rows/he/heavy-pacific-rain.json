@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Heavy Pacific rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet maritime weather feeds the temperate rainforest and the many streams and lakes that run to the sea.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "heavy-pacific-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

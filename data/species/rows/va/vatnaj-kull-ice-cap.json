@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Vatnajökull ice cap",
+ "tl": 0,
+ "wiki": "Vatnajökull",
+ "desc": "Europe's largest ice cap by volume sits at the heart of the park and feeds the rivers, outwash plains and glacial lagoons around it.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "vatnaj-kull-ice-cap",
+ "sk": "resource",
+ "src": "legacy"
+}

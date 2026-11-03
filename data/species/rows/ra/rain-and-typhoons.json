@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and typhoons",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain waters the islands, which have no big rivers, and typhoon winds shape the wind-clipped scrub on ridges and cliffs.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-typhoons",
+ "sk": "resource",
+ "src": "legacy"
+}

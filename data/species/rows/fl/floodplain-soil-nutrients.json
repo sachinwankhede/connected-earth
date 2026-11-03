@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Floodplain soil & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sediment and rotting plant matter left by the floods feed new growth.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "floodplain-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

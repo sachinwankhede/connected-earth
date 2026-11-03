@@ -1,0 +1,12 @@
+{
+ "latin": "Diatoms and flagellates",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Drifting algae that bloom in open water and near the ice edge. Growth is often limited by a shortage of iron.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "diatoms-and-flagellates",
+ "sk": "group",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain streams",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Cold, clean, fast-flowing rivers are the habitat blue ducks need.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "mountain-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

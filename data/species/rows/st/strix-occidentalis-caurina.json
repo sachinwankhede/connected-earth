@@ -1,0 +1,12 @@
+{
+ "latin": "Strix occidentalis caurina",
+ "name": "Northern spotted owl",
+ "tl": 3,
+ "wiki": "Northern spotted owl",
+ "desc": "Lives in old-growth forest and eats mostly small mammals, especially flying squirrels; competes with invading barred owls.",
+ "ic": "hawk",
+ "about": "The northern spotted owl is one of three spotted owl subspecies.",
+ "sid": "strix-occidentalis-caurina",
+ "sk": "taxon",
+ "src": "legacy"
+}

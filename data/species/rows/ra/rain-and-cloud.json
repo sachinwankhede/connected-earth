@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and cloud",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet windward slopes feed the rainforest, while the dry Kaʻū side stays arid.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-cloud",
+ "sk": "resource",
+ "src": "legacy"
+}

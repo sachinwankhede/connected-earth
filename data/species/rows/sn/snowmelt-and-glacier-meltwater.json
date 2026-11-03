@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snowmelt and glacier meltwater",
+ "tl": 0,
+ "wiki": "Meltwater",
+ "desc": "Meltwater from snowfields and glaciers feeds meadows and streams in spring and summer.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snowmelt-and-glacier-meltwater",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Fungi and invertebrates",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Fungi, bacteria and litter animals that break down leaves, wood and dead seaweed and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-and-invertebrates",
+ "sk": "resource",
+ "src": "legacy"
+}

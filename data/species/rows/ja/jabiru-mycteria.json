@@ -1,0 +1,12 @@
+{
+ "latin": "Jabiru mycteria",
+ "name": "Jabiru",
+ "tl": 3,
+ "wiki": "Jabiru",
+ "desc": "A huge stork that wades in shallows for fish, snails, frogs and snakes, and also eats carrion and dead fish in dry spells.",
+ "ic": "hawk",
+ "about": "The jabiru is a large stork found in the Americas from Mexico to Argentina, except west of the Andes.",
+ "sid": "jabiru-mycteria",
+ "sk": "taxon",
+ "src": "legacy"
+}

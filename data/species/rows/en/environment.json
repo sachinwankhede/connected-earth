@@ -1,0 +1,12 @@
+{
+ "latin": "Environment",
+ "name": "River floods",
+ "tl": 0,
+ "wiki": "Flood",
+ "desc": "Water from the Congaree and Wateree rivers regularly covers the forest floor.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "environment",
+ "sk": "resource",
+ "src": "legacy"
+}

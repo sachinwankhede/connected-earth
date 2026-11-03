@@ -1,0 +1,12 @@
+{
+ "latin": "Geomys arenarius",
+ "name": "Desert pocket gopher",
+ "tl": 2,
+ "wiki": "Desert pocket gopher",
+ "desc": "A burrowing rodent of sandy soil that feeds on roots and other plant parts underground.",
+ "ic": "gsquirrel",
+ "about": "The desert pocket gopher is a species of rodent in the family Geomyidae. It is found in the state of Chihuahua in Mexico and in Texas and New Mexico in the United States.",
+ "sid": "geomys-arenarius",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold, nutrient-rich current",
+ "tl": 0,
+ "wiki": "Falkland Current",
+ "desc": "Cold water of the Falkland Current flows north along the Patagonian Shelf and carries nutrients that feed plankton and kelp.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-nutrient-rich-current",
+ "sk": "resource",
+ "src": "legacy"
+}

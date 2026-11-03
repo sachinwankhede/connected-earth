@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake Magadi",
+ "tl": 0,
+ "wiki": "Ngorongoro Crater",
+ "desc": "A shallow, seasonal soda lake in the south-west of the crater, fed mainly by the Munge Stream. Its alkaline water grows the algae flamingos eat.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-magadi",
+ "sk": "resource",
+ "src": "legacy"
+}

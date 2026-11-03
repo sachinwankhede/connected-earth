@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Winter and monsoon rain",
+ "tl": 0,
+ "wiki": "North American monsoon",
+ "desc": "Two rainy seasons feed the desert, and water is one of the main reasons it holds so many species. Washes run only after storms and can flash flood.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "winter-and-monsoon-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Fallen logs, needles and carcasses break down into nutrients that the trees take up again.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-nutrients-2",
+ "sk": "resource",
+ "src": "legacy"
+}

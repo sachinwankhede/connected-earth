@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin mountain soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Cold, thin soils slow plant growth and nutrient release.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-mountain-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

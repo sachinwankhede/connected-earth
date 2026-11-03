@@ -1,0 +1,12 @@
+{
+ "latin": "Neotoma lepida",
+ "name": "Desert woodrat",
+ "tl": 2,
+ "wiki": "Neotoma lepida",
+ "desc": "A pack-rat of rocky desert slopes that feeds on cacti, juniper and other plants.",
+ "ic": "quad",
+ "about": "The desert woodrat is a species of pack rat native to desert regions of western North America.",
+ "sid": "neotoma-lepida",
+ "sk": "taxon",
+ "src": "legacy"
+}

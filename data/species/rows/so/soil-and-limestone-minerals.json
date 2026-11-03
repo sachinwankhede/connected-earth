@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil and limestone minerals",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin northern soils, built on limestone in much of the region, hold the nutrients that plants draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-and-limestone-minerals",
+ "sk": "resource",
+ "src": "legacy"
+}

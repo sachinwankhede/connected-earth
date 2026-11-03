@@ -1,0 +1,12 @@
+{
+ "latin": "Fungi",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Fungi, bacteria and invertebrates that recycle fallen leaves, wood and carcasses.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Sarcoramphus papa",
+ "name": "King vulture",
+ "tl": 3,
+ "wiki": "King vulture",
+ "desc": "Finds carcasses by smell and opens them up for smaller vultures.",
+ "ic": "hawk",
+ "about": "The king vulture is a large bird found in Central and South America. It is a member of the New World vulture family Cathartidae.",
+ "sid": "sarcoramphus-papa",
+ "sk": "taxon",
+ "src": "legacy"
+}

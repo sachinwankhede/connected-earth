@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Coastal summer fog",
+ "tl": 0,
+ "wiki": "Fog",
+ "desc": "Wikipedia says fog supplies a large share of the water redwoods use, and that its summer consistency matters more to tree health than rainfall.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "coastal-summer-fog",
+ "sk": "resource",
+ "src": "legacy"
+}

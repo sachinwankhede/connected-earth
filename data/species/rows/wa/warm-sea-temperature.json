@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm sea temperature",
+ "tl": 0,
+ "wiki": "Coral bleaching",
+ "desc": "Corals live in a narrow warm band. Marine heat waves cause bleaching, which hit the Belize reef in 1998.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "warm-sea-temperature",
+ "sk": "resource",
+ "src": "legacy"
+}

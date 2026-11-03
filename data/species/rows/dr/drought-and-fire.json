@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Drought and fire",
+ "tl": 0,
+ "wiki": "Wildfire",
+ "desc": "Cycles of drought and fire have shaped the wetland, shifting plants and pushing fish into deeper water.",
+ "ic": "fire",
+ "cat": "abiotic",
+ "sid": "drought-and-fire",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil & litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Leaf litter and soil hold nutrients that plants take up again.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

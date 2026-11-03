@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tigris-Euphrates floodwater",
+ "tl": 0,
+ "wiki": "Tigris–Euphrates river system",
+ "desc": "The marshes depend on river flow. Drainage and upstream dams cut it, and reflooding after 2003 let wetlands partly recover.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tigris-euphrates-floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

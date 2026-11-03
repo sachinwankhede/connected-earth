@@ -1,0 +1,12 @@
+{
+ "latin": "Falco biarmicus",
+ "name": "Lanner falcon",
+ "tl": 3,
+ "wiki": "Lanner falcon",
+ "desc": "A fast falcon that hunts birds over open country.",
+ "ic": "hawk",
+ "about": "The lanner falcon is a medium-sized bird of prey that breeds in Africa, southeast Europe and just into Asia.",
+ "sid": "falco-biarmicus",
+ "sk": "taxon",
+ "src": "legacy"
+}

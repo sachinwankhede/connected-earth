@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Saline lake water",
+ "tl": 0,
+ "wiki": "Uvs Lake",
+ "desc": "Uvs Lake is shallow and salty, at roughly half the salinity of the ocean, because salts build up in a basin with no outlet.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "saline-lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

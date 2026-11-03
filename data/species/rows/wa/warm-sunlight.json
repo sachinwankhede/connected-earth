@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Warm sunlight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Year-round warmth and light in the subtropical latitudes support tall, layered forest growth.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "warm-sunlight",
+ "sk": "resource",
+ "src": "legacy"
+}

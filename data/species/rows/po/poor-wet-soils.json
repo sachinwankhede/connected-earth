@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Poor, wet soils",
+ "tl": 0,
+ "wiki": "Ultisol",
+ "desc": "Nutrient-poor ultisols that drain badly, so nutrients cycle quickly through living plants and leaf litter.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "poor-wet-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

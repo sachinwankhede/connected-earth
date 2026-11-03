@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rainforest soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients held in thin, wet soils are recycled quickly from fallen leaves and dead wood.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "rainforest-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

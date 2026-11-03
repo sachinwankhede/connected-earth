@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "River silt and nutrients",
+ "tl": 0,
+ "wiki": "Nutrient",
+ "desc": "Floodwater delivers silt and nutrients that feed reed beds.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "river-silt-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

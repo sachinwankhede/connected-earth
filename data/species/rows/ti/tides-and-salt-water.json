@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and salt water",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides flood and drain the mangrove mud twice a day, bringing salt water that mangroves tolerate and most other plants do not.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides-and-salt-water",
+ "sk": "resource",
+ "src": "legacy"
+}

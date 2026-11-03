@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sulu Sea currents",
+ "tl": 0,
+ "wiki": "Ocean current",
+ "desc": "Ocean currents move water, larvae and plankton across the isolated atolls and carry them to the reef edges.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "sulu-sea-currents",
+ "sk": "resource",
+ "src": "legacy"
+}

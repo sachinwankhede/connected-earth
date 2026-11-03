@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Bay water and tides",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Salt water from San Lorenzo Bay floods the mangrove roots and carries the plankton and small fish the seabirds depend on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "bay-water-and-tides",
+ "sk": "resource",
+ "src": "legacy"
+}

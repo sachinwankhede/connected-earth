@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mud and nutrients",
+ "tl": 0,
+ "wiki": "Mudflat",
+ "desc": "Intertidal mud holds the nutrients that mangroves, seagrass and algae use, and is where much dead matter ends up.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mud-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

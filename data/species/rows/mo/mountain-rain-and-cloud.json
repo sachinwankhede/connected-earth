@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain rain and cloud",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rainfall on the slopes, heaviest on the south-east, sets the forest and bamboo belts and fills the rivers that supply the region.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "mountain-rain-and-cloud",
+ "sk": "resource",
+ "src": "legacy"
+}

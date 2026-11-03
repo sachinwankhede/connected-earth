@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Rising and falling tides wet and expose the rocky shore twice a day and set where seaweeds and shellfish can live.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides",
+ "sk": "resource",
+ "src": "legacy"
+}

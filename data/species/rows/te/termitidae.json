@@ -1,0 +1,12 @@
+{
+ "latin": "Termitidae",
+ "name": "Termites",
+ "tl": 2,
+ "wiki": "Termite",
+ "desc": "Feed on dead wood and plant litter, and are a main food of giant anteaters and giant armadillos.",
+ "ic": "hopper",
+ "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus.",
+ "sid": "termitidae",
+ "sk": "taxon",
+ "src": "legacy"
+}

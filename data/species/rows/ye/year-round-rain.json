@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Year-round rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "About 1,700 to 2,200 mm falls each year. The south has no real dry season.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "year-round-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

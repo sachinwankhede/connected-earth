@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy, salty steppe soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, dry ground broken by salt lakes supports mostly low shrubs.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-salty-steppe-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

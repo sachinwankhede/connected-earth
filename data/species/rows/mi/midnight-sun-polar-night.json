@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Midnight sun & polar night",
+ "tl": 0,
+ "wiki": "Midnight sun",
+ "desc": "Plants and algae can only grow in the bright summer months, when the sun stays above the horizon for weeks; in winter the long polar night shuts growth down.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "midnight-sun-polar-night",
+ "sk": "resource",
+ "src": "legacy"
+}

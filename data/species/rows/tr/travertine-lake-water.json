@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Travertine lake water",
+ "tl": 0,
+ "wiki": "Band-e Amir",
+ "desc": "Mineral-rich water deposited calcium carbonate that built the travertine dams holding the six lakes, which sustain the shoreline vegetation.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "travertine-lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

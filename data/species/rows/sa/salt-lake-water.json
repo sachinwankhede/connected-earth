@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Salt-lake water",
+ "tl": 0,
+ "wiki": "Hypersaline lake",
+ "desc": "Shallow, salty, mineral-rich lagoons with borates and sulfates set the home of the algae, diatoms and brine shrimp.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "salt-lake-water",
+ "sk": "resource",
+ "src": "legacy"
+}

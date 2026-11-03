@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool maritime climate",
+ "tl": 0,
+ "wiki": "Oceanic climate",
+ "desc": "A cool, wet oceanic climate suits cool temperate rainforest, which can regenerate without large catastrophic events.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cool-maritime-climate",
+ "sk": "resource",
+ "src": "legacy"
+}

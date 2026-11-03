@@ -2,7 +2,8 @@
 """budget.py: fail if the built pages or data grow past agreed sizes (bytes, uncompressed). Raise a limit on purpose, in this file."""
 import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000, 'data/species/species.json': 4_000_000}
+LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000}
+SPECIES_ROWS_TOTAL = 4_000_000   # data/species/rows/: every species row file together (#276; it was one 4 MB file)
 WEB_MAX = 250_000      # one place's web file
 ABOUT_MAX = 1_200_000   # api/species/: all the species description files together (each is fetched alone, when its sheet opens)
 ABOUT_ONE_MAX = 4_000   # one species description file
@@ -14,6 +15,9 @@ def size(p): return os.path.getsize(os.path.join(ROOT, p))
 for p, lim in LIMITS.items():
     n = size(p); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (p, n, lim, 'ok' if ok else 'OVER'))
+rt = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(os.path.join(ROOT, 'data', 'species', 'rows')) for f in fs)
+bad += rt > SPECIES_ROWS_TOTAL
+print('%-22s %9d / %9d %s' % ('data/species/rows/ total', rt, SPECIES_ROWS_TOTAL, 'ok' if rt <= SPECIES_ROWS_TOTAL else 'OVER'))
 ws = [(f, size('api/' + f)) for f in os.listdir(os.path.join(ROOT, 'api')) if os.path.isfile(os.path.join(ROOT, 'api', f))]
 tot = sum(n for _, n in ws); big = max(ws, key=lambda x: x[1])
 os_ = [(f, size('data/outlines/' + f)) for f in os.listdir(os.path.join(ROOT, 'data', 'outlines'))]

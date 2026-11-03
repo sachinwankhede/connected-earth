@@ -1,0 +1,12 @@
+{
+ "latin": "Halimeda",
+ "name": "Reef algae",
+ "tl": 1,
+ "wiki": "Halimeda",
+ "desc": "Chalky green seaweed growing on reefs and sandy flats. Grazed by parrotfish and snails.",
+ "ic": "algae",
+ "about": "Halimeda is a genus of green macroalgae. The algal body (thallus) is composed of calcified green segments.",
+ "sid": "halimeda",
+ "sk": "taxon",
+ "src": "legacy"
+}

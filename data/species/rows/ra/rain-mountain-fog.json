@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & mountain fog",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Heavy rainfall and cool, moist air keep the high forests and streams wet.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-mountain-fog",
+ "sk": "resource",
+ "src": "legacy"
+}

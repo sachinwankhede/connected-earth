@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Boreal forest soil",
+ "tl": 0,
+ "wiki": "Podzol",
+ "desc": "Mostly acidic, thin soils under pine and spruce; the park also has herb-rich patches on more nutrient-rich ground.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "boreal-forest-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

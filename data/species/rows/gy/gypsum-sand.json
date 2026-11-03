@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Gypsum sand",
+ "tl": 0,
+ "wiki": "Gypsum",
+ "desc": "The dunes are made of gypsum left by dried lakes in a basin with no outlet. Only salt- and gypsum-tolerant plants thrive in it.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "gypsum-sand",
+ "sk": "resource",
+ "src": "legacy"
+}

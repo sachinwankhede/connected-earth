@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Alpine soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin mountain soils hold the nutrients that meadow plants and dwarf shrubs draw on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "alpine-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

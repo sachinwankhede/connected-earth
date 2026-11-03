@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal lagoons (khaurs)",
+ "tl": 0,
+ "wiki": "Lagoon",
+ "desc": "Lagoons such as Khaur Jarama have mudflats, scattered mangroves and fish nursery habitat, and feed wintering waders.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tidal-lagoons-khaurs",
+ "sk": "resource",
+ "src": "legacy"
+}

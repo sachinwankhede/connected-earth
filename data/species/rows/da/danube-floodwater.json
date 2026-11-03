@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Danube floodwater",
+ "tl": 0,
+ "wiki": "Danube",
+ "desc": "The river splits into three main branches and spreads over a very low, flat plain, keeping the lakes, channels and reed beds flooded.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "danube-floodwater",
+ "sk": "resource",
+ "src": "legacy"
+}

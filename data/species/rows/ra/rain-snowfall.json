@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & snowfall",
+ "tl": 0,
+ "wiki": "Precipitation",
+ "desc": "The west side gets far more precipitation than the east, with deep snowpacks of 10 to 25 feet at their early March peak in the mountains.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-snowfall",
+ "sk": "resource",
+ "src": "legacy"
+}

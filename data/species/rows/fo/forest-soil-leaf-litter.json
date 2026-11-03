@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Forest soil & leaf litter",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin mountain soils and fallen leaves hold the nutrients that trees, shrubs and the small animals of the forest floor depend on.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "forest-soil-leaf-litter",
+ "sk": "resource",
+ "src": "legacy"
+}

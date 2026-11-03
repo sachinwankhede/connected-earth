@@ -1,0 +1,12 @@
+{
+ "latin": "Balaenoptera musculus",
+ "name": "Blue whale",
+ "tl": 3,
+ "wiki": "Blue whale",
+ "desc": "The largest animal; feeds on krill by filtering swarms.",
+ "ic": "whale",
+ "about": "The blue whale is a species of baleen whale and the largest marine mammal in the rorqual family Balaenopteridae.",
+ "sid": "balaenoptera-musculus",
+ "sk": "taxon",
+ "src": "legacy"
+}

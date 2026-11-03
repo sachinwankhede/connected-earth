@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lakes and rivers",
+ "tl": 0,
+ "wiki": "Lake Clark",
+ "desc": "Glacial lakes and rivers such as Lake Clark and the Kvichak watershed carry sockeye to spawning grounds and feed lake algae.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lakes-and-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

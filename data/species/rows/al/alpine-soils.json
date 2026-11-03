@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Alpine soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils on rock and moraine supply nutrients to alpine plants and are topped up as dead matter is broken down.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "alpine-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

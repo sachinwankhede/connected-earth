@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold, nutrient-rich gulf waters",
+ "tl": 0,
+ "wiki": "Sea",
+ "desc": "The sheltered gulfs of the peninsula hold the plankton and fish that the whales, seals and penguins depend on.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-nutrient-rich-gulf-waters",
+ "sk": "resource",
+ "src": "legacy"
+}

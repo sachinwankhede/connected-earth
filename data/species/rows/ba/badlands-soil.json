@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Badlands soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients in the soil feed the grasses and shrubs.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "badlands-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Island soil nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin volcanic soils are enriched by decaying leaves and by nutrients the seabirds bring in from the sea.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "island-soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Corvus ruficollis",
+ "name": "Brown-necked raven",
+ "tl": 3,
+ "wiki": "Brown-necked raven",
+ "desc": "A desert raven that scavenges carcasses and hunts small animals and eggs.",
+ "ic": "raven",
+ "about": "The brown-necked raven is a larger bird (52–56 cm in length) than the carrion crow though not as large as the common raven.",
+ "sid": "corvus-ruficollis",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Ovis ammon",
+ "name": "Argali",
+ "tl": 2,
+ "wiki": "Argali",
+ "desc": "The largest wild sheep, grazing grasses, sedges and herbs on open slopes. Wolves and snow leopards prey on it, and golden eagles take lambs.",
+ "ic": "quad",
+ "about": "The argali, also known as the mountain sheep, is the largest species of wild sheep. It is native to the highlands of western East Asia, the Himalayas, Tibet, and the Altai Mountains.",
+ "sid": "ovis-ammon",
+ "sk": "taxon",
+ "src": "legacy"
+}

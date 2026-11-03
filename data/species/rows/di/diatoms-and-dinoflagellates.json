@@ -1,0 +1,12 @@
+{
+ "latin": "Diatoms and dinoflagellates",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Drifting algae that bloom where river nutrients arrive. When a bloom dies and sinks, bacteria break it down and use up oxygen.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "diatoms-and-dinoflagellates",
+ "sk": "group",
+ "src": "legacy"
+}

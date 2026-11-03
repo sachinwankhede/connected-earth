@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin glacial soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Granite bedrock and thin soils shaped by glaciers hold the forest's nutrients, which are recycled from dead matter.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-glacial-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

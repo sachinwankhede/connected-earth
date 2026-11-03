@@ -1,0 +1,12 @@
+{
+ "latin": "Necrosyrtes monachus",
+ "name": "Hooded vulture",
+ "tl": 3,
+ "wiki": "Hooded vulture",
+ "desc": "A small scavenging vulture recorded feeding on carcasses of hippo, waterbuck and elephant.",
+ "ic": "hawk",
+ "about": "The hooded vulture is an Old World vulture in the order Accipitriformes, which also includes eagles, kites, buzzards and hawks.",
+ "sid": "necrosyrtes-monachus",
+ "sk": "taxon",
+ "src": "legacy"
+}

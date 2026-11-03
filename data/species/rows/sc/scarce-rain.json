@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce rain",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rainfall in the park ranges from about 10 inches a year at Castolon to 18 in the Chisos Basin. Plant growth depends on it.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

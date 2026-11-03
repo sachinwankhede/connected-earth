@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Freshwater flooding",
+ "tl": 0,
+ "wiki": "Wetland",
+ "desc": "Water covering the low, flat peninsula for much of the year keeps the swamp a wetland and shapes its marsh vegetation.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "freshwater-flooding",
+ "sk": "resource",
+ "src": "legacy"
+}

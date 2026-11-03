@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Scarce rain and flash floods",
+ "tl": 0,
+ "wiki": "Flash flood",
+ "desc": "The park averages only about 200 mm of precipitation a year. Late-summer storms bring most of it, often as sudden flash floods.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "scarce-rain-and-flash-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

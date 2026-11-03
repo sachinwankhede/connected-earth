@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Floodplain silt",
+ "tl": 0,
+ "wiki": "Silt",
+ "desc": "Soil laid down by the river on the terraces. It supports the riverine woodland and grasses.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "floodplain-silt",
+ "sk": "resource",
+ "src": "legacy"
+}

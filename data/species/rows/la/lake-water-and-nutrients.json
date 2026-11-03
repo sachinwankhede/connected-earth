@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Lake water and nutrients",
+ "tl": 0,
+ "wiki": "Lake Malawi",
+ "desc": "A huge, deep, clear freshwater lake. Its nutrients and plankton carry the open-water food chains.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "lake-water-and-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

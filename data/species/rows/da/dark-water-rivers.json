@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Dark-water rivers",
+ "tl": 0,
+ "wiki": "Black water river",
+ "desc": "Many Gran Sabana rivers are acidic and tea-colored from humic acids and tannins; forests line their banks.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "dark-water-rivers",
+ "sk": "resource",
+ "src": "legacy"
+}

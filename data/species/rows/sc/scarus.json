@@ -1,0 +1,12 @@
+{
+ "latin": "Scarus",
+ "name": "Parrotfish",
+ "tl": 2,
+ "wiki": "Parrotfish",
+ "desc": "Reef fish that scrape algae from rock and coral. Grazing keeps algae from smothering the reef.",
+ "ic": "trout",
+ "about": "Parrotfish (named because their mouths resemble a parrot's beak) are a clade of fish placed in the subfamily Scarinae of the wrasse family (Labridae).",
+ "sid": "scarus",
+ "sk": "taxon",
+ "src": "legacy"
+}

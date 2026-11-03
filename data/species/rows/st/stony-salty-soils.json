@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Stony, salty soils",
+ "tl": 0,
+ "wiki": "Hamad",
+ "desc": "The plateau is limestone with chert gravel, and run-off ends in salt flats. Poor soil and little water limit plant cover.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "stony-salty-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mole-rat soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Burrowing giant root-rats loosen the ground, and the refilled tunnels hold looser, more nutrient-rich soil than the surrounding turf.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mole-rat-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

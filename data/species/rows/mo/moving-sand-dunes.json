@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Moving sand dunes",
+ "tl": 0,
+ "wiki": "Dune",
+ "desc": "Wind-shifted dunes up to about 30 m high hold salt-tolerant, sand-adapted plants that anchor the sand.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "moving-sand-dunes",
+ "sk": "resource",
+ "src": "legacy"
+}

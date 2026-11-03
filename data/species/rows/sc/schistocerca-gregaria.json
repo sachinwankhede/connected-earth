@@ -1,0 +1,12 @@
+{
+ "latin": "Schistocerca gregaria",
+ "name": "Desert locust",
+ "tl": 2,
+ "wiki": "Desert locust",
+ "desc": "Eats about its own weight in green plants daily. After good rains it can form huge swarms that strip vegetation.",
+ "ic": "hopper",
+ "about": "The desert locust is a species of locust in the grasshopper family, Acrididae.",
+ "sid": "schistocerca-gregaria",
+ "sk": "taxon",
+ "src": "legacy"
+}

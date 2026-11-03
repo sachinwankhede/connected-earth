@@ -1,0 +1,12 @@
+{
+ "latin": "Springtails, snails, worms",
+ "name": "Leaf-litter invertebrates",
+ "tl": 2,
+ "wiki": "Springtail",
+ "desc": "Tiny animals that eat decaying leaves and fungi on the forest floor. They are food for salamanders and firefly larvae.",
+ "ic": "hopper",
+ "about": "Springtails (class Collembola) form the largest of the three lineages of modern hexapods that are no longer considered insects, the others being Protura and Diplura.",
+ "sid": "springtails-snails-worms",
+ "sk": "group",
+ "src": "legacy"
+}

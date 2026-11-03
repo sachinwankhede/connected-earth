@@ -1,0 +1,12 @@
+{
+ "latin": "Alosa pseudoharengus",
+ "name": "Alewife",
+ "tl": 3,
+ "wiki": "Alewife (fish)",
+ "desc": "An invasive herring that eats zooplankton. It became the main prey for stocked salmon and trout.",
+ "ic": "trout",
+ "about": "The alewife or river herring is a species of herring found in North America. It is commonly anadromous but there are also significant landlocked populations.",
+ "sid": "alosa-pseudoharengus",
+ "sk": "taxon",
+ "src": "legacy"
+}

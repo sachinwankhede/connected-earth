@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Brahmaputra floods",
+ "tl": 0,
+ "wiki": "Brahmaputra River",
+ "desc": "Floods can cover most of the park for days, drive animals to higher ground and leave fresh silt and new grass behind.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "brahmaputra-floods",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Desert soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils of igneous and limestone origin. Nutrients return to them from dead plants and animals.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "desert-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

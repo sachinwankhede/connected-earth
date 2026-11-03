@@ -1,0 +1,12 @@
+{
+ "latin": "Tropical rain",
+ "name": "Heavy rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "The islands are wet. Rain feeds the rainforest and runs down steep slopes to the sea.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "tropical-rain",
+ "sk": "resource",
+ "src": "legacy"
+}

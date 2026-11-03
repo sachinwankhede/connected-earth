@@ -1,0 +1,12 @@
+{
+ "latin": "Lama guanicoe",
+ "name": "Guanaco",
+ "tl": 2,
+ "wiki": "Guanaco",
+ "desc": "A wild camelid that grazes grasses, shrubs, herbs and lichens on the steppe. Its natural predators include the puma and the culpeo.",
+ "ic": "quad",
+ "about": "The guanaco is a camelid native to South America, closely related to the domesticated llama.",
+ "sid": "lama-guanicoe",
+ "sk": "taxon",
+ "src": "legacy"
+}

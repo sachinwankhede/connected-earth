@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain and streams",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Abundant precipitation feeds the mountain streams, beaver ponds and forest wetlands.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-and-streams",
+ "sk": "resource",
+ "src": "legacy"
+}

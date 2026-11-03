@@ -1,0 +1,12 @@
+{
+ "latin": "Oryx gazella",
+ "name": "Gemsbok",
+ "tl": 2,
+ "wiki": "Gemsbok",
+ "desc": "A desert antelope that can meet its water needs from wild melons and cucumbers. Lions and hyenas are its natural predators in Africa.",
+ "ic": "quad",
+ "about": "The gemsbok, or South African oryx, is a large antelope in the genus Oryx.",
+ "sid": "oryx-gazella",
+ "sk": "taxon",
+ "src": "legacy"
+}

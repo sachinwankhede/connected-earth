@@ -1,0 +1,12 @@
+{
+ "latin": "Algae",
+ "name": "Reef algae",
+ "tl": 1,
+ "wiki": "Algae",
+ "desc": "Algae growing on reef rock feed turtles, parrotfish and surgeonfish. They spread when corals die.",
+ "ic": "algae",
+ "about": "Algae are any of a large and diverse group of photosynthetic organisms. It excludes the land plants (embryophytes).",
+ "sid": "algae",
+ "sk": "taxon",
+ "src": "legacy"
+}

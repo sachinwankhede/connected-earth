@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rain & humidity",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Wet, humid air keeps ravines moist for hemlock and rhododendron.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rain-humidity",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Bacteria, fungi and worms",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down mangrove leaf litter, dead seagrass and carcasses, returning nutrients to the bay.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "bacteria-fungi-and-worms",
+ "sk": "resource",
+ "src": "legacy"
+}

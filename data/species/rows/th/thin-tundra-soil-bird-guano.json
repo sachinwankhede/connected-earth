@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin tundra soil & bird guano",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Soils are thin and thaw only in summer. Seabird droppings below bird cliffs fertilise the slopes, where the lushest vegetation grows.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-tundra-soil-bird-guano",
+ "sk": "resource",
+ "src": "legacy"
+}

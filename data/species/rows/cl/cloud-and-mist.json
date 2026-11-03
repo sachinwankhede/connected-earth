@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cloud and mist",
+ "tl": 0,
+ "wiki": "Fog",
+ "desc": "Cloud wraps the montane forest and moorland, giving moisture to fog-dependent mosses and trees.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cloud-and-mist",
+ "sk": "resource",
+ "src": "legacy"
+}
