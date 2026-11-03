@@ -2,9 +2,15 @@
 
 - At the start of a session read `docs/STATE.md` (decisions, what exists, items waiting on the owner, parked ideas) and update it in the same pull request as any work that changes it.
 - Before any UI work, read `docs/DESIGN.md` and follow it. If a request conflicts with a rule, point it out and update the rule rather than quietly breaking it.
-- Build with `python3 build/build.py --all` (index.html, pilot/index.html, sw.js and api/ are built by CI and the deploy and are not committed; never hand-edit them). Test only the affected area while iterating; the full suite runs in CI before merging to main.
-- Browser tests and perf runs run on GitHub Actions only (CI app shards, `perf-ab`); do not start a browser in a session. Locally run only the build, size budgets, validator and non-browser tests (Python and Node unit tests), then read the CI result.
+- Build with `python3 build/build.py --all` (index.html, pilot/index.html, sw.js and api/ are built by CI and the deploy and are not committed; never hand-edit them). While iterating run only the fast local checks in "Testing on GitHub" below.
 - Merging to main and deleting branches or previews is the owner's call; ask first.
+
+## Testing on GitHub (browser tests and perf runs never run in a session)
+- Locally run only the build, `build/budget.py`, the validator and non-browser tests (Python and Node unit tests). Do not start a browser.
+- CI (`checks`) runs on pull requests and on main, not on a plain branch push: open the pull request first, then read the `gate` check. If it is red, find the failing job (`app (n/3)`, `data` or `job scripts`) with `gh api repos/<repo>/commits/<sha>/check-runs`, then read its log (`gh api repos/<repo>/actions/jobs/<id>/logs`, look for `not ok`). Before changing code for a red check, see whether main fails the same test. Re-run failed jobs at most once (`gh api -X POST repos/<repo>/actions/runs/<id>/rerun-failed-jobs`).
+- What runs depends on what changed (`build/ci_changes.py`): browser tests run for app changes only. Data pull requests run validation, the build, budgets and one smoke test; docs and job-state changes run nothing. A green data pull request does not prove the app tests pass. A single test cannot be run on GitHub: the app suite runs whole, in three shards.
+- Pull requests opened by the data jobs wait for the owner to approve the workflow run (`action_required`).
+- Speed comparisons: push the branch, then dispatch `perf-ab` (`gh api -X POST repos/<repo>/actions/workflows/perf-ab.yml/dispatches -f ref=main -f inputs[ref_b]=<branch>`; optional `ref_a` default main, `nav` 1 to also time place opens, `runs` default 5). It builds both sides on one machine, alternates the runs and comments the table on the pull request for B; only the A-versus-B difference is meaningful. Runs for different branches may overlap (each gets its own machine). The live-site `perf` workflow runs one at a time (group `perf`); never compare its numbers with `perf-ab`'s.
 
 ## Ground rules
 1. **Code and data are treated differently.** Claude manages code (branches, small pull requests, tests). Data is managed by GitHub jobs that open pull requests; Claude does not hand-edit it or read the data folders. The owner merges.
