@@ -40,5 +40,5 @@ Most of this repo is data, not code. Never read, cat, grep -r or list whole data
 - Batch sizes: about 15 places per story batch and 15 states per state batch. Stories are the part that needs the owner's review, so keep a batch within what he can read in one sitting.
 - Content rules: story at most 60 words, why-it-matters at most 40; park summaries are one Wikipedia sentence; journeys only where the source text supports a real route.
 - Promotion follows `docs/PROMOTION.md` (including the 60% family-level hold rule). Use the `data-promote` workflow; the 10-link spot check goes in the pull request.
-- A data branch that clashes with main only on `data/journeys/pilot-order.json` (species are one file each since #276, so they no longer clash) is brought up to date with the `data-sync` workflow. Run `python3 build/species.py pack` after adding or promoting places.
+- Shared lists are one file per job (species rows since #276, place order in `data/order/` and journeys one file each since #277), so data branches no longer clash on them; `data-sync` still brings a branch up to date when it clashes only on `jobs/names.json`, `jobs/state_queue.txt` or a place's food web. Run `python3 build/species.py pack` after adding or promoting places.
 - `bash jobs/status.sh` shows open pull requests, running jobs, the state queue and finished research.

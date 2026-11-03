@@ -1,6 +1,6 @@
 # Moving a place from the pilot to the main app
 
-Agreed rule (Oct 2026). Places are drafted in `data/places/` with `"stage": "pilot"` (shown in the pilot). A place becomes main (its `stage` is dropped and it joins the order in `data/journeys/links.json`) when all of these hold:
+Agreed rule (Oct 2026). Places are drafted in `data/places/` with `"stage": "pilot"` (shown in the pilot). A place becomes main (its `stage` is dropped and it joins the main list; it keeps its position in `data/order/`) when all of these hold:
 
 1. **Species.** They come from an official list for that place (for example NPSpecies), or from sightings inside the park outline when no official list exists.
 2. **Links.** Every feeding link has a GloBI record at species, genus or family level, shown in the place's evidence list. Nothing obviously wrong.

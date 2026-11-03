@@ -74,18 +74,17 @@ class SyncTests(unittest.TestCase):
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
         e = self.r.get('data/places/p.json'); self.assertNotIn('stage', e); self.assertEqual(e['raw'], [['a', 'c']])
 
-    def test_names_and_order_are_unioned(self):
-        self.start({'jobs/names.json': {'a': None, 'b': 'B'}, 'data/journeys/pilot-order.json': ['o1']})
+    def test_names_are_unioned(self):
+        self.start({'jobs/names.json': {'a': None, 'b': 'B'}})
         self.r.checkout('feature')
         self.r.put('jobs/names.json', {'a': None, 'b': 'B', 'c': 'C'})
-        self.r.put('data/journeys/pilot-order.json', ['o1', 'of']); self.r.put('data/places/of.json', place(id='of', stage='pilot')); self.r.commit('feature')
+        self.r.put('data/places/of.json', place(id='of', stage='pilot')); self.r.commit('feature')
         self.r.checkout('main')
         self.r.put('jobs/names.json', {'a': 'A', 'b': 'B', 'd': 'D'})
-        self.r.put('data/journeys/pilot-order.json', ['o1', 'om']); self.r.put('data/places/om.json', place(id='om', stage='pilot')); self.r.commit('main')
+        self.r.put('data/places/om.json', place(id='om', stage='pilot')); self.r.commit('main')
         self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
         out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
         self.assertEqual(self.r.get('jobs/names.json'), {'a': 'A', 'b': 'B', 'c': 'C', 'd': 'D'})
-        self.assertEqual(self.r.get('data/journeys/pilot-order.json'), ['o1', 'om', 'of'])
 
     def test_other_files_always_need_a_person(self):
         self.start({'docs/notes.md': 'base\n'})
