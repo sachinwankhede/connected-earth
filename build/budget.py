@@ -14,13 +14,12 @@ def size(p): return os.path.getsize(os.path.join(ROOT, p))
 for p, lim in LIMITS.items():
     n = size(p); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (p, n, lim, 'ok' if ok else 'OVER'))
-SPECIES_INDEX_MAX = 600_000   # api/species-index.json: the species table and every place's species list, fetched once after the map has drawn
-ws = [(f, size('api/' + f)) for f in os.listdir(os.path.join(ROOT, 'api')) if f != 'species-index.json' and os.path.isfile(os.path.join(ROOT, 'api', f))]
+ws = [(f, size('api/' + f)) for f in os.listdir(os.path.join(ROOT, 'api')) if os.path.isfile(os.path.join(ROOT, 'api', f))]
 tot = sum(n for _, n in ws); big = max(ws, key=lambda x: x[1])
 os_ = [(f, size('data/outlines/' + f)) for f in os.listdir(os.path.join(ROOT, 'data', 'outlines'))]
 obig = max(os_, key=lambda x: x[1]); otot = sum(n for _, n in os_)
 ab = [size('api/species/' + f) for f in os.listdir(os.path.join(ROOT, 'api', 'species'))]
-for label, n, lim in (('species descriptions (api/species/, total)', sum(ab), ABOUT_MAX), ('largest species description file', max(ab), ABOUT_ONE_MAX), ('species index (api/species-index.json)', size('api/species-index.json'), SPECIES_INDEX_MAX),('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
+for label, n, lim in (('species descriptions (api/species/, total)', sum(ab), ABOUT_MAX), ('largest species description file', max(ab), ABOUT_ONE_MAX), ('webs total', tot, WEBS_TOTAL), ('largest web ' + big[0], big[1], WEB_MAX), ('outlines total', otot, OUTLINES_TOTAL), ('largest outline ' + obig[0], obig[1], OUTLINE_MAX)):
     ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 SEARCH_WORDS_MAX = 60_000     # api/search[-pilot]/w-<two letters>.json: one bucket of the word list, fetched when a query starts with those letters (#260)
