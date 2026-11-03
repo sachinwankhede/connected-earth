@@ -45,7 +45,11 @@
   var get = function (n) { return fetch(b + n + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
   /* every place in the index must have its card, or the page would show places without a name or text: treat that as "the places did not load" */
   var pair = function (a, c) { return Promise.all([get(a), get(c)]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }); };
-  window.__PLACES = window.fetch ? pair("index-world", "cards-world") : Promise.reject(0);
+  /* a link straight to a place may be to a local one: then they come with the first load, so the link opens as it always did */
+  var link = /[#&](pg|p|e)=/.test(location.hash);
+  window.__PLACES = !window.fetch ? Promise.reject(0) : !link ? pair("index-world", "cards-world") : Promise.all([pair("index-world", "cards-world"), pair("index-local", "cards-local")]).then(function (r) {
+    window.__LOCALS_IN = 1; return [r[0][0].concat(r[1][0]), Object.assign({}, r[0][1], r[1][1])];
+  });
   window.__LOCALS = function () { return window.fetch ? pair("index-local", "cards-local") : Promise.reject(0); };
 })();
 </script>
@@ -1261,7 +1265,7 @@ window.__PLACES.then(function (PL) {
   var ECOS = join(PL);
   var Places = {
     all: function () { return ECOS; }, get: function (id) { return ECO_BY[id]; },
-    done: !NLOCAL, nLocal: NLOCAL, total: ECOS.length + NLOCAL, p: null, failedAt: 0,
+    done: !NLOCAL || !!window.__LOCALS_IN, nLocal: NLOCAL, total: ECOS.length + (window.__LOCALS_IN ? 0 : NLOCAL), p: null, failedAt: 0,
     loadLocals: function () {
       if (Places.done) return Promise.resolve(true);
       if (Places.p) return Places.p;
@@ -2403,7 +2407,10 @@ window.__PLACES.then(function (PL) {
   var ICON_SHARE = '<button type="button" class="ibtn" data-share="1" aria-label="Share link" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg><svg class="ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></button>';
   var ICON_CLOSE = '<button type="button" class="ibtn" data-closepeek="1" aria-label="Close card" title="Close"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>';
   M.peek = function (id) { peek(id); };
+  /* a place that is not loaded yet (a local one, before the local places have come): fetch them, then do it again */
+  function notYet(id, again) { if (ECO_BY[id] || Places.done) return false; Places.loadLocals().then(function (ok) { if (ok) again(); }); return true; }
   function peek(id) {
+    if (notYet(id, function () { peek(id); })) return;
     var e = ECO_BY[id], pe = document.getElementById("peek"), ci = cimg(id);
     pe.innerHTML = '<div class="pimg">' + (ci ? ci.innerHTML : "") + '</div><div class="pbody"><div class="pact">' + ICON_SHARE + ICON_CLOSE + '</div><span class="where">' + e.place + '</span><h2>' + e.name + '</h2><p>' + e.blurb + '</p>' + (spanText(e) ? '<p class="spans">' + spanText(e) + "</p>" : "") + tiesHTML(id) + '<div class="pbtns"><button type="button" class="btn go" data-open="' + id + '"><span class="long">Open the food web</span><span class="short">Open</span> &rarr;</button></div></div>';
     pe.hidden = false; M.peekId = id; spanHi(e); showTies(id); parkHi(id);
@@ -3384,6 +3391,7 @@ window.__PLACES.then(function (PL) {
     });
   }
   function showPlace(id, from) {
+    if (notYet(id, function () { showPlace(id, from); })) return;
     if (!ECO_BY[id]) return;
     M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
@@ -3435,6 +3443,7 @@ window.__PLACES.then(function (PL) {
   }
   function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
   function showWeb(id, then, fromJ, fromP) {
+    if (notYet(id, function () { showWeb(id, then, fromJ, fromP); })) return;
     PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
     JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = "&larr; " + (fromJ ? "Journey" : escH(ECO_BY[id].name)); setPbk();
