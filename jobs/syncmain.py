@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """syncmain.py: finish a merge of main into a data branch when the only clashes are the shared files that every data job edits.
-  data/species/species.json   rows from both sides are kept (main's row wins when both changed the same species), then `species.py pack` rebuilds it
+  (data/species/rows/ needs nothing here: each species is its own file, so two branches only meet on a species both added, and then git merges identical files and a person looks at different ones)
   data/places/<id>.json  (pilot places too: they carry stage "pilot" until promoted) merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
   jobs/names.json  every latin name from both sides; a real common name beats null, main's wins a tie
   jobs/state_queue.txt  the states both sides still list (each side removed the ones it finished), in main's order
@@ -32,12 +32,9 @@ def merge_place(path):
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
 taken = [c for c in conf if c.startswith('data/places/') and c.count('/') == 2 and merge_place(c)]
 conf = [c for c in conf if c not in taken]
-SHARED = ('data/species/species.json', 'data/journeys/pilot-order.json', 'jobs/names.json', 'jobs/state_queue.txt')
+SHARED = ('data/journeys/pilot-order.json', 'jobs/names.json', 'jobs/state_queue.txt')
 other = [c for c in conf if c not in SHARED]
 if other: print('Conflicts that need a person:', ', '.join(other)); sys.exit(1)
-if 'data/species/species.json' in conf:
-    ours, theirs = show(2, 'data/species/species.json') or {}, show(3, 'data/species/species.json') or {}   # ours = branch, theirs = main
-    json.dump({**ours, **theirs}, open('data/species/species.json', 'w'), ensure_ascii=False)
 if 'jobs/names.json' in conf:
     ours, theirs = show(2, 'jobs/names.json') or {}, show(3, 'jobs/names.json') or {}   # {latin: common name or null}; keep every name, a real name beats null
     out = {k: (theirs.get(k) or ours.get(k)) for k in sorted(set(ours) | set(theirs))}
