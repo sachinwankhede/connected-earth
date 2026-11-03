@@ -1,7 +1,7 @@
 name: checks
 # Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
-#   app  (src, build, app tests, fonts, package files, this file...): everything, including the browser tests.
-#   data (data, photos, data tests): validation, pack check, build, size budgets, data tests and one smoke test.
+#   app  (src, build, app tests, fonts, package files, this file...): everything, including the browser tests and the Pages payload step.
+#   data (data, photos, data tests): validation, pack check, build, Pages payload step, size budgets, data tests and one smoke test.
 #   job scripts (data-job scripts in jobs/, lib, job tests, state/promote tools): the job self-tests only.
 #   docs, notes, the data-job workflows and job state files run nothing.
 # The "gate" job always runs and passes when every job that was needed passed, so it is the one check to require.
@@ -63,6 +63,9 @@ jobs:
       - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
+      - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
+        run: python3 build/pages_payload.py
       - name: Size budget
         run: python3 build/budget.py
       - run: npx playwright install --with-deps chromium
@@ -118,6 +121,9 @@ jobs:
       - name: Build the pages
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
+      - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
+        run: python3 build/pages_payload.py
       - name: Size budget
         run: python3 build/budget.py
       - run: npx playwright install --with-deps chromium
