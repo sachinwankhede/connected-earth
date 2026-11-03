@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "photos/places/missing.json: negative-cache record per place name (strings are old records, reported as warnings)",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "status",
+      "checkedAt",
+      "expiresAt",
+      "attempts"
+    ],
+    "properties": {
+      "status": {
+        "enum": [
+          "nophoto",
+          "notphoto",
+          "notcommons"
+        ]
+      },
+      "checkedAt": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T"
+      },
+      "expiresAt": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T"
+      },
+      "attempts": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "additionalProperties": false
+  }
+}

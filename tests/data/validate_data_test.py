@@ -54,6 +54,30 @@ class SchemasAndCrossFileRules(unittest.TestCase):
             errs, _ = check(r); text = ' | '.join(errs)
             for want in ('ring 0 has an odd number', 'ring 1 has a point outside', "'google' is not one of", 'outline stray.json has no place'):
                 self.assertIn(want, text)
+    def test_job_written_lists(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/species/about.json', {'A': 'x', 'B': '', 'C': 3})
+            put(r, 'data/text/summaries.json', {'p': 5})
+            put(r, 'jobs/names.json', {'A b': None, 'C d': 'Cee', 'E f': 7})
+            put(r, 'photos/species_missing.json', {'A b': 'nophoto', 'C d': 'gone'})
+            put(r, 'photos/places/missing.json', {'Old': 'nophoto', 'New': {'status': 'nophoto', 'checkedAt': '2026-01-02T00:00:00', 'expiresAt': '2026-01-01T00:00:00', 'attempts': 0}})
+            errs, warns = check(r); text = ' | '.join(errs); wtext = ' | '.join(warns)
+            for want in ("3 is not of type 'string'", "5 is not of type 'string'", "7 is not of type", "'gone' is not one of", "0 is less than the minimum", 'expiresAt is not after checkedAt'):
+                self.assertIn(want, text)
+            self.assertIn('1 empty sentence', wtext); self.assertIn('1 old-format record', wtext)
+    def test_geo_files(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            sq = {'type': 'Polygon', 'coordinates': [[[0, 0], [1, 0], [1, 1], [0, 0]]]}
+            put(r, 'data/geo/geo.json', {'countries': [{'id': '1', 'name': 'A', 'cont': 'X', 'g': sq}, {'id': '1', 'name': 'B', 'cont': 'X', 'g': sq},
+                                                      {'id': 'undefined', 'name': 'C', 'cont': 'X', 'g': sq}, {'id': 'undefined', 'name': 'D', 'cont': 'X', 'g': sq}],
+                                         'states': [{'id': '01', 'name': 'S', 'g': {'type': 'Point', 'coordinates': [0, 0]}}]})
+            put(r, 'data/geo/land.json', {'type': 'Polygon', 'coordinates': []})
+            errs, warns = check(r); text = ' | '.join(errs)
+            for want in ("id '1' is repeated", "'Point' is not one of", "'MultiPolygon' was expected"):
+                self.assertIn(want, text)
+            self.assertNotIn("'undefined' is repeated", text); self.assertIn('2 features have the id "undefined"', ' | '.join(warns))
     def test_journey_files_and_config(self):
         with tempfile.TemporaryDirectory() as r:
             self.tree(r)

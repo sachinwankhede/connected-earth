@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "jobs/names.json: common name by latin name; null means looked up, none found",
+  "type": "object",
+  "additionalProperties": {
+    "type": [
+      "string",
+      "null"
+    ]
+  }
+}

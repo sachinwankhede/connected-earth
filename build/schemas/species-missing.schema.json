@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "photos/species_missing.json: why a species has no picture",
+  "type": "object",
+  "additionalProperties": {
+    "enum": [
+      "nophoto",
+      "notcommons",
+      "notphoto"
+    ]
+  }
+}
