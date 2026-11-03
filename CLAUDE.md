@@ -4,6 +4,7 @@
 - Before any UI work, read `docs/DESIGN.md` and follow it. If a request conflicts with a rule, point it out and update the rule rather than quietly breaking it.
 - Build with `python3 build/build.py --all` (index.html, pilot/index.html, sw.js and api/ are built by CI and the deploy and are not committed; never hand-edit them). While iterating run only the fast local checks in "Testing on GitHub" below.
 - Merging to main and deleting branches or previews is the owner's call; ask first.
+- After any merge to main, read the result of the `deploy` run for that commit (`gh api repos/<repo>/actions/runs?head_sha=<sha>`, then its jobs) before reporting the merge as done. A cancelled run replaced by a newer merge is fine: read the newer one. If it failed, say so at once and open or fix it; the "Deploy failing" issue is opened by the `alert` job.
 
 ## Testing on GitHub (browser tests and perf runs never run in a session)
 - Locally run only the build, `build/budget.py`, the validator and non-browser tests (Python and Node unit tests). Do not start a browser.
