@@ -2462,14 +2462,17 @@ window.__PLACES.then(function (PL) {
   var EMPTY = { type: "FeatureCollection", features: [] };
   var LK = {}; CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { LK[en.eco] = 1; }); });
   var DOT = window.matchMedia && matchMedia("(pointer: coarse)").matches ? 6.5 : 4.5;
+  var SAT_TILES = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}";
   function satStyle() {
     var lab = { "text-font": ["Noto Sans Bold"] }, pnt = { "text-color": "#ffffff", "text-halo-color": "rgba(0,0,0,0.7)", "text-halo-width": 1.5 }, nm = ["coalesce", ["get", "name:latin"], ["get", "name"]];
     function pl(id, cls, minz, maxz, size, extra) { var l = { id: id, type: "symbol", source: "openmaptiles", "source-layer": "place", filter: ["in", ["get", "class"], ["literal", cls]], minzoom: minz, layout: { "text-field": nm, "text-font": lab["text-font"], "text-size": size }, paint: pnt }; if (maxz) l.maxzoom = maxz; if (extra) for (var k in extra) l.layout[k] = extra[k]; return l; }
     return { version: 8, name: "satellite", glyphs: GLYPHS, sources: {
-      sat: { type: "raster", tiles: ["https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"], tileSize: 256, maxzoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" },
+      sat0: { type: "raster", tiles: [SAT_TILES], tileSize: 512, maxzoom: 1 },   /* the opening world view: the same 256 px pictures counted as 512, so the phone asks for the 2 x 2 world tiles instead of about 12 (#244) */
+      sat: { type: "raster", tiles: [SAT_TILES], tileSize: 256, maxzoom: 18, attribution: "Imagery &copy; Esri, Maxar, Earthstar Geographics" },
       openmaptiles: { type: "vector", url: "https://tiles.openfreemap.org/planet" } },
     layers: [
-      { id: "sat", type: "raster", source: "sat" },
+      { id: "sat0", type: "raster", source: "sat0", maxzoom: 1.2 },
+      { id: "sat", type: "raster", source: "sat", minzoom: 1, paint: { "raster-opacity": ["interpolate", ["linear"], ["zoom"], 1, 0, 1.2, 1] } },   /* a layer outside its zoom range asks for no tiles: the detailed tiles load only from zoom 1, fading in over the coarse ones */
       { id: "park", type: "fill", source: "openmaptiles", "source-layer": "park", paint: { "fill-color": "#000000", "fill-opacity": 0 } },
       { id: "sat-state-line", type: "line", source: "openmaptiles", "source-layer": "boundary", minzoom: 3, filter: ["all", ["==", ["get", "admin_level"], 4], ["!=", ["get", "maritime"], 1], ["!=", ["get", "disputed"], 1]], layout: { "line-join": "round" }, paint: { "line-color": "#ffffff", "line-opacity": ["interpolate", ["linear"], ["zoom"], 3, 0.35, 6, 0.7], "line-width": ["interpolate", ["linear"], ["zoom"], 3, 0.6, 8, 1.4], "line-dasharray": [4, 2.5] } },
       pl("sat-country", ["country"], 1, 6, 12, { "text-transform": "uppercase", "text-letter-spacing": 0.12 }),
@@ -2637,7 +2640,7 @@ window.__PLACES.then(function (PL) {
     M.fails[id] = (M.fails[id] || 0) + 1;
     if (M.fails[id] < 6) return;
     M.fails = {}; M.want = M.want || M.mode;
-    if (id === "sat" && M.mode === "satellite") setMode("streets", true);
+    if ((id === "sat" || id === "sat0") && M.mode === "satellite") setMode("streets", true);
     else { M.stub = true; setMode(M.mode, true); }
     scheduleRetry();
   }
@@ -2938,7 +2941,7 @@ window.__PLACES.then(function (PL) {
   function initMap() {
     var box = document.getElementById("map");
     if (!window.maplibregl) { box.innerHTML = '<p class="fine" style="padding:16px">The map library did not load. The ecosystem cards below still work.</p>'; return; }
-    var m = M.map = new maplibregl.Map({ container: "map", style: M.stub ? stubStyle() : M.mode === "satellite" ? satStyle() : STYLES[M.mode], center: [10, 25], zoom: 1.2, minZoom: 0.6, maxZoom: 17, renderWorldCopies: false, maxPitch: 75, fadeDuration: 120, attributionControl: { compact: true } });
+    var m = M.map = new maplibregl.Map({ container: "map", style: M.stub ? stubStyle() : M.mode === "satellite" ? satStyle() : STYLES[M.mode], center: [10, 25], zoom: box.clientWidth < 560 ? 0.6 : 1.2, minZoom: 0.6, maxZoom: 17, renderWorldCopies: false, maxPitch: 75, fadeDuration: 120, attributionControl: { compact: true } });
     setTimeout(function () { var at = document.querySelector(".maplibregl-ctrl-attrib"); if (at) at.classList.remove("maplibregl-compact-show"); }, 600);
     (function () {
       var bt = document.getElementById("boot");
@@ -2953,7 +2956,7 @@ window.__PLACES.then(function (PL) {
     m.on("error", function (ev) {
       if (window._mlerr) window._mlerr.push(String(ev.error && ev.error.message).slice(0, 160));
       if (!M.styleReady && !M.stub) { M.stub = true; M.styleFail = true; M.want = M.want || M.mode; m.setStyle(stubStyle(), { diff: false }); scheduleRetry(); }
-      else if (M.styleReady && (ev.sourceId === "sat" || ev.sourceId === "openmaptiles")) baseFailed(ev.sourceId);
+      else if (M.styleReady && (ev.sourceId === "sat" || ev.sourceId === "sat0" || ev.sourceId === "openmaptiles")) baseFailed(ev.sourceId);
     });
     m.on("data", function (ev) { if (ev.dataType === "source" && ev.tile && M.fails[ev.sourceId]) M.fails[ev.sourceId] = 0; });
     var pop = new maplibregl.Popup({ closeButton: false, closeOnClick: false, offset: 12, className: "ecopop" });
