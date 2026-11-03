@@ -13,7 +13,7 @@ Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the 
 - Commits and PRs carry the attribution lines given by the session reminder.
 - Do not use `pkill -f` / `pgrep -f` (it killed my own shell). Always `git fetch origin +main:refs/remotes/origin/main` before comparing with main. The GitHub GraphQL API is blocked from sessions: use `gh api` REST calls (create PRs with `gh api repos/.../pulls`).
 - A new workflow file can only be dispatched after it is on main (or, if it already existed, from its branch).
-- A Git branch named `perf` is impossible while `perf/species-index` exists; perf history lives on branch `perf-data`.
+- A Git branch named `perf` is impossible while any `perf/...` branch exists (today `perf/places-module`; `perf/species-index` is already gone); perf history lives on branch `perf-data`.
 - The service worker fetches app/data from the network first, with app-shell fallback for offline navigations; map styles refresh from the network while tiles and media are cached first (up to 1,500 runtime resources). The phone may need two close-and-reopen cycles to show a new deploy.
 
 ## What exists (jobs and tools)
@@ -63,7 +63,7 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - Scheduling design chat: which jobs run on a schedule and in what order.
 - What-if redesign; wording "places" vs "ecosystems".
 - Real-device checks beyond the owner's iPhone.
-- Deleting stale branches (his only; offer a list to approve). Candidates: perf/species-index and merged branches.
+- Deleting stale branches (his only; offer a list to approve). The survey and per-group list are in #222.
 - Auto-sync of stale data branches after merges; skipping browser tests on data-only PRs (faster CI path).
 - Desktop paging of cards; a static world silhouette while tiles load.
 - Weekly report of dead links and places lacking a photo or outline.
