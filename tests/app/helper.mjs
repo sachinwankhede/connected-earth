@@ -73,6 +73,7 @@ export async function launch() {
 // Fixture places (#292): small made-up places in tests/fixtures/places/ that a test can ask for with { fixtures: true }, so it checks the app's behaviour
 // and not whatever the real data says today. They are added to the world places and answered from the files; nothing else about the page changes.
 // Testland has a web of 11 species over all five levels and is related to Testwater; ids: FIXTURE_IDS.
+export const FIXTURE_JOURNEYS = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'fixtures', 'journeys.json'), 'utf8'));   // fixture journeys (#377): added to the journeys file of a page opened with { fixtures: true }
 export const FIXTURE_IDS = ['testland', 'testwater'];
 const FIXTURES = FIXTURE_IDS.map((id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'fixtures', 'places', id + '.json'), 'utf8')));
 // For a test that runs its own file server instead of using open(): fixtureList(url path, text of the built file) returns the world index or cards with the
@@ -87,6 +88,10 @@ export function fixturePlace(urlPath) {
   return f ? JSON.parse(JSON.stringify(f.place)) : null;
 }
 async function routeFixtures(page) {
+  await page.route(/\/api\/journeys\/main\.json(?:\?|$)/, async (r) => {
+    const d = await (await r.fetch()).json();
+    await r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...d, cross: d.cross.concat(FIXTURE_JOURNEYS) }) });
+  });
   await page.route(/\/api\/places\/main\/(?:index|cards)-world\.json(?:\?|$)/, async (r) => {
     const res = await r.fetch();
     await r.fulfill({ response: res, body: fixtureList(new URL(r.request().url()).pathname, await res.text()) });

@@ -4,9 +4,9 @@ import * as H from './helper.mjs';
 import { mockSpeciesPictures } from './mockphotos.mjs';
 
 for (const [name, size] of Object.entries(H.SIZES)) {
-  async function start(hash = '#stub') {
+  async function start(hash = '#stub', fixtures = false) {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash });
+    const t = await H.open(b, H.MAIN, size, { hash, fixtures });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
     await t.page.waitForTimeout(700);
     return { b, p: t.page, errors };
@@ -26,10 +26,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('jview').hidden, map: !document.getElementById('mapview').hidden, web: !document.getElementById('webview').hidden, hash: location.hash, title: (document.querySelector('#jview h2') || {}).textContent }));
 
   test(`${name}: a journey page has the route, the story, both ends, sources and more journeys`, async () => {
-    const { b, p, errors } = await start();
-    await p.evaluate(() => window.__M.showJourney('knot')); await p.waitForTimeout(500);
+    const { b, p, errors } = await start('#stub', true);   // the fixture journey Testland to Testwater, not a real route (#292)
+    await p.evaluate(() => window.__M.showJourney('testcrossing')); await p.waitForTimeout(500);
     const s = await shown(p);
-    assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Red knot'); assert.match(s.hash, /j=knot/);
+    assert.equal(s.page, true); assert.equal(s.map, false); assert.equal(s.title, 'Test crossing'); assert.match(s.hash, /j=testcrossing/);
     const r = await p.evaluate(() => {
       const j = document.getElementById('jview');
       return { heads: [...j.querySelectorAll('h3')].map((h) => h.textContent), land: j.querySelectorAll('.jl').length, arc: !!j.querySelector('.jarc'), dots: j.querySelectorAll('.jpt').length, ends: j.querySelectorAll('.jend').length, src: [...j.querySelectorAll('details.srcd .fgrp:nth-child(2) .srcs a')].every((a) => /^https:\/\/en\.wikipedia\.org\/wiki\//.test(a.href)) && j.querySelectorAll('details.srcd .fgrp:nth-child(2) .srcs a').length, srcClosed: !j.querySelector('details.srcd').open, endH: Math.round(j.querySelector('.jend').getBoundingClientRect().height), more: j.querySelectorAll('.jmore button').length, when: !!j.querySelector('.jwhen'), over: document.documentElement.scrollWidth - document.documentElement.clientWidth, labels: [...j.querySelectorAll('.jmap text:not(.jemo)')].map((t) => t.textContent) };
@@ -37,7 +37,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(r.heads, ['The story', 'Places on this route', 'More journeys']);
     assert.ok(r.srcClosed, 'sources start collapsed'); assert.ok(r.endH <= 96, 'compact place row: ' + r.endH);
     assert.ok(r.land > 100 && r.arc && r.dots === 2 && r.ends === 2 && r.src >= 1 && r.more >= 1 && r.when);
-    assert.deepEqual(r.labels, ['Wadden Sea', "Banc d'Arguin"]);
+    assert.deepEqual(r.labels, ['Testland', 'Testwater']);
     assert.ok(r.over <= 1, 'no sideways scroll: ' + r.over);
     assert.deepEqual(errors, []); await b.close();
   });
