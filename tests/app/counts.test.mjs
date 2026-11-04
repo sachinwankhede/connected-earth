@@ -15,15 +15,13 @@ for (const [buildName, base] of [['main', H.MAIN], ['pilot', H.PILOT]]) describe
     assert.equal(loaded, true, 'counts.json arrived');
     const check = (label) => t.page.evaluate(() => window.__M.countsCheck()).then((bad) => assert.deepEqual(bad, [], label));
     await check('plain');
-    const kind = await t.page.$('[data-kind]');
-    if (kind) {
-      await kind.click(); await t.page.waitForTimeout(800);
+    if (await t.page.$('[data-kind]')) {   // the chips are drawn again after each click, so find the first one each time
+      await t.page.click('[data-kind]'); await t.page.waitForTimeout(800);
       await check('one kind');
-      await kind.click(); await t.page.waitForTimeout(500);
+      await t.page.click('[data-kind]'); await t.page.waitForTimeout(500);
     }
-    const loc = await t.page.$('#locbtn');
-    if (loc) {
-      await loc.click();
+    if (await t.page.$('#locbtn')) {
+      await t.page.click('#locbtn');
       await t.page.waitForFunction(() => window.__M && window.__M.countsCheck, null, { timeout: 30000 });
       await t.page.waitForTimeout(2500);
       await check('local places on');
