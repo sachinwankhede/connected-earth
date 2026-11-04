@@ -18,6 +18,11 @@ export function png(seed, w = 48, h = 48) {
   return Buffer.concat([Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]), chunk('IHDR', ihdr), chunk('IDAT', zlib.deflateSync(raw)), chunk('IEND', Buffer.alloc(0))]);
 }
 const hostedName = (title) => crypto.createHash('sha1').update(title).digest('hex').slice(0, 12) + '.webp';   // the same shape as a real hosted file name
+// For a test that needs only a few hosted species pictures: answers the picture list with exactly `ph` ({title: [file, page]}) and every hosted species file with a generated picture.
+export async function mockSpeciesPictures(page, ph = {}) {
+  await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {} }) }));
+  await page.route(/\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+}
 export async function mockPhotos(page) {
   const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
   const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
