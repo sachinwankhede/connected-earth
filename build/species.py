@@ -65,6 +65,8 @@ def split():
     print(n, 'row files written; old species.json removed')
 
 def join(eco, tab):
+    import diets
+    eco = diets.join(eco, tab)   # #256: the evidence of an eating link that the place does not hold itself comes from data/diets/
     out = []
     for n in eco['nodes']:
         if 'sp' in n and n['sp'] not in tab: raise SystemExit('%s: species %s is not in data/species/species.json (run build/species.py pack)' % (eco.get('id'), n['sp']))

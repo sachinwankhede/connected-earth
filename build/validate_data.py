@@ -108,6 +108,19 @@ def check(root):
             shape(man, 'taxonomy-manual', 'data/species/taxonomy_manual.json', errs)
             for sid in sorted(set(man) - taxa): errs.append('data/species/taxonomy_manual.json: %r is not a species of kind taxon' % sid)
         for sid in sorted(set(tx or {}) & set(rv or {})): errs.append('taxonomy: %r is both accepted and in the review list' % sid)
+    # eating-link table (#256): one file per consumer species, sitting where its sid says; the consumer and every prey must be species of the table
+    dd = os.path.join(root, 'data', 'diets')
+    if os.path.isdir(dd):
+        sids = {r.get('sid') for r in sp.values()}
+        for sub_ in sorted(os.listdir(dd)):
+            for f in sorted(os.listdir(os.path.join(dd, sub_))):
+                if not f.endswith('.json'): continue
+                rel = 'data/diets/%s/%s' % (sub_, f); o = json.load(open(os.path.join(dd, sub_, f)))
+                shape(o, 'diets', rel, errs)
+                if not isinstance(o, dict) or not isinstance(o.get('prey'), dict): continue
+                if o.get('sid', '')[:2] != sub_ or o.get('sid', '') + '.json' != f: errs.append('%s: the file belongs at data/diets/%s/%s.json' % (rel, str(o.get('sid', ''))[:2], o.get('sid')))
+                if o.get('sid') not in sids: errs.append('%s: consumer %r is not a species' % (rel, o.get('sid')))
+                for prey in sorted(set(o['prey']) - sids): errs.append('%s: prey %r is not a species' % (rel, prey))
     # job-written lists (#255, PR 2): one schema each. Old-format records and empty values are warnings, not errors, until the jobs that wrote them are cleaned up
     about = load(root, 'data', 'species', 'about.json')
     if about is not None:
