@@ -107,7 +107,7 @@
     var q = name.toLowerCase();
     FL.q = q; FL.hits = latin ? new Set() : null;
     if (latin) sppPlaces(latin).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
-    document.getElementById("q").value = name;
+    document.getElementById("q").value = name; qSync();
     document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);
     window.scrollTo(0, 0);
