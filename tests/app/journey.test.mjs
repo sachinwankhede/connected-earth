@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+import { mockSpeciesPictures } from './mockphotos.mjs';
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   async function start(hash = '#stub') {
@@ -12,11 +13,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   }
   async function startWithPhotos(hash = '#stub') {
     const b = await H.launch(), ctx = await b.newContext({ viewport: size }), p = await ctx.newPage();
-    const errors = [], png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGNgYPj/HwADAgH/9v0BNgAAAABJRU5ErkJggg==', 'base64');
+    const errors = [];
     p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
     await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
-    await p.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: { Osprey: ['0123456789ab.webp', 'Osprey'] }, phm: {} }) }));   // a hosted picture entry for the osprey journey
-    await p.route(/\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png }));
+    await mockSpeciesPictures(p, { Osprey: ['0123456789ab.webp', 'Osprey'] });   // a hosted picture entry for the osprey journey
     const url = await H.urlFor(H.MAIN);
     await p.goto(url + hash);
     await p.waitForTimeout(700);
