@@ -9,7 +9,6 @@
       "rank",
       "key",
       "match",
-      "conf",
       "gname",
       "src",
       "at"
@@ -40,7 +39,8 @@
         "enum": [
           "exact",
           "higher-rank",
-          "fuzzy"
+          "fuzzy",
+          "name-search"
         ]
       },
       "conf": {
