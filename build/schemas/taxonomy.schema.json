@@ -37,7 +37,10 @@
         "type": "integer"
       },
       "match": {
-        "const": "exact"
+        "enum": [
+          "exact",
+          "higher-rank"
+        ]
       },
       "conf": {
         "type": "integer",

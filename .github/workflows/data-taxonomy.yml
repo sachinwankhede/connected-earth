@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: "Species to match this run (0 = all left)", default: "100" }
+      retry_review: { description: "1 = look at the review list again first (after a rule change)", default: "0" }
 permissions:
   contents: write
   pull-requests: write
@@ -27,7 +28,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
       - name: Match the next batch
-        run: LIMIT="${{ github.event.inputs.limit || '100' }}" python3 jobs/taxonomy.py
+        run: RETRY_REVIEW="${{ github.event.inputs.retry_review || '0' }}" LIMIT="${{ github.event.inputs.limit || '100' }}" python3 jobs/taxonomy.py
       - name: Check the files
         run: |
           python3 -m pip install --break-system-packages jsonschema==4.26.0

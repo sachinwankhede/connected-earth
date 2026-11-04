@@ -13,6 +13,7 @@ REVIEW = os.path.join(ROOT, 'data', 'species', 'taxonomy_review.json')
 UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://github.com/sachinwankhede/connected-earth)'}
 GAP = 0.15            # seconds between requests: polite, and about 4,950 species take 15 minutes
 MIN_CONF = 90         # an exact match below this goes to the review list
+HIGHER_OK = ('GENUS', 'FAMILY', 'ORDER', 'CLASS', 'PHYLUM')   # ranks above species that count as a match when the name is the same
 RANKS = ('kingdom', 'phylum', 'class', 'order', 'family')
 
 def today(): return datetime.date.today().isoformat()
@@ -26,13 +27,16 @@ def classify(row, resp, at=None):
     at = at or today()
     mt = (resp or {}).get('matchType', 'NONE'); conf = (resp or {}).get('confidence', 0) or 0
     base = {'match': mt.lower(), 'conf': conf, 'gname': (resp or {}).get('scientificName', ''), 'rank': (resp or {}).get('rank', '')}
-    if mt != 'EXACT': return False, dict(base, why='no exact match' if mt == 'NONE' else 'only a %s match' % mt.lower().replace('higherrank', 'higher-rank'), at=at)
+    same_name = False
+    if mt == 'HIGHERRANK':   # GBIF calls a genus or family name looked up on its own a "higher rank" match; it is right when the answer is that same name (never a bare kingdom)
+        same_name = (resp.get('rank') in HIGHER_OK and (resp.get('canonicalName') or '').lower() == (row.get('latin') or '').lower())
+    if mt != 'EXACT' and not same_name: return False, dict(base, why='no exact match' if mt == 'NONE' else 'only a %s match' % mt.lower().replace('higherrank', 'higher-rank'), at=at)
     if conf < MIN_CONF: return False, dict(base, why='confidence %s is below %d' % (conf, MIN_CONF), at=at)
     if not resp.get('kingdom'): return False, dict(base, why='no kingdom in the answer', at=at)
     h = hint(row)
     if h and resp['kingdom'] != h: return False, dict(base, kingdom=resp['kingdom'], why='a consumer matched kingdom %s, expected %s' % (resp['kingdom'], h), at=at)
     rec = {k: resp[k] for k in RANKS if resp.get(k)}
-    rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match='exact', conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
+    rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match='higher-rank' if same_name else 'exact', conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
     return True, rec
 
 def gbif(name, kingdom=None, tries=4):
@@ -58,6 +62,7 @@ def main():
     rows = {r['sid']: r for r in species.table().values() if r.get('sk') == 'taxon'}
     got = json.load(open(OUT)) if os.path.exists(OUT) else {}
     rev = json.load(open(REVIEW)) if os.path.exists(REVIEW) else {}
+    if os.environ.get('RETRY_REVIEW') == '1': rev = {}   # look at the doubtful ones again (after a rule change)
     todo = sorted(set(rows) - set(got) - set(rev))
     limit = int(os.environ.get('LIMIT', '0') or 0)
     if limit: todo = todo[:limit]
