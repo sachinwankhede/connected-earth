@@ -80,3 +80,4 @@ Manual workflows: data-about, data-photos, data-state(s), data-research (`place`
 - About 124 places still have no outline (list on branch `data/outlines-report`); rerun data-outlines after new promotions.
 - World national parks: choose candidates from #141 and turn them into places with stories.
 - Sync tool improvements (syncmain.py).
+- **Journeys are a file (#377, head-load variant approved by the owner):** `api/journeys/<main|pilot>.json` is fetched in the head with the world places; the page no longer carries `DATA`. Waiting on the owner after the perf-ab numbers and an iPhone check. Possible follow-up (owner's call): load after the first draw.

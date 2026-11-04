@@ -20,6 +20,7 @@ class Weight(unittest.TestCase):
         open(os.path.join(d, 'index.html'), 'w').write(PAGE + extra_host)
         open(os.path.join(d, 'maplibre-gl-1.0.js'), 'wb').write(os.urandom(pad))
         for f in ('index-world', 'cards-world'): open(os.path.join(d, 'api/places/main/%s.json' % f), 'w').write('[]')
+        os.makedirs(os.path.join(d, 'api/journeys')); open(os.path.join(d, 'api/journeys/main.json'), 'w').write('{}')
         return d
     def test_small_page_passes(self):
         self.assertEqual(firstview.check(self.make())[1], 0)

@@ -22,6 +22,7 @@ FILES = [
     ('pilot/', has_text('Connected Earth')),
     ('api/places/main/index-world.json', json_with(lambda d: len(d) > 0, 'is empty')),
     ('api/places/main/cards-world.json', json_with(lambda d: len(d) > 0, 'is empty')),
+    ('api/journeys/main.json', json_with(lambda d: len(d['cross']) > 0, 'has no journeys')),
     ('api/yellowstone.json', json_with(lambda d: len(d['nodes']) > 5, 'has no food web')),
     ('api/species/abies-balsamea.json', json_with(lambda d: len(d['t']) > 30, 'has no species text')),
     ('api/search/meta.json', json_with(lambda d: len(d) > 0, 'is empty')),

@@ -15,6 +15,7 @@ test('fetch( is used only by the head loader and the Data module', () => {
   lines.forEach((l, i) => {
     if (!/\bfetch\(/.test(l)) return;
     if (i >= dataStart && i <= dataEnd) return;
+    if (/window\.__JOURNEYS = .*fetch\(jb \+/.test(l)) return;   // the head loader for the journeys file (#377)
     if (/var get = function \(n\) \{ return fetch\(b \+ n/.test(l)) return;   // the head loader for the world places
     strays.push((i + 1) + ': ' + l.trim().slice(0, 100));
   });
