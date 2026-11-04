@@ -228,11 +228,35 @@ def split_search(light, spt, sidx, qs):
     return meta, buckets, rows
 
 
+SUGGEST_PER = 40   # most places and most species kept for one two-letter start (the app narrows them to what is typed)
+
+
+def split_suggest(light, spt, sidx):
+    """Suggestions while typing (item #413): {two letters: {'p': places, 's': species}} for the first two letters of every word of a name.
+    p: [id, name] in page order (the home list order, featured first). s: [latin, usual name, number of places] most places first, then by name.
+    The app keeps the entries whose name starts with what is typed above those that only have a word that starts with it."""
+    count = {}
+    for e in light:
+        for l in {spt[k if isinstance(k, int) else k[0]][0] for k in sidx[e['id']]}: count[l] = count.get(l, 0) + 1
+    out = {}
+    for e in light:
+        for w in search_words(e['name'] + ' ' + e['short']):
+            b = out.setdefault(search_bucket(w), {'p': [], 's': []})['p']
+            if len(b) < SUGGEST_PER and not any(x[0] == e['id'] for x in b): b.append([e['id'], e['name']])
+    sp = sorted(((-count[l], c, l) for l, c in spt if l in count), key=lambda t: (t[0], t[1], t[2]))
+    for neg, c, l in sp:
+        for w in search_words(c + ' ' + l):
+            b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg])
+    return out
+
+
 def write_search(light, spt, sidx, qs, pilot):
     """api/search/ (main) or api/search-pilot/: meta.json, w-<two letters>.json, rows-<n>.json. One build writes one folder; it replaces the folder's old files."""
     d = os.path.join(P('api'), 'search-pilot' if pilot else 'search'); os.makedirs(d, exist_ok=True)
     meta, buckets, rows = split_search(light, spt, sidx, qs)
-    files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)}
+    sug = split_suggest(light, spt, sidx); meta['sug'] = sorted(sug)   # the two-letter starts that have suggestions
+    files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)} | {'s-%s.json' % k: v for k, v in sug.items()}
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
     for f, obj in files.items():

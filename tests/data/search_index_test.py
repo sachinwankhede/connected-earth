@@ -45,7 +45,9 @@ def check(pilot, folder):
     # the built folder (when the build has run) is exactly this
     d = os.path.join(ROOT, 'api', folder)
     if os.path.isdir(d):
-        files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)}
+        sug = B.split_suggest(light, spt, sidx)
+        files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)} | {'s-%s.json' % k: v for k, v in sug.items()}   # s-: suggestions (#413)
+        files['meta.json'] = meta | {'sug': sorted(sug)}   # the build adds the list of suggestion files to meta
         assert set(os.listdir(d)) == set(files), 'stale or missing files in api/' + folder
         for f, obj in files.items(): assert json.load(open(os.path.join(d, f))) == obj, f
     return len(light), len(words)
