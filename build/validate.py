@@ -3,7 +3,7 @@
 import json,re,sys,os,difflib
 here=os.path.dirname(os.path.abspath(__file__))
 ROOT=os.path.dirname(here)
-tpl=open(os.path.join(ROOT,'src','app.html')).read()
+tpl=open(os.path.join(ROOT,'src','app','glyphs.js')).read()   # the icon table lives in this piece of the app (#257)
 i0=tpl.index('var ICONS = {'); i1=tpl.index('\n  };',i0)
 ICONS=set(re.findall(r"^\s{4}(\w+):",tpl[i0:i1],re.M))
 geo=json.load(open(os.path.join(ROOT,'data','geo','geo.json')))

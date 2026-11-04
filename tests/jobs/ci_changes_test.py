@@ -7,6 +7,8 @@ class ChangeKinds(unittest.TestCase):
     def test_kinds(self):
         cases = [
             (['src/app.html'], (True, False, False)),
+            (['src/app/map-state.js'], (True, False, False)),   # the pieces of the app (#257) count as app changes
+            (['src/app/style.css'], (True, False, False)),
             (['build/build.py', 'docs/STATE.md'], (True, False, False)),
             (['tests/app/place.test.mjs'], (True, False, False)),
             (['.github/workflows/ci.yml'], (False, True, False)),

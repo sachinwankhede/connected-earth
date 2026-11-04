@@ -391,9 +391,15 @@ def check(ecos, links, tpl, geo):
     return errs
 
 
+def app_source():
+    """src/app.html with each line `__INCLUDE:app/<file>__` replaced by that file under src/ (item #257: the app is kept as several
+    files, joined here before anything else, so the built page is the same single file as before). One level only; the pieces are cut on line boundaries."""
+    return re.sub(r'^__INCLUDE:([\w./-]+)__\n', lambda m: open(P('src', m.group(1))).read(), open(P('src', 'app.html')).read(), flags=re.M)
+
+
 def build(pilot, out_path, write=False, places=False):
     links, ecos = load_places(pilot)
-    tpl = open(P('src', 'app.html')).read()
+    tpl = app_source()
     land = open(P('data', 'geo', 'land.json')).read().strip()
     geo = json.load(open(P('data', 'geo', 'geo.json')))
     errs = check(ecos, links, tpl, geo)
