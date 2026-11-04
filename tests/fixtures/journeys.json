@@ -1,0 +1,14 @@
+[
+  {
+    "id": "testcrossing",
+    "type": "species",
+    "title": "Test crossing",
+    "ends": [{"eco": "testland", "node": "wolf"}, {"eco": "testwater", "node": "wolf"}],
+    "text": "A made-up wolf that spends the season in Testland and then travels to Testwater. Both places matter for the same animals.",
+    "when": "Travels between Testland and Testwater every autumn.",
+    "matters": "If one of the two places is lost, the animals cannot finish the trip.",
+    "sources": [{"t": "Wikipedia: Wolf", "u": "https://en.wikipedia.org/wiki/Wolf"}],
+    "go": "Follow the route",
+    "mark": "🐺"
+  }
+]
