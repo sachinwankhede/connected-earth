@@ -26,7 +26,9 @@ export async function mockPhotos(page) {
   // a place carries its own species picture entries now: give each place file the mocked entries for its species
   await page.route(/\/api\/[\w-]+\.json(?:\?|$)/, async (r) => {
     if (/(species-pictures)\.json/.test(r.request().url())) return r.fallback();
-    const res = await r.fetch(), w = await res.json();
+    const res = await r.fetch();
+    if (!res.ok()) return r.fallback();   // not a built file: a fixture place is answered by its own route
+    const w = await res.json();
     w.ph = {}; w.phm = {};
     for (const n of w.nodes || []) for (const k of [n.wiki, n.canonicalWiki, n.latin]) if (k && species[k]) w.ph[k] = species[k];
     return r.fulfill({ response: res, body: JSON.stringify(w) });
