@@ -26,7 +26,7 @@
 
 ## Keep the context small (do this first)
 Most of this repo is data, not code. Never read, cat, grep -r or list whole data folders, and do not use Explore/"load the repo" style scans. A new session should read only `CLAUDE.md`, `docs/STATE.md`, the one doc for the task, and the specific files it will change.
-- **Code (read when needed):** `src/app.html` (the app; read only the functions you change, use grep with line ranges), `build/`, `jobs/*.py`, `tests/`, `.github/workflows/`, `docs/`.
+- **Code (read when needed):** `src/app.html` (the page shell: head loaders, `__INCLUDE:app/<file>__` lines) and `src/app/*.js`, `src/app/style.css` (the app, one file per area, see `docs/ARCHITECTURE.md` "App source files"; read only the file and functions you change), `build/`, `jobs/*.py`, `tests/`, `.github/workflows/`, `docs/`.
 - **Data (do not open; query one file or one key with a script):** `data/` (1,549 places in `data/places/`, of which 277 are pilot places marked `stage: pilot`), `data/species/species.json` (5,600 species), `data/outlines/`, `photos/` (41 MB of images plus `places.json`, `species.json`), `research/` (on the `research` branch), `jobs/reports/`, `jobs/*.json`.
 - **Built or generated (never read or edit):** `index.html`, `pilot/index.html`, `sw.js`, `api/`, `node_modules/`.
 - To answer a question about the data, run a short Python/`jq` command that prints only the counts or the few records needed; to see jobs and PRs use `bash jobs/status.sh` or the issue "Project status".

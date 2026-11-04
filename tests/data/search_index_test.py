@@ -20,7 +20,7 @@ def decode(buckets):
 
 def check(pilot, folder):
     links, ecos = B.load_places(pilot)
-    errs = B.check(ecos, links, open(os.path.join(ROOT, 'src', 'app.html')).read(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))
+    errs = B.check(ecos, links, B.app_source(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))
     assert not errs, errs[:3]
     light, webs, spt, sidx, qs = B.split(ecos, links)
     meta, buckets, rows = B.split_search(light, spt, sidx, qs)

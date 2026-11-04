@@ -3,7 +3,9 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
-const src = fs.readFileSync(new URL('../../src/app.html', import.meta.url), 'utf8');
+// the app is src/app.html plus the pieces it includes (#257); join them the way build/build.py does, so the line patterns below see the whole script
+const srcDir = new URL('../../src/', import.meta.url);
+const src = fs.readFileSync(new URL('app.html', srcDir), 'utf8').replace(/^__INCLUDE:([\w./-]+)__\n/gm, (_, f) => fs.readFileSync(new URL(f, srcDir), 'utf8'));
 
 test('fetch( is used only by the head loader and the Data module', () => {
   const lines = src.split('\n');

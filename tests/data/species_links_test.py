@@ -44,7 +44,7 @@ def check(pilot):
     assert {k: v for f in files.values() for k, v in f.items()} == where and all(B.species_bucket(l) + '.json' == f for f, d in files.items() for l in d)
     assert all(len(f) == 7 and f.endswith('.json') for f in files), 'a bucket is two characters'
     # the ties files: per region, the first 16 of the old scan's list, the first 5 with count and up to 3 names, the rest as bare ids
-    errs = B.check(ecos, links, open(os.path.join(ROOT, 'src', 'app.html')).read(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))   # fills in the derived fields (countries) the region key needs
+    errs = B.check(ecos, links, B.app_source(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))   # fills in the derived fields (countries) the region key needs
     assert not errs, errs[:3]
     light = B.split(ecos, links)[0]
     files = B.split_ties(light, oties)

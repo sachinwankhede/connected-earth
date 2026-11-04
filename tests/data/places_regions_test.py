@@ -7,7 +7,7 @@ import build as B
 
 def check(pilot, folder):
     links, ecos = B.load_places(pilot)
-    errs = B.check(ecos, links, open(os.path.join(ROOT, 'src', 'app.html')).read(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))
+    errs = B.check(ecos, links, B.app_source(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))
     assert not errs, errs[:3]
     light = B.split(ecos, links)[0]
     index, cards = B.split_places(light)
