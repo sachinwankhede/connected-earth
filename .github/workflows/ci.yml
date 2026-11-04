@@ -124,6 +124,7 @@ jobs:
           python3 tests/data/species_rows_test.py
           python3 tests/data/journeydata_test.py
           python3 tests/data/taxonomy_test.py
+          python3 tests/data/geoids_test.py
           python3 tests/data/firstview_budget_test.py
           node --test tests/data/*.test.mjs
       - name: Build the pages

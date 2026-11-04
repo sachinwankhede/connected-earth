@@ -9,6 +9,7 @@ JOURNEYS_OFFLINE=1 skips the web (layout test)."""
 import datetime, os, re, sys, urllib.parse
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, here); import journeys as J
+sys.path.insert(0, os.path.join(os.path.dirname(here), 'build')); import geoids
 OFFLINE = bool(os.environ.get('JOURNEYS_OFFLINE')); TODAY = datetime.date.today().isoformat()
 SHORTLIST = ['Limosa lapponica', 'Grus grus', 'Danaus plexippus', 'Pelecanus onocrotalus', 'Circus aeruginosus', 'Neophron percnopterus',
              'Milvus migrans', 'Haliaeetus leucocephalus', 'Anser caerulescens', 'Anas platyrhynchos', 'Branta canadensis', 'Turdus migratorius',
@@ -45,9 +46,9 @@ def main(names):
         out += ['## %s (%s)' % (r.get('name', lat), lat), '']
         if not sp or sp not in occ: out += ['Not found in the app (or only one place).', '']; continue
         out += ['Existing journey: ' + (cov.get(sp) or 'none'), '', '### Places in the app with this species (%d)' % len(occ[sp]), '', '| id | place | country | lat | lon | node |', '|---|---|---|---|---|---|']
-        for pid, (nm, la, lo) in sorted(occ[sp].items(), key=lambda x: (pl[x[0]].get('country', ''), x[1][0])):
+        for pid, (nm, la, lo) in sorted(occ[sp].items(), key=lambda x: (geoids.country_name(pl[x[0]].get('country', '')), x[1][0])):
             e = pl[pid]; node = next((n['id'] for n in e['nodes'] if n.get('sp') == sp), '')
-            out.append('| %s | %s | %s | %.1f | %.1f | %s |' % (pid, nm, e.get('country', ''), la, lo, node))
+            out.append('| %s | %s | %s | %.1f | %.1f | %s |' % (pid, nm, geoids.country_name(e.get('country', '')), la, lo, node))
         out.append('')
         if OFFLINE or not r.get('wiki'): out += ['(Wikipedia not read)', '']; continue
         title, text, cats = article(r['wiki'])

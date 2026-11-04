@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """autogen.py : drafts/<id>.json -> out/<id>.json in the app's ecosystem schema (automatic, no hand curation)."""
 import json,os,re,sys,collections
+sys.path.insert(0,os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'build')); import geoids
 here=os.path.dirname(os.path.abspath(__file__)); work=os.environ.get('WORK') or here; os.makedirs(os.path.join(work,'out'),exist_ok=True)
 # ---- layer rules (by taxonomy) ----
 APEX={'Canis latrans','Lynx rufus','Ursus americanus','Puma concolor','Haliaeetus leucocephalus','Buteo jamaicensis','Bubo virginianus','Strix varia','Buteo lineatus','Alligator mississippiensis','Esox americanus'}
@@ -161,7 +162,7 @@ def emit(d):
     top=max(sel,key=lambda c:deg[c['latin']]); tid,tnm=ids[top['latin']]
     nm_top=[n['name'] for n in nodes if n['id']==tid][0]
     counts=dict(species=len(sel),edges=len(E),tl={t:len(rows[t]) for t in rows},family_level=sum(1 for v in E.values() if v=='gf'),species_level=sum(1 for v in E.values() if v=='g'),genus_level=sum(1 for v in E.values() if v=='gg'))
-    out=dict(id=p['id'],name=p['name'],short=p['short'],place=', '.join(p['states'])+', USA',lat=p['lat'],lon=p['lon'],side='r',cont='North America',country='United States of America',states=p['states'],kind=p['kind'],
+    out=dict(id=p['id'],name=p['name'],short=p['short'],place=', '.join(p['states'])+', USA',lat=p['lat'],lon=p['lon'],side='r',country=geoids.country_id('United States of America'),states=[geoids.state_id(x) for x in p['states']],kind=p['kind'],
         blurb='Species recorded near the park, linked by recorded feeding.',tip=dict(id=tid,title='Remove '+nm_top,text='Set '+nm_top+' to -100% and see which species are affected.'),
         sources=[dict(title='Wikipedia: '+p['name'],url='https://en.wikipedia.org/wiki/'+p['name'].replace(' ','_')),dict(title='GBIF: species occurrence records',url='https://www.gbif.org/'),dict(title='GloBI: Global Biotic Interactions',url='https://www.globalbioticinteractions.org/')],
         notes='Built automatically, not checked by a person. The species are the most often recorded in GBIF within about %s km of the park location (%s). Feeding links are only those with a GloBI record: for the species itself, its genus or, for plants and insects, its family. Library: %s.'%(p['radius'],'location from PAD-US boundary',', '.join(['%s %d'%(k,v) for k,v in counts['tl'].items()]) and 'automatic'),
