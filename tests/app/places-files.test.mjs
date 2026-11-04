@@ -66,3 +66,24 @@ test('if a place has no card the start screen says the places did not load, inst
     await ctx.close();
   }
 });
+
+test('if the first cards file does not match the index (an old copy from a cache), the page fetches both again and lists the places (#405)', async () => {
+  const browser = await H.launch();
+  const ctx = await browser.newContext({ serviceWorkers: 'block' });
+  const page = await ctx.newPage();
+  try {
+    await block(ctx);
+    let n = 0;
+    await ctx.route(/api\/places\/main\/cards-world\.json/, (route) => {
+      n++;
+      return n === 1 ? route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }) : route.continue();
+    });
+    await page.goto(await H.urlFor(H.MAIN));
+    await page.waitForSelector('button.card', { state: 'attached', timeout: 20000 });
+    assert.equal(n, 2, 'the cards file was asked for twice');
+    assert.ok(await page.evaluate(() => document.querySelectorAll('button.card').length) > 0, 'places are listed');
+    assert.ok(!(await page.evaluate(() => /did not load/.test(document.getElementById('boot')?.textContent || ''))), 'no error message');
+  } finally {
+    await ctx.close();
+  }
+});
