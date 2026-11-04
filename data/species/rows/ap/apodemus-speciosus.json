@@ -1,12 +1,12 @@
 {
- "latin": "Large Japanese field mouse",
+ "latin": "Apodemus speciosus",
  "name": "Large Japanese field mouse",
  "tl": 2,
  "wiki": "Large Japanese field mouse",
  "desc": "A forest mouse that feeds mainly on seeds and nuts such as acorns, and is prey for many predators.",
  "ic": "vole",
  "about": "The large Japanese field mouse is a nocturnal species of rodent in the family Muridae. It is endemic to Japan.",
- "sid": "large-japanese-field-mouse",
+ "sid": "apodemus-speciosus",
  "sk": "taxon",
  "src": "legacy"
 }

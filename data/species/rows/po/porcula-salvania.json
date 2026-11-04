@@ -1,12 +1,12 @@
 {
- "latin": "Porcella salvania",
+ "latin": "Porcula salvania",
  "name": "Pygmy hog",
  "tl": 2,
  "wiki": "Pygmy hog",
  "desc": "An omnivore of tall dense grassland that digs roots and tubers and shelters in grass-lined nests. The only known wild population is at Manas.",
  "ic": "quad",
  "about": "The pygmy hog is a very small and endangered species of pig and the only species in the genus Porcula.",
- "sid": "porcella-salvania",
+ "sid": "porcula-salvania",
  "sk": "taxon",
  "src": "legacy"
 }

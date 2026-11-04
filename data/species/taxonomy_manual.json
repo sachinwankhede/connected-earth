@@ -1,0 +1,41 @@
+{
+ "actinopterygii": {
+  "kingdom": "Animalia",
+  "phylum": "Chordata",
+  "class": "Actinopterygii",
+  "rank": "CLASS",
+  "note": "ray-finned fishes; a class, so there is no order or family"
+ },
+ "polychaeta": {
+  "kingdom": "Animalia",
+  "phylum": "Annelida",
+  "class": "Polychaeta",
+  "rank": "CLASS",
+  "note": "bristle worms; a class (GBIF also has an unrelated insect genus of that name)"
+ },
+ "bambusoideae": {
+  "kingdom": "Plantae",
+  "phylum": "Tracheophyta",
+  "class": "Liliopsida",
+  "order": "Poales",
+  "family": "Poaceae",
+  "rank": "SUBFAMILY",
+  "note": "bamboos; a subfamily of the grasses"
+ },
+ "isoptera": {
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Insecta",
+  "order": "Blattodea",
+  "rank": "ORDER",
+  "note": "old name for the termites; they are now classed inside Blattodea"
+ },
+ "termitoidae": {
+  "kingdom": "Animalia",
+  "phylum": "Arthropoda",
+  "class": "Insecta",
+  "order": "Blattodea",
+  "rank": "EPIFAMILY",
+  "note": "the termites; classed inside Blattodea, no single family"
+ }
+}

@@ -97,12 +97,16 @@ def check(root):
             for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
-    if tx is not None or rv is not None:
+    man = load(root, 'data', 'species', 'taxonomy_manual.json')
+    if tx is not None or rv is not None or man is not None:
         taxa = {r.get('sid') for r in sp.values() if r.get('sk') == 'taxon'}
         for obj, kind, name in ((tx, 'taxonomy', 'taxonomy.json'), (rv, 'taxonomy-review', 'taxonomy_review.json')):
             if obj is None: continue
             shape(obj, kind, 'data/species/' + name, errs)
             for sid in sorted(set(obj) - taxa): errs.append('data/species/%s: %r is not a species of kind taxon' % (name, sid))
+        if man is not None:
+            shape(man, 'taxonomy-manual', 'data/species/taxonomy_manual.json', errs)
+            for sid in sorted(set(man) - taxa): errs.append('data/species/taxonomy_manual.json: %r is not a species of kind taxon' % sid)
         for sid in sorted(set(tx or {}) & set(rv or {})): errs.append('taxonomy: %r is both accepted and in the review list' % sid)
     # job-written lists (#255, PR 2): one schema each. Old-format records and empty values are warnings, not errors, until the jobs that wrote them are cleaned up
     about = load(root, 'data', 'species', 'about.json')

@@ -3,6 +3,7 @@
 Writes two sidecar files, both keyed by species id (sid), by this job only:
   data/species/taxonomy.json         accepted matches {sid: {kingdom, phylum, class, order, family, rank, key, match, conf, gname, src, at}}
   data/species/taxonomy_review.json  doubtful or missing matches {sid: {match, conf, gname, rank, kingdom, why, at}}: the owner looks at these; nothing is guessed
+A species that is no longer a taxon is dropped from both files; data/species/taxonomy_manual.json (by hand) wins over GBIF.
 Resumable: a species already in either file is skipped. LIMIT=n does at most n species this run (0 = all left).
 RETRY_REVIEW=1 looks at the whole review list again; REDO=sid,sid looks at those species again (accepted or not).
 When the match service cannot decide, a name search is tried (match `name-search`).
@@ -12,6 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 OUT = os.path.join(ROOT, 'data', 'species', 'taxonomy.json')
 REVIEW = os.path.join(ROOT, 'data', 'species', 'taxonomy_review.json')
+MANUAL = os.path.join(ROOT, 'data', 'species', 'taxonomy_manual.json')   # entered by hand, for names GBIF cannot decide; wins over everything
 UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://github.com/sachinwankhede/connected-earth)'}
 GAP = 0.15            # seconds between requests: polite, and about 4,950 species take 15 minutes
 FUZZY_CONF = 95       # a spelling variant needs this much confidence, plus the same genus and at most two letters of difference
@@ -114,6 +116,11 @@ def main():
     rows = {r['sid']: r for r in species.table().values() if r.get('sk') == 'taxon'}
     got = json.load(open(OUT)) if os.path.exists(OUT) else {}
     rev = json.load(open(REVIEW)) if os.path.exists(REVIEW) else {}
+    for d in (got, rev):   # a species that stopped being a taxon (turned into a group) drops out
+        for sid in [x for x in d if x not in rows]: del d[sid]
+    manual = json.load(open(MANUAL)) if os.path.exists(MANUAL) else {}
+    for sid, m in manual.items():
+        if sid in rows: got[sid] = dict(m, match='manual', src='manual', at=today()) if got.get(sid, {}).get('src') != 'manual' else got[sid]; rev.pop(sid, None)
     if os.environ.get('RETRY_REVIEW') == '1': rev = {}   # look at the doubtful ones again (after a rule change)
     redo = {x.strip().lower() for x in os.environ.get('REDO', '').split(',') if x.strip()}   # species ids to look at again, whether accepted or in review
     for sid in redo & (set(got) | set(rev)): got.pop(sid, None); rev.pop(sid, None)

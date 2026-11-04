@@ -7,9 +7,7 @@
     "required": [
       "kingdom",
       "rank",
-      "key",
       "match",
-      "gname",
       "src",
       "at"
     ],
@@ -40,7 +38,8 @@
           "exact",
           "higher-rank",
           "fuzzy",
-          "name-search"
+          "name-search",
+          "manual"
         ]
       },
       "conf": {
@@ -52,11 +51,17 @@
         "type": "string"
       },
       "src": {
-        "const": "gbif"
+        "enum": [
+          "gbif",
+          "manual"
+        ]
       },
       "at": {
         "type": "string",
         "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "note": {
+        "type": "string"
       }
     },
     "additionalProperties": false
