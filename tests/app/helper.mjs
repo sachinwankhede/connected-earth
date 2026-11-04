@@ -70,8 +70,25 @@ export async function launch() {
   };
 }
 
+// Fixture places (#292): small made-up places in tests/fixtures/places/ that a test can ask for with { fixtures: true }, so it checks the app's behaviour
+// and not whatever the real data says today. They are added to the world places and answered from the files; nothing else about the page changes.
+// Testland has a web of 11 species over all five levels and is related to Testwater; ids: FIXTURE_IDS.
+export const FIXTURE_IDS = ['testland', 'testwater'];
+const FIXTURES = FIXTURE_IDS.map((id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'fixtures', 'places', id + '.json'), 'utf8')));
+async function routeFixtures(page) {
+  await page.route(/\/api\/places\/main\/index-world\.json(?:\?|$)/, async (r) => {
+    const res = await r.fetch(), list = await res.json();
+    await r.fulfill({ response: res, body: JSON.stringify(list.concat(FIXTURES.map((f) => f.index))) });
+  });
+  await page.route(/\/api\/places\/main\/cards-world\.json(?:\?|$)/, async (r) => {
+    const res = await r.fetch(), cards = await res.json();
+    await r.fulfill({ response: res, body: JSON.stringify({ ...cards, ...Object.fromEntries(FIXTURES.map((f) => [f.index.id, f.card])) }) });
+  });
+  for (const f of FIXTURES) await page.route(new RegExp('/api/' + f.index.id + '\\.json(?:\\?|$)'), (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(f.place) }));
+}
+
 // Open a page on a build. Map tiles, photos and fonts are blocked so tests are fast and offline.
-export async function open(browser, file, size, { hash = '', geo = null, extraCss = '' } = {}) {
+export async function open(browser, file, size, { hash = '', geo = null, extraCss = '', fixtures = false } = {}) {
   const ctx = await browser.newContext({
     viewport: size,
     ...(geo ? { geolocation: geo, permissions: ['geolocation'] } : {}),
@@ -81,6 +98,7 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
+  if (fixtures) await routeFixtures(page);
   await page.goto((await urlFor(file)) + hash);
   if (hash) await page.reload();
   await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});

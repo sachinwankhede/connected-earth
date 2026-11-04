@@ -5,9 +5,9 @@ import { mockPhotos } from './mockphotos.mjs';
 
 const leave = (p) => p.click('#pbk:visible, #back:visible');
 for (const [name, size] of Object.entries(H.SIZES)) {
-  async function start(hash = '#stub') {
+  async function start(hash = '#stub', fixtures = false) {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash });
+    const t = await H.open(b, H.MAIN, size, { hash, fixtures });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
     await t.page.waitForTimeout(500);
     return { b, p: t.page, errors };
@@ -16,7 +16,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   const ready = (p) => p.waitForSelector('#pgraph .pn', { timeout: 60000 });
 
   test(`${name}: a place page has the name first, a calm picture of the web, then the detail below`, async () => {
-    const { b, p, errors } = await start('#stub&pg=yellowstone');
+    const { b, p, errors } = await start('#stub&pg=testland', true);   // the made-up Testland (tests/fixtures), not a real place
     await ready(p);
     const r = await p.evaluate(() => {
       const v = document.getElementById('pview'), g = document.getElementById('pgraph'), pl = g.querySelector('.jplay').getBoundingClientRect(), top = (s) => (v.querySelector(s) || { getBoundingClientRect: () => ({ top: 1e9 }) }).getBoundingClientRect().top;
@@ -25,10 +25,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       const labels = [...g.querySelectorAll('.pn text')].map((t) => t.getBoundingClientRect()), overlap = labels.filter((a, i) => labels.some((c, j) => j > i && a.left < c.right - 1 && a.right > c.left + 1 && a.top < c.bottom - 1 && a.bottom > c.top + 1)).length;
       return { title: v.querySelector('h2').textContent, place: v.querySelector('.jr').textContent, lead: !!v.querySelector('.pstory'), order: top('h2') < top('#pgraph') && top('#pgraph') < top('.pstory') && top('.pstory') < top('h3'), nodes: g.querySelectorAll('.pn').length, heads: [...v.querySelectorAll('h3')].map((h) => h.textContent), chips: v.querySelectorAll('[data-pnode]').length, hit, overlap, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: v.querySelector('[data-pback]').textContent.trim(), web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden };
     });
-    assert.equal(r.title, 'Greater Yellowstone'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then hook, then the web, then detail');
-    assert.equal(r.nodes, 30); const ix = ['Top predators', 'Hunters', 'Plant-eaters', 'Plants'].map((x) => r.heads.findIndex((h) => h.startsWith(x))); assert.ok(ix.every((v, i) => v >= 0 && (i === 0 || v === ix[i - 1] + 1)), 'four rows by level in order: ' + r.heads);
-    assert.ok(r.heads.includes('Who feeds whom') && r.heads.includes('Journeys through here') && r.heads.includes('Shares species with'));
-    assert.ok(r.chips >= 30); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
+    assert.equal(r.title, 'Testland National Test Forest'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then hook, then the web, then detail');
+    assert.equal(r.nodes, 8); const ix = ['Top predators', 'Hunters', 'Plant-eaters', 'Plants'].map((x) => r.heads.findIndex((h) => h.startsWith(x))); assert.ok(ix.every((v, i) => v >= 0 && (i === 0 || v === ix[i - 1] + 1)), 'four rows by level in order: ' + r.heads);
+    assert.ok(r.heads.includes('Who feeds whom') && r.heads.includes('Shares species with'));   // 'Journeys through here' needs a journey: the journey tests cover it
+    assert.ok(r.chips >= 8); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
     assert.equal(r.back, '‹ Places'); assert.equal(r.web, false); assert.equal(r.map, false);
     assert.deepEqual(errors, []); await b.close();
   });

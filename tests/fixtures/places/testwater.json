@@ -1,0 +1,106 @@
+{
+ "index": {
+  "id": "testwater",
+  "short": "Testwater",
+  "lat": 5.0,
+  "lon": -31.0,
+  "kind": "Lakes & wetlands",
+  "icon": "wolf",
+  "conts": [
+   "Atlantis"
+  ],
+  "countries": [
+   "Testland"
+  ],
+  "states": []
+ },
+ "card": {
+  "name": "Testwater Lake",
+  "place": "Made-up lake, mid-Atlantic",
+  "blurb": "A second made-up place.",
+  "imgwiki": "Elk",
+  "idx": {
+   "nr": 2,
+   "ns": 3,
+   "cx": {}
+  }
+ },
+ "place": {
+  "nodes": [
+   {
+    "id": "grass",
+    "name": "Test grass",
+    "latin": "Poa testensis",
+    "tl": 1,
+    "xh": 0.4,
+    "wiki": "Grass",
+    "desc": "Shared grass.",
+    "ic": "grass"
+   },
+   {
+    "id": "elk",
+    "name": "Test elk",
+    "latin": "Cervus testensis",
+    "tl": 2,
+    "xh": 0.5,
+    "wiki": "Elk",
+    "desc": "Shared elk.",
+    "ic": "elk"
+   },
+   {
+    "id": "wolf",
+    "name": "Test wolf",
+    "latin": "Canis testlupus",
+    "tl": 4,
+    "xh": 0.5,
+    "wiki": "Gray_wolf",
+    "desc": "Shared wolf.",
+    "ic": "wolf"
+   },
+   {
+    "id": "sun",
+    "name": "Sunlight",
+    "latin": "",
+    "tl": 0,
+    "xh": 0.5,
+    "ic": "sun",
+    "cat": "abiotic",
+    "desc": "Sunlight."
+   }
+  ],
+  "raw": [
+   [
+    "grass",
+    "elk"
+   ],
+   [
+    "elk",
+    "wolf"
+   ]
+  ],
+  "ev": {
+   "grass>elk": [
+    "g",
+    "Cervus testensis",
+    "Poa testensis"
+   ],
+   "elk>wolf": [
+    "g",
+    "Canis testlupus",
+    "Cervus testensis"
+   ]
+  },
+  "sources": [],
+  "notes": "Made up.",
+  "story": "A second made-up place that shares a few species with Testland.",
+  "matters": "So the shared-species list has something to show.",
+  "ph": {},
+  "phm": {},
+  "rel": [
+   [
+    "testland",
+    2
+   ]
+  ]
+ }
+}

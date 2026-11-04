@@ -1,0 +1,270 @@
+{
+ "index": {
+  "id": "testland",
+  "short": "Testland",
+  "lat": 0.0,
+  "lon": -30.0,
+  "kind": "Forest",
+  "icon": "wolf",
+  "conts": [
+   "Atlantis"
+  ],
+  "countries": [
+   "Testland"
+  ],
+  "states": []
+ },
+ "card": {
+  "name": "Testland National Test Forest",
+  "place": "Made-up land, mid-Atlantic",
+  "blurb": "A made-up place for the tests: a wolf, an elk and a willow.",
+  "imgwiki": "Gray wolf",
+  "idx": {
+   "nr": 11,
+   "ns": 8,
+   "cx": {}
+  }
+ },
+ "place": {
+  "nodes": [
+   {
+    "id": "grass",
+    "name": "Test grass",
+    "latin": "Poa testensis",
+    "tl": 1,
+    "xh": 0.3,
+    "wiki": "Grass",
+    "desc": "Grass of the made-up Testland meadow. It feeds the plant-eaters.",
+    "ic": "grass"
+   },
+   {
+    "id": "willow",
+    "name": "Test willow",
+    "latin": "Salix testensis",
+    "tl": 1,
+    "xh": 0.7,
+    "wiki": "Willow",
+    "desc": "A streamside shrub of Testland.",
+    "ic": "willow",
+    "badge": "Foundation species"
+   },
+   {
+    "id": "vole",
+    "name": "Test vole",
+    "latin": "Microtus testensis",
+    "tl": 2,
+    "xh": 0.2,
+    "wiki": "Vole",
+    "desc": "A small grazer of the Testland meadow.",
+    "ic": "vole"
+   },
+   {
+    "id": "elk",
+    "name": "Test elk",
+    "latin": "Cervus testensis",
+    "tl": 2,
+    "xh": 0.55,
+    "wiki": "Elk",
+    "desc": "A large grazer of Testland.",
+    "ic": "elk"
+   },
+   {
+    "id": "beaver",
+    "name": "Test beaver",
+    "latin": "Castor testensis",
+    "tl": 2,
+    "xh": 0.85,
+    "wiki": "Beaver",
+    "desc": "Builds the Testland ponds.",
+    "ic": "beaver",
+    "badge": "Ecosystem engineer"
+   },
+   {
+    "id": "raven",
+    "name": "Test raven",
+    "latin": "Corvus testensis",
+    "tl": 3,
+    "xh": 0.3,
+    "wiki": "Common_raven",
+    "desc": "A scavenger of Testland.",
+    "ic": "raven"
+   },
+   {
+    "id": "coyote",
+    "name": "Test coyote",
+    "latin": "Canis testensis",
+    "tl": 3,
+    "xh": 0.7,
+    "wiki": "Coyote",
+    "desc": "A hunter of Testland.",
+    "ic": "coyote"
+   },
+   {
+    "id": "wolf",
+    "name": "Test wolf",
+    "latin": "Canis testlupus",
+    "tl": 4,
+    "xh": 0.5,
+    "wiki": "Gray_wolf",
+    "desc": "The top predator of Testland.",
+    "ic": "wolf",
+    "badge": "Keystone predator"
+   },
+   {
+    "id": "water",
+    "name": "Water",
+    "latin": "",
+    "tl": 0,
+    "xh": 0.15,
+    "ic": "water",
+    "cat": "abiotic",
+    "desc": "Water of Testland."
+   },
+   {
+    "id": "sun",
+    "name": "Sunlight",
+    "latin": "",
+    "tl": 0,
+    "xh": 0.5,
+    "ic": "sun",
+    "cat": "abiotic",
+    "desc": "Sunlight over Testland."
+   },
+   {
+    "id": "soil",
+    "name": "Soil",
+    "latin": "",
+    "tl": 0,
+    "xh": 0.85,
+    "ic": "soil",
+    "cat": "abiotic",
+    "desc": "Soil of Testland."
+   }
+  ],
+  "raw": [
+   [
+    "grass",
+    "vole"
+   ],
+   [
+    "grass",
+    "elk"
+   ],
+   [
+    "willow",
+    "elk"
+   ],
+   [
+    "willow",
+    "beaver"
+   ],
+   [
+    "vole",
+    "coyote"
+   ],
+   [
+    "elk",
+    "wolf"
+   ],
+   [
+    "beaver",
+    "wolf"
+   ],
+   [
+    "coyote",
+    "wolf"
+   ],
+   [
+    "wolf",
+    "raven"
+   ],
+   [
+    "coyote",
+    "raven"
+   ],
+   [
+    "vole",
+    "raven"
+   ]
+  ],
+  "ev": {
+   "grass>vole": [
+    "g",
+    "Microtus testensis",
+    "Poa testensis"
+   ],
+   "grass>elk": [
+    "g",
+    "Cervus testensis",
+    "Poa testensis"
+   ],
+   "willow>elk": [
+    "g",
+    "Cervus testensis",
+    "Salix testensis"
+   ],
+   "willow>beaver": [
+    "g",
+    "Castor testensis",
+    "Salix testensis"
+   ],
+   "vole>coyote": [
+    "g",
+    "Canis testensis",
+    "Microtus testensis"
+   ],
+   "elk>wolf": [
+    "g",
+    "Canis testlupus",
+    "Cervus testensis"
+   ],
+   "beaver>wolf": [
+    "g",
+    "Canis testlupus",
+    "Castor testensis"
+   ],
+   "coyote>wolf": [
+    "g",
+    "Canis testlupus",
+    "Canis testensis"
+   ],
+   "wolf>raven": [
+    "g",
+    "Corvus testensis",
+    "Canis testlupus"
+   ],
+   "coyote>raven": [
+    "g",
+    "Corvus testensis",
+    "Canis testensis"
+   ],
+   "vole>raven": [
+    "g",
+    "Corvus testensis",
+    "Microtus testensis"
+   ]
+  },
+  "sources": [
+   {
+    "title": "Made up for the tests",
+    "url": "https://example.org/testland"
+   }
+  ],
+  "notes": "A made-up place used only by the browser tests, so they do not depend on the real data.",
+  "tip": {
+   "id": "wolf",
+   "title": "Try the test wolf",
+   "text": "Open the wolf, then use the what-if slider."
+  },
+  "story": "Testland is a made-up place. Its wolf hunts the elk and the beaver, and the coyote hunts the vole. The raven feeds on what the others leave.",
+  "matters": "It exists only so that the tests have a small, steady place to look at, whatever happens to the real data.",
+  "ph": {},
+  "phm": {},
+  "rel": [
+   [
+    "testwater",
+    2
+   ]
+  ]
+ }
+}
