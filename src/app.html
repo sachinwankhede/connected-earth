@@ -42,9 +42,12 @@
    first time something needs them: the local button, a search, Near me or a link to a local place; since 3 Nov they no longer follow the map by themselves) */
 (function () {
   var b = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/places/__PLACES_DIR__/";
-  var get = function (n) { return fetch(b + n + ".json").then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
+  /* the files are revalidated ("no-cache": a 304 when unchanged) so an index and its cards cannot come from different deploys through the browser's HTTP cache (#405) */
+  var get = function (n, mode) { return fetch(b + n + ".json", { cache: mode }).then(function (r) { if (!r.ok) throw 0; return r.json(); }); };
   /* every place in the index must have its card, or the page would show places without a name or text: treat that as "the places did not load" */
-  var pair = function (a, c) { return Promise.all([get(a), get(c)]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }); };
+  var once = function (a, c, mode) { return Promise.all([get(a, mode), get(c, mode)]).then(function (r) { r[0].forEach(function (i) { if (!r[1][i.id]) throw 0; }); return r; }); };
+  /* if the pair does not match, fetch both again past every cache once before giving up */
+  var pair = function (a, c) { return once(a, c, "no-cache").catch(function () { return once(a, c, "reload"); }); };
   /* a link straight to a place may be to a local one: then they come with the first load, so the link opens as it always did */
   var link = /[#&](pg|p|e)=/.test(location.hash);
   window.__PLACES = !window.fetch ? Promise.reject(0) : !link ? pair("index-world", "cards-world") : Promise.all([pair("index-world", "cards-world"), pair("index-local", "cards-local")]).then(function (r) {
