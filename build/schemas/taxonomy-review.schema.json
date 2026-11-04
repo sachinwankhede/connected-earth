@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "data/species/taxonomy_review.json: matches the job did not accept, for the owner to look at",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": [
+      "match",
+      "conf",
+      "why",
+      "at"
+    ],
+    "properties": {
+      "match": {
+        "enum": [
+          "none",
+          "fuzzy",
+          "higherrank",
+          "exact"
+        ]
+      },
+      "conf": {
+        "type": "number"
+      },
+      "gname": {
+        "type": "string"
+      },
+      "rank": {
+        "type": "string"
+      },
+      "kingdom": {
+        "type": "string"
+      },
+      "why": {
+        "type": "string",
+        "minLength": 1
+      },
+      "at": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      }
+    },
+    "additionalProperties": false
+  }
+}

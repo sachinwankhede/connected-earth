@@ -123,6 +123,7 @@ jobs:
           python3 tests/data/places_split_test.py
           python3 tests/data/species_rows_test.py
           python3 tests/data/journeydata_test.py
+          python3 tests/data/taxonomy_test.py
           node --test tests/data/*.test.mjs
       - name: Build the pages
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
