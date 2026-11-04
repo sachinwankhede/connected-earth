@@ -31,8 +31,7 @@ jobs:
       - name: Check the files
         run: |
           python3 -m pip install --break-system-packages jsonschema==4.26.0
-          python3 build/validate_data.py
-          python3 build/budget.py | grep -i taxonomy
+          python3 build/validate_data.py   # the size budget runs in CI on the pull request (it needs the built pages)
       - name: Commit and open or update the pull request
         env:
           GH_TOKEN: ${{ github.token }}
