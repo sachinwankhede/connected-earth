@@ -402,7 +402,6 @@ def app_source():
 def build(pilot, out_path, write=False, places=False):
     links, ecos = load_places(pilot)
     tpl = app_source()
-    land = open(P('data', 'geo', 'land.json')).read().strip()
     geo = json.load(open(P('data', 'geo', 'geo.json')))
     errs = check(ecos, links, tpl, geo)
     if errs:
@@ -441,7 +440,7 @@ def build(pilot, out_path, write=False, places=False):
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
     tpl = tpl.replace('__PLACES_SFX__', '-pilot' if pilot else '')
     tpl = tpl.replace('__PLACES_DIR__', 'pilot' if pilot else 'main').replace('__NLOCAL__', str(sum(1 for e in light if e.get('level') == 'local')))
-    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')))
+    out = tpl.replace('<!--__BOOT__-->', boot_html()).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
@@ -458,7 +457,7 @@ def build(pilot, out_path, write=False, places=False):
     return out
 
 
-def boot_html(land_json=None):
+def boot_html():
     """The start screen shown while the page's scripts and the map download: the app logo, big, and the name. Removed (fade) when the map has drawn."""
     icon = base64.b64encode(open(P('icon-192.png'), 'rb').read()).decode()
     return ('<div id="boot" aria-hidden="true"><div class="bt"><img src="data:image/png;base64,' + icon + '" alt="" width="160" height="160">'

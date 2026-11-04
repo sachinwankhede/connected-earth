@@ -1,4 +1,3 @@
-  var LAND = __LAND__;
   var GEO = __GEO__;
 
   var TL = {
