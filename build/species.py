@@ -133,6 +133,9 @@ def pack():
             if k not in old: write_row(r)
     else: json.dump(new, open(TABLE, 'w'), indent=1, ensure_ascii=False)
     print(len(new), 'species rows;', sum(len(e['nodes']) for e in ecos.values()), 'place entries')
+    import diets
+    if os.path.isdir(diets.dir_of()):   # #256: new eating links go into data/diets/ in the same step, so every job and CI check that runs this pack covers the table too
+        s = diets.pack(src=os.environ.get('SPECIES_SRC')); print('eating links: %d new pairs, %d evidence entries moved to data/diets/' % (s['new_pairs'], s['ev_dropped']))
 
 def clean(t):
     import re

@@ -40,6 +40,24 @@ class SyncTests(unittest.TestCase):
         self.r.put('data/places/p.json', {'id': 'p', 'name': 'Promoted', 'story': 'S', 'imgwiki': 'I', 'level': 'local', 'sources': [{'t': 'x'}] * 5, 'nodes': [{'id': 'zz', 'sp': 'q', 'xh': 9}] * 6, 'raw': [], 'ev': {}})
         self.r.commit('promote')
 
+    def test_slimmed_place_on_main_and_a_story_on_the_branch(self):
+        # #256: main moved the evidence into data/diets/ (the place has no ev any more); a branch from before only added a story
+        self.start({'data/places/p.json': place()})
+        self.r.checkout('feature'); self.r.put('data/places/p.json', place(story='A story.')); self.r.commit('story')
+        self.r.checkout('main'); self.r.put('data/places/p.json', place(ev={})); self.r.commit('strip ev')
+        self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
+        out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+        e = self.r.get('data/places/p.json'); self.assertEqual(e['story'], 'A story.'); self.assertEqual(e['ev'], {})   # the story is kept, the evidence stays in the table
+
+    def test_two_branches_add_prey_to_the_same_consumer(self):
+        f = 'data/diets/wo/wolf.json'
+        self.start({f: {'sid': 'wolf', 'prey': {'deer': {'ev': ['g'], 'k': 'e'}}}})
+        self.r.checkout('feature'); self.r.put(f, {'sid': 'wolf', 'prey': {'deer': {'ev': ['g'], 'k': 'e'}, 'elk': {'ev': ['gg'], 'k': 'e', 'src': 'job-a'}}}); self.r.commit('elk')
+        self.r.checkout('main'); self.r.put(f, {'sid': 'wolf', 'prey': {'deer': {'ev': ['g'], 'k': 'e'}, 'moose': {'ev': ['ga'], 'k': 'e', 'src': 'job-b'}}}); self.r.commit('moose')
+        self.r.checkout('feature'); self.assertNotEqual(self.r.merge_main().returncode, 0)
+        out = self.r.sync(); self.assertEqual(out.returncode, 0, out.stdout + out.stderr)
+        self.assertEqual(sorted(self.r.get(f)['prey']), ['deer', 'elk', 'moose'])
+
     def test_repack_on_branch_new_story_on_main(self):
         self.start({'data/places/p.json': place()})
         self.r.checkout('feature'); self.r.put('data/places/p.json', place(nodes=[{'id': 'a', 'sp': 'x', 'xh': 1, 'no': ['tl']}])); self.r.commit('repack')

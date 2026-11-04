@@ -2,6 +2,7 @@
 """syncmain.py: finish a merge of main into a data branch when the only clashes are the shared files that every data job edits.
   (data/species/rows/ needs nothing here: each species is its own file, so two branches only meet on a species both added, and then git merges identical files and a person looks at different ones)
   data/places/<id>.json  (pilot places too: they carry stage "pilot" until promoted) merged key by key: the branch keeps its food web (nodes, raw, ev, tip) when it rebuilt it, otherwise main's; main keeps everything else
+  data/diets/<xx>/<sid>.json  (the eating-link table, #256) the prey of both sides; main wins on a prey both have
   jobs/names.json  every latin name from both sides; a real common name beats null, main's wins a tie
   jobs/state_queue.txt  the states both sides still list (each side removed the ones it finished), in main's order
   (place order is in data/order/, one new file per job, and journeys are one file each, so neither needs a rule here: #277)
@@ -32,6 +33,14 @@ def merge_place(path):
     json.dump(out, open(path, 'w'), ensure_ascii=False); git('add', path); return True
 taken = [c for c in conf if c.startswith('data/places/') and c.count('/') == 2 and merge_place(c)]
 conf = [c for c in conf if c not in taken]
+def merge_diets(path):
+    """data/diets/<xx>/<sid>.json (#256): two branches added different prey to the same consumer. Keep every prey of both sides; main wins on a prey both have."""
+    mine, theirs = show(2, path), show(3, path)
+    if not (mine or theirs): return False
+    prey = {**((mine or {}).get('prey') or {}), **((theirs or {}).get('prey') or {})}
+    json.dump({'sid': (theirs or mine)['sid'], 'prey': dict(sorted(prey.items()))}, open(path, 'w'), ensure_ascii=False, separators=(',', ':')); git('add', path); return True
+diets_taken = [c for c in conf if c.startswith('data/diets/') and c.endswith('.json') and merge_diets(c)]
+conf = [c for c in conf if c not in diets_taken]
 SHARED = ('jobs/names.json', 'jobs/state_queue.txt')
 other = [c for c in conf if c not in SHARED]
 if other: print('Conflicts that need a person:', ', '.join(other)); sys.exit(1)
@@ -45,3 +54,4 @@ if 'jobs/state_queue.txt' in conf:
     open('jobs/state_queue.txt', 'w').write(''.join(x + '\n' for x in theirs.split() if x in keep))
 print('resolved:', ', '.join(conf) or 'nothing to resolve')
 if taken: print('merged key by key (branch food web, main for the rest):', ', '.join(taken))
+if diets_taken: print('merged prey lists (eating-link table):', ', '.join(diets_taken))
