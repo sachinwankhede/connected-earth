@@ -1257,7 +1257,9 @@ window.__PLACES.then(function (PL) {
       place: function (id) { return json(root + "api/" + id + ".json"); },   /* a place's full web (nodes, links, evidence, story, its species' picture entries) */
       speciesPlaces: function (k) { return json(root + "api/species-places__PLACES_SFX__/" + k + ".json", {}); },   /* which places a species is in; {} when there is no file */
       ties: function (k) { return json(root + "api/ties__PLACES_SFX__/" + k + ".json", {}); },   /* the ties of one region; {} when there is no file */
-      search: function (f) { return json("api/search__PLACES_SFX__/" + f); }   /* a search file (meta, word bucket or rows); a page-relative address, as before */
+      search: function (f) { return json("api/search__PLACES_SFX__/" + f); },   /* a search file (meta, word bucket or rows); a page-relative address, as before */
+      pictures: function () { return json(root + "api/species-pictures.json"); },   /* every hosted species picture with its credit */
+      placePhotos: function () { return json(root + "photos/places/places.json").catch(function () { return {}; }); }   /* the stored place photos; {} when missing */
     };
   })();
   // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
@@ -1884,10 +1886,7 @@ window.__PLACES.then(function (PL) {
     SPX_WAIT.push(done);
     if (SPX !== null) return;
     SPX = false;
-    fetch(WB + "species-pictures.json").then(function (r) {
-      if (!r.ok) { console.warn("Could not load species-pictures.json: HTTP " + r.status); return {}; }
-      return r.json();
-    }).catch(function (e) { console.warn("Could not load species-pictures.json", e); return {}; }).then(function (all) {
+    Data.pictures().catch(function (e) { console.warn("Could not load species-pictures.json", e); return {}; }).then(function (all) {
       var m = all.ph || {}, credits = all.phm || {};
       Object.keys(m).forEach(function (t) {
         var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1, credits[t]);
@@ -2167,7 +2166,6 @@ window.__PLACES.then(function (PL) {
   }
   function nodeName(ecoId, nodeId) { var e = ECO_BY[ecoId], n = e.nodes && e.nodes.filter(function (q) { return q.id === nodeId; })[0]; return n ? n.name : (e.idx.cx[nodeId] || nodeId); }
   /* a place's full web (species, links, evidence) is fetched the first time it is opened */
-  var WB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "api/";
   /* opening a place also waits for the species index, so "Shares species with" and "Also found in" are complete the first time they show */
   function fetchWeb(id) {
     return fetchWebData(id).then(function (ok) {
@@ -3500,7 +3498,7 @@ window.__PLACES.then(function (PL) {
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
-  (window.fetch ? fetch(PB + "places.json").then(function (r) { return r.ok ? r.json() : {}; }).catch(function () { return {}; }) : Promise.resolve({})).then(function (man) {
+  Data.placePhotos().then(function (man) {
     function stored(t) {
       var m = man[t], candidate = m && PhotoRegistry.placeCandidate(m, PB);
       if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
