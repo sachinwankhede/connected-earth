@@ -26,6 +26,8 @@ def load_places(pilot):
         for i in pilot_order:
             ecos.append(json.load(open(P('data', 'places', i + '.json'))))
     tab = species.table()
+    bad = ['%s: %s' % (e['id'], ', '.join(map(repr, geoids.name_form(e)))) for e in ecos if geoids.name_form(e)]
+    if bad: sys.exit('country and state must be ids from data/geo/geo.json (run python3 build/places_ids.py to rewrite names; an unknown name is a mistake):\n  ' + '\n  '.join(bad[:20]))
     ecos = [geoids.names(species.join(e, tab)) for e in ecos]
     sp = P('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
     for e in ecos:
