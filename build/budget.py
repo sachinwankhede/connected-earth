@@ -59,4 +59,8 @@ for d in ('main', 'pilot'):
     for label, n, lim in (('api/places/%s/ total' % d, sum(n for _, n in fs), PLACES_REGION_TOTAL_MAX), ('api/places/%s/ largest file' % d, max(n for _, n in fs), PLACES_REGION_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import firstview   # the first-view weight: gzip bytes of the page, map library and world places, and which outside hosts it reaches (#369)
+lines, fv_bad = firstview.check()
+print('\n'.join(lines)); bad += fv_bad
 sys.exit(1 if bad else 0)
