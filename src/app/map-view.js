@@ -96,6 +96,33 @@
     });
     return bad;
   };
+  /* Which chips appear (#261 step 2): the regions one level below the view that hold a place passing the filters. From the counts file when it can answer, else from the places in memory. */
+  function scanKeys(lvl) {
+    var keys = [];
+    if (lvl === "continent") ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); });
+    else if (lvl === "country") ECOS.filter(inRegion).forEach(function (e) { e.countries.forEach(function (c) { if (keys.indexOf(c) < 0 && M.countryBy[c] && M.countryBy[c].cont === view.cont) keys.push(c); }); });
+    else ECOS.filter(inRegion).forEach(function (e) { (e.states || []).forEach(function (s) { if (keys.indexOf(s) < 0) keys.push(s); }); });
+    return keys;
+  }
+  function fileKeys(lvl) {
+    if (!CNT) return null;
+    var pre = lvl === "continent" ? "c:" : lvl === "country" ? "k:" : "s:", keys = [], answered = true;
+    Object.keys(CNT.regions).forEach(function (r) {
+      if (r.indexOf(pre) !== 0) return;
+      var k = r.slice(2);
+      if (lvl === "country" && !(M.countryBy[k] && M.countryBy[k].cont === view.cont)) return;
+      var n = fileCount(lvl, k); if (n === null) { answered = false; return; }
+      if (n > 0) keys.push(k);
+    });
+    return answered ? keys : null;
+  }
+  function chipKeys(lvl) { return fileKeys(lvl) || scanKeys(lvl); }
+  M.listsCheck = function () {   /* tests: the chips of the current view from the file and from the places in memory */
+    var lvl = view.level === "world" ? "continent" : view.level === "continent" ? "country" : view.level === "country" && view.country === US ? "state" : null;
+    var f = lvl && fileKeys(lvl); if (!f) return null;
+    var a = f.slice().sort().join("|"), b = scanKeys(lvl).sort().join("|");
+    return a === b ? [] : [{ lvl: lvl, file: a, scan: b }];
+  };
   function chipsHTML() {
     var keys = [], lvl, lab;
     if (M.tab === "journeys") {
@@ -105,10 +132,11 @@
       jk.sort(function (a, b) { return jn(b) - jn(a) || (a < b ? -1 : 1); });
       return '<span class="lbl">Continent</span>' + [""].concat(jk).map(function (k) { return '<button type="button" class="chip' + ((M.jcont || "") === k ? " on" : "") + '" data-jc="' + k.replace(/"/g, "&quot;") + '">' + (k ? nm(k) + " <b>" + jn(k) + "</b>" : "All") + "</button>"; }).join("");
     }
-    if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); }); }
-    else if (view.level === "continent") { lvl = "country"; lab = "Countries"; ECOS.filter(inRegion).forEach(function (e) { e.countries.forEach(function (c) { if (keys.indexOf(c) < 0 && M.countryBy[c] && M.countryBy[c].cont === view.cont) keys.push(c); }); }); }
-    else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; ECOS.filter(inRegion).forEach(function (e) { (e.states || []).forEach(function (s) { if (keys.indexOf(s) < 0) keys.push(s); }); }); }
+    if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; }
+    else if (view.level === "continent") { lvl = "country"; lab = "Countries"; }
+    else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; }
     else return "";
+    keys = chipKeys(lvl);
     if (keys.length < 2) return "";
     keys.sort();
     function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
