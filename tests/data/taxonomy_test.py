@@ -21,6 +21,16 @@ class Classify(unittest.TestCase):
                           (dict(EXACT, confidence=80), 'below 90'), (dict(EXACT, kingdom='Plantae'), 'expected Animalia'), (dict(EXACT, kingdom=''), 'no kingdom')):
             ok, rec = taxonomy.classify({'tl': 3}, resp)
             self.assertFalse(ok, why); self.assertIn(why, rec['why'])
+    def test_same_name_higher_rank_is_accepted(self):
+        genus = dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', scientificName='Acer L.', confidence=92)
+        ok, rec = taxonomy.classify({'tl': 1, 'latin': 'Acer'}, dict(genus, kingdom='Plantae'))
+        self.assertTrue(ok); self.assertEqual((rec['match'], rec['rank']), ('higher-rank', 'GENUS'))
+    def test_other_higher_rank_stays_in_review(self):
+        for resp, latin in ((dict(EXACT, matchType='HIGHERRANK', rank='KINGDOM', canonicalName='Animalia', scientificName='Animalia'), 'Acanthurus'),
+                            (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', scientificName='Acer L.'), 'Acer rubrum'),
+                            (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', confidence=70), 'Acer')):
+            ok, _ = taxonomy.classify({'tl': 3, 'latin': latin}, resp)
+            self.assertFalse(ok, latin)
     def test_producer_has_no_kingdom_hint(self):
         self.assertIsNone(taxonomy.hint({'tl': 1})); self.assertEqual(taxonomy.hint({'tl': 2}), 'Animalia')
         ok, _ = taxonomy.classify({'tl': 1}, dict(EXACT, kingdom='Plantae'))
