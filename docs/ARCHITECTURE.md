@@ -73,6 +73,11 @@ Code, data and jobs are kept apart, so a change can say which of the three it to
 - `jobs/`: job scripts and their own state (queue, names, reports, park lists). `lib/`: code shared by the build and the jobs (the photo registry). Anything the build reads lives in `data/` or `lib/`, never in `jobs/`.
 Nothing the build reads may live in the jobs folder.
 
+## Ids in `data/geo/geo.json` (added 4 Nov, #255 follow-up)
+- The file was generated once, outside this repo, from a source we have not identified; no script here rebuilds it. The app finds countries by name, not by id.
+- Country ids are the ISO 3166-1 numeric code as three digits (`242` Fiji, `004` Afghanistan). A country that has no ISO code (Kosovo, N. Cyprus, Somaliland) gets a lowercase slug of its name (`kosovo`, `n-cyprus`, `somaliland`). State ids are the two-digit US FIPS code (`01` Alabama).
+- To add one: use the ISO code if it exists, otherwise the slug. `build/schemas/geo.schema.json` and `build/validate_data.py` reject an id that is neither three digits nor a slug, the text "undefined", and any id used twice within countries or within states.
+
 ## No web reads at run time (owner rule, 2 Nov)
 The app reads everything it shows from data we host. The only accepted outside reads are the base map tiles (and the map style and fonts they need). There is no fallback to another site when our copy is missing: a missing species picture shows the placeholder, and a data check fails the pull request when a listed picture has no hosted file or credit. A browser test (item below #238) fails on any other outside request.
 

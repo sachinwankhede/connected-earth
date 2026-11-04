@@ -120,9 +120,7 @@ def check(root):
         shape(geo, 'geo', 'data/geo/geo.json', errs)
         for kind in ('countries', 'states'):
             ids = [f.get('id') for f in geo.get(kind, []) if isinstance(f, dict)]
-            for i in sorted({i for i in ids if ids.count(i) > 1}, key=str):
-                if i == 'undefined': warns.append('data/geo/geo.json %s: %d features have the id "undefined" (a lost id from the source file; Kosovo, N. Cyprus, Somaliland)' % (kind, ids.count(i)))
-                else: errs.append('data/geo/geo.json %s: id %r is repeated' % (kind, i))
+            for i in sorted({i for i in ids if ids.count(i) > 1}, key=str): errs.append('data/geo/geo.json %s: id %r is repeated' % (kind, i))
     land = load(root, 'data', 'geo', 'land.json')
     if land is not None: shape(land, 'land', 'data/geo/land.json', errs)
     return errs, warns

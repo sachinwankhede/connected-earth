@@ -70,14 +70,14 @@ class SchemasAndCrossFileRules(unittest.TestCase):
         with tempfile.TemporaryDirectory() as r:
             self.tree(r)
             sq = {'type': 'Polygon', 'coordinates': [[[0, 0], [1, 0], [1, 1], [0, 0]]]}
-            put(r, 'data/geo/geo.json', {'countries': [{'id': '1', 'name': 'A', 'cont': 'X', 'g': sq}, {'id': '1', 'name': 'B', 'cont': 'X', 'g': sq},
+            put(r, 'data/geo/geo.json', {'countries': [{'id': '001', 'name': 'A', 'cont': 'X', 'g': sq}, {'id': '001', 'name': 'B', 'cont': 'X', 'g': sq},
                                                       {'id': 'undefined', 'name': 'C', 'cont': 'X', 'g': sq}, {'id': 'undefined', 'name': 'D', 'cont': 'X', 'g': sq}],
                                          'states': [{'id': '01', 'name': 'S', 'g': {'type': 'Point', 'coordinates': [0, 0]}}]})
             put(r, 'data/geo/land.json', {'type': 'Polygon', 'coordinates': []})
             errs, warns = check(r); text = ' | '.join(errs)
-            for want in ("id '1' is repeated", "'Point' is not one of", "'MultiPolygon' was expected"):
+            for want in ("id '001' is repeated", "'Point' is not one of", "'MultiPolygon' was expected"):
                 self.assertIn(want, text)
-            self.assertNotIn("'undefined' is repeated", text); self.assertIn('2 features have the id "undefined"', ' | '.join(warns))
+            self.assertIn("'undefined' is repeated", text); self.assertIn("should not be valid under", text)
     def test_journey_files_and_config(self):
         with tempfile.TemporaryDirectory() as r:
             self.tree(r)
