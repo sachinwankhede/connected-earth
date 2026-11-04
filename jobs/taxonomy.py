@@ -13,11 +13,30 @@ OUT = os.path.join(ROOT, 'data', 'species', 'taxonomy.json')
 REVIEW = os.path.join(ROOT, 'data', 'species', 'taxonomy_review.json')
 UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://github.com/sachinwankhede/connected-earth)'}
 GAP = 0.15            # seconds between requests: polite, and about 4,950 species take 15 minutes
+FUZZY_CONF = 95       # a spelling variant needs this much confidence, plus the same genus and at most two letters of difference
 MIN_CONF = 90         # an exact match below this goes to the review list
 HIGHER_OK = ('GENUS', 'FAMILY', 'ORDER', 'CLASS', 'PHYLUM')   # ranks above species that count as a match when the name is the same
 RANKS = ('kingdom', 'phylum', 'class', 'order', 'family')
 
 def today(): return datetime.date.today().isoformat()
+
+def edits(a, b):
+    """Number of single-letter changes between two strings (Levenshtein)."""
+    prev = list(range(len(b) + 1))
+    for i, x in enumerate(a, 1):
+        cur = [i]
+        for j, y in enumerate(b, 1): cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (x != y)))
+        prev = cur
+    return prev[-1]
+
+def lookup(row):
+    """Ask GBIF. A name that belongs to several kingdoms comes back as NONE ("Multiple equal matches", e.g. Ficus or Salix alba); for a producer, ask again once per likely kingdom and keep the first real answer."""
+    resp = gbif(row['latin'], hint(row))
+    if resp.get('matchType') == 'NONE' and 'Multiple equal matches' in (resp.get('note') or '') and row.get('tl') == 1:
+        for k in ('Plantae', 'Chromista', 'Fungi', 'Bacteria'):
+            r = gbif(row['latin'], k)
+            if r.get('matchType') in ('EXACT', 'HIGHERRANK') and r.get('rank') != 'KINGDOM': return r
+    return resp
 
 def hint(row):
     """Consumers (tl 2 and up) are animals, which settles names shared by an animal and a plant; producers (tl 1) can be plants, algae or fungi, so no hint."""
@@ -28,17 +47,20 @@ def classify(row, resp, at=None):
     at = at or today()
     mt = (resp or {}).get('matchType', 'NONE'); conf = (resp or {}).get('confidence', 0) or 0
     base = {'match': mt.lower(), 'conf': conf, 'gname': (resp or {}).get('scientificName', ''), 'rank': (resp or {}).get('rank', '')}
-    same_name = False
-    if mt == 'HIGHERRANK':   # GBIF calls a genus or family name looked up on its own a "higher rank" match; it is right when the answer is that same name (never a bare kingdom)
-        same_name = (resp.get('rank') in HIGHER_OK and (resp.get('canonicalName') or '').lower() == (row.get('latin') or '').lower())
-    if mt != 'EXACT' and not same_name: return False, dict(base, why='no exact match' if mt == 'NONE' else 'only a %s match' % mt.lower().replace('higherrank', 'higher-rank'), at=at)
+    latin = (row.get('latin') or '').lower(); canon = (resp or {}).get('canonicalName', '') or ''; canon = canon.lower()
+    kind = 'exact'
+    if mt == 'HIGHERRANK' and resp.get('rank') in HIGHER_OK + ('SPECIES',) and canon and (latin == canon or latin.startswith(canon + ' ')):
+        kind = 'higher-rank'   # GBIF calls a genus or species name that is the start of ours (a subspecies, "Opuntia species") a "higher rank" match: its kingdom to family are the same as ours; never a bare kingdom
+    elif mt == 'FUZZY' and conf >= FUZZY_CONF and canon and canon.split()[0] == latin.split()[0] and edits(canon, latin) <= 2:
+        kind = 'fuzzy'         # a spelling variant (rueppelli / rueppellii), same genus, at most two letters apart
+    elif mt != 'EXACT': return False, dict(base, why='no exact match' if mt == 'NONE' else 'only a %s match' % mt.lower().replace('higherrank', 'higher-rank'), at=at)
     if conf < MIN_CONF: return False, dict(base, why='confidence %s is below %d' % (conf, MIN_CONF), at=at)
     if not resp.get('kingdom'): return False, dict(base, why='no kingdom in the answer', at=at)
     h = hint(row)
     if row.get('tl') == 1 and resp['kingdom'] == 'Animalia': return False, dict(base, kingdom='Animalia', why='a producer matched an animal (kingdom Animalia)', at=at)   # e.g. the growth form "Liana" matched an insect genus of that name
     if h and resp['kingdom'] != h: return False, dict(base, kingdom=resp['kingdom'], why='a consumer matched kingdom %s, expected %s' % (resp['kingdom'], h), at=at)
     rec = {k: resp[k] for k in RANKS if resp.get(k)}
-    rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match='higher-rank' if same_name else 'exact', conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
+    rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match=kind, conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
     return True, rec
 
 def gbif(name, kingdom=None, tries=4):
@@ -73,7 +95,7 @@ def main():
     print(len(todo), 'to match (%d done, %d to review)' % (len(got), len(rev)), flush=True)
     for n, sid in enumerate(todo, 1):
         row = rows[sid]
-        ok, rec = classify(row, gbif(row['latin'], hint(row)))
+        ok, rec = classify(row, lookup(row))
         (got if ok else rev)[sid] = rec
         if n % 50 == 0 or n == len(todo): save(OUT, got); save(REVIEW, rev); print(n, 'of', len(todo), flush=True)
     save(OUT, got); save(REVIEW, rev)

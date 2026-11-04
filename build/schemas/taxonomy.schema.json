@@ -39,7 +39,8 @@
       "match": {
         "enum": [
           "exact",
-          "higher-rank"
+          "higher-rank",
+          "fuzzy"
         ]
       },
       "conf": {
