@@ -4,6 +4,7 @@ Writes two sidecar files, both keyed by species id (sid), by this job only:
   data/species/taxonomy.json         accepted matches {sid: {kingdom, phylum, class, order, family, rank, key, match, conf, gname, src, at}}
   data/species/taxonomy_review.json  doubtful or missing matches {sid: {match, conf, gname, rank, kingdom, why, at}}: the owner looks at these; nothing is guessed
 Resumable: a species already in either file is skipped. LIMIT=n does at most n species this run (0 = all left).
+RETRY_REVIEW=1 looks at the whole review list again; REDO=sid,sid looks at those species again (accepted or not).
 Groups and resources get no taxonomy. Nothing here touches the species rows, the built pages or api/."""
 import datetime, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -34,6 +35,7 @@ def classify(row, resp, at=None):
     if conf < MIN_CONF: return False, dict(base, why='confidence %s is below %d' % (conf, MIN_CONF), at=at)
     if not resp.get('kingdom'): return False, dict(base, why='no kingdom in the answer', at=at)
     h = hint(row)
+    if row.get('tl') == 1 and resp['kingdom'] == 'Animalia': return False, dict(base, kingdom='Animalia', why='a producer matched an animal (kingdom Animalia)', at=at)   # e.g. the growth form "Liana" matched an insect genus of that name
     if h and resp['kingdom'] != h: return False, dict(base, kingdom=resp['kingdom'], why='a consumer matched kingdom %s, expected %s' % (resp['kingdom'], h), at=at)
     rec = {k: resp[k] for k in RANKS if resp.get(k)}
     rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match='higher-rank' if same_name else 'exact', conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
@@ -63,6 +65,8 @@ def main():
     got = json.load(open(OUT)) if os.path.exists(OUT) else {}
     rev = json.load(open(REVIEW)) if os.path.exists(REVIEW) else {}
     if os.environ.get('RETRY_REVIEW') == '1': rev = {}   # look at the doubtful ones again (after a rule change)
+    redo = {x.strip().lower() for x in os.environ.get('REDO', '').split(',') if x.strip()}   # species ids to look at again, whether accepted or in review
+    for sid in redo & (set(got) | set(rev)): got.pop(sid, None); rev.pop(sid, None)
     todo = sorted(set(rows) - set(got) - set(rev))
     limit = int(os.environ.get('LIMIT', '0') or 0)
     if limit: todo = todo[:limit]
