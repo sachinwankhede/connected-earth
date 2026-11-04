@@ -5,6 +5,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LIMITS = {'index.html': 3_600_000, 'pilot/index.html': 4_200_000}
 SPECIES_ROWS_TOTAL = 4_000_000   # data/species/rows/: every species row file together (#276; it was one 4 MB file)
 TAXONOMY_MAX = 2_000_000   # data/species/taxonomy.json and taxonomy_review.json together (#254; not published, only the deploy and the validator read them)
+DIETS_MAX = 3_000_000   # data/diets/: every consumer file together (#256; about 1.9 MB today; not published, the build joins it into the place web files)
 WEB_MAX = 250_000      # one place's web file
 ABOUT_MAX = 1_200_000   # api/species/: all the species description files together (each is fetched alone, when its sheet opens)
 ABOUT_ONE_MAX = 4_000   # one species description file
@@ -22,6 +23,9 @@ print('%-22s %9d / %9d %s' % ('data/species/rows/ total', rt, SPECIES_ROWS_TOTAL
 tx = sum(size('data/species/' + f) for f in ('taxonomy.json', 'taxonomy_review.json') if os.path.exists(os.path.join(ROOT, 'data', 'species', f)))
 bad += tx > TAXONOMY_MAX
 print('%-22s %9d / %9d %s' % ('species taxonomy files', tx, TAXONOMY_MAX, 'ok' if tx <= TAXONOMY_MAX else 'OVER'))
+dt = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(os.path.join(ROOT, 'data', 'diets')) for f in fs)
+bad += dt > DIETS_MAX
+print('%-22s %9d / %9d %s' % ('data/diets/ total', dt, DIETS_MAX, 'ok' if dt <= DIETS_MAX else 'OVER'))
 ws = [(f, size('api/' + f)) for f in os.listdir(os.path.join(ROOT, 'api')) if os.path.isfile(os.path.join(ROOT, 'api', f))]
 tot = sum(n for _, n in ws); big = max(ws, key=lambda x: x[1])
 os_ = [(f, size('data/outlines/' + f)) for f in os.listdir(os.path.join(ROOT, 'data', 'outlines'))]
