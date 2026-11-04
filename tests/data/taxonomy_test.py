@@ -27,13 +27,46 @@ class Classify(unittest.TestCase):
         self.assertTrue(ok); self.assertEqual((rec['match'], rec['rank']), ('higher-rank', 'GENUS'))
     def test_other_higher_rank_stays_in_review(self):
         for resp, latin in ((dict(EXACT, matchType='HIGHERRANK', rank='KINGDOM', canonicalName='Animalia', scientificName='Animalia'), 'Acanthurus'),
-                            (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', scientificName='Acer L.'), 'Acer rubrum'),
+                            (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', scientificName='Acer L.'), 'Quercus rubra'),   # a different name
                             (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', confidence=70), 'Acer')):
             ok, _ = taxonomy.classify({'tl': 3, 'latin': latin}, resp)
             self.assertFalse(ok, latin)
     def test_producer_matching_an_animal_goes_to_review(self):
         ok, rec = taxonomy.classify({'tl': 1, 'latin': 'Liana'}, dict(EXACT, matchType='EXACT'))   # EXACT is Animalia in this fixture
         self.assertFalse(ok); self.assertIn('producer matched an animal', rec['why'])
+    def test_subspecies_falls_back_to_the_parent(self):
+        resp = dict(EXACT, matchType='HIGHERRANK', rank='SPECIES', canonicalName='Cervus canadensis', scientificName='Cervus canadensis Erxleben, 1777', confidence=95)
+        ok, rec = taxonomy.classify({'tl': 2, 'latin': 'Cervus canadensis roosevelti'}, resp)
+        self.assertTrue(ok); self.assertEqual((rec['match'], rec['rank']), ('higher-rank', 'SPECIES'))
+        ok, rec = taxonomy.classify({'tl': 1, 'latin': 'Opuntia species'}, dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Opuntia', kingdom='Plantae', confidence=95))
+        self.assertTrue(ok)
+        ok, _ = taxonomy.classify({'tl': 2, 'latin': 'Cervus other'}, dict(resp, canonicalName='Cervus canadensis'))   # not the start of our name
+        self.assertFalse(ok)
+    def test_spelling_variants(self):
+        fz = dict(EXACT, matchType='FUZZY', canonicalName='Gyps rueppellii', scientificName='Gyps rueppellii (A.E.Brehm, 1852)', confidence=98)
+        ok, rec = taxonomy.classify({'tl': 3, 'latin': 'Gyps rueppelli'}, fz)
+        self.assertTrue(ok); self.assertEqual(rec['match'], 'fuzzy')
+        for row, resp in (({'tl': 3, 'latin': 'Gyps rueppelli'}, dict(fz, confidence=90)),          # not sure enough
+                          ({'tl': 2, 'latin': 'Porcella salvania'}, dict(fz, canonicalName='Porcula salvania')),   # different genus
+                          ({'tl': 3, 'latin': 'Gyps rueppelli'}, dict(fz, canonicalName='Gyps fulvus'))):          # too far apart
+            self.assertFalse(taxonomy.classify(row, resp)[0], row)
+    def test_edits(self):
+        self.assertEqual((taxonomy.edits('a', 'a'), taxonomy.edits('rueppelli', 'rueppellii'), taxonomy.edits('abc', 'xyz')), (0, 1, 3))
+    def test_name_in_several_kingdoms_is_asked_again(self):
+        calls = []
+        def fake(name, kingdom=None):
+            calls.append(kingdom)
+            if kingdom is None: return {'matchType': 'NONE', 'note': 'Multiple equal matches for Ficus'}
+            if kingdom == 'Plantae': return dict(EXACT, matchType='EXACT', kingdom='Plantae', rank='GENUS', canonicalName='Ficus')
+            return {'matchType': 'NONE'}
+        old = taxonomy.gbif; taxonomy.gbif = fake
+        try: r = taxonomy.lookup({'tl': 1, 'latin': 'Ficus'})
+        finally: taxonomy.gbif = old
+        self.assertEqual((r['kingdom'], calls), ('Plantae', [None, 'Plantae']))
+        taxonomy.gbif = lambda n, k=None: {'matchType': 'HIGHERRANK', 'rank': 'KINGDOM', 'canonicalName': k or 'x'} if k else {'matchType': 'NONE', 'note': 'Multiple equal matches for Ulva'}
+        try: r = taxonomy.lookup({'tl': 1, 'latin': 'Ulva'})
+        finally: taxonomy.gbif = old
+        self.assertEqual(r['matchType'], 'NONE')   # only kingdom-level answers: stays unmatched
     def test_producer_has_no_kingdom_hint(self):
         self.assertIsNone(taxonomy.hint({'tl': 1})); self.assertEqual(taxonomy.hint({'tl': 2}), 'Animalia')
         ok, _ = taxonomy.classify({'tl': 1}, dict(EXACT, kingdom='Plantae'))
