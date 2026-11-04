@@ -13,6 +13,14 @@ const WIKIMEDIA = /(^|\.)wikimedia\.org$/;
 // Measured on 2 Nov 2026: 6 requests, 2,691 KB raw (page, 3 fonts, map library, place photo list). Raise one only with a reason written in the pull request.
 // 9 since #228 step 2 (was 7): the places are two files instead of being inside the page. (11 from #313 step 3 to 3 Nov: the local places followed the map in two more files; they now load only when something needs them: the local button, a search, Near me or a link to a local place.)
 const BUDGET = { phone: { startRequests: 9, startKB: 2900 }, desktop: { startRequests: 9, startKB: 2900 } };
+// What each number allows (#292), so a failure says what to look at before anyone raises it:
+//  startRequests: the requests to our own site before the person touches anything, nothing counted for the map tiles (another host). That is the page, its fonts,
+//    the map library, the two world-place files (index and cards), the place photo list and the species picture list. A new kind of request here is a new cost on every first open.
+//  startKB: the raw bytes of those same files (sizes of the files served, exact, the same on every run). The page and the map library are most of it. The gzip bytes the phone
+//    actually carries are limited separately, in build/firstview.py (#369).
+// Raise a number only with the reason in the pull request, and update this note.
+const kind = (u) => /\.woff2$/.test(u) ? 'font' : /maplibre-gl/.test(u) ? 'map library' : /\/api\/places\//.test(u) ? 'place files' : /\/api\//.test(u) ? 'shared lists' : /\/photos\//.test(u) ? 'photos' : /\.html$|\/$/.test(u) ? 'page' : 'other';
+const byKind = (own) => { const c = {}; for (const u of new Set(own)) c[kind(u)] = (c[kind(u)] || 0) + 1; return Object.entries(c).map(([k, n]) => `${k} ${n}`).join(', '); };
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.woff2': 'font/woff2', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml' };
 
 describe('the app reads only data we host', () => {
@@ -53,7 +61,7 @@ describe('the app reads only data we host', () => {
     test(`${sizeName}: the first view reads no outside host except the map tiles, within its request and size budget`, async () => {
       const r = await record(size, '');
       assert.deepEqual(bad(r.outside, false), [], 'outside hosts at start: ' + r.outside);
-      assert.ok(r.own.length <= BUDGET[sizeName].startRequests, `first view made ${r.own.length} requests (budget ${BUDGET[sizeName].startRequests}): ${r.own.join(' ')}`);
+      assert.ok(r.own.length <= BUDGET[sizeName].startRequests, `first view made ${r.own.length} requests (budget ${BUDGET[sizeName].startRequests}; by kind: ${byKind(r.own)}): ${r.own.join(' ')}`);
       assert.ok(r.kb <= BUDGET[sizeName].startKB, `first view read ${r.kb} KB (budget ${BUDGET[sizeName].startKB})`);
     });
 
