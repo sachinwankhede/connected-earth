@@ -26,7 +26,7 @@ describe('places load on demand', () => {
     page.on('pageerror', (x) => errors.push(String(x)));
     const state = { fail: failWebs };
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|search(-pilot)?|species-places(-pilot)?|ties(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228) and the search files the word index (#260), not a place's web */
+    await page.route(/\/api\//, (r) => { const f = r.request().url().split('/api/')[1]; if (/^(places|journeys|search(-pilot)?|species-places(-pilot)?|ties(-pilot)?)\//.test(f)) return r.continue();   /* the places files are the list itself (#228), the journeys file the journeys (#377) and the search files the word index (#260), not a place's web */
       (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
