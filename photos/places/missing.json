@@ -95,29 +95,144 @@
 "expiresAt": "2027-05-02T19:46:12.821412+00:00",
 "attempts": 1
 },
-"Banc d'Arguin National Park": "notphoto",
-"Canadian Rocky Mountain Parks": "notphoto",
-"Camargue": "nophoto",
-"Los Glaciares National Park": "notphoto",
-"Pyrénées – Mont Perdu": "nophoto",
-"Yasuní National Park": "notphoto",
-"Lake Abbe": "notphoto",
-"Falkland Islands": "notphoto",
-"Pic Macaya National Park": "notphoto",
-"Kerguelen Islands": "notphoto",
-"Nam Et-Phou Louey National Park": "nophoto",
-"Sapo National Park": "nophoto",
-"Indio Maíz Biological Reserve": "nophoto",
-"Al Reem Biosphere Reserve": "notphoto",
-"Nyungwe Forest National Park": "nophoto",
-"Gola Rainforest National Park": "nophoto",
-"Triglav National Park": "nophoto",
-"Lag Badana National Park": "nophoto",
-"Tajik National Park": "nophoto",
-"Nino Konis Santana National Park": "notphoto",
-"Cape Cod National Seashore": "notphoto",
-"Pascagoula River": "notphoto",
-"Espiritu Santo": "notphoto",
+"Banc d'Arguin National Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:05:34.360250+00:00",
+"expiresAt": "2027-05-03T20:05:34.360250+00:00",
+"attempts": 1
+},
+"Canadian Rocky Mountain Parks": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:05:36.312081+00:00",
+"expiresAt": "2027-05-03T20:05:36.312081+00:00",
+"attempts": 1
+},
+"Camargue": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:38.314634+00:00",
+"expiresAt": "2027-05-03T20:05:38.314634+00:00",
+"attempts": 1
+},
+"Los Glaciares National Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:05:40.365966+00:00",
+"expiresAt": "2027-05-03T20:05:40.365966+00:00",
+"attempts": 1
+},
+"Pyrénées – Mont Perdu": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:42.535383+00:00",
+"expiresAt": "2027-05-03T20:05:42.535383+00:00",
+"attempts": 1
+},
+"Yasuní National Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:05:44.366722+00:00",
+"expiresAt": "2027-05-03T20:05:44.366722+00:00",
+"attempts": 1
+},
+"Lake Abbe": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:07:38.363194+00:00",
+"expiresAt": "2027-05-03T20:07:38.363194+00:00",
+"attempts": 1
+},
+"Falkland Islands": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:07:40.365188+00:00",
+"expiresAt": "2027-05-03T20:07:40.365188+00:00",
+"attempts": 1
+},
+"Pic Macaya National Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:07:42.366012+00:00",
+"expiresAt": "2027-05-03T20:07:42.366012+00:00",
+"attempts": 1
+},
+"Kerguelen Islands": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:07:44.592601+00:00",
+"expiresAt": "2027-05-03T20:07:44.592601+00:00",
+"attempts": 1
+},
+"Nam Et-Phou Louey National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:46.366736+00:00",
+"expiresAt": "2027-05-03T20:07:46.366736+00:00",
+"attempts": 1
+},
+"Sapo National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:48.367362+00:00",
+"expiresAt": "2027-05-03T20:07:48.367362+00:00",
+"attempts": 1
+},
+"Indio Maíz Biological Reserve": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:50.313760+00:00",
+"expiresAt": "2027-05-03T20:07:50.313760+00:00",
+"attempts": 1
+},
+"Al Reem Biosphere Reserve": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:07:52.403223+00:00",
+"expiresAt": "2027-05-03T20:07:52.403223+00:00",
+"attempts": 1
+},
+"Nyungwe Forest National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:54.362947+00:00",
+"expiresAt": "2027-05-03T20:07:54.362947+00:00",
+"attempts": 1
+},
+"Gola Rainforest National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:56.365132+00:00",
+"expiresAt": "2027-05-03T20:07:56.365132+00:00",
+"attempts": 1
+},
+"Triglav National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:07:58.366536+00:00",
+"expiresAt": "2027-05-03T20:07:58.366536+00:00",
+"attempts": 1
+},
+"Lag Badana National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:08:00.364884+00:00",
+"expiresAt": "2027-05-03T20:08:00.364884+00:00",
+"attempts": 1
+},
+"Tajik National Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:08:02.367136+00:00",
+"expiresAt": "2027-05-03T20:08:02.367136+00:00",
+"attempts": 1
+},
+"Nino Konis Santana National Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:08:04.369907+00:00",
+"expiresAt": "2027-05-03T20:08:04.369907+00:00",
+"attempts": 1
+},
+"Cape Cod National Seashore": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:08:06.367441+00:00",
+"expiresAt": "2027-05-03T20:08:06.367441+00:00",
+"attempts": 1
+},
+"Pascagoula River": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:08:08.314426+00:00",
+"expiresAt": "2027-05-03T20:08:08.314426+00:00",
+"attempts": 1
+},
+"Espiritu Santo": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:08:10.364886+00:00",
+"expiresAt": "2027-05-03T20:08:10.364886+00:00",
+"attempts": 1
+},
 "Village Creek State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:58:52.186055+00:00",
@@ -742,13 +857,48 @@
 "expiresAt": "2027-05-02T19:46:36.818868+00:00",
 "attempts": 1
 },
-"Chippewa Moraine State Recreation Area": "nophoto",
-"Devils Lake State Park-Iansr": "nophoto",
-"Menominee River State Recreation Area": "nophoto",
-"Mill Bluff State Park-Iansr": "nophoto",
-"Pine-Popple Wild Rivers": "nophoto",
-"Richard Bong Recreation Area": "nophoto",
-"Sauk Prairie State Recreation Area": "nophoto",
+"Chippewa Moraine State Recreation Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:46.362636+00:00",
+"expiresAt": "2027-05-03T20:05:46.362636+00:00",
+"attempts": 1
+},
+"Devils Lake State Park-Iansr": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:48.980010+00:00",
+"expiresAt": "2027-05-03T20:05:48.980010+00:00",
+"attempts": 1
+},
+"Menominee River State Recreation Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:50.362346+00:00",
+"expiresAt": "2027-05-03T20:05:50.362346+00:00",
+"attempts": 1
+},
+"Mill Bluff State Park-Iansr": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:52.792951+00:00",
+"expiresAt": "2027-05-03T20:05:52.792951+00:00",
+"attempts": 1
+},
+"Pine-Popple Wild Rivers": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:55.401287+00:00",
+"expiresAt": "2027-05-03T20:05:55.401287+00:00",
+"attempts": 1
+},
+"Richard Bong Recreation Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:56.966086+00:00",
+"expiresAt": "2027-05-03T20:05:56.966086+00:00",
+"attempts": 1
+},
+"Sauk Prairie State Recreation Area": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:58.616481+00:00",
+"expiresAt": "2027-05-03T20:05:58.616481+00:00",
+"attempts": 1
+},
 "Point Bridget State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:57:17.175343+00:00",
@@ -1997,18 +2147,78 @@
 "expiresAt": "2027-05-02T19:50:02.154618+00:00",
 "attempts": 1
 },
-"Miller Peninsula": "nophoto",
-"Millersylvania Memorial": "nophoto",
-"Nisqually": "nophoto",
-"Steamboat Rock": "nophoto",
-"Bluestone Lake State Park": "nophoto",
-"Stonewall Resort State Park": "notcommons",
-"Fort Fred Steele": "nophoto",
-"Glendo Reservoir State Park": "nophoto",
-"Guernsey Reservoir State Park": "nophoto",
-"Hawk Springs": "nophoto",
-"Keyhole Reservoir State Park": "nophoto",
-"Sinks Canyon": "nophoto",
+"Miller Peninsula": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:22.364544+00:00",
+"expiresAt": "2027-05-03T20:05:22.364544+00:00",
+"attempts": 1
+},
+"Millersylvania Memorial": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:24.646422+00:00",
+"expiresAt": "2027-05-03T20:05:24.646422+00:00",
+"attempts": 1
+},
+"Nisqually": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:26.362009+00:00",
+"expiresAt": "2027-05-03T20:05:26.362009+00:00",
+"attempts": 1
+},
+"Steamboat Rock": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:30.364425+00:00",
+"expiresAt": "2027-05-03T20:05:30.364425+00:00",
+"attempts": 1
+},
+"Bluestone Lake State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:02.677601+00:00",
+"expiresAt": "2027-05-03T20:06:02.677601+00:00",
+"attempts": 1
+},
+"Stonewall Resort State Park": {
+"status": "notcommons",
+"checkedAt": "2026-11-04T20:06:02.806077+00:00",
+"expiresAt": "2027-05-03T20:06:02.806077+00:00",
+"attempts": 1
+},
+"Fort Fred Steele": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:07.308953+00:00",
+"expiresAt": "2027-05-03T20:06:07.308953+00:00",
+"attempts": 1
+},
+"Glendo Reservoir State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:10.628515+00:00",
+"expiresAt": "2027-05-03T20:06:10.628515+00:00",
+"attempts": 1
+},
+"Guernsey Reservoir State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:10.953268+00:00",
+"expiresAt": "2027-05-03T20:06:10.953268+00:00",
+"attempts": 1
+},
+"Hawk Springs": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:13.570361+00:00",
+"expiresAt": "2027-05-03T20:06:13.570361+00:00",
+"attempts": 1
+},
+"Keyhole Reservoir State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:15.575044+00:00",
+"expiresAt": "2027-05-03T20:06:15.575044+00:00",
+"attempts": 1
+},
+"Sinks Canyon": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:18.920601+00:00",
+"expiresAt": "2027-05-03T20:06:18.920601+00:00",
+"attempts": 1
+},
 "Grahams Island State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:39:46.992330+00:00",
@@ -2087,8 +2297,28 @@
 "expiresAt": "2027-05-02T19:49:22.799363+00:00",
 "attempts": 1
 },
-"Riverside": "nophoto",
-"Sucia Island": "notphoto",
-"Bear River State Park": "nophoto",
-"Seminoe Reservoir State Park": "nophoto"
+"Riverside": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:05:28.311424+00:00",
+"expiresAt": "2027-05-03T20:05:28.311424+00:00",
+"attempts": 1
+},
+"Sucia Island": {
+"status": "notphoto",
+"checkedAt": "2026-11-04T20:05:32.364615+00:00",
+"expiresAt": "2027-05-03T20:05:32.364615+00:00",
+"attempts": 1
+},
+"Bear River State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:04.877376+00:00",
+"expiresAt": "2027-05-03T20:06:04.877376+00:00",
+"attempts": 1
+},
+"Seminoe Reservoir State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-04T20:06:17.424311+00:00",
+"expiresAt": "2027-05-03T20:06:17.424311+00:00",
+"attempts": 1
+}
 }
