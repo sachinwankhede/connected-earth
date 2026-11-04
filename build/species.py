@@ -92,7 +92,9 @@ def files():
 
 def pack():
     tab = table(); ecos = {}
-    for p in files(): ecos[p] = join(json.load(open(p)), tab)   # full nodes
+    own_ev = {}   # #256: a place keeps only its own `ev` (the table holds the rest); the join below fills it in for counting, and the file is written back with what it had
+    for p in files():
+        d = json.load(open(p)); own_ev[p] = d['ev'] if 'ev' in d else None; ecos[p] = join(d, tab)   # full nodes
     seen = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
     for p, e in ecos.items():
         for n in e['nodes']:
@@ -123,6 +125,8 @@ def pack():
                 else: s.setdefault('no', []).append(f)
             slim.append(s)
         e['nodes'] = slim
+        if own_ev[p] is None: e.pop('ev', None)
+        else: e['ev'] = own_ev[p]
         json.dump(e, open(p, 'w'), ensure_ascii=False)
     if rows_mode:
         for k, r in new.items():

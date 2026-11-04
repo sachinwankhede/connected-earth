@@ -74,7 +74,7 @@ def pack(root=None, legacy=False, check=False, src=None):
     new = {}; conflicts = []
     for pair, lst in sorted(occ.items()):
         evs = collections.Counter(json.dumps(x[2], ensure_ascii=False) for x in lst); ks = collections.Counter(x[3] for x in lst)
-        if len(evs) > 1 or len(ks) > 1: conflicts.append((pair, len(evs), len(ks), len(lst)))
+        if len(evs) > 1 or len(ks) > 1: conflicts.append((pair, len(evs), len(ks), len(lst), dict(evs), dict(ks), sorted({os.path.basename(x[0])[:-5] for x in lst})))
         if pair in t: continue
         e = {'ev': json.loads(evs.most_common(1)[0][0]), 'k': ks.most_common(1)[0][0]}   # the most common value; a tie goes to the first place seen
         if not legacy: e |= {'src': src, 'at': at}
@@ -107,7 +107,24 @@ def pack(root=None, legacy=False, check=False, src=None):
     return {'pairs_seen': len(occ), 'new_pairs': len(new), 'in_table': len(t), 'ev_dropped': stripped, 'null_marks': nulls, 'places_changed': changed, 'pairs_that_differ': conflicts}
 
 
+
+def report(conflicts, out):
+    """A readable list of the pairs on which places disagree (the table takes the most common value)."""
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import species
+    name = {r['sid']: (r.get('latin') or r['name']) for r in species.table().values()}
+    kind_only = [c for c in conflicts if len(c[4]) == 1]; lvl = lambda e: json.loads(e)[0]
+    lines = ['# Eating links on which places disagree (%d pairs)' % len(conflicts), '',
+             'Written by `python3 build/diets.py pack --legacy --report <file>`. The table takes the most common value; a place that differs keeps its own entry (an override).', '',
+             '- same evidence, different kind (eaten as food or scavenged): %d' % len(kind_only),
+             '- different evidence: %d (of which the level differs: %d)' % (len(conflicts) - len(kind_only), sum(1 for c in conflicts if len(c[4]) > 1 and len({lvl(e) for e in c[4]}) > 1)), '',
+             '| prey | eaten by | places | evidence (count) | kind (count) |', '|---|---|---|---|---|']
+    for (a, b), ne, nk, n, evs, ks, pl in sorted(conflicts, key=lambda c: -c[3]):
+        lines.append('| %s | %s | %d | %s | %s |' % (name.get(a, a), name.get(b, b), n, '; '.join('%s x%d' % (json.loads(e)[0], c) if len(json.loads(e)) else e for e, c in evs.items()), ', '.join('%s x%d' % kc for kc in ks.items())))
+    open(out, 'w').write('\n'.join(lines) + '\n')
+
+
 if __name__ == '__main__':
     if sys.argv[1:2] != ['pack']: sys.exit(__doc__)
     s = pack(legacy='--legacy' in sys.argv, check='--check' in sys.argv)
     c = s.pop('pairs_that_differ'); print(s); print('%d pairs have different evidence or kind in different places' % len(c))
+    if '--report' in sys.argv: report(c, sys.argv[sys.argv.index('--report') + 1])
