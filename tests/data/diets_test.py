@@ -71,6 +71,8 @@ def test_species_pack_leaves_slimmed_places_alone():
     """species.py pack rewrites the place files; it must write back the place's own `ev`, not the joined one (found 4 Nov: it re-expanded every place)."""
     with tempfile.TemporaryDirectory() as root:
         make(root); diets.pack(root, legacy=True); diets._cache.clear()
+        newp = os.path.join(root, 'data', 'places', 'e.json')   # a job adds a place with full evidence: the same pack lifts it into the table
+        open(newp, 'w').write(json.dumps({'id': 'e', 'nodes': [{'id': 'g', 'sp': 'poa pratensis', 'xh': 0.1}, {'id': 'w', 'sp': 'canis lupus', 'xh': 0.9}], 'raw': [['g', 'w']], 'ev': {'g>w': ['a']}}))
         saved = (species.ROOT, species.TABLE, species.ROWS, diets.ROOT)
         species.ROOT = diets.ROOT = root; species.TABLE = os.path.join(root, 'data', 'species', 'species.json'); species.ROWS = os.path.join(root, 'data', 'species', 'rows')
         try:
@@ -78,11 +80,13 @@ def test_species_pack_leaves_slimmed_places_alone():
             species.pack()
             after = {p: open(p).read() for p in diets.place_files(root)}
         finally:
-            species.ROOT, species.TABLE, species.ROWS, diets.ROOT = saved; diets._cache.clear()
+            species.ROOT, species.TABLE, species.ROWS, diets.ROOT = saved
         changed = [os.path.basename(p) for p in before if before[p] != after[p]]
-        for p in before:   # the nodes may be slimmed by the pack; the evidence must be what it was
+        for p in before:   # the nodes may be slimmed by the pack; the evidence of the existing places must be what it was
+            if p == newp: continue
             assert json.loads(before[p]).get('ev') == json.loads(after[p]).get('ev'), p
         assert json.loads(after[os.path.join(root, 'data', 'places', 'a.json')])['ev'] == {}, changed
+        assert json.loads(after[newp])['ev'] == {} and (species.slug(SP['grass']), species.slug(SP['wolf'])) in diets.table(root), 'the new place was not lifted'
 
 def test_validator_checks_the_table():
     with tempfile.TemporaryDirectory() as root:

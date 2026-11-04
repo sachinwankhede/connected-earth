@@ -4,6 +4,7 @@ stored once: data/diets/<first two letters of sid>/<sid of the consumer>.json = 
 An entry without `src` is legacy (written by the one-off that built the table). Only eating links (kind e or s) are in the table; sunlight, rain, soil and decomposer edges have no evidence.
 A place file keeps `raw` (which of its own nodes are linked: the per-place presence) and an `ev` entry only where it differs from the table (an override), where the table has none, or `null` where
 the place has the link without evidence although the table has some for the pair (a hand-made link; the one-off `--legacy` run writes these, later runs do not: a link without an entry takes the table's evidence).
+  (python3 build/species.py pack runs this too, so the data jobs and the CI check need nothing extra)
   python3 build/diets.py pack [--legacy] [--check]   lift evidence of the place files into the table and drop what equals it (safe to repeat; never rewrites a pair that is in the table)
 join() gives a place its full `ev` back; species.join calls it, so the build, the validator and the jobs see full places."""
 import collections, datetime, json, os, sys
