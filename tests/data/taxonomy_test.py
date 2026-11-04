@@ -67,6 +67,20 @@ class Classify(unittest.TestCase):
         try: r = taxonomy.lookup({'tl': 1, 'latin': 'Ulva'})
         finally: taxonomy.gbif = old
         self.assertEqual(r['matchType'], 'NONE')   # only kingdom-level answers: stays unmatched
+    def test_name_search_pick(self):
+        fish = {'canonicalName': 'Acanthurus', 'taxonomicStatus': 'ACCEPTED', 'rank': 'GENUS', 'kingdom': 'Animalia', 'phylum': 'Chordata', 'order': 'Perciformes', 'family': 'Acanthuridae', 'key': 2379647, 'scientificName': 'Acanthurus Forsskal, 1775'}
+        beetle = dict(fish, taxonomicStatus='DOUBTFUL', phylum='Arthropoda', family='Curculionidae', key=1217425)
+        ok, rec = taxonomy.pick({'tl': 2, 'latin': 'Acanthurus'}, [beetle, fish], at='2026-11-04')
+        self.assertTrue(ok); self.assertEqual((rec['family'], rec['match'], rec['key'], 'conf' in rec), ('Acanthuridae', 'name-search', 2379647, False))
+        # a producer never takes the animal; a consumer never takes the plant
+        plant = dict(fish, canonicalName='Ulva', kingdom='Plantae', family='Ulvaceae'); insect = dict(plant, kingdom='Animalia', family='Hesperiidae', key=1)
+        self.assertEqual(taxonomy.pick({'tl': 1, 'latin': 'Ulva'}, [insect, plant])[1]['family'], 'Ulvaceae')
+        self.assertFalse(taxonomy.pick({'tl': 2, 'latin': 'Ulva'}, [plant])[0])
+        # two accepted taxa with the name, a different name, or nothing: no guess
+        self.assertFalse(taxonomy.pick({'tl': 2, 'latin': 'Acanthurus'}, [fish, dict(fish, key=2)])[0])
+        self.assertFalse(taxonomy.pick({'tl': 2, 'latin': 'Scarus'}, [fish])[0])
+        self.assertFalse(taxonomy.pick({'tl': 2, 'latin': 'Acanthurus'}, [])[0])
+        self.assertFalse(taxonomy.pick({'tl': 2, 'latin': 'Acanthurus'}, [dict(fish, rank='KINGDOM')])[0])
     def test_producer_has_no_kingdom_hint(self):
         self.assertIsNone(taxonomy.hint({'tl': 1})); self.assertEqual(taxonomy.hint({'tl': 2}), 'Animalia')
         ok, _ = taxonomy.classify({'tl': 1}, dict(EXACT, kingdom='Plantae'))

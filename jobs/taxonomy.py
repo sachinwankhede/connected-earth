@@ -5,6 +5,7 @@ Writes two sidecar files, both keyed by species id (sid), by this job only:
   data/species/taxonomy_review.json  doubtful or missing matches {sid: {match, conf, gname, rank, kingdom, why, at}}: the owner looks at these; nothing is guessed
 Resumable: a species already in either file is skipped. LIMIT=n does at most n species this run (0 = all left).
 RETRY_REVIEW=1 looks at the whole review list again; REDO=sid,sid looks at those species again (accepted or not).
+When the match service cannot decide, a name search is tried (match `name-search`).
 Groups and resources get no taxonomy. Nothing here touches the species rows, the built pages or api/."""
 import datetime, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
@@ -63,6 +64,33 @@ def classify(row, resp, at=None):
     rec.update(rank=resp.get('rank', ''), key=resp.get('usageKey'), match=kind, conf=conf, gname=resp.get('scientificName', ''), src='gbif', at=at)
     return True, rec
 
+BACKBONE = 'd7dddbf4-2cf0-4f39-9b2a-bb099caae36c'   # the GBIF backbone dataset
+PICK_RANKS = HIGHER_OK + ('SPECIES', 'SUBSPECIES')
+
+def pick(row, results, at=None):
+    """(accepted, record) from a GBIF name search (every taxon carrying this name, in any kingdom). The match service gives up on names that several kingdoms share or that only exist as a family or genus; the name search lists them all.
+    Accept only when exactly one ACCEPTED taxon has exactly our name, in a kingdom that fits (animals for consumers, anything else for producers). Pure, so it is tested without the network."""
+    at = at or today(); latin = (row.get('latin') or '').lower()
+    ok_kingdom = (lambda k: k == 'Animalia') if row.get('tl', 0) >= 2 else (lambda k: k != 'Animalia')
+    hits = [r for r in results if (r.get('canonicalName') or '').lower() == latin and r.get('taxonomicStatus') == 'ACCEPTED' and r.get('rank') in PICK_RANKS and ok_kingdom(r.get('kingdom') or '')]
+    if len(hits) != 1: return False, {'match': 'name-search', 'why': ('no accepted taxon with this name in a fitting kingdom' if not hits else '%d accepted taxa share this name' % len(hits)), 'at': at}
+    r = hits[0]
+    rec = {k: r[k] for k in RANKS if r.get(k)}
+    rec.update(rank=r['rank'], key=r.get('key'), match='name-search', gname=r.get('scientificName', ''), src='gbif', at=at)
+    return True, rec
+
+def by_name(row, tries=4):
+    url = 'https://api.gbif.org/v1/species?' + urllib.parse.urlencode({'name': row['latin'], 'datasetKey': BACKBONE, 'limit': 50})
+    for n in range(tries):
+        time.sleep(GAP)
+        try: return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()).get('results', [])
+        except urllib.error.HTTPError as e:
+            if e.code == 429: time.sleep(20 * (n + 1)); continue
+            if e.code >= 500: time.sleep(5 * (n + 1)); continue
+            raise
+        except Exception: time.sleep(5 * (n + 1))
+    raise RuntimeError('GBIF did not answer for %r' % row['latin'])
+
 def gbif(name, kingdom=None, tries=4):
     q = {'name': name, 'strict': 'false'}
     if kingdom: q['kingdom'] = kingdom
@@ -96,6 +124,9 @@ def main():
     for n, sid in enumerate(todo, 1):
         row = rows[sid]
         ok, rec = classify(row, lookup(row))
+        if not ok and not rec['why'].startswith(('a producer matched an animal', 'a consumer matched', 'confidence')):   # the match service could not decide: list every taxon with this name instead
+            ok2, rec2 = pick(row, by_name(row))
+            if ok2: ok, rec = ok2, rec2
         (got if ok else rev)[sid] = rec
         if n % 50 == 0 or n == len(todo): save(OUT, got); save(REVIEW, rev); print(n, 'of', len(todo), flush=True)
     save(OUT, got); save(REVIEW, rev)
