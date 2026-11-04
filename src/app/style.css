@@ -428,8 +428,8 @@ div.card { cursor: default; }
 .qrow { display: flex; gap: 8px; align-items: center; flex: 1 1 100%; width: 100%; }
 .qrow input { flex: 1 1 0; width: 0; min-width: 0; }
 .qwrap { position: relative; flex: 1 1 0; min-width: 0; display: flex; }
-.qclr { position: absolute; right: 4px; top: 0; bottom: 0; min-width: 44px; display: flex; align-items: center; justify-content: center; padding: 0 10px; color: var(--accent); font: 600 14px var(--font-body); text-decoration: none; }
-.qwrap.has input, .filters .qwrap.has input { padding-right: 62px; }
+.qclr { position: absolute; right: 2px; top: 0; bottom: 0; width: 44px; display: flex; align-items: center; justify-content: center; color: var(--muted, var(--ink)); opacity: .7; text-decoration: none; }
+.qwrap.has input, .filters .qwrap.has input { padding-right: 44px; }
 #q::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
 .qbtn { display: none; }
 .morerow { grid-column: 1 / -1; text-align: center; list-style: none; }
