@@ -15,6 +15,7 @@ def make_site(root, sw_stamp=None, drop=None):
     write(root, 'sw.js', ('const V = "%s";\n' % (sw_stamp or stamp)).encode())
     write(root, 'api/places/main/index-world.json', [1])
     write(root, 'api/places/main/cards-world.json', [1])
+    write(root, 'api/journeys/main.json', {'cross': [1]})
     write(root, 'api/yellowstone.json', {'nodes': list(range(10))})
     write(root, 'api/species/abies-balsamea.json', {'t': 'x' * 40})
     write(root, 'api/search/meta.json', {'a': 1})
@@ -53,7 +54,7 @@ class LiveCheck(unittest.TestCase):
             self.assertEqual(code, 1); self.assertIn('index.html is build', out)
 
     def test_missing_file_fails(self):
-        for gone in ('api/search/meta.json', 'api/ties/alabama.json', 'api/places/main/cards-world.json'):
+        for gone in ('api/search/meta.json', 'api/ties/alabama.json', 'api/places/main/cards-world.json', 'api/journeys/main.json'):
             with tempfile.TemporaryDirectory() as d:
                 code, out = run(d, make_site(d, drop=gone))
                 self.assertEqual(code, 1, gone); self.assertIn(gone, out)
