@@ -37,6 +37,7 @@
   ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
   if (window.fetch) HELD.push(crossPhotos);
   var go = function () { M.releasePhotos(); };
+  addEventListener("pointerdown", loadCounts, { once: true, capture: true });   /* the per-region counts are fetched at the first touch, not at start: the first view makes no request for them (#261) */
   addEventListener("pointerdown", go, { once: true, capture: true }); addEventListener("keydown", go, { once: true, capture: true });
   setTimeout(go, 9000);
   if (/[#&](pg|p|e|j)=/.test(location.hash)) go();   // a link straight to a place or journey needs its picture now

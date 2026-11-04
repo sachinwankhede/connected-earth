@@ -12,6 +12,7 @@
       species: function (id) { return json(root + "api/species/" + id + ".json", null); },   /* a species' long description; null when it has none */
       bounds: function (id) { return json(root + "data/outlines/" + encodeURIComponent(id) + ".json").catch(function () { return null; }); },   /* a park's outline; null when missing or unreadable */
       states: function () { return json(root + "geo-states.json"); },   /* the US state outlines */
+      counts: function () { return json(root + "api/places/__PLACES_DIR__/counts.json"); },   /* places per region, kind and park, written by the build (#261) */
       place: function (id) { return json(root + "api/" + id + ".json"); },   /* a place's full web (nodes, links, evidence, story, its species' picture entries) */
       speciesPlaces: function (k) { return json(root + "api/species-places__PLACES_SFX__/" + k + ".json", {}); },   /* which places a species is in; {} when there is no file */
       ties: function (k) { return json(root + "api/ties__PLACES_SFX__/" + k + ".json", {}); },   /* the ties of one region; {} when there is no file */
