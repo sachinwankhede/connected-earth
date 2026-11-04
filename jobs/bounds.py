@@ -6,7 +6,7 @@ lists rounded to 4 decimals (the app fetches a park's file when the park opens; 
 Resumable: places that already have a file are skipped.  Usage: bounds.py [id ...]"""
 import json,os,re,sys,time,urllib.request,urllib.parse
 here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here)
-sys.path.insert(0,os.path.join(ROOT,'build')); import species
+sys.path.insert(0,os.path.join(ROOT,'build')); import species, geoids
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 OUT=os.path.join(ROOT,'data','outlines')
 def path(i): return os.path.join(OUT,i+'.json')
@@ -30,7 +30,7 @@ def get(p, empty_ok=False):
 def places():
     for p in species.files():
         e=json.load(open(p))
-        if e.get('country')=='United States of America' and e.get('park') and e.get('lat') is not None: yield e
+        if geoids.country_name(e.get('country'))=='United States of America' and e.get('park') and e.get('lat') is not None: yield e
 def fetch(e):
     big=e.get('level')!='local'
     off=0.01 if big else 0.0006

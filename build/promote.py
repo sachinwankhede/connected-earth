@@ -5,7 +5,7 @@ Usage: promote.py --from-codes   promotes every place that has an official NPS l
 import json,os,sys
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0,os.path.join(ROOT,'build'))
-import promote_check as pc, species, journeydata
+import promote_check as pc, species, journeydata, geoids
 ids=sys.argv[1:]
 if ids[:1]==['--from-codes']:
     ids=[k for k,v in json.load(open(os.path.join(ROOT,'jobs/nps/codes.json'))).items() if v['code']]
@@ -17,7 +17,7 @@ if ids[:1]==['--local']:
     for f in sorted(os.listdir(os.path.join(ROOT,'data','places'))):
         if not f.endswith('.json'): continue
         d=json.load(open(os.path.join(ROOT,'data','places',f)))
-        if d.get('stage')=='pilot' and d.get('level')=='local' and (st is None or st & set(d.get('states') or [])): ids.append(f[:-5])
+        if d.get('stage')=='pilot' and d.get('level')=='local' and (st is None or st & set(geoids.state_name(x) for x in d.get('states') or [])): ids.append(f[:-5])
     LOCAL=True
 else: LOCAL=False
 NEW=journeydata.order_is_new(ROOT)   # #277: with data/order/ a promotion only flips `stage`; the place keeps its position in the sequence

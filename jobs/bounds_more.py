@@ -7,7 +7,7 @@ jobs/reports/outlines_missing.md listing the places that still have none. Resuma
 OpenStreetMap data is (c) OpenStreetMap contributors, ODbL: the app's credits say so."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
-sys.path.insert(0, os.path.join(ROOT, 'build')); import species
+sys.path.insert(0, os.path.join(ROOT, 'build')); import species, geoids
 OUT = os.path.join(ROOT, 'data', 'outlines'); UA = 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'
 sys.setrecursionlimit(20000)
 MAXPTS = 2500    # points per park, keeps a file well under the 400 KB budget
@@ -67,7 +67,7 @@ def from_commons(f):
         rings += rings_of(ft.get('geometry', ft))
     return rings
 def from_osm(e, qid):
-    q = e['name'] + ', ' + (e.get('country') or '')
+    q = e['name'] + ', ' + geoids.country_name(e.get('country') or '')
     r = json.loads(get('https://nominatim.openstreetmap.org/search?format=jsonv2&polygon_geojson=1&polygon_threshold=0.0005&extratags=1&limit=6&q=' + urllib.parse.quote(q)))
     time.sleep(1.1)
     want = toks(e['name']); best = None
@@ -110,5 +110,5 @@ if __name__ == '__main__':
     os.makedirs(os.path.join(here, 'reports'), exist_ok=True)
     with open(os.path.join(here, 'reports', 'outlines_missing.md'), 'w') as f:
         f.write('# Places without an outline (%d)\n\n| id | name | country |\n|---|---|---|\n' % len(missing))
-        for e in missing: f.write('| %s | %s | %s |\n' % (e['id'], e['name'], e.get('country', '')))
+        for e in missing: f.write('| %s | %s | %s |\n' % (e['id'], e['name'], geoids.country_name(e.get('country', ''))))
     print(got, 'new outlines;', len(missing), 'still without')

@@ -9,16 +9,23 @@ ICONS=set(re.findall(r"^\s{4}(\w+):",tpl[i0:i1],re.M))
 geo=json.load(open(os.path.join(ROOT,'data','geo','geo.json')))
 C={c['name']:c['cont'] for c in geo['countries']}; S={s['name'] for s in geo['states']}
 sys.path.insert(0,here)
-import species
+import species, geoids
 def check(path):
     e=species.load(path); errs=[]; warn=[]
-    for k in ('id','name','short','place','lat','lon','side','blurb','tip','sources','notes','nodes','raw','cont','country','imgwiki','icon','tier','kind'):
+    T=geoids.tables()
+    for x in [e.get('country')]+list(e.get('countries') or []):
+        if x in T['c_id']: warn.append('country %r is a name; write its id %s (data/geo/geo.json)'%(x,T['c_id'][x]))
+    for x in e.get('states') or []:
+        if x in T['s_id']: warn.append('state %r is a name; write its id %s (data/geo/geo.json)'%(x,T['s_id'][x]))
+    for k in ('id','name','short','place','lat','lon','side','blurb','tip','sources','notes','nodes','raw','country','imgwiki','icon','tier','kind'):
         if k not in e: errs.append('missing field '+k)
     if errs: return errs,warn
     if os.path.basename(path)!=e['id']+'.json': errs.append('file name must be <id>.json')
     if not re.fullmatch(r'[a-z][a-z0-9]*',e['id']): errs.append('id must be lowercase letters/digits')
     if e['side'] not in ('l','r'): errs.append('side must be l or r')
     if not(-90<=e['lat']<=90 and -180<=e['lon']<=180): errs.append('lat/lon out of range')
+    if 'cont' in e and e['cont']!=geoids.continent_of(e['country']): errs.append('cont %r does not match the country (the continent comes from the country; remove cont from the file)'%e['cont'])
+    geoids.names(e)
     if e['country'] not in C: errs.append('country %r not in geo.json; close: %s'%(e['country'],difflib.get_close_matches(e['country'],list(C),3)))
     elif C[e['country']]!=e['cont']: errs.append('continent for %s should be %s'%(e['country'],C[e['country']]))
     for s in e.get('states',[]):

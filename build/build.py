@@ -12,7 +12,7 @@ import json, re, sys, os, shutil, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import species, journeydata
+import species, journeydata, geoids
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
 from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)
@@ -26,7 +26,7 @@ def load_places(pilot):
         for i in pilot_order:
             ecos.append(json.load(open(P('data', 'places', i + '.json'))))
     tab = species.table()
-    ecos = [species.join(e, tab) for e in ecos]
+    ecos = [geoids.names(species.join(e, tab)) for e in ecos]
     sp = P('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
     for e in ecos:
         if e.get('park') and not e.get('story'):
