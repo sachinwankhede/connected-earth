@@ -95,9 +95,10 @@
     "latin": "Canis testensis",
     "tl": 3,
     "xh": 0.7,
-    "wiki": "Coyote",
+    "wiki": "Coyote alias",
     "desc": "A hunter of Testland.",
-    "ic": "coyote"
+    "ic": "coyote",
+    "canonicalWiki": "Coyote canonical"
    },
    {
     "id": "wolf",

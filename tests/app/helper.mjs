@@ -75,14 +75,21 @@ export async function launch() {
 // Testland has a web of 11 species over all five levels and is related to Testwater; ids: FIXTURE_IDS.
 export const FIXTURE_IDS = ['testland', 'testwater'];
 const FIXTURES = FIXTURE_IDS.map((id) => JSON.parse(fs.readFileSync(path.join(ROOT, 'tests', 'fixtures', 'places', id + '.json'), 'utf8')));
+// For a test that runs its own file server instead of using open(): fixtureList(url path, text of the built file) returns the world index or cards with the
+// fixtures added (or null for any other file); fixturePlace(url path) returns a copy of a fixture's place file (or null).
+export function fixtureList(urlPath, builtText) {
+  if (/\/api\/places\/main\/index-world\.json$/.test(urlPath)) return JSON.stringify(JSON.parse(builtText).concat(FIXTURES.map((f) => f.index)));
+  if (/\/api\/places\/main\/cards-world\.json$/.test(urlPath)) return JSON.stringify({ ...JSON.parse(builtText), ...Object.fromEntries(FIXTURES.map((f) => [f.index.id, f.card])) });
+  return null;
+}
+export function fixturePlace(urlPath) {
+  const m = /\/api\/([\w-]+)\.json$/.exec(urlPath), f = m && FIXTURES.find((x) => x.index.id === m[1]);
+  return f ? JSON.parse(JSON.stringify(f.place)) : null;
+}
 async function routeFixtures(page) {
-  await page.route(/\/api\/places\/main\/index-world\.json(?:\?|$)/, async (r) => {
-    const res = await r.fetch(), list = await res.json();
-    await r.fulfill({ response: res, body: JSON.stringify(list.concat(FIXTURES.map((f) => f.index))) });
-  });
-  await page.route(/\/api\/places\/main\/cards-world\.json(?:\?|$)/, async (r) => {
-    const res = await r.fetch(), cards = await res.json();
-    await r.fulfill({ response: res, body: JSON.stringify({ ...cards, ...Object.fromEntries(FIXTURES.map((f) => [f.index.id, f.card])) }) });
+  await page.route(/\/api\/places\/main\/(?:index|cards)-world\.json(?:\?|$)/, async (r) => {
+    const res = await r.fetch();
+    await r.fulfill({ response: res, body: fixtureList(new URL(r.request().url()).pathname, await res.text()) });
   });
   for (const f of FIXTURES) await page.route(new RegExp('/api/' + f.index.id + '\\.json(?:\\?|$)'), (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(f.place) }));
 }
