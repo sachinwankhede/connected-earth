@@ -76,7 +76,7 @@ Nothing the build reads may live in the jobs folder.
 ## Ids in `data/geo/geo.json` (added 4 Nov, #255 follow-up)
 - The file was generated once, outside this repo, from a source we have not identified; no script here rebuilds it. The app finds countries by name, not by id.
 - Country ids are the ISO 3166-1 numeric code as three digits (`242` Fiji, `004` Afghanistan). A country that has no ISO code (Kosovo, N. Cyprus, Somaliland) gets a lowercase slug of its name (`kosovo`, `n-cyprus`, `somaliland`). State ids are the two-digit US FIPS code (`01` Alabama).
-- Place files may name a country or state by id or (until the rewrite, #251 step 2) by name; `build/geoids.py` turns either into names for the build and the checks, and sets `cont` from the country (a place file needs no `cont`). Jobs that write places use `geoids.country_id` / `state_id`.
+- Place files hold ids in `country`, `countries` and `states` (#251); there is no `cont` (the continent comes from the country). `build/geoids.py` turns ids into names for the build, `api/` and the app, which still use names. The build and `build/validate.py` reject a name or an unknown id. Jobs that write places use `geoids.country_id` / `state_id`. A branch that still carries names: merge main, run `python3 build/places_ids.py`.
 - To add one: use the ISO code if it exists, otherwise the slug. `build/schemas/geo.schema.json` and `build/validate_data.py` reject an id that is neither three digits nor a slug, the text "undefined", and any id used twice within countries or within states.
 
 ## No web reads at run time (owner rule, 2 Nov)

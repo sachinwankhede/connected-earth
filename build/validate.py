@@ -12,11 +12,8 @@ sys.path.insert(0,here)
 import species, geoids
 def check(path):
     e=species.load(path); errs=[]; warn=[]
-    T=geoids.tables()
-    for x in [e.get('country')]+list(e.get('countries') or []):
-        if x in T['c_id']: warn.append('country %r is a name; write its id %s (data/geo/geo.json)'%(x,T['c_id'][x]))
-    for x in e.get('states') or []:
-        if x in T['s_id']: warn.append('state %r is a name; write its id %s (data/geo/geo.json)'%(x,T['s_id'][x]))
+    for x in geoids.name_form(e):
+        errs.append('country and state are ids from data/geo/geo.json, not names: %r (rewrite with python3 build/places_ids.py; if it is not found there, the name is wrong)'%x)
     for k in ('id','name','short','place','lat','lon','side','blurb','tip','sources','notes','nodes','raw','country','imgwiki','icon','tier','kind'):
         if k not in e: errs.append('missing field '+k)
     if errs: return errs,warn

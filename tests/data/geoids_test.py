@@ -17,6 +17,11 @@ def test_countries_list_and_unknown_values():
     u = geoids.names({'country': 'Atlantis'})
     assert u['country'] == 'Atlantis' and 'cont' not in u   # left as it is, so the checks can report it
 
+def test_name_form_finds_names_and_unknowns():
+    assert geoids.name_form({'country': '392', 'states': ['01']}) == []
+    assert geoids.name_form({'country': 'Japan', 'countries': ['392', 'Russia'], 'states': ['Alabama']}) == ['Japan', 'Russia', 'Alabama']
+    assert geoids.name_form({'country': '999'}) == ['999']   # an id that is not in geo.json is a mistake too
+
 def test_round_trip():
     for n in ('Japan', 'Kosovo', 'Fiji'):
         assert geoids.country_name(geoids.country_id(n)) == n

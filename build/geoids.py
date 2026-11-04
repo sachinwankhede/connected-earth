@@ -32,6 +32,16 @@ def is_id(x, kind):
     return x in t['c_name' if kind == 'country' else 's_name']
 
 
+def name_form(e):
+    """The country and state values of a place that are written as names, not ids (since #251 step 3 an error)."""
+    t = tables(); out = []
+    for c in [e.get('country')] + list(e.get('countries') or []):
+        if c is not None and c not in t['c_name']: out.append(c)
+    for s in e.get('states') or []:
+        if s not in t['s_name']: out.append(s)
+    return out
+
+
 def names(e):
     """The place with country, countries and states as names and `cont` set from the country. Changes e in place and returns it."""
     if 'country' in e: e['country'] = country_name(e['country'])
