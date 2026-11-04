@@ -474,7 +474,7 @@ def build_id(html):
 
 def stamp_sw(main_html):
     bid = build_id(main_html)
-    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()))
+    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']))
     print('sw.js stamped', bid)
 
 

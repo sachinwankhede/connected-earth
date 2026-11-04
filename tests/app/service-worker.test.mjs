@@ -55,3 +55,22 @@ test('service worker serves cached data and the app shell offline without substi
     await browser.close();
   }
 });
+
+test('after install the service worker also keeps d3 and the state outlines, so a food web opens offline on a fresh install (#405)', async () => {
+  const browser = await H.launch();
+  const ctx = await browser.newContext();
+  const page = await ctx.newPage();
+  try {
+    await ctx.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (route) => route.abort());
+    const appUrl = new URL(await H.urlFor(H.MAIN)); appUrl.hostname = 'localhost';
+    await page.goto(appUrl.href);
+    await page.evaluate(async () => { await navigator.serviceWorker.ready; });
+    await page.waitForFunction(async () => {
+      const out = [];
+      for (const k of await caches.keys()) for (const r of await (await caches.open(k)).keys()) out.push(new URL(r.url).pathname);
+      return out.some((p) => /\/d3-[\d.]+\.js$/.test(p)) && out.some((p) => p.endsWith('/geo-states.json'));
+    }, null, { timeout: 20000 });
+  } finally {
+    await ctx.close();
+  }
+});
