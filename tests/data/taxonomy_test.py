@@ -31,6 +31,9 @@ class Classify(unittest.TestCase):
                             (dict(EXACT, matchType='HIGHERRANK', rank='GENUS', canonicalName='Acer', confidence=70), 'Acer')):
             ok, _ = taxonomy.classify({'tl': 3, 'latin': latin}, resp)
             self.assertFalse(ok, latin)
+    def test_producer_matching_an_animal_goes_to_review(self):
+        ok, rec = taxonomy.classify({'tl': 1, 'latin': 'Liana'}, dict(EXACT, matchType='EXACT'))   # EXACT is Animalia in this fixture
+        self.assertFalse(ok); self.assertIn('producer matched an animal', rec['why'])
     def test_producer_has_no_kingdom_hint(self):
         self.assertIsNone(taxonomy.hint({'tl': 1})); self.assertEqual(taxonomy.hint({'tl': 2}), 'Animalia')
         ok, _ = taxonomy.classify({'tl': 1}, dict(EXACT, kingdom='Plantae'))
