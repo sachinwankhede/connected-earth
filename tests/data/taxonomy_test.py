@@ -101,6 +101,18 @@ class Validator(unittest.TestCase):
             put(r, 'data/species/taxonomy.json', {'ab': rec})
             put(r, 'data/species/taxonomy_review.json', {'cd': taxonomy.classify({'tl': 2}, {'matchType': 'NONE'}, at='2026-11-04')[1]})
             self.assertEqual(check(r)[0], [])
+    def test_manual_file(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/species/taxonomy_manual.json', {'ab': {'kingdom': 'Animalia', 'rank': 'CLASS', 'note': 'by hand'}, 'ef': {'kingdom': 'Animalia', 'rank': 'CLASS', 'note': 'a group, not a taxon'}, 'cd': {'kingdom': 'Plantae', 'rank': 'ORDER'}})
+            text = ' | '.join(check(r)[0])
+            self.assertIn("'ef' is not a species of kind taxon", text); self.assertIn("'note' is a required property", text)
+            self.assertNotIn("'ab'", text)
+    def test_manual_record_in_taxonomy_json(self):
+        with tempfile.TemporaryDirectory() as r:
+            self.tree(r)
+            put(r, 'data/species/taxonomy.json', {'ab': {'kingdom': 'Animalia', 'class': 'Polychaeta', 'rank': 'CLASS', 'match': 'manual', 'src': 'manual', 'at': '2026-11-04', 'note': 'x'}})
+            self.assertEqual(check(r)[0], [])
     def test_problems(self):
         with tempfile.TemporaryDirectory() as r:
             self.tree(r)
