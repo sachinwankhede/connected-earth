@@ -50,6 +50,9 @@
   window.__PLACES = !window.fetch ? Promise.reject(0) : !link ? pair("index-world", "cards-world") : Promise.all([pair("index-world", "cards-world"), pair("index-local", "cards-local")]).then(function (r) {
     window.__LOCALS_IN = 1; return [r[0][0].concat(r[1][0]), Object.assign({}, r[0][1], r[1][1])];
   });
+  /* the journeys (and the couple and source settings) are a file too (#377): fetched with the world places, the app starts when it has arrived; if it cannot be loaded the app starts with no journeys */
+  var jb = b.replace(/places\/__PLACES_DIR__\/$/, "journeys/");
+  window.__JOURNEYS = !window.fetch ? Promise.resolve(null) : fetch(jb + "__PLACES_DIR__.json").then(function (r) { if (!r.ok) throw 0; return r.json(); }).catch(function () { return null; });
   window.__LOCALS = function () { return window.fetch ? pair("index-local", "cards-local") : Promise.reject(0); };
 })();
 </script>
@@ -1163,8 +1166,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 <style>/*__MLCSS__*/</style>
 <script>__PHOTO_REGISTRY__</script>
 <script>
-window.__PLACES.then(function (PL) {
+Promise.all([window.__PLACES, window.__JOURNEYS]).then(function (R) {
   "use strict";
+  var PL = R[0];
 
   var LAND = __LAND__;
   var GEO = __GEO__;
@@ -1235,7 +1239,7 @@ window.__PLACES.then(function (PL) {
     fire: '<path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-4-1-6 1-10z"/>'
   };
 
-  var DATA = __DATA__;
+  var DATA = R[1] && R[1].cross ? R[1] : { couple: 0.5, src: {}, cross: [] };   /* from the head loader (api/journeys); with no file the app starts with no journeys */
   var ABOUT = {}, ABOUT_P = {};   /* species id -> description text, or null when there is none; filled one species at a time */
   function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
   function sidOf(n) { return n.latin.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }   /* the same id the build gives the species (build/species.py slug) */

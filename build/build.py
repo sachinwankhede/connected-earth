@@ -174,6 +174,12 @@ def write_regions(light, pilot):
         open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
+def write_journeys(data, pilot):
+    """The journeys (and the couple and source settings) are their own file, fetched by the page's head with the world places (#377): api/journeys/main|pilot.json."""
+    d = os.path.join(P('api'), 'journeys'); os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, 'pilot.json' if pilot else 'main.json'), 'w').write(data)
+
+
 def clear_old_places_files():
     """The first places files (api/places/index.json, cards.json and the -pilot pair) are not written any more: the app reads api/places/main|pilot/ (#313). Old copies are removed."""
     d = os.path.join(P('api'), 'places'); os.makedirs(d, exist_ok=True)
@@ -422,11 +428,12 @@ def build(pilot, out_path, write=False, places=False):
     if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
+    if places: write_journeys(data, pilot)
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
     tpl = tpl.replace('__PLACES_SFX__', '-pilot' if pilot else '')
     tpl = tpl.replace('__PLACES_DIR__', 'pilot' if pilot else 'main').replace('__NLOCAL__', str(sum(1 for e in light if e.get('level') == 'local')))
-    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/'))).replace('__DATA__', lit(data))
+    out = tpl.replace('<!--__BOOT__-->', boot_html(land)).replace('__LAND__', land).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())

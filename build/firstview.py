@@ -1,16 +1,16 @@
-"""firstview.py: the first-view weight budget (#369). The first draw is bound by the bytes the phone line must carry (the page, the map library and the world places) and by which hosts it must reach, so those are blocked on here. Timings are not: they jitter too much (see perf-ab).
+"""firstview.py: the first-view weight budget (#369). The first draw is bound by the bytes the phone line must carry (the page, the map library, the world places and the journeys file) and by which hosts it must reach, so those are blocked on here. Timings are not: they jitter too much (see perf-ab).
 Raise a limit on purpose, in this file, in the pull request that needs it."""
 import gzip, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# Gzip bytes (level 9, GitHub Pages serves gzip only) of what a phone fetches before the first draw: the page, the map library and the world places. 4 Nov 2026: 409,325 bytes; limit = about 2% above, rounded up to the next KB.
+# Gzip bytes (level 9, GitHub Pages serves gzip only) of what a phone fetches before the first draw: the page, the map library, the world places and (since #377) the journeys file. 4 Nov 2026: 409,325 bytes; limit = about 2% above, rounded up to the next KB.
 FIRST_VIEW_GZIP_MAX = 418_000
 # Outside hosts the first view may reach (map tiles, glyphs, satellite, elevation). A new one fails the check; add it here only on purpose.
 HOSTS_ALLOWED = {'tiles.openfreemap.org', 'server.arcgisonline.com', 's3.amazonaws.com'}
 
 def first_view_files(root=ROOT):
     lib = sorted(f for f in os.listdir(root) if re.fullmatch(r'maplibre-gl-[\d.]+\.js', f))
-    return ['index.html'] + lib + ['api/places/main/index-world.json', 'api/places/main/cards-world.json']
+    return ['index.html'] + lib + ['api/places/main/index-world.json', 'api/places/main/cards-world.json', 'api/journeys/main.json']
 
 def gzip_size(path):
     with open(path, 'rb') as f:
