@@ -10,7 +10,7 @@ SP = {'grass': 'Poa pratensis', 'deer': 'Odocoileus virginianus', 'wolf': 'Canis
 def make(root):
     for k, latin in SP.items():
         sid = species.slug(latin)
-        r = {'sid': sid, 'sk': 'resource' if k == 'sun' else 'taxon', 'name': k, 'tl': 1}
+        r = {'sid': sid, 'sk': 'resource' if k == 'sun' else 'taxon', 'name': latin if k == 'sun' else k, 'tl': 1}
         if k != 'sun': r['latin'] = latin
         species.write_row(r, os.path.join(root, 'data', 'species', 'rows'))
     os.makedirs(os.path.join(root, 'data', 'places'))
@@ -66,6 +66,23 @@ def test_new_place_with_known_and_new_pairs():
         t = diets.table(root); sid = lambda k: species.slug(SP[k])
         assert t[(sid('grass'), sid('wolf'))]['src'] == 'job-x' and 'at' in t[(sid('grass'), sid('wolf'))]
         assert 'src' not in t[(sid('grass'), sid('deer'))]               # legacy entries carry no src
+
+def test_species_pack_leaves_slimmed_places_alone():
+    """species.py pack rewrites the place files; it must write back the place's own `ev`, not the joined one (found 4 Nov: it re-expanded every place)."""
+    with tempfile.TemporaryDirectory() as root:
+        make(root); diets.pack(root, legacy=True); diets._cache.clear()
+        saved = (species.ROOT, species.TABLE, species.ROWS, diets.ROOT)
+        species.ROOT = diets.ROOT = root; species.TABLE = os.path.join(root, 'data', 'species', 'species.json'); species.ROWS = os.path.join(root, 'data', 'species', 'rows')
+        try:
+            before = {p: open(p).read() for p in diets.place_files(root)}
+            species.pack()
+            after = {p: open(p).read() for p in diets.place_files(root)}
+        finally:
+            species.ROOT, species.TABLE, species.ROWS, diets.ROOT = saved; diets._cache.clear()
+        changed = [os.path.basename(p) for p in before if before[p] != after[p]]
+        for p in before:   # the nodes may be slimmed by the pack; the evidence must be what it was
+            assert json.loads(before[p]).get('ev') == json.loads(after[p]).get('ev'), p
+        assert json.loads(after[os.path.join(root, 'data', 'places', 'a.json')])['ev'] == {}, changed
 
 def test_validator_checks_the_table():
     with tempfile.TemporaryDirectory() as root:
