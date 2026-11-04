@@ -95,6 +95,15 @@ def check(root):
         if listed is not None:
             skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
             for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
+    # taxonomy sidecar (#254): shape per file, and rules across files
+    tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
+    if tx is not None or rv is not None:
+        taxa = {r.get('sid') for r in sp.values() if r.get('sk') == 'taxon'}
+        for obj, kind, name in ((tx, 'taxonomy', 'taxonomy.json'), (rv, 'taxonomy-review', 'taxonomy_review.json')):
+            if obj is None: continue
+            shape(obj, kind, 'data/species/' + name, errs)
+            for sid in sorted(set(obj) - taxa): errs.append('data/species/%s: %r is not a species of kind taxon' % (name, sid))
+        for sid in sorted(set(tx or {}) & set(rv or {})): errs.append('taxonomy: %r is both accepted and in the review list' % sid)
     # job-written lists (#255, PR 2): one schema each. Old-format records and empty values are warnings, not errors, until the jobs that wrote them are cleaned up
     about = load(root, 'data', 'species', 'about.json')
     if about is not None:

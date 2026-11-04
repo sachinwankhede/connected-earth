@@ -1,0 +1,50 @@
+name: data-taxonomy
+# Manual runs only (#254). Matches species of kind "taxon" to the GBIF backbone and writes data/species/taxonomy.json (accepted) and
+# data/species/taxonomy_review.json (doubtful, for the owner). Resumable: carries on from the open data/taxonomy pull request.
+# Nothing reaches the live site: the sidecar is not published. The job never merges.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Species to match this run (0 = all left)", default: "100" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-taxonomy
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Carry on from the open batch, if there is one
+        run: |
+          git checkout -B data/taxonomy
+          if [ -n "$(gh pr list --head data/taxonomy --state open --json number --jq '.[0].number')" ]; then
+            git fetch origin data/taxonomy && git checkout origin/data/taxonomy -- data/species/taxonomy.json data/species/taxonomy_review.json
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - name: Match the next batch
+        run: LIMIT="${{ github.event.inputs.limit || '100' }}" python3 jobs/taxonomy.py
+      - name: Check the files
+        run: |
+          python3 -m pip install --break-system-packages jsonschema==4.26.0
+          python3 build/validate_data.py
+          python3 build/budget.py | grep -i taxonomy
+      - name: Commit and open or update the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git add data/species/taxonomy.json data/species/taxonomy_review.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          N=$(python3 -c "import json;print(len(json.load(open('data/species/taxonomy.json'))))")
+          R=$(python3 -c "import json;print(len(json.load(open('data/species/taxonomy_review.json'))))")
+          git commit -m "Species taxonomy from GBIF: $N matched, $R to review"
+          git push -f origin data/taxonomy
+          if [ -z "$(gh pr list --head data/taxonomy --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base main --head data/taxonomy --title "Species taxonomy from GBIF (batch)" --body "Part of #254. Automatic batch from the data-taxonomy workflow: kingdom, phylum, class, order and family per species, from the GBIF backbone. Doubtful matches are in taxonomy_review.json, not guessed. Not published to the app."
+          fi
+          gh workflow run ci.yml --ref data/taxonomy
