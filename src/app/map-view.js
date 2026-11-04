@@ -68,6 +68,34 @@
         (last ? '<span aria-current="page">' + p.t + "</span>" : '<button type="button" data-go="' + p.l + '" data-a="' + (p.a || "").replace(/"/g, "&quot;") + '">' + p.t + "</button>");
     }).join("");
   }
+  /* Chip counts (#261). The build writes the number of places per region, kind and park (api/places/<main|pilot>/counts.json, as [world places, local places]); the chips read it once
+     it has arrived (fetched at the first touch, so the first view makes no extra request) and count the places in memory until then, and whenever the file cannot answer: a search text, a kind and parks together, or the local
+     button on before the local places are in. M.countsCheck lists the chips where the two answers differ (tests). */
+  var CNT = null;
+  function loadCounts() { if (CNT || M.countsP) return M.countsP; M.countsP = Data.counts().then(function (c) { CNT = c; return c; }).catch(function () { M.countsP = null; return null; }); return M.countsP; }
+  M.loadCounts = loadCounts;
+  function scanCount(lvl, k) { return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
+  function fileCount(lvl, k) {
+    if (!CNT || FL.q || (FL.kind && FL.park) || (FL.local && !Places.done)) return null;
+    var r = CNT.regions[(lvl === "continent" ? "c:" : lvl === "country" ? "k:" : "s:") + k]; if (!r) return null;
+    var n = 0;
+    if (FL.kind) { kindsOf(FL.kind).forEach(function (kd) { var x = r.k[kd]; if (x) n += x[0] + (FL.local ? x[1] : 0); }); return n; }
+    if (FL.park) return r.p[0] + (FL.local ? r.p[1] : 0);
+    return r.n[0] + (FL.local ? r.n[1] : 0);
+  }
+  M.countsCheck = function () {
+    var bad = [], seen = {}; if (!CNT) return null;
+    ECOS.forEach(function (e) {
+      [["continent", e.conts], ["country", e.countries], ["state", e.states || []]].forEach(function (g) {
+        g[1].forEach(function (k) {
+          var id = g[0] + ":" + k; if (seen[id]) return; seen[id] = 1;
+          var f = fileCount(g[0], k), c = scanCount(g[0], k);
+          if (f !== null && f !== c) bad.push({ lvl: g[0], k: k, file: f, scan: c });
+        });
+      });
+    });
+    return bad;
+  };
   function chipsHTML() {
     var keys = [], lvl, lab;
     if (M.tab === "journeys") {
@@ -83,7 +111,7 @@
     else return "";
     if (keys.length < 2) return "";
     keys.sort();
-    function count(k) { return ECOS.filter(pass).filter(function (e) { return lvl === "continent" ? e.conts.indexOf(k) >= 0 : lvl === "country" ? e.countries.indexOf(k) >= 0 : (e.states || []).indexOf(k) >= 0; }).length; }
+    function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
     keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
     return '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
       return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + " <b>" + count(k) + "</b>" + "</button>";
