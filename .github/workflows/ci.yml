@@ -1,6 +1,6 @@
 name: checks
 # Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
-#   app  (src, build, app tests, fonts, package files...): everything, including the browser tests and the Pages payload step.
+#   app  (src, build, app tests, fonts, package files...): everything, including the browser tests, the Pages payload step and the data tests (#394).
 #   data (data, photos, data tests, this file and pages.yml): validation, pack check, build, Pages payload step, size budgets, data tests and one smoke test.
 #   job scripts (data-job scripts in jobs/, lib, job tests, state/promote tools, ci_changes.py, live_check.py): the job self-tests only.
 #   docs, notes, the data-job workflows and job state files run nothing.
@@ -62,6 +62,13 @@ jobs:
       - name: Validate photo sources and metadata
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 lib/photo_registry.py validate
+      - name: Data tests (every tests/data/*_test.py and tests/data/*.test.mjs, so a new test file runs without being added here)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
+        run: |
+          fail=0
+          for t in tests/data/*_test.py; do echo "== $t"; python3 "$t" || fail=1; done
+          node --test tests/data/*.test.mjs || fail=1
+          exit $fail
       - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
@@ -116,18 +123,13 @@ jobs:
       - name: Informational data-quality summary
         continue-on-error: true
         run: python3 build/data_quality.py >> "$GITHUB_STEP_SUMMARY"
-      - name: Data tests
+      - name: Data tests (every tests/data/*_test.py and tests/data/*.test.mjs, so a new test file runs without being added here)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: |
-          python3 tests/data/data_quality_test.py
-          python3 tests/data/validate_data_test.py
-          python3 tests/data/places_split_test.py
-          python3 tests/data/species_rows_test.py
-          python3 tests/data/journeydata_test.py
-          python3 tests/data/taxonomy_test.py
-          python3 tests/data/geoids_test.py
-          python3 tests/data/diets_test.py
-          python3 tests/data/firstview_budget_test.py
-          node --test tests/data/*.test.mjs
+          fail=0
+          for t in tests/data/*_test.py; do echo "== $t"; python3 "$t" || fail=1; done
+          node --test tests/data/*.test.mjs || fail=1
+          exit $fail
       - name: Build the pages
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
