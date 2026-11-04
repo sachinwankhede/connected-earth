@@ -1,11 +1,14 @@
 const V = "__BUILD__";
 const SHELL = "atlas-shell-" + V, RT = "atlas-rt";
 const SHELL_FILES = ["./", "./index.html", "./maplibre-gl-__MLVER__.js", "./api/places/main/index-world.json", "./api/places/main/cards-world.json", "./api/journeys/main.json", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
+// fetched after the worker is active, one by one, and a failure is ignored: they are not worth failing the install for (#405). Without them a food web does not open offline on a fresh install.
+const LATER_FILES = ["./d3-__D3VER__.js", "./geo-states.json"];
 const RT_HOSTS = ["tiles.openfreemap.org", "server.arcgisonline.com", "s3.amazonaws.com"];
 const RT_MAX = 1500;
 self.addEventListener("install", e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(SHELL_FILES)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith("atlas-shell-") && k !== SHELL).map(k => caches.delete(k)))).then(() => self.clients.claim()));
+  e.waitUntil(caches.open(SHELL).then(async c => { for (const f of LATER_FILES) { try { if (!(await c.match(f))) await c.add(f); } catch (err) { /* offline or blocked: the app fetches it when it needs it */ } } }));
 });
 async function trim(c) { const ks = await c.keys(); if (ks.length > RT_MAX) for (const k of ks.slice(0, ks.length - RT_MAX)) await c.delete(k); }
 async function cacheResponse(c, r, res, limit = false) {
