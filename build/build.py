@@ -290,6 +290,21 @@ def species_diet(ecos, about, common, pics):
         l = f['l']
         if eats.get(l): f['ea'] = rows(eats[l])
         if eaten.get(l): f['eb'] = rows(eaten[l])
+    return places
+
+
+RELATED_ROWS = 5   # the same family: at most this many on the species page (#448)
+
+
+def species_related(about, common, pics, places):
+    """Adds 'rl' (other species of the same family) to the species files in about: [[Latin name, usual name, number of places, hosted picture file or 0], ...], found in the most places first, then by name. Needs 'fa' (family) and 'l'."""
+    fam = {}
+    for f in about.values():
+        if f.get('fa'): fam.setdefault(f['fa'], []).append(f['l'])
+    for f in about.values():
+        if not f.get('fa'): continue
+        o = sorted((l for l in fam[f['fa']] if l != f['l']), key=lambda l: (-places.get(l, 0), common.get(l.lower(), l).lower(), l))[:RELATED_ROWS]
+        if o: f['rl'] = [[l, common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0)] for l in o]
 
 
 def species_overlap(ecos):
@@ -526,7 +541,7 @@ def build(pilot, out_path, write=False, places=False):
         if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
-    species_diet(ecos, about, common, pics)
+    species_related(about, common, pics, species_diet(ecos, about, common, pics))
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
     byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set()
     for c in links['cross']:

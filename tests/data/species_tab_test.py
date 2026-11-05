@@ -31,6 +31,12 @@ class SpeciesTab(unittest.TestCase):
         groups = {g[0] for g in json.load(open(os.path.join(ROOT, 'api', 'species-tab', 'groups.json')))}
         self.assertIn(d['g'], groups, 'the group is one of the Species tab groups')
 
+    def test_related_species_of_the_same_family(self):   # #448
+        about = {'a': {'l': 'A a', 'fa': 'F1'}, 'b': {'l': 'B b', 'fa': 'F1'}, 'c': {'l': 'C c', 'fa': 'F1'}, 'd': {'l': 'D d', 'fa': 'F2'}, 'e': {'l': 'E e'}}
+        B.species_related(about, {'a a': 'Alpha', 'b b': 'Beta', 'c c': 'Charlie'}, {'C c': 'c.webp'}, {'A a': 1, 'B b': 5, 'C c': 5})
+        self.assertEqual(about['a']['rl'], [['B b', 'Beta', 5, 0], ['C c', 'Charlie', 5, 'c.webp']], 'most places first, then by name; not itself')
+        self.assertEqual(about['b']['rl'][0][0], 'C c'); self.assertNotIn('rl', about['d'], 'alone in its family'); self.assertNotIn('rl', about['e'], 'no family')
+
     def test_rows_order_pages_and_totals(self):
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1', 'p2']}
         common = {'A a': 'Alpha', 'B b': 'Beta', 'C c': 'Charlie', 'D d': 'Delta'}
