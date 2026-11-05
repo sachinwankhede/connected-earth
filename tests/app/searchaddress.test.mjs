@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
-const same = async (p, b, msg) => { const a = await names(p), n = await p.evaluate(() => window.__M.hitsN); assert.deepEqual(a, b, msg + ' -- got ' + a.length + ' ' + JSON.stringify(a.slice(0, 3)) + ' (index hits ' + n + ') expected ' + b.length + ' ' + JSON.stringify(b.slice(0, 3))); };
+const same = async (p, b, msg) => { const a = (await names(p)).slice(0, 10), n = await p.evaluate(() => window.__M.hitsN); b = b.slice(0, 10); assert.deepEqual(a, b, msg + ' -- got ' + a.length + ' ' + JSON.stringify(a.slice(0, 3)) + ' (index hits ' + n + ') expected ' + b.length + ' ' + JSON.stringify(b.slice(0, 3))); };
 const names = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:not([hidden]) h2')].map((h) => h.textContent));
 const state = (p) => p.evaluate(() => ({ box: document.getElementById('q').value, hash: decodeURIComponent(location.hash), page: !document.getElementById('pview').hidden, map: !document.getElementById('mapview').hidden, clr: !document.getElementById('qclr').hidden }));
 const answered = (p, q) => p.waitForFunction((x) => window.__M && window.__M.searched === x, q, { timeout: 60000 });   // the index has answered q and the list has been drawn for it
@@ -15,11 +15,13 @@ const search = async (p, text) => {
 };
 const openFirst = async (p) => {
   const id = await p.evaluate(() => document.querySelector('#cards [data-eco]').getAttribute('data-eco'));
-  await p.evaluate(() => document.querySelector('#cards [data-eco]').click());
+  await p.locator('#cards [data-eco]').first().click();
   await p.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'), null, { timeout: 30000 });
   return id;
 };
-const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); };
+const trace = [];
+const mark = async (p, what) => { trace.push(what + ': ' + (await p.evaluate(() => decodeURIComponent(location.hash) + ' len=' + history.length + ' state=' + JSON.stringify(history.state) + ' box=' + document.getElementById('q').value))); };
+const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); await mark(p, 'after back'); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing writes s= in the address, a reload brings the same list back, Clear removes it`, async () => {
@@ -42,13 +44,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await search(p, 'elk');
     const before = await names(p), n0 = await p.evaluate(() => window.__M.hitsN);
-    const id = await openFirst(p);
+    await mark(p, 'searched'); const id = await openFirst(p); await mark(p, 'place opened');
     let s = await state(p);
     assert.match(s.hash, new RegExp('(^|&)s=elk&pg=' + id + '$'), 'the address has the search and the place');
     // reload on the place: the place and the search are both there, and the link back goes to the same list
     await p.reload(); await answered(p, 'elk'); await p.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'), null, { timeout: 60000 });
     s = await state(p); assert.equal(s.page, true); assert.equal(s.box, 'elk');
-    await p.click('[data-pback]'); await p.waitForTimeout(700);
+    await mark(p, 'after reload'); await p.click('[data-pback]'); await p.waitForTimeout(700); await mark(p, 'after link');
     s = await state(p); assert.equal(s.map, true, 'the list is back'); assert.equal(s.box, 'elk', 'with the search');
     assert.doesNotMatch(s.hash, /pg=/); assert.match(s.hash, /(^|&)s=elk$/);
     await same(p, before, 'the same list as before the place (typed: index hits ' + n0 + ')');
@@ -59,7 +61,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await same(p, before, 'the same list');
     // Back again: the search is cleared before leaving
     await back(p);
-    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text'); assert.doesNotMatch(s.hash, /(^|&)s=/);
+    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text -- ' + trace.join(' | ')); assert.doesNotMatch(s.hash, /(^|&)s=/);
     assert.equal(s.clr, false);
     assert.deepEqual(t.errors, []); await b.close();
   });
