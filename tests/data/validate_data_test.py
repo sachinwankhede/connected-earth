@@ -19,6 +19,16 @@ class DataFormat(unittest.TestCase):
             put(r, 'photos/species_metadata.json', {'A b': {'a': 'Someone', 'l': 'CC BY 4.0'}})
             put(r, 'photos/species.json', {'A b': ['f.webp', 'A_b'], 'C d': ['x', 'C_d']}); put(r, 'photos/species_hosted_skipped.json', {'C d': 'not on Commons'})
             self.assertEqual(check(r), ([], []))
+    def test_larger_pictures_are_checked(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
+            put(r, 'photos/species_hosted.json', {'A b': 'f.webp'}); put(r, 'photos/species/f.webp', b'x'); put(r, 'photos/species_metadata.json', {'A b': {'a': 'S', 'l': 'CC BY 4.0'}})
+            put(r, 'photos/species_large.json', {'A b': 'f.webp'}); put(r, 'photos/species-lg/f.webp', b'x'); put(r, 'photos/species-lg/orphan.webp', b'x')
+            errs, _ = check(r); text = ' | '.join(errs)
+            self.assertIn('species-lg/orphan.webp is not listed', text); self.assertNotIn('is missing', text)
+            os.remove(os.path.join(r, 'photos/species-lg/f.webp')); errs, _ = check(r)
+            self.assertIn('file f.webp is missing', ' | '.join(errs))
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})

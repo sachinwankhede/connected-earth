@@ -95,6 +95,14 @@ def check(root):
         if listed is not None:
             skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
             for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
+    large = load(root, 'photos', 'species_large.json')   # the larger copies (#421): each is of a hosted picture, has its file, and no file is left unlisted
+    if large is not None:
+        ld = os.path.join(root, 'photos', 'species-lg')
+        lfiles = set(os.listdir(ld)) if os.path.isdir(ld) else set()
+        for t, f in large.items():
+            if f not in lfiles: errs.append('larger picture for %r: file %s is missing' % (t, f))
+            if (hosted or {}).get(t) != f: errs.append('larger picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
+        for f in lfiles - set(large.values()): errs.append('photos/species-lg/%s is not listed in species_large.json' % f)
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')
