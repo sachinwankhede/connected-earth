@@ -108,8 +108,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a species with a larger picture shows it as a wide photo above the title (#421)`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=odocoileus-virginianus' }); const p = t.page;
     await p.waitForFunction(() => { const i = document.querySelector('#pview .jphoto'); return i && i.complete && i.naturalWidth > 0 && document.querySelector('#pview article').classList.contains('bigphoto'); }, null, { timeout: 60000 });
-    const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, small: getComputedStyle(document.querySelector('#pview .jhimg')).display, title: document.querySelector('#pview h2').textContent }; });
-    assert.match(d.src, /photos\/species-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 262, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.small, 'none', 'the small square is not shown next to it');
+    const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, fit: getComputedStyle(i).objectFit, nw: i.naturalWidth, nh: i.naturalHeight, small: getComputedStyle(document.querySelector('#pview .jhimg')).display, title: document.querySelector('#pview h2').textContent }; });
+    assert.match(d.src, /photos\/species-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 322, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.fit, 'contain', 'the whole picture is shown, nothing is cropped (#485)'); assert.ok(Math.abs(d.w / d.h - d.nw / d.nh) < 0.05 || d.h > 319, 'the box keeps the picture ratio unless it hits the height limit: ' + d.w + 'x' + d.h + ' of ' + d.nw + 'x' + d.nh); assert.equal(d.small, 'none', 'the small square is not shown next to it');
     assert.ok(d.title.length > 0);
     assert.deepEqual(t.errors, []); await b.close();
   });
