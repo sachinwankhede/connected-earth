@@ -36,7 +36,8 @@ def manifest_entry(thumburl, title):
     u = (thumburl or '').split('?')[0]
     if not safe_https(u, ALLOWED_IMAGE_HOSTS): return None
     page = urllib.parse.quote(title.replace(' ', '_'))
-    if u.startswith(THUMB): return [u[len(THUMB):], page]
+    for th in (THUMB, THUMB.replace('upload.', 'thumb.')):   # Commons answers with thumb.wikimedia.org; speciesphotos.py stores the part after it
+        if u.startswith(th): return [u[len(th):], page]
     if u.startswith(ORIG): return [u, page]   # an original smaller than 330 px has no thumbnail: the full link, which hostphotos.py downloads as it is
     return None
 def wikidata_images(titles):
