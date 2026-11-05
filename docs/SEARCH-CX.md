@@ -47,7 +47,7 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 | Search box on a phone | #409 | done |
 | Dropdown | #413 | done |
 | Dropdown type line, exact-first ranking | #424 | done |
-| Search in the address, Back | #412 | idea |
+| Search in the address, Back | #412 | done |
 | One redraw, honest states, nothing-found text | #414 | idea |
 | Species page | #420 | idea |
 | Result header, "why it matches" line, filter chip | #425 | idea |

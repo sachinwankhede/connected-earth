@@ -104,6 +104,7 @@
   function showPlace(id, from) {
     if (notYet(id, function () { showPlace(id, from); })) return;
     if (!ECO_BY[id]) return;
+    if (FL.q && !M.pid && !M.jid && !M.fromHash) M.pushNext = true;
     M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
     PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
@@ -129,7 +130,10 @@
     l.push("Species photos: Wikipedia");
     fillPhotos("pcredit", l);
   }
-  function closePlace() { M.pid = null; PV.hidden = true; showMap(); }
+  function closePlace() {
+    if (history.state && history.state.sp && M.pid) { history.back(); return; }   /* a place opened from a search is its own history entry: leaving it is Back, so the entries do not pile up (#412); the address change closes the page */
+    M.pid = null; PV.hidden = true; showMap();
+  }
   PV.addEventListener("keydown", function (ev) { var t = ev.target; if ((ev.key === "Enter" || ev.key === " ") && t.getAttribute && t.getAttribute("role") === "button") { ev.preventDefault(); t.click(); } });
   PV.addEventListener("click", function (ev) {
     var id = M.pid; if (!id) return;
