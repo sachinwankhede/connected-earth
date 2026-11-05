@@ -32,6 +32,19 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
     await p.click('#qclr'); await p.waitForTimeout(200);
     assert.deepEqual(await rows(), [], 'Clear closes the suggestions');
+    // every row says its type (#424): a place "Place · <state or country>", a species "Species · in N places"
+    await p.click('#q'); await p.keyboard.type('yellowst');
+    await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
+    r = await rows();
+    const yp = r.find((x) => x.id === 'yellowstone');
+    assert.ok(yp, 'Greater Yellowstone is suggested for "yellowst"');
+    assert.match(yp.line, /^Place · .+/, 'a place row names the state or country');
+    assert.ok(r.every((x) => /^Place( · .+)?$/.test(x.line) || /^Species · in \d+ places?$/.test(x.line)), 'no row without a type');
+    // the whole name typed comes first (#424)
+    await p.click('#qclr'); await p.keyboard.type('osprey');
+    await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
+    r = await rows();
+    assert.equal(r[0].latin, 'Pandion haliaetus', 'the species named exactly "Osprey" is the first row');
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
