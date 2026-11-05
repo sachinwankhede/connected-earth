@@ -49,7 +49,7 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 | Dropdown type line, exact-first ranking | #424 | done |
 | Search in the address, Back | #412 | done |
 | One redraw, honest states, nothing-found text | #414 | done |
-| Species page | #420 | idea |
+| Species page | #420 | step 1 done (screen, address, Back); steps 2 and 3 to do |
 | Result header, "why it matches" line, filter chip | #425 | idea |
 | Larger photos, photos for species with none | #421 | idea |
 | Species tab | #422 | idea |
