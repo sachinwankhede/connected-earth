@@ -45,12 +45,24 @@ window.__chunk["species-tab"] = function (A) {
     else if (d && (g = groups.filter(function (x) { return x[0] === d.getAttribute("data-g"); })[0])) group(g);
     else if (t.closest("[data-up]")) { home(); box.scrollIntoView && box.scrollIntoView({ block: "start" }); }
   }
-  box.addEventListener("click", function (ev) { act(ev.target); });
+  var qIn = document.getElementById("q"), qT, qN = 0, shown = "";
+  function find() {   /* the search box on this tab looks for species only (#422 step 4) */
+    var q = qIn.value.trim(), n = ++qN; if (box.hidden || !started || q === shown) return; shown = q;
+    if (q.length < 2) { home(); return; }
+    A.find(q).then(function (rows) {
+      if (n !== qN || !rows) return;
+      box.innerHTML = '<h3></h3>'; box.querySelector("h3").textContent = rows.length ? rows.length + (rows.length === 1 ? " species matches \u201c" : " species match \u201c") + q + "\u201d" : "No species match \u201c" + q + "\u201d";
+      if (rows.length) box.appendChild(list(rows, function (r) { return row([r.latin, r.name, r.n, 0]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
+    }).catch(function () { if (n === qN) shown = ""; });
+  }
+  qIn.addEventListener("input", function () { clearTimeout(qT); qT = setTimeout(find, 150); });
+  document.getElementById("qclr").addEventListener("click", function () { setTimeout(function () { shown = null; find(); }, 0); });
+  box.addEventListener("click", function (ev) { if (ev.target.closest("[data-clr]")) { ev.preventDefault(); document.getElementById("qclr").click(); return; } act(ev.target); });
   box.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); act(ev.target); } });
   return {
     open: function () {
       if (started) return; started = true;
-      Promise.all([A.Data.speciesTab("top.json"), A.Data.speciesTab("groups.json")]).then(function (r) { top = r[0]; groups = r[1]; home(); })
+      Promise.all([A.Data.speciesTab("top.json"), A.Data.speciesTab("groups.json")]).then(function (r) { top = r[0]; groups = r[1]; home(); shown = ""; find(); })
         .catch(function () { started = false; box.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; });
     }
   };

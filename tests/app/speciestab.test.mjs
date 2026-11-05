@@ -62,3 +62,33 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
+
+// #422 step 4: on the Species tab the search box looks for species only -- in the tab's list and in the dropdown -- and Clear brings the tab back.
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: on the Species tab the box finds species only and Clear returns to the tab`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('osprey');
+    await p.waitForFunction(() => /species? match/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
+    const r = await p.evaluate(() => ({ head: document.querySelector('#sptab h3').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ latin: x.getAttribute('data-latin'), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
+    assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
+    assert.equal(r.rows[0].latin, 'Pandion haliaetus', 'the osprey first'); assert.equal(r.places, 0);
+    await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
+    const sug = await p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((x) => x.getAttribute('data-id') ? 'place' : 'species'));
+    assert.ok(sug.length > 0 && sug.every((x) => x === 'species'), 'the dropdown has species only: ' + sug);
+    await p.locator('#sptab .sgr').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr').click()));
+    await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
+    await p.evaluate(() => history.back()); await p.waitForTimeout(1000);
+    assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab');
+    await p.click('#q', { clickCount: 3 }).catch(() => {}); await p.keyboard.press('Control+A'); await p.keyboard.type('zzqxv');
+    await p.waitForFunction(() => /^No species match/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
+    await p.evaluate(() => document.querySelector('#sptab [data-clr]').click());
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 15000 });
+    assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'Clear empties the box');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}
