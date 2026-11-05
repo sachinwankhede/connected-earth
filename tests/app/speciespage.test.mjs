@@ -20,7 +20,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(s.about && s.about.length > 40 && /Wikipedia$/.test(s.about), 'the description and its Wikipedia link');
     assert.equal(s.back, '‹ Places'); assert.equal(s.share, true); assert.equal(s.foot, true);
     assert.match(s.hash, /(^|&)sp=pandion-haliaetus$/, 'the species is in the address');
-    if (file.ph) { await p.waitForSelector('#pview #sp-img img', { timeout: 30000 }); await p.locator('#pview .srcd summary').click(); assert.match(await p.evaluate(() => document.getElementById('spcredit').textContent), /Species photos: Wikipedia/); }
+    if (file.ph) { await p.waitForFunction(() => { const i = document.querySelector('#pview #sp-img img'), w = document.querySelector('#pview .jphoto'); return (i && i.offsetParent) || (w && w.complete && w.naturalWidth > 0); }, null, { timeout: 30000 }); await p.locator('#pview .srcd summary').click(); assert.match(await p.evaluate(() => document.getElementById('spcredit').textContent), /Species photos: Wikipedia/); }
     await p.reload(); await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     await p.click('.jback'); await p.waitForTimeout(500);
     s = await page(p); assert.equal(s.hidden, true, 'Back closes the page'); assert.equal(s.map, true); assert.doesNotMatch(s.hash, /sp=/);
