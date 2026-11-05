@@ -5,7 +5,7 @@ For each title in photos/species_missing.json that has no manifest entry yet:
   1. asks Wikidata for the item of that English Wikipedia page and reads its image property (P18), 50 titles per request;
   2. asks Commons for the file's licence, author and a 330 px thumbnail (50 files per request);
   3. keeps the picture only when the licence is CC0, CC BY, CC BY-SA or public domain (no non-commercial, no no-derivatives, no GFDL)
-     and the file is a photo (not a map, logo, diagram or SVG).
+     and the file is a JPEG whose name does not say map, logo or diagram.
 A kept picture is added to photos/species.json in the same shape speciesphotos.py writes, removed from species_missing.json and noted
 in photos/species_source.json {title: 'wikidata-p18'}; hostphotos.py then downloads it and records author and licence as for any other picture.
 Titles with no usable picture stay in species_missing.json (a plain 'nophoto', as its schema says) and get today's date in photos/species_commons_tried.json, so they are tried again only after 90 days. Resumable; polite pace via wm.py."""
@@ -21,6 +21,9 @@ THUMB = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
 OPEN = re.compile(r'^(CC0|CC[ -]BY([ -]SA)?([ -]\d[\d.]*)?( [A-Za-z]{2,3})?|Public domain|PD)\b', re.I)
 CLOSED = re.compile(r'(^|[ -])(NC|ND)([ -]|$)', re.I)
 NOTPHOTO = re.compile(r'logo|emblem|coat[_ ]of[_ ]arms|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|locator|diagram|[_ -]chart|distribution|range', re.I)
+def is_photo_type(mime):
+    """JPEG only: on Commons, PNG, GIF, SVG and TIFF files of a species are mostly maps, diagrams, drawings and scans (the first full run gave a gyre map for 'California Current')."""
+    return (mime or '').lower() == 'image/jpeg'
 def open_licence(lic): return bool(lic) and bool(OPEN.match(lic.strip())) and not CLOSED.search(lic)
 def strip(s): return re.sub(r'<[^>]+>', '', s or '').replace('&amp;', '&').strip()
 def image_names(claims):
@@ -79,7 +82,7 @@ def main():
             for n in names.get(t.replace('_', ' '), [])[:2]:
                 lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
                 why[t] = 'file %s: licence %r, type %r, link %s' % (n, lic, mime, thumb[:220] or 'none')
-                if mime.startswith('image/') and mime != 'image/svg+xml' and open_licence(lic):
+                if is_photo_type(mime) and open_licence(lic):
                     entry = manifest_entry(thumb, t)
                     if entry: break
             if entry:
