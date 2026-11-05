@@ -64,7 +64,7 @@
       hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'
         : "<b>" + nm + "</b> \u00b7 " + (sp ? "found in " + r.n + (r.n === 1 ? " place" : " places") + ' \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
       hd.hidden = false;
-      if (sp) sppPlaces(r.latin).then(function (ids) { if (n === QH.n) { M.why = { s: new Set(ids), t: "Has " + r.name.toLowerCase() }; whyLines(); } });
+      if (sp) sppPlaces(r.latin).then(function (ids) { if (n === QH.n) { M.why = { s: new Set(ids), t: "Has " + r.name.toLowerCase(), q: q }; M.pgKey = null; filterView(); whyLines(); } });
     }).catch(function () {});
   }
   function whyLines() {   /* the muted line on a card that says why it is in the result */

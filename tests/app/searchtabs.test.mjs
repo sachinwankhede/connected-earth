@@ -23,6 +23,17 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: Places lists the places whose name or region has the word, not every place with a bear in it (#480)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('bear'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'bear' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
+    const r = await p.evaluate(() => { const li = [...document.querySelectorAll('#cards li:not([hidden]) .card')]; return { n: li.length, bad: li.filter((c) => !/bear/i.test(c.querySelector('h2').textContent + ' ' + c.querySelector('.where').textContent)).length, note: document.getElementById('qnote').textContent }; });
+    assert.ok(r.n > 0, 'some places have bear in the name or region'); assert.equal(r.bad, 0, 'every listed place has bear in its name or region');
+    assert.match(r.note, new RegExp('^' + r.n + ' places? match'), 'the count is the list');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });

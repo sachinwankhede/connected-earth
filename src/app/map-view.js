@@ -15,10 +15,12 @@
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
     if (FL.park && !e.park) return false;
     if (e.level === "local" && !FL.local && !FL.q) return false;
-    if (FL.q && FL.hits) return FL.hits.has(e.id);
-    if (FL.q) {
-      if (!e._n) e._n = (e.name + " " + e.place + " " + e.short + " " + (e.kind || "")).toLowerCase();   /* until the index arrives, or when it cannot: the card text */
-      return e._n.indexOf(FL.q) >= 0;
+    if (FL.q && M.chip === FL.q) return FL.hits ? FL.hits.has(e.id) : (e._n || (e._n = srchWords(e.name + " " + e.place).join(" "))).indexOf(FL.q) >= 0;   /* a species filter: the places of that species */
+    if (FL.q && M.why && M.why.q === FL.q) return M.why.s.has(e.id);   /* the text is exactly one species: the places that have it (#425) */
+    if (FL.q) {   /* a search: the name or the region contains every typed word (#480); the species and stories of a place do not count here, the Species tab has them */
+      if (!e._n) e._n = srchWords(e.name + " " + e.place).join(" ");
+      if (FL.wq !== FL.q) { FL.wq = FL.q; FL.w = srchWords(FL.q); }
+      return FL.w.every(function (w) { return e._n.indexOf(w) >= 0; });
     }
     return true;
   }
