@@ -344,6 +344,47 @@ def write_species_places(sp, pilot):
         open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
+# The Species tab (#422): what the tab reads, in api/species-tab/ (main) and api/species-tab-pilot/. top.json: the species found in the most places; groups.json: the groups with
+# their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0], most places first, then by name.
+TAB_TOP, TAB_PAGE = 60, 250
+TAB_GROUPS = [('mammals', 'Mammals'), ('birds', 'Birds'), ('reptiles', 'Reptiles'), ('amphibians', 'Amphibians'), ('fish', 'Fish'), ('insects', 'Insects'),
+              ('animals', 'Other animals'), ('plants', 'Plants'), ('fungi', 'Fungi'), ('other', 'Algae and others')]
+TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali', 'Teleostei', 'Cephalaspidomorphi', 'Petromyzonti', 'Myxini', 'Sarcopterygii'}
+TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
+
+
+def species_group(tx):
+    """The group key of a taxonomy record ({kingdom, class, ...}, or None when the species has none): the everyday groups, from the kingdom and the class."""
+    k, c = (tx or {}).get('kingdom'), (tx or {}).get('class')
+    if k == 'Animalia':
+        return ('mammals' if c == 'Mammalia' else 'birds' if c == 'Aves' else 'reptiles' if c in TAB_REPTILES else 'amphibians' if c == 'Amphibia'
+                else 'fish' if c in TAB_FISH else 'insects' if c == 'Insecta' else 'animals')
+    return 'plants' if k == 'Plantae' else 'fungi' if k == 'Fungi' else 'other'
+
+
+def split_species_tab(sp, common, groupof, pics):
+    """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name}."""
+    rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
+    files = {'top.json': rows[:TAB_TOP]}; groups = []
+    for key, label in TAB_GROUPS:
+        g = [r for r in rows if groupof.get(r[0], 'other') == key]
+        if not g: continue
+        pages = [g[i:i + TAB_PAGE] for i in range(0, len(g), TAB_PAGE)]
+        for i, pg in enumerate(pages): files['g-%s-%d.json' % (key, i)] = pg
+        groups.append([key, label, len(g), len(pages)])
+    files['groups.json'] = groups
+    return files
+
+
+def write_species_tab(sp, common, groupof, pics, pilot):
+    d = os.path.join(P('api'), 'species-tab-pilot' if pilot else 'species-tab'); os.makedirs(d, exist_ok=True)
+    files = split_species_tab(sp, common, groupof, pics)
+    for f in os.listdir(d):
+        if f not in files: os.remove(os.path.join(d, f))
+    for f, obj in files.items():
+        open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
+
+
 def add_overlap(webs, ecos, main_ids):
     """Put the related places into each place's own file. The files are shared by the main and the pilot page, so a main place keeps the main-set answer in 'rel'
     and, when the pilot set gives another answer or the place is pilot-only, the pilot one in 'relp'. (The ties are not here: a map tap needs them before the place
@@ -444,18 +485,20 @@ def build(pilot, out_path, write=False, places=False):
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
     phm = {t: phm_all[t] for t in phs if t in phm_all}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
+    txf = P('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
+    groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
     common = {l.lower(): c for l, c in spt}; keys = {}
     for e in ecos:
         for n in e['nodes']:
             if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
-    about = {}
+    about = {}; pics = {}
     for k in sorted(used):
         row = tab.get(k)
         if not row or row['sid'] != species.slug(k) or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
         pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
-        if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None
+        if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
@@ -469,7 +512,7 @@ def build(pilot, out_path, write=False, places=False):
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: add_overlap(webs, ecos, set(links['order']))
     if write: write_webs(webs, about, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_ties(light, ov[1], pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     if places: write_journeys(data, pilot)
