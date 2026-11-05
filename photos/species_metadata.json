@@ -2609,6 +2609,12 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Astrocaryum_standleyanum_fruits.jpg"
 },
+"Atalopedes campestris": {
+"a": "Charles T. Bryson, USDA Agricultural Research Service, Bugwood.org",
+"l": "CC BY 3.0 us",
+"lu": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Atalopedes_campestris_male_1115109.jpg"
+},
 "Athene cunicularia": {
 "a": "Charles J. Sharp",
 "l": "CC BY-SA 4.0",
@@ -4133,6 +4139,12 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Bridelia_retusa_Bra55.png"
 },
+"Brine": {
+"a": "Morrisoncolorado",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lac_sal%C3%A9_dans_la_vall%C3%A9e_du_Panch.JPG"
+},
 "Bromeliaceae": {
 "a": "MANOJTV at English Wikipedia",
 "l": "CC BY-SA 3.0",
@@ -4781,6 +4793,12 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Canada_lynx_by_Michael_Zahra_%28cropped%29.jpg"
 },
+"Canadian Shield": {
+"a": "TCY",
+"l": "CC BY-SA 2.5",
+"lu": "https://creativecommons.org/licenses/by-sa/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Hautes-Gorges-de-la-Rivi%C3%A8re-Malbaie.jpg"
+},
 "Canbya aurea": {
 "a": "Janel Johnson",
 "l": "CC BY 4.0",
@@ -4948,6 +4966,12 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Carex_aquatilis.jpg"
+},
+"Carex arcta": {
+"a": "Hurd, E.G., N.L. Shaw, J. Mastrogiuseppe, L.C. Smithman, and S. Goodrich.",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Carex_arcta_NRCS-1.jpg"
 },
 "Carex atherodes": {
 "a": "Gary Larson",
@@ -6089,6 +6113,12 @@
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Melganzenvoet_bloeiwijze_Chenopodium_album.jpg"
 },
+"Chenopodium fremontii": {
+"a": "Patrick Alexander from Las Cruces, NM",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Chenopodium_fremontii_-_Flickr_-_aspidoscelis_%281%29.jpg"
+},
 "Chenopodium leptophyllum": {
 "a": "Matt Lavin from Bozeman, Montana, USA",
 "l": "CC BY-SA 2.0",
@@ -6496,6 +6526,12 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cladonia_rangiferina_205412.jpg"
+},
+"Clam": {
+"a": "Marlith",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Clams.JPG"
 },
 "Clark's nutcracker": {
 "a": "Polinova",
@@ -7756,6 +7792,12 @@
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Cuscuta_campestris.jpeg"
+},
+"Cuttlefish": {
+"a": "Hans Hillewaert",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sepia_officinalis_%28aquarium%29.jpg"
 },
 "Cuyahoga River": {
 "a": "Tim Evanson",
@@ -9119,6 +9161,18 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Eleocharis_dulcis_Blanco1.15.jpg"
 },
+"Eleocharis macrostachya": {
+"a": "Gordon Leppig & Andrea J. Pickart",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Eleocharismacrostachya.jpg"
+},
+"Eleocharis montevidensis": {
+"a": "Andr\u00e9s Gonz\u00e1lez",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Eleocharis_montevidensis_17.jpg"
+},
 "Eleocharis obtusa": {
 "a": "Robert H. Mohlenbrock",
 "l": "Public domain",
@@ -9929,6 +9983,12 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Euphorbia_ocellata_ssp._rattanii_-_12271.jpg"
 },
+"Euphorbia ouachitana": {
+"a": "Mason Brock (Masebrock)",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Euphorbia_ouachitana.jpg"
+},
 "Euphorbia polygonifolia": {
 "a": "Jonathan Layman",
 "l": "CC BY 4.0",
@@ -10420,6 +10480,12 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Festuca_campestris_-_28639856382.jpg"
+},
+"Festuca gracillima": {
+"a": "Julloag",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Coiron.jpg"
 },
 "Festuca myuros": {
 "a": "Anthony Valois and the National Park Service",
@@ -12227,6 +12293,12 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Helenium_amarum1.jpg"
 },
+"Heleobia": {
+"a": "Francisco Welter Schultes",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Heleobia_stagnorum_shell.jpg"
+},
 "Heliamphora": {
 "a": "Andreas Eils",
 "l": "CC BY-SA 3.0",
@@ -13594,6 +13666,12 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Jelly_cc11.jpg"
+},
+"Jentink's squirrel": {
+"a": "\u041b\u0430\u0440\u0438\u0441\u0430 \u0410\u0440\u0442\u0435\u043c\u044c\u0435\u0432\u0430",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Sundasciurus_jentinki_-_%D0%9B%D0%B0%D1%80%D0%B8%D1%81%D0%B0_%D0%90%D1%80%D1%82%D0%B5%D0%BC%D1%8C%D0%B5%D0%B2%D0%B0_-_595846859.jpeg"
 },
 "Jerboa": {
 "a": "Marius Burger",
@@ -17201,6 +17279,12 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Nemastylis_geminiflora_%281%29.jpg"
 },
+"Nemognatha scutellaris": {
+"a": "Ken-ichi Ueda",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Nemognatha_scutellaris_-_iNaturalist_8440973.jpg"
+},
 "Nemoria bistriaria": {
 "a": "Judy Gallagher",
 "l": "CC BY 2.0",
@@ -17458,6 +17542,12 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Macroglossus_minimus_pregnant.jpg"
+},
+"Northern cavefish": {
+"a": "Unknown",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Amblyopsis_spelaea.jpg"
 },
 "Northern common cuscus": {
 "a": "BBKSDA Papua Barat",
@@ -18004,6 +18094,12 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Rough_green_snake_%28Opheodrys_aestivus%29_Madden_Haag.jpg"
+},
+"Ophioglossum petiolatum": {
+"a": "Internet Archive Book Images",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Aquatic_and_wetland_plants_of_southwestern_United_States_%281972%29_%2819560252040%29.jpg"
 },
 "Oplismenus hirtellus": {
 "a": "Forest & Kim Starr",
@@ -19205,6 +19301,12 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Periphyton.jpg"
 },
+"Permafrost": {
+"a": "BLM Alaska",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Birch_Creek_permafrost.jpg"
+},
 "Peromyscus boylii": {
 "a": "Cheryl Brehme/USGS",
 "l": "Public domain",
@@ -19288,6 +19390,12 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Persicaria_arifolia_WFNY-048B.jpg"
+},
+"Persicaria bicornis": {
+"a": "MONGO",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pink_smartweed%2C_Polygonum_bicorne.jpg"
 },
 "Persicaria hydropiperoides": {
 "a": "Gordon Leppig & Andrea J. Pickart",
@@ -19426,6 +19534,12 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Phegopteris_hexagonoptera1.JPG"
+},
+"Pheidole": {
+"a": "Roman Borovsky",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pheidole_pallidula_workers_polymorphism_from_Istria.jpg"
 },
 "Pheidole navigans": {
 "a": "Gino Brignoli",
@@ -20104,6 +20218,12 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Pityopsis_falcata%2C_Plymouth%2C_MA%2C_USA_imported_from_iNaturalist_photo_93991437.jpg"
+},
+"Plagiosiphon": {
+"a": "(Harms) J.L\u00e9onard",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_Center_-_L.2021197_-_Plagiosiphon_longitubus_%28Harms%29_J.L%C3%A9onard_-_Leguminosae-Caes._-_Plant_type_specimen.jpeg"
 },
 "Plain-bellied water snake": {
 "a": "Benjamin Genter",
@@ -21293,6 +21413,12 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Pears.jpg"
 },
+"Qatar": {
+"a": "Ceslou",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Skyline_of_Doha_West_Bay.jpg"
+},
 "Quagga mussel": {
 "a": "Unknown",
 "l": "Public domain",
@@ -21826,6 +21952,12 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:American_Avocet1.jpg"
+},
+"Red Sea": {
+"a": "Unknown",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Red_Sea_37.95521E_21.41271N.jpg"
 },
 "Red and white giant flying squirrel": {
 "a": "lonelyshrimp",
@@ -23177,6 +23309,12 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:SALSOLA_VERMICULATA_-_AGUDA_-_IB-722_%28Siscall%29.JPG"
 },
+"Salt marsh": {
+"a": "Trish Hartmann",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Salt_marsh_Georgia_US.jpg"
+},
 "Salt's dik-dik": {
 "a": "This image was produced by me, David Castor (user:dcastor). The pictures I submit to the Wikipedia Project are released to the public domain. This gives you the right to use them in any way you like, without any kind of notification. This said, I would still appreciate to be mentioned as the originator whenever you think it complies well with your use of the picture. A message to me  about how it has been used would also be welcome. You are obviously not required to respond to these wishes of mine, just in a friendly manner encouraged to. (All my photos are placed in Category:Images by David Castor or a subcategory thereof.)",
 "l": "CC0",
@@ -24389,6 +24527,12 @@
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Smilax_maritima.jpg"
 },
+"Smilax pumila": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Smilax_pumila7.jpg"
+},
 "Smilax rotundifolia": {
 "a": "Fepup",
 "l": "Public domain",
@@ -24808,6 +24952,12 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:A-representative-rodent-species-Apodemus-draco-in-the-Wuling-Mountain-Area-photograph.png"
+},
+"South Nahanni River": {
+"a": "Josh Steinitz",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Virginia_Falls%2C_Northwest_Territories.jpg"
 },
 "South polar skua": {
 "a": "Paride Legovini",
@@ -26303,6 +26453,12 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Tidal_flat_general_sketch.png"
 },
+"Tide": {
+"a": "W. Bulach",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:00_3536_Auswirkung_der_Gezeiten_%28Niedrigwasser%29.jpg"
+},
 "Tiger": {
 "a": "Charles J. Sharp",
 "l": "CC BY-SA 4.0",
@@ -26950,6 +27106,12 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Giant_Grasshopper_Tropidacris_cristata.jpg"
+},
+"True's vole": {
+"a": "Unknown authorUnknown author",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Hyperacrius_fertilis.jpg"
 },
 "Trypodendron lineatum": {
 "a": "Hulcr at English Wikipedia",
@@ -28055,6 +28217,12 @@
 "lu": "https://creativecommons.org/licenses/by-sa/1.0",
 "p": "https://commons.wikimedia.org/wiki/File:Washingtonia_filifera.jpg"
 },
+"Water": {
+"a": "Blue_ice.jpg: Stephanie Costa\nWassertropfen.jpg: Sven Hoppe\nAbove_the_Clouds.jpg: Arun Kulshreshtha\nderivative work: StarLight (talk)",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ice_water_vapor.jpg"
+},
 "Water buffalo": {
 "a": "Alexander Vasenin",
 "l": "CC BY-SA 3.0",
@@ -28150,6 +28318,12 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Larus_occidentalis_%28Western_Gull%29%2C_Point_Lobos%2C_CA%2C_US_-_May_2013.jpg"
+},
+"Western king prawn": {
+"a": "Kamakichi Kishinouye",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Pl._2_Japanese_species_of_the_genus_Penaeus_%2837073219%29.jpg"
 },
 "Western long-beaked echidna": {
 "a": "User:Jaganath",
