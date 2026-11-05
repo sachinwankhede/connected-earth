@@ -27,6 +27,12 @@ def thumb_path(u):
     parts = u.split('/')[5:]
     if parts[0] == 'thumb': return '/'.join(parts[1:])
     return '%s/%s/%s/330px-%s' % (parts[0], parts[1], parts[2], parts[2])
+def download(u):
+    """The 330 px thumbnail. A full-size Commons link may belong to an original smaller than 330 px, which has no thumbnail: then the original itself is taken."""
+    if not u.startswith('http') or '/thumb/' in u: return wm.get(BASE + thumb_path(u), raw=True)
+    try: raw = wm.get(BASE + thumb_path(u), raw=True, tries=1)
+    except RuntimeError: raw = None
+    return raw or wm.get(u, raw=True)
 def fid(title): return hashlib.sha1(title.encode()).hexdigest()[:12]
 def load(p, d): return json.load(open(p)) if os.path.exists(p) else d
 def strip(s): return re.sub(r'<[^>]+>', '', s or '').replace('&amp;', '&').strip()
@@ -62,7 +68,7 @@ def main():
                            'p': 'https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(f)}
             if t not in files: continue   # not a Commons file: reason already recorded
             if not em or not FREE.match(lic): skipped[t] = lic or 'no licence found'; continue
-            raw = wm.get(BASE + thumb_path(man[t][0]), raw=True)
+            raw = download(man[t][0])
             if not raw: skipped[t] = 'download failed'; continue
             try:
                 im = Image.open(io.BytesIO(raw)).convert('RGB'); im.thumbnail((96, 96))
