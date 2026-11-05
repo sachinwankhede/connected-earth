@@ -27,7 +27,7 @@ def old_scan(ecos):
         hits = []
         for e in ecos:
             if any(m[0] == l for m in sp[e['id']]) and e['id'] not in hits: hits.append(e['id'])
-        if len(hits) >= 2: where[l] = hits
+        if len(hits) >= 1: where[l] = hits
     return rel, ties, where
 
 
