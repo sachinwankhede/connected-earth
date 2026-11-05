@@ -271,7 +271,7 @@ RELATED_N = 10
 
 def species_overlap(ecos):
     """-> (related, ties, species_places) for this set of places, in the order of the list. related[id] = [[id, species in common], ...] (at most 10, most first, ties in page order);
-    ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[latin] = [place ids in page order]."""
+    ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[latin] = [place ids in page order] for every species, also one found in a single place (#420: the species page and the map filter need it)."""
     ids = [e['id'] for e in ecos]
     lists = {e['id']: [(n['latin'], n['name']) for n in e['nodes'] if not n.get('cat') and n.get('latin')] for e in ecos}
     by = {}
@@ -294,7 +294,7 @@ def species_overlap(ecos):
     sp = {}
     for lat, g in by.items():
         places = list(dict.fromkeys(i for i, _ in g))
-        if len(places) >= 2: sp[lat] = places
+        if len(places) >= 1: sp[lat] = places
     return related, ties, sp
 
 

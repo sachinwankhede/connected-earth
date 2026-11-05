@@ -20,10 +20,29 @@
       var ph = d.l && photoOf({ latin: d.l }), b = document.getElementById("sp-img");
       if (ph && b) { var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; bindPhoto(im, ph); im.src = ph.src; b.innerHTML = ""; b.appendChild(im); }
       fillPhotos("spcredit", ph && b.querySelector("img") ? [creditHTML(ph), "Species photos: Wikipedia"] : []);
+      if (!d.l) return;
+      M.spN = d.n || d.l; M.spL = d.l;
+      sppPlaces(d.l).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
+        ids = ids.filter(function (i) { return ECO_BY[i]; });
+        if (M.sid !== sid || !ids.length) return;
+        var w = document.createElement("div");
+        w.innerHTML = "<h3>Found in " + ids.length + " place" + (ids.length > 1 ? "s" : "") + '</h3><div class="pjs">' + ids.slice(0, 10).map(function (i) {
+          var e = ECO_BY[i];
+          return '<a class="pj" href="#pg=' + i + '" data-spp="' + i + '"><span class="pph" data-pid="e-' + i + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[e.icon] || "") + '</svg></span><span class="pjt"><i>' + escH(e.place || "") + "</i><b>" + escH(e.short) + '</b></span><span class="pjgo" aria-hidden="true">\u203a</span></a>';
+        }).join("") + "</div>" + (ids.length > 10 ? '<p class="fine">Showing 10 of ' + ids.length + ".</p>" : "") + '<p class="fine"><a href="#" data-spmap="1">Show ' + (ids.length > 1 ? "them" : "it") + " on the map</a></p>";
+        PV.querySelector("article").insertBefore(w, PV.querySelector(".srcd"));
+        ids.slice(0, 10).forEach(function (i) { var o = ECO_BY[i]; if (o.imgwiki) { if (!o.li) makeCard(o); pWant({ isPage: true, eco: sid, id: "e-" + i, wiki: o.imgwiki }); } });
+      });
     });
   }
   function closeSpecies() {
     if (history.state && history.state.sp && M.sid) { history.back(); return; }   /* a page opened from a search is its own history entry (#412) */
     M.sid = null; PV.hidden = true; showMap();
   }
-  PV.addEventListener("click", function (ev) { if (M.sid && ev.target.closest("[data-pback]")) closeSpecies(); });
+  PV.addEventListener("click", function (ev) {
+    var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap]"); if (!t) return;
+    ev.preventDefault();
+    if (t.hasAttribute("data-pback")) closeSpecies();
+    else if (t.hasAttribute("data-spp")) { M.pushNext = true; showPlace(t.getAttribute("data-spp")); }   /* a place opened from the page is a step Back undoes */
+    else speciesMap(M.spN, M.spL);
+  });
