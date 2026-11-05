@@ -121,10 +121,13 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   return { ctx, page, errors, close: () => ctx.close() };
 }
 
-export const dots = (page) => page.evaluate(() => {
-  const n = (id) => { const s = window.__M.map.getSource(id); return ((s._data && s._data.features) || []).length; };
-  return n('atl-e') + n('atl-f');
-});
+export const dots = async (page) => {
+  await page.waitForFunction(() => window.__M && window.__M.map && window.__M.map.getSource('atl-e'), null, { timeout: 60000 });   // the map style may still be loading on a slow runner
+  return page.evaluate(() => {
+    const n = (id) => { const s = window.__M.map.getSource(id); return s ? ((s._data && s._data.features) || []).length : 0; };
+    return n('atl-e') + n('atl-f');
+  });
+};
 export const camera = (page) => page.evaluate(() => {
   const m = window.__M.map, c = m.getCenter();
   return { lng: +c.lng.toFixed(2), lat: +c.lat.toFixed(2), zoom: +m.getZoom().toFixed(2) };
