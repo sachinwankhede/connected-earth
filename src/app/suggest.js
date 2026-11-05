@@ -1,6 +1,7 @@
   /* Suggestions while typing (#413): a short dropdown under the search box. The rows come from api/search[-pilot]/s-<first two letters of the last typed word>.json
-     (written by the build): places in home-list order and species with the number of places. A name that starts with what is typed comes before a name that only has
-     a word that starts with it; places before species within each. At most 3 rows on a phone, 5 on a wider screen. A place row opens the place, a species row runs
+     (written by the build): places in home-list order and species with the number of places. The whole name typed comes first, then names that start with the text, then names
+     with a word that starts with it; within each the better known first, places and species interleaved (#424). Every row says its type: "Place · <state or country>" (just "Place" until
+     the local places have arrived) or "Species · in N places". At most 3 rows on a phone, 5 on a wider screen. A place row opens the place, a species row runs
      "Show on the map" for that species. The dropdown shows only while the box has focus and at least two letters are typed; Enter, Clear, a tap on a row or a tap
      elsewhere closes it. Nothing here blocks the normal search, which still runs on every keystroke. */
   var SUG = { bk: {}, n: 0, rows: [], q: "" };
@@ -9,16 +10,19 @@
   var SUG_CHEV = '<svg class="sgo" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
   function sugMax() { return window.matchMedia && matchMedia("(max-width: 700px)").matches ? 3 : 5; }
   function sugHide() { SUG.n++; SUG.rows = []; if (sugBox) { sugBox.hidden = true; sugBox.innerHTML = ""; } sugIn.setAttribute("aria-expanded", "false"); }
-  /* rows for the typed text q out of one suggestion file d: every typed word must start a word of the name, then starts-with, then places before species */
+  /* rows for the typed text q out of one suggestion file d: every typed word must start a word of the name. Rank k: 0 the whole name (or Latin name) is what was typed, 1 the
+     name starts with it, 2 only a word of the name starts with it. Within a rank the better known first: a place by its position in the home list, a species by its number of
+     places; the two kinds are interleaved by that position (the best place, the best species, the second place, ...), so the type alone never decides (#424) */
   function sugPick(q, d) {
-    var ws = srchWords(q), phrase = ws.join(" "), list = [];
-    if (!ws.length) return list;
+    var ws = srchWords(q), phrase = ws.join(" "), P = [], S = [];
+    if (!ws.length) return [];
     function words(label) { return srchWords(label); }
     function has(lw) { return ws.every(function (w) { return lw.some(function (x) { return x.lastIndexOf(w, 0) === 0; }); }); }
-    (d.p || []).forEach(function (r, i) { var nm = words(r[1]); if (has(nm)) list.push({ t: "p", id: r[0], name: r[1], k: (nm.join(" ").lastIndexOf(phrase, 0) === 0 ? 0 : 1) * 2, i: i }); });
-    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) list.push({ t: "s", latin: r[0], name: r[1], n: r[2], k: (nm.join(" ").lastIndexOf(phrase, 0) === 0 || lt.join(" ").lastIndexOf(phrase, 0) === 0 ? 0 : 1) * 2 + 1, i: i }); });
-    list.sort(function (a, b) { return (a.k >> 1) - (b.k >> 1) || (a.t === b.t ? a.i - b.i : a.t === "p" ? -1 : 1); });
-    return list.slice(0, sugMax());
+    function rank(names) { var r = 2; names.forEach(function (n) { r = Math.min(r, n === phrase ? 0 : n.lastIndexOf(phrase, 0) === 0 ? 1 : 2); }); return r; }
+    (d.p || []).forEach(function (r, i) { var nm = words(r[1]); if (has(nm)) P.push({ t: "p", id: r[0], name: r[1], k: rank([nm.join(" ")]), i: i }); });
+    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
+    [P, S].forEach(function (a) { var c = [0, 0, 0]; a.sort(function (x, y) { return x.k - y.k || x.i - y.i; }); a.forEach(function (x) { x.pos = c[x.k]++; }); });
+    return P.concat(S).sort(function (a, b) { return a.k - b.k || a.pos - b.pos || (a.t === b.t ? 0 : a.t === "p" ? -1 : 1); }).slice(0, sugMax());
   }
   function sugImg(box, p, fallback) {
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
@@ -32,7 +36,7 @@
       row.className = "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else row.setAttribute("data-latin", r.latin);
       row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b><i></i></span>' + SUG_CHEV;
       row.querySelector("b").textContent = r.name;
-      row.querySelector("i").textContent = r.t === "p" ? (e ? e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");
+      row.querySelector("i").textContent = r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");
       var p = r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin];
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);

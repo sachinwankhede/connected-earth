@@ -17,7 +17,7 @@ Status: **agreed** (5 Nov 2026, the owner accepted every proposal below). Items 
 - **D. Browse without a name:** the Species tab (top species, then groups), and Places and Journeys as today.
 
 ## Flows
-1. **Typing (dropdown).** From two letters, under the box; 3 rows on a phone, 5 wider. Row: photo (or icon), name, one muted line, chevron, 56 px. Lines: `Place · <state or country>` and `Species · in N places`. Order: exact name, then names that start with the text, then names with a word that starts with it; within equal matches the better known first (places in home-list order, species by number of places). Closes on a tap on a row, Enter, Clear or a tap elsewhere. (Built in #413; the type line for places and exact-first ranking are a small follow-up.)
+1. **Typing (dropdown).** From two letters, under the box; 3 rows on a phone, 5 wider. Row: photo (or icon), name, one muted line, chevron, 56 px. Lines: `Place · <state or country>` and `Species · in N places`. Order: exact name, then names that start with the text, then names with a word that starts with it; within equal matches the better known first (places in home-list order, species by number of places). Closes on a tap on a row, Enter, Clear or a tap elsewhere. (Built in #413; the type line for places and exact-first ranking in #424. Within an equal rank places and species take turns by their position in the file, so the type alone never decides.)
 2. **Place row** opens the place page. **Species row** opens the species page (#420). (Decided: the species row opens the page and not the map filter.)
 3. **Species page (#420).** Photo (thumbnail now, 400 px when one exists, #421), kind line, common and Latin name, the short description when there is one, "Found in N places" as tappable place rows, a "Show on the map" link, share icon, Sources & credits. No eats / eaten-by in version 1. Back goes to where the person came from ("‹ Search" from search).
 4. **Enter (results).** The list and map are filtered. A header line says what the result is: for an exact species or place match a header row with the name, the count and a link to its page; otherwise "N places match “text”", also inside a region. Each card carries one muted line saying why it matches ("Has osprey").
@@ -46,7 +46,7 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 |---|---|---|
 | Search box on a phone | #409 | done |
 | Dropdown | #413 | done |
-| Dropdown type line, exact-first ranking | #424 | idea |
+| Dropdown type line, exact-first ranking | #424 | done |
 | Search in the address, Back | #412 | idea |
 | One redraw, honest states, nothing-found text | #414 | idea |
 | Species page | #420 | idea |
