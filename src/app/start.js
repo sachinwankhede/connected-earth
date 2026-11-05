@@ -1,6 +1,7 @@
   M.h0 = location.hash.slice(1);
   buildMap();
   if (window.maplibregl || window.__mapLib) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
+  M.fromHash = true;   /* start-up first draws the map and then applies the address: neither is a new history step, and the first draw must not wipe the entry's state (#412) */
   showMap();
   applyHash(M.h0);
   addEventListener("hashchange", function () { applyHash(); });
