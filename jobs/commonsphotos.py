@@ -77,7 +77,7 @@ def main():
             elif not names[k]: why[t] = 'item has no usable P18'
             for n in names.get(t.replace('_', ' '), [])[:2]:
                 lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
-                why[t] = 'file %s: licence %r, type %r, link %s' % (n, lic, mime, thumb[-90:] or 'none')
+                why[t] = 'file %s: licence %r, type %r, link %s' % (n, lic, mime, thumb[:220] or 'none')
                 if mime.startswith('image/') and mime != 'image/svg+xml' and open_licence(lic):
                     entry = manifest_entry(thumb, t)
                     if entry: break
