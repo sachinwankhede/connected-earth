@@ -15,6 +15,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
 MAN = 'photos/species.json'; MISS = 'photos/species_missing.json'; SRC = 'photos/species_source.json'; TRIED = 'photos/species_commons_tried.json'
 RETRY_DAYS = 90
+ORIG = 'https://upload.wikimedia.org/wikipedia/commons/'
 THUMB = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
 # The open licences allowed for every source (#421): CC0, CC BY, CC BY-SA, public domain. Never NC, ND or GFDL.
 OPEN = re.compile(r'^(CC0|CC[ -]BY([ -]SA)?([ -]\d[\d.]*)?( [A-Za-z]{2,3})?|Public domain|PD)\b', re.I)
@@ -31,10 +32,13 @@ def image_names(claims):
         if isinstance(v, str) and not NOTPHOTO.search(v): out.append(v)
     return out
 def manifest_entry(thumburl, title):
-    """[path below the thumb folder, Wikipedia page name], as speciesphotos.py writes it; None when the link is not a Commons thumbnail."""
+    """[path below the thumb folder, Wikipedia page name], as speciesphotos.py writes it (the full Commons link for an original too small to have a thumbnail); None for any other link."""
     u = (thumburl or '').split('?')[0]
-    if not u.startswith(THUMB) or not safe_https(u, ALLOWED_IMAGE_HOSTS): return None
-    return [u[len(THUMB):], urllib.parse.quote(title.replace(' ', '_'))]
+    if not safe_https(u, ALLOWED_IMAGE_HOSTS): return None
+    page = urllib.parse.quote(title.replace(' ', '_'))
+    if u.startswith(THUMB): return [u[len(THUMB):], page]
+    if u.startswith(ORIG): return [u, page]   # an original smaller than 330 px has no thumbnail: the full link, which hostphotos.py downloads as it is
+    return None
 def wikidata_images(titles):
     """{title: [file names]} for the titles that have a Wikidata item with P18."""
     q = ('https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&props=claims%7Csitelinks&sitefilter=enwiki&format=json&titles='

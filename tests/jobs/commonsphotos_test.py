@@ -27,7 +27,9 @@ class CommonsPhotosTests(unittest.TestCase):
         self.assertEqual(c.manifest_entry(u, 'Acalypha radians'), ['2/2f/Aardwolf%2C_Kenya.jpg/330px-Aardwolf%2C_Kenya.jpg', 'Acalypha_radians'])
         self.assertIsNone(c.manifest_entry('https://example.com/a.jpg', 'X'))
         self.assertIsNone(c.manifest_entry('', 'X'))
-        self.assertIsNone(c.manifest_entry('https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/X.jpg/330px-X.jpg', 'X'), 'only Commons thumbnails')
+        self.assertIsNone(c.manifest_entry('https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/X.jpg/330px-X.jpg', 'X'), 'only Commons files')
+        self.assertEqual(c.manifest_entry('https://upload.wikimedia.org/wikipedia/commons/a/ab/Small.jpg?utm_source=commons.wikimedia.org', 'Aralia hispida'),
+                         ['https://upload.wikimedia.org/wikipedia/commons/a/ab/Small.jpg', 'Aralia_hispida'], 'a small original keeps its full link, without the tracking query')
 
     def test_hostphotos_can_read_what_we_write(self):
         import hostphotos as h

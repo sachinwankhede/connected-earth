@@ -37,3 +37,28 @@ class HostPhotosTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DownloadTests(unittest.TestCase):
+    def run_download(self, u, answers):
+        seen = []
+        def fake(url, raw=False, tries=6):
+            seen.append(url); a = answers.pop(0)
+            if isinstance(a, Exception): raise a
+            return a
+        old = h.wm.get; h.wm.get = fake
+        try: return h.download(u), seen
+        finally: h.wm.get = old
+
+    def test_a_thumbnail_path_downloads_the_thumbnail_only(self):
+        raw, seen = self.run_download("4/42/A.jpg/330px-A.jpg", [b"x"])
+        self.assertEqual((raw, seen), (b"x", [h.BASE + "4/42/A.jpg/330px-A.jpg"]))
+
+    def test_a_small_original_falls_back_to_the_original(self):
+        u = "https://upload.wikimedia.org/wikipedia/commons/5/5c/A.jpg"
+        raw, seen = self.run_download(u, [RuntimeError("400"), b"orig"])
+        self.assertEqual((raw, seen), (b"orig", [h.BASE + "5/5c/A.jpg/330px-A.jpg", u]))
+
+    def test_a_large_original_still_uses_its_thumbnail(self):
+        raw, seen = self.run_download("https://upload.wikimedia.org/wikipedia/commons/5/5c/A.jpg", [b"thumb"])
+        self.assertEqual((raw, seen), (b"thumb", [h.BASE + "5/5c/A.jpg/330px-A.jpg"]))
