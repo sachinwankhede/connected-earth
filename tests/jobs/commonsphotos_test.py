@@ -38,3 +38,21 @@ class CommonsPhotosTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class WikidataLookupTests(unittest.TestCase):
+    def test_a_wikidata_error_stops_the_job_and_titles_are_not_normalized(self):
+        calls = []
+        def fake(url, **k): calls.append(url); return {'error': {'code': 'params-illegal', 'info': 'x'}}
+        old = c.wm.get; c.wm.get = fake
+        try:
+            with self.assertRaises(RuntimeError): c.wikidata_images(['A b', 'C d'])
+        finally: c.wm.get = old
+        self.assertNotIn('normalize', calls[0], 'Wikidata refuses normalize with more than one title')
+
+    def test_entities_are_matched_by_their_english_page_title(self):
+        j = {'entities': {'Q1': {'sitelinks': {'enwiki': {'title': 'Acer barbatum'}}, 'claims': {'P18': [{'rank': 'normal', 'mainsnak': {'datavalue': {'value': 'Acer.jpg'}}}]}},
+                          'Q2': {'sitelinks': {'enwiki': {'title': 'Aglaia'}}, 'claims': {}}}}
+        old = c.wm.get; c.wm.get = lambda url, **k: j
+        try: self.assertEqual(c.wikidata_images(['Acer barbatum', 'Aglaia']), {'Acer barbatum': ['Acer.jpg'], 'Aglaia': []})
+        finally: c.wm.get = old

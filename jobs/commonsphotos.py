@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
 MAN = 'photos/species.json'; MISS = 'photos/species_missing.json'; SRC = 'photos/species_source.json'; TRIED = 'photos/species_commons_tried.json'
-RETRY_DAYS = 90; DEBUG = [False]
+RETRY_DAYS = 90
 THUMB = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
 # The open licences allowed for every source (#421): CC0, CC BY, CC BY-SA, public domain. Never NC, ND or GFDL.
 OPEN = re.compile(r'^(CC0|CC[ -]BY([ -]SA)?([ -]\d[\d.]*)?( [A-Za-z]{2,3})?|Public domain|PD)\b', re.I)
@@ -37,10 +37,10 @@ def manifest_entry(thumburl, title):
     return [u[len(THUMB):], urllib.parse.quote(title.replace(' ', '_'))]
 def wikidata_images(titles):
     """{title: [file names]} for the titles that have a Wikidata item with P18."""
-    q = ('https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&props=claims%7Csitelinks&sitefilter=enwiki&normalize=1&format=json&titles='
+    q = ('https://www.wikidata.org/w/api.php?action=wbgetentities&sites=enwiki&props=claims%7Csitelinks&sitefilter=enwiki&format=json&titles='
          + urllib.parse.quote('|'.join(titles)))
     j = wm.get(q) or {}; out = {}
-    if not out and not DEBUG[0]: DEBUG[0] = True; print('  debug Wikidata reply:', json.dumps(j)[:700], flush=True)
+    if 'error' in j: raise RuntimeError('Wikidata said: ' + json.dumps(j['error'])[:300])
     for e in (j.get('entities') or {}).values():
         t = ((e.get('sitelinks') or {}).get('enwiki') or {}).get('title')
         if t: out[t] = image_names((e.get('claims') or {}).get('P18'))
