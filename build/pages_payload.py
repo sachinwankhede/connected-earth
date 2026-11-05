@@ -47,7 +47,7 @@ def main():
 
     copy_file(ROOT / 'geo-states.json', 'geo-states.json', expected)
 
-    for lib in sorted(list(ROOT.glob('maplibre-gl-*.js')) + list(ROOT.glob('d3-*.js'))):
+    for lib in sorted(list(ROOT.glob('maplibre-gl-*.js')) + list(ROOT.glob('d3-*.js')) + list(ROOT.glob('species-tab-*.js'))):
         copy_file(lib, lib.name, expected)
 
     for font in sorted((ROOT / 'fonts').glob('*.woff2')):

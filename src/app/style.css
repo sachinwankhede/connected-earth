@@ -850,6 +850,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 .tabs .tn { font: 600 11px var(--font-mono); color: var(--muted); margin-left: 3px; }
 .sbody.tab-j #cards, .sbody.tab-j #empty, .sbody.tab-j .credlink, .sbody.tab-j #morecards { display: none !important; }
 .sbody:not(.tab-j) #xwrap { display: none; }
+.sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead, .sbody.tab-s #regions { display: none !important; }
+.sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sptab .sgl { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
 .jlist { grid-template-columns: 1fr !important; gap: 8px !important; }
 .jcard { display: flex; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
 .jcard.hl { outline: 2px solid var(--accent); }

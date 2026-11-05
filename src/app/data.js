@@ -15,6 +15,7 @@
       counts: function () { return json(root + "api/places/__PLACES_DIR__/counts.json"); },   /* places per region, kind and park, written by the build (#261) */
       place: function (id) { return json(root + "api/" + id + ".json"); },   /* a place's full web (nodes, links, evidence, story, its species' picture entries) */
       speciesPlaces: function (k) { return json(root + "api/species-places__PLACES_SFX__/" + k + ".json", {}); },   /* which places a species is in; {} when there is no file */
+      speciesTab: function (f) { return json(root + "api/species-tab__PLACES_SFX__/" + f); },   /* a file of the Species tab: top.json, groups.json or a page of a group (#422) */
       ties: function (k) { return json(root + "api/ties__PLACES_SFX__/" + k + ".json", {}); },   /* the ties of one region; {} when there is no file */
       search: function (f) { return json("api/search__PLACES_SFX__/" + f); },   /* a search file (meta, word bucket or rows); a page-relative address, as before */
       pictures: function () { return json(root + "api/species-pictures.json"); },   /* every hosted species picture with its credit */
