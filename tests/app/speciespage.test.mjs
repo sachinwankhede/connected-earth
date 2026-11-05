@@ -94,6 +94,17 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: the species page lists related species of the same family and a row opens that species (#448)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=canis-lupus' }); const p = t.page;
+    await p.waitForFunction(() => [...document.querySelectorAll('#pview h3')].some((h) => h.textContent === 'Related species'), null, { timeout: 60000 });
+    const d = await p.evaluate(() => { const h = [...document.querySelectorAll('#pview h3')].find((x) => x.textContent === 'Related species'); const rows = [...h.nextElementSibling.querySelectorAll('.sgr')]; return { n: rows.length, latins: rows.map((r) => r.getAttribute('data-latin')), name: document.querySelector('#pview h2').textContent }; });
+    assert.ok(d.n >= 1 && d.n <= 5, 'up to five rows: ' + d.n); assert.ok(!d.latins.includes('Canis lupus'), 'not itself');
+    await p.evaluate(() => { const h = [...document.querySelectorAll('#pview h3')].find((x) => x.textContent === 'Related species'); h.nextElementSibling.querySelector('.sgr').click(); });
+    await p.waitForFunction((l) => document.querySelector('#pview .jr i') && document.querySelector('#pview .jr i').textContent === l, d.latins[0], { timeout: 60000 });
+    assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ ' + d.name);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: a species found in one place shows that place`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
