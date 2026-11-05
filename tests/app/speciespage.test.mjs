@@ -105,6 +105,15 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: a species with a larger picture shows it as a wide photo above the title (#421)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=odocoileus-virginianus' }); const p = t.page;
+    await p.waitForFunction(() => { const i = document.querySelector('#pview .jphoto'); return i && i.complete && i.naturalWidth > 0 && document.querySelector('#pview article').classList.contains('bigphoto'); }, null, { timeout: 60000 });
+    const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, small: getComputedStyle(document.querySelector('#pview .jhimg')).display, title: document.querySelector('#pview h2').textContent }; });
+    assert.match(d.src, /photos\/species-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 262, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.small, 'none', 'the small square is not shown next to it');
+    assert.ok(d.title.length > 0);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: a species found in one place shows that place`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));

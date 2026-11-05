@@ -31,6 +31,12 @@ class SpeciesTab(unittest.TestCase):
         groups = {g[0] for g in json.load(open(os.path.join(ROOT, 'api', 'species-tab', 'groups.json')))}
         self.assertIn(d['g'], groups, 'the group is one of the Species tab groups')
 
+    @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'odocoileus-virginianus.json')) and os.path.exists(os.path.join(ROOT, 'photos', 'species_large.json')), 'needs a build')
+    def test_species_file_marks_a_larger_picture(self):   # #421: pl = 1 only where photos/species-lg/ has a copy of the same picture
+        large = json.load(open(os.path.join(ROOT, 'photos', 'species_large.json')))
+        d = json.load(open(os.path.join(ROOT, 'api', 'species', 'odocoileus-virginianus.json')))
+        self.assertEqual(d.get('pl'), 1 if d['ph'][0] in large.values() else None)
+
     def test_related_species_of_the_same_family(self):   # #448
         about = {'a': {'l': 'A a', 'fa': 'F1'}, 'b': {'l': 'B b', 'fa': 'F1'}, 'c': {'l': 'C c', 'fa': 'F1'}, 'd': {'l': 'D d', 'fa': 'F2'}, 'e': {'l': 'E e'}}
         B.species_related(about, {'a a': 'Alpha', 'b b': 'Beta', 'c c': 'Charlie'}, {'C c': 'c.webp'}, {'A a': 1, 'B b': 5, 'C c': 5})
