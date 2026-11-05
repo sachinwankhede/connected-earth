@@ -89,7 +89,7 @@
     if (SPT) { cb(SPT); return; }
     SPQ.push(cb); if (SPQ.length > 1) return;
     var sc = document.createElement("script"); sc.async = true; sc.src = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "species-tab-__TABVER__.js";
-    sc.onload = function () { var f = (window.__chunk || {})["species-tab"]; if (!f) { SPQ = []; return; } SPT = f({ Data: Data, PhotoRegistry: PhotoRegistry, esc: esc, leaf: SUG_LEAF, chev: SUG_CHEV, go: function (l) { M.pushNext = true; showSpecies(sidOf({ latin: l }), "Species"); } }); var q = SPQ; SPQ = []; q.forEach(function (f2) { f2(SPT); }); };
+    sc.onload = function () { var f = (window.__chunk || {})["species-tab"]; if (!f) { SPQ = []; return; } SPT = f({ Data: Data, PhotoRegistry: PhotoRegistry, esc: esc, leaf: SUG_LEAF, chev: SUG_CHEV, find: function (q) { var ws = srchWords(q), l = ws[ws.length - 1]; return !l || l.length < 2 ? Promise.resolve(null) : sugFile(l.slice(0, 2)).then(function (d) { return sugPick(q, { s: d.s }, 40); }); }, go: function (l) { M.pushNext = true; showSpecies(sidOf({ latin: l }), "Species"); } }); var q = SPQ; SPQ = []; q.forEach(function (f2) { f2(SPT); }); };
     sc.onerror = function () { SPQ = []; var st = document.getElementById("sptab"); if (st) st.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; };
     document.head.appendChild(sc);
   }

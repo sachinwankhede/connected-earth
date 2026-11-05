@@ -13,7 +13,7 @@
   /* rows for the typed text q out of one suggestion file d: every typed word must start a word of the name. Rank k: 0 the whole name (or Latin name) is what was typed, 1 the
      name starts with it, 2 only a word of the name starts with it. Within a rank the better known first: a place by its position in the home list, a species by its number of
      places; the two kinds are interleaved by that position (the best place, the best species, the second place, ...), so the type alone never decides (#424) */
-  function sugPick(q, d) {
+  function sugPick(q, d, max) {
     var ws = srchWords(q), phrase = ws.join(" "), P = [], S = [];
     if (!ws.length) return [];
     function words(label) { return srchWords(label); }
@@ -22,7 +22,7 @@
     (d.p || []).forEach(function (r, i) { var nm = words(r[1]); if (has(nm)) P.push({ t: "p", id: r[0], name: r[1], k: rank([nm.join(" ")]), i: i }); });
     (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
     [P, S].forEach(function (a) { var c = [0, 0, 0]; a.sort(function (x, y) { return x.k - y.k || x.i - y.i; }); a.forEach(function (x) { x.pos = c[x.k]++; }); });
-    return P.concat(S).sort(function (a, b) { return a.k - b.k || a.pos - b.pos || (a.t === b.t ? 0 : a.t === "p" ? -1 : 1); }).slice(0, sugMax());
+    return P.concat(S).sort(function (a, b) { return a.k - b.k || a.pos - b.pos || (a.t === b.t ? 0 : a.t === "p" ? -1 : 1); }).slice(0, max || sugMax());
   }
   function sugImg(box, p, fallback) {
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
@@ -87,7 +87,7 @@
     var n = ++SUG.n; SUG.q = raw;
     sugFile(last.slice(0, 2)).then(function (d) {
       if (n !== SUG.n) return;   /* the text has moved on */
-      SUG.rows = sugPick(raw, d); sugDraw();
+      SUG.rows = sugPick(raw, document.getElementById("sbody").classList.contains("tab-s") ? { s: d.s } : d); sugDraw();   /* on the Species tab only species (#422) */
       if (!Places.done) Places.loadLocals().then(function () { if (n === SUG.n) sugDraw(); });   /* the place lines and icons of local places */
       withSpeciesPhotos(function () { if (n === SUG.n) sugDraw(); });
     }).catch(function () { if (n === SUG.n) sugHide(); });   /* no suggestions when the file cannot be had; the normal search goes on */
