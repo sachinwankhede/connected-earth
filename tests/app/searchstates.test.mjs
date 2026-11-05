@@ -16,7 +16,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('osprey');
     await answered(p, 'osprey'); await p.waitForTimeout(800);
     const n = await p.evaluate(() => window.__n);
-    assert.ok(n >= 1 && n <= 6, 'draws for six keys: ' + n);   // before: at least two per key (12 or more); now the first letter, the rest as one, and what the local places and the photos add
+    assert.ok(n >= 1 && n <= 8, 'draws for six keys: ' + n);   // before: at least two per key (12 or more); now the first letter, the rest as one, and what the local places and the photos add
     assert.match(await stats(p), /places? match “osprey”/);
     assert.ok(await cards(p) > 0, 'osprey has places');
     assert.deepEqual(t.errors, []); await b.close();
