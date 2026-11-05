@@ -39,6 +39,8 @@ window.__chunk["species-tab"] = function (A) {
     p.addEventListener("click", function (ev) { ev.preventDefault(); more(); });
     more();
   }
+  var want = null;
+  function openGroup(key) { var g = groups.filter(function (x) { return x[0] === key; })[0]; if (g) group(g); else want = key; }   /* before the groups have loaded, open() does it */
   function act(t) {
     var d = t.closest(".sgr"), g;
     if (d && d.hasAttribute("data-latin")) A.go(d.getAttribute("data-latin"));
@@ -63,16 +65,22 @@ window.__chunk["species-tab"] = function (A) {
   var P = A.P, PV = P.PV, M = P.M, escH = P.escH;
   function show(sid) {
     var words = sid.replace(/-/g, " ").replace(/^./, function (c) { return c.toUpperCase(); });
+    var GL = {};   /* group key -> label, from the Species tab's groups file */
+    function taxLine(d) {   /* group (a link to its list), order and family (#446) */
+      if (!d.g || !GL[d.g]) return "";
+      return '<p class="fine tax"><a href="#" data-sg="' + d.g + '">' + escH(GL[d.g]) + "</a>" + (d.od ? " \u203a " + escH(d.od) : "") + (d.fa ? " \u203a " + escH(d.fa) : "") + "</p>";
+    }
     function page(d) {
       var latin = d.l || words, name = d.n || latin;
       return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">\u2039 ' + escH(M.spFrom || (P.FL.q ? "Search" : "Places")) + "</button>" + P.shareBtn() + "</div>" +
-        '<div class="jhero"><span class="jhimg" id="sp-img">' + (P.ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + P.ICONS[d.ic] + "</svg>" : A.leaf) + '</span><div><p class="jkind">' + escH(P.PNAMES[d.tl] || "Species") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p></div></div>" +
+        '<div class="jhero"><span class="jhimg" id="sp-img">' + (P.ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + P.ICONS[d.ic] + "</svg>" : A.leaf) + '</span><div><p class="jkind">' + escH(P.PNAMES[d.tl] || "Species") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p>" + taxLine(d) + "</div></div>" +
         (d.t ? '<p class="about">' + P.aboutText({ latin: latin, wiki: d.ph && d.ph[1] }) + "</p>" : "") +
         P.footHTML({ photoId: "spcredit", sources: [{ title: "Wikipedia: " + escH(latin), url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(((d.ph && d.ph[1]) || latin).replace(/ /g, "_")) }] }) + "</article>";
     }
     if (M.sid !== sid) return;
     PV.innerHTML = page({});
-    A.Data.species(sid).catch(function () { return null; }).then(function (d) {
+    Promise.all([A.Data.species(sid).catch(function () { return null; }), A.Data.speciesTab("groups.json").catch(function () { return []; })]).then(function (r) {
+      var d = r[0]; r[1].forEach(function (g) { GL[g[0]] = g[1]; });
       if (M.sid !== sid) return;
       d = d || {}; if (d.t) P.ABOUT[sid] = d.t;
       PV.innerHTML = page(d);
@@ -104,9 +112,10 @@ window.__chunk["species-tab"] = function (A) {
   }
   PV.addEventListener("click", function (ev) {
     var r = M.sid && ev.target.closest(".sgr[data-latin]"); if (r) { A.go(r.getAttribute("data-latin"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
-    var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap]"); if (!t) return;
+    var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap],[data-sg]"); if (!t) return;
     ev.preventDefault();
-    if (t.hasAttribute("data-pback")) P.closeSpecies();
+    if (t.hasAttribute("data-sg")) { M.sid = null; PV.hidden = true; P.showMap(); P.setTab("species"); openGroup(t.getAttribute("data-sg")); }   /* the group's list in the Species tab */
+    else if (t.hasAttribute("data-pback")) P.closeSpecies();
     else if (t.hasAttribute("data-spp")) { M.pushNext = true; P.showPlace(t.getAttribute("data-spp")); }   /* a place opened from the page is a step Back undoes */
     else P.speciesMap(M.spN, M.spL);
   });
@@ -114,7 +123,7 @@ window.__chunk["species-tab"] = function (A) {
     show: show,
     open: function () {
       if (started) { shown = null; find(); return; } started = true;
-      Promise.all([A.Data.speciesTab("top.json"), A.Data.speciesTab("groups.json")]).then(function (r) { top = r[0]; groups = r[1]; home(); shown = ""; find(); })
+      Promise.all([A.Data.speciesTab("top.json"), A.Data.speciesTab("groups.json")]).then(function (r) { top = r[0]; groups = r[1]; home(); shown = ""; find(); if (want) { openGroup(want); want = null; } })
         .catch(function () { started = false; box.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; });
     }
   };

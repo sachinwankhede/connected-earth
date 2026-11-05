@@ -81,6 +81,19 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: the species page names its group, order and family, and the group opens its list in the Species tab (#446)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    await p.waitForSelector('#pview .tax a[data-sg]', { timeout: 60000 });
+    const tx = await p.evaluate(() => ({ text: document.querySelector('#pview .tax').textContent, g: document.querySelector('#pview .tax a').getAttribute('data-sg') }));
+    assert.equal(tx.g, 'birds'); assert.match(tx.text, /^Birds › Accipitriformes › Pandionidae$/);
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.evaluate(() => document.querySelector('#pview .tax a').click());
+    await p.waitForFunction(() => document.getElementById('pview').hidden && !document.getElementById('sptab').hidden && /^Birds · \d+$/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
+    assert.equal(await p.evaluate(() => document.querySelector('#sptab .jback').textContent.trim()), '‹ Species');
+    assert.equal(await p.evaluate(() => window.__M.tab), 'species');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: a species found in one place shows that place`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));

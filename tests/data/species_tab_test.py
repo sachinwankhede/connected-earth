@@ -24,6 +24,13 @@ class SpeciesTab(unittest.TestCase):
         self.assertEqual(about['deer-d']['ea'], [['Grass g', 'Grass', 1, 0]]); self.assertEqual(about['deer-d']['eb'], [['Wolf w', 'Wolf', 2, 0]])
         self.assertNotIn('ea', about['grass-g'], 'the sun and itself are not food'); self.assertEqual(about['grass-g']['eb'], [['Deer d', 'Deer', 2, 'd.webp']])
 
+    @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')), 'needs a build')
+    def test_species_file_has_group_order_family(self):   # #446: the species page names them
+        d = json.load(open(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')))
+        self.assertEqual((d.get('g'), d.get('od'), d.get('fa')), ('birds', 'Accipitriformes', 'Pandionidae'))
+        groups = {g[0] for g in json.load(open(os.path.join(ROOT, 'api', 'species-tab', 'groups.json')))}
+        self.assertIn(d['g'], groups, 'the group is one of the Species tab groups')
+
     def test_rows_order_pages_and_totals(self):
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1', 'p2']}
         common = {'A a': 'Alpha', 'B b': 'Beta', 'C c': 'Charlie', 'D d': 'Delta'}
