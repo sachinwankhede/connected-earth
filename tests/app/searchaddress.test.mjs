@@ -20,6 +20,7 @@ const openFirst = async (p) => {
   return id;
 };
 const trace = [];
+const hook = () => { window.__h = []; const ps = history.pushState; history.pushState = function (s, t, u) { window.__h.push('P:' + String(u).split('#')[1]); return ps.apply(this, arguments); }; addEventListener('hashchange', (e) => window.__h.push('H:' + e.newURL.split('#')[1])); addEventListener('popstate', () => window.__h.push('pop')); };   // what the browser did, for a failure message
 const mark = async (p, what) => { trace.push(what + ': ' + (await p.evaluate(() => decodeURIComponent(location.hash).replace('#stub&', '') + ' L' + history.length + ' S' + (history.state ? history.state.sp : '-') + ' q=' + document.getElementById('q').value))); };
 const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); await mark(p, 'after back'); };
 
@@ -42,6 +43,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: a place opened from a search keeps the search; Back returns to the list, and once more clears the search`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.addInitScript(hook); await p.evaluate(hook);
     await search(p, 'elk');
     const before = await names(p), n0 = await p.evaluate(() => window.__M.hitsN);
     await mark(p, 'searched'); const id = await openFirst(p); await mark(p, 'place opened');
@@ -61,7 +63,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await same(p, before, 'the same list');
     // Back again: the search is cleared before leaving
     await back(p);
-    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text -- ' + '\n' + trace.join('\n')); assert.doesNotMatch(s.hash, /(^|&)s=/);
+    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text -- events ' + (await p.evaluate(() => window.__h.join(' '))) + '\n' + trace.slice().reverse().slice(0, 4).join('\n')); assert.doesNotMatch(s.hash, /(^|&)s=/);
     assert.equal(s.clr, false);
     assert.deepEqual(t.errors, []); await b.close();
   });
