@@ -76,7 +76,6 @@
         : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
       el.stats.textContent = FL.q && FL.busy ? "Searching…" : mt + (FL.q && FL.limited ? " · Search is limited right now" : "");   /* the query stays in the line inside a region; a failed index says so (#414) */
     }
-    tabCount("places", FL.q && !FL.busy ? list.length : null); if (M.jq !== FL.q) { M.jq = FL.q; applyJ(); }
     var hk = document.getElementById("hook");
     if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + PITCH2 + "</span>"; }
     if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + PITCH2;
@@ -88,6 +87,7 @@
       if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
     }
     M.statsHTML = el.stats.innerHTML; M.region = region;
+    tabCount("places", FL.q && !FL.busy ? list.length : null); if (M.jq !== FL.q) { M.jq = FL.q; applyJ(); }   /* after statsHTML: applyJ redraws the count line */
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level !== "world";

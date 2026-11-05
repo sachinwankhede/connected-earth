@@ -71,9 +71,8 @@
     ECOS.forEach(addEcoOption);
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
-  var TABN = { places: "Places", species: "Species", journeys: "Journeys" };
   function tabCount(t, n) {   /* while a search is on every tab says how many it found (#443) */
-    Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { b.textContent = TABN[t] + (n == null ? "" : " " + n); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { b.textContent = t[0].toUpperCase() + t.slice(1) + (n == null ? "" : " " + n); });
   }
   function applyJ() {
     var jw = FL.q ? srchWords(FL.q) : [];   /* a search also narrows the journeys: every typed word must be in the card (#443) */
