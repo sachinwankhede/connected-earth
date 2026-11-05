@@ -852,6 +852,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sbody:not(.tab-j) #xwrap { display: none; }
 .sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead, .sbody.tab-s #regions { display: none !important; }
 .sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.sptab .fine a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 0; }
 .sptab .sgl { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
 .jlist { grid-template-columns: 1fr !important; gap: 8px !important; }
 .jcard { display: flex; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
@@ -966,7 +967,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jview[hidden] { display: none !important; }
 .jp { max-width: 720px; margin: 0 auto; padding: 0 0 calc(36px + env(safe-area-inset-bottom, 0px)); }
 .jp .jtop { position: sticky; top: 0; z-index: 3; padding: 0 0 4px; background: var(--bg); }
-.jp .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
+.jp .jback, .sptab .jback { display: inline-flex; align-items: center; gap: 4px; min-height: 34px; padding: 0 12px 0 0; border: 0; background: transparent; color: var(--accent); font: 600 16px var(--font-body); cursor: pointer; }
 .jp .jhero { display: flex; gap: 14px; align-items: center; margin: 2px 0 14px; }
 .jp .jhimg { flex: none; width: 84px; height: 84px; border-radius: 14px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jhimg img { width: 100%; height: 100%; object-fit: cover; }
