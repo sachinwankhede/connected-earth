@@ -64,7 +64,7 @@ for d in ('main', 'pilot'):
     for label, n, lim in (('api/places/%s/ total' % d, sum(n for _, n in fs), PLACES_REGION_TOTAL_MAX), ('api/places/%s/ largest file' % d, max(n for _, n in fs), PLACES_REGION_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
-LARGE_PHOTO_ONE_MAX = 40_000   # photos/species-lg/<file>.webp: one larger (400 px) species picture (#421; about 10 to 25 KB expected)
+LARGE_PHOTO_ONE_MAX = 60_000   # photos/species-lg/<file>.webp: one larger (400 px) species picture (#421; the first 30 ran 5 to 47 KB, 17 KB on average)
 LARGE_PHOTOS_MAX = 15_000_000   # photos/species-lg/ together (the first batch of 500 is about 5 to 10 MB; decided after the first measurement)
 lgd = os.path.join(ROOT, 'photos', 'species-lg')
 if os.path.isdir(lgd):
