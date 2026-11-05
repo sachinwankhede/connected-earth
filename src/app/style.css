@@ -101,7 +101,7 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 10px 16px; }
 .titlebox { display: flex; align-items: center; gap: 12px; min-width: 0; }
 .top h1 { margin: 0; font: 700 clamp(24px, 4.2vw, 32px)/1.05 var(--font-display); letter-spacing: -0.02em; text-wrap: balance; }
-.sub { margin: 6px 0 0; font: 500 11px/1.4 var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.sub { margin: 6px 0 0; font: 500 12px/1.4 var(--font-body); color: var(--muted); }
 .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .seg { display: inline-flex; border: 1px solid var(--line); }
 .seg button { border: 0; background: transparent; color: var(--muted); padding: 7px 14px; font-weight: 600; font-size: 13px; cursor: pointer; }
@@ -171,7 +171,7 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .qhead a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 2px; }
 .qchip a { padding: 10px 8px; }
 .card .why { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); }
-.card .where { font: 500 11px var(--font-mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.card .where { font: 500 12px var(--font-body); color: var(--muted); }
 .card p { margin: 0; font-size: 13px; }
 .card .go { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 12.5px; color: var(--accent); }
 
@@ -187,7 +187,7 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
   touch-action: none;
 }
 #svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
-.hint { position: absolute; left: 12px; bottom: 8px; margin: 0; font: 500 10px var(--font-mono); letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); pointer-events: none; }
+.hint { position: absolute; left: 12px; bottom: 8px; margin: 0; font: 500 10px var(--font-body); color: var(--muted); pointer-events: none; }
 
 .guides line { stroke: var(--line); stroke-dasharray: 2 5; }
 .guides text { font: 500 10px var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; fill: var(--muted); }
@@ -338,7 +338,7 @@ h2.sect { margin: 4px 0 -4px; font: 700 18px/1.2 var(--font-display); }
 .glow circle { stroke: none; }
 .maplg { margin: 6px 0 0; }
 .ties { margin: 6px 0 8px; font-size: 12.5px; line-height: 1.45; }
-.ties b { font: 700 11px var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 2px; }
+.ties b { font: 700 12px var(--font-body); color: var(--muted); display: block; margin-bottom: 2px; }
 .ties button { all: unset; cursor: pointer; text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 2px; color: var(--ink); font-weight: 600; }
 .ties button:focus-visible { outline: 2px solid var(--accent); }
 .ties span.sp { color: var(--muted); }
@@ -710,7 +710,7 @@ div.card { cursor: default; }
   .psheet .srow .sth img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .psheet .srow .stx { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 3px; line-height: 1.15; }
   .psheet.p-min .srow .stt { order: 2; font: 700 18px var(--font-display); }
-  .psheet .srow .ssub { order: 1; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .psheet .srow .ssub { order: 1; font: 500 12px var(--font-body); color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .psheet:not(.p-min) .srow .sth, .psheet:not(.p-min) .srow .ssub { display: none; }
   .psheet.p-min .srow::after { align-self: center; }
 }
@@ -728,7 +728,7 @@ div.card { cursor: default; }
   .psheet .grab { display: none; }
   .psheet .srow { display: flex; align-items: center; min-height: 40px; font: 700 18px var(--font-display); }
   .psheet .srow .stt { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .psheet .srow .scnt { margin-left: auto; flex: none; color: var(--muted); font: 500 11px var(--font-mono); text-transform: uppercase; letter-spacing: .06em; }
+  .psheet .srow .scnt { margin-left: auto; flex: none; color: var(--muted); font: 500 12px var(--font-body); }
   .psheet #panel { flex: 1 1 auto; min-height: 0; border: 0; }
 }
 #moreb { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Ccircle cx='5' cy='12' r='2.2'/%3E%3Ccircle cx='12' cy='12' r='2.2'/%3E%3Ccircle cx='19' cy='12' r='2.2'/%3E%3C/svg%3E"); }
@@ -759,9 +759,9 @@ div.card { cursor: default; }
 .panel .note { display: none !important; }
 .panel .srcd { margin-top: 18px; }
 .panel details.more { margin-top: 14px; }
-.panel details.more > summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
+.panel details.more > summary { cursor: pointer; font: 500 12px var(--font-body); color: var(--muted); padding: 8px 0; }
 .panel .prow { margin-bottom: 4px; }
-.panel .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 8px 0; }
+.panel .srcd summary { cursor: pointer; font: 500 12px var(--font-body); color: var(--muted); padding: 8px 0; }
 .panel .chip i.sq { border-radius: 2px; }
 .art.sq { border-radius: 50%; }
 i.sq, .panel .chip i.sq { border-radius: 50%; }
@@ -896,7 +896,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   .speek .pimg img { width: 100%; height: 100%; object-fit: cover; }
   .speek .pimg svg { width: 24px; height: 24px; }
   .speek .st { min-width: 0; flex: 1; }
-  .speek .st small { display: block; font: 600 10.5px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .speek .st small { display: block; font: 600 12px var(--font-body); color: var(--muted); }
   .speek .st b { display: block; font: 700 15px var(--font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .speek .chev { flex: none; color: var(--muted); }
   .hook b { font-size: 17px; }
@@ -938,7 +938,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp a.pj { text-decoration: none; }
 .jp .pj .pph { width: 44px; height: 44px; border-radius: 10px; }
 .jp .pj .pjt { flex: 1 1 auto; min-width: 0; }
-.jp .pj .pjt i { display: block; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; font-style: normal; color: var(--muted); }
+.jp .pj .pjt i { display: block; font: 500 12px var(--font-body); font-style: normal; color: var(--muted); }
 .jp .pj .pjt b { display: block; font: 700 16px/1.2 var(--font-display); }
 .jp .pj .pjgo { flex: none; color: var(--muted); font-size: 22px; }
 .jp .pph { flex: none; display: grid; place-items: center; overflow: hidden; background: var(--grid); border-radius: 50%; width: 52px; height: 52px; position: relative; }
@@ -1011,7 +1011,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jend .jeimg img { width: 100%; height: 100%; object-fit: cover; }
 .jp .jend .jeimg svg { width: 22px; height: 22px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
 .jp .jend .jet { flex: 1 1 auto; min-width: 0; }
-.jp .jend small { display: block; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp .jend small { display: block; font: 500 12px var(--font-body); color: var(--muted); }
 .jp .jend b { display: block; font: 700 16px var(--font-display); }
 .jp .jend .jrole { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 1px; font-size: 13px; line-height: 1.35; color: var(--muted); }
 .jp .jend::after { content: "\203a"; flex: none; color: var(--muted); font-size: 22px; line-height: 1; }
@@ -1031,7 +1031,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jtop { display: flex; align-items: center; justify-content: space-between; }
 .gsh { position: absolute; right: 12px; top: 20px; z-index: 14; }
 #webctl:not([hidden]) { top: 64px !important; }
-.jp .srcd summary { cursor: pointer; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 14px 0; }
+.jp .srcd summary { cursor: pointer; font: 500 12px var(--font-body); color: var(--muted); padding: 14px 0; }
 .jp .jmore { display: grid; gap: 8px; }
 .jp .jmore button { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; width: 100%; min-height: 56px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; }
 .jp .jmore button::after { content: "\203a"; color: var(--muted); font-size: 22px; line-height: 1; }
@@ -1041,7 +1041,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jmore .jmimg { flex: none; width: 44px; height: 44px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; }
 .jp .jmore .jmimg img { width: 100%; height: 100%; object-fit: cover; }
 .jp .jmore .jmimg svg { width: 22px; height: 22px; stroke: var(--muted); fill: none; stroke-width: 1.6; }
-.jp .jmore button i { font: 600 10.5px var(--font-mono); font-style: normal; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jp .jmore button i { font: 600 12px var(--font-body); font-style: normal; color: var(--muted); }
 .jp .jmore button b { font: 700 16px/1.2 var(--font-display); }
 .jcard .jgo { flex: none; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; padding-left: 2px; }
 
