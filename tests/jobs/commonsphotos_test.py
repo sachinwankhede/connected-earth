@@ -16,6 +16,10 @@ class CommonsPhotosTests(unittest.TestCase):
         for lic in ("", "unknown", "CC BY-NC 4.0", "CC BY-NC-SA 3.0", "CC BY-ND 2.0", "CC BY-NC-ND 4.0", "GFDL", "GFDL 1.2", "Fair use", "All rights reserved", "Copyrighted free use", "LGPL", "KOGL Type 1"):
             self.assertFalse(c.open_licence(lic), lic)
 
+    def test_only_jpeg_counts_as_a_photo(self):
+        self.assertTrue(c.is_photo_type('image/jpeg'))
+        for m in ('image/png', 'image/gif', 'image/svg+xml', 'image/tiff', 'image/webp', '', None): self.assertFalse(c.is_photo_type(m), m)
+
     def test_image_names_prefer_preferred_and_drop_deprecated_and_non_photos(self):
         def cl(v, rank='normal'): return {'rank': rank, 'mainsnak': {'datavalue': {'value': v}}}
         got = c.image_names([cl('A normal.jpg'), cl('Old.jpg', 'deprecated'), cl('Best.jpg', 'preferred'), cl('Range map of X.png'), cl('Logo.svg')])
