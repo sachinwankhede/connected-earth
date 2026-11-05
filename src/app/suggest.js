@@ -102,7 +102,7 @@
       var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent;
       sugHide(); sugIn.blur();
       if (id) showPlace(id);
-      else speciesMap(name, latin);
+      else showSpecies(sidOf({ latin: latin }));   /* a species row opens its page (#420 step 3); "Show on the map" is there */
     });
     document.addEventListener("pointerdown", function (ev) { if (!ev.target.closest("#qwrap")) sugHide(); }, true);
   }

@@ -49,7 +49,7 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 | Dropdown type line, exact-first ranking | #424 | done |
 | Search in the address, Back | #412 | done |
 | One redraw, honest states, nothing-found text | #414 | done |
-| Species page | #420 | steps 1 and 2 done (screen, address, Back, places rows, Show on the map); step 3 (entry points) to do |
+| Species page | #420 | done (screen, address, Back, places rows, Show on the map, entry points: the dropdown species row and the species sheet's "Species page ›" link) |
 | Result header, "why it matches" line, filter chip | #425 | done for an exact species or place (header, "Has osprey", chip); a why line for other text needs the word kind in the index (open) |
 | Larger photos, photos for species with none | #421 | idea |
 | Species tab | #422 | idea |

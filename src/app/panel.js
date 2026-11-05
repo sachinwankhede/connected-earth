@@ -157,7 +157,7 @@
   function whereHTML(n, ids) {
     var hits = ids.filter(function (i) { return i !== state.eco && ECO_BY[i]; }).map(function (i) { return { e: ECO_BY[i], lat: n.latin }; });
     if (!hits.length) return "";
-    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + (hits.length > 1 ? '<a href="#" data-species="' + n.name.replace(/"/g, "&quot;") + '" data-latin="' + esc(n.latin) + '">Show on the map</a>' : "") + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
+    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + '<a href="#" data-spage="' + esc(n.latin) + '">Species page \u203a</a>' + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
       return '<button type="button" class="pmc ppc" data-jump-sp="' + h.e.id + "|" + esc(h.lat) + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
     }).join("") + "</div>";
   }
@@ -227,7 +227,7 @@
       return;
     }
     if (ev.target.closest("[data-resetall]")) { clearEdits(); return; }
-    var spb = ev.target.closest("[data-species]"); if (spb) { ev.preventDefault(); speciesMap(spb.getAttribute("data-species"), spb.getAttribute("data-latin")); return; }
+    var spb = ev.target.closest("[data-spage]"); if (spb) { ev.preventDefault(); M.pushNext = true; showSpecies(sidOf({ latin: spb.getAttribute("data-spage") }), ECO_BY[state.eco] && ECO_BY[state.eco].name); return; }   /* the species page, and Back returns to this place's graph */
     var gt = ev.target.closest("[data-goto]"); if (gt) { showPlace(gt.getAttribute("data-goto")); return; }
     var jr = ev.target.closest("[data-journey]"); if (jr) { showJourney(jr.getAttribute("data-journey")); return; }
     var js = ev.target.closest("[data-jump-sp]");
