@@ -119,12 +119,16 @@
   }
   /* a typed query: filter on the card text at once, then on the index when it arrives */
   function searchFor(q) {
-    FL.hits = null;
-    if (!q) return;
+    clearTimeout(M.busyT);
+    if (!q) { FL.hits = null; FL.busy = false; FL.limited = false; return; }
+    FL.busy = true;   /* the list on the screen is still the one for the text before; nothing is drawn for q until the answer (#414) */
+    M.busyT = setTimeout(function () { if (FL.busy && FL.q === q && el.webview.hidden) el.stats.textContent = "Searching…"; }, 250);   /* only when it takes a moment, so a quick answer does not flicker */
     srchRun(q).then(function (hits) {
       if (FL.q !== q) return;
-      if (hits) FL.hits = hits;
-      M.pgKey = null; filterView(); M.searched = q; M.hitsN = hits ? hits.size : -1;   /* the list now answers q, from this many places of the index (-1: the index was not used); the tests read both */
+      clearTimeout(M.busyT); FL.busy = false; FL.hits = hits;   /* no hits: the index could not answer and the card text decides */
+      FL.limited = !hits && srchWords(q).some(function (w) { return w.length >= 2; });
+      M.pgKey = null; if (q.length >= 3) renderView(true); else filterView();
+      M.searched = q; M.hitsN = hits ? hits.size : -1;   /* the list now answers q, from this many places of the index (-1: the index was not used); the tests read both */
     });
   }
   var COUPLE = DATA.couple;
