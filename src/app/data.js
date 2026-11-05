@@ -123,7 +123,7 @@
     clearTimeout(M.busyT);
     if (!q) { FL.hits = null; FL.busy = false; FL.limited = false; return; }
     FL.busy = true;   /* the list on the screen is still the one for the text before; nothing is drawn for q until the answer (#414) */
-    M.busyT = setTimeout(function () { if (FL.busy && FL.q === q && el.webview.hidden) el.stats.textContent = "Searching…"; }, 250);   /* only when it takes a moment, so a quick answer does not flicker */
+    M.busyT = setTimeout(function () { if (FL.busy && FL.q === q && el.webview.hidden) { el.stats.textContent = "Searching…"; showNote(); } }, 250);   /* only when it takes a moment, so a quick answer does not flicker */
     srchRun(q).then(function (hits) {
       if (FL.q !== q) return;
       clearTimeout(M.busyT); FL.busy = false; FL.hits = hits;   /* no hits: the index could not answer and the card text decides */

@@ -74,6 +74,7 @@
       var mt = FL.q ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" + (view.level === "world" ? "" : " in " + region) : view.level === "world"
         ? ""   /* the home view shows the pitch below; the places-and-species count that used to be computed here was always replaced by it */
         : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
+      el.stats.hidden = !!FL.q;   /* a search says it in the note under the tabs */
       el.stats.textContent = FL.q && FL.busy ? "Searching…" : mt + (FL.q && FL.limited ? " · Search is limited right now" : "");   /* the query stays in the line inside a region; a failed index says so (#414) */
     }
     var hk = document.getElementById("hook");
@@ -87,7 +88,7 @@
       if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
     }
     M.statsHTML = el.stats.innerHTML; M.region = region;
-    tabCount("places", FL.q && !FL.busy ? list.length : null); if (M.jq !== FL.q) { M.jq = FL.q; applyJ(); }   /* after statsHTML: applyJ redraws the count line */
+    tabCount("places", FL.q && !FL.busy ? list.length : null);   /* after statsHTML: applyJ (below) redraws the count line */
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level !== "world";

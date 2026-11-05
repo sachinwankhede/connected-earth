@@ -71,9 +71,14 @@
     ECOS.forEach(addEcoOption);
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
-  function tabCount(t, n) {   /* while a search is on every tab says how many it found (#443) */
+  var NOTE = {};
+  function tabCount(t, n) {   /* while a search is on every tab says how many it found: on its label and in one note line under the tabs, in the same words on all three (#443, #449) */
     Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { b.textContent = t[0].toUpperCase() + t.slice(1) + (n == null ? "" : " " + n); });
+    var k = t === "places" ? "place" : t === "journeys" ? "journey" : "species";
+    NOTE[t] = n == null ? "" : (n || "No") + " " + (n === 1 ? k + " matches" : (k === "species" ? k : k + "s") + " match") + " \u201c" + FL.q + "\u201d";
+    showNote();
   }
+  function showNote() { var e = document.getElementById("qnote"), s = FL.q && (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); e.hidden = !s; e.textContent = s || ""; }
   function applyJ() {
     var jw = FL.q ? srchWords(FL.q) : [];   /* a search also narrows the journeys: every typed word must be in the card (#443) */
     CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jw.every(function (w) { return c.li.textContent.toLowerCase().indexOf(w) >= 0; }); });
@@ -82,7 +87,7 @@
     updCount();
   }
   function updCount() {
-    var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") + (FL.q ? (M.nJ === 1 ? " matches" : " match") + " \u201c" + FL.q + "\u201d" : "");
+    var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") ;
     if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j); if (j) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
     var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
     if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; }
@@ -93,12 +98,13 @@
     if (SPT) { cb(SPT); return; }
     SPQ.push(cb); if (SPQ.length > 1) return;
     var sc = document.createElement("script"); sc.async = true; sc.src = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "species-tab-__TABVER__.js";
-    sc.onload = function () { var f = (window.__chunk || {})["species-tab"]; if (!f) { SPQ = []; return; } SPT = f({ Data: Data, PhotoRegistry: PhotoRegistry, esc: esc, leaf: SUG_LEAF, chev: SUG_CHEV, find: function (q) { var ws = srchWords(q), l = ws[ws.length - 1]; return !l || l.length < 2 ? Promise.resolve(null) : sugFile(l.slice(0, 2)).then(function (d) { return sugPick(q, { s: d.s }, 40); }); }, go: function (l) { M.pushNext = true; showSpecies(sidOf({ latin: l }), "Species"); } }); var q = SPQ; SPQ = []; q.forEach(function (f2) { f2(SPT); }); };
+    sc.onload = function () { var f = (window.__chunk || {})["species-tab"]; if (!f) { SPQ = []; return; } SPT = f({ Data: Data, PhotoRegistry: PhotoRegistry, esc: esc, leaf: SUG_LEAF, chev: SUG_CHEV, find: function (q) { var ws = srchWords(q), l = ws[ws.length - 1]; return !l || l.length < 2 ? Promise.resolve(null) : sugFile(l.slice(0, 2)).then(function (d) { return sugPick(q, { s: d.s }, 40); }); }, go: function (l) { M.pushNext = true; showSpecies(sidOf({ latin: l }), "Species"); },
+      P: { FL, M, PV, ICONS, PNAMES, ABOUT, ECO_BY, PHOTOS, escH, shareBtn, aboutText, footHTML, creditHTML, fillPhotos, photoOf, bindPhoto, sppPlaces, speciesMap, showPlace, closeSpecies, makeCard, pWant } }); var q = SPQ; SPQ = []; q.forEach(function (f2) { f2(SPT); }); };
     sc.onerror = function () { SPQ = []; var st = document.getElementById("sptab"); if (st) st.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; };
     document.head.appendChild(sc);
   }
   function setTab(t) {
-    M.tab = t;
+    M.tab = t; showNote();
     if (t === "journeys") withSpeciesPhotos(loadJourneyPhotos);
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) { sb.classList.toggle("tab-j", t === "journeys"); sb.classList.toggle("tab-s", t === "species"); }
