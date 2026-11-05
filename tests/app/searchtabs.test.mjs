@@ -63,8 +63,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
     await p.waitForFunction(() => window.__M.searched === 'elk' && /places? match/.test(document.getElementById('qnote').textContent) && document.querySelector('#cards li:not([hidden]) .card'), null, { timeout: 60000 });
-    const g = await p.evaluate(() => { const n = document.getElementById('qnote').getBoundingClientRect(), tb = [...document.querySelectorAll('#trow .tabs, #tabs')].filter((x) => x.offsetParent).map((x) => x.getBoundingClientRect().bottom).pop(), c = document.querySelector('#cards li:not([hidden])').getBoundingClientRect().top; return { above: Math.round(n.top - tb), below: Math.round(c - n.bottom) }; });
-    assert.ok(g.above >= 6 && g.below >= 6 && Math.abs(g.above - g.below) <= 4, 'space above and below the count line: ' + JSON.stringify(g));
+    const g = await p.evaluate(() => { const n = document.getElementById('qnote'), r = n.getBoundingClientRect(), vis = (e) => e && e.offsetParent && e.getBoundingClientRect().height > 0; let a = n.previousElementSibling, z = n.nextElementSibling; while (a && !vis(a)) a = a.previousElementSibling; while (z && !vis(z)) z = z.nextElementSibling;
+      return { above: Math.round(r.top - (a ? a.getBoundingClientRect().bottom : n.parentElement.getBoundingClientRect().top)), below: Math.round(z.getBoundingClientRect().top - r.bottom), prev: a ? a.id || a.className : 'parent', next: z.id || z.className }; });   // the space to the neighbours that are on the screen
+    assert.ok(g.above >= 6 && g.below >= 6 && Math.abs(g.above - g.below) <= 4, 'space above and below the count line (to the visible neighbours): ' + JSON.stringify(g));
     assert.deepEqual(t.errors, []); await b.close();
   });
 
