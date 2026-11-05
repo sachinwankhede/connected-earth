@@ -75,7 +75,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('osprey');
     await p.waitForFunction(() => /species? match/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
     const r = await p.evaluate(() => ({ head: document.querySelector('#sptab h3').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ latin: x.getAttribute('data-latin'), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
-    assert.match(r.head, /^\d+ species? match “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
+    assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
     assert.equal(r.rows[0].latin, 'Pandion haliaetus', 'the osprey first'); assert.equal(r.places, 0);
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     const sug = await p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((x) => x.getAttribute('data-id') ? 'place' : 'species'));
