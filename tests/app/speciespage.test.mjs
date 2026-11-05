@@ -76,3 +76,26 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: the species sheet of a graph links to the species page and Back returns to the graph`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&e=npmammothcave' }); const p = t.page;
+    await p.waitForSelector('.node', { timeout: 60000 });
+    const latin = await p.evaluate(async () => {
+      for (const c of [...document.querySelectorAll('.node')]) {
+        c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300));
+        for (let w = 0; w < 40 && document.getElementById('where-else'); w++) await new Promise((r) => setTimeout(r, 100));
+        const a = document.querySelector('#panel [data-spage]'); if (a) return a.getAttribute('data-spage');
+      }
+      return null;
+    });
+    assert.ok(latin, 'a species that lives in another place has the link');
+    await p.evaluate(() => document.querySelector('#panel [data-spage]').click());
+    await p.waitForFunction(() => document.querySelector('#pview h2') && !document.getElementById('pview').hidden, null, { timeout: 60000 });
+    const s = await page(p); assert.match(s.hash, /(^|&)sp=[a-z0-9-]+$/); assert.match(s.back, /^‹ \S/); assert.notEqual(s.back, '‹ Places', 'Back names the place it returns to');
+    await p.evaluate(() => history.back()); await p.waitForTimeout(1200);
+    assert.equal(await p.evaluate(() => !document.getElementById('webview').hidden), true, 'Back returns to the graph');
+    assert.match(await p.evaluate(() => decodeURIComponent(location.hash)), /(^|&)e=npmammothcave$/);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}

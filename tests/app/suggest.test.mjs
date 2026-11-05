@@ -1,11 +1,11 @@
 // Suggestions while typing (#413): a short dropdown under the search box, at most 3 rows on a phone and 5 on desktop, species rows say how many places,
-// a tap on a species row filters the map, Enter / Clear / a tap elsewhere close it.
+// a tap on a species row opens the species page (#420 step 3), Enter / Clear / a tap elsewhere close it.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
 for (const [name, size] of Object.entries(H.SIZES)) {
-  test(`${name}: typing shows suggestions, a species row runs the species filter, Enter and Clear close them`, async () => {
+  test(`${name}: typing shows suggestions, a species row opens the species page, Enter and Clear close them`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i').textContent, latin: r.getAttribute('data-latin'), id: r.getAttribute('data-id') })); });
@@ -26,9 +26,11 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr'); await p.keyboard.type('osp');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     await p.click('#sug .sgr[data-latin="Pandion haliaetus"]');
-    await p.waitForTimeout(500);
+    await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.deepEqual(await rows(), [], 'a tap on a row closes the suggestions');
-    assert.equal(await p.evaluate(() => document.getElementById('q').value), 'Osprey', 'the box shows the species');
+    assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search', 'a species row opens its page (#420 step 3)');
+    await p.evaluate(() => history.back()); await p.waitForTimeout(800);
+    assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osp', 'Back returns to the search that was typed');
     await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
     await p.click('#qclr'); await p.waitForTimeout(200);
     assert.deepEqual(await rows(), [], 'Clear closes the suggestions');

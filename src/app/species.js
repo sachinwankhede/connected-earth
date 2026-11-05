@@ -1,12 +1,12 @@
   // ---- species page (#420): what a species is. Its data is one small file (api/species/<id>.json), read when the page opens; without it the page still shows the name ----
   function showSpecies(sid, from) {
     if (FL.q && !M.pid && !M.jid && !M.sid && !M.fromHash) M.pushNext = true;
-    M.sid = sid; M.pid = null; M.jid = null; M.loading = null; sim.stop();
+    M.spFrom = from || null; M.sid = sid; M.pid = null; M.jid = null; M.loading = null; sim.stop();
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
     var words = sid.replace(/-/g, " ").replace(/^./, function (c) { return c.toUpperCase(); });
     function page(d) {
       var latin = d.l || words, name = d.n || latin;
-      return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ ' + (FL.q ? "Search" : "Places") + "</button>" + shareBtn() + "</div>" +
+      return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ ' + escH(M.spFrom || (FL.q ? "Search" : "Places")) + "</button>" + shareBtn() + "</div>" +
         '<div class="jhero"><span class="jhimg" id="sp-img">' + (ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + ICONS[d.ic] + "</svg>" : SUG_LEAF) + '</span><div><p class="jkind">' + escH(PNAMES[d.tl] || "Species") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p></div></div>" +
         (d.t ? '<p class="about">' + aboutText({ latin: latin, wiki: d.ph && d.ph[1] }) + "</p>" : "") +
         footHTML({ photoId: "spcredit", sources: [{ title: "Wikipedia: " + escH(latin), url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(((d.ph && d.ph[1]) || latin).replace(/ /g, "_")) }] }) + "</article>";
