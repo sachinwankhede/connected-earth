@@ -110,7 +110,7 @@
       var h = hashState(); h = (/(^|[#&])stub/.test(M.h0 || "") ? "stub" + (h ? "&" : "") : "") + h;
       var hh = h ? encodeURI(h) : "", url = location.pathname + location.search + (hh ? "#" + hh : "");
       if (M.pushNext) { M.pushNext = false; if (location.hash.slice(1) !== hh) { history.pushState({ sp: M.pid ? 1 : 0 }, "", url); return; } }   /* a new step the Back key can undo: a search starts, a place opens from a search (sp: the place's own entry) */
-      history.replaceState(M.pid ? history.state : null, "", url);
+      history.replaceState(M.pid || M.fromHash ? history.state : null, "", url);   /* the marker stays while the address is being applied (the place is not shown yet) */
     } catch (e) {}
   }
   function doPendingPeek() {
