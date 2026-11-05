@@ -29,7 +29,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Sources & credits.** Every content screen (journey, place, species sheet) ends with one collapsed "Sources & credits" section built by `footHTML()`. Inside, labelled groups always appear in this order and only when they have content: **Sources** (links), **Photos** (one line each: "Photo: author · licence · Wikimedia Commons"). When Commons gives no author the line reads "Photo: author unknown · licence · Wikimedia Commons" (never "Unknown" as a name), **Notes** (plain text), **Evidence** (species sheet only). Lists use the same bullet style everywhere. No separate "More" or "Read more". Controls such as the trace toggle sit above it, not inside.
 
 ## Search and species
-How the search box, suggestions, results, species page and Species tab behave is in `docs/SEARCH-CX.md` (proposed, #407). Follow it for any search or species screen.
+How the search box, suggestions, results, species page and Species tab behave is in `docs/SEARCH-CX.md` (agreed, #407). Follow it for any search or species screen.
 
 ## Navigation shape
 Map → Place page → Explore (graph) → species sheet. Back always goes one step up and says where. Journeys sit beside places and link both ways.

@@ -1,6 +1,6 @@
 # Search and species experience (spec, #407)
 
-Status: **proposed** (5 Nov 2026). The owner confirms the decisions marked "Decide". Items follow this document; if an item and this document disagree, change the document first (as for `docs/DESIGN.md`). Visual rules (back link, rows, fonts, credits) stay in `DESIGN.md`; load and size rules in `ARCHITECTURE.md`.
+Status: **agreed** (5 Nov 2026, the owner accepted every proposal below). Items follow this document; if an item and this document disagree, change the document first (as for `docs/DESIGN.md`). Visual rules (back link, rows, fonts, credits) stay in `DESIGN.md`; load and size rules in `ARCHITECTURE.md`.
 
 ## Principles
 1. **One box.** Places and species are in the same suggestions; the type is shown on every row, never chosen by a mode switch or chips before typing.
@@ -18,8 +18,8 @@ Status: **proposed** (5 Nov 2026). The owner confirms the decisions marked "Deci
 
 ## Flows
 1. **Typing (dropdown).** From two letters, under the box; 3 rows on a phone, 5 wider. Row: photo (or icon), name, one muted line, chevron, 56 px. Lines: `Place · <state or country>` and `Species · in N places`. Order: exact name, then names that start with the text, then names with a word that starts with it; within equal matches the better known first (places in home-list order, species by number of places). Closes on a tap on a row, Enter, Clear or a tap elsewhere. (Built in #413; the type line for places and exact-first ranking are a small follow-up.)
-2. **Place row** opens the place page. **Species row** opens the species page (#420). Decide: species row opens the page and not the map filter (proposed: yes).
-3. **Species page (#420).** Photo (thumbnail now, 400 px when one exists, #421), kind line, common and Latin name, the short description when there is one, "Found in N places" as tappable place rows, a "Show on the map" link, share icon, Sources & credits. No eats / eaten-by in version 1. Back goes to where the person came from ("‹ Search" from search, Decide).
+2. **Place row** opens the place page. **Species row** opens the species page (#420). (Decided: the species row opens the page and not the map filter.)
+3. **Species page (#420).** Photo (thumbnail now, 400 px when one exists, #421), kind line, common and Latin name, the short description when there is one, "Found in N places" as tappable place rows, a "Show on the map" link, share icon, Sources & credits. No eats / eaten-by in version 1. Back goes to where the person came from ("‹ Search" from search).
 4. **Enter (results).** The list and map are filtered. A header line says what the result is: for an exact species or place match a header row with the name, the count and a link to its page; otherwise "N places match “text”", also inside a region. Each card carries one muted line saying why it matches ("Has osprey").
 5. **Show on the map** (from the species page) filters the map and shows a visible chip "Places with Osprey ✕" instead of an invisible filter. Back or ✕ removes it.
 6. **Species tab (#422).** Top species first, then groups, each on demand. The box on this tab filters species only.
@@ -56,9 +56,9 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 
 **Suggested order:** dropdown type line and exact-first ranking, #412, #414, #420 steps 1 and 2, result header and why line, #421 part A, #420 step 3, #422.
 
-## Decide (owner)
-1. Species row opens the species page (proposed yes).
-2. Back link text from search: "‹ Search" (proposed).
-3. A result header row for an exact species or place match (proposed yes).
-4. The species filter becomes a visible chip (proposed yes).
-5. Recent searches (proposed later, not now).
+## Decided (owner, 5 Nov 2026)
+1. The species row opens the species page.
+2. The back link from search says "‹ Search".
+3. An exact species or place match gets a header row above the results.
+4. The species filter becomes a visible chip.
+5. Recent searches come later, not now.
