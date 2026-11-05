@@ -85,8 +85,10 @@ window.__chunk["species-tab"] = function (A) {
       P.sppPlaces(d.l).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
         ids = ids.filter(function (i) { return P.ECO_BY[i]; });
         if (M.sid !== sid || !ids.length) return;
-        var w = document.createElement("div");
-        w.innerHTML = "<h3>Found in " + ids.length + " place" + (ids.length > 1 ? "s" : "") + '</h3><div class="pjs">' + ids.slice(0, 10).map(function (i) {
+        var w = document.createElement("div"), cc = {}, ct = {};   /* where it lives (#445): the countries and continents of all its places, most places first */
+        ids.forEach(function (i) { var e = P.ECO_BY[i]; (e.countries || []).forEach(function (c) { cc[c] = (cc[c] || 0) + 1; }); (e.conts || []).forEach(function (c) { ct[c] = (ct[c] || 0) + 1; }); });
+        function top(o, n) { var k = Object.keys(o).sort(function (a, b) { return o[b] - o[a] || (a < b ? -1 : 1); }); return k.slice(0, n).map(P.nm).join(", ") + (k.length > n ? " and " + (k.length - n) + " more" : ""); }
+        w.innerHTML = "<h3>Found in " + ids.length + " place" + (ids.length > 1 ? "s" : "") + '</h3><p class="fine where">' + (Object.keys(cc).length ? "Countries: " + escH(top(cc, 5)) + " \u00b7 " : "") + "Continents: " + escH(top(ct, 7)) + '</p><div class="pjs">' + ids.slice(0, 10).map(function (i) {
           var e = P.ECO_BY[i];
           return '<a class="pj" href="#pg=' + i + '" data-spp="' + i + '"><span class="pph" data-pid="e-' + i + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (P.ICONS[e.icon] || "") + '</svg></span><span class="pjt"><i>' + escH(e.place || "") + "</i><b>" + escH(e.short) + '</b></span><span class="pjgo" aria-hidden="true">\u203a</span></a>';
         }).join("") + "</div>" + (ids.length > 10 ? '<p class="fine">Showing 10 of ' + ids.length + ".</p>" : "") + '<p class="fine"><a href="#" data-spmap="1">Show ' + (ids.length > 1 ? "them" : "it") + " on the map</a></p>";

@@ -53,6 +53,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .pj[data-spp]', { timeout: 60000 });
     const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .pj[data-spp]').length, h: document.querySelector('#pview .pj').getBoundingClientRect().height, buttons: document.querySelectorAll('#pview .pj, #pview [data-spmap]').length && [...document.querySelectorAll('#pview .pj, #pview [data-spmap]')].some((e) => e.tagName === 'BUTTON') }));
+    assert.match(await p.evaluate(() => document.querySelector('#pview .where').textContent), /^(Countries: .+ · )?Continents: .+$/, 'where it lives: countries and continents (#445)');
     assert.match(info.h3[0], /^Found in \d+ places$/); assert.ok(info.rows >= 2 && info.rows <= 10); assert.ok(info.h >= 44, 'rows are tappable'); assert.equal(info.buttons, false, 'links, not buttons');
     const id = await p.evaluate(() => document.querySelector('#pview .pj[data-spp]').getAttribute('data-spp'));
     await p.locator('#pview .pj[data-spp]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#pview .pj[data-spp]').click()));
