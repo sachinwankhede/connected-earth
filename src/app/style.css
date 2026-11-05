@@ -441,11 +441,11 @@ div.card { cursor: default; }
 .sgr { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 6px 12px 6px 8px; cursor: pointer; color: var(--ink); }
 .sgr + .sgr { border-top: 1px solid var(--line); }
 .sgr:hover { background: var(--grid); }
-.sgi { flex: none; width: 44px; height: 44px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; color: var(--muted); }
+.sgi { flex: none; width: 52px; height: 52px; border-radius: 10px; overflow: hidden; background: var(--grid); display: grid; place-items: center; color: var(--muted); }
 .sgi img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sgt { flex: 1 1 auto; min-width: 0; }
 .sgt b { display: block; font: 700 16px/1.2 var(--font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.sgt i { display: block; font: 500 11px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; font-style: normal; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sgt i { display: block; font: 500 12px var(--font-body); font-style: normal; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sgo { flex: none; color: var(--muted); }
 .qbtn { display: none; }
 .morerow { grid-column: 1 / -1; text-align: center; list-style: none; }
@@ -461,11 +461,6 @@ div.card { cursor: default; }
   .filters .kinds, #regions { display: none; }
   .mapview.fopen .filters .kinds, .mapview.fopen #regions { display: flex; flex-wrap: wrap; }
   #cards { grid-template-columns: 1fr; gap: 8px; }
-  #cards .card { display: grid; grid-template-columns: 60px minmax(0, 1fr); column-gap: 12px; row-gap: 1px; align-content: center; padding: 10px; height: auto; }
-  #cards .card .cimg { grid-row: 1 / span 4; width: 60px; height: 60px; margin: 0; border-radius: 8px; align-self: center; }
-  #cards .card .cimg svg { width: 30px; height: 30px; }
-  #cards .card h2 { font-size: 16px; }
-  #cards .card > p, #cards .card .span, #cards .card .go { display: none; }
 }
 
 .sheet, .sbody { display: contents; }
@@ -825,11 +820,6 @@ rect.core { stroke-dasharray: 3 2.5; }
   #regions .chip, #regions .lbl { flex: none; }
   #regions::-webkit-scrollbar { display: none; }
   #cards { margin-top: 4px; grid-template-columns: 1fr; gap: 8px; }
-  #cards .card { display: grid; grid-template-columns: 60px minmax(0, 1fr); column-gap: 12px; row-gap: 1px; align-content: center; padding: 10px; height: auto; }
-  #cards .card .cimg { grid-row: 1 / span 4; width: 60px; height: 60px; margin: 0; border-radius: 8px; align-self: center; }
-  #cards .card .cimg svg { width: 30px; height: 30px; }
-  #cards .card h2 { font-size: 16px; }
-  #cards .card > p, #cards .card .span, #cards .card .go { display: none; }
   .mapbox > .peek:not([hidden]), .peek:not([hidden]) { position: fixed; left: 12px; top: 112px; bottom: auto; width: 380px; box-sizing: border-box; max-height: calc(100vh - 124px); overflow: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); z-index: 30; }
 }
 
@@ -858,13 +848,14 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jlist { grid-template-columns: 1fr !important; gap: 8px !important; }
 .jcard { display: flex; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); cursor: pointer; text-align: left; }
 .jcard.hl { outline: 2px solid var(--accent); }
-.jimg { flex: none; width: 56px; height: 56px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, var(--land-has), var(--land-hi)); }
+.jimg { flex: none; width: 52px; height: 52px; border-radius: 10px; overflow: hidden; display: grid; place-items: center; background: linear-gradient(135deg, var(--land-has), var(--land-hi)); }
 .jimg svg { width: 28px; height: 28px; fill: var(--accent); opacity: .55; }
 .jimg img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.jbody { min-width: 0; flex: 1; display: block; }
-.jroute { display: block; font: 600 10.5px var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.jbody { min-width: 0; flex: 1; display: flex; flex-direction: column; }
+.jbody .jtitle { order: -1; }
+.jroute { display: block; font: 500 12px var(--font-body); color: var(--muted); }
 .jroute i { font-style: normal; color: var(--accent); }
-.jtitle { display: block; font: 700 16px/1.2 var(--font-display); margin: 1px 0 2px; }
+.jtitle { display: block; font: 700 16px/1.2 var(--font-display); margin: 0 0 1px; }
 .jtext { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13.5px; line-height: 1.4; color: var(--ink); }
 .jcard[aria-expanded="true"] .jtext { display: block; }
 .jjumps { display: none; margin-top: 8px; flex-wrap: wrap; gap: 6px; }
@@ -1059,3 +1050,12 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .tax a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 6px 0; display: inline-block; }
 .jp .jphoto { display: block; width: 100%; height: auto; max-height: 320px; object-fit: contain; border-radius: 14px; margin: 0 0 12px; background: var(--grid); }
 .jp.bigphoto .jhimg { display: none; }
+
+/* one result row on every tab (#483): picture 52px, title, one muted line, chevron. Places, Species and Journeys look the same; the kind line is plain text, not capitals (#481) */
+#cards .card { display: grid; grid-template-columns: 52px minmax(0, 1fr) 12px; column-gap: 12px; row-gap: 1px; align-content: center; padding: 10px; height: auto; }
+#cards .card .cimg { grid-row: 1 / span 2; grid-column: 1; width: 52px; height: 52px; margin: 0; border-radius: 10px; align-self: center; }
+#cards .card .cimg svg { width: 26px; height: 26px; }
+#cards .card h2 { font-size: 16px; grid-column: 2; grid-row: 1; }
+#cards .card > p, #cards .card .span, #cards .card .go, #cards .card h2 ~ .where { display: none; }
+#cards .card .where { grid-column: 2; grid-row: 2; font: 500 12px var(--font-body); letter-spacing: 0; text-transform: none; }
+#cards .card::after { content: "\203a"; grid-column: 3; grid-row: 1 / span 2; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; }
