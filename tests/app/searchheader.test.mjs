@@ -7,6 +7,7 @@ import * as H from './helper.mjs';
 const answered = (p, q) => p.waitForFunction((x) => window.__M && window.__M.searched === x, q, { timeout: 60000 });
 const head = (p) => p.evaluate(() => { const h = document.getElementById('qhead'); return { hidden: h.hidden, text: h.textContent.trim(), chip: h.classList.contains('qchip') }; });
 const whys = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:not([hidden]) .why')].map((x) => x.textContent));
+const tap = (p, sel) => p.locator(sel).first().click({ timeout: 4000 }).catch(() => p.evaluate((x) => document.querySelector(x).click(), sel));   // a real tap when the link can be reached (a phone sheet may cover it)
 const headShown = (p) => p.waitForFunction(() => !document.getElementById('qhead').hidden, null, { timeout: 30000 });
 
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -18,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.match(h.text, /^Osprey · found in \d+ places · Species page ›$/); assert.equal(h.chip, false);
     await p.waitForFunction(() => document.querySelector('#cards li:not([hidden]) .why'), null, { timeout: 30000 });
     assert.ok((await whys(p)).every((x) => x === 'Has osprey'), 'every shown card of the species says so');
-    await p.click('#qhead a[data-hsp]');
+    await tap(p, '#qhead a[data-hsp]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search');
     await p.evaluate(() => history.back()); await p.waitForTimeout(800);
@@ -40,7 +41,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const nm = await p.evaluate(() => document.querySelector('#cards li:not([hidden]) h2').textContent.trim());
     await p.click('#q'); await p.keyboard.type(nm); await p.keyboard.press('Enter'); await answered(p, nm.toLowerCase()); await headShown(p);
     const h = await head(p); assert.ok(h.text.startsWith(nm), h.text); assert.match(h.text, /Open the place ›$/);
-    await p.click('#qhead a[data-hpl]');
+    await tap(p, '#qhead a[data-hpl]');
     await p.waitForFunction(() => document.querySelector('#pview h2'), null, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview h2').textContent.trim()), nm);
     assert.deepEqual(t.errors, []); await b.close();
@@ -52,7 +53,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await headShown(p); await p.waitForFunction(() => document.getElementById('qhead').classList.contains('qchip'), null, { timeout: 30000 });
     assert.match((await head(p)).text, /^Places with Osprey ✕$/);
-    await p.click('#qhead a[data-hx]'); await p.waitForTimeout(600);
+    await tap(p, '#qhead a[data-hx]'); await p.waitForTimeout(600);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), ''); assert.equal((await head(p)).hidden, true);
     assert.deepEqual(t.errors, []); await b.close();
   });
