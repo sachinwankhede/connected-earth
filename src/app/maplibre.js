@@ -107,7 +107,7 @@
     var q = name.toLowerCase();
     if (!FL.q) M.pushNext = true;   /* a species filter that starts from no search is a step Back can undo (#412) */
     clearTimeout(M.qT); clearTimeout(M.busyT); FL.busy = !!latin; FL.limited = false;   /* a species with a Latin name waits for its places file, and says so */
-    FL.q = q; FL.hits = latin ? new Set() : null;
+    FL.q = q; M.chip = latin ? q : null; FL.hits = latin ? new Set() : null;   /* a species filter shows as a visible chip (#425) */
     if (latin) sppPlaces(latin).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); FL.busy = false; M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name; qSync();
     document.getElementById("peek").hidden = true; showTies(null);
