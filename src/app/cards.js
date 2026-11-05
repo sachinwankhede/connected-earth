@@ -73,12 +73,12 @@
   }
   var NOTE = {};
   function tabCount(t, n) {   /* while a search is on every tab says how many it found: on its label and in one note line under the tabs, in the same words on all three (#443, #449) */
-    Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { b.textContent = t[0].toUpperCase() + t.slice(1) + (n == null ? "" : " " + n); });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { var s = t[0].toUpperCase() + t.slice(1) + (n == null ? "" : " " + n); if (b.textContent !== s) b.textContent = s; });   /* only when it changed: this runs on every redraw */
     var k = t === "places" ? "place" : t === "journeys" ? "journey" : "species";
     NOTE[t] = n == null ? "" : (n || "No") + " " + (n === 1 ? k + " matches" : (k === "species" ? k : k + "s") + " match") + " \u201c" + FL.q + "\u201d";
     showNote();
   }
-  function showNote() { var e = document.getElementById("qnote"), s = FL.q && (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); e.hidden = !s; e.textContent = s || ""; }
+  function showNote() { var e = document.getElementById("qnote"), s = FL.q && (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); s = s || ""; if (e.textContent !== s) e.textContent = s; e.hidden = !s; }
   function applyJ() {
     var jw = FL.q ? srchWords(FL.q) : [];   /* a search also narrows the journeys: every typed word must be in the card (#443) */
     CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jw.every(function (w) { return c.li.textContent.toLowerCase().indexOf(w) >= 0; }); });
