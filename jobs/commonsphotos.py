@@ -69,11 +69,11 @@ def main():
         info = commons_info(files) if files else {}
         for t in batch:
             entry = None; k = t.replace('_', ' ')
-            if k not in names: why[t] = 'no Wikidata item for the page'
+            if k not in names: why[t] = 'no Wikidata item under this exact page title (a redirect, or no item)'
             elif not names[k]: why[t] = 'item has no usable P18'
             for n in names.get(t.replace('_', ' '), [])[:2]:
                 lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
-                why[t] = 'file %s: licence %r, type %r' % (n, lic, mime)
+                why[t] = 'file %s: licence %r, type %r, link %s' % (n, lic, mime, thumb[-90:] or 'none')
                 if mime.startswith('image/') and mime != 'image/svg+xml' and open_licence(lic):
                     entry = manifest_entry(thumb, t)
                     if entry: break
