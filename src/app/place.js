@@ -87,7 +87,7 @@
     withSpeciesPhotos(function () { if (photoOf(n)) pShow(n); });
   }
   function pShow(n) {
-    var ph = photoOf(n); if (!ph || M.pid !== n.eco) return;
+    var ph = photoOf(n); if (!ph || (M.pid !== n.eco && M.sid !== n.eco)) return;
     PV.querySelectorAll('.pph[data-pid="' + n.id + '"]').forEach(function (b) {
       if (b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has");

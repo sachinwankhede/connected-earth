@@ -62,7 +62,7 @@
     }
   };
   /* Related places and the places of a species come from the build, not from a scan of every place: a place file carries rel (relp on the pilot page),
-     api/species-places/<first two letters>.json lists the places of each species found in two or more places (items #252, #253). */
+     api/species-places/<first two letters>.json lists the places of every species, also one found in one place only (items #252, #253, #420). */
   var PILOT = "__PLACES_DIR__" === "pilot", SPPL = { f: {}, d: {} };
   function sppBucket(l) { return (l.toLowerCase().replace(/[^a-z0-9]/g, "") + "__").slice(0, 2); }
   function sppFile(l) {

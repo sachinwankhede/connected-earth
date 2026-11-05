@@ -47,3 +47,32 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await b.close();
   });
 }
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: a species page lists its places as rows, a row opens the place and Back returns, and Show on the map filters the map`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); const p = t.page;
+    await p.waitForSelector('#pview .pj[data-spp]', { timeout: 60000 });
+    const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .pj[data-spp]').length, h: document.querySelector('#pview .pj').getBoundingClientRect().height, buttons: document.querySelectorAll('#pview .pj, #pview [data-spmap]').length && [...document.querySelectorAll('#pview .pj, #pview [data-spmap]')].some((e) => e.tagName === 'BUTTON') }));
+    assert.match(info.h3[0], /^Found in \d+ places$/); assert.ok(info.rows >= 2 && info.rows <= 10); assert.ok(info.h >= 44, 'rows are tappable'); assert.equal(info.buttons, false, 'links, not buttons');
+    const id = await p.evaluate(() => document.querySelector('#pview .pj[data-spp]').getAttribute('data-spp'));
+    await p.locator('#pview .pj[data-spp]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#pview .pj[data-spp]').click()));
+    await p.waitForFunction(() => document.querySelector('#pview .jhero h2') && !document.querySelector('#pview [data-spmap]'), null, { timeout: 60000 });
+    let s = await page(p); assert.match(s.hash, new RegExp('(^|&)s=osprey&pg=' + id + '$'), 'the place is in the address'); assert.equal(s.back, '‹ Places');
+    await p.evaluate(() => history.back()); await p.waitForSelector('#pview .pj[data-spp]', { timeout: 60000 });
+    s = await page(p); assert.equal(s.name, 'Osprey', 'Back returns to the species page'); assert.match(s.hash, /sp=pandion-haliaetus$/);
+    await p.evaluate(() => document.querySelector('#pview [data-spmap]').click()); await p.waitForTimeout(1200);
+    s = await page(p); assert.equal(s.hidden, true, 'the page is gone'); assert.equal(s.map, true);
+    assert.equal(await p.evaluate(() => document.getElementById('q').value), 'Osprey', 'the map is filtered to the species');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
+  test(`${name}: a species found in one place shows that place`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
+    await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
+    await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
+    await p.waitForSelector('#pview .pj[data-spp="yellowstone"]', { timeout: 60000 });
+    assert.match(await p.evaluate(() => document.querySelector('#pview h3').textContent), /^Found in 1 place$/);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}
