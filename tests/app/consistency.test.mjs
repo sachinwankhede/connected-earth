@@ -7,7 +7,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: every screen has one back link that looks and sits the same`, async () => {
     const b = await H.launch();
     const seen = [];
-    for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
+    for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['species', '#stub&sp=pandion-haliaetus'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
       const t = await H.open(b, H.MAIN, size, { hash }); const p = t.page;
       if (scr === 'journey') await p.evaluate(() => window.__M.showJourney(window.__M.journeyIds()[0]));
       await p.waitForSelector(scr === 'explore' ? '#pbk' : '.jback', { state: 'visible', timeout: 60000 });
@@ -32,7 +32,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: journey, place and explore all have a share icon; pages and the species sheet share one footer`, async () => {
     const b = await H.launch();
-    for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
+    for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['species', '#stub&sp=pandion-haliaetus'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
       const t = await H.open(b, H.MAIN, size, { hash }); const p = t.page;
       if (scr === 'journey') await p.evaluate(() => window.__M.showJourney(window.__M.journeyIds()[0]));
       await p.waitForSelector(scr === 'explore' ? '#pbk' : '.jback', { state: 'visible', timeout: 60000 }); await p.waitForTimeout(1000);

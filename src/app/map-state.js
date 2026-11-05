@@ -105,6 +105,7 @@
     function part(x) { return pre && x ? pre + "&" + x : pre || x; }
     if (M.jid) return part("j=" + M.jid);
     if (M.pid) return part("pg=" + M.pid);
+    if (M.sid) return part("sp=" + M.sid);
     if (!el.webview.hidden) return part("e=" + el.eco.value);
     if (!document.getElementById("peek").hidden && M.peekId) return part("p=" + M.peekId);
     if (view.level === "continent") return part("r=continent:" + view.cont);
@@ -116,8 +117,8 @@
     try {
       var h = hashState(); h = (/(^|[#&])stub/.test(M.h0 || "") ? "stub" + (h ? "&" : "") : "") + h;
       var hh = h ? encodeURI(h) : "", url = location.pathname + location.search + (hh ? "#" + hh : "");
-      if (M.pushNext) { M.pushNext = false; if (location.hash.slice(1) !== hh) { history.pushState({ sp: M.pid ? 1 : 0 }, "", url); return; } }   /* a new step the Back key can undo: a search starts, a place opens from a search (sp: the place's own entry) */
-      history.replaceState(M.pid || M.fromHash ? history.state : null, "", url);   /* the marker stays while the address is being applied (the place is not shown yet) */
+      if (M.pushNext) { M.pushNext = false; if (location.hash.slice(1) !== hh) { history.pushState({ sp: M.pid || M.sid ? 1 : 0 }, "", url); return; } }   /* a new step the Back key can undo: a search starts, a place opens from a search (sp: the place's own entry) */
+      history.replaceState(M.pid || M.sid || M.fromHash ? history.state : null, "", url);   /* the marker stays while the address is being applied (the place is not shown yet) */
     } catch (e) {}
   }
   function doPendingPeek() {
@@ -136,6 +137,7 @@
     if (sq.toLowerCase() !== (FL.q || "") || sq !== document.getElementById("q").value.trim()) runSearch(sq);   /* a link or Back brings the search that belongs to the address; an address without one clears it. The box alone is not the test: a reload restores its text before the search has run */
     if ((m = /(?:^|&)j=([\w-]+)/.exec(h)) && jbyId(m[1])) showJourney(m[1]);
     else if ((m = /(?:^|&)pg=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showPlace(m[1]);
+    else if ((m = /(?:^|&)sp=([\w-]+)/.exec(h))) showSpecies(m[1]);
     else if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);
     else if ((m = /(?:^|&)p=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) { M.pendingPeek = m[1]; if (M.styleReady) doPendingPeek(); }
     else if ((m = /(?:^|&)r=(\w+):(.+)$/.exec(h))) {
@@ -143,7 +145,7 @@
       else if (m[1] === "country" && M.countryBy[m[2]]) go("country", m[2]);
       else if (m[1] === "state") { var sn = m[2]; ensureStates().then(function () { if (M.stateBy[sn]) go("state", sn); }); }
     }
-    else if (typeof h0 !== "string" && M.pid && !/(?:^|&)(?:pg|e|p|j)=/.test(h)) showMap();   /* Back from a place that was opened from a search: the address has no place any more */
+    else if (typeof h0 !== "string" && (M.pid || M.sid) && !/(?:^|&)(?:pg|sp|e|p|j)=/.test(h)) showMap();   /* Back from a place that was opened from a search: the address has no place any more */
     M.fromHash = false;
   }
   document.addEventListener("click", function (ev) { var b = ev.target.closest(".shbtn"); if (b) { ev.stopPropagation(); share(b); } }, true);

@@ -96,7 +96,7 @@
     var c = jbyId(id); if (!c) return;
     if (!window.d3) { withD3(function (ok) { if (ok) showJourney(id, from); }); return; }   /* the journey map is drawn with D3: wait for the library */
     var sb = document.getElementById("sbody"); if (el.webview.hidden && !el.mapview.hidden && sb) M.jScroll = sb.scrollTop;
-    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1; PV.hidden = true; M.pid = null;
+    M.loading = null; sim.stop(); M.jid = id; M.cameFrom = null; M.jfly = (M.jfly || 0) + 1; PV.hidden = true; M.pid = null; M.sid = null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = false; var rt = jRouteSVG(c); M.jpts = rt.pts;
     JV.innerHTML = jHTML(c, rt); JV.scrollTop = 0; window.scrollTo(0, 0);

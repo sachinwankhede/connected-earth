@@ -368,10 +368,10 @@ def write_webs(webs, about, pictures=None):
         open(os.path.join(d, 'species-pictures.json'), 'w').write(json.dumps(pictures, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
-    # one small file per species with a description, named by the species id (the app asks for api/species/<id>.json when its sheet opens)
+    # one small file per species, named by the species id (the app asks for api/species/<id>.json when its sheet or page opens): l Latin name, n usual name, tl level, t description (when there is one), ph and phm the picture entry and credit (when hosted)
     sd = os.path.join(d, 'species'); os.makedirs(sd, exist_ok=True); keep = set()
-    for sid, text in about.items():
-        open(os.path.join(sd, sid + '.json'), 'w').write(json.dumps({'t': text}, separators=(',', ':'), ensure_ascii=False)); keep.add(sid + '.json')
+    for sid, f in about.items():
+        open(os.path.join(sd, sid + '.json'), 'w').write(json.dumps(f, separators=(',', ':'), ensure_ascii=False)); keep.add(sid + '.json')
     for f in os.listdir(sd):
         if f not in keep: os.remove(os.path.join(sd, f))
 
@@ -432,7 +432,6 @@ def build(pilot, out_path, write=False, places=False):
         print('\n'.join(errs)); sys.exit(1)
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
-    about = {tab[k]['sid']: tab[k]['about'] for k in sorted(used) if k in tab and tab[k].get('about')}
     for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
         if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
     phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
@@ -445,6 +444,20 @@ def build(pilot, out_path, write=False, places=False):
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
     phm = {t: phm_all[t] for t in phs if t in phm_all}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
+    # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
+    common = {l.lower(): c for l, c in spt}; keys = {}
+    for e in ecos:
+        for n in e['nodes']:
+            if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+    about = {}
+    for k in sorted(used):
+        row = tab.get(k)
+        if not row or row['sid'] != species.slug(k) or k not in common: continue
+        f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
+        pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
+        if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None
+        if f.get('phm') is None: f.pop('phm', None)
+        about[row['sid']] = f
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
     byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set()
     for c in links['cross']:

@@ -105,7 +105,7 @@
     if (notYet(id, function () { showPlace(id, from); })) return;
     if (!ECO_BY[id]) return;
     if (FL.q && !M.pid && !M.jid && !M.fromHash) M.pushNext = true;
-    M.loading = id; M.jid = null; M.pid = id; M.cameFrom = from || null;
+    M.loading = id; M.jid = null; M.sid = null; M.pid = id; M.cameFrom = from || null;
     el.mapview.hidden = true; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true; JV.hidden = true;
     PV.hidden = false; PV.innerHTML = '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">‹ Places</button></div><p class="fine" style="margin-top:20px">Loading…</p></article>';
     PV.scrollTop = 0; window.scrollTo(0, 0); syncHash();
@@ -148,7 +148,7 @@
   /* open a place on a species by its Latin name (the page no longer carries node ids for every place's species) */
   function jumpSp(eco, latin) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.latin === latin; })[0]; if (n) select(n.id); }); }
   function showMap() {
-    M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.cameFromP = null;
+    M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.sid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
     JV.hidden = true; M.jid = null; M.cameFrom = null; el.back.innerHTML = "&larr; Places";
     el.h1.textContent = "Connected Earth";
@@ -159,7 +159,7 @@
   function setPbk() { var b = document.getElementById("pbk"); if (b) b.innerHTML = el.back.innerHTML.replace(/^\s*(&larr;|\u2190)\s*/, "\u2039 "); }
   function showWeb(id, then, fromJ, fromP) {
     if (notYet(id, function () { showWeb(id, then, fromJ, fromP); })) return;
-    PV.hidden = true; M.pid = null; M.cameFromP = fromP || null;
+    PV.hidden = true; M.pid = null; M.sid = null; M.cameFromP = fromP || null;
     el.mapview.hidden = true; el.webview.hidden = false; el.legend.hidden = false; el.webctl.hidden = false; el.back.hidden = false;
     JV.hidden = true; M.jid = null; M.cameFrom = fromJ || null; el.back.innerHTML = "&larr; " + (fromJ ? "Journey" : escH(ECO_BY[id].name)); setPbk();
     el.eco.value = id; M.loading = id;
