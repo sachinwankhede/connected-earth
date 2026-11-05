@@ -25,6 +25,8 @@ class CommonsPhotosTests(unittest.TestCase):
     def test_manifest_entry_matches_the_speciesphotos_shape(self):
         u = 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aardwolf%2C_Kenya.jpg/330px-Aardwolf%2C_Kenya.jpg'
         self.assertEqual(c.manifest_entry(u, 'Acalypha radians'), ['2/2f/Aardwolf%2C_Kenya.jpg/330px-Aardwolf%2C_Kenya.jpg', 'Acalypha_radians'])
+        self.assertEqual(c.manifest_entry('https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/A_b.jpg/330px-A_b.jpg?utm_source=commons.wikimedia.org', 'Amphibolis antarctica'),
+                         ['b/b7/A_b.jpg/330px-A_b.jpg', 'Amphibolis_antarctica'], 'the host Commons really answers with')
         self.assertIsNone(c.manifest_entry('https://example.com/a.jpg', 'X'))
         self.assertIsNone(c.manifest_entry('', 'X'))
         self.assertIsNone(c.manifest_entry('https://upload.wikimedia.org/wikipedia/en/thumb/a/ab/X.jpg/330px-X.jpg', 'X'), 'only Commons files')
