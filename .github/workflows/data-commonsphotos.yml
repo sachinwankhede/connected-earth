@@ -18,7 +18,7 @@ jobs:
         with: { ref: main }
       - run: pip install pillow
       - name: Find the pictures
-        run: python3 jobs/commonsphotos.py "${{ github.event.inputs.limit || '30' }}" | tee find.log | tail -8
+        run: python3 jobs/commonsphotos.py "${{ github.event.inputs.limit || '30' }}" | tee find.log | tail -80
       - name: Host them
         run: python3 jobs/hostphotos.py all 0 | tee host.log | tail -4
       - name: Validate
