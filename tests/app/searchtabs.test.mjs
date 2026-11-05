@@ -18,7 +18,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => /species? match/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
+    await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#sptab .sgr[data-g]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
     await picLoaded(p, '#sptab .sgr[data-latin="Pandion haliaetus"]');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -40,8 +40,32 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       assert.equal('Journeys ' + shown, (await tabs(p))[2], 'the count is the journeys listed');
       assert.equal(await p.evaluate(() => window.__M.tab), 'journeys');
     }
+    // the same note line, in the same words, on every tab (#449)
+    const note = (kind) => p.evaluate(() => { const n = document.getElementById('qnote'); return n.hidden ? null : n.textContent; });
+    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(400);
+    assert.match(await note(), /^\d+ places? match(es)? “osprey”$/, 'Places says what it found');
+    await p.click('[data-tab="species"]:visible'); await p.waitForTimeout(600);
+    assert.match(await note(), /^\d+ species match(es)? “osprey”$/, 'Species says it in the same form');
+    if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “osprey”$/, 'Journeys too'); }
+    await p.click('[data-tab="places"]:visible');
     await p.click('#qclr'); await p.waitForTimeout(700);
+    assert.equal(await note(), null, 'the note goes with the search');
     assert.deepEqual((await tabs(p)).slice(0, 2), ['Places', 'Species'], 'counts go with the search');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
+  test(`${name}: a search that finds places but no species still says so on the Species tab (#449)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('sahara'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'sahara', null, { timeout: 60000 });
+    await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /places? match(es)? “sahara”$/.test(n.textContent); }, null, { timeout: 30000 });
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /species match(es)? “sahara”$/.test(n.textContent) && !document.querySelector('#sptab .sgr[data-g]'); }, null, { timeout: 30000 });
+    const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-latin]').length, top: !!document.querySelector('#sptab .sgr[data-g]') }));
+    assert.equal(list.top, false, 'the groups are out of the way during a search'); assert.equal(/^No species/.test(list.note), list.rows === 0, 'the note and the list agree: ' + JSON.stringify(list));
     assert.deepEqual(t.errors, []); await b.close();
   });
 

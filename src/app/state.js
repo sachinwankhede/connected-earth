@@ -32,7 +32,7 @@
 
   function updateStats() {
     var sp = NODES.filter(function (n) { return !n.cat; }).length;
-    el.stats.textContent = ECO.place + " · " + sp + " species" + (state.env ? " + environment" : "") + " · " + EDGES.filter(visE).length + " links";
+    el.stats.hidden = false; el.stats.textContent = ECO.place + " · " + sp + " species" + (state.env ? " + environment" : "") + " · " + EDGES.filter(visE).length + " links";
   }
   function dims() {
     var cw = stage.clientWidth || 900, ch = stage.clientHeight || 560;
