@@ -49,7 +49,9 @@ def check(pilot, folder):
         files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)} | {'s-%s.json' % k: v for k, v in sug.items()}   # s-: suggestions (#413)
         files['meta.json'] = meta | {'sug': sorted(sug)}   # the build adds the list of suggestion files to meta
         assert set(os.listdir(d)) == set(files), 'stale or missing files in api/' + folder
-        for f, obj in files.items(): assert json.load(open(os.path.join(d, f))) == obj, f
+        def bare(obj, f):   # a species row also carries its hosted picture file (#443); it is checked in search_suggest_test
+            return {'p': obj['p'], 's': [r[:3] for r in obj['s']]} if f.startswith('s-') else obj
+        for f, obj in files.items(): assert bare(json.load(open(os.path.join(d, f))), f) == bare(obj, f), f
     return len(light), len(words)
 
 n, w = check(False, 'search'); m, _ = check(True, 'search-pilot')

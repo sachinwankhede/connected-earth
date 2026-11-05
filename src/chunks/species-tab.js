@@ -52,7 +52,7 @@ window.__chunk["species-tab"] = function (A) {
     A.find(q).then(function (rows) {
       if (n !== qN || !rows) return;
       box.innerHTML = '<h3></h3>'; box.querySelector("h3").textContent = rows.length ? rows.length + (rows.length === 1 ? " species matches \u201c" : " species match \u201c") + q + "\u201d" : "No species match \u201c" + q + "\u201d";
-      if (rows.length) box.appendChild(list(rows, function (r) { return row([r.latin, r.name, r.n, 0]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
+      if (rows.length) box.appendChild(list(rows, function (r) { return row([r.latin, r.name, r.n, r.pic || 0]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
     }).catch(function () { if (n === qN) shown = ""; });
   }
   qIn.addEventListener("input", function () { clearTimeout(qT); qT = setTimeout(find, 150); });
@@ -61,7 +61,7 @@ window.__chunk["species-tab"] = function (A) {
   box.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); act(ev.target); } });
   return {
     open: function () {
-      if (started) return; started = true;
+      if (started) { shown = null; find(); return; } started = true;
       Promise.all([A.Data.speciesTab("top.json"), A.Data.speciesTab("groups.json")]).then(function (r) { top = r[0]; groups = r[1]; home(); shown = ""; find(); })
         .catch(function () { started = false; box.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; });
     }

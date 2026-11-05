@@ -23,17 +23,18 @@ def check(pilot):
             for w in B.search_words(c + ' ' + l): full_s.setdefault(B.search_bucket(w), set()).add(l)
     assert set(sug) == set(full_p) | set(full_s), 'one file for every start that has a name'
     for key, b in sug.items():
+        assert all(len(r) == 4 and (r[3] == 0 or r[3].endswith('.webp')) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0] (#443)'
         assert len(b['p']) <= B.SUGGEST_PER and len(b['s']) <= B.SUGGEST_PER
         ns = [byid[i][0] for i, _ in b['p']]
         assert ns == sorted(ns) and len(set(ns)) == len(ns), key + ': places in page order, once each'
         for i, name in b['p']:
             assert name == byid[i][1]['name'] and i in full_p[key], key + ': ' + i
-        cs = [(-n, c) for _, c, n in b['s']]
+        cs = [(-r[2], r[1]) for r in b['s']]
         assert cs == sorted(cs), key + ': species most places first'
-        for l, c, n in b['s']:
+        for l, c, n, _pic in b['s']:
             assert c == common[l] and n == len(latin_places[l]) and l in full_s[key], key + ': ' + l
         if len(b['p']) < B.SUGGEST_PER: assert {i for i, _ in b['p']} == full_p.get(key, set()), key + ': places complete'
-        if len(b['s']) < B.SUGGEST_PER: assert {l for l, _, _ in b['s']} == full_s.get(key, set()), key + ': species complete'
+        if len(b['s']) < B.SUGGEST_PER: assert {l for l, _, _, _ in b['s']} == full_s.get(key, set()), key + ': species complete'
     return len(sug)
 
 if __name__ == '__main__':

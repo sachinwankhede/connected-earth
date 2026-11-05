@@ -87,6 +87,7 @@
       if (!spk._b) { spk._b = 1; spk.addEventListener("click", function () { if (M.setSheet) M.setSheet("half"); }); }
     }
     M.statsHTML = el.stats.innerHTML; M.region = region;
+    tabCount("places", FL.q && !FL.busy ? list.length : null); if (M.jq !== FL.q) { M.jq = FL.q; applyJ(); }   /* after statsHTML: applyJ redraws the count line */
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level !== "world";
