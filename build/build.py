@@ -269,6 +269,29 @@ def write_search(light, spt, sidx, qs, pilot, pics=None):
 RELATED_N = 10
 
 
+DIET_N = 4   # what it eats and what eats it: at most this many of each on the species page (#447)
+
+
+def species_diet(ecos, about, common, pics):
+    """Adds 'ea' (what it eats) and 'eb' (what eats it) to the species files in about: [[Latin name, usual name, number of places, hosted picture file or 0], ...], the links found in
+    the most places first, then by name. A link is a food link of a place (raw row [food, eater] with no third entry); resources and groups without a Latin name are left out."""
+    places = {}; eats = {}; eaten = {}
+    for e in ecos:
+        lat = {n['id']: n['latin'] for n in e['nodes'] if not n.get('cat') and n.get('latin')}
+        for l in set(lat.values()): places[l] = places.get(l, 0) + 1
+        for r in e['raw']:
+            if len(r) != 2 or r[0] not in lat or r[1] not in lat or lat[r[0]] == lat[r[1]]: continue
+            a, b = lat[r[1]], lat[r[0]]   # a eats b
+            eats.setdefault(a, {})[b] = eats.setdefault(a, {}).get(b, 0) + 1
+            eaten.setdefault(b, {})[a] = eaten.setdefault(b, {}).get(a, 0) + 1
+    def rows(d):
+        return [[l, common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
+    for f in about.values():
+        l = f['l']
+        if eats.get(l): f['ea'] = rows(eats[l])
+        if eaten.get(l): f['eb'] = rows(eaten[l])
+
+
 def species_overlap(ecos):
     """-> (related, ties, species_places) for this set of places, in the order of the list. related[id] = [[id, species in common], ...] (at most 10, most first, ties in page order);
     ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[latin] = [place ids in page order] for every species, also one found in a single place (#420: the species page and the map filter need it)."""
@@ -503,6 +526,7 @@ def build(pilot, out_path, write=False, places=False):
         if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
+    species_diet(ecos, about, common, pics)
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
     byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set()
     for c in links['cross']:

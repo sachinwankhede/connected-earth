@@ -14,6 +14,16 @@ class SpeciesTab(unittest.TestCase):
         self.assertEqual(g({'kingdom': 'Plantae', 'class': 'Pinopsida'}), 'plants'); self.assertEqual(g({'kingdom': 'Fungi'}), 'fungi')
         self.assertEqual(g({'kingdom': 'Chromista'}), 'other'); self.assertEqual(g(None), 'other')
 
+    def test_diet_rows_from_made_up_webs(self):   # #447: raw rows are [food, eater]
+        ecos = [{'nodes': [{'id': 'g', 'latin': 'Grass g', 'name': 'Grass'}, {'id': 'd', 'latin': 'Deer d', 'name': 'Deer'}, {'id': 'w', 'latin': 'Wolf w', 'name': 'Wolf'}, {'id': 's', 'name': 'Sun', 'cat': 'sun'}],
+                 'raw': [['g', 'd'], ['d', 'w'], ['s', 'g'], ['g', 'g']]},
+                {'nodes': [{'id': 'd', 'latin': 'Deer d', 'name': 'Deer'}, {'id': 'w', 'latin': 'Wolf w', 'name': 'Wolf'}], 'raw': [['d', 'w']]}]
+        about = {'deer-d': {'l': 'Deer d'}, 'wolf-w': {'l': 'Wolf w'}, 'grass-g': {'l': 'Grass g'}}
+        B.species_diet(ecos, about, {'deer d': 'Deer', 'wolf w': 'Wolf', 'grass g': 'Grass'}, {'Deer d': 'd.webp'})
+        self.assertEqual(about['wolf-w']['ea'], [['Deer d', 'Deer', 2, 'd.webp']]); self.assertNotIn('eb', about['wolf-w'])
+        self.assertEqual(about['deer-d']['ea'], [['Grass g', 'Grass', 1, 0]]); self.assertEqual(about['deer-d']['eb'], [['Wolf w', 'Wolf', 2, 0]])
+        self.assertNotIn('ea', about['grass-g'], 'the sun and itself are not food'); self.assertEqual(about['grass-g']['eb'], [['Deer d', 'Deer', 2, 'd.webp']])
+
     @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')), 'needs a build')
     def test_species_file_has_group_order_family(self):   # #446: the species page names them
         d = json.load(open(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')))
