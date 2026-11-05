@@ -12,6 +12,11 @@
     e.li = li; if (M.wantPhoto) M.wantPhoto(e); else ecoPhoto(e);
     return li;
   }
+  /* the search text changed (typing, or an address that carries s=): box, filter, list and map follow (#412) */
+  function runSearch(text) {
+    var q = document.getElementById("q"); if (q.value !== text) q.value = text; qSync();
+    FL.q = text.trim().toLowerCase(); searchFor(FL.q); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3);
+  }
   function qSync() { var q = document.getElementById("q"), c = document.getElementById("qclr"); if (!q || !c) return; c.hidden = !q.value; document.getElementById("qwrap").classList.toggle("has", !!q.value); }   /* the Clear link shows only when there is text */
   function cimg(id) { var e = ECO_BY[id]; return e ? makeCard(e).querySelector(".cimg") : null; }
   function buildMap() {
@@ -39,7 +44,7 @@
     qIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter") qIn.blur(); });   /* the keyboard leaves so the results show */
     document.getElementById("qclr").addEventListener("click", function (ev) { ev.preventDefault(); qIn.value = ""; qIn.dispatchEvent(new Event("input", { bubbles: true })); qIn.focus(); });
     qIn.addEventListener("input", qSync);
-    document.getElementById("q").addEventListener("input", function () { FL.q = this.value.trim().toLowerCase(); searchFor(FL.q); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3); });
+    document.getElementById("q").addEventListener("input", function () { if (!FL.q && this.value.trim()) M.pushNext = true; runSearch(this.value); });   /* the first letter adds a history entry, so Back clears the search before leaving (#412) */
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");

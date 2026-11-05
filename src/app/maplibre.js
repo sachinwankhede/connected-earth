@@ -105,6 +105,7 @@
   /* "Found in N ecosystems": every web that holds the same species, shown on the map */
   function speciesMap(name, latin) {   /* the places of a species come from its small file (api/species-places); without a Latin name the word index is used */
     var q = name.toLowerCase();
+    if (!FL.q) M.pushNext = true;   /* a species filter that starts from no search is a step Back can undo (#412) */
     FL.q = q; FL.hits = latin ? new Set() : null;
     if (latin) sppPlaces(latin).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab === "journeys") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
     document.getElementById("q").value = name; qSync();
