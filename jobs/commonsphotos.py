@@ -61,15 +61,18 @@ def main():
     today = datetime.date.today(); cut = (today - datetime.timedelta(days=RETRY_DAYS)).isoformat()
     todo = sorted(t for t in miss if t not in man and tried.get(t, '') <= cut)
     if limit: todo = todo[:limit]
-    print(len(todo), 'titles to try', flush=True); found = 0
+    print(len(todo), 'titles to try', flush=True); found = 0; why = {}
     for i in range(0, len(todo), 50):
         batch = todo[i:i + 50]; names = wikidata_images([t.replace('_', ' ') for t in batch])
         files = sorted({n.replace(' ', '_') for v in names.values() for n in v[:2]})
         info = commons_info(files) if files else {}
         for t in batch:
-            entry = None
+            entry = None; k = t.replace('_', ' ')
+            if k not in names: why[t] = 'no Wikidata item for the page'
+            elif not names[k]: why[t] = 'item has no usable P18'
             for n in names.get(t.replace('_', ' '), [])[:2]:
                 lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
+                why[t] = 'file %s: licence %r, type %r' % (n, lic, mime)
                 if mime.startswith('image/') and mime != 'image/svg+xml' and open_licence(lic):
                     entry = manifest_entry(thumb, t)
                     if entry: break
@@ -79,4 +82,6 @@ def main():
                 tried[t] = today.isoformat()
         for p, d in ((MAN, man), (MISS, miss), (SRC, src), (TRIED, tried)): json.dump(d, open(p, 'w'), ensure_ascii=False, separators=(',', ':'), sort_keys=(p in (SRC, TRIED)))
         print(min(i + 50, len(todo)), 'of', len(todo), '| found', found, flush=True)
+        for t in batch:
+            if t not in man: print('  no:', t, '-', why.get(t, '?'), flush=True)
 if __name__ == '__main__': main()
