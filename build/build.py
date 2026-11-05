@@ -497,6 +497,8 @@ def build(pilot, out_path, write=False, places=False):
         row = tab.get(k)
         if not row or row['sid'] != species.slug(k) or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
+        tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
+        if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
         pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
         if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
         if f.get('phm') is None: f.pop('phm', None)

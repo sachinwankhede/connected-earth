@@ -1055,3 +1055,5 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jcard .jgo { flex: none; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; padding-left: 2px; }
 
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
+.jp .tax { margin: 4px 0 0; }
+.jp .tax a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 6px 0; display: inline-block; }
