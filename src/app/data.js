@@ -124,7 +124,7 @@
     srchRun(q).then(function (hits) {
       if (FL.q !== q) return;
       if (hits) FL.hits = hits;
-      M.pgKey = null; filterView();
+      M.pgKey = null; filterView(); M.searched = q;   /* the list now answers q (the tests wait for this) */
     });
   }
   var COUPLE = DATA.couple;
