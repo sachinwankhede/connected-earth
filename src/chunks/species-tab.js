@@ -13,6 +13,15 @@ window.__chunk["species-tab"] = function (A) {
     var im = d.querySelector("img"); if (im) im.onerror = function () { d.querySelector(".sgi").innerHTML = A.leaf; };
     return d;
   }
+  function card(r) {   /* the same photo card as the place page's photo rows (.prow / .pmc): [Latin name, usual name, places, picture file or 0] */
+    var c = r[3] && A.PhotoRegistry.speciesCandidate([r[3], r[0]], r[0], 1, null);
+    var d = document.createElement("button"); d.className = "pmc";
+    d.innerHTML = '<span class="pbox"><span class="pph' + (c ? " has" : "") + '">' + (c ? '<img alt="" loading="lazy" referrerpolicy="no-referrer" src="' + A.esc(c.assetUrl) + '">' : A.leaf) + '</span></span><b></b><small></small>';
+    d.type = "button"; d.setAttribute("data-latin", r[0]); d.querySelector("b").textContent = r[1]; d.querySelector("small").textContent = "in " + r[2] + (r[2] === 1 ? " place" : " places");
+    var im = d.querySelector("img"); if (im) im.onerror = function () { var p = d.querySelector(".pph"); p.classList.remove("has"); p.innerHTML = A.leaf; };
+    return d;
+  }
+  function strip(items) { var l = el("", "prow"); items.forEach(function (x) { l.appendChild(card(x)); }); return l; }   /* sideways, like every photo row (#484) */
   function groupRow(g) {   /* [key, label, species, pages] */
     var d = el('<span class="sgi">' + A.leaf + '</span><span class="sgt"><b></b><i></i></span>' + A.chev, "sgr");
     d.setAttribute("role", "link"); d.tabIndex = 0; d.setAttribute("data-g", g[0]);
@@ -97,7 +106,7 @@ window.__chunk["species-tab"] = function (A) {
       M.spN = d.n || d.l; M.spL = d.l;
       [["ea", "What it eats"], ["eb", "What eats it"], ["rl", "Related species"]].forEach(function (x) {   /* from the food webs of the atlas (#447): the links found in the most places; related species of the same family (#448) */
         if (!d[x[0]]) return;
-        var w = document.createElement("div"); w.innerHTML = "<h3>" + x[1] + "</h3>"; w.appendChild(list(d[x[0]], row));
+        var w = document.createElement("div"); w.innerHTML = "<h3>" + x[1] + "</h3>"; w.appendChild(strip(d[x[0]]));
         PV.querySelector("article").insertBefore(w, PV.querySelector(".srcd"));
       });
       P.sppPlaces(d.l).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
@@ -116,7 +125,7 @@ window.__chunk["species-tab"] = function (A) {
     });
   }
   PV.addEventListener("click", function (ev) {
-    var r = M.sid && ev.target.closest(".sgr[data-latin]"); if (r) { A.go(r.getAttribute("data-latin"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
+    var r = M.sid && ev.target.closest("[data-latin]"); if (r) { A.go(r.getAttribute("data-latin"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
     var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap],[data-sg]"); if (!t) return;
     ev.preventDefault();
     if (t.hasAttribute("data-sg")) { M.sid = null; PV.hidden = true; P.showMap(); P.setTab("species"); openGroup(t.getAttribute("data-sg")); }   /* the group's list in the Species tab */
