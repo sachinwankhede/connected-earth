@@ -34,6 +34,28 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: a search shows the same row on every tab: picture 52px, title, one muted line, chevron (#483)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'elk' && document.querySelector('#cards li:not([hidden]) .card'), null, { timeout: 60000 });
+    const pl = await p.evaluate(() => { const c = document.querySelector('#cards li:not([hidden]) .card'), i = c.querySelector('.cimg').getBoundingClientRect(), h = c.querySelector('h2').getBoundingClientRect(), w = c.querySelector('.where').getBoundingClientRect();
+      return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: h.top < w.top, blurb: getComputedStyle(c.querySelector('p')).display, chev: getComputedStyle(c, '::after').content, caps: getComputedStyle(c.querySelector('.where')).textTransform }; });
+    assert.deepEqual([pl.pic, pl.titleAbove, pl.blurb, pl.caps], ['52x52', true, 'none', 'none'], 'Places row: ' + JSON.stringify(pl)); assert.match(pl.chev, /\u203a|›/, 'a chevron');
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 }); await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelector('#sptab .sgl .sgr[data-latin]'), null, { timeout: 60000 });
+    const sp = await p.evaluate(() => { const r = document.querySelector('#sptab .sgl .sgr[data-latin]'), i = r.querySelector('.sgi').getBoundingClientRect(), b = r.querySelector('b').getBoundingClientRect(), k = r.querySelector('i').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: b.top < k.top, caps: getComputedStyle(r.querySelector('i')).textTransform, chev: !!r.querySelector('svg') }; });
+    assert.deepEqual(sp, { pic: '52x52', titleAbove: true, caps: 'none', chev: true }, 'Species row: ' + JSON.stringify(sp));
+    const j = await p.evaluate(() => !![...document.querySelectorAll('[data-tab="journeys"]')].find((x) => x.offsetParent));
+    if (j) {
+      await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(500);
+      const jc = await p.evaluate(() => { const c = [...document.querySelectorAll('#xcards li')].find((l) => !l.hidden); if (!c) return null; const i = c.querySelector('.jimg').getBoundingClientRect(), h = c.querySelector('.jtitle').getBoundingClientRect(), r = c.querySelector('.jroute').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: h.top < r.top, caps: getComputedStyle(c.querySelector('.jroute')).textTransform }; });
+      if (jc) assert.deepEqual(jc, { pic: '52x52', titleAbove: true, caps: 'none' }, 'Journeys row: ' + JSON.stringify(jc));
+    }
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
