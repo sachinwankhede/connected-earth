@@ -1,0 +1,47 @@
+name: data-commonsphotos
+# Manual only (#421 part B1). Finds a picture on Wikidata (image property) and Wikimedia Commons for species Wikipedia has none for, keeps only CC0, CC BY, CC BY-SA and public domain,
+# hosts the 96 px copy with its credit (hostphotos.py) and opens one pull request with a 10-picture spot check. Shares the group of data-hostphotos: both write the same photo files.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Species titles to try (the first run: 30; 0 = all left)", default: "30" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-hostphotos
+jobs:
+  commons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - run: pip install pillow
+      - name: Find the pictures
+        run: python3 jobs/commonsphotos.py "${{ github.event.inputs.limit || '30' }}" | tee find.log | tail -8
+      - name: Host them
+        run: python3 jobs/hostphotos.py all 0 | tee host.log | tail -4
+      - name: Validate
+        run: python3 lib/photo_registry.py validate
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/commonsphotos-${GITHUB_RUN_ID}"
+          git add photos/species photos/species.json photos/species_missing.json photos/species_source.json photos/species_commons_tried.json photos/species_hosted.json photos/species_hosted_skipped.json photos/species_metadata.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random
+          src = json.load(open('photos/species_source.json')); host = json.load(open('photos/species_hosted.json')); meta = json.load(open('photos/species_metadata.json'))
+          ok = sorted(t for t in src if t in host); random.seed(1); pick = random.sample(ok, min(10, len(ok)))
+          print('| Species | Licence | Author | File page |\n|---|---|---|---|')
+          for t in pick:
+              m = meta.get(t, {}); print('| %s | %s | %s | %s |' % (t, m.get('l', ''), (m.get('a', '') or '')[:60].replace('|', '/'), m.get('p', '')))
+          print('\n%d of %d found pictures are hosted.' % (len(ok), len(src)))
+          PY
+          N=$(python3 -c "import json;print(len(json.load(open('photos/species_source.json'))))")
+          git commit -m "Species pictures from Wikidata and Commons: $N so far"
+          git push -f origin HEAD
+          { printf 'Part of #421 (B1). Automatic run of data-commonsphotos, limit `%s`. Only CC0, CC BY, CC BY-SA and public domain are kept; each picture is credited as any other. %s species now have a Wikidata/Commons picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '30' }}" "$N"; cat spot.md; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species pictures from Wikidata and Commons ($N so far)" --body-file body.md
