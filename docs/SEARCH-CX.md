@@ -46,11 +46,11 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 |---|---|---|
 | Search box on a phone | #409 | done |
 | Dropdown | #413 | done |
-| Dropdown type line, exact-first ranking | to open | |
+| Dropdown type line, exact-first ranking | #424 | idea |
 | Search in the address, Back | #412 | idea |
 | One redraw, honest states, nothing-found text | #414 | idea |
 | Species page | #420 | idea |
-| Result header and "why it matches" line | to open | |
+| Result header, "why it matches" line, filter chip | #425 | idea |
 | Larger photos, photos for species with none | #421 | idea |
 | Species tab | #422 | idea |
 
