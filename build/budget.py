@@ -35,7 +35,7 @@ for label, n, lim in (('species descriptions (api/species/, total)', sum(ab), AB
     ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 SEARCH_WORDS_MAX = 60_000     # api/search[-pilot]/w-<two letters>.json: one bucket of the word list, fetched when a query starts with those letters (#260)
-SEARCH_SUGGEST_MAX = 6_000      # api/search[-pilot]/s-<two letters>.json: suggestions for one start, fetched with the word file (#413)
+SEARCH_SUGGEST_MAX = 8_000      # api/search[-pilot]/s-<two letters>.json: suggestions for one start, fetched with the word file (#413)
 SEARCH_ROWS_MAX = 60_000      # api/search[-pilot]/rows-<n>.json: result lines of 256 places
 SEARCH_TOTAL_MAX = 2_000_000  # one search folder, all files (only the deploy size grows)
 for d in ('search', 'search-pilot'):

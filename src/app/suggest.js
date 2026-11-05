@@ -20,7 +20,7 @@
     function has(lw) { return ws.every(function (w) { return lw.some(function (x) { return x.lastIndexOf(w, 0) === 0; }); }); }
     function rank(names) { var r = 2; names.forEach(function (n) { r = Math.min(r, n === phrase ? 0 : n.lastIndexOf(phrase, 0) === 0 ? 1 : 2); }); return r; }
     (d.p || []).forEach(function (r, i) { var nm = words(r[1]); if (has(nm)) P.push({ t: "p", id: r[0], name: r[1], k: rank([nm.join(" ")]), i: i }); });
-    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
+    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], pic: r[3], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
     [P, S].forEach(function (a) { var c = [0, 0, 0]; a.sort(function (x, y) { return x.k - y.k || x.i - y.i; }); a.forEach(function (x) { x.pos = c[x.k]++; }); });
     return P.concat(S).sort(function (a, b) { return a.k - b.k || a.pos - b.pos || (a.t === b.t ? 0 : a.t === "p" ? -1 : 1); }).slice(0, max || sugMax());
   }
@@ -32,12 +32,12 @@
     if (!SUG.rows.length) { sugBox.hidden = true; sugBox.innerHTML = ""; sugIn.setAttribute("aria-expanded", "false"); return; }
     sugBox.innerHTML = "";
     SUG.rows.forEach(function (r) {
-      var row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
+      var c, row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
       row.className = "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else row.setAttribute("data-latin", r.latin);
       row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b><i></i></span>' + SUG_CHEV;
       row.querySelector("b").textContent = r.name;
       row.querySelector("i").textContent = r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");
-      var p = r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin];
+      var p = r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);
     });
@@ -54,10 +54,11 @@
     var hd = document.getElementById("qhead"); if (!hd) return;
     var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q); if (QH.k === key) return;
     QH.k = key; var n = ++QH.n, ws = srchWords(q), last = ws[ws.length - 1];
-    hd.hidden = true; M.why = null; whyLines();
+    hd.hidden = true; M.why = null; whyLines(); tabCount("species", null);
     if (!last || last.length < 2 || FL.busy) return;
     sugFile(last.slice(0, 2)).then(function (d) {
-      var r = sugPick(q, d)[0]; if (n !== QH.n || !r || r.k) return;
+      if (n !== QH.n) return; var sn = sugPick(q, { s: d.s }, 40).length; tabCount("species", sn < 40 ? sn : "40+");
+      var r = sugPick(q, d)[0]; if (!r || r.k) return;
       var sp = r.t === "s", e = ECO_BY[r.id], nm = escH(r.name), chip = sp && M.chip === q;
       hd.className = "qhead" + (chip ? " qchip" : "");
       hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'

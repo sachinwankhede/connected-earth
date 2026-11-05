@@ -71,14 +71,19 @@
     ECOS.forEach(addEcoOption);
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
+  var TABN = { places: "Places", species: "Species", journeys: "Journeys" };
+  function tabCount(t, n) {   /* while a search is on every tab says how many it found (#443) */
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { b.textContent = TABN[t] + (n == null ? "" : " " + n); });
+  }
   function applyJ() {
-    CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = !!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; }); });
-    M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length;
+    var jw = FL.q ? srchWords(FL.q) : [];   /* a search also narrows the journeys: every typed word must be in the card (#443) */
+    CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jw.every(function (w) { return c.li.textContent.toLowerCase().indexOf(w) >= 0; }); });
+    M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length; tabCount("journeys", FL.q ? M.nJ : null);
     document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ; document.getElementById("jempty").hidden = M.nJ > 0;
     updCount();
   }
   function updCount() {
-    var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys");
+    var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") + (FL.q ? (M.nJ === 1 ? " matches" : " match") + " \u201c" + FL.q + "\u201d" : "");
     if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j); if (j) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
     var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
     if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; }

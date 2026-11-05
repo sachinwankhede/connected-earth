@@ -231,9 +231,9 @@ def split_search(light, spt, sidx, qs):
 SUGGEST_PER = 40   # most places and most species kept for one two-letter start (the app narrows them to what is typed)
 
 
-def split_suggest(light, spt, sidx):
+def split_suggest(light, spt, sidx, pics=None):
     """Suggestions while typing (item #413): {two letters: {'p': places, 's': species}} for the first two letters of every word of a name.
-    p: [id, name] in page order (the home list order, featured first). s: [latin, usual name, number of places] most places first, then by name.
+    p: [id, name] in page order (the home list order, featured first). s: [latin, usual name, number of places, hosted picture file or 0] most places first, then by name (the picture shows in the dropdown and in the Species tab's search, #443).
     The app keeps the entries whose name starts with what is typed above those that only have a word that starts with it."""
     count = {}
     for e in light:
@@ -247,15 +247,15 @@ def split_suggest(light, spt, sidx):
     for neg, c, l in sp:
         for w in search_words(c + ' ' + l):
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
-            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg])
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0)])
     return out
 
 
-def write_search(light, spt, sidx, qs, pilot):
+def write_search(light, spt, sidx, qs, pilot, pics=None):
     """api/search/ (main) or api/search-pilot/: meta.json, w-<two letters>.json, rows-<n>.json. One build writes one folder; it replaces the folder's old files."""
     d = os.path.join(P('api'), 'search-pilot' if pilot else 'search'); os.makedirs(d, exist_ok=True)
     meta, buckets, rows = split_search(light, spt, sidx, qs)
-    sug = split_suggest(light, spt, sidx); meta['sug'] = sorted(sug)   # the two-letter starts that have suggestions
+    sug = split_suggest(light, spt, sidx, pics); meta['sug'] = sorted(sug)   # the two-letter starts that have suggestions
     files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)} | {'s-%s.json' % k: v for k, v in sug.items()}
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
@@ -512,7 +512,7 @@ def build(pilot, out_path, write=False, places=False):
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: add_overlap(webs, ecos, set(links['order']))
     if write: write_webs(webs, about, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot); write_ties(light, ov[1], pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     if places: write_journeys(data, pilot)
