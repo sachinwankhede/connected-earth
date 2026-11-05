@@ -70,6 +70,12 @@ def main():
         if not source.is_file():
             raise SystemExit('hosted species picture missing: photos/species/' + name)
         copy_file(source, 'photos/species/' + name, expected)
+    large = json.loads((ROOT / 'photos/species_large.json').read_text()) if (ROOT / 'photos/species_large.json').exists() else {}   # larger copies of the busiest species (#421)
+    for name in sorted(set(large.values())):
+        source = ROOT / 'photos/species-lg' / name
+        if not source.is_file():
+            raise SystemExit('larger species picture missing: photos/species-lg/' + name)
+        copy_file(source, 'photos/species-lg/' + name, expected)
     place_photos = json.loads((ROOT / 'photos/places/places.json').read_text())
     for record in place_photos.values():
         path = place_image_path(record['f'])
