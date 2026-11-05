@@ -13,12 +13,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a typed word is drawn about once, not once per key`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.evaluate(() => { window.__n = 0; for (const k of ['pushState', 'replaceState']) { const f = history[k]; history[k] = function () { window.__n++; return f.apply(this, arguments); }; } });   // every draw ends in one address update
-    await p.click('#q'); await p.keyboard.type('osprey');
-    await answered(p, 'osprey'); await p.waitForTimeout(800);
+    await p.click('#q'); await p.keyboard.type('elk');
+    await answered(p, 'elk'); await p.waitForTimeout(800);
     const n = await p.evaluate(() => window.__n);
     assert.ok(n >= 1 && n <= 8, 'draws for six keys: ' + n);   // before: at least two per key (12 or more); now the first letter, the rest as one, and what the local places and the photos add
-    assert.match(await stats(p), /places? match “osprey”/);
-    assert.ok(await cards(p) > 0, 'osprey has places');
+    assert.match(await stats(p), /places? match “elk”/);
+    assert.ok(await cards(p) > 0, 'elk has places');
     assert.deepEqual(t.errors, []); await b.close();
   });
 

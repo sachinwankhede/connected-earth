@@ -23,14 +23,25 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: Places lists the places whose name or region has the word, not every place with a bear in it (#480)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('bear'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'bear' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
+    const r = await p.evaluate(() => { const li = [...document.querySelectorAll('#cards li:not([hidden]) .card')]; return { n: li.length, bad: li.filter((c) => !/bear/i.test(c.querySelector('h2').textContent + ' ' + c.querySelector('.where').textContent)).length, note: document.getElementById('qnote').textContent }; });
+    assert.ok(r.n > 0, 'some places have bear in the name or region'); assert.equal(r.bad, 0, 'every listed place has bear in its name or region');
+    assert.match(r.note, new RegExp('^' + r.n + ' places? match'), 'the count is the list');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     assert.deepEqual((await tabs(p)).slice(0, 2), ['Places', 'Species'], 'no counts without a search');
-    await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
-    await p.waitForFunction(() => window.__M.searched === 'osprey', null, { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'elk', null, { timeout: 60000 });
     await p.waitForFunction(() => /^Places \d+$/.test(document.querySelector('#tabs [data-tab="places"]').textContent) && /^Species \d+$/.test(document.querySelector('#tabs [data-tab="species"]').textContent), null, { timeout: 30000 });
     const tx = await tabs(p); assert.match(tx[0], /^Places [1-9]\d*$/); assert.match(tx[1], /^Species [1-9]\d*$/);
     if (tx[2]) {   // Journeys is shown: its count is what its tab lists
@@ -43,10 +54,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     // the same note line, in the same words, on every tab (#449)
     const note = (kind) => p.evaluate(() => { const n = document.getElementById('qnote'); return n.hidden ? null : n.textContent; });
     await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(400);
-    assert.match(await note(), /^\d+ places? match(es)? “osprey”$/, 'Places says what it found');
+    assert.match(await note(), /^\d+ places? match(es)? “elk”$/, 'Places says what it found');
     await p.click('[data-tab="species"]:visible'); await p.waitForTimeout(600);
-    assert.match(await note(), /^\d+ species match(es)? “osprey”$/, 'Species says it in the same form');
-    if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “osprey”$/, 'Journeys too'); }
+    assert.match(await note(), /^\d+ species match(es)? “elk”$/, 'Species says it in the same form');
+    if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “elk”$/, 'Journeys too'); }
     await p.click('[data-tab="places"]:visible');
     await p.click('#qclr'); await p.waitForTimeout(700);
     assert.equal(await note(), null, 'the note goes with the search');

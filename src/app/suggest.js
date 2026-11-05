@@ -48,13 +48,13 @@
     return SRCH.meta.then(function (m) { return !m.sug || m.sug.indexOf(k) < 0 ? { p: [], s: [] } : SUG.bk[k] || (SUG.bk[k] = srchGet("s-" + k + ".json")); });
   }
   /* The result header (#425): when the text is exactly one species or place, a line above the list says so, with a link to its page; after "Show on the map" it is the visible filter,
-     "Places with Osprey" and a way to clear it. For a species each card of its places also says "Has osprey" (the places come from the species-places file, as for the filter). */
+     "Places with Osprey" and a way to clear it. The places of a species are one tap away on the header ("found in N places"); the Places list itself matches by name (#480). */
   var QH = { k: "", n: 0 };
   function qHead() {
     var hd = document.getElementById("qhead"); if (!hd) return;
     var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q); if (QH.k === key) return;
     QH.k = key; var n = ++QH.n, ws = srchWords(q), last = ws[ws.length - 1];
-    hd.hidden = true; M.why = null; whyLines(); tabCount("species", null);
+    hd.hidden = true; tabCount("species", null);
     if (!last || last.length < 2 || FL.busy) return;
     sugFile(last.slice(0, 2)).then(function (d) {
       if (n !== QH.n) return; var sn = sugPick(q, { s: d.s }, 40).length; tabCount("species", sn < 40 ? sn : "40+");
@@ -62,23 +62,14 @@
       var sp = r.t === "s", e = ECO_BY[r.id], nm = escH(r.name), chip = sp && M.chip === q;
       hd.className = "qhead" + (chip ? " qchip" : "");
       hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'
-        : "<b>" + nm + "</b> \u00b7 " + (sp ? "found in " + r.n + (r.n === 1 ? " place" : " places") + ' \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
+        : "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
       hd.hidden = false;
-      if (sp) sppPlaces(r.latin).then(function (ids) { if (n === QH.n) { M.why = { s: new Set(ids), t: "Has " + r.name.toLowerCase() }; whyLines(); } });
     }).catch(function () {});
-  }
-  function whyLines() {   /* the muted line on a card that says why it is in the result */
-    ECOS.forEach(function (e) {
-      if (!e.li) return;
-      var w = e.li.querySelector(".why"), t = M.why && M.why.s.has(e.id) ? M.why.t : "";
-      if (!t) { if (w) w.remove(); return; }
-      if (!w) { w = document.createElement("span"); w.className = "why"; e.li.querySelector(".card").appendChild(w); }
-      w.textContent = t;
-    });
   }
   document.getElementById("qhead").addEventListener("click", function (ev) {
     var a = ev.target.closest("a"); if (!a) return; ev.preventDefault();
     if (a.hasAttribute("data-hsp")) showSpecies(sidOf({ latin: a.getAttribute("data-hsp") }));
+    else if (a.hasAttribute("data-hmap")) speciesMap(a.getAttribute("data-hn"), a.getAttribute("data-hmap"));   /* the places of the species, on the map (the search list is by name) */
     else if (a.hasAttribute("data-hpl")) showPlace(a.getAttribute("data-hpl"));
     else document.getElementById("qclr").click();
   });
