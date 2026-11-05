@@ -10,7 +10,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the Species tab loads on demand, lists the most-found species, a row opens the page and Back returns to the tab`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
-    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });   // the tab bar is drawn with the sheet
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });   // on a phone the tabs are in the sheet, which starts closed
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     const tabs = await p.evaluate(() => [...document.querySelectorAll('#tabs [data-tab], #trow [data-tab]')].filter((b) => b.offsetParent).map((b) => b.textContent.trim()));
     assert.deepEqual(tabs.slice(0, 2), ['Places', 'Species'], 'tab order: ' + tabs); assert.ok(tabs.length === 2 || tabs[2] === 'Journeys', 'Journeys last when it is shown: ' + tabs);
     assert.equal(await fetched(p, /species-tab/), false, 'nothing of the tab at start-up');
