@@ -20,7 +20,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(s.about && s.about.length > 40 && /Wikipedia$/.test(s.about), 'the description and its Wikipedia link');
     assert.equal(s.back, '‹ Places'); assert.equal(s.share, true); assert.equal(s.foot, true);
     assert.match(s.hash, /(^|&)sp=pandion-haliaetus$/, 'the species is in the address');
-    if (file.ph) { await p.waitForSelector('#pview #sp-img img', { timeout: 30000 }); await p.locator('#pview .srcd summary').click(); assert.match(await p.evaluate(() => document.getElementById('spcredit').textContent), /Species photos: Wikipedia/); }
+    if (file.ph) { await p.waitForFunction(() => { const i = document.querySelector('#pview #sp-img img'), w = document.querySelector('#pview .jphoto'); return (i && i.offsetParent) || (w && w.complete && w.naturalWidth > 0); }, null, { timeout: 30000 }); await p.locator('#pview .srcd summary').click(); assert.match(await p.evaluate(() => document.getElementById('spcredit').textContent), /Species photos: Wikipedia/); }
     await p.reload(); await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     await p.click('.jback'); await p.waitForTimeout(500);
     s = await page(p); assert.equal(s.hidden, true, 'Back closes the page'); assert.equal(s.map, true); assert.doesNotMatch(s.hash, /sp=/);
@@ -102,6 +102,15 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { const h = [...document.querySelectorAll('#pview h3')].find((x) => x.textContent === 'Related species'); h.nextElementSibling.querySelector('.sgr').click(); });
     await p.waitForFunction((l) => document.querySelector('#pview .jr i') && document.querySelector('#pview .jr i').textContent === l, d.latins[0], { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ ' + d.name);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
+  test(`${name}: a species with a larger picture shows it as a wide photo above the title (#421)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=odocoileus-virginianus' }); const p = t.page;
+    await p.waitForFunction(() => { const i = document.querySelector('#pview .jphoto'); return i && i.complete && i.naturalWidth > 0 && document.querySelector('#pview article').classList.contains('bigphoto'); }, null, { timeout: 60000 });
+    const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, small: getComputedStyle(document.querySelector('#pview .jhimg')).display, title: document.querySelector('#pview h2').textContent }; });
+    assert.match(d.src, /photos\/species-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 262, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.small, 'none', 'the small square is not shown next to it');
+    assert.ok(d.title.length > 0);
     assert.deepEqual(t.errors, []); await b.close();
   });
 

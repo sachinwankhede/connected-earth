@@ -1057,3 +1057,5 @@ rect.core { stroke-dasharray: 3 2.5; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 .jp .tax { margin: 4px 0 0; }
 .jp .tax a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 6px 0; display: inline-block; }
+.jp .jphoto { display: block; width: 100%; aspect-ratio: 16 / 10; max-height: 260px; object-fit: cover; border-radius: 14px; margin: 0 0 12px; background: var(--grid); }
+.jp.bigphoto .jhimg { display: none; }

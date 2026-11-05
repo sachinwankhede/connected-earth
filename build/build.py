@@ -521,6 +521,7 @@ def build(pilot, out_path, write=False, places=False):
     hf = P('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
+    lf = P('photos', 'species_large.json'); large = json.load(open(lf)) if os.path.exists(lf) else {}   # the larger copies (#421): the species page shows one as a wide photo
     phm = {t: phm_all[t] for t in phs if t in phm_all}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
     txf = P('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
@@ -539,6 +540,7 @@ def build(pilot, out_path, write=False, places=False):
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
         pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
         if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
+        if pk and large.get(pk) == phs[pk][0]: f['pl'] = 1
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
     species_related(about, common, pics, species_diet(ecos, about, common, pics))
