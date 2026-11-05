@@ -14,8 +14,11 @@
   }
   /* the search text changed (typing, or an address that carries s=): box, filter, list and map follow (#412) */
   function runSearch(text) {
+    clearTimeout(M.qT);
     var q = document.getElementById("q"); if (q.value !== text) q.value = text; qSync();
-    FL.q = text.trim().toLowerCase(); searchFor(FL.q); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null); renderView(FL.q.length >= 3);
+    FL.q = text.trim().toLowerCase(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null);
+    searchFor(FL.q);   /* a query is drawn once, when the index has answered (#414); the old results stay until then */
+    if (!FL.q) renderView(false);   /* an empty box is drawn at once */
   }
   function qSync() { var q = document.getElementById("q"), c = document.getElementById("qclr"); if (!q || !c) return; c.hidden = !q.value; document.getElementById("qwrap").classList.toggle("has", !!q.value); }   /* the Clear link shows only when there is text */
   function cimg(id) { var e = ECO_BY[id]; return e ? makeCard(e).querySelector(".cimg") : null; }
@@ -44,7 +47,14 @@
     qIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter") qIn.blur(); });   /* the keyboard leaves so the results show */
     document.getElementById("qclr").addEventListener("click", function (ev) { ev.preventDefault(); qIn.value = ""; qIn.dispatchEvent(new Event("input", { bubbles: true })); qIn.focus(); });
     qIn.addEventListener("input", qSync);
-    document.getElementById("q").addEventListener("input", function () { if (!FL.q && this.value.trim()) M.pushNext = true; runSearch(this.value); });   /* the first letter adds a history entry, so Back clears the search before leaving (#412) */
+    document.getElementById("q").addEventListener("input", function () {
+      var v = this.value, now = Date.now(); if (!FL.q && v.trim()) M.pushNext = true;
+      clearTimeout(M.qT);
+      if (!v.trim() || now - (M.qLast || 0) >= 120) { M.qLast = now; runSearch(v); return; }   /* the first letter and Clear answer at once; letters typed within 120 ms of the last run wait for the end of the burst (#414) */
+      M.qT = setTimeout(function () { M.qLast = Date.now(); runSearch(document.getElementById("q").value); }, 120 - (now - M.qLast));
+    });
+    qIn.addEventListener("focus", function () { Places.loadLocals(); }, { once: true });   /* the local places a search needs start coming as soon as the box is used (#414) */
+    document.getElementById("empty").addEventListener("click", function (ev) { if (ev.target.closest("#eclr")) { qIn.value = ""; qIn.dispatchEvent(new Event("input", { bubbles: true })); } });   /* the first letter adds a history entry, so Back clears the search before leaving (#412) */
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");

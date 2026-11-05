@@ -61,13 +61,20 @@
     if (!mo.hidden && M.moreIO) { M.moreIO.unobserve(mo); M.moreIO.observe(mo); }
     var fb = document.getElementById("fbtn"); if (fb) fb.classList.toggle("on", !!(FL.kind || FL.park));
     document.getElementById("xwrap").hidden = false;
-    document.getElementById("empty").hidden = list.length > 0;
+    var em = document.getElementById("empty");   /* nothing found says what was searched and offers Clear; never while the answer is still on its way (#414) */
+    if (FL.q && !list.length) {
+      em.hidden = !!FL.busy;
+      if (!FL.busy) { em.innerHTML = 'No places or species match “<span class="eq"></span>”<span class="er"></span>. <button type="button" class="eclr" id="eclr">Clear</button>'; em.querySelector(".eq").textContent = document.getElementById("q").value.trim(); em.querySelector(".er").textContent = view.level === "world" ? "" : " in " + (view.state || (view.country && nm(view.country)) || view.cont); }
+    } else { em.textContent = "No ecosystems here yet. Shaded regions on the map have food webs."; em.hidden = list.length > 0; }
     document.getElementById("crumbs").innerHTML = crumbHTML();
     document.getElementById("regions").innerHTML = chipsHTML(); kfade();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
-    if (el.webview.hidden) el.stats.textContent = FL.q && view.level === "world" ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" : view.level === "world"
-      ? ""   /* the home view shows the pitch below; the places-and-species count that used to be computed here was always replaced by it */
-      : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
+    if (el.webview.hidden) {
+      var mt = FL.q ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" + (view.level === "world" ? "" : " in " + region) : view.level === "world"
+        ? ""   /* the home view shows the pitch below; the places-and-species count that used to be computed here was always replaced by it */
+        : list.length + (list.length === 1 ? " place" : " places") + " in " + region;
+      el.stats.textContent = FL.q && FL.busy ? "Searching…" : mt + (FL.q && FL.limited ? " · Search is limited right now" : "");   /* the query stays in the line inside a region; a failed index says so (#414) */
+    }
     var hk = document.getElementById("hook");
     if (hk) { var home = view.level === "world" && !FL.q; hk.hidden = !home; if (home) hk.innerHTML = '<span class="pitch">' + PITCH + '</span><span class="stat">' + PITCH2 + "</span>"; }
     if (el.webview.hidden && view.level === "world" && !FL.q) el.stats.innerHTML = '<span class="pitch">' + PITCH + "</span>" + PITCH2;
