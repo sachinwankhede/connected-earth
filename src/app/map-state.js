@@ -126,7 +126,7 @@
     if (want && !ECO_BY[want[1]] && !Places.done) { Places.loadLocals().then(function (ok) { if (ok) applyHash(h0); }); return; }   /* a link to a local place: they come first */
     M.fromHash = true;   /* what the address opens is not a new step */
     var sm = /(?:^|&)s=([^&]*)/.exec(h), sq = ""; if (sm) { try { sq = decodeURIComponent(sm[1]); } catch (e) { sq = sm[1]; } }
-    if (sq !== document.getElementById("q").value.trim()) runSearch(sq);   /* a link or Back brings the search that belongs to the address; an address without one clears it */
+    if (sq.toLowerCase() !== (FL.q || "") || sq !== document.getElementById("q").value.trim()) runSearch(sq);   /* a link or Back brings the search that belongs to the address; an address without one clears it. The box alone is not the test: a reload restores its text before the search has run */
     if ((m = /(?:^|&)j=([\w-]+)/.exec(h)) && jbyId(m[1])) showJourney(m[1]);
     else if ((m = /(?:^|&)pg=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showPlace(m[1]);
     else if ((m = /(?:^|&)e=([\w-]+)/.exec(h)) && ECO_BY[m[1]]) showWeb(m[1]);

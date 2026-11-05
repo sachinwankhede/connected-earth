@@ -17,6 +17,10 @@ const openFirst = async (p) => {
   await p.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'), null, { timeout: 30000 });
   return id;
 };
+const settle = async (p, expected) => {   // the list is what it was (the index answers a moment after the box has its text)
+  await p.waitForFunction((x) => JSON.stringify([...document.querySelectorAll('#cards li:not([hidden]) h2')].map((h) => h.textContent)) === x, JSON.stringify(expected), { timeout: 20000 }).catch(() => {});
+  return names(p);
+};
 const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -30,7 +34,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.reload(); await p.waitForFunction(() => document.querySelector('#cards [data-eco]'), null, { timeout: 60000 }); await p.waitForTimeout(800);
     s = await state(p);
     assert.equal(s.box, 'elk', 'the box has the text again after a reload'); assert.equal(s.clr, true, 'and its Clear link');
-    assert.deepEqual(await names(p), before, 'the same list after a reload');
+    assert.deepEqual(await settle(p, before), before, 'the same list after a reload');
     await p.click('#qclr'); await p.waitForTimeout(400);
     s = await state(p); assert.equal(s.box, ''); assert.doesNotMatch(s.hash, /(^|&)s=/, 'no search left in the address');
     assert.deepEqual(t.errors, []); await b.close();
@@ -49,12 +53,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-pback]'); await p.waitForTimeout(700);
     s = await state(p); assert.equal(s.map, true, 'the list is back'); assert.equal(s.box, 'elk', 'with the search');
     assert.doesNotMatch(s.hash, /pg=/); assert.match(s.hash, /(^|&)s=elk$/);
-    assert.deepEqual(await names(p), before, 'the same list as before the place');
+    assert.deepEqual(await settle(p, before), before, 'the same list as before the place');
     // the browser's Back from a place: open one again, then Back
     await openFirst(p);
     await back(p);
     s = await state(p); assert.equal(s.page, false, 'Back closes the place'); assert.equal(s.map, true); assert.equal(s.box, 'elk', 'and keeps the search');
-    assert.deepEqual(await names(p), before, 'the same list');
+    assert.deepEqual(await settle(p, before), before, 'the same list');
     // Back again: the search is cleared before leaving
     await back(p);
     s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text'); assert.doesNotMatch(s.hash, /(^|&)s=/);
