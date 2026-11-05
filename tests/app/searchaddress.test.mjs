@@ -15,12 +15,12 @@ const search = async (p, text) => {
 };
 const openFirst = async (p) => {
   const id = await p.evaluate(() => document.querySelector('#cards [data-eco]').getAttribute('data-eco'));
-  await p.locator('#cards [data-eco]').first().click();
+  await p.locator('#cards [data-eco]').first().click({ timeout: 4000 }).catch(() => p.evaluate(() => document.querySelector('#cards [data-eco]').click()));   // a real tap when the card can be reached (a phone sheet may cover it)
   await p.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'), null, { timeout: 30000 });
   return id;
 };
 const trace = [];
-const mark = async (p, what) => { trace.push(what + ': ' + (await p.evaluate(() => decodeURIComponent(location.hash) + ' len=' + history.length + ' state=' + JSON.stringify(history.state) + ' box=' + document.getElementById('q').value))); };
+const mark = async (p, what) => { trace.push(what + ': ' + (await p.evaluate(() => decodeURIComponent(location.hash).replace('#stub&', '') + ' L' + history.length + ' S' + (history.state ? history.state.sp : '-') + ' q=' + document.getElementById('q').value))); };
 const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); await mark(p, 'after back'); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -61,7 +61,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await same(p, before, 'the same list');
     // Back again: the search is cleared before leaving
     await back(p);
-    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text -- ' + trace.join(' | ')); assert.doesNotMatch(s.hash, /(^|&)s=/);
+    s = await state(p); assert.equal(s.box, '', 'Back from the search list clears the text -- ' + '\n' + trace.join('\n')); assert.doesNotMatch(s.hash, /(^|&)s=/);
     assert.equal(s.clr, false);
     assert.deepEqual(t.errors, []); await b.close();
   });
