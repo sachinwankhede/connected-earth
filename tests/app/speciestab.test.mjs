@@ -1,0 +1,34 @@
+// The Species tab (#422 step 2): a third tab (Places, Species, Journeys); nothing of it is fetched until it opens; its first screen is the species found in the most places;
+// a row opens the species page and Back returns to the tab; Places brings the places list back.
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import * as H from './helper.mjs';
+
+const fetched = (p, re) => p.evaluate((s) => performance.getEntriesByType('resource').some((r) => new RegExp(s).test(r.name)), re.source);
+
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: the Species tab loads on demand, lists the most-found species, a row opens the page and Back returns to the tab`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });   // on a phone the tabs are in the sheet, which starts closed
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
+    const tabs = await p.evaluate(() => [...document.querySelectorAll('#tabs [data-tab], #trow [data-tab]')].filter((b) => b.offsetParent).map((b) => b.textContent.trim()));
+    assert.deepEqual(tabs.slice(0, 2), ['Places', 'Species'], 'tab order: ' + tabs); assert.ok(tabs.length === 2 || tabs[2] === 'Journeys', 'Journeys last when it is shown: ' + tabs);
+    assert.equal(await fetched(p, /species-tab/), false, 'nothing of the tab at start-up');
+    const top = await p.evaluate(() => fetch('api/species-tab/top.json').then((r) => r.json()));
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr').length > 0, null, { timeout: 60000 });
+    assert.equal(await fetched(p, /species-tab-[0-9a-f]+\.js/), true); assert.equal(await fetched(p, /api\/species-tab\/top\.json/), true);
+    const s = await p.evaluate(() => ({ rows: [...document.querySelectorAll('#sptab .sgr')].map((r) => ({ n: r.querySelector('b').textContent, l: r.querySelector('i').textContent, h: r.getBoundingClientRect().height })), cards: getComputedStyle(document.getElementById('cards')).display, head: document.querySelector('#sptab h3').textContent }));
+    assert.equal(s.rows.length, top.length); assert.equal(s.rows[0].n, top[0][1]); assert.equal(s.rows[0].l, 'Species · in ' + top[0][2] + ' places');
+    assert.ok(s.rows.every((r) => /^Species · in \d+ places?$/.test(r.l) && r.h >= 44)); assert.equal(s.cards, 'none', 'the places list is out of the way'); assert.equal(s.head, 'Found in the most places');
+    await p.locator('#sptab .sgr').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr').click()));
+    await p.waitForFunction((n) => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === n, top[0][1], { timeout: 60000 });
+    assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Species');
+    await p.evaluate(() => history.back()); await p.waitForTimeout(1000);
+    assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab'); assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab .sgr').length), top.length);
+    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(500);
+    assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), true); assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('cards')).display), 'none', 'the places list is back');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}

@@ -531,6 +531,8 @@ def build(pilot, out_path, write=False, places=False):
     d3ver = json.load(open(P('node_modules', 'd3', 'package.json')))['version']
     shutil.copyfile(P('node_modules', 'd3', 'dist', 'd3.min.js'), P('d3-%s.js' % d3ver))   # the diagram library is its own file, loaded when a food web or journey map is first needed
     out = out.replace('__D3VER__', d3ver)
+    tv = chunk_version(); shutil.copyfile(P('src', 'chunks', 'species-tab.js'), P('species-tab-%s.js' % tv))   # app code that is not in the first view: loaded when the Species tab first opens (#422)
+    out = out.replace('__TABVER__', tv)
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w').write(out)
     print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
@@ -552,9 +554,13 @@ def build_id(html):
     return hashlib.md5(html.encode()).hexdigest()[:8]
 
 
+def chunk_version():
+    return hashlib.md5(open(P('src', 'chunks', 'species-tab.js'), 'rb').read()).hexdigest()[:8]
+
+
 def stamp_sw(main_html):
     bid = build_id(main_html)
-    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']))
+    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']).replace('__TABVER__', chunk_version()))
     print('sw.js stamped', bid)
 
 

@@ -83,11 +83,23 @@
     var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
     if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; }
   }
+  /* The Species tab's code is not in the first view: it is one small file, loaded the first time the tab opens (#422) */
+  var SPT = null, SPQ = [];
+  function withSpeciesTab(cb) {
+    if (SPT) { cb(SPT); return; }
+    SPQ.push(cb); if (SPQ.length > 1) return;
+    var sc = document.createElement("script"); sc.async = true; sc.src = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "species-tab-__TABVER__.js";
+    sc.onload = function () { var f = (window.__chunk || {})["species-tab"]; if (!f) { SPQ = []; return; } SPT = f({ Data: Data, PhotoRegistry: PhotoRegistry, esc: esc, leaf: SUG_LEAF, chev: SUG_CHEV, go: function (l) { M.pushNext = true; showSpecies(sidOf({ latin: l }), "Species"); } }); var q = SPQ; SPQ = []; q.forEach(function (f2) { f2(SPT); }); };
+    sc.onerror = function () { SPQ = []; var st = document.getElementById("sptab"); if (st) st.innerHTML = '<p class="fine">The species could not be loaded. Check your connection and try again.</p>'; };
+    document.head.appendChild(sc);
+  }
   function setTab(t) {
     M.tab = t;
     if (t === "journeys") withSpeciesPhotos(loadJourneyPhotos);
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
-    var sb = document.getElementById("sbody"); if (sb) sb.classList.toggle("tab-j", t === "journeys");
+    var sb = document.getElementById("sbody"); if (sb) { sb.classList.toggle("tab-j", t === "journeys"); sb.classList.toggle("tab-s", t === "species"); }
+    var st = document.getElementById("sptab"); if (st) st.hidden = t !== "species";
+    if (t === "species") withSpeciesTab(function (c) { c.open(); });
     Array.prototype.forEach.call(document.querySelectorAll("[data-tab]"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-tab") === t ? "true" : "false"); });
     applyJ();
     if (sb && sb.scrollTo) sb.scrollTo(0, 0);
