@@ -14,6 +14,13 @@ class SpeciesTab(unittest.TestCase):
         self.assertEqual(g({'kingdom': 'Plantae', 'class': 'Pinopsida'}), 'plants'); self.assertEqual(g({'kingdom': 'Fungi'}), 'fungi')
         self.assertEqual(g({'kingdom': 'Chromista'}), 'other'); self.assertEqual(g(None), 'other')
 
+    @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')), 'needs a build')
+    def test_species_file_has_group_order_family(self):   # #446: the species page names them
+        d = json.load(open(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')))
+        self.assertEqual((d.get('g'), d.get('od'), d.get('fa')), ('birds', 'Accipitriformes', 'Pandionidae'))
+        groups = {g[0] for g in json.load(open(os.path.join(ROOT, 'api', 'species-tab', 'groups.json')))}
+        self.assertIn(d['g'], groups, 'the group is one of the Species tab groups')
+
     def test_rows_order_pages_and_totals(self):
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1', 'p2']}
         common = {'A a': 'Alpha', 'B b': 'Beta', 'C c': 'Charlie', 'D d': 'Delta'}
