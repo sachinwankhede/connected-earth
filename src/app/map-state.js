@@ -50,6 +50,7 @@
     var dom = false; list.forEach(function (e, i) { if (pm && i >= M.pageN) return; makeCard(e); if (!e.li.parentNode) dom = true; });
     if (dom) { var mo0 = document.getElementById("morecards"), inl = new Set(list), kids = ECOS.filter(function (e) { return e.li && (e.li.parentNode || inl.has(e)); }).map(function (e) { return e.li; }); if (mo0) kids.push(mo0); document.getElementById("cards").replaceChildren.apply(document.getElementById("cards"), kids); }
     ECOS.forEach(function (e) { if (e.li) e.li.hidden = true; }); list.forEach(function (e) { if (e.li) e.li.hidden = false; });
+    qHead(); if (M.why) whyLines();   /* the result header and the "why" lines (#425) */
     list.forEach(function (e) { shown++; if (pm && shown > M.pageN) { left++; if (e.li) e.li.classList.add("pg"); } else if (e.li) e.li.classList.remove("pg"); });
     if (!M.moreIO && window.IntersectionObserver) {
       M.moreIO = new IntersectionObserver(function (es) { es.forEach(function (en) { if (en.isIntersecting && M.scrolled && M.pageN) { M.moreIO.unobserve(en.target); M.pageN += 15; renderView(false); } }); }, { rootMargin: "0px 0px 120px 0px" });

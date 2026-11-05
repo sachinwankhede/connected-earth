@@ -43,16 +43,49 @@
     });
     sugBox.hidden = false; sugIn.setAttribute("aria-expanded", "true");
   }
+  function sugFile(k) {   /* the suggestion file of one two-letter start; empty when the build has none */
+    if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
+    return SRCH.meta.then(function (m) { return !m.sug || m.sug.indexOf(k) < 0 ? { p: [], s: [] } : SUG.bk[k] || (SUG.bk[k] = srchGet("s-" + k + ".json")); });
+  }
+  /* The result header (#425): when the text is exactly one species or place, a line above the list says so, with a link to its page; after "Show on the map" it is the visible filter,
+     "Places with Osprey" and a way to clear it. For a species each card of its places also says "Has osprey" (the places come from the species-places file, as for the filter). */
+  var QH = { k: "", n: 0 };
+  function qHead() {
+    var hd = document.getElementById("qhead"); if (!hd) return;
+    var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q); if (QH.k === key) return;
+    QH.k = key; var n = ++QH.n, ws = srchWords(q), last = ws[ws.length - 1];
+    hd.hidden = true; M.why = null; whyLines();
+    if (!last || last.length < 2 || FL.busy) return;
+    sugFile(last.slice(0, 2)).then(function (d) {
+      var r = sugPick(q, d)[0]; if (n !== QH.n || !r || r.k) return;
+      var sp = r.t === "s", e = ECO_BY[r.id], nm = escH(r.name), chip = sp && M.chip === q;
+      hd.className = "qhead" + (chip ? " qchip" : "");
+      hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'
+        : "<b>" + nm + "</b> \u00b7 " + (sp ? "found in " + r.n + (r.n === 1 ? " place" : " places") + ' \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
+      hd.hidden = false;
+      if (sp) sppPlaces(r.latin).then(function (ids) { if (n === QH.n) { M.why = { s: new Set(ids), t: "Has " + r.name.toLowerCase() }; whyLines(); } });
+    }).catch(function () {});
+  }
+  function whyLines() {   /* the muted line on a card that says why it is in the result */
+    ECOS.forEach(function (e) {
+      if (!e.li) return;
+      var w = e.li.querySelector(".why"), t = M.why && M.why.s.has(e.id) ? M.why.t : "";
+      if (!t) { if (w) w.remove(); return; }
+      if (!w) { w = document.createElement("span"); w.className = "why"; e.li.querySelector(".card").appendChild(w); }
+      w.textContent = t;
+    });
+  }
+  document.getElementById("qhead").addEventListener("click", function (ev) {
+    var a = ev.target.closest("a"); if (!a) return; ev.preventDefault();
+    if (a.hasAttribute("data-hsp")) showSpecies(sidOf({ latin: a.getAttribute("data-hsp") }));
+    else if (a.hasAttribute("data-hpl")) showPlace(a.getAttribute("data-hpl"));
+    else document.getElementById("qclr").click();
+  });
   function sugShow() {
     var raw = sugIn.value.trim(), ws = srchWords(raw), last = ws[ws.length - 1];
     if (!last || last.length < 2 || document.activeElement !== sugIn) { sugHide(); return; }
     var n = ++SUG.n; SUG.q = raw;
-    if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
-    SRCH.meta.then(function (m) {
-      var k = last.slice(0, 2);
-      if (!m.sug || m.sug.indexOf(k) < 0) return { p: [], s: [] };
-      return SUG.bk[k] || (SUG.bk[k] = srchGet("s-" + k + ".json"));
-    }).then(function (d) {
+    sugFile(last.slice(0, 2)).then(function (d) {
       if (n !== SUG.n) return;   /* the text has moved on */
       SUG.rows = sugPick(raw, d); sugDraw();
       if (!Places.done) Places.loadLocals().then(function () { if (n === SUG.n) sugDraw(); });   /* the place lines and icons of local places */
