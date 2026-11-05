@@ -14,7 +14,7 @@
   }
   /* the search text changed (typing, or an address that carries s=): box, filter, list and map follow (#412) */
   function runSearch(text) {
-    clearTimeout(M.qT);
+    clearTimeout(M.qT); M.chip = null;   /* a typed text is not a species filter, even when it is the same text (#480) */
     var q = document.getElementById("q"); if (q.value !== text) q.value = text; qSync();
     FL.q = text.trim().toLowerCase(); if (FL.q && M.tab === "journeys") setTab("places"); view.focus = null; document.getElementById("peek").hidden = true; showTies(null);
     searchFor(FL.q);   /* a query is drawn once, when the index has answered (#414); the old results stay until then */

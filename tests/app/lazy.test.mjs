@@ -58,11 +58,11 @@ describe('places load on demand', () => {
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
 
-    test(`${sizeName}: search finds a species that only lives inside a place's web`, async () => {
+    test(`${sizeName}: search lists places by name, so a species that only lives inside a place's web finds no place, and nothing fetches webs (#480)`, async () => {
       const e = places.find((x) => x.nodes.some((n) => !n.cat && n.latin && n.latin.toLowerCase() === 'ursus arctos')) || places[0];
       const t = await open(size, '');
       await t.page.fill('#q', 'ursus arctos'); await t.page.waitForTimeout(800);
-      assert.ok((await H.dots(t.page)) >= 1);
+      assert.equal(await H.dots(t.page), 0, 'no place is named after the species');
       assert.deepEqual(t.webs, [], 'searching does not fetch webs'); assert.ok(e); await t.ctx.close();
     });
 
