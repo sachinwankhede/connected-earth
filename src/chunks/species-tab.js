@@ -82,6 +82,11 @@ window.__chunk["species-tab"] = function (A) {
       P.fillPhotos("spcredit", ph && b.querySelector("img") ? [P.creditHTML(ph), "Species photos: Wikipedia"] : []);
       if (!d.l) return;
       M.spN = d.n || d.l; M.spL = d.l;
+      [["ea", "What it eats"], ["eb", "What eats it"]].forEach(function (x) {   /* from the food webs of the atlas (#447): the links found in the most places */
+        if (!d[x[0]]) return;
+        var w = document.createElement("div"); w.innerHTML = "<h3>" + x[1] + "</h3>"; w.appendChild(list(d[x[0]], row));
+        PV.querySelector("article").insertBefore(w, PV.querySelector(".srcd"));
+      });
       P.sppPlaces(d.l).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
         ids = ids.filter(function (i) { return P.ECO_BY[i]; });
         if (M.sid !== sid || !ids.length) return;
@@ -98,6 +103,7 @@ window.__chunk["species-tab"] = function (A) {
     });
   }
   PV.addEventListener("click", function (ev) {
+    var r = M.sid && ev.target.closest(".sgr[data-latin]"); if (r) { A.go(r.getAttribute("data-latin"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
     var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap]"); if (!t) return;
     ev.preventDefault();
     if (t.hasAttribute("data-pback")) P.closeSpecies();
