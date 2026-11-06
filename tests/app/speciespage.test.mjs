@@ -70,12 +70,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the species page lists what it eats and what eats it; a row opens that species and Back says the name (#447)`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .prow .pmc[data-latin]', { timeout: 60000 });
-    const d = await p.evaluate(() => ({ heads: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: [...document.querySelectorAll('#pview .prow .pmc')].map((r) => ({ latin: r.getAttribute('data-latin'), line: r.querySelector('small').textContent, w: r.getBoundingClientRect().width })), sideways: [...document.querySelectorAll('#pview .prow')].every((r) => r.scrollWidth >= r.clientWidth && getComputedStyle(r).overflowX === 'auto'), tall: document.querySelectorAll('#pview .sgl .sgr[data-latin]').length })); 
+    const d = await p.evaluate(() => ({ heads: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: [...document.querySelectorAll('#pview .prow .pmc[data-latin]')].map((r) => ({ latin: r.getAttribute('data-latin'), line: r.querySelector('small').textContent, w: r.getBoundingClientRect().width })), sideways: [...document.querySelectorAll('#pview .prow')].every((r) => r.scrollWidth >= r.clientWidth && getComputedStyle(r).overflowX === 'auto'), tall: document.querySelectorAll('#pview .sgl .sgr[data-latin]').length })); 
     assert.ok(d.heads.some((h) => h === 'What eats it') || d.heads.some((h) => h === 'What it eats'), 'a diet heading: ' + d.heads);
     assert.ok(d.rows.length > 0 && d.rows.length <= 8 && d.rows.every((r) => /^in \d+ places?$/.test(r.line) && r.w >= 60), 'photo cards like the place page'); assert.equal(d.sideways, true, 'each diet section is one sideways row (#484)'); assert.equal(d.tall, 0, 'no tall list of species rows on the page');
     assert.ok(!d.rows.some((r) => r.latin === 'Pandion haliaetus'), 'a species is not its own food');
     const first = d.rows[0].latin;
-    await p.evaluate(() => document.querySelector('#pview .prow .pmc').click());
+    await p.evaluate(() => document.querySelector('#pview .prow .pmc[data-latin]').click());
     await p.waitForFunction((l) => document.getElementById('pview').innerHTML.includes(l) || document.querySelector('#pview .jr i') && document.querySelector('#pview .jr i').textContent === l, first, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Osprey');
     assert.deepEqual(t.errors, []); await b.close();
