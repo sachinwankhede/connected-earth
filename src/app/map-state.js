@@ -90,7 +90,7 @@
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level !== "world";
-      M.nPlaces = list.length; showNote();
+      M.nPlaces = shown;
       var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q); sr.classList.toggle("q", !!FL.q);
       var anc = [];
       if (par) { anc.push(["world", "", "World"]); if (view.level !== "continent") anc.push(["continent", view.cont, view.cont]); if (view.level === "state") anc.push(["country", view.country, nm(view.country)]); }
