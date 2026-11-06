@@ -51,15 +51,15 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a species page lists its places as rows, a row opens the place and Back returns, and Show on the map filters the map`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); const p = t.page;
-    await p.waitForSelector('#pview .pj[data-spp]', { timeout: 60000 });
-    const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .pj[data-spp]').length, h: document.querySelector('#pview .pj').getBoundingClientRect().height, buttons: document.querySelectorAll('#pview .pj, #pview [data-spmap]').length && [...document.querySelectorAll('#pview .pj, #pview [data-spmap]')].some((e) => e.tagName === 'BUTTON') }));
+    await p.waitForSelector('#pview .prow .pmc[data-spp]', { timeout: 60000 });
+    const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .prow .pmc[data-spp]').length, w: document.querySelector('#pview .prow .pmc[data-spp]').getBoundingClientRect().width, sideways: getComputedStyle(document.querySelector('#pview .prow .pmc[data-spp]').parentNode).overflowX === 'auto', mapLink: document.querySelector('#pview [data-spmap]').tagName === 'A' }));
     assert.match(await p.evaluate(() => document.querySelector('#pview .where').textContent), /^(Countries: .+ · )?Continents: .+$/, 'where it lives: countries and continents (#445)');
-    assert.match(info.h3.find((x) => /^Found in/.test(x)), /^Found in \d+ places$/); assert.ok(info.rows >= 2 && info.rows <= 10); assert.ok(info.h >= 44, 'rows are tappable'); assert.equal(info.buttons, false, 'links, not buttons');
-    const id = await p.evaluate(() => document.querySelector('#pview .pj[data-spp]').getAttribute('data-spp'));
-    await p.locator('#pview .pj[data-spp]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#pview .pj[data-spp]').click()));
+    assert.match(info.h3.find((x) => /^Found in/.test(x)), /^Found in \d+ places$/); assert.ok(info.rows >= 2 && info.rows <= 10); assert.ok(info.w >= 60, 'photo cards'); assert.equal(info.sideways, true, 'the places are one sideways row (#494)'); assert.equal(info.mapLink, true, 'Show on the map is a link');
+    const id = await p.evaluate(() => document.querySelector('#pview .prow .pmc[data-spp]').getAttribute('data-spp'));
+    await p.locator('#pview .prow .pmc[data-spp]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#pview .prow .pmc[data-spp]').click()));
     await p.waitForFunction(() => document.querySelector('#pview .jhero h2') && !document.querySelector('#pview [data-spmap]'), null, { timeout: 60000 });
     let s = await page(p); assert.match(s.hash, new RegExp('(^|&)s=osprey&pg=' + id + '$'), 'the place is in the address'); assert.equal(s.back, '‹ Places');
-    await p.evaluate(() => history.back()); await p.waitForSelector('#pview .pj[data-spp]', { timeout: 60000 });
+    await p.evaluate(() => history.back()); await p.waitForSelector('#pview .prow .pmc[data-spp]', { timeout: 60000 });
     s = await page(p); assert.equal(s.name, 'Osprey', 'Back returns to the species page'); assert.match(s.hash, /sp=pandion-haliaetus$/);
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click()); await p.waitForTimeout(1200);
     s = await page(p); assert.equal(s.hidden, true, 'the page is gone'); assert.equal(s.map, true);
@@ -70,12 +70,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the species page lists what it eats and what eats it; a row opens that species and Back says the name (#447)`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .prow .pmc[data-latin]', { timeout: 60000 });
-    const d = await p.evaluate(() => ({ heads: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: [...document.querySelectorAll('#pview .prow .pmc')].map((r) => ({ latin: r.getAttribute('data-latin'), line: r.querySelector('small').textContent, w: r.getBoundingClientRect().width })), sideways: [...document.querySelectorAll('#pview .prow')].every((r) => r.scrollWidth >= r.clientWidth && getComputedStyle(r).overflowX === 'auto'), tall: document.querySelectorAll('#pview .sgl .sgr[data-latin]').length })); 
+    const d = await p.evaluate(() => ({ heads: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: [...document.querySelectorAll('#pview .prow .pmc[data-latin]')].map((r) => ({ latin: r.getAttribute('data-latin'), line: r.querySelector('small').textContent, w: r.getBoundingClientRect().width })), sideways: [...document.querySelectorAll('#pview .prow')].every((r) => r.scrollWidth >= r.clientWidth && getComputedStyle(r).overflowX === 'auto'), tall: document.querySelectorAll('#pview .sgl .sgr[data-latin]').length })); 
     assert.ok(d.heads.some((h) => h === 'What eats it') || d.heads.some((h) => h === 'What it eats'), 'a diet heading: ' + d.heads);
     assert.ok(d.rows.length > 0 && d.rows.length <= 8 && d.rows.every((r) => /^in \d+ places?$/.test(r.line) && r.w >= 60), 'photo cards like the place page'); assert.equal(d.sideways, true, 'each diet section is one sideways row (#484)'); assert.equal(d.tall, 0, 'no tall list of species rows on the page');
     assert.ok(!d.rows.some((r) => r.latin === 'Pandion haliaetus'), 'a species is not its own food');
     const first = d.rows[0].latin;
-    await p.evaluate(() => document.querySelector('#pview .prow .pmc').click());
+    await p.evaluate(() => document.querySelector('#pview .prow .pmc[data-latin]').click());
     await p.waitForFunction((l) => document.getElementById('pview').innerHTML.includes(l) || document.querySelector('#pview .jr i') && document.querySelector('#pview .jr i').textContent === l, first, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Osprey');
     assert.deepEqual(t.errors, []); await b.close();
@@ -119,7 +119,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
-    await p.waitForSelector('#pview .pj[data-spp="yellowstone"]', { timeout: 60000 });
+    await p.waitForSelector('#pview .prow .pmc[data-spp="yellowstone"]', { timeout: 60000 });
     assert.match(await p.evaluate(() => document.querySelector('#pview h3').textContent), /^Found in 1 place$/);
     assert.deepEqual(t.errors, []); await b.close();
   });
