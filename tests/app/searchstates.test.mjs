@@ -56,7 +56,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await stats(p), 'Searching…', 'a slow answer is announced');
     assert.equal((await empty(p)).hidden, true, 'no "nothing found" while the answer is on its way');
     await answered(p, 'zzqxv');
-    assert.equal((await empty(p)).hidden, false, 'and the honest line once it has answered');
+    assert.equal((await empty(p)).hidden, true, 'the note says it once');
+    assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
