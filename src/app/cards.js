@@ -80,10 +80,9 @@
   }
   function showNote() { var e = document.getElementById("qnote"), s = FL.q && (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); s = s || ""; if (e.textContent !== s) e.textContent = s; e.hidden = !s; }
   function applyJ() {
-    var jw = FL.q ? srchWords(FL.q) : [];   /* a search also narrows the journeys: every typed word must be in the card (#443) */
-    CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jw.every(function (w) { return c.li.textContent.toLowerCase().indexOf(w) >= 0; }); });
+    CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jHit(c); });   /* a search also narrows the journeys (#443) */
     M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length; tabCount("journeys", FL.q ? M.nJ : null);
-    document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ; document.getElementById("jempty").hidden = M.nJ > 0;
+    document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ; document.getElementById("jempty").hidden = M.nJ > 0 || !!FL.q;   /* a search says it once, in the note under the tabs (#496) */
     updCount();
   }
   function updCount() {

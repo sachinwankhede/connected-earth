@@ -170,7 +170,6 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .qhead b { color: var(--ink); }
 .qhead a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 2px; }
 .qchip a { padding: 10px 8px; }
-.card .why { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); }
 .card .where { font: 500 12px var(--font-body); color: var(--muted); }
 .card p { margin: 0; font-size: 13px; }
 .card .go { margin-top: auto; padding-top: 6px; font-weight: 600; font-size: 12.5px; color: var(--accent); }
@@ -857,10 +856,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jroute { display: block; font: 500 12px var(--font-body); color: var(--muted); }
 .jroute i { font-style: normal; color: var(--accent); }
 .jtitle { display: block; font: 700 16px/1.2 var(--font-display); margin: 0 0 1px; }
-.jtext { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13.5px; line-height: 1.4; color: var(--ink); }
-.jcard[aria-expanded="true"] .jtext { display: block; }
-.jjumps { display: none; margin-top: 8px; flex-wrap: wrap; gap: 6px; }
-.jcard[aria-expanded="true"] .jjumps { display: flex; }
 .moretxt { all: unset; box-sizing: border-box; display: block; width: 100%; text-align: center; padding: 12px 0; font: 600 14px var(--font-body); color: var(--accent); cursor: pointer; }
 .moretxt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .jfoot { margin-top: 10px; }
@@ -1060,3 +1055,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 #cards .card > p, #cards .card .span, #cards .card .go, #cards .card h2 ~ .where { display: none; }
 #cards .card .where { grid-column: 2; grid-row: 2; font: 500 12px var(--font-body); letter-spacing: 0; text-transform: none; }
 #cards .card::after { content: "\203a"; grid-column: 3; grid-row: 1 / span 2; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; }
+
+/* a search says how many it found once, in the note under the tabs: the sheet's title line keeps only its handle (#496) */
+.sheet:not(.s-min) .srow.q:not(.trail) .stt, .sheet:not(.s-min) .srow.q .scnt { display: none; }

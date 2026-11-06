@@ -11,6 +11,8 @@
   // brighter set for the dark satellite imagery; chips and map dots always use the same set
   var KC_SAT = { "Forest": "#43c779", "Grassland": "#f0c040", "Desert": "#ff8f4a", "Lakes & wetlands": "#5f95ff", "Coast & ocean": "#2fd4de", "Polar & mountain": "#b79cff", "Urban": "#ff6fa8" };
   var FL = { q: "", kind: null, park: false, local: false, hits: null };   /* hits: ids the word index (or a species' places file) found for q; until then the card text decides */
+  function qWords() { if (FL.wq !== FL.q) { FL.wq = FL.q; FL.w = srchWords(FL.q); } return FL.w; }   /* the typed words, split once per text */
+  function jHit(c) { return !c.li || qWords().every(function (w) { return c.li.textContent.toLowerCase().indexOf(w) >= 0; }); }   /* a journey card holds every typed word (#443) */
   function pass(e) {
     if (FL.kind && kindsOf(FL.kind).indexOf(e.kind) < 0) return false;
     if (FL.park && !e.park) return false;
@@ -18,8 +20,7 @@
     if (FL.q && M.chip === FL.q) return FL.hits ? FL.hits.has(e.id) : (e._n || (e._n = srchWords(e.name + " " + e.place).join(" "))).indexOf(FL.q) >= 0;   /* a species filter: the places of that species */
     if (FL.q) {   /* a search: the name or the region contains every typed word (#480); the species and stories of a place do not count here, the Species tab has them */
       if (!e._n) e._n = srchWords(e.name + " " + e.place).join(" ");
-      if (FL.wq !== FL.q) { FL.wq = FL.q; FL.w = srchWords(FL.q); }
-      return FL.w.every(function (w) { return e._n.indexOf(w) >= 0; });
+      return qWords().every(function (w) { return e._n.indexOf(w) >= 0; });
     }
     return true;
   }
@@ -129,7 +130,8 @@
     if (M.tab === "journeys") {
       var jk = [];
       CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { ECO_BY[en.eco].conts.forEach(function (k) { if (jk.indexOf(k) < 0) jk.push(k); }); }); });
-      var jn = function (k) { return CROSS.filter(function (c) { return ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(k) >= 0; }); }).length; };
+      var jn = function (k) { return CROSS.filter(function (c) { return jHit(c) && ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(k) >= 0; }); }).length; };   /* the counts follow the search (#495) */
+      if (FL.q) jk = jk.filter(jn);
       jk.sort(function (a, b) { return jn(b) - jn(a) || (a < b ? -1 : 1); });
       return '<span class="lbl">Continent</span>' + [""].concat(jk).map(function (k) { return '<button type="button" class="chip' + ((M.jcont || "") === k ? " on" : "") + '" data-jc="' + k.replace(/"/g, "&quot;") + '">' + (k ? nm(k) + " <b>" + jn(k) + "</b>" : "All") + "</button>"; }).join("");
     }

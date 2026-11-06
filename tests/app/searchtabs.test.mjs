@@ -69,6 +69,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: in a search the Journeys chips count the matching journeys, one message says none, and the title line does not repeat the count (#495, #496)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-tab="journeys"]:visible', { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'osprey' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
+    const sr = await p.evaluate(() => ({ cnt: getComputedStyle(document.querySelector('#srow .scnt')).display, stt: getComputedStyle(document.querySelector('#srow .stt')).display }));
+    assert.deepEqual(sr, { cnt: 'none', stt: 'none' }, 'no "Connected Earth, N places" line while searching (the note says it)');
+    await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(600);
+    const j = await p.evaluate(() => { const n = [...document.querySelectorAll('#xcards li')].filter((l) => !l.hidden).length; const chips = [...document.querySelectorAll('#regions [data-jc] b')].map((x) => +x.textContent); return { n, chips, empty: document.getElementById('jempty').hidden, note: document.getElementById('qnote').textContent }; });
+    assert.ok(j.chips.every((c) => c >= 1 && c <= j.n), 'every continent chip counts only the matching journeys (' + j.n + '): ' + JSON.stringify(j.chips));
+    if (!j.n) assert.equal(j.empty, true, 'one message, not two: ' + j.note);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
