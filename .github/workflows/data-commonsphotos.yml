@@ -5,6 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: "Species titles to try (the first run: 30; 0 = all left)", default: "30" }
+      again: { description: "yes = also try titles tried in the last 90 days (after a fix to the lookup)", default: "no" }
 permissions:
   contents: write
   pull-requests: write
@@ -18,7 +19,7 @@ jobs:
         with: { ref: main }
       - run: pip install pillow
       - name: Find the pictures
-        run: python3 jobs/commonsphotos.py "${{ github.event.inputs.limit || '30' }}" | tee find.log | tail -80
+        run: python3 jobs/commonsphotos.py "${{ github.event.inputs.limit || '30' }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -80
       - name: Host them
         run: python3 jobs/hostphotos.py all 0 | tee host.log | tail -4
       - name: Validate

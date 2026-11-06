@@ -73,3 +73,7 @@ class RedirectTests(unittest.TestCase):
         j = {'query': {'normalized': [{'from': 'a b', 'to': 'A b'}], 'redirects': [{'from': 'A b', 'to': 'Real page'}]}}
         with m.patch.object(c.wm, 'get', return_value=j):
             self.assertEqual(c.resolve(['a b', 'Plain']), {'a b': 'Real page', 'Plain': 'Plain'})
+
+    def test_again_flag_is_not_a_limit(self):
+        src = open(os.path.join(os.path.dirname(__file__), '..', '..', 'jobs', 'commonsphotos.py')).read()
+        self.assertIn("'--again' in sys.argv", src)

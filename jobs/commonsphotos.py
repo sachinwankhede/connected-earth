@@ -73,11 +73,12 @@ def commons_info(files):
                                                          strip(em.get('LicenseUrl', {}).get('value')), ii.get('thumburl', ''), ii.get('mime', ''))
     return out
 def main():
-    limit = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+    args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv   # --again: try the titles again even if tried lately (after a fix to the lookup)
+    limit = int(args[0]) if args else 0
     load = lambda p: json.load(open(p)) if os.path.exists(p) else {}
     man, miss, src, tried = load(MAN), load(MISS), load(SRC), load(TRIED)
     today = datetime.date.today(); cut = (today - datetime.timedelta(days=RETRY_DAYS)).isoformat()
-    todo = sorted(t for t in miss if t not in man and tried.get(t, '') <= cut)
+    todo = sorted(t for t in miss if t not in man and (again or tried.get(t, '') <= cut))
     if limit: todo = todo[:limit]
     print(len(todo), 'titles to try', flush=True); found = 0; why = {}
     for i in range(0, len(todo), 50):
