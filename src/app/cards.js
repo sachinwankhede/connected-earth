@@ -77,7 +77,7 @@
     NOTE[t] = n == null ? "" : (n || "No") + " " + (n === 1 ? k + " matches" : (k === "species" ? k : k + "s") + " match") + " \u201c" + FL.q + "\u201d";
     showNote();
   }
-  function showNote() { var e = document.getElementById("qnote"), s = !FL.q ? ((M.tab || "places") === "places" && M.nPlaces != null ? M.nPlaces.toLocaleString("en-US") + (M.nPlaces === 1 ? " place" : " places") + (M.region ? " in " + M.region : "") : "") : (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); s = s || ""; if (e.textContent !== s) e.textContent = s; e.hidden = !s; }
+  function showNote() { var e = document.getElementById("qnote"), s = FL.q && (FL.busy ? "Searching\u2026" : NOTE[M.tab || "places"] + (FL.limited ? " \u00b7 Search is limited right now" : "")); s = s || ""; if (e.textContent !== s) e.textContent = s; e.hidden = !s; }
   function applyJ() {
     CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jHit(c); });   /* a search also narrows the journeys (#443) */
     M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length; tabCount("journeys", FL.q ? M.nJ : null);
