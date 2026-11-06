@@ -134,6 +134,13 @@ window.__chunk["species-tab"] = function (A) {
     else P.speciesMap(M.spN, M.spL);
   });
   return {
+    mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503) */
+      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + "</b></a> \u00b7 in " + r.n + (r.n === 1 ? " place" : " places") + ' \u00b7 <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page \u203a</a>';
+    },
+    mapBack: function () {
+      var f = M.mFrom, q = document.getElementById("q");
+      if (f && f[0]) { q.value = f[0]; q.dispatchEvent(new Event("input", { bubbles: true })); } else if (f) A.go(f[1], "Search"); else document.getElementById("qclr").click();
+    },
     show: show,
     open: function () {
       if (started) { shown = null; find(); return; } started = true;

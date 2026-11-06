@@ -63,7 +63,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     s = await page(p); assert.equal(s.name, 'Osprey', 'Back returns to the species page'); assert.match(s.hash, /sp=pandion-haliaetus$/);
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click()); await p.waitForTimeout(1200);
     s = await page(p); assert.equal(s.hidden, true, 'the page is gone'); assert.equal(s.map, true);
-    assert.equal(await p.evaluate(() => document.getElementById('q').value), 'Osprey', 'the map is filtered to the species');
+    await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm'), null, { timeout: 30000 }); assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'map mode: the box is empty, the map is filtered to the species (#503)');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
