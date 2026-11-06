@@ -40,6 +40,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
     await p.waitForFunction(() => window.__M.searched === 'elk' && document.querySelector('#cards li:not([hidden]) .card'), null, { timeout: 60000 });
+    const box = (sel) => p.evaluate((q) => { const e = [...document.querySelectorAll(q)].find((x) => x.offsetParent), c = getComputedStyle(e);  return { radius: c.borderTopLeftRadius, border: c.borderTopWidth, pad: c.paddingTop + ' ' + c.paddingLeft }; }, sel);
+    const boxes = { places: await box('#cards li:not([hidden]) .card') };
     const pl = await p.evaluate(() => { const c = document.querySelector('#cards li:not([hidden]) .card'), i = c.querySelector('.cimg').getBoundingClientRect(), h = c.querySelector('h2').getBoundingClientRect(), w = c.querySelector('.where').getBoundingClientRect();
       return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: h.top < w.top, blurb: getComputedStyle(c.querySelector('p')).display, chev: getComputedStyle(c, '::after').content, caps: getComputedStyle(c.querySelector('.where')).textTransform }; });
     assert.deepEqual([pl.pic, pl.titleAbove, pl.blurb, pl.caps], ['52x52', true, 'none', 'none'], 'Places row: ' + JSON.stringify(pl)); assert.match(pl.chev, /\u203a|›/, 'a chevron');
@@ -48,11 +50,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelector('#sptab .sgl .sgr[data-latin]'), null, { timeout: 60000 });
     const sp = await p.evaluate(() => { const r = document.querySelector('#sptab .sgl .sgr[data-latin]'), i = r.querySelector('.sgi').getBoundingClientRect(), b = r.querySelector('b').getBoundingClientRect(), k = r.querySelector('i').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: b.top < k.top, caps: getComputedStyle(r.querySelector('i')).textTransform, chev: !!r.querySelector('svg') }; });
     assert.deepEqual(sp, { pic: '52x52', titleAbove: true, caps: 'none', chev: true }, 'Species row: ' + JSON.stringify(sp));
+    boxes.species = await box('#sptab .sgl .sgr[data-latin]');
+    assert.deepEqual(boxes.species, boxes.places, 'one list format: Species rows look like Places rows (#493)');
     const j = await p.evaluate(() => !![...document.querySelectorAll('[data-tab="journeys"]')].find((x) => x.offsetParent));
     if (j) {
       await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(500);
       const jc = await p.evaluate(() => { const c = [...document.querySelectorAll('#xcards li')].find((l) => !l.hidden); if (!c) return null; const i = c.querySelector('.jimg').getBoundingClientRect(), h = c.querySelector('.jtitle').getBoundingClientRect(), r = c.querySelector('.jroute').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: h.top < r.top, caps: getComputedStyle(c.querySelector('.jroute')).textTransform }; });
       if (jc) assert.deepEqual(jc, { pic: '52x52', titleAbove: true, caps: 'none' }, 'Journeys row: ' + JSON.stringify(jc));
+      if (jc) assert.deepEqual(await box('#xcards li:not([hidden]) .jcard'), boxes.places, 'one list format: Journeys rows look like Places rows (#493)');
     }
     assert.deepEqual(t.errors, []); await b.close();
   });
