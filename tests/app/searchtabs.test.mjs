@@ -85,6 +85,18 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  if (name === 'phone') test(`${name}: the map fits the search results in the part the open sheet does not cover (#498)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { const m = window.__M.map, f = m.fitBounds.bind(m); window.__fits = []; m.fitBounds = (bb, o) => { window.__fits.push(o && o.padding); return f(bb, o); }; if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
+    await p.waitForFunction(() => window.__M.searched === 'elk' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
+    await p.waitForFunction(() => window.__fits.some((x) => x && x.bottom >= innerHeight * 0.45), null, { timeout: 15000 }).catch(() => {});
+    const pads = await p.evaluate(() => ({ fits: window.__fits, h: innerHeight, sheet: document.getElementById('sheet').className }));
+    assert.ok(pads.fits.some((x) => x && x.bottom >= pads.h * 0.45), 'the bottom padding leaves room for the half-open sheet: ' + JSON.stringify(pads));
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
