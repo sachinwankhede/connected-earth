@@ -1065,4 +1065,4 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sptab .sgl { border: 0; border-radius: 0; background: none; overflow: visible; }
 .sptab .sgl .sgr + .sgr { border-top: 1px solid var(--line); }
 .sptab .sgl .sgr { min-height: 0; gap: 12px; }
-.sheet.mm .trow, .sheet.mm .qnote { display: none; }
+.sheet.mm .trow, .sheet.mm .qnote { display: none !important; }
