@@ -54,15 +54,15 @@
     var hd = document.getElementById("qhead"); if (!hd) return;
     var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q) + "|" + M.tab; if (QH.k === key) return;
     QH.k = key; var n = ++QH.n, ws = srchWords(q), last = ws[ws.length - 1];
-    hd.hidden = true; tabCount("species", null);
+    hd.hidden = true; tabCount("species", null); document.getElementById("sheet").classList.toggle("mm", M.chip === q && !!q);
     if (!last || last.length < 2 || FL.busy) return;
     sugFile(last.slice(0, 2)).then(function (d) {
       if (n !== QH.n) return; var sn = sugPick(q, { s: d.s }, 40).length; tabCount("species", sn < 40 ? sn : "40+");
       var r = sugPick(q, d)[0]; if (!r || r.k) return;
       var sp = r.t === "s", e = ECO_BY[r.id], nm = escH(r.name), chip = sp && M.chip === q;
       hd.className = "qhead" + (chip ? " qchip" : "");
-      hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'
-        : "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
+      if (chip) { withSpeciesTab(function (c) { c.mapHead(hd, r); hd.hidden = false; }); return; }
+      hd.innerHTML = "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
       hd.hidden = M.tab === "journeys";   /* the Journeys tab says what it found once, in the note */
     }).catch(function () {});
   }
@@ -71,7 +71,7 @@
     if (a.hasAttribute("data-hsp")) showSpecies(sidOf({ latin: a.getAttribute("data-hsp") }));
     else if (a.hasAttribute("data-hmap")) speciesMap(a.getAttribute("data-hn"), a.getAttribute("data-hmap"));   /* the places of the species, on the map (the search list is by name) */
     else if (a.hasAttribute("data-hpl")) showPlace(a.getAttribute("data-hpl"));
-    else document.getElementById("qclr").click();
+    else withSpeciesTab(function (c) { c.mapBack(); });
   });
   function sugShow() {
     var raw = sugIn.value.trim(), ws = srchWords(raw), last = ws[ws.length - 1];
