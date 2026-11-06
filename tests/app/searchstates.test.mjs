@@ -10,6 +10,18 @@ const empty = (p) => p.evaluate(() => { const e = document.getElementById('empty
 const cards = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:not([hidden]) h2')].length);
 
 for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: using the search box starts the first search request before any letter is typed (#451)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    const urls = []; p.on('request', (r) => urls.push(r.url()));
+    await p.click('#q');
+    await p.waitForFunction(() => performance.getEntriesByType('resource').some((e) => /api\/search(-pilot)?\/meta\.json/.test(e.name)), null, { timeout: 15000 });
+    assert.ok(urls.some((u) => /api\/search(-pilot)?\/meta\.json/.test(u)), 'meta.json is requested on focus: ' + urls.length + ' requests');
+    await p.keyboard.type('elk'); await answered(p, 'elk');
+    assert.equal(urls.filter((u) => /api\/search(-pilot)?\/meta\.json/.test(u)).length <= 1, true, 'meta.json is fetched once, not again for the search');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: a typed word is drawn about once, not once per key`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.evaluate(() => { window.__n = 0; for (const k of ['pushState', 'replaceState']) { const f = history[k]; history[k] = function () { window.__n++; return f.apply(this, arguments); }; } });   // every draw ends in one address update

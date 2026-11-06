@@ -53,7 +53,7 @@
       if (!v.trim() || now - (M.qLast || 0) >= 120) { M.qLast = now; runSearch(v); return; }   /* the first letter and Clear answer at once; letters typed within 120 ms of the last run wait for the end of the burst (#414) */
       M.qT = setTimeout(function () { M.qLast = Date.now(); runSearch(document.getElementById("q").value); }, 120 - (now - M.qLast));
     });
-    qIn.addEventListener("focus", function () { Places.loadLocals(); }, { once: true });   /* the local places a search needs start coming as soon as the box is used (#414) */
+    qIn.addEventListener("focus", function () { Places.loadLocals(); srchWarm(); }, { once: true });   /* the local places a search needs start coming as soon as the box is used (#414) */
     document.getElementById("empty").addEventListener("click", function (ev) { if (ev.target.closest("#eclr")) { qIn.value = ""; qIn.dispatchEvent(new Event("input", { bubbles: true })); } });   /* the first letter adds a history entry, so Back clears the search before leaving (#412) */
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
