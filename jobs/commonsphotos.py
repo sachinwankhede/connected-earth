@@ -53,6 +53,15 @@ def wikidata_images(titles):
         t = ((e.get('sitelinks') or {}).get('enwiki') or {}).get('title')
         if t: out[t] = image_names((e.get('claims') or {}).get('P18'))
     return out
+def resolve(titles):
+    """{title: the page it redirects to (or itself)} for up to 50 English Wikipedia titles: Wikidata knows only the real page title (#511)."""
+    q = 'https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&titles=' + urllib.parse.quote('|'.join(titles))
+    j = wm.get(q) or {}; qq = j.get('query') or {}; out = {t: t for t in titles}
+    for k in ('normalized', 'redirects'):
+        for r in qq.get(k, []):
+            for t, v in list(out.items()):
+                if v == r.get('from'): out[t] = r.get('to')
+    return out
 def commons_info(files):
     """{file name with underscores: (licence, author, licence url, thumbnail url, mime)} for up to 50 Commons files."""
     q = ('https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata%7Curl%7Cmime&iiurlwidth=330&format=json&titles='
@@ -72,14 +81,14 @@ def main():
     if limit: todo = todo[:limit]
     print(len(todo), 'titles to try', flush=True); found = 0; why = {}
     for i in range(0, len(todo), 50):
-        batch = todo[i:i + 50]; names = wikidata_images([t.replace('_', ' ') for t in batch])
+        batch = todo[i:i + 50]; res = resolve([t.replace('_', ' ') for t in batch]); names = wikidata_images(sorted(set(res.values())))
         files = sorted({n.replace(' ', '_') for v in names.values() for n in v[:2]})
         info = commons_info(files) if files else {}
         for t in batch:
-            entry = None; k = t.replace('_', ' ')
-            if k not in names: why[t] = 'no Wikidata item under this exact page title (a redirect, or no item)'
+            entry = None; k = res.get(t.replace('_', ' '), t.replace('_', ' '))
+            if k not in names: why[t] = 'no Wikidata item for this page (after following redirects)'
             elif not names[k]: why[t] = 'item has no usable P18'
-            for n in names.get(t.replace('_', ' '), [])[:2]:
+            for n in names.get(k, [])[:2]:
                 lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
                 why[t] = 'file %s: licence %r, type %r, link %s' % (n, lic, mime, thumb[:220] or 'none')
                 if is_photo_type(mime) and open_licence(lic):
