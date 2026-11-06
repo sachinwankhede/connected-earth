@@ -64,3 +64,12 @@ class WikidataLookupTests(unittest.TestCase):
         old = c.wm.get; c.wm.get = lambda url, **k: j
         try: self.assertEqual(c.wikidata_images(['Acer barbatum', 'Aglaia']), {'Acer barbatum': ['Acer.jpg'], 'Aglaia': []})
         finally: c.wm.get = old
+
+
+class RedirectTests(unittest.TestCase):
+    def test_redirect_titles_resolve_to_the_real_page(self):
+        import importlib, unittest.mock as m
+        c = importlib.import_module('commonsphotos')
+        j = {'query': {'normalized': [{'from': 'a b', 'to': 'A b'}], 'redirects': [{'from': 'A b', 'to': 'Real page'}]}}
+        with m.patch.object(c.wm, 'get', return_value=j):
+            self.assertEqual(c.resolve(['a b', 'Plain']), {'a b': 'Real page', 'Plain': 'Plain'})
