@@ -84,6 +84,7 @@
      list filters on the card text alone; if they cannot be had, the list stays on the card text alone and the index is tried again after 30 s. */
   var SRCH = { failedAt: 0, meta: null, bk: {}, rows: {} };
   function srchGet(f) { return Data.search(f); }
+  function srchWarm() { if (!SRCH.meta && !(SRCH.failedAt && Date.now() - SRCH.failedAt < 30000)) { SRCH.meta = srchGet("meta.json"); SRCH.meta.catch(function () {}); } }   /* the first request of a search starts when the box is used, not when the first word is typed (#451) */
   function srchWords(t) { return t.toLowerCase().replace(/['\u2019]/g, "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").split(/[^a-z0-9]+/).filter(function (w) { return w.length > 0; }); }
   function srchBucket(k) {
     if (!SRCH.bk[k]) SRCH.bk[k] = srchGet("w-" + k + ".json");
