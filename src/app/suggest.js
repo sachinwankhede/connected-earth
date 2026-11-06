@@ -88,6 +88,7 @@
     sugIn.addEventListener("input", sugShow);
     sugIn.addEventListener("focus", sugShow);
     sugIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === "Escape") sugHide(); });
+    sugIn.addEventListener("search", function () { sugHide(); sugIn.blur(); });
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
       var row = ev.target.closest(".sgr"); if (!row) return;

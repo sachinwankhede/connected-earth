@@ -132,6 +132,7 @@
       CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { ECO_BY[en.eco].conts.forEach(function (k) { if (jk.indexOf(k) < 0) jk.push(k); }); }); });
       var jn = function (k) { return CROSS.filter(function (c) { return jHit(c) && ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(k) >= 0; }); }).length; };   /* the counts follow the search (#495) */
       if (FL.q) jk = jk.filter(jn);
+      if (FL.q && !jk.length) return "";
       jk.sort(function (a, b) { return jn(b) - jn(a) || (a < b ? -1 : 1); });
       return '<span class="lbl">Continent</span>' + [""].concat(jk).map(function (k) { return '<button type="button" class="chip' + ((M.jcont || "") === k ? " on" : "") + '" data-jc="' + k.replace(/"/g, "&quot;") + '">' + (k ? nm(k) + " <b>" + jn(k) + "</b>" : "All") + "</button>"; }).join("");
     }

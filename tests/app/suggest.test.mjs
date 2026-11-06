@@ -23,6 +23,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(hit >= 44, 'rows are at least 44px tall');
     await p.keyboard.press('Enter');
     assert.deepEqual(await rows(), [], 'Enter closes the suggestions');
+    await p.click('#q'); await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
+    await p.evaluate(() => document.getElementById('q').dispatchEvent(new Event('search')));   // the keyboard's search or check key on a phone (#512)
+    assert.deepEqual(await rows(), [], 'the search key closes the suggestions');
+    assert.equal(await p.evaluate(() => document.activeElement.id), '', 'and the keyboard leaves');
     await p.click('#qclr'); await p.keyboard.type('osp');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     await p.click('#sug .sgr[data-latin="Pandion haliaetus"]');
