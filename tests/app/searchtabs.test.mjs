@@ -125,7 +125,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “elk”$/, 'Journeys too'); }
     await p.click('[data-tab="places"]:visible');
     await p.click('#qclr'); await p.waitForTimeout(700);
-    assert.equal(await note(), null, 'the note goes with the search');
+    assert.match(await note(), /^[\d,]+ places?( in .+)?$/, 'outside a search the Places tab says how many places it lists (#497)');
+    await p.click('[data-tab="species"]:visible'); await p.waitForTimeout(500);
+    assert.equal(await note(), null, 'the other tabs say nothing outside a search');
+    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(300);
     assert.deepEqual((await tabs(p)).slice(0, 2), ['Places', 'Species'], 'counts go with the search');
     assert.deepEqual(t.errors, []); await b.close();
   });
