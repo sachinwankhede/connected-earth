@@ -54,7 +54,6 @@
       M.qT = setTimeout(function () { M.qLast = Date.now(); runSearch(document.getElementById("q").value); }, 120 - (now - M.qLast));
     });
     qIn.addEventListener("focus", function () { Places.loadLocals(); srchWarm(); }, { once: true });   /* the local places a search needs start coming as soon as the box is used (#414) */
-    document.getElementById("empty").addEventListener("click", function (ev) { if (ev.target.closest("#eclr")) { qIn.value = ""; qIn.dispatchEvent(new Event("input", { bubbles: true })); } });   /* the first letter adds a history entry, so Back clears the search before leaving (#412) */
     document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
@@ -82,14 +81,14 @@
   function applyJ() {
     CROSS.forEach(function (c) { if (!c.li) return; c.li.hidden = (!!M.jcont && !ecoEnds(c).some(function (en) { return ECO_BY[en.eco].conts.indexOf(M.jcont) >= 0; })) || !jHit(c); });   /* a search also narrows the journeys (#443) */
     M.nJ = CROSS.filter(function (c) { return c.li && !c.li.hidden; }).length; tabCount("journeys", FL.q ? M.nJ : null);
-    document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ; document.getElementById("jempty").hidden = M.nJ > 0 || !!FL.q;   /* a search says it once, in the note under the tabs (#496) */
+    document.getElementById("xcards").hidden = !M.nJ; document.getElementById("jintro").hidden = !M.nJ || !!FL.q; document.getElementById("jempty").hidden = M.nJ > 0 || !!FL.q;   /* a search says it once, in the note under the tabs (#496) */
     updCount();
   }
   function updCount() {
     var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") ;
     if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j); if (j) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
     var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
-    if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; }
+    if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; if (FL.q) el.stats.hidden = true; }
   }
   /* The Species tab's code is not in the first view: it is one small file, loaded the first time the tab opens (#422) */
   var SPT = null, SPQ = [];
@@ -103,7 +102,7 @@
     document.head.appendChild(sc);
   }
   function setTab(t) {
-    M.tab = t; showNote();
+    M.tab = t; showNote(); qHead();
     if (t === "journeys") withSpeciesPhotos(loadJourneyPhotos);
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) { sb.classList.toggle("tab-j", t === "journeys"); sb.classList.toggle("tab-s", t === "species"); }

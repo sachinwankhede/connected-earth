@@ -82,6 +82,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const j = await p.evaluate(() => { const n = [...document.querySelectorAll('#xcards li')].filter((l) => !l.hidden).length; const chips = [...document.querySelectorAll('#regions [data-jc] b')].map((x) => +x.textContent); return { n, chips, empty: document.getElementById('jempty').hidden, note: document.getElementById('qnote').textContent }; });
     assert.ok(j.chips.every((c) => c >= 1 && c <= j.n), 'every continent chip counts only the matching journeys (' + j.n + '): ' + JSON.stringify(j.chips));
     if (!j.n) assert.equal(j.empty, true, 'one message, not two: ' + j.note);
+    const rep = await p.evaluate(() => ['jintro', 'stats', 'qhead', 'empty'].map((i) => { const e = document.getElementById(i); return e && getComputedStyle(e).display !== 'none' && e.offsetHeight > 0 ? i : null; }).filter(Boolean));
+    assert.deepEqual(rep, [], 'on Journeys only the note says what was found (#502)');
     assert.deepEqual(t.errors, []); await b.close();
   });
 

@@ -62,11 +62,9 @@
     if (!mo.hidden && M.moreIO) { M.moreIO.unobserve(mo); M.moreIO.observe(mo); }
     var fb = document.getElementById("fbtn"); if (fb) fb.classList.toggle("on", !!(FL.kind || FL.park));
     document.getElementById("xwrap").hidden = false;
-    var em = document.getElementById("empty");   /* nothing found says what was searched and offers Clear; never while the answer is still on its way (#414) */
-    if (FL.q && !list.length) {
-      em.hidden = !!FL.busy;
-      if (!FL.busy) { em.innerHTML = 'No places or species match “<span class="eq"></span>”<span class="er"></span>. <button type="button" class="eclr" id="eclr">Clear</button>'; em.querySelector(".eq").textContent = document.getElementById("q").value.trim(); em.querySelector(".er").textContent = view.level === "world" ? "" : " in " + (view.state || (view.country && nm(view.country)) || view.cont); }
-    } else { em.textContent = "No ecosystems here yet. Shaded regions on the map have food webs."; em.hidden = list.length > 0; }
+    var em = document.getElementById("empty");   /* a search with nothing found is said once, in the note under the tabs */
+    if (!FL.q) em.textContent = "No ecosystems here yet. Shaded regions on the map have food webs.";
+    em.hidden = !!FL.q || list.length > 0;
     document.getElementById("crumbs").innerHTML = crumbHTML();
     document.getElementById("regions").innerHTML = chipsHTML(); kfade();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
