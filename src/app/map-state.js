@@ -93,7 +93,7 @@
     if (sr) {
       var par = view.level !== "world";
       M.nPlaces = shown;
-      var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q);
+      var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q); sr.classList.toggle("q", !!FL.q);
       var anc = [];
       if (par) { anc.push(["world", "", "World"]); if (view.level !== "continent") anc.push(["continent", view.cont, view.cont]); if (view.level === "state") anc.push(["country", view.country, nm(view.country)]); }
       sr.classList.toggle("trail", par); sr.classList.toggle("deep", anc.length >= 3);
