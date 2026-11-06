@@ -841,7 +841,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sbody.tab-j #cards, .sbody.tab-j #empty, .sbody.tab-j .credlink, .sbody.tab-j #morecards { display: none !important; }
 .sbody:not(.tab-j) #xwrap { display: none; }
 .sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead, .sbody.tab-s #regions { display: none !important; }
-.qnote { margin: 10px 0; }   /* the same space above and below the count line (#482) */
+.qnote { margin: 10px 0; }
+.regions:empty { display: none; }   /* an empty row of chips (during a search) must not add its margin under the count line */   /* the same space above and below the count line (#482) */
 .sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .sptab .fine a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 0; }
 .sptab .sgl, .jp .sgl { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
