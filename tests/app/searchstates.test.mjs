@@ -39,9 +39,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('zzqxv'); await p.keyboard.press('Enter');
     await answered(p, 'zzqxv');
     let e = await empty(p);
-    assert.equal(e.hidden, false); assert.match(e.text, /^No places or species match “zzqxv”\. Clear$/);
-    assert.match(await stats(p), /^0 places match “zzqxv”/);
-    await p.click('#eclr'); await p.waitForTimeout(500);
+    assert.equal(e.hidden, true, 'the note says it once; no second message');
+    assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
+    await p.click('#qclr'); await p.waitForTimeout(500);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'Clear empties the box');
     e = await empty(p); assert.equal(e.hidden, true, 'the list is back');
     assert.ok(await cards(p) > 0);
@@ -56,7 +56,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await stats(p), 'Searching…', 'a slow answer is announced');
     assert.equal((await empty(p)).hidden, true, 'no "nothing found" while the answer is on its way');
     await answered(p, 'zzqxv');
-    assert.equal((await empty(p)).hidden, false, 'and the honest line once it has answered');
+    assert.equal((await empty(p)).hidden, true, 'the note says it once');
+    assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
     assert.deepEqual(t.errors, []); await b.close();
   });
 

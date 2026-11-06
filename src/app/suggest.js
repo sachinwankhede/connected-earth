@@ -52,7 +52,7 @@
   var QH = { k: "", n: 0 };
   function qHead() {
     var hd = document.getElementById("qhead"); if (!hd) return;
-    var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q); if (QH.k === key) return;
+    var q = FL.q || "", key = q + "|" + !!FL.busy + "|" + (M.chip === q) + "|" + M.tab; if (QH.k === key) return;
     QH.k = key; var n = ++QH.n, ws = srchWords(q), last = ws[ws.length - 1];
     hd.hidden = true; tabCount("species", null);
     if (!last || last.length < 2 || FL.busy) return;
@@ -63,7 +63,7 @@
       hd.className = "qhead" + (chip ? " qchip" : "");
       hd.innerHTML = chip ? "Places with <b>" + nm + '</b> <a href="#" data-hx="1" aria-label="Clear the filter">\u2715</a>'
         : "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
-      hd.hidden = false;
+      hd.hidden = M.tab === "journeys";   /* the Journeys tab says what it found once, in the note */
     }).catch(function () {});
   }
   document.getElementById("qhead").addEventListener("click", function (ev) {
