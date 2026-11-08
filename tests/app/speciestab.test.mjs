@@ -51,14 +51,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const gi = big >= 0 ? big : 0, g = groups[gi];
     await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
     await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
-    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback').textContent.trim(), head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
+    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
-    assert.equal(v.back, '‹ Species'); assert.equal(v.head, g[1] + ' · ' + g[2]); assert.equal(v.n, Math.min(g[2], 250));
+    assert.equal(v.back, 'none', 'the All pill is the way back, no second link (#526)'); assert.equal(v.head, g[1] + ' · ' + g[2]); assert.equal(v.n, Math.min(g[2], 250));
     if (g[2] > 250) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
       await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
     }
-    await p.evaluate(() => document.querySelector('#sptab .jback').click());
+    await p.evaluate(() => document.querySelector('#regions [data-spg=""]').click());
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 15000 });
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -74,7 +74,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
-    await p.waitForFunction(() => /species? match(es)? “osprey”$/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
+    await p.waitForFunction(() => /species? match(es)? “osprey”$/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr[data-latin="Pandion haliaetus"]'), null, { timeout: 60000 });
     const r = await p.evaluate(() => ({ head: document.getElementById('qnote').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ latin: x.getAttribute('data-latin'), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
     assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
     assert.equal(r.rows[0].latin, 'Pandion haliaetus', 'the osprey first'); assert.equal(r.places, 0);
