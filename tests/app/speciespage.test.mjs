@@ -92,7 +92,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.evaluate(() => document.querySelector('#pview .tax a').click());
     await p.waitForFunction(() => document.getElementById('pview').hidden && !document.getElementById('sptab').hidden && /^Birds · \d+$/.test((document.querySelector('#sptab h3') || {}).textContent || ''), null, { timeout: 60000 });
-    assert.equal(await p.evaluate(() => document.querySelector('#sptab .jback').textContent.trim()), '‹ Species');
+    assert.equal(await p.evaluate(() => (document.querySelector('#regions .chip.on') || {}).textContent.trim().split(' ')[0]), 'Birds', 'the group is the marked pill (#526)');
     assert.equal(await p.evaluate(() => window.__M.tab), 'species');
     assert.deepEqual(t.errors, []); await b.close();
   });
