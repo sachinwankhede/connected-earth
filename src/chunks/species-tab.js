@@ -132,7 +132,8 @@ window.__chunk["species-tab"] = function (A) {
   });
   return {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503) */
-      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + "</b></a> \u00b7 in " + r.n + (r.n === 1 ? " place" : " places") + ' \u00b7 <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page \u203a</a>';
+      hd.innerHTML = '<a href="#" data-hx="1">‹ <b>' + P.escH(r.name) + '</b></a> · in <span id="qhn"></span> · <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page ›</a>';
+      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN(); if (M.setSheet && M.sheetState === "min") M.setSheet("half");   /* the count follows the pills; map mode opens the sheet so the pills show (#528) */
     },
     mapBack: function () {
       var f = M.mFrom, q = document.getElementById("q");

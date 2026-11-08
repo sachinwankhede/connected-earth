@@ -46,7 +46,7 @@
     var pgKey = [view.level, view.cont, view.country, view.state, FL.q, FL.kind, FL.park].join("|");
     if (M.pgKey !== pgKey) { M.pgKey = pgKey; var nv = list.length; M.pageN = nv <= 12 ? nv : 10; }
     var pm = window.matchMedia && matchMedia("(max-width: 700px)").matches, shown = 0, left = 0;
-    /* on a phone only the cards that are shown are built; the rest are built when "Show more" or scrolling brings them in */
+    /* on a phone only the shown cards are built; "Show more" or scrolling builds the rest */
     var dom = false; list.forEach(function (e, i) { if (pm && i >= M.pageN) return; makeCard(e); if (!e.li.parentNode) dom = true; });
     if (dom) { var mo0 = document.getElementById("morecards"), inl = new Set(list), kids = ECOS.filter(function (e) { return e.li && (e.li.parentNode || inl.has(e)); }).map(function (e) { return e.li; }); if (mo0) kids.push(mo0); document.getElementById("cards").replaceChildren.apply(document.getElementById("cards"), kids); }
     ECOS.forEach(function (e) { if (e.li) e.li.hidden = true; }); list.forEach(function (e) { if (e.li) e.li.hidden = false; });
@@ -90,7 +90,7 @@
     var sr = document.getElementById("srow");
     if (sr) {
       var par = view.level !== "world";
-      M.nPlaces = shown;
+      M.nPlaces = shown; if (M.mapN) M.mapN();
       var cnt = shown + (shown === 1 ? " place" : " places"); sr.classList.toggle("home", view.level === "world" && !FL.q); sr.classList.toggle("q", !!FL.q);
       var anc = [];
       if (par) { anc.push(["world", "", "World"]); if (view.level !== "continent") anc.push(["continent", view.cont, view.cont]); if (view.level === "state") anc.push(["country", view.country, nm(view.country)]); }
