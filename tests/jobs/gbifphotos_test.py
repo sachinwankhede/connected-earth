@@ -38,6 +38,13 @@ class GbifPhotosTests(unittest.TestCase):
         for b in ('MACHINE_OBSERVATION', 'LIVING_SPECIMEN', 'OBSERVATION'):
             self.assertEqual(len(g.candidates([rec(basis=b)])), 1, b)
 
+    def test_herbarium_and_museum_records_labelled_as_observations_are_dropped(self):
+        for r in (rec(basis='MACHINE_OBSERVATION', url='https://collections.nmnh.si.edu/media/?i=1', datasetName='NMNH Extant Biology'),
+                  rec(url='https://iiif-manifest.oxalis.br.fgov.be/specimen/BR1/manifest', datasetName='Meise Botanic Garden Herbarium (BR)'),
+                  rec(datasetName='Some Museum collection')):
+            self.assertEqual(g.candidates([r]), [])
+        self.assertEqual(len(g.candidates([rec(url='https://www.artsobservasjoner.no/MediaLibrary/a.jpg', datasetName='Artsobservasjoner')])), 1)
+
     def test_a_photo_without_a_named_author_is_dropped(self):
         for c in ('', None, 'Unknown', 'anonymous', '   '):
             self.assertEqual(g.candidates([rec(creator=c)]), [], c)

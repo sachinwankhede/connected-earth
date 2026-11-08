@@ -35,6 +35,11 @@ def from_inaturalist(rec, media):
     """True for a record that came through iNaturalist: its dataset, institution code, or any link of the record."""
     blob = ' '.join(str(x) for x in (rec.get('institutionCode'), rec.get('collectionCode'), rec.get('references'), media.get('references'), media.get('identifier'), media.get('source'), media.get('publisher')) if x).lower()
     return rec.get('datasetKey') == INAT_DATASET or 'inaturalist' in blob
+SHEET_WORDS = ('herbari', 'specimen', 'nmnh', 'extant biology', 'iiif', 'museum', 'collections.')   # records of herbaria and museums, even when GBIF labels them as observations
+def from_collection(rec, media):
+    """True for a herbarium sheet or museum object that GBIF labels as an observation (the Smithsonian NMNH and Meise records were)."""
+    blob = ' '.join(str(x) for x in (rec.get('datasetName'), rec.get('collectionCode'), rec.get('collectionKey'), rec.get('typeStatus'), rec.get('preparations'), media.get('identifier'), media.get('references'), media.get('source')) if x).lower()
+    return any(w in blob for w in SHEET_WORDS)
 def safe_url(u):
     """https only, a named host (no address, no localhost), no credentials in the link."""
     try: p = urllib.parse.urlsplit(u or '')
@@ -55,7 +60,7 @@ def candidates(results):
         for m in rec.get('media') or []:
             if m.get('type') != 'StillImage' or not safe_url(m.get('identifier')): continue
             lic = licence_of(m); au = author_of(rec, m)
-            if not lic or not au or from_inaturalist(rec, m): continue
+            if not lic or not au or from_inaturalist(rec, m) or from_collection(rec, m): continue
             out.append((rec['key'], m['identifier'], au, lic[0], lic[1])); break   # one picture per occurrence
     return out
 def match(name):
