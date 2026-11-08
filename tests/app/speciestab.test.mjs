@@ -93,3 +93,25 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
+
+// #533a: the Places region and the habitat filter chips do not follow you to the Species tab; the tab shows one row of pills (its groups); Places keeps its region.
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: the Places region does not carry over to the Species tab, which shows one row of pills`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-go="continent"][data-a="North America"]', { state: 'attached', timeout: 60000 });
+    await p.evaluate(() => document.querySelector('[data-go="continent"][data-a="North America"]').click()); await p.waitForTimeout(1500);
+    const was = await p.evaluate(() => document.getElementById('srow').textContent.trim());
+    assert.match(was, /North America/, 'the region is on the Places tab: ' + was);
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
+    const s = await p.evaluate(() => ({ title: document.getElementById('srow').textContent.trim(), trail: document.querySelectorAll('#srow .sbk').length, stats: getComputedStyle(document.getElementById('stats')).display,
+      kinds: getComputedStyle(document.getElementById('kinds')).display, goChips: document.querySelectorAll('#regions [data-go]').length, rows: new Set([...document.querySelectorAll('#regions .chip')].map((c) => Math.round(c.getBoundingClientRect().top))).size }));
+    assert.equal(s.trail, 0, 'no region trail: ' + s.title); assert.ok(!/North America/.test(s.title), s.title); assert.equal(s.stats, 'none'); assert.equal(s.kinds, 'none'); assert.equal(s.goChips, 0); assert.equal(s.rows, 1, 'one row of pills');
+    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(800);
+    assert.match(await p.evaluate(() => document.getElementById('srow').textContent.trim()), /North America/, 'Places keeps its region');
+    assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('stats')).display), 'none');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}
