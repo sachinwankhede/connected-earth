@@ -1,0 +1,37 @@
+name: Secondary Agent Task Runner
+
+# 1. Trigger the workflow when an issue is opened or edited
+on:
+  issues:
+    types: [opened, edited, labeled]
+
+permissions:
+  contents: write
+  issues: write # Allows the agent to comment on or close the issue when done
+
+jobs:
+  run-agent:
+    # 2. ONLY run this job if the issue contains your special tag
+    if: contains(github.event.issue.labels.*.name, 'secondary-agent')
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install @google/genai
+
+      - name: Run Secondary Gemini Agent
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          # Pass the issue title and body into the script so Gemini knows what to do!
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: node scripts/secondary-agent.js
