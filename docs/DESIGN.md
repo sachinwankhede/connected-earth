@@ -37,7 +37,7 @@ One place for the UX rules, so the app feels like one app. Read this before any 
 - **Photo rows.** Horizontal rows of small photo cards: photo, name, at most one small line below. Badges go under the name, never on the photo.
 - **Tappable rows.** Photo, title, one muted line, chevron on the right (`.jend`, `.pj`).
 - **Fonts.** Display font for names and titles, body font for text, mono for small labels. Sizes: page title 24, row title 16, body 16, card name 12–13, label 11, fine print 12.
-- **Credits.** Every photo has its author and licence reachable on the screen that shows it.
+- **Credits.** Every photo has its author and licence reachable on the screen that shows it. The last link names where the picture came from ("Wikimedia Commons" or "GBIF").
 - **Start screen.** Logo, name, tagline and a thin progress bar on a dark ocean blue (`#boot`, `#0b2230`) with light text, in light and dark mode alike, close to the satellite map's opening look so the hand-over to the map is not a flash from white. Removed (fade) when the map has drawn.
 - **Share.** Journey, place and food-web screens each have one share icon (`shareBtn()`), top-right in the same row as the back link. Never a text button.
 - **Closed bottom sheet.** Any bottom sheet in its closed state (landing place card, species sheet) is the same peek card: square photo on the left, small uppercase mono kind line, bold name, chevron on the right, no grab handle. Never a bare title bar.

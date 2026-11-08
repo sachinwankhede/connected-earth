@@ -36,7 +36,7 @@ def main():
     top = int(sys.argv[1]) if len(sys.argv) > 1 else 30
     hosted = hp.load(hp.HOSTED, {}); man = json.load(open('photos/species.json')); large = hp.load(LARGE, {})
     rank = ranking(build.load_places(True)[1], hosted)[:top]
-    todo = [(t, c) for t, c in rank if t not in large and t in man]
+    todo = [(t, c) for t, c in rank if t not in large and t in man and not man[t][0].startswith('gbif/')]   # a GBIF picture has no Commons original to enlarge
     print(len(rank), 'in the ranking,', len(todo), 'to do; the first ten:', ', '.join('%s (%d)' % x for x in rank[:10]), flush=True)
     os.makedirs(OUT, exist_ok=True); total = 0
     for i, (t, c) in enumerate(todo, 1):
