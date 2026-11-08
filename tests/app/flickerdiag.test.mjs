@@ -18,6 +18,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       c.renders = renders; c.clicked = btn ? btn.textContent.trim() : null; return c;
     });
     await b.close();
-    throw new Error('DIAG ' + name + ' ' + JSON.stringify(counts));
+    const tot = {}; for (const [k, v] of Object.entries(counts)) { const g = k.split(':')[0]; tot[g] = (typeof v === 'number' ? (tot[g] || 0) + v : v); }
+    throw new Error('DIAG ' + name + ' ' + Object.entries(tot).map(([k, v]) => k + '=' + v).join(' '));
   });
 }
