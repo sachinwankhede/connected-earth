@@ -64,4 +64,21 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });   // Back goes to the species page the map came from (#503)
     assert.deepEqual(t.errors, []); await b.close();
   });
+
+  test(`${name}: map mode has continent, country and state pills that narrow the places (#528)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
+    await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
+    await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1, null, { timeout: 30000 }).catch(() => {});
+    const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(); return { pills: [...r.querySelectorAll('[data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent), shown: bx.height > 0 && getComputedStyle(r).display !== 'none', above: bx.bottom <= h.top + 1, head: document.getElementById('qhead').textContent, cards: document.querySelectorAll('#cards .card').length, mm: document.getElementById('sheet').classList.contains('mm') }; });
+    const a = await st();
+    assert.ok(a.mm && a.pills.length > 1 && a.shown, 'map mode shows the continent pills: ' + JSON.stringify(a)); assert.ok(a.above, 'the pills are above the title');
+    assert.ok(a.pills.every((x) => /^continent:/.test(x)) && a.pills.every((x) => /\d$/.test(x)), 'continent pills with counts: ' + a.pills.join(' | '));
+    const n0 = +/in (\d+) place/.exec(a.head)[1], k = a.pills[0].split(':')[1];
+    await p.evaluate((k2) => document.querySelector('#regions [data-go="continent"][data-a="' + k2.replace(/"/g, '\\"') + '"]').click(), k); await p.waitForTimeout(1500);
+    const c = await st(); const n1 = +/in (\d+) place/.exec(c.head)[1];
+    assert.ok(c.mm && c.shown && c.pills.length >= 1 && c.pills.every((x) => /^country:/.test(x)), 'the next level is countries: ' + JSON.stringify(c));
+    assert.ok(n1 <= n0 && n1 === +/(\d+)$/.exec(a.pills[0])[1], 'the title count follows the pill: ' + n0 + ' -> ' + n1 + ' for ' + a.pills[0]);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
 }
