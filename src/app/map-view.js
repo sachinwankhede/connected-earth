@@ -127,6 +127,7 @@
   };
   function chipsHTML() {
     var keys = [], lvl, lab;
+    if (M.tab === "species") return "";   /* the Species tab fills this row with its groups */
     if (M.tab === "journeys") {
       var jk = [];
       CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { ECO_BY[en.eco].conts.forEach(function (k) { if (jk.indexOf(k) < 0) jk.push(k); }); }); });

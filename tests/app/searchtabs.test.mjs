@@ -18,7 +18,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#sptab .sgr[data-g]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
+    await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
     await picLoaded(p, '#sptab .sgr[data-latin="Pandion haliaetus"]');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -146,8 +146,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => window.__M.searched === 'sahara', null, { timeout: 60000 });
     await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /places? match(es)? “sahara”$/.test(n.textContent); }, null, { timeout: 30000 });
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /species match(es)? “sahara”$/.test(n.textContent) && !document.querySelector('#sptab .sgr[data-g]'); }, null, { timeout: 30000 });
-    const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-latin]').length, top: !!document.querySelector('#sptab .sgr[data-g]') }));
+    await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /species match(es)? “sahara”$/.test(n.textContent) && !document.querySelector('#regions [data-spg]'); }, null, { timeout: 30000 });
+    const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-latin]').length, top: !!document.querySelector('#regions [data-spg]') }));
     assert.equal(list.top, false, 'the groups are out of the way during a search'); assert.equal(/^No species/.test(list.note), list.rows === 0, 'the note and the list agree: ' + JSON.stringify(list));
     assert.deepEqual(t.errors, []); await b.close();
   });

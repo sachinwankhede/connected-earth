@@ -22,20 +22,19 @@ window.__chunk["species-tab"] = function (A) {
     return d;
   }
   function strip(items) { var l = el("", "prow"); items.forEach(function (x) { l.appendChild(card(x)); }); return l; }   /* sideways, like every photo row (#484) */
-  function groupRow(g) {   /* [key, label, species, pages] */
-    var d = el('<span class="sgi">' + A.leaf + '</span><span class="sgt"><b></b><i></i></span>' + A.chev, "sgr");
-    d.setAttribute("role", "link"); d.tabIndex = 0; d.setAttribute("data-g", g[0]);
-    d.querySelector("b").textContent = g[1]; d.querySelector("i").textContent = g[2] + (g[2] === 1 ? " species" : " species");
-    return d;
+  var rg = document.getElementById("regions");
+  function pills(on) {   /* the groups as sideways pills at the top, like the continents on Places; deeper levels (order, family) go here next (#519) */
+    rg.innerHTML = '<span class="lbl">Browse by group</span>' + [["", "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)]].concat(groups).map(function (g) {
+      return '<button type="button" class="chip' + (g[0] === on ? " on" : "") + '" data-spg="' + g[0] + '">' + escH(g[1]) + " <b>" + g[2] + "</b></button>"; }).join("");
   }
+  rg.addEventListener("click", function (ev) { var b = ev.target.closest("[data-spg]"); if (b && !box.hidden) { if (b.getAttribute("data-spg")) openGroup(b.getAttribute("data-spg")); else home(); } });
   function list(items, make) { var l = el("", "sgl"); items.forEach(function (x) { l.appendChild(make(x)); }); return l; }
   function home() {
-    box.innerHTML = "<h3>Found in the most places</h3>"; box.appendChild(list(top, row));
-    box.insertAdjacentHTML("beforeend", "<h3>Browse by group</h3>"); box.appendChild(list(groups, groupRow));
+    pills(""); box.innerHTML = "<h3>Found in the most places</h3>"; box.appendChild(list(top, row));
   }
   function group(g) {   /* one group: its first page, and "Show more" for the next */
     var page = 0, shown = 0;
-    box.innerHTML = '<button type="button" class="jback" data-up="1">‹ Species</button><h3></h3>';
+    pills(g[0]); box.innerHTML = '<button type="button" class="jback" data-up="1">‹ Species</button><h3></h3>';
     box.querySelector("h3").textContent = g[1] + " · " + g[2];
     var l = el("", "sgl"), p = el('<a href="#" data-more="1"></a>', "fine"); box.appendChild(l); box.appendChild(p); p.hidden = true;
     function more() {
@@ -51,9 +50,8 @@ window.__chunk["species-tab"] = function (A) {
   var want = null;
   function openGroup(key) { var g = groups.filter(function (x) { return x[0] === key; })[0]; if (g) group(g); else want = key; }   /* before the groups have loaded, open() does it */
   function act(t) {
-    var d = t.closest(".sgr"), g;
+    var d = t.closest(".sgr");
     if (d && d.hasAttribute("data-latin")) A.go(d.getAttribute("data-latin"));
-    else if (d && (g = groups.filter(function (x) { return x[0] === d.getAttribute("data-g"); })[0])) group(g);
     else if (t.closest("[data-up]")) { home(); box.scrollIntoView && box.scrollIntoView({ block: "start" }); }
   }
   var qIn = document.getElementById("q"), qT, qN = 0, shown = "";
@@ -62,7 +60,7 @@ window.__chunk["species-tab"] = function (A) {
     if (q.length < 2) { home(); return; }
     A.find(q).then(function (rows) {
       if (n !== qN || !rows) return;
-      box.innerHTML = "";   /* what was found is said in the note under the tabs, the same on all three (#449) */
+      rg.innerHTML = ""; box.innerHTML = "";   /* what was found is said in the note under the tabs, the same on all three (#449) */
       if (rows.length) box.appendChild(list(rows, function (r) { return row([r.latin, r.name, r.n, r.pic || 0]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
     }).catch(function () { if (n === qN) shown = ""; });
   }

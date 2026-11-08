@@ -42,23 +42,24 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     const groups = await p.evaluate(() => fetch('api/species-tab/groups.json').then((r) => r.json()));
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 60000 });
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
     const heads = await p.evaluate(() => [...document.querySelectorAll('#sptab h3')].map((h) => h.textContent));
-    assert.deepEqual(heads, ['Found in the most places', 'Browse by group']);
-    const rows = await p.evaluate(() => [...document.querySelectorAll('#sptab .sgr[data-g]')].map((r) => ({ n: r.querySelector('b').textContent, l: r.querySelector('i').textContent, h: r.getBoundingClientRect().height })));
-    assert.equal(rows.length, groups.length); assert.equal(rows[0].n, groups[0][1]); assert.ok(rows.every((r) => r.h >= 44));
+    assert.deepEqual(heads, ['Found in the most places']);
+    const rows = await p.evaluate(() => [...document.querySelectorAll('#regions [data-spg]')].map((r) => ({ k: r.getAttribute('data-spg'), t: r.textContent, y: Math.round(r.getBoundingClientRect().top) })));
+    assert.equal(rows.length, groups.length + 1, 'All and one pill per group (#519)'); assert.equal(rows[0].k, ''); assert.equal(rows[1].k, groups[0][0]); assert.ok(rows.every((r) => r.y === rows[0].y), 'one sideways row at the top, like the continents');
     const big = groups.findIndex((g) => g[2] > 250);   // a group with a second page, when the data has one
     const gi = big >= 0 ? big : 0, g = groups[gi];
-    await p.evaluate((i) => document.querySelectorAll('#sptab .sgr[data-g]')[i].click(), gi);
+    await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
     await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
     const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback').textContent.trim(), head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
+    assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
     assert.equal(v.back, '‹ Species'); assert.equal(v.head, g[1] + ' · ' + g[2]); assert.equal(v.n, Math.min(g[2], 250));
     if (g[2] > 250) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
       await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
     }
     await p.evaluate(() => document.querySelector('#sptab .jback').click());
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 15000 });
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 15000 });
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
@@ -71,9 +72,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 60000 });
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
-    await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#sptab .sgr[data-g]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
+    await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
     const r = await p.evaluate(() => ({ head: document.getElementById('qnote').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ latin: x.getAttribute('data-latin'), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
     assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
     assert.equal(r.rows[0].latin, 'Pandion haliaetus', 'the osprey first'); assert.equal(r.places, 0);
@@ -87,7 +88,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q', { clickCount: 3 }).catch(() => {}); await p.keyboard.press('Control+A'); await p.keyboard.type('zzqxv');
     await p.waitForFunction(() => /^No species match/.test(document.getElementById('qnote').textContent) && document.querySelector('#sptab [data-clr]'), null, { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#sptab [data-clr]').click());
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-g]').length > 0, null, { timeout: 15000 });
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 15000 });
     assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'Clear empties the box');
     assert.deepEqual(t.errors, []); await b.close();
   });
