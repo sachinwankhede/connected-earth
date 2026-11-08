@@ -513,8 +513,6 @@ div.card { cursor: default; }
   .srow.deep .strl .sbk { font-size: 13px; }
   .srow.deep .strl > :nth-child(-n+2) { display: none; }
   .sbody { display: block; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; padding: 4px 12px 16px; }
-  #regions { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-bottom: 8px; }
-  #regions .chip, #regions .lbl { flex: none; }
   #cards { margin-top: 4px; }
 }
 
@@ -814,9 +812,6 @@ rect.core { stroke-dasharray: 3 2.5; }
   .srow.deep .strl .sbk { font-size: 13px; }
   .srow.deep .strl > :nth-child(-n+2) { display: none; }
   .sbody { display: block; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; padding: 4px 12px 16px; }
-  #regions { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-bottom: 8px; }
-  #regions .chip, #regions .lbl { flex: none; }
-  #regions::-webkit-scrollbar { display: none; }
   #cards { margin-top: 4px; grid-template-columns: 1fr; gap: 8px; }
   .mapbox > .peek:not([hidden]), .peek:not([hidden]) { position: fixed; left: 12px; top: 112px; bottom: auto; width: 380px; box-sizing: border-box; max-height: calc(100vh - 124px); overflow: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); z-index: 30; }
 }
@@ -840,7 +835,10 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sbody:not(.tab-j) #xwrap { display: none; }
 .sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead { display: none !important; }
 .qnote { margin: 0 0 10px; }
-#regions:empty { display: none; }   /* an empty row of chips (during a search) must not add its margin under the count line */   /* the same space above and below the count line (#482) */
+#regions { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-bottom: 8px; }
+#regions .chip, #regions .lbl { flex: none; }
+#regions::-webkit-scrollbar { display: none; }
+#regions:empty { display: none; }   /* no margin for an empty row (#482) */
 .sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .sptab .fine a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 0; }
 .sptab .sgl, .jp .sgl { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
@@ -1055,3 +1053,4 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sptab .sgl .sgr + .sgr { border-top: 1px solid var(--line); }
 .sptab .sgl .sgr { min-height: 0; gap: 12px; }
 .sheet.mm .trow, .sheet.mm .tabs, .sheet.mm .qnote { display: none !important; }
+.tab-sp .filters .kinds, .tab-sp #stats { display: none !important; }

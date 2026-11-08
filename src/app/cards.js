@@ -85,8 +85,8 @@
     updCount();
   }
   function updCount() {
-    var j = M.tab === "journeys", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") ;
-    if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j); if (j) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
+    var j = M.tab === "journeys", sp = M.tab === "species", sr = document.getElementById("srow"), nj = (M.nJ || 0) + ((M.nJ || 0) === 1 ? " journey" : " journeys") ;
+    if (sr && M.srHTML !== undefined) { sr.classList.toggle("jtab", j || sp); if (j || sp) { sr.innerHTML = '<span class="stt">Connected Earth</span>'; sr.classList.remove("home"); } else { sr.innerHTML = M.srHTML; sr.classList.toggle("home", !!M.srHome); } }
     var ji = document.getElementById("jintro"); if (ji) ji.innerHTML = "<b>" + nj + "</b>" + (M.jcont ? " in " + M.jcont : "") + ". Animals that travel, and nutrients that are carried, from one place to another.";
     if (el.webview.hidden && M.statsHTML !== undefined) { if (j) el.stats.textContent = nj + (M.jcont ? " in " + M.jcont : ""); else el.stats.innerHTML = M.statsHTML; if (FL.q) el.stats.hidden = true; }
   }
@@ -102,7 +102,7 @@
     document.head.appendChild(sc);
   }
   function setTab(t) {
-    M.tab = t; showNote(); qHead();
+    M.tab = t; document.documentElement.classList.toggle("tab-sp", t === "species"); showNote(); qHead();
     if (t === "journeys") withSpeciesPhotos(loadJourneyPhotos);
     var rg = document.getElementById("regions"); if (rg) { rg.innerHTML = chipsHTML(); kfade(); }
     var sb = document.getElementById("sbody"); if (sb) { sb.classList.toggle("tab-j", t === "journeys"); sb.classList.toggle("tab-s", t === "species"); }
