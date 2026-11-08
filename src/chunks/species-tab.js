@@ -34,7 +34,7 @@ window.__chunk["species-tab"] = function (A) {
   }
   function group(g) {   /* one group: its first page, and "Show more" for the next */
     var page = 0, shown = 0;
-    pills(g[0]); box.innerHTML = '<button type="button" class="jback" data-up="1">‹ Species</button><h3></h3>';
+    pills(g[0]); box.innerHTML = "<h3></h3>";
     box.querySelector("h3").textContent = g[1] + " · " + g[2];
     var l = el("", "sgl"), p = el('<a href="#" data-more="1"></a>', "fine"); box.appendChild(l); box.appendChild(p); p.hidden = true;
     function more() {
@@ -52,7 +52,6 @@ window.__chunk["species-tab"] = function (A) {
   function act(t) {
     var d = t.closest(".sgr");
     if (d && d.hasAttribute("data-latin")) A.go(d.getAttribute("data-latin"));
-    else if (t.closest("[data-up]")) { home(); box.scrollIntoView && box.scrollIntoView({ block: "start" }); }
   }
   var qIn = document.getElementById("q"), qT, qN = 0, shown = "";
   function find() {   /* the search box on this tab looks for species only (#422 step 4) */

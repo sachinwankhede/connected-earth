@@ -51,14 +51,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const gi = big >= 0 ? big : 0, g = groups[gi];
     await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
     await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
-    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback').textContent.trim(), head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
+    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
-    assert.equal(v.back, '‹ Species'); assert.equal(v.head, g[1] + ' · ' + g[2]); assert.equal(v.n, Math.min(g[2], 250));
+    assert.equal(v.back, 'none', 'the All pill is the way back, no second link (#526)'); assert.equal(v.head, g[1] + ' · ' + g[2]); assert.equal(v.n, Math.min(g[2], 250));
     if (g[2] > 250) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
       await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
     }
-    await p.evaluate(() => document.querySelector('#sptab .jback').click());
+    await p.evaluate(() => document.querySelector('#regions [data-spg=""]').click());
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 15000 });
     assert.deepEqual(t.errors, []); await b.close();
   });
