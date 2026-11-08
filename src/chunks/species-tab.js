@@ -133,7 +133,7 @@ window.__chunk["species-tab"] = function (A) {
   return {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503) */
       hd.innerHTML = '<a href="#" data-hx="1">‹ <b>' + P.escH(r.name) + '</b></a> · in <span id="qhn"></span> · <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page ›</a>';
-      M.mapN = function () { var n = M.nPlaces == null || FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN();   /* the count follows the pills (#528) */
+      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN();   /* the count follows the pills (#528) */
     },
     mapBack: function () {
       var f = M.mFrom, q = document.getElementById("q");
