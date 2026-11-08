@@ -69,7 +69,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
-    await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1, null, { timeout: 30000 }).catch(() => {});
+    await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1 && /in \\d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }).catch(() => {});
     const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(); return { pills: [...r.querySelectorAll('[data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent), shown: bx.height > 0 && getComputedStyle(r).display !== 'none', above: bx.bottom <= h.top + 1, head: document.getElementById('qhead').textContent, cards: document.querySelectorAll('#cards .card').length, mm: document.getElementById('sheet').classList.contains('mm') }; });
     const a = await st();
     assert.ok(a.mm && a.pills.length > 1 && a.shown, 'pills ' + a.pills.length + ' shown=' + a.shown + ' above=' + a.above + ' mm=' + a.mm); assert.ok(a.above, 'the pills are above the title');
