@@ -55,6 +55,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .prow .pmc[data-spp]').length, w: document.querySelector('#pview .prow .pmc[data-spp]').getBoundingClientRect().width, sideways: getComputedStyle(document.querySelector('#pview .prow .pmc[data-spp]').parentNode).overflowX === 'auto', mapLink: document.querySelector('#pview [data-spmap]').tagName === 'A' }));
     assert.match(await p.evaluate(() => document.querySelector('#pview .where').textContent), /^(Countries: .+ · )?Continents: .+$/, 'where it lives: countries and continents (#445)');
     assert.match(info.h3.find((x) => /^Found in/.test(x)), /^Found in \d+ places$/); assert.ok(info.rows >= 2 && info.rows <= 10); assert.ok(info.w >= 60, 'photo cards'); assert.equal(info.sideways, true, 'the places are one sideways row (#494)'); assert.equal(info.mapLink, true, 'Show on the map is a link');
+    const vis = (sel) => p.evaluate((q) => { const c = document.querySelector(q), r = c.parentElement; return Math.round((r.clientWidth - 16 + 0) / c.getBoundingClientRect().width * 100) / 100 + 0; }, sel);
+    assert.ok(Math.abs((await vis('#pview .prow .pmc[data-spp]')) - 2.25) < 0.15, 'places: about 2.25 pictures in view (#521)');
     const id = await p.evaluate(() => document.querySelector('#pview .prow .pmc[data-spp]').getAttribute('data-spp'));
     await p.locator('#pview .prow .pmc[data-spp]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#pview .prow .pmc[data-spp]').click()));
     await p.waitForFunction(() => document.querySelector('#pview .jhero h2') && !document.querySelector('#pview [data-spmap]'), null, { timeout: 60000 });
@@ -75,6 +77,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(d.rows.length > 0 && d.rows.length <= 8 && d.rows.every((r) => /^in \d+ places?$/.test(r.line) && r.w >= 60), 'photo cards like the place page'); assert.equal(d.sideways, true, 'each diet section is one sideways row (#484)'); assert.equal(d.tall, 0, 'no tall list of species rows on the page');
     assert.ok(!d.rows.some((r) => r.latin === 'Pandion haliaetus'), 'a species is not its own food');
     const first = d.rows[0].latin;
+    assert.ok(Math.abs((await p.evaluate(() => { const c = document.querySelector('#pview .prow .pmc[data-latin]'); return (c.parentElement.clientWidth - 16) / c.getBoundingClientRect().width; })) - 2.75) < 0.15, 'species: about 2.75 pictures in view (#521)');
     await p.evaluate(() => document.querySelector('#pview .prow .pmc[data-latin]').click());
     await p.waitForFunction((l) => document.getElementById('pview').innerHTML.includes(l) || document.querySelector('#pview .jr i') && document.querySelector('#pview .jr i').textContent === l, first, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Osprey');
