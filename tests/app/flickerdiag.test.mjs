@@ -12,10 +12,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       for (const fn of ['fitBounds', 'setFilter', 'setPaintProperty', 'setLayoutProperty', 'easeTo', 'flyTo', 'jumpTo', 'setStyle', 'resize']) { const o = m[fn].bind(m); m[fn] = (...a) => { bump(fn + (fn === 'setPaintProperty' || fn === 'setFilter' ? ':' + a[0] : '')); return o(...a); }; }
       for (const id of Object.keys(m.style.sourceCaches || {})) { const s = m.getSource(id); if (s && s.setData) { const o = s.setData.bind(s); s.setData = (d) => { bump('setData:' + id); return o(d); }; } }
       let renders = 0; m.on('render', () => renders++);
-      const btn = [...document.querySelectorAll('#regions [data-go]')].find((x) => x.offsetParent);
-      if (btn) btn.click();
+      let mo = 0, mv = 0, st = []; new MutationObserver((l) => { mo += l.length; }).observe(document.body, { childList: true, subtree: true }); m.on('moveend', () => mv++); m.on('movestart', () => { st.push(window.__M.sheetState); });
+      const btn = true; window.__M.go('continent', 'North America');
       await new Promise((r) => setTimeout(r, 3000));
-      c.renders = renders; c.clicked = btn ? btn.textContent.trim() : null; return c;
+      c.renders = renders; c.mutations = mo; c.moves = mv; c.sheet = st.join('/'); c.size = innerWidth + 'x' + innerHeight + ' mapH=' + m.getContainer().clientHeight; return c;
     });
     await b.close();
     const tot = {}; for (const [k, v] of Object.entries(counts)) { const g = k.split(':')[0]; tot[g] = (typeof v === 'number' ? (tot[g] || 0) + v : v); }
