@@ -52,7 +52,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     });
     assert.equal(r.ph, r.all, 'every species with a photo shows it in the picture'); assert.ok(r.glHidden, 'a photo replaces the icon');
     assert.ok(r.species >= r.all, 'every species has a card in its level row'); assert.equal(r.withImg, r.species, 'every card, environment items included, shows its photo');
-    assert.equal(r.desc, 0, 'no descriptions on the small cards'); assert.equal(r.boxes, 0, 'no plain stat boxes'); assert.ok(r.card <= 110, 'small cards: ' + r.card);
+    assert.equal(r.desc, 0, 'no descriptions on the small cards'); assert.equal(r.boxes, 0, 'no plain stat boxes'); assert.ok(r.card >= 90 && r.card <= 160, 'small cards are sized by what is in view, 2.75 across (#521): ' + r.card);
     assert.ok(r.places >= 3 && r.placeImgs === r.places, 'places that share species show their photos'); assert.ok(r.badges.includes('Shares the most') && r.badges.includes('Most connected'));
     assert.ok(r.chainNodes >= 3 && r.chainImgs === r.chainNodes); assert.ok(r.over <= 0);
     assert.deepEqual(errors, []); await b.close();
