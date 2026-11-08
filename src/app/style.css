@@ -838,7 +838,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .tabs .tn { font: 600 11px var(--font-mono); color: var(--muted); margin-left: 3px; }
 .sbody.tab-j #cards, .sbody.tab-j #empty, .sbody.tab-j .credlink, .sbody.tab-j #morecards { display: none !important; }
 .sbody:not(.tab-j) #xwrap { display: none; }
-.sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead, .sbody.tab-s #regions { display: none !important; }
+.sbody.tab-s #cards, .sbody.tab-s #empty, .sbody.tab-s .credlink, .sbody.tab-s #morecards, .sbody.tab-s #qhead { display: none !important; }
 .qnote { margin: 0 0 10px; }
 #regions:empty { display: none; }   /* an empty row of chips (during a search) must not add its margin under the count line */   /* the same space above and below the count line (#482) */
 .sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
