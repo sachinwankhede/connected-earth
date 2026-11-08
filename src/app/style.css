@@ -1046,7 +1046,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 #cards .card::after { content: "\203a"; grid-column: 3; grid-row: 1 / span 3; align-self: center; color: var(--muted); font-size: 22px; line-height: 1; }
 
 /* a search says how many it found once, in the note under the tabs: the sheet's title line keeps only its handle (#496) */
-.sheet:not(.s-min) .srow.q:not(.trail) .stt, .sheet:not(.s-min) .srow.q .scnt { display: none; }
+.sheet:not(.s-min) .srow.q:not(.trail), .sheet:not(.s-min) .srow.q .scnt { display: none; }
 
 /* one list format on every tab (#493): separate rounded rows, 8px apart, 10px inside, a 1px line; Places, Journeys and Species look the same */
 #cards .card, .jcard, .sptab .sgl .sgr { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); padding: 10px; box-sizing: border-box; }

@@ -82,8 +82,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('[data-tab="journeys"]:visible', { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await p.waitForFunction(() => window.__M.searched === 'osprey' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
-    const sr = await p.evaluate(() => ({ cnt: getComputedStyle(document.querySelector('#srow .scnt')).display, stt: getComputedStyle(document.querySelector('#srow .stt')).display }));
-    assert.deepEqual(sr, { cnt: 'none', stt: 'none' }, 'no "Connected Earth, N places" line while searching (the note says it)');
+    const sr = await p.evaluate(() => document.getElementById('srow').offsetHeight);
+    assert.equal(sr, 0, 'no "Connected Earth, N places" line, and no empty row left in its place, while searching (#527)');
     await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(600);
     const j = await p.evaluate(() => { const n = [...document.querySelectorAll('#xcards li')].filter((l) => !l.hidden).length; const chips = [...document.querySelectorAll('#regions [data-jc] b')].map((x) => +x.textContent); return { n, chips, empty: document.getElementById('jempty').hidden, note: document.getElementById('qnote').textContent }; });
     assert.ok(j.chips.every((c) => c >= 1 && c <= j.n), 'every continent chip counts only the matching journeys (' + j.n + '): ' + JSON.stringify(j.chips));
