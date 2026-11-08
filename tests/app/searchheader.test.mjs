@@ -72,7 +72,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1, null, { timeout: 30000 }).catch(() => {});
     const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(); return { pills: [...r.querySelectorAll('[data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent), shown: bx.height > 0 && getComputedStyle(r).display !== 'none', above: bx.bottom <= h.top + 1, head: document.getElementById('qhead').textContent, cards: document.querySelectorAll('#cards .card').length, mm: document.getElementById('sheet').classList.contains('mm') }; });
     const a = await st();
-    assert.ok(a.mm && a.pills.length > 1 && a.shown, 'map mode shows the continent pills: ' + JSON.stringify(a)); assert.ok(a.above, 'the pills are above the title');
+    assert.ok(a.mm && a.pills.length > 1 && a.shown, 'pills ' + a.pills.length + ' shown=' + a.shown + ' above=' + a.above + ' mm=' + a.mm); assert.ok(a.above, 'the pills are above the title');
     assert.ok(a.pills.every((x) => /^continent:/.test(x)) && a.pills.every((x) => /\d$/.test(x)), 'continent pills with counts: ' + a.pills.join(' | '));
     const n0 = +/in (\d+) place/.exec(a.head)[1], k = a.pills[0].split(':')[1];
     await p.evaluate((k2) => document.querySelector('#regions [data-go="continent"][data-a="' + k2.replace(/"/g, '\\"') + '"]').click(), k); await p.waitForTimeout(1500);
