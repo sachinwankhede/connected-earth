@@ -17,7 +17,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       await new Promise((r) => setTimeout(r, 3000));
       c.renders = renders; c.clicked = btn ? btn.textContent.trim() : null; return c;
     });
-    console.log('DIAG ' + name + ' ' + JSON.stringify(counts));
     await b.close();
+    throw new Error('DIAG ' + name + ' ' + JSON.stringify(counts));
   });
 }
