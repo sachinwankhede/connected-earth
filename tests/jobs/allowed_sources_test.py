@@ -25,12 +25,12 @@ class AllowedSourcesTest(unittest.TestCase):
         self.assertIn('hosts', data, 'build/allowed_sources.json must define hosts')
 
         sources = data['sources']
-        # Per-source licence check for Wikimedia and GBIF: CC0 and CC BY only
+        # Picture rule (#421): Wikimedia CC0, CC BY, CC BY-SA, public domain; GBIF CC0 and CC BY only
         self.assertIn('Wikimedia', sources)
         self.assertEqual(
             sorted(sources['Wikimedia']['allowed_licences']),
-            ['CC BY', 'CC0'],
-            'Wikimedia must only allow CC0 and CC BY'
+            ['CC BY', 'CC BY-SA', 'CC0', 'Public domain'],
+            'Wikimedia allows CC0, CC BY, CC BY-SA and public domain (#421)'
         )
         self.assertIn('GBIF', sources)
         self.assertEqual(

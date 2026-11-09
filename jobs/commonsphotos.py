@@ -13,18 +13,16 @@ import sys, os, re, json, datetime, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
+import licences
 MAN = 'photos/species.json'; MISS = 'photos/species_missing.json'; SRC = 'photos/species_source.json'; TRIED = 'photos/species_commons_tried.json'
 RETRY_DAYS = 90
 ORIG = 'https://upload.wikimedia.org/wikipedia/commons/'
 THUMB = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
-# The open licences allowed for every source (#421): CC0, CC BY, CC BY-SA, public domain. Never NC, ND or GFDL.
-OPEN = re.compile(r'^(CC0|CC[ -]BY([ -]SA)?([ -]\d[\d.]*)?( [A-Za-z]{2,3})?|Public domain|PD)\b', re.I)
-CLOSED = re.compile(r'(^|[ -])(NC|ND)([ -]|$)', re.I)
 NOTPHOTO = re.compile(r'logo|emblem|coat[_ ]of[_ ]arms|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|locator|diagram|[_ -]chart|distribution|range', re.I)
 def is_photo_type(mime):
     """JPEG only: on Commons, PNG, GIF, SVG and TIFF files of a species are mostly maps, diagrams, drawings and scans (the first full run gave a gyre map for 'California Current')."""
     return (mime or '').lower() == 'image/jpeg'
-def open_licence(lic): return bool(lic) and bool(OPEN.match(lic.strip())) and not CLOSED.search(lic)
+def open_licence(lic): return licences.ok('Wikimedia', lic)   # the rule of #421, read from build/allowed_sources.json
 def strip(s): return re.sub(r'<[^>]+>', '', s or '').replace('&amp;', '&').strip()
 def image_names(claims):
     """File names of the P18 claims, preferred rank first, deprecated ones dropped."""

@@ -8,10 +8,11 @@ For each Wikipedia title in photos/species.json (only the species of one place w
 Writes photos/species_hosted.json {title: file name} and adds credits to photos/species_metadata.json. Resumable; polite pace via wm.py."""
 import sys, os, io, re, json, hashlib, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib')); import licences
 OUT = 'photos/species'; HOSTED = 'photos/species_hosted.json'; META = 'photos/species_metadata.json'; SKIPPED = 'photos/species_hosted_skipped.json'
 BASE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
-# Free licences only. Added 2026-11 (#290): Copyrighted free use, No restrictions, Free Art Licence (FAL), KOGL Type 1, LGPL. Anything else stays unhosted.
-FREE = re.compile(r'^(CC[ -]BY(?![ -]N[CD])|CC0|Public domain|PD|GFDL|Attribution|Copyrighted free use|No restrictions|FAL|Free Art Licen[cs]e|KOGL Type 1|LGPL)', re.I)
+# Licence rule (#421): CC0, CC BY, CC BY-SA, public domain, read from build/allowed_sources.json (lib/licences.py). Anything else stays unhosted.
+FREE = licences.matcher('Wikimedia')
 def retry(reason): return reason == 'no licence found' or bool(FREE.match(reason))   # skipped before for a reason a fix may have removed
 def commons_file(u):
     """File name on Commons from a manifest path: relative 'a/ab/Name.jpg/330px-Name.jpg', or an absolute upload.wikimedia.org .../commons/ URL (full size or thumb). None for other wikis."""
