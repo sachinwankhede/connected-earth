@@ -400,8 +400,15 @@ def species_group(tx):
     return 'plants' if k == 'Plantae' else 'fungi' if k == 'Fungi' else 'other'
 
 
-def split_species_tab(sp, common, groupof, pics):
-    """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name}."""
+def order_key(name):
+    """The file-name part of an order ('Carnivora' gives 'carnivora'); species with no order share 'other'."""
+    return re.sub(r'[^a-z0-9]+', '-', (name or '').lower()).strip('-') or 'other'
+
+
+def split_species_tab(sp, common, groupof, pics, orderof=None):
+    """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name};
+    orderof: {Latin name: order name} (#519 level 2). A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
+    g-<group>-<order key>-<n>.json pages; its row in groups.json then carries the number of orders as a fifth value."""
     rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
     files = {'top.json': rows[:TAB_TOP]}; groups = []
     for key, label in TAB_GROUPS:
@@ -409,14 +416,25 @@ def split_species_tab(sp, common, groupof, pics):
         if not g: continue
         pages = [g[i:i + TAB_PAGE] for i in range(0, len(g), TAB_PAGE)]
         for i, pg in enumerate(pages): files['g-%s-%d.json' % (key, i)] = pg
-        groups.append([key, label, len(g), len(pages)])
+        row = [key, label, len(g), len(pages)]
+        if orderof:
+            by = {}
+            for r in g: by.setdefault((orderof.get(r[0]) or '').strip(), []).append(r)
+            if len(by) > 1:
+                olist = []
+                for name, rs in sorted(by.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+                    k = order_key(name); pgs = [rs[i:i + TAB_PAGE] for i in range(0, len(rs), TAB_PAGE)]
+                    for i, pg in enumerate(pgs): files['g-%s-%s-%d.json' % (key, k, i)] = pg
+                    olist.append([k, name or 'Other', len(rs), len(pgs)])
+                files['o-%s.json' % key] = olist; row.append(len(olist))
+        groups.append(row)
     files['groups.json'] = groups
     return files
 
 
-def write_species_tab(sp, common, groupof, pics, pilot):
+def write_species_tab(sp, common, groupof, pics, pilot, orderof=None):
     d = os.path.join(P('api'), 'species-tab-pilot' if pilot else 'species-tab'); os.makedirs(d, exist_ok=True)
-    files = split_species_tab(sp, common, groupof, pics)
+    files = split_species_tab(sp, common, groupof, pics, orderof)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
     for f, obj in files.items():
@@ -526,6 +544,7 @@ def build(pilot, out_path, write=False, places=False):
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
     txf = P('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
+    orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
     common = {l.lower(): c for l, c in spt}; keys = {}
     for e in ecos:
@@ -555,7 +574,7 @@ def build(pilot, out_path, write=False, places=False):
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: add_overlap(webs, ecos, set(links['order']))
     if write: write_webs(webs, about, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
-    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot); write_ties(light, ov[1], pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot, orderof); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     if places: write_journeys(data, pilot)

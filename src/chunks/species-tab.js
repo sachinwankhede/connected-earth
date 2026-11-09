@@ -22,33 +22,41 @@ window.__chunk["species-tab"] = function (A) {
     return d;
   }
   function strip(items) { var l = el("", "prow"); items.forEach(function (x) { l.appendChild(card(x)); }); return l; }   /* sideways, like every photo row (#484) */
-  var rg = document.getElementById("regions");
-  function pills(on) {   /* the groups as sideways pills at the top, like the continents on Places; deeper levels (order, family) go here next (#519) */
-    rg.innerHTML = '<span class="lbl">Browse by group</span>' + [["", "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)]].concat(groups).map(function (g) {
-      return '<button type="button" class="chip' + (g[0] === on ? " on" : "") + '" data-spg="' + g[0] + '">' + escH(g[1]) + " <b>" + g[2] + "</b></button>"; }).join("");
+  var rg = document.getElementById("regions"), ords = {}, cur = "", gen = 0;   /* ords: group key -> its orders [key, name, species, pages] (#519 level 2) */
+  function chip(attr, key, on, text, n) { return '<button type="button" class="chip' + (on ? " on" : "") + '" ' + attr + '="' + key + '">' + escH(text) + (n == null ? "" : " <b>" + n + "</b>") + "</button>"; }
+  function pills(on, g, ok) {   /* one row of pills, like the continents on Places: the groups; inside a group that has orders, its orders with a way back up (#519) */
+    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + chip("data-spg", g[0], !ok, "All " + g[1], g[2]) + ords[g[0]].map(function (o) { return chip("data-spo", o[0], o[0] === ok, o[1], o[2]); }).join(""); return; }
+    rg.innerHTML = '<span class="lbl">Browse by group</span>' + chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)) + groups.map(function (g) { return chip("data-spg", g[0], g[0] === on, g[1], g[2]); }).join("");
   }
-  rg.addEventListener("click", function (ev) { var b = ev.target.closest("[data-spg]"); if (b && !box.hidden) { if (b.getAttribute("data-spg")) openGroup(b.getAttribute("data-spg")); else home(); } });
+  rg.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-spg],[data-spo],[data-spu]"); if (!b || box.hidden) return;
+    if (b.hasAttribute("data-spu")) home(); else if (b.hasAttribute("data-spo")) openGroup(cur, b.getAttribute("data-spo")); else if (b.getAttribute("data-spg")) openGroup(b.getAttribute("data-spg")); else home();
+  });
   function list(items, make) { var l = el("", "sgl"); items.forEach(function (x) { l.appendChild(make(x)); }); return l; }
   function home() {
-    pills(""); box.innerHTML = "<h3>Found in the most places</h3>"; box.appendChild(list(top, row));
+    cur = ""; gen++; pills(""); box.innerHTML = "<h3>Found in the most places</h3>"; box.appendChild(list(top, row));
   }
-  function group(g) {   /* one group: its first page, and "Show more" for the next */
-    var page = 0, shown = 0;
-    pills(g[0]); box.innerHTML = "<h3></h3>";
-    box.querySelector("h3").textContent = g[1] + " · " + g[2];
+  function group(g, ok) {   /* one group, or one order of it: its first page, and "Show more" for the next */
+    var page = 0, shown = 0, my = ++gen, o = ok && (ords[g[0]] || []).filter(function (x) { return x[0] === ok; })[0], total = o ? o[2] : g[2], pre = "g-" + g[0] + "-" + (o ? o[0] + "-" : "");
+    cur = g[0];
+    if (g[4] && !ords[g[0]]) { rg.innerHTML = "";   /* the orders come first, then the row is drawn once */
+      A.Data.speciesTab("o-" + g[0] + ".json").then(function (r) { ords[g[0]] = r; if (my === gen) group(g, ok); }).catch(function () { ords[g[0]] = []; if (my === gen) group(g); }); return; }
+    pills(g[0], g, ok); box.innerHTML = "<h3></h3>";
+    box.querySelector("h3").textContent = g[1] + (o ? " \u203a " + o[1] : "") + " \u00b7 " + total;
     var l = el("", "sgl"), p = el('<a href="#" data-more="1"></a>', "fine"); box.appendChild(l); box.appendChild(p); p.hidden = true;
     function more() {
       var k = page++;
-      A.Data.speciesTab("g-" + g[0] + "-" + k + ".json").then(function (rows) {
+      A.Data.speciesTab(pre + k + ".json").then(function (rows) {
+        if (my !== gen) return;
         rows.forEach(function (r) { l.appendChild(row(r)); }); shown += rows.length;
-        p.hidden = shown >= g[2]; p.firstChild.textContent = "Show " + Math.min(g[2] - shown, 250) + " more ›";
+        p.hidden = shown >= total; p.firstChild.textContent = "Show " + Math.min(total - shown, 250) + " more \u203a";
       }).catch(function () { page = k; p.hidden = false; p.firstChild.textContent = "Could not load. Try again"; });
     }
     p.addEventListener("click", function (ev) { ev.preventDefault(); more(); });
     more();
   }
   var want = null;
-  function openGroup(key) { var g = groups.filter(function (x) { return x[0] === key; })[0]; if (g) group(g); else want = key; }   /* before the groups have loaded, open() does it */
+  function openGroup(key, ok) { var g = groups.filter(function (x) { return x[0] === key; })[0]; if (g) group(g, ok); else want = key; }   /* before the groups have loaded, open() does it */
   function act(t) {
     var d = t.closest(".sgr");
     if (d && d.hasAttribute("data-latin")) A.go(d.getAttribute("data-latin"));
