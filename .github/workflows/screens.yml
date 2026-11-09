@@ -12,7 +12,7 @@ permissions:
   contents: write
   pull-requests: write
 concurrency:
-  group: screens
+  group: screens-${{ github.event.pull_request.number || inputs.ref }}
   cancel-in-progress: false
 jobs:
   shots:
@@ -31,7 +31,7 @@ jobs:
           if [ -d target ]; then mkdir -p target/tests/screens && cp tool/tests/screens/screens.mjs target/tests/screens/ && cp tool/tests/app/helper.mjs target/tests/app/helper.mjs; shopt -s dotglob; rm -rf work; mv target work; else mv tool work; fi
           echo "WORK=$PWD/work" >> "$GITHUB_ENV"
       - uses: actions/setup-node@v5
-        with: { node-version: 22, cache: npm, cache-dependency-path: tool/package-lock.json }
+        with: { node-version: 22, cache: npm, cache-dependency-path: work/package-lock.json }
       - run: npm ci
         working-directory: ${{ env.WORK }}
       - run: npm run build
