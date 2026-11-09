@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.match(h.text, /^Osprey · found in \d+ places · Species page ›$/); assert.equal(h.chip, false);
     assert.equal(await p.evaluate(() => document.querySelectorAll('#cards .why').length), 0, 'the list is by name: no why lines');
     await tap(p, '#qhead a[data-hmap]'); await p.waitForFunction(() => document.querySelector('#qhead.qchip') && !document.getElementById('qhead').hidden && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
-    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›$/, 'map mode: a titled screen (#503)');
+    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›✕$/, 'map mode: a titled screen with a close at its right (#503, 9 Nov)');
     assert.deepEqual(await p.evaluate(() => ({ box: document.getElementById('q').value, mm: document.getElementById('sheet').classList.contains('mm'), tabs: [...document.querySelectorAll('[data-tab]')].some((x) => x.offsetParent) })), { box: '', mm: true, tabs: false }, 'the box is empty and the tabs are hidden while the map mode is on');
     await p.click('#qhead a[data-hx]'); await p.waitForTimeout(800);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey', 'Back returns to the search the map came from');
@@ -59,7 +59,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await headShown(p); await p.waitForFunction(() => document.getElementById('qhead').classList.contains('qchip') && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
-    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›$/);
+    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›✕$/);
     await tap(p, '#qhead a[data-hx]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });   // Back goes to the species page the map came from (#503)
     assert.deepEqual(t.errors, []); await b.close();
@@ -79,6 +79,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const c = await st(); const n1 = +/in (\d+) place/.exec(c.head)[1];
     assert.ok(c.mm && c.shown && c.pills.length >= 1 && c.pills.every((x) => /^country:/.test(x)), 'the next level is countries: ' + JSON.stringify(c));
     assert.ok(n1 <= n0 && n1 === +/(\d+)$/.exec(a.pills[0])[1], 'the title count follows the pill: ' + n0 + ' -> ' + n1 + ' for ' + a.pills[0]);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
+  test(`${name}: map mode has a ✕ that goes home, and the region trail sits between the title and the pills (9 Nov)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
+    await answered(p, 'osprey'); await headShown(p);
+    await tap(p, '#qhead a[data-hmap]');
+    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await p.waitForTimeout(2000);
+    assert.equal(await p.evaluate(() => !!document.querySelector('#qhead [data-hclose]')), true, 'a close sits on the title row');
+    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await p.waitForTimeout(1500);   // a continent: the trail now has World
+    const y = await p.evaluate(() => { const r = (id) => { const e = document.getElementById(id); return e && !e.hidden ? e.getBoundingClientRect() : null; }, h = r('qhead'), tr = r('qtrail'), rg = r('regions'), sr = document.getElementById('srow'); return { h: h && Math.round(h.bottom), tt: tr && Math.round(tr.top), tb: tr && Math.round(tr.bottom), rt: rg && Math.round(rg.top), text: tr ? tr.width && document.getElementById('qtrail').textContent : '', srowShows: [...sr.children].some((c) => c.offsetParent) }; });
+    assert.ok(y.tt != null && y.h <= y.tt + 2 && y.tb <= y.rt + 2, 'the trail is below the title row and above the pills: ' + JSON.stringify(y)); assert.match(y.text, /^World›/); assert.equal(y.srowShows, false, 'and not at the top');
+    await p.evaluate(() => document.querySelector('#qhead [data-hclose]').click()); await p.waitForTimeout(1200);
+    const home = await p.evaluate(() => ({ mm: document.getElementById('sheet').classList.contains('mm'), q: document.getElementById('q').value, tab: window.__M.tab, trail: !!(document.getElementById('qtrail') && document.getElementById('qtrail').offsetParent) }));
+    assert.deepEqual(home, { mm: false, q: '', tab: 'places', trail: false }, 'the close leaves map mode, clears the search and shows the Places tab');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
