@@ -3,6 +3,7 @@
 Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the work. For what is running right now, read the issue "Project status" (refreshed daily) or run `bash jobs/status.sh`. Rules for the code and the jobs are in `CLAUDE.md`, `docs/DESIGN.md`, `docs/PROMOTION.md` and `docs/JOURNEYS.md`.
 
 ## How we work (decisions)
+- **Screens (#566):** a pull request that changes how a screen looks adds or updates that screen's scenario in `tests/screens/screens.mjs` in the same PR (like a test); the `screens` workflow comments the picture and lists skipped scenarios; the agent looks at the picture (from the `screens` branch) before asking for a merge and says what it saw. Desktop Chromium at a phone size, so the owner's iPhone check stays the last step.
 - Short replies; Sachin tests on a real iPhone.
 - Discuss the design before building a workflow or scheduled job. Run one job by hand first to judge quality and timing, then choose a schedule.
 - Merging to main follows the tier policy in `CLAUDE.md`: the agent merges data PRs, UX changes, `jobs/` and `lib/` code, and docs on green `gate`; speed app changes on green `gate` and `perf-ab`; deleting branches or previews is Sachin's call.

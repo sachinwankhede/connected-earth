@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
-        with: { path: tool }
+        with: { path: tool, fetch-depth: 0 }
       - uses: actions/checkout@v5
         if: inputs.ref != ''
         with: { ref: '${{ inputs.ref }}', path: target }
@@ -56,7 +56,7 @@ jobs:
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
           if git fetch -q --depth=1 origin screens 2>/dev/null; then git checkout -q -B screens FETCH_HEAD; else git checkout -q --orphan screens; fi
-          D="pr-${PR}"; [ -z "$PR" ] && D="ref-$(echo "$REFIN" | tr -c 'A-Za-z0-9._-' '-')"
+          D="pr-${PR}"; [ -z "$PR" ] && D="ref-$(printf %s "$REFIN" | tr -c 'A-Za-z0-9._-' '-')"
           rm -rf "$D"; mkdir -p "$D"; cp "$WORK"/screens-out/*.png "$D/" 2>/dev/null || true
           cp "$WORK/screens-out/index.txt" "$D/index.txt"
           git add -A; git commit -q --amend --no-edit 2>/dev/null || git commit -q -m "screens"   # one commit holds everything
@@ -64,7 +64,10 @@ jobs:
           [ -z "$PR" ] && exit 0
           body="<!-- screens-comment -->"$'\n'"### Screens at 390 x 844 (commit ${SHA:0:7})"$'\n\n'
           for f in "$D"/*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/${D}/${n}.png?raw=true)"$'\n\n'; done
-          body+="Skipped or failed screens: see \`index.txt\` on the \`screens\` branch. Desktop Chromium at a phone size, not iOS Safari."
+          skips=$(grep '^skip' "$D/index.txt" || true)
+          [ -n "$skips" ] && body+="**Skipped (no picture):**"$'\n'"\`\`\`"$'\n'"${skips}"$'\n'"\`\`\`"$'\n\n'
+          if git -C "$GITHUB_WORKSPACE/work" diff --name-only "origin/main...HEAD" 2>/dev/null | grep -q '^src/' && ! git -C "$GITHUB_WORKSPACE/work" diff --name-only "origin/main...HEAD" 2>/dev/null | grep -q '^tests/screens/'; then body+="**This pull request changes \`src/\` but not \`tests/screens/\`: if it changes what a screen looks like, add or update its scenario so the picture shows the change.**"$'\n\n'; fi
+          body+="Desktop Chromium at a phone size, not iOS Safari. Pictures are on the \`screens\` branch."
           cd "$GITHUB_WORKSPACE"
           # edit our own comment (found by its marker; the perf comment has the same author, so --edit-last would hit the wrong one) or add one
           id=$(gh api "repos/${REPO}/issues/${PR}/comments" --paginate --jq '.[] | select(.body | startswith("<!-- screens-comment -->")) | .id' | head -1)
