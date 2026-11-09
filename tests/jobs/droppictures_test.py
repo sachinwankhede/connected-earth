@@ -28,4 +28,17 @@ class DropTests(unittest.TestCase):
         self.assertEqual(t, '{\n"Gu\u00e9": "a.webp"\n}')   # one entry per line, accents as typed: the layout hostphotos.py writes
     def test_gbif_page_uses_gbif_rule(self):
         self.assertEqual(D.source_of({'p': 'https://www.gbif.org/occurrence/1'}), 'GBIF')
+class PlaceTests(unittest.TestCase):
+    def test_places(self):
+        r = tempfile.mkdtemp(); pd = os.path.join(r, 'photos', 'places'); os.makedirs(pd)
+        for f in ('a.jpg', 'b.jpg', 'c.jpg'): open(os.path.join(pd, f), 'w').write('x')
+        json.dump({'Good': {'f': 'a.jpg', 'l': 'CC BY-SA 2.0'}, 'Bad': {'f': 'b.jpg', 'l': 'GFDL 1.2'}, 'Vague': {'f': 'c.jpg', 'l': 'See file page'}}, open(os.path.join(pd, 'places.json'), 'w')); json.dump({}, open(os.path.join(pd, 'missing.json'), 'w'))
+        bad, c = D.drop_places(r, True); self.assertEqual(bad, ['Bad', 'Vague']); self.assertTrue(os.path.exists(os.path.join(pd, 'b.jpg')))
+        D.drop_places(r)
+        self.assertEqual(list(json.load(open(os.path.join(pd, 'places.json')))), ['Good']); self.assertFalse(os.path.exists(os.path.join(pd, 'b.jpg'))); self.assertTrue(os.path.exists(os.path.join(pd, 'a.jpg')))
+        m = json.load(open(os.path.join(pd, 'missing.json'))); self.assertEqual(sorted(m), ['Bad', 'Vague']); self.assertEqual(m['Bad']['status'], 'notfree')
+    def test_place_job_uses_the_rule(self):   # jobs/photos.py talks to the network, so the test reads its source
+        src = open(os.path.join(ROOT, 'jobs', 'photos.py')).read()
+        self.assertIn("licences.ok('Wikimedia'", src); self.assertIn("return 'notfree'", src)
+        import photo_registry; self.assertEqual(photo_registry.failure_class('notfree'), 'permanent')
 if __name__ == '__main__': unittest.main()
