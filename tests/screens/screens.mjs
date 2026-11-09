@@ -19,7 +19,7 @@ try {
   });
   await step('species tab', async () => {
     const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.locator('[data-tab="species"]').first().click({ timeout: 8000 }); await p.waitForSelector('#sptab:not([hidden])', { timeout: 30000 }); await shot(p, '02-species-tab');
+    await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click())); await p.waitForSelector('#sptab:not([hidden])', { timeout: 30000 }); await shot(p, '02-species-tab');
   });
   await step('map mode', async () => {
     const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;

@@ -6,6 +6,8 @@ on:
   pull_request:
     paths: ['src/**', 'build/**', 'tests/screens/**', 'tests/app/helper.mjs', 'package*.json', '.github/workflows/screens.yml']
   workflow_dispatch:
+    inputs:
+      ref: { description: 'Branch to take the pictures of (no comment is made; the pictures go to the screens branch under ref-<name>)', required: true }
 permissions:
   contents: write
   pull-requests: write
@@ -20,6 +22,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
+        with: { ref: '${{ inputs.ref || github.sha }}' }
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
@@ -30,10 +33,10 @@ jobs:
         env:
           CI: "1"
       - name: Keep them on the screens branch and comment
-        if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           PR: ${{ github.event.pull_request.number }}
+          REFIN: ${{ inputs.ref }}
           SHA: ${{ github.event.pull_request.head.sha }}
           REPO: ${{ github.repository }}
         run: |
@@ -42,12 +45,14 @@ jobs:
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
           if git fetch -q --depth=1 origin screens 2>/dev/null; then git checkout -q -B screens FETCH_HEAD; else git checkout -q --orphan screens; fi
-          rm -rf "pr-${PR}"; mkdir -p "pr-${PR}"; cp "$GITHUB_WORKSPACE"/screens-out/*.png "pr-${PR}/" 2>/dev/null || true
-          cp "$GITHUB_WORKSPACE/screens-out/index.txt" "pr-${PR}/index.txt"
+          D="pr-${PR}"; [ -z "$PR" ] && D="ref-$(echo "$REFIN" | tr -c 'A-Za-z0-9._-' '-')"
+          rm -rf "$D"; mkdir -p "$D"; cp "$GITHUB_WORKSPACE"/screens-out/*.png "$D/" 2>/dev/null || true
+          cp "$GITHUB_WORKSPACE/screens-out/index.txt" "$D/index.txt"
           git add -A; git commit -q --amend --no-edit 2>/dev/null || git commit -q -m "screens"   # one commit holds everything
           git push -q --force origin HEAD:screens
+          [ -z "$PR" ] && exit 0
           body="<!-- screens-comment -->"$'\n'"### Screens at 390 x 844 (commit ${SHA:0:7})"$'\n\n'
-          for f in "pr-${PR}"/*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/pr-${PR}/${n}.png?raw=true)"$'\n\n'; done
+          for f in "$D"/*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/${D}/${n}.png?raw=true)"$'\n\n'; done
           body+="Skipped or failed screens: see \`index.txt\` on the \`screens\` branch. Desktop Chromium at a phone size, not iOS Safari."
           cd "$GITHUB_WORKSPACE"
           # edit our own comment (found by its marker; the perf comment has the same author, so --edit-last would hit the wrong one) or add one
