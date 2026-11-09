@@ -1,0 +1,54 @@
+name: screens
+# Screenshots of key screens at a phone size for every pull request that changes the app (#566). Informational: it never blocks a merge and is not part of `gate`.
+# It builds the pages, takes the pictures with tests/screens/screens.mjs, keeps them on the `screens` branch (one folder per pull request, one commit holding everything,
+# so the branch does not grow) and comments the pictures on the pull request. Chromium here is desktop Chromium at a phone size, not iOS Safari: a real iPhone check stays the last step.
+on:
+  pull_request:
+    paths: ['src/**', 'build/**', 'tests/screens/**', 'tests/app/helper.mjs', 'package*.json', '.github/workflows/screens.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: screens
+  cancel-in-progress: false
+jobs:
+  shots:
+    # a pull request from a fork has a read-only token: skip it
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - run: npx playwright install --with-deps chromium
+      - name: Take the pictures
+        run: node tests/screens/screens.mjs screens-out
+        env:
+          CI: "1"
+      - name: Keep them on the screens branch and comment
+        if: github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir ../keep && cd ../keep && git init -q && git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          if git fetch -q --depth=1 origin screens 2>/dev/null; then git checkout -q -B screens FETCH_HEAD; else git checkout -q --orphan screens; fi
+          rm -rf "pr-${PR}"; mkdir -p "pr-${PR}"; cp "$GITHUB_WORKSPACE"/screens-out/*.png "pr-${PR}/" 2>/dev/null || true
+          cp "$GITHUB_WORKSPACE/screens-out/index.txt" "pr-${PR}/index.txt"
+          git add -A; git commit -q --amend --no-edit 2>/dev/null || git commit -q -m "screens"   # one commit holds everything
+          git push -q --force origin HEAD:screens
+          body="<!-- screens-comment -->"$'\n'"### Screens at 390 x 844 (commit ${SHA:0:7})"$'\n\n'
+          for f in "pr-${PR}"/*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/pr-${PR}/${n}.png?raw=true)"$'\n\n'; done
+          body+="Skipped or failed screens: see \`index.txt\` on the \`screens\` branch. Desktop Chromium at a phone size, not iOS Safari."
+          cd "$GITHUB_WORKSPACE"
+          # edit our own comment (found by its marker; the perf comment has the same author, so --edit-last would hit the wrong one) or add one
+          id=$(gh api "repos/${REPO}/issues/${PR}/comments" --paginate --jq '.[] | select(.body | startswith("<!-- screens-comment -->")) | .id' | head -1)
+          if [ -n "$id" ]; then gh api -X PATCH "repos/${REPO}/issues/comments/${id}" -f body="$body" >/dev/null; else gh api -X POST "repos/${REPO}/issues/${PR}/comments" -f body="$body" >/dev/null; fi
