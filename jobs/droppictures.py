@@ -29,7 +29,9 @@ def drop(root, dry=False):
         d['species_missing'][t] = 'nophoto'
     for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried'):
         p = os.path.join(root, P[n])
-        if os.path.exists(p) or n in ('species_missing',): json.dump(d[n], open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'), sort_keys=(n in ('species_source', 'species_commons_tried', 'species_gbif_tried')))
+        if not (os.path.exists(p) or n == 'species_missing'): continue
+        if n in ('species_metadata', 'species_hosted', 'species_large'): json.dump(d[n], open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layout hostphotos.py and largephotos.py write
+        else: json.dump(d[n], open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'), sort_keys=(n in ('species_source', 'species_commons_tried', 'species_gbif_tried')))   # the layout commonsphotos.py writes
     return bad, counts
 if __name__ == '__main__':
     bad, counts = drop(ROOT, '--dry' in sys.argv)
