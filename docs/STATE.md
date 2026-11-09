@@ -86,7 +86,7 @@ One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash j
 ## Waiting on the owner (last known, 9 Nov)
 - #557 (owner-merged): Openverse added to `build/allowed_sources.json`. After he merges it, hand-run an Openverse job on 20 species and print results for his judgement (stop and ask if it needs a key or another host); PhyloPic for leftovers (#511 stays open).
 - #563: repo split decision. Recommendation: not now; merge queue first (needs a `merge_group` trigger in `ci.yml`, owner-merged), split only `photos/` if size keeps growing.
-- Phone checks: #503 (map mode: close, trail under the title, top spacing, #554), #509, #526, #527, #537, #519 level 2 (order pills, #552; level 1 verified). #313 and #407 to verify or explain.
+- Phone checks: #503 (map mode: close, ‹ and All pills in the one row, top spacing, #568), #509, #526, #527, #537, #519 level 2 (order pills, #552; level 1 verified). #313 and #407 to verify or explain.
 - #520 (map flicker) details from iPhone testing.
 - #195 pick parks; #196 go-ahead for the first batch of about 40 stories.
 - #148 two more park outlines; #141 world-parks candidate list.
@@ -96,7 +96,7 @@ One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash j
 - Pictures follow the #421 rule: 59 species and 35 place pictures outside it removed (#550, #551, #553); `jobs/photos.py` and the species job apply `licences.ok`, status `notfree` (permanent, 180 days). #421 closed.
 - #456: 12 wrong eating links of fish-eating birds dropped (`jobs/droplinks.py`, #556). Limit: a GloBI rebuild could bring one back; a deny list in `build/diets.py` is the follow-up. #456 closed.
 - #519 level 2: order pills inside a group (#552); DESIGN.md updated (#555). Family level is next.
-- Map mode: close at the right of the title row, region trail under the title, nothing above the title (#554); CSS lives in the lazy chunk `species-tab.js` (18.2 of 20 KB).
+- Map mode (#568, 9 Nov): close at the right of the title row, no breadcrumb line; the region path is the first pills of the one pill row (‹ parent, All <region> N, then the children), nothing above the title; CSS lives in the lazy chunk `species-tab.js` (18.8 of 20 KB). DESIGN.md wording follows in an owner-merged docs PR.
 - #395 split into #558 to #562 (latency ideas, `status:idea`). #493, #449, #443, #528 closed.
 - Flaky: `suggest.test.mjs` history.back (re-run once passed). A merge to main makes other open PRs stale (strict up-to-date), see #563.
 
