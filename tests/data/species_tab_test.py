@@ -55,15 +55,31 @@ class SpeciesTab(unittest.TestCase):
         self.assertEqual(f['groups.json'], [['plants', 'Plants', len(big), 3]]); self.assertEqual(len(f['g-plants-2.json']), 1)
         self.assertEqual(len(f['top.json']), B.TAB_TOP)
 
+    def test_orders_inside_a_group(self):   # #519 level 2
+        sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1'], 'E e': ['p1']}
+        g = {l: 'birds' for l in sp}; g['E e'] = 'plants'
+        f = B.split_species_tab(sp, {}, g, {}, {'A a': 'Strigiformes', 'B b': 'Passeriformes', 'C c': 'Passeriformes', 'D d': '', 'E e': 'Pinales'})
+        self.assertEqual(f['groups.json'], [['birds', 'Birds', 4, 1, 3], ['plants', 'Plants', 1, 1]], 'a group with one order gets no order row')
+        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Passeriformes', 2, 1], ['other', 'Other', 1, 1], ['strigiformes', 'Strigiformes', 1, 1]], 'most species first, then by name')
+        self.assertEqual([r[0] for r in f['g-birds-passeriformes-0.json']], ['C c', 'B b']); self.assertNotIn('o-plants.json', f)
+        self.assertEqual(B.order_key('Carnivora'), 'carnivora'); self.assertEqual(B.order_key(None), 'other')
+        self.assertNotIn('g-birds-pinales-0.json', f)
+        self.assertEqual(B.split_species_tab(sp, {}, g, {})['groups.json'][0], ['birds', 'Birds', 4, 1], 'no orders given: as before')
+
     def test_built_files_add_up(self):
         for d in ('species-tab', 'species-tab-pilot'):
             p = os.path.join(ROOT, 'api', d)
             if not os.path.isdir(p): continue
             groups = json.load(open(os.path.join(p, 'groups.json'))); seen = set()
-            for key, label, n, pages in groups:
+            for key, label, n, pages, *no in groups:
                 rows = [r for i in range(pages) for r in json.load(open(os.path.join(p, 'g-%s-%d.json' % (key, i))))]
                 self.assertEqual(len(rows), n, key); seen |= {r[0] for r in rows}
                 self.assertEqual(rows, sorted(rows, key=lambda r: (-r[2], r[1].lower(), r[0])), key + ' is in order')
+                if no:   # #519 level 2: the orders of a group hold each of its species once, in the same order
+                    ol = json.load(open(os.path.join(p, 'o-%s.json' % key))); self.assertEqual(len(ol), no[0]); self.assertGreater(len(ol), 1)
+                    orows = [r for k, name, c, pg in ol for i in range(pg) for r in json.load(open(os.path.join(p, 'g-%s-%s-%d.json' % (key, k, i))))]
+                    self.assertEqual(sorted(r[0] for r in orows), sorted(r[0] for r in rows), key + ': every species is in exactly one order')
+                    self.assertEqual([o[2] for o in ol], sorted((o[2] for o in ol), reverse=True), 'most species first')
             self.assertEqual(len(seen), sum(g[2] for g in groups), 'no species in two groups')
             top = json.load(open(os.path.join(p, 'top.json'))); self.assertEqual(len(top), B.TAB_TOP)
             self.assertTrue(all(r[0] in seen for r in top)); self.assertEqual([r[2] for r in top], sorted((r[2] for r in top), reverse=True))
