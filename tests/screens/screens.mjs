@@ -26,6 +26,14 @@ export const SCENARIOS = {
     const kid = () => p.locator('#regions [data-go]:not(.leadg *)').first();
     await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('country');
     if (await kid().count()) { await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('state'); } } },
+  'places-regions': { shows: 'the Places tab with no search: world, a continent, a country and a US state picked from the pill row (the sheet title and the pills)', run: async (p, shot) => {
+    const ready = () => p.waitForFunction(() => { const e = document.getElementById('boot'); const c = e && getComputedStyle(e); return (!e || c.display === 'none' || c.visibility === 'hidden' || +c.opacity === 0) && document.querySelectorAll('#regions [data-go]').length > 0 && document.querySelectorAll('#cards .card').length > 0; }, null, { timeout: 60000 });
+    const kid = () => p.locator('#regions [data-go]').first();
+    const pick = async () => { await kid().click({ timeout: 4000 }).catch(() => p.evaluate(() => document.querySelector('#regions [data-go]').click())); await p.waitForTimeout(1500); await ready(); };
+    await ready(); await shot('world');
+    await pick(); await shot('continent');
+    await pick(); await shot('country');
+    if (await kid().count()) { await pick(); await shot('state'); } } },
   'species-tab': { shows: 'the Species tab: the most common species and the groups', run: async (p, shot) => {
     await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
     await p.waitForSelector('#sptab:not([hidden])', { timeout: 30000 }); await shot(''); } },
