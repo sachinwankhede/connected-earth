@@ -6,6 +6,7 @@ import sys,os,re,json,glob,time,html,urllib.request,urllib.parse,datetime
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0,os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'lib'))
+import licences
 from photo_registry import ALLOWED_IMAGE_HOSTS, cache_active, failure_class, negative_entry, safe_https
 def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
@@ -20,13 +21,18 @@ def one(i,title,out,man):
     if not m: return 'notcommons'
     fn=urllib.parse.unquote(m.group(1)); path=os.path.join(out,i+'.jpg')
     if NOTPHOTO.search(fn): return 'notphoto'
-    if not os.path.exists(path):
+    made=not os.path.exists(path)
+    if made:
         b=get(th['source'],raw=True)
         if not b: return 'nodl'
         open(path,'wb').write(b)
     q=get('https://en.wikipedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata&format=json&titles='+urllib.parse.quote('File:'+fn))
     md=(list((q or {}).get('query',{}).get('pages',{}).values()) or [{}])[0].get('imageinfo',[{}])[0].get('extmetadata',{})
     v=lambda k: strip((md.get(k) or {}).get('value'))
+    lic=v('LicenseShortName')
+    if not licences.ok('Wikimedia',lic):   # the picture licence rule (#421): CC0, CC BY, CC BY-SA, public domain; anything else, or no licence given, is not kept
+        if made: os.remove(path)
+        return 'notfree'
     now=datetime.datetime.now(datetime.timezone.utc).isoformat()
     man[title]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')),checkedAt=now,fetchedAt=now)
     return 'ok'

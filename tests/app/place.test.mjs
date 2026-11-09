@@ -41,7 +41,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     let r = await p.evaluate(() => ({ img: document.querySelectorAll('#pgraph image').length, gl: [...document.querySelectorAll('#pgraph .pn .gl')].filter((g) => g.getBoundingClientRect().width > 0).length }));
     assert.equal(r.img, 0); assert.ok(r.gl >= 25, 'icons shown');
     // photos available
-    await mockPhotos(p);
+    await mockPhotos(p, { allPlaces: true });
     await p.evaluate(() => window.__M.showPlace('serengeti')); await ready(p);
     await p.waitForFunction(() => document.querySelectorAll('#pgraph image').length >= 15, null, { timeout: 30000 });
     await p.waitForFunction(() => document.querySelectorAll('.prow .pmc:not(.ppc) .pph img').length >= document.querySelectorAll('.prow .pmc:not(.ppc)').length, null, { timeout: 30000 });
