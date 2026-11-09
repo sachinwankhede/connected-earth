@@ -2,11 +2,13 @@
 """draft.py <id>|all : species near each park (GBIF) + what each animal eats (GloBI), cached. Writes drafts/<id>.json"""
 import sys,json,math,subprocess,urllib.parse,os,csv,io,hashlib
 from concurrent.futures import ThreadPoolExecutor
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here=os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))  # work dir holds cache/ drafts/ parks.json
-def curl(u):
+def getu(u):
     for _ in range(3):
-        r=subprocess.run(['curl','-sS','-f','-m','90',u],capture_output=True)
-        if r.returncode==0: return r.stdout.decode('utf8','replace')
+        try: return fetch.fetch_text(u, timeout=90, encoding='utf8')
+        except PermissionError: raise
+        except Exception: pass
     return None
 def cached(key,fn):
     p=os.path.join(here,'cache',hashlib.md5(key.encode()).hexdigest()+'.json')
@@ -24,14 +26,14 @@ def circ(lat,lon,rad):
     return 'POLYGON(('+','.join('%.4f %.4f'%p for p in pts)+'))'
 def sp(k):
     def f():
-        t=curl('https://api.gbif.org/v1/species/%s'%k)
+        t=getu('https://api.gbif.org/v1/species/%s'%k)
         if not t: return None
         d=json.loads(t); return {'name':d.get('canonicalName') or d.get('species'),'common':d.get('vernacularName'),'family':d.get('family'),'order':d.get('order'),'cls':d.get('class'),'genus':d.get('genus')}
     return k,cached('sp'+str(k),f)
 def eats(n):
     def f():
         u='https://api.globalbioticinteractions.org/interaction?sourceTaxon=%s&interactionType=eats&field=source_taxon_name&field=target_taxon_name&field=target_taxon_path&limit=1500&type=csv'%urllib.parse.quote(n)
-        t=curl(u)
+        t=getu(u)
         if t is None: return None
         rows=list(csv.reader(io.StringIO(t)))[1:]
         names=set()
@@ -50,7 +52,7 @@ def run(p):
             wkt=circ(la,lo,p['radius'])
             u='https://api.gbif.org/v1/occurrence/search?limit=0&hasCoordinate=true&occurrenceStatus=PRESENT&taxonKey=%d&geometry=%s&facet=speciesKey&facetLimit=%d'%(G[g],urllib.parse.quote(wkt),LIM[g])
             key='facet%s%s'%(p['id'],g) if len(pts)==1 else 'facet%s%s%.4f%.4f'%(p['id'],g,lo,la)
-            t=cached(key,lambda:curl(u) and json.loads(curl(u)))
+            t=cached(key,lambda:getu(u) and json.loads(getu(u)))
             f=(t or {}).get('facets',[{}])
             for c in (f[0].get('counts',[]) if f else []): tot[c['name']]=tot.get(c['name'],0)+c['count']
         return g,sorted(tot.items(),key=lambda x:-x[1])[:LIM[g]]

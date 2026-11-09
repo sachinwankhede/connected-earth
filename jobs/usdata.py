@@ -1,4 +1,5 @@
 import json,math,urllib.request,urllib.parse,concurrent.futures as cf
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 C=json.load(open('us_candidates.json'))
 def circ(la,lo,r):
     pts=[]
@@ -11,7 +12,7 @@ def n(u):
     q=urllib.parse.urlencode(dict(geometry=circ(la,lo,r),hasCoordinate='true',limit=0,facet='speciesKey',facetLimit=200,**{'taxonKey':'1'}))
     for t in range(3):
         try:
-            d=json.load(urllib.request.urlopen('https://api.gbif.org/v1/occurrence/search?'+q+'&kingdomKey=1',timeout=60))
+            d=json.load(fetch.urlopen('https://api.gbif.org/v1/occurrence/search?'+q+'&kingdomKey=1',timeout=60))
             f=d['facets'][0]['counts'];u['nsp']=len(f);return u
         except Exception as e: u['err']=str(e)
     u['nsp']=-1;return u

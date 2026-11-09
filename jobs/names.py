@@ -3,11 +3,12 @@
 Uses the Wikipedia page title (it is the common name when one exists) and GBIF's English vernacular names.
 Writes jobs/names.json  {latin: common}. Usage: names.py latin1 latin2 ... | names.py --from-data data/places"""
 import re,sys,json,os,glob,urllib.request,urllib.parse,time
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here=os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0,os.path.join(os.path.dirname(here),'build')); import species; P=os.path.join(here,'names.json')
 UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 def get(u):
     for k in range(5):
-        try: return json.loads(urllib.request.urlopen(urllib.request.Request(u,headers=UA),timeout=30).read())
+        try: return json.loads(fetch.urlopen(urllib.request.Request(u,headers=UA),timeout=30).read())
         except urllib.error.HTTPError as e:
             if e.code==429: time.sleep(5*(k+1)); continue
             if e.code==404: return None

@@ -85,5 +85,6 @@
     "www.gbif.org",
     "www.globalbioticinteractions.org",
     "www.wikidata.org"
-  ]
+  ],
+  "licence_note": "lib/fetch.py enforces hosts only. Each job enforces its own licences (jobs/commonsphotos.py OPEN, jobs/gbifphotos.py, jobs/hostphotos.py FREE); this list documents the owner's rule."
 }

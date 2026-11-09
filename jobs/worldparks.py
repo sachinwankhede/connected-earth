@@ -8,6 +8,7 @@ Parks under 5 km2 are dropped (forts, museums and city parks that Wikidata files
 Parks we already have (same Wikipedia article, same name, or a place within 5 km) are marked 'have'. Writes
 jobs/reports/worldparks.json (the list) and prints a markdown report. Only a list: no place files are made here."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species
 UA = 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'
@@ -26,7 +27,7 @@ def sparql(q):
     for t in range(5):
         try:
             r = urllib.request.Request('https://query.wikidata.org/sparql?format=json&query=' + urllib.parse.quote(q), headers={'User-Agent': UA, 'Accept': 'application/sparql-results+json'})
-            return json.load(urllib.request.urlopen(r, timeout=120))['results']['bindings']
+            return json.load(fetch.urlopen(r, timeout=120))['results']['bindings']
         except Exception as ex:
             print('retry', t, ex, file=sys.stderr); time.sleep(10 * (t + 1))
     return None

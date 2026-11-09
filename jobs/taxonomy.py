@@ -9,6 +9,7 @@ RETRY_REVIEW=1 looks at the whole review list again; REDO=sid,sid looks at those
 When the match service cannot decide, a name search is tried (match `name-search`).
 Groups and resources get no taxonomy. Nothing here touches the species rows, the built pages or api/."""
 import datetime, json, os, sys, time, urllib.error, urllib.parse, urllib.request
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 OUT = os.path.join(ROOT, 'data', 'species', 'taxonomy.json')
@@ -85,7 +86,7 @@ def by_name(row, tries=4):
     url = 'https://api.gbif.org/v1/species?' + urllib.parse.urlencode({'name': row['latin'], 'datasetKey': BACKBONE, 'limit': 50})
     for n in range(tries):
         time.sleep(GAP)
-        try: return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()).get('results', [])
+        try: return json.loads(fetch.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()).get('results', [])
         except urllib.error.HTTPError as e:
             if e.code == 429: time.sleep(20 * (n + 1)); continue
             if e.code >= 500: time.sleep(5 * (n + 1)); continue
@@ -99,7 +100,7 @@ def gbif(name, kingdom=None, tries=4):
     url = 'https://api.gbif.org/v1/species/match?' + urllib.parse.urlencode(q)
     for n in range(tries):
         time.sleep(GAP)
-        try: return json.loads(urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read())
+        try: return json.loads(fetch.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read())
         except urllib.error.HTTPError as e:
             if e.code == 429: time.sleep(20 * (n + 1)); continue
             if e.code >= 500: time.sleep(5 * (n + 1)); continue

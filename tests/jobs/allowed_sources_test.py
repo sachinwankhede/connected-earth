@@ -132,5 +132,21 @@ class AllowedSourcesTest(unittest.TestCase):
         self.assertIn('fetch.urlopen', content, 'jobs/wm.py must route downloads through fetch.urlopen')
 
 
+    def test_no_download_bypasses_the_guard(self):
+        """Every download goes through lib/fetch.py, which refuses unlisted hosts when the script runs. A script that opens the network itself would skip that."""
+        exempt = {os.path.join('build', 'live_check.py')}   # checks our own live site, not a data source
+        pat = re.compile(r'urlopen|urlretrieve|\brequests\.|http\.client|socket\.create_connection|\bcurl\b|\bwget\b')
+        bad = []
+        files = sorted(glob.glob(os.path.join(ROOT, 'jobs', '*.py')) + glob.glob(os.path.join(ROOT, 'jobs', '*.sh')) + glob.glob(os.path.join(ROOT, 'build', '*.py')) + glob.glob(os.path.join(ROOT, 'lib', '*.py')))
+        for p in files:
+            rel = os.path.relpath(p, ROOT)
+            if rel in exempt or rel == os.path.join('lib', 'fetch.py'):
+                continue
+            for n, line in enumerate(open(p, encoding='utf-8'), 1):
+                code = line.split('#', 1)[0]
+                if pat.search(code) and 'fetch.urlopen' not in code:
+                    bad.append('%s:%d: %s' % (rel, n, line.strip()[:100]))
+        self.assertEqual(bad, [], 'Open the network through lib/fetch.py (fetch.urlopen, fetch_json, fetch_bytes), not directly: %r' % bad)
+
 if __name__ == '__main__':
     unittest.main()
