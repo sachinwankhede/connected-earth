@@ -1,0 +1,4 @@
+ok   01-home
+ok   02-species-tab
+ok   03-map-mode
+ok   04-map-mode-continent
