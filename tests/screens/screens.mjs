@@ -44,11 +44,20 @@ const b = await H.launch();
 try {
   for (const [name, sc] of Object.entries(SCENARIOS)) {
     if (only.length && !only.includes(name)) continue;
-    try {
-      const p = await open(b);
-      await sc.run(p, async (label) => { await p.waitForTimeout(800); const f = name + (label ? '-' + label : ''); await p.screenshot({ path: path.join(out, f + '.png') }); notes.push('ok   ' + f + '  (' + sc.shows + ')'); });
-    } catch (e) { notes.push('skip ' + name + ': ' + String(e.message || e).split('\n')[0].slice(0, 160)); }
-    await b.close?.();   // each scenario gets a fresh context
+    // a picture counts only when the loading screen (#boot) is gone; a scenario that fails or shows it is tried once more, then listed as skipped
+    const bootGone = (p) => p.waitForFunction(() => { const e = document.getElementById('boot'); if (!e) return true; const c = getComputedStyle(e); return e.offsetParent === null || c.visibility === 'hidden' || c.display === 'none' || +c.opacity === 0; }, null, { timeout: 20000 });
+    let err = null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const got = [];
+      try {
+        const p = await open(b); await bootGone(p);
+        await sc.run(p, async (label) => { await bootGone(p); await p.waitForTimeout(800); const f = name + (label ? '-' + label : ''); await p.screenshot({ path: path.join(out, f + '.png') }); got.push('ok   ' + f + '  (' + sc.shows + ')'); });
+        notes.push(...got); err = null; break;
+      } catch (e) { err = 'skip ' + name + ': ' + String(e.message || e).split('\n')[0].slice(0, 160); }
+      await b.close?.();   // each attempt gets a fresh context
+    }
+    if (err) notes.push(err);
+    await b.close?.();
   }
 } finally { await b.close?.(); }
 fs.writeFileSync(path.join(out, 'index.txt'), notes.join('\n') + '\n');
