@@ -12,7 +12,7 @@
     if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
   }
   /* Place photos are loaded only from the approved local manifest. */
-  /* pictures wait until the map has drawn (or the person touches the page, or 9 seconds pass): on a slow connection they were competing with the map's own tiles */
+  /* pictures wait for the map (or a touch, or 9 s): they competed with its tiles */
   M.photoGo = false; var HELD = [];
   M.loadD3 = loadD3;   /* the tests start the library download by hand */
   M.releasePhotos = function () {

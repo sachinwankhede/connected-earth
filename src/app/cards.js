@@ -71,7 +71,7 @@
     el.eco.addEventListener("change", function () { showWeb(el.eco.value); });
   }
   var NOTE = {};
-  function tabCount(t, n) {   /* while a search is on every tab says how many it found: on its label and in one note line under the tabs, in the same words on all three (#443, #449) */
+  function tabCount(t, n) {   /* during a search every tab says how many it found, on its label and in one note line (#443, #449) */
     Array.prototype.forEach.call(document.querySelectorAll('[data-tab="' + t + '"]'), function (b) { var s = t[0].toUpperCase() + t.slice(1) + (n == null ? "" : " " + n); if (b.textContent !== s) b.textContent = s; });   /* only when it changed: this runs on every redraw */
     var k = t === "places" ? "place" : t === "journeys" ? "journey" : "species";
     NOTE[t] = n == null ? "" : (n || "No") + " " + (n === 1 ? k + " matches" : (k === "species" ? k : k + "s") + " match") + " \u201c" + FL.q + "\u201d";
