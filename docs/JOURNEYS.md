@@ -1,6 +1,6 @@
 # Journeys
 
-Today: a Places | Journeys tab with compact route cards (13 journeys, hand-written, one file each in `data/journeys/<id>.json`). No count on the tab.
+Navigation: The 3-tab segmented control (**Places | Species | Journeys**) lists curated routes (one file each in `data/journeys/<id>.json`). While searching, the tab displays matching journey counts.
 
 ## Dedicated journey page (built)
 Opens from a journey card, a route tapped on the map, or "Read the journey" in a linked food web. Link: `#j=<id>`. Each journey file in `data/journeys/` has `text`, `when`, `matters` and `sources`. The route is an SVG map drawn from the country outlines, so it works offline. Contents:

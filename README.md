@@ -1,6 +1,6 @@
 # Connected Earth
 
-A map of ecosystems and who eats whom. Static site, built by `npm run build` (the built files are not committed); visit https://sachinwankhede.github.io/connected-earth/ (published with GitHub Pages).
+A map of ecosystems and who eats whom. Static site, built by `npm run build` (the built files are not committed); deployed to Cloudflare Pages at https://connected-earth-5ps.pages.dev/ and GitHub Pages at https://sachinwankhede.github.io/connected-earth/.
 
 ## Local browser tests
 

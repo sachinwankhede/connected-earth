@@ -1,7 +1,12 @@
 """wm.py: one polite client for Wikimedia (Wikipedia API, REST summaries, thumbnails).
 One request at a time, a minimum gap between requests, waits as long as Retry-After says on 429/503 (plus jitter),
 and keeps the gap longer after a throttle. Never gives up on throttling, only on repeated real errors."""
-import json, random, time, urllib.error, urllib.request
+
+import json, os, random, sys, time, urllib.error, urllib.request
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
+import fetch
+
 UA = {'User-Agent': 'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
 GAP = 2.0          # seconds between requests while things are fine
 _last = [0.0]; _gap = [GAP]
@@ -16,7 +21,8 @@ def get(url, raw=False, tries=6):
     while True:
         _pace()
         try:
-            b = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60).read()
+            req = urllib.request.Request(url, headers=UA)
+            b = fetch.urlopen(req, timeout=60).read()
             _gap[0] = max(GAP, _gap[0] * 0.9)          # ease back toward the normal gap
             return b if raw else json.loads(b)
         except urllib.error.HTTPError as e:

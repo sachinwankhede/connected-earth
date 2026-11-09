@@ -1,0 +1,89 @@
+{
+  "description": "Owner-controlled list of allowed external data sources, hosts, and licences. Changes to this file require owner approval.",
+  "sources": {
+    "Wikimedia": {
+      "hosts": [
+        "commons.wikimedia.org",
+        "en.wikipedia.org",
+        "query.wikidata.org",
+        "thumb.wikimedia.org",
+        "upload.wikimedia.org",
+        "www.wikidata.org"
+      ],
+      "allowed_licences": [
+        "CC0",
+        "CC BY"
+      ]
+    },
+    "GBIF": {
+      "hosts": [
+        "api.gbif.org",
+        "www.gbif.org"
+      ],
+      "allowed_licences": [
+        "CC0",
+        "CC BY"
+      ]
+    },
+    "GloBI": {
+      "hosts": [
+        "api.globalbioticinteractions.org",
+        "www.globalbioticinteractions.org"
+      ],
+      "allowed_licences": [
+        "CC0",
+        "CC BY",
+        "CC-BY-SA",
+        "Public Domain"
+      ]
+    },
+    "PAD-US": {
+      "hosts": [
+        "services.arcgis.com"
+      ],
+      "allowed_licences": [
+        "Public Domain"
+      ]
+    },
+    "OpenStreetMap": {
+      "hosts": [
+        "nominatim.openstreetmap.org"
+      ],
+      "allowed_licences": [
+        "ODbL"
+      ]
+    },
+    "GitHub": {
+      "hosts": [
+        "github.com"
+      ],
+      "allowed_licences": [
+        "Open Source"
+      ]
+    },
+    "CreativeCommons": {
+      "hosts": [
+        "creativecommons.org"
+      ],
+      "allowed_licences": [
+        "Licence metadata"
+      ]
+    }
+  },
+  "hosts": [
+    "api.gbif.org",
+    "api.globalbioticinteractions.org",
+    "commons.wikimedia.org",
+    "creativecommons.org",
+    "en.wikipedia.org",
+    "github.com",
+    "nominatim.openstreetmap.org",
+    "query.wikidata.org",
+    "services.arcgis.com",
+    "thumb.wikimedia.org",
+    "upload.wikimedia.org",
+    "www.gbif.org",
+    "www.globalbioticinteractions.org",
+    "www.wikidata.org"
+  ]
+}

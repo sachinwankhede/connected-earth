@@ -5,8 +5,11 @@ Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the 
 ## How we work (decisions)
 - Short replies; Sachin tests on a real iPhone.
 - Discuss the design before building a workflow or scheduled job. Run one job by hand first to judge quality and timing, then choose a schedule.
-- Heavy web pulls run as GitHub Actions jobs, triggered and left in the background. Jobs never merge; they open one pull request.
-- Merging to main, deleting branches and closing PRs are Sachin's call. "Yes to N" / "Go ahead" counts as approval of the PRs I listed. Wait for green CI before merging to main.
+- Merging to main follows the tier policy in `CLAUDE.md`: the agent merges data PRs, UX changes, `jobs/` and `lib/` code, and docs on green `gate`; speed app changes on green `gate` and `perf-ab`; deleting branches or previews is Sachin's call.
+- After a UX merge, the agent reads the deploy run and reports it on the issue; the owner checks on the live iPhone, and the item stays `status:waiting-owner` until verified.
+- Task locking is claimed atomically via GitHub issue agent labels (`agent:claude` or `agent:gemini` + `status:doing`) and logged in this file.
+- The multi-agent collaboration protocol is in effect (see `CLAUDE.md` and `docs/ARCHITECTURE.md`).
+- Data sources and licences are governed by `build/allowed_sources.json`; changes to that file are owner-merged.
 - UI: follow `docs/DESIGN.md`; avoid buttons (plain links or tappable cards); keep mobile and desktop in sync; test the affected area on both sizes, both directions; the full suite runs in CI only.
 - Never hand-edit built files (index.html, pilot/index.html, sw.js, api/).
 - Story batches 25 to 40 places: story at most 60 words, why-it-matters at most 40, every number checked against the research text; park summary one Wikipedia sentence; journeys only where the source text supports a real route; 60% family-level hold rule when promoting.
@@ -76,7 +79,14 @@ Manual workflows: data-about, data-photos, data-largephotos, data-state(s), data
 - Order of work: (1) measure the returning visit on Actions; (2) agree how to compare an experiment branch with main in one job on the same runner; (3) experiments on separate branches, one change each: slim places index, species table on demand, D3 on demand, earlier tile-host connection; (4) compare, then the owner merges winners one at a time and checks on his iPhone.
 - **Owner feedback of 5 to 8 Nov (iPhone), merged, waiting for the phone check:** #503 map mode with the pills above the title (the count stays the species total, #528 decided), #509, #519 level 1 of the Species group pills, #526, #527, #537 (Species tab: one row of pills, the Places region and habitat chips do not carry over). Verified by the owner: #508, #510, #512, #521, #502, #509, #526, #527. #520 (map flicker) waits for iPhone details. #511 (pictures): Commons is exhausted; GBIF finds about 5 of 303 and its filter must drop herbarium sheets before any merge.
 
-## Items and status\nOne GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.\n\n## Waiting on the owner (last known)
+## Items and status
+One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.
+
+## Waiting on the owner (last known)
+- Review of PR #533 (tier merge policy, agent collaboration guidelines, allowed sources gate, and Cloudflare Pages edge delivery).
+- Phone check on the 5 to 8 Nov changes (#503 map mode, #509, #519, #526, #527, #537).
+- #520 (map flicker) details from iPhone testing.
+- #511 (pictures): remaining ~301 species pictures: leave them on the leaf placeholder (recommended), or name another picture source.
 - #148 two more park outlines (CI green); #141 world-parks candidate list (rerun with size-scaled quotas; review quotas, then choose which become stories).
 - data-research `next:120` results, then draft stories in batches of about 40 (draft file, review file sent to him, PR only after his approval).
 - A new data-photos PR may appear (about 129 places lacked a photo).
