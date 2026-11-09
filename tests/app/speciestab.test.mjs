@@ -58,8 +58,34 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
       await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
     }
-    await p.evaluate(() => document.querySelector('#regions [data-spg=""]').click());
-    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 15000 });
+    await p.evaluate(() => document.querySelector('#regions [data-spg=""],#regions [data-spu]').click());   // inside a group with orders the way back is ‹ Groups (#519 level 2)
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0 && !document.querySelector('#regions [data-spu]'), null, { timeout: 15000 });
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+  // #519 level 2: a group with orders turns the one row into its orders (‹ Groups, All <group>, then each order with its count); an order lists only its species; ‹ Groups goes back.
+  test(`${name}: the Species pills go group, then order, and back (#519)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
+    const groups = await p.evaluate(() => fetch('api/species-tab/groups.json').then((r) => r.json()));
+    const g = groups.find((x) => x[4] > 1); assert.ok(g, 'the data has a group with orders');
+    const orders = await p.evaluate((k) => fetch('api/species-tab/o-' + k + '.json').then((r) => r.json()), g[0]);
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
+    await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
+    await p.waitForFunction(() => document.querySelector('#regions [data-spo]'), null, { timeout: 60000 });
+    const row = await p.evaluate(() => ({ lbl: document.querySelector('#regions .lbl').textContent, k: [...document.querySelectorAll('#regions .chip')].map((c) => c.getAttribute('data-spu') ? 'up' : c.getAttribute('data-spo') || 'all'), on: document.querySelector('#regions .chip.on').textContent, ys: [...document.querySelectorAll('#regions .chip')].map((c) => Math.round(c.getBoundingClientRect().top)) }));
+    assert.equal(row.lbl, 'Orders'); assert.deepEqual(row.k, ['up', 'all'].concat(orders.map((o) => o[0]))); assert.ok(row.on.startsWith('All '), 'All of the group is marked first'); assert.ok(row.ys.every((y) => y === row.ys[0]), 'still one sideways row');
+    const o = orders[0];
+    await p.evaluate((k) => document.querySelector('#regions [data-spo="' + k + '"]').click(), o[0]);
+    await p.waitForFunction((n) => document.querySelector('#sptab h3').textContent.includes('\u203a') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(o[2], 250), { timeout: 60000 });
+    assert.equal(await p.evaluate(() => document.querySelector('#sptab h3').textContent), g[1] + ' \u203a ' + o[1] + ' \u00b7 ' + o[2]);
+    assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spo')), o[0], 'the picked order is the marked pill');
+    await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);   // All <group>: the whole group again
+    await p.waitForFunction((n) => document.querySelector('#sptab h3').textContent === n, g[1] + ' \u00b7 ' + g[2], { timeout: 30000 });
+    await p.evaluate(() => document.querySelector('#regions [data-spu]').click());
+    await p.waitForFunction(() => document.querySelector('#sptab h3').textContent === 'Found in the most places' && !document.querySelector('#regions [data-spu]'), null, { timeout: 15000 });
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
