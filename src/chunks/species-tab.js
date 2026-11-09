@@ -4,6 +4,18 @@
 window.__chunk = window.__chunk || {};
 window.__chunk["species-tab"] = function (A) {
   var box = document.getElementById("sptab"), started = false, top = [], groups = [];
+  var mmCSS = [
+      ".sheet.mm .srow > * { display: none; }",
+      ".sheet.mm .srow { min-height: 20px; }",
+      ".sheet.mm .qhead { position: relative; padding-right: 48px; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 0 4px; }",
+      ".qhead .qx { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; }",
+      ".qtrail { display: none; align-items: center; flex-wrap: wrap; gap: 0 4px; margin: 0 0 8px; padding: 0 2px; font-size: 13px; font-weight: 600; }",
+      ".sheet.mm .qtrail:not([hidden]) { display: flex; }",
+      ".qtrail .sep { color: var(--muted); }",
+      ".qtrail .sbk { border: 0; background: transparent; color: var(--accent); font: inherit; padding: 6px 4px; min-height: 32px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }",
+      ".qtrail .cur { padding: 6px 4px; }",
+      "body:has(.sheet.mm) .crumbs { display: none; }"].join("\n");   /* map-mode layout (owner, 9 Nov): title row with a close at its right, then the region trail, then the pills; kept here so the first view does not carry it */
+  function mmStyle() { if (document.getElementById("mmcss")) return; var st = document.createElement("style"); st.id = "mmcss"; st.textContent = mmCSS; document.head.appendChild(st); }
   function el(html, cls) { var d = document.createElement("div"); d.className = cls; d.innerHTML = html; return d; }
   function row(r) {   /* [Latin name, usual name, places, picture file or 0] */
     var c = r[3] && A.PhotoRegistry.speciesCandidate([r[3], r[0]], r[0], 1, null);
@@ -139,9 +151,19 @@ window.__chunk["species-tab"] = function (A) {
     else P.speciesMap(M.spN, M.spL);
   });
   return {
-    mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503) */
-      hd.innerHTML = '<a href="#" data-hx="1">‹ <b>' + P.escH(r.name) + '</b></a> · in <span id="qhn"></span> · <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page ›</a>';
-      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN(); if (M.setSheet && M.sheetState === "min") M.setSheet("half");   /* the count follows the pills; map mode opens the sheet so the pills show (#528) */
+    mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503); ✕ closes the map mode and goes home; the region trail sits under the title (owner, 9 Nov) */
+      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span> \u00b7 <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page \u203a</a><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
+      mmStyle(); var tr = document.getElementById("qtrail"); if (!tr) { tr = document.createElement("div"); tr.id = "qtrail"; tr.className = "qtrail"; hd.parentNode.insertBefore(tr, document.getElementById("regions")); }
+      M.mapT = function () {   /* the trail is the one the sheet title keeps (World › North America › US); in map mode it is drawn here, not at the top */
+        var sr = document.getElementById("srow"), l = sr && sr.querySelector(".strl"), c = sr && sr.querySelector(".stt");
+        tr.innerHTML = l && c ? l.innerHTML + '<span class="cur" aria-current="page">' + P.escH(c.textContent) + "</span>" : ""; tr.hidden = !tr.innerHTML;
+      };
+      if (!hd._c) { hd._c = 1; hd.addEventListener("click", function (ev) {
+        if (!ev.target.closest("[data-hclose]")) return; ev.preventDefault(); ev.stopPropagation();
+        document.getElementById("qclr").click(); P.setTab("places"); if (M.go) M.go("world", "");   /* no search, no species filter, the Places tab, the whole world */
+      }, true); }
+      if (!M.mapTO) { M.mapTO = new MutationObserver(function () { if (M.mapT) M.mapT(); }); M.mapTO.observe(document.getElementById("srow"), { childList: true }); }
+      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN(); M.mapT(); if (M.setSheet && M.sheetState === "min") M.setSheet("half");
     },
     mapBack: function () {
       var f = M.mFrom, q = document.getElementById("q");
