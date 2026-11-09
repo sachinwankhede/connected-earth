@@ -15,7 +15,8 @@
         "enum": [
           "nophoto",
           "notphoto",
-          "notcommons"
+          "notcommons",
+          "notfree"
         ]
       },
       "checkedAt": {
