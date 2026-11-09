@@ -27,6 +27,17 @@
         "CC BY"
       ]
     },
+    "Openverse": {
+      "hosts": [
+        "api.openverse.org"
+      ],
+      "allowed_licences": [
+        "CC0",
+        "CC BY",
+        "CC BY-SA",
+        "Public domain"
+      ]
+    },
     "GloBI": {
       "hosts": [
         "api.globalbioticinteractions.org",
@@ -75,6 +86,7 @@
   "hosts": [
     "api.gbif.org",
     "api.globalbioticinteractions.org",
+    "api.openverse.org",
     "commons.wikimedia.org",
     "creativecommons.org",
     "en.wikipedia.org",
@@ -88,5 +100,5 @@
     "www.globalbioticinteractions.org",
     "www.wikidata.org"
   ],
-  "licence_note": "Pictures follow one rule (#421): CC0, CC BY, CC BY-SA and public domain from Wikimedia; GBIF only CC0 and CC BY with a named author. lib/licences.py reads this file; lib/fetch.py enforces hosts only."
+  "licence_note": "Pictures follow one rule (#421): CC0, CC BY, CC BY-SA and public domain from Wikimedia; GBIF only CC0 and CC BY with a named author; Openverse (#511, owner approved 9 Nov, pictures only through its own thumbnail address, never the original host) the same four as Wikimedia, with the creator named. lib/licences.py reads this file; lib/fetch.py enforces hosts only."
 }
