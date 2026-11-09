@@ -18,11 +18,14 @@ export const SCENARIOS = {
   'home': { shows: 'the start screen with the sheet', run: async (p, shot) => { await shot(''); } },
   'search-results': { shows: 'a search for "osprey": the result header and the list', run: async (p, shot) => {
     await searchFor(p, 'osprey'); await p.waitForFunction(() => !document.getElementById('qhead').hidden, null, { timeout: 30000 }); await shot(''); } },
-  'map-mode': { shows: '"Show on the map" from a species (title row, close, pills), then a continent picked (trail)', run: async (p, shot) => {
+  'map-mode': { shows: '"Show on the map" from a species (title row, close, pills), then a continent, a country and, where there is one, a state picked (the one pill row: back pill, All pill, children)', run: async (p, shot) => {
     await searchFor(p, 'osprey'); await p.waitForFunction(() => !document.getElementById('qhead').hidden, null, { timeout: 30000 });
     await p.locator('#qhead a[data-hmap]').first().click({ timeout: 8000 });
     await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 });
-    await shot('world'); await p.locator('#regions [data-go]').first().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('continent'); } },
+    await shot('world'); await p.locator('#regions [data-go]').first().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('continent');
+    const kid = () => p.locator('#regions [data-go]:not(.leadg *)').first();
+    await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('country');
+    if (await kid().count()) { await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('state'); } } },
   'species-tab': { shows: 'the Species tab: the most common species and the groups', run: async (p, shot) => {
     await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
     await p.waitForSelector('#sptab:not([hidden])', { timeout: 30000 }); await shot(''); } },
