@@ -81,4 +81,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(n1 <= n0 && n1 === +/(\d+)$/.exec(a.pills[0])[1], 'the title count follows the pill: ' + n0 + ' -> ' + n1 + ' for ' + a.pills[0]);
     assert.deepEqual(t.errors, []); await b.close();
   });
+
+  test(`${name}: from the search header, Show on the map shows the pills in view and a tap on one narrows the places (#528)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
+    await answered(p, 'osprey'); await headShown(p);
+    await tap(p, '#qhead a[data-hmap]');
+    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await p.waitForTimeout(2500);
+    const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), sh = document.getElementById('sheet').getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(), c = r.querySelector('[data-go]'), cb = c && c.getBoundingClientRect(); return { n: r.querySelectorAll('[data-go]').length, disp: getComputedStyle(r).display, rt: Math.round(bx.top), rh: Math.round(bx.height), cb: cb ? Math.round(cb.bottom) : -1, ht: Math.round(h.top), st: Math.round(sh.top), ih: innerHeight, state: window.__M && window.__M.sheetState, sc: document.getElementById('sheet').className, head: document.getElementById('qhead').textContent.trim(), cards: document.querySelectorAll('#cards .card').length }; });
+    const a = await st(); const msg = 'n=' + a.n + ' disp=' + a.disp + ' regions top=' + a.rt + ' h=' + a.rh + ' chipBottom=' + a.cb + ' head top=' + a.ht + ' sheet top=' + a.st + ' innerH=' + a.ih + ' state=' + a.state + ' [' + a.sc + ']';
+    assert.ok(a.n > 1 && a.rh > 0 && a.cb > 0 && a.cb <= a.ih, 'pills not in view: ' + msg); assert.ok(a.rt + a.rh <= a.ht + 1, 'pills below the title: ' + msg);
+    const n0 = +/in (\d+) place/.exec(a.head)[1];
+    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await p.waitForTimeout(1500);
+    const c = await st(); const n1 = +/in (\d+) place/.exec(c.head)[1];
+    assert.ok(n1 <= n0 && c.n >= 1, 'a tap on a pill narrows the places: ' + n0 + ' -> ' + n1 + ' pills ' + c.n + ' state=' + c.state);
+    assert.deepEqual(t.errors, []); await b.close();
+  });
 }
