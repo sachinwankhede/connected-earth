@@ -54,7 +54,7 @@ test('continent, country and state chips run from most places to fewest', async 
   const b = await H.launch();
   const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
   await t.page.waitForTimeout(500);
-  const counts = () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((c) => ({ n: c.textContent.trim(), c: +(c.querySelector('b') || { textContent: -1 }).textContent })));
+  const counts = () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip:not(.leadg .chip)')].map((c) => ({ n: c.textContent.trim(), c: +(c.querySelector('b') || { textContent: -1 }).textContent })));
   const places = await t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].length);
   // choose a continent, then check the country row order via the number of places in each
   await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(700);
@@ -167,14 +167,21 @@ test('phone: tabs come first in the open sheet; the title row only appears for a
   const cnt = () => t.page.evaluate(() => { const e = document.querySelector('#srow .scnt'); return { v: e && e.offsetParent !== null, t: e ? e.textContent : '' }; });
   assert.equal((await cnt()).v, false, 'collapsed home: stats line already says it');
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
-  const rowVis = () => t.page.evaluate(() => !!document.getElementById('srow').offsetParent);
+  const rowVis = () => t.page.evaluate(() => document.getElementById('srow').offsetHeight > 0);   // the row can be in the page with zero height (open sheet on a region)
   assert.equal(await rowVis(), false, 'open at home: no title row, the tabs lead');
   const first = await t.page.evaluate(() => { const sh = document.getElementById('sheet').getBoundingClientRect(), tb = document.querySelector('#trow .tabs').getBoundingClientRect(); return tb.top - sh.top; });
   assert.ok(first < 48, 'tabs sit at the top of the open sheet: ' + first);
   let c = { v: true, t: '' };
   await t.page.click('#regions .chip >> nth=0'); await t.page.waitForTimeout(900);
   c = await cnt(); assert.ok(c.v && /^\d+ places?$/.test(c.t), 'continent: ' + JSON.stringify(c));
-  assert.equal(await rowVis(), true, 'a region shows its title row (back, name, count) under the tabs');
+  assert.equal(await rowVis(), false, 'a region with the sheet open has no title row: one row of pills (owner, #568)');
+  const lead = await t.page.evaluate(() => { const g = [...document.querySelectorAll('#regions .leadg .chip')]; return { txt: g.map((x) => x.textContent.trim()), on: g[1] && g[1].classList.contains('on'), vis: g.every((x) => x.offsetParent !== null), kids: document.querySelectorAll('#regions .chip:not(.leadg .chip)').length }; });
+  assert.ok(lead.txt.length === 2 && /^\u2039 World$/.test(lead.txt[0]) && /^All .+ \d+$/.test(lead.txt[1]) && lead.on && lead.vis && lead.kids >= 1, 'the pill row starts with the back pill and the All pill: ' + JSON.stringify(lead));
+  await t.page.click('#regions .leadg .chip >> nth=0'); await t.page.waitForTimeout(900);
+  assert.equal(await t.page.evaluate(() => !!document.querySelector('#regions .leadg')), false, 'the back pill goes up to the world: no lead pills there');
+  await t.page.evaluate(() => window.__M.setSheet('min')); await t.page.waitForTimeout(500);
+  await t.page.evaluate(() => window.__M.go('continent', 'Africa')); await t.page.waitForTimeout(900);
+  assert.equal(await rowVis(), true, 'collapsed, the trail row (back, name, count) shows');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
@@ -360,15 +367,15 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const s1 = await trail();
     assert.deepEqual(s1.btns, ['World', 'North America', 'United States'], 'full trail above the current state');
     assert.equal(s1.cur, 'Missouri');
-    assert.equal(await t.page.evaluate(() => document.querySelectorAll('#regions .chip').length), 0, 'a state has no further chips');
-    await t.page.click('#srow .sbk >> nth=1'); await t.page.waitForTimeout(800);
+    assert.equal(await t.page.evaluate(() => document.querySelectorAll('#regions .chip:not(.leadg .chip)').length), 0, 'a state has no further chips');
+    await t.page.evaluate(() => document.querySelectorAll('#srow .sbk')[1].click()); await t.page.waitForTimeout(800);   // the trail is a row of zero height while the sheet is open on a phone (one row of pills), so tap it by script
     const s2 = await trail();
     assert.deepEqual(s2.btns, ['World'], 'jumped straight to the continent');
     assert.equal(s2.cur, 'North America');
     // every chip row that is shown offers at least two choices
-    const n = await t.page.evaluate(() => document.querySelectorAll('#regions .chip').length);
+    const n = await t.page.evaluate(() => document.querySelectorAll('#regions .chip:not(.leadg .chip)').length);
     assert.ok(n === 0 || n >= 2, 'no single-option chip rows: ' + n);
-    await t.page.click('#srow .sbk >> nth=0'); await t.page.waitForTimeout(600);
+    await t.page.evaluate(() => document.querySelectorAll('#srow .sbk')[0].click()); await t.page.waitForTimeout(600);
     assert.equal((await trail()).cur, 'Connected Earth');
     await b.close();
   });

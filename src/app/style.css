@@ -862,6 +862,8 @@ rect.core { stroke-dasharray: 3 2.5; }
 .speek { display: none; }
 .zoomc #locbtn { height: auto; min-height: 46px; padding: 4px 0 3px; grid-auto-flow: row; gap: 1px; align-content: center; }
 .zoomc #locbtn .lb { font: 600 9.5px/1 var(--font-body); letter-spacing: .02em; }
+#regions .leadg { position: sticky; left: 0; z-index: 1; display: inline-flex; gap: 6px; padding-right: 6px; background: var(--surface); flex: none; }
+@media (min-width: 701px) { .sheet:not(.mm) #regions .leadg { display: none; } }
 .regions.fade, .filters .kinds.fade { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }
 .filters .kinds .chip { min-height: 30px; padding: 3px 10px 3px 9px; font-size: 12.5px; gap: 0; }
@@ -878,6 +880,7 @@ rect.core { stroke-dasharray: 3 2.5; }
   .sbody .tabs { display: none; }
   .sheet:not(.s-min) .srow::after { display: none; }
   .sheet:not(.s-min) .srow.home, .sheet:not(.s-min) .srow.jtab { display: none; }
+  .sheet:not(.s-min) .srow.trail { min-height: 0; height: 0; margin: 0; overflow: hidden; }
   .sheet:not(.s-min)::after { content: ""; position: absolute; left: 0; right: 0; bottom: env(safe-area-inset-bottom, 0px); height: 44px; pointer-events: none; background: linear-gradient(to bottom, rgba(255,255,255,0), var(--surface)); border-radius: 0; transition: opacity .2s; }
   .sheet.atend::after { opacity: 0; }
   .sheet:not(.s-min) .speek { display: none !important; }

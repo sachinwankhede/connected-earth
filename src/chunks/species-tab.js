@@ -13,7 +13,6 @@ window.__chunk["species-tab"] = function (A) {
       ".sheet.mm .sbody { padding-top: 0; }",
       ".sheet.mm .qhead { position: relative; padding-right: 48px; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 0 2px; }",
       ".qhead .qx { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; }",
-      ".sheet.mm #regions .leadg { position: sticky; left: 0; z-index: 1; display: inline-flex; gap: 6px; padding-right: 6px; background: var(--surface); flex: none; }",
       ".sheet.mm #regions .lbl { display: none; }",
       "body:has(.sheet.mm) .crumbs { display: none; }"].join("\n");   /* map-mode layout (owner, 9 Nov): title row with a close at its right, then one row of pills (‹ parent, All <region>, the regions below it, #568); kept here so the first view does not carry it */
   function mmStyle() { if (document.getElementById("mmcss")) return; var st = document.createElement("style"); st.id = "mmcss"; st.textContent = mmCSS; document.head.appendChild(st); }
@@ -155,23 +154,11 @@ window.__chunk["species-tab"] = function (A) {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503); ✕ closes the map mode and goes home; the regions are one row of pills under the title, led by ‹ parent and All <region> (owner, #568) */
       hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
       mmStyle();
-      M.mapT = function () {   /* one row of pills (#568): "‹ parent" and "All <region> N" lead the regions below the view; the parent and the region come from the sheet title the app keeps in #srow */
-        var rg = document.getElementById("regions"), sr = document.getElementById("srow"), old = rg && rg.querySelector(".leadg"); if (!rg) return;
-        if (old) old.remove();
-        var up = sr && sr.querySelectorAll(".strl .sbk"), c = sr && sr.querySelector(".stt"); up = up && up[up.length - 1];
-        if (document.getElementById("sheet").classList.contains("mm") && up && c) {
-          var g = document.createElement("span"); g.className = "leadg";
-          g.innerHTML = '<button type="button" class="chip" data-go="' + A.esc(up.getAttribute("data-go")) + '" data-a="' + A.esc(up.getAttribute("data-a") || "") + '">\u2039 ' + P.escH(up.textContent) + '</button><button type="button" class="chip on" aria-pressed="true">All ' + P.escH(c.textContent) + " <b>" + (M.nPlaces == null ? "" : M.nPlaces) + "</b></button>";
-          rg.insertBefore(g, rg.firstChild); rg.dispatchEvent(new Event("scroll"));   /* the scroll event makes the app redraw the edge fade */
-        }
-        if (M.mapTO) M.mapTO.takeRecords();
-      };
       if (!hd._c) { hd._c = 1; hd.addEventListener("click", function (ev) {
         if (!ev.target.closest("[data-hclose]")) return; ev.preventDefault(); ev.stopPropagation();
         document.getElementById("qclr").click(); P.setTab("places"); if (M.go) M.go("world", "");   /* no search, no species filter, the Places tab, the whole world */
       }, true); }
-      if (!M.mapTO) { M.mapTO = new MutationObserver(function () { if (M.mapT) M.mapT(); }); M.mapTO.observe(document.getElementById("regions"), { childList: true }); }
-      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN(); M.mapT(); if (M.setSheet && M.sheetState === "min") M.setSheet("half");
+      M.mapN = function () { var n = M.nPlaces == null || P.FL.busy ? r.n : M.nPlaces, e = document.getElementById("qhn"); if (e) e.textContent = n + (n === 1 ? " place" : " places"); }; M.mapN(); if (M.setSheet && M.sheetState === "min") M.setSheet("half");
     },
     mapBack: function () {
       var f = M.mFrom, q = document.getElementById("q");
