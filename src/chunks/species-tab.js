@@ -39,7 +39,7 @@ window.__chunk["species-tab"] = function (A) {
   function group(g, ok) {   /* one group, or one order of it: its first page, and "Show more" for the next */
     var page = 0, shown = 0, my = ++gen, o = ok && (ords[g[0]] || []).filter(function (x) { return x[0] === ok; })[0], total = o ? o[2] : g[2], pre = "g-" + g[0] + "-" + (o ? o[0] + "-" : "");
     cur = g[0];
-    if (g[4] && !ords[g[0]]) { rg.innerHTML = "";   /* the orders come first, then the row is drawn once */
+    if (g[4] && !ords[g[0]]) { rg.innerHTML = ""; box.innerHTML = "<h3></h3>"; box.firstChild.textContent = g[1] + " \u00b7 " + g[2];   /* the orders come first, then the row is drawn once; the old list is gone at once */
       A.Data.speciesTab("o-" + g[0] + ".json").then(function (r) { ords[g[0]] = r; if (my === gen) group(g, ok); }).catch(function () { ords[g[0]] = []; if (my === gen) group(g); }); return; }
     pills(g[0], g, ok); box.innerHTML = "<h3></h3>";
     box.querySelector("h3").textContent = g[1] + (o ? " \u203a " + o[1] : "") + " \u00b7 " + total;
