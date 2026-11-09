@@ -152,7 +152,7 @@ window.__chunk["species-tab"] = function (A) {
   });
   return {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503); ✕ closes the map mode and goes home; the regions are one row of pills under the title, led by ‹ parent and All <region> (owner, #568) */
-      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span> \u00b7 <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page \u203a</a><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
+      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
       mmStyle();
       if (!hd._c) { hd._c = 1; hd.addEventListener("click", function (ev) {
         if (!ev.target.closest("[data-hclose]")) return; ev.preventDefault(); ev.stopPropagation();
