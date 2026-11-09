@@ -22,6 +22,10 @@ class DropTests(unittest.TestCase):
         self.assertEqual(list(j('species')), ['Good']); self.assertEqual(j('species_missing'), {'Bad': 'nophoto'}); self.assertNotIn('Bad', j('species_commons_tried'))
         self.assertFalse(os.path.exists(os.path.join(self.r, 'photos', 'species', 'b.webp'))); self.assertFalse(os.path.exists(os.path.join(self.r, 'photos', 'species-lg', 'b.webp')))
         self.assertTrue(os.path.exists(os.path.join(self.r, 'photos', 'species', 'a.webp')))
+    def test_layout_is_kept(self):
+        put(self.r, 'species_hosted', {'Gu\u00e9': 'a.webp', 'Bad': 'b.webp'}); put(self.r, 'species_metadata', {'Gu\u00e9': {'l': 'CC0', 'p': 'x'}, 'Bad': {'l': 'FAL', 'p': 'y'}})
+        D.drop(self.r); t = open(os.path.join(self.r, 'photos', 'species_hosted.json'), encoding='utf-8').read()
+        self.assertEqual(t, '{\n"Gu\u00e9": "a.webp"\n}')   # one entry per line, accents as typed: the layout hostphotos.py writes
     def test_gbif_page_uses_gbif_rule(self):
         self.assertEqual(D.source_of({'p': 'https://www.gbif.org/occurrence/1'}), 'GBIF')
 if __name__ == '__main__': unittest.main()
