@@ -1,0 +1,8 @@
+ok   home  (the start screen with the sheet)
+ok   search-results  (a search for "osprey": the result header and the list)
+ok   map-mode-world  ("Show on the map" from a species (title row, close, pills), then a continent picked (trail))
+ok   map-mode-continent  ("Show on the map" from a species (title row, close, pills), then a continent picked (trail))
+ok   species-tab  (the Species tab: the most common species and the groups)
+ok   species-orders  (a group with several orders opened: the one row of order pills)
+ok   place-sheet  (an opened place (Yellowstone))
+ok   journeys  (the Journeys tab)
