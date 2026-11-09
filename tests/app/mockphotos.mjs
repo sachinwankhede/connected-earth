@@ -23,12 +23,11 @@ export async function mockSpeciesPictures(page, ph = {}) {
   await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {} }) }));
   await page.route(/\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
 }
-export async function mockPhotos(page) {
+export async function mockPhotos(page, { allPlaces = false } = {}) {   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
   const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
   const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
-  // every place that names a picture gets one here, so a test does not depend on which real pictures the licence rule (#421) has kept
   const tpl = Object.values(placeManifest)[0];
-  for (const e of readPlaces(true)) if (e.imgwiki && !places[e.imgwiki]) places[e.imgwiki] = { ...tpl, f: `mock/${encodeURIComponent(e.imgwiki)}.png` };
+  if (allPlaces) for (const e of readPlaces(true)) if (e.imgwiki && !places[e.imgwiki]) places[e.imgwiki] = { ...tpl, f: `mock/${encodeURIComponent(e.imgwiki)}.png` };
   await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(places) }));
   await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: species, phm: {} }) }));
   // a place carries its own species picture entries now: give each place file the mocked entries for its species
