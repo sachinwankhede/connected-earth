@@ -70,7 +70,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1 && /in \\d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }).catch(() => {});
-    const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(); return { pills: [...r.querySelectorAll('[data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent), shown: bx.height > 0 && getComputedStyle(r).display !== 'none', head_first: h.bottom <= bx.top + 1, head: document.getElementById('qhead').textContent, cards: document.querySelectorAll('#cards .card').length, mm: document.getElementById('sheet').classList.contains('mm') }; });
+    const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(); return { lead: [...r.querySelectorAll('.leadg .chip')].map((c) => c.textContent), pills: [...r.querySelectorAll('[data-go]')].filter((c) => !c.closest('.leadg')).map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent), shown: bx.height > 0 && getComputedStyle(r).display !== 'none', head_first: h.bottom <= bx.top + 1, head: document.getElementById('qhead').textContent, cards: document.querySelectorAll('#cards .card').length, mm: document.getElementById('sheet').classList.contains('mm') }; });
     const a = await st();
     assert.ok(a.mm && a.pills.length > 1 && a.shown, 'pills ' + a.pills.length + ' shown=' + a.shown + ' above=' + a.above + ' mm=' + a.mm); assert.ok(a.head_first, 'the title row is the top row, above the pills');
     assert.ok(a.pills.every((x) => /^continent:/.test(x)) && a.pills.every((x) => /\d$/.test(x)), 'continent pills with counts: ' + a.pills.join(' | '));
@@ -82,7 +82,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
-  test(`${name}: map mode has a ✕ that goes home, and the region trail sits between the title and the pills (9 Nov)`, async () => {
+  test(`${name}: map mode has a ✕ that goes home, and the region path is the first pills of the one pill row (9 Nov)`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
@@ -90,13 +90,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await p.waitForTimeout(2000);
     assert.equal(await p.evaluate(() => !!document.querySelector('#qhead [data-hclose]')), true, 'a close sits on the title row');
     await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await p.waitForTimeout(1500);   // a continent: the trail now has World
-    const y = await p.evaluate(() => { const r = (id) => { const e = document.getElementById(id); return e && !e.hidden ? e.getBoundingClientRect() : null; }, h = r('qhead'), tr = r('qtrail'), rg = r('regions'), sr = document.getElementById('srow'); return { h: h && Math.round(h.bottom), tt: tr && Math.round(tr.top), tb: tr && Math.round(tr.bottom), rt: rg && Math.round(rg.top), text: tr ? tr.width && document.getElementById('qtrail').textContent : '', srowShows: [...sr.children].some((c) => c.offsetParent) }; });
-    assert.ok(y.tt != null && y.h <= y.tt + 2 && y.tb <= y.rt + 2, 'the trail is below the title row and above the pills: ' + JSON.stringify(y)); assert.match(y.text, /^World›/); assert.equal(y.srowShows, false, 'and not at the top');
-    const gap = await p.evaluate(() => { const gr = document.querySelector('#shead .grab'), g = gr.offsetParent ? gr.getBoundingClientRect() : { bottom: document.getElementById('sheet').getBoundingClientRect().top }, h = document.getElementById('qhead').getBoundingClientRect(), sr = document.getElementById('srow').getBoundingClientRect(); return { fromHandle: Math.round(h.top - g.bottom), srowH: Math.round(sr.height), trailGap: Math.round(document.getElementById('qtrail').getBoundingClientRect().top - h.bottom) }; });
-    assert.ok(gap.srowH === 0 && gap.fromHandle <= 24 && gap.trailGap <= 6, 'no empty row above the title and no big gaps: ' + JSON.stringify(gap));   // the top spacing, measured (owner, 9 Nov)
+    const y = await p.evaluate(() => { const sr = document.getElementById('srow'), lg = [...document.querySelectorAll('#regions .leadg .chip')]; return { lead: lg.map((c) => c.textContent), on: lg.length > 1 && lg[1].classList.contains('on'), kids: document.querySelectorAll('#regions [data-go]:not(.leadg *)').length, trail: !!document.getElementById('qtrail'), srowShows: [...sr.children].some((c) => c.offsetParent) }; });
+    assert.ok(y.lead.length === 2 && /^\u2039 World/.test(y.lead[0]) && /^All /.test(y.lead[1]) && y.on && y.kids >= 1 && !y.trail, 'one row: back pill, All pill, then children: ' + JSON.stringify(y)); assert.equal(y.srowShows, false, 'and not at the top');
+    const gap = await p.evaluate(() => { const gr = document.querySelector('#shead .grab'), g = gr.offsetParent ? gr.getBoundingClientRect() : { bottom: document.getElementById('sheet').getBoundingClientRect().top }, h = document.getElementById('qhead').getBoundingClientRect(), sr = document.getElementById('srow').getBoundingClientRect(); return { fromHandle: Math.round(h.top - g.bottom), srowH: Math.round(sr.height) }; });
+    assert.ok(gap.srowH === 0 && gap.fromHandle <= 24, 'no empty row above the title and no big gaps: ' + JSON.stringify(gap));   // the top spacing, measured (owner, 9 Nov)
     await p.evaluate(() => document.querySelector('#qhead [data-hclose]').click()); await p.waitForTimeout(1200);
-    const home = await p.evaluate(() => ({ mm: document.getElementById('sheet').classList.contains('mm'), q: document.getElementById('q').value, tab: window.__M.tab, trail: !!(document.getElementById('qtrail') && document.getElementById('qtrail').offsetParent) }));
-    assert.deepEqual(home, { mm: false, q: '', tab: 'places', trail: false }, 'the close leaves map mode, clears the search and shows the Places tab');
+    const home = await p.evaluate(() => ({ mm: document.getElementById('sheet').classList.contains('mm'), q: document.getElementById('q').value, tab: window.__M.tab, lead: !!document.querySelector('#regions .leadg') && !!document.querySelector('#sheet.mm') }));
+    assert.deepEqual(home, { mm: false, q: '', tab: 'places', lead: false }, 'the close leaves map mode, clears the search and shows the Places tab');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
