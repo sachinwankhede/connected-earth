@@ -84,6 +84,7 @@ Manual workflows: data-about, data-photos, data-largephotos, data-state(s), data
 One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.
 
 ## Waiting on the owner (last known)
+- #456 feeding links: owner chose option (a) on 9 Nov (drop land-mammal and plant links of fish-eating families). Data PR is open with all 12 links listed (osprey 3, common loon 3, double-crested cormorant 6; 44 place rows in 33 place files); not merged until the owner has read the list. Limit: a later rebuild of a place from GloBI could bring a link back; a deny list in `build/diets.py` is the follow-up if it does.
 - Review of PR #533 (tier merge policy, agent collaboration guidelines, allowed sources gate, and Cloudflare Pages edge delivery).
 - Phone check on the 5 to 8 Nov changes (#503 map mode, #509, #519, #526, #527, #537).
 - #520 (map flicker) details from iPhone testing.
