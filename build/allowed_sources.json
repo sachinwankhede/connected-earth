@@ -12,7 +12,9 @@
       ],
       "allowed_licences": [
         "CC0",
-        "CC BY"
+        "CC BY",
+        "CC BY-SA",
+        "Public domain"
       ]
     },
     "GBIF": {
@@ -86,5 +88,5 @@
     "www.globalbioticinteractions.org",
     "www.wikidata.org"
   ],
-  "licence_note": "lib/fetch.py enforces hosts only. Each job enforces its own licences (jobs/commonsphotos.py OPEN, jobs/gbifphotos.py, jobs/hostphotos.py FREE); this list documents the owner's rule."
+  "licence_note": "Pictures follow one rule (#421): CC0, CC BY, CC BY-SA and public domain from Wikimedia; GBIF only CC0 and CC BY with a named author. lib/licences.py reads this file; lib/fetch.py enforces hosts only."
 }

@@ -8,17 +8,18 @@ import hostphotos as h
 
 
 class HostPhotosTests(unittest.TestCase):
-    def test_five_added_licences_are_free(self):
-        for lic in ("Copyrighted free use", "No restrictions", "FAL", "Free Art License", "KOGL Type 1", "LGPL", "CC BY-SA 4.0", "Public domain"):
+    def test_rule_licences_are_hosted(self):
+        for lic in ("CC0", "CC BY 4.0", "CC BY-SA 4.0", "CC BY-SA 3.0", "Public domain", "PD"):
             self.assertTrue(h.FREE.match(lic), lic)
 
-    def test_non_free_licences_stay_blocked(self):
-        for lic in ("", "unknown", "Fair use", "All rights reserved", "CC BY-NC 4.0", "CC BY-NC-SA 3.0", "CC BY-ND 2.0", "KOGL Type 4", "Copyrighted", "Non-free", "GPL"):
+    def test_everything_else_stays_blocked(self):
+        for lic in ("", "unknown", "Fair use", "All rights reserved", "CC BY-NC 4.0", "CC BY-NC-SA 3.0", "CC BY-ND 2.0", "KOGL Type 1", "KOGL Type 4", "Copyrighted", "Copyrighted free use", "No restrictions", "Attribution", "FAL", "Free Art License", "LGPL", "GFDL", "GPL"):
             self.assertFalse(h.FREE.match(lic), lic)
 
     def test_retry_only_removable_reasons(self):
         self.assertTrue(h.retry("no licence found"))
-        self.assertTrue(h.retry("KOGL Type 1"))
+        self.assertTrue(h.retry("CC BY-SA 4.0"))
+        self.assertFalse(h.retry("KOGL Type 1"))
         self.assertFalse(h.retry("Fair use"))
         self.assertFalse(h.retry("not on Commons"))
         self.assertFalse(h.retry("download failed"))
