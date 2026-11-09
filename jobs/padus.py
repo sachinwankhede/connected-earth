@@ -1,8 +1,9 @@
 import json,urllib.request,urllib.parse,collections,sys
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 def q(where,off):
     p=dict(where=where,outFields='Unit_Nm,Des_Tp,Mang_Name,GIS_Acres,Date_Est',returnGeometry='true',outSR='4326',maxAllowableOffset='0.003',resultOffset=off,resultRecordCount=500,f='json')
-    return json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
+    return json.load(fetch.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
 out={};BIG={}
 for des in sys.argv[2:]:
     off=0

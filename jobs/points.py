@@ -2,6 +2,7 @@
 """points.py <Unit name> [k]: pick k sample points spread across a protected area using its PAD-US outline.
 Prints JSON [[lon,lat],...]. Large or fragmented units are sampled in several places instead of one."""
 import sys,json,math,time,urllib.request,urllib.parse
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 def rings(name):
     out=[];off=0
@@ -10,7 +11,7 @@ def rings(name):
         fs=None
         for t in range(6):      # the server sometimes answers with no features when asked quickly; wait and ask again
             try:
-                j=json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180))
+                j=json.load(fetch.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180))
                 if 'features' in j: fs=j['features']; break
             except Exception: pass
             time.sleep(3*(t+1))

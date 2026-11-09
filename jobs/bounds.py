@@ -5,6 +5,7 @@ simplify and write one file per place, data/outlines/<place id>.json = {"n": uni
 lists rounded to 4 decimals (the app fetches a park's file when the park opens; no file = no outline).
 Resumable: places that already have a file are skipped.  Usage: bounds.py [id ...]"""
 import json,os,re,sys,time,urllib.request,urllib.parse
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here)
 sys.path.insert(0,os.path.join(ROOT,'build')); import species, geoids
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
@@ -19,7 +20,7 @@ def get(p, empty_ok=False):
     err = RuntimeError('PAD-US gave no answer'); empties = 0
     for t in range(6):
         try:
-            j = json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
+            j = json.load(fetch.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=120))
             if j.get('features'): return j
             empties += 1; err = RuntimeError('PAD-US gave no features')
             if empty_ok and 'features' in j and empties >= 3: return j

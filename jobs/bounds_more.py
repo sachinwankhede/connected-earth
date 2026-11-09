@@ -6,6 +6,7 @@ Writes data/outlines/<id>.json = {"n": name, "r": [flat ring, ...], "s": "wikida
 jobs/reports/outlines_missing.md listing the places that still have none. Resumable: places with a file are skipped.
 OpenStreetMap data is (c) OpenStreetMap contributors, ODbL: the app's credits say so."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species, geoids
 OUT = os.path.join(ROOT, 'data', 'outlines'); UA = 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'
@@ -14,7 +15,7 @@ MAXPTS = 2500    # points per park, keeps a file well under the 400 KB budget
 def path(i): return os.path.join(OUT, i + '.json')
 def get(url, tries=4, pause=3):
     for t in range(tries):
-        try: return urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=90).read().decode('utf-8')
+        try: return fetch.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=90).read().decode('utf-8')
         except Exception as ex: err = ex; time.sleep(pause * (t + 1))
     raise err
 def toks(s): return {w for w in re.findall(r'[a-z]+', unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower()) if w not in ('national', 'state', 'park', 'the', 'of', 'and', 'reserve', 'nature') and len(w) > 2}

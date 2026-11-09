@@ -1,10 +1,13 @@
 import json,subprocess,urllib.parse,statistics,math,re
 from concurrent.futures import ThreadPoolExecutor
 from parks import P
-def curl(u):
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
+def getu(u):
     for _ in range(3):
-        r=subprocess.run(['curl','-sS','-f','-m','60',u],capture_output=True)
-        if r.returncode==0: return r.stdout.decode()
+        try: return fetch.fetch_text(u, timeout=90, encoding='utf8')
+        except PermissionError: raise
+        except Exception: pass
+    return None
 def circ(lat,lon,rad):
     pts=[(lon+rad/(111.32*math.cos(math.radians(lat)))*math.cos(2*math.pi*i/16), lat+rad/110.57*math.sin(2*math.pi*i/16)) for i in range(16)]; pts.append(pts[0])
     return 'POLYGON(('+','.join('%.4f %.4f'%p for p in pts)+'))'
@@ -16,7 +19,7 @@ def one(p):
     pts=[]
     for off in (0,300):
         u='https://api.gbif.org/v1/occurrence/search?limit=300&offset=%d&hasCoordinate=true&country=US&stateProvince=Missouri&q=%s&geometry=%s'%(off,urllib.parse.quote(core+' State Park'),urllib.parse.quote(circ(lat,lon,14)))
-        t=curl(u)
+        t=getu(u)
         if not t: break
         for r in json.loads(t)['results']:
             s=json.dumps(r).lower()

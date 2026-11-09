@@ -10,6 +10,7 @@ park (GBIF) and who eats whom (GloBI), 3 common names, 4 generate the places, 5 
 table, 7 outlines, 8 promotion check. Photos and Wikipedia lines come from jobs/fetch_all.sh (slow, run separately).
 Promotion to main is a separate step: python3 build/promote.py --local (or ids)."""
 import json, os, re, subprocess, sys, urllib.parse, urllib.request
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'build')); sys.path.insert(0, os.path.join(ROOT, 'jobs'))
 B = "https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
@@ -17,7 +18,7 @@ STATES = dict(AL='Alabama', AK='Alaska', AZ='Arizona', AR='Arkansas', CA='Califo
 
 def get(p):
     for t in range(5):
-        try: return json.load(urllib.request.urlopen(B + '?' + urllib.parse.urlencode(dict(p, f='json')), timeout=180))
+        try: return json.load(fetch.urlopen(B + '?' + urllib.parse.urlencode(dict(p, f='json')), timeout=180))
         except Exception as e: err = e
     raise err
 

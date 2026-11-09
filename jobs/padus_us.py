@@ -1,8 +1,9 @@
 import json,urllib.request,urllib.parse,sys,concurrent.futures as cf
+import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 def get(p):
     for t in range(4):
-        try: return json.load(urllib.request.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180))
+        try: return json.load(fetch.urlopen(B+'?'+urllib.parse.urlencode(p),timeout=180))
         except Exception as e: err=e
     raise err
 def des(d):
