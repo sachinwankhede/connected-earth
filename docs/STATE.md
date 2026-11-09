@@ -86,7 +86,7 @@ One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash j
 
 ## Waiting on the owner (last known, 9 Nov)
 - #557 (owner-merged): Openverse added to `build/allowed_sources.json`. After he merges it, hand-run an Openverse job on 20 species and print results for his judgement (stop and ask if it needs a key or another host); PhyloPic for leftovers (#511 stays open).
-- #566 (owner-merged workflow): `screens` workflow with phone screenshots on app PRs (picture script `tests/screens/screens.mjs`; pictures on the `screens` branch). Informational, not in `gate`.
+- #566 (merged 9 Nov as #567, deploy green): `screens` workflow with phone screenshots on app PRs, scenarios for home, journeys, search, Species tab and orders, place sheet, map mode (world, continent, country, state) (picture script `tests/screens/screens.mjs`; pictures on the `screens` branch). Informational, not in `gate`.
 - #563: repo split decision. Recommendation: not now; merge queue first (needs a `merge_group` trigger in `ci.yml`, owner-merged), split only `photos/` if size keeps growing.
 - Phone checks: #503 (map mode: close, ‹ and All pills in the one row, top spacing, #568), #509, #526, #527, #537, #519 level 2 (order pills, #552; level 1 verified). #313 and #407 to verify or explain.
 - #520 (map flicker) details from iPhone testing.
