@@ -71,7 +71,7 @@
     if (!SPPL.f[k]) SPPL.f[k] = Data.speciesPlaces(k).catch(function () { SPPL.f[k] = null; return {}; });
     return SPPL.f[k];
   }
-  /* a promise of the ids of the places that list the species (this one too), in page order; the local places it names are loaded first when they are not yet */
+  /* a promise of the ids of the places that list the species, in page order; local ones load first */
   function sppPlaces(l) {
     return sppFile(l).then(function (d) {
       var ids = d[l] || [];

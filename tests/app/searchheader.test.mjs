@@ -97,4 +97,19 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(n1 <= n0 && c.n >= 1, 'a tap on a pill narrows the places: ' + n0 + ' -> ' + n1 + ' pills ' + c.n + ' state=' + c.state);
     assert.deepEqual(t.errors, []); await b.close();
   });
+
+  test(`${name}: a species that sits in one continent and one country still gets pills, one level down (#528)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
+    await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
+    await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
+    await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
+    await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-go]').length > 0, null, { timeout: 20000 }).catch(() => {}); await p.waitForTimeout(800);
+    const a = await p.evaluate(() => ({ pills: [...document.querySelectorAll('#regions [data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a')), lbl: (document.querySelector('#regions .lbl') || {}).textContent }));
+    assert.ok(a.pills.length >= 2 && a.pills.every((x) => /^(country|state):/.test(x)), 'pills one level down: ' + a.pills.join(',') + ' label=' + a.lbl);
+    await p.evaluate(() => document.querySelector('#regions [data-go]').click()); await p.waitForTimeout(1200);   // the sheet is not opened here: this species has no header
+    assert.ok(await p.evaluate(() => document.querySelectorAll('#cards .card').length) >= 1, 'the place is still listed after a tap on a pill');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
 }

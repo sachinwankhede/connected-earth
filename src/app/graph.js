@@ -58,7 +58,7 @@
   /* ---------- Forces ---------- */
   var sim = { stop: function () {}, alpha: function () { return { restart: function () {} }; } };   /* stands in until the library has arrived */
   var LAYOUT_CACHE = Object.create(null), LAYOUT_CACHE_ORDER = [], activeLayoutKey = null, cacheAfterResize = false;
-  /* the diagram library is not in the page: it arrives as d3-__D3VER__.js (about 280 KB) when a food web or journey map is first opened, or in the quiet time after the map */
+  /* d3 (about 280 KB) loads on first food web or journey map, or when idle after the map */
   var D3Q = [], D3S = 0;
   function loadD3() {
     if (window.d3 || D3S) return;

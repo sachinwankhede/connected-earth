@@ -98,7 +98,7 @@
     });
     return bad;
   };
-  /* Which chips appear (#261 step 2): the regions one level below the view that hold a place passing the filters. From the counts file when it can answer, else from the places in memory. */
+  /* Chips (#261): the regions one level below the view that hold a place passing the filters, from the counts file or else from memory. */
   function scanKeys(lvl) {
     var keys = [];
     if (lvl === "continent") ECOS.filter(pass).forEach(function (e) { e.conts.forEach(function (c) { if (keys.indexOf(c) < 0) keys.push(c); }); });
@@ -142,6 +142,13 @@
     else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; }
     else return "";
     keys = chipKeys(lvl);
+    while (keys.length === 1 && FL.q && lvl !== "state") {   /* a search that sits in one region: the pills go one level down (#528) */
+      var sv = view, k2;
+      if (lvl === "continent") view = { level: "continent", cont: keys[0], country: null, state: null }; else if (keys[0] === US) view = { level: "country", cont: view.cont, country: US, state: null }; else break;
+      k2 = scanKeys(lvl === "continent" ? "country" : "state"); view = sv;
+      if (!k2.length) break;
+      lvl = lvl === "continent" ? "country" : "state"; lab = lvl === "country" ? "Countries" : "States"; keys = k2;
+    }
     if (keys.length < 2) return "";
     keys.sort();
     function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
