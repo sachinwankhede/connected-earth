@@ -153,7 +153,7 @@ window.__chunk["species-tab"] = function (A) {
   });
   return {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503); ✕ closes the map mode and goes home; the regions are one row of pills under the title, led by ‹ parent and All <region> (owner, #568) */
-      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span> \u00b7 <a href="#" data-hsp="' + A.esc(r.latin) + '">Species page \u203a</a><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
+      hd.innerHTML = '<a href="#" data-hx="1">\u2039 <b>' + P.escH(r.name) + '</b></a> \u00b7 in <span id="qhn"></span><button type="button" class="qx" data-hclose="1" aria-label="Close and go to the start">\u2715</button>';
       mmStyle();
       M.mapT = function () {   /* one row of pills (#568): "‹ parent" and "All <region> N" lead the regions below the view; the parent and the region come from the sheet title the app keeps in #srow */
         var rg = document.getElementById("regions"), sr = document.getElementById("srow"), old = rg && rg.querySelector(".leadg"); if (!rg) return;
