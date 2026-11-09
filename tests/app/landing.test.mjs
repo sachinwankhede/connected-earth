@@ -167,7 +167,7 @@ test('phone: tabs come first in the open sheet; the title row only appears for a
   const cnt = () => t.page.evaluate(() => { const e = document.querySelector('#srow .scnt'); return { v: e && e.offsetParent !== null, t: e ? e.textContent : '' }; });
   assert.equal((await cnt()).v, false, 'collapsed home: stats line already says it');
   await t.page.click('#speek'); await t.page.waitForTimeout(700);
-  const rowVis = () => t.page.evaluate(() => !!document.getElementById('srow').offsetParent);
+  const rowVis = () => t.page.evaluate(() => document.getElementById('srow').offsetHeight > 0);   // the row can be in the page with zero height (open sheet on a region)
   assert.equal(await rowVis(), false, 'open at home: no title row, the tabs lead');
   const first = await t.page.evaluate(() => { const sh = document.getElementById('sheet').getBoundingClientRect(), tb = document.querySelector('#trow .tabs').getBoundingClientRect(); return tb.top - sh.top; });
   assert.ok(first < 48, 'tabs sit at the top of the open sheet: ' + first);
