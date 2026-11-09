@@ -6,8 +6,12 @@ window.__chunk["species-tab"] = function (A) {
   var box = document.getElementById("sptab"), started = false, top = [], groups = [];
   var mmCSS = [
       ".sheet.mm .srow > * { display: none; }",
-      ".sheet.mm .srow { min-height: 20px; }",
-      ".sheet.mm .qhead { position: relative; padding-right: 48px; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 0 4px; }",
+      ".sheet.mm .srow { min-height: 0; height: 0; margin: 0; overflow: hidden; }",
+      ".sheet.mm .srow::after { display: none; }",
+      ".sheet.mm .shead { padding-top: 6px; padding-bottom: 0; }",
+      ".sheet.mm .grab { margin-bottom: 0; }",
+      ".sheet.mm .sbody { padding-top: 0; }",
+      ".sheet.mm .qhead { position: relative; padding-right: 48px; min-height: 44px; display: flex; flex-wrap: wrap; align-items: center; gap: 0 4px; margin: 0 0 2px; }",
       ".qhead .qx { position: absolute; right: 0; top: 0; width: 44px; height: 44px; border: 0; background: transparent; color: var(--muted); font-size: 18px; cursor: pointer; }",
       ".qtrail { display: none; align-items: center; flex-wrap: wrap; gap: 0 4px; margin: 0 0 8px; padding: 0 2px; font-size: 13px; font-weight: 600; }",
       ".sheet.mm .qtrail:not([hidden]) { display: flex; }",
