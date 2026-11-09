@@ -38,8 +38,9 @@ jobs:
           REPO: ${{ github.repository }}
         run: |
           set -e
+          mkdir ../keep && cd ../keep && git init -q
           git config user.name "github-actions[bot]"; git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          mkdir ../keep && cd ../keep && git init -q && git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git"
           if git fetch -q --depth=1 origin screens 2>/dev/null; then git checkout -q -B screens FETCH_HEAD; else git checkout -q --orphan screens; fi
           rm -rf "pr-${PR}"; mkdir -p "pr-${PR}"; cp "$GITHUB_WORKSPACE"/screens-out/*.png "pr-${PR}/" 2>/dev/null || true
           cp "$GITHUB_WORKSPACE/screens-out/index.txt" "pr-${PR}/index.txt"
