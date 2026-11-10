@@ -1,6 +1,6 @@
 name: data-journeys
 # Manual only. Ranks candidate journeys (species in places 2,500+ km apart that Wikipedia says migrate) into research/journey-candidates.md
-# on the `research` branch (never merged, never part of the app). See jobs/journeys.py and docs/JOURNEYS.md.
+# on the `research` branch (never merged, never part of the app). See jobs/journeys.py and docs/PROMOTION.md.
 on:
   workflow_dispatch:
 permissions:
