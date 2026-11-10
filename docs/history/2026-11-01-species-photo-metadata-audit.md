@@ -1,5 +1,7 @@
 # Species photo metadata audit
 
+_A snapshot from 1 Nov 2026, moved here from `docs/species-photo-metadata.md` on 10 Nov and not updated. The numbers are out of date: `photos/species_metadata.json` now has 4,773 entries for 4,777 pictures, and the #421 licence rule applies to all pictures._
+
 Audit date: 2026-11-01
 
 ## Result
