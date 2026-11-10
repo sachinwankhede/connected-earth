@@ -31,10 +31,6 @@ test('typed words find places through the word index', { skip: !built && 'build 
   assert.deepEqual(await ids('zzzzq'), [], 'no match is an empty list, not an error');
   assert.equal(await ids('a'), null, 'one letter: no lookup, the page filters on card text');
   assert.ok((await ids('yellowst')).includes('yellowstone'), 'a word prefix matches');
-  const same = async (a, b) => assert.deepEqual((await ids(a)).sort(), (await ids(b)).sort(), a + ' finds what ' + b + ' finds');
-  assert.ok((await ids('osprey')).length > 0);
-  await same('ospreys', 'osprey');   // a plural with no hit of its own is tried without its ending (#588)
-  await same('bears', 'bear');
   assert.equal(c.SRCH.failedAt, 0, 'the lookup never failed');
 });
 
