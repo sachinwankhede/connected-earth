@@ -35,6 +35,7 @@
    - A conflict with the spec
    - A `perf-ab` result more than 15% slower
    - Raising the first-view size budget (ask before editing `build/firstview.py`).
+8. **No stopgaps.** Before building, name the layer that owns the behaviour (build, data job or app) and put it there. Do not ship an app-side workaround for something that belongs in the build or data; if the proper fix needs a data job or the owner's go-ahead, open the item for that fix and stop. Before merging a behaviour change, list every place it must hold (for search: results list, suggestion dropdown, Species tab) and test each.
 
 ## Multi-Agent Collaboration Protocol (Claude & Gemini)
 Multiple AI agents (Claude and Gemini) collaborate on this repository concurrently under the following rules:
