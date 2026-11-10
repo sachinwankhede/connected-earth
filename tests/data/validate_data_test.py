@@ -40,6 +40,14 @@ class DataFormat(unittest.TestCase):
             for want in ('neither hosted nor', "'ic' is a required property", 'own sid', "'sk' is a required property", 'not the lowercase Latin', "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
                 self.assertIn(want, text)
 
+class JourneyEnds(unittest.TestCase):
+    def test_a_journey_may_not_end_at_a_local_place(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {'level': 'local'}); put(r, 'data/places/q.json', {})
+            put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}, {'eco': 'q', 'node': 'n'}]}]})
+            errs, _ = check(r); text = ' | '.join(errs)
+            self.assertIn("journey 'j': place 'p' is local", text); self.assertNotIn("place 'q' is local", text)
+
 class SchemasAndCrossFileRules(unittest.TestCase):
     """The schema files (build/schemas/) and the rules that look across files (#255)."""
     def tree(self, r):
