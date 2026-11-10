@@ -128,6 +128,11 @@
   function chipsHTML() {
     var keys = [], lvl, lab;
     if (M.tab === "species") return "";   /* the Species tab fills this row with its groups */
+    var lead = "";
+    if (M.tab !== "journeys" && view.level !== "world") {   /* one row of pills (#568): "‹ parent" and "All <region> N" lead the regions; the sheet's trail line shows only while the sheet is collapsed */
+      var up = view.level === "continent" ? ["world", "", "World"] : view.level === "country" ? ["continent", view.cont, view.cont] : ["country", view.country, nm(view.country)];
+      lead = '<span class="leadg"><button type="button" class="chip" data-go="' + up[0] + '" data-a="' + String(up[1]).replace(/"/g, "&quot;") + '">\u2039 ' + up[2] + '</button><button type="button" class="chip on" aria-pressed="true">All ' + (view.state || (view.country && nm(view.country)) || view.cont) + " <b>" + (M.nPlaces == null ? "" : M.nPlaces) + "</b></button></span>";
+    }
     if (M.tab === "journeys") {
       var jk = [];
       CROSS.forEach(function (c) { ecoEnds(c).forEach(function (en) { ECO_BY[en.eco].conts.forEach(function (k) { if (jk.indexOf(k) < 0) jk.push(k); }); }); });
@@ -140,7 +145,7 @@
     if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; }
     else if (view.level === "continent") { lvl = "country"; lab = "Countries"; }
     else if (view.level === "country" && view.country === US) { lvl = "state"; lab = "States"; }
-    else return "";
+    else return lead;
     keys = chipKeys(lvl);
     while (keys.length === 1 && FL.q && lvl !== "state") {   /* a search that sits in one region: the pills go one level down (#528) */
       var sv = view, k2;
@@ -149,11 +154,11 @@
       if (!k2.length) break;
       lvl = lvl === "continent" ? "country" : "state"; lab = lvl === "country" ? "Countries" : "States"; keys = k2;
     }
-    if (keys.length < 2) return "";
+    if (keys.length < 2) return lead;
     keys.sort();
     function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
     keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
-    return '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
+    return lead + '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
       return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + " <b>" + count(k) + "</b>" + "</button>";
     }).join("");
   }

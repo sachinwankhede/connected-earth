@@ -65,7 +65,7 @@
     var em = document.getElementById("empty");   /* a search with nothing found is said once, in the note under the tabs */
     if (!FL.q) em.textContent = "No ecosystems here yet. Shaded regions on the map have food webs.";
     em.hidden = !!FL.q || list.length > 0;
-    document.getElementById("crumbs").innerHTML = crumbHTML();
+    document.getElementById("crumbs").innerHTML = crumbHTML(); M.nPlaces = shown;
     document.getElementById("regions").innerHTML = chipsHTML(); kfade();
     var region = view.state || (view.country && nm(view.country)) || view.cont;
     if (el.webview.hidden) {

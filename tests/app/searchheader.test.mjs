@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.match(h.text, /^Osprey · found in \d+ places · Species page ›$/); assert.equal(h.chip, false);
     assert.equal(await p.evaluate(() => document.querySelectorAll('#cards .why').length), 0, 'the list is by name: no why lines');
     await tap(p, '#qhead a[data-hmap]'); await p.waitForFunction(() => document.querySelector('#qhead.qchip') && !document.getElementById('qhead').hidden && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
-    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›✕$/, 'map mode: a titled screen with a close at its right (#503, 9 Nov)');
+    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places✕$/, 'map mode: a titled screen with a close at its right (#503, 9 Nov)');
     assert.deepEqual(await p.evaluate(() => ({ box: document.getElementById('q').value, mm: document.getElementById('sheet').classList.contains('mm'), tabs: [...document.querySelectorAll('[data-tab]')].some((x) => x.offsetParent) })), { box: '', mm: true, tabs: false }, 'the box is empty and the tabs are hidden while the map mode is on');
     await p.click('#qhead a[data-hx]'); await p.waitForTimeout(800);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey', 'Back returns to the search the map came from');
@@ -59,7 +59,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await headShown(p); await p.waitForFunction(() => document.getElementById('qhead').classList.contains('qchip') && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
-    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places · Species page ›✕$/);
+    assert.match((await head(p)).text, /^‹ Osprey · in \d+ places✕$/);
     await tap(p, '#qhead a[data-hx]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });   // Back goes to the species page the map came from (#503)
     assert.deepEqual(t.errors, []); await b.close();

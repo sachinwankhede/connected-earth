@@ -26,6 +26,16 @@ export const SCENARIOS = {
     const kid = () => p.locator('#regions [data-go]:not(.leadg *)').first();
     await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('country');
     if (await kid().count()) { await kid().click({ timeout: 8000 }); await p.waitForTimeout(1500); await shot('state'); } } },
+  'places-regions': { shows: 'the Places tab with no search, sheet open: world, then a continent, a country and a US state picked from the pill row (no title line; the pill row starts with the back pill and the All pill), and the continent again with the sheet collapsed (the trail line)', run: async (p, shot) => {
+    const ready = () => p.waitForFunction(() => { const e = document.getElementById('boot'); const c = e && getComputedStyle(e); return (!e || c.display === 'none' || c.visibility === 'hidden' || +c.opacity === 0) && document.querySelectorAll('#regions [data-go]').length > 0 && document.querySelectorAll('#cards .card').length > 0; }, null, { timeout: 60000 });
+    const kid = () => p.locator('#regions [data-go]:not(.leadg *)').first();   // a child pill, not the back pill
+    const half = async () => { await p.evaluate(() => window.__M.setSheet('half')); await p.waitForTimeout(600); };
+    const pick = async () => { await kid().click({ timeout: 4000 }).catch(() => p.evaluate(() => [...document.querySelectorAll('#regions [data-go]')].find((x) => !x.closest('.leadg')).click())); await p.waitForTimeout(1500); await ready(); await half(); };
+    await ready(); await half(); await shot('world');
+    await pick(); await shot('continent');
+    await pick(); await shot('country');
+    if (await kid().count()) { await pick(); await shot('state'); }
+    await p.evaluate(() => window.__M.go('continent', 'Africa')); await p.waitForTimeout(1200); await ready(); await p.evaluate(() => window.__M.setSheet('min')); await p.waitForTimeout(600); await shot('collapsed'); } },
   'species-tab': { shows: 'the Species tab: the most common species and the groups', run: async (p, shot) => {
     await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
     await p.waitForSelector('#sptab:not([hidden])', { timeout: 30000 }); await shot(''); } },
@@ -48,7 +58,7 @@ try {
   for (const [name, sc] of Object.entries(SCENARIOS)) {
     if (only.length && !only.includes(name)) continue;
     // a picture counts only when the loading screen (#boot) is gone; a scenario that fails or shows it is tried once more, then listed as skipped
-    const bootGone = (p) => p.waitForFunction(() => { const e = document.getElementById('boot'); if (!e) return true; const c = getComputedStyle(e); return e.offsetParent === null || c.visibility === 'hidden' || c.display === 'none' || +c.opacity === 0; }, null, { timeout: 20000 });
+    const bootGone = (p) => p.waitForFunction(() => { const e = document.getElementById('boot'); if (!e) return true; const c = getComputedStyle(e); return c.visibility === 'hidden' || c.display === 'none' || +c.opacity === 0; }, null, { timeout: 20000 });
     let err = null;
     for (let attempt = 0; attempt < 2; attempt++) {
       const got = [];

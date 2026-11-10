@@ -77,6 +77,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelector('#regions [data-spo]'), null, { timeout: 60000 });
     const row = await p.evaluate(() => ({ lbl: document.querySelector('#regions .lbl').textContent, k: [...document.querySelectorAll('#regions .chip')].map((c) => c.getAttribute('data-spu') ? 'up' : c.getAttribute('data-spo') || 'all'), on: document.querySelector('#regions .chip.on').textContent, ys: [...document.querySelectorAll('#regions .chip')].map((c) => Math.round(c.getBoundingClientRect().top)) }));
     assert.equal(row.lbl, 'Orders'); assert.deepEqual(row.k, ['up', 'all'].concat(orders.map((o) => o[0]))); assert.ok(row.on.startsWith('All '), 'All of the group is marked first'); assert.ok(row.ys.every((y) => y === row.ys[0]), 'still one sideways row');
+    const wide = () => p.evaluate(() => { const sb = document.getElementById('sbody'); return sb.scrollWidth - sb.clientWidth; });
+    if (size.width < 700) assert.ok((await wide()) <= 1, 'the open group does not pan sideways: ' + (await wide()) + ' px too wide');   // owner, 10 Nov
     const o = orders[0];
     await p.evaluate((k) => document.querySelector('#regions [data-spo="' + k + '"]').click(), o[0]);
     await p.waitForFunction((n) => document.querySelector('#sptab h3').textContent.includes('\u203a') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(o[2], 250), { timeout: 60000 });
