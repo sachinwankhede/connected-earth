@@ -4,7 +4,19 @@
 // A scenario that cannot be reached is listed as "skip" in index.txt and in the pull request comment, so a missing picture is noticed and not silent.
 import fs from 'node:fs';
 import path from 'node:path';
+import { webkit, devices } from 'playwright';
 import * as H from '../app/helper.mjs';
+
+// SCREENS_ENGINE=webkit takes the same pictures in Playwright's WebKit (the engine Safari uses) with an iPhone profile; files get a "webkit-" prefix and the list goes to index-webkit.txt (#598).
+// It is still not an iPhone: no real keyboard, address bar, safe areas or touch scrolling. A failing WebKit scenario is listed as "skip" like any other.
+const engine = process.env.SCREENS_ENGINE === 'webkit' ? 'webkit' : 'chromium', pre = engine === 'webkit' ? 'webkit-' : '';
+async function launchWebkit() {
+  const br = await webkit.launch(), phone = devices['iPhone 14'], mine = [];
+  return {
+    newContext: async (o) => { const c = await br.newContext({ ...o, userAgent: phone.userAgent, isMobile: true, hasTouch: true, deviceScaleFactor: 1 }); mine.push(c); return c; },
+    close: async (all) => { await Promise.all(mine.splice(0).map((c) => c.close().catch(() => {}))); if (all) await br.close().catch(() => {}); },
+  };
+}
 
 const out = path.resolve(process.argv[2] || 'screens-out');
 fs.mkdirSync(out, { recursive: true });
@@ -53,7 +65,7 @@ export const SCENARIOS = {
 };
 
 const notes = [], only = (process.argv[3] || '').split(',').filter(Boolean);
-const b = await H.launch();
+const b = engine === 'webkit' ? await launchWebkit() : await H.launch();
 try {
   for (const [name, sc] of Object.entries(SCENARIOS)) {
     if (only.length && !only.includes(name)) continue;
@@ -64,7 +76,7 @@ try {
       const got = [];
       try {
         const p = await open(b); await bootGone(p);
-        await sc.run(p, async (label) => { await bootGone(p); await p.waitForTimeout(800); const f = name + (label ? '-' + label : ''); await p.screenshot({ path: path.join(out, f + '.png') }); got.push('ok   ' + f + '  (' + sc.shows + ')'); });
+        await sc.run(p, async (label) => { await bootGone(p); await p.waitForTimeout(800); const f = pre + name + (label ? '-' + label : ''); await p.screenshot({ path: path.join(out, f + '.png') }); got.push('ok   ' + f + '  (' + sc.shows + ')'); });
         notes.push(...got); err = null; break;
       } catch (e) { err = 'skip ' + name + ': ' + String(e.message || e).split('\n')[0].slice(0, 160); }
       await b.close?.();   // each attempt gets a fresh context
@@ -72,7 +84,7 @@ try {
     if (err) notes.push(err);
     await b.close?.();
   }
-} finally { await b.close?.(); }
-fs.writeFileSync(path.join(out, 'index.txt'), notes.join('\n') + '\n');
+} finally { await b.close?.(true); }
+fs.writeFileSync(path.join(out, engine === 'webkit' ? 'index-webkit.txt' : 'index.txt'), notes.join('\n') + '\n');
 console.log(notes.join('\n'));
 process.exit(0);
