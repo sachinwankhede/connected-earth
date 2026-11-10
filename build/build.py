@@ -206,16 +206,52 @@ def search_bucket(word):
     return word[:2]   # words are letters and digits only, at least 2 long
 
 
+# Other words people type for the same name (#602): the build writes them into the index, so the app's lookup stays a plain prefix match.
+# Spelling pairs apply to every word of a species' usual name; the plural (or, for an irregular plural, the singular) of its last word is added too.
+SPELLING_PAIRS = [('gray', 'grey'), ('color', 'colour'), ('harbor', 'harbour'), ('center', 'centre'), ('sulfur', 'sulphur'), ('mold', 'mould')]
+IRREGULAR_PLURALS = {'wolf': 'wolves', 'mouse': 'mice', 'goose': 'geese', 'louse': 'lice', 'ox': 'oxen', 'calf': 'calves', 'leaf': 'leaves', 'hoof': 'hooves',
+                     'cactus': 'cacti', 'fungus': 'fungi', 'octopus': 'octopuses', 'walrus': 'walruses', 'dwarf': 'dwarves'}
+SAME_PLURAL = {'fish', 'deer', 'sheep', 'moose', 'bison', 'salmon', 'trout', 'swine', 'grouse', 'squid', 'elk'}   # elk keeps "elks" as well, see below
+
+
+def _plural(w):
+    if w in IRREGULAR_PLURALS: return IRREGULAR_PLURALS[w]
+    if w in SAME_PLURAL - {'elk'}: return None
+    if re.search(r'(s|x|z|ch|sh)$', w): return w + 'es'
+    if re.search(r'[^aeiou]y$', w): return w[:-1] + 'ies'
+    return w + 's'
+
+
+def search_aliases(common):
+    """Extra words for a species' usual name: the spelling partner of any word, the plural of the last word, and the singular when the last word is an irregular plural."""
+    import unicodedata
+    t = unicodedata.normalize('NFKD', common.lower().replace("'", '').replace('\u2019', ''))
+    toks = [w for w in re.findall(r'[a-z0-9]+', ''.join(c for c in t if not unicodedata.combining(c))) if len(w) >= 2]
+    out = set()
+    for w in toks:
+        for a, b in SPELLING_PAIRS:
+            if w == a: out.add(b)
+            elif w == b: out.add(a)
+    if toks:
+        last = toks[-1]
+        inv = {v: k for k, v in IRREGULAR_PLURALS.items()}
+        if last in inv: out.add(inv[last])
+        else:
+            pl = _plural(last)
+            if pl: out.add(pl)
+    return out - set(toks)
+
+
 def split_search(light, spt, sidx, qs):
     """(meta, buckets, rows). buckets: {two letters: {'w': sorted words, 'p': [place numbers, each list delta-coded]}}; rows: list of files, each a list of
     [id, name, place, lat, lon, continent, first state] for SEARCH_ROWS places in page order (enough to show a result and fly to it without any region loaded)."""
     posting = {}
     for n, e in enumerate(light):
-        names = []
+        names = []; alias = set()
         for k in sidx[e['id']]:
             lat, common = (spt[k][0], spt[k][1]) if isinstance(k, int) else (spt[k[0]][0], k[1])
-            names += [common, lat]
-        for w in search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)):
+            names += [common, lat]; alias |= search_aliases(common)
+        for w in search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)) | alias:
             posting.setdefault(w, []).append(n)
     buckets = {}
     for w in sorted(posting):
@@ -245,9 +281,10 @@ def split_suggest(light, spt, sidx, pics=None):
             if len(b) < SUGGEST_PER and not any(x[0] == e['id'] for x in b): b.append([e['id'], e['name']])
     sp = sorted(((-count[l], c, l) for l, c in spt if l in count), key=lambda t: (t[0], t[1], t[2]))
     for neg, c, l in sp:
-        for w in search_words(c + ' ' + l):
+        al = search_aliases(c)   # other words for the same name (#602): the row carries them as a fifth field the app matches against
+        for w in search_words(c + ' ' + l) | al:
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
-            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0)])
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0)] + ([' '.join(sorted(al))] if al else []))
     return out
 
 

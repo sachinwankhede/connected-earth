@@ -20,7 +20,7 @@
     function has(lw) { return ws.every(function (w) { return lw.some(function (x) { return x.lastIndexOf(w, 0) === 0; }); }); }
     function rank(names) { var r = 2; names.forEach(function (n) { r = Math.min(r, n === phrase ? 0 : n.lastIndexOf(phrase, 0) === 0 ? 1 : 2); }); return r; }
     (d.p || []).forEach(function (r, i) { var nm = words(r[1]); if (has(nm)) P.push({ t: "p", id: r[0], name: r[1], k: rank([nm.join(" ")]), i: i }); });
-    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], pic: r[3], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
+    (d.s || []).forEach(function (r, i) { var nm = words(r[1]), lt = words(r[0]); if (has(nm.concat(lt, words(r[4] || "")))) S.push({ t: "s", latin: r[0], name: r[1], n: r[2], pic: r[3], k: rank([nm.join(" "), lt.join(" ")]), i: i }); });
     [P, S].forEach(function (a) { var c = [0, 0, 0]; a.sort(function (x, y) { return x.k - y.k || x.i - y.i; }); a.forEach(function (x) { x.pos = c[x.k]++; }); });
     return P.concat(S).sort(function (a, b) { return a.k - b.k || a.pos - b.pos || (a.t === b.t ? 0 : a.t === "p" ? -1 : 1); }).slice(0, max || sugMax());
   }

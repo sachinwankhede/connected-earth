@@ -29,11 +29,11 @@ def check(pilot, folder):
     # every word of every place finds that place; nothing else does
     want = {}
     for n, e in enumerate(light):
-        names = []
+        names = []; alias = set()
         for k in sidx[e['id']]:
             lat, common = (spt[k][0], spt[k][1]) if isinstance(k, int) else (spt[k[0]][0], k[1])
-            names += [common, lat]
-        for w in B.search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)): want.setdefault(w, []).append(n)
+            names += [common, lat]; alias |= B.search_aliases(common)   # other words for the same name (#602)
+        for w in B.search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)) | alias: want.setdefault(w, []).append(n)
     assert words == want, 'index differs from the places'
     # rows: one line per place in page order
     flat = [r for f in rows for r in f]
@@ -42,6 +42,11 @@ def check(pilot, folder):
     # a name the user would type
     assert 'yellowstone' in words and light[words['yellowstone'][0]]['id'] == 'yellowstone'
     assert B.search_words("Cooper's Hawk, São Tomé") >= {'coopers', 'hawk', 'sao', 'tome'}
+    # other words for the same name (#602): plurals, irregular plurals both ways, spelling pairs; never the word itself
+    assert B.search_aliases('Elk') == {'elks'} and B.search_aliases('Gray wolf') == {'grey', 'wolves'} and B.search_aliases('Grey wolves') == {'gray', 'wolf'}
+    assert B.search_aliases('Osprey') == {'ospreys'} and B.search_aliases('Brown bush mouse') == {'mice'} and B.search_aliases('Red fox') == {'foxes'} and B.search_aliases('Lady fern') == {'ferns'}
+    assert B.search_aliases('Sea cherry') == {'cherries'} and B.search_aliases('Mule deer') == set() and B.search_aliases('') == set()
+    assert 'wolves' in words and 'grey' in words, 'the index has the forms'
     # the built folder (when the build has run) is exactly this
     d = os.path.join(ROOT, 'api', folder)
     if os.path.isdir(d):

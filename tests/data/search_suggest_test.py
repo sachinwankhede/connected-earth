@@ -20,10 +20,10 @@ def check(pilot):
         for w in B.search_words(e['name'] + ' ' + e['short']): full_p.setdefault(B.search_bucket(w), set()).add(e['id'])
     for l, c in spt:
         if l in latin_places:
-            for w in B.search_words(c + ' ' + l): full_s.setdefault(B.search_bucket(w), set()).add(l)
+            for w in B.search_words(c + ' ' + l) | B.search_aliases(c): full_s.setdefault(B.search_bucket(w), set()).add(l)
     assert set(sug) == set(full_p) | set(full_s), 'one file for every start that has a name'
     for key, b in sug.items():
-        assert all(len(r) == 4 and (r[3] == 0 or r[3].endswith('.webp')) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0] (#443)'
+        assert all(len(r) in (4, 5) and (r[3] == 0 or r[3].endswith('.webp')) and (len(r) == 4 or (isinstance(r[4], str) and r[4])) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0] and, when there are other words for the name, a fifth field with them (#443, #602)'
         assert len(b['p']) <= B.SUGGEST_PER and len(b['s']) <= B.SUGGEST_PER
         ns = [byid[i][0] for i, _ in b['p']]
         assert ns == sorted(ns) and len(set(ns)) == len(ns), key + ': places in page order, once each'
@@ -31,10 +31,10 @@ def check(pilot):
             assert name == byid[i][1]['name'] and i in full_p[key], key + ': ' + i
         cs = [(-r[2], r[1]) for r in b['s']]
         assert cs == sorted(cs), key + ': species most places first'
-        for l, c, n, _pic in b['s']:
+        for l, c, n, _pic, *_alias in b['s']:
             assert c == common[l] and n == len(latin_places[l]) and l in full_s[key], key + ': ' + l
         if len(b['p']) < B.SUGGEST_PER: assert {i for i, _ in b['p']} == full_p.get(key, set()), key + ': places complete'
-        if len(b['s']) < B.SUGGEST_PER: assert {l for l, _, _, _ in b['s']} == full_s.get(key, set()), key + ': species complete'
+        if len(b['s']) < B.SUGGEST_PER: assert {r[0] for r in b['s']} == full_s.get(key, set()), key + ': species complete'
     return len(sug)
 
 if __name__ == '__main__':

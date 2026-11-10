@@ -31,11 +31,22 @@ test('typed words find places through the word index', { skip: !built && 'build 
   assert.deepEqual(await ids('zzzzq'), [], 'no match is an empty list, not an error');
   assert.equal(await ids('a'), null, 'one letter: no lookup, the page filters on card text');
   assert.ok((await ids('yellowst')).includes('yellowstone'), 'a word prefix matches');
-  const same = async (a, b) => assert.deepEqual((await ids(a)).sort(), (await ids(b)).sort(), a + ' finds what ' + b + ' finds');
-  assert.ok((await ids('osprey')).length > 0);
-  await same('ospreys', 'osprey');   // a plural with no hit of its own is tried without its ending (#588)
-  await same('bears', 'bear');
   assert.equal(c.SRCH.failedAt, 0, 'the lookup never failed');
+});
+
+test('plurals and spelling pairs find places through the index (#602)', { skip: !built && 'build has not run' }, async () => {
+  const c = lookup();
+  const ids = async (q) => [...(await c.srchRun(q))].sort();
+  const wolf = await ids('wolf'), wolves = await ids('wolves');
+  assert.ok(wolves.includes('yellowstone'), 'an irregular plural finds a place with the gray wolf');
+  assert.ok(wolves.every((i) => wolf.includes(i)), 'and only places the singular finds too');
+  const grey = await ids('grey wolf'), gray = await ids('gray wolf');
+  assert.ok(grey.includes('yellowstone') && grey.every((i) => gray.includes(i)), 'a spelling pair finds the places the usual spelling finds (a prefix like gray also matches grayling, so not the other way round)');
+  const ospreys = await ids('ospreys');
+  assert.ok(ospreys.length > 5, 'a regular plural finds places');
+  const osprey = await ids('osprey');
+  assert.ok(ospreys.every((i) => osprey.includes(i)), 'a regular plural finds places the singular finds');
+  assert.equal(c.SRCH.failedAt, 0);
 });
 
 test('a failed lookup is tried again after 30 s, not given up for the session', { skip: !built && 'build has not run' }, async () => {
