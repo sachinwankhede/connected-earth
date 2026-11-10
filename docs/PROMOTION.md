@@ -29,3 +29,9 @@ The page carries only a light index of each place (name, location, species names
 ## Adding a state
 `python3 build/state.py IL --top 25` seeds the largest state parks from PAD-US, drafts species (GBIF) and feeding links (GloBI), generates the places, adds them to the pilot (`stage: pilot` in `data/places/`), packs the shared species table and fetches outlines, then prints which places pass the promotion floors. Add `--scratch` to try it without touching the repo. Photos and Wikipedia lines are slow (Wikimedia throttles): run `jobs/fetch_all.sh` and leave it going. Promote with `python3 build/promote.py --local` after the 10-link spot check.
 Known limit: species are sightings within a circle around each park point, not strictly inside its outline. Small parks next to busy places can pick up neighbours' sightings; querying by the real outline (stored in `data/outlines/<id>.json`) would tighten this.
+
+## Finding more journeys (moved from `docs/JOURNEYS.md`, 10 Nov; 20 journeys exist)
+1. Candidates from the data: species present in places more than ~2,500 km apart, kept only if listed as migratory (UN migratory-species convention, Wikipedia, Wikidata). Residents such as deer, coyote and raven are not journeys; monarch, bald eagle, mallard, Canada goose and turkey vulture are (`jobs/journeys.py`).
+2. Nutrient flows by hand: salmon into forests, whale falls, seabird guano, river silt to deltas, Saharan dust.
+3. Each journey written from cited sources, one sentence per place (`jobs/journeyresearch.py` gathers the source material).
+4. Review in batches of about 20.

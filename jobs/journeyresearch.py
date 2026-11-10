@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""journeyresearch.py [latin name ...]: source material for writing real journeys (docs/JOURNEYS.md, "Finding more journeys").
+"""journeyresearch.py [latin name ...]: source material for writing real journeys (docs/PROMOTION.md, "Finding more journeys").
 
 The candidate ranking only says a species lives in two far-apart places; that is not a route (a robin in Maine and one in California
 are not one journey). For each species this saves what Wikipedia says about where it breeds, winters and migrates, plus every place in the
