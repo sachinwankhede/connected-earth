@@ -45,7 +45,7 @@ Multiple AI agents (Claude and Gemini) collaborate on this repository concurrent
 - **Commit Attribution:** Keep the trailer your tool adds. Claude uses `Co-Authored-By: Claude <model> <noreply@anthropic.com>`.
 
 ## Items and status
-- **The item is the outcome; a pull request is the means.** Every piece of work is one GitHub issue (title = the outcome) with a theme label (`theme:latency`, `theme:data`, `theme:photos`, `theme:process`) and, while open, a status label (`status:idea`, `status:doing`, `status:waiting-owner`). Closed = done. The body holds the goal, decisions and numbers.
+- **The item is the outcome; a pull request is the means.** Every piece of work is one GitHub issue (title = the outcome) with a theme label (`theme:latency`, `theme:data`, `theme:photos`, `theme:process`) and, while open, exactly one status label: `status:idea` (not decided; needs the owner's go-ahead), `status:ready` (decided; the agent can start), `status:doing` (always with an `agent:` label, which is the lock) or `status:waiting-owner` (the body's `What I need from you` line names the owner action). Closed = done. `bash jobs/status.sh` must show an empty "LABEL PROBLEMS" section before a session ends. The body holds the goal, decisions and numbers.
 - Every pull request says `Part of #N` or `Closes #N` in its body. When a PR merges or a job finishes, update the item (label, body, close it) in the same turn. Open a new item when a new topic comes up in conversation, not only when a PR is opened.
 - `bash jobs/status.sh` and the issue "Project status" show items first (waiting on the owner, doing, not started, done), then the PRs with their item and any PR without one. REST only (`gh api`); GraphQL is blocked from sessions, so no Projects board.
 
