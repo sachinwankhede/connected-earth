@@ -41,6 +41,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     let e = await empty(p);
     assert.equal(e.hidden, true, 'the note says it once; no second message');
     assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
+    assert.equal(await p.evaluate(() => [qnote, stats].map(e => e.getAttribute('role')).join()), 'status,status', 'the counts are live regions (#591)');
     await p.click('#qclr'); await p.waitForTimeout(500);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'Clear empties the box');
     e = await empty(p); assert.equal(e.hidden, true, 'the list is back');
