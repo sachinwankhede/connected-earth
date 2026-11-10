@@ -9,6 +9,7 @@ on:
   push:
     branches: [main]
   pull_request:
+  merge_group:   # the merge queue (#593): the same checks run on the pull request as it would be after merging, queued in order
   workflow_dispatch:
 jobs:
   changes:
