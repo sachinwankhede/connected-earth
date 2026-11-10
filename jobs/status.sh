@@ -3,11 +3,19 @@
 R=${REPO:-sachinwankhede/connected-earth}
 # Items first: one issue per item (an outcome), a theme label (theme:*) and a status label (status:*). A pull request is the means, not the item.
 echo "== Items (open issues; closed means done)"
-for st in waiting-owner doing idea; do
-  case $st in waiting-owner) h="WAITING ON YOU";; doing) h="DOING";; idea) h="NOT STARTED";; esac
+for st in waiting-owner doing ready idea; do
+  case $st in waiting-owner) h="WAITING ON YOU";; doing) h="DOING";; ready) h="READY (decided; the agent can start)";; idea) h="IDEAS (need your go-ahead)";; esac
   echo "-- $h"
   gh api "repos/$R/issues?state=open&labels=status:$st&per_page=100" --jq '.[]|select(.pull_request|not)|"* \(.title)  [\([.labels[].name|select(startswith("theme:"))|sub("theme:";"")]|join(","))]  (#\(.number))\n" + ([.body // ""|split("\n")[]|select(test("^\\*\\*(What I need from you|Status|Running now|Done|Next|Expected gain):"))|"    "+gsub("\\*\\*";"")]|join("\n"))'
 done
+# Label problems (each should be empty): a doing item without its agent label has no visible lock; a waiting-owner item must say what is needed; every item needs one theme and one status.
+echo "-- LABEL PROBLEMS"
+gh api "repos/$R/issues?state=open&per_page=100" --jq '.[]|select(.pull_request|not)|select(.title!="Project status" and (.title|startswith("Site got slower")|not) and (.title|startswith("Deploy failing")|not))|. as $i|[.labels[].name] as $l|
+  (if ($l|index("status:doing")) and (($l|index("agent:claude"))|not) and (($l|index("agent:gemini"))|not) then "doing without an agent label" else empty end),
+  (if ($l|index("status:waiting-owner")) and (([$i.body // ""|split("\n")[]|select(test("^\\*\\*What I need from you:\\*\\* (nothing|none)";"i"))]|length)>0 or (([$i.body // ""|split("\n")[]|select(test("^\\*\\*What I need from you:"))]|length)==0)) then "waiting-owner but the body names no action" else empty end),
+  (if ([$l[]|select(startswith("status:"))]|length)!=1 then "needs exactly one status label" else empty end),
+  (if ([$l[]|select(startswith("theme:"))]|length)<1 then "needs a theme label" else empty end)
+  |"  #\($i.number) \($i.title): \(.)"'
 echo; echo "-- DONE (closed, last 8)"
 gh api "repos/$R/issues?state=closed&per_page=8&sort=updated" --jq '.[]|select(.pull_request|not)|select([.labels[].name|startswith("theme:")]|any)|"  #\(.number) \(.title)"'
 echo; echo "== Open pull requests (each should say Part of #N or Closes #N; NONE means open an item)"
