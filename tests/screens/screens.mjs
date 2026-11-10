@@ -58,7 +58,7 @@ try {
   for (const [name, sc] of Object.entries(SCENARIOS)) {
     if (only.length && !only.includes(name)) continue;
     // a picture counts only when the loading screen (#boot) is gone; a scenario that fails or shows it is tried once more, then listed as skipped
-    const bootGone = (p) => p.waitForFunction(() => { const e = document.getElementById('boot'); if (!e) return true; const c = getComputedStyle(e); return e.offsetParent === null || c.visibility === 'hidden' || c.display === 'none' || +c.opacity === 0; }, null, { timeout: 20000 });
+    const bootGone = (p) => p.waitForFunction(() => { const e = document.getElementById('boot'); if (!e) return true; const c = getComputedStyle(e); return c.visibility === 'hidden' || c.display === 'none' || +c.opacity === 0; }, null, { timeout: 20000 });
     let err = null;
     for (let attempt = 0; attempt < 2; attempt++) {
       const got = [];
