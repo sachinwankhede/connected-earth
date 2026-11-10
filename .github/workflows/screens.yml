@@ -1,7 +1,7 @@
 name: screens
 # Screenshots of key screens at a phone size for every pull request that changes the app (#566). Informational: it never blocks a merge and is not part of `gate`.
 # It builds the pages, takes the pictures with tests/screens/screens.mjs, keeps them on the `screens` branch (one folder per pull request, one commit holding everything,
-# so the branch does not grow) and comments the pictures on the pull request. Chromium here is desktop Chromium at a phone size, not iOS Safari: a real iPhone check stays the last step.
+# so the branch does not grow) and comments the pictures on the pull request. Chromium here is desktop Chromium at a phone size; a second set is taken in Playwright's WebKit with an iPhone profile (#598). Neither is a real iPhone: that check stays the last step.
 on:
   pull_request:
     paths: ['src/**', 'build/**', 'tests/screens/**', 'tests/app/helper.mjs', 'package*.json', '.github/workflows/screens.yml']
@@ -43,6 +43,15 @@ jobs:
         run: node tests/screens/screens.mjs screens-out
         env:
           CI: "1"
+      - run: npx playwright install --with-deps webkit
+        working-directory: ${{ env.WORK }}
+        continue-on-error: true   # informational: the Chromium pictures are kept even if WebKit cannot be installed
+      - name: Take the WebKit pictures (the engine Safari uses, iPhone profile)
+        working-directory: ${{ env.WORK }}
+        continue-on-error: true
+        run: SCREENS_ENGINE=webkit node tests/screens/screens.mjs screens-out
+        env:
+          CI: "1"
       - name: Keep them on the screens branch and comment
         env:
           GH_TOKEN: ${{ github.token }}
@@ -60,18 +69,22 @@ jobs:
           for try in 1 2 3 4 5 6; do
             if git fetch -q --depth=1 origin screens 2>/dev/null; then git checkout -q -f -B screens FETCH_HEAD; lease="--force-with-lease=screens:$(git rev-parse FETCH_HEAD)"; else git checkout -q --orphan screens 2>/dev/null || true; git rm -rq --cached . 2>/dev/null || true; lease="--force-with-lease=screens:"; fi
             rm -rf "$D"; mkdir -p "$D"; cp "$WORK"/screens-out/*.png "$D/" 2>/dev/null || true
-            cp "$WORK/screens-out/index.txt" "$D/index.txt"
+            cp "$WORK/screens-out/index.txt" "$D/index.txt"; cp "$WORK/screens-out/index-webkit.txt" "$D/index-webkit.txt" 2>/dev/null || true
             git add -A; git commit -q --amend --no-edit 2>/dev/null || git commit -q -m "screens"   # one commit holds everything
             if git push -q $lease origin HEAD:screens; then break; fi
             [ "$try" = 6 ] && exit 1; sleep $((try * 3))
           done
           [ -z "$PR" ] && exit 0
           body="<!-- screens-comment -->"$'\n'"### Screens at 390 x 844 (commit ${SHA:0:7})"$'\n\n'
-          for f in "$D"/*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/${D}/${n}.png?raw=true)"$'\n\n'; done
-          skips=$(grep '^skip' "$D/index.txt" || true)
+          for f in "$D"/*.png; do n=$(basename "$f" .png); case "$n" in webkit-*) continue;; esac; body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/${D}/${n}.png?raw=true)"$'\n\n'; done
+          if ls "$D"/webkit-*.png >/dev/null 2>&1; then
+            body+="### The same screens in WebKit (the engine Safari uses, iPhone profile; not a real iPhone)"$'\n\n'
+            for f in "$D"/webkit-*.png; do n=$(basename "$f" .png); body+="**${n}**"$'\n'"![${n}](https://github.com/${REPO}/blob/screens/${D}/${n}.png?raw=true)"$'\n\n'; done
+          else body+="_No WebKit pictures this time (see the run's WebKit steps)._"$'\n\n'; fi
+          skips=$(cat "$D/index.txt" "$D/index-webkit.txt" 2>/dev/null | grep '^skip' || true)
           [ -n "$skips" ] && body+="**Skipped (no picture):**"$'\n'"\`\`\`"$'\n'"${skips}"$'\n'"\`\`\`"$'\n\n'
           if git -C "$GITHUB_WORKSPACE/work" diff --name-only "origin/main...HEAD" 2>/dev/null | grep -q '^src/' && ! git -C "$GITHUB_WORKSPACE/work" diff --name-only "origin/main...HEAD" 2>/dev/null | grep -q '^tests/screens/'; then body+="**This pull request changes \`src/\` but not \`tests/screens/\`: if it changes what a screen looks like, add or update its scenario so the picture shows the change.**"$'\n\n'; fi
-          body+="Desktop Chromium at a phone size, not iOS Safari. Pictures are on the \`screens\` branch."
+          body+="The first set is desktop Chromium at a phone size, not iOS Safari. Pictures are on the \`screens\` branch."
           cd "$GITHUB_WORKSPACE"
           # edit our own comment (found by its marker; the perf comment has the same author, so --edit-last would hit the wrong one) or add one
           id=$(gh api "repos/${REPO}/issues/${PR}/comments" --paginate --jq '.[] | select(.body | startswith("<!-- screens-comment -->")) | .id' | head -1)
