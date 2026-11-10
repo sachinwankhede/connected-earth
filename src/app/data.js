@@ -95,8 +95,7 @@
     var lo = 0, hi = b.w.length, out = new Set();
     while (lo < hi) { var mid = (lo + hi) >> 1; if (b.w[mid] < w) lo = mid + 1; else hi = mid; }
     for (var i = lo; i < b.w.length && b.w[i].lastIndexOf(w, 0) === 0; i++) { var t = 0; b.p[i].forEach(function (d) { t += d; out.add(t); }); }
-    var s = w.replace(/e?s$/, "");   /* a word with no hit is tried once without its plural ending: elks, bushes (#588) */
-    return out.size || s.length < 3 || s === w ? out : srchPrefix(b, s);
+    return out;
   }
   /* the id of place number n (its position in the full list) is in the rows files: 256 places each, [id, name, place, lat, lon, continent, state] */
   function srchRows(k) { return SRCH.rows[k] || (SRCH.rows[k] = srchGet("rows-" + k + ".json")); }
