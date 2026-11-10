@@ -34,6 +34,21 @@ test('typed words find places through the word index', { skip: !built && 'build 
   assert.equal(c.SRCH.failedAt, 0, 'the lookup never failed');
 });
 
+test('plurals and spelling pairs find places through the index (#602)', { skip: !built && 'build has not run' }, async () => {
+  const c = lookup();
+  const ids = async (q) => [...(await c.srchRun(q))].sort();
+  const wolf = await ids('wolf'), wolves = await ids('wolves');
+  assert.ok(wolves.includes('yellowstone'), 'an irregular plural finds a place with the gray wolf');
+  assert.ok(wolves.every((i) => wolf.includes(i)), 'and only places the singular finds too');
+  const grey = await ids('grey wolf'), gray = await ids('gray wolf');
+  assert.ok(grey.includes('yellowstone') && grey.every((i) => gray.includes(i)), 'a spelling pair finds the places the usual spelling finds (a prefix like gray also matches grayling, so not the other way round)');
+  const ospreys = await ids('ospreys');
+  assert.ok(ospreys.length > 5, 'a regular plural finds places');
+  const osprey = await ids('osprey');
+  assert.ok(ospreys.every((i) => osprey.includes(i)), 'a regular plural finds places the singular finds');
+  assert.equal(c.SRCH.failedAt, 0);
+});
+
 test('a failed lookup is tried again after 30 s, not given up for the session', { skip: !built && 'build has not run' }, async () => {
   let down = true, calls = 0;
   const disk = (u) => fs.existsSync(R + u) ? Promise.resolve({ ok: true, json: () => Promise.resolve(JSON.parse(fs.readFileSync(R + u, 'utf8'))) }) : Promise.resolve({ ok: false });
