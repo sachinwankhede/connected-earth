@@ -54,6 +54,7 @@ One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash j
 - #566 (merged 9 Nov as #567, deploy green): `screens` workflow with phone screenshots on app PRs, scenarios for home, journeys, search, Species tab and orders, place sheet, map mode (world, continent, country, state) (picture script `tests/screens/screens.mjs`; pictures on the `screens` branch). Informational, not in `gate`.
 - #563: repo split decision. Recommendation: not now; merge queue first (needs a `merge_group` trigger in `ci.yml`, owner-merged), split only `photos/` if size keeps growing.
 - Phone checks: #568 and #519 closed by the owner 10 Nov; Places pills nothing fixed (#586, merged in #587, live; #592 Species pills verified by the owner 10 Nov); #503 (map mode: close, ‹ and All pills in the one row, top spacing), #509, #526, #527, #537. #313 to verify or explain. #407: search review mostly done (#412, #414, #409, #416/#418); left: #425 and #561 (open), new #588 plurals, #589 recent searches, #590 rotating placeholder, #591 screen-reader count.
+- #593 merge queue (owner agreed to merge queue first, no repo split, 10 Nov; #563 closed): PR adds a `merge_group` trigger to `ci.yml` (owner-merged); after it merges the owner turns on "Require merge queue" in the branch rule (repository settings). Park: split only `photos/` if its size keeps growing.
 - #520 (map flicker) details from iPhone testing.
 - #195 pick parks; #196 go-ahead for the first batch of about 40 stories.
 - #148 two more park outlines; #141 world-parks candidate list.
