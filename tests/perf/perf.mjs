@@ -213,7 +213,10 @@ async function tap(p, sel, opts = {}) {
     const t1 = performance.now();
     await new Promise((r) => setTimeout(r, opts.settle || 900));
     const blocked = window.__p.lt.filter(([s]) => s >= t0 && s < t0 + 1000).reduce((a, [, d]) => a + Math.max(0, d - 50), 0);
-    return { ms: Math.round(t1 - t0), blocked: Math.round(blocked) };
+    // what the tap fetched (item #404): same-origin files that started after the click, counted and summed in KB
+    const rs = performance.getEntriesByType('resource').filter((x) => x.startTime >= t0);
+    const kb = rs.reduce((a, x) => a + (x.transferSize || x.encodedBodySize || 0), 0) / 1024;
+    return { ms: Math.round(t1 - t0), blocked: Math.round(blocked), req: rs.length, kb: Math.round(kb * 10) / 10 };
   }, [sel, opts]);
 }
 
@@ -384,7 +387,7 @@ function summarize(runs) {
   const s = {};
   for (const [k, f] of Object.entries(FLAT)) s[k] = median(runs.map(f));
   const names = runs.length ? Object.keys(runs[0].taps) : [];
-  for (const n of names) { s['tap: ' + n + ' (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].ms)); s['tap: ' + n + ' blocked (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].blocked)); }
+  for (const n of names) { s['tap: ' + n + ' (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].ms)); s['tap: ' + n + ' blocked (ms)'] = median(runs.map((r) => r.taps[n] && r.taps[n].blocked)); s['tap: ' + n + ' requests'] = median(runs.map((r) => r.taps[n] && r.taps[n].req)); s['tap: ' + n + ' (KB)'] = median(runs.map((r) => r.taps[n] && r.taps[n].kb)); }
   const h = {}; for (const r of runs) for (const [k, v] of Object.entries(r.hosts)) { h[k] = h[k] || []; h[k].push(v); }
   s.hosts = Object.fromEntries(Object.entries(h).map(([k, v]) => [k, { requests: median(v.map((x) => x.n)), kb: Math.round(median(v.map((x) => x.kb))) }]));
   const navPhases = {
