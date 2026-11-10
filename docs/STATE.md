@@ -13,6 +13,7 @@ Kept by Claude, reviewed by the owner (Sachin). Update it in the same PR as the 
 - Data sources and licences are governed by `build/allowed_sources.json`; changes to that file are owner-merged.
 - UI: follow `docs/DESIGN.md`; avoid buttons (plain links or tappable cards); keep mobile and desktop in sync; test the affected area on both sizes, both directions; the full suite runs in CI only.
 - Never hand-edit built files (index.html, pilot/index.html, sw.js, api/).
+- **No stopgaps (owner, 10 Nov, after #588/#600/#602):** before building, say which layer owns the behaviour (build, data job or app) and put it there; an app-side workaround for something that belongs in the build or data is not shipped "until then". If the proper fix needs a data job or the owner's go-ahead, open the item for that fix and stop. Before merging a behaviour change, list every place it must hold (for search: results list, suggestion dropdown, Species tab) and test each.
 - Story batches 25 to 40 places: story at most 60 words, why-it-matters at most 40, every number checked against the research text; park summary one Wikipedia sentence; journeys only where the source text supports a real route; 60% family-level hold rule when promoting.
 - Commits and PRs carry the attribution lines given by the session reminder.
 - Do not use `pkill -f` / `pgrep -f` (it killed my own shell). Always `git fetch origin +main:refs/remotes/origin/main` before comparing with main. The GitHub GraphQL API is blocked from sessions: use `gh api` REST calls (create PRs with `gh api repos/.../pulls`).
