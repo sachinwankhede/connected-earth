@@ -50,7 +50,7 @@ Manual workflows: data-about, data-photos, data-largephotos, data-state(s), data
 One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.
 
 ## Agent queue (ranked 10 Nov; full list with reasons in a comment on "Project status" #154)
-1. #591 live region on the search count (PR open). 2. #588 plurals and spelling pairs. 3. #303 skip no-photo places in data-photos. 4. #558 places.json after first paint (perf-ab). 5. #406/#562 request tests. #559 is already done (LAND literal removed in #398); lowering the budget needs `build/firstview.py`, so it waits for the owner.
+Done: #591 (#596), #559/#535/#450 closed by the owner. 1. #588 plurals: a word with no hit is retried without "s"/"es" (PR open; spelling pairs like grey/gray and irregular plurals like wolves need a data job, left open on #588; first view has 35 bytes left). 2. #303 skip no-photo places in data-photos. 3. #558 places.json after first paint (perf-ab). 4. #406/#562 request tests. #534 is unclaimed (`status:idea`, owner 10 Nov).
 
 ## Waiting on the owner (last known, 10 Nov)
 - #557 (owner-merged): Openverse added to `build/allowed_sources.json`. After he merges it, hand-run an Openverse job on 20 species and print results for his judgement (stop and ask if it needs a key or another host); PhyloPic for leftovers (#511 stays open).
