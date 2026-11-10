@@ -63,3 +63,16 @@ test('Latin names and accents work', { skip: !built }, () => {
   const { pick } = load()(5);
   assert.ok(pick('pandion', file('pa')).some((r) => r.latin === 'Pandion haliaetus'), 'Latin name');
 });
+
+test('another word for the same name finds the species: plurals and spelling pairs (#602)', () => {
+  const { pick } = load()(5);
+  const d = { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0, 'grey wolves']] };
+  for (const q of ['wolves', 'grey', 'grey wolves', 'gray wolf']) assert.deepEqual(pick(q, d).map((r) => r.latin), ['Canis lupus'], q);
+  assert.deepEqual(pick('wolves', { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0]] }), [], 'a row without the field matches only its own words');
+});
+
+test('the built suggestion files carry the other words (#602)', { skip: !built }, () => {
+  const { pick } = load()(5);
+  assert.ok(pick('wolves', file('wo')).some((r) => r.latin === 'Canis lupus'), 'wolves finds the gray wolf');
+  assert.ok(pick('grey wolf', file('gr')).some((r) => r.latin === 'Canis lupus'), 'grey wolf finds the gray wolf');
+});
