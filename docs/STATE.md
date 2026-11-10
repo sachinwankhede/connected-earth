@@ -49,6 +49,9 @@ Manual workflows: data-about, data-photos, data-largephotos, data-state(s), data
 ## Items and status
 One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.
 
+## Agent queue (ranked 10 Nov; full list with reasons in a comment on "Project status" #154)
+1. #591 live region on the search count (PR open). 2. #588 plurals and spelling pairs. 3. #303 skip no-photo places in data-photos. 4. #558 places.json after first paint (perf-ab). 5. #406/#562 request tests. #559 is already done (LAND literal removed in #398); lowering the budget needs `build/firstview.py`, so it waits for the owner.
+
 ## Waiting on the owner (last known, 10 Nov)
 - #557 (owner-merged): Openverse added to `build/allowed_sources.json`. After he merges it, hand-run an Openverse job on 20 species and print results for his judgement (stop and ask if it needs a key or another host); PhyloPic for leftovers (#511 stays open).
 - #566 (merged 9 Nov as #567, deploy green): `screens` workflow with phone screenshots on app PRs, scenarios for home, journeys, search, Species tab and orders, place sheet, map mode (world, continent, country, state) (picture script `tests/screens/screens.mjs`; pictures on the `screens` branch). Informational, not in `gate`.
