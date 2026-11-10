@@ -205,7 +205,7 @@ async function navigationMeasurements(browser, name) {
 // one tap: click an element in the page, wait for the second frame after it, and add up the long tasks in the next second
 async function tap(p, sel, opts = {}) {
   return p.evaluate(async ([sel, opts]) => {
-    const vis = [...document.querySelectorAll(sel)].find((e) => e.offsetParent !== null || e.getClientRects().length);
+    const vis = [...document.querySelectorAll(sel)].filter((e) => e.offsetParent !== null || e.getClientRects().length)[opts.nth || 0];
     if (!vis) return null;
     const t0 = performance.now();
     vis.click();
@@ -317,6 +317,21 @@ async function oneRun(browser, name) {
   put('search mar', await typeQ(p, 'mar'));
   put('search mari', await typeQ(p, 'mari'));
   put('search osprey', await typeQ(p, 'osprey'));
+  // the first tap that has to fetch the local places (item #404): tap place cards one after another on a fresh page until one fetches local files,
+  // and note how many cards it took (a larger number means fewer places pay this cost on their first tap)
+  await p.goto(URL_, { waitUntil: 'load', timeout: 120000 });
+  await p.waitForTimeout(3000);
+  if (name === 'phone') await tap(p, '#speek');
+  let tried = 0;
+  for (let i = 0; i < 12; i++) {
+    const t = await tap(p, '#cards [data-eco]', { settle: 1500, nth: i });
+    if (!t) break;
+    tried = i + 1;
+    if (t.lreq > 0) { put('open place with locals', t); break; }
+    await tap(p, '[data-pback]', { settle: 800 });
+  }
+  put('cards tried before locals', { ms: 0, blocked: 0, req: tried, kb: 0, lreq: 0, lkb: 0 });
+  await tap(p, '[data-pback]', { settle: 300 });
   r.taps = T;
   await ctx.close();
   return r;
