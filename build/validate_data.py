@@ -26,6 +26,17 @@ def place_ids(root):
     if os.path.isdir(full): ids |= {f[:-5] for f in os.listdir(full) if f.endswith('.json')}
     return ids
 
+def local_ids(root):
+    """Places whose level is "local": the app loads their entries on demand, so a journey must not end at one (#406)."""
+    out = set(); full = os.path.join(root, 'data/places')
+    if os.path.isdir(full):
+        for f in os.listdir(full):
+            if not f.endswith('.json') or f in ('order.json', 'links.json'): continue
+            try: e = json.load(open(os.path.join(full, f)))
+            except (OSError, ValueError): continue
+            if isinstance(e, dict) and e.get('level') == 'local': out.add(f[:-5])
+    return out
+
 def check(root):
     errs = []; warns = []
     sys.path.insert(0, HERE); import species
@@ -59,7 +70,7 @@ def check(root):
         if len(order) != len(set(order)): errs.append('journeys: place order has duplicates')
         for i in order:
             if i not in ids: errs.append('journeys: ordered place %r has no file' % i)
-        seen = set()
+        seen = set(); locs = local_ids(root)
         for where, c in journeydata.raw_journeys(root):
             shape(c, 'journey', where, errs)
             if not isinstance(c, dict): continue
@@ -68,6 +79,7 @@ def check(root):
             seen.add(cid)
             for en in list(c.get('ends') or []) + [c.get('from'), c.get('to')]:
                 if isinstance(en, dict) and en.get('eco') not in ids: errs.append('journey %r: place %r has no file' % (cid, en.get('eco')))
+                elif isinstance(en, dict) and en.get('eco') in locs: errs.append('journey %r: place %r is local; its entry may not be loaded when the journey is drawn (the app reads ECO_BY[eco].conts)' % (cid, en.get('eco')))
         if journeydata.journeys_are_new(root): shape(json.load(open(os.path.join(root, 'data', 'journeys', 'config.json'))), 'journey-config', 'journeys/config.json', errs)
     od = os.path.join(root, 'data', 'outlines')
     if os.path.isdir(od):

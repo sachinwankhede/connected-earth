@@ -50,7 +50,7 @@ Manual workflows: data-about, data-photos, data-largephotos, data-state(s), data
 One GitHub issue per item (labels `theme:*`, `status:*`; closed = done); `bash jobs/status.sh` or the issue "Project status" lists them with their pull requests. Rule in `CLAUDE.md`.
 
 ## Agent queue (ranked 10 Nov; full list with reasons in a comment on "Project status" #154)
-Done: #591 (#596), #559/#535/#450 closed by the owner. 1. #588 plurals: a word with no hit is retried without "s"/"es" (PR open; spelling pairs like grey/gray and irregular plurals like wolves need a data job, left open on #588; first view has 35 bytes left). 2. #303 skip no-photo places in data-photos. 3. #558 places.json after first paint (perf-ab). 4. #406/#562 request tests. #534 is unclaimed (`status:idea`, owner 10 Nov).
+Done 10 Nov: #591 (#596), #588 plural endings (#600; spelling pairs and irregular plurals need a data job, first view has 35 bytes left); #303 and #558 were already done (legacy missing.json entries migrated; photo list fetched at photo release, #397) and closed. In PR: #406 step 3 (the data check fails when a journey ends at a local place). Left on #406 and #562: request/byte tests per flow (steps 1, 2, 4) need browser tests, which only CI can run, so they stay as ideas for a session that can iterate on CI. #534 is unclaimed (`status:idea`, owner 10 Nov). Next: #404/#560 (measure first tap / places near me, perf-ab), #399/#250 (data tidy-ups).
 
 ## Waiting on the owner (last known, 10 Nov)
 - #557 (owner-merged): Openverse added to `build/allowed_sources.json`. After he merges it, hand-run an Openverse job on 20 species and print results for his judgement (stop and ask if it needs a key or another host); PhyloPic for leftovers (#511 stays open).
