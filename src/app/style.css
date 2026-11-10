@@ -863,7 +863,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 .zoomc #locbtn { height: auto; min-height: 46px; padding: 4px 0 3px; grid-auto-flow: row; gap: 1px; align-content: center; }
 .zoomc #locbtn .lb { font: 600 9.5px/1 var(--font-body); letter-spacing: .02em; }
 #regions .leadg { display: contents; }
-#regions .leadg .chip:first-child { position: sticky; left: 0; z-index: 1; background: var(--surface); }   /* only the back pill stays at the left; "All <region>" scrolls with the children (owner, 10 Nov) */
 @media (min-width: 701px) { .sheet:not(.mm) #regions .leadg { display: none; } }
 .regions.fade, .filters .kinds.fade { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
 .hook b { font: 700 18px var(--font-display); color: var(--ink); font-variant-numeric: tabular-nums; }

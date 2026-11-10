@@ -27,6 +27,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Species');
     await p.evaluate(() => history.back()); await p.waitForTimeout(1000);
     assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab'); assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab .sgr[data-latin]').length), top.length);
+    assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'the group pills are still there after Back from a species page (#592)');
+    await p.evaluate(() => window.dispatchEvent(new HashChangeEvent('hashchange'))); await p.waitForTimeout(500);   // what a return to the app does: the address is applied again and the list redrawn
+    assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'a redraw of the places list does not blank the Species pills (#592)');
     await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(500);
     assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), true); assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('cards')).display), 'none', 'the places list is back');
     assert.deepEqual(t.errors, []); await b.close();

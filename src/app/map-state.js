@@ -66,7 +66,7 @@
     if (!FL.q) em.textContent = "No ecosystems here yet. Shaded regions on the map have food webs.";
     em.hidden = !!FL.q || list.length > 0;
     document.getElementById("crumbs").innerHTML = crumbHTML(); M.nPlaces = shown;
-    document.getElementById("regions").innerHTML = chipsHTML(); kfade();
+    if (M.tab !== "species") { document.getElementById("regions").innerHTML = chipsHTML(); kfade(); }   /* the Species tab owns this row: a redraw of the places list (Back, return to the app, local places loaded) must not blank its pills (#592) */
     var region = view.state || (view.country && nm(view.country)) || view.cont;
     if (el.webview.hidden) {
       var mt = FL.q ? list.length + (list.length === 1 ? " place matches " : " places match ") + "“" + FL.q + "”" + (view.level === "world" ? "" : " in " + region) : view.level === "world"
