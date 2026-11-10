@@ -4,9 +4,9 @@ Why: the page is one file with all places, outlines and the diagram library insi
 
 ## Where the rest is
 Each area has its own file; read only the one for the task. The sections were moved word for word from this file (10 Nov).
-- `docs/architecture/data.md`: data folders and layout, the static API (`api/`), photos as data, species shared between places, eating links, ids, no web reads at run time.
-- `docs/architecture/app.md`: what the app does with the data, the Data module, chunks, the Species tab and page files, the address and Back, the first-view budget, search drawing.
-- `docs/architecture/build-ci.md`: tests and CI by kind of change, Cloudflare and GitHub Pages deploy, the `perf-ab` gate, merge tiers, source and licence governance.
+- `docs/ARCHITECTURE-DATA.md`: data folders and layout, the static API (`api/`), photos as data, species shared between places, eating links, ids, no web reads at run time.
+- `docs/ARCHITECTURE-APP.md`: what the app does with the data, the Data module, chunks, the Species tab and page files, the address and Back, the first-view budget, search drawing.
+- `docs/ARCHITECTURE-BUILD-CI.md`: tests and CI by kind of change, Cloudflare and GitHub Pages deploy, the `perf-ab` gate, merge tiers, source and licence governance.
 
 ## Rules
 1. **The page holds code only** (app, styles, start screen). No places data, outlines or diagram library in it.
