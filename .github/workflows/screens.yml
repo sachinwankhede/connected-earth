@@ -18,7 +18,7 @@ jobs:
   shots:
     # a pull request from a fork has a read-only token: skip it
     if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # not ubuntu-latest: that is Ubuntu 26.04 now, and this Playwright's WebKit dependency list names 24.04 packages (libicu74, libvpx9...) that 26.04 does not have (#598)
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
