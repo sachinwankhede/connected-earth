@@ -177,6 +177,8 @@ test('phone: tabs come first in the open sheet; the title row only appears for a
   assert.equal(await rowVis(), false, 'a region with the sheet open has no title row: one row of pills (owner, #568)');
   const lead = await t.page.evaluate(() => { const g = [...document.querySelectorAll('#regions .leadg .chip')]; return { txt: g.map((x) => x.textContent.trim()), on: g[1] && g[1].classList.contains('on'), vis: g.every((x) => x.offsetParent !== null), kids: document.querySelectorAll('#regions .chip:not(.leadg .chip)').length }; });
   assert.ok(lead.txt.length === 2 && /^\u2039 World$/.test(lead.txt[0]) && /^All .+ \d+$/.test(lead.txt[1]) && lead.on && lead.vis && lead.kids >= 1, 'the pill row starts with the back pill and the All pill: ' + JSON.stringify(lead));
+  const pos = await t.page.evaluate(() => [...document.querySelectorAll('#regions .leadg .chip')].map((x) => getComputedStyle(x).position));
+  assert.deepEqual(pos, ['sticky', 'static'], 'only the back pill stays at the left; All scrolls with the children (owner, 10 Nov)');
   await t.page.click('#regions .leadg .chip >> nth=0'); await t.page.waitForTimeout(900);
   assert.equal(await t.page.evaluate(() => !!document.querySelector('#regions .leadg')), false, 'the back pill goes up to the world: no lead pills there');
   await t.page.evaluate(() => window.__M.setSheet('min')); await t.page.waitForTimeout(500);
