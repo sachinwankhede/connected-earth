@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""journeys.py: rank candidate journeys (docs/JOURNEYS.md, "Finding more journeys") into research/journey-candidates.md.
+"""journeys.py: rank candidate journeys (docs/PROMOTION.md, "Finding more journeys") into research/journey-candidates.md.
 
 A candidate is a species that lives in places at least 2,500 km apart AND whose Wikipedia article says it migrates
 (a "migrat..." category, or sentences saying so anywhere in the article; "non-migratory" does not count). Residents such as deer, coyote and raven drop out. Ranked by how clear the
