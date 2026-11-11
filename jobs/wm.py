@@ -17,7 +17,7 @@ def _pace():
     _last[0] = time.time()
 
 def get(url, raw=False, tries=6):
-    errs = 0; throttles = 0
+    errs = 0; throttles = 0; why = ''
     while True:
         _pace()
         try:
@@ -36,8 +36,8 @@ def get(url, raw=False, tries=6):
                 _gap[0] = min(30.0, _gap[0] * 1.5 + 1)  # slow down after a throttle
                 time.sleep(wait); continue
             if e.code == 404: return None
-            errs += 1
-        except Exception:
-            errs += 1
-        if errs >= tries: raise RuntimeError('too many errors for ' + url[:100])
+            errs += 1; why = 'HTTP %d' % e.code
+        except Exception as e:
+            errs += 1; why = type(e).__name__
+        if errs >= tries: raise RuntimeError('too many errors (%s) for %s' % (why, url[:100]))
         time.sleep(5 * errs)

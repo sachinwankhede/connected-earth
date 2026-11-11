@@ -43,5 +43,5 @@ jobs:
           N=$(python3 -c "import json;print(sum(1 for v in json.load(open('photos/species_source.json')).values() if v=='openverse'))")
           git commit -m "Species pictures from Openverse: $N so far"
           git push -f origin HEAD
-          { printf 'Part of #511 (#421 B2). Automatic run of data-openversephotos, limit `%s`. Only CC0, public domain, CC BY and CC BY-SA photos with a named creator are kept, through Openverse's own thumbnails; iNaturalist and specimen sheets are left out. %s species now have a Openverse picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '20' }}" "$N"; cat spot.md; } > body.md
+          { printf 'Part of #511 (#421 B2). Automatic run of data-openversephotos, limit `%s`. Only CC0, public domain, CC BY and CC BY-SA photos with a named creator are kept, through the Openverse thumbnails; iNaturalist and specimen sheets are left out. %s species now have an Openverse picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '20' }}" "$N"; cat spot.md; } > body.md
           gh pr create --base main --head "$(git branch --show-current)" --title "Species pictures from Openverse ($N so far)" --body-file body.md
