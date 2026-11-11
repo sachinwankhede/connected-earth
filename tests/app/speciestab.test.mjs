@@ -96,6 +96,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spo]') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(o[2], 250), { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab h3').length), 0, 'no heading line');
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spo')), o[0], 'the picked order is the marked pill');
+    if (orders.length > 3) {   // a pick comes first after the back pill and All, visible or not (#534)
+      const o3 = orders[Math.min(orders.length - 1, 3)];
+      await pick(p, 'data-spo', o3[0]);
+      await p.waitForFunction((k) => document.querySelector('#regions .chip.on[data-spo="' + k + '"]'), o3[0], { timeout: 60000 });
+      const c = await p.evaluate(() => [...document.querySelectorAll('#regions .chip')].map((x) => ({ k: x.getAttribute('data-spu') ? 'up' : x.getAttribute('data-spg') !== null ? 'all' : x.getAttribute('data-spo'), on: x.classList.contains('on') })));
+      assert.deepEqual(c.slice(0, 3).map((x) => x.k), ['up', 'all', o3[0]], 'the pick is the first pill after the back pill and All'); assert.equal(c[2].on, true); assert.ok(c.length <= 8);
+    }
     await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);   // All <group>: the whole group again
     await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spg]') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(g[2], 250), { timeout: 30000 });
     await p.evaluate(() => document.querySelector('#regions [data-spu]').click());
@@ -180,6 +187,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const shape = await p.evaluate(() => { const c = [...document.querySelectorAll('#regions .chip')]; return { more: c[c.length - 1].hasAttribute('data-pmore') && c[c.length - 1].textContent.trim(), chevrons: c.filter((x) => x.querySelector('.cv')).length }; });
     assert.deepEqual(shape, { more: 'More', chevrons: 1 }, 'More stays the last pill, reads More and is the only pill with a chevron (#534)');
     const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8 pills, the ‹ back pill counts too, and the list is closed');
+    const cp = await p.evaluate(() => { const it = []; for (let i = 0; i < 10; i++) it.push({ k: 'k' + i, a: { 'data-x': 'k' + i }, t: 'T' + i }); return [window.__M.capPills('', it, 'k8', 1), window.__M.capPills('', it.slice(0, 4), 'k2', 1), window.__M.capPills('', it, null, 1)]; });
+    assert.ok(cp[0].indexOf('>T8') < cp[0].indexOf('>T0') && !cp[0].includes('>T7'), 'a hidden pick is first, and the last pill moves to More'); assert.ok(cp[1].indexOf('>T2') < cp[1].indexOf('>T0'), 'a visible pick is first too, on a row with no More'); assert.ok(cp[2].indexOf('>T0') < cp[2].indexOf('>T1'), 'no pick, natural order');
     assert.deepEqual(t.errors, []); await b.close();
   });
 }

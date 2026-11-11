@@ -57,6 +57,12 @@ export const SCENARIOS = {
     const g = await p.evaluate(() => fetch('api/species-tab/groups.json').then((r) => r.json()).then((a) => (a.find((x) => x[4] > 1) || [])[0]));
     await p.evaluate((k) => { const b = document.querySelector('#regions [data-spg="' + k + '"]') || document.querySelector('#regions [data-spg]:not([data-spg=""])'); b.click(); }, g);
     await p.waitForFunction(() => document.querySelector('#regions [data-spo]') || document.querySelector('#sptab .sgl'), null, { timeout: 60000 }); await shot(''); } },
+  'species-pick-first': { shows: 'an order picked from a long row: it moves to the first place after the back pill and All, so it shows without sideways scrolling', run: async (p, shot) => {
+    await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
+    await p.evaluate(() => document.querySelector('#regions [data-spg]:not([data-spg=""])').click());
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spo]').length > 3, null, { timeout: 60000 });
+    await p.evaluate(() => { const o = document.querySelectorAll('#regions [data-spo]'); o[3].click(); }); await p.waitForTimeout(1500); await shot(''); } },
   'species-more': { shows: 'the Species tab with the More pill open: at most 8 pills, every choice as pick-one rows under the row (circle on the left, check on the current one)', run: async (p, shot) => {
     await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
     await p.waitForFunction(() => document.querySelector('#regions [data-pmore]'), null, { timeout: 60000 });
