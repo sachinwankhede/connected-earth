@@ -97,7 +97,7 @@
     for (var i = lo; i < b.w.length && b.w[i].lastIndexOf(w, 0) === 0; i++) { var t = 0; b.p[i].forEach(function (d) { t += d; out.add(t); }); }
     return out;
   }
-  /* the id of place number n (its position in the full list) is in the rows files: 256 places each, [id, name, place, lat, lon, continent, state] */
+  /* the id of place number n (its position in the full list) is in the rows files: 256 ids each (#561) */
   function srchRows(k) { return SRCH.rows[k] || (SRCH.rows[k] = srchGet("rows-" + k + ".json")); }
   function srchRun(q) {
     var ws = srchWords(q).filter(function (w) { return w.length >= 2; });
@@ -113,7 +113,7 @@
         return Promise.all(ks.map(srchRows)).then(function (files) {
           var by = {}; ks.forEach(function (k, i) { by[k] = files[i]; });
           var hits = new Set();
-          nums.forEach(function (n) { var row = by[Math.floor(n / m.rows)][n % m.rows]; if (row && ECO_BY[row[0]]) hits.add(row[0]); });
+          nums.forEach(function (n) { var id = by[Math.floor(n / m.rows)][n % m.rows]; if (id && ECO_BY[id]) hits.add(id); });
           return hits;
         });
       });

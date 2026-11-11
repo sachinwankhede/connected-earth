@@ -244,7 +244,7 @@ def search_aliases(common):
 
 def split_search(light, spt, sidx, qs):
     """(meta, buckets, rows). buckets: {two letters: {'w': sorted words, 'p': [place numbers, each list delta-coded]}}; rows: list of files, each a list of
-    [id, name, place, lat, lon, continent, first state] for SEARCH_ROWS places in page order (enough to show a result and fly to it without any region loaded)."""
+    place ids for SEARCH_ROWS places in page order (the app reads only the id; name, place, position, continent and state were dropped in #561)."""
     posting = {}
     for n, e in enumerate(light):
         names = []; alias = set()
@@ -258,7 +258,7 @@ def split_search(light, spt, sidx, qs):
         b = buckets.setdefault(search_bucket(w), {'w': [], 'p': []})
         ns = posting[w]   # already ascending
         b['w'].append(w); b['p'].append([v - (ns[i - 1] if i else 0) for i, v in enumerate(ns)])
-    flat = [[e['id'], e['name'], e['place'], round(e['lat'], 2), round(e['lon'], 2), e.get('cont') or '', (e.get('states') or [''])[0]] for e in light]
+    flat = [e['id'] for e in light]
     rows = [flat[i:i + SEARCH_ROWS] for i in range(0, len(flat), SEARCH_ROWS)]
     meta = {'n': len(light), 'rows': SEARCH_ROWS, 'buckets': sorted(buckets)}
     return meta, buckets, rows
