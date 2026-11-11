@@ -125,21 +125,21 @@
     var a = f.slice().sort().join("|"), b = scanKeys(lvl).sort().join("|");
     return a === b ? [] : [{ lvl: lvl, file: a, scan: b }];
   };
-  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. A pick that the row does not show is shown by the More pill itself, selected, with its name. */
+  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. A hidden pick takes the second-last place; only More has a chevron. */
   function ea(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function pillH(it, on) {
     var s = ""; for (var k in it.a) s += " " + k + '="' + ea(it.a[k]) + '"';
     return '<button type="button" class="chip' + (on ? " on" : "") + '"' + s + ">" + ea(it.t) + (it.n == null ? "" : " <b>" + it.n + "</b>") + "</button>";
   }
   M.capPills = function (head, items, sel, n, headItem) {   /* head: html of the All pill ("" when the caller draws it); n: the pills before the items, ‹ back and All included; headItem: {a, t, n, on} the All row of the list; items: [{k, a, t, n}] in row order; sel: key of the picked one */
-    var room = 8 - n, vis = items, hid = null, rows;
+    var room = 8 - n, vis = items;
     M.moreRows = [];
     if (items.length > room) {
       vis = items.slice(0, room - 1);
-      for (var i = room - 1; sel != null && i < items.length; i++) if (items[i].k === sel) hid = items[i];
+      for (var i = room - 1; sel != null && i < items.length; i++) if (items[i].k === sel) vis[room - 2] = items[i];   /* the pick, in the second-last place */
       M.moreRows = (headItem ? [headItem] : []).concat(items.map(function (it) { return { a: it.a, t: it.t, n: it.n, on: it.k === sel }; }));
     }
-    return head + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (M.moreRows.length ? '<button type="button" class="chip' + (hid ? " on" : "") + '" data-pmore="1" aria-expanded="false" aria-haspopup="true">' + (hid ? ea(hid.t) + " <b>" + hid.n + "</b>" : "More") + '<i class="cv"></i></button>' : "");
+    return head + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (M.moreRows.length ? '<button type="button" class="chip" data-pmore="1" aria-expanded="false" aria-haspopup="true">More<i class="cv"></i></button>' : "");
   };
   document.addEventListener("click", function (ev) {
     var t = ev.target, rg = document.getElementById("regions"), L = document.getElementById("morelist"), mb = t.closest("[data-pmore]"), it = t.closest(".morei"), r, b, k, open;

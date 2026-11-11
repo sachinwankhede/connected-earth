@@ -177,6 +177,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await p.evaluate(() => document.querySelector('#regions [data-pmore]').getAttribute('aria-expanded')), 'true');
     await p.evaluate(() => document.querySelectorAll('#morelist .morei')[7].click());
     await p.waitForFunction((k) => document.querySelector('#regions .chip.on[data-spg="' + k + '"]') || document.querySelector('#regions [data-spo]'), groups[6][0], { timeout: 60000 });
+    const shape = await p.evaluate(() => { const c = [...document.querySelectorAll('#regions .chip')]; return { more: c[c.length - 1].hasAttribute('data-pmore') && c[c.length - 1].textContent.trim(), chevrons: c.filter((x) => x.querySelector('.cv')).length }; });
+    assert.deepEqual(shape, { more: 'More', chevrons: 1 }, 'More stays the last pill, reads More and is the only pill with a chevron (#534)');
     const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8 pills, the ‹ back pill counts too, and the list is closed');
     assert.deepEqual(t.errors, []); await b.close();
   });
