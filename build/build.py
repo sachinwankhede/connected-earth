@@ -423,7 +423,20 @@ def write_species_places(sp, pilot):
 # their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0], most places first, then by name.
 TAB_TOP, TAB_PAGE = 60, 250
 TAB_GROUPS = [('mammals', 'Mammals'), ('birds', 'Birds'), ('reptiles', 'Reptiles'), ('amphibians', 'Amphibians'), ('fish', 'Fish'), ('insects', 'Insects'),
-              ('animals', 'Other animals'), ('plants', 'Plants'), ('fungi', 'Fungi'), ('other', 'Algae and others')]
+              ('plants', 'Plants'), ('other', 'Other')]   # eight flat pills (#534, owner 11 Nov); Other = other animals, algae and others, fungi
+# Everyday names for the 59 biggest orders (together about 90% of the species on the tab; the rest keep the Latin name). The key must be a real order of the taxonomy: tests/data/species_tab_test.py checks it.
+ORDER_NAMES = {
+    'Poales': 'Grasses and sedges', 'Lepidoptera': 'Butterflies and moths', 'Passeriformes': 'Songbirds', 'Rodentia': 'Rodents', 'Asterales': 'Daisies and relatives', 'Rosales': 'Roses and relatives',
+    'Hymenoptera': 'Bees, wasps and ants', 'Artiodactyla': 'Hoofed animals', 'Carnivora': 'Carnivores', 'Fabales': 'Peas and beans', 'Caryophyllales': 'Cacti, pinks and relatives',
+    'Lamiales': 'Mints and relatives', 'Ericales': 'Heaths and blueberries', 'Malpighiales': 'Willows and violets', 'Fagales': 'Oaks, beeches and birches', 'Pinales': 'Conifers',
+    'Accipitriformes': 'Hawks and eagles', 'Primates': 'Primates', 'Coleoptera': 'Beetles', 'Sapindales': 'Maples and citrus', 'Asparagales': 'Orchids and relatives', 'Perciformes': 'Perch-like fish',
+    'Gentianales': 'Gentians and coffee', 'Myrtales': 'Myrtles and eucalypts', 'Charadriiformes': 'Shorebirds and gulls', 'Ranunculales': 'Buttercups and poppies', 'Liliales': 'Lilies',
+    'Dipsacales': 'Honeysuckles', 'Solanales': 'Nightshades', 'Malvales': 'Mallows', 'Anura': 'Frogs and toads', 'Chiroptera': 'Bats', 'Orthoptera': 'Grasshoppers and crickets',
+    'Polypodiales': 'Ferns', 'Hemiptera': 'True bugs', 'Diptera': 'Flies', 'Arecales': 'Palms', 'Anseriformes': 'Ducks, geese and swans', 'Decapoda': 'Crabs and shrimps',
+    'Alismatales': 'Water plants and arums', 'Brassicales': 'Mustards', 'Lagomorpha': 'Rabbits and hares', 'Boraginales': 'Borages', 'Saxifragales': 'Stonecrops and saxifrages',
+    'Cornales': 'Dogwoods', 'Columbiformes': 'Pigeons and doves', 'Galliformes': 'Gamebirds', 'Pelecaniformes': 'Herons and pelicans', 'Piciformes': 'Woodpeckers', 'Apiales': 'Carrots and ivies',
+    'Cetacea': 'Whales and dolphins', 'Perissodactyla': 'Horses and rhinos', 'Clupeiformes': 'Herrings', 'Diprotodontia': 'Kangaroos and koalas', 'Gruiformes': 'Cranes and rails',
+    'Aquifoliales': 'Hollies', 'Strigiformes': 'Owls', 'Salmoniformes': 'Salmon and trout', 'Suliformes': 'Gannets and cormorants'}
 TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali', 'Teleostei', 'Cephalaspidomorphi', 'Petromyzonti', 'Myxini', 'Sarcopterygii'}
 TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
 
@@ -433,8 +446,8 @@ def species_group(tx):
     k, c = (tx or {}).get('kingdom'), (tx or {}).get('class')
     if k == 'Animalia':
         return ('mammals' if c == 'Mammalia' else 'birds' if c == 'Aves' else 'reptiles' if c in TAB_REPTILES else 'amphibians' if c == 'Amphibia'
-                else 'fish' if c in TAB_FISH else 'insects' if c == 'Insecta' else 'animals')
-    return 'plants' if k == 'Plantae' else 'fungi' if k == 'Fungi' else 'other'
+                else 'fish' if c in TAB_FISH else 'insects' if c == 'Insecta' else 'other')
+    return 'plants' if k == 'Plantae' else 'other'
 
 
 def order_key(name):
@@ -462,7 +475,7 @@ def split_species_tab(sp, common, groupof, pics, orderof=None):
                 for name, rs in sorted(by.items(), key=lambda kv: (-len(kv[1]), kv[0])):
                     k = order_key(name); pgs = [rs[i:i + TAB_PAGE] for i in range(0, len(rs), TAB_PAGE)]
                     for i, pg in enumerate(pgs): files['g-%s-%s-%d.json' % (key, k, i)] = pg
-                    olist.append([k, name or 'Other', len(rs), len(pgs)])
+                    olist.append([k, ORDER_NAMES.get(name, name or 'Other'), len(rs), len(pgs)])
                 files['o-%s.json' % key] = olist; row.append(len(olist))
         groups.append(row)
     files['groups.json'] = groups
