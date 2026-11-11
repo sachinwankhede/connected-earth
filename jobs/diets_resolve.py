@@ -41,8 +41,13 @@ def resolve(root, min_share=0.9, dry=False):
         fixed.append((a, b, kind, len(rows)))
     if not dry:
         for p, es in edits.items():
-            d = loaded[p]
-            for i, kind in es: d['raw'][i] = with_kind(d['raw'][i], kind)
+            d = loaded[p]; new = {i: with_kind(d['raw'][i], kind) for i, kind in es}
+            seen = {tuple(r) for i, r in enumerate(d['raw']) if i not in new}; keep = []
+            for i, r in enumerate(d['raw']):   # a place can hold both kinds of one link: the row that moves onto the other one is dropped, not doubled (the build refuses a duplicate edge)
+                r = new.get(i, r)
+                if tuple(r) in seen and i in new: continue
+                seen.add(tuple(r)); keep.append(r)
+            d['raw'] = keep
             open(p, 'w', encoding='utf-8').write(json.dumps(d, ensure_ascii=False))
         tab = diets.table(root); by = collections.defaultdict(dict)
         for a, b, kind, _n in fixed:
@@ -57,7 +62,7 @@ def resolve(root, min_share=0.9, dry=False):
 
 def report(root, fixed, left):
     st = species.table(root); name = {r['sid']: (r.get('latin') or r['name']) for r in st.values()}
-    lines = ['Kind of eating links made the same in every place (#399)', '', 'pairs fixed: %d, place rows changed: %d' % (len(fixed), sum(f[3] for f in fixed)), '',
+    lines = ['Kind of eating links made the same in every place (#399)', '', 'pairs fixed: %d, place rows changed or dropped as doubles: %d' % (len(fixed), sum(f[3] for f in fixed)), '',
              '| prey | eaten by | kind now | rows changed |', '|---|---|---|---|']
     lines += ['| %s | %s | %s | %d |' % (name.get(a, a), name.get(b, b), k, n) for a, b, k, n in sorted(fixed, key=lambda f: -f[3])]
     lines += ['', 'pairs left alone (no clear majority): %d' % len(left), '', '| prey | eaten by | places by kind |', '|---|---|---|']
