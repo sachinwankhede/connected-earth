@@ -42,6 +42,14 @@ class OpenversePhotosTests(unittest.TestCase):
     def test_bad_ids_are_dropped(self):
         self.assertEqual(o.candidates([res(rid='../x')], 'Panthera onca'), [])
 
+    def test_abiotic_rows_are_not_looked_up(self):   # "Aquifer", "Nutrient", "Lake Titicaca" got photographs of the thing, not of a species
+        import tempfile, json, os
+        r = tempfile.mkdtemp(); d = os.path.join(r, 'data', 'species', 'rows', 'aq'); os.makedirs(d)
+        json.dump({'latin': '', 'name': 'Aquifer water', 'cat': 'abiotic', 'wiki': 'Aquifer'}, open(os.path.join(d, 'aquifer-water.json'), 'w'))
+        json.dump({'latin': 'Aquila chrysaetos', 'name': 'Golden eagle', 'wiki': 'Golden eagle'}, open(os.path.join(d, 'aquila-chrysaetos.json'), 'w'))
+        json.dump({'latin': '', 'name': 'Lake', 'cat': 'abiotic', 'wiki': 'Lake_Edward'}, open(os.path.join(d, 'lake-edward.json'), 'w'))
+        self.assertEqual(o.non_organisms(r), {'Aquifer', 'Lake Edward'})
+
 
 if __name__ == '__main__':
     unittest.main()
