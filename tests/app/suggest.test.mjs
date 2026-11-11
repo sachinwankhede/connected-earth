@@ -38,7 +38,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osp', 'Back returns to the search that was typed');
     await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
     await p.click('#qclr'); await p.waitForTimeout(200);
-    assert.deepEqual(await rows(), [], 'Clear closes the suggestions');
+    r = await rows();   // the box is empty and focused: the dropdown now lists the recent searches (#589), each marked as one, and no ordinary suggestion
+    assert.ok(r.length >= 1 && r.every((x) => /^Recent · /.test(x.line)), 'Clear closes the suggestions and shows the recent searches instead: ' + JSON.stringify(r));
     // every row says its type (#424): a place "Place · <state or country>", a species "Species · in N places"
     await p.click('#q'); await p.keyboard.type('yellowst');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });

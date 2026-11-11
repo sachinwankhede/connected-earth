@@ -8,6 +8,10 @@
   var sugBox = document.getElementById("sug"), sugIn = document.getElementById("q");
   var SUG_LEAF = '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14"/><path d="M5 19c3-4 6-7 9-9"/></svg>';
   var SUG_CHEV = '<svg class="sgo" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>';
+  var RS_CLOCK = SUG_LEAF.replace(/<path.*<\/svg>/, '<circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>');
+  /* Recent searches (#589): the last three things the person opened or searched, kept in this browser only (localStorage "ceRs"), shown as dropdown rows while the box is empty and focused */
+  function rsGet() { try { return JSON.parse(localStorage.getItem("ceRs")) || []; } catch (e) { return []; } }
+  function rsAdd(o) { try { var k = function (x) { return x.t + (x.id || x.latin || x.q); }, a = rsGet().filter(function (x) { return k(x) !== k(o); }); localStorage.setItem("ceRs", JSON.stringify([o].concat(a).slice(0, 3))); } catch (e) {} }
   function sugMax() { return window.matchMedia && matchMedia("(max-width: 700px)").matches ? 3 : 5; }
   function sugHide() { SUG.n++; SUG.rows = []; if (sugBox) { sugBox.hidden = true; sugBox.innerHTML = ""; } sugIn.setAttribute("aria-expanded", "false"); }
   /* rows for the typed text q out of one suggestion file d: every typed word must start a word of the name. Rank k: 0 the whole name (or Latin name) is what was typed, 1 the
@@ -32,12 +36,12 @@
     if (!SUG.rows.length) { sugBox.hidden = true; sugBox.innerHTML = ""; sugIn.setAttribute("aria-expanded", "false"); return; }
     sugBox.innerHTML = "";
     SUG.rows.forEach(function (r) {
-      var c, row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
-      row.className = "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else row.setAttribute("data-latin", r.latin);
+      var c, row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = r.t === "q" ? RS_CLOCK : e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
+      row.className = "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else if (r.t === "s") row.setAttribute("data-latin", r.latin); else row.setAttribute("data-q", r.q);
       row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b><i></i></span>' + SUG_CHEV;
-      row.querySelector("b").textContent = r.name;
-      row.querySelector("i").textContent = r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");
-      var p = r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
+      row.querySelector("b").textContent = r.name || r.q;
+      row.querySelector("i").textContent = (r.rc ? "Recent \u00b7 " : "") + (r.t === "q" ? "Search" : r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places"));
+      var p = r.t === "q" ? 0 : r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);
     });
@@ -75,6 +79,12 @@
   });
   function sugShow() {
     var raw = sugIn.value.trim(), ws = srchWords(raw), last = ws[ws.length - 1];
+    if (!raw && document.activeElement === sugIn) {   /* the empty box: the recent searches (species only on the Species tab) */
+      var sp = document.getElementById("sbody").classList.contains("tab-s"), n0 = ++SUG.n;
+      SUG.rows = rsGet().filter(function (x) { return !sp || x.t === "s"; }).map(function (x) { x.rc = 1; return x; }); sugDraw();
+      if (SUG.rows.some(function (x) { return x.t === "p"; }) && !Places.done) Places.loadLocals().then(function () { if (n0 === SUG.n) sugDraw(); });
+      withSpeciesPhotos(function () { if (n0 === SUG.n) sugDraw(); }); return;
+    }
     if (!last || last.length < 2 || document.activeElement !== sugIn) { sugHide(); return; }
     var n = ++SUG.n; SUG.q = raw;
     sugFile(last.slice(0, 2)).then(function (d) {
@@ -87,14 +97,16 @@
   if (sugBox) {
     sugIn.addEventListener("input", sugShow);
     sugIn.addEventListener("focus", sugShow);
-    sugIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === "Escape") sugHide(); });
+    sugIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter" && sugIn.value.trim().length > 1) rsAdd({ t: "q", q: sugIn.value.trim() }); if (ev.key === "Enter" || ev.key === "Escape") sugHide(); });
     sugIn.addEventListener("search", function () { sugHide(); sugIn.blur(); });
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
       var row = ev.target.closest(".sgr"); if (!row) return;
-      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent;
+      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.children, row)];
       sugHide(); sugIn.blur();
-      if (id) showPlace(id);
+      if (rw) rw.rc = 0, rsAdd(rw);
+      if (q) runSearch(q);
+      else if (id) showPlace(id);
       else { if (FL.q !== sugIn.value.trim().toLowerCase()) runSearch(sugIn.value); showSpecies(sidOf({ latin: latin })); }   /* the typed search is what Back returns to, even when the throttled search has not run yet */   /* a species row opens its page (#420 step 3); "Show on the map" is there */
     });
     document.addEventListener("pointerdown", function (ev) { if (!ev.target.closest("#qwrap")) sugHide(); }, true);
