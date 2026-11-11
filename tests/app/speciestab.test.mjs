@@ -6,6 +6,15 @@ import * as H from './helper.mjs';
 
 const fetched = (p, re) => p.evaluate((s) => performance.getEntriesByType('resource').some((r) => new RegExp(s).test(r.name)), re.source);
 
+// click a pill of the row, through the More list when the row holds it back (#534)
+const pick = async (p, attr, key) => {
+  const i = await p.evaluate(([a, k]) => { if (document.querySelector('#regions [' + a + '="' + k + '"]')) return -1; return window.__M.moreRows.findIndex((r) => r.a[a] === k); }, [attr, key]);
+  if (i < 0) { await p.evaluate(([a, k]) => document.querySelector('#regions [' + a + '="' + k + '"]').click(), [attr, key]); return; }
+  await p.evaluate(() => document.querySelector('#regions [data-pmore]').click());
+  await p.evaluate((n) => document.querySelector('#morelist .morei[data-i="' + n + '"]').click(), i);
+};
+
+
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the Species tab loads on demand, lists the most-found species, a row opens the page and Back returns to the tab`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
@@ -49,10 +58,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const heads = await p.evaluate(() => [...document.querySelectorAll('#sptab h3')].map((h) => h.textContent));
     assert.deepEqual(heads, ['Found in the most places']);
     const rows = await p.evaluate(() => [...document.querySelectorAll('#regions [data-spg]')].map((r) => ({ k: r.getAttribute('data-spg'), t: r.textContent, y: Math.round(r.getBoundingClientRect().top) })));
-    assert.equal(rows.length, groups.length + 1, 'All and one pill per group (#519)'); assert.equal(rows[0].k, ''); assert.equal(rows[1].k, groups[0][0]); assert.ok(rows.every((r) => r.y === rows[0].y), 'one sideways row at the top, like the continents');
+    assert.equal(rows.length, Math.min(groups.length, 6) + 1, 'All and the biggest groups, at most 8 pills with More (#534)'); assert.equal(rows[0].k, ''); assert.equal(rows[1].k, groups[0][0]); assert.ok(rows.every((r) => r.y === rows[0].y), 'one sideways row at the top, like the continents');
     const big = groups.findIndex((g) => g[2] > 250);   // a group with a second page, when the data has one
     const gi = big >= 0 ? big : 0, g = groups[gi];
-    await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
+    await pick(p, 'data-spg', g[0]);
     await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
     const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#sptab h3').textContent, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
@@ -76,10 +85,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const orders = await p.evaluate((k) => fetch('api/species-tab/o-' + k + '.json').then((r) => r.json()), g[0]);
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
-    await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);
+    await pick(p, 'data-spg', g[0]);
     await p.waitForFunction(() => document.querySelector('#regions [data-spo]'), null, { timeout: 60000 });
     const row = await p.evaluate(() => ({ lbl: document.querySelector('#regions .lbl').textContent, k: [...document.querySelectorAll('#regions .chip')].map((c) => c.getAttribute('data-spu') ? 'up' : c.getAttribute('data-spo') || 'all'), on: document.querySelector('#regions .chip.on').textContent, ys: [...document.querySelectorAll('#regions .chip')].map((c) => Math.round(c.getBoundingClientRect().top)) }));
-    assert.equal(row.lbl, 'Orders'); assert.deepEqual(row.k, ['up', 'all'].concat(orders.map((o) => o[0]))); assert.ok(row.on.startsWith('All '), 'All of the group is marked first'); assert.ok(row.ys.every((y) => y === row.ys[0]), 'still one sideways row');
+    assert.equal(row.lbl, 'Orders'); assert.deepEqual(row.k, ['up', 'all'].concat(orders.length > 7 ? orders.slice(0, 6).map((o) => o[0]).concat(['all']) : orders.map((o) => o[0]))); assert.ok(row.on.startsWith('All '), 'All of the group is marked first'); assert.ok(row.ys.every((y) => y === row.ys[0]), 'still one sideways row');
     const wide = () => p.evaluate(() => { const sb = document.getElementById('sbody'); return sb.scrollWidth - sb.clientWidth; });
     if (size.width < 700) assert.ok((await wide()) <= 1, 'the open group does not pan sideways: ' + (await wide()) + ' px too wide');   // owner, 10 Nov
     const o = orders[0];
@@ -143,6 +152,29 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(800);
     assert.match(await p.evaluate(() => document.getElementById('srow').textContent.trim()), /North America/, 'Places keeps its region');
     assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('stats')).display), 'none');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}
+
+// #534: a row holds at most 8 pills; the rest are under "More", a vertical list; picking one closes it and shows it as the selected pill.
+for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: at most 8 pills, the rest under More; the pick becomes the selected pill (#534)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
+    await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
+    const groups = await p.evaluate(() => fetch('api/species-tab/groups.json').then((r) => r.json()));
+    await p.click('[data-tab="species"]:visible');
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
+    assert.equal(groups.length, 8, 'eight groups (#534)');
+    const row = () => p.evaluate(() => ({ n: document.querySelectorAll('#regions .chip:not([data-spu])').length, more: !!document.querySelector('#regions [data-pmore]'), list: document.getElementById('morelist') && !document.getElementById('morelist').hidden }));
+    assert.deepEqual(await row(), { n: 8, more: true, list: null }, 'All, 6 groups and More');
+    await p.evaluate(() => document.querySelector('#regions [data-pmore]').click());
+    const rest = await p.evaluate(() => [...document.querySelectorAll('#morelist .morei')].map((r) => r.querySelector('b').textContent));
+    assert.deepEqual(rest, groups.slice(6).map((g) => g[1]), 'the rest, biggest first, as rows');
+    await p.evaluate(() => document.querySelector('#morelist .morei').click());
+    await p.waitForFunction((k) => document.querySelector('#regions .chip.on[data-spg="' + k + '"]') || document.querySelector('#regions [data-spo]'), groups[6][0], { timeout: 60000 });
+    const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8 pills (the ‹ back pill is not counted), the list is closed');
     assert.deepEqual(t.errors, []); await b.close();
   });
 }

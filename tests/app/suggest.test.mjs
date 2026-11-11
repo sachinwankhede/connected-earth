@@ -33,7 +33,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.deepEqual(await rows(), [], 'a tap on a row closes the suggestions');
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search', 'a species row opens its page (#420 step 3)');
-    await p.evaluate(() => history.back()); await p.waitForTimeout(800);
+    await p.evaluate(() => history.back());
+    await p.waitForFunction(() => document.getElementById('q').value === 'osp', null, { timeout: 15000 }).catch(() => {});   // wait for Back to restore the text instead of a fixed pause: a slow runner took longer than 800 ms
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osp', 'Back returns to the search that was typed');
     await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
     await p.click('#qclr'); await p.waitForTimeout(200);

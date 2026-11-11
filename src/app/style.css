@@ -1058,3 +1058,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sptab .sgl .sgr { min-height: 0; gap: 12px; }
 .sheet.mm .trow, .sheet.mm .tabs, .sheet.mm .qnote { display: none !important; }
 .tab-sp .filters .kinds, .tab-sp #stats { display: none !important; }
+/* The rest of a long pill row, under it: rows in the search-result style (#534) */
+#morelist { margin: -2px 0 8px; border: 1px solid var(--line); border-radius: 12px; max-height: 40vh; overflow-y: auto; background: var(--bg); }
+#morelist[hidden] { display: none; }
+#morelist .morei { width: 100%; min-height: 48px; border: 0; background: transparent; font: inherit; text-align: left; }
+#morelist .morei + .morei { border-top: 1px solid var(--line); }
+#morelist i { margin-left: auto; flex: none; color: var(--muted); font: 500 12px var(--font-mono); }
