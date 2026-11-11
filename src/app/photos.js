@@ -41,7 +41,7 @@
     if (!c) return 'Photo: Wikipedia \u00B7 <a href="' + esc(p.page) + '" target="_blank" rel="noopener">article</a>';
     var a = /^unknown(\s+author)?$/i.test(c.a.trim()) ? "author unknown" : c.a.length > 46 ? c.a.slice(0, 44) + "\u2026" : c.a;
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
-      ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (/gbif\.org/.test(c.p) ? "GBIF" : "Wikimedia Commons") + "</a>";
+      ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (c.s || "Wikimedia Commons") + "</a>";
   }
   function photoOf(n) { return (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
   function shot(n) {
