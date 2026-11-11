@@ -28,6 +28,13 @@ class DropTests(unittest.TestCase):
         self.assertEqual(t, '{\n"Gu\u00e9": "a.webp"\n}')   # one entry per line, accents as typed: the layout hostphotos.py writes
     def test_gbif_page_uses_gbif_rule(self):
         self.assertEqual(D.source_of({'p': 'https://www.gbif.org/occurrence/1'}), 'GBIF')
+    def test_openverse_page_uses_openverse_rule(self):
+        self.assertEqual(D.source_of({'p': 'https://openverse.org/image/abc'}), 'Openverse')
+    def test_title_drops_a_good_licence(self):
+        bad, c = D.drop(self.r, False, ['Good', 'Nope']); self.assertEqual(bad, ['Good'])
+        j = lambda n: json.load(open(os.path.join(self.r, 'photos', n + '.json')))
+        self.assertEqual(j('species_hosted'), {'Bad': 'b.webp'}); self.assertEqual(j('species_missing'), {'Good': 'nophoto'})
+        self.assertFalse(os.path.exists(os.path.join(self.r, 'photos', 'species', 'a.webp')))
 class PlaceTests(unittest.TestCase):
     def test_places(self):
         r = tempfile.mkdtemp(); pd = os.path.join(r, 'photos', 'places'); os.makedirs(pd)
