@@ -11,7 +11,7 @@ import urllib.parse
 
 PERMANENT = {"nophoto", "notcommons", "notphoto", "notfree"}   # notfree: the picture exists but its licence is outside the rule (#421)
 ALLOWED_IMAGE_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
-CREDIT_PAGE_HOSTS = {"commons.wikimedia.org", "www.gbif.org"}   # where a species picture's credit page may be (GBIF from #511); place pictures stay on Commons
+CREDIT_PAGE_HOSTS = {"commons.wikimedia.org", "www.gbif.org", "openverse.org"}   # where a species picture's credit page may be (GBIF from #511); place pictures stay on Commons
 ALLOWED_LICENSE_HOSTS = {"creativecommons.org", "www.gnu.org", "artlibre.org", "www.flickr.com", "web.archive.org", "www.kogl.or.kr"}
 
 
@@ -217,7 +217,7 @@ def validate():
         if license_id and not license_url and license_id.lower() not in {"public domain", "cc0", "attribution", "copyrighted free use", "no restrictions"}:
             errors.append(f"{title}: species photo metadata is missing a license URL")
         if not safe_https(credit.get("p"), CREDIT_PAGE_HOSTS):
-            errors.append(f"{title}: species photo metadata has an invalid credit page (Commons or GBIF)")
+            errors.append(f"{title}: species photo metadata has an invalid credit page (Commons, GBIF or Openverse)")
     if errors:
         raise ValueError("\n".join(errors))
     print(f"validated {len(places)} local place candidates, {len(species)} species candidates, and {len(species_metadata)} species credits")
