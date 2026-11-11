@@ -56,7 +56,7 @@
         var add = join(r);
         add.forEach(function (e) { ECOS.push(e); ECO_BY[e.id] = e; addEcoOption(e); });
         Places.done = true;
-        if (FL.local || FL.q) { M.pgKey = null; filterView(); }   /* only then are the new places on the screen */
+        if (Places.h) Places.h(); else if (FL.local || FL.q) { M.pgKey = null; filterView(); }
         return true;
       }).catch(function () { Places.p = null; Places.failedAt = Date.now(); return false; });
       return Places.p;
@@ -130,13 +130,15 @@
       FL.limited = !hits && srchWords(q).some(function (w) { return w.length >= 2; });
       var fin = function (ok) {
         if (FL.q !== q) return;
-        FL.busy = false; FL.limited = FL.limited || !ok;
+        FL.busy = false; if (!ok) FL.limited = 1;
         M.pgKey = null; if (q.length >= 3) renderView(true); else filterView();
         M.searched = q; M.hitsN = hits ? hits.size : -1;   /* the list now answers q, from this many places of the index (-1: the index was not used); the tests read both */
       };
-      FL.busy = !Places.done;   /* world places show at once, locals join when in (#561) */
-      if (!FL.busy) return fin(true);
-      M.pgKey = null; filterView(); Places.loadLocals().then(fin);
+      FL.busy = !Places.done;
+      if (!FL.busy) return fin(1);
+      filterView();
+      Places.h = function () { Places.h = 0; if (FL.q === q) fin(1); else if (FL.local || FL.q) { M.pgKey = null; filterView(); } };
+      Places.loadLocals().then(function (ok) { if (!ok) { Places.h = 0; fin(0); } });
     });
   }
   var COUPLE = DATA.couple;
