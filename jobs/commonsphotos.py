@@ -22,7 +22,7 @@ NOTPHOTO = re.compile(r'logo|emblem|coat[_ ]of[_ ]arms|(^|[_ ])flag([_ .]|$)|\.s
 def is_photo_type(mime):
     """JPEG only: on Commons, PNG, GIF, SVG and TIFF files of a species are mostly maps, diagrams, drawings and scans (the first full run gave a gyre map for 'California Current')."""
     return (mime or '').lower() == 'image/jpeg'
-def open_licence(lic): return licences.ok('Wikimedia', lic)   # the rule of #421, read from build/allowed_sources.json
+def open_licence(lic): return licences.ok('Wikimedia', lic)   # the rule of #421, read from lib/allowed_sources.json
 def strip(s): return re.sub(r'<[^>]+>', '', s or '').replace('&amp;', '&').strip()
 def image_names(claims):
     """File names of the P18 claims, preferred rank first, deprecated ones dropped."""

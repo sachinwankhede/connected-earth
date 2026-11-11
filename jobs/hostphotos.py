@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib')); import licences
 OUT = 'photos/species'; HOSTED = 'photos/species_hosted.json'; META = 'photos/species_metadata.json'; SKIPPED = 'photos/species_hosted_skipped.json'
 BASE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'
-# Licence rule (#421): CC0, CC BY, CC BY-SA, public domain, read from build/allowed_sources.json (lib/licences.py). Anything else stays unhosted.
+# Licence rule (#421): CC0, CC BY, CC BY-SA, public domain, read from lib/allowed_sources.json (lib/licences.py). Anything else stays unhosted.
 FREE = licences.matcher('Wikimedia')
 def retry(reason): return reason == 'no licence found' or bool(FREE.match(reason))   # skipped before for a reason a fix may have removed
 def commons_file(u):
