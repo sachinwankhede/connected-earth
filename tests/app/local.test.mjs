@@ -29,7 +29,8 @@ for (const [buildName, isPilot] of [['main', false], ['pilot', true]]) describe(
 
     test(`${sizeName}: search finds a local park even with the button off`, async () => {
       const t = await H.open(browser, isPilot ? H.PILOT : H.MAIN, size);
-      await t.page.fill('#q', 'castlewood'); await t.page.waitForTimeout(800);
+      await t.page.fill('#q', 'castlewood');
+      for (let i = 0; i < 40 && (await H.dots(t.page)) < 1; i++) await t.page.waitForTimeout(250);   // the park shows when the local places arrive; search no longer waits for them
       assert.ok((await H.dots(t.page)) >= 1);
       assert.equal(await H.hookText(t.page), null, 'home line hidden while searching');
       await t.close();
