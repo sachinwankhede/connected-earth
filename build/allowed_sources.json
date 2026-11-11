@@ -29,7 +29,8 @@
     },
     "Openverse": {
       "hosts": [
-        "api.openverse.org"
+        "api.openverse.org",
+        "openverse.org"
       ],
       "allowed_licences": [
         "CC0",
@@ -92,6 +93,7 @@
     "en.wikipedia.org",
     "github.com",
     "nominatim.openstreetmap.org",
+    "openverse.org",
     "query.wikidata.org",
     "services.arcgis.com",
     "thumb.wikimedia.org",
