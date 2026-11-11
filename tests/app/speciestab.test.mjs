@@ -65,7 +65,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
     const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#regions .chip.on').textContent, h3: document.querySelectorAll('#sptab h3').length, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
-    assert.equal(v.back, 'none', 'the All pill is the way back, no second link (#526)'); assert.equal(v.h3, 0, 'no heading line'); assert.equal(v.head, g[1] + ' ' + g[2], 'the selected pill says the name and the count'); assert.equal(v.n, Math.min(g[2], 250));
+    assert.equal(v.back, 'none', 'the All pill is the way back, no second link (#526)'); assert.equal(v.h3, 0, 'no heading line'); assert.equal(v.head.replace(/^All /, ''), g[1] + ' ' + g[2], 'the selected pill says the name and the count (All <group> when it has orders)'); assert.equal(v.n, Math.min(g[2], 250));
     if (g[2] > 250) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
       await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
