@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """openversephotos.py: a picture for species that Wikipedia, Wikidata, Commons and GBIF have none for (#511), from Openverse (api.openverse.org).
 Usage: openversephotos.py [limit] [--again] [--dry]
-For each title in photos/species_missing.json that has no manifest entry yet:
+For each title in photos/species_missing.json that has no manifest entry yet and is not a row marked abiotic (non_organisms):
   1. searches Openverse images for the Latin name (category photograph; licences CC0, public domain mark, CC BY, CC BY-SA; iNaturalist excluded);
   2. keeps a result only when the Latin name is in its title or tags (a free-text search is not a taxon match), it has a named creator, and it is not a
      herbarium sheet, museum object or iNaturalist photo (provider, source, title and links are all checked);
@@ -48,6 +48,15 @@ def candidates(results, name):
         th = API + rid + '/thumb/'
         out.append((rid, th, au, lic[0], lic[1]))
     return out
+def non_organisms(root=None):
+    """Wikipedia titles of the species rows marked abiotic (soils, lakes, water, nutrients: things in the food webs that are not living things); a search for such a title finds a photo of the thing the word names, not of a species (#511)."""
+    root = root or os.path.dirname(os.path.dirname(os.path.abspath(__file__))); out = set(); base = os.path.join(root, 'data', 'species', 'rows')
+    for d, _, fs in os.walk(base):
+        for f in fs:
+            if f.endswith('.json'):
+                r = json.load(open(os.path.join(d, f), encoding='utf-8'))
+                if r.get('cat') == 'abiotic' and r.get('wiki'): out.add(r['wiki'].replace('_', ' '))
+    return out
 def search(name):
     q = API + '?' + urllib.parse.urlencode({'q': '"%s"' % name, 'license': 'cc0,pdm,by,by-sa', 'category': 'photograph', 'excluded_source': 'inaturalist', 'page_size': 20})
     return (wm.get(q) or {}).get('results') or []
@@ -57,7 +66,8 @@ def main():
     load = lambda p: json.load(open(p)) if os.path.exists(p) else {}
     man, miss, src, tried, hosted, meta = load(MAN), load(MISS), load(SRC), load(TRIED), load(HOSTED), load(META)
     today = datetime.date.today(); cut = (today - datetime.timedelta(days=RETRY_DAYS)).isoformat()
-    todo = sorted(t for t in miss if t not in man and (again or tried.get(t, '') <= cut))
+    skip = non_organisms()
+    todo = sorted(t for t in miss if t not in man and t.replace('_', ' ') not in skip and (again or tried.get(t, '') <= cut))
     if limit: todo = todo[:limit]
     print(len(todo), 'titles to try', flush=True); os.makedirs(OUT, exist_ok=True); found = 0; fails = 0
     def save():
