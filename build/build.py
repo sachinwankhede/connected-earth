@@ -442,6 +442,11 @@ TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali',
 TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
 
 
+CREDIT_SOURCES = (('www.gbif.org', 'GBIF'), ('openverse.org', 'Openverse'))   # where a credit page is when the picture is not from Commons (#511): the app shows this name, else "Wikimedia Commons"
+def credit_source(page):
+    """The source name of a species picture credit from its credit page, or '' for Commons (the app's default)."""
+    host = (urllib.parse.urlsplit(page or '').hostname or '').lower()
+    return next((n for h, n in CREDIT_SOURCES if host == h), '')
 def species_group(tx):
     """The group key of a taxonomy record ({kingdom, class, ...}, or None when the species has none): the everyday groups, from the kingdom and the class."""
     k, c = (tx or {}).get('kingdom'), (tx or {}).get('class')
@@ -592,6 +597,7 @@ def build(pilot, out_path, write=False, places=False):
     phm_all = json.load(open(phmf)) if os.path.exists(phmf) else {}
     for _c in phm_all.values():
         if isinstance(_c, dict) and _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
+        if isinstance(_c, dict) and credit_source(_c.get('p')): _c['s'] = credit_source(_c['p'])
     hf = P('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
