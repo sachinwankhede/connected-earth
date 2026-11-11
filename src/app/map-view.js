@@ -148,7 +148,7 @@
     if (mb) {
       open = L.hidden;
       L.innerHTML = M.moreRows.map(function (r, i) { return '<button type="button" class="sgr morei' + (r.on ? " on" : "") + '" data-i="' + i + '" aria-pressed="' + !!r.on + '"><i class="rd"></i><span class="sgt"><b>' + ea(r.t) + "</b></span><em>" + (r.n == null ? "" : r.n) + "</em></button>"; }).join("");
-      L.hidden = !open; mb.setAttribute("aria-expanded", open); return;
+      L.hidden = !open; mb.setAttribute("aria-expanded", open); if (open) mb.scrollIntoView({ inline: "end", block: "nearest" }); return;   /* the pill the list belongs to stays in view */
     }
     if (L) { L.hidden = true; var pm = rg.querySelector("[data-pmore]"); if (pm) pm.setAttribute("aria-expanded", "false"); }
     if (it && (r = M.moreRows[it.dataset.i])) { b = document.createElement("button"); for (k in r.a) b.setAttribute(k, r.a[k]); rg.appendChild(b); b.click(); b.remove(); }   /* the pick acts as the pill it stands for */
