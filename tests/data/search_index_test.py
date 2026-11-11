@@ -38,7 +38,7 @@ def check(pilot, folder):
     # rows: one line per place in page order
     flat = [r for f in rows for r in f]
     assert len(flat) == len(light) and all(len(f) == meta['rows'] for f in rows[:-1])
-    for e, r in zip(light, flat): assert r[0] == e['id'] and r[1] == e['name'] and r[2] == e['place'] and r[5] == e['cont'], e['id']
+    assert flat == [e['id'] for e in light], 'a rows file is the place ids in page order (#561)'
     # a name the user would type
     assert 'yellowstone' in words and light[words['yellowstone'][0]]['id'] == 'yellowstone'
     assert B.search_words("Cooper's Hawk, São Tomé") >= {'coopers', 'hawk', 'sao', 'tome'}
