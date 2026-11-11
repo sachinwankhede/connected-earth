@@ -125,18 +125,19 @@
     var a = f.slice().sort().join("|"), b = scanKeys(lvl).sort().join("|");
     return a === b ? [] : [{ lvl: lvl, file: a, scan: b }];
   };
-  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. A hidden pick takes the second-last place; only More has a chevron. */
+  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. The pick comes first; only More has a chevron. */
   function ea(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function pillH(it, on) {
     var s = ""; for (var k in it.a) s += " " + k + '="' + ea(it.a[k]) + '"';
     return '<button type="button" class="chip' + (on ? " on" : "") + '"' + s + ">" + ea(it.t) + (it.n == null ? "" : " <b>" + it.n + "</b>") + "</button>";
   }
   M.capPills = function (head, items, sel, n, headItem) {   /* head: html of the All pill ("" when the caller draws it); n: the pills before the items, ‹ back and All included; headItem: {a, t, n, on} the All row of the list; items: [{k, a, t, n}] in row order; sel: key of the picked one */
-    var room = 8 - n, vis = items;
+    var room = 8 - n, vis = items, p = -1;
     M.moreRows = [];
+    items.forEach(function (it, i) { if (it.k === sel) p = i; });
+    if (p > 0) vis = [items[p]].concat(items.slice(0, p), items.slice(p + 1));   /* the pick first (#534) */
     if (items.length > room) {
-      vis = items.slice(0, room - 1);
-      for (var i = room - 1; sel != null && i < items.length; i++) if (items[i].k === sel) vis[room - 2] = items[i];   /* the pick, in the second-last place */
+      vis = vis.slice(0, room - 1);
       M.moreRows = (headItem ? [headItem] : []).concat(items.map(function (it) { return { a: it.a, t: it.t, n: it.n, on: it.k === sel }; }));
     }
     return head + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (M.moreRows.length ? '<button type="button" class="chip" data-pmore="1" aria-expanded="false" aria-haspopup="true">More<i class="cv"></i></button>' : "");
