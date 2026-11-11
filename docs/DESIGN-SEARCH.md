@@ -27,7 +27,7 @@ Status: **agreed** (5 Nov 2026, the owner accepted every proposal below). Items 
 7. **Address.** `s=<text>` for a search, `sp=<latin slug>` for a species page, the tab as for places and journeys. Back leaves a species page for the search it came from; Back from a search with text clears it before leaving.
 
 ## States
-- **Empty box:** nothing (later: the last three searches, kept on the phone only).
+- **Empty box:** while it is focused, the last three searches, in the dropdown's own rows (#589, owner go-ahead 11 Nov): newest first, at most 3, kept in this browser only (`localStorage` key `ceRs`), never sent anywhere. A search is what the person sent with Enter (a row with a clock icon, the text and "Recent · Search") or a row they opened from the dropdown (the same row as in the dropdown, its type line starting "Recent · "). A tap on a text row runs that search again; a tap on a place or species row opens it. Running or opening one again makes it the newest. Nothing is loaded for it at start-up (a recent place row loads the local places like a typed one does). On the Species tab only the species rows are listed. With nothing stored, or when the browser refuses storage, the box shows nothing, as before. Clear (✕) empties the box and brings the list back. There is no control to erase the list in this version (parked).
 - **Typing:** one redraw per keystroke; the previous results stay until the new ones arrive; a "Searching…" line while the index or the local places are still loading (never the "nothing found" text then).
 - **Nothing found:** "No places or species match “text”." with Clear. The old "No ecosystems here yet" text is only for an empty region.
 - **Index failed or offline:** one muted line "Search is limited right now"; the list still filters on the card text (world places only offline). Retried after 30 s as today.
@@ -62,4 +62,4 @@ No "All / Places / Species" chips in the dropdown; no modal; no new button for s
 2. The back link from search says "‹ Search".
 3. An exact species or place match gets a header row above the results.
 4. The species filter becomes a visible chip.
-5. Recent searches come later, not now.
+5. Recent searches come later, not now. (Reversed 11 Nov, owner: build them, #589; see States.)
