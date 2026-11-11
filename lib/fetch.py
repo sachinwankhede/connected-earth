@@ -1,5 +1,5 @@
 """lib/fetch.py: runtime guard ensuring all external downloads and network requests
-route only to approved hosts defined in build/allowed_sources.json.
+route only to approved hosts defined in lib/allowed_sources.json.
 Refuses unlisted hosts at run time."""
 
 import json
@@ -9,7 +9,7 @@ import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ALLOWED_SOURCES_PATH = os.path.join(ROOT, "build", "allowed_sources.json")
+ALLOWED_SOURCES_PATH = os.path.join(ROOT, "lib", "allowed_sources.json")
 
 _allowed_hosts = None
 
@@ -31,7 +31,7 @@ def get_allowed_hosts():
 
 
 def check_url(url_or_request):
-    """Verifies that the URL or Request points to an allowed host in build/allowed_sources.json.
+    """Verifies that the URL or Request points to an allowed host in lib/allowed_sources.json.
     Raises PermissionError if the host is unlisted or scheme is not http/https."""
     if isinstance(url_or_request, urllib.request.Request):
         url = url_or_request.full_url
@@ -49,7 +49,7 @@ def check_url(url_or_request):
     allowed = get_allowed_hosts()
     if host not in allowed:
         raise PermissionError(
-            f"Host '{host}' is not in build/allowed_sources.json. "
+            f"Host '{host}' is not in lib/allowed_sources.json. "
             f"All downloads must use owner-approved sources: {url}"
         )
     return host

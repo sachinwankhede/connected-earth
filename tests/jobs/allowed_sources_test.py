@@ -1,5 +1,5 @@
 """Tests that all network hosts and licences in data jobs, build tools, shell scripts,
-and shared libraries are approved in build/allowed_sources.json, that downloads route
+and shared libraries are approved in lib/allowed_sources.json, that downloads route
 through lib/fetch.py, and that no URLs are built dynamically from variables."""
 
 import glob
@@ -17,12 +17,12 @@ import fetch
 
 class AllowedSourcesTest(unittest.TestCase):
     def test_allowed_sources_file_exists_and_per_source_licences(self):
-        config_path = os.path.join(ROOT, 'build', 'allowed_sources.json')
-        self.assertTrue(os.path.isfile(config_path), 'build/allowed_sources.json must exist')
+        config_path = os.path.join(ROOT, 'lib', 'allowed_sources.json')
+        self.assertTrue(os.path.isfile(config_path), 'lib/allowed_sources.json must exist')
         with open(config_path) as f:
             data = json.load(f)
-        self.assertIn('sources', data, 'build/allowed_sources.json must define sources')
-        self.assertIn('hosts', data, 'build/allowed_sources.json must define hosts')
+        self.assertIn('sources', data, 'lib/allowed_sources.json must define sources')
+        self.assertIn('hosts', data, 'lib/allowed_sources.json must define hosts')
 
         sources = data['sources']
         # Picture rule (#421): Wikimedia CC0, CC BY, CC BY-SA, public domain; GBIF CC0 and CC BY only
@@ -40,7 +40,7 @@ class AllowedSourcesTest(unittest.TestCase):
         )
 
     def test_job_lib_build_and_sh_hosts_allowed(self):
-        config_path = os.path.join(ROOT, 'build', 'allowed_sources.json')
+        config_path = os.path.join(ROOT, 'lib', 'allowed_sources.json')
         with open(config_path) as f:
             data = json.load(f)
         allowed_hosts = set(data['hosts'])
@@ -70,7 +70,7 @@ class AllowedSourcesTest(unittest.TestCase):
         self.assertEqual(
             unapproved,
             [],
-            'Unapproved network hosts found. Adding a host requires owner approval in build/allowed_sources.json: %r' % unapproved
+            'Unapproved network hosts found. Adding a host requires owner approval in lib/allowed_sources.json: %r' % unapproved
         )
 
     def test_no_urls_built_from_variables(self):
