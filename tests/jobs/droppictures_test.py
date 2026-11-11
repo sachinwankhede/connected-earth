@@ -35,6 +35,13 @@ class DropTests(unittest.TestCase):
         j = lambda n: json.load(open(os.path.join(self.r, 'photos', n + '.json')))
         self.assertEqual(j('species_hosted'), {'Bad': 'b.webp'}); self.assertEqual(j('species_missing'), {'Good': 'nophoto'})
         self.assertFalse(os.path.exists(os.path.join(self.r, 'photos', 'species', 'a.webp')))
+    def test_dropped_openverse_picture_is_marked_tried(self):   # otherwise data-openversephotos fetches the same picture again (Acraea)
+        put(self.r, 'species_metadata', {'Good': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:A.jpg'}, 'Acraea': {'l': 'CC BY-SA 2.0', 'p': 'https://openverse.org/image/abc'}, 'Bad': {'l': 'GFDL 1.2', 'p': 'https://commons.wikimedia.org/wiki/File:B.jpg'}})
+        put(self.r, 'species_hosted', {'Good': 'a.webp', 'Acraea': 'a2.webp', 'Bad': 'b.webp'})
+        D.drop(self.r, False, ['Acraea', 'Bad'])
+        j = lambda n: json.load(open(os.path.join(self.r, 'photos', n + '.json')))
+        self.assertEqual(list(j('species_openverse_tried')), ['Acraea'], 'only the Openverse picture is remembered as tried here')
+        self.assertEqual(sorted(j('species_missing')), ['Acraea', 'Bad'])
 class PlaceTests(unittest.TestCase):
     def test_places(self):
         r = tempfile.mkdtemp(); pd = os.path.join(r, 'photos', 'places'); os.makedirs(pd)
