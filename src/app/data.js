@@ -103,9 +103,8 @@
     var ws = srchWords(q).filter(function (w) { return w.length >= 2; });
     if (!ws.length || (SRCH.failedAt && Date.now() - SRCH.failedAt < 30000)) return Promise.resolve(null);
     if (!SRCH.meta) SRCH.meta = srchGet("meta.json");
-    return Promise.all([SRCH.meta, Places.loadLocals()]).then(function (r) {
-      var m = r[0];
-      if (!r[1] || m.n !== Places.total) throw 0;   /* not the same list as the page, or the local places did not come: do not trust the numbers */
+    return SRCH.meta.then(function (m) {
+      if (m.n !== Places.total) throw 0;   /* not the page's list */
       return Promise.all(ws.map(function (w) { return m.buckets.indexOf(w.slice(0, 2)) < 0 ? new Set() : srchBucket(w.slice(0, 2)).then(function (b) { return srchPrefix(b, w); }); })).then(function (sets) {
         sets.sort(function (a, b) { return a.size - b.size; });
         var nums = []; sets[0].forEach(function (n) { if (sets.every(function (x) { return x.has(n); })) nums.push(n); });
@@ -113,7 +112,7 @@
         return Promise.all(ks.map(srchRows)).then(function (files) {
           var by = {}; ks.forEach(function (k, i) { by[k] = files[i]; });
           var hits = new Set();
-          nums.forEach(function (n) { var id = by[Math.floor(n / m.rows)][n % m.rows]; if (id && ECO_BY[id]) hits.add(id); });
+          nums.forEach(function (n) { var id = by[Math.floor(n / m.rows)][n % m.rows]; if (id) hits.add(id); });
           return hits;
         });
       });
@@ -127,10 +126,17 @@
     M.busyT = setTimeout(function () { if (FL.busy && FL.q === q && el.webview.hidden) { el.stats.textContent = "Searching…"; showNote(); } }, 250);   /* only when it takes a moment, so a quick answer does not flicker */
     srchRun(q).then(function (hits) {
       if (FL.q !== q) return;
-      clearTimeout(M.busyT); FL.busy = false; FL.hits = hits;   /* no hits: the index could not answer and the card text decides */
+      clearTimeout(M.busyT); FL.hits = hits;   /* no hits: the index could not answer and the card text decides */
       FL.limited = !hits && srchWords(q).some(function (w) { return w.length >= 2; });
-      M.pgKey = null; if (q.length >= 3) renderView(true); else filterView();
-      M.searched = q; M.hitsN = hits ? hits.size : -1;   /* the list now answers q, from this many places of the index (-1: the index was not used); the tests read both */
+      var fin = function (ok) {
+        if (FL.q !== q) return;
+        FL.busy = false; FL.limited = FL.limited || !ok;
+        M.pgKey = null; if (q.length >= 3) renderView(true); else filterView();
+        M.searched = q; M.hitsN = hits ? hits.size : -1;   /* the list now answers q, from this many places of the index (-1: the index was not used); the tests read both */
+      };
+      FL.busy = !Places.done;   /* world places show at once, locals join when in (#561) */
+      if (!FL.busy) return fin(true);
+      M.pgKey = null; filterView(); Places.loadLocals().then(fin);
     });
   }
   var COUPLE = DATA.couple;
