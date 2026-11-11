@@ -10,9 +10,24 @@ class SpeciesTab(unittest.TestCase):
         g = B.species_group
         self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Aves'}), 'birds'); self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Mammalia'}), 'mammals')
         self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Squamata'}), 'reptiles'); self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Elasmobranchii'}), 'fish')
-        self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Insecta'}), 'insects'); self.assertEqual(g({'kingdom': 'Animalia'}), 'animals')
-        self.assertEqual(g({'kingdom': 'Plantae', 'class': 'Pinopsida'}), 'plants'); self.assertEqual(g({'kingdom': 'Fungi'}), 'fungi')
+        self.assertEqual(g({'kingdom': 'Animalia', 'class': 'Insecta'}), 'insects'); self.assertEqual(g({'kingdom': 'Animalia'}), 'other', 'other animals are in Other (#534)')
+        self.assertEqual(g({'kingdom': 'Plantae', 'class': 'Pinopsida'}), 'plants'); self.assertEqual(g({'kingdom': 'Fungi'}), 'other', 'fungi too')
         self.assertEqual(g({'kingdom': 'Chromista'}), 'other'); self.assertEqual(g(None), 'other')
+
+    def test_eight_flat_groups(self):   # #534: the first level is eight one-word pills
+        self.assertEqual([k for k, _ in B.TAB_GROUPS], ['mammals', 'birds', 'reptiles', 'amphibians', 'fish', 'insects', 'plants', 'other'])
+        self.assertEqual([l for _, l in B.TAB_GROUPS], ['Mammals', 'Birds', 'Reptiles', 'Amphibians', 'Fish', 'Insects', 'Plants', 'Other'])
+
+    @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'data', 'species', 'taxonomy.json')), 'needs the data')
+    def test_order_names_match_real_orders(self):   # #534: an everyday name is for an order that exists, and two orders never share a name
+        tx = json.load(open(os.path.join(ROOT, 'data', 'species', 'taxonomy.json'), encoding='utf-8'))
+        real = {r.get('order') for r in tx.values()}
+        self.assertEqual(sorted(set(B.ORDER_NAMES) - real), [], 'every table entry is a real order')
+        self.assertEqual(len(set(B.ORDER_NAMES.values())), len(B.ORDER_NAMES), 'no name is used twice')
+        files = B.split_species_tab({'A a': ['p']}, {'A a': 'A'}, {'A a': 'mammals'}, {}, {'A a': 'Rodentia'})
+        self.assertEqual(files['groups.json'][0][:4], ['mammals', 'Mammals', 1, 1])
+        files = B.split_species_tab({'A a': ['p'], 'B b': ['p']}, {}, {'A a': 'mammals', 'B b': 'mammals'}, {}, {'A a': 'Rodentia', 'B b': 'Zzzorder'})
+        self.assertEqual(sorted(o[1] for o in files['o-mammals.json']), ['Rodents', 'Zzzorder'], 'a named order shows its everyday name, the rest keep the Latin one')
 
     def test_diet_rows_from_made_up_webs(self):   # #447: raw rows are [food, eater]
         ecos = [{'nodes': [{'id': 'g', 'latin': 'Grass g', 'name': 'Grass'}, {'id': 'd', 'latin': 'Deer d', 'name': 'Deer'}, {'id': 'w', 'latin': 'Wolf w', 'name': 'Wolf'}, {'id': 's', 'name': 'Sun', 'cat': 'sun'}],
@@ -60,7 +75,7 @@ class SpeciesTab(unittest.TestCase):
         g = {l: 'birds' for l in sp}; g['E e'] = 'plants'
         f = B.split_species_tab(sp, {}, g, {}, {'A a': 'Strigiformes', 'B b': 'Passeriformes', 'C c': 'Passeriformes', 'D d': '', 'E e': 'Pinales'})
         self.assertEqual(f['groups.json'], [['birds', 'Birds', 4, 1, 3], ['plants', 'Plants', 1, 1]], 'a group with one order gets no order row')
-        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Passeriformes', 2, 1], ['other', 'Other', 1, 1], ['strigiformes', 'Strigiformes', 1, 1]], 'most species first, then by name')
+        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Songbirds', 2, 1], ['other', 'Other', 1, 1], ['strigiformes', 'Owls', 1, 1]], 'most species first, then by name')
         self.assertEqual([r[0] for r in f['g-birds-passeriformes-0.json']], ['C c', 'B b']); self.assertNotIn('o-plants.json', f)
         self.assertEqual(B.order_key('Carnivora'), 'carnivora'); self.assertEqual(B.order_key(None), 'other')
         self.assertNotIn('g-birds-pinales-0.json', f)
