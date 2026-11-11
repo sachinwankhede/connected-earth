@@ -24,9 +24,9 @@ class SpeciesTab(unittest.TestCase):
         real = {r.get('order') for r in tx.values()}
         self.assertEqual(sorted(set(B.ORDER_NAMES) - real), [], 'every table entry is a real order')
         self.assertEqual(len(set(B.ORDER_NAMES.values())), len(B.ORDER_NAMES), 'no name is used twice')
-        files = B.split_species_tab({'A a': ['p']}, {'A a': 'A'}, {'A a': 'mammals'}, {}, {'A a': 'Rodentia'})
+        files = B.split_species_tab({'A a': ['p']}, {'A a': 'A'}, {'A a': 'mammals'}, {}, {'A a': 'Rodentia'}, 1)
         self.assertEqual(files['groups.json'][0][:4], ['mammals', 'Mammals', 1, 1])
-        files = B.split_species_tab({'A a': ['p'], 'B b': ['p']}, {}, {'A a': 'mammals', 'B b': 'mammals'}, {}, {'A a': 'Rodentia', 'B b': 'Zzzorder'})
+        files = B.split_species_tab({'A a': ['p'], 'B b': ['p']}, {}, {'A a': 'mammals', 'B b': 'mammals'}, {}, {'A a': 'Rodentia', 'B b': 'Zzzorder'}, 1)
         self.assertEqual(sorted(o[1] for o in files['o-mammals.json']), ['Rodents', 'Zzzorder'], 'a named order shows its everyday name, the rest keep the Latin one')
 
     def test_diet_rows_from_made_up_webs(self):   # #447: raw rows are [food, eater]
@@ -61,7 +61,7 @@ class SpeciesTab(unittest.TestCase):
     def test_rows_order_pages_and_totals(self):
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1', 'p2']}
         common = {'A a': 'Alpha', 'B b': 'Beta', 'C c': 'Charlie', 'D d': 'Delta'}
-        f = B.split_species_tab(sp, common, {'A a': 'birds', 'B b': 'birds', 'C c': 'plants', 'D d': 'plants'}, {'A a': 'x.webp'})
+        f = B.split_species_tab(sp, common, {'A a': 'birds', 'B b': 'birds', 'C c': 'plants', 'D d': 'plants'}, {'A a': 'x.webp'}, None, 1)
         self.assertEqual(f['top.json'], [['A a', 'Alpha', 3, 'x.webp'], ['C c', 'Charlie', 2, 0], ['D d', 'Delta', 2, 0], ['B b', 'Beta', 1, 0]], 'most places first, then by name; 0 when no picture')
         self.assertEqual(f['groups.json'], [['birds', 'Birds', 2, 1], ['plants', 'Plants', 2, 1]], 'only groups that have species')
         self.assertEqual(f['g-birds-0.json'], [['A a', 'Alpha', 3, 'x.webp'], ['B b', 'Beta', 1, 0]])
@@ -73,13 +73,27 @@ class SpeciesTab(unittest.TestCase):
     def test_orders_inside_a_group(self):   # #519 level 2
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1'], 'E e': ['p1']}
         g = {l: 'birds' for l in sp}; g['E e'] = 'plants'
-        f = B.split_species_tab(sp, {}, g, {}, {'A a': 'Strigiformes', 'B b': 'Passeriformes', 'C c': 'Passeriformes', 'D d': '', 'E e': 'Pinales'})
+        f = B.split_species_tab(sp, {}, g, {}, {'A a': 'Strigiformes', 'B b': 'Passeriformes', 'C c': 'Passeriformes', 'D d': '', 'E e': 'Pinales'}, 1)
         self.assertEqual(f['groups.json'], [['birds', 'Birds', 4, 1, 3], ['plants', 'Plants', 1, 1]], 'a group with one order gets no order row')
-        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Songbirds', 2, 1], ['other', 'Other', 1, 1], ['strigiformes', 'Owls', 1, 1]], 'most species first, then by name')
+        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Songbirds', 2, 1], ['strigiformes', 'Owls', 1, 1], ['other', 'Other', 1, 1]], 'most species first, then by name, Other last (#534)')
         self.assertEqual([r[0] for r in f['g-birds-passeriformes-0.json']], ['C c', 'B b']); self.assertNotIn('o-plants.json', f)
         self.assertEqual(B.order_key('Carnivora'), 'carnivora'); self.assertEqual(B.order_key(None), 'other')
         self.assertNotIn('g-birds-pinales-0.json', f)
-        self.assertEqual(B.split_species_tab(sp, {}, g, {})['groups.json'][0], ['birds', 'Birds', 4, 1], 'no orders given: as before')
+        self.assertEqual(B.split_species_tab(sp, {}, g, {}, None, 1)['groups.json'][0], ['birds', 'Birds', 4, 1], 'no orders given: as before')
+
+    def test_few_species_join_other(self):   # #534: at least TAB_MIN (5) species for a pill; fewer join the Other of the level above, which is the last pill
+        self.assertEqual(B.TAB_MIN, 5)
+        sp = {}; g = {}; od = {}
+        def add(n, grp, order):
+            for i in range(n):
+                l = '%s %s%d' % (order or 'x', grp, i); sp[l] = ['p'] * (i + 1); g[l] = grp; od[l] = order
+        add(9, 'birds', 'Passeriformes'); add(6, 'birds', 'Strigiformes'); add(4, 'birds', 'Apodiformes'); add(1, 'birds', 'Pelecaniformes'); add(2, 'birds', ''); add(3, 'reptiles', 'Squamata')
+        f = B.split_species_tab(sp, {}, g, {}, od)
+        self.assertEqual([r[:3] for r in f['groups.json']], [['birds', 'Birds', 22], ['other', 'Other', 3]], 'reptiles has 3 species: it joins the group Other')
+        self.assertEqual(f['o-birds.json'], [['passeriformes', 'Songbirds', 9, 1], ['strigiformes', 'Owls', 6, 1], ['other', 'Other', 7, 1]], 'orders under 5 and the species without an order are one Other, always last even when it is bigger than an order')
+        self.assertEqual(len(f['g-birds-other-0.json']), 7); self.assertNotIn('g-birds-apodiformes-0.json', f); self.assertEqual(f['g-birds-other-0.json'][0][2], 4, 'inside Other the most places come first')
+        f = B.split_species_tab({'A a': ['p'], 'B b': ['p']}, {}, {'A a': 'fish', 'B b': 'fish'}, {}, {'A a': 'X', 'B b': 'Y'})
+        self.assertEqual(f['groups.json'], [['other', 'Other', 2, 1]], 'a group of two species is not a pill; with only Other left there is no order row')
 
     def test_built_files_add_up(self):
         for d in ('species-tab', 'species-tab-pilot'):
@@ -94,7 +108,8 @@ class SpeciesTab(unittest.TestCase):
                     ol = json.load(open(os.path.join(p, 'o-%s.json' % key))); self.assertEqual(len(ol), no[0]); self.assertGreater(len(ol), 1)
                     orows = [r for k, name, c, pg in ol for i in range(pg) for r in json.load(open(os.path.join(p, 'g-%s-%s-%d.json' % (key, k, i))))]
                     self.assertEqual(sorted(r[0] for r in orows), sorted(r[0] for r in rows), key + ': every species is in exactly one order')
-                    self.assertEqual([o[2] for o in ol], sorted((o[2] for o in ol), reverse=True), 'most species first')
+                    named = [o for o in ol if o[0] != 'other']; self.assertEqual([o[2] for o in named], sorted((o[2] for o in named), reverse=True), 'most species first')
+                    self.assertTrue(all(o[2] >= B.TAB_MIN for o in named), 'an order has at least TAB_MIN species (#534)'); self.assertTrue(ol[-1][0] == 'other' or all(o[0] != 'other' for o in ol), 'Other is the last order (#534)')
             self.assertEqual(len(seen), sum(g[2] for g in groups), 'no species in two groups')
             top = json.load(open(os.path.join(p, 'top.json'))); self.assertEqual(len(top), B.TAB_TOP)
             self.assertTrue(all(r[0] in seen for r in top)); self.assertEqual([r[2] for r in top], sorted((r[2] for r in top), reverse=True))

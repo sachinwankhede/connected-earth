@@ -38,8 +38,8 @@ window.__chunk["species-tab"] = function (A) {
   function chip(attr, key, on, text, n) { return '<button type="button" class="chip' + (on ? " on" : "") + '" ' + attr + '="' + key + '">' + escH(text) + (n == null ? "" : " <b>" + n + "</b>") + "</button>"; }
   function pills(on, g, ok) {   /* one row of pills, like the continents on Places: the groups; inside a group that has orders, its orders with a way back up (#519) */
     var cap = M.capPills;   /* at most 8 pills in a row, the rest under "More" (#534) */
-    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + cap(chip("data-spg", g[0], !ok, "All " + g[1], g[2]), ords[g[0]].map(function (o) { return { k: o[0], a: { "data-spo": o[0] }, t: o[1], n: o[2] }; }), ok || null, false, { a: { "data-spg": g[0] }, t: "All " + g[1], n: g[2], on: !ok }); return; }
-    rg.innerHTML = '<span class="lbl">Browse by group</span>' + cap(chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)), groups.map(function (g) { return { k: g[0], a: { "data-spg": g[0] }, t: g[1], n: g[2] }; }), on || null, false, { a: { "data-spg": "" }, t: "All", n: groups.reduce(function (n, g) { return n + g[2]; }, 0), on: !on });
+    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + cap(chip("data-spg", g[0], !ok, "All " + g[1], g[2]), ords[g[0]].map(function (o) { return { k: o[0], a: { "data-spo": o[0] }, t: o[1], n: o[2] }; }), ok || null, 2, { a: { "data-spg": g[0] }, t: "All " + g[1], n: g[2], on: !ok }); return; }
+    rg.innerHTML = '<span class="lbl">Browse by group</span>' + cap(chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)), groups.map(function (g) { return { k: g[0], a: { "data-spg": g[0] }, t: g[1], n: g[2] }; }), on || null, 1, { a: { "data-spg": "" }, t: "All", n: groups.reduce(function (n, g) { return n + g[2]; }, 0), on: !on });
   }
   rg.addEventListener("click", function (ev) {
     var b = ev.target.closest("[data-spg],[data-spo],[data-spu]"); if (!b || box.hidden) return;
