@@ -1058,9 +1058,17 @@ rect.core { stroke-dasharray: 3 2.5; }
 .sptab .sgl .sgr { min-height: 0; gap: 12px; }
 .sheet.mm .trow, .sheet.mm .tabs, .sheet.mm .qnote { display: none !important; }
 .tab-sp .filters .kinds, .tab-sp #stats { display: none !important; }
-/* The rest of a long pill row, under it: rows in the search-result style (#534) */
-#morelist { margin: -2px 0 8px; border: 1px solid var(--line); border-radius: 12px; max-height: 40vh; overflow-y: auto; background: var(--bg); }
+/* The "More" pill and its list: every choice of the row, as pick-one rows (#534). A circle, not a chevron: a chevron opens a page here. */
+#regions .chip .cv { display: inline-block; width: 6px; height: 6px; margin: 0 2px 3px 7px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform .2s; }
+#regions .chip[aria-expanded="true"] .cv { transform: rotate(-135deg); margin-bottom: -2px; }
+#morelist { margin: -2px 0 8px; border: 1px solid var(--line); border-radius: 12px; max-height: 40vh; overflow-y: auto; background: var(--bg); box-shadow: 0 6px 18px rgba(0, 0, 0, .14); }
 #morelist[hidden] { display: none; }
 #morelist .morei { width: 100%; min-height: 48px; border: 0; background: transparent; font: inherit; text-align: left; }
 #morelist .morei + .morei { border-top: 1px solid var(--line); }
-#morelist i { margin-left: auto; flex: none; color: var(--muted); font: 500 12px var(--font-mono); }
+#morelist .morei:active { background: var(--grid); }
+#morelist .morei.on { background: var(--grid); }
+#morelist .morei.on b { font-weight: 800; }
+#morelist .rd { flex: none; position: relative; width: 18px; height: 18px; box-sizing: border-box; border: 2px solid var(--muted); border-radius: 50%; }
+#morelist .morei.on .rd { background: var(--ink); border-color: var(--ink); }
+#morelist .morei.on .rd::after { content: ""; position: absolute; left: 4px; top: 1px; width: 4px; height: 8px; border-right: 2px solid var(--bg); border-bottom: 2px solid var(--bg); transform: rotate(45deg); }
+#morelist em { margin-left: auto; flex: none; font: 500 12px var(--font-mono); font-style: normal; color: var(--muted); }

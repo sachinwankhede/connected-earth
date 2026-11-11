@@ -57,11 +57,11 @@ export const SCENARIOS = {
     const g = await p.evaluate(() => fetch('api/species-tab/groups.json').then((r) => r.json()).then((a) => (a.find((x) => x[4] > 1) || [])[0]));
     await p.evaluate((k) => { const b = document.querySelector('#regions [data-spg="' + k + '"]') || document.querySelector('#regions [data-spg]:not([data-spg=""])'); b.click(); }, g);
     await p.waitForFunction(() => document.querySelector('#regions [data-spo]') || document.querySelector('#sptab .sgl'), null, { timeout: 60000 }); await shot(''); } },
-  'species-more': { shows: 'the Species tab with the More pill open: at most 8 pills, the rest as rows under the row', run: async (p, shot) => {
+  'species-more': { shows: 'the Species tab with the More pill open: at most 8 pills, every choice as pick-one rows under the row (circle on the left, check on the current one)', run: async (p, shot) => {
     await p.locator('#tab-species').click({ timeout: 4000 }).catch(() => p.evaluate(() => document.getElementById('tab-species').click()));
     await p.waitForFunction(() => document.querySelector('#regions [data-pmore]'), null, { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#regions [data-pmore]').click()); await p.waitForSelector('#morelist .morei', { timeout: 5000 }); await shot('open');
-    await p.evaluate(() => document.querySelector('#morelist .morei').click()); await p.waitForTimeout(1500); await shot('picked'); } },
+    await p.evaluate(() => { const r = document.querySelectorAll('#morelist .morei'); r[r.length - 1].click(); }); await p.waitForTimeout(1500); await shot('picked'); } },
   'place-sheet': { shows: 'an opened place (Yellowstone)', run: async (p, shot) => {
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await p.waitForTimeout(2500); await shot(''); } },
   'journeys': { shows: 'the Journeys tab', run: async (p, shot) => {
