@@ -21,6 +21,11 @@ const BUDGET = { phone: { startRequests: 9, startKB: 2900, placeRequests: 56, pl
 //  startKB: the raw bytes of those same files (sizes of the files served, exact, the same on every run). The page and the map library are most of it. The gzip bytes the phone
 //    actually carries are limited separately, in build/firstview.py (#369).
 // Raise a number only with the reason in the pull request, and update this note.
+// Per-flow budgets (#406 step 2), on top of the first view: requests added and raw KB of the files served. Opening a place is above (placeRequests, placeKB, #562); a map tap
+// fetches no file worth a budget (#404). First values are generous; tighten them from the measured numbers the failure message prints.
+const FLOW = { search: { requests: 6, kb: 600 }, near: { requests: 6, kb: 600 } };
+const LOCAL_FILE = /\/api\/places\/[^/]+\/(index|cards|positions)-local\.json$/;
+const flowKB = (urls) => Math.round(urls.reduce((n, u) => { const f = path.join(H.ROOT, decodeURIComponent(u)); return n + (fs.existsSync(f) && fs.statSync(f).isFile() ? fs.statSync(f).size : 0); }, 0) / 1024);
 const kind = (u) => /\.woff2$/.test(u) ? 'font' : /maplibre-gl/.test(u) ? 'map library' : /\/api\/places\//.test(u) ? 'place files' : /\/api\//.test(u) ? 'shared lists' : /\/photos\//.test(u) ? 'photos' : /\.html$|\/$/.test(u) ? 'page' : 'other';
 const byKind = (own) => { const c = {}; for (const u of new Set(own)) c[kind(u)] = (c[kind(u)] || 0) + 1; return Object.entries(c).map(([k, n]) => `${k} ${n}`).join(', '); };
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.woff2': 'font/woff2', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.png': 'image/png', '.svg': 'image/svg+xml' };
@@ -38,8 +43,8 @@ describe('the app reads only data we host', () => {
   });
   after(async () => { await browser.close(); srv.close(); });
 
-  async function record(size, hash, act) {
-    const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
+  async function record(size, hash, act, geo) {
+    const ctx = await browser.newContext({ viewport: size, ...(geo ? { geolocation: geo, permissions: ['geolocation'] } : {}) }); const page = await ctx.newPage();
     const own = [], outside = new Set(); let bytes = 0;
     page.on('pageerror', () => {});
     await page.route('**/*', (r) => {
@@ -52,9 +57,10 @@ describe('the app reads only data we host', () => {
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForLoadState('networkidle').catch(() => {});
     await page.waitForTimeout(6000);   // past the photo hold, so the whole start is counted
+    const atStart = [...new Set(own)];
     if (act) await act(page);
     for (const u of new Set(own)) { const f = path.join(H.ROOT, decodeURIComponent(u === '/' ? '/index.html' : u)); if (fs.existsSync(f) && fs.statSync(f).isFile()) bytes += fs.statSync(f).size; }   // sizes of the files served: exact, and the same on every run
-    const out = { own, outside: [...outside], kb: Math.round(bytes / 1024) };
+    const out = { own, outside: [...outside], kb: Math.round(bytes / 1024), atStart, added: [...new Set(own)].filter((u) => !atStart.includes(u)) };
     await ctx.close(); return out;
   }
   const bad = (hosts, allowWiki) => hosts.filter((h) => !MAP_HOSTS.test(h) && !(allowWiki && WIKIMEDIA.test(h)));
@@ -65,6 +71,25 @@ describe('the app reads only data we host', () => {
       assert.deepEqual(bad(r.outside, false), [], 'outside hosts at start: ' + r.outside);
       assert.ok(r.own.length <= BUDGET[sizeName].startRequests, `first view made ${r.own.length} requests (budget ${BUDGET[sizeName].startRequests}; by kind: ${byKind(r.own)}): ${r.own.join(' ')}`);
       assert.ok(r.kb <= BUDGET[sizeName].startKB, `first view read ${r.kb} KB (budget ${BUDGET[sizeName].startKB})`);
+      // #406: the local places (index-local and cards-local) and the per-state place files load only when something needs them, never by themselves at start
+      assert.deepEqual(r.own.filter(LOCAL_FILE.test.bind(LOCAL_FILE)), [], 'local place files were fetched at start: ' + r.own.filter((u) => LOCAL_FILE.test(u)));
+    });
+
+    // #406 step 2: what one flow costs on top of the first view, counted as the files it adds. Measured values are in the failure message; raise a budget only with a reason in the pull request.
+    test(`${sizeName}: a search adds only the local place files, within its request and size budget`, async () => {
+      const r = await record(size, '', async (p) => { await p.fill('#q', 'elk'); await p.waitForTimeout(2500); });
+      const kb = flowKB(r.added);
+      assert.deepEqual(bad(r.outside, false), [], 'outside hosts in a search: ' + r.outside);
+      assert.ok(r.added.length <= FLOW.search.requests, `a search added ${r.added.length} requests (budget ${FLOW.search.requests}; by kind: ${byKind(r.added)}): ${r.added.join(' ')}`);
+      assert.ok(kb <= FLOW.search.kb, `a search added ${kb} KB (budget ${FLOW.search.kb}): ${r.added.join(' ')}`);
+    });
+
+    test(`${sizeName}: Near me adds only the local place files, within its request and size budget`, async () => {
+      const r = await record(size, '', async (p) => { await p.click('#znear'); await p.waitForTimeout(2500); }, { latitude: 38.5481, longitude: -90.5433 });
+      const kb = flowKB(r.added);
+      assert.deepEqual(bad(r.outside, false), [], 'outside hosts in Near me: ' + r.outside);
+      assert.ok(r.added.length <= FLOW.near.requests, `Near me added ${r.added.length} requests (budget ${FLOW.near.requests}; by kind: ${byKind(r.added)}): ${r.added.join(' ')}`);
+      assert.ok(kb <= FLOW.near.kb, `Near me added ${kb} KB (budget ${FLOW.near.kb}): ${r.added.join(' ')}`);
     });
 
     test(`${sizeName}: opening a place and its food web reads no outside host except the map tiles${SPECIES_PICTURES_FROM_WIKIMEDIA ? ' and the Wikimedia species pictures (until #238)' : ''}`, async () => {
