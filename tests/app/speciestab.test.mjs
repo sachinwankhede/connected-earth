@@ -170,9 +170,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const row = () => p.evaluate(() => ({ n: document.querySelectorAll('#regions .chip:not([data-spu])').length, more: !!document.querySelector('#regions [data-pmore]'), list: document.getElementById('morelist') && !document.getElementById('morelist').hidden }));
     assert.deepEqual(await row(), { n: 8, more: true, list: null }, 'All, 6 groups and More');
     await p.evaluate(() => document.querySelector('#regions [data-pmore]').click());
-    const rest = await p.evaluate(() => [...document.querySelectorAll('#morelist .morei')].map((r) => r.querySelector('b').textContent));
-    assert.deepEqual(rest, groups.slice(6).map((g) => g[1]), 'the rest, biggest first, as rows');
-    await p.evaluate(() => document.querySelector('#morelist .morei').click());
+    const rest = await p.evaluate(() => [...document.querySelectorAll('#morelist .morei')].map((r) => ({ t: r.querySelector('b').textContent, on: r.classList.contains('on'), circle: !!r.querySelector('.rd'), chevron: !!r.querySelector('svg, .chev') })));
+    assert.deepEqual(rest.map((r) => r.t), ['All'].concat(groups.map((g) => g[1])), 'the list holds every choice of the row, All first, so nothing seems missing');
+    assert.deepEqual(rest.map((r) => r.on), [true].concat(groups.map(() => false)), 'the current choice (All) is marked');
+    assert.ok(rest.every((r) => r.circle && !r.chevron), 'a circle on each row says pick one; a chevron means a page opens');
+    assert.equal(await p.evaluate(() => document.querySelector('#regions [data-pmore]').getAttribute('aria-expanded')), 'true');
+    await p.evaluate(() => document.querySelectorAll('#morelist .morei')[7].click());
     await p.waitForFunction((k) => document.querySelector('#regions .chip.on[data-spg="' + k + '"]') || document.querySelector('#regions [data-spo]'), groups[6][0], { timeout: 60000 });
     const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8 pills (the ‹ back pill is not counted), the list is closed');
     assert.deepEqual(t.errors, []); await b.close();
