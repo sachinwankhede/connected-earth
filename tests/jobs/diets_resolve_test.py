@@ -31,6 +31,10 @@ class Resolve(unittest.TestCase):
     def test_table_kind_follows(self):
         w(self.r, ['data', 'diets', 'vu', 'vul.json'], {'sid': 'vul', 'prey': {'deer': {'ev': ['g'], 'k': 'e'}}}); D.resolve(self.r)
         self.assertEqual(json.load(open(os.path.join(self.r, 'data', 'diets', 'vu', 'vul.json')))['prey']['deer']['k'], 's')
+    def test_a_row_that_would_double_is_dropped(self):
+        w(self.r, ['data', 'places', 'p0.json'], place({('deer', 'vul'): 'e'}) | {'raw': [['deer', 'vul'], ['deer', 'vul', 's'], ['sun', 'deer', 'r']]})   # this place holds both kinds of the link
+        D.resolve(self.r); raw = self.raw(0)['raw']
+        self.assertEqual(raw, [['deer', 'vul', 's'], ['sun', 'deer', 'r']], 'one scavenged row, no double'); self.assertEqual(len({tuple(r) for r in raw}), len(raw))
     def test_second_run_changes_nothing(self):
         D.resolve(self.r); fixed, left = D.resolve(self.r); self.assertEqual(fixed, [])
 if __name__ == '__main__': unittest.main()
