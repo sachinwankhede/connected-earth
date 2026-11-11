@@ -1,0 +1,48 @@
+name: data-diets
+# Manual only (#399). Makes the kind of each eating link (eaten or scavenged) the majority one in every place, with jobs/diets_resolve.py, and opens ONE data pull request
+# with the list of what changed and what was left alone. Never merges. Evidence levels are not touched.
+on:
+  workflow_dispatch:
+    inputs:
+      min: { description: "Smallest share of places the majority kind must have (0 to 1)", default: "0.9" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-diets
+jobs:
+  diets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Make the kind the same in every place
+        run: python3 jobs/diets_resolve.py --min "${{ github.event.inputs.min }}" --report /tmp/diets.md
+      - name: Checks
+        run: |
+          [ -n "$(git status --porcelain)" ] || exit 0
+          python3 build/species.py pack
+          python3 build/build.py --all
+          python3 build/validate.py $(ls data/places/*.json) | tee validate.log
+          ! grep -q "ERROR" validate.log
+          python3 build/validate_data.py
+          python3 build/budget.py
+          rm -f validate.log
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -n "$(git status --porcelain)" ] || { echo "Nothing to change."; exit 0; }
+          BR="data/diets-${GITHUB_RUN_ID}"
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "$BR"
+          git add -A -- . ':!jobs/work'
+          git commit -m "Eating-link kind made the same in every place (#399)"
+          { echo "Part of #399. Sources: our own eating-link table and place files only; no outside source or licence. Spot check (docs/PROMOTION.md): read ten rows of the table below against the place files before merging."; echo; cat /tmp/diets.md; } > /tmp/body.md
+          git push -f origin "$BR"
+          gh pr create --base main --head "$BR" --title "Eating-link kind made the same in every place (#399)" --body-file /tmp/body.md
+          gh workflow run ci.yml --ref "$BR"
