@@ -12,7 +12,9 @@ const WIKIMEDIA = /(^|\.)wikimedia\.org$/;
 // Request and byte budgets for the first view and for opening a place: counts and sizes do not jitter like timings do, so they can block a change.
 // Measured on 2 Nov 2026: 6 requests, 2,691 KB raw (page, 3 fonts, map library, place photo list). Raise one only with a reason written in the pull request.
 // 9 since #228 step 2 (was 7): the places are two files instead of being inside the page. (11 from #313 step 3 to 3 Nov: the local places followed the map in two more files; they now load only when something needs them: the local button, a search, Near me or a link to a local place.)
-const BUDGET = { phone: { startRequests: 9, startKB: 2900, placeRequests: 56, placeKB: 1 }, desktop: { startRequests: 9, startKB: 2900, placeRequests: 56, placeKB: 1 } };
+const BUDGET = { phone: { startRequests: 9, startKB: 2900, placeRequests: 56, placeKB: 3200 }, desktop: { startRequests: 9, startKB: 2900, placeRequests: 56, placeKB: 3200 } };
+// Opening a place by link and its food web (#562), measured 11 Nov 2026 on phone and desktop alike: 48 requests, 2,977 KB raw (page, 3 fonts, map library, 4 place files,
+//  2 shared lists, 36 photos, 1 other). placeRequests 56 and placeKB 3200 leave room for the photo count and for data growth; the failure message lists the requests by kind.
 // What each number allows (#292), so a failure says what to look at before anyone raises it:
 //  startRequests: the requests to our own site before the person touches anything, nothing counted for the map tiles (another host). That is the page, its fonts,
 //    the map library, the two world-place files (index and cards), the place photo list and the species picture list. A new kind of request here is a new cost on every first open.
