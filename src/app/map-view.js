@@ -125,6 +125,29 @@
     var a = f.slice().sort().join("|"), b = scanKeys(lvl).sort().join("|");
     return a === b ? [] : [{ lvl: lvl, file: a, scan: b }];
   };
+  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All plus the 6 biggest and a last pill "More" (a row with no All: the 7 biggest and More). The rest are a vertical list under the row (#morelist); picking one closes it and the pick takes a place in the row as the selected pill. */
+  function ea(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
+  function pillH(it, on) {
+    var s = ""; for (var k in it.a) s += " " + k + '="' + ea(it.a[k]) + '"';
+    return '<button type="button" class="chip' + (on ? " on" : "") + '"' + s + ">" + ea(it.t) + (it.n == null ? "" : " <b>" + it.n + "</b>") + "</button>";
+  }
+  M.capPills = function (head, items, sel, lead) {
+    var room = 8 - (head ? 1 : 0), vis = items, rest = [], i;
+    if (items.length > room) {
+      vis = items.slice(0, room - 1); rest = items.slice(room - 1);
+      for (i = 0; sel != null && i < rest.length; i++) if (rest[i].k === sel) { rest.push(vis.pop()); vis.push(rest.splice(i, 1)[0]); break; }
+      rest.sort(function (a, b) { return b.n - a.n; });
+    }
+    M.moreRows = rest;
+    return (lead ? "" : head) + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (rest.length ? '<button type="button" class="chip" data-pmore="1">More</button>' : "");
+  };
+  document.addEventListener("click", function (ev) {
+    var t = ev.target, rg = document.getElementById("regions"), L = document.getElementById("morelist"), mb = t.closest("[data-pmore]"), it = t.closest(".morei"), r, b, k;
+    if (mb && !L) { L = document.createElement("div"); L.id = "morelist"; L.hidden = true; rg.after(L); new MutationObserver(function () { L.hidden = true; }).observe(rg, { childList: true }); }
+    if (mb) { L.innerHTML = M.moreRows.map(function (r, i) { return '<button type="button" class="sgr morei" data-i="' + i + '"><span class="sgt"><b>' + ea(r.t) + "</b></span><i>" + r.n + "</i></button>"; }).join(""); L.hidden = !L.hidden; return; }
+    if (L) L.hidden = true;
+    if (it && (r = M.moreRows[it.dataset.i])) { b = document.createElement("button"); for (k in r.a) b.setAttribute(k, r.a[k]); rg.appendChild(b); b.click(); b.remove(); }   /* the pick acts as the pill it stands for */
+  });
   function chipsHTML() {
     var keys = [], lvl, lab;
     if (M.tab === "species") return "";   /* the Species tab fills this row with its groups */
@@ -140,7 +163,7 @@
       if (FL.q) jk = jk.filter(jn);
       if (FL.q && !jk.length) return "";
       jk.sort(function (a, b) { return jn(b) - jn(a) || (a < b ? -1 : 1); });
-      return '<span class="lbl">Continent</span>' + [""].concat(jk).map(function (k) { return '<button type="button" class="chip' + ((M.jcont || "") === k ? " on" : "") + '" data-jc="' + k.replace(/"/g, "&quot;") + '">' + (k ? nm(k) + " <b>" + jn(k) + "</b>" : "All") + "</button>"; }).join("");
+      return '<span class="lbl">Continent</span>' + M.capPills(pillH({ a: { "data-jc": "" }, t: "All" }, !M.jcont), jk.map(function (k) { return { k: k, a: { "data-jc": k }, t: nm(k), n: jn(k) }; }), M.jcont || null);
     }
     if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; }
     else if (view.level === "continent") { lvl = "country"; lab = "Countries"; }
@@ -158,9 +181,7 @@
     keys.sort();
     function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
     keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
-    return lead + '<span class="lbl">' + lab + "</span>" + keys.map(function (k) {
-      return '<button type="button" class="chip" data-go="' + lvl + '" data-a="' + k.replace(/"/g, "&quot;") + '">' + nm(k) + " <b>" + count(k) + "</b>" + "</button>";
-    }).join("");
+    return lead + '<span class="lbl">' + lab + "</span>" + M.capPills(lead ? "x" : "", keys.map(function (k) { return { k: k, a: { "data-go": lvl, "data-a": k }, t: nm(k), n: count(k) }; }), null, true);
   }
   function spanText(e) {
     var p = [];

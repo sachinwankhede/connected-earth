@@ -37,8 +37,9 @@ window.__chunk["species-tab"] = function (A) {
   var rg = document.getElementById("regions"), ords = {}, cur = "", gen = 0;   /* ords: group key -> its orders [key, name, species, pages] (#519 level 2) */
   function chip(attr, key, on, text, n) { return '<button type="button" class="chip' + (on ? " on" : "") + '" ' + attr + '="' + key + '">' + escH(text) + (n == null ? "" : " <b>" + n + "</b>") + "</button>"; }
   function pills(on, g, ok) {   /* one row of pills, like the continents on Places: the groups; inside a group that has orders, its orders with a way back up (#519) */
-    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + chip("data-spg", g[0], !ok, "All " + g[1], g[2]) + ords[g[0]].map(function (o) { return chip("data-spo", o[0], o[0] === ok, o[1], o[2]); }).join(""); return; }
-    rg.innerHTML = '<span class="lbl">Browse by group</span>' + chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)) + groups.map(function (g) { return chip("data-spg", g[0], g[0] === on, g[1], g[2]); }).join("");
+    var cap = M.capPills;   /* at most 8 pills in a row, the rest under "More" (#534) */
+    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + cap(chip("data-spg", g[0], !ok, "All " + g[1], g[2]), ords[g[0]].map(function (o) { return { k: o[0], a: { "data-spo": o[0] }, t: o[1], n: o[2] }; }), ok || null); return; }
+    rg.innerHTML = '<span class="lbl">Browse by group</span>' + cap(chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)), groups.map(function (g) { return { k: g[0], a: { "data-spg": g[0] }, t: g[1], n: g[2] }; }), on || null);
   }
   rg.addEventListener("click", function (ev) {
     var b = ev.target.closest("[data-spg],[data-spo],[data-spu]"); if (!b || box.hidden) return;
