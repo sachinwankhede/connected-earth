@@ -91,7 +91,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(tx.g, 'birds'); assert.match(tx.text, /^Birds › Accipitriformes › Pandionidae$/);
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.evaluate(() => document.querySelector('#pview .tax a').click());
-    await p.waitForFunction(() => document.getElementById('pview').hidden && !document.getElementById('sptab').hidden && /^Birds · \d+$/.test((document.querySelector('#sptab h3') || {}).textContent || '') && document.querySelector('#regions [data-spo]'), null, { timeout: 60000 });
+    await p.waitForFunction(() => document.getElementById('pview').hidden && !document.getElementById('sptab').hidden && /^All Birds \d+$/.test((document.querySelector('#regions .chip.on') || {}).textContent || '') && document.querySelector('#regions [data-spo]'), null, { timeout: 60000 });
     assert.equal(await p.evaluate(() => (document.querySelector('#regions .chip.on') || {}).textContent.trim().split(' ').slice(0, 2).join(' ')), 'All Birds', 'the group is the marked pill: Birds has orders, so the row shows them with All Birds marked (#526, #519)');
     assert.equal(await p.evaluate(() => window.__M.tab), 'species');
     assert.deepEqual(t.errors, []); await b.close();

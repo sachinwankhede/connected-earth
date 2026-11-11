@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
 listed in data/order/ since #277, before that data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
 """
-import json, re, sys, os, shutil, hashlib, urllib.parse, base64
+import collections, json, re, sys, os, shutil, hashlib, urllib.parse, base64
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -422,6 +422,7 @@ def write_species_places(sp, pilot):
 # The Species tab (#422): what the tab reads, in api/species-tab/ (main) and api/species-tab-pilot/. top.json: the species found in the most places; groups.json: the groups with
 # their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0], most places first, then by name.
 TAB_TOP, TAB_PAGE = 60, 250
+TAB_MIN = 5   # a group, order or family with fewer species than this is not a pill: its species join the Other of the level above (#534, owner, 11 Nov)
 TAB_GROUPS = [('mammals', 'Mammals'), ('birds', 'Birds'), ('reptiles', 'Reptiles'), ('amphibians', 'Amphibians'), ('fish', 'Fish'), ('insects', 'Insects'),
               ('plants', 'Plants'), ('other', 'Other')]   # eight flat pills (#534, owner 11 Nov); Other = other animals, algae and others, fungi
 # Everyday names for the 59 biggest orders (together about 90% of the species on the tab; the rest keep the Latin name). The key must be a real order of the taxonomy: tests/data/species_tab_test.py checks it.
@@ -455,14 +456,16 @@ def order_key(name):
     return re.sub(r'[^a-z0-9]+', '-', (name or '').lower()).strip('-') or 'other'
 
 
-def split_species_tab(sp, common, groupof, pics, orderof=None):
+def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_MIN):
     """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name};
-    orderof: {Latin name: order name} (#519 level 2). A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
+    orderof: {Latin name: order name} (#519 level 2). min_species (#534): a group with fewer species joins the group Other; an order with fewer joins the Other of its group, which is always the last order. A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
     g-<group>-<order key>-<n>.json pages; its row in groups.json then carries the number of orders as a fifth value."""
     rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
     files = {'top.json': rows[:TAB_TOP]}; groups = []
+    size = collections.Counter(groupof.get(r[0], 'other') for r in rows)
+    small = {k for k, n in size.items() if n < min_species and k != 'other'}   # too few species for a pill of their own
     for key, label in TAB_GROUPS:
-        g = [r for r in rows if groupof.get(r[0], 'other') == key]
+        g = [r for r in rows if (('other' if groupof.get(r[0], 'other') in small else groupof.get(r[0], 'other'))) == key]
         if not g: continue
         pages = [g[i:i + TAB_PAGE] for i in range(0, len(g), TAB_PAGE)]
         for i, pg in enumerate(pages): files['g-%s-%d.json' % (key, i)] = pg
@@ -470,9 +473,12 @@ def split_species_tab(sp, common, groupof, pics, orderof=None):
         if orderof:
             by = {}
             for r in g: by.setdefault((orderof.get(r[0]) or '').strip(), []).append(r)
+            rest = by.pop('', [])   # the species without an order and every order under min_species make the group's Other, which comes last
+            for name in [n for n, rs in by.items() if len(rs) < min_species]: rest += by.pop(name)
+            if rest: by[''] = sorted(rest, key=lambda r: (-r[2], r[1].lower(), r[0]))
             if len(by) > 1:
                 olist = []
-                for name, rs in sorted(by.items(), key=lambda kv: (-len(kv[1]), kv[0])):
+                for name, rs in sorted(by.items(), key=lambda kv: (kv[0] == '', -len(kv[1]), kv[0])):
                     k = order_key(name); pgs = [rs[i:i + TAB_PAGE] for i in range(0, len(rs), TAB_PAGE)]
                     for i, pg in enumerate(pgs): files['g-%s-%s-%d.json' % (key, k, i)] = pg
                     olist.append([k, ORDER_NAMES.get(name, name or 'Other'), len(rs), len(pgs)])

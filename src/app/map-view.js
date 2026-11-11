@@ -125,22 +125,21 @@
     var a = f.slice().sort().join("|"), b = scanKeys(lvl).sort().join("|");
     return a === b ? [] : [{ lvl: lvl, file: a, scan: b }];
   };
-  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. A pick that the row does not show is shown by the More pill itself, selected, with its name. */
+  /* At most 8 pills in a row (#534, DESIGN.md): the "All" pill counts, so it is All, the 6 biggest and a last pill "More" ˅ (a row with no All: the 7 biggest and More). More opens a vertical list under the row with EVERY choice of the row (All first), so nothing seems missing; a circle on each row says "pick one" (a chevron means "open a page" here), the current choice has a check. A hidden pick takes the second-last place; only More has a chevron. */
   function ea(t) { return String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;"); }
   function pillH(it, on) {
     var s = ""; for (var k in it.a) s += " " + k + '="' + ea(it.a[k]) + '"';
     return '<button type="button" class="chip' + (on ? " on" : "") + '"' + s + ">" + ea(it.t) + (it.n == null ? "" : " <b>" + it.n + "</b>") + "</button>";
   }
-  M.capPills = function (head, items, sel, lead, headItem) {   /* head: html of the All pill; headItem: {a, t, n, on} the All row of the list; items: [{k, a, t, n}] biggest first; sel: key of the picked one */
-    var room = 8 - (head ? 1 : 0), vis = items, hid = null, rows;
+  M.capPills = function (head, items, sel, n, headItem) {   /* head: html of the All pill ("" when the caller draws it); n: the pills before the items, ‹ back and All included; headItem: {a, t, n, on} the All row of the list; items: [{k, a, t, n}] in row order; sel: key of the picked one */
+    var room = 8 - n, vis = items;
     M.moreRows = [];
     if (items.length > room) {
       vis = items.slice(0, room - 1);
-      for (var i = room - 1; sel != null && i < items.length; i++) if (items[i].k === sel) hid = items[i];
-      rows = (headItem ? [headItem] : []).concat(items.map(function (it) { return { a: it.a, t: it.t, n: it.n, on: it.k === sel }; }));
-      M.moreRows = rows;
+      for (var i = room - 1; sel != null && i < items.length; i++) if (items[i].k === sel) vis[room - 2] = items[i];   /* the pick, in the second-last place */
+      M.moreRows = (headItem ? [headItem] : []).concat(items.map(function (it) { return { a: it.a, t: it.t, n: it.n, on: it.k === sel }; }));
     }
-    return (lead ? "" : head) + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (M.moreRows.length ? '<button type="button" class="chip' + (hid ? " on" : "") + '" data-pmore="1" aria-expanded="false" aria-haspopup="true">' + (hid ? ea(hid.t) + " <b>" + hid.n + "</b>" : "More") + '<i class="cv"></i></button>' : "");
+    return head + vis.map(function (it) { return pillH(it, it.k === sel); }).join("") + (M.moreRows.length ? '<button type="button" class="chip" data-pmore="1" aria-expanded="false" aria-haspopup="true">More<i class="cv"></i></button>' : "");
   };
   document.addEventListener("click", function (ev) {
     var t = ev.target, rg = document.getElementById("regions"), L = document.getElementById("morelist"), mb = t.closest("[data-pmore]"), it = t.closest(".morei"), r, b, k, open;
@@ -151,7 +150,7 @@
       L.hidden = !open; mb.setAttribute("aria-expanded", open); if (open) mb.scrollIntoView({ inline: "end", block: "nearest" }); return;   /* the pill the list belongs to stays in view */
     }
     if (L) { L.hidden = true; var pm = rg.querySelector("[data-pmore]"); if (pm) pm.setAttribute("aria-expanded", "false"); }
-    if (it && (r = M.moreRows[it.dataset.i])) { b = document.createElement("button"); for (k in r.a) b.setAttribute(k, r.a[k]); rg.appendChild(b); b.click(); b.remove(); }   /* the pick acts as the pill it stands for */
+    if (it && (r = M.moreRows[it.dataset.i])) { b = document.createElement("button"); for (k in r.a) b.setAttribute(k, r.a[k]); rg.appendChild(b); b.click(); b.remove(); rg.scrollLeft = 0; }   /* the pick acts as the pill it stands for */
   });
   function chipsHTML() {
     var keys = [], lvl, lab;
@@ -168,7 +167,7 @@
       if (FL.q) jk = jk.filter(jn);
       if (FL.q && !jk.length) return "";
       jk.sort(function (a, b) { return jn(b) - jn(a) || (a < b ? -1 : 1); });
-      return '<span class="lbl">Continent</span>' + M.capPills(pillH({ a: { "data-jc": "" }, t: "All" }, !M.jcont), jk.map(function (k) { return { k: k, a: { "data-jc": k }, t: nm(k), n: jn(k) }; }), M.jcont || null, false, { a: { "data-jc": "" }, t: "All", on: !M.jcont });
+      return '<span class="lbl">Continent</span>' + M.capPills(pillH({ a: { "data-jc": "" }, t: "All" }, !M.jcont), jk.map(function (k) { return { k: k, a: { "data-jc": k }, t: nm(k), n: jn(k) }; }), M.jcont || null, 1, { a: { "data-jc": "" }, t: "All", on: !M.jcont });
     }
     if (view.level === "world") { lvl = "continent"; lab = "Browse by continent"; }
     else if (view.level === "continent") { lvl = "country"; lab = "Countries"; }
@@ -186,7 +185,7 @@
     keys.sort();
     function count(k) { var f = fileCount(lvl, k); return f !== null ? f : scanCount(lvl, k); }
     keys.sort(function (a, b) { return count(b) - count(a) || (nm(a) < nm(b) ? -1 : 1); });
-    return lead + '<span class="lbl">' + lab + "</span>" + M.capPills(lead ? "x" : "", keys.map(function (k) { return { k: k, a: { "data-go": lvl, "data-a": k }, t: nm(k), n: count(k) }; }), null, true);
+    return lead + '<span class="lbl">' + lab + "</span>" + M.capPills("", keys.map(function (k) { return { k: k, a: { "data-go": lvl, "data-a": k }, t: nm(k), n: count(k) }; }), null, lead ? 2 : 0);
   }
   function spanText(e) {
     var p = [];

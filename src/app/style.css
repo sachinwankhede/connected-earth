@@ -839,7 +839,6 @@ rect.core { stroke-dasharray: 3 2.5; }
 #regions .chip, #regions .lbl { flex: none; }
 #regions::-webkit-scrollbar { display: none; }
 #regions:empty { display: none; }   /* no margin for an empty row (#482) */
-.sptab h3 { margin: 14px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 .sptab .fine a { color: var(--accent); font-weight: 600; text-decoration: none; display: inline-block; padding: 10px 0; }
 .sptab .sgl, .jp .sgl { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); overflow: hidden; }
 .jlist { grid-template-columns: 1fr !important; gap: 8px !important; }

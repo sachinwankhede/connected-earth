@@ -36,10 +36,11 @@ window.__chunk["species-tab"] = function (A) {
   function strip(items) { var l = el("", "prow"); items.forEach(function (x) { l.appendChild(card(x)); }); return l; }   /* sideways, like every photo row (#484) */
   var rg = document.getElementById("regions"), ords = {}, cur = "", gen = 0;   /* ords: group key -> its orders [key, name, species, pages] (#519 level 2) */
   function chip(attr, key, on, text, n) { return '<button type="button" class="chip' + (on ? " on" : "") + '" ' + attr + '="' + key + '">' + escH(text) + (n == null ? "" : " <b>" + n + "</b>") + "</button>"; }
-  function pills(on, g, ok) {   /* one row of pills, like the continents on Places: the groups; inside a group that has orders, its orders with a way back up (#519) */
+  function pills(on, g, ok) { pills0(on, g, ok); rg.scrollLeft = 0; }   /* a new row starts at the left (#534) */
+  function pills0(on, g, ok) {   /* one row of pills, like the continents on Places: the groups; inside a group that has orders, its orders with a way back up (#519) */
     var cap = M.capPills;   /* at most 8 pills in a row, the rest under "More" (#534) */
-    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + cap(chip("data-spg", g[0], !ok, "All " + g[1], g[2]), ords[g[0]].map(function (o) { return { k: o[0], a: { "data-spo": o[0] }, t: o[1], n: o[2] }; }), ok || null, false, { a: { "data-spg": g[0] }, t: "All " + g[1], n: g[2], on: !ok }); return; }
-    rg.innerHTML = '<span class="lbl">Browse by group</span>' + cap(chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)), groups.map(function (g) { return { k: g[0], a: { "data-spg": g[0] }, t: g[1], n: g[2] }; }), on || null, false, { a: { "data-spg": "" }, t: "All", n: groups.reduce(function (n, g) { return n + g[2]; }, 0), on: !on });
+    if (g && ords[g[0]]) { rg.innerHTML = '<span class="lbl">Orders</span>' + chip("data-spu", "1", false, "\u2039 Groups") + cap(chip("data-spg", g[0], !ok, "All " + g[1], g[2]), ords[g[0]].map(function (o) { return { k: o[0], a: { "data-spo": o[0] }, t: o[1], n: o[2] }; }), ok || null, 2, { a: { "data-spg": g[0] }, t: "All " + g[1], n: g[2], on: !ok }); return; }
+    rg.innerHTML = '<span class="lbl">Browse by group</span>' + cap(chip("data-spg", "", !on, "All", groups.reduce(function (n, g) { return n + g[2]; }, 0)), groups.map(function (g) { return { k: g[0], a: { "data-spg": g[0] }, t: g[1], n: g[2] }; }), on || null, 1, { a: { "data-spg": "" }, t: "All", n: groups.reduce(function (n, g) { return n + g[2]; }, 0), on: !on });
   }
   rg.addEventListener("click", function (ev) {
     var b = ev.target.closest("[data-spg],[data-spo],[data-spu]"); if (!b || box.hidden) return;
@@ -47,15 +48,14 @@ window.__chunk["species-tab"] = function (A) {
   });
   function list(items, make) { var l = el("", "sgl"); items.forEach(function (x) { l.appendChild(make(x)); }); return l; }
   function home() {
-    cur = ""; gen++; pills(""); box.innerHTML = "<h3>Found in the most places</h3>"; box.appendChild(list(top, row));
+    cur = ""; gen++; pills(""); box.innerHTML = ""; box.appendChild(list(top, row));
   }
   function group(g, ok) {   /* one group, or one order of it: its first page, and "Show more" for the next */
     var page = 0, shown = 0, my = ++gen, o = ok && (ords[g[0]] || []).filter(function (x) { return x[0] === ok; })[0], total = o ? o[2] : g[2], pre = "g-" + g[0] + "-" + (o ? o[0] + "-" : "");
     cur = g[0];
-    if (g[4] && !ords[g[0]]) { rg.innerHTML = ""; box.innerHTML = "<h3></h3>"; box.firstChild.textContent = g[1] + " \u00b7 " + g[2];   /* the orders come first, then the row is drawn once; the old list is gone at once */
+    if (g[4] && !ords[g[0]]) { rg.innerHTML = ""; box.innerHTML = "";   /* the orders come first, then the row is drawn once; the old list is gone at once */
       A.Data.speciesTab("o-" + g[0] + ".json").then(function (r) { ords[g[0]] = r; if (my === gen) group(g, ok); }).catch(function () { ords[g[0]] = []; if (my === gen) group(g); }); return; }
-    pills(g[0], g, ok); box.innerHTML = "<h3></h3>";
-    box.querySelector("h3").textContent = g[1] + (o ? " \u203a " + o[1] : "") + " \u00b7 " + total;
+    pills(g[0], g, ok); box.innerHTML = "";   /* no heading: the selected pill says the name and the count (#534) */
     var l = el("", "sgl"), p = el('<a href="#" data-more="1"></a>', "fine"); box.appendChild(l); box.appendChild(p); p.hidden = true;
     function more() {
       var k = page++;
