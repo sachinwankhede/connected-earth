@@ -33,11 +33,11 @@ Nothing merges automatically because GitHub's "Allow auto-merge" is disabled. Th
    - **Speed & Latency App Code:** Changes affecting runtime speed, bundle payload, or performance budgets (`app == true` according to `build/ci_changes.py`, such as `src/app/data.js`, `build/build.py`, `build/pages_payload.py`, `sw.js`, or bundle chunking). The agent dispatches `perf-ab`, reads the comparison table, and merges if there is no regression > 15% (and > 20 ms / KB).
 
 3. **Stays Owner-Merged:**
-   - Changes to `CLAUDE.md`, `docs/DESIGN.md`, `build/allowed_sources.json`, `tests/jobs/allowed_sources_test.py`, `lib/fetch.py`, and anything under `.github/` (which govern repository permissions, data source whitelist, CI triggers, and secrets).
+   - Changes to `CLAUDE.md`, `docs/DESIGN.md`, `lib/allowed_sources.json`, `tests/jobs/allowed_sources_test.py`, `lib/fetch.py`, and anything under `.github/` (which govern repository permissions, data source whitelist, CI triggers, and secrets).
 
-## Source & Licence Governance (`build/allowed_sources.json`)
+## Source & Licence Governance (`lib/allowed_sources.json`)
 To keep the owner in control of external dependencies and copyright compliance, all external endpoints called by data jobs and scripts are strictly governed:
-- **Owner-Merged Configuration:** `build/allowed_sources.json` defines the approved whitelist of network hosts and allowed licences per source (e.g. Wikimedia: CC0, CC BY, CC BY-SA and public domain; GBIF: CC0 and CC BY only; read by `lib/licences.py`; GloBI: CC0, CC BY, CC-BY-SA, Public Domain; PAD-US: Public Domain). Both `build/allowed_sources.json`, `tests/jobs/allowed_sources_test.py`, and `lib/fetch.py` are strictly owner-merged.
-- **Runtime Guard (`lib/fetch.py`):** All external downloads and data pulls route through `lib/fetch.py`, which validates target hosts and scheme against `build/allowed_sources.json` at run time and raises `PermissionError` on any unlisted host.
+- **Owner-Merged Configuration:** `lib/allowed_sources.json` defines the approved whitelist of network hosts and allowed licences per source (e.g. Wikimedia: CC0, CC BY, CC BY-SA and public domain; GBIF: CC0 and CC BY only; read by `lib/licences.py`; GloBI: CC0, CC BY, CC-BY-SA, Public Domain; PAD-US: Public Domain). Both `lib/allowed_sources.json`, `tests/jobs/allowed_sources_test.py`, and `lib/fetch.py` are strictly owner-merged.
+- **Runtime Guard (`lib/fetch.py`):** All external downloads and data pulls route through `lib/fetch.py`, which validates target hosts and scheme against `lib/allowed_sources.json` at run time and raises `PermissionError` on any unlisted host.
 - **Automated Gate Enforcement:** The unit test `tests/jobs/allowed_sources_test.py` scans `jobs/*.py`, `lib/*.py`, `build/*.py`, and `jobs/*.sh` to verify every URL hostname is approved. It strictly forbids URLs dynamically built from variables (which could evade static inspection).
-- **Modification Protocol:** Adding an external host or licence requires owner review and merge of `build/allowed_sources.json`. Agents may optimize how existing allowed sources are used without modifying the list.
+- **Modification Protocol:** Adding an external host or licence requires owner review and merge of `lib/allowed_sources.json`. Agents may optimize how existing allowed sources are used without modifying the list.

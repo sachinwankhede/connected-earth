@@ -1,9 +1,9 @@
-"""lib/licences.py: the picture licence rule (#421), read from build/allowed_sources.json.
+"""lib/licences.py: the picture licence rule (#421), read from lib/allowed_sources.json.
 canonical(text) maps a licence as written on Commons or GBIF to one of CC0, CC BY, CC BY-SA, Public domain (None for anything else, never NC, ND, GFDL, LGPL, FAL, KOGL or vague tags).
 ok(source, text) is true when the canonical name is in that source's allowed_licences."""
 import json, os, re
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PATH = os.path.join(ROOT, 'build', 'allowed_sources.json')
+PATH = os.path.join(ROOT, 'lib', 'allowed_sources.json')
 _CC = re.compile(r'^CC[ -]BY(?:[ -](SA))?(?:[ -]\d[\d.]*)?(?: [A-Za-z]{2,3})?$', re.I)
 _NO = re.compile(r'(^|[ -])(NC|ND)([ -]|$)', re.I)
 def canonical(text):
