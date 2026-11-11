@@ -167,14 +167,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
     assert.equal(groups.length, 8, 'eight groups (#534)');
-    const row = () => p.evaluate(() => ({ n: document.querySelectorAll('#regions .chip').length, more: !!document.querySelector('#regions [data-pmore]'), list: document.getElementById('morelist') && !document.getElementById('morelist').hidden }));
+    const row = () => p.evaluate(() => ({ n: document.querySelectorAll('#regions .chip:not([data-spu])').length, more: !!document.querySelector('#regions [data-pmore]'), list: document.getElementById('morelist') && !document.getElementById('morelist').hidden }));
     assert.deepEqual(await row(), { n: 8, more: true, list: null }, 'All, 6 groups and More');
     await p.evaluate(() => document.querySelector('#regions [data-pmore]').click());
     const rest = await p.evaluate(() => [...document.querySelectorAll('#morelist .morei')].map((r) => r.querySelector('b').textContent));
     assert.deepEqual(rest, groups.slice(6).map((g) => g[1]), 'the rest, biggest first, as rows');
     await p.evaluate(() => document.querySelector('#morelist .morei').click());
     await p.waitForFunction((k) => document.querySelector('#regions .chip.on[data-spg="' + k + '"]') || document.querySelector('#regions [data-spo]'), groups[6][0], { timeout: 60000 });
-    const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8, the list is closed');
+    const after = await row(); assert.ok(after.n <= 8 && after.list !== true, 'still at most 8 pills (the ‹ back pill is not counted), the list is closed');
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
