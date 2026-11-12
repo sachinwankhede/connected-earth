@@ -1,0 +1,35 @@
+name: header-check
+# Manual, read-only (#678). Asks the live site for index.html, the map script and the world places file with 'Accept-Encoding: br' and then with
+# 'gzip' only, and prints the response headers (content-encoding, content-length, server) in the run summary. It answers one question: does the site
+# serve Brotli to browsers? It fetches only the two addresses of this project's own site (below) or the one the person types in; nothing is changed.
+on:
+  workflow_dispatch:
+    inputs:
+      url: { description: "Address to check (leave empty for both the GitHub Pages and the Cloudflare Pages address)", default: "" }
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Response headers with and without Brotli
+        env:
+          URL_IN: ${{ github.event.inputs.url }}
+        run: |
+          set -u
+          if [ -n "$URL_IN" ]; then SITES="$URL_IN"; else SITES="https://sachinwankhede.github.io/connected-earth/ https://connected-earth-5ps.pages.dev/"; fi
+          for site in $SITES; do
+            site="${site%/}/"
+            echo "### $site" | tee -a "$GITHUB_STEP_SUMMARY"
+            page=$(curl -sS -m 30 -H 'Accept-Encoding: identity' "$site" || true)
+            lib=$(printf '%s' "$page" | grep -oE 'maplibre-gl-[0-9.]+\.js' | head -1 || true)
+            for f in "" "$lib" "api/places/main/index-world.json"; do
+              [ "$f" = "" ] && [ -n "$lib" ] && label="(page)" || label="$f"
+              if [ "$f" = "" ]; then label="(page)"; fi
+              for enc in br gzip; do
+                echo "- $label, Accept-Encoding: $enc" | tee -a "$GITHUB_STEP_SUMMARY"
+                curl -sSI -m 30 -H "Accept-Encoding: $enc" "$site$f" | tr -d '\r' | grep -i -E '^(HTTP|content-encoding|content-length|server|cf-cache-status|x-github-request-id|via):' | sed 's/^/    /' | tee -a "$GITHUB_STEP_SUMMARY"
+              done
+            done
+          done
