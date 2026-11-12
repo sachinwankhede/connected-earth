@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """largephotos.py: a larger copy (400 px WebP) of the picture of the species people open most (#421 part A).
-Usage: largephotos.py [how many of the most-used species, default 30; 0 = every hosted picture, from every source]
+Usage: largephotos.py [how many of the most-used species, default 30; 0 = every hosted picture, from every source] [most new copies in this run, default no limit]
 The ranking is the number of places a species is in (every place, main and pilot), most first, then by name; only species that already have a hosted picture
 (photos/species_hosted.json) take part, so the credit and licence are the ones already in photos/species_metadata.json and nothing new needs crediting.
 For each one not yet done: downloads the thumbnail of its source (Commons 500 px, or 330 px when the original is smaller; Openverse's own thumbnail; iNaturalist's medium size), shrinks it to at most 400 px
@@ -49,6 +49,7 @@ def main():
     if top == 0: rank += [(t, 0) for t in sorted(hosted) if t not in {r[0] for r in rank}]   # hosted pictures of species no place lists come last
     rank = rank[:top or None]
     todo = [(t, c) for t, c in rank if t not in large and t in man and source_urls(man[t][0])]
+    if len(sys.argv) > 2: todo = todo[:int(sys.argv[2]) or None]   # a run does at most this many, so each pull request stays reviewable
     print(len(rank), 'in the ranking,', len(todo), 'to do; the first ten:', ', '.join('%s (%d)' % x for x in rank[:10]), flush=True)
     os.makedirs(OUT, exist_ok=True); total = 0
     for i, (t, c) in enumerate(todo, 1):

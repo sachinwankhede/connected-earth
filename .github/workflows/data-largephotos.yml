@@ -1,9 +1,12 @@
 name: data-largephotos
-# Manual only (#421 part A). Makes a 400 px WebP copy of the picture of the species found in the most places, into photos/species-lg/, and opens one pull request.
+# Manual, and every 4 hours until every hosted picture has a large copy (#421 part A, owner 12 Nov): a scheduled run does at most 1500 new copies, and does nothing while an earlier largephotos pull request is still open (two would clash on species_large.json) or when nothing is left. Makes a 400 px WebP copy of the picture of the species found in the most places, into photos/species-lg/, and opens one pull request.
 # Credits and licences are the existing ones (photos/species_metadata.json). Resumable: species already done are skipped, so a later run with a larger number adds more.
 on:
+  schedule:
+    - cron: "17 */4 * * *"
   workflow_dispatch:
     inputs:
+      batch: { description: "Most new copies in this run (0 = no limit; scheduled runs: 1500)", default: "0" }
       top: { description: "How many of the most-used species (the first run: 30; the first batch: 500)", default: "30" }
 permissions:
   contents: write
@@ -16,10 +19,20 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with: { ref: main }
-      - run: pip install pillow
+      - name: Stop while an earlier largephotos pull request is open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|startswith("data/largephotos-"))]|length')
+          echo "open largephotos pull requests: $N"; echo "n=$N" >> "$GITHUB_OUTPUT"
+      - if: steps.open.outputs.n == '0'
+        run: pip install pillow
       - name: Make the larger copies
-        run: python3 jobs/largephotos.py "${{ github.event.inputs.top || '30' }}" | tee large.log | tail -60
+        if: steps.open.outputs.n == '0'
+        run: python3 jobs/largephotos.py "${{ github.event.inputs.top || (github.event_name == 'schedule' && '0' || '30') }}" "${{ github.event.inputs.batch || (github.event_name == 'schedule' && '1500' || '0') }}" | tee large.log | tail -60
       - name: Commit and open the pull request
+        if: steps.open.outputs.n == '0'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
