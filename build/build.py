@@ -425,19 +425,7 @@ TAB_TOP, TAB_PAGE = 60, 250
 TAB_MIN = 5   # a group, order or family with fewer species than this is not a pill: its species join the Other of the level above (#534, owner, 11 Nov)
 TAB_GROUPS = [('mammals', 'Mammals'), ('birds', 'Birds'), ('reptiles', 'Reptiles'), ('amphibians', 'Amphibians'), ('fish', 'Fish'), ('insects', 'Insects'),
               ('plants', 'Plants'), ('other', 'Other')]   # eight flat pills (#534, owner 11 Nov); Other = other animals, algae and others, fungi
-# Everyday names for the 59 biggest orders (together about 90% of the species on the tab; the rest keep the Latin name). The key must be a real order of the taxonomy: tests/data/species_tab_test.py checks it.
-ORDER_NAMES = {
-    'Poales': 'Grasses and sedges', 'Lepidoptera': 'Butterflies and moths', 'Passeriformes': 'Songbirds', 'Rodentia': 'Rodents', 'Asterales': 'Daisies and relatives', 'Rosales': 'Roses and relatives',
-    'Hymenoptera': 'Bees, wasps and ants', 'Artiodactyla': 'Hoofed animals', 'Carnivora': 'Carnivores', 'Fabales': 'Peas and beans', 'Caryophyllales': 'Cacti, pinks and relatives',
-    'Lamiales': 'Mints and relatives', 'Ericales': 'Heaths and blueberries', 'Malpighiales': 'Willows and violets', 'Fagales': 'Oaks, beeches and birches', 'Pinales': 'Conifers',
-    'Accipitriformes': 'Hawks and eagles', 'Primates': 'Primates', 'Coleoptera': 'Beetles', 'Sapindales': 'Maples and citrus', 'Asparagales': 'Orchids and relatives', 'Perciformes': 'Perch-like fish',
-    'Gentianales': 'Gentians and coffee', 'Myrtales': 'Myrtles and eucalypts', 'Charadriiformes': 'Shorebirds and gulls', 'Ranunculales': 'Buttercups and poppies', 'Liliales': 'Lilies',
-    'Dipsacales': 'Honeysuckles', 'Solanales': 'Nightshades', 'Malvales': 'Mallows', 'Anura': 'Frogs and toads', 'Chiroptera': 'Bats', 'Orthoptera': 'Grasshoppers and crickets',
-    'Polypodiales': 'Ferns', 'Hemiptera': 'True bugs', 'Diptera': 'Flies', 'Arecales': 'Palms', 'Anseriformes': 'Ducks, geese and swans', 'Decapoda': 'Crabs and shrimps',
-    'Alismatales': 'Water plants and arums', 'Brassicales': 'Mustards', 'Lagomorpha': 'Rabbits and hares', 'Boraginales': 'Borages', 'Saxifragales': 'Stonecrops and saxifrages',
-    'Cornales': 'Dogwoods', 'Columbiformes': 'Pigeons and doves', 'Galliformes': 'Gamebirds', 'Pelecaniformes': 'Herons and pelicans', 'Piciformes': 'Woodpeckers', 'Apiales': 'Carrots and ivies',
-    'Cetacea': 'Whales and dolphins', 'Perissodactyla': 'Horses and rhinos', 'Clupeiformes': 'Herrings', 'Diprotodontia': 'Kangaroos and koalas', 'Gruiformes': 'Cranes and rails',
-    'Aquifoliales': 'Hollies', 'Strigiformes': 'Owls', 'Salmoniformes': 'Salmon and trout', 'Suliformes': 'Gannets and cormorants'}
+ORDER_NAMES = json.load(open(P('data', 'species', 'order_names.json'), encoding='utf-8'))['names']   # everyday names for the biggest orders (#534): data, see the note in the file
 TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali', 'Teleostei', 'Cephalaspidomorphi', 'Petromyzonti', 'Myxini', 'Sarcopterygii'}
 TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
 
