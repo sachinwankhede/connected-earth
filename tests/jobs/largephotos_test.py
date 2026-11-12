@@ -20,6 +20,13 @@ class LargePhotosTests(unittest.TestCase):
         c = lp.source_urls('a/ab/Osprey.jpg/330px-Osprey.jpg')
         self.assertEqual(len(c), 2); self.assertIn('500px-Osprey.jpg', c[0])
 
+    def test_one_download_makes_both_sizes_no_larger_than_asked(self):
+        from PIL import Image
+        im = Image.new('RGB', (500, 333), (30, 120, 60))
+        big, bs = lp.shrink(im, lp.SIZE); small, ss = lp.shrink(im, lp.SIZE_MD)
+        self.assertEqual((bs, ss), ((400, 266), (192, 128)))
+        self.assertLess(len(small), len(big)); self.assertEqual(im.size, (500, 333), 'the download is not changed')
+
     def test_ranking_counts_places_and_takes_the_title_the_page_uses(self):
         def eco(i, *nodes): return {'id': i, 'nodes': [dict(zip(('latin', 'wiki', 'canonicalWiki'), n)) for n in nodes]}
         ecos = [eco('p1', ('Pandion haliaetus', 'Osprey', None), ('Alces alces', 'Moose', None)), eco('p2', ('Pandion haliaetus', 'Osprey', None)), eco('p3', ('Pandion haliaetus', 'Osprey', None), ('Ursus arctos', 'Brown bear', None)),
