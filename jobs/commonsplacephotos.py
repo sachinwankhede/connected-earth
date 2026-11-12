@@ -16,6 +16,8 @@ import commonsphotos as cp
 import photos as pp
 OUT = 'photos/places'; MAN = OUT + '/places.json'; MISS = OUT + '/missing.json'; TRIED = 'photos/places_commons_tried.json'; DATA = 'data/places'
 RETRY_DAYS = 90
+# photos.py's not-a-photo name filter without its bare "arrowhead" (the National Park Service logo, which also says "logo" or is an .svg): a place such as Arrowhead State Park has a real photo with that word in its file name
+NOTPHOTO = pp.re.compile(pp.NOTPHOTO.pattern.replace('arrowhead|', '', 1), pp.re.I)
 
 def place_ids(data_dir):
     """{imgwiki title: id of the first place (by id) that uses it}: one picture file per title, as photos.py stores it."""
@@ -30,7 +32,7 @@ def pick(names, info):
     """The first of the (at most two) candidate files that is an open-licence JPEG photo: (file name, licence, author, licence url, thumbnail url) or None."""
     for n in names[:2]:
         lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
-        if cp.is_photo_type(mime) and cp.open_licence(lic) and thumb and not pp.NOTPHOTO.search(n) and safe_https(thumb.split('?')[0], ALLOWED_IMAGE_HOSTS):
+        if cp.is_photo_type(mime) and cp.open_licence(lic) and thumb and not NOTPHOTO.search(n) and safe_https(thumb.split('?')[0], ALLOWED_IMAGE_HOSTS):
             return n.replace(' ', '_'), lic, author, lu, thumb
     return None
 
