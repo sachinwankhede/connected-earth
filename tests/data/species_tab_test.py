@@ -24,6 +24,7 @@ class SpeciesTab(unittest.TestCase):
         real = {r.get('order') for r in tx.values()}
         self.assertEqual(sorted(set(B.ORDER_NAMES) - real), [], 'every table entry is a real order')
         self.assertEqual(len(set(B.ORDER_NAMES.values())), len(B.ORDER_NAMES), 'no name is used twice')
+        self.assertGreaterEqual(len(B.ORDER_NAMES), 59, 'the table is read from data/species/order_names.json')
         files = B.split_species_tab({'A a': ['p']}, {'A a': 'A'}, {'A a': 'mammals'}, {}, {'A a': 'Rodentia'}, 1)
         self.assertEqual(files['groups.json'][0][:4], ['mammals', 'Mammals', 1, 1])
         files = B.split_species_tab({'A a': ['p'], 'B b': ['p']}, {}, {'A a': 'mammals', 'B b': 'mammals'}, {}, {'A a': 'Rodentia', 'B b': 'Zzzorder'}, 1)
