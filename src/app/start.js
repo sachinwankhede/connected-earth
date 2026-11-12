@@ -49,10 +49,10 @@
   else {
     var hookIdle = function () { if (M.styleReady && M.map.loaded()) { goPhotos(); return; } M.map.on("idle", function f() { if (M.styleReady && M.map.loaded()) { M.map.off("idle", f); goPhotos(); } }); };
     if (M.map) hookIdle(); else M.mapHooks = (M.mapHooks || []).concat(hookIdle);   // the map library can arrive after this point: hook the map when it is created
-  /* the attention pulse (#689): one quiet ripple, once, from a lazy chunk, a moment after the map settles; never with reduced motion, a link to a place, or after a first touch */
+  /* the attention pulse (#689), tier 3 in ARCHITECTURE-APP.md "Loading tiers": low priority, not in data-saver mode or on a slow connection; one quiet ripple, once, from a lazy chunk, a moment after the map settles; never with reduced motion, a link to a place, or after a first touch */
   if (!M.stub && !/[#&](pg|p|e|j)=/.test(location.hash) && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
     addEventListener("pointerdown", function () { M.pt = 1; }, { once: true, capture: true }); addEventListener("keydown", function () { M.pt = 1; }, { once: true, capture: true });
-    var hookPulse = function () { var go = function () { setTimeout(function () { if (M.pt) return; var sc = document.createElement("script"); sc.async = true; sc.src = chunkURL("pulse-__PULSEVER__"); sc.onload = function () { var f = (window.__chunk || {}).pulse; if (f) f({ map: M.map, eco: function () { return ECOS; }, touched: function () { return M.pt; } })(); }; document.head.appendChild(sc); }, 1200); }; if (M.styleReady && M.map.loaded()) go(); else M.map.once("idle", go); };
+    var hookPulse = function () { var go = function () { setTimeout(function () { var cn = navigator.connection || {}; if (M.pt || cn.saveData || /^(slow-)?2g$/.test(cn.effectiveType)) return; var sc = document.createElement("script"); sc.async = true; sc.fetchPriority = "low"; sc.src = chunkURL("pulse-__PULSEVER__"); sc.onload = function () { var f = (window.__chunk || {}).pulse; if (f) f({ map: M.map, eco: function () { return ECOS; }, touched: function () { return M.pt; } })(); }; document.head.appendChild(sc); }, 1200); }; if (M.styleReady && M.map.loaded()) go(); else M.map.once("idle", go); };
     if (M.map) hookPulse(); else M.mapHooks = (M.mapHooks || []).concat(hookPulse);
   }
   }
