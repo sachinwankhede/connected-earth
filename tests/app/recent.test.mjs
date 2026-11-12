@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
 const stored = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('ceRs') || '[]'));
-const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((r) => [r.getAttribute('data-q') || r.getAttribute('data-id') || r.getAttribute('data-latin'), r.querySelector('i').textContent]));
+const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((r) => [r.getAttribute('data-q') || r.getAttribute('data-id') || r.getAttribute('data-latin'), r.querySelector('i') ? r.querySelector('i').textContent : '']));
 const send = async (p, text) => { await p.fill('#q', text); await p.keyboard.press('Enter'); await p.waitForFunction((x) => window.__M.searched === x, text.toLowerCase(), { timeout: 60000 }); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -17,7 +17,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual((await stored(p)).map((x) => x.q), ['wolf', 'elk', 'bear'], 'three, newest first');
     await p.click('#qclr');   // Clear empties the box and keeps the focus
     await p.waitForFunction(() => !document.getElementById('sug').hidden && document.querySelectorAll('#sug .sgr').length === 3, null, { timeout: 15000 });
-    assert.deepEqual(await rows(p), [['wolf', 'Recent · Search'], ['elk', 'Recent · Search'], ['bear', 'Recent · Search']]);
+    assert.deepEqual(await rows(p), [['wolf', ''], ['elk', ''], ['bear', '']], 'a typed search is one line: its text, no second line');
+    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh').textContent), 'Recent', 'one label above the rows');
+    assert.equal(await p.evaluate(() => document.querySelectorAll('#sug .sgq .sgo').length), 0, 'no chevron on a typed search (a chevron opens a page)');
+    assert.equal(await p.evaluate(() => Math.round(document.querySelector('#sug .sgq').getBoundingClientRect().height) >= 44), true, 'at least 44 px tall');
     await p.click('#sug .sgr[data-q="elk"]');
     await p.waitForFunction(() => window.__M.searched === 'elk', null, { timeout: 60000 });
     assert.equal(await p.inputValue('#q'), 'elk');

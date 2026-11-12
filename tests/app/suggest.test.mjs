@@ -8,7 +8,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing shows suggestions, a species row opens the species page, Enter and Clear close them`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
-    const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i').textContent, latin: r.getAttribute('data-latin'), id: r.getAttribute('data-id') })); });
+    const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i') ? r.querySelector('i').textContent : '', q: r.getAttribute('data-q'), latin: r.getAttribute('data-latin'), id: r.getAttribute('data-id') })); });
     assert.deepEqual(await rows(), [], 'nothing before typing');
     await p.click('#q'); await p.keyboard.type('o');
     assert.deepEqual(await rows(), [], 'one letter is not enough');
@@ -39,7 +39,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
     await p.click('#qclr'); await p.waitForTimeout(200);
     r = await rows();   // the box is empty and focused: the dropdown now lists the recent searches (#589), each marked as one, and no ordinary suggestion
-    assert.ok(r.length >= 1 && r.every((x) => /^Recent · /.test(x.line)), 'Clear closes the suggestions and shows the recent searches instead: ' + JSON.stringify(r));
+    assert.ok(r.length >= 1 && r.length <= 3, 'Clear closes the suggestions and shows the recent searches instead: ' + JSON.stringify(r));
+    assert.equal(await p.evaluate(() => { const h = document.querySelector('#sug .sgh'); return h && h.textContent; }), 'Recent', 'one "Recent" label above them, not a prefix on every row');
+    assert.ok(r.every((x) => x.q ? x.line === '' : /^(Place|Species)\b/.test(x.line)), 'a typed search is one line with no type line; a place or species keeps its type line: ' + JSON.stringify(r));
     // every row says its type (#424): a place "Place · <state or country>", a species "Species · in N places"
     await p.click('#q'); await p.keyboard.type('yellowst');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });

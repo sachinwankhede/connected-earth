@@ -35,12 +35,13 @@
   function sugDraw() {
     if (!SUG.rows.length) { sugBox.hidden = true; sugBox.innerHTML = ""; sugIn.setAttribute("aria-expanded", "false"); return; }
     sugBox.innerHTML = "";
+    if (SUG.rows[0].rc) { var h = document.createElement("div"); h.className = "sgh"; h.textContent = "Recent"; sugBox.appendChild(h); }   /* one label for the recent searches, not a prefix on every row */
     SUG.rows.forEach(function (r) {
       var c, row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = r.t === "q" ? RS_CLOCK : e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
-      row.className = "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else if (r.t === "s") row.setAttribute("data-latin", r.latin); else row.setAttribute("data-q", r.q);
-      row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b><i></i></span>' + SUG_CHEV;
+      row.className = r.t === "q" ? "sgr sgq" : "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else if (r.t === "s") row.setAttribute("data-latin", r.latin); else row.setAttribute("data-q", r.q);
+      row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b>' + (r.t === "q" ? "" : "<i></i>") + "</span>" + (r.t === "q" ? "" : SUG_CHEV);   /* a typed search: one line, no chevron (a chevron opens a page) */
       row.querySelector("b").textContent = r.name || r.q;
-      row.querySelector("i").textContent = (r.rc ? "Recent \u00b7 " : "") + (r.t === "q" ? "Search" : r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places"));
+      if (r.t !== "q") row.querySelector("i").textContent = r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");;
       var p = r.t === "q" ? 0 : r.t === "p" ? (e && e.imgwiki && PHOTOS[e.imgwiki]) : PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);
@@ -102,7 +103,7 @@
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
       var row = ev.target.closest(".sgr"); if (!row) return;
-      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.children, row)];
+      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.querySelectorAll(".sgr"), row)];   /* the "Recent" label is a child too: count rows only */
       sugHide(); sugIn.blur();
       if (rw) rw.rc = 0, rsAdd(rw);
       if (q) runSearch(q);
