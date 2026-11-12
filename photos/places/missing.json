@@ -2009,12 +2009,6 @@
 "expiresAt": "2027-05-01T21:58:05.117102+00:00",
 "attempts": 1
 },
-"Antelope Island State Park": {
-"status": "notphoto",
-"checkedAt": "2026-11-03T19:46:38.821393+00:00",
-"expiresAt": "2027-05-02T19:46:38.821393+00:00",
-"attempts": 1
-},
 "Deer Creek State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:46:43.035234+00:00",
@@ -2309,34 +2303,10 @@
 "expiresAt": "2027-05-03T20:05:32.364615+00:00",
 "attempts": 1
 },
-"Bear River State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:06:04.877376+00:00",
-"expiresAt": "2027-05-03T20:06:04.877376+00:00",
-"attempts": 1
-},
 "Seminoe Reservoir State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-04T20:06:17.424311+00:00",
 "expiresAt": "2027-05-03T20:06:17.424311+00:00",
-"attempts": 1
-},
-"Bennett Spring State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.809902+00:00",
-"expiresAt": "2027-05-08T12:37:30.809902+00:00",
-"attempts": 1
-},
-"Big Sugar Creek State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.810373+00:00",
-"expiresAt": "2027-05-08T12:37:30.810373+00:00",
-"attempts": 1
-},
-"Bijagós Islands": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.810644+00:00",
-"expiresAt": "2027-05-08T12:37:30.810644+00:00",
 "attempts": 1
 },
 "Black Canyon of the Gunnison National Park": {
