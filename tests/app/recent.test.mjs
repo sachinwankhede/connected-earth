@@ -8,6 +8,15 @@ const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')]
 const send = async (p, text) => { await p.fill('#q', text); await p.keyboard.press('Enter'); await p.waitForFunction((x) => window.__M.searched === x, text.toLowerCase(), { timeout: 60000 }); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: a search sent with Enter opens a collapsed sheet so the results show`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    const before = await p.evaluate(() => window.__M.sheetState);
+    await send(p, 'bear');
+    const after = await p.evaluate(() => window.__M.sheetState);
+    if (before === 'min') assert.notEqual(after, 'min', 'the sheet stayed collapsed after the search');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
   test(`${name}: a recent place row has its picture on a fresh page, before the place was opened again`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
