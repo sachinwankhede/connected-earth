@@ -508,7 +508,7 @@ def write_webs(webs, about, pictures=None):
         open(os.path.join(d, 'species-pictures.json'), 'w').write(json.dumps(pictures, separators=(',', ':'), ensure_ascii=False))
     for i, w in webs.items():
         open(os.path.join(d, i + '.json'), 'w').write(json.dumps(w, separators=(',', ':'), ensure_ascii=False))
-    # one small file per species, named by the species id (the app asks for api/species/<id>.json when its sheet or page opens): l Latin name, n usual name, tl level, t description (when there is one), ph and phm the picture entry and credit (when hosted)
+    # one small file per species, named by the species id (the app asks for api/species/<id>.json when its sheet or page opens): l Latin name, n usual name, tl level, t description (when there is one), ph and phm the picture entry and credit (when hosted), cs the conservation status code LC NT VU EN CR EW EX (when Wikidata has one, #680)
     sd = os.path.join(d, 'species'); os.makedirs(sd, exist_ok=True); keep = set()
     for sid, f in about.items():
         open(os.path.join(sd, sid + '.json'), 'w').write(json.dumps(f, separators=(',', ':'), ensure_ascii=False)); keep.add(sid + '.json')
@@ -593,11 +593,13 @@ def build(pilot, out_path, write=False, places=False):
     for e in ecos:
         for n in e['nodes']:
             if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+    cons = json.load(open(os.path.join(ROOT, 'data', 'species', 'conservation.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
     for k in sorted(used):
         row = tab.get(k)
         if not row or row['sid'] != species.slug(k) or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
+        if cons.get(k): f['cs'] = cons[k]['c']   # a species with no status has no cs
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
         pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
