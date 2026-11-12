@@ -1,8 +1,10 @@
 name: data-openversephotos
-# Manual only (#511). For species Commons and GBIF found no picture for: searches Openverse for the Latin name and takes a photo under CC0, public domain, CC BY or CC BY-SA
+# Manual, and weekly on Sundays (#511, owner asked for a schedule 12 Nov; a title tried in the last 90 days is skipped, so a quiet week finds nothing new and opens no pull request). For species Commons and GBIF found no picture for: searches Openverse for the Latin name and takes a photo under CC0, public domain, CC BY or CC BY-SA
 # (no iNaturalist, no herbarium or museum specimen sheets, a named creator is required, Openverse's own thumbnail only), hosts the 96 px copy with its credit and opens one pull request with a 10-picture spot check.
 # Shares the group of data-hostphotos: both write the same photo files.
 on:
+  schedule:
+    - cron: "23 3 * * 0"
   workflow_dispatch:
     inputs:
       limit: { description: "Species titles to try (the first run: 20; 0 = all left)", default: "20" }
@@ -20,7 +22,7 @@ jobs:
         with: { ref: main }
       - run: pip install pillow
       - name: Find and host the pictures
-        run: python3 jobs/openversephotos.py "${{ github.event.inputs.limit || '20' }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -120
+        run: python3 jobs/openversephotos.py "${{ github.event.inputs.limit || (github.event_name == 'schedule' && '0' || '20') }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -120
       - name: Validate
         run: python3 lib/photo_registry.py validate
       - name: Commit and open the pull request
@@ -43,5 +45,5 @@ jobs:
           N=$(python3 -c "import json;print(sum(1 for v in json.load(open('photos/species_source.json')).values() if v=='openverse'))")
           git commit -m "Species pictures from Openverse: $N so far"
           git push -f origin HEAD
-          { printf 'Part of #511 (#421 B2). Automatic run of data-openversephotos, limit `%s`. Only CC0, public domain, CC BY and CC BY-SA photos with a named creator are kept, through the Openverse thumbnails; iNaturalist and specimen sheets are left out. %s species now have an Openverse picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '20' }}" "$N"; cat spot.md; } > body.md
+          { printf 'Part of #511 (#421 B2). Automatic run of data-openversephotos, limit `%s`. Only CC0, public domain, CC BY and CC BY-SA photos with a named creator are kept, through the Openverse thumbnails; iNaturalist and specimen sheets are left out. %s species now have an Openverse picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || (github.event_name == 'schedule' && '0' || '20') }}" "$N"; cat spot.md; } > body.md
           gh pr create --base main --head "$(git branch --show-current)" --title "Species pictures from Openverse ($N so far)" --body-file body.md

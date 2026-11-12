@@ -1,8 +1,10 @@
 name: data-inaturalistphotos
-# Manual only (#511). For species Commons, GBIF and Openverse found no picture for: looks the Latin name up on iNaturalist and takes a taxon photo under CC0, CC BY or CC BY-SA
+# Manual, and weekly on Sundays (#511, owner asked for a schedule 12 Nov; a title tried in the last 90 days is skipped, so a quiet week finds nothing new and opens no pull request). For species Commons, GBIF and Openverse found no picture for: looks the Latin name up on iNaturalist and takes a taxon photo under CC0, CC BY or CC BY-SA
 # (never NC or ND, a named photographer is required, only iNaturalist's open-data bucket), hosts the 96 px copy with its credit and opens one pull request with a 10-picture spot check.
 # Shares the group of data-hostphotos: both write the same photo files.
 on:
+  schedule:
+    - cron: "47 8 * * 0"
   workflow_dispatch:
     inputs:
       limit: { description: "Species titles to try (0 = all left)", default: "0" }
