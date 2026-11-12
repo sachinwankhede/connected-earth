@@ -25,17 +25,17 @@
   // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
   function loadAbout(n) {
     var id = sidOf(n);
-    if (!(id in ABOUT_P)) ABOUT_P[id] = Data.species(id).then(function (a) { ABOUT[id] = a && a.t || null; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
+    if (!(id in ABOUT_P)) ABOUT_P[id] = Data.species(id).then(function (a) { ABOUT[id] = a && a.t || null; CS[id] = a && a.cl; return true; }).catch(function () { delete ABOUT_P[id]; return false; });
     return ABOUT_P[id];
   }
   function aboutHTML(n) {
     if (!n.latin) return "";
     var id = sidOf(n);
-    if (id in ABOUT) { var t = aboutText(n); return t ? '<p class="about">' + t + "</p>" : ""; }
+    if (id in ABOUT) { var t = aboutInner(n); return t ? '<p class="about">' + t + "</p>" : ""; }
     loadAbout(n).then(function (ok) {
       var el = ok && document.querySelector('.about[data-lat="' + id + '"]');
       if (!el) return;
-      var t = aboutText(n); if (t) el.innerHTML = t; else el.remove();
+      var t = aboutInner(n); if (t) el.innerHTML = t; else el.remove();
     });
     return '<p class="about" data-lat="' + id + '"></p>';
   }

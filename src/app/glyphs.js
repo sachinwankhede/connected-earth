@@ -67,7 +67,8 @@
   };
 
   var DATA = R[1] && R[1].cross ? R[1] : { couple: 0.5, src: {}, cross: [] };   /* from the head loader (api/journeys); with no file the app starts with no journeys */
-  var ABOUT = {}, ABOUT_P = {};   /* species id -> description text, or null when there is none; filled one species at a time */
+  var ABOUT = {}, ABOUT_P = {}, CS = {};   /* species id -> description text, or null when there is none; filled one species at a time */
   function aboutLink(n) { return ' <a href="https://en.wikipedia.org/wiki/' + encodeURIComponent((n.wiki || n.latin).replace(/ /g, "_")) + '" target="_blank" rel="noopener">Wikipedia</a>'; }
   function sidOf(n) { return n.latin.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }   /* the same id the build gives the species (build/species.py slug) */
+  function aboutInner(n) { var c = CS[sidOf(n)], t = aboutText(n); return (c ? '<span class="badge">' + c + "</span> " : "") + t; }   /* the conservation status word (#680, from Wikidata) before the description */
   function aboutText(n) { var t = ABOUT[sidOf(n)]; return t ? t.replace(/&/g, "&amp;").replace(/</g, "&lt;") + aboutLink(n) : ""; }
