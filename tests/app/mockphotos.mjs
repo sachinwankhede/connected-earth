@@ -21,7 +21,7 @@ const hostedName = (title) => crypto.createHash('sha1').update(title).digest('he
 // For a test that needs only a few hosted species pictures: answers the picture list with exactly `ph` ({title: [file, page]}) and every hosted species file with a generated picture.
 export async function mockSpeciesPictures(page, ph = {}) {
   await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {} }) }));
-  await page.route(/\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.route(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
 }
 export async function mockPhotos(page, { allPlaces = false } = {}) {   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
   const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
@@ -40,6 +40,6 @@ export async function mockPhotos(page, { allPlaces = false } = {}) {   // allPla
     for (const n of w.nodes || []) for (const k of [n.wiki, n.canonicalWiki, n.latin]) if (k && species[k]) w.ph[k] = species[k];
     return r.fulfill({ response: res, body: JSON.stringify(w) });
   });
-  await page.route(/\/photos\/places\/mock\/|\/photos\/species\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.route(/\/photos\/places\/mock\/|\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
   await page.reload();
 }
