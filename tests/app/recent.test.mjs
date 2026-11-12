@@ -33,7 +33,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('#sug .sgr[data-id]', { timeout: 15000 });
     await p.click('#sug .sgr[data-id]');
     assert.equal((await stored(p))[0].t, 'p');
-    await p.goto(p.url().split('#')[0] + '#stub'); await p.reload();   // a fresh page: no place picture has been read yet
+    // #684 (root cause, from the CI diagnostic: box 0x0, hash '#stub&pg=yellowstone'): the app writes '&pg=<place>' into the address when a place opens, and it can do that after a plain goto('#stub') has reset it, so the reload reopened the place page where the search box is hidden. Wait for the place to be written, then reset the hash with replaceState (fires no hashchange, so nothing writes it back) and reload.
+    await p.waitForFunction(() => /pg=yellowstone/.test(location.hash), null, { timeout: 30000 });
+    await p.evaluate(() => history.replaceState(null, '', location.pathname + location.search + '#stub')); await p.reload();   // a fresh page: no place picture has been read yet
     await tap(p, '#q');
     await p.waitForSelector('#sug .sgr[data-id] .sgi img', { timeout: 30000 });   // the picture arrives after the list is drawn, and the row is drawn again
     assert.deepEqual(t.errors, []); await b.close();
