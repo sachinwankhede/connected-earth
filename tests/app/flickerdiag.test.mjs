@@ -9,9 +9,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForTimeout(1500);
     const out = await p.evaluate(async (CONT) => {
       const m = window.__M.map, log = [], t0 = performance.now();
-      const who = () => (new Error().stack || '').split('\n').slice(3, 6).map((l) => l.trim().replace(/\(.*[\\/]/, '(').slice(0, 60)).join(' < ');
-      for (const fn of ['fitBounds', 'easeTo', 'flyTo', 'jumpTo']) { const o = m[fn].bind(m); m[fn] = (...a) => { log.push(Math.round(performance.now() - t0) + 'ms ' + fn + ' ' + who()); return o(...a); }; }
-      m.on('moveend', () => log.push(Math.round(performance.now() - t0) + 'ms moveend z' + m.getZoom().toFixed(2)));
+      const who = () => ((new Error().stack || '').split('\n').slice(3, 7).map((l) => (l.trim().match(/at (?:\w+\.)*(\w+)/) || [0, '?'])[1]).filter((x) => !/^(Map|_fitInternal|fitBounds|flyTo|easeTo|jumpTo|_?ease|anonymous|\?)$/.test(x)).slice(0, 2).join('<'));
+      for (const fn of ['fitBounds', 'easeTo', 'flyTo', 'jumpTo']) { const o = m[fn].bind(m); m[fn] = (...a) => { if (fn !== 'flyTo') log.push(Math.round(performance.now() - t0) + 'ms ' + fn[0] + ':' + who()); return o(...a); }; }
+      m.on('moveend', () => log.push(Math.round(performance.now() - t0) + ' end'));
       const btn = document.querySelector('[data-go="continent"][data-a="' + CONT + '"]');
       if (!btn) return ['no button; data-go found: ' + [...document.querySelectorAll('[data-go]')].slice(0, 6).map((e) => e.dataset.go + ':' + e.dataset.a).join(',')];
       btn.click();
@@ -19,6 +19,6 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       return log;
     }, cont);
     await b.close();
-    throw new Error('DIAG ' + name + ' ' + cont + ' :: ' + out.join(' || '));
+    throw new Error('DIAG ' + name[0] + cont[0] + ' ' + out.join(' '));
   });
 }
