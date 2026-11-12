@@ -16,7 +16,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const file = await p.evaluate(() => fetch('api/species/pandion-haliaetus.json').then((r) => r.json()));
     let s = await page(p);
     assert.equal(s.hidden, false); assert.equal(s.name, 'Osprey'); assert.equal(s.latin, 'Pandion haliaetus');
-    assert.match(s.kind, /^(Top predator|Hunter & scavenger|Plant-eater|Plant)$/);
+    assert.match(s.kind, /^(Top predator|Hunter & scavenger|Plant-eater|Plant)( · (Least concern|Near threatened|Vulnerable|Endangered|Critically endangered|Extinct in the wild|Extinct))?$/);   // the conservation word sits on the kind line (#680)
+    assert.equal(await p.evaluate(() => document.querySelectorAll('#pview .about .badge').length), 0, 'no separate badge on the species page');
     assert.ok(s.about && s.about.length > 40 && /Wikipedia$/.test(s.about), 'the description and its Wikipedia link');
     assert.equal(s.back, '‹ Places'); assert.equal(s.share, true); assert.equal(s.foot, true);
     assert.match(s.hash, /(^|&)sp=pandion-haliaetus$/, 'the species is in the address');
