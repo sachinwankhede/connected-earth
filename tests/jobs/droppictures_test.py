@@ -30,6 +30,12 @@ class DropTests(unittest.TestCase):
         self.assertEqual(D.source_of({'p': 'https://www.gbif.org/occurrence/1'}), 'GBIF')
     def test_openverse_page_uses_openverse_rule(self):
         self.assertEqual(D.source_of({'p': 'https://openverse.org/image/abc'}), 'Openverse')
+    def test_inaturalist_page_uses_inaturalist_rule(self):
+        self.assertEqual(D.source_of({'p': 'https://www.inaturalist.org/photos/1'}), 'iNaturalist')
+    def test_dropped_inaturalist_picture_is_marked_tried(self):
+        put(self.r, 'species_metadata', {'Good': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:A.jpg'}, 'Bad': {'l': 'GFDL 1.2', 'p': 'https://www.inaturalist.org/photos/9'}})
+        D.drop(self.r)
+        self.assertEqual(list(json.load(open(os.path.join(self.r, 'photos', 'species_inaturalist_tried.json')))), ['Bad'])
     def test_title_drops_a_good_licence(self):
         bad, c = D.drop(self.r, False, ['Good', 'Nope']); self.assertEqual(bad, ['Good'])
         j = lambda n: json.load(open(os.path.join(self.r, 'photos', n + '.json')))

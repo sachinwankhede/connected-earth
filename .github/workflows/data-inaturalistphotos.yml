@@ -1,0 +1,47 @@
+name: data-inaturalistphotos
+# Manual only (#511). For species Commons, GBIF and Openverse found no picture for: looks the Latin name up on iNaturalist and takes a taxon photo under CC0, CC BY or CC BY-SA
+# (never NC or ND, a named photographer is required, only iNaturalist's open-data bucket), hosts the 96 px copy with its credit and opens one pull request with a 10-picture spot check.
+# Shares the group of data-hostphotos: both write the same photo files.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Species titles to try (0 = all left)", default: "0" }
+      again: { description: "yes = also try titles tried in the last 90 days (after a fix to the lookup)", default: "no" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-hostphotos
+jobs:
+  inaturalist:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - run: pip install pillow
+      - name: Find and host the pictures
+        run: python3 jobs/inaturalistphotos.py "${{ github.event.inputs.limit || '0' }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -120
+      - name: Validate
+        run: python3 lib/photo_registry.py validate
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/inaturalistphotos-${GITHUB_RUN_ID}"
+          git add photos/species photos/species.json photos/species_missing.json photos/species_source.json photos/species_inaturalist_tried.json photos/species_hosted.json photos/species_metadata.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random
+          src = json.load(open('photos/species_source.json')); host = json.load(open('photos/species_hosted.json')); meta = json.load(open('photos/species_metadata.json'))
+          ok = sorted(t for t, s in src.items() if s == 'inaturalist' and t in host); random.seed(1); pick = random.sample(ok, min(10, len(ok)))
+          print('| Species | Licence | Author | iNaturalist page |\n|---|---|---|---|')
+          for t in pick:
+              m = meta.get(t, {}); print('| %s | %s | %s | %s |' % (t, m.get('l', ''), (m.get('a', '') or '')[:60].replace('|', '/'), m.get('p', '')))
+          print('\n%d iNaturalist pictures are hosted.' % len(ok))
+          PY
+          N=$(python3 -c "import json;print(sum(1 for v in json.load(open('photos/species_source.json')).values() if v=='inaturalist'))")
+          git commit -m "Species pictures from iNaturalist: $N so far"
+          git push -f origin HEAD
+          { printf 'Part of #511 (#421 B2). Automatic run of data-inaturalistphotos, limit `%s`. Only CC0, CC BY and CC BY-SA photos with a named photographer are kept, from iNaturalist's open-data bucket. %s species now have an iNaturalist picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '0' }}" "$N"; cat spot.md; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species pictures from iNaturalist ($N so far)" --body-file body.md
