@@ -97,10 +97,11 @@
       withSpeciesPhotos(function () { if (n === SUG.n) sugDraw(); });
     }).catch(function () { if (n === SUG.n) sugHide(); });   /* no suggestions when the file cannot be had; the normal search goes on */
   }
+  function sheetUp() { if (M.setSheet && M.sheetState === "min") M.setSheet("half"); }   /* a search that is run shows its results: the collapsed phone sheet opens */
   if (sugBox) {
     sugIn.addEventListener("input", sugShow);
     sugIn.addEventListener("focus", sugShow);
-    sugIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter" && sugIn.value.trim().length > 1) rsAdd({ t: "q", q: sugIn.value.trim() }); if (ev.key === "Enter" || ev.key === "Escape") sugHide(); });
+    sugIn.addEventListener("keydown", function (ev) { if (ev.key === "Enter" && sugIn.value.trim().length > 1) rsAdd({ t: "q", q: sugIn.value.trim() }), sheetUp(); if (ev.key === "Enter" || ev.key === "Escape") sugHide(); });
     sugIn.addEventListener("search", function () { sugHide(); sugIn.blur(); });
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
@@ -108,7 +109,7 @@
       var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.querySelectorAll(".sgr"), row)];   /* the "Recent" label is a child too: count rows only */
       sugHide(); sugIn.blur();
       if (rw) rw.rc = 0, rsAdd(rw);
-      if (q) runSearch(q);
+      if (q) runSearch(q), sheetUp();
       else if (id) showPlace(id);
       else { if (FL.q !== sugIn.value.trim().toLowerCase()) runSearch(sugIn.value); showSpecies(sidOf({ latin: latin })); }   /* the typed search is what Back returns to, even when the throttled search has not run yet */   /* a species row opens its page (#420 step 3); "Show on the map" is there */
     });
