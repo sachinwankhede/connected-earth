@@ -1,4 +1,4 @@
-name: header-check
+name: readonly-header-check
 # Manual, read-only (#678). Asks the live site for index.html, the map script and the world places file with 'Accept-Encoding: br' and then with
 # 'gzip' only, and prints the response headers (content-encoding, content-length, server) in the run summary. It answers one question: does the site
 # serve Brotli to browsers? It fetches only the two addresses of this project's own site (below) or the one the person types in; nothing is changed.

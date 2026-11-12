@@ -22,8 +22,9 @@ class ChangeKinds(unittest.TestCase):
             (['tests/jobs/sync_test.py', 'build/state.py'], (False, False, True)),
             (['lib/photo_registry.py'], (False, True, True)),
             (['docs/ARCHITECTURE.md', 'CLAUDE.md', '.github/workflows/data-about.yml', 'jobs/names.json', 'jobs/reports/x.md'], (False, False, False)),
-            (['.github/workflows/header-check.yml'], (False, False, False)),   # a read-only look at the live site's headers (#678): no checks needed
-            (['.github/workflows/header-check.yml', 'src/app.html'], (True, False, False)),
+            (['.github/workflows/readonly-header-check.yml', '.github/workflows/readonly-x.yml'], (False, False, False)),   # read-only workflows (#678): no checks needed
+            (['.github/workflows/readonly-header-check.yml', 'src/app.html'], (True, False, False)),
+            (['.github/workflows/perf-ab.yml', '.github/workflows/header-check.yml'], (True, False, False)),   # only the readonly- prefix is quiet
             (['data/places/a.json', 'src/app.html'], (True, True, False)),
             (['something/new.bin'], (True, False, False)),
         ]
