@@ -1,0 +1,522 @@
+{
+ "abaeis nicippe": {
+  "c": "LC",
+  "q": "Q2302342"
+ },
+ "abies alba": {
+  "c": "LC",
+  "q": "Q146992"
+ },
+ "abies balsamea": {
+  "c": "LC",
+  "q": "Q428023"
+ },
+ "abies concolor": {
+  "c": "LC",
+  "q": "Q145939"
+ },
+ "abies fargesii": {
+  "c": "LC",
+  "q": "Q1396605"
+ },
+ "abies grandis": {
+  "c": "LC",
+  "q": "Q147434"
+ },
+ "abies lasiocarpa": {
+  "c": "LC",
+  "q": "Q978755"
+ },
+ "abies magnifica": {
+  "c": "LC",
+  "q": "Q1290204"
+ },
+ "abies nordmanniana": {
+  "c": "LC",
+  "q": "Q148920"
+ },
+ "abies procera": {
+  "c": "LC",
+  "q": "Q1283223"
+ },
+ "abies religiosa": {
+  "c": "LC",
+  "q": "Q378592"
+ },
+ "acacia aneura": {
+  "c": "LC",
+  "q": "Q1817001"
+ },
+ "acacia confusa": {
+  "c": "LC",
+  "q": "Q1316058"
+ },
+ "acacia dealbata": {
+  "c": "LC",
+  "q": "Q757123"
+ },
+ "acacia koa": {
+  "c": "LC",
+  "q": "Q1777801"
+ },
+ "acacia ligulata": {
+  "c": "LC",
+  "q": "Q978642"
+ },
+ "acanthis flammea": {
+  "c": "LC",
+  "q": "Q20754771"
+ },
+ "acanthodactylus boskianus": {
+  "c": "LC",
+  "q": "Q2822535"
+ },
+ "accipiter cooperii": {
+  "c": "LC",
+  "q": "Q862896"
+ },
+ "accipiter nisus": {
+  "c": "LC",
+  "q": "Q25380"
+ },
+ "accipiter rufitorques": {
+  "c": "LC",
+  "q": "Q913227"
+ },
+ "accipiter striatus": {
+  "c": "LC",
+  "q": "Q386569"
+ },
+ "acer circinatum": {
+  "c": "LC",
+  "q": "Q568923"
+ },
+ "acer davidii": {
+  "c": "LC",
+  "q": "Q657935"
+ },
+ "acer floridanum": {
+  "c": "LC",
+  "q": "Q15287442"
+ },
+ "acer glabrum": {
+  "c": "LC",
+  "q": "Q540650"
+ },
+ "acer leucoderme": {
+  "c": "LC",
+  "q": "Q4224593"
+ },
+ "acer macrophyllum": {
+  "c": "LC",
+  "q": "Q599523"
+ },
+ "acer negundo": {
+  "c": "LC",
+  "q": "Q161166"
+ },
+ "acer pensylvanicum": {
+  "c": "LC",
+  "q": "Q1190312"
+ },
+ "acer platanoides": {
+  "c": "LC",
+  "q": "Q26745"
+ },
+ "acer rubrum": {
+  "c": "LC",
+  "q": "Q161364"
+ },
+ "acer saccharinum": {
+  "c": "LC",
+  "q": "Q158301"
+ },
+ "acer saccharum": {
+  "c": "LC",
+  "q": "Q214733"
+ },
+ "acer spicatum": {
+  "c": "LC",
+  "q": "Q762435"
+ },
+ "achillea millefolium": {
+  "c": "LC",
+  "q": "Q25408"
+ },
+ "acinonyx jubatus": {
+  "c": "VU",
+  "q": "Q23907"
+ },
+ "acinonyx jubatus hecki": {
+  "c": "CR",
+  "q": "Q2164369"
+ },
+ "acomys dimidiatus": {
+  "c": "LC",
+  "q": "Q1765953"
+ },
+ "acrantophis madagascariensis": {
+  "c": "LC",
+  "q": "Q1658187"
+ },
+ "acridotheres tristis": {
+  "c": "LC",
+  "q": "Q116667"
+ },
+ "acropora palmata": {
+  "c": "CR",
+  "q": "Q163614"
+ },
+ "addax nasomaculatus": {
+  "c": "CR",
+  "q": "Q190154"
+ },
+ "adiantum capillus-veneris": {
+  "c": "LC",
+  "q": "Q4678994"
+ },
+ "aegypius monachus": {
+  "c": "NT",
+  "q": "Q168677"
+ },
+ "aepyceros melampus": {
+  "c": "LC",
+  "q": "Q132576"
+ },
+ "aesculus glabra": {
+  "c": "LC",
+  "q": "Q1813339"
+ },
+ "aesculus pavia": {
+  "c": "LC",
+  "q": "Q159049"
+ },
+ "aesculus sylvatica": {
+  "c": "LC",
+  "q": "Q150691"
+ },
+ "aethopyga temminckii": {
+  "c": "LC",
+  "q": "Q73833"
+ },
+ "afropavo congensis": {
+  "c": "NT",
+  "q": "Q338996"
+ },
+ "agama agama": {
+  "c": "LC",
+  "q": "Q770750"
+ },
+ "agama atra": {
+  "c": "LC",
+  "q": "Q2826369"
+ },
+ "agama picticauda": {
+  "c": "LC",
+  "q": "Q58474097"
+ },
+ "agave havardiana": {
+  "c": "VU",
+  "q": "Q391761"
+ },
+ "agave lechuguilla": {
+  "c": "LC",
+  "q": "Q310970"
+ },
+ "agave palmeri": {
+  "c": "LC",
+  "q": "Q391834"
+ },
+ "agave parryi": {
+  "c": "LC",
+  "q": "Q138011"
+ },
+ "agelaius phoeniceus": {
+  "c": "LC",
+  "q": "Q754043"
+ },
+ "agkistrodon contortrix": {
+  "c": "LC",
+  "q": "Q1248772"
+ },
+ "agkistrodon piscivorus": {
+  "c": "LC",
+  "q": "Q905354"
+ },
+ "aglaia elliptica": {
+  "c": "LC",
+  "q": "Q4692773"
+ },
+ "agrostis stolonifera": {
+  "c": "LC",
+  "q": "Q163963"
+ },
+ "ahaetulla nasuta": {
+  "c": "LC",
+  "q": "Q619087"
+ },
+ "ailuropoda melanoleuca": {
+  "c": "VU",
+  "q": "Q33602"
+ },
+ "aix sponsa": {
+  "c": "LC",
+  "q": "Q322159"
+ },
+ "akodon cursor": {
+  "c": "LC",
+  "q": "Q306995"
+ },
+ "alauda arvensis": {
+  "c": "LC",
+  "q": "Q25961"
+ },
+ "alcelaphus buselaphus": {
+  "c": "LC",
+  "q": "Q622880"
+ },
+ "alces alces": {
+  "c": "LC",
+  "q": "Q35517"
+ },
+ "alectoris chukar": {
+  "c": "LC",
+  "q": "Q194043"
+ },
+ "alectura lathami": {
+  "c": "LC",
+  "q": "Q632066"
+ },
+ "allactaga sibirica": {
+  "c": "LC",
+  "q": "Q1761651"
+ },
+ "alle alle": {
+  "c": "LC",
+  "q": "Q26470"
+ },
+ "alligator mississippiensis": {
+  "c": "LC",
+  "q": "Q193327"
+ },
+ "allium geyeri": {
+  "c": "LC",
+  "q": "Q5669357"
+ },
+ "allocasuarina decaisneana": {
+  "c": "LC",
+  "q": "Q145123"
+ },
+ "allochrocebus lhoesti": {
+  "c": "VU",
+  "q": "Q28154834"
+ },
+ "alnus alnobetula": {
+  "c": "LC",
+  "q": "Q20720096"
+ },
+ "alnus glutinosa": {
+  "c": "LC",
+  "q": "Q156904"
+ },
+ "alnus rubra": {
+  "c": "LC",
+  "q": "Q1818806"
+ },
+ "alnus serrulata": {
+  "c": "LC",
+  "q": "Q3926580"
+ },
+ "aloe perryi": {
+  "c": "NT",
+  "q": "Q140942"
+ },
+ "alopochen aegyptiaca": {
+  "c": "LC",
+  "q": "Q274179"
+ },
+ "alosa pseudoharengus": {
+  "c": "LC",
+  "q": "Q659283"
+ },
+ "alosa sapidissima": {
+  "c": "LC",
+  "q": "Q545697"
+ },
+ "alouatta caraya": {
+  "c": "NT",
+  "q": "Q856342"
+ },
+ "alouatta macconnelli": {
+  "c": "LC",
+  "q": "Q1206162"
+ },
+ "alouatta palliata": {
+  "c": "VU",
+  "q": "Q1070483"
+ },
+ "alticola argentatus": {
+  "c": "LC",
+  "q": "Q303524"
+ },
+ "amazona aestiva": {
+  "c": "NT",
+  "q": "Q525897"
+ },
+ "amazona vittata": {
+  "c": "CR",
+  "q": "Q510792"
+ },
+ "amblyopsis spelaea": {
+  "c": "NT",
+  "q": "Q2842127"
+ },
+ "amblyrhynchus cristatus": {
+  "c": "VU",
+  "q": "Q208796"
+ },
+ "amelanchier alnifolia": {
+  "c": "LC",
+  "q": "Q164158"
+ },
+ "amelanchier arborea": {
+  "c": "LC",
+  "q": "Q2842647"
+ },
+ "amelanchier interior": {
+  "c": "LC",
+  "q": "Q4742175"
+ },
+ "amelanchier sanguinea": {
+  "c": "LC",
+  "q": "Q2842651"
+ },
+ "amelanchier utahensis": {
+  "c": "LC",
+  "q": "Q4742185"
+ },
+ "amia calva": {
+  "c": "LC",
+  "q": "Q491934"
+ },
+ "ammodramus savannarum": {
+  "c": "LC",
+  "q": "Q1588210"
+ },
+ "ammomanes deserti": {
+  "c": "LC",
+  "q": "Q890990"
+ },
+ "ammospermophilus harrisii": {
+  "c": "LC",
+  "q": "Q1764884"
+ },
+ "ammospermophilus leucurus": {
+  "c": "LC",
+  "q": "Q748208"
+ },
+ "ammotragus lervia": {
+  "c": "VU",
+  "q": "Q322141"
+ },
+ "amphibolis antarctica": {
+  "c": "LC",
+  "q": "Q4748211"
+ },
+ "amphiscirpus nevadensis": {
+  "c": "LC",
+  "q": "Q4748361"
+ },
+ "anabas testudineus": {
+  "c": "LC",
+  "q": "Q10540515"
+ },
+ "anableps anableps": {
+  "c": "LC",
+  "q": "Q5240255"
+ },
+ "anas crecca": {
+  "c": "LC",
+  "q": "Q25700"
+ },
+ "anas platyrhynchos": {
+  "c": "LC",
+  "q": "Q25348"
+ },
+ "anax junius": {
+  "c": "LC",
+  "q": "Q175808"
+ },
+ "anax parthenope": {
+  "c": "LC",
+  "q": "Q1746487"
+ },
+ "anaxyrus americanus": {
+  "c": "LC",
+  "q": "Q694496"
+ },
+ "anaxyrus terrestris": {
+  "c": "LC",
+  "q": "Q2275019"
+ },
+ "anchoa mitchilli": {
+  "c": "LC",
+  "q": "Q2262698"
+ },
+ "anguilla anguilla": {
+  "c": "CR",
+  "q": "Q26387"
+ },
+ "anhinga melanogaster": {
+  "c": "LC",
+  "q": "Q282242"
+ },
+ "anodorhynchus hyacinthinus": {
+  "c": "VU",
+  "q": "Q463154"
+ },
+ "anolis carolinensis": {
+  "c": "LC",
+  "q": "Q930252"
+ },
+ "anolis chlorocyanus": {
+  "c": "LC",
+  "q": "Q2503797"
+ },
+ "anolis distichus": {
+  "c": "LC",
+  "q": "Q1445767"
+ },
+ "anolis equestris": {
+  "c": "LC",
+  "q": "Q536711"
+ },
+ "anolis fuscoauratus": {
+  "c": "LC",
+  "q": "Q14414662"
+ },
+ "anolis gundlachi": {
+  "c": "LC",
+  "q": "Q1444433"
+ },
+ "anolis lineatopus": {
+  "c": "LC",
+  "q": "Q2855989"
+ },
+ "anolis sagrei": {
+  "c": "LC",
+  "q": "Q790586"
+ },
+ "anolis townsendi": {
+  "c": "LC",
+  "q": "Q2852201"
+ },
+ "anous stolidus": {
+  "c": "LC",
+  "q": "Q525717"
+ },
+ "anser albifrons": {
+  "c": "LC",
+  "q": "Q172093"
+ }
+}
