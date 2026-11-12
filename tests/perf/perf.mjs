@@ -201,12 +201,10 @@ const WEB_LAYOUT_PLACES = ['camontaadeoro', 'vasmithmountainlak', 'nhpisgah', 'y
 const WEB_LAYOUT_INIT = () => {
   window.__tk = { n: 0, ms: 0 };
   let real;
-  Object.defineProperty(window, 'd3', {
-    configurable: true,
-    get() { return real; },
-    set(v) {
-      real = v;
-      if (!v || !v.forceSimulation || v.__wrapped) return;
+  // d3's script first assigns an empty object to window.d3 and fills it in afterwards, so the wrap happens on the first read after forceSimulation exists
+  const wrap = (v) => {
+    if (!v || !v.forceSimulation || v.__wrapped) return;
+    try {
       const fs = v.forceSimulation;
       v.forceSimulation = function () {
         const sim = fs.apply(this, arguments), tick = sim.tick;
@@ -214,8 +212,9 @@ const WEB_LAYOUT_INIT = () => {
         return sim;
       };
       v.__wrapped = true;
-    },
-  });
+    } catch (e) { window.__tk.err = String(e); }
+  };
+  Object.defineProperty(window, 'd3', { configurable: true, get() { wrap(real); return real; }, set(v) { real = v; } });
 };
 async function webLayoutScenario(browser, name) {
   const prof = PROFILES[name], rows = [];
@@ -236,8 +235,8 @@ async function webLayoutScenario(browser, name) {
     for (const id of WEB_LAYOUT_PLACES) {
       await p.evaluate(() => { window.__tk.n = 0; window.__tk.ms = 0; });
       const r = await measuredRoute(p, `#e=${id}`, 'web', `web layout ${id}`);
-      const m = await p.evaluate(() => ({ ticks: window.__tk.n, tickMs: window.__tk.ms, nodes: document.querySelectorAll('#svg .node').length }));
-      rows.push(`${id} | nodes ${m.nodes} | ticks ${m.ticks} | ticks took ${m.tickMs.toFixed(0)} ms | open (tap to graph shown) ${r.readyMs == null ? 'n/a' : r.readyMs.toFixed(0)} ms`);
+      const m = await p.evaluate(() => ({ ticks: window.__tk.n, tickMs: window.__tk.ms, nodes: document.querySelectorAll('#svg .node').length, err: window.__tk.err }));
+      rows.push(`${id} | nodes ${m.nodes} | ticks ${m.ticks} | ticks took ${m.tickMs.toFixed(0)} ms | open (tap to graph shown) ${r.readyMs == null ? 'n/a' : r.readyMs.toFixed(0)} ms${m.err ? ' | wrap error ' + m.err : ''}`);
       await p.evaluate(() => document.getElementById('back').click());
       await p.waitForFunction(() => { const v = document.getElementById('pview'); return v && !v.hidden; }, null, { timeout: NAV_TIMEOUT });
       await p.click('#pview [data-pback]');
