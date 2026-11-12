@@ -1,5 +1,6 @@
 /* Layout: one screen with two views. A world map with a pin per ecosystem, and a graph stage with a species card beside it (below it on phones). */
 :root {
+  --lift-1: 0 2px 10px rgba(0,0,0,.26); --lift-2: 0 6px 22px rgba(0,0,0,.3); --lift-up: 0 -5px 22px rgba(0,0,0,.27);
   --bg: #F1F3EE;
   --surface: #FAFBF8;
   --ink: #14221B;
@@ -126,7 +127,7 @@ button:focus-visible, select:focus-visible, .node:focus-visible, .pin:focus-visi
 .mapbox { position: relative; flex: none; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: linear-gradient(180deg, var(--sea-a), var(--sea-b)); }
 #map { display: block; width: 100%; height: min(70vh, 640px); min-height: 380px; background: var(--sea-a); }
 #map.dragging { cursor: grabbing; }
-.zoomc { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.18); z-index: 3; }
+.zoomc { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--lift-1); z-index: 3; }
 .zoomc button { all: unset; box-sizing: border-box; width: 38px; height: 36px; display: grid; place-items: center; background: var(--surface); color: var(--ink); font: 600 20px/1 var(--font-body); cursor: pointer; }
 .zoomc button:hover { background: var(--land-has); }
 .zoomc button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
@@ -377,7 +378,7 @@ div.card { cursor: default; }
 .evd li b { color: var(--ink); font-weight: 600; }
 .evd a { color: var(--accent); }
 
-.mapctl { position: absolute; left: 10px; top: 10px; display: flex; gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.18); z-index: 3; }
+.mapctl { position: absolute; left: 10px; top: 10px; display: flex; gap: 1px; background: var(--line); border-radius: 10px; overflow: hidden; box-shadow: var(--lift-1); z-index: 3; }
 .mapctl button { all: unset; box-sizing: border-box; padding: 0 12px; height: 34px; display: grid; place-items: center; background: var(--surface); color: var(--ink); font: 600 13px/1 var(--font-body); cursor: pointer; }
 .mapctl button[aria-pressed="true"] { background: var(--accent); color: #fff; }
 .mapctl button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
@@ -385,10 +386,10 @@ div.card { cursor: default; }
 .maplibregl-popup-tip { display: none; }
 .maplibregl-ctrl-attrib { font-size: 10.5px; }
 @media (min-width: 701px) {
-  .mapbox > .peek:not([hidden]) { position: absolute; left: 10px; bottom: 44px; z-index: 5; width: min(420px, calc(100% - 80px)); max-height: calc(100% - 100px); overflow: auto; grid-template-columns: 92px minmax(0,1fr); border-radius: 12px; box-shadow: 0 6px 22px rgba(0,0,0,.35); }
+  .mapbox > .peek:not([hidden]) { position: absolute; left: 10px; bottom: 44px; z-index: 5; width: min(420px, calc(100% - 80px)); max-height: calc(100% - 100px); overflow: auto; grid-template-columns: 92px minmax(0,1fr); border-radius: 12px; box-shadow: var(--lift-2); }
 }
 @media (max-width: 700px) {
-  .peek:not([hidden]) { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 46vh; overflow: auto; border-radius: 16px 16px 0 0; box-shadow: 0 -6px 24px rgba(0,0,0,.28); grid-template-columns: 84px minmax(0,1fr); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
+  .peek:not([hidden]) { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; max-height: 46vh; overflow: auto; border-radius: 16px 16px 0 0; box-shadow: var(--lift-up); grid-template-columns: 84px minmax(0,1fr); padding-bottom: max(12px, env(safe-area-inset-bottom)); }
   .peek .pimg { min-height: 70px; }
   .mapctl button { padding: 0 8px; font-size: 12px; }
 }
@@ -436,7 +437,7 @@ div.card { cursor: default; }
 .qclr { position: absolute; right: 2px; top: 0; bottom: 0; width: 44px; display: flex; align-items: center; justify-content: center; color: var(--muted, var(--ink)); opacity: .7; text-decoration: none; }
 .qwrap.has input, .filters .qwrap.has input { padding-right: 44px; }
 #q::-webkit-search-cancel-button { -webkit-appearance: none; appearance: none; }
-.sug { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 30; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,.28); overflow: hidden; }
+.sug { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 30; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; box-shadow: var(--lift-2); overflow: hidden; }
 .sgr { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 6px 12px 6px 8px; cursor: pointer; color: var(--ink); }
 .sgr + .sgr { border-top: 1px solid var(--line); }
 .sgr:hover { background: var(--grid); }
@@ -471,7 +472,7 @@ div.card { cursor: default; }
 .credlink button { background: none; border: 0; color: var(--muted, #6b7a78); font: 12px var(--font-body); text-decoration: underline; padding: 8px 12px; cursor: pointer; }
 .credmodal { position: fixed; inset: 0; z-index: 60; background: rgba(10,25,22,.5); display: flex; align-items: center; justify-content: center; padding: 16px; }
 .credmodal[hidden] { display: none; }
-.credcard { position: relative; background: var(--surface); color: var(--ink); border-radius: 14px; max-width: 460px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 18px 18px 14px; font: 14px/1.45 var(--font-body); box-shadow: 0 10px 40px rgba(0,0,0,.35); }
+.credcard { position: relative; background: var(--surface); color: var(--ink); border-radius: 14px; max-width: 460px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 18px 18px 14px; font: 14px/1.45 var(--font-body); box-shadow: var(--lift-2); }
 .credcard h2 { margin: 0 0 6px; font-size: 18px; }
 .credcard dt { font-weight: 600; margin-top: 12px; }
 .credcard dd { margin: 2px 0 0; }
@@ -488,19 +489,19 @@ div.card { cursor: default; }
   #map { height: 100%; min-height: 0; }
   .filters { position: fixed; top: max(8px, env(safe-area-inset-top)); left: 8px; right: 8px; z-index: 12; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 8px; pointer-events: none; }
   .filters > * { pointer-events: auto; }
-  .filters .qrow input { height: 44px; border-radius: 22px; padding: 0 18px; max-width: none; font-size: 16px; box-shadow: 0 2px 10px rgba(0,0,0,.28); border-color: transparent; }
+  .filters .qrow input { height: 44px; border-radius: 22px; padding: 0 18px; max-width: none; font-size: 16px; box-shadow: var(--lift-1); border-color: transparent; }
   #fbtn { display: none !important; }
-  #hbtn { height: 44px; width: 44px; border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,.28); background: var(--surface); border-color: transparent; }
+  #hbtn { height: 44px; width: 44px; border-radius: 50%; box-shadow: var(--lift-1); background: var(--surface); border-color: transparent; }
   .filters .kinds { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 6px; padding: 0 0 4px; }
   .filters .kinds::-webkit-scrollbar { display: none; }
-  .filters .kinds .chip { flex: none; background: var(--surface); border-color: transparent; box-shadow: 0 1px 5px rgba(0,0,0,.28); }
+  .filters .kinds .chip { flex: none; background: var(--surface); border-color: transparent; box-shadow: var(--lift-1); }
   .zoomc { top: 116px; right: 8px; }
   #lyrbtn { display: grid; }
   .mapctl { display: none; }
   .mapbox.lopen .mapctl { display: flex; flex-direction: column; left: auto; right: 54px; top: 116px; min-width: 120px; }
   .mapbox.lopen .mapctl button { justify-content: start; height: 42px; padding: 0 16px; }
-  .mapview.hopen .maplg { display: block; position: fixed; top: 116px; left: 8px; right: 8px; z-index: 25; background: var(--surface); border-radius: 12px; padding: 12px 14px; box-shadow: 0 6px 22px rgba(0,0,0,.35); margin: 0; }
-  .sheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,.25); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
+  .mapview.hopen .maplg { display: block; position: fixed; top: 116px; left: 8px; right: 8px; z-index: 25; background: var(--surface); border-radius: 12px; padding: 12px 14px; box-shadow: var(--lift-2); margin: 0; }
+  .sheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: var(--lift-up); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
   .sheet.s-half { height: 48dvh; }
   .sheet.s-full { height: calc(100dvh - 100px); }
   .sheet.drag { transition: none; }
@@ -539,13 +540,13 @@ div.card { cursor: default; }
   .main { display: block !important; position: relative; flex: 1 1 auto; min-height: 0 !important; margin: 0; }
   .stage { position: absolute; inset: 0; border-left: 0; border-right: 0; }
   .hint { display: none; }
-  .psheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: 0 -4px 20px rgba(0,0,0,.25); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
+  .psheet { display: flex; flex-direction: column; position: fixed; left: 0; right: 0; bottom: 0; z-index: 15; background: var(--surface); border-radius: 16px 16px 0 0; box-shadow: var(--lift-up); height: 64px; transition: height .25s ease; padding-bottom: env(safe-area-inset-bottom); }
   .psheet.p-half { height: 46dvh; }
   .psheet.p-full { height: calc(100dvh - 90px); }
   .psheet.drag { transition: none; }
   .psheet #panel { flex: 1 1 auto; max-height: none !important; min-height: 0; border: 0; padding: 4px 14px 16px; background: transparent; }
   .psheet #panel .x { top: 2px; }
-  .legend { position: fixed; left: 8px; right: 8px; bottom: calc(72px + env(safe-area-inset-bottom)); z-index: 12; flex-wrap: nowrap; overflow-x: auto; gap: 14px; padding: 7px 12px; border-radius: 10px; font-size: 11px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 1px 6px rgba(0,0,0,.2); scrollbar-width: none; }
+  .legend { position: fixed; left: 8px; right: 8px; bottom: calc(72px + env(safe-area-inset-bottom)); z-index: 12; flex-wrap: nowrap; overflow-x: auto; gap: 14px; padding: 7px 12px; border-radius: 10px; font-size: 11px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--lift-1); scrollbar-width: none; }
   .legend::-webkit-scrollbar { display: none; }
   .legend li { flex: none; }
 }
@@ -566,7 +567,7 @@ div.card { cursor: default; }
   .app:has(#webview:not([hidden])) .titlebox { align-items: center; }
   #back { font-size: 0; width: 38px; min-height: 38px; padding: 0; border: 0; background: transparent; display: grid; place-items: center; }
   #back::before { content: ""; width: 22px; height: 22px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E") center / contain no-repeat; }
-  #webctl:not([hidden]) { position: fixed; right: 8px; top: calc(max(6px, env(safe-area-inset-top)) + 50px); z-index: 14; flex-direction: column; align-items: stretch; gap: 6px; overflow: visible; padding: 6px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 1px 8px rgba(0,0,0,.22); }
+  #webctl:not([hidden]) { position: fixed; right: 8px; top: calc(max(6px, env(safe-area-inset-top)) + 50px); z-index: 14; flex-direction: column; align-items: stretch; gap: 6px; overflow: visible; padding: 6px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--lift-1); }
   #webctl .btn, #webctl .seg button { border-radius: 8px; }
   #webctl .seg { flex-direction: column; border: 0; gap: 4px; }
   #webctl .seg button { width: 40px; min-height: 34px; padding: 0; font-size: 10px; border: 1px solid var(--line); }
@@ -665,7 +666,7 @@ div.card { cursor: default; }
 .app:has(#webview:not([hidden])) .titlebox { display: none; }
 #eco { display: none; }
 #webctl .seg { display: none; }
-#webctl:not([hidden]) { position: absolute; top: 8px; right: 8px; z-index: 14; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 6px; padding: 6px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: 0 1px 8px rgba(0,0,0,.22); overflow: visible; }
+#webctl:not([hidden]) { position: absolute; top: 8px; right: 8px; z-index: 14; display: flex; flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 6px; padding: 6px; border-radius: 12px; background: color-mix(in srgb, var(--surface) 92%, transparent); box-shadow: var(--lift-1); overflow: visible; }
 #webctl .btn { border-radius: 8px; width: 40px; min-height: 36px; padding: 0; display: grid; place-items: center; font-size: 0; }
 #webctl .btn::before { content: ""; width: 20px; height: 20px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
 #webctl #reset { font-size: 10px; width: 40px; padding: 0 4px; line-height: 1.1; white-space: normal; }
@@ -791,18 +792,18 @@ rect.core { stroke-dasharray: 3 2.5; }
   #map { height: 100%; min-height: 0; }
   .filters { position: fixed; top: 12px; left: 12px; width: 380px; z-index: 12; flex-direction: column; flex-wrap: nowrap; align-items: stretch; gap: 8px; pointer-events: none; }
   .filters > * { pointer-events: auto; }
-  .filters .qrow input { height: 44px; border-radius: 22px; padding: 0 18px; max-width: none; font-size: 15px; box-shadow: 0 2px 10px rgba(0,0,0,.28); border-color: transparent; }
+  .filters .qrow input { height: 44px; border-radius: 22px; padding: 0 18px; max-width: none; font-size: 15px; box-shadow: var(--lift-1); border-color: transparent; }
   #fbtn { display: none !important; }
   .filters .kinds { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 6px; padding: 0 0 4px; }
   .filters .kinds::-webkit-scrollbar { display: none; }
-  .filters .kinds .chip { flex: none; background: var(--surface); border-color: transparent; box-shadow: 0 1px 5px rgba(0,0,0,.28); }
+  .filters .kinds .chip { flex: none; background: var(--surface); border-color: transparent; box-shadow: var(--lift-1); }
   .zoomc { top: 12px; right: 12px; }
   #lyrbtn { display: grid; }
   #zin, #zout { display: none; }
   .mapctl { display: none; }
   .mapbox.lopen .mapctl { display: flex; flex-direction: column; left: auto; right: 62px; top: 12px; min-width: 130px; }
   .mapbox.lopen .mapctl button { justify-content: start; height: 42px; padding: 0 16px; }
-  .sheet { display: flex; flex-direction: column; position: fixed; left: 12px; top: 112px; bottom: 12px; width: 380px; z-index: 10; background: var(--surface); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); overflow: hidden; }
+  .sheet { display: flex; flex-direction: column; position: fixed; left: 12px; top: 112px; bottom: 12px; width: 380px; z-index: 10; background: var(--surface); border-radius: 16px; box-shadow: var(--lift-2); overflow: hidden; }
   body:has(#peek:not([hidden])) .sheet { display: none; }
   .shead { display: block; flex: none; padding: 12px 14px 4px; }
   .grab { display: none; }
@@ -818,11 +819,11 @@ rect.core { stroke-dasharray: 3 2.5; }
   .srow.deep .strl > :nth-child(-n+2) { display: none; }
   .sbody { display: block; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; padding: 4px 12px 16px; }
   #cards { margin-top: 4px; grid-template-columns: 1fr; gap: 8px; }
-  .mapbox > .peek:not([hidden]), .peek:not([hidden]) { position: fixed; left: 12px; top: 112px; bottom: auto; width: 380px; box-sizing: border-box; max-height: calc(100vh - 124px); overflow: auto; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,.28); z-index: 30; }
+  .mapbox > .peek:not([hidden]), .peek:not([hidden]) { position: fixed; left: 12px; top: 112px; bottom: auto; width: 380px; box-sizing: border-box; max-height: calc(100vh - 124px); overflow: auto; border-radius: 16px; box-shadow: var(--lift-2); z-index: 30; }
 }
 
 #kbtn { --ic: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3Cpath d='M12 11v6'/%3E%3Ccircle cx='12' cy='7.4' r='.6' fill='black'/%3E%3C/svg%3E"); }
-.keypop { display: none; position: absolute; top: 8px; right: 64px; z-index: 15; width: min(250px, calc(100% - 80px)); padding: 10px 12px; border-radius: 12px; background: var(--surface); box-shadow: 0 4px 18px rgba(0,0,0,.28); }
+.keypop { display: none; position: absolute; top: 8px; right: 64px; z-index: 15; width: min(250px, calc(100% - 80px)); padding: 10px 12px; border-radius: 12px; background: var(--surface); box-shadow: var(--lift-2); }
 .keypop.on { display: block; }
 .keyrow { display: flex; align-items: center; gap: 10px; min-height: 30px; font: 500 13px var(--font-body); color: var(--ink); }
 .keyrow svg { flex: none; }
@@ -984,7 +985,7 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jmap .jfd { fill: #fff; stroke: var(--accent); stroke-width: 3; }
 .jp .jmap .jemo { font: 16px/1 system-ui, -apple-system, "Segoe UI Emoji", "Apple Color Emoji", sans-serif; text-anchor: middle; dominant-baseline: central; stroke: none; paint-order: normal; fill: initial; pointer-events: none; }
 .jp .jmap text { font: 700 13px var(--font-body); fill: var(--ink); paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
-.jp .jplay { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 14px 0 11px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 13px var(--font-body); box-shadow: 0 2px 10px rgba(0,0,0,.25); pointer-events: none; white-space: nowrap; }
+.jp .jplay { position: absolute; left: 10px; bottom: 10px; display: inline-flex; align-items: center; gap: 6px; min-height: 34px; padding: 0 14px 0 11px; border-radius: 999px; background: var(--accent); color: #fff; font: 700 13px var(--font-body); box-shadow: var(--lift-1); pointer-events: none; white-space: nowrap; }
 .jp .jmap.pr .jplay { left: auto; right: 10px; }
 .jp .jmap.pr .jattr { right: auto; left: 8px; }
 .jp .jplay svg { width: 12px; height: 12px; fill: currentColor; }
