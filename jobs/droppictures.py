@@ -8,10 +8,10 @@ No network. Prints one line per licence name and the total."""
 import sys, os, json, collections, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'lib')); import licences, photo_registry
-P = {n: os.path.join('photos', n + '.json') for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried')}
+P = {n: os.path.join('photos', n + '.json') for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried')}
 def source_of(meta):
     p = meta.get('p') or ''
-    return 'GBIF' if 'gbif.org' in p else 'Openverse' if 'openverse.org' in p else 'Wikimedia'
+    return 'GBIF' if 'gbif.org' in p else 'Openverse' if 'openverse.org' in p else 'iNaturalist' if 'inaturalist.org' in p else 'Wikimedia'
 def outside(meta, hosted):
     """Titles with a hosted picture whose licence is outside the rule."""
     return sorted(t for t in hosted if not licences.ok(source_of(meta.get(t) or {}), (meta.get(t) or {}).get('l', '')))
@@ -23,18 +23,19 @@ def drop(root, dry=False, titles=None):
     if dry or not bad: return bad, counts
     today = datetime.date.today().isoformat()
     for t in bad:
-        f = d['species_hosted'][t]; was_openverse = source_of(d['species_metadata'].get(t) or {}) == 'Openverse'
+        f = d['species_hosted'][t]; src_of = source_of(d['species_metadata'].get(t) or {})
         for sub in ('species', 'species-lg'):
             p = os.path.join(root, 'photos', sub, f)
             if os.path.exists(p): os.remove(p)
         for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_commons_tried', 'species_gbif_tried'): d[n].pop(t, None)
         d['species_missing'][t] = 'nophoto'
-        if was_openverse: d['species_openverse_tried'][t] = today   # jobs/openversephotos.py tries it again only after 90 days, not at once
-    for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried'):
+        if src_of == 'Openverse': d['species_openverse_tried'][t] = today   # jobs/openversephotos.py tries it again only after 90 days, not at once
+        if src_of == 'iNaturalist': d['species_inaturalist_tried'][t] = today   # the same for jobs/inaturalistphotos.py
+    for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried'):
         p = os.path.join(root, P[n])
-        if not (os.path.exists(p) or n == 'species_missing' or (n == 'species_openverse_tried' and d[n])): continue
+        if not (os.path.exists(p) or n == 'species_missing' or (n in ('species_openverse_tried', 'species_inaturalist_tried') and d[n])): continue
         if n in ('species_metadata', 'species_hosted', 'species_large'): json.dump(d[n], open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layout hostphotos.py and largephotos.py write
-        else: json.dump(d[n], open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'), sort_keys=(n in ('species_source', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried')))   # the layout commonsphotos.py writes
+        else: json.dump(d[n], open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'), sort_keys=(n in ('species_source', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried')))   # the layout commonsphotos.py writes
     return bad, counts
 def drop_places(root, dry=False):
     """The same for the place pictures (photos/places/places.json, one <id>.jpg each). A dropped place goes to photos/places/missing.json as 'notfree' (kept 180 days), so jobs/photos.py does not fetch it again."""

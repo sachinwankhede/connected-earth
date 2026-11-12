@@ -442,7 +442,7 @@ TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali',
 TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
 
 
-CREDIT_SOURCES = (('www.gbif.org', 'GBIF'), ('openverse.org', 'Openverse'))   # where a credit page is when the picture is not from Commons (#511): the app shows this name, else "Wikimedia Commons"
+CREDIT_SOURCES = (('www.gbif.org', 'GBIF'), ('openverse.org', 'Openverse'), ('www.inaturalist.org', 'iNaturalist'))   # where a credit page is when the picture is not from Commons (#511): the app shows this name, else "Wikimedia Commons"
 def credit_source(page):
     """The source name of a species picture credit from its credit page, or '' for Commons (the app's default)."""
     host = (urllib.parse.urlsplit(page or '').hostname or '').lower()
