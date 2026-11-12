@@ -1,0 +1,57 @@
+{
+ "note": "Other words people type for the same name (#602): build/build.py writes them into the search index, so the app's lookup stays a plain prefix match. spelling_pairs apply to every word of a species' usual name (both ways); the plural of its last word is added too, or the singular when the last word is an irregular plural. irregular_plurals maps a singular to its plural; same_plural lists words whose plural is the same word (elk keeps 'elks' as well).",
+ "spelling_pairs": [
+  [
+   "gray",
+   "grey"
+  ],
+  [
+   "color",
+   "colour"
+  ],
+  [
+   "harbor",
+   "harbour"
+  ],
+  [
+   "center",
+   "centre"
+  ],
+  [
+   "sulfur",
+   "sulphur"
+  ],
+  [
+   "mold",
+   "mould"
+  ]
+ ],
+ "irregular_plurals": {
+  "wolf": "wolves",
+  "mouse": "mice",
+  "goose": "geese",
+  "louse": "lice",
+  "ox": "oxen",
+  "calf": "calves",
+  "leaf": "leaves",
+  "hoof": "hooves",
+  "cactus": "cacti",
+  "fungus": "fungi",
+  "octopus": "octopuses",
+  "walrus": "walruses",
+  "dwarf": "dwarves"
+ },
+ "same_plural": [
+  "bison",
+  "deer",
+  "elk",
+  "fish",
+  "grouse",
+  "moose",
+  "salmon",
+  "sheep",
+  "squid",
+  "swine",
+  "trout"
+ ]
+}

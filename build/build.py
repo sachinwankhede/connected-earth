@@ -208,10 +208,10 @@ def search_bucket(word):
 
 # Other words people type for the same name (#602): the build writes them into the index, so the app's lookup stays a plain prefix match.
 # Spelling pairs apply to every word of a species' usual name; the plural (or, for an irregular plural, the singular) of its last word is added too.
-SPELLING_PAIRS = [('gray', 'grey'), ('color', 'colour'), ('harbor', 'harbour'), ('center', 'centre'), ('sulfur', 'sulphur'), ('mold', 'mould')]
-IRREGULAR_PLURALS = {'wolf': 'wolves', 'mouse': 'mice', 'goose': 'geese', 'louse': 'lice', 'ox': 'oxen', 'calf': 'calves', 'leaf': 'leaves', 'hoof': 'hooves',
-                     'cactus': 'cacti', 'fungus': 'fungi', 'octopus': 'octopuses', 'walrus': 'walruses', 'dwarf': 'dwarves'}
-SAME_PLURAL = {'fish', 'deer', 'sheep', 'moose', 'bison', 'salmon', 'trout', 'swine', 'grouse', 'squid', 'elk'}   # elk keeps "elks" as well, see below
+_SV = json.load(open(P('data', 'species', 'search_vocabulary.json'), encoding='utf-8'))   # spelling pairs and plurals for the search index (#602): data, see the note in the file
+SPELLING_PAIRS = [tuple(p) for p in _SV['spelling_pairs']]
+IRREGULAR_PLURALS = _SV['irregular_plurals']
+SAME_PLURAL = set(_SV['same_plural'])   # elk keeps "elks" as well, see _plural
 
 
 def _plural(w):
