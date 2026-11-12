@@ -24,7 +24,20 @@ ROOT_FILES = (
 )
 
 
+MODE = 'all'
+
+
+def is_species_file(relative):
+    return relative.startswith(SPECIES_PREFIXES)
+
+
+def wanted(relative):
+    return MODE == 'all' or (MODE == 'species') == is_species_file(relative)
+
+
 def copy_file(source, relative, expected):
+    if not wanted(relative):
+        return
     target = DEST / relative
     target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, target)
@@ -38,7 +51,22 @@ def place_image_path(filename):
     return path
 
 
-def main():
+SPECIES_HEADERS = """/*
+  Access-Control-Allow-Origin: *
+/photos/*
+  Cache-Control: public, max-age=31536000, immutable
+/api/*
+  Cache-Control: public, max-age=3600
+"""
+
+
+def main(mode='all'):
+    global MODE, DEST
+    if mode not in MODES:
+        raise SystemExit('mode must be one of ' + ', '.join(MODES))
+    MODE = mode
+    if mode == 'species':
+        DEST = ROOT / 'dist' / 'pages-species'
     if DEST.exists():
         if DEST.is_dir() and not DEST.is_symlink():
             shutil.rmtree(DEST)
@@ -92,6 +120,16 @@ def main():
             raise SystemExit('missing place photo: ' + record['f'])
         copy_file(source, 'photos/places/' + path.as_posix(), expected)
 
+    if MODE == 'species':   # nothing but the species files, and the header file that lets the app read them from another address
+        (DEST / '_headers').write_text(SPECIES_HEADERS)
+        expected.add('_headers')
+        if not any(name.startswith('api/species/') for name in expected) or not any(name.startswith('photos/species-md/') for name in expected):
+            raise SystemExit('the species payload has no descriptions or no pictures')
+        actual = {path.relative_to(DEST).as_posix() for path in DEST.rglob('*') if path.is_file()}
+        if actual != expected:
+            raise SystemExit('staged species payload differs from allowlist; extra=%r missing=%r' % (sorted(actual - expected)[:5], sorted(expected - actual)[:5]))
+        print('Species payload verified: %d files, %d bytes' % (len(actual), sum((DEST / path).stat().st_size for path in actual)))
+        return
     manifest = json.loads((DEST / 'manifest.webmanifest').read_text())
     for icon in manifest.get('icons', []):
         if icon['src'] not in expected:
@@ -110,7 +148,7 @@ def main():
     for name in ('main', 'pilot'):   # the app starts with its journeys file (#377)
         if 'api/journeys/' + name + '.json' not in expected:
             raise SystemExit('missing journeys file: api/journeys/' + name + '.json')
-    if not any(name.startswith('api/species/') for name in expected):
+    if MODE == 'all' and not any(name.startswith('api/species/') for name in expected):
         raise SystemExit('missing generated species descriptions: api/species/')
 
     runtime_markers = (
@@ -145,4 +183,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    args = sys.argv[1:]
+    main(args[args.index('--mode') + 1] if '--mode' in args else 'all')
