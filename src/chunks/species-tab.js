@@ -100,8 +100,8 @@ window.__chunk["species-tab"] = function (A) {
     function page(d) {
       var latin = d.l || words, name = d.n || latin;
       return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">\u2039 ' + escH(M.spFrom || (P.FL.q ? "Search" : "Places")) + "</button>" + P.shareBtn() + "</div>" +
-        '<div class="jhero"><span class="jhimg" id="sp-img">' + (P.ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + P.ICONS[d.ic] + "</svg>" : A.leaf) + '</span><div><p class="jkind">' + escH(P.PNAMES[d.tl] || "Species") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p>" + taxLine(d) + "</div></div>" +
-        (d.t || d.cl ? '<p class="about">' + (d.cl ? '<span class="badge">' + escH(d.cl) + "</span> " : "") + (d.t ? P.aboutText({ latin: latin, wiki: d.ph && d.ph[1] }) : "") + "</p>" : "") +
+        '<div class="jhero sph"><span class="jhimg" id="sp-img">' + (P.ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + P.ICONS[d.ic] + "</svg>" : A.leaf) + '</span><div><p class="jkind">' + escH(P.PNAMES[d.tl] || "Species") + (d.cl ? " \u00b7 " + escH(d.cl) : "") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p>" + taxLine(d) + "</div></div>" +
+        (d.t ? '<p class="about">' + P.aboutText({ latin: latin, wiki: d.ph && d.ph[1] }) + "</p>" : "") +
         P.footHTML({ photoId: "spcredit", sources: [{ title: "Wikipedia: " + escH(latin), url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(((d.ph && d.ph[1]) || latin).replace(/ /g, "_")) }] }) + "</article>";
     }
     if (M.sid !== sid) return;
