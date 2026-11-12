@@ -1,0 +1,42 @@
+name: data-conservation
+# Manual (#680, owner decision 12 Nov: Wikidata is the source, no IUCN directly). Asks Wikidata (query.wikidata.org, CC0) for the best-ranked conservation status
+# of each species by Latin name (jobs/conservation.py) and opens one pull request with the data file and a 10-species spot check. No schedule yet: run it once by hand,
+# judge coverage and timing, then decide.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Species names to ask (the first run: 300; 0 = all)", default: "300" }
+      again: { description: "yes = ask every name again", default: "no" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-conservation
+jobs:
+  conservation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Ask Wikidata
+        run: python3 jobs/conservation.py 150 "${{ github.event.inputs.limit || '300' }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -20
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/conservation-${GITHUB_RUN_ID}"
+          git add data/species/conservation.json data/species/conservation_asked.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random
+          d = json.load(open('data/species/conservation.json')); random.seed(1); pick = random.sample(sorted(d), min(10, len(d)))
+          print('| Species | Status | Wikidata item |\n|---|---|---|')
+          for t in pick: print('| %s | %s | https://www.wikidata.org/wiki/%s |' % (t, d[t]['c'], d[t]['q']))
+          print('\n%d species have a status.' % len(d))
+          PY
+          N=$(python3 -c "import json;print(len(json.load(open('data/species/conservation.json'))))")
+          git commit -m "Conservation status from Wikidata: $N species"
+          git push -f origin HEAD
+          { printf 'Part of #680. Automatic run of data-conservation, limit `%s`. Source: Wikidata property P141 (conservation status), CC0, through query.wikidata.org (allowed host); nothing from IUCN itself. Data deficient, unknown and conflicting values are left out. %s species now have a status.\n\n' "${{ github.event.inputs.limit || '300' }}" "$N"; cat spot.md; echo; echo 'Coverage line of the run:'; tail -3 find.log; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Conservation status from Wikidata ($N species)" --body-file body.md
