@@ -30,6 +30,14 @@ class PickTests(unittest.TestCase):
         self.assertIsNone(c.pick(['Lake.jpg'], info(**{'Lake.jpg': ('CC0', 'A', '', 'https://example.com/a.jpg', 'image/jpeg')})))
         self.assertIsNone(c.pick([], {}))
 
+    def test_a_place_called_arrowhead_is_not_refused_but_logos_and_maps_still_are(self):
+        self.assertIn('arrowhead', c.pp.NOTPHOTO.pattern, 'photos.py keeps its own filter')
+        self.assertIsNone(c.NOTPHOTO.search('Arrowhead State Park.jpg'))
+        for bad in ('NPS arrowhead logo.jpg', 'Arrowhead.svg', 'Locator map of Arrowhead.jpg', 'Coat of arms.jpg'):
+            self.assertTrue(c.NOTPHOTO.search(bad), bad)
+        got = c.pick(['Arrowhead State Park.jpg'], {'Arrowhead_State_Park.jpg': ('CC BY 4.0', 'A', '', THUMB, 'image/jpeg')})
+        self.assertEqual(got[0], 'Arrowhead_State_Park.jpg')
+
     def test_the_second_file_is_tried_when_the_first_is_not_usable(self):
         both = info(**{'Bad.png': ('CC0', 'A', '', THUMB, 'image/png')})
         self.assertEqual(c.pick(['Bad.png', 'Lake.jpg'], both)[0], 'Lake.jpg')
