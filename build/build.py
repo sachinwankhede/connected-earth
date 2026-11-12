@@ -624,6 +624,7 @@ def build(pilot, out_path, write=False, places=False):
     # big data goes in as JSON.parse("...") rather than a JavaScript object literal: the browser parses JSON text about twice as fast
     lit = lambda text: "JSON.parse('" + text.replace('\\', '\\\\').replace("'", "\\'").replace('\u2028', '\\u2028').replace('\u2029', '\\u2029') + "')"   # single quotes: the JSON has many double quotes, which would each need a backslash
     tpl = tpl.replace('__PLACES_SFX__', '-pilot' if pilot else '')
+    tpl = species_address(tpl)
     tpl = tpl.replace('__PLACES_DIR__', 'pilot' if pilot else 'main').replace('__NLOCAL__', str(sum(1 for e in light if e.get('level') == 'local')))
     out = tpl.replace('<!--__BOOT__-->', boot_html()).replace('__GEO__', lit(json.dumps({'countries': geo['countries']}, separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')))
     out = out.replace('__PHOTO_REGISTRY__', open(P('src', 'photo-registry.js')).read())
@@ -659,13 +660,29 @@ def build_id(html):
     return hashlib.md5(html.encode()).hexdigest()[:8]
 
 
+def species_base():
+    """The address that serves the species files when they are published apart from the app (item #692): the environment variable SPECIES_BASE, with a closing slash, or '' when
+    they are served from the app's own address (GitHub Pages and a single payload)."""
+    b = os.environ.get('SPECIES_BASE', '').strip()
+    if b and not re.match(r'^https://[a-z0-9.-]+(:\d+)?/([\w./-]*/)?$', b + ('' if b.endswith('/') else '/')):
+        raise SystemExit('SPECIES_BASE must be an https address such as https://species.example.pages.dev/: ' + b)
+    return b + ('/' if b and not b.endswith('/') else '')
+
+
+def species_address(text):
+    """Fill the species placeholders. With no SPECIES_BASE the text becomes exactly what it was before the placeholders existed, so the first view does not grow."""
+    b = species_base()
+    own = 'location.pathname.replace(/[^\\/]*$/, "").replace(/(pilot|preview\\/[^\\/]+)\\/$/, "")'
+    return text.replace('__SPECIES_ROOT__', json.dumps(b) if b else 'root').replace('__SPECIES_PHOTOS__', json.dumps(b) if b else own)
+
+
 def chunk_version():
     return hashlib.md5(open(P('src', 'chunks', 'species-tab.js'), 'rb').read()).hexdigest()[:8]
 
 
 def stamp_sw(main_html):
     bid = build_id(main_html)
-    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']).replace('__TABVER__', chunk_version()))
+    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']).replace('__TABVER__', chunk_version()).replace('__SPECIES_HOSTS__', ', ' + json.dumps(urllib.parse.urlparse(species_base()).hostname) if species_base() else ''))
     print('sw.js stamped', bid)
 
 

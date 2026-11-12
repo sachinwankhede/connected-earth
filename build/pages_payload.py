@@ -3,9 +3,14 @@
 import json
 from pathlib import Path, PurePosixPath
 import shutil
+import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 DEST = ROOT / 'dist' / 'pages'
+# The species files (descriptions and the 192 px and 400 px pictures) can be published apart from the app (item #692), because a Cloudflare Pages project holds at most 20,000 files.
+# Modes: all (everything in dist/pages, as before; GitHub Pages), app (dist/pages without the species files; the app reads them from SPECIES_BASE), species (only the species files, in dist/pages-species).
+MODES = ('all', 'app', 'species')
+SPECIES_PREFIXES = ('api/species/', 'photos/species-md/', 'photos/species-lg/')
 ROOT_FILES = (
     'index.html',
     'pilot/index.html',
