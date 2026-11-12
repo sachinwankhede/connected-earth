@@ -153,12 +153,13 @@
     if (L) { L.hidden = true; var pm = rg.querySelector("[data-pmore]"); if (pm) pm.setAttribute("aria-expanded", "false"); }
     if (it && (r = M.moreRows[it.dataset.i])) { b = document.createElement("button"); for (k in r.a) b.setAttribute(k, r.a[k]); rg.appendChild(b); b.click(); b.remove(); rg.scrollLeft = 0; }   /* the pick acts as the pill it stands for */
   });
+  function oneCont() { var sv = view, k; if (!FL.q) return 0; view = { level: "world", cont: null, country: null, state: null }; k = chipKeys("continent"); view = sv; return k.length === 1; }   /* a search in one continent skips that level on the way down (#528), so "‹" skips it on the way up */
   function chipsHTML() {
     var keys = [], lvl, lab;
     if (M.tab === "species") return "";   /* the Species tab fills this row with its groups */
     var lead = "";
     if (M.tab !== "journeys" && view.level !== "world") {   /* one row of pills (#568): "‹ parent" and "All <region> N" lead the regions; the sheet's trail line shows only while the sheet is collapsed */
-      var up = view.level === "continent" ? ["world", "", "World"] : view.level === "country" ? ["continent", view.cont, view.cont] : ["country", view.country, nm(view.country)];
+      var up = view.level === "continent" ? ["world", "", "World"] : view.level === "country" ? (oneCont() ? ["world", "", "World"] : ["continent", view.cont, view.cont]) : ["country", view.country, nm(view.country)];
       lead = '<span class="leadg"><button type="button" class="chip" data-go="' + up[0] + '" data-a="' + String(up[1]).replace(/"/g, "&quot;") + '">\u2039 ' + up[2] + '</button><button type="button" class="chip on" aria-pressed="true">All ' + (view.state || (view.country && nm(view.country)) || view.cont) + " <b>" + (M.nPlaces == null ? "" : M.nPlaces) + "</b></button></span>";
     }
     if (M.tab === "journeys") {
