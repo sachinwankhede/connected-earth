@@ -85,7 +85,7 @@ def main():
                 if dry: found += 1; why = ''; break
                 f = g.fid(t) + '.webp'; open(os.path.join(OUT, f), 'wb').write(webp)
                 man[t] = ['openverse/%s' % rid, urllib.parse.quote(t.replace(' ', '_'))]; hosted[t] = f; src[t] = 'openverse'
-                meta[t] = {'a': au, 'l': lic, 'lu': lu, 'p': 'https://openverse.org/image/%s' % rid}
+                meta[t] = {'a': au, 'l': lic, 'lu': lu, 'p': 'https://openverse.org/image/%s' % rid, 's': 'Openverse'}
                 miss.pop(t, None); tried.pop(t, None); found += 1; why = ''; break
         except RuntimeError as e:
             fails += 1; print('  retry later:', t, '- request failed:', e, flush=True)
