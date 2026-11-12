@@ -3,14 +3,14 @@
 Usage: inaturalistphotos.py [limit] [--again] [--dry]
 Owner decision 12 Nov 2026 (#511): iNaturalist is allowed for this one job, CC0, CC BY and CC BY-SA photos only (never NC, ND or all rights reserved).
 For each title in photos/species_missing.json that has no manifest entry yet and is not a row marked abiotic:
-  1. looks the Latin name up (api.inaturalist.org/v1/taxa?q=) and keeps a taxon only when its scientific name is exactly the title (a species or genus, active);
+  1. looks the Latin name up (the title, or for a common-name title the Latin name of its species row; api.inaturalist.org/v1/taxa?q=) and keeps a taxon only when its scientific name is exactly the title (a species or genus, active);
   2. reads that taxon's photos (api.inaturalist.org/v1/taxa/<id>) and keeps the first whose licence is CC0, CC BY or CC BY-SA, that has a named photographer,
      is not flagged, and is hosted on inaturalist-open-data.s3.amazonaws.com (the bucket that holds only openly licensed photos);
   3. downloads the medium picture from that bucket and shrinks it to 96 px WebP in photos/species/<id>.webp.
 A kept picture is written like an Openverse one: ['inaturalist/<photo id>', page] in photos/species.json, hosted, credited (photographer, licence, https://www.inaturalist.org/photos/<id>) and source 'inaturalist';
 it leaves species_missing.json. Titles with no usable picture get today's date in photos/species_inaturalist_tried.json and are tried again only after 90 days.
 iNaturalist asks for at most about one request a second: wm.get keeps a 2 s gap. Stops at once when three requests in a row fail. --dry prints what would be kept and writes nothing."""
-import sys, os, re, json, datetime, urllib.parse
+import sys, os, re, json, glob, datetime, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm, gbifphotos as g, openversephotos as o
 MAN, MISS, SRC = g.MAN, g.MISS, g.SRC; HOSTED, META, OUT = g.HOSTED, g.META, g.OUT
 TRIED = 'photos/species_inaturalist_tried.json'
@@ -39,6 +39,16 @@ def candidates(taxon, limit=TRY_FILES):
 def credit(pid, au, lic, lu):
     """The credit entry for species_metadata.json. 's' is the source name the app shows on the credit line (else it says Wikimedia Commons): the data says it, the build only passes it on."""
     return {'a': au, 'l': lic, 'lu': lu, 'p': 'https://www.inaturalist.org/photos/%d' % pid, 's': 'iNaturalist'}
+ROWS = 'data/species/rows'
+def latin_names(titles, rows=ROWS):
+    """{title: Latin name} for the titles that are common names: the species table row whose `name` is the title and whose `latin` is a species or genus name (one or two words) that differs from it. A subspecies (three words) is left out: its photos would be those of the species."""
+    want = {t.replace('_', ' ') for t in titles}; out = {}
+    for f in glob.glob(os.path.join(rows, '*', '*.json')):
+        try: d = json.load(open(f, encoding='utf-8'))
+        except (OSError, ValueError): continue
+        n, l = d.get('name'), (d.get('latin') or '').strip()
+        if n in want and l and l != n and len(l.split()) <= 2: out[n] = l
+    return out
 def lookup(name):
     tid = match_taxon((wm.get(API + '?' + urllib.parse.urlencode({'q': name, 'per_page': 10})) or {}).get('results'), name)
     if tid is None: return None
@@ -52,13 +62,14 @@ def main():
     skip = o.non_organisms()
     todo = sorted(t for t in miss if t not in man and t.replace('_', ' ') not in skip and (again or tried.get(t, '') <= cut))
     if limit: todo = todo[:limit]
-    print(len(todo), 'titles to try', flush=True); os.makedirs(OUT, exist_ok=True); found = 0; fails = 0
+    latin = latin_names(todo)
+    print(len(todo), 'titles to try,', len(latin), 'looked up by the Latin name of their species row', flush=True); os.makedirs(OUT, exist_ok=True); found = 0; fails = 0
     def save():
         if dry: return
         for p, d in ((MAN, man), (MISS, miss), (SRC, src), (TRIED, tried), (HOSTED, hosted), (META, meta)):
             json.dump(d, open(p, 'w'), ensure_ascii=False, **({'indent': 0} if p in (HOSTED, META) else {'separators': (',', ':')}), sort_keys=(p in (SRC, TRIED, HOSTED, META)))
     for i, t in enumerate(todo, 1):
-        name = t.replace('_', ' '); why = ''
+        name = latin.get(t.replace('_', ' '), t.replace('_', ' ')); why = ''
         try:
             taxon = lookup(name); fails = 0
             cs = candidates(taxon) if taxon else []; why = 'no taxon of that name' if not taxon else '%d usable photos' % len(cs)
