@@ -14,6 +14,7 @@ class ConservationInSpeciesFiles(unittest.TestCase):
             if 'cs' not in s: continue
             seen += 1
             self.assertIn(s['cs'], CODES, f)
+            self.assertTrue(s.get('cl'), f)   # the word the species page shows
             self.assertEqual(cons[s['l'].lower()]['c'], s['cs'], f)
         self.assertGreater(seen, 0, 'no species file carries a status')
 

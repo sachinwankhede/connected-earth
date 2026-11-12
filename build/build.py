@@ -593,13 +593,14 @@ def build(pilot, out_path, write=False, places=False):
     for e in ecos:
         for n in e['nodes']:
             if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+    CS_WORDS = {'LC': 'Least concern', 'NT': 'Near threatened', 'VU': 'Vulnerable', 'EN': 'Endangered', 'CR': 'Critically endangered', 'EW': 'Extinct in the wild', 'EX': 'Extinct'}
     cons = json.load(open(os.path.join(ROOT, 'data', 'species', 'conservation.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
     for k in sorted(used):
         row = tab.get(k)
         if not row or row['sid'] != species.slug(k) or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
-        if cons.get(k): f['cs'] = cons[k]['c']   # a species with no status has no cs
+        if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
         pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)

@@ -3,8 +3,9 @@ Raise a limit on purpose, in this file, in the pull request that needs it."""
 import gzip, os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# 12 Nov 2026 (#680, owner: go ahead): raised from 407,000 to 408,000 for the conservation word on the species sheet (about 100 bytes).
 # Gzip bytes (level 9, GitHub Pages serves gzip only) of what a phone fetches before the first draw: the page, the map library, the world places and (since #377) the journeys file. 4 Nov 2026: 396,072 bytes after #398 removed the unused LAND literal (was 410,781); limit = about 2% above, rounded up to the next KB.
-FIRST_VIEW_GZIP_MAX = 407_000
+FIRST_VIEW_GZIP_MAX = 408_000
 # Outside hosts the first view may reach (map tiles, glyphs, satellite, elevation). A new one fails the check; add it here only on purpose.
 HOSTS_ALLOWED = {'tiles.openfreemap.org', 'server.arcgisonline.com', 's3.amazonaws.com'}
 
