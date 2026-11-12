@@ -41,7 +41,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr');   // Clear empties the box and keeps the focus
     await p.waitForFunction(() => !document.getElementById('sug').hidden && document.querySelectorAll('#sug .sgr').length === 3, null, { timeout: 15000 });
     assert.deepEqual(await rows(p), [['wolf', ''], ['elk', ''], ['bear', '']], 'a typed search is one line: its text, no second line');
-    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh').textContent), 'Recent', 'one label above the rows');
+    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh').firstChild.textContent), 'Recent', 'one label above the rows');
     assert.equal(await p.evaluate(() => document.querySelectorAll('#sug .sgq .sgo').length), 0, 'no chevron on a typed search (a chevron opens a page)');
     assert.equal(await p.evaluate(() => Math.round(document.querySelector('#sug .sgq').getBoundingClientRect().height) >= 44), true, 'at least 44 px tall');
     await p.click('#sug .sgr[data-q="elk"]');
