@@ -56,7 +56,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.click('#q');
     for (const w of ['osprey', 'bear']) await send(p, w);
-    await p.click('#q');
+    await p.click('#qclr');   // an empty box shows the Recent list
     await p.waitForSelector('#sug .sgh a', { timeout: 15000 });
     assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh a').textContent), 'Clear');
     assert.equal(await p.evaluate(() => { const r = document.querySelector('#sug .sgh a').getBoundingClientRect(); return r.height >= 44; }), true, 'a 44 px tap area');
