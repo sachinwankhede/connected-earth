@@ -107,7 +107,7 @@ def main():
                     if not webp: why += '; %s too small or not an image' % ok; continue
                     f = fid(t) + '.webp'; open(os.path.join(OUT, f), 'wb').write(webp)
                     man[t] = ['gbif/%s' % ok, urllib.parse.quote(t.replace(' ', '_'))]; hosted[t] = f; src[t] = 'gbif'
-                    meta[t] = {'a': au, 'l': lic, 'lu': lu, 'p': 'https://www.gbif.org/occurrence/%s' % ok}
+                    meta[t] = {'a': au, 'l': lic, 'lu': lu, 'p': 'https://www.gbif.org/occurrence/%s' % ok, 's': 'GBIF'}
                     miss.pop(t, None); tried.pop(t, None); found += 1; why = ''; break
         except RuntimeError as e: print('  retry later:', t, '- request failed:', e, flush=True); continue   # a failed request is not a "no picture": it is not remembered
         if t not in man: tried[t] = today.isoformat(); print('  no:', t, '-', why, flush=True)
