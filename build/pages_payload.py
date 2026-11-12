@@ -70,6 +70,13 @@ def main():
         if not source.is_file():
             raise SystemExit('hosted species picture missing: photos/species/' + name)
         copy_file(source, 'photos/species/' + name, expected)
+    medium = json.loads((ROOT / 'photos/species_medium.json').read_text()) if (ROOT / 'photos/species_medium.json').exists() else {}   # 192 px tile copies (#669)
+    medium_files = set(medium.values())
+    for name in sorted(set(hosted.values())):   # a species without a 192 px copy gets its 96 px file under the same name
+        source = ROOT / 'photos/species-md' / name
+        if name not in medium_files or not source.is_file():
+            source = ROOT / 'photos/species' / name
+        copy_file(source, 'photos/species-md/' + name, expected)
     large = json.loads((ROOT / 'photos/species_large.json').read_text()) if (ROOT / 'photos/species_large.json').exists() else {}   # larger copies of the busiest species (#421)
     for name in sorted(set(large.values())):
         source = ROOT / 'photos/species-lg' / name

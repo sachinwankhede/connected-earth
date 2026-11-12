@@ -18,7 +18,7 @@ describe('species pictures come only from our hosted copies', () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
       const u = decodeURIComponent(q.url.split('?')[0]);
-      if (u === '/photos/species/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
+      if (u === '/photos/species-md/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
       if (u.endsWith('/api/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
       if (fs.existsSync(path.join(H.ROOT, u))) { const list = H.fixtureList(u, fs.readFileSync(path.join(H.ROOT, u), 'utf8')); if (list) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(list); } }   // the fixture places are added to the world places
@@ -92,7 +92,7 @@ describe('species pictures come only from our hosted copies', () => {
       await t.page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
       assert.ok(await t.page.locator('#svg image.photo[loading="lazy"]').count() > 0, 'food-web species photos are marked for native lazy loading');
       const href = await t.page.evaluate(() => document.querySelector('#svg image.photo').getAttribute('href'));
-      assert.ok(href.endsWith('photos/species/' + FAKE) && !/^https?:/.test(href), 'the picture is our own file, read from our own site: ' + href);
+      assert.ok(href.endsWith('photos/species-md/' + FAKE) && !/^https?:/.test(href), 'the picture is our own file, read from our own site: ' + href);
       await t.page.goto(base + 'index.html#pg=testland');
       await t.page.waitForFunction(() => document.querySelectorAll('#pgraph image[loading="lazy"]').length > 0, null, { timeout: 30000 });
       assert.deepEqual(t.outside, []);
@@ -110,7 +110,7 @@ describe('species pictures come only from our hosted copies', () => {
       await t.page.goto(base + 'index.html#e=testland');
       await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the aliased node to draw its picture in the food web');
       const href = await nodeHref(t.page, 'coyote');
-      assert.ok(href && href.endsWith('photos/species/' + want), 'food web resolves the alias to the canonical hosted file: ' + href);
+      assert.ok(href && href.endsWith('photos/species-md/' + want), 'food web resolves the alias to the canonical hosted file: ' + href);
       await t.page.goto(base + 'index.html#pg=testland');
       await until(t.page, () => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), 'the coyote alias node to draw its picture in the place graph');
       assert.deepEqual(t.outside, []);
@@ -125,7 +125,7 @@ describe('species pictures come only from our hosted copies', () => {
       await t.page.goto(base + 'index.html#e=testland');
       await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'raven'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the raven node to draw its picture in the food web');
       const href = await nodeHref(t.page, 'raven');
-      assert.ok(href && href.endsWith('photos/species/' + want), 'food web resolves the canonical Latin-keyed picture: ' + href);
+      assert.ok(href && href.endsWith('photos/species-md/' + want), 'food web resolves the canonical Latin-keyed picture: ' + href);
       await t.page.goto(base + 'index.html#pg=testland');
       await until(t.page, () => document.querySelector('#pgraph .pn[data-node="raven"] image[loading="lazy"]'), 'the raven node to draw its picture in the place graph');
       assert.deepEqual(t.errors, []);
