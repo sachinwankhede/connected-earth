@@ -119,7 +119,7 @@
     M.needFit = false; M.prevCam = null;
     var phone = m.getContainer().clientWidth < 560, pad = phone ? (sheetMode() ? { top: 120, bottom: Math.min(M.sheetState === "min" ? 110 : innerHeight / 2, m.getContainer().clientHeight - 220), left: 24, right: 24 } : 18) : 40;
     var rb = FL.q && FL.q.length >= 3 && view.level === "world" ? matchBounds() : null;
-    m.fitBounds(rb || regionBounds(), { padding: pad, maxZoom: view.level === "state" ? 8 : view.level === "country" ? 7 : 4.2, duration: animate && !reduce ? 900 : 0, bearing: 0, pitch: M.tilt ? 58 : 0 });
+    m.fitBounds(rb || regionBounds(), { padding: pad, maxZoom: view.level === "state" ? 8 : view.level === "country" ? 7 : 4.2, duration: animate && !reduce ? 900 : 0, linear: true, bearing: 0, pitch: M.tilt ? 58 : 0 });
   }
   function addOverlay() {
     var m = M.map, first = null;
