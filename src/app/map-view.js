@@ -2,7 +2,7 @@
   var US = "United States of America";
   var view = { level: "world", cont: null, country: null, state: null };
   var M = window.__M = { P: {} };
-  var CONT_BOX = { "Africa": [-20, -36, 52, 38], "Asia": [26, -11, 180, 78], "Europe": [-25, 34, 45, 72], "North America": [-170, 7, -52, 75], "South America": [-82, -56, -34, 13], "Oceania": [110, -48, 180, 0], "Antarctica": [-180, -90, 180, -62] };
+  var CONT_BOX = { "Africa": [-20, -36, 52, 38], "Asia": [26, -11, 165, 72], "Europe": [-25, 34, 45, 72], "North America": [-170, 7, -52, 75], "South America": [-82, -56, -34, 13], "Oceania": [110, -48, 180, 0], "Antarctica": [-180, -90, 180, -62] };
   var COUNTRY_BOX = {}; COUNTRY_BOX[US] = [-125, 24, -66.5, 49.5]; COUNTRY_BOX["Canada"] = [-141, 41, -52, 83];
   var SHORTNAME = {}; SHORTNAME[US] = "United States";
   function nm(s) { return SHORTNAME[s] || s; }
