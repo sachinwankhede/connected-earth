@@ -445,7 +445,8 @@ div.card { cursor: default; }
 .sgt b { display: block; font: 700 16px/1.2 var(--font-display); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sgt i { display: block; font: 500 12px var(--font-body); font-style: normal; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .sgo { flex: none; color: var(--muted); }
-.sgh { padding: 8px 12px 2px; font: 600 12px var(--font-body); color: var(--muted); }
+.sgh { display: flex; justify-content: space-between; padding: 8px 12px 2px; font: 600 12px var(--font-body); color: var(--muted); }
+.sgh a { margin: -14px -12px -12px 0; padding: 14px 12px 12px; }
 .sgq { min-height: 44px; }
 .sgq .sgi { width: 24px; height: 24px; margin-left: 4px; background: none; border-radius: 0; }
 .qbtn { display: none; }
