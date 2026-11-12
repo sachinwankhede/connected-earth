@@ -5,6 +5,15 @@ import * as H from './helper.mjs';
 
 const stored = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('ceRs') || '[]'));
 const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((r) => [r.getAttribute('data-q') || r.getAttribute('data-id') || r.getAttribute('data-latin'), r.querySelector('i') ? r.querySelector('i').textContent : '']));
+// #684: a click that never goes through on a fresh page. Wait for the same readiness open() waits for (map style drawn), then click; if it still times out, print one compact line (what is on top of the box, ready state, sheet state) so the CI log shows the cause, because CI cuts the Playwright call log.
+const tap = async (p, sel) => {
+  await p.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 60000 }).catch(() => {});
+  try { await p.click(sel, { timeout: 30000 }); } catch (e) {
+    const d = await p.evaluate((s) => { const el = document.querySelector(s); const r = el && el.getBoundingClientRect(); const top = r && document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2);
+      return JSON.stringify({ ready: document.readyState, sheet: window.__M && window.__M.sheetState, box: r && [Math.round(r.x), Math.round(r.y), Math.round(r.width), Math.round(r.height)], top: top && (top.id || top.className || top.tagName), hash: location.hash, vis: document.visibilityState }); }, sel).catch((x) => 'evaluate failed ' + x);
+    throw new Error('Timeout on click ' + sel + ' DIAG ' + d);
+  }
+};
 const send = async (p, text) => { await p.fill('#q', text); await p.keyboard.press('Enter'); await p.waitForFunction((x) => window.__M.searched === x, text.toLowerCase(), { timeout: 60000 }); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -25,8 +34,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#sug .sgr[data-id]');
     assert.equal((await stored(p))[0].t, 'p');
     await p.goto(p.url().split('#')[0] + '#stub'); await p.reload();   // a fresh page: no place picture has been read yet
-    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
-    await p.click('#q');
+    await tap(p, '#q');
     await p.waitForSelector('#sug .sgr[data-id] .sgi img', { timeout: 30000 });   // the picture arrives after the list is drawn, and the row is drawn again
     assert.deepEqual(t.errors, []); await b.close();
   });
