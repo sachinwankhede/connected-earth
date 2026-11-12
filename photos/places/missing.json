@@ -71,28 +71,10 @@
 "expiresAt": "2027-05-01T21:56:56.367084+00:00",
 "attempts": 1
 },
-"Cumberland Island National Seashore": {
-"status": "nophoto",
-"checkedAt": "2026-11-02T21:58:06.523659+00:00",
-"expiresAt": "2027-05-01T21:58:06.523659+00:00",
-"attempts": 1
-},
-"Delaware Water Gap National Recreation Area": {
-"status": "notcommons",
-"checkedAt": "2026-11-03T19:46:04.809155+00:00",
-"expiresAt": "2027-05-02T19:46:04.809155+00:00",
-"attempts": 1
-},
 "Fredericksburg and Spot. National Military Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:46:11.261355+00:00",
 "expiresAt": "2027-05-02T19:46:11.261355+00:00",
-"attempts": 1
-},
-"George Washington Memorial Parkway": {
-"status": "notphoto",
-"checkedAt": "2026-11-03T19:46:12.821412+00:00",
-"expiresAt": "2027-05-02T19:46:12.821412+00:00",
 "attempts": 1
 },
 "Banc d'Arguin National Park": {
@@ -101,34 +83,10 @@
 "expiresAt": "2027-05-03T20:05:34.360250+00:00",
 "attempts": 1
 },
-"Canadian Rocky Mountain Parks": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:05:36.312081+00:00",
-"expiresAt": "2027-05-03T20:05:36.312081+00:00",
-"attempts": 1
-},
-"Camargue": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:05:38.314634+00:00",
-"expiresAt": "2027-05-03T20:05:38.314634+00:00",
-"attempts": 1
-},
-"Los Glaciares National Park": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:05:40.365966+00:00",
-"expiresAt": "2027-05-03T20:05:40.365966+00:00",
-"attempts": 1
-},
 "Pyrénées – Mont Perdu": {
 "status": "nophoto",
 "checkedAt": "2026-11-04T20:05:42.535383+00:00",
 "expiresAt": "2027-05-03T20:05:42.535383+00:00",
-"attempts": 1
-},
-"Yasuní National Park": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:05:44.366722+00:00",
-"expiresAt": "2027-05-03T20:05:44.366722+00:00",
 "attempts": 1
 },
 "Lake Abbe": {
@@ -137,34 +95,16 @@
 "expiresAt": "2027-05-03T20:07:38.363194+00:00",
 "attempts": 1
 },
-"Falkland Islands": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:07:40.365188+00:00",
-"expiresAt": "2027-05-03T20:07:40.365188+00:00",
-"attempts": 1
-},
 "Pic Macaya National Park": {
 "status": "notphoto",
 "checkedAt": "2026-11-04T20:07:42.366012+00:00",
 "expiresAt": "2027-05-03T20:07:42.366012+00:00",
 "attempts": 1
 },
-"Kerguelen Islands": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:07:44.592601+00:00",
-"expiresAt": "2027-05-03T20:07:44.592601+00:00",
-"attempts": 1
-},
 "Nam Et-Phou Louey National Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-04T20:07:46.366736+00:00",
 "expiresAt": "2027-05-03T20:07:46.366736+00:00",
-"attempts": 1
-},
-"Sapo National Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:07:48.367362+00:00",
-"expiresAt": "2027-05-03T20:07:48.367362+00:00",
 "attempts": 1
 },
 "Indio Maíz Biological Reserve": {
@@ -179,22 +119,10 @@
 "expiresAt": "2027-05-03T20:07:52.403223+00:00",
 "attempts": 1
 },
-"Nyungwe Forest National Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:07:54.362947+00:00",
-"expiresAt": "2027-05-03T20:07:54.362947+00:00",
-"attempts": 1
-},
 "Gola Rainforest National Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-04T20:07:56.365132+00:00",
 "expiresAt": "2027-05-03T20:07:56.365132+00:00",
-"attempts": 1
-},
-"Triglav National Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:07:58.366536+00:00",
-"expiresAt": "2027-05-03T20:07:58.366536+00:00",
 "attempts": 1
 },
 "Lag Badana National Park": {
@@ -203,34 +131,10 @@
 "expiresAt": "2027-05-03T20:08:00.364884+00:00",
 "attempts": 1
 },
-"Tajik National Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-04T20:08:02.367136+00:00",
-"expiresAt": "2027-05-03T20:08:02.367136+00:00",
-"attempts": 1
-},
-"Nino Konis Santana National Park": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:08:04.369907+00:00",
-"expiresAt": "2027-05-03T20:08:04.369907+00:00",
-"attempts": 1
-},
-"Cape Cod National Seashore": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:08:06.367441+00:00",
-"expiresAt": "2027-05-03T20:08:06.367441+00:00",
-"attempts": 1
-},
 "Pascagoula River": {
 "status": "notphoto",
 "checkedAt": "2026-11-04T20:08:08.314426+00:00",
 "expiresAt": "2027-05-03T20:08:08.314426+00:00",
-"attempts": 1
-},
-"Espiritu Santo": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:08:10.364886+00:00",
-"expiresAt": "2027-05-03T20:08:10.364886+00:00",
 "attempts": 1
 },
 "Village Creek State Park": {
@@ -243,12 +147,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:34:51.546443+00:00",
 "expiresAt": "2027-05-02T19:34:51.546443+00:00",
-"attempts": 1
-},
-"Fort Verde State Historic Park": {
-"status": "notcommons",
-"checkedAt": "2026-11-01T17:58:54.180348+00:00",
-"expiresAt": "2027-04-30T17:58:54.180348+00:00",
 "attempts": 1
 },
 "San Rafael Ranch Natural Area": {
@@ -269,12 +167,6 @@
 "expiresAt": "2027-04-30T17:59:00.343671+00:00",
 "attempts": 1
 },
-"Humboldt Redwoods State Park": {
-"status": "notcommons",
-"checkedAt": "2026-11-01T17:59:02.190807+00:00",
-"expiresAt": "2027-04-30T17:59:02.190807+00:00",
-"attempts": 1
-},
 "Red Rock Canyon State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:59:04.186838+00:00",
@@ -291,12 +183,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:59:06.185941+00:00",
 "expiresAt": "2027-04-30T17:59:06.185941+00:00",
-"attempts": 1
-},
-"Econfina River State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-01T17:59:30.186203+00:00",
-"expiresAt": "2027-04-30T17:59:30.186203+00:00",
 "attempts": 1
 },
 "St. Marks River Preserve State Park": {
@@ -503,12 +389,6 @@
 "expiresAt": "2027-04-30T18:01:06.245234+00:00",
 "attempts": 1
 },
-"Prairie Dog State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-01T18:01:08.194813+00:00",
-"expiresAt": "2027-04-30T18:01:08.194813+00:00",
-"attempts": 1
-},
 "Toronto State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:36:40.519640+00:00",
@@ -575,12 +455,6 @@
 "expiresAt": "2027-05-02T19:37:04.932959+00:00",
 "attempts": 1
 },
-"East Fork State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-02T21:53:48.806239+00:00",
-"expiresAt": "2027-05-01T21:53:48.806239+00:00",
-"attempts": 1
-},
 "Lake Milton State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:53:50.819227+00:00",
@@ -621,12 +495,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:36.532208+00:00",
 "expiresAt": "2027-05-01T21:57:36.532208+00:00",
-"attempts": 1
-},
-"Chickasaw": {
-"status": "notphoto",
-"checkedAt": "2026-11-03T19:45:26.807572+00:00",
-"expiresAt": "2027-05-02T19:45:26.807572+00:00",
 "attempts": 1
 },
 "Cumberland Trail": {
@@ -725,22 +593,10 @@
 "expiresAt": "2027-05-02T19:45:46.817689+00:00",
 "attempts": 1
 },
-"Buffalo Gap National Grassland": {
-"status": "notcommons",
-"checkedAt": "2026-11-03T19:45:48.813700+00:00",
-"expiresAt": "2027-05-02T19:45:48.813700+00:00",
-"attempts": 1
-},
 "Carlsbad Wildife Refuge": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:45:51.219117+00:00",
 "expiresAt": "2027-05-02T19:45:51.219117+00:00",
-"attempts": 1
-},
-"Carolina Sandhills National Wildlife Refuge": {
-"status": "notcommons",
-"checkedAt": "2026-11-03T19:45:52.896662+00:00",
-"expiresAt": "2027-05-02T19:45:52.896662+00:00",
 "attempts": 1
 },
 "Charles M. Russell National Wildlife Refuge": {
@@ -773,18 +629,6 @@
 "expiresAt": "2027-05-02T19:46:02.816137+00:00",
 "attempts": 1
 },
-"Don Edwards San Francisco Bay National Wildlife Refuge": {
-"status": "notphoto",
-"checkedAt": "2026-11-03T19:46:06.816599+00:00",
-"expiresAt": "2027-05-02T19:46:06.816599+00:00",
-"attempts": 1
-},
-"Finger Lakes National Forest": {
-"status": "notcommons",
-"checkedAt": "2026-11-03T19:46:09.398288+00:00",
-"expiresAt": "2027-05-02T19:46:09.398288+00:00",
-"attempts": 1
-},
 "Gila River Waterfowl Management Area": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:46:15.382752+00:00",
@@ -803,28 +647,10 @@
 "expiresAt": "2027-05-02T19:46:19.549880+00:00",
 "attempts": 1
 },
-"Loess Bluffs National Wildlife Refuge": {
-"status": "notphoto",
-"checkedAt": "2026-11-03T19:46:20.818224+00:00",
-"expiresAt": "2027-05-02T19:46:20.818224+00:00",
-"attempts": 1
-},
 "Midewin Other": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:46:23.199864+00:00",
 "expiresAt": "2027-05-02T19:46:23.199864+00:00",
-"attempts": 1
-},
-"Montezuma National Wildlife Refuge": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:46:24.817138+00:00",
-"expiresAt": "2027-05-02T19:46:24.817138+00:00",
-"attempts": 1
-},
-"Nezperce National Forest": {
-"status": "notcommons",
-"checkedAt": "2026-11-03T19:46:27.153476+00:00",
-"expiresAt": "2027-05-02T19:46:27.153476+00:00",
 "attempts": 1
 },
 "Silvio O. Conte National Fish And Wildlife Refuge": {
@@ -849,12 +675,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:46:34.818380+00:00",
 "expiresAt": "2027-05-02T19:46:34.818380+00:00",
-"attempts": 1
-},
-"Wheeler National Wildlife Refuge": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:46:36.818868+00:00",
-"expiresAt": "2027-05-02T19:46:36.818868+00:00",
 "attempts": 1
 },
 "Chippewa Moraine State Recreation Area": {
@@ -903,12 +723,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-01T17:57:17.175343+00:00",
 "expiresAt": "2027-04-30T17:57:17.175343+00:00",
-"attempts": 1
-},
-"Cathedral Caverns State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-01T17:57:18.568711+00:00",
-"expiresAt": "2027-04-30T17:57:18.568711+00:00",
 "attempts": 1
 },
 "Frank Jackson State Park": {
@@ -1169,12 +983,6 @@
 "expiresAt": "2027-04-30T18:01:36.463470+00:00",
 "attempts": 1
 },
-"Blackstone River and Canal Heritage State Park": {
-"status": "notcommons",
-"checkedAt": "2026-11-01T18:01:38.194065+00:00",
-"expiresAt": "2027-04-30T18:01:38.194065+00:00",
-"attempts": 1
-},
 "Medfield Charles River State Reservation": {
 "status": "nophoto",
 "checkedAt": "2026-11-01T18:01:40.531237+00:00",
@@ -1395,12 +1203,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:46:55.772055+00:00",
 "expiresAt": "2027-05-01T21:46:55.772055+00:00",
-"attempts": 1
-},
-"White Pine Trail State Park": {
-"status": "notcommons",
-"checkedAt": "2026-11-02T21:46:57.777814+00:00",
-"expiresAt": "2027-05-01T21:46:57.777814+00:00",
 "attempts": 1
 },
 "John W. Kyle State Park": {
@@ -1781,18 +1583,6 @@
 "expiresAt": "2027-05-01T21:53:45.503278+00:00",
 "attempts": 1
 },
-"Sterling Forest State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-02T21:53:46.816779+00:00",
-"expiresAt": "2027-05-01T21:53:46.816779+00:00",
-"attempts": 1
-},
-"Arrowhead State Park": {
-"status": "notphoto",
-"checkedAt": "2026-11-02T21:53:52.817874+00:00",
-"expiresAt": "2027-05-01T21:53:52.817874+00:00",
-"attempts": 1
-},
 "Boiling State Parkrings State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:53:54.948952+00:00",
@@ -1869,12 +1659,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:56:54.521001+00:00",
 "expiresAt": "2027-05-01T21:56:54.521001+00:00",
-"attempts": 1
-},
-"Evansburg State Park": {
-"status": "notcommons",
-"checkedAt": "2026-11-02T21:56:58.377127+00:00",
-"expiresAt": "2027-05-01T21:56:58.377127+00:00",
 "attempts": 1
 },
 "Pymatuning State Park": {
@@ -2021,12 +1805,6 @@
 "expiresAt": "2027-05-02T19:46:45.277237+00:00",
 "attempts": 1
 },
-"Seven Bends State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:49:23.925388+00:00",
-"expiresAt": "2027-05-02T19:49:23.925388+00:00",
-"attempts": 1
-},
 "Bomoseen State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:49:25.921086+00:00",
@@ -2057,12 +1835,6 @@
 "expiresAt": "2027-05-02T19:49:34.385206+00:00",
 "attempts": 1
 },
-"Emerald Lake State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:49:36.563603+00:00",
-"expiresAt": "2027-05-02T19:49:36.563603+00:00",
-"attempts": 1
-},
 "Green River Reservoir State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:49:37.926042+00:00",
@@ -2091,12 +1863,6 @@
 "status": "nophoto",
 "checkedAt": "2026-11-03T19:49:46.755962+00:00",
 "expiresAt": "2027-05-02T19:49:46.755962+00:00",
-"attempts": 1
-},
-"Mt. Philo State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:49:47.924178+00:00",
-"expiresAt": "2027-05-02T19:49:47.924178+00:00",
 "attempts": 1
 },
 "Niquette Bay State Park": {
@@ -2297,12 +2063,6 @@
 "expiresAt": "2027-05-03T20:05:28.311424+00:00",
 "attempts": 1
 },
-"Sucia Island": {
-"status": "notphoto",
-"checkedAt": "2026-11-04T20:05:32.364615+00:00",
-"expiresAt": "2027-05-03T20:05:32.364615+00:00",
-"attempts": 1
-},
 "Seminoe Reservoir State Park": {
 "status": "nophoto",
 "checkedAt": "2026-11-04T20:06:17.424311+00:00",
@@ -2321,46 +2081,10 @@
 "expiresAt": "2027-05-08T12:37:30.811021+00:00",
 "attempts": 1
 },
-"Channel Islands National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.811158+00:00",
-"expiresAt": "2027-05-08T12:37:30.811158+00:00",
-"attempts": 1
-},
-"Congaree National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.811375+00:00",
-"expiresAt": "2027-05-08T12:37:30.811375+00:00",
-"attempts": 1
-},
 "Danube Delta": {
 "status": "notfree",
 "checkedAt": "2026-11-09T12:37:30.811646+00:00",
 "expiresAt": "2027-05-08T12:37:30.811646+00:00",
-"attempts": 1
-},
-"Elk Knob State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.811836+00:00",
-"expiresAt": "2027-05-08T12:37:30.811836+00:00",
-"attempts": 1
-},
-"Glacier Bay National Park and Preserve": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.811942+00:00",
-"expiresAt": "2027-05-08T12:37:30.811942+00:00",
-"attempts": 1
-},
-"Glacier National Park (U.S.)": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812022+00:00",
-"expiresAt": "2027-05-08T12:37:30.812022+00:00",
-"attempts": 1
-},
-"Great Sand Dunes National Park and Preserve": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812103+00:00",
-"expiresAt": "2027-05-08T12:37:30.812103+00:00",
 "attempts": 1
 },
 "Green Mountain National Forest": {
@@ -2369,118 +2093,10 @@
 "expiresAt": "2027-05-08T12:37:30.812232+00:00",
 "attempts": 1
 },
-"Hlane Royal National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812314+00:00",
-"expiresAt": "2027-05-08T12:37:30.812314+00:00",
-"attempts": 1
-},
-"Kakadu National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812400+00:00",
-"expiresAt": "2027-05-08T12:37:30.812400+00:00",
-"attempts": 1
-},
-"Lake Titicaca": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812482+00:00",
-"expiresAt": "2027-05-08T12:37:30.812482+00:00",
-"attempts": 1
-},
-"Ludington State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812565+00:00",
-"expiresAt": "2027-05-08T12:37:30.812565+00:00",
-"attempts": 1
-},
-"Mesopotamian Marshes": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812646+00:00",
-"expiresAt": "2027-05-08T12:37:30.812646+00:00",
-"attempts": 1
-},
 "Milltown State Park": {
 "status": "notfree",
 "checkedAt": "2026-11-09T12:37:30.812727+00:00",
 "expiresAt": "2027-05-08T12:37:30.812727+00:00",
-"attempts": 1
-},
-"Narragansett Bay": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812840+00:00",
-"expiresAt": "2027-05-08T12:37:30.812840+00:00",
-"attempts": 1
-},
-"New Jersey Pine Barrens": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.812960+00:00",
-"expiresAt": "2027-05-08T12:37:30.812960+00:00",
-"attempts": 1
-},
-"Paul B. Johnson State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813041+00:00",
-"expiresAt": "2027-05-08T12:37:30.813041+00:00",
-"attempts": 1
-},
-"Peneda-Gerês National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813120+00:00",
-"expiresAt": "2027-05-08T12:37:30.813120+00:00",
-"attempts": 1
-},
-"Phong Nha-Kẻ Bàng National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813222+00:00",
-"expiresAt": "2027-05-08T12:37:30.813222+00:00",
-"attempts": 1
-},
-"Repetek Nature Reserve": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813309+00:00",
-"expiresAt": "2027-05-08T12:37:30.813309+00:00",
-"attempts": 1
-},
-"Saguaro National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813395+00:00",
-"expiresAt": "2027-05-08T12:37:30.813395+00:00",
-"attempts": 1
-},
-"Serengeti National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813473+00:00",
-"expiresAt": "2027-05-08T12:37:30.813473+00:00",
-"attempts": 1
-},
-"Socotra": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813549+00:00",
-"expiresAt": "2027-05-08T12:37:30.813549+00:00",
-"attempts": 1
-},
-"Split Rock Lighthouse State Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813625+00:00",
-"expiresAt": "2027-05-08T12:37:30.813625+00:00",
-"attempts": 1
-},
-"Tasmanian Wilderness": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813701+00:00",
-"expiresAt": "2027-05-08T12:37:30.813701+00:00",
-"attempts": 1
-},
-"Tubbataha Reefs Natural Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813778+00:00",
-"expiresAt": "2027-05-08T12:37:30.813778+00:00",
-"attempts": 1
-},
-"Wadi Qelt": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.813856+00:00",
-"expiresAt": "2027-05-08T12:37:30.813856+00:00",
 "attempts": 1
 },
 "White Sands National Park": {
@@ -2493,12 +2109,6 @@
 "status": "notfree",
 "checkedAt": "2026-11-09T12:37:30.814013+00:00",
 "expiresAt": "2027-05-08T12:37:30.814013+00:00",
-"attempts": 1
-},
-"Yushan National Park": {
-"status": "notfree",
-"checkedAt": "2026-11-09T12:37:30.814100+00:00",
-"expiresAt": "2027-05-08T12:37:30.814100+00:00",
 "attempts": 1
 }
 }
