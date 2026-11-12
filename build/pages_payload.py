@@ -63,13 +63,9 @@ def main():
             copy_file(source, source.relative_to(ROOT).as_posix(), expected)
 
     copy_file(ROOT / 'photos/places/places.json', 'photos/places/places.json', expected)
-    # our own copies of the species pictures (the app reads these; the Wikimedia links in photos/species.json are job input, not published)
+    # our own copies of the species pictures: the app reads the 192 px (species-md) and 400 px (species-lg) copies. The 96 px files in photos/species/ stay in the repository
+    # (the 192 px step reads them as its fallback) but are not published, which keeps the payload under Cloudflare Pages' 20,000 file limit (#690).
     hosted = json.loads((ROOT / 'photos/species_hosted.json').read_text()) if (ROOT / 'photos/species_hosted.json').exists() else {}
-    for name in sorted(set(hosted.values())):
-        source = ROOT / 'photos/species' / name
-        if not source.is_file():
-            raise SystemExit('hosted species picture missing: photos/species/' + name)
-        copy_file(source, 'photos/species/' + name, expected)
     medium = json.loads((ROOT / 'photos/species_medium.json').read_text()) if (ROOT / 'photos/species_medium.json').exists() else {}   # 192 px tile copies (#669)
     medium_files = set(medium.values())
     for name in sorted(set(hosted.values())):   # a species without a 192 px copy gets its 96 px file under the same name
