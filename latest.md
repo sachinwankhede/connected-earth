@@ -1,4 +1,4 @@
-# Site speed, 2026-11-10 16:26 UTC
+# Site speed, 2026-11-12 16:50 UTC
 
 https://sachinwankhede.github.io/connected-earth/  
 Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. Desktop: no throttling. Results depend on the runner and network used for this URL. A mark ⚠ means more than 15% worse than the previous run.
@@ -7,56 +7,120 @@ Median of 5 runs per profile. Phone: 4x slower CPU, 1.6 Mbps, 150 ms latency. De
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| map: map style and index, first request (ms) | 181 | 189 | -4% |
-| map: map style and index, last answer (ms) | 454 | 465 | -2% |
+| map: map style and index, first request (ms) | 195 | 181 | +8% |
+| map: map style and index, last answer (ms) | 478 | 454 | +5% |
 | map: map style and index, requests | 1 | 1 | 0% |
 | map: vector tiles, first request (ms) | n/a | n/a |  |
 | map: vector tiles, last answer (ms) | n/a | n/a |  |
 | map: vector tiles, requests | n/a | n/a |  |
-| map: map glyphs, first request (ms) | 3899 | 3571 | +9% |
-| map: map glyphs, last answer (ms) | 4279 | 4167 | +3% |
+| map: map glyphs, first request (ms) | 3597 | 3899 | -8% |
+| map: map glyphs, last answer (ms) | 4104 | 4279 | -4% |
 | map: map glyphs, requests | 1 | 1 | 0% |
-| map: satellite tiles, first request (ms) | 3364 | 3239 | +4% |
-| map: satellite tiles, last answer (ms) | 3777 | 3716 | +2% |
+| map: satellite tiles, first request (ms) | 3211 | 3364 | -5% |
+| map: satellite tiles, last answer (ms) | 3651 | 3777 | -3% |
 | map: satellite tiles, requests | 4 | 4 | 0% |
 | map: terrain tiles, first request (ms) | n/a | n/a |  |
 | map: terrain tiles, last answer (ms) | n/a | n/a |  |
 | map: terrain tiles, requests | n/a | n/a |  |
-| first paint (ms) | 423 | 422 | +0% |
-| page loaded (ms) | 3321 | 3206 | +4% |
-| map drawn (ms) | 4757 | 4475 | +6% |
-| blocked before map (ms) | 1074 | 683 | +57% ⚠ |
-| download (KB) | 786 | 786 | +0% |
+| first paint (ms) | 436 | 423 | +3% |
+| page loaded (ms) | 3181 | 3321 | -4% |
+| map drawn (ms) | 4334 | 4757 | -9% |
+| blocked before map (ms) | 530 | 1074 | -51% |
+| download (KB) | 789 | 786 | +0% |
 | requests | 20 | 20 | 0% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 138 | 101 | +37% ⚠ |
-| tap: filter on blocked (ms) | 127 | 44 | +189% ⚠ |
-| tap: filter off (ms) | 116 | 88 | +32% ⚠ |
-| tap: filter off blocked (ms) | 155 | 45 | +244% ⚠ |
-| tap: state parks on (ms) | 122 | 99 | +23% ⚠ |
-| tap: state parks on blocked (ms) | 241 | 125 | +93% ⚠ |
-| tap: state parks off (ms) | 130 | 105 | +24% ⚠ |
-| tap: state parks off blocked (ms) | 103 | 35 | +194% ⚠ |
-| tap: open place (ms) | 32 | 29 | +10% |
-| tap: open place blocked (ms) | 78 | 36 | +117% ⚠ |
-| tap: back from place (ms) | 296 | 236 | +25% ⚠ |
-| tap: back from place blocked (ms) | 261 | 161 | +62% ⚠ |
-| tap: journeys tab (ms) | 40 | 31 | +29% |
+| tap: filter on (ms) | 78 | 138 | -43% |
+| tap: filter on blocked (ms) | 0 | 127 | -100% |
+| tap: filter on requests | 0 | n/a |  |
+| tap: filter on (KB) | 0 | n/a |  |
+| tap: filter on local files | 0 | n/a |  |
+| tap: filter on local files (KB) | 0 | n/a |  |
+| tap: filter off (ms) | 76 | 116 | -34% |
+| tap: filter off blocked (ms) | 0 | 155 | -100% |
+| tap: filter off requests | 1 | n/a |  |
+| tap: filter off (KB) | 34 | n/a |  |
+| tap: filter off local files | 0 | n/a |  |
+| tap: filter off local files (KB) | 0 | n/a |  |
+| tap: state parks on (ms) | 83 | 122 | -32% |
+| tap: state parks on blocked (ms) | 20 | 241 | -92% |
+| tap: state parks on requests | 2 | n/a |  |
+| tap: state parks on (KB) | 49 | n/a |  |
+| tap: state parks on local files | 2 | n/a |  |
+| tap: state parks on local files (KB) | 49 | n/a |  |
+| tap: state parks off (ms) | 97 | 130 | -25% |
+| tap: state parks off blocked (ms) | 2 | 103 | -98% |
+| tap: state parks off requests | 0 | n/a |  |
+| tap: state parks off (KB) | 0 | n/a |  |
+| tap: state parks off local files | 0 | n/a |  |
+| tap: state parks off local files (KB) | 0 | n/a |  |
+| tap: open place (ms) | 32 | 32 | 0% |
+| tap: open place blocked (ms) | 31 | 78 | -60% |
+| tap: open place requests | 27 | n/a |  |
+| tap: open place (KB) | 214 | n/a |  |
+| tap: open place local files | 0 | n/a |  |
+| tap: open place local files (KB) | 0 | n/a |  |
+| tap: back from place (ms) | 215 | 296 | -27% |
+| tap: back from place blocked (ms) | 100 | 261 | -62% |
+| tap: back from place requests | 0 | n/a |  |
+| tap: back from place (KB) | 0 | n/a |  |
+| tap: back from place local files | 0 | n/a |  |
+| tap: back from place local files (KB) | 0 | n/a |  |
+| tap: journeys tab (ms) | 31 | 40 | -22% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 279 | 215 | +30% ⚠ |
+| tap: journeys tab requests | 11 | n/a |  |
+| tap: journeys tab (KB) | 44 | n/a |  |
+| tap: journeys tab local files | 0 | n/a |  |
+| tap: journeys tab local files (KB) | 0 | n/a |  |
+| tap: open journey (ms) | 204 | 279 | -27% |
 | tap: open journey blocked (ms) | 0 | 0 |  |
-| tap: back from journey (ms) | 172 | 142 | +21% ⚠ |
-| tap: back from journey blocked (ms) | 124 | 59 | +110% ⚠ |
-| tap: search ma (cold) (ms) | 90 | 89 | +1% |
-| tap: search ma (cold) blocked (ms) | 303 | 145 | +109% ⚠ |
-| tap: search mar (ms) | 91 | 140 | -35% |
-| tap: search mar blocked (ms) | 251 | 108 | +132% ⚠ |
-| tap: search mari (ms) | 134 | 107 | +25% ⚠ |
-| tap: search mari blocked (ms) | 250 | 88 | +184% ⚠ |
-| tap: search osprey (ms) | 81 | 68 | +19% |
-| tap: search osprey blocked (ms) | 238 | 81 | +194% ⚠ |
+| tap: open journey requests | 5 | n/a |  |
+| tap: open journey (KB) | 6 | n/a |  |
+| tap: open journey local files | 0 | n/a |  |
+| tap: open journey local files (KB) | 0 | n/a |  |
+| tap: back from journey (ms) | 125 | 172 | -27% |
+| tap: back from journey blocked (ms) | 23 | 124 | -81% |
+| tap: back from journey requests | 0 | n/a |  |
+| tap: back from journey (KB) | 0 | n/a |  |
+| tap: back from journey local files | 0 | n/a |  |
+| tap: back from journey local files (KB) | 0 | n/a |  |
+| tap: search ma (cold) (ms) | 75 | 90 | -17% |
+| tap: search ma (cold) blocked (ms) | 64 | 303 | -79% |
+| tap: search ma (cold) requests | n/a | n/a |  |
+| tap: search ma (cold) (KB) | n/a | n/a |  |
+| tap: search ma (cold) local files | n/a | n/a |  |
+| tap: search ma (cold) local files (KB) | n/a | n/a |  |
+| tap: search mar (ms) | 126 | 91 | +38% ⚠ |
+| tap: search mar blocked (ms) | 3 | 251 | -99% |
+| tap: search mar requests | n/a | n/a |  |
+| tap: search mar (KB) | n/a | n/a |  |
+| tap: search mar local files | n/a | n/a |  |
+| tap: search mar local files (KB) | n/a | n/a |  |
+| tap: search mari (ms) | 96 | 134 | -28% |
+| tap: search mari blocked (ms) | 3 | 250 | -99% |
+| tap: search mari requests | n/a | n/a |  |
+| tap: search mari (KB) | n/a | n/a |  |
+| tap: search mari local files | n/a | n/a |  |
+| tap: search mari local files (KB) | n/a | n/a |  |
+| tap: search osprey (ms) | 59 | 81 | -27% |
+| tap: search osprey blocked (ms) | 0 | 238 | -100% |
+| tap: search osprey requests | n/a | n/a |  |
+| tap: search osprey (KB) | n/a | n/a |  |
+| tap: search osprey local files | n/a | n/a |  |
+| tap: search osprey local files (KB) | n/a | n/a |  |
+| tap: open place with locals (ms) | 21 | n/a |  |
+| tap: open place with locals blocked (ms) | 14 | n/a |  |
+| tap: open place with locals requests | 28 | n/a |  |
+| tap: open place with locals (KB) | 168 | n/a |  |
+| tap: open place with locals local files | 2 | n/a |  |
+| tap: open place with locals local files (KB) | 1 | n/a |  |
+| tap: cards tried before locals (ms) | 0 | n/a |  |
+| tap: cards tried before locals blocked (ms) | 0 | n/a |  |
+| tap: cards tried before locals requests | 6 | n/a |  |
+| tap: cards tried before locals (KB) | 0 | n/a |  |
+| tap: cards tried before locals local files | 0 | n/a |  |
+| tap: cards tried before locals local files (KB) | 0 | n/a |  |
 
-By host: sachinwankhede.github.io 131 req / 1714 KB; server.arcgisonline.com 16 req / 95 KB; tiles.openfreemap.org 7 req / 91 KB;  12 req / 0 KB
+By host: sachinwankhede.github.io 319 req / 2634 KB; server.arcgisonline.com 20 req / 95 KB; tiles.openfreemap.org 9 req / 91 KB;  16 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -66,34 +130,34 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 2450 | 2453 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 2450 | 2453 | Navigation Timing |
-| Load event | 5 | 0 | 3321 | 3437 | Navigation Timing |
-| First contentful paint | 5 | 0 | 423 | 570 | Paint Timing |
-| App data ready | 5 | 0 | 2453 | 2456 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 2453 | 2457 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 3322 | 3441 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 3692 | 3791 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 4757 | 5036 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 4757 | 5128 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 5879 | 6256 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 5900 | 6284 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 2448 | 2545 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 2448 | 2545 | Navigation Timing |
+| Load event | 5 | 0 | 3181 | 3264 | Navigation Timing |
+| First contentful paint | 5 | 0 | 436 | 584 | Paint Timing |
+| App data ready | 5 | 0 | 2451 | 2548 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 2451 | 2548 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 3183 | 3263 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 3531 | 3619 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 4334 | 4408 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 4334 | 4408 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 5486 | 5556 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 5515 | 5578 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 15/16; total duration 1808/2090 ms; blocking time over 50 ms 1074/1300 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 10/10; total duration 1030/1097 ms; blocking time over 50 ms 530/637 ms.
 
 ### Returning visit, service worker on (observational)
 
 A first visit installs the service worker and fills its caches; a second page in the same browser context is then timed. Throttling is attached to the page, so requests made by the service worker itself may not be slowed: read the document line below to see whether the page was downloaded again or only re-checked. Not compared with history and never raises a warning.
 
-Samples: 5; service worker ready: 5; page controlled by the worker on the second visit: 5. Page document: status 200 x5; answered by the worker: 5. The worker's own network fetch of the document: re-checked only (304, or under 10 KB on the wire): 5; downloaded again (10 KB or more): 0; status 200 x5; body bytes (p50): 142. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.
+Samples: 5; service worker ready: 5; page controlled by the worker on the second visit: 5. Page document: status 200 x5; answered by the worker: 5. The worker's own network fetch of the document: re-checked only (304, or under 10 KB on the wire): 4; downloaded again (10 KB or more): 1; status 200 x5; body bytes (p50): 144. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.
 
 | Metric | p50 (ms) | p95 (ms) |
 |---|---:|---:|
-| First contentful paint | 157 | 168 |
-| DOM interactive | 895 | 938 |
-| Load event | 899 | 942 |
-| Map loaded | 2152 | 2165 |
-| Blocking time before map loaded | 1050 | 1083 |
+| First contentful paint | 127 | 542 |
+| DOM interactive | 637 | 1060 |
+| Load event | 638 | 1063 |
+| Map loaded | 1535 | 2010 |
+| Blocking time before map loaded | 533 | 573 |
 
 ### Navigation readiness (observational)
 
@@ -101,13 +165,13 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 392 | 402 |
-| place warm open | 5 | 225 | 231 |
-| place first picture arrived | 5 | 521 | 542 |
-| place last picture arrived | 5 | 1376 | 1391 |
-| food-web cold open | 5 | 1567 | 1601 |
-| food-web warm open | 5 | 604 | 664 |
-| species selection | 5 | 196 | 207 |
+| place cold open | 5 | 327 | 375 |
+| place warm open | 5 | 157 | 159 |
+| place first picture arrived | 5 | 777 | 806 |
+| place last picture arrived | 5 | 1939 | 1966 |
+| food-web cold open | 5 | 1288 | 1346 |
+| food-web warm open | 5 | 454 | 510 |
+| species selection | 5 | 133 | 149 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
@@ -116,7 +180,7 @@ Median resources observed during each phase (requests / KB reported by Resource 
 | place cold open | web data | 1 | 7 |
 | place warm open | none recorded | 0 | 0 |
 | place first picture arrived | none recorded | 0 | 0 |
-| place last picture arrived | pictures | 36 | 163 |
+| place last picture arrived | pictures | 36 | 278 |
 | food-web cold open | web data | 1 | 7 |
 | food-web cold open | other | 1 | 94 |
 | food-web warm open | none recorded | 0 | 0 |
@@ -126,56 +190,120 @@ Median resources observed during each phase (requests / KB reported by Resource 
 
 | Metric | Now | Previous | Change |
 |---|---|---|---|
-| map: map style and index, first request (ms) | 23 | 35 | -34% |
-| map: map style and index, last answer (ms) | 60 | 90 | -34% |
+| map: map style and index, first request (ms) | 35 | 23 | +53% |
+| map: map style and index, last answer (ms) | 106 | 60 | +78% ⚠ |
 | map: map style and index, requests | 1 | 1 | 0% |
 | map: vector tiles, first request (ms) | n/a | n/a |  |
 | map: vector tiles, last answer (ms) | n/a | n/a |  |
 | map: vector tiles, requests | n/a | n/a |  |
-| map: map glyphs, first request (ms) | 697 | 569 | +23% ⚠ |
-| map: map glyphs, last answer (ms) | 713 | 606 | +18% ⚠ |
+| map: map glyphs, first request (ms) | 460 | 697 | -34% |
+| map: map glyphs, last answer (ms) | 521 | 713 | -27% |
 | map: map glyphs, requests | 1 | 1 | 0% |
-| map: satellite tiles, first request (ms) | 322 | 272 | +18% ⚠ |
-| map: satellite tiles, last answer (ms) | 342 | 288 | +19% ⚠ |
+| map: satellite tiles, first request (ms) | 234 | 322 | -27% |
+| map: satellite tiles, last answer (ms) | 248 | 342 | -27% |
 | map: satellite tiles, requests | 4 | 4 | 0% |
 | map: terrain tiles, first request (ms) | n/a | n/a |  |
 | map: terrain tiles, last answer (ms) | n/a | n/a |  |
 | map: terrain tiles, requests | n/a | n/a |  |
-| first paint (ms) | 87 | 89 | -2% |
-| page loaded (ms) | 309 | 264 | +17% ⚠ |
-| map drawn (ms) | 1444 | 1183 | +22% ⚠ |
-| blocked before map (ms) | 610 | 407 | +50% ⚠ |
-| download (KB) | 2238 | 2237 | +0% |
+| first paint (ms) | 82 | 87 | -6% |
+| page loaded (ms) | 227 | 309 | -27% |
+| map drawn (ms) | 923 | 1444 | -36% |
+| blocked before map (ms) | 209 | 610 | -66% |
+| download (KB) | 2241 | 2238 | +0% |
 | requests | 54 | 54 | 0% |
 | Wikipedia requests | 0 | 0 |  |
-| tap: filter on (ms) | 135 | 107 | +26% ⚠ |
-| tap: filter on blocked (ms) | 373 | 251 | +49% ⚠ |
-| tap: filter off (ms) | 142 | 117 | +21% ⚠ |
-| tap: filter off blocked (ms) | 371 | 311 | +19% ⚠ |
-| tap: state parks on (ms) | 121 | 100 | +21% ⚠ |
-| tap: state parks on blocked (ms) | 589 | 454 | +30% ⚠ |
-| tap: state parks off (ms) | 218 | 183 | +19% ⚠ |
-| tap: state parks off blocked (ms) | 265 | 176 | +51% ⚠ |
-| tap: open place (ms) | 16 | 14 | +14% |
+| tap: filter on (ms) | 80 | 135 | -41% |
+| tap: filter on blocked (ms) | 94 | 373 | -75% |
+| tap: filter on requests | 33 | n/a |  |
+| tap: filter on (KB) | 1122 | n/a |  |
+| tap: filter on local files | 0 | n/a |  |
+| tap: filter on local files (KB) | 0 | n/a |  |
+| tap: filter off (ms) | 85 | 142 | -40% |
+| tap: filter off blocked (ms) | 92 | 371 | -75% |
+| tap: filter off requests | 2 | n/a |  |
+| tap: filter off (KB) | 125 | n/a |  |
+| tap: filter off local files | 0 | n/a |  |
+| tap: filter off local files (KB) | 0 | n/a |  |
+| tap: state parks on (ms) | 76 | 121 | -37% |
+| tap: state parks on blocked (ms) | 222 | 589 | -62% |
+| tap: state parks on requests | 2 | n/a |  |
+| tap: state parks on (KB) | 49 | n/a |  |
+| tap: state parks on local files | 2 | n/a |  |
+| tap: state parks on local files (KB) | 49 | n/a |  |
+| tap: state parks off (ms) | 133 | 218 | -39% |
+| tap: state parks off blocked (ms) | 55 | 265 | -79% |
+| tap: state parks off requests | 0 | n/a |  |
+| tap: state parks off (KB) | 0 | n/a |  |
+| tap: state parks off local files | 0 | n/a |  |
+| tap: state parks off local files (KB) | 0 | n/a |  |
+| tap: open place (ms) | 12 | 16 | -25% |
 | tap: open place blocked (ms) | 0 | 0 |  |
-| tap: back from place (ms) | 212 | 175 | +21% ⚠ |
-| tap: back from place blocked (ms) | 329 | 262 | +26% ⚠ |
-| tap: journeys tab (ms) | 16 | 13 | +23% |
+| tap: open place requests | 38 | n/a |  |
+| tap: open place (KB) | 281 | n/a |  |
+| tap: open place local files | 0 | n/a |  |
+| tap: open place local files (KB) | 0 | n/a |  |
+| tap: back from place (ms) | 124 | 212 | -42% |
+| tap: back from place blocked (ms) | 96 | 329 | -71% |
+| tap: back from place requests | 2 | n/a |  |
+| tap: back from place (KB) | 125 | n/a |  |
+| tap: back from place local files | 0 | n/a |  |
+| tap: back from place local files (KB) | 0 | n/a |  |
+| tap: journeys tab (ms) | 14 | 16 | -12% |
 | tap: journeys tab blocked (ms) | 0 | 0 |  |
-| tap: open journey (ms) | 71 | 53 | +34% |
+| tap: journeys tab requests | 12 | n/a |  |
+| tap: journeys tab (KB) | 45 | n/a |  |
+| tap: journeys tab local files | 0 | n/a |  |
+| tap: journeys tab local files (KB) | 0 | n/a |  |
+| tap: open journey (ms) | 46 | 71 | -35% |
 | tap: open journey blocked (ms) | 0 | 0 |  |
-| tap: back from journey (ms) | 167 | 143 | +17% ⚠ |
-| tap: back from journey blocked (ms) | 266 | 182 | +46% ⚠ |
-| tap: search ma (cold) (ms) | 111 | 95 | +17% |
-| tap: search ma (cold) blocked (ms) | 503 | 395 | +27% ⚠ |
-| tap: search mar (ms) | 129 | 104 | +24% ⚠ |
-| tap: search mar blocked (ms) | 499 | 392 | +27% ⚠ |
-| tap: search mari (ms) | 131 | 107 | +22% ⚠ |
-| tap: search mari blocked (ms) | 577 | 454 | +27% ⚠ |
-| tap: search osprey (ms) | 144 | 112 | +29% ⚠ |
-| tap: search osprey blocked (ms) | 559 | 473 | +18% ⚠ |
+| tap: open journey requests | 9 | n/a |  |
+| tap: open journey (KB) | 6 | n/a |  |
+| tap: open journey local files | 0 | n/a |  |
+| tap: open journey local files (KB) | 0 | n/a |  |
+| tap: back from journey (ms) | 107 | 167 | -36% |
+| tap: back from journey blocked (ms) | 89 | 266 | -67% |
+| tap: back from journey requests | 0 | n/a |  |
+| tap: back from journey (KB) | 0 | n/a |  |
+| tap: back from journey local files | 0 | n/a |  |
+| tap: back from journey local files (KB) | 0 | n/a |  |
+| tap: search ma (cold) (ms) | 67 | 111 | -40% |
+| tap: search ma (cold) blocked (ms) | 196 | 503 | -61% |
+| tap: search ma (cold) requests | n/a | n/a |  |
+| tap: search ma (cold) (KB) | n/a | n/a |  |
+| tap: search ma (cold) local files | n/a | n/a |  |
+| tap: search ma (cold) local files (KB) | n/a | n/a |  |
+| tap: search mar (ms) | 78 | 129 | -40% |
+| tap: search mar blocked (ms) | 172 | 499 | -66% |
+| tap: search mar requests | n/a | n/a |  |
+| tap: search mar (KB) | n/a | n/a |  |
+| tap: search mar local files | n/a | n/a |  |
+| tap: search mar local files (KB) | n/a | n/a |  |
+| tap: search mari (ms) | 73 | 131 | -44% |
+| tap: search mari blocked (ms) | 259 | 577 | -55% |
+| tap: search mari requests | n/a | n/a |  |
+| tap: search mari (KB) | n/a | n/a |  |
+| tap: search mari local files | n/a | n/a |  |
+| tap: search mari local files (KB) | n/a | n/a |  |
+| tap: search osprey (ms) | 87 | 144 | -40% |
+| tap: search osprey blocked (ms) | 267 | 559 | -52% |
+| tap: search osprey requests | n/a | n/a |  |
+| tap: search osprey (KB) | n/a | n/a |  |
+| tap: search osprey local files | n/a | n/a |  |
+| tap: search osprey local files (KB) | n/a | n/a |  |
+| tap: open place with locals (ms) | 9 | n/a |  |
+| tap: open place with locals blocked (ms) | 0 | n/a |  |
+| tap: open place with locals requests | 6 | n/a |  |
+| tap: open place with locals (KB) | 25 | n/a |  |
+| tap: open place with locals local files | 2 | n/a |  |
+| tap: open place with locals local files (KB) | 1 | n/a |  |
+| tap: cards tried before locals (ms) | 0 | n/a |  |
+| tap: cards tried before locals blocked (ms) | 0 | n/a |  |
+| tap: cards tried before locals requests | 6 | n/a |  |
+| tap: cards tried before locals (KB) | 0 | n/a |  |
+| tap: cards tried before locals local files | 0 | n/a |  |
+| tap: cards tried before locals local files (KB) | 0 | n/a |  |
 
-By host: sachinwankhede.github.io 333 req / 4472 KB; server.arcgisonline.com 61 req / 508 KB; tiles.openfreemap.org 8 req / 131 KB;  12 req / 0 KB
+By host: sachinwankhede.github.io 600 req / 5519 KB; server.arcgisonline.com 76 req / 562 KB; tiles.openfreemap.org 10 req / 131 KB;  16 req / 0 KB
 
 ### Initial Places-page load stages (observational)
 
@@ -185,34 +313,34 @@ Requested runs: 5; completed: 5; failed: 0.
 
 | Stage | Samples | Failures / missing | p50 (ms) | p95 (ms) | Measurement |
 |---|---:|---:|---:|---:|---|
-| DOM interactive | 5 | 0 | 64 | 65 | Navigation Timing |
-| DOMContentLoaded | 5 | 0 | 64 | 66 | Navigation Timing |
-| Load event | 5 | 0 | 309 | 318 | Navigation Timing |
-| First contentful paint | 5 | 0 | 87 | 94 | Paint Timing |
-| App data ready | 5 | 0 | 171 | 178 | 20 ms poll of window.__M.ecoIds() |
-| Initial cards in DOM | 5 | 0 | 171 | 178 | 20 ms DOM-state poll; first populated #cards card |
-| Map style ready | 5 | 0 | 310 | 319 | 20 ms poll of window.__M.styleReady |
-| First map tile response | 5 | 0 | 341 | 399 | Resource Timing responseEnd for a tile URL |
-| Map loaded | 5 | 0 | 1444 | 1474 | 20 ms poll of MapLibre map.loaded() |
-| Photo hold released | 5 | 0 | 1444 | 1474 | 20 ms poll of window.__M.photoGo |
-| First visible photo loaded | 5 | 0 | 1504 | 1557 | Image load event for a photo intersecting the viewport |
-| First visible photo decoded | 5 | 0 | 1536 | 1604 | HTMLImageElement.decode() resolution |
+| DOM interactive | 5 | 0 | 59 | 102 | Navigation Timing |
+| DOMContentLoaded | 5 | 0 | 59 | 102 | Navigation Timing |
+| Load event | 5 | 0 | 227 | 269 | Navigation Timing |
+| First contentful paint | 5 | 0 | 82 | 120 | Paint Timing |
+| App data ready | 5 | 0 | 135 | 250 | 20 ms poll of window.__M.ecoIds() |
+| Initial cards in DOM | 5 | 0 | 135 | 250 | 20 ms DOM-state poll; first populated #cards card |
+| Map style ready | 5 | 0 | 227 | 286 | 20 ms poll of window.__M.styleReady |
+| First map tile response | 5 | 0 | 248 | 292 | Resource Timing responseEnd for a tile URL |
+| Map loaded | 5 | 0 | 923 | 1029 | 20 ms poll of MapLibre map.loaded() |
+| Photo hold released | 5 | 0 | 954 | 1034 | 20 ms poll of window.__M.photoGo |
+| First visible photo loaded | 5 | 0 | 1020 | 1135 | Image load event for a photo intersecting the viewport |
+| First visible photo decoded | 5 | 0 | 1051 | 1166 | HTMLImageElement.decode() resolution |
 
-Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 11/11; total duration 1149/1163 ms; blocking time over 50 ms 610/657 ms.
+Long tasks through the first visible photo decode (or photo-hold release / map loaded when no visible photo decoded): 5 samples, 0 failures. Count p50/p95 7/8; total duration 583/638 ms; blocking time over 50 ms 220/241 ms.
 
 ### Returning visit, service worker on (observational)
 
 A first visit installs the service worker and fills its caches; a second page in the same browser context is then timed. Throttling is attached to the page, so requests made by the service worker itself may not be slowed: read the document line below to see whether the page was downloaded again or only re-checked. Not compared with history and never raises a warning.
 
-Samples: 5; service worker ready: 5; page controlled by the worker on the second visit: 5. Page document: status 200 x5; answered by the worker: 5. The worker's own network fetch of the document: re-checked only (304, or under 10 KB on the wire): 5; downloaded again (10 KB or more): 0; status 200 x5; body bytes (p50): 143. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.
+Samples: 5; service worker ready: 5; page controlled by the worker on the second visit: 5. Page document: status 200 x5; answered by the worker: 5. The worker's own network fetch of the document: re-checked only (304, or under 10 KB on the wire): 5; downloaded again (10 KB or more): 0; status 200 x5; body bytes (p50): 153. Seen only when the run sets PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS=1.
 
 | Metric | p50 (ms) | p95 (ms) |
 |---|---:|---:|
-| First contentful paint | 79 | 82 |
-| DOM interactive | 176 | 181 |
-| Load event | 319 | 324 |
-| Map loaded | 1403 | 1468 |
-| Blocking time before map loaded | 606 | 611 |
+| First contentful paint | 62 | 69 |
+| DOM interactive | 53 | 62 |
+| Load event | 203 | 216 |
+| Map loaded | 872 | 985 |
+| Blocking time before map loaded | 192 | 217 |
 
 ### Navigation readiness (observational)
 
@@ -220,25 +348,23 @@ Cold open is the first route after loading the base page in a fresh browser cont
 
 | Route phase | Ready samples | p50 (ms) | p95 (ms) |
 |---|---:|---:|---:|
-| place cold open | 5 | 92 | 92 |
-| place warm open | 5 | 86 | 153 |
-| place first picture arrived | 5 | 51 | 55 |
-| place last picture arrived | 5 | 95 | 110 |
-| food-web cold open | 5 | 210 | 228 |
-| food-web warm open | 5 | 213 | 215 |
-| species selection | 5 | 46 | 61 |
+| place cold open | 5 | 42 | 43 |
+| place warm open | 5 | 90 | 120 |
+| place first picture arrived | 5 | 46 | 47 |
+| place last picture arrived | 5 | 64 | 112 |
+| food-web cold open | 5 | 133 | 203 |
+| food-web warm open | 5 | 93 | 150 |
+| species selection | 5 | 39 | 42 |
 
 Median resources observed during each phase (requests / KB reported by Resource Timing; KB can be 0 for cache hits or cross-origin resources without timing access):
 
 | Route phase | Resource class | Requests | KB |
 |---|---|---:|---:|
 | place cold open | web data | 1 | 7 |
-| place cold open | photos | 30 | 57 |
 | place warm open | none recorded | 0 | 0 |
 | place first picture arrived | none recorded | 0 | 0 |
-| place last picture arrived | pictures | 36 | 163 |
+| place last picture arrived | pictures | 36 | 278 |
 | food-web cold open | web data | 1 | 7 |
 | food-web cold open | other | 1 | 94 |
-| food-web cold open | photos | 17 | 34 |
 | food-web warm open | none recorded | 0 | 0 |
-| species selection | other | 2 | 4 |
+| species selection | other | 1 | 3 |
