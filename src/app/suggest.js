@@ -97,7 +97,7 @@
       withSpeciesPhotos(function () { if (n === SUG.n) sugDraw(); });
     }).catch(function () { if (n === SUG.n) sugHide(); });   /* no suggestions when the file cannot be had; the normal search goes on */
   }
-  function sheetUp() { if (M.setSheet && M.sheetState === "min") M.setSheet("half"); }   /* a search that is run shows its results: the collapsed phone sheet opens */
+  function sheetUp() { if (M.setSheet && M.sheetState === "min") M.setSheet("half"); }
   if (sugBox) {
     sugIn.addEventListener("input", sugShow);
     sugIn.addEventListener("focus", sugShow);
