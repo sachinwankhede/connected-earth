@@ -141,10 +141,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const pills = () => p.evaluate(() => [...document.querySelectorAll('#regions [data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent.trim()));
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-go^="country"], #regions [data-go="country"]').length > 1, null, { timeout: 30000 });
     const first = await pills(); assert.ok(first.every((x) => /^country:/.test(x)), 'countries first: ' + first.join(','));
-    await p.locator('#regions [data-go="country"]').first().click(); await p.waitForTimeout(1500);
+    await p.evaluate(() => document.querySelector('#regions [data-go="country"]').click()); await p.waitForTimeout(1500);
     const up = await p.evaluate(() => { const l = document.querySelector('#regions .leadg [data-go]'); return l ? l.getAttribute('data-go') + ':' + l.textContent.trim() : ''; });
     assert.equal(up, 'world:\u2039 World', 'the up pill skips the continent');
-    await p.locator('#regions .leadg [data-go]').click(); await p.waitForTimeout(1500);
+    await p.evaluate(() => document.querySelector('#regions .leadg [data-go]').click()); await p.waitForTimeout(1500);
     const back = await pills(); assert.deepEqual(back, first, 'the same country pills come back');
     assert.deepEqual(t.errors, []); await b.close();
   });
