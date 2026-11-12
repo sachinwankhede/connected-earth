@@ -196,9 +196,65 @@ async function navigationScenario(browser, name, kind) {
   return { firstOpen, repeatOpen, ...(kind === 'web' ? { speciesSelection } : { pictures, firstPicture }) };
 }
 
+// #677, measurement only: how long the first layout of a food web blocks the page, per web size. d3 is wrapped as it is assigned so every simulation's tick() is timed; the first web also pays for loading d3, the later ones only the layout. Log lines only (no table row), one set per run.
+const WEB_LAYOUT_PLACES = ['camontaadeoro', 'vasmithmountainlak', 'nhpisgah', 'yellowstone'];   // 17, 21, 24 and 34 nodes in the place files
+const WEB_LAYOUT_INIT = () => {
+  window.__tk = { n: 0, ms: 0 };
+  let real;
+  Object.defineProperty(window, 'd3', {
+    configurable: true,
+    get() { return real; },
+    set(v) {
+      real = v;
+      if (!v || !v.forceSimulation || v.__wrapped) return;
+      const fs = v.forceSimulation;
+      v.forceSimulation = function () {
+        const sim = fs.apply(this, arguments), tick = sim.tick;
+        sim.tick = function () { const t0 = performance.now(); const r = tick.apply(this, arguments); window.__tk.n++; window.__tk.ms += performance.now() - t0; return r; };
+        return sim;
+      };
+      v.__wrapped = true;
+    },
+  });
+};
+async function webLayoutScenario(browser, name) {
+  const prof = PROFILES[name], rows = [];
+  let ctx;
+  try {
+    ctx = await browser.newContext({ viewport: prof.viewport, serviceWorkers: 'block' });
+    const p = await ctx.newPage();
+    await p.addInitScript(INIT);
+    await p.addInitScript(WEB_LAYOUT_INIT);
+    const c = await ctx.newCDPSession(p);
+    await c.send('Network.enable');
+    if (prof.cpu > 1) await c.send('Emulation.setCPUThrottlingRate', { rate: prof.cpu });
+    if (prof.net) await c.send('Network.emulateNetworkConditions', prof.net);
+    const base = new URL(URL_); base.hash = '';
+    await p.goto(base.toString(), { waitUntil: 'load', timeout: 120000 });
+    try { await p.waitForFunction(() => window.__p && window.__p.mapLoaded, null, { timeout: MAP_WAIT }); } catch (e) { console.error('web layout baseline map not ready; continuing:', e.message); }
+    await p.waitForTimeout(1000);
+    for (const id of WEB_LAYOUT_PLACES) {
+      await p.evaluate(() => { window.__tk.n = 0; window.__tk.ms = 0; });
+      const r = await measuredRoute(p, `#e=${id}`, 'web', `web layout ${id}`);
+      const m = await p.evaluate(() => ({ ticks: window.__tk.n, tickMs: window.__tk.ms, nodes: document.querySelectorAll('#svg .node').length }));
+      rows.push(`${id} | nodes ${m.nodes} | ticks ${m.ticks} | ticks took ${m.tickMs.toFixed(0)} ms | open (tap to graph shown) ${r.readyMs == null ? 'n/a' : r.readyMs.toFixed(0)} ms`);
+      await p.evaluate(() => document.getElementById('back').click());
+      await p.waitForFunction(() => { const v = document.getElementById('pview'); return v && !v.hidden; }, null, { timeout: NAV_TIMEOUT });
+      await p.click('#pview [data-pback]');
+      await p.waitForFunction(() => { const v = document.getElementById('mapview'); return v && !v.hidden; }, null, { timeout: NAV_TIMEOUT });
+    }
+  } catch (e) {
+    console.error('web layout scenario failed:', e.message);
+  } finally {
+    if (ctx) { try { await ctx.close(); } catch (e) {} }
+  }
+  if (rows.length) console.log(`FOOD WEB LAYOUT ${name} (place | nodes | simulation ticks | time inside tick() | open time; the first row also loads d3)\n` + rows.join('\n'));
+}
+
 async function navigationMeasurements(browser, name) {
   const place = await navigationScenario(browser, name, 'place');
   const web = await navigationScenario(browser, name, 'web');
+  await webLayoutScenario(browser, name);
   return { place, web };
 }
 
