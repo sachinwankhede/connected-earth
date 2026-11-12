@@ -8,6 +8,20 @@ const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')]
 const send = async (p, text) => { await p.fill('#q', text); await p.keyboard.press('Enter'); await p.waitForFunction((x) => window.__M.searched === x, text.toLowerCase(), { timeout: 60000 }); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: a recent place row has its picture on a fresh page, before the place was opened again`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.click('#q'); await p.keyboard.type('yellowstone');
+    await p.waitForSelector('#sug .sgr[data-id]', { timeout: 15000 });
+    await p.click('#sug .sgr[data-id]');
+    assert.equal((await stored(p))[0].t, 'p');
+    await p.goto(p.url().split('#')[0] + '#stub'); await p.reload();   // a fresh page: no place picture has been read yet
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.click('#q');
+    await p.waitForSelector('#sug .sgr[data-id] .sgi img', { timeout: 30000 });   // the picture arrives after the list is drawn, and the row is drawn again
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+
   test(`${name}: recent searches are listed under the empty box, newest first, at most three, and a tap runs the search again`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });

@@ -46,6 +46,8 @@
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);
     });
+    var need = SUG.rows.map(function (r) { var e = r.t === "p" && ECO_BY[r.id]; return e && e.imgwiki && !PHOTOS[e.imgwiki] ? e.imgwiki : ""; }).filter(Boolean), k = need.join("|");
+    if (k && k !== SUG.pk) { SUG.pk = k; M.placePhotos(need, function () { if (!sugBox.hidden) sugDraw(); }); }   /* a place row without its picture asks for it once, then draws again (a place with no picture is not asked twice) */
     sugBox.hidden = false; sugIn.setAttribute("aria-expanded", "true");
   }
   function sugFile(k) {   /* the suggestion file of one two-letter start; empty when the build has none */

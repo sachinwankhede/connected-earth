@@ -29,6 +29,9 @@
     var tt = e.imgwiki; stored(tt);
     if (PHOTOS[tt]) { ecoPhoto(e); return; }
   };
+  M.placePhotos = function (titles, done) {   /* the dropdown rows of places that have no card yet: release the photos, then read their entries from the stored list */
+    M.releasePhotos(); var go = function () { titles.forEach(stored); done(); }; if (man) go(); else HELD.push(go);
+  };
   function crossPhotos() {
     CROSS.forEach(function (c) {
       var tt = c.imgwiki;
