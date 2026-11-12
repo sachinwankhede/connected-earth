@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
-const isPicture = (url) => /photos\/places\/.+\.jpg|rest_v1\/page\/summary|photos\/species\/.+\.webp/.test(url);
+const isPicture = (url) => /photos\/places\/.+\.jpg|rest_v1\/page\/summary|photos\/species(?:-md)?\/.+\.webp/.test(url);
 const isPlacePicture = (url) => /photos\/places\/.+\.jpg/.test(url);
 
 // Pictures wait for the map: nothing is asked for until the map has drawn, the person touches the page, or a link goes straight to a place.

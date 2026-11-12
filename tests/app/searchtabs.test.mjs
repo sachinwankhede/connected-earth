@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
 const tabs = (p) => p.evaluate(() => [...document.querySelectorAll('#tabs [data-tab], #trow [data-tab]')].filter((b) => b.offsetParent).map((b) => b.textContent.trim()));
-const picLoaded = (p, sel) => p.waitForFunction((s) => { const i = document.querySelector(s + ' img'); return !!i && i.complete && i.naturalWidth > 0 && /photos\/species\/.+\.webp/.test(i.src); }, sel, { timeout: 30000 });
+const picLoaded = (p, sel) => p.waitForFunction((s) => { const i = document.querySelector(s + ' img'); return !!i && i.complete && i.naturalWidth > 0 && /photos\/species(?:-md)?\/.+\.webp/.test(i.src); }, sel, { timeout: 30000 });
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: species rows in the dropdown and in the Species tab search show their picture`, async () => {

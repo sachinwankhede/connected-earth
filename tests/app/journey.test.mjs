@@ -48,7 +48,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="journeys"]:visible');
     await p.waitForSelector('#xi-osprey img[loading="lazy"]');
     const card = await p.locator('#xi-osprey img').getAttribute('src');
-    assert.ok(/\/photos\/species\/[0-9a-f]{12}\.webp$/.test(card), 'journey cards use our hosted picture');
+    assert.ok(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp$/.test(card), 'journey cards use our hosted picture');
 
     await p.goto(url + '#stub&j=osprey');
     await p.waitForSelector('#jview #jp-main img[loading="lazy"]');
@@ -57,7 +57,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       credit: document.getElementById('jcredit')?.textContent || '',
       article: [...document.querySelectorAll('#jcredit a')].some((a) => a.href === 'https://en.wikipedia.org/wiki/Osprey')
     }));
-    assert.ok(hero.src && /\/photos\/species\/[0-9a-f]{12}\.webp$/.test(hero.src), 'direct journey links load our hosted picture');
+    assert.ok(hero.src && /\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp$/.test(hero.src), 'direct journey links load our hosted picture');
     assert.ok(hero.credit.includes('Photo: Wikipedia') && hero.article, 'the journey retains its photo article credit');
 
     for (const id of ['dust', 'nutrients', 'monarch', 'prairiegulf']) {
