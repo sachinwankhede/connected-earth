@@ -423,11 +423,10 @@ def write_species_places(sp, pilot):
 # their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0], most places first, then by name.
 TAB_TOP, TAB_PAGE = 60, 250
 TAB_MIN = 5   # a group, order or family with fewer species than this is not a pill: its species join the Other of the level above (#534, owner, 11 Nov)
-TAB_GROUPS = [('mammals', 'Mammals'), ('birds', 'Birds'), ('reptiles', 'Reptiles'), ('amphibians', 'Amphibians'), ('fish', 'Fish'), ('insects', 'Insects'),
-              ('plants', 'Plants'), ('other', 'Other')]   # eight flat pills (#534, owner 11 Nov); Other = other animals, algae and others, fungi
 ORDER_NAMES = json.load(open(P('data', 'species', 'order_names.json'), encoding='utf-8'))['names']   # everyday names for the biggest orders (#534): data, see the note in the file
-TAB_FISH = {'Actinopterygii', 'Elasmobranchii', 'Chondrichthyes', 'Holocephali', 'Teleostei', 'Cephalaspidomorphi', 'Petromyzonti', 'Myxini', 'Sarcopterygii'}
-TAB_REPTILES = {'Squamata', 'Testudines', 'Crocodylia', 'Reptilia', 'Sphenodontia'}
+_TG = json.load(open(P('data', 'species', 'tab_groups.json'), encoding='utf-8'))   # the Species tab's groups and which classes are fish or reptiles (#534): data, see the note in the file
+TAB_GROUPS = [tuple(g) for g in _TG['groups']]
+TAB_FISH, TAB_REPTILES = set(_TG['fish']), set(_TG['reptiles'])
 
 
 def species_group(tx):

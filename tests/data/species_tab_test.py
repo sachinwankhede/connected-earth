@@ -18,6 +18,10 @@ class SpeciesTab(unittest.TestCase):
         self.assertEqual([k for k, _ in B.TAB_GROUPS], ['mammals', 'birds', 'reptiles', 'amphibians', 'fish', 'insects', 'plants', 'other'])
         self.assertEqual([l for _, l in B.TAB_GROUPS], ['Mammals', 'Birds', 'Reptiles', 'Amphibians', 'Fish', 'Insects', 'Plants', 'Other'])
 
+    def test_fish_and_reptile_classes_come_from_the_data_file_and_do_not_overlap(self):
+        self.assertFalse(B.TAB_FISH & B.TAB_REPTILES)
+        self.assertTrue({'Actinopterygii', 'Elasmobranchii'} <= B.TAB_FISH and {'Squamata', 'Testudines'} <= B.TAB_REPTILES)
+
     @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'data', 'species', 'taxonomy.json')), 'needs the data')
     def test_order_names_match_real_orders(self):   # #534: an everyday name is for an order that exists, and two orders never share a name
         tx = json.load(open(os.path.join(ROOT, 'data', 'species', 'taxonomy.json'), encoding='utf-8'))

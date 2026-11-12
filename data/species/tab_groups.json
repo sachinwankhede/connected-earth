@@ -1,0 +1,55 @@
+{
+ "note": "The Species tab's everyday groups (#534, owner 11 Nov): eight flat pills, in this order; Other = other animals, algae and others, fungi. build/build.py maps a species to a group from its kingdom and class: Mammalia is mammals, Aves birds, Amphibia amphibians, Insecta insects, Plantae plants; the classes listed under reptiles and fish are those groups; every other animal class and every other kingdom is Other.",
+ "groups": [
+  [
+   "mammals",
+   "Mammals"
+  ],
+  [
+   "birds",
+   "Birds"
+  ],
+  [
+   "reptiles",
+   "Reptiles"
+  ],
+  [
+   "amphibians",
+   "Amphibians"
+  ],
+  [
+   "fish",
+   "Fish"
+  ],
+  [
+   "insects",
+   "Insects"
+  ],
+  [
+   "plants",
+   "Plants"
+  ],
+  [
+   "other",
+   "Other"
+  ]
+ ],
+ "reptiles": [
+  "Crocodylia",
+  "Reptilia",
+  "Sphenodontia",
+  "Squamata",
+  "Testudines"
+ ],
+ "fish": [
+  "Actinopterygii",
+  "Cephalaspidomorphi",
+  "Chondrichthyes",
+  "Elasmobranchii",
+  "Holocephali",
+  "Myxini",
+  "Petromyzonti",
+  "Sarcopterygii",
+  "Teleostei"
+ ]
+}
