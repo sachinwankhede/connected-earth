@@ -35,7 +35,7 @@
   function sugDraw() {
     if (!SUG.rows.length) { sugBox.hidden = true; sugBox.innerHTML = ""; sugIn.setAttribute("aria-expanded", "false"); return; }
     sugBox.innerHTML = "";
-    if (SUG.rows[0].rc) { var h = document.createElement("div"); h.className = "sgh"; h.textContent = "Recent"; sugBox.appendChild(h); }   /* one label for the recent searches, not a prefix on every row */
+    if (SUG.rows[0].rc) { var h = document.createElement("div"); h.className = "sgh"; h.innerHTML = "Recent<a>Clear</a>"; sugBox.appendChild(h); }
     SUG.rows.forEach(function (r) {
       var c, row = document.createElement("div"), e = r.t === "p" ? ECO_BY[r.id] : null, ico = r.t === "q" ? RS_CLOCK : e ? '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">' + (ICONS[e.icon] || "") + "</svg>" : SUG_LEAF;
       row.className = r.t === "q" ? "sgr sgq" : "sgr"; row.setAttribute("role", "option"); if (r.t === "p") row.setAttribute("data-id", r.id); else if (r.t === "s") row.setAttribute("data-latin", r.latin); else row.setAttribute("data-q", r.q);
@@ -105,8 +105,9 @@
     sugIn.addEventListener("search", function () { sugHide(); sugIn.blur(); });
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
+      if (ev.target.closest(".sgh a")) { try { localStorage.removeItem("ceRs"); } catch (e) {} SUG.rows = []; return sugDraw(); }
       var row = ev.target.closest(".sgr"); if (!row) return;
-      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.querySelectorAll(".sgr"), row)];   /* the "Recent" label is a child too: count rows only */
+      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.querySelectorAll(".sgr"), row)];
       sugHide(); sugIn.blur();
       if (rw) rw.rc = 0, rsAdd(rw);
       if (q) runSearch(q), sheetUp();

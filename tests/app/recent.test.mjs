@@ -41,7 +41,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr');   // Clear empties the box and keeps the focus
     await p.waitForFunction(() => !document.getElementById('sug').hidden && document.querySelectorAll('#sug .sgr').length === 3, null, { timeout: 15000 });
     assert.deepEqual(await rows(p), [['wolf', ''], ['elk', ''], ['bear', '']], 'a typed search is one line: its text, no second line');
-    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh').textContent), 'Recent', 'one label above the rows');
+    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh').firstChild.textContent), 'Recent', 'one label above the rows');
     assert.equal(await p.evaluate(() => document.querySelectorAll('#sug .sgq .sgo').length), 0, 'no chevron on a typed search (a chevron opens a page)');
     assert.equal(await p.evaluate(() => Math.round(document.querySelector('#sug .sgq').getBoundingClientRect().height) >= 44), true, 'at least 44 px tall');
     await p.click('#sug .sgr[data-q="elk"]');
@@ -51,6 +51,24 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(t.errors, []); await b.close();
   });
 
+  test(`${name}: Clear on the Recent line erases the list, keeps the box focused, and a new search brings one row back (#642)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
+    await p.click('#q');
+    for (const w of ['osprey', 'bear']) await send(p, w);
+    await p.click('#qclr');   // an empty box shows the Recent list
+    await p.waitForSelector('#sug .sgh a', { timeout: 15000 });
+    assert.equal(await p.evaluate(() => document.querySelector('#sug .sgh a').textContent), 'Clear');
+    assert.equal(await p.evaluate(() => { const r = document.querySelector('#sug .sgh a').getBoundingClientRect(); return r.height >= 44; }), true, 'a 44 px tap area');
+    assert.equal(await p.evaluate(() => document.querySelectorAll('#sug .sgh').length), 1, 'the link is on the one Recent line, not a row');
+    await p.evaluate(() => document.querySelector('#sug .sgh a').click());
+    assert.deepEqual(await stored(p), [], 'the stored list is empty');
+    assert.equal(await p.evaluate(() => document.getElementById('sug').hidden), true, 'no label and no rows are left');
+    assert.equal(await p.evaluate(() => document.activeElement && document.activeElement.id), 'q', 'the box keeps its focus');
+    await send(p, 'elk');
+    assert.deepEqual((await stored(p)).map((x) => x.q), ['elk'], 'a new search is remembered again');
+    assert.deepEqual(t.errors, []); await b.close();
+  });
   test(`${name}: a row opened from the dropdown is remembered as that row`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
