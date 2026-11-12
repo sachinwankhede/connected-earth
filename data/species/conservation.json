@@ -518,5 +518,2569 @@
  "anser albifrons": {
   "c": "LC",
   "q": "Q172093"
+ },
+ "anser anser": {
+  "c": "LC",
+  "q": "Q25882"
+ },
+ "anser brachyrhynchus": {
+  "c": "LC",
+  "q": "Q209419"
+ },
+ "anser caerulescens": {
+  "c": "LC",
+  "q": "Q27074540"
+ },
+ "anseranas semipalmata": {
+  "c": "LC",
+  "q": "Q212937"
+ },
+ "antheraea polyphemus": {
+  "c": "LC",
+  "q": "Q1758845"
+ },
+ "anthornis melanura": {
+  "c": "LC",
+  "q": "Q394708"
+ },
+ "anthracoceros albirostris": {
+  "c": "LC",
+  "q": "Q640999"
+ },
+ "anthropoides virgo": {
+  "c": "LC",
+  "q": "Q191683"
+ },
+ "anthus rubescens": {
+  "c": "LC",
+  "q": "Q871527"
+ },
+ "antidesma montanum": {
+  "c": "LC",
+  "q": "Q11044855"
+ },
+ "antidorcas marsupialis": {
+  "c": "LC",
+  "q": "Q213084"
+ },
+ "antilocapra americana": {
+  "c": "LC",
+  "q": "Q187943"
+ },
+ "antrozous pallidus": {
+  "c": "LC",
+  "q": "Q301105"
+ },
+ "aphelocoma californica": {
+  "c": "LC",
+  "q": "Q848772"
+ },
+ "aplodinotus grunniens": {
+  "c": "LC",
+  "q": "Q1961720"
+ },
+ "apodemus agrarius": {
+  "c": "LC",
+  "q": "Q631822"
+ },
+ "apodemus draco": {
+  "c": "LC",
+  "q": "Q1770765"
+ },
+ "apodemus flavicollis": {
+  "c": "LC",
+  "q": "Q216871"
+ },
+ "apodemus speciosus": {
+  "c": "LC",
+  "q": "Q305911"
+ },
+ "apodemus sylvaticus": {
+  "c": "LC",
+  "q": "Q212185"
+ },
+ "apodemus uralensis": {
+  "c": "LC",
+  "q": "Q3325387"
+ },
+ "aptenodytes patagonicus": {
+  "c": "LC",
+  "q": "Q182209"
+ },
+ "apteryx australis": {
+  "c": "VU",
+  "q": "Q667778"
+ },
+ "aquila adalberti": {
+  "c": "VU",
+  "q": "Q499568"
+ },
+ "aquila audax": {
+  "c": "LC",
+  "q": "Q752465"
+ },
+ "aquila chrysaetos": {
+  "c": "LC",
+  "q": "Q41181"
+ },
+ "aquila fasciata": {
+  "c": "LC",
+  "q": "Q234722"
+ },
+ "aquila rapax": {
+  "c": "VU",
+  "q": "Q374141"
+ },
+ "aquila verreauxii": {
+  "c": "LC",
+  "q": "Q747827"
+ },
+ "ara ambiguus": {
+  "c": "CR",
+  "q": "Q846974"
+ },
+ "ara macao": {
+  "c": "LC",
+  "q": "Q243761"
+ },
+ "aralia elata": {
+  "c": "LC",
+  "q": "Q284736"
+ },
+ "aralia spinosa": {
+  "c": "LC",
+  "q": "Q2666305"
+ },
+ "aramus guarauna": {
+  "c": "LC",
+  "q": "Q725276"
+ },
+ "arbutus menziesii": {
+  "c": "LC",
+  "q": "Q469695"
+ },
+ "archilochus alexandri": {
+  "c": "LC",
+  "q": "Q973463"
+ },
+ "arctocephalus australis": {
+  "c": "LC",
+  "q": "Q649127"
+ },
+ "arctocephalus pusillus": {
+  "c": "LC",
+  "q": "Q466597"
+ },
+ "arctonyx collaris": {
+  "c": "VU",
+  "q": "Q744382"
+ },
+ "arctostaphylos glauca": {
+  "c": "LC",
+  "q": "Q4787664"
+ },
+ "arctostaphylos pringlei": {
+  "c": "LC",
+  "q": "Q15370920"
+ },
+ "arctostaphylos pungens": {
+  "c": "LC",
+  "q": "Q625137"
+ },
+ "arctostaphylos viscida": {
+  "c": "LC",
+  "q": "Q2083805"
+ },
+ "ardea alba": {
+  "c": "LC",
+  "q": "Q130730"
+ },
+ "ardea cinerea": {
+  "c": "LC",
+  "q": "Q25273"
+ },
+ "ardea herodias": {
+  "c": "LC",
+  "q": "Q333796"
+ },
+ "ardea melanocephala": {
+  "c": "LC",
+  "q": "Q220578"
+ },
+ "ardea purpurea": {
+  "c": "LC",
+  "q": "Q160488"
+ },
+ "ardenna carneipes": {
+  "c": "NT",
+  "q": "Q27074607"
+ },
+ "ardenna pacifica": {
+  "c": "LC",
+  "q": "Q27074601"
+ },
+ "ardisia escallonioides": {
+  "c": "LC",
+  "q": "Q15324277"
+ },
+ "arenga obtusifolia": {
+  "c": "LC",
+  "q": "Q12493895"
+ },
+ "argentina anserina": {
+  "c": "LC",
+  "q": "Q64061702"
+ },
+ "argia vivida": {
+  "c": "LC",
+  "q": "Q2078607"
+ },
+ "arizona elegans": {
+  "c": "LC",
+  "q": "Q670937"
+ },
+ "artemisia tridentata": {
+  "c": "LC",
+  "q": "Q2117903"
+ },
+ "artemisiospiza nevadensis": {
+  "c": "LC",
+  "q": "Q16326572"
+ },
+ "artibeus jamaicensis": {
+  "c": "LC",
+  "q": "Q301175"
+ },
+ "artibeus lituratus": {
+  "c": "LC",
+  "q": "Q306460"
+ },
+ "arundo donax": {
+  "c": "LC",
+  "q": "Q161114"
+ },
+ "arvicanthis abyssinicus": {
+  "c": "LC",
+  "q": "Q1769759"
+ },
+ "arvicanthis niloticus": {
+  "c": "LC",
+  "q": "Q515126"
+ },
+ "arvicola amphibius": {
+  "c": "LC",
+  "q": "Q27016"
+ },
+ "asclepias exaltata": {
+  "c": "LC",
+  "q": "Q4803909"
+ },
+ "asclepias incarnata": {
+  "c": "LC",
+  "q": "Q1057909"
+ },
+ "asimina obovata": {
+  "c": "LC",
+  "q": "Q15399352"
+ },
+ "asimina triloba": {
+  "c": "LC",
+  "q": "Q948827"
+ },
+ "asio flammeus": {
+  "c": "LC",
+  "q": "Q25769"
+ },
+ "asio stygius": {
+  "c": "LC",
+  "q": "Q1263556"
+ },
+ "astragalus calycosus": {
+  "c": "LC",
+  "q": "Q2868504"
+ },
+ "astragalus crassicarpus": {
+  "c": "LC",
+  "q": "Q289308"
+ },
+ "astragalus miser": {
+  "c": "LC",
+  "q": "Q15520179"
+ },
+ "astragalus missouriensis": {
+  "c": "LC",
+  "q": "Q4811255"
+ },
+ "astrapia splendidissima": {
+  "c": "LC",
+  "q": "Q2116065"
+ },
+ "astrocaryum standleyanum": {
+  "c": "LC",
+  "q": "Q5709993"
+ },
+ "astrochelys radiata": {
+  "c": "CR",
+  "q": "Q630954"
+ },
+ "ateles paniscus": {
+  "c": "VU",
+  "q": "Q781191"
+ },
+ "athene cunicularia": {
+  "c": "LC",
+  "q": "Q467068"
+ },
+ "athene noctua": {
+  "c": "LC",
+  "q": "Q129958"
+ },
+ "atheris nitschei": {
+  "c": "LC",
+  "q": "Q2655700"
+ },
+ "atlides halesus": {
+  "c": "LC",
+  "q": "Q1943268"
+ },
+ "atractosteus spatula": {
+  "c": "LC",
+  "q": "Q522735"
+ },
+ "atriplex halimus": {
+  "c": "LC",
+  "q": "Q1974321"
+ },
+ "attalea phalerata": {
+  "c": "LC",
+  "q": "Q4818080"
+ },
+ "auriparus flaviceps": {
+  "c": "LC",
+  "q": "Q1300274"
+ },
+ "avena sterilis": {
+  "c": "LC",
+  "q": "Q1668559"
+ },
+ "avicennia germinans": {
+  "c": "LC",
+  "q": "Q570551"
+ },
+ "avicennia marina": {
+  "c": "LC",
+  "q": "Q312094"
+ },
+ "axis axis": {
+  "c": "LC",
+  "q": "Q232054"
+ },
+ "aythya affinis": {
+  "c": "LC",
+  "q": "Q833243"
+ },
+ "aythya collaris": {
+  "c": "LC",
+  "q": "Q601055"
+ },
+ "aythya valisineria": {
+  "c": "LC",
+  "q": "Q378533"
+ },
+ "azorella compacta": {
+  "c": "LC",
+  "q": "Q551995"
+ },
+ "baccharis halimifolia": {
+  "c": "LC",
+  "q": "Q948018"
+ },
+ "baccharis salicifolia": {
+  "c": "LC",
+  "q": "Q4838650"
+ },
+ "baeolophus atricristatus": {
+  "c": "LC",
+  "q": "Q2891234"
+ },
+ "baeolophus bicolor": {
+  "c": "LC",
+  "q": "Q738534"
+ },
+ "baeolophus inornatus": {
+  "c": "LC",
+  "q": "Q2889018"
+ },
+ "baikiaea plurijuga": {
+  "c": "LC",
+  "q": "Q3846806"
+ },
+ "balaeniceps rex": {
+  "c": "VU",
+  "q": "Q18700"
+ },
+ "balaenoptera physalus": {
+  "c": "VU",
+  "q": "Q179020"
+ },
+ "balearica pavonina": {
+  "c": "VU",
+  "q": "Q379761"
+ },
+ "barringtonia acutangula": {
+  "c": "LC",
+  "q": "Q2248481"
+ },
+ "basilinna leucotis": {
+  "c": "LC",
+  "q": "Q997393"
+ },
+ "battus philenor": {
+  "c": "LC",
+  "q": "Q1758032"
+ },
+ "bertholletia excelsa": {
+  "c": "VU",
+  "q": "Q81671"
+ },
+ "bettongia lesueur": {
+  "c": "NT",
+  "q": "Q209763"
+ },
+ "betula alleghaniensis": {
+  "c": "LC",
+  "q": "Q1499241"
+ },
+ "betula ermanii": {
+  "c": "LC",
+  "q": "Q163544"
+ },
+ "betula lenta": {
+  "c": "LC",
+  "q": "Q227763"
+ },
+ "betula occidentalis": {
+  "c": "LC",
+  "q": "Q3926712"
+ },
+ "betula papyrifera": {
+  "c": "LC",
+  "q": "Q76971"
+ },
+ "betula pendula": {
+  "c": "LC",
+  "q": "Q156895"
+ },
+ "betula pubescens": {
+  "c": "LC",
+  "q": "Q157624"
+ },
+ "bidens frondosa": {
+  "c": "LC",
+  "q": "Q1560642"
+ },
+ "birgus latro": {
+  "c": "VU",
+  "q": "Q206070"
+ },
+ "bison bison": {
+  "c": "NT",
+  "q": "Q82728"
+ },
+ "bison bonasus": {
+  "c": "NT",
+  "q": "Q81091"
+ },
+ "bitis nasicornis": {
+  "c": "VU",
+  "q": "Q2187394"
+ },
+ "bitis peringueyi": {
+  "c": "LC",
+  "q": "Q244298"
+ },
+ "blarina brevicauda": {
+  "c": "LC",
+  "q": "Q1766543"
+ },
+ "blastocerus dichotomus": {
+  "c": "VU",
+  "q": "Q504501"
+ },
+ "boa constrictor": {
+  "c": "LC",
+  "q": "Q215388"
+ },
+ "boa imperator": {
+  "c": "LC",
+  "q": "Q58741252"
+ },
+ "bocconia frutescens": {
+  "c": "LC",
+  "q": "Q5730997"
+ },
+ "bolbometopon muricatum": {
+  "c": "VU",
+  "q": "Q2343773"
+ },
+ "bolboschoenus maritimus": {
+  "c": "LC",
+  "q": "Q159163"
+ },
+ "boleophthalmus boddarti": {
+  "c": "LC",
+  "q": "Q2732656"
+ },
+ "bombus affinis": {
+  "c": "CR",
+  "q": "Q2297570"
+ },
+ "bombus appositus": {
+  "c": "LC",
+  "q": "Q1819003"
+ },
+ "bombus auricomus": {
+  "c": "LC",
+  "q": "Q2355391"
+ },
+ "bombus bifarius": {
+  "c": "LC",
+  "q": "Q4676197"
+ },
+ "bombus bimaculatus": {
+  "c": "LC",
+  "q": "Q2389840"
+ },
+ "bombus borealis": {
+  "c": "LC",
+  "q": "Q2656536"
+ },
+ "bombus centralis": {
+  "c": "LC",
+  "q": "Q3955044"
+ },
+ "bombus citrinus": {
+  "c": "LC",
+  "q": "Q2233080"
+ },
+ "bombus fervidus": {
+  "c": "VU",
+  "q": "Q1929138"
+ },
+ "bombus flavifrons": {
+  "c": "LC",
+  "q": "Q4310121"
+ },
+ "bombus frigidus": {
+  "c": "LC",
+  "q": "Q4025935"
+ },
+ "bombus griseocollis": {
+  "c": "LC",
+  "q": "Q2163571"
+ },
+ "bombus huntii": {
+  "c": "LC",
+  "q": "Q928088"
+ },
+ "bombus impatiens": {
+  "c": "LC",
+  "q": "Q2367709"
+ },
+ "bombus melanopygus": {
+  "c": "LC",
+  "q": "Q2231933"
+ },
+ "bombus mixtus": {
+  "c": "LC",
+  "q": "Q1815716"
+ },
+ "bombus morrisoni": {
+  "c": "VU",
+  "q": "Q2627654"
+ },
+ "bombus nevadensis": {
+  "c": "LC",
+  "q": "Q3188548"
+ },
+ "bombus occidentalis": {
+  "c": "VU",
+  "q": "Q2268277"
+ },
+ "bombus pascuorum": {
+  "c": "LC",
+  "q": "Q267532"
+ },
+ "bombus pensylvanicus": {
+  "c": "VU",
+  "q": "Q726901"
+ },
+ "bombus perplexus": {
+  "c": "LC",
+  "q": "Q2000036"
+ },
+ "bombus rufocinctus": {
+  "c": "LC",
+  "q": "Q2088072"
+ },
+ "bombus sandersoni": {
+  "c": "LC",
+  "q": "Q1974809"
+ },
+ "bombus sitkensis": {
+  "c": "LC",
+  "q": "Q2143140"
+ },
+ "bombus sylvicola": {
+  "c": "LC",
+  "q": "Q1911644"
+ },
+ "bombus ternarius": {
+  "c": "LC",
+  "q": "Q4451416"
+ },
+ "bombus terricola": {
+  "c": "VU",
+  "q": "Q2093558"
+ },
+ "bombus vagans": {
+  "c": "LC",
+  "q": "Q2795860"
+ },
+ "bombus vosnesenskii": {
+  "c": "LC",
+  "q": "Q2483447"
+ },
+ "bombycilla cedrorum": {
+  "c": "LC",
+  "q": "Q184314"
+ },
+ "bonasa umbellus": {
+  "c": "LC",
+  "q": "Q19058"
+ },
+ "bos gaurus": {
+  "c": "VU",
+  "q": "Q174296"
+ },
+ "bos javanicus": {
+  "c": "CR",
+  "q": "Q183035"
+ },
+ "boselaphus tragocamelus": {
+  "c": "LC",
+  "q": "Q200444"
+ },
+ "bothrops asper": {
+  "c": "LC",
+  "q": "Q384987"
+ },
+ "bothrops atrox": {
+  "c": "LC",
+  "q": "Q900848"
+ },
+ "bothrops jararaca": {
+  "c": "LC",
+  "q": "Q1501285"
+ },
+ "bourreria succulenta": {
+  "c": "LC",
+  "q": "Q17415462"
+ },
+ "bouteloua gracilis": {
+  "c": "LC",
+  "q": "Q2922605"
+ },
+ "brachyteles arachnoides": {
+  "c": "CR",
+  "q": "Q1140418"
+ },
+ "bradypus variegatus": {
+  "c": "LC",
+  "q": "Q148752"
+ },
+ "branta bernicla": {
+  "c": "LC",
+  "q": "Q27050"
+ },
+ "branta canadensis": {
+  "c": "LC",
+  "q": "Q26733"
+ },
+ "branta leucopsis": {
+  "c": "LC",
+  "q": "Q26680"
+ },
+ "branta sandvicensis": {
+  "c": "NT",
+  "q": "Q687695"
+ },
+ "brasenia schreberi": {
+  "c": "LC",
+  "q": "Q10913294"
+ },
+ "brevoortia patronus": {
+  "c": "LC",
+  "q": "Q2053687"
+ },
+ "brevoortia tyrannus": {
+  "c": "LC",
+  "q": "Q756893"
+ },
+ "bridelia ferruginea": {
+  "c": "LC",
+  "q": "Q15512160"
+ },
+ "bronchocela cristatella": {
+  "c": "LC",
+  "q": "Q2709389"
+ },
+ "brosimum alicastrum": {
+  "c": "LC",
+  "q": "Q990886"
+ },
+ "brosimum lactescens": {
+  "c": "LC",
+  "q": "Q15435291"
+ },
+ "broussonetia papyrifera": {
+  "c": "LC",
+  "q": "Q389185"
+ },
+ "bubo ascalaphus": {
+  "c": "LC",
+  "q": "Q584597"
+ },
+ "bubo blakistoni": {
+  "c": "VU",
+  "q": "Q1137288"
+ },
+ "bubo scandiacus": {
+  "c": "VU",
+  "q": "Q170177"
+ },
+ "bubo virginianus": {
+  "c": "LC",
+  "q": "Q81515"
+ },
+ "buceros bicornis": {
+  "c": "VU",
+  "q": "Q232768"
+ },
+ "buceros rhinoceros": {
+  "c": "VU",
+  "q": "Q751036"
+ },
+ "budorcas taxicolor": {
+  "c": "VU",
+  "q": "Q193469"
+ },
+ "bufo bufo": {
+  "c": "LC",
+  "q": "Q146375"
+ },
+ "bulbostylis capillaris": {
+  "c": "LC",
+  "q": "Q4996080"
+ },
+ "burkea africana": {
+  "c": "LC",
+  "q": "Q149739"
+ },
+ "bursera simaruba": {
+  "c": "LC",
+  "q": "Q164698"
+ },
+ "buteo augur": {
+  "c": "LC",
+  "q": "Q760623"
+ },
+ "buteo buteo": {
+  "c": "LC",
+  "q": "Q25385"
+ },
+ "buteo galapagoensis": {
+  "c": "VU",
+  "q": "Q840141"
+ },
+ "buteo jamaicensis": {
+  "c": "LC",
+  "q": "Q457471"
+ },
+ "buteo japonicus": {
+  "c": "LC",
+  "q": "Q1152577"
+ },
+ "buteo lineatus": {
+  "c": "LC",
+  "q": "Q1052043"
+ },
+ "buteo oreophilus": {
+  "c": "NT",
+  "q": "Q819471"
+ },
+ "buteo platypterus": {
+  "c": "LC",
+  "q": "Q1075004"
+ },
+ "buteo regalis": {
+  "c": "LC",
+  "q": "Q1072109"
+ },
+ "buteo ridgwayi": {
+  "c": "CR",
+  "q": "Q1273226"
+ },
+ "buteo rufinus": {
+  "c": "LC",
+  "q": "Q233684"
+ },
+ "buteo rufofuscus": {
+  "c": "LC",
+  "q": "Q1266370"
+ },
+ "buteo socotraensis": {
+  "c": "VU",
+  "q": "Q1265023"
+ },
+ "buteo solitarius": {
+  "c": "NT",
+  "q": "Q1275471"
+ },
+ "buteo swainsoni": {
+  "c": "LC",
+  "q": "Q833963"
+ },
+ "buteogallus meridionalis": {
+  "c": "LC",
+  "q": "Q600791"
+ },
+ "butomus umbellatus": {
+  "c": "LC",
+  "q": "Q18461"
+ },
+ "bycanistes fistulator": {
+  "c": "LC",
+  "q": "Q746019"
+ },
+ "caiman crocodilus": {
+  "c": "LC",
+  "q": "Q272582"
+ },
+ "caiman yacare": {
+  "c": "LC",
+  "q": "Q756678"
+ },
+ "calamagrostis canadensis": {
+  "c": "LC",
+  "q": "Q5018360"
+ },
+ "calcarius lapponicus": {
+  "c": "LC",
+  "q": "Q208703"
+ },
+ "calidris alpina": {
+  "c": "NT",
+  "q": "Q26650"
+ },
+ "calidris canutus": {
+  "c": "NT",
+  "q": "Q27124"
+ },
+ "calidris melanotos": {
+  "c": "LC",
+  "q": "Q260716"
+ },
+ "calla palustris": {
+  "c": "LC",
+  "q": "Q175886"
+ },
+ "callicarpa americana": {
+  "c": "LC",
+  "q": "Q151067"
+ },
+ "callipepla californica": {
+  "c": "LC",
+  "q": "Q830385"
+ },
+ "callipepla gambelii": {
+  "c": "LC",
+  "q": "Q1007906"
+ },
+ "callosciurus erythraeus": {
+  "c": "LC",
+  "q": "Q860603"
+ },
+ "callosciurus finlaysonii": {
+  "c": "LC",
+  "q": "Q2086835"
+ },
+ "callosciurus prevostii": {
+  "c": "LC",
+  "q": "Q13426343"
+ },
+ "callospermophilus lateralis": {
+  "c": "LC",
+  "q": "Q21727451"
+ },
+ "calocedrus decurrens": {
+  "c": "LC",
+  "q": "Q1399164"
+ },
+ "calocedrus macrolepis": {
+  "c": "NT",
+  "q": "Q141100"
+ },
+ "calopogon tuberosus": {
+  "c": "LC",
+  "q": "Q1596367"
+ },
+ "calotes calotes": {
+  "c": "LC",
+  "q": "Q2705165"
+ },
+ "calotes versicolor": {
+  "c": "LC",
+  "q": "Q41489"
+ },
+ "caltha palustris": {
+  "c": "LC",
+  "q": "Q147192"
+ },
+ "calypte anna": {
+  "c": "LC",
+  "q": "Q564265"
+ },
+ "calypte costae": {
+  "c": "LC",
+  "q": "Q579713"
+ },
+ "calystegia sepium": {
+  "c": "LC",
+  "q": "Q161704"
+ },
+ "campephilus magellanicus": {
+  "c": "LC",
+  "q": "Q284331"
+ },
+ "campylorhynchus brunneicapillus": {
+  "c": "LC",
+  "q": "Q969006"
+ },
+ "candoia bibroni": {
+  "c": "LC",
+  "q": "Q387334"
+ },
+ "canis adustus": {
+  "c": "LC",
+  "q": "Q208079"
+ },
+ "canis aureus": {
+  "c": "LC",
+  "q": "Q128098"
+ },
+ "canis latrans": {
+  "c": "LC",
+  "q": "Q44299"
+ },
+ "canis lupaster": {
+  "c": "LC",
+  "q": "Q105272263"
+ },
+ "canis lupus": {
+  "c": "LC",
+  "q": "Q18498"
+ },
+ "canis lupus chanco": {
+  "c": "VU",
+  "q": "Q266883"
+ },
+ "canotia holacantha": {
+  "c": "LC",
+  "q": "Q5033459"
+ },
+ "capra aegagrus": {
+  "c": "NT",
+  "q": "Q178228"
+ },
+ "capra ibex": {
+  "c": "LC",
+  "q": "Q168327"
+ },
+ "capra nubiana": {
+  "c": "VU",
+  "q": "Q328516"
+ },
+ "capra pyrenaica": {
+  "c": "LC",
+  "q": "Q549108"
+ },
+ "capra sibirica": {
+  "c": "NT",
+  "q": "Q754947"
+ },
+ "capra walie": {
+  "c": "CR",
+  "q": "Q257838"
+ },
+ "capreolus capreolus": {
+  "c": "LC",
+  "q": "Q122069"
+ },
+ "capreolus pygargus": {
+  "c": "LC",
+  "q": "Q501491"
+ },
+ "capricornis sumatraensis": {
+  "c": "VU",
+  "q": "Q431337"
+ },
+ "capricornis swinhoei": {
+  "c": "LC",
+  "q": "Q715983"
+ },
+ "capromys pilorides": {
+  "c": "LC",
+  "q": "Q836308"
+ },
+ "caracal aurata": {
+  "c": "VU",
+  "q": "Q23752930"
+ },
+ "caracal caracal": {
+  "c": "LC",
+  "q": "Q30847"
+ },
+ "caracara plancus": {
+  "c": "LC",
+  "q": "Q755119"
+ },
+ "caranx ignobilis": {
+  "c": "LC",
+  "q": "Q1994256"
+ },
+ "carcharhinus galapagensis": {
+  "c": "LC",
+  "q": "Q83722"
+ },
+ "carcharhinus leucas": {
+  "c": "VU",
+  "q": "Q190469"
+ },
+ "carcharhinus limbatus": {
+  "c": "VU",
+  "q": "Q125236"
+ },
+ "carcharhinus melanopterus": {
+  "c": "VU",
+  "q": "Q726384"
+ },
+ "carcharodon carcharias": {
+  "c": "VU",
+  "q": "Q129026"
+ },
+ "cardinalis cardinalis": {
+  "c": "LC",
+  "q": "Q726389"
+ },
+ "cardinalis sinuatus": {
+  "c": "LC",
+  "q": "Q166985"
+ },
+ "caretta caretta": {
+  "c": "VU",
+  "q": "Q192095"
+ },
+ "carex aquatilis": {
+  "c": "LC",
+  "q": "Q159025"
+ },
+ "carex arcta": {
+  "c": "LC",
+  "q": "Q2938263"
+ },
+ "carex atherodes": {
+  "c": "LC",
+  "q": "Q158020"
+ },
+ "carex bicolor": {
+  "c": "LC",
+  "q": "Q2076996"
+ },
+ "carex canescens": {
+  "c": "LC",
+  "q": "Q157766"
+ },
+ "carex comosa": {
+  "c": "LC",
+  "q": "Q1937329"
+ },
+ "carex debilis": {
+  "c": "LC",
+  "q": "Q15568294"
+ },
+ "carex digitalis": {
+  "c": "LC",
+  "q": "Q2938492"
+ },
+ "carex fissa": {
+  "c": "LC",
+  "q": "Q15570414"
+ },
+ "carex folliculata": {
+  "c": "LC",
+  "q": "Q6736718"
+ },
+ "carex hystericina": {
+  "c": "LC",
+  "q": "Q5039097"
+ },
+ "carex interior": {
+  "c": "LC",
+  "q": "Q2708829"
+ },
+ "carex intumescens": {
+  "c": "LC",
+  "q": "Q282763"
+ },
+ "carex leptalea": {
+  "c": "LC",
+  "q": "Q5039103"
+ },
+ "carex lupulina": {
+  "c": "LC",
+  "q": "Q15578678"
+ },
+ "carex lurida": {
+  "c": "LC",
+  "q": "Q15578849"
+ },
+ "carex magellanica": {
+  "c": "LC",
+  "q": "Q15546354"
+ },
+ "carex oederi": {
+  "c": "LC",
+  "q": "Q19608511"
+ },
+ "carex pellita": {
+  "c": "LC",
+  "q": "Q5039115"
+ },
+ "carex prairea": {
+  "c": "LC",
+  "q": "Q15580416"
+ },
+ "carex prasina": {
+  "c": "LC",
+  "q": "Q15580652"
+ },
+ "carex retrorsa": {
+  "c": "LC",
+  "q": "Q15581403"
+ },
+ "carex scabrata": {
+  "c": "LC",
+  "q": "Q15579836"
+ },
+ "carex stylosa": {
+  "c": "LC",
+  "q": "Q15580799"
+ },
+ "carex utriculata": {
+  "c": "LC",
+  "q": "Q2078054"
+ },
+ "carex vulpinoidea": {
+  "c": "LC",
+  "q": "Q159781"
+ },
+ "cariama cristata": {
+  "c": "LC",
+  "q": "Q903662"
+ },
+ "carlia bicarinata": {
+  "c": "LC",
+  "q": "Q664288"
+ },
+ "carnegiea gigantea": {
+  "c": "LC",
+  "q": "Q275573"
+ },
+ "carollia perspicillata": {
+  "c": "LC",
+  "q": "Q302191"
+ },
+ "carpinus betulus": {
+  "c": "LC",
+  "q": "Q158776"
+ },
+ "carya glabra": {
+  "c": "LC",
+  "q": "Q1406355"
+ },
+ "carya illinoinensis": {
+  "c": "LC",
+  "q": "Q333877"
+ },
+ "carya ovata": {
+  "c": "LC",
+  "q": "Q2601238"
+ },
+ "caryota urens": {
+  "c": "LC",
+  "q": "Q766995"
+ },
+ "castanea dentata": {
+  "c": "CR",
+  "q": "Q468698"
+ },
+ "castanea ozarkensis": {
+  "c": "NT",
+  "q": "Q5756707"
+ },
+ "castor canadensis": {
+  "c": "LC",
+  "q": "Q81056"
+ },
+ "castor fiber": {
+  "c": "LC",
+  "q": "Q181191"
+ },
+ "casuarina equisetifolia": {
+  "c": "LC",
+  "q": "Q857220"
+ },
+ "casuarius casuarius": {
+  "c": "LC",
+  "q": "Q375790"
+ },
+ "cathartes aura": {
+  "c": "LC",
+  "q": "Q245181"
+ },
+ "catharus guttatus": {
+  "c": "LC",
+  "q": "Q846350"
+ },
+ "catharus ustulatus": {
+  "c": "LC",
+  "q": "Q545006"
+ },
+ "catopuma temminckii": {
+  "c": "VU",
+  "q": "Q23772769"
+ },
+ "cavia aperea": {
+  "c": "LC",
+  "q": "Q679706"
+ },
+ "ceanothus spinosus": {
+  "c": "LC",
+  "q": "Q5055740"
+ },
+ "ceanothus thyrsiflorus": {
+  "c": "LC",
+  "q": "Q2943644"
+ },
+ "ceanothus velutinus": {
+  "c": "LC",
+  "q": "Q5055741"
+ },
+ "cecropia obtusifolia": {
+  "c": "LC",
+  "q": "Q2943761"
+ },
+ "cecropia pachystachya": {
+  "c": "LC",
+  "q": "Q15546547"
+ },
+ "cedrus libani": {
+  "c": "VU",
+  "q": "Q61105"
+ },
+ "ceiba pentandra": {
+  "c": "LC",
+  "q": "Q138617"
+ },
+ "celtis iguanaea": {
+  "c": "LC",
+  "q": "Q4744662"
+ },
+ "celtis laevigata": {
+  "c": "LC",
+  "q": "Q1529852"
+ },
+ "celtis occidentalis": {
+  "c": "LC",
+  "q": "Q470006"
+ },
+ "celtis pallida": {
+  "c": "LC",
+  "q": "Q15742425"
+ },
+ "cenchrus ciliaris": {
+  "c": "LC",
+  "q": "Q2715047"
+ },
+ "centronyx henslowii": {
+  "c": "LC",
+  "q": "Q28812523"
+ },
+ "cephalanthus occidentalis": {
+  "c": "LC",
+  "q": "Q4992358"
+ },
+ "cephalophus dorsalis": {
+  "c": "NT",
+  "q": "Q843594"
+ },
+ "cephalophus niger": {
+  "c": "LC",
+  "q": "Q786305"
+ },
+ "cephalophus nigrifrons": {
+  "c": "LC",
+  "q": "Q925118"
+ },
+ "cephalophus rufilatus": {
+  "c": "LC",
+  "q": "Q384617"
+ },
+ "cephalophus zebra": {
+  "c": "VU",
+  "q": "Q169446"
+ },
+ "cepphus columba": {
+  "c": "LC",
+  "q": "Q926867"
+ },
+ "cerastes cerastes": {
+  "c": "LC",
+  "q": "Q1476343"
+ },
+ "cerastes gasperettii": {
+  "c": "LC",
+  "q": "Q32814"
+ },
+ "ceratogymna atrata": {
+  "c": "NT",
+  "q": "Q998706"
+ },
+ "ceratogymna elata": {
+  "c": "VU",
+  "q": "Q852440"
+ },
+ "ceratotherium simum": {
+  "c": "NT",
+  "q": "Q159918"
+ },
+ "cercis canadensis": {
+  "c": "LC",
+  "q": "Q2452407"
+ },
+ "cercocarpus ledifolius": {
+  "c": "LC",
+  "q": "Q5063952"
+ },
+ "cercocarpus montanus": {
+  "c": "LC",
+  "q": "Q5063956"
+ },
+ "cercocebus atys": {
+  "c": "VU",
+  "q": "Q1365754"
+ },
+ "cercopithecus cephus": {
+  "c": "LC",
+  "q": "Q883005"
+ },
+ "cercopithecus mitis": {
+  "c": "LC",
+  "q": "Q667252"
+ },
+ "cercopithecus nictitans": {
+  "c": "NT",
+  "q": "Q1193818"
+ },
+ "cercyonis pegala": {
+  "c": "LC",
+  "q": "Q2674031"
+ },
+ "cerdocyon thous": {
+  "c": "LC",
+  "q": "Q321376"
+ },
+ "cereus hildmannianus": {
+  "c": "LC",
+  "q": "Q6653247"
+ },
+ "cereus insularis": {
+  "c": "LC",
+  "q": "Q956598"
+ },
+ "certhia americana": {
+  "c": "LC",
+  "q": "Q490294"
+ },
+ "certhia brachydactyla": {
+  "c": "LC",
+  "q": "Q125895"
+ },
+ "cervus canadensis": {
+  "c": "LC",
+  "q": "Q180404"
+ },
+ "cervus elaphus": {
+  "c": "LC",
+  "q": "Q79794"
+ },
+ "cervus nippon": {
+  "c": "LC",
+  "q": "Q190516"
+ },
+ "ceryle rudis": {
+  "c": "LC",
+  "q": "Q320043"
+ },
+ "chaerephon plicatus": {
+  "c": "LC",
+  "q": "Q2406428"
+ },
+ "chaetodipus baileyi": {
+  "c": "LC",
+  "q": "Q153608"
+ },
+ "chaetura pelagica": {
+  "c": "VU",
+  "q": "Q912863"
+ },
+ "chalcomitra balfouri": {
+  "c": "LC",
+  "q": "Q1924037"
+ },
+ "chamaea fasciata": {
+  "c": "LC",
+  "q": "Q1048896"
+ },
+ "chamaecrista nictitans": {
+  "c": "LC",
+  "q": "Q5069346"
+ },
+ "chamaeleo monachus": {
+  "c": "NT",
+  "q": "Q2948052"
+ },
+ "channa micropeltes": {
+  "c": "LC",
+  "q": "Q628790"
+ },
+ "charadrius vociferus": {
+  "c": "NT",
+  "q": "Q755737"
+ },
+ "charina bottae": {
+  "c": "LC",
+  "q": "Q302823"
+ },
+ "chasiempis sandwichensis": {
+  "c": "NT",
+  "q": "Q7217672"
+ },
+ "chauna torquata": {
+  "c": "LC",
+  "q": "Q602961"
+ },
+ "chelone glabra": {
+  "c": "LC",
+  "q": "Q5089995"
+ },
+ "chelonia mydas": {
+  "c": "LC",
+  "q": "Q199458"
+ },
+ "chilabothrus angulifer": {
+  "c": "LC",
+  "q": "Q372853"
+ },
+ "chilabothrus subflavus": {
+  "c": "VU",
+  "q": "Q2383035"
+ },
+ "chilopsis linearis": {
+  "c": "LC",
+  "q": "Q143161"
+ },
+ "chiococca alba": {
+  "c": "LC",
+  "q": "Q5101397"
+ },
+ "chionomys nivalis": {
+  "c": "LC",
+  "q": "Q282660"
+ },
+ "chiroxiphia linearis": {
+  "c": "LC",
+  "q": "Q942728"
+ },
+ "chloephaga hybrida": {
+  "c": "LC",
+  "q": "Q368251"
+ },
+ "chloephaga melanoptera": {
+  "c": "LC",
+  "q": "Q490327"
+ },
+ "chloephaga picta": {
+  "c": "LC",
+  "q": "Q129036"
+ },
+ "chloris radiata": {
+  "c": "LC",
+  "q": "Q15513163"
+ },
+ "chlorocebus sabaeus": {
+  "c": "LC",
+  "q": "Q857996"
+ },
+ "chlorodrepanis flava": {
+  "c": "NT",
+  "q": "Q27075778"
+ },
+ "chlorodrepanis virens": {
+  "c": "LC",
+  "q": "Q27075776"
+ },
+ "choloepus didactylus": {
+  "c": "LC",
+  "q": "Q752691"
+ },
+ "chrysobalanus icaco": {
+  "c": "LC",
+  "q": "Q577669"
+ },
+ "chrysocyon brachyurus": {
+  "c": "NT",
+  "q": "Q184389"
+ },
+ "chunga burmeisteri": {
+  "c": "LC",
+  "q": "Q933531"
+ },
+ "ciconia ciconia": {
+  "c": "LC",
+  "q": "Q25352"
+ },
+ "cinclus cinclus": {
+  "c": "LC",
+  "q": "Q201831"
+ },
+ "cinnamomum burmanni": {
+  "c": "LC",
+  "q": "Q4115136"
+ },
+ "cinnyris chalybeus": {
+  "c": "LC",
+  "q": "Q283677"
+ },
+ "cinnyris regius": {
+  "c": "LC",
+  "q": "Q2668527"
+ },
+ "circaetus gallicus": {
+  "c": "LC",
+  "q": "Q170251"
+ },
+ "circus aeruginosus": {
+  "c": "LC",
+  "q": "Q26431"
+ },
+ "circus approximans": {
+  "c": "LC",
+  "q": "Q605827"
+ },
+ "circus cyaneus": {
+  "c": "LC",
+  "q": "Q25572"
+ },
+ "circus hudsonius": {
+  "c": "LC",
+  "q": "Q2603050"
+ },
+ "cissus verticillata": {
+  "c": "LC",
+  "q": "Q2714097"
+ },
+ "citharexylum caudatum": {
+  "c": "LC",
+  "q": "Q15493526"
+ },
+ "citharexylum spinosum": {
+  "c": "LC",
+  "q": "Q1524349"
+ },
+ "civettictis civetta": {
+  "c": "LC",
+  "q": "Q241256"
+ },
+ "clerodendrum bungei": {
+  "c": "LC",
+  "q": "Q12837820"
+ },
+ "clethrionomys glareolus": {
+  "c": "LC",
+  "q": "Q50407592"
+ },
+ "clupea harengus": {
+  "c": "LC",
+  "q": "Q2396858"
+ },
+ "coccoloba diversifolia": {
+  "c": "LC",
+  "q": "Q291763"
+ },
+ "coccoloba uvifera": {
+  "c": "LC",
+  "q": "Q279494"
+ },
+ "coccothraustes coccothraustes": {
+  "c": "LC",
+  "q": "Q174088"
+ },
+ "coccyzus longirostris": {
+  "c": "LC",
+  "q": "Q1274623"
+ },
+ "coereba flaveola": {
+  "c": "LC",
+  "q": "Q228125"
+ },
+ "colaptes auratus": {
+  "c": "LC",
+  "q": "Q16819"
+ },
+ "colias eurytheme": {
+  "c": "LC",
+  "q": "Q1944775"
+ },
+ "colobus angolensis": {
+  "c": "VU",
+  "q": "Q541813"
+ },
+ "colobus guereza": {
+  "c": "LC",
+  "q": "Q628239"
+ },
+ "colobus satanas": {
+  "c": "VU",
+  "q": "Q521977"
+ },
+ "colophospermum mopane": {
+  "c": "LC",
+  "q": "Q641513"
+ },
+ "columba arquatrix": {
+  "c": "LC",
+  "q": "Q512840"
+ },
+ "columba janthina": {
+  "c": "LC",
+  "q": "Q495139"
+ },
+ "columba livia": {
+  "c": "LC",
+  "q": "Q42326"
+ },
+ "columba palumbus": {
+  "c": "LC",
+  "q": "Q26026"
+ },
+ "commelina erecta": {
+  "c": "LC",
+  "q": "Q2920683"
+ },
+ "connochaetes taurinus": {
+  "c": "LC",
+  "q": "Q328809"
+ },
+ "conocarpus erectus": {
+  "c": "LC",
+  "q": "Q2520560"
+ },
+ "contopus virens": {
+  "c": "LC",
+  "q": "Q606809"
+ },
+ "copernicia alba": {
+  "c": "LC",
+  "q": "Q2718997"
+ },
+ "copsychus malabaricus": {
+  "c": "LC",
+  "q": "Q27075635"
+ },
+ "coragyps atratus": {
+  "c": "LC",
+  "q": "Q213366"
+ },
+ "corallus ruschenbergerii": {
+  "c": "LC",
+  "q": "Q1937985"
+ },
+ "cordia subcordata": {
+  "c": "LC",
+  "q": "Q675926"
+ },
+ "coreopsis rosea": {
+  "c": "NT",
+  "q": "Q4232933"
+ },
+ "cornufer vitiensis": {
+  "c": "NT",
+  "q": "Q28058835"
+ },
+ "cornus alternifolia": {
+  "c": "LC",
+  "q": "Q639615"
+ },
+ "cornus amomum": {
+  "c": "LC",
+  "q": "Q2266551"
+ },
+ "cornus drummondii": {
+  "c": "LC",
+  "q": "Q187040"
+ },
+ "cornus florida": {
+  "c": "LC",
+  "q": "Q887221"
+ },
+ "cornus foemina": {
+  "c": "LC",
+  "q": "Q5171926"
+ },
+ "cornus mas": {
+  "c": "LC",
+  "q": "Q158642"
+ },
+ "cornus nuttallii": {
+  "c": "LC",
+  "q": "Q220777"
+ },
+ "cornus obliqua": {
+  "c": "LC",
+  "q": "Q17244868"
+ },
+ "cornus rugosa": {
+  "c": "LC",
+  "q": "Q15605468"
+ },
+ "cornus sericea": {
+  "c": "LC",
+  "q": "Q164130"
+ },
+ "corvus albicollis": {
+  "c": "LC",
+  "q": "Q907903"
+ },
+ "corvus brachyrhynchos": {
+  "c": "LC",
+  "q": "Q267735"
+ },
+ "corvus corax": {
+  "c": "LC",
+  "q": "Q25357"
+ },
+ "corvus corone": {
+  "c": "LC",
+  "q": "Q26198"
+ },
+ "corvus crassirostris": {
+  "c": "LC",
+  "q": "Q181561"
+ },
+ "corvus cryptoleucus": {
+  "c": "LC",
+  "q": "Q997604"
+ },
+ "corvus macrorhynchos": {
+  "c": "LC",
+  "q": "Q111674"
+ },
+ "corvus orru": {
+  "c": "LC",
+  "q": "Q1584645"
+ },
+ "corvus ossifragus": {
+  "c": "LC",
+  "q": "Q1420315"
+ },
+ "corvus ruficollis": {
+  "c": "LC",
+  "q": "Q420818"
+ },
+ "corvus tasmanicus": {
+  "c": "LC",
+  "q": "Q1299780"
+ },
+ "corylus americana": {
+  "c": "LC",
+  "q": "Q468659"
+ },
+ "corylus avellana": {
+  "c": "LC",
+  "q": "Q124969"
+ },
+ "corylus colurna": {
+  "c": "LC",
+  "q": "Q148939"
+ },
+ "corylus cornuta": {
+  "c": "LC",
+  "q": "Q972950"
+ },
+ "corymbia papuana": {
+  "c": "LC",
+  "q": "Q5173735"
+ },
+ "corynorhinus townsendii": {
+  "c": "LC",
+  "q": "Q1190041"
+ },
+ "corythaeola cristata": {
+  "c": "LC",
+  "q": "Q847182"
+ },
+ "coula edulis": {
+  "c": "LC",
+  "q": "Q2998754"
+ },
+ "crataegus crus-galli": {
+  "c": "LC",
+  "q": "Q916961"
+ },
+ "crataegus douglasii": {
+  "c": "LC",
+  "q": "Q918920"
+ },
+ "crataegus macrosperma": {
+  "c": "LC",
+  "q": "Q5182572"
+ },
+ "crataegus marshallii": {
+  "c": "LC",
+  "q": "Q5182573"
+ },
+ "crataegus mollis": {
+  "c": "LC",
+  "q": "Q2671022"
+ },
+ "crataegus spathulata": {
+  "c": "LC",
+  "q": "Q5182587"
+ },
+ "crataegus viridis": {
+  "c": "LC",
+  "q": "Q2084514"
+ },
+ "cricetomys gambianus": {
+  "c": "LC",
+  "q": "Q1770542"
+ },
+ "cricetulus migratorius": {
+  "c": "LC",
+  "q": "Q788391"
+ },
+ "cricetus cricetus": {
+  "c": "CR",
+  "q": "Q208077"
+ },
+ "crocodylus acutus": {
+  "c": "VU",
+  "q": "Q207836"
+ },
+ "crocodylus niloticus": {
+  "c": "LC",
+  "q": "Q168745"
+ },
+ "crocodylus palustris": {
+  "c": "VU",
+  "q": "Q81207"
+ },
+ "crocodylus porosus": {
+  "c": "LC",
+  "q": "Q182599"
+ },
+ "crocodylus rhombifer": {
+  "c": "CR",
+  "q": "Q242102"
+ },
+ "crocodylus siamensis": {
+  "c": "CR",
+  "q": "Q208277"
+ },
+ "crocothemis servilia": {
+  "c": "LC",
+  "q": "Q643655"
+ },
+ "crocuta crocuta": {
+  "c": "LC",
+  "q": "Q178089"
+ },
+ "crossarchus obscurus": {
+  "c": "LC",
+  "q": "Q947671"
+ },
+ "crossopteryx febrifuga": {
+  "c": "LC",
+  "q": "Q15435922"
+ },
+ "crotalus adamanteus": {
+  "c": "LC",
+  "q": "Q744532"
+ },
+ "crotalus atrox": {
+  "c": "LC",
+  "q": "Q222287"
+ },
+ "crotalus cerastes": {
+  "c": "LC",
+  "q": "Q1366532"
+ },
+ "crotalus horridus": {
+  "c": "LC",
+  "q": "Q1417249"
+ },
+ "crotalus oreganus": {
+  "c": "LC",
+  "q": "Q1810840"
+ },
+ "crotalus triseriatus": {
+  "c": "LC",
+  "q": "Q839889"
+ },
+ "crotalus viridis": {
+  "c": "LC",
+  "q": "Q1515347"
+ },
+ "crotaphytus collaris": {
+  "c": "LC",
+  "q": "Q912320"
+ },
+ "croton punctatus": {
+  "c": "LC",
+  "q": "Q3005005"
+ },
+ "croton socotranus": {
+  "c": "LC",
+  "q": "Q3005160"
+ },
+ "cryptomeria japonica": {
+  "c": "NT",
+  "q": "Q147388"
+ },
+ "cryptoprocta ferox": {
+  "c": "VU",
+  "q": "Q183330"
+ },
+ "ctenomys opimus": {
+  "c": "LC",
+  "q": "Q1764835"
+ },
+ "ctenomys pearsoni": {
+  "c": "NT",
+  "q": "Q1770037"
+ },
+ "ctenophorus nuchalis": {
+  "c": "LC",
+  "q": "Q3006470"
+ },
+ "cucurbita foetidissima": {
+  "c": "LC",
+  "q": "Q311136"
+ },
+ "cuniculus paca": {
+  "c": "LC",
+  "q": "Q33936"
+ },
+ "cupania americana": {
+  "c": "LC",
+  "q": "Q15547102"
+ },
+ "cyanea truncata": {
+  "c": "CR",
+  "q": "Q5197423"
+ },
+ "cyanocitta cristata": {
+  "c": "LC",
+  "q": "Q199758"
+ },
+ "cyanocitta stelleri": {
+  "c": "LC",
+  "q": "Q838749"
+ },
+ "cyclura cychlura": {
+  "c": "VU",
+  "q": "Q1285248"
+ },
+ "cygnus buccinator": {
+  "c": "LC",
+  "q": "Q733375"
+ },
+ "cygnus columbianus": {
+  "c": "LC",
+  "q": "Q26603"
+ },
+ "cygnus olor": {
+  "c": "LC",
+  "q": "Q25402"
+ },
+ "cylindropuntia acanthocarpa": {
+  "c": "LC",
+  "q": "Q309958"
+ },
+ "cylindropuntia echinocarpa": {
+  "c": "LC",
+  "q": "Q149437"
+ },
+ "cylindropuntia imbricata": {
+  "c": "LC",
+  "q": "Q311066"
+ },
+ "cylindropuntia leptocaulis": {
+  "c": "LC",
+  "q": "Q143948"
+ },
+ "cymodocea nodosa": {
+  "c": "LC",
+  "q": "Q2294077"
+ },
+ "cynomys gunnisoni": {
+  "c": "LC",
+  "q": "Q936978"
+ },
+ "cynomys leucurus": {
+  "c": "LC",
+  "q": "Q585213"
+ },
+ "cynomys ludovicianus": {
+  "c": "LC",
+  "q": "Q247142"
+ },
+ "cynopterus brachyotis": {
+  "c": "LC",
+  "q": "Q1770782"
+ },
+ "cynoscion nebulosus": {
+  "c": "LC",
+  "q": "Q3751557"
+ },
+ "cyperus esculentus": {
+  "c": "LC",
+  "q": "Q1165724"
+ },
+ "cyperus iria": {
+  "c": "LC",
+  "q": "Q42068"
+ },
+ "cyperus papyrus": {
+  "c": "LC",
+  "q": "Q158808"
+ },
+ "cyperus strigosus": {
+  "c": "LC",
+  "q": "Q5200210"
+ },
+ "cyprinus carpio": {
+  "c": "LC",
+  "q": "Q81110"
+ },
+ "cypripedium acaule": {
+  "c": "LC",
+  "q": "Q744706"
+ },
+ "cypripedium parviflorum": {
+  "c": "LC",
+  "q": "Q2631281"
+ },
+ "cypripedium reginae": {
+  "c": "LC",
+  "q": "Q977605"
+ },
+ "cypseloides senex": {
+  "c": "LC",
+  "q": "Q1089138"
+ },
+ "cyrilla racemiflora": {
+  "c": "LC",
+  "q": "Q140549"
+ },
+ "dacelo leachii": {
+  "c": "LC",
+  "q": "Q854856"
+ },
+ "dacelo novaeguineae": {
+  "c": "LC",
+  "q": "Q824974"
+ },
+ "dama dama": {
+  "c": "LC",
+  "q": "Q159857"
+ },
+ "damaliscus lunatus": {
+  "c": "LC",
+  "q": "Q545071"
+ },
+ "damaliscus pygargus": {
+  "c": "LC",
+  "q": "Q1009881"
+ },
+ "danaus gilippus": {
+  "c": "LC",
+  "q": "Q310836"
+ },
+ "danaus plexippus": {
+  "c": "LC",
+  "q": "Q212398"
+ },
+ "dasyprocta fuliginosa": {
+  "c": "LC",
+  "q": "Q1767371"
+ },
+ "dasyprocta leporina": {
+  "c": "LC",
+  "q": "Q775170"
+ },
+ "dasyprocta punctata": {
+  "c": "LC",
+  "q": "Q1762247"
+ },
+ "dasypus novemcinctus": {
+  "c": "LC",
+  "q": "Q649549"
+ },
+ "dasyurus albopunctatus": {
+  "c": "NT",
+  "q": "Q194250"
+ },
+ "dasyurus maculatus": {
+  "c": "NT",
+  "q": "Q194526"
+ },
+ "daucus carota": {
+  "c": "LC",
+  "q": "Q30056"
+ },
+ "decodon verticillatus": {
+  "c": "LC",
+  "q": "Q2123494"
+ },
+ "delphinapterus leucas": {
+  "c": "LC",
+  "q": "Q132072"
+ },
+ "dendrelaphis caudolineatus": {
+  "c": "LC",
+  "q": "Q2498136"
+ },
+ "dendrelaphis punctulatus": {
+  "c": "LC",
+  "q": "Q942734"
+ },
+ "dendroaspis jamesoni": {
+  "c": "LC",
+  "q": "Q1681355"
+ },
+ "dendrobates leucomelas": {
+  "c": "LC",
+  "q": "Q615690"
+ },
+ "dendrobates tinctorius": {
+  "c": "LC",
+  "q": "Q1478869"
+ },
+ "dendrocitta cinerascens": {
+  "c": "LC",
+  "q": "Q766640"
+ },
+ "dendrocopos leucotos": {
+  "c": "LC",
+  "q": "Q207290"
+ },
+ "dendrocopos major": {
+  "c": "LC",
+  "q": "Q26209"
+ },
+ "dendrocygna viduata": {
+  "c": "LC",
+  "q": "Q742574"
+ },
+ "dendrohyrax arboreus": {
+  "c": "LC",
+  "q": "Q608652"
+ },
+ "dendrohyrax validus": {
+  "c": "NT",
+  "q": "Q40426386"
+ },
+ "dendrolagus bennettianus": {
+  "c": "NT",
+  "q": "Q209132"
+ },
+ "dendromecon rigida": {
+  "c": "LC",
+  "q": "Q5256765"
+ },
+ "dendropanax caucanus": {
+  "c": "LC",
+  "q": "Q15551775"
+ },
+ "dendrosenecio keniodendron": {
+  "c": "LC",
+  "q": "Q1957585"
+ },
+ "dendrosenecio kilimanjari": {
+  "c": "LC",
+  "q": "Q1058569"
+ },
+ "dermatophyllum secundiflorum": {
+  "c": "LC",
+  "q": "Q56628426"
+ },
+ "dicerorhinus sumatrensis": {
+  "c": "CR",
+  "q": "Q29220"
+ },
+ "diceros bicornis": {
+  "c": "CR",
+  "q": "Q95036"
+ },
+ "dichrostachys cinerea": {
+  "c": "LC",
+  "q": "Q311432"
+ },
+ "dicranopteris linearis": {
+  "c": "LC",
+  "q": "Q3010111"
+ },
+ "dicrostonyx groenlandicus": {
+  "c": "LC",
+  "q": "Q1765394"
+ },
+ "dicrurus adsimilis": {
+  "c": "LC",
+  "q": "Q742259"
+ },
+ "dicrurus lophorinus": {
+  "c": "LC",
+  "q": "Q12256224"
+ },
+ "didelphis aurita": {
+  "c": "LC",
+  "q": "Q194238"
+ },
+ "didelphis virginiana": {
+  "c": "LC",
+  "q": "Q147267"
+ },
+ "dillenia indica": {
+  "c": "LC",
+  "q": "Q48334"
+ },
+ "dinaromys bogdanovi": {
+  "c": "VU",
+  "q": "Q1193293"
+ },
+ "diospyros lotus": {
+  "c": "LC",
+  "q": "Q771101"
+ },
+ "diospyros mespiliformis": {
+  "c": "LC",
+  "q": "Q311853"
+ },
+ "diospyros texana": {
+  "c": "LC",
+  "q": "Q5279625"
+ },
+ "diospyros virginiana": {
+  "c": "LC",
+  "q": "Q158356"
+ },
+ "dipodomys compactus": {
+  "c": "LC",
+  "q": "Q303588"
+ },
+ "dipodomys deserti": {
+  "c": "LC",
+  "q": "Q263504"
+ },
+ "dipodomys merriami": {
+  "c": "LC",
+  "q": "Q304884"
+ },
+ "dipodomys ordii": {
+  "c": "LC",
+  "q": "Q302232"
+ },
+ "dipodomys venustus": {
+  "c": "LC",
+  "q": "Q2703587"
+ },
+ "dipterocarpus zeylanicus": {
+  "c": "NT",
+  "q": "Q3025504"
+ },
+ "dipteryx oleifera": {
+  "c": "LC",
+  "q": "Q1221744"
+ },
+ "dipus sagitta": {
+  "c": "LC",
+  "q": "Q929776"
+ },
+ "distichlis spicata": {
+  "c": "LC",
+  "q": "Q3013802"
+ },
+ "doellingeria umbellata": {
+  "c": "LC",
+  "q": "Q5812336"
+ },
+ "dolichophis jugularis": {
+  "c": "LC",
+  "q": "Q996673"
+ },
+ "dolichotis patagonum": {
+  "c": "NT",
+  "q": "Q194313"
+ },
+ "dorcopsis luctuosa": {
+  "c": "VU",
+  "q": "Q209620"
+ },
+ "dorcopsis muelleri": {
+  "c": "LC",
+  "q": "Q209618"
+ },
+ "dorosoma cepedianum": {
+  "c": "LC",
+  "q": "Q2693645"
+ },
+ "doryteuthis gahi": {
+  "c": "LC",
+  "q": "Q13596602"
+ },
+ "dracaena cinnabari": {
+  "c": "VU",
+  "q": "Q133560"
+ },
+ "drepanis coccinea": {
+  "c": "VU",
+  "q": "Q27075754"
+ },
+ "dromas ardeola": {
+  "c": "LC",
+  "q": "Q213836"
+ },
+ "drosera rotundifolia": {
+  "c": "LC",
+  "q": "Q21187"
+ },
+ "dryobates pubescens": {
+  "c": "LC",
+  "q": "Q27074911"
+ },
+ "dryobates scalaris": {
+  "c": "LC",
+  "q": "Q27074907"
+ },
+ "dryolimnas cuvieri": {
+  "c": "LC",
+  "q": "Q1260361"
+ },
+ "dryophytes andersonii": {
+  "c": "LC",
+  "q": "Q32343941"
+ },
+ "drypetes deplanchei": {
+  "c": "LC",
+  "q": "Q5309790"
+ },
+ "ducula aenea": {
+  "c": "NT",
+  "q": "Q844860"
+ },
+ "ducula latrans": {
+  "c": "LC",
+  "q": "Q790648"
+ },
+ "ducula pacifica": {
+  "c": "LC",
+  "q": "Q855676"
+ },
+ "ducula pistrinaria": {
+  "c": "LC",
+  "q": "Q1264480"
+ },
+ "ducula rosacea": {
+  "c": "NT",
+  "q": "Q1261085"
+ },
+ "dugong dugon": {
+  "c": "VU",
+  "q": "Q129544"
+ },
+ "dulichium arundinaceum": {
+  "c": "LC",
+  "q": "Q10908000"
+ },
+ "dumetella carolinensis": {
+  "c": "LC",
+  "q": "Q831597"
+ },
+ "duttaphrynus melanostictus": {
+  "c": "LC",
+  "q": "Q28031739"
+ },
+ "echinacea laevigata": {
+  "c": "NT",
+  "q": "Q2650283"
+ },
+ "echinocactus horizonthalonius": {
+  "c": "LC",
+  "q": "Q141016"
+ },
+ "echinocactus polycephalus": {
+  "c": "LC",
+  "q": "Q310105"
+ },
+ "echinocereus coccineus": {
+  "c": "LC",
+  "q": "Q288539"
+ },
+ "echinocereus engelmannii": {
+  "c": "LC",
+  "q": "Q142731"
+ },
+ "echinocereus fasciculatus": {
+  "c": "LC",
+  "q": "Q1280374"
+ },
+ "echinocereus reichenbachii": {
+  "c": "LC",
+  "q": "Q148185"
+ },
+ "echinocereus triglochidiatus": {
+  "c": "LC",
+  "q": "Q144597"
+ },
+ "echinocereus viridiflorus": {
+  "c": "LC",
+  "q": "Q150223"
+ },
+ "egretta caerulea": {
+  "c": "LC",
+  "q": "Q371028"
+ },
+ "egretta garzetta": {
+  "c": "LC",
+  "q": "Q131709"
+ },
+ "egretta gularis": {
+  "c": "LC",
+  "q": "Q392570"
+ },
+ "egretta sacra": {
+  "c": "LC",
+  "q": "Q392232"
+ },
+ "eidolon helvum": {
+  "c": "NT",
+  "q": "Q33108"
+ },
+ "elaeagnus angustifolia": {
+  "c": "LC",
+  "q": "Q157969"
+ },
+ "elaeagnus commutata": {
+  "c": "LC",
+  "q": "Q159188"
+ },
+ "elaeagnus umbellata": {
+  "c": "LC",
+  "q": "Q367242"
+ },
+ "elaeis guineensis": {
+  "c": "LC",
+  "q": "Q165403"
+ },
+ "elaeocarpus sylvestris": {
+  "c": "LC",
+  "q": "Q5367459"
+ },
+ "elaphe dione": {
+  "c": "LC",
+  "q": "Q533192"
+ },
+ "electrona carlsbergi": {
+  "c": "LC",
+  "q": "Q2851522"
+ },
+ "eleocharis dulcis": {
+  "c": "LC",
+  "q": "Q932664"
+ },
+ "eleocharis macrostachya": {
+  "c": "LC",
+  "q": "Q5359217"
+ },
+ "eleocharis obtusa": {
+  "c": "LC",
+  "q": "Q5359219"
+ },
+ "eleocharis palustris": {
+  "c": "LC",
+  "q": "Q159020"
+ },
+ "eleusine indica": {
+  "c": "LC",
+  "q": "Q1148930"
+ },
+ "eleutherodactylus coqui": {
+  "c": "LC",
+  "q": "Q616638"
+ },
+ "emoia concolor": {
+  "c": "NT",
+  "q": "Q3053079"
+ },
+ "emoia cyanura": {
+  "c": "LC",
+  "q": "Q3053082"
+ },
+ "empidonax difficilis": {
+  "c": "LC",
+  "q": "Q585125"
+ },
+ "empidonax minimus": {
+  "c": "LC",
+  "q": "Q944011"
+ },
+ "empidonax virescens": {
+  "c": "LC",
+  "q": "Q252175"
+ },
+ "enallagma civile": {
+  "c": "LC",
+  "q": "Q1633993"
+ },
+ "engraulis anchoita": {
+  "c": "LC",
+  "q": "Q628057"
+ },
+ "enhydris enhydris": {
+  "c": "LC",
+  "q": "Q2384131"
  }
 }
