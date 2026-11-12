@@ -8,7 +8,7 @@
 Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
 listed in data/order/ since #277, before that data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
 """
-import collections, json, re, sys, os, shutil, hashlib, urllib.parse, base64
+import collections, json, re, sys, os, shutil, hashlib, urllib.parse, base64, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -643,6 +643,8 @@ def build(pilot, out_path, write=False, places=False):
     tv = chunk_version(); shutil.copyfile(P('src', 'chunks', 'species-tab.js'), P('species-tab-%s.js' % tv))   # app code that is not in the first view: loaded when the Species tab first opens (#422)
     out = out.replace('__TABVER__', tv)
     pv = chunk_version('pulse'); shutil.copyfile(P('src', 'chunks', 'pulse.js'), P('pulse-%s.js' % pv)); out = out.replace('__PULSEVER__', pv)   # the attention pulse (#689): loaded a moment after the map settles
+    if out_path == P('index.html'): open(P('index.unmin.html'), 'w').write(out)   # the page before minifying, for the tests that cut code out of it by its text (tests/data/*_lookup.test.mjs); not committed
+    out = minify_page(out)   # last, after every placeholder is filled
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w').write(out)
     print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
@@ -678,6 +680,25 @@ def species_address(text):
     b = species_base()
     own = 'location.pathname.replace(/[^\\/]*$/, "").replace(/(pilot|preview\\/[^\\/]+)\\/$/, "")'
     return text.replace('__SPECIES_ROOT__', json.dumps(b) if b else 'root').replace('__SPECIES_PHOTOS__', json.dumps(b) if b else own)
+
+
+def esbuild(code, loader):
+    """Minified JavaScript or CSS (esbuild, a dev dependency: not bundling, no downlevelling, so top-level names stay as the page's scripts share them). Fails the build if esbuild cannot do it."""
+    exe = P('node_modules', '.bin', 'esbuild')
+    if not os.path.exists(exe): raise SystemExit('esbuild is missing: run npm ci (the build minifies the page, #734)')
+    r = subprocess.run([exe, '--minify', '--loader=' + loader, '--log-level=warning'], input=code.encode('utf-8'), capture_output=True)
+    if r.returncode: raise SystemExit('esbuild failed on a %s block:\n%s' % (loader, r.stderr.decode('utf-8', 'replace')[:600]))
+    return r.stdout.decode('utf-8')
+
+
+def minify_page(html):
+    """The page with each inline <script> (plain JavaScript) and <style> block minified (#734). Blocks that are not plain JavaScript or CSS, or are empty, are left alone."""
+    def js(m):
+        if m.group(1).strip() or not m.group(2).strip(): return m.group(0)
+        return '<script>' + esbuild(m.group(2), 'js').rstrip('\n') + '</script>'
+    def css(m): return '<style>' + esbuild(m.group(1), 'css').rstrip('\n') + '</style>' if m.group(1).strip() else m.group(0)
+    html = re.sub(r'<script([^>]*)>(.*?)</script>', js, html, flags=re.S)
+    return re.sub(r'<style[^>]*>(.*?)</style>', css, html, flags=re.S)
 
 
 def chunk_version(name='species-tab'):
