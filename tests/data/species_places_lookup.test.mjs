@@ -5,10 +5,10 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const R = new URL('../../', import.meta.url).pathname;
-const built = fs.existsSync(R + 'index.html') && fs.existsSync(R + 'api/species-places');
+const built = fs.existsSync(R + 'index.unmin.html') && fs.existsSync(R + 'api/species-places');
 
 test('every species is in the file the app asks for', { skip: !built && 'build has not run' }, () => {
-  const html = fs.readFileSync(R + 'index.html', 'utf8');
+  const html = fs.readFileSync(R + 'index.unmin.html', 'utf8');
   const code = html.match(/  function sppBucket\(l\) \{[^\n]*\}/)[0];
   const ctx = vm.createContext({});
   vm.runInContext(code + ';this.sppBucket = sppBucket;', ctx);

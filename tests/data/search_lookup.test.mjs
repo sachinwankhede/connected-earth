@@ -1,14 +1,14 @@
-// The app's search lookup (item #260, step 2) run on the built word index, without a browser: the code is cut out of the built page, so what runs here is what ships.
+// The app's search lookup (item #260, step 2) run on the built word index, without a browser: the code is cut out of the built page before it is minified (index.unmin.html, written by the build), so what runs here is what ships apart from the minifying.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 
 const R = new URL('../../', import.meta.url).pathname;
-const built = fs.existsSync(R + 'index.html') && fs.existsSync(R + 'api/search/meta.json') && fs.existsSync(R + 'api/places/main/index-world.json');
+const built = fs.existsSync(R + 'index.unmin.html') && fs.existsSync(R + 'api/search/meta.json') && fs.existsSync(R + 'api/places/main/index-world.json');
 
 function lookup(fetchOverride) {
-  const html = fs.readFileSync(R + 'index.html', 'utf8');
+  const html = fs.readFileSync(R + 'index.unmin.html', 'utf8');
   const dataCode = html.match(/  var Data = \(function \(\) \{[\s\S]*?\n  \}\)\(\);/)[0];   // the app's Data module: the lookup reads its files through it
   const code = dataCode + '\n' + html.match(/  var SRCH = [\s\S]*?\n  \/\* a typed query/)[0].replace(/\n  \/\* a typed query$/, '');
   const rd = (n) => JSON.parse(fs.readFileSync(R + 'api/places/main/' + n + '.json', 'utf8'));
