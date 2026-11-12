@@ -1,0 +1,48 @@
+name: data-commonsnearby
+# Manual only (#675). For places still in photos/places/missing.json after data-commonsnearby: finds Wikimedia Commons files geotagged within 1500 m whose name shares a distinctive word with the place,
+# keeps only CC0, CC BY, CC BY-SA and public domain, stores the 330 px copy with its credit and opens one pull request listing every match plus a 10-picture spot check. Shares the group of data-photos.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Place titles to try (the first run: 30; 0 = all left)", default: "30" }
+      again: { description: "yes = also try titles tried in the last 90 days", default: "no" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-photos
+jobs:
+  commons:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Find the pictures
+        run: python3 jobs/commonsnearby.py "${{ github.event.inputs.limit || '30' }}" ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -80
+      - name: Measure and validate
+        run: |
+          python3 lib/photo_registry.py migrate photos/places/places.json photos/places
+          python3 lib/photo_registry.py validate
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/commonsnearby-${GITHUB_RUN_ID}"
+          git add photos/places photos/places_nearby_tried.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random, subprocess
+          old = json.loads(subprocess.run(['git', 'show', 'origin/main:photos/places/places.json'], capture_output=True, text=True).stdout or '{}')
+          man = json.load(open('photos/places/places.json')); new = sorted(t for t in man if t not in old)
+          random.seed(1); pick = random.sample(new, min(10, len(new)))
+          print('| Place | Licence | Author | File page |\n|---|---|---|---|')
+          for t in pick:
+              m = man[t]; print('| %s | %s | %s | %s |' % (t, m.get('l', ''), (m.get('a', '') or '')[:60].replace('|', '/'), m.get('p', '')))
+          print('\n%d new place pictures in this run.' % len(new))
+          PY
+          N=$(python3 -c "import json;print(len(json.load(open('photos/places/places.json'))))")
+          git commit -m "Place pictures found near the place on Commons: $N places have one"
+          git push -f origin HEAD
+          { printf 'Part of #675. Automatic run of data-commonsnearby, limit `%s`. Sources: Wikimedia Commons (location search), already allowed. Only CC0, CC BY, CC BY-SA and public domain are kept (#421); each picture is credited as any other place picture. %s places now have a picture.\n\nSpot check (10 random):\n\n' "${{ github.event.inputs.limit || '30' }}" "$N"; cat spot.md; printf '\nEvery match (place -> file, distance):\n\n'; grep 'match:' find.log | sed 's/^ *match: /- /'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Place pictures found near the place on Commons ($N places have one)" --body-file body.md
