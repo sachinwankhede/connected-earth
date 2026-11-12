@@ -27,6 +27,14 @@ class INatTests(unittest.TestCase):
         self.assertEqual(n.candidates({'taxon_photos': [tp(1, flags=[{'flag': 'copyright infringement'}])]}), [])
     def test_credit_names_its_source_itself(self):
         self.assertEqual(n.credit(7, 'Ann Lee', 'CC BY 4.0', 'https://creativecommons.org/licenses/by/4.0'), {'a': 'Ann Lee', 'l': 'CC BY 4.0', 'lu': 'https://creativecommons.org/licenses/by/4.0', 'p': 'https://www.inaturalist.org/photos/7', 's': 'iNaturalist'})
+    def test_a_common_name_is_looked_up_by_the_latin_name_of_its_row(self):
+        import tempfile, json as j
+        with tempfile.TemporaryDirectory() as d:
+            os.makedirs(os.path.join(d, 'os'))
+            for sid, row in (('osphranter-rufus', {'name': 'Red kangaroo', 'latin': 'Osphranter rufus'}), ('mugil', {'name': 'Mullet', 'latin': 'Mugil'}), ('cervus-elaphus-maral', {'name': 'Caspian red deer', 'latin': 'Cervus elaphus maral'}),
+                             ('carex-x', {'name': 'Carex x', 'latin': 'Carex x'}), ('other', {'name': 'Other thing', 'latin': 'Other thingus'})):
+                j.dump(row, open(os.path.join(d, 'os', sid + '.json'), 'w'))
+            self.assertEqual(n.latin_names(['Red_kangaroo', 'Mullet', 'Caspian red deer', 'Carex x', 'Not in table'], d), {'Red kangaroo': 'Osphranter rufus', 'Mullet': 'Mugil'})
     def test_nothing(self):
         self.assertEqual(n.candidates(None), []); self.assertEqual(n.candidates({}), [])
     def test_taxon_name_must_match_exactly(self):
