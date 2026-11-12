@@ -113,7 +113,7 @@
   /* Species pictures are our own hosted copies (photos/species-md/<file>.webp, 192 px). A place brings the entries for its own species; the journey and related-place
      views read api/species-pictures.json (every hosted picture's entry and credit). There is no fallback to another site: a species without a hosted copy shows the placeholder. */
   var SPX = null, SPX_WAIT = [];
-  PhotoRegistry.setSpeciesBase(location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/species-md/");
+  PhotoRegistry.setSpeciesBase(__SPECIES_PHOTOS__ + "photos/species-md/");
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;
     if (SPX === true) { done(); return; }

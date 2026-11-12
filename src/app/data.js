@@ -9,7 +9,7 @@
     return {
       root: root,
       json: json,
-      species: function (id) { return json(root + "api/species/" + id + ".json", null); },   /* a species' long description; null when it has none */
+      species: function (id) { return json(__SPECIES_ROOT__ + "api/species/" + id + ".json", null); },   /* a species' long description; null when it has none */
       bounds: function (id) { return json(root + "data/outlines/" + encodeURIComponent(id) + ".json").catch(function () { return null; }); },   /* a park's outline; null when missing or unreadable */
       states: function () { return json(root + "geo-states.json"); },   /* the US state outlines */
       counts: function () { return json(root + "api/places/__PLACES_DIR__/counts.json"); },   /* places per region, kind and park, written by the build (#261) */
