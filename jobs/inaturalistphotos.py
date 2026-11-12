@@ -36,6 +36,9 @@ def candidates(taxon, limit=TRY_FILES):
         out.append((pid, url, au, lic[0], lic[1]))
         if len(out) >= limit: break
     return out
+def credit(pid, au, lic, lu):
+    """The credit entry for species_metadata.json. 's' is the source name the app shows on the credit line (else it says Wikimedia Commons): the data says it, the build only passes it on."""
+    return {'a': au, 'l': lic, 'lu': lu, 'p': 'https://www.inaturalist.org/photos/%d' % pid, 's': 'iNaturalist'}
 def lookup(name):
     tid = match_taxon((wm.get(API + '?' + urllib.parse.urlencode({'q': name, 'per_page': 10})) or {}).get('results'), name)
     if tid is None: return None
@@ -66,7 +69,7 @@ def main():
                 if dry: found += 1; why = ''; break
                 f = g.fid(t) + '.webp'; open(os.path.join(OUT, f), 'wb').write(webp)
                 man[t] = ['inaturalist/%d' % pid, urllib.parse.quote(t.replace(' ', '_'))]; hosted[t] = f; src[t] = 'inaturalist'
-                meta[t] = {'a': au, 'l': lic, 'lu': lu, 'p': 'https://www.inaturalist.org/photos/%d' % pid}
+                meta[t] = credit(pid, au, lic, lu)
                 miss.pop(t, None); tried.pop(t, None); found += 1; why = ''; break
         except RuntimeError as e:
             fails += 1; print('  retry later:', t, '- request failed:', e, flush=True)

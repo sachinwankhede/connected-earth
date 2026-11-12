@@ -25,6 +25,8 @@ class INatTests(unittest.TestCase):
             self.assertEqual(n.candidates({'taxon_photos': [tp(1, url=u)]}), [], u)
     def test_flagged_photos_are_dropped(self):
         self.assertEqual(n.candidates({'taxon_photos': [tp(1, flags=[{'flag': 'copyright infringement'}])]}), [])
+    def test_credit_names_its_source_itself(self):
+        self.assertEqual(n.credit(7, 'Ann Lee', 'CC BY 4.0', 'https://creativecommons.org/licenses/by/4.0'), {'a': 'Ann Lee', 'l': 'CC BY 4.0', 'lu': 'https://creativecommons.org/licenses/by/4.0', 'p': 'https://www.inaturalist.org/photos/7', 's': 'iNaturalist'})
     def test_nothing(self):
         self.assertEqual(n.candidates(None), []); self.assertEqual(n.candidates({}), [])
     def test_taxon_name_must_match_exactly(self):
