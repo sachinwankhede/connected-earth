@@ -1,11 +1,10 @@
 """firstview.py: the first-view weight budget (#369). The first draw is bound by the bytes the phone line must carry (the page, the map library, the world places and the journeys file) and by which hosts it must reach, so those are blocked on here. Timings are not: they jitter too much (see perf-ab).
 Raise a limit on purpose, in this file, in the pull request that needs it."""
-import gzip, os, re
+import gzip, os, re, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# 12 Nov 2026 (#680, owner: go ahead): raised from 407,000 to 408,000 for the conservation word on the species sheet (about 100 bytes).
-# Gzip bytes (level 9, GitHub Pages serves gzip only) of what a phone fetches before the first draw: the page, the map library, the world places and (since #377) the journeys file. 4 Nov 2026: 396,072 bytes after #398 removed the unused LAND literal (was 410,781); limit = about 2% above, rounded up to the next KB.
-FIRST_VIEW_GZIP_MAX = 408_000
+# Brotli bytes (quality 5) of what a phone fetches before the first draw: the page, the map library, the world places and (since #377) the journeys file. 12 Nov 2026 (#678, owner: the main address is Cloudflare Pages, which serves Brotli; the header check showed GitHub Pages serves gzip only): the budget counts Brotli, measured 380,251 bytes, limit 381,000 (the gzip limit was 407,000 on a total of about 405,500, so the margin is about the same as the 0.2% the owner agreed). Gzip is still printed for information, with no limit. A client that gets only gzip is not protected by this number.
+FIRST_VIEW_BR_MAX = 381_000
 # Outside hosts the first view may reach (map tiles, glyphs, satellite, elevation). A new one fails the check; add it here only on purpose.
 HOSTS_ALLOWED = {'tiles.openfreemap.org', 'server.arcgisonline.com', 's3.amazonaws.com'}
 
@@ -16,6 +15,16 @@ def first_view_files(root=ROOT):
 def gzip_size(path):
     with open(path, 'rb') as f:
         return len(gzip.compress(f.read(), 9, mtime=0))
+
+def brotli_size(path):
+    """Brotli quality 5 (Python's brotli module when installed, else Node's zlib: the same library, the same bytes)."""
+    try:
+        import brotli
+        with open(path, 'rb') as f:
+            return len(brotli.compress(f.read(), quality=5))
+    except ImportError:
+        js = "const z=require('zlib'),b=require('fs').readFileSync(process.argv[1]);process.stdout.write(String(z.brotliCompressSync(b,{params:{[z.constants.BROTLI_PARAM_QUALITY]:5,[z.constants.BROTLI_PARAM_SIZE_HINT]:b.length}}).length))"
+        return int(subprocess.check_output(['node', '-e', js, path]))
 
 def resource_hosts(html):
     """Hosts the page loads from: head/resource tags and the map's own addresses. Plain links (<a href>, Wikipedia pages for the reader) are not loads and are left out."""
@@ -31,12 +40,14 @@ def resource_hosts(html):
 def check(root=ROOT):
     """Returns (lines to print, number of failures)."""
     out, bad = [], 0
-    total = 0
+    total = gz_total = 0
     for f in first_view_files(root):
-        n = gzip_size(os.path.join(root, f)); total += n
-        out.append('  first view: %-40s %9d gz' % (f, n))
-    ok = total <= FIRST_VIEW_GZIP_MAX; bad += not ok
-    out.append('%-52s %9d / %9d %s' % ('first view, gzip total', total, FIRST_VIEW_GZIP_MAX, 'ok' if ok else 'OVER'))
+        p = os.path.join(root, f)
+        n = brotli_size(p); g = gzip_size(p); total += n; gz_total += g
+        out.append('  first view: %-40s %9d br %9d gz' % (f, n, g))
+    ok = total <= FIRST_VIEW_BR_MAX; bad += not ok
+    out.append('%-52s %9d / %9d %s' % ('first view, brotli total', total, FIRST_VIEW_BR_MAX, 'ok' if ok else 'OVER'))
+    out.append('%-52s %9d (no limit)' % ('first view, gzip total', gz_total))
     with open(os.path.join(root, 'index.html'), encoding='utf8') as f:
         hosts = resource_hosts(f.read())
     new = sorted(hosts - HOSTS_ALLOWED)

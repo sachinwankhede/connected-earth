@@ -25,7 +25,7 @@ class Weight(unittest.TestCase):
     def test_small_page_passes(self):
         self.assertEqual(firstview.check(self.make())[1], 0)
     def test_overweight_fails(self):
-        out, bad = firstview.check(self.make(pad=firstview.FIRST_VIEW_GZIP_MAX + 10_000))
+        out, bad = firstview.check(self.make(pad=firstview.FIRST_VIEW_BR_MAX + 10_000))
         self.assertEqual(bad, 1); self.assertTrue(any('OVER' in l for l in out))
     def test_new_host_fails(self):
         out, bad = firstview.check(self.make('<script src="https://cdn.example.com/x.js"></script>'))
