@@ -125,6 +125,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Acalymma_vittatum_1323034.jpg"
 },
+"Acalypha radians": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/330747694",
+"s": "iNaturalist"
+},
 "Acanthocercus": {
 "a": "Southern_Tree_Agama_2348840851.jpg: Chris Eason\nderivative work: B kimmel (talk)",
 "l": "CC BY 2.0",
@@ -136,6 +143,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Bosc%27s_fringe-toed_lizard_%28Acanthodactylus_boskianus_asper%29.jpg"
+},
+"Acanthogammarus": {
+"a": "Vsevolod Rudyi",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/29487608",
+"s": "iNaturalist"
 },
 "Acanthosicyos horridus": {
 "a": "Harald Süpfle",
@@ -268,6 +282,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Lotus_scoparius.jpg"
+},
+"Acraea": {
+"a": "Judy Gallagher",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/19024069",
+"s": "iNaturalist"
 },
 "Acrantophis madagascariensis": {
 "a": "Charles J. Sharp",
@@ -1174,6 +1195,13 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Amorpha_fruticosa_05.JPG"
+},
+"Ampelopsis cordata": {
+"a": "Melissa McMasters",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/3132190",
+"s": "iNaturalist"
 },
 "Amphibolis antarctica": {
 "a": "Linnean Society of London",
@@ -2087,6 +2115,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.5/ca/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Arisaema_triphyllum_Bob_Hunter_Memorial_Park.jpg"
 },
+"Aristolochia watsonii": {
+"a": "Ken-ichi Ueda",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/10215966",
+"s": "iNaturalist"
+},
 "Arnoglossum atriplicifolium": {
 "a": "Unknown",
 "l": "Public domain",
@@ -2230,6 +2265,13 @@
 "l": "CC BY 3.0",
 "lu": "https://creativecommons.org/licenses/by/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Arvicanthis_niloticus.jpg"
+},
+"Arvicanthis abyssinicus": {
+"a": "Forest Botial-Jarvis",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/44440757",
+"s": "iNaturalist"
 },
 "Asarum marmoratum": {
 "a": "Gabriel Campbell-Martinez",
@@ -2447,6 +2489,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Asimina_triloba3.jpg"
 },
+"Asota alienata": {
+"a": "Andreas Manz",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/171092584",
+"s": "iNaturalist"
+},
 "Asphondylia auripila": {
 "a": "Krzysztof Ziarnek, Kenraiz",
 "l": "CC BY-SA 4.0",
@@ -2531,6 +2580,20 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Astragalus_bisculatus.jpg"
 },
+"Astragalus calycosus": {
+"a": "Jim Morefield",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/13483178",
+"s": "iNaturalist"
+},
+"Astragalus ceramicus": {
+"a": "Matt Lavin",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/4026282",
+"s": "iNaturalist"
+},
 "Astragalus chamaeleuce": {
 "a": "aspidoscelis",
 "l": "CC0 1.0",
@@ -2596,6 +2659,13 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Astragalus_praelongus_-_Matt_Berger_01.jpg"
+},
+"Astragalus puniceus": {
+"a": "Mark Pollock",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/378785789",
+"s": "iNaturalist"
 },
 "Astragalus purshii": {
 "a": "Matt Brown",
@@ -2693,11 +2763,25 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Atriplex_halimus_kz2.JPG"
 },
+"Atriplex micrantha": {
+"a": "Andrey Zharkikh",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/2982150",
+"s": "iNaturalist"
+},
 "Atriplex muelleri": {
 "a": "Kym Nicolson",
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://www.gbif.org/occurrence/2423546216"
+},
+"Atriplex obovata": {
+"a": "Bobby McCabe",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/155797641",
+"s": "iNaturalist"
 },
 "Atriplex prostrata": {
 "a": "Salicyna",
@@ -4871,6 +4955,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cannabis_sativa_2.jpg"
 },
+"Canotia holacantha": {
+"a": "CK2AZ",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/43215776",
+"s": "iNaturalist"
+},
 "Cape May warbler": {
 "a": "Will123w",
 "l": "CC BY 4.0",
@@ -5105,6 +5196,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Carex_crus-corvi_NRCS-01.jpg"
 },
+"Carex cumberlandensis": {
+"a": "Daniel J. Layton",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/201955700",
+"s": "iNaturalist"
+},
 "Carex davisii": {
 "a": "Unknown",
 "l": "Public domain",
@@ -5146,6 +5244,13 @@
 "l": "CC0",
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Carex_eburnea_36155470.jpg"
+},
+"Carex elliottii": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/275522496",
+"s": "iNaturalist"
 },
 "Carex fissa": {
 "a": "Johann Georg Sturm (Painter: Jacob Sturm)",
@@ -5333,6 +5438,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Carexplantaginea.jpg"
 },
+"Carex podocarpa": {
+"a": "Bonnie Isaac",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/218653557",
+"s": "iNaturalist"
+},
 "Carex praegracilis": {
 "a": "Anthony Valois and the National Park Service",
 "l": "Public domain",
@@ -5387,6 +5499,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Carex_sprengelii_%288162119443%29.jpg"
 },
+"Carex styloflexa": {
+"a": "John Kees",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/279904801",
+"s": "iNaturalist"
+},
 "Carex tribuloides": {
 "a": "Robert H. Mohlenbrock. USDA SCS. 1989. Midwest wetland flora: Field office illustrated guide to plant species. Midwest National Technical Center, Lincoln. Courtesy of USDA NRCS Wetland Science Institute.",
 "l": "Public domain",
@@ -5410,6 +5529,13 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Carex_utriculata.jpg"
+},
+"Carex verrucosa": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/146354984",
+"s": "iNaturalist"
 },
 "Carex virescens": {
 "a": "Britton, N.L., and A. Brown. 1913. An illustrated flora of the northern United States, Canada and the British Possessions. 3 vols. Charles Scribner's Sons, New York. Vol. 1: 413. Courtesy of Kentucky Native Plant Society. Scanned by Omnitek Inc.",
@@ -6275,6 +6401,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:066_Chital_in_Ranthambore_National_Park_Photo_by_Giles_Laurent.jpg"
 },
+"Chloris radiata": {
+"a": "Forest and Kim Starr",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/57864747",
+"s": "iNaturalist"
+},
 "Chlorochroa sayi": {
 "a": "Kati Fleming",
 "l": "CC BY-SA 3.0",
@@ -6400,6 +6533,13 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Camissonia_claviformis_flowers_2.jpg"
+},
+"Chylismia scapoidea": {
+"a": "Matt Lavin",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/38029071",
+"s": "iNaturalist"
 },
 "Cibotium glaucum": {
 "a": "Daderot",
@@ -7145,6 +7285,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Sweet-fern_%28Huron_Shores%29.JPG"
 },
+"Condalia warnockii": {
+"a": "Alex Abair",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/13957852",
+"s": "iNaturalist"
+},
 "Congo River": {
 "a": "MONUSCO/Myriam Asmani",
 "l": "CC BY-SA 2.0",
@@ -7841,6 +7988,13 @@
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Cuscuta_campestris.jpeg"
 },
+"Cuscuta cuspidata": {
+"a": "Laura Clark",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/20965601",
+"s": "iNaturalist"
+},
 "Cuttlefish": {
 "a": "Hans Hillewaert",
 "l": "CC BY-SA 4.0",
@@ -8075,6 +8229,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Dalea_purpurea_Arkansas.jpg"
 },
+"Dalea villosa": {
+"a": "Sam Kieschnick",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/76352426",
+"s": "iNaturalist"
+},
 "Dall sheep": {
 "a": "Nirajha",
 "l": "CC BY-SA 4.0",
@@ -8098,6 +8259,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Queen_%28Danaus_gilippus_berenice%29.JPG"
+},
+"Danaus plexippus": {
+"a": "Christine Young",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/111043173",
+"s": "iNaturalist"
 },
 "Danthonia spicata": {
 "a": "Matthew C. Perry, USGS",
@@ -8164,6 +8332,13 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Daucus_carota_Aberystwyth_2024_Far.jpg"
+},
+"Davilla": {
+"a": "Neptalí Ramírez Marcial",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/8131468",
+"s": "iNaturalist"
 },
 "Dead wood": {
 "a": "₡ґǘșϯγ Ɗᶏ Ⱪᶅṏⱳդ",
@@ -8494,6 +8669,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Dichanthelium_scoparium_NRCS-002.jpg"
+},
+"Dichanthelium scribnerianum": {
+"a": "John Kees",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/194583206",
+"s": "iNaturalist"
 },
 "Dichanthelium sphaerocarpon": {
 "a": "Choess",
@@ -9299,6 +9481,13 @@
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Elymus_hystrix_inflorescences_001.JPG"
 },
+"Elymus smithii": {
+"a": "Cecelia Alexander",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/75151056",
+"s": "iNaturalist"
+},
 "Emoia cyanura": {
 "a": "Charles J. Sharp",
 "l": "CC BY-SA 4.0",
@@ -9376,6 +9565,13 @@
 "l": "CC BY 2.0",
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Rainbow_Water_Snake_%28Enhydris_enhydris%29_%287845020860%29.jpg"
+},
+"Epargyreus clarus": {
+"a": "Elin Pierce",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/60570",
+"s": "iNaturalist"
 },
 "Epeolus scutellaris": {
 "a": "USGS Bee Inventory and Monitoring Lab",
@@ -9557,6 +9753,13 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Eriastrum_pluriflorum_%2832469977635%29.jpg"
 },
+"Erica": {
+"a": "Klaus Wehrlin",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/213387517",
+"s": "iNaturalist"
+},
 "Erica arborea": {
 "a": "Jean-Pol GRANDMONT",
 "l": "CC BY 3.0",
@@ -9647,17 +9850,38 @@
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Parry%27s_wild_buckwheat_imported_from_iNaturalist_photo_115783561_on_12_March_2024.jpg"
 },
+"Eriogonum brevicaule": {
+"a": "Cecelia Alexander",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/206441931",
+"s": "iNaturalist"
+},
 "Eriogonum cinereum": {
 "a": "John Rusk from Berkeley, CA, United States of America",
 "l": "CC BY 2.0",
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:N20150917-0017%E2%80%94Eriogonum_cinereum%E2%80%94RPBG_%2821560599051%29.jpg"
 },
+"Eriogonum compositum": {
+"a": "J Brew",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/169687",
+"s": "iNaturalist"
+},
 "Eriogonum fasciculatum": {
 "a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Eriogonum_fasciculatum_5.jpg"
+},
+"Eriogonum havardii": {
+"a": "Cecelia Alexander",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/161158880",
+"s": "iNaturalist"
 },
 "Eriogonum heracleoides": {
 "a": "(c) stevemerkley, some rights reserved (CC BY)",
@@ -9970,6 +10194,13 @@
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Euphorbia_antisyphilitica2_ies.jpg"
+},
+"Euphorbia carunculata": {
+"a": "Jared Shorma",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/168437661",
+"s": "iNaturalist"
 },
 "Euphorbia celastroides": {
 "a": "Unknown",
@@ -10397,6 +10628,13 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Eutrapela_clemataria_-_Curve-toothed_Geometer_Moth_%2814836295937%29.jpg"
 },
+"Eutrochium dubium": {
+"a": "Becky Dill",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/93300946",
+"s": "iNaturalist"
+},
 "Eutrophication": {
 "a": "Felix Andrews (Floybix)",
 "l": "CC BY-SA 3.0",
@@ -10630,6 +10868,13 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Fiji_goshawk_savusavu_june_2008.JPG"
+},
+"Fimbristylis autumnalis": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/178830674",
+"s": "iNaturalist"
 },
 "Fimbristylis vahlii": {
 "a": "Britton, N.L., and A. Brown.",
@@ -11381,11 +11626,25 @@
 "lu": "https://creativecommons.org/licenses/by/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Gilbertiodendron_dewevrei_03.jpg"
 },
+"Gilia lyndana": {
+"a": "Daniel",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/622679934",
+"s": "iNaturalist"
+},
 "Gilia malior": {
 "a": "Jim Morefield from Nevada, USA",
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Scrub_gilia%2C_Gilia_malior_%2816505646409%29.jpg"
+},
+"Gilia ochroleuca": {
+"a": "Steve Matson",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/114324253",
+"s": "iNaturalist"
 },
 "Giraffe": {
 "a": "claralieu",
@@ -12659,6 +12918,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Hetaerina_americana.jpg"
 },
+"Heteranthera limosa": {
+"a": "kent ozment",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/24480356",
+"s": "iNaturalist"
+},
 "Heterodon platirhinos": {
 "a": "Bladerunner8u",
 "l": "CC BY-SA 3.0",
@@ -13031,6 +13297,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Hydrophyllum_appendiculatum.jpg"
 },
+"Hylaeus affinis": {
+"a": "Judy Gallagher",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/75646513",
+"s": "iNaturalist"
+},
 "Hylaeus annulatus": {
 "a": "USGS Bee Inventory and Monitoring Lab from Beltsville, Maryland, USA",
 "l": "Public domain",
@@ -13271,6 +13544,13 @@
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Idia_americalis_NC.jpg"
 },
+"Idiocerus nervatus": {
+"a": "Don Loarie",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/161549022",
+"s": "iNaturalist"
+},
 "Iguazu Falls": {
 "a": "Mariordo (Mario Roberto Durán Ortiz)",
 "l": "CC BY-SA 4.0",
@@ -13499,6 +13779,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Ipomoea_leptophylla_NPS-1.jpg"
 },
+"Ipomoea ochracea": {
+"a": "Forest and Kim Starr",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/4713663",
+"s": "iNaturalist"
+},
 "Ipomoea pandurata": {
 "a": "KevinTernes at English Wikipedia",
 "l": "CC BY-SA 3.0",
@@ -13534,6 +13821,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Ipomopsiscongesta.jpg"
+},
+"Iridomyrmex": {
+"a": "Tony Eales",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/56518469",
+"s": "iNaturalist"
 },
 "Iris cristata": {
 "a": "Eric Hunt",
@@ -14159,6 +14453,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Anolis_equestris_-_bright_close_profile.jpg"
 },
+"Kniphofia foliosa": {
+"a": "Rafael Medina",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/2072414",
+"s": "iNaturalist"
+},
 "Kob": {
 "a": "Fanny Schertzer",
 "l": "CC BY 3.0",
@@ -14453,6 +14754,13 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Myctophum_punctatum1.jpg"
 },
+"Laphamia megalocephala": {
+"a": "Jim Morefield",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/2925759",
+"s": "iNaturalist"
+},
 "Lapland longspur": {
 "a": "Ómar Runólfsson",
 "l": "CC BY 2.0",
@@ -14567,6 +14875,13 @@
 "lu": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Lasioglossum_imitatum_f.jpg"
 },
+"Lasioglossum laevissimum": {
+"a": "Amy Schnebelin",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/150342969",
+"s": "iNaturalist"
+},
 "Lasioglossum leucozonium": {
 "a": "James K. Lindsey",
 "l": "CC BY-SA 3.0",
@@ -14663,6 +14978,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Atta_cephalotes-pjt.jpg"
 },
+"Leersia lenticularis": {
+"a": "Will McFarland",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/161260315",
+"s": "iNaturalist"
+},
 "Leersia oryzoides": {
 "a": "Robert H. Mohlenbrock",
 "l": "Public domain",
@@ -14729,6 +15051,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Antarctic_Sound-2016-Brown_Bluff%E2%80%93Leopard_seal_%28Hydrurga_leptonyx%29_04.jpg"
 },
+"Lepidium alyssoides": {
+"a": "CK2AZ",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/33567189",
+"s": "iNaturalist"
+},
 "Lepidium bonariense": {
 "a": "Macleay Grass Man",
 "l": "CC BY 2.0",
@@ -14740,6 +15069,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Lepidium_sativum_kz06.jpg"
+},
+"Lepidium lasiocarpum": {
+"a": "Steve Matson",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/174870572",
+"s": "iNaturalist"
 },
 "Lepidium latifolium": {
 "a": "Dr. Alexey Yakovlev",
@@ -15131,6 +15467,13 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cholepus_didactylus_-_Flickr_-_Dick_Culbert.jpg"
 },
+"Linum aristatum": {
+"a": "Alex Abair",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/35239083",
+"s": "iNaturalist"
+},
 "Linum lewisii": {
 "a": "Skoch3",
 "l": "CC BY-SA 3.0",
@@ -15358,6 +15701,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Lomatiumfoenicu.jpg"
+},
+"Lomatium multifidum": {
+"a": "Trevor Van Loon",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/127042657",
+"s": "iNaturalist"
 },
 "Lomatium nudicaule": {
 "a": "Walter Siegmund (talk)",
@@ -15713,6 +16063,20 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Lupinus-sparsiflorus-20080322.JPG"
 },
+"Luzula bulbosa": {
+"a": "Laura Clark",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/6505355",
+"s": "iNaturalist"
+},
+"Luzula echinata": {
+"a": "Katja Schulz",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/824103",
+"s": "iNaturalist"
+},
 "Lycaeides melissa": {
 "a": "Walter Siegmund (talk)",
 "l": "CC BY-SA 4.0",
@@ -15874,6 +16238,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Macaranga_grandifolia_13zz.jpg"
+},
+"Macaranga mappa": {
+"a": "Forest and Kim Starr",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/4712153",
+"s": "iNaturalist"
 },
 "Macaranga tanarius": {
 "a": "Tatiana Gerus from Brisbane, Australia",
@@ -16775,6 +17146,20 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Merriam%27s_Kangaroo_Rat.jpg"
 },
+"Mertensia franciscana": {
+"a": "JerryFriedman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/261038",
+"s": "iNaturalist"
+},
+"Mertensia macdougalii": {
+"a": "Cecelia Alexander",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/70800736",
+"s": "iNaturalist"
+},
 "Mertensia virginica": {
 "a": "Khan \"Sadh\" N. Mostafa",
 "l": "CC BY 2.0",
@@ -17501,6 +17886,13 @@
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Nereocystis_luetkeana1.jpg"
 },
+"Nerisyrenia linearifolia": {
+"a": "Bob Nieman",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/132380666",
+"s": "iNaturalist"
+},
 "Nerodia fasciata": {
 "a": "Sandhillcrane",
 "l": "CC BY-SA 4.0",
@@ -17986,6 +18378,13 @@
 "l": "CC BY 3.0 us",
 "lu": "https://creativecommons.org/licenses/by/3.0/us/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Ochlodes_sylvanoides.jpg"
+},
+"Ochna thomasiana": {
+"a": "AnnLazaro",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/14031984",
+"s": "iNaturalist"
 },
 "Ocotea": {
 "a": "G.-U. Tolkiehn",
@@ -18676,6 +19075,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:P-Stork-Sandeep.jpg"
+},
+"Palafoxia sphacelata": {
+"a": "aarongunnar",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/153558897",
+"s": "iNaturalist"
 },
 "Palisota": {
 "a": "Rufous-crowned Sparrow",
@@ -19612,6 +20018,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Phacelia_bipinnatifida_in_the_New_York_Botanical_Garden.jpg"
+},
+"Phacelia congesta": {
+"a": "Sophia K",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/33990851",
+"s": "iNaturalist"
 },
 "Phacelia dubia": {
 "a": "Fritzflohrreynolds",
@@ -21059,6 +21472,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Prionyx_atratus_or_subatratus2.jpg"
 },
+"Pristurus sokotranus": {
+"a": "Morten Ross",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/178592956",
+"s": "iNaturalist"
+},
 "Problema bulenta": {
 "a": "Charles T. and John R. Bryson, , Bugwood.org",
 "l": "CC BY 3.0 us",
@@ -21172,6 +21592,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Prunus_angustifolia_Arkansas.jpg"
+},
+"Prunus arborea": {
+"a": "Toby Y",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/114147011",
+"s": "iNaturalist"
 },
 "Prunus avium": {
 "a": "MPF",
@@ -21364,6 +21791,13 @@
 "l": "CC0",
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Psychotria_tenuifolia_%28Psychotria_sulzneri%29_-_McKee_Botanical_Garden_-_Vero_Beach%2C_Florida_-_DSC03087.jpg"
+},
+"Psydrax odoratus": {
+"a": "David Eickhoff",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/1540844",
+"s": "iNaturalist"
 },
 "Pteridium aquilinum": {
 "a": "Rasbak",
@@ -22073,11 +22507,25 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Ranunculus_hispidus_var._hispidus_WFNY-060B-4x5.jpg"
 },
+"Ranunculus inamoenus": {
+"a": "Andrey Zharkikh",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/3965007",
+"s": "iNaturalist"
+},
 "Ranunculus recurvatus": {
 "a": "Robert H. Mohlenbrock. USDA NRCS. 1992. Western wetland flora: Field office guide to plant species. West Region, Sacramento. Courtesy of USDA NRCS.",
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Ranunculus_recurvatus_NRCS-2.jpg"
+},
+"Ranunculus rhomboideus": {
+"a": "Dustin Snider",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/280216882",
+"s": "iNaturalist"
 },
 "Ranunculus sceleratus": {
 "a": "Jörg Hempel",
@@ -22816,6 +23264,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Rorippasinuata.jpg"
+},
+"Rorippa tenerrima": {
+"a": "Andrey Zharkikh",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/2416101",
+"s": "iNaturalist"
 },
 "Rosa acicularis": {
 "a": "Walter Siegmund (talk)",
@@ -24911,6 +25366,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Solanum_triflorum_kz03.jpg"
 },
+"Solanum triquetrum": {
+"a": "Douglas Goldman",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/174993618",
+"s": "iNaturalist"
+},
 "Solanum viarum": {
 "a": "J. Jeffrey Mullahey, University of Florida, Bugwood.org",
 "l": "CC BY 3.0 us",
@@ -25396,6 +25858,13 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Cicada_Killer_Wasp.jpg"
+},
+"Sphecodes davisii": {
+"a": "Amy Schnebelin",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/99927877",
+"s": "iNaturalist"
 },
 "Sphex ichneumoneus": {
 "a": "Rhododendrites",
@@ -26800,6 +27269,13 @@
 "l": "CC BY-SA 2.5",
 "lu": "https://creativecommons.org/licenses/by-sa/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Townsends_in_music_hall.jpg"
+},
+"Townsendia texensis": {
+"a": "Reid Hardin",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/571944033",
+"s": "iNaturalist"
 },
 "Toxicodendron diversilobum": {
 "a": "Elf (talk · contribs)",
@@ -28301,6 +28777,13 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Vitex_trifolia_subsp._litoralis_03.jpg"
 },
+"Vitis acerifolia": {
+"a": "Catherine C. Galley",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/127353334",
+"s": "iNaturalist"
+},
 "Vitis aestivalis": {
 "a": "James H. Miller & Ted Bodner, Southern Weed Science Society, Bugwood.org",
 "l": "CC BY 3.0",
@@ -28852,6 +29335,13 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Carpenter_bee.jpg"
+},
+"Xylopia": {
+"a": "Lera Miles",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/56159581",
+"s": "iNaturalist"
 },
 "Xylosandrus crassiusculus": {
 "a": "Hulcr",
