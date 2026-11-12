@@ -10,3 +10,4 @@ maplibre-gl-*.js
 geo-states.json
 d3-*.js
 species-tab-*.js
+pulse-*.js

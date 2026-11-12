@@ -66,6 +66,7 @@ for d in ('main', 'pilot'):
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 CHUNK_MAX = 20_000   # src/chunks/species-tab.js: app code outside the first view, loaded when the Species tab opens (#422; raw bytes)
 if os.path.getsize(os.path.join(ROOT, 'src', 'chunks', 'species-tab.js')) > CHUNK_MAX: bad += 1; print('src/chunks/species-tab.js is OVER', CHUNK_MAX)
+if os.path.getsize(os.path.join(ROOT, 'src', 'chunks', 'pulse.js')) > CHUNK_MAX: bad += 1; print('src/chunks/pulse.js is OVER', CHUNK_MAX)   # the attention pulse (#689)
 TAB_ONE_MAX = 30_000       # api/species-tab[-pilot]/: one file (top.json, groups.json or one page of 250 rows of a group), fetched when the Species tab or a group opens (#422)
 TAB_TOTAL_MAX = 800_000    # the files of one folder together (only the deploy size grows; a phone fetches a few)
 for d in ('species-tab', 'species-tab-pilot'):

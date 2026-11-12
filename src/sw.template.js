@@ -2,7 +2,7 @@ const V = "__BUILD__";
 const SHELL = "atlas-shell-" + V, RT = "atlas-rt";
 const SHELL_FILES = ["./", "./index.html", "./maplibre-gl-__MLVER__.js", "./api/places/main/index-world.json", "./api/places/main/cards-world.json", "./api/journeys/main.json", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./apple-touch-icon.png"];
 // fetched after the worker is active, one by one, and a failure is ignored: they are not worth failing the install for (#405). Without them a food web does not open offline on a fresh install.
-const LATER_FILES = ["./d3-__D3VER__.js", "./geo-states.json", "./species-tab-__TABVER__.js"];
+const LATER_FILES = ["./d3-__D3VER__.js", "./geo-states.json", "./species-tab-__TABVER__.js", "./pulse-__PULSEVER__.js"];
 const RT_HOSTS = ["tiles.openfreemap.org", "server.arcgisonline.com", "s3.amazonaws.com"__SPECIES_HOSTS__];
 const RT_MAX = 1500;
 self.addEventListener("install", e => { e.waitUntil(caches.open(SHELL).then(c => c.addAll(SHELL_FILES)).then(() => self.skipWaiting())); });
