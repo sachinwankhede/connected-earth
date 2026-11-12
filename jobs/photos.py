@@ -12,8 +12,23 @@ def get(u,raw=False): return wm.get(u,raw)
 def strip(s): return re.sub(r'\s+',' ',html.unescape(re.sub(r'<[^>]+>','',s or ''))).strip()
 # Files that are logos, seals, flags or drawings are not photos of the place
 NOTPHOTO=re.compile(r'logo|arrowhead|emblem|coat[_ ]of[_ ]arms|seal[_ ]of|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|topograph|locator|diagram|[_ -]chart|waterfowl_counts|(^|[/:])White[_ ]River[_ ]National[_ ]Wildlife[_ ]Refuge\.jpg$',re.I)
+# A part of a combined name ("Flathead Lake/Big Arm State Park") is tried on its own only when it names a park by itself (a bare "Okmulgee" is a town, so a picture of it would be wrong)
+PARK_WORD=re.compile(r'(Park|Preserve|Refuge|Seashore|Lakeshore|Forest|Monument|Recreation Area|Wildlife Area|Reserve)$')
+def titles(title):
+    """The Wikipedia titles to try for a place, in order: its own name, then each part of a name joined with a slash that ends in a park word."""
+    out=[title]
+    for p in (x.strip() for x in title.split('/')) if '/' in title else []:
+        if p and PARK_WORD.search(p) and p not in out: out.append(p)
+    return out
 def one(i,title,out,man):
-    j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_')))
+    """Stores the first free photo found under any of titles(title); the manifest key stays the place's own imgwiki. A transient problem on any title wins over a permanent no-photo, so the place is tried again."""
+    res=[]
+    for t in titles(title):
+        res.append(fetch(i,t,out,man,title))
+        if res[-1]=='ok': return 'ok'
+    return next((r for r in res if failure_class(r)!='permanent'),res[0])
+def fetch(i,title,out,man,key):
+    j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_'),safe=''))
     th=(j or {}).get('thumbnail')
     if not th: return 'nophoto'
     if not safe_https(th.get('source'), ALLOWED_IMAGE_HOSTS): return 'source-rejected'
@@ -34,7 +49,7 @@ def one(i,title,out,man):
         if made: os.remove(path)
         return 'notfree'
     now=datetime.datetime.now(datetime.timezone.utc).isoformat()
-    man[title]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')),checkedAt=now,fetchedAt=now)
+    man[key]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')),checkedAt=now,fetchedAt=now)
     return 'ok'
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
