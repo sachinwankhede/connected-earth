@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.join(ROOT, 'lib')); import fetch
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species
 OUT = os.path.join(ROOT, 'data/species/conservation.json'); ASKED = os.path.join(ROOT, 'data/species/conservation_asked.json')
 UA = 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'
-CODES = {'Q211005': 'LC', 'Q719675': 'NT', 'Q278113': 'VU', 'Q11394': 'EN', 'Q219127': 'CR', 'Q239509': 'EW', 'Q237350': 'EX'}   # Wikidata items for the IUCN categories
+CODES = {'Q211005': 'LC', 'Q719675': 'NT', 'Q278113': 'VU', 'Q11394': 'EN', 'Q96377276': 'EN', 'Q219127': 'CR', 'Q239509': 'EW', 'Q237350': 'EX'}   # Wikidata items for the IUCN categories (EN is both Q11394 and, as 'Endangered status', Q96377276: 117 species use the latter, found by the unmapped report)
 
 def query(names):
     """SPARQL asking the best-ranked conservation status of every taxon with one of these names."""
