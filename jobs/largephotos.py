@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """largephotos.py: a larger copy (400 px WebP) of the picture of the species people open most (#421 part A).
-Usage: largephotos.py [how many of the most-used species, default 30]
+Usage: largephotos.py [how many of the most-used species, default 30; 0 = every hosted picture, from every source]
 The ranking is the number of places a species is in (every place, main and pilot), most first, then by name; only species that already have a hosted picture
 (photos/species_hosted.json) take part, so the credit and licence are the ones already in photos/species_metadata.json and nothing new needs crediting.
-For each one not yet done: downloads the 500 px thumbnail from Commons (a standard size; the 330 px one when the original is smaller), shrinks it to at most 400 px
+For each one not yet done: downloads the thumbnail of its source (Commons 500 px, or 330 px when the original is smaller; Openverse's own thumbnail; iNaturalist's medium size), shrinks it to at most 400 px
 and writes photos/species-lg/<same file name as the thumbnail>. Writes photos/species_large.json {title: file name}. Resumable; polite pace via wm.py."""
 import sys, os, io, re, json
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'build'))
@@ -15,6 +15,16 @@ def width_path(u, w):
     p = hp.thumb_path(u).split('/')
     p[-1] = re.sub(r'^\d+px-', '%dpx-' % w, p[-1])
     return '/'.join(p)
+
+OPENVERSE = 'https://api.openverse.org/v1/images/%s/thumb/'; INAT = 'https://inaturalist-open-data.s3.amazonaws.com/photos/%s/medium.jpg'
+
+def source_urls(u):
+    """Download links, best first, for the manifest picture u from whatever source it came from: Openverse and iNaturalist serve their own size (about 500 px wide), Commons a 500 px thumbnail (330 px when the original is smaller); a GBIF picture has none to offer."""
+    src, _, rest = u.partition('/')
+    if src == 'openverse': return [OPENVERSE % rest]
+    if src == 'inaturalist': return [INAT % rest]
+    if src == 'gbif': return []
+    return [hp.BASE + width_path(u, 500), hp.BASE + hp.thumb_path(u)]
 
 def ranking(ecos, hosted):
     """[(title, number of places)] most places first: one entry per species, under the same title the species page takes its picture from (the Latin name first, then its Wikipedia titles)."""
@@ -35,12 +45,14 @@ def main():
     import build
     top = int(sys.argv[1]) if len(sys.argv) > 1 else 30
     hosted = hp.load(hp.HOSTED, {}); man = json.load(open('photos/species.json')); large = hp.load(LARGE, {})
-    rank = ranking(build.load_places(True)[1], hosted)[:top]
-    todo = [(t, c) for t, c in rank if t not in large and t in man and not man[t][0].startswith('gbif/')]   # a GBIF picture has no Commons original to enlarge
+    rank = ranking(build.load_places(True)[1], hosted)
+    if top == 0: rank += [(t, 0) for t in sorted(hosted) if t not in {r[0] for r in rank}]   # hosted pictures of species no place lists come last
+    rank = rank[:top or None]
+    todo = [(t, c) for t, c in rank if t not in large and t in man and source_urls(man[t][0])]
     print(len(rank), 'in the ranking,', len(todo), 'to do; the first ten:', ', '.join('%s (%d)' % x for x in rank[:10]), flush=True)
     os.makedirs(OUT, exist_ok=True); total = 0
     for i, (t, c) in enumerate(todo, 1):
-        raw = wm.get(hp.BASE + width_path(man[t][0], 500), raw=True) or wm.get(hp.BASE + hp.thumb_path(man[t][0]), raw=True)
+        raw = next((r for r in (wm.get(u, raw=True) for u in source_urls(man[t][0])) if r), None)
         if not raw: print('no download for', t, flush=True); continue
         try:
             im = Image.open(io.BytesIO(raw)).convert('RGB'); im.thumbnail((SIZE, SIZE))
