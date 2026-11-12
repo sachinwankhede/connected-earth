@@ -667,7 +667,7 @@ def species_base():
     they are served from the app's own address (GitHub Pages and a single payload)."""
     b = os.environ.get('SPECIES_BASE', '').strip()
     if b and not re.match(r'^https://[a-z0-9.-]+(:\d+)?/([\w./-]*/)?$', b + ('' if b.endswith('/') else '/')):
-        raise SystemExit('SPECIES_BASE must be an https address such as https://species.example.pages.dev/: ' + b)
+        raise SystemExit('SPECIES_BASE must be an https address ending in a slash: ' + b)
     return b + ('/' if b and not b.endswith('/') else '')
 
 
