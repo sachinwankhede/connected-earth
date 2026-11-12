@@ -4,8 +4,8 @@ Usage: commonsnearby.py [limit] [--again]
 For each place title in photos/places/missing.json whose place has no picture file yet:
   1. asks Commons for files geotagged within RADIUS metres of the place's coordinates (up to 30, nearest first);
   2. keeps the nearest file that is an open-licence JPEG (CC0, CC BY, CC BY-SA, public domain: #421), whose name is not a map, logo and so on,
-     AND whose file name shares a distinctive word with the place's name (generic words such as Park, State, Lake are ignored), so a
-     photo of the next village is not used for the place;
+     AND whose file name shares at least half of the place name's distinctive words (generic words such as Park, State, Lake are ignored) and does not
+     name a building or business (hotel, casino, church, shop and so on), so a photo of the next village or a casino is not used for the place;
   3. stores it as photos/places/<id>.jpg, adds it to photos/places/places.json (keyed by the place's imgwiki title) and removes the title from missing.json.
 Titles with no match stay in missing.json and get today's date in photos/places_nearby_tried.json (tried again after 90 days). Every match is printed as
 'place -> file (distance)' so the pull request shows what was matched. Polite pace via wm.py."""
@@ -15,6 +15,8 @@ import commonsplacephotos as c
 cp = c.cp
 OUT = c.OUT; MAN = c.MAN; MISS = c.MISS; TRIED = 'photos/places_nearby_tried.json'; DATA = c.DATA
 RADIUS = 1500; RETRY_DAYS = 90
+# file names about a building or business: a photo of a hotel near the place is not a photo of the place
+BUILDING = re.compile(r'hotel|motel|casino|resort|church|cathedral|restaurant|cafe|diner|school|hospital|mall|store|shop|supermarket|apartment|museum|station|airport|office|factory|plant|bank|inn[_ .]', re.I)
 GENERIC = set('national state park parks lake lakes river rivers mountain mountains mount forest preserve reserve refuge wildlife monument recreation area '
               'historic site seashore lakeshore island islands bay beach beaches creek canyon valley falls trail trails the of and de la los las del'.split())
 
@@ -42,9 +44,9 @@ def nearby(lat, lon):
 
 def match(name, title, cands, info):
     """(pick tuple, distance) for the nearest candidate that passes the same checks as commonsplacephotos.pick and shares a distinctive word with the place name; else None."""
-    want = words(name) | words(title)
+    want = words(name) | words(title); need = (len(want) + 1) // 2   # at least half of the place's distinctive words must appear in the file name
     for fn, dist in cands:
-        if not (want & words(fn)): continue
+        if len(want & words(fn)) < need or BUILDING.search(fn): continue
         got = c.pick([fn], info)
         if got: return got, dist
     return None
@@ -60,7 +62,7 @@ def main():
     print(len(todo), 'places to try', flush=True); found_n = 0
     for k, t in enumerate(todo, 1):
         pid, name, lat, lon = info_by[t]
-        cands = nearby(lat, lon); files = [fn for fn, _ in cands if (words(name) | words(t)) & words(fn)]
+        cands = nearby(lat, lon); files = [fn for fn, _ in cands if (words(name) | words(t)) & words(fn) and not BUILDING.search(fn)]
         inf = cp.commons_info(files[:50]) if files else {}
         m = match(name, t, cands, inf)
         if not m: tried[t] = today.isoformat(); print('  no:', t, '-', len(cands), 'files nearby,', len(files), 'with a matching name word', flush=True)
