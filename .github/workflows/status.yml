@@ -1,10 +1,46 @@
 name: status
 # Writes the project status (open pull requests, running jobs, the state queue, finished research) into one issue called "Project status"
-# every morning, and on demand, so it can be read from a phone. Read-only otherwise: it changes nothing but that issue.
+# so it can be read from a phone. Read-only otherwise: it changes nothing but that issue.
+# It runs every morning, on demand, and whenever something it shows changes: an item (issue) or a pull request is opened, closed or relabelled,
+# or a data job or the checks start or finish. Events made by this workflow's own token do not start workflows, and a run for the status issue itself is skipped.
+# `concurrency: status` (no cancelling) keeps at most one run going and one waiting, so a burst of events is one update.
 on:
   schedule:
     - cron: '7 11 * * *'   # about 6 am in St. Louis
   workflow_dispatch:
+  issues:
+    types: [opened, closed, reopened, labeled, unlabeled]
+  pull_request:
+    types: [opened, closed, reopened]
+  workflow_run:
+    workflows:
+      - checks
+      - data-about
+      - data-after-promote
+      - data-commonsphotos
+      - data-diets
+      - data-gbifphotos
+      - data-hostphotos
+      - data-inaturalistphotos
+      - data-journeyresearch
+      - data-journeys
+      - data-largephotos
+      - data-linktest
+      - data-names
+      - data-openversephotos
+      - data-outlines
+      - data-photos
+      - data-promote
+      - data-regen
+      - data-research
+      - data-speciesphotos
+      - data-state
+      - data-states
+      - data-sync
+      - data-syncall
+      - data-taxonomy
+      - data-worldparks
+    types: [requested, completed]
 permissions:
   contents: read
   pull-requests: read
@@ -15,8 +51,10 @@ jobs:
   status:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    if: ${{ !(github.event_name == 'issues' && github.event.issue.title == 'Project status') }}
     steps:
       - uses: actions/checkout@v5
+        with: { ref: main }   # always the script on main, never code from a pull request
       - name: Write the status issue
         env:
           GH_TOKEN: ${{ github.token }}
