@@ -103,7 +103,7 @@
     sugBox.addEventListener("pointerdown", function (ev) { ev.preventDefault(); });   /* keep the focus in the box until the row is chosen */
     sugBox.addEventListener("click", function (ev) {
       var row = ev.target.closest(".sgr"); if (!row) return;
-      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.children, row)];
+      var id = row.getAttribute("data-id"), latin = row.getAttribute("data-latin"), name = row.querySelector("b").textContent, q = row.getAttribute("data-q"), rw = SUG.rows[[].indexOf.call(sugBox.querySelectorAll(".sgr"), row)];   /* the "Recent" label is a child too: count rows only */
       sugHide(); sugIn.blur();
       if (rw) rw.rc = 0, rsAdd(rw);
       if (q) runSearch(q);
