@@ -31,6 +31,18 @@ class MatchTests(unittest.TestCase):
         self.assertIsNone(n.match('Tallulah', 'Tallulah', cands, inf))
 
 
+class StricterTests(unittest.TestCase):
+    def test_a_casino_sharing_one_word_is_refused(self):
+        f = 'Laughlin,_Colorado_Belle_Hotel_&_Casino_(Nevada)_(1).jpg'
+        self.assertIsNone(n.match('Big Bend of the Colorado State Park', 'Big Bend of the Colorado State Park', [(f, 1334)], {f: OK}))
+
+    def test_half_of_the_distinctive_words_must_appear(self):
+        f = 'Bald_Head_light.jpg'; g = 'Head_of_a_dog.jpg'
+        name = 'Bald Head Island State Natural Area'   # bald, head, natural: two needed
+        self.assertIsNotNone(n.match(name, name, [(f, 1)], {f: OK}))
+        self.assertIsNone(n.match(name, name, [(g, 1)], {g: OK}))
+
+
 class RunTests(unittest.TestCase):
     def setUp(self):
         self.old = os.getcwd(); self.d = tempfile.mkdtemp(); os.chdir(self.d)
