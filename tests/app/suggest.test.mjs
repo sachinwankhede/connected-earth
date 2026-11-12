@@ -40,7 +40,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr'); await p.waitForTimeout(200);
     r = await rows();   // the box is empty and focused: the dropdown now lists the recent searches (#589), each marked as one, and no ordinary suggestion
     assert.ok(r.length >= 1 && r.length <= 3, 'Clear closes the suggestions and shows the recent searches instead: ' + JSON.stringify(r));
-    assert.equal(await p.evaluate(() => { const h = document.querySelector('#sug .sgh'); return h && h.textContent; }), 'Recent', 'one "Recent" label above them, not a prefix on every row');
+    assert.equal(await p.evaluate(() => { const h = document.querySelector('#sug .sgh'); return h && h.firstChild.textContent; }), 'Recent', 'one "Recent" label above them, not a prefix on every row (the Clear link is on the same line, #642)');
     assert.ok(r.every((x) => x.q ? x.line === '' : /^(Place|Species)\b/.test(x.line)), 'a typed search is one line with no type line; a place or species keeps its type line: ' + JSON.stringify(r));
     // every row says its type (#424): a place "Place · <state or country>", a species "Species · in N places"
     await p.click('#q'); await p.keyboard.type('yellowst');
