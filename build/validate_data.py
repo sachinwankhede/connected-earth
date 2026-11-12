@@ -115,6 +115,14 @@ def check(root):
             if f not in lfiles: errs.append('larger picture for %r: file %s is missing' % (t, f))
             if (hosted or {}).get(t) != f: errs.append('larger picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
         for f in lfiles - set(large.values()): errs.append('photos/species-lg/%s is not listed in species_large.json' % f)
+    medium = load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
+    if medium is not None:
+        md = os.path.join(root, 'photos', 'species-md')
+        mfiles = set(os.listdir(md)) if os.path.isdir(md) else set()
+        for t, f in medium.items():
+            if f not in mfiles: errs.append('tile picture for %r: file %s is missing' % (t, f))
+            if (hosted or {}).get(t) != f: errs.append('tile picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
+        for f in mfiles - set(medium.values()): errs.append('photos/species-md/%s is not listed in species_medium.json' % f)
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')

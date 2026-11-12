@@ -73,12 +73,20 @@ for d in ('species-tab', 'species-tab-pilot'):
     for label, n, lim in (('api/%s/ total' % d, sum(fs), TAB_TOTAL_MAX), ('api/%s/ largest' % d, max(fs), TAB_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
-LARGE_PHOTO_ONE_MAX = 60_000   # photos/species-lg/<file>.webp: one larger (400 px) species picture (#421; the first 30 ran 5 to 47 KB, 17 KB on average)
-LARGE_PHOTOS_MAX = 15_000_000   # photos/species-lg/ together (the first batch of 500 is about 5 to 10 MB; decided after the first measurement)
+LARGE_PHOTO_ONE_MAX = 100_000   # photos/species-lg/<file>.webp: one larger (400 px) species picture (#421; the first 30 ran 5 to 47 KB, 17 KB on average; raised from 60 KB when the largest in the first 520 reached 56 KB)
+LARGE_PHOTOS_MAX = 110_000_000   # photos/species-lg/ together (raised from 15 MB: the owner chose a large copy of every species picture, 12 Nov; about 4,900 at 17 to 22 KB)
+MEDIUM_PHOTO_ONE_MAX = 30_000   # photos/species-md/<file>.webp: one 192 px tile picture (#669)
+MEDIUM_PHOTOS_MAX = 60_000_000   # photos/species-md/ together (every species picture at about 7 to 12 KB; the owner chose all species, 12 Nov)
 lgd = os.path.join(ROOT, 'photos', 'species-lg')
 if os.path.isdir(lgd):
     lg = [os.path.getsize(os.path.join(lgd, f)) for f in os.listdir(lgd)]
     for label, n, lim in (('photos/species-lg/ total', sum(lg), LARGE_PHOTOS_MAX), ('photos/species-lg/ largest', max(lg or [0]), LARGE_PHOTO_ONE_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+mdd = os.path.join(ROOT, 'photos', 'species-md')
+if os.path.isdir(mdd):
+    md = [os.path.getsize(os.path.join(mdd, f)) for f in os.listdir(mdd)]
+    for label, n, lim in (('photos/species-md/ total', sum(md), MEDIUM_PHOTOS_MAX), ('photos/species-md/ largest', max(md or [0]), MEDIUM_PHOTO_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
