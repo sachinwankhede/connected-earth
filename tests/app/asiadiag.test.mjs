@@ -12,11 +12,10 @@ for (const c of ['Asia', 'Africa']) {
       const m = window.__M.map; window.__M.go('world', ''); await new Promise((x) => setTimeout(x, 1500));
       let starts = 0, ends = 0; m.on('movestart', () => starts++); m.on('moveend', () => ends++);
       window.__M.go('continent', cont); const tr = [];
-      for (let i = 0; i < 24; i++) { await new Promise((x) => setTimeout(x, 150)); const ce = m.getCenter(); tr.push(Math.round(ce.lng) + ',' + Math.round(ce.lat) + ',' + m.getZoom().toFixed(2) + (m.isMoving() ? 'm' : '')); }
+      for (let i = 0; i < 12; i++) { await new Promise((x) => setTimeout(x, 300)); const ce = m.getCenter(); tr.push(Math.round(ce.lng) + ',' + Math.round(ce.lat) + ',' + m.getZoom().toFixed(2) + (m.isMoving() ? 'm' : '')); }
       return { starts, ends, tr };
     }, c);
     await b.close();
-    assert.fail('DIAG ' + c + ' s' + r.starts + ' e' + r.ends + ' ' + r.tr.slice(0, 12).join(' '));
-    assert.fail('DIAG2 ' + c + ' ' + r.tr.slice(12).join(' '));
+    assert.fail('DIAG ' + c + ' s' + r.starts + ' e' + r.ends + ' ' + r.tr.join(' '));
   });
 }
