@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Limestone soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "A thin soil over raised coral limestone that holds the turf, scrub and mangrove roots.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "limestone-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Mountain soils",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin soils on rock and glacial debris supply nutrients to plants, topped up as dead matter is broken down.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "mountain-soils",
+ "sk": "resource",
+ "src": "legacy"
+}

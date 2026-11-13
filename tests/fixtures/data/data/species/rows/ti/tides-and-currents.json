@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tides and currents",
+ "tl": 0,
+ "wiki": "Tide",
+ "desc": "Tides flush the mangroves and shallow banks, carrying nutrients and larvae.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "tides-and-currents",
+ "sk": "resource",
+ "src": "legacy"
+}

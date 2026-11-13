@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Snow and snowmelt",
+ "tl": 0,
+ "wiki": "Snow",
+ "desc": "Winter snow supplies much of the moisture the rim plants use; the park averages about 120 inches of snowfall a year.",
+ "ic": "ice",
+ "cat": "abiotic",
+ "sid": "snow-and-snowmelt",
+ "sk": "resource",
+ "src": "legacy"
+}

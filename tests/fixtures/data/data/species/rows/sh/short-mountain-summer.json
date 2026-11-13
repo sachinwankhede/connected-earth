@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Short mountain summer",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "At high elevation the growing season is brief, so plants grow fast in summer and animals feed, store fat or hibernate.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "short-mountain-summer",
+ "sk": "resource",
+ "src": "legacy"
+}

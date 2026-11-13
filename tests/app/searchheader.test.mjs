@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const answered = (p, q) => p.waitForFunction((x) => window.__M && window.__M.searched === x, q, { timeout: 60000 });
 const head = (p) => p.evaluate(() => { const h = document.getElementById('qhead'); return { hidden: h.hidden, text: h.textContent.trim(), chip: h.classList.contains('qchip') }; });
 const whys = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:not([hidden]) .why')].map((x) => x.textContent));
@@ -12,7 +14,7 @@ const headShown = (p) => p.waitForFunction(() => !document.getElementById('qhead
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: an exact species gets a header with a link to its page and its places are one tap away`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
     const h = await head(p);
@@ -35,7 +37,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: text that is not an exact match, and a search with no result, get no header`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('ospr'); await p.keyboard.press('Enter'); await answered(p, 'ospr'); await H.pause(p, 800);
     assert.equal((await head(p)).hidden, true);
     await p.click('#qclr'); await p.keyboard.type('zzqxv'); await p.keyboard.press('Enter'); await answered(p, 'zzqxv'); await H.pause(p, 500);
@@ -44,7 +46,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: an exact place gets a header that opens the place`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     const nm = await p.evaluate(() => document.querySelector('#cards li:not([hidden]) h2').textContent.trim());
     await p.click('#q'); await p.keyboard.type(nm); await p.keyboard.press('Enter'); await answered(p, nm.toLowerCase()); await headShown(p);
     const h = await head(p); assert.ok(h.text.startsWith(nm), h.text); assert.match(h.text, /Open the place ›$/);
@@ -55,7 +57,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: Show on the map opens a map mode whose title goes back to the species page (#503)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await headShown(p); await p.waitForFunction(() => document.getElementById('qhead').classList.contains('qchip') && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
@@ -66,7 +68,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: map mode has continent, country and state pills that narrow the places (#528)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm') && document.querySelectorAll('#regions [data-go]').length > 1 && /in \\d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }).catch(() => {});
@@ -83,7 +85,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: map mode has a ✕ that goes home, and the region path is the first pills of the one pill row (9 Nov)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
     await tap(p, '#qhead a[data-hmap]');
@@ -101,7 +103,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: from the search header, Show on the map shows the pills in view and a tap on one narrows the places (#528)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
     await tap(p, '#qhead a[data-hmap]');
@@ -117,7 +119,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a species that sits in one continent and one country still gets pills, one level down (#528)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
@@ -132,7 +134,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a species in one continent: "‹" from a country goes back to the country pills, not to a continent never shown`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone', 'whbanff', 'whcalakmul'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });

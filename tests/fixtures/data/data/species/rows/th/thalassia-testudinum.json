@@ -1,0 +1,13 @@
+{
+ "latin": "Thalassia testudinum",
+ "name": "Turtle grass",
+ "tl": 1,
+ "wiki": "Thalassia testudinum",
+ "desc": "The main seagrass of the bay. Its meadows shelter young fish and invertebrates, and its dead leaves supply much of the detritus.",
+ "ic": "grass",
+ "badge": "Foundation species",
+ "about": "Thalassia testudinum, commonly known as turtlegrass, is a species of marine seagrass in the family Hydrocharitaceae.",
+ "sid": "thalassia-testudinum",
+ "sk": "taxon",
+ "src": "legacy"
+}

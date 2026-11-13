@@ -1,0 +1,12 @@
+{
+ "latin": "Bacteria and fungi",
+ "name": "Decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down dead plants and animals and return nutrients to the soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "bacteria-and-fungi",
+ "sk": "resource",
+ "src": "legacy"
+}
