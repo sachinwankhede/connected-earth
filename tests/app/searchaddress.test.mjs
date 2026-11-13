@@ -1,4 +1,4 @@
-// (On the fixture build the search word is yellowstone: a place name, so the Places list has a hit; the old word elk matched only species there.)
+// (Fixture build: the search word is yellowstone, a place name. The word elk gave an empty Places list on the fixture set; I did not trace why, only that a place-name word works.)
 // A search is part of the address (#412): `s=<text>` is written as you type, a reload or a shared link brings it back, a place opened from a search is a step of its own,
 // and Back goes place -> search list -> no search. Text with spaces and & survives. The region view and a search can be in one address.
 import { test } from 'node:test';
