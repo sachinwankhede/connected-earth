@@ -9,7 +9,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch();
     const t = await H.open(b, H.MAIN, size, { hash, fixtures });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
-    await t.page.waitForTimeout(500);
+    await H.pause(t.page, 500);
     return { b, p: t.page, errors };
   }
   const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('pview').hidden, web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden, journey: !document.getElementById('jview').hidden, hash: location.hash, back: document.getElementById('back').textContent.trim(), sel: (document.querySelector('#svg .node.sel') || {}).textContent || null }));
@@ -37,7 +37,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const { b, p, errors } = await start();
     // no photos available (this place's entries removed): icons stay, nothing breaks
     await p.route(/\/api\/yellowstone\.json/, async (rt) => { const res = await rt.fetch(), w = await res.json(); w.ph = {}; w.phm = {}; await rt.fulfill({ response: res, body: JSON.stringify(w) }); });
-    await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p); await p.waitForTimeout(1500);
+    await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p); await H.pause(p, 1500);
     let r = await p.evaluate(() => ({ img: document.querySelectorAll('#pgraph image').length, gl: [...document.querySelectorAll('#pgraph .pn .gl')].filter((g) => g.getBoundingClientRect().width > 0).length }));
     assert.equal(r.img, 0); assert.ok(r.gl >= 25, 'icons shown');
     // photos available
@@ -96,20 +96,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: map card -> place page -> explore -> back to the page -> back to the map`, async () => {
     const { b, p, errors } = await start();
-    if (name === 'phone') { await p.click('#speek'); await p.waitForTimeout(500); }
+    if (name === 'phone') { await p.click('#speek'); await H.pause(p, 500); }
     await p.click('[data-tab="places"]:visible').catch(() => {});
     await p.evaluate(() => document.querySelector('#cards [data-eco]').scrollIntoView());
     const eco = await p.evaluate(() => document.querySelector('#cards [data-eco]').getAttribute('data-eco'));
     await p.click('#cards [data-eco] >> nth=0'); await ready(p);
     let s = await shown(p); assert.equal(s.page, true); assert.equal(s.web, false); assert.equal(s.map, false); assert.match(s.hash, new RegExp('pg=' + eco));
-    const nm = (await p.textContent('#pview h2')).trim(); const bx = await p.locator('#pgraph').boundingBox(); await p.mouse.click(bx.x + 6, bx.y + 6); await p.waitForTimeout(1500);
+    const nm = (await p.textContent('#pview h2')).trim(); const bx = await p.locator('#pgraph').boundingBox(); await p.mouse.click(bx.x + 6, bx.y + 6); await H.pause(p, 1500);
     s = await shown(p); assert.equal(s.web, true); assert.equal(s.page, false); assert.equal(s.sel, null, 'empty corner opens the explore view with nothing selected'); assert.equal(s.back.replace(/^\S+\s*/, ''), nm, 'back names the place'); assert.match(s.hash, new RegExp('e=' + eco));
     // refreshing the explore view keeps the same back link, and it still goes to the place page
-    await p.reload(); await p.waitForSelector('#pbk', { state: 'visible', timeout: 60000 }); await p.waitForTimeout(1500);
+    await p.reload(); await p.waitForSelector('#pbk', { state: 'visible', timeout: 60000 }); await H.pause(p, 1500);
     assert.equal((await p.textContent('#pbk')).replace(/^\S+\s*/, '').trim(), nm, 'same label after a refresh');
-    await leave(p); await p.waitForTimeout(600);
+    await leave(p); await H.pause(p, 600);
     s = await shown(p); assert.equal(s.page, true); assert.equal(s.web, false);
-    await p.click('[data-pback]'); await p.waitForTimeout(600);
+    await p.click('[data-pback]'); await H.pause(p, 600);
     s = await shown(p); assert.equal(s.map, true); assert.equal(s.page, false);
     assert.deepEqual(errors, []); await b.close();
   });
@@ -117,16 +117,16 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a species in the picture or the list opens the explore view with it selected; journeys and neighbours link on`, async () => {
     const { b, p, errors } = await start('#stub&pg=yellowstone');
     await ready(p);
-    await p.click('#pgraph .pn >> nth=0'); await p.waitForTimeout(1500);
+    await p.click('#pgraph .pn >> nth=0'); await H.pause(p, 1500);
     let s = await shown(p); assert.equal(s.web, true); assert.ok(s.sel, 'the tapped species is selected');
-    await p.keyboard.press('Escape'); await p.waitForTimeout(400); await leave(p); await ready(p);
-    await p.click('[data-pnode="elk"]'); await p.waitForTimeout(1500);
+    await p.keyboard.press('Escape'); await H.pause(p, 400); await leave(p); await ready(p);
+    await p.click('[data-pnode="elk"]'); await H.pause(p, 1500);
     s = await shown(p); assert.equal(s.web, true); assert.match(s.sel, /Elk/);
-    await p.keyboard.press('Escape'); await p.waitForTimeout(400); await leave(p); await ready(p);
-    await p.click('[data-pjourney]'); await p.waitForTimeout(600);
+    await p.keyboard.press('Escape'); await H.pause(p, 400); await leave(p); await ready(p);
+    await p.click('[data-pjourney]'); await H.pause(p, 600);
     s = await shown(p); assert.equal(s.journey, true); assert.equal(s.page, false);
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p);
-    await p.click('[data-ppage] >> nth=0'); await p.waitForTimeout(1500);
+    await p.click('[data-ppage] >> nth=0'); await H.pause(p, 1500);
     s = await shown(p); assert.equal(s.page, true); assert.ok(!/pg=yellowstone/.test(s.hash), 'a different place');
     assert.deepEqual(errors, []); await b.close();
   });
