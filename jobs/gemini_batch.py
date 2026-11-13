@@ -9,9 +9,9 @@ All traffic goes through lib/fetch.py (host generativelanguage.googleapis.com mu
 import sys, os, json
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib'))
-import fetch, urllib.request, urllib.error
+import fetch
+import gemini_api as api   # the shared calling code (lib/gemini_api.py, #772)
 MODEL = 'gemini-3.5-flash-lite'
-URL = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent'
 JOURNEYS = ['monarch', 'sockeye', 'caribouwest', 'osprey', 'altiplano']
 MAX_ROWS = 5; MAX_OUT = 400
 PROMPT = ('You read the text of an animal journey and say in which calendar months (1 = January to 12 = December) the journey is under way. '
@@ -24,20 +24,11 @@ def load(jid, data_dir=None):
     return dict(id=jid, title=j.get('title', ''), text=j.get('text', ''), when=j.get('when', ''))
 
 def ask(row, key):
-    body = {'contents': [{'parts': [{'text': PROMPT % (row['title'], row['text'], row['when'])}]}],
-            'generationConfig': {'temperature': 0, 'maxOutputTokens': MAX_OUT, 'responseMimeType': 'application/json', 'responseSchema': SCHEMA}}
-    req = urllib.request.Request(URL, data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key}, method='POST')
+    body = api.request_body(None, PROMPT % (row['title'], row['text'], row['when']), SCHEMA, temperature=0, max_out=MAX_OUT)
     try:
-        j = json.loads(fetch.urlopen(req, timeout=60).read())
-    except urllib.error.HTTPError as e:
-        return dict(error='HTTP %d' % e.code, detail=e.read()[:300].decode('utf-8', 'replace'))
-    except Exception as e:
-        return dict(error=type(e).__name__)
-    try:
-        out = json.loads(j['candidates'][0]['content']['parts'][0]['text'])
-    except Exception:
-        return dict(error='unreadable answer', raw=str(j)[:300])
-    return dict(answer=out, tokens=j.get('usageMetadata', {}))
+        return api.generate(MODEL, body, key, timeout=60, busy_waits=())   # the trial does not retry a busy answer: it only shows whether the key and model work
+    except api.QuotaStop: return dict(error='HTTP 429')
+    except api.Overloaded as e: return dict(error=str(e))
 
 def valid(ans):
     """None when the answer is usable, else the reason."""
