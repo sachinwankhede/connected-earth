@@ -43,6 +43,17 @@ class StricterTests(unittest.TestCase):
         self.assertIsNone(n.match(name, name, [(g, 1)], {g: OK}))
 
 
+class RoadAndTownTests(unittest.TestCase):
+    def test_roads_towns_temples_capitols_signs_and_damage_are_refused_as_whole_words(self):
+        for bad in ('2020_View_west_along_Interstate_280_at_Exit_1.jpg', 'View_north_along_Rock_Boulevard_(Nevada_State_Route_668).jpg',
+                    'View_of_Lewis_and_Clark_Village_MO.jpg', 'Nauvoo_Temple01.jpg', 'Louisiana_State_Capitol_2012.jpg', 'Legion_Park_Lodge.jpg',
+                    'Storm_wind_damage_at_Lake_Martin_AL.jpg', 'Sign_for_Horsethief_Butte_Trail.jpg'):
+            self.assertTrue(n.BUILDING.search(bad), bad)
+        for ok in ('Railroad_bridge_over_the_Blackfoot_River.jpg', 'Plantation_trail.jpg', 'Riverbank_view.jpg', 'Signal_Mountain.jpg', 'Innsbruck_Gorge.jpg',
+                   'Mill_Bluff_State_Park_2012A.jpg', 'Crater_of_Diamonds_State_Park_pano.jpg'):
+            self.assertFalse(n.BUILDING.search(ok), ok)
+
+
 class RunTests(unittest.TestCase):
     def setUp(self):
         self.old = os.getcwd(); self.d = tempfile.mkdtemp(); os.chdir(self.d)

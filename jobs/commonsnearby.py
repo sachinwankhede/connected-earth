@@ -15,8 +15,8 @@ import commonsplacephotos as c
 cp = c.cp
 OUT = c.OUT; MAN = c.MAN; MISS = c.MISS; TRIED = 'photos/places_nearby_tried.json'; DATA = c.DATA
 RADIUS = 1500; RETRY_DAYS = 90
-# file names about a building or business: a photo of a hotel near the place is not a photo of the place
-BUILDING = re.compile(r'hotel|motel|casino|resort|church|cathedral|restaurant|cafe|diner|school|hospital|mall|store|shop|supermarket|apartment|museum|station|airport|office|factory|plant|bank|inn[_ .]', re.I)
+# file names about a building, business, road, town or sign: a photo of a hotel, a highway or the next village near the place is not a photo of the place (whole words only)
+BUILDING = re.compile(r'(?<![a-z])(hotel|motel|casino|resort|church|cathedral|restaurant|cafe|diner|school|hospital|mall|store|shop|supermarket|apartments?|museum|station|airport|office|factory|plant|bank|inn|interstate|route|highway|freeway|boulevard|avenue|road|street|village|temple|capitol|lodge|damage|sign)s?(?![a-z])', re.I)
 GENERIC = set('national state park parks lake lakes river rivers mountain mountains mount forest preserve reserve refuge wildlife monument recreation area '
               'historic site seashore lakeshore island islands bay beach beaches creek canyon valley falls trail trails the of and de la los las del'.split())
 
