@@ -43,11 +43,11 @@ describe('base map fallback', () => {
     test(`${sizeName}: all tiles fail -> plain map, then the real map returns when tiles recover`, async () => {
       const t = await open(size, { vectorOk: false, satOk: false, retryMs: 2500 });
       await H.jump(t.page, [10, 45], 5);
-      await wait(t.page, () => window.__M.stub === true);
+      await wait(t.page, () => window.__M.stub === true && document.getElementById('map').classList.contains('nobase'));   // the class follows the stub flag a moment later (#786)
       assert.equal((await state(t.page)).nobase, true);
       assert.ok((await H.dots(t.page)) >= 0);
       t.set(true, true);
-      await wait(t.page, () => window.__M.stub === false && window.__M.styleReady);
+      await wait(t.page, () => window.__M.stub === false && window.__M.styleReady && !document.getElementById('map').classList.contains('nobase'));
       assert.equal((await state(t.page)).nobase, false);
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
