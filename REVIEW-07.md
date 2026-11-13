@@ -1,5 +1,23 @@
 # REVIEW-07.md
 
+## Gauja National Park (`xlatvia`)
+
+**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
+
+**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
+
+## Al Shouf Cedar Nature Reserve (`xlebanon`)
+
+**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
+
+**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
+
+## Sehlabathebe National Park (`xlesotho`)
+
+**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
+
+**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
+
 ## Sapo National Park (`xliberia`)
 
 **Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
@@ -71,22 +89,4 @@
 **Story** (38 words): The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.
 
 **Why it matters** (37 words): The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.
-
-## Varirata National Park and the Owen Stanley foothills (`xpng`)
-
-**Story** (31 words): Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.
-
-**Why it matters** (25 words): The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.
-
-## Peneda-Gerês National Park (`xportugal`)
-
-**Story** (45 words): Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.
-
-**Why it matters** (36 words): The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.
-
-## El Yunque National Forest (`xpuertorico`)
-
-**Story** (58 words): El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.
-
-**Why it matters** (30 words): It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.
 

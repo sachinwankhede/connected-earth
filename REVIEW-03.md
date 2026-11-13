@@ -1,5 +1,11 @@
 # REVIEW-03.md
 
+## Torres del Paine National Park (`whtorres`)
+
+**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
+
+**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
+
 ## Eduardo Avaroa Andean Fauna National Reserve (`whuyuni`)
 
 **Story** (33 words): Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.
@@ -48,6 +54,12 @@
 
 **Why it matters** (29 words): Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.
 
+## Yasuní National Park (`whyasuni`)
+
+**Story** (33 words): Yasuní National Park covers roughly 10,000 km2 within Amazonian Ecuador, between the Napo and Curaray Rivers. It is primarily rain forest and home to many animal species, including monkeys, jaguars, and harpy eagles.
+
+**Why it matters** (31 words): The park lies within the Napo moist forests ecoregion and is one of the most biologically diverse spots on Earth, holding exceptionally high richness in trees, amphibians, bats, birds, and mammals.
+
 ## Band-e Amir National Park (`xafghan`)
 
 **Story** (37 words): Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.
@@ -77,16 +89,4 @@
 **Story** (37 words): Hirkan National Park covers 40,358 hectares in the Talysh region of Azerbaijan. Established in 2004 and enlarged in 2008, the park is 99% covered by forests in a mountainous region and protects humid subtropical and temperate forests.
 
 **Why it matters** (22 words): The park belongs to the Caspian Hyrcanian mixed forests ecoregion and shelters many endemic plant and animal species, including the Caucasian leopard.
-
-## Exuma Cays Land and Sea Park (`xbahamas`)
-
-**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
-
-**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
-
-## Hautes Fagnes (High Fens) (`xbelgium`)
-
-**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
-
-**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
 

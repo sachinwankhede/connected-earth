@@ -1,5 +1,23 @@
 # REVIEW-08.md
 
+## Varirata National Park and the Owen Stanley foothills (`xpng`)
+
+**Story** (31 words): Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.
+
+**Why it matters** (25 words): The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.
+
+## Peneda-Gerês National Park (`xportugal`)
+
+**Story** (45 words): Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.
+
+**Why it matters** (36 words): The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.
+
+## El Yunque National Forest (`xpuertorico`)
+
+**Story** (58 words): El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.
+
+**Why it matters** (30 words): It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.
+
 ## Al Reem Biosphere Reserve (`xqatar`)
 
 **Story** (44 words): Al Reem Biosphere Reserve covers 120,000 hectares of northwest Qatar. Established in 2005, this inhabited area includes semi-arid desert landscapes and is home to gazelles and Arabian oryx. Due to its dense vegetation, the reserve is of great importance for the people of Qatar.

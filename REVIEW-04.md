@@ -1,5 +1,17 @@
 # REVIEW-04.md
 
+## Exuma Cays Land and Sea Park (`xbahamas`)
+
+**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
+
+**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
+
+## Hautes Fagnes (High Fens) (`xbelgium`)
+
+**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
+
+**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
+
 ## Pendjari National Park (`xbenin`)
 
 **Story** (46 words): Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.
@@ -77,16 +89,4 @@
 **Story** (43 words): El Imposible National Park is a tropical forest and protected area in western El Salvador. Established on January 1, 1989, it covers 38.20 km² within the Apaneca llamatepec mountain range, and supports wildlife including pumas, oncillas, wild boars, king hawks and black-crested eagles.
 
 **Why it matters** (30 words): The park encompasses eight rivers that contribute to the watershed of Barra de Santiago and the coastal mangrove forests. In 1992, it was included on UNESCO's World Heritage Tentative List.
-
-## Monte Alén National Park (`xeqguinea`)
-
-**Story** (44 words): Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.
-
-**Why it matters** (19 words): The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.
-
-## Dahlak Archipelago (`xeritrea`)
-
-**Story** (41 words): The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.
-
-**Why it matters** (32 words): The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.
 

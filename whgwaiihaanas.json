@@ -1,0 +1,21 @@
+{
+ "id": "whgwaiihaanas",
+ "name": "Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site",
+ "story": "Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.",
+ "matters": "The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7379,
+  "candidatesTokenCount": 131,
+  "totalTokenCount": 7510,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7379
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:12:14+00:00"
+}

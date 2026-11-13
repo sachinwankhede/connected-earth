@@ -1,22 +1,22 @@
 {
  "id": "whibera",
  "name": "Esteros del Iberá",
- "story": "Esteros del Iberá is located in the province of Corrientes, Argentina. It covers a total area of 15,000 to 20,000 square kilometers and is one of the largest wetlands in the world. It is home to a wide variety of fauna, including capybara, caimans, and over 350 species of birds.",
- "matters": "The park is a stronghold of the vulnerable marsh deer and includes protected areas that together form the largest conservation area in Argentina. A rewilding initiative has reintroduced native animals like the jaguar, pampas deer, and giant anteater to the region.",
+ "story": "Esteros del Iberá is a mix of swamps, bogs, stagnant lakes, lagoons, natural slough, and courses of water in the province of Corrientes, Argentina. It is one of the most important freshwater reservoirs in South America and the second-largest wetland in the world after Pantanal in Brazil. It is home to a wide variety of fauna, including capybara, caimans, snakes, frogs, anteaters, otters, deer, and many species of birds.",
+ "matters": "The park is a stronghold of the vulnerable species marsh deer and strange-tailed tyrant and contains large populations of capybara, yacare caiman and broad-snouted caiman. It protects a portion of the Iberá Wetlands, one of the largest wetlands in the world.",
  "model": "gemini-3.5-flash-lite",
- "prompt": "stories-1",
+ "prompt": "stories-2",
  "tokens": {
-  "promptTokenCount": 4365,
-  "candidatesTokenCount": 147,
-  "totalTokenCount": 4512,
+  "promptTokenCount": 4388,
+  "candidatesTokenCount": 174,
+  "totalTokenCount": 4562,
   "promptTokensDetails": [
    {
     "modality": "TEXT",
-    "tokenCount": 4365
+    "tokenCount": 4388
    }
   ],
   "serviceTier": "standard"
  },
- "at": "2026-11-13T03:03:29+00:00",
- "rejected": "matters has 41 words (limit 40)"
+ "at": "2026-11-13T11:12:30+00:00",
+ "rejected": "story has 69 words (limit 60)"
 }

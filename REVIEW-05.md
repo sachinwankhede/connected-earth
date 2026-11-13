@@ -1,5 +1,17 @@
 # REVIEW-05.md
 
+## Monte Alén National Park (`xeqguinea`)
+
+**Story** (44 words): Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.
+
+**Why it matters** (19 words): The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.
+
+## Dahlak Archipelago (`xeritrea`)
+
+**Story** (41 words): The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.
+
+**Why it matters** (32 words): The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.
+
 ## Soomaa National Park (`xestonia`)
 
 **Story** (36 words): Soomaa National Park is situated in south-western Estonia. Created in 1993, it protects 390 square kilometres of large raised bogs, floodplain grasslands, paludified forests, and meandering rivers. Steep-sloped raised bogs stand as islands during spring floods.
@@ -36,6 +48,12 @@
 
 **Why it matters** (24 words): Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.
 
+## Kolkheti National Park (`xgeorgia`)
+
+**Story** (32 words): Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.
+
+**Why it matters** (26 words): The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.
+
 ## Mole National Park (`xghana`)
 
 **Story** (43 words): Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.
@@ -71,22 +89,4 @@
 **Story** (34 words): Iwokrama Forest is a 3,716 square kilometres nature reserve located in central Guyana in the Guiana Shield. The area is covered with lowland tropical forest and is bordered by rivers, mountains, highlands, and savannahs.
 
 **Why it matters** (24 words): The reserve is part of the Guiana Shield and provides a natural habitat for various animals such as the jaguar and the black caiman.
-
-## Pic Macaya National Park (`xhaiti`)
-
-**Story** (47 words): Pic Macaya National Park is located in Haiti within the southern peninsula and the Massif de la Hotte. Founded in 1984, it encompasses more than 8,000 hectares and reaches a height of 2,347 meters at Pic Macaya. It features the country's last stand of virgin cloud forest.
-
-**Why it matters** (26 words): The park belongs to the Massif de la Hotte mountain range and supports endangered plant and animal life, including species endemic to the island of Hispaniola.
-
-## Río Plátano Biosphere Reserve (`xhonduras`)
-
-**Story** (46 words): The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.
-
-**Why it matters** (36 words): The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.
-
-## Hyrcanian Forests (`xiran`)
-
-**Story** (44 words): The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.
-
-**Why it matters** (27 words): The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.
 

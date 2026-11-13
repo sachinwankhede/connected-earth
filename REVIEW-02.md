@@ -1,5 +1,11 @@
 # REVIEW-02.md
 
+## Manú National Park (`whmanu`)
+
+**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+
+**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+
 ## Monarch Butterfly Biosphere Reserve (`whmonarch`)
 
 **Story** (39 words): The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.
@@ -83,10 +89,4 @@
 **Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
 
 **Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
-
-## Torres del Paine National Park (`whtorres`)
-
-**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
-
-**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
 

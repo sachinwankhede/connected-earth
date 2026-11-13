@@ -1,5 +1,23 @@
 # REVIEW-06.md
 
+## Pic Macaya National Park (`xhaiti`)
+
+**Story** (47 words): Pic Macaya National Park is located in Haiti within the southern peninsula and the Massif de la Hotte. Founded in 1984, it encompasses more than 8,000 hectares and reaches a height of 2,347 meters at Pic Macaya. It features the country's last stand of virgin cloud forest.
+
+**Why it matters** (26 words): The park belongs to the Massif de la Hotte mountain range and supports endangered plant and animal life, including species endemic to the island of Hispaniola.
+
+## Río Plátano Biosphere Reserve (`xhonduras`)
+
+**Story** (46 words): The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.
+
+**Why it matters** (36 words): The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.
+
+## Hyrcanian Forests (`xiran`)
+
+**Story** (44 words): The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.
+
+**Why it matters** (27 words): The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.
+
 ## Ahwar of Southern Iraq (Mesopotamian Marshes) (`xiraq`)
 
 **Story** (60 words): The Mesopotamian Marshes are a wetland area located in southern Iraq and southwestern Iran as well as partially in northern Kuwait. Originally covering an area of 20,000 km2, the marshes form a unique landscape home to the Marsh people, who harvest reeds and rice, fish, and herd water buffalo. The marshes were listed as an UNESCO Heritage Site in 2016.
@@ -71,22 +89,4 @@
 **Story** (34 words): Nam Et-Phou Louey National Park is a protected area in northern Laos, covering 4,107.1 km2 across Houaphan, Luang Prabang, and Xieng Khouang. It consists mainly of mountains and hills with a tropical monsoon climate.
 
 **Why it matters** (25 words): The area has a high level of biodiversity, sheltering endangered species such as the dhole and the sambar deer within its forests and river habitats.
-
-## Gauja National Park (`xlatvia`)
-
-**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
-
-**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
-
-## Al Shouf Cedar Nature Reserve (`xlebanon`)
-
-**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
-
-**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
-
-## Sehlabathebe National Park (`xlesotho`)
-
-**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
-
-**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
 

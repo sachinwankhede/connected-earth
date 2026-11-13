@@ -1,0 +1,21 @@
+{
+ "id": "xgeorgia",
+ "name": "Kolkheti National Park",
+ "story": "Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.",
+ "matters": "The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7606,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 7703,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7606
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:13:27+00:00"
+}
