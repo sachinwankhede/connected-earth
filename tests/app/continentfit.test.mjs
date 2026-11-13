@@ -14,10 +14,11 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const res = {};
     for (const c of CONTINENTS) {
       res[c] = await p.evaluate(async (cont) => {
-        const m = window.__M.map; window.__M.go('world', '');
-        await new Promise((r) => setTimeout(r, 1500));
-        window.__M.go('continent', cont);
-        await new Promise((r) => setTimeout(r, 2200));
+        const m = window.__M.map;
+        // Wait for the camera to stop (three quiet checks in a row) instead of a fixed time: a slow runner finishes the fly later (#786).
+        const settle = async () => { await new Promise((r) => setTimeout(r, 150)); let quiet = 0; for (let i = 0; i < 150 && quiet < 3; i++) { await new Promise((r) => setTimeout(r, 100)); quiet = m.isMoving() ? 0 : quiet + 1; } };
+        window.__M.go('world', ''); await settle();
+        window.__M.go('continent', cont); await settle();
         return { z: m.getZoom(), min: m.getMinZoom() };
       }, c);
     }
