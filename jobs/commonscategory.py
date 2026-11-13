@@ -38,48 +38,70 @@ def toks(s):
     s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower()
     return {w for w in re.findall(r'[a-z]{3,}', s) if w not in n.GENERIC and w not in KIND}
 
-def good_category(cats, name):
+def good_category(cats, name, region=''):
     """The first category that is the place itself, else None. After dropping a bracketed note such as "(California)", the category title must
     (1) add no distinctive word the place name lacks ("Baker River, Washington State" is not "Baker Creek State Park"),
     (2) share at least half of the place's distinctive words,
     (3) name no building or business,
     (4) agree on who runs the place (state, national, county ...), and
-    (5) when the place name has no word like Park, Lake or Reserve of its own (a bare "Riverside" or "Pickett"), contain one."""
+    (5) when the place name has no word like Park, Lake or Reserve of its own (a bare "Riverside" or "Pickett"), contain one,
+    (6) keep the words they share with the place name in the same order ("Lake White" is not "White Lake"), and
+    (7) when the category has a bracketed note ("(California)", "(Black Sand Basin, Yellowstone National Park)"), every word of it must appear in the place's own
+        region text from the data ("Rhode Island, USA"), so the Santa Barbara East Beach is not the Rhode Island one."""
     import re
     want = n.words(name)
     if not want: return None
     kind = {w for w in re.findall(r'[a-z]+', name.lower()) if w in KIND}; has_type = any(w in n.GENERIC and w not in KIND for w in re.findall(r'[a-z]+', name.lower()))
     for cat in cats:
         base = re.sub(r'\s*\([^)]*\)', '', cat); got = n.words(base)
+        notes = ' '.join(re.findall(r'\(([^)]*)\)', cat)); reg = set(re.findall(r'[a-z]{3,}', region.lower()))
         low = re.findall(r'[a-z]+', base.lower())
         if not got or toks(base) - toks(name) or len(got) * 2 < len(want) or n.BUILDING.search(cat): continue
         if kind and kind != {w for w in low if w in KIND}: continue
+        if notes and not set(re.findall(r'[a-z]{3,}', notes.lower())) <= reg: continue
+        mine = [w for w in re.findall(r'[a-z]{3,}', name.lower())]; theirs = [w for w in re.findall(r'[a-z]{3,}', base.lower())]
+        if [w for w in theirs if w in mine] != [w for w in mine if w in theirs]: continue
         if not has_type and not any(w in n.GENERIC and w not in KIND for w in low): continue
         return cat
     return None
 
-def choose(files, want, info):
+def choose(files, want, info, kind=()):
     """The first acceptable file, files naming a distinctive word of the place first; None if no file passes."""
     ordered = [f for f in files if want & n.words(f)] + [f for f in files if not want & n.words(f)]
     for fn in ordered:
         if n.BUILDING.search(fn) or NOTPLACE.search(fn): continue
+        fk = {w for w in __import__('re').findall(r'[a-z]+', fn.lower()) if w in KIND}
+        if kind and fk and fk != set(kind): continue   # a file about a county park is not a picture of a state park
         got = c.pick([fn], info)
         if got: return got
     return None
+
+def regions(data_dir):
+    """({place id: region text}, {imgwiki title: set of region texts}) from the place files, for the region check and the shared-title check."""
+    import glob
+    by_id, by_title = {}, {}
+    for f in sorted(glob.glob(data_dir + '/*.json')):
+        if f.endswith(('order.json', 'links.json')): continue
+        e = json.load(open(f)); r = e.get('place') or e.get('country') or ''
+        by_id[e['id']] = r
+        if e.get('imgwiki'): by_title.setdefault(e['imgwiki'], set()).add(r)
+    return by_id, by_title
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv
     limit = int(args[0]) if args else 0
     load = lambda p: json.load(open(p)) if os.path.exists(p) else {}
-    man, miss, tried = load(MAN), load(MISS), load(TRIED); info_by = n.place_info(DATA)
+    man, miss, tried = load(MAN), load(MISS), load(TRIED); info_by = n.place_info(DATA); region_of, regions_of = regions(DATA)
     today = datetime.date.today(); cut = (today - datetime.timedelta(days=RETRY_DAYS)).isoformat()
     todo = sorted(t for t in miss if t in info_by and t not in man and not os.path.exists('%s/%s.jpg' % (OUT, info_by[t][0])) and (again or tried.get(t, '') <= cut))
     if limit: todo = todo[:limit]
     print(len(todo), 'places to try', flush=True); found_n = 0
     for k, t in enumerate(todo, 1):
         pid, name = info_by[t][0], info_by[t][1]; want = n.words(name) | n.words(t)
-        cat = good_category(categories(name), name); files = category_files(cat) if cat else []
-        got = choose(files, want, cp.commons_info(files[:50])) if files else None
+        import re
+        if len(regions_of.get(t, ())) > 1: tried[t] = today.isoformat(); print('  no:', t, '- the same title is used by places in different regions', flush=True); continue
+        cat = good_category(categories(name), name, region_of.get(pid, '')); files = category_files(cat) if cat else []
+        got = choose(files, want, cp.commons_info(files[:50]), {w for w in re.findall(r'[a-z]+', name.lower()) if w in KIND}) if files else None
         if not got: tried[t] = today.isoformat(); print('  no:', t, '-', ('category ' + cat + ' has no usable file') if cat else 'no matching category', flush=True)
         else:
             b = wm.get(got[4], raw=True)

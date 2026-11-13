@@ -12,7 +12,7 @@ class CategoryTests(unittest.TestCase):
     def test_the_category_must_be_the_place_itself(self):
         good = g.good_category
         self.assertEqual(good(['Hotels in Wisconsin', 'Mill Bluff State Park'], 'Mill Bluff State Park'), 'Mill Bluff State Park')
-        self.assertEqual(good(['Castle Rock State Park (California)'], 'Castle Rock State Park'), 'Castle Rock State Park (California)')
+        self.assertEqual(good(['Castle Rock State Park (California)'], 'Castle Rock State Park', 'California, USA'), 'Castle Rock State Park (California)')
         self.assertEqual(good(['Jones-Confluence Point State Park'], 'Edward "ted" and Pat Jones-confluence Point State Park'), 'Jones-Confluence Point State Park')
         self.assertEqual(good(['Nisqually State Park'], 'Nisqually'), 'Nisqually State Park')
         self.assertIsNone(good([], 'Mill Bluff State Park')); self.assertIsNone(good(['Mill Bluff'], 'State Park'))
@@ -28,6 +28,20 @@ class CategoryTests(unittest.TestCase):
                           ('Umbagog State Park', 'Umbagog National Wildlife Refuge'), ('Miller Peninsula', 'Olympic Peninsula'),
                           ('St Marys River Sp', 'Grand Lake St. Marys'), ('Glade Creek State Park', 'Glade Creek Grist Mill')):
             self.assertIsNone(good([cat], name), (name, cat))
+
+    def test_a_bracketed_region_must_be_the_places_own_and_word_order_must_match(self):
+        good = g.good_category
+        for name, cat, region in (('Castle Rock State Park', 'Castle Rock State Park (California)', 'Illinois, USA'), ('East Beach', 'East Beach (Santa Barbara, California)', 'Rhode Island, USA'),
+                                  ('Sunset Lake', 'Sunset Lake (Black Sand Basin, Yellowstone National Park)', 'Delaware, USA'), ('Lewis and Clark State Park', 'Lewis and Clark State Park (Washington)', 'Missouri, USA'),
+                                  ('Buck Mountain', 'Buck Mountain (Wyoming)', 'New Jersey, USA'), ('Chickasaw State Park', 'Chickasaw State Park (Tennessee)', 'Alabama, USA'),
+                                  ('White Lake State Park', 'Lake White State Park', 'New Hampshire, USA'), ('Castle Rock State Park', 'Castle Rock State Park (California)', '')):
+            self.assertIsNone(good([cat], name, region), (name, cat, region))
+        self.assertEqual(good(['Wells State Park (Massachusetts)'], 'Wells State Park', 'Massachusetts, USA'), 'Wells State Park (Massachusetts)')
+
+    def test_a_file_of_another_kind_of_park_and_a_title_shared_by_two_regions_are_skipped(self):
+        files = ['Mount_Pisgah_County_Park_view.jpg', 'Pisgah_State_Park_trail.jpg']
+        self.assertEqual(g.choose(files, g.n.words('Pisgah State Park'), {f: OK for f in files}, {'state'})[0], 'Pisgah_State_Park_trail.jpg')
+        self.assertIsNone(g.choose(files[:1], g.n.words('Pisgah State Park'), {files[0]: OK}, {'state'}))
 
     def test_a_file_naming_the_place_comes_first_and_buildings_closed_licences_pngs_figures_and_clippings_are_refused(self):
         files = ['Sign_at_entrance.jpg', 'Random_view.jpg', 'Mill_Bluff_cliff.jpg', 'Mill_Bluff_a.png', 'Mill_Bluff_b.jpg']
@@ -62,6 +76,12 @@ class RunTests(unittest.TestCase):
         self.assertEqual(man['Alpha Gorge State Park']['f'], 'aa.jpg'); self.assertTrue(os.path.exists('photos/places/aa.jpg'))
         self.assertNotIn('Alpha Gorge State Park', miss); self.assertIn('Beta Hollow State Park', miss)
         self.assertIn('Beta Hollow State Park', tried); self.assertFalse(os.path.exists('photos/places_nearby_tried.json'))
+
+    def test_a_title_shared_by_places_in_different_regions_is_not_matched(self):
+        json.dump({'id': 'cc', 'name': 'Alpha Gorge State Park', 'imgwiki': 'Alpha Gorge State Park', 'lat': 3.0, 'lon': 4.0, 'place': 'Idaho, USA'}, open('data/places/cc.json', 'w'))
+        json.dump({'id': 'aa', 'name': 'Alpha Gorge State Park', 'imgwiki': 'Alpha Gorge State Park', 'lat': 1.0, 'lon': 2.0, 'place': 'New York, USA'}, open('data/places/aa.json', 'w'))
+        man, miss, tried = self.run_main()
+        self.assertEqual(man, {}); self.assertIn('Alpha Gorge State Park', tried)
 
     def test_a_failed_download_is_not_marked_tried(self):
         man, miss, tried = self.run_main(dl=None)
