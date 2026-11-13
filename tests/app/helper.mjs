@@ -50,7 +50,8 @@ function server() {
     const srv = http.createServer((req, res) => {
       if (serverOffline) { req.socket.destroy(); return; }
       const rel = decodeURIComponent((req.url || '/').split('?')[0].split('#')[0]);
-      const f = path.join(ROOT, rel === '/' ? 'index.html' : rel);
+      let f = path.join(ROOT, rel === '/' ? 'index.html' : rel);
+      if (fs.existsSync(f) && fs.statSync(f).isDirectory()) f = path.join(f, 'index.html');   // a folder answers with its index.html, as the site does: the service worker keeps "./" (SHELL_FILES), which for the fixture build is a folder below the root
       if (!f.startsWith(ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.statusCode = 404; res.end(); return; }
       res.setHeader('content-type', MIME[path.extname(f)] || 'application/octet-stream'); res.end(fs.readFileSync(f));
     });
