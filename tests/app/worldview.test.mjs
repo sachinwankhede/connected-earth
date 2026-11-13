@@ -22,20 +22,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(drawn >= 6, 'flagship dots drawn: ' + drawn);
     // zoomed in, they join the ordinary dots again
     await H.jump(t.page, [-100, 40], 4.5);
-    await t.page.waitForTimeout(800);
+    await H.pause(t.page, 800);
     assert.equal(await n('atl-f'), 0);
     assert.ok(await H.dots(t.page) >= total, 'no place lost when flagships rejoin the dots');
     // zoom out again and they come back
     await H.jump(t.page, [-20, 25], 1);
-    await t.page.waitForTimeout(800);
+    await H.pause(t.page, 800);
     assert.equal(await n('atl-f'), 12);
     assert.equal(await H.dots(t.page), total);
     // tapping a flagship opens its place
     const p = await t.page.evaluate(() => { const m = window.__M.map, f = m.getSource('atl-f')._data.features.find((x) => x.properties.id === 'amazon'); m.jumpTo({ center: f.geometry.coordinates, zoom: 2 }); return null; });
-    await t.page.waitForTimeout(800);
+    await H.pause(t.page, 800);
     const xy = await t.page.evaluate(() => { const m = window.__M.map, f = m.getSource('atl-f')._data.features.find((x) => x.properties.id === 'amazon'); const q = m.project(f.geometry.coordinates), r = m.getContainer().getBoundingClientRect(); return [r.left + q.x, r.top + q.y]; });
     await t.page.mouse.click(xy[0], xy[1]);
-    await t.page.waitForTimeout(800);
+    await H.pause(t.page, 800);
     const shown = await t.page.evaluate(() => (document.getElementById('peek') && !document.getElementById('peek').hidden && document.getElementById('peek').textContent) || '');
     assert.match(shown, /Amazon/);
     assert.deepEqual(t.errors, []);
@@ -59,14 +59,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     });
     assert.ok(xy, 'found a small dot');
     await t.page.mouse.click(xy.x, xy.y);
-    await t.page.waitForTimeout(900);
+    await H.pause(t.page, 900);
     const open = await t.page.evaluate(() => { const p = document.getElementById('peek'); return !!(p && !p.hidden); });
     const z = await t.page.evaluate(() => window.__M.map.getZoom());
     assert.equal(open, false, 'small dot does not open a place');
     assert.ok(z > xy.z + 0.5, 'tap beside the dots zooms in: ' + xy.z + ' -> ' + z);
     // zoomed in: normal size
     await H.jump(t.page, [-90, 38], 5);
-    await t.page.waitForTimeout(800);
+    await H.pause(t.page, 800);
     assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-n-pt', 'visibility')), 'none');
     assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-cl', 'visibility')), 'visible', 'clusters come back once zoomed in');
     assert.deepEqual(t.errors, []);
