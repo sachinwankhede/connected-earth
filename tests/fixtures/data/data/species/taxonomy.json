@@ -27,6 +27,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "acinonyx-jubatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Felidae",
+  "gname": "Acinonyx jubatus (Schreber, 1775)",
+  "key": 2435270,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "acrididae": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -1342,6 +1356,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "connochaetes-taurinus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Bovidae",
+  "gname": "Connochaetes taurinus (Burchell, 1823)",
+  "key": 2441105,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "conopholis-americana": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -1464,6 +1492,33 @@
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "crocodylus-niloticus": {
+  "at": "2026-11-04",
+  "class": "Crocodylia",
+  "conf": 100,
+  "family": "Crocodylidae",
+  "gname": "Crocodylus niloticus Laurenti, 1768",
+  "key": 2441341,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "crocuta-crocuta": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Hyaenidae",
+  "gname": "Crocuta crocuta (Erxleben, 1777)",
+  "key": 5218781,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
@@ -1785,6 +1840,20 @@
   "rank": "SUBSPECIES",
   "src": "gbif"
  },
+ "equus-quagga": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 99,
+  "family": "Equidae",
+  "gname": "Equus quagga Boddaert, 1785",
+  "key": 2440892,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Perissodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "ericameria-nauseosa": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -1836,6 +1905,20 @@
   "key": 5225734,
   "kingdom": "Animalia",
   "match": "exact",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "eudorcas-thomsonii": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Bovidae",
+  "gname": "Eudorcas thomsonii (Günther, 1884)",
+  "key": 7261427,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
@@ -2034,6 +2117,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "giraffa-camelopardalis": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Giraffidae",
+  "gname": "Giraffa camelopardalis (Linnaeus, 1758)",
+  "key": 2441205,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "goodyera-pubescens": {
   "at": "2026-11-04",
   "class": "Liliopsida",
@@ -2058,6 +2155,20 @@
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Gruiformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "gyps-rueppelli": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 98,
+  "family": "Accipitridae",
+  "gname": "Gyps rueppellii (A.E.Brehm, 1852)",
+  "key": 2480384,
+  "kingdom": "Animalia",
+  "match": "fuzzy",
+  "order": "Accipitriformes",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
@@ -2171,6 +2282,20 @@
   "match": "exact",
   "order": "Asterales",
   "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "hippopotamus-amphibius": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Hippopotamidae",
+  "gname": "Hippopotamus amphibius Linnaeus, 1758",
+  "key": 2441247,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
+  "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -2590,6 +2715,34 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "loxodonta-africana": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Elephantidae",
+  "gname": "Loxodonta africana (Blumenbach, 1797)",
+  "key": 2435350,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Proboscidea",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "lupulella-mesomelas": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 96,
+  "family": "Canidae",
+  "gname": "Lupulella Hilzheimer, 1906",
+  "key": 4833484,
+  "kingdom": "Animalia",
+  "match": "higher-rank",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "GENUS",
+  "src": "gbif"
+ },
  "lutjanus-campechanus": {
   "at": "2026-11-04",
   "conf": 100,
@@ -2610,6 +2763,20 @@
   "family": "Mustelidae",
   "gname": "Lutra lutra (Linnaeus, 1758)",
   "key": 2433753,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "lycaon-pictus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Canidae",
+  "gname": "Lycaon pictus (Temminck, 1820)",
+  "key": 5219317,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",
@@ -3200,6 +3367,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "panthera-leo": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Felidae",
+  "gname": "Panthera leo (Linnaeus, 1758)",
+  "key": 5219404,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "panthera-onca": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -3207,6 +3388,20 @@
   "family": "Felidae",
   "gname": "Panthera onca (Linnaeus, 1758)",
   "key": 5219426,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "panthera-pardus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Felidae",
+  "gname": "Panthera pardus (Linnaeus, 1758)",
+  "key": 5219436,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",
@@ -3706,6 +3901,20 @@
   "family": "Procyonidae",
   "gname": "Procyon lotor (Linnaeus, 1758)",
   "key": 5218786,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "proteles-cristata": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Hyaenidae",
+  "gname": "Proteles cristata (Sparrman, 1783)",
+  "key": 2433502,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",
@@ -4479,6 +4688,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "syncerus-caffer": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Bovidae",
+  "gname": "Syncerus caffer (Sparrman, 1779)",
+  "key": 2441034,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "tamiasciurus-hudsonicus": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -4546,6 +4769,20 @@
   "match": "exact",
   "order": "Galliformes",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "themeda-triandra": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 99,
+  "family": "Poaceae",
+  "gname": "Themeda triandra Forssk.",
+  "key": 2703467,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -4713,6 +4950,20 @@
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Ericales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "vachellia-tortilis": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Fabaceae",
+  "gname": "Vachellia tortilis (Forssk.) Galasso & Banfi",
+  "key": 3974700,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Fabales",
   "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"

@@ -2,13 +2,15 @@ import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 describe('credits', () => {
   let browser;
   before(async () => { browser = await H.launch(); });
   after(async () => { await browser.close(); });
   for (const [name, size] of Object.entries(H.SIZES)) {
     test(`${name}: link sits after the last place; dialog opens and closes three ways`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
+      const t = await H.open(browser, H.FMAIN, size);
       if (name === 'phone') { await t.page.click('#shead'); await H.pause(t.page, 600); }
       const pos = await t.page.evaluate(() => {
         const c = document.querySelector('#cards'), l = document.getElementById('credbtn');

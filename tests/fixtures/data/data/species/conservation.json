@@ -3,6 +3,10 @@
   "c": "LC",
   "q": "Q862896"
  },
+ "acinonyx jubatus": {
+  "c": "VU",
+  "q": "Q23907"
+ },
  "agelaius phoeniceus": {
   "c": "LC",
   "q": "Q754043"
@@ -247,6 +251,10 @@
   "c": "LC",
   "q": "Q1944775"
  },
+ "connochaetes taurinus": {
+  "c": "LC",
+  "q": "Q328809"
+ },
  "coragyps atratus": {
   "c": "LC",
   "q": "Q213366"
@@ -266,6 +274,14 @@
  "cricetulus migratorius": {
   "c": "LC",
   "q": "Q788391"
+ },
+ "crocodylus niloticus": {
+  "c": "LC",
+  "q": "Q168745"
+ },
+ "crocuta crocuta": {
+  "c": "LC",
+  "q": "Q178089"
  },
  "crotalus horridus": {
   "c": "LC",
@@ -335,9 +351,17 @@
   "c": "LC",
   "q": "Q717867"
  },
+ "equus quagga": {
+  "c": "NT",
+  "q": "Q245305"
+ },
  "eryx elegans": {
   "c": "LC",
   "q": "Q3004698"
+ },
+ "eudorcas thomsonii": {
+  "c": "LC",
+  "q": "Q271705"
  },
  "eunectes murinus": {
   "c": "LC",
@@ -363,9 +387,17 @@
   "c": "LC",
   "q": "Q261574"
  },
+ "giraffa camelopardalis": {
+  "c": "VU",
+  "q": "Q15083"
+ },
  "grus canadensis": {
   "c": "LC",
   "q": "Q503804"
+ },
+ "gyps rueppelli": {
+  "c": "CR",
+  "q": "Q55111925"
  },
  "haematopus ostralegus": {
   "c": "NT",
@@ -382,6 +414,10 @@
  "herpestes ichneumon": {
   "c": "LC",
   "q": "Q649306"
+ },
+ "hippopotamus amphibius": {
+  "c": "VU",
+  "q": "Q34505"
  },
  "hordeum jubatum": {
   "c": "LC",
@@ -467,6 +503,14 @@
   "c": "LC",
   "q": "Q327028"
  },
+ "loxodonta africana": {
+  "c": "EN",
+  "q": "Q36557"
+ },
+ "lupulella mesomelas": {
+  "c": "LC",
+  "q": "Q125814326"
+ },
  "lutjanus campechanus": {
   "c": "VU",
   "q": "Q1889210"
@@ -474,6 +518,10 @@
  "lutra lutra": {
   "c": "NT",
   "q": "Q29995"
+ },
+ "lycaon pictus": {
+  "c": "EN",
+  "q": "Q173651"
  },
  "lynx pardinus": {
   "c": "VU",
@@ -587,9 +635,17 @@
   "c": "LC",
   "q": "Q7131124"
  },
+ "panthera leo": {
+  "c": "VU",
+  "q": "Q140"
+ },
  "panthera onca": {
   "c": "NT",
   "q": "Q35694"
+ },
+ "panthera pardus": {
+  "c": "VU",
+  "q": "Q34706"
  },
  "pantherophis obsoletus": {
   "c": "LC",
@@ -702,6 +758,10 @@
  "procyon lotor": {
   "c": "LC",
   "q": "Q121439"
+ },
+ "proteles cristata": {
+  "c": "LC",
+  "q": "Q185295"
  },
  "prunus serotina": {
   "c": "LC",
@@ -863,6 +923,10 @@
   "c": "LC",
   "q": "Q129773"
  },
+ "syncerus caffer": {
+  "c": "NT",
+  "q": "Q160042"
+ },
  "tamiasciurus hudsonicus": {
   "c": "LC",
   "q": "Q326976"
@@ -918,6 +982,10 @@
  "vaccinium arboreum": {
   "c": "LC",
   "q": "Q3249733"
+ },
+ "vachellia tortilis": {
+  "c": "LC",
+  "q": "Q14933877"
  },
  "vanessa virginiensis": {
   "c": "LC",

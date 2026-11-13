@@ -1,0 +1,12 @@
+{
+ "latin": "Macrotermes spp.",
+ "name": "Termites",
+ "tl": 2,
+ "wiki": "Termite",
+ "desc": "Chew dead grass and wood, and their mounds enrich the soil around them.",
+ "ic": "hopper",
+ "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus.",
+ "sid": "macrotermes-spp",
+ "sk": "group",
+ "src": "legacy"
+}

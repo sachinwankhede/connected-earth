@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal rains",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain arrives in two seasons and sets the timing of the whole migration.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "seasonal-rains",
+ "sk": "resource",
+ "src": "legacy"
+}

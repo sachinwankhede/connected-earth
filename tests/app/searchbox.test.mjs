@@ -3,9 +3,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: search box has a Clear link that empties it, and Enter leaves the box`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     const clr = () => p.evaluate(() => !document.getElementById('qclr').hidden);
     assert.equal(await clr(), false, 'no Clear link while the box is empty');

@@ -3,13 +3,15 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const ties = (p) => p.evaluate(() => window.__M.map.getSource('atl-t')._data.features.length);
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: related-place markers clear when the card closes, a search starts, or the globe button is used`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map && window.__M.map.getSource('atl-t'), null, { timeout: 60000 }); await H.pause(p, 1500);
     for (const how of ['close', 'search', 'home']) {
-      await p.evaluate(() => window.__M.peek('serengeti')); await H.pause(p, 800);
+      await p.evaluate(() => window.__M.peek('yellowstone')); await H.pause(p, 800);
       assert.ok(await ties(p) > 1, how + ': related places shown while the card is open');
       if (how === 'close') await p.evaluate(() => document.querySelector('[data-closepeek]').click());
       if (how === 'search') await p.evaluate(() => { const q = document.getElementById('q'); q.value = 'elk'; q.dispatchEvent(new Event('input', { bubbles: true })); });
