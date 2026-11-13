@@ -84,7 +84,7 @@ class RunTests(unittest.TestCase):
 
     def run_main(self, answers, limit='15'):
         it = iter(answers)
-        def fake_ask(name, where, kind, source, key):
+        def fake_ask(name, where, kind, source, key, model=None):
             a = next(it)
             if a == 'QUOTA': raise g.QuotaStop('x')
             if a == 'BUSY': raise g.Overloaded('HTTP 503')
@@ -111,6 +111,30 @@ class RunTests(unittest.TestCase):
 
     def test_an_unknown_model_is_refused_before_any_request(self):
         with mock.patch.object(g, 'MODEL', 'gemini-9-ultra'), mock.patch.dict(os.environ, {'GEMINI_API_KEY': 'k'}), mock.patch.object(sys, 'argv', ['x', self.res, self.out]), self.assertRaises(SystemExit): g.main()
+
+    def chain_run(self, quota_for, chain='gemini-3.5-flash-lite,gemini-3.1-flash-lite'):
+        asked = []
+        def fake_ask(name, where, kind, source, key, model=None):
+            asked.append((name, model))
+            if model in quota_for: raise g.QuotaStop('x')
+            return self.ok()
+        todo_real = g.todo
+        with mock.patch.dict(os.environ, {'GEMINI_API_KEY': 'k'}), mock.patch.object(sys, 'argv', ['x', self.res, self.out, '15']), mock.patch.object(g, 'MODEL', chain), \
+                mock.patch.object(g, 'ask', fake_ask), mock.patch.object(g, 'GAP', 0), mock.patch.object(g, 'todo', lambda r, o, a: todo_real(r, o, a, self.data)):
+            g.main()
+        return asked
+
+    def test_when_a_model_is_out_of_quota_the_next_one_takes_the_same_place_and_is_recorded(self):
+        asked = self.chain_run({'gemini-3.5-flash-lite'})
+        self.assertEqual(asked[:2], [('Place aa', 'gemini-3.5-flash-lite'), ('Place aa', 'gemini-3.1-flash-lite')])
+        self.assertNotIn('gemini-3.5-flash-lite', [m for _, m in asked[2:]])   # not asked again this run
+        self.assertEqual(json.load(open(os.path.join(self.out, 'aa.json')))['model'], 'gemini-3.1-flash-lite')
+        self.assertTrue(all(os.path.exists(os.path.join(self.out, p + '.json')) for p in ('aa', 'bb', 'cc')))
+
+    def test_when_every_model_is_out_the_run_stops_and_an_unknown_one_in_the_list_is_refused(self):
+        asked = self.chain_run({'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite'})
+        self.assertEqual(len(asked), 2); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))
+        with self.assertRaises(SystemExit): self.chain_run(set(), 'gemini-3.5-flash-lite,gemini-9-ultra')
 
     def test_a_failed_check_is_kept_as_rejected_and_not_asked_again(self):
         self.run_main([self.ok('Lake Park was founded in 1999.'), self.ok(), self.ok()])
