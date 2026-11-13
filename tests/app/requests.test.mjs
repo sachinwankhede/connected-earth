@@ -56,7 +56,7 @@ describe('the app reads only data we host', () => {
     await page.goto(base + 'index.html' + hash);
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
     await page.waitForLoadState('networkidle').catch(() => {});
-    await page.waitForTimeout(6000);   // past the photo hold, so the whole start is counted
+    await H.pause(page, 6000);   // past the photo hold, so the whole start is counted
     const atStart = [...new Set(own)];
     if (act) await act(page);
     for (const u of new Set(own)) { const f = path.join(H.ROOT, decodeURIComponent(u === '/' ? '/index.html' : u)); if (fs.existsSync(f) && fs.statSync(f).isFile()) bytes += fs.statSync(f).size; }   // sizes of the files served: exact, and the same on every run
@@ -77,7 +77,7 @@ describe('the app reads only data we host', () => {
 
     // #406 step 2: what one flow costs on top of the first view, counted as the files it adds. Measured values are in the failure message; raise a budget only with a reason in the pull request.
     test(`${sizeName}: a search adds only the local place files, within its request and size budget`, async () => {
-      const r = await record(size, '', async (p) => { await p.fill('#q', 'elk'); await p.waitForTimeout(2500); });
+      const r = await record(size, '', async (p) => { await p.fill('#q', 'elk'); await H.pause(p, 2500); });
       const kb = flowKB(r.added);
       assert.deepEqual(bad(r.outside, false), [], 'outside hosts in a search: ' + r.outside);
       assert.ok(r.added.length <= FLOW.search.requests, `a search added ${r.added.length} requests (budget ${FLOW.search.requests}; by kind: ${byKind(r.added)}): ${r.added.join(' ')}`);
@@ -85,7 +85,7 @@ describe('the app reads only data we host', () => {
     });
 
     test(`${sizeName}: Near me adds only the local place files, within its request and size budget`, async () => {
-      const r = await record(size, '', async (p) => { await p.click('#znear'); await p.waitForTimeout(2500); }, { latitude: 38.5481, longitude: -90.5433 });
+      const r = await record(size, '', async (p) => { await p.click('#znear'); await H.pause(p, 2500); }, { latitude: 38.5481, longitude: -90.5433 });
       const kb = flowKB(r.added);
       assert.deepEqual(bad(r.outside, false), [], 'outside hosts in Near me: ' + r.outside);
       assert.ok(r.added.length <= FLOW.near.requests, `Near me added ${r.added.length} requests (budget ${FLOW.near.requests}; by kind: ${byKind(r.added)}): ${r.added.join(' ')}`);

@@ -17,7 +17,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(bx.w >= 44 && bx.h >= 44, 'Clear link is at least 44px');
     await p.keyboard.press('Enter');
     assert.equal(await p.evaluate(() => document.activeElement && document.activeElement.id), '', 'Enter leaves the box');
-    await p.click('#qclr'); await p.waitForTimeout(300);
+    await p.click('#qclr'); await H.pause(p, 300);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'text cleared');
     assert.equal(await clr(), false, 'Clear link hidden again');
     assert.equal(await p.evaluate(() => document.activeElement.id), 'q', 'focus stays in the box');
