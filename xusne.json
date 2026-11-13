@@ -1,0 +1,21 @@
+{
+ "id": "xusne",
+ "name": "Platte River sandhill crane migration (central Platte valley)",
+ "story": "The Platte River sandhill crane migration takes place in the central Platte valley in Nebraska, United States. Fossil evidence indicates this crane stopover in the river valley has been active for over 10 million years.",
+ "matters": "The central Platte River valley is an important stopover for migratory water birds, such as the whooping crane and sandhill crane, in their yearly traversal of the Central Flyway.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7519,
+  "candidatesTokenCount": 88,
+  "totalTokenCount": 7607,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7519
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:58:18+00:00"
+}

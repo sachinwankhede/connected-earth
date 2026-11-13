@@ -1,0 +1,21 @@
+{
+ "id": "xusks",
+ "name": "Konza Prairie and the Flint Hills",
+ "story": "Konza Prairie is an 8,616-acre protected area of native tallgrass prairie located in the Flint Hills of northeastern Kansas. It features a topographically complex landscape with tallgrass, forest, and limestone outcrops. A herd of approximately 2,400 bison graze on the hills of the preserve.",
+ "matters": "The site is part of the largest remaining area of unplowed tallgrass prairie in North America, serving as a natural laboratory for studying ecological patterns. Key natural processes such as periodic fire and grazing help sustain this unique grassland ecosystem.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5782,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 5909,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5782
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:57:28+00:00"
+}

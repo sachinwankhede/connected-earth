@@ -1,0 +1,21 @@
+{
+ "id": "xusdc",
+ "name": "Rock Creek Park",
+ "story": "Rock Creek Park is the oldest natural urban park in the National Park System, located in Washington, D.C., USA. Created by an act of Congress in 1890, the park covers 1,754 acres along the Rock Creek Valley. It is home to wildlife and plants including the white-tailed deer and the American beech.",
+ "matters": "The park preserves timber, animals, and natural curiosities in their natural condition. The American beech trees in its forests produce nuts that provide food for various animals.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7472,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 7586,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7472
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:56:23+00:00"
+}

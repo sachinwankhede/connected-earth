@@ -1,0 +1,21 @@
+{
+ "id": "xusny",
+ "name": "Adirondack Park",
+ "story": "Adirondack Park is located in northeastern New York. Established in 1892, it is the largest park in the contiguous United States at 6.1 million acres and contains old-growth forests, lakes, and the Adirondack Mountains.",
+ "matters": "The park provides watershed protection and shelters old-growth forests and native wildlife. Its legal protections and management have helped conserve developed and wild lands.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7363,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 7458,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7363
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:59:06+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "uschickasawnationalrecre",
+ "name": "Chickasaw National Recreation Area",
+ "story": "Chickasaw National Recreation Area is located in south-central Oklahoma in the foothills of the Arbuckle Mountains near Sulphur in Murray County. It covers 9,888.83 acres, with water covering 2,409 acres. The park preserves partially forested hills, springs, streams, and lakes.",
+ "matters": "The park preserves natural fresh and mineral springs that were originally protected to prevent developers from turning them into a private resort.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3019,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 3125,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3019
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:36:28+00:00"
+}

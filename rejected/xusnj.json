@@ -1,0 +1,22 @@
+{
+ "id": "xusnj",
+ "name": "New Jersey Pine Barrens (Pinelands National Reserve)",
+ "story": "The New Jersey Pine Barrens forest is located in New Jersey, USA. Spanning over seven counties, it forms the largest remaining example of the Atlantic coastal pine barrens ecosystem. This mostly rural area features sandy, acidic soil and supports rare pygmy pitch pines, orchids, and carnivorous plants.",
+ "matters": "The Pinelands National Reserve protects a rare ecosystem that helps recharge the Kirkwood-Cohansey aquifer, which contains some of the purest water in the United States. Its unique habitats support diverse plant and animal species that depend on frequent fires to reproduce.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6168,
+  "candidatesTokenCount": 125,
+  "totalTokenCount": 6293,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6168
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:58:50+00:00",
+ "rejected": "matters has 41 words (limit 40)"
+}

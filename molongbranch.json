@@ -1,0 +1,21 @@
+{
+ "id": "molongbranch",
+ "name": "Long Branch State Park",
+ "story": "Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.",
+ "matters": "The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2175,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 2289,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2175
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:33:19+00:00"
+}

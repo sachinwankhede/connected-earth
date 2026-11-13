@@ -1,0 +1,21 @@
+{
+ "id": "xzambia",
+ "name": "South Luangwa National Park",
+ "story": "South Luangwa National Park covers 9,050 km2 in eastern Zambia. Founded as a game reserve in 1938 and becoming a national park in 1972, it sits in the valley of the meandering Luangwa River. The park supports over 400 bird species and more than 60 mammal species.",
+ "matters": "The park spans woodland savannah eco-regions and includes the Nsefu Sector, supporting stable populations of lions, spotted hyenas, African wild dogs, and high densities of leopards.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5638,
+  "candidatesTokenCount": 118,
+  "totalTokenCount": 5756,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5638
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T12:01:10+00:00"
+}

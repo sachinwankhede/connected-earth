@@ -1,0 +1,21 @@
+{
+ "id": "uscumberlandislandnation",
+ "name": "Cumberland Island National Seashore",
+ "story": "Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.",
+ "matters": "The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2340,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 2440,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2340
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:37:43+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "mobiglake",
+ "name": "Big Lake State Park",
+ "story": "Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.",
+ "matters": "The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1707,
+  "candidatesTokenCount": 89,
+  "totalTokenCount": 1796,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1707
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:29:10+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "usbighorncanyonnationalr",
+ "name": "Bighorn Canyon National Recreation Area",
+ "story": "Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.",
+ "matters": "Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3338,
+  "candidatesTokenCount": 121,
+  "totalTokenCount": 3459,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3338
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:34:52+00:00"
+}

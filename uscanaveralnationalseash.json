@@ -1,0 +1,21 @@
+{
+ "id": "uscanaveralnationalseash",
+ "name": "Canaveral National Seashore",
+ "story": "Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.",
+ "matters": "The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2866,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 2990,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2866
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:35:08+00:00"
+}

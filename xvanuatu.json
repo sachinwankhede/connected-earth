@@ -1,0 +1,21 @@
+{
+ "id": "xvanuatu",
+ "name": "Espiritu Santo Highland Forest",
+ "story": "Espiritu Santo Highland Forest is located in Vanuatu. The island of Espiritu Santo has an area of 3,955.5 square kilometres and is part of the nation and archipelago of Vanuatu. Animals found here include the Pacific imperial pigeon and the swamp harrier.",
+ "matters": "The forest provides a home for various native birds and species found across the Pacific region, contributing to the rich biodiversity of the island.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5209,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 5308,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5209
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T12:00:53+00:00"
+}

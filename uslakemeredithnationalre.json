@@ -1,0 +1,21 @@
+{
+ "id": "uslakemeredithnationalre",
+ "name": "Lake Meredith National Recreation Area",
+ "story": "Lake Meredith National Recreation Area is located in Texas, USA, about 30 miles north of Amarillo in the Texas Panhandle. Its main attraction is 10,000-acre Lake Meredith, a reservoir created by Sanford Dam on the Canadian River.",
+ "matters": "Alibates Flint Quarries National Monument is located adjacent to Lake Meredith National Recreation Area.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1724,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 1805,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1724
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:44:38+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xtogo",
+ "name": "Fazao-Malfakassa National Park",
+ "story": "Fazao-Malfakassa National Park is the largest of three national parks in Togo, situated in semi-mountainous wetland between the Kara Region and Centrale Region. Established in 1975, the park features rocky hills, savanna woodland, gallery forest, submontane forest, and grass-covered hilltops. It provides a home to various antelopes and elephants.",
+ "matters": "The park supports significant populations of many bird species, making it an Important Bird Area. It is also one of two sites in Togo included in the CITES Monitoring of Illegal Killing of Elephants Program.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5269,
+  "candidatesTokenCount": 128,
+  "totalTokenCount": 5397,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5269
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:53:17+00:00"
+}

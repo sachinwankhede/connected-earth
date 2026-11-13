@@ -1,0 +1,21 @@
+{
+ "id": "usjohndayfossilbedsnatio",
+ "name": "John Day Fossil Beds National Monument",
+ "story": "John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.",
+ "matters": "The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3547,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 3655,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3547
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:44:02+00:00"
+}

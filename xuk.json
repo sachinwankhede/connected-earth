@@ -1,0 +1,21 @@
+{
+ "id": "xuk",
+ "name": "Cairngorms National Park",
+ "story": "Cairngorms National Park covers 4,528 square kilometres in northeast Scotland. Established in 2003, it is the largest national park in the United Kingdom. It features an arctic-alpine mountain environment with tundra-like characteristics, ancient woodland known as the Caledonian Forest, and the only herd of semi-domesticated reindeer in the British Isles.",
+ "matters": "The park provides a unique alpine semi-tundra moorland habitat that is home to rare plants, birds, and animals, including breeding rock ptarmigan, Eurasian dotterel, snow bunting, golden eagle, ring ouzel, and red grouse.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7211,
+  "candidatesTokenCount": 143,
+  "totalTokenCount": 7354,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7211
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:55:13+00:00"
+}

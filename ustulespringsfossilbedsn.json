@@ -1,0 +1,21 @@
+{
+ "id": "ustulespringsfossilbedsn",
+ "name": "Tule Springs Fossil Beds National Monument",
+ "story": "Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.",
+ "matters": "The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1747,
+  "candidatesTokenCount": 88,
+  "totalTokenCount": 1835,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1747
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:48:41+00:00"
+}

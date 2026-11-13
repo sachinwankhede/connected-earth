@@ -1,0 +1,21 @@
+{
+ "id": "mohahatonka",
+ "name": "Ha Ha Tonka State Park",
+ "story": "Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.",
+ "matters": "The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2032,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 2113,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2032
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:31:38+00:00"
+}

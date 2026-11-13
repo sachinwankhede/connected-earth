@@ -48,3 +48,9 @@ Story: Defensores del Chaco National Park is the largest protected area in Parag
 
 Why: The park covers a unique geological formation in the Chaco called Cerro León, which is about 40 km in diameter and made of a succession of hills. It provides an excellent area for large mammals such as the jaguar, puma, and Chacoan peccary.
 
+## New Jersey Pine Barrens (Pinelands National Reserve) (`xusnj`) - matters has 41 words (limit 40)
+
+Story: The New Jersey Pine Barrens forest is located in New Jersey, USA. Spanning over seven counties, it forms the largest remaining example of the Atlantic coastal pine barrens ecosystem. This mostly rural area features sandy, acidic soil and supports rare pygmy pitch pines, orchids, and carnivorous plants.
+
+Why: The Pinelands National Reserve protects a rare ecosystem that helps recharge the Kirkwood-Cohansey aquifer, which contains some of the purest water in the United States. Its unique habitats support diverse plant and animal species that depend on frequent fires to reproduce.
+

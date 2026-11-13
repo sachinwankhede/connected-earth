@@ -1,92 +1,92 @@
 # REVIEW-07.md
 
-## Gauja National Park (`xlatvia`)
+## Socotra Archipelago (`whsocotra`)
 
-**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
+**Story** (50 words): Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.
 
-**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
+**Why it matters** (24 words): About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.
 
-## Al Shouf Cedar Nature Reserve (`xlebanon`)
+## Tasmanian Wilderness World Heritage Area (`whtasmania`)
 
-**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
+**Story** (36 words): The Tasmanian Wilderness World Heritage Area is located in Tasmania, Australia. Covering 15,800 km2, it is one of the largest conservation areas in Australia and one of the last expanses of temperate wilderness in the world.
 
-**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
+**Why it matters** (22 words): It is home to unique fauna like the Tasmanian devil and includes extensive temperate rainforests, supporting high plant diversity and ancient species.
 
-## Sehlabathebe National Park (`xlesotho`)
+## Tikal National Park (`whtikal`)
 
-**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
+**Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
 
-**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
+**Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
 
-## Sapo National Park (`xliberia`)
+## Torres del Paine National Park (`whtorres`)
 
-**Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
+**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
 
-**Why it matters** (29 words): The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.
+**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
 
-## Curonian Spit (`xlithuania`)
+## Eduardo Avaroa Andean Fauna National Reserve (`whuyuni`)
 
-**Story** (43 words): The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.
+**Story** (33 words): Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.
 
-**Why it matters** (31 words): The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.
+**Why it matters** (28 words): The reserve protects an extreme environment and species adapted to high altitudes, serving as an important habitat for birds and part of the larger Los Lípez Ramsar site.
 
-## Müllerthal and Upper Sûre forests (`xluxembourg`)
+## Península Valdés (`whvaldes`)
 
-**Story** (42 words): The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.
+**Story** (43 words): Península Valdés is a peninsula into the Atlantic Ocean in Chubut, Argentina. It is about 3,625 square kilometers in size and is an important nature reserve listed as a World Heritage Site by UNESCO in 1999. The coastline is inhabited by marine mammals.
 
-**Why it matters** (34 words): The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.
+**Why it matters** (28 words): The adjacent waters contain the most important breeding ground for southern right whales in the world. These whales arrive between May and December for mating and giving birth.
 
-## Lake Ohrid Region (`xmacedonia`)
+## Vatnajökull National Park (`whvatnajokull`)
 
-**Story** (29 words): Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.
+**Story** (51 words): Vatnajökull National Park in Iceland covers 14,967 km2, making it Europe's second largest national park. Established on June 7, 2008, and inscribed as a World Heritage Site on July 5, 2019, it encompasses the vast Vatnajökull glacier and features a landscape shaped by rivers, glacial ice, and volcanic and geothermal activity.
 
-**Why it matters** (23 words): It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.
+**Why it matters** (27 words): Areas near the glacier and around Snæfell provide an important habitat for reindeer and pink-footed geese. The park aims to preserve unimpaired natural beauty for future generations.
 
-## Codru Nature Reserve (Codrii) (`xmoldova`)
+## Whale Sanctuary of El Vizcaíno (`whvizcaino`)
 
-**Story** (40 words): Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.
+**Story** (46 words): The Whale Sanctuary of El Vizcaíno is located in Baja California Sur, Mexico, and covers an area of over 24,930 square kilometers. Created in 1988, it is the largest wildlife refuge in Mexico. The sanctuary serves as an important habitat for reproducing and wintering gray whales.
 
-**Why it matters** (26 words): The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.
+**Why it matters** (40 words): It is an important habitat for reproducing and wintering gray whales, harbor seals, California sea lions, northern elephant seals, blue whales, and four species of endangered marine turtles. It also serves as an important refuge for waterfowl in the winter.
 
-## Hukaung Valley Tiger Reserve (`xmyanmar`)
+## Western Caucasus (`whwcaucasus`)
 
-**Story** (33 words): Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.
+**Story** (51 words): The Western Caucasus is a western region of the North Caucasus in Southern Russia, extending from the Black Sea to Mount Elbrus. It includes a UNESCO World Heritage Site with varied habitats ranging from lowlands to glaciers. The area features large areas of undisturbed mountain forest and tall Nordmann fir trees.
 
-**Why it matters** (24 words): The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.
+**Why it matters** (38 words): It is a protected natural place that shelters high mountain species of plants, many of which are endemic. It also includes a Persian leopard reintroduction centre and is the place of origin and reintroduction of the Caucasian wisent.
 
-## Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems (`xnewcal`)
+## Wood Buffalo National Park (`whwoodbuffalo`)
 
-**Story** (38 words): The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.
+**Story** (49 words): Wood Buffalo National Park covers 44,741 square kilometres in northeastern Alberta and the southern Northwest Territories in Canada. Established in 1922, it is the largest national park of Canada. It protects the world's largest herd of free-roaming wood bison and one of two known nesting sites of whooping cranes.
 
-**Why it matters** (32 words): The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.
+**Why it matters** (35 words): The park preserves the Peace-Athabasca Delta, which is one of the world's largest fresh-water deltas. It is recognized as the most ecologically complete and largest example of the Great Plains-Boreal grassland ecosystem of North America.
 
-## Indio Maiz Biological Reserve (`xnicaragua`)
+## Natural System of Wrangel Island Reserve (`whwrangel`)
 
-**Story** (52 words): Indio Maiz Biological Reserve covers about 3,180 square kilometers on the southeastern corner of Nicaragua bordering the San Juan River and Costa Rica. It is one of the largest protected lowland forest systems in Central America and is rich in biodiversity, providing a home for jaguars, Baird's tapirs, and great green macaws.
+**Story** (43 words): Natural System of Wrangel Island Reserve is in Chukotka, Russia, with an area of 7,600 km2. It is roughly the size of Crete and features a central belt of low-relief mountains. The island was home to the last surviving population of woolly mammoths.
 
-**Why it matters** (29 words): It is a key component in the proposed Mesoamerican Biological Corridor and serves as an important population stronghold for endangered species like the great green macaw and the jaguar.
+**Why it matters** (30 words): It serves as a vital breeding ground for polar bears with the highest density of dens in the world. The reserve also protects diverse Arctic plants and numerous seabird colonies.
 
-## Cross River National Park (`xnigeria`)
+## Yakushima (`whyakushima`)
 
-**Story** (43 words): Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.
+**Story** (52 words): Yakushima is a forest in Kagoshima, Japan, where 42 percent of the island is within the borders of the Yakushima National Park. Established in 1964, the national park covers 325.53 square kilometres and includes mountains and marine areas. It features ancient cedar trees called Yakusugi and is home to the Yakushima macaque.
 
-**Why it matters** (29 words): The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.
+**Why it matters** (29 words): Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.
 
-## Ras al Jinz Turtle Reserve and Arabian Sea coast (`xoman`)
+## Yasuní National Park (`whyasuni`)
 
-**Story** (52 words): Ras Al Jinz Turtle Reserve is located in Oman on the easternmost peninsula. Designated as a nature reserve on 23 April 1996, it hosts one of the most important populations of green turtles in the Indian Ocean. Throughout the year, these turtles haul their weight from the sea to lay their eggs.
+**Story** (33 words): Yasuní National Park covers roughly 10,000 km2 within Amazonian Ecuador, between the Napo and Curaray Rivers. It is primarily rain forest and home to many animal species, including monkeys, jaguars, and harpy eagles.
 
-**Why it matters** (22 words): It provides a vital breeding ground for green sea turtles, which are part of the biologically productive Arabian Sea large marine ecosystem.
+**Why it matters** (31 words): The park lies within the Napo moist forests ecoregion and is one of the most biologically diverse spots on Earth, holding exceptionally high richness in trees, amphibians, bats, birds, and mammals.
 
-## Deosai National Park (`xpakistan`)
+## Band-e Amir National Park (`xafghan`)
 
-**Story** (50 words): Deosai National Park protects 843 square kilometres of high-elevation alpine plain in Pakistan. Situated at an average elevation of 4,114 metres above sea level, it is the second highest plateau in the world. The park is home to rich flora and fauna of the Karakoram-West Tibetan Plateau alpine steppe eco-region.
+**Story** (37 words): Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.
 
-**Why it matters** (34 words): The national park was established to protect the survival of the critically endangered Himalayan brown bear and its habitat. The plateau is currently home to the most significant and stable Himalayan brown bear population.
+**Why it matters** (24 words): The park provides a pristine landscape and habitat for over 170 bird species, including populations of Himalayan snowcocks within its designated Important Bird Area.
 
-## Judean Desert and Wadi Qelt (`xpalestine`)
+## Karavasta Lagoon (Divjaka-Karavasta National Park) (`xalbania`)
 
-**Story** (38 words): The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.
+**Story** (48 words): Karavasta Lagoon is the largest lagoon in Albania, spanning an area of 42 square kilometres. It is part of Divjaka-Karavasta National Park and is separated from the Adriatic Sea by a large strip of sand. The area hosts many pine trees, small sandy islands, and the Dalmatian pelican.
 
-**Why it matters** (37 words): The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.
+**Why it matters** (39 words): The lagoon is recognized as a wetland of international importance under the Ramsar Convention. It is home to 6.4% of Europe's population of the Dalmatian pelican, serving as its only coastal breeding site along the Adriatic and Ionian Sea.
 

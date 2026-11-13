@@ -1,0 +1,21 @@
+{
+ "id": "xusok",
+ "name": "Joseph H. Williams Tallgrass Prairie Preserve",
+ "story": "The Joseph H. Williams Tallgrass Prairie Preserve is located in Oklahoma, USA, and is the largest protected tract of tallgrass prairie in the world. Managed by The Nature Conservancy, it covers 39,650 acres owned by the Conservancy and another 6,000 acres leased. The preserve is home to prominent bison and numerous plant and bird species.",
+ "matters": "It protects a rare remnant of the original tallgrass region of the Great Plains and provides a vital habitat for threatened greater prairie-chickens and endangered American burying beetles.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6026,
+  "candidatesTokenCount": 119,
+  "totalTokenCount": 6145,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6026
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:59:23+00:00"
+}

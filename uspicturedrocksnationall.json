@@ -1,0 +1,21 @@
+{
+ "id": "uspicturedrocksnationall",
+ "name": "Pictured Rocks National Lakeshore",
+ "story": "Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.",
+ "matters": "The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3528,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 3622,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3528
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:46:44+00:00"
+}

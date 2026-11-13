@@ -1,0 +1,21 @@
+{
+ "id": "mofingerlakes",
+ "name": "Finger Lakes State Park",
+ "story": "Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.",
+ "matters": "The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2015,
+  "candidatesTokenCount": 121,
+  "totalTokenCount": 2136,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2015
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:31:06+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "uskatahdinwoodsandwaters",
+ "name": "Katahdin Woods and Waters National Monument",
+ "story": "Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.",
+ "matters": "The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2793,
+  "candidatesTokenCount": 131,
+  "totalTokenCount": 2924,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2793
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:44:19+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xtrinidad",
+ "name": "Caroni Swamp",
+ "story": "The Caroni Swamp is a 12,000 acre swamp located on the west coast of the island of Trinidad in Trinidad and Tobago. It is the largest mangrove forest and the second largest wetland in the country. The swamp serves as a major home and the largest roosting place for the scarlet ibis.",
+ "matters": "The Caroni Swamp is protected under the Ramsar Convention as a wetland of international importance. It supports a rich biodiversity of endangered species, provides food and protection, and acts as a nursery for marine and freshwater species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6551,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 6667,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6551
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:54:05+00:00"
+}

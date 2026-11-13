@@ -1,0 +1,21 @@
+{
+ "id": "xsolomon",
+ "name": "Marovo Lagoon",
+ "story": "Marovo Lagoon is the largest double-barrier enclosed lagoon in the world, covering 700 square kilometres in the Western Province of the Solomon Islands between Vangunu and Nggatokae islands. It is protected by a double barrier reef system and includes many islands where some people live and speak the Marovo language.",
+ "matters": "The Marovo Lagoon World Heritage Area is considered an area of high biodiversity and conservation value, featuring high live coral cover in the Western Province.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5650,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 5753,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5650
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:49:46+00:00"
+}

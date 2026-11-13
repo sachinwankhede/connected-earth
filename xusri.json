@@ -1,0 +1,21 @@
+{
+ "id": "xusri",
+ "name": "Narragansett Bay and Block Island",
+ "story": "Narragansett Bay and Block Island are located in Rhode Island, USA. Narragansett Bay covers 147 square miles and forms New England's largest estuary. Block Island lies less than 20 miles southwest of its opening and is an island of the Outer Lands coastal archipelago.",
+ "matters": "About 40 percent of Block Island is set aside for conservation, and much of its northwestern tip is an undeveloped natural area and resting stop for birds along the Atlantic flyway.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7272,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 7379,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7272
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:59:58+00:00"
+}

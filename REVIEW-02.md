@@ -1,92 +1,92 @@
 # REVIEW-02.md
 
-## Manú National Park (`whmanu`)
+## Knob Noster State Park (`moknobnoster`)
 
-**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
 
-**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
 
-## Monarch Butterfly Biosphere Reserve (`whmonarch`)
+## Lake of The Ozarks State Park (`molakeoftheozarks`)
 
-**Story** (39 words): The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.
+**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-**Why it matters** (30 words): The reserve is a World Heritage Site containing most of the overwintering sites of the eastern population of the monarch butterfly, serving to protect the butterfly species and its habitat.
+**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
 
-## Nahanni National Park Reserve (`whnahanni`)
+## Lewis and Clark State Park (`molewisandclark`)
 
-**Story** (43 words): Nahanni National Park Reserve is located in the Northwest Territories, Canada, protecting a portion of the Mackenzie Mountains Natural Region. The park features the South Nahanni River, which flows through four deep canyons, and includes Virginia Falls, where the river plunges 90 m.
+**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
 
-**Why it matters** (23 words): The park provides appropriate year-round or seasonal habitat for ten special-concern, threatened, or endangered species, including the grizzly bear, woodland caribou, and wolverine.
+**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Fernando de Noronha Archipelago (`whnoronha`)
+## Long Branch State Park (`molongbranch`)
 
-**Story** (43 words): Fernando de Noronha is an archipelago of 21 islands and islets extending over 26 square kilometres in the Atlantic Ocean, part of the state of Pernambuco, Brazil. Established in 1988, 70% of its area is a national marine park featuring volcanic rock formations.
+**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
 
-**Why it matters** (27 words): In 2001, UNESCO designated the islands as a World Heritage Site because of their importance as a feeding ground for tuna, sharks, sea turtles, and marine mammals.
+**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
 
-## Ogasawara Islands (`whogasawara`)
+## Morris State Park (`momorris`)
 
-**Story** (45 words): The Ogasawara Islands are a Japanese archipelago of over 30 subtropical and tropical islands located in Japan. The group as a whole has a total area of 84 square kilometers. Because of their isolation, many of their animals and plants have undergone unique evolutionary processes.
+**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
 
-**Why it matters** (26 words): They were named a Natural World Heritage Site in 2011 and are home to endemic species like the Bonin flying fox, which lives in subtropical forests.
+**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
 
-## El Pinacate and Gran Desierto de Altar Biosphere Reserve (`whpinacate`)
+## Ozark Forest and Streams (`ozarks`)
 
-**Story** (54 words): El Pinacate and Gran Desierto de Altar Biosphere Reserve covers an area of 2,695.05 square kilometres in the Sonoran Desert in northwest Mexico. It is a UNESCO World Heritage Site featuring a volcanic shield, active dunes, and the highest concentration of Maar craters. NASA sent astronauts to train there for walking on the Moon.
+**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
 
-**Why it matters** (34 words): The reserve shelters threatened endemic species including the Sonoran pronghorn, bighorn sheep, gila monster, and desert tortoise. It forms part of a larger desert ecosystem that spans northwest Mexico and the southwestern United States.
+**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
 
-## Plitvice Lakes National Park (`whplitvice`)
+## Missouri Tallgrass Prairie (`prairie`)
 
-**Story** (52 words): Plitvice Lakes National Park is one of the oldest and largest national parks in Croatia. Founded in 1949, it covers 296.85 km2 in the mountainous karst area of central Croatia at the border with Bosnia and Herzegovina. The park is famous for its picturesque series of tufa lakes, caves, and connected waterfalls.
+**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
 
-**Why it matters** (36 words): The afforested mountain slopes serve as a refuge for many animal species, including the brown bear, grey wolf, and Eurasian lynx. The park is inscribed on the UNESCO World Heritage list for its outstanding natural features.
+**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
 
-## Putorana Plateau (`whputorana`)
+## Urban St. Louis (`stlurban`)
 
-**Story** (40 words): The Putorana Plateau is a mountainous area in Russia located in Krasnoyarsk Krai. It is a high-lying plateau crossed by mountain ranges featuring deep lakes and waterfalls. Established in 1988, the Putorana Nature Reserve covers an area of 1,887,251 ha.
+**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
 
-**Why it matters** (31 words): The reserve was set up to protect the world's largest herd of wild reindeer as well as snow sheep. It contains complete subarctic and arctic ecosystems in an isolated mountain range.
+**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
 
-## Pyrénées - Mont Perdu (`whpyrenees`)
+## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
 
-**Story** (43 words): Pyrénées - Mont Perdu is situated in France and Spain. It is a polar and mountain area featuring high mountain topography, limestone formations, and deep canyons carved by repeated glaciations. Animals such as the Pyrenean chamois and alpine marmot live in this region.
+**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
 
-**Why it matters** (33 words): The park was included in the cross-border Pyrénées - Mont Perdu World Heritage Site because of its spectacular geologic landforms. It protects high mountain topography and shelters various species of raptors and mammals.
+**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
 
-## Shiretoko (`whshiretoko`)
+## Assateague Island National Seashore (`usassateagueislandnation`)
 
-**Story** (40 words): Shiretoko National Park covers most of the Shiretoko Peninsula on the island of Hokkaido, Japan. The 70 kilometres long peninsula is best known as the home of Japan's largest population of brown bears and features temperate and subalpine mixed forests.
+**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
 
-**Why it matters** (28 words): In 2005, UNESCO designated the area a World Heritage Site in recognition of the peninsula being the southernmost point where sea ice usually forms in the Northern Hemisphere.
+**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
 
-## Sian Ka'an Biosphere Reserve (`whsiankaan`)
+## Bandelier National Monument (`usbandeliernationalmonum`)
 
-**Story** (47 words): Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.
+**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
 
-**Why it matters** (30 words): It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.
+**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
 
-## Central Sikhote-Alin (`whsikhote`)
+## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
 
-**Story** (32 words): Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.
+**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
 
-**Why it matters** (23 words): The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.
+**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
 
-## Socotra Archipelago (`whsocotra`)
+## Canaveral National Seashore (`uscanaveralnationalseash`)
 
-**Story** (50 words): Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.
+**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
 
-**Why it matters** (24 words): About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.
+**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
 
-## Tasmanian Wilderness World Heritage Area (`whtasmania`)
+## Cape Hatteras National Seashore (`uscapehatterasnationalse`)
 
-**Story** (36 words): The Tasmanian Wilderness World Heritage Area is located in Tasmania, Australia. Covering 15,800 km2, it is one of the largest conservation areas in Australia and one of the last expanses of temperate wilderness in the world.
+**Story** (42 words): Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.
 
-**Why it matters** (22 words): It is home to unique fauna like the Tasmanian devil and includes extensive temperate rainforests, supporting high plant diversity and ancient species.
+**Why it matters** (28 words): The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.
 
-## Tikal National Park (`whtikal`)
+## Cape Lookout National Seashore (`uscapelookoutnationalsea`)
 
-**Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
+**Story** (37 words): Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.
 
-**Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
+**Why it matters** (28 words): The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.
 

@@ -1,0 +1,21 @@
+{
+ "id": "moelephantrocks",
+ "name": "Elephant Rocks State Park",
+ "story": "Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.",
+ "matters": "The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2270,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2367,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2270
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:30:49+00:00"
+}

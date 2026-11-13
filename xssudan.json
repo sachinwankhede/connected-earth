@@ -1,0 +1,21 @@
+{
+ "id": "xssudan",
+ "name": "The Sudd (Ramsar wetland)",
+ "story": "The Sudd is a vast swamp in South Sudan formed by the White Nile's Bahr al-Jabal section. Designated as a Ramsar Wetland in 2006, it covers an area of 57,000 square kilometres and features meandering channels, lagoons, and floating papyrus fields.",
+ "matters": "The Sudd is one of the world's largest wetlands and the largest freshwater wetland in the Nile Basin, storing floodwaters and trapping sediments from the Bahr al-Jabal.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3311,
+  "candidatesTokenCount": 118,
+  "totalTokenCount": 3429,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3311
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:51:06+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "ushagermanfossilbedsnati",
+ "name": "Hagerman Fossil Beds National Monument",
+ "story": "Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.",
+ "matters": "The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2055,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 2175,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2055
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:43:46+00:00"
+}

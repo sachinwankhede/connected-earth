@@ -1,0 +1,21 @@
+{
+ "id": "usgulfislandsnationalsea",
+ "name": "Gulf Islands National Seashore",
+ "story": "Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.",
+ "matters": "The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2745,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2842,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2745
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:43:30+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "usfortpulaskinationalmon",
+ "name": "Fort Pulaski National Monument",
+ "story": "Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.",
+ "matters": "The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3072,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 3183,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3072
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:42:16+00:00"
+}

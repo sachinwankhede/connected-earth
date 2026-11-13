@@ -1,0 +1,21 @@
+{
+ "id": "uswhiskeytownshastatrini",
+ "name": "Whiskeytown-Shasta-Trinity National Recreation Area",
+ "story": "The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.",
+ "matters": "The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2479,
+  "candidatesTokenCount": 138,
+  "totalTokenCount": 2617,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2479
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:48:57+00:00"
+}

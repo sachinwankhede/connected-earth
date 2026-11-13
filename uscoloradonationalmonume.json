@@ -1,0 +1,21 @@
+{
+ "id": "uscoloradonationalmonume",
+ "name": "Colorado National Monument",
+ "story": "Colorado National Monument is a National Park Service unit near Grand Junction, Colorado, covering 20,500 acres. Sheer-walled canyons cut deep into sandstone and granite-gneiss-schist rock formations in this high desert area.",
+ "matters": "The park sits on a large area of high desert in Western Colorado and hosts a wide range of wildlife, including desert bighorn sheep.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2935,
+  "candidatesTokenCount": 88,
+  "totalTokenCount": 3023,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2935
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:37:11+00:00"
+}

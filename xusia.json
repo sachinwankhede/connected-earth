@@ -1,0 +1,21 @@
+{
+ "id": "xusia",
+ "name": "Loess Hills",
+ "story": "The Loess Hills are a grassland formation of wind-deposited loess soil in Iowa, USA. These hills rise 200 feet above the flat plains in a narrow band along the Missouri River. They feature unique peak and saddle topography and are home to species like big bluestem and little bluestem.",
+ "matters": "The Loess Hills protect some of the last remaining stands of prairie grass in the region and provide essential thermal updrafts that raptors use during their migrations.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7280,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 7391,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7280
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:57:12+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "uswupatkinationalmonumen",
+ "name": "Wupatki National Monument",
+ "story": "Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.",
+ "matters": "The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2717,
+  "candidatesTokenCount": 82,
+  "totalTokenCount": 2799,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2717
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:49:13+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xusma",
+ "name": "Cape Cod National Seashore",
+ "story": "Cape Cod National Seashore covers ponds, woods, and beachfront in Massachusetts, USA. Created on August 7, 1961, by President John F. Kennedy, it spans 43,607 acres and includes nearly 40 miles of seashore along the Atlantic-facing eastern shore.",
+ "matters": "It shelters the Atlantic coastal pine barrens ecoregion and provides vital habitats for species such as the piping plover and the gray seal.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6240,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 6348,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6240
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:57:45+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "uselmalpaisnationalmonum",
+ "name": "El Malpais National Monument",
+ "story": "El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.",
+ "matters": "The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2969,
+  "candidatesTokenCount": 117,
+  "totalTokenCount": 3086,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2969
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:41:36+00:00"
+}

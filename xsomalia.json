@@ -1,0 +1,21 @@
+{
+ "id": "xsomalia",
+ "name": "Lag Badana National Park (Bush-Bush)",
+ "story": "Lag Badana National Park is a national park of Somalia located on the far southern coast, next to the border with Kenya. It was the first national park to be established in the country.",
+ "matters": "The protected area is considered a Lion Conservation Unit and has been designated an Important Bird Area by BirdLife International.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5545,
+  "candidatesTokenCount": 70,
+  "totalTokenCount": 5615,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5545
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:50:01+00:00"
+}

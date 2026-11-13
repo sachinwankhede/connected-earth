@@ -1,0 +1,21 @@
+{
+ "id": "ussantamonicamountainsna",
+ "name": "Santa Monica Mountains National Recreation Area",
+ "story": "The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.",
+ "matters": "It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4117,
+  "candidatesTokenCount": 91,
+  "totalTokenCount": 4208,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4117
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:47:34+00:00"
+}

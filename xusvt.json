@@ -1,0 +1,21 @@
+{
+ "id": "xusvt",
+ "name": "Green Mountain National Forest",
+ "story": "Green Mountain National Forest is a national forest located in Vermont, situated in the Green Mountains. Established in 1932, the forest supports wildlife including beaver, moose, coyote, black bear, white-tailed deer, wild turkey, and ruffed grouse.",
+ "matters": "It is a temperate broadleaf and mixed forest typical of the New England/Acadian forests ecoregion, and is one of only two national forest areas in New England.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6417,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 6516,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6417
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T12:00:14+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xturkmen",
+ "name": "Repetek Biosphere Reserve",
+ "story": "Repetek Biosphere State Reserve is a desert nature reserve in Turkmenistan, located in Lebap Province, East Karakum Desert. Established in 1928, it covers 346 km2 and features extensive ridged sand dunes. It is known for its desert monitor and black saxaul trees.",
+ "matters": "The reserve supports the most complete assemblage of bird species typical of the sand desert of the Karakum. It also has an important population of the goitered gazelle.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4681,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 4788,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4681
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:54:40+00:00"
+}

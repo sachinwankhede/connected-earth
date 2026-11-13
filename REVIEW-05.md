@@ -1,92 +1,92 @@
 # REVIEW-05.md
 
-## Monte Alén National Park (`xeqguinea`)
+## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
 
-**Story** (44 words): Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.
+**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
 
-**Why it matters** (19 words): The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.
+**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
 
-## Dahlak Archipelago (`xeritrea`)
+## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
 
-**Story** (41 words): The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.
+**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
 
-**Why it matters** (32 words): The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.
+**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
 
-## Soomaa National Park (`xestonia`)
+## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
 
-**Story** (36 words): Soomaa National Park is situated in south-western Estonia. Created in 1993, it protects 390 square kilometres of large raised bogs, floodplain grasslands, paludified forests, and meandering rivers. Steep-sloped raised bogs stand as islands during spring floods.
+**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
 
-**Why it matters** (36 words): The park is the largest intact peat bog system in Europe preserved as wilderness. It is a home and breeding area for several mammal species that are very rare or extinct in other parts of Europe.
+**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
 
-## Hlane Royal National Park (`xeswatini`)
+## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
 
-**Story** (43 words): Hlane Royal National Park covers 300 km² of Eswatini as a flat lowland area of Swazi bushveld. It is Eswatini's largest protected area and park, featuring ancient hardwood trees, grasslands, and shallow pans where lion, elephant, South African giraffe, and white rhinoceros live.
+**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
 
-**Why it matters** (30 words): The park provides a vital sanctuary and the highest density of nesting white-backed vultures in Africa. It preserves a diverse ecosystem supporting rich birdlife and large mammals within the region.
+**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
 
-## Falkland Islands: Saunders Island and surrounding sea (`xfalkland`)
+## Tonto National Monument (`ustontonationalmonument`)
 
-**Story** (46 words): Saunders Island is part of the Falkland Islands, an archipelago in the South Atlantic Ocean on the Patagonian Shelf. The islands lie at the boundary of the subantarctic oceanic and tundra climate zones. They feature mountain ranges and large bird populations, such as the black-browed albatross.
+**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
 
-**Why it matters** (31 words): The region provides breeding and nesting habitats for seabirds and marine mammals. These populations are part of wider southern ocean ecosystems where species like the black-browed albatross forage over shelf areas.
+**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
 
-## Colo-i-Suva Forest Reserve (`xfiji`)
+## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
 
-**Story** (38 words): Colo-i-Suva Forest Reserve is a nature reserve near Suva in Fiji. Established in 1872, it covers two and a half square kilometres of verdant rainforests renowned for tropical flora and birds. The Waisila Creek flows through the park.
+**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
 
-**Why it matters** (20 words): The forest is part of the Queen's Commonwealth Canopy and serves as the water catchment for Nausori and Nasinu creek.
+**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
 
-## Oulanka National Park (`xfinland`)
+## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
 
-**Story** (42 words): Oulanka National Park covers 270 square kilometres in the Northern Ostrobothnia and Lapland regions of Finland. Established in 1956, the park is a combination of northern, southern, and eastern nature featuring untouched boreal forest, mires, and a unique river ecosystem with rapids.
+**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
 
-**Why it matters** (27 words): The park shelters endangered species such as the bear, lynx, and wolverine, alongside a rich variety of animal and plant species that thrive in its nutrient-rich soil.
+**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
 
-## River Gambia National Park (`xgambia`)
+## Wupatki National Monument (`uswupatkinationalmonumen`)
 
-**Story** (39 words): River Gambia National Park is a national park in the Gambia. Established in 1978, it lies in the Niamina East district of Central River Division on the left bank of the Gambia River and includes the Baboon Islands archipelago.
+**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
 
-**Why it matters** (24 words): Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.
+**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
 
-## Kolkheti National Park (`xgeorgia`)
+## Cocos Island National Park (`whcocos`)
 
-**Story** (32 words): Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.
+**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
 
-**Why it matters** (26 words): The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.
+**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
 
-## Mole National Park (`xghana`)
+## Corcovado National Park (`whcorcovado`)
 
-**Story** (43 words): Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.
+**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
 
-**Why it matters** (26 words): The park provides a protected habitat for resident antelope species and serves as an important study area for scientists examining relatively undisturbed sites in West Africa.
+**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
 
-## Vikos-Aoös National Park (`xgreece`)
+## Darién National Park (`whdarien`)
 
-**Story** (42 words): Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.
+**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
 
-**Why it matters** (36 words): The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.
+**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
 
-## Northeast Greenland National Park (`xgreenland`)
+## Gros Morne National Park (`whgrosmorne`)
 
-**Story** (39 words): Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.
+**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
 
-**Why it matters** (31 words): The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.
+**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
 
-## Mount Nimba Strict Nature Reserve (`xguinea`)
+## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
 
-**Story** (33 words): Mount Nimba Strict Nature Reserve covers 175.4 km2 in Guinea and Côte d'Ivoire. Established in 1943 and 1944, it is a protected area and UNESCO World Heritage Site featuring exceptional flora and fauna.
+**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
 
-**Why it matters** (26 words): The reserve lies within the Guinean Forests of West Africa Biodiversity Hotspot and shelters rare animals such as the western chimpanzee and the Nimba otter shrew.
+**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
 
-## Bijagós Archipelago Biosphere Reserve (`xguineabissau`)
+## Iguazú National Park (`whiguazu`)
 
-**Story** (60 words): The Bijag3s Archipelago Biosphere Reserve is located in the Atlantic Ocean off the coast of Guinea-Bissau and consists of about 88 islands and islets spanning an area of 12,958 square kilometres. Declared a UNESCO Biosphere Reserve in 1996 and a World Heritage Site in 2025, the area features mangroves, palm forests, and coastal savanna supporting various waterbirds, flamingos, and pelicans.
+**Story** (44 words): Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.
 
-**Why it matters** (35 words): The mangroves play a crucial role for the reproduction of molluscs, fish, and sea turtles. The region is also the main habitat of the African gray parrot, which is an endangered species in the subregion.
+**Why it matters** (30 words): The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.
 
-## Iwokrama Forest (`xguyana`)
+## Swiss Alps Jungfrau-Aletsch (`whjungfrau`)
 
-**Story** (34 words): Iwokrama Forest is a 3,716 square kilometres nature reserve located in central Guyana in the Guiana Shield. The area is covered with lowland tropical forest and is bordered by rivers, mountains, highlands, and savannahs.
+**Story** (51 words): Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.
 
-**Why it matters** (24 words): The reserve is part of the Guiana Shield and provides a natural habitat for various animals such as the jaguar and the black caiman.
+**Why it matters** (37 words): The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.
 

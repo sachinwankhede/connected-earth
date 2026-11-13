@@ -1,0 +1,21 @@
+{
+ "id": "xsomaliland",
+ "name": "Daallo Forest",
+ "story": "Daallo Forest is a national park located in the eastern Sanaag region of Somaliland, forming part of the Ogo Mountains. The reserve features an unspoiled wilderness with dense evergreen forest on a limestone and gypsum escarpment, where some trees are over 1000 years old.",
+ "matters": "The site is designated an Important Bird Area by BirdLife International and supports high-elevation species and characteristic fauna of the North Somali mountains such as the endemic Warsangli linnet.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5148,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 5260,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5148
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:50:17+00:00"
+}

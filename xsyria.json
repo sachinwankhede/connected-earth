@@ -1,0 +1,21 @@
+{
+ "id": "xsyria",
+ "name": "Syrian Steppe and Palmyra",
+ "story": "The Syrian Steppe and Palmyra covers a desert region in Syria. It features open, rocky or gravelly desert pavement cut with occasional dry river valleys and oases. The ancient settlement of Palmyra is located here in an oasis surrounded by palms.",
+ "matters": "The Syrian Desert ecosystem includes plants like artemisia herba-alba and provides habitat for visitors such as the northern bald ibis and the Egyptian vulture.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7102,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 7196,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7102
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:52:10+00:00"
+}

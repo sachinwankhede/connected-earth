@@ -1,0 +1,21 @@
+{
+ "id": "xuae",
+ "name": "Marawah Marine Biosphere Reserve",
+ "story": "Marawah Marine Biosphere Reserve is located in Abu Dhabi, United Arab Emirates. It is the United Arab Emirates first biosphere reserve. The area features coast and ocean habitats supporting marine life.",
+ "matters": "The reserve is part of the Zayed Network of Protected Areas and includes Marawah Island, which supports populations of waders and other wildlife.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5856,
+  "candidatesTokenCount": 80,
+  "totalTokenCount": 5936,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5856
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:54:57+00:00"
+}

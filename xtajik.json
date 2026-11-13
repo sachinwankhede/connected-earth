@@ -1,0 +1,21 @@
+{
+ "id": "xtajik",
+ "name": "Tajik National Park (Mountains of the Pamirs)",
+ "story": "Tajik National Park is a national park and nature reserve in eastern Tajikistan that covers parts of the Pamir Mountains, the third-highest mountain system in the world. Established in 1992, it spans 26,116.74 square kilometres.",
+ "matters": "The park provides a habitat for wild animals including the snow leopard and Marco Polo sheep. It also includes the Fedchenko Glacier and Karakul Lake.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6147,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 6242,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6147
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:52:45+00:00"
+}

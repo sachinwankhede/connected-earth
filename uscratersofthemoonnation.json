@@ -1,0 +1,21 @@
+{
+ "id": "uscratersofthemoonnation",
+ "name": "Craters of the Moon National Monument",
+ "story": "Craters of the Moon National Monument and Preserve is located in central Idaho in the USA. It features three major lava fields and about 400 square miles of sagebrush steppe grasslands. The area includes volcanic cones, lava tubes, and basaltic lava.",
+ "matters": "The monument is part of the Snake River Plain volcanic province and the Lava Beds of Idaho. It belongs to a landscape where older lava fields support drought-resistant plants such as sagebrush.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3569,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 3669,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3569
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:37:27+00:00"
+}

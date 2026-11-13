@@ -1,0 +1,21 @@
+{
+ "id": "uscapelookoutnationalsea",
+ "name": "Cape Lookout National Seashore",
+ "story": "Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.",
+ "matters": "The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1918,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2020,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1918
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:35:40+00:00"
+}

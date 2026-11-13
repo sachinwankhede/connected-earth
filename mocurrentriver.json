@@ -1,0 +1,21 @@
+{
+ "id": "mocurrentriver",
+ "name": "Current River State Park",
+ "story": "Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.",
+ "matters": "Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1507,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 1600,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1507
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:30:18+00:00"
+}

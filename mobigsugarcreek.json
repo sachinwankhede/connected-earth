@@ -1,0 +1,21 @@
+{
+ "id": "mobigsugarcreek",
+ "name": "Big Sugar Creek State Park",
+ "story": "Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.",
+ "matters": "The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1963,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2060,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1963
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:29:26+00:00"
+}

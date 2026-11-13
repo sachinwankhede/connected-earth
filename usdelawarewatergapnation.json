@@ -1,0 +1,21 @@
+{
+ "id": "usdelawarewatergapnation",
+ "name": "Delaware Water Gap National Recreation Area",
+ "story": "The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.",
+ "matters": "The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3549,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 3660,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3549
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:40:25+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "mohawn",
+ "name": "Hawn State Park",
+ "story": "Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.",
+ "matters": "The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1656,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 1783,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1656
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:32:14+00:00"
+}

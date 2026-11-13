@@ -1,0 +1,21 @@
+{
+ "id": "xusct",
+ "name": "Connecticut River Estuary",
+ "story": "The Connecticut River Estuary is located in the United States in Connecticut, where the Connecticut River discharges into Long Island Sound between Old Saybrook and Old Lyme. It is home to diverse species such as the American shad, osprey, and smooth cordgrass.",
+ "matters": "The estuary features smooth cordgrass, which acts as an environmental engineer by accumulating sediment and building up land at the seaward edge of salt marshes.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6956,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 7046,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6956
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:56:07+00:00"
+}

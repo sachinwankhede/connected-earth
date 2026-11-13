@@ -1,0 +1,21 @@
+{
+ "id": "uscedarbreaksnationalmon",
+ "name": "Cedar Breaks National Monument",
+ "story": "Cedar Breaks National Monument is a natural amphitheater located in Utah, USA, near Cedar City. Established in 1933, the monument stretches across 3 miles with a depth of over 2,000 feet. It features high-altitude forests, subalpine meadows, and bristlecone pines that can be more than 1600 years old.",
+ "matters": "The monument area forms the headwaters of Mammoth Creek, a tributary of the Sevier River. It covers the west side of the Markagunt Plateau, sharing geological connections with nearby Zion National Park.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2195,
+  "candidatesTokenCount": 132,
+  "totalTokenCount": 2327,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2195
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:35:56+00:00"
+}

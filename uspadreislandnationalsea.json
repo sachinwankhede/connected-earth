@@ -1,0 +1,21 @@
+{
+ "id": "uspadreislandnationalsea",
+ "name": "Padre Island National Seashore",
+ "story": "Padre Island National Seashore is the world's longest barrier island, located on Padre Island off the coast of South Texas, USA. Developed 4,500 to 5,000 years ago, it is part of the world's longest natural barrier bar system and hosts pristine beach, dune, and tidal flat environments.",
+ "matters": "The park provides a nesting beach for endangered Kemp's ridley sea turtles and serves as an important habitat along the Central Flyway, a major migratory route for birds.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3134,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 3248,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3134
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:46:27+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xturkey",
+ "name": "Kaçkar Mountains National Park",
+ "story": "Kaçkar Mountains National Park rises above the Black Sea coast in northeastern Turkey. Declared a national park in 1994, it features glaciated, alpine mountains with steep rocky peaks and mountain lakes. Wolves, bears, boars, feral goats, deer, jackals, and wild chickens live here.",
+ "matters": "The park provides a breeding habitat for the Caucasian grouse, a bird that breeds in the Caucasus and Pontic Mountains of northeast Turkey. It is a Near Threatened species with a declining population.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3992,
+  "candidatesTokenCount": 118,
+  "totalTokenCount": 4110,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3992
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:54:24+00:00"
+}

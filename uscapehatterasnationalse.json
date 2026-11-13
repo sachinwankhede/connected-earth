@@ -1,0 +1,21 @@
+{
+ "id": "uscapehatterasnationalse",
+ "name": "Cape Hatteras National Seashore",
+ "story": "Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.",
+ "matters": "The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2831,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 2940,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2831
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:35:24+00:00"
+}

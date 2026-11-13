@@ -1,0 +1,21 @@
+{
+ "id": "usnaturalbridgesnational",
+ "name": "Natural Bridges National Monument",
+ "story": "Natural Bridges National Monument is located in southeast Utah, at the junction of White Canyon and Armstrong Canyon. It features three natural bridges named Kachina, Owachomo, and Sipapu, which were formed through erosion by water flowing in the stream bed.",
+ "matters": "The monument protects a landscape featuring unique geological formations and native plant and animal species. Much of the ground is covered in communities of cryptobiotic soil crusts that prevent soil erosion and promote the retention of soil nutrients.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2453,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 2562,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2453
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:45:54+00:00"
+}

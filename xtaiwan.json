@@ -1,0 +1,21 @@
+{
+ "id": "xtaiwan",
+ "name": "Yushan National Park",
+ "story": "Yushan National Park covers a total area of 103,121 hectares in Taiwan. It contains more than thirty peaks over 3,000 metres in elevation, featuring many canyons, cliffs, and valleys. The park is home to a large variety of animals and plants.",
+ "matters": "The national park is an important nesting ground for the Taiwanese population of the mountain hawk-eagle. It also shelters the Formosan black bear, which is an endangered species endemic to Taiwan.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6907,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 7020,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6907
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:52:26+00:00"
+}

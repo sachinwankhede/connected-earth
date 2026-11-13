@@ -1,0 +1,21 @@
+{
+ "id": "usbandeliernationalmonum",
+ "name": "Bandelier National Monument",
+ "story": "Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.",
+ "matters": "The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3471,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 3564,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3471
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:34:34+00:00"
+}

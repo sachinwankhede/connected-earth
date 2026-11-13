@@ -1,0 +1,21 @@
+{
+ "id": "moedwardtedandp",
+ "name": "Edward \"ted\" and Pat Jones-confluence Point State Park",
+ "story": "Edward \"ted\" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.",
+ "matters": "The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1830,
+  "candidatesTokenCount": 63,
+  "totalTokenCount": 1893,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1830
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:30:33+00:00"
+}

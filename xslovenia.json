@@ -1,0 +1,21 @@
+{
+ "id": "xslovenia",
+ "name": "Triglav National Park",
+ "story": "Triglav National Park is the only national park in Slovenia, located in the northwestern part of the country. Established in its modern form in 1981, it covers an area of 880 km². Mount Triglav stands almost in the middle of the park, and the area is home to over 700 species of animals.",
+ "matters": "The park spans two major watersheds, the Sava River watershed and the Soča River watershed. It also protects diverse wildlife, including Alpine chamois and Alpine ibex.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5963,
+  "candidatesTokenCount": 121,
+  "totalTokenCount": 6084,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5963
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:49:29+00:00"
+}

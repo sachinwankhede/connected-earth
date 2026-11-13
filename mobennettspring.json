@@ -1,0 +1,21 @@
+{
+ "id": "mobennettspring",
+ "name": "Bennett Spring State Park",
+ "story": "Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.",
+ "matters": "The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2110,
+  "candidatesTokenCount": 89,
+  "totalTokenCount": 2199,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2110
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:28:54+00:00"
+}

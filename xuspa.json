@@ -1,0 +1,21 @@
+{
+ "id": "xuspa",
+ "name": "Allegheny National Forest",
+ "story": "The Allegheny National Forest is a National Forest in Northwestern Pennsylvania, about 100 miles northeast of Pittsburgh. The forest covers 513,175 acres of land. Within the forest is Kinzua Dam, which impounds the Allegheny River to form Allegheny Reservoir.",
+ "matters": "The Allegheny National Forest lies in the heart of Pennsylvania's oil and gas region, only 40 miles from the site of the first commercial oil well in the United States at Titusville, Pennsylvania.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7192,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 7306,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7192
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:59:39+00:00"
+}

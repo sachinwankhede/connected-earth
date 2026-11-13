@@ -1,0 +1,21 @@
+{
+ "id": "usorganpipecactusnationa",
+ "name": "Organ Pipe Cactus National Monument",
+ "story": "Organ Pipe Cactus National Monument covers 1,340 km2 in southern Arizona, sharing a border with Mexico. It is one of the few places in the United States where the senita and organ pipe cactus grow wild, alongside many other plants native to the Sonoran Desert.",
+ "matters": "In 1976 the monument was declared a Biosphere Reserve by UNESCO. It is bordered to the northwest by Cabeza Prieta National Wildlife Refuge and to the east by the Tohono Oʼodham Indian Reservation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2032,
+  "candidatesTokenCount": 119,
+  "totalTokenCount": 2151,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2032
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:46:11+00:00"
+}

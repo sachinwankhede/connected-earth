@@ -1,0 +1,21 @@
+{
+ "id": "moharrystruman",
+ "name": "Harry S Truman State Park",
+ "story": "Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.",
+ "matters": "Truman Lake is an impoundment of the Osage River.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1556,
+  "candidatesTokenCount": 63,
+  "totalTokenCount": 1619,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1556
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:31:57+00:00"
+}

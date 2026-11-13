@@ -1,0 +1,21 @@
+{
+ "id": "uspointreyesnationalseas",
+ "name": "Point Reyes National Seashore",
+ "story": "Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.",
+ "matters": "The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3485,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 3596,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3485
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:47:01+00:00"
+}

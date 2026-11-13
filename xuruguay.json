@@ -1,0 +1,21 @@
+{
+ "id": "xuruguay",
+ "name": "Cabo Polonio National Park",
+ "story": "Cabo Polonio National Park is situated on the coast and ocean of Rocha, Uruguay. It sits on a peninsula extending into the Atlantic Ocean and features an extensive field of mobile sand dunes reaching 30 metres in height. The area supports herbaceous and shrub ecosystems alongside 155 species of plants.",
+ "matters": "The park shelters the largest sea lion population in Uruguay. It is part of the ecoregion of the sedimentary basin of Laguna Merín and the Atlantic coast.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7234,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 7338,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7234
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:55:29+00:00"
+}

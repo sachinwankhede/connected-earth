@@ -1,0 +1,21 @@
+{
+ "id": "usscottsbluffnationalmon",
+ "name": "Scotts Bluff National Monument",
+ "story": "Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.",
+ "matters": "The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3320,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 3433,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3320
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:47:50+00:00"
+}

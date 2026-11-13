@@ -1,0 +1,21 @@
+{
+ "id": "useffigymoundsnationalmo",
+ "name": "Effigy Mounds National Monument",
+ "story": "Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.",
+ "matters": "The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3021,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 3115,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3021
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:41:20+00:00"
+}

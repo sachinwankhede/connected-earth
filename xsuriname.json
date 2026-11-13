@@ -1,0 +1,21 @@
+{
+ "id": "xsuriname",
+ "name": "Central Suriname Nature Reserve",
+ "story": "The Central Suriname Nature Reserve is a conservation unit in Suriname that preserves an area of pristine tropical rainforest. Created in 1998, it covers 16,000 square kilometres of montane and lowland primary forest, including granite domes and sections of the Guyana Highlands. It is known for large mammals like the jaguar and eight species of primates.",
+ "matters": "It is in the Guianan moist forests ecoregion and protects a pristine tropical rainforest ecosystem with over 5,000 different plants and endemic plant species. The reserve is supported for protected-area planning and management by Conservation International Suriname.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6206,
+  "candidatesTokenCount": 133,
+  "totalTokenCount": 6339,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6206
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:51:53+00:00"
+}

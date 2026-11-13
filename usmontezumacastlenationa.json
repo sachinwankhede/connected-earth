@@ -1,0 +1,21 @@
+{
+ "id": "usmontezumacastlenationa",
+ "name": "Montezuma Castle National Monument",
+ "story": "Montezuma Castle National Monument protects a well-preserved cliff dwelling located in Camp Verde, Arizona. Constructed as early as 1125 AD by the Southern Sinagua people, the five-story structure sits up a limestone cliff and features stone-and-mortar masonry.",
+ "matters": "The national monument encloses 860 acres near the geographic center of Arizona. It preserves important archaeological structures and houses a museum about the Native American communities with cultural connections to the site.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3061,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 3165,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3061
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:45:35+00:00"
+}

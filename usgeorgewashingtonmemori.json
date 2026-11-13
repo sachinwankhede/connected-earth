@@ -1,0 +1,21 @@
+{
+ "id": "usgeorgewashingtonmemori",
+ "name": "George Washington Memorial Parkway",
+ "story": "The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.",
+ "matters": "The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3562,
+  "candidatesTokenCount": 67,
+  "totalTokenCount": 3629,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3562
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:43:13+00:00"
+}

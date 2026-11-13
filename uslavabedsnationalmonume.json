@@ -1,0 +1,21 @@
+{
+ "id": "uslavabedsnationalmonume",
+ "name": "Lava Beds National Monument",
+ "story": "Lava Beds National Monument is located in northeastern California. It includes more than 46,000 acres and has the largest concentration of lava tubes in North America.",
+ "matters": "The monument has lava tubes and a semi-arid desert environment that support a wide diversity of plant life and native wildlife.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3756,
+  "candidatesTokenCount": 69,
+  "totalTokenCount": 3825,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3756
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:45:19+00:00"
+}

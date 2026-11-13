@@ -1,0 +1,21 @@
+{
+ "id": "xuzb",
+ "name": "Nuratau-Kyzylkum Biosphere Reserve",
+ "story": "The Nuratau-Kyzylkum Biosphere Reserve is located in Uzbekistan. It conserves the landscapes and cultural assets of the Nuratau Mountain Range and the adjacent Kyzylkum Desert.",
+ "matters": "The reserve is the only place in the world where the endangered Severtsov wild sheep still roam in the wild. It also protects unique flora and fruit trees.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6122,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 6203,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6122
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T12:00:37+00:00"
+}

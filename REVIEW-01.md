@@ -12,81 +12,81 @@
 
 **Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
 
-## Ozark Forest and Streams (`ozarks`)
+## Bennett Spring State Park (`mobennettspring`)
 
-**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
+**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
 
-**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
+**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
 
-## Missouri Tallgrass Prairie (`prairie`)
+## Big Lake State Park (`mobiglake`)
 
-**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
+**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
 
-**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
+**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
 
-## Urban St. Louis (`stlurban`)
+## Big Sugar Creek State Park (`mobigsugarcreek`)
 
-**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
+**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
 
-**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
+**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
 
-## Cocos Island National Park (`whcocos`)
+## Castlewood State Park (`mocastlewood`)
 
-**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
+**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
 
-**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
+**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
 
-## Corcovado National Park (`whcorcovado`)
+## Cuivre River State Park (`mocuivreriver`)
 
-**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
+**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
 
-**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
+**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
 
-## Darién National Park (`whdarien`)
+## Current River State Park (`mocurrentriver`)
 
-**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
+**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
 
-**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
+**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
 
-## Gros Morne National Park (`whgrosmorne`)
+## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
 
-**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
+**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
 
-**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
+**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
+## Elephant Rocks State Park (`moelephantrocks`)
 
-**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
+**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
 
-**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
+**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
 
-## Iguazú National Park (`whiguazu`)
+## Finger Lakes State Park (`mofingerlakes`)
 
-**Story** (44 words): Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.
+**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
 
-**Why it matters** (30 words): The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.
+**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
 
-## Swiss Alps Jungfrau-Aletsch (`whjungfrau`)
+## Grand Gulf State Park (`mograndgulf`)
 
-**Story** (51 words): Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.
+**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
 
-**Why it matters** (37 words): The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.
+**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
 
-## Laponian Area (`whlaponia`)
+## Ha Ha Tonka State Park (`mohahatonka`)
 
-**Story** (54 words): Sarek National Park is located in the Jokkmokk Municipality, Lapland in northern Sweden, and was established in 1909. The park covers an area of 1,977 square kilometres and is among the oldest national parks in Europe. It is the most mountainous region in Sweden, featuring about 100 glaciers and six peaks over 2,000 metres.
+**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
 
-**Why it matters** (39 words): The park is adjacent to Padjelanta and Stora Sjöfallet national parks, forming a combined protected area of approximately 5,500 square kilometres. It also provides a remote alpine habitat for various arctic and mountain species such as reindeer and wolverines.
+**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
 
-## Lord Howe Island Group (`whlordhowe`)
+## Harry S Truman State Park (`moharrystruman`)
 
-**Story** (57 words): Lord Howe Island is an irregularly crescent-shaped volcanic remnant in the Tasman Sea, part of New South Wales, Australia. The island is about 10 km long with an area of 14.55 square kilometers and is home to forested hills rising to Mount Gower. The Lord Howe Island Group comprises 28 islands, islets, and rocks, including Ball's Pyramid.
+**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
 
-**Why it matters** (40 words): The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.
+**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
 
-## Lorentz National Park (`whlorentz`)
+## Hawn State Park (`mohawn`)
 
-**Story** (39 words): Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.
+**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
 
-**Why it matters** (28 words): It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.
+**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
 

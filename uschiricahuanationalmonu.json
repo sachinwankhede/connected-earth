@@ -1,0 +1,21 @@
+{
+ "id": "uschiricahuanationalmonu",
+ "name": "Chiricahua National Monument",
+ "story": "Chiricahua National Park is located in the Chiricahua Mountains of southeastern Arizona. Originally established as Chiricahua National Monument on April 18, 1924, it preserves extensive hoodoos, balancing rocks, and the Faraway Ranch. Just over 85% of the park is protected as the Chiricahua Wilderness.",
+ "matters": "The park preserves the remains of an immense volcanic eruption that shook the region about 27 million years ago. It protects towering rock spires and balanced rocks while featuring ecosystems of meadows, forests, and rock formations.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2387,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 2517,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2387
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:36:46+00:00"
+}

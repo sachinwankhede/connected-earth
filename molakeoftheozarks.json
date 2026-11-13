@@ -1,0 +1,21 @@
+{
+ "id": "molakeoftheozarks",
+ "name": "Lake of The Ozarks State Park",
+ "story": "Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.",
+ "matters": "The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1863,
+  "candidatesTokenCount": 71,
+  "totalTokenCount": 1934,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1863
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:32:46+00:00"
+}

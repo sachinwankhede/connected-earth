@@ -1,0 +1,21 @@
+{
+ "id": "usdevilstowernationalmon",
+ "name": "Devils Tower National Monument",
+ "story": "Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.",
+ "matters": "The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3354,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 3454,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3354
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:40:41+00:00"
+}

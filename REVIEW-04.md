@@ -1,92 +1,92 @@
 # REVIEW-04.md
 
-## Exuma Cays Land and Sea Park (`xbahamas`)
+## Gateway National Recreation Area (`usgatewaynationalrecreat`)
 
-**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
+**Story** (41 words): Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.
 
-**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
+**Why it matters** (34 words): It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.
 
-## Hautes Fagnes (High Fens) (`xbelgium`)
+## George Washington Memorial Parkway (`usgeorgewashingtonmemori`)
 
-**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
+**Story** (28 words): The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.
 
-**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
+**Why it matters** (16 words): The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.
 
-## Pendjari National Park (`xbenin`)
+## Gulf Islands National Seashore (`usgulfislandsnationalsea`)
 
-**Story** (46 words): Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.
+**Story** (41 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.
 
-**Why it matters** (34 words): The park is part of the WAP Complex, a large protected area in Benin, Burkina Faso and Niger. Since 2005, the protected area is considered a Lion Conservation Unit and a potential lion stronghold.
+**Why it matters** (28 words): The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.
 
-## Sutjeska National Park (`xbosnia`)
+## Hagerman Fossil Beds National Monument (`ushagermanfossilbedsnati`)
 
-**Story** (51 words): Sutjeska National Park is located in Bosnia and Herzegovina and was established in 1962 as the country's oldest national park. It covers an area of about 17,500 hectares and includes the high peak of Maglić as well as Perućica, which is one of the last two remaining primeval forests in Europe.
+**Story** (47 words): Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.
 
-**Why it matters** (29 words): The park shelters diverse wildlife including the brown bear, wolf, and Balkan chamois. It forms a transboundary protected area connection with the adjoining Durmitor National Park in northwestern Montenegro.
+**Why it matters** (27 words): The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.
 
-## Ulu Temburong National Park (`xbrunei`)
+## John Day Fossil Beds National Monument (`usjohndayfossilbedsnatio`)
 
-**Story** (38 words): Ulu Temburong National Park is the first national park to be established in Brunei, protected since 1991. Covering 550 square kilometres in eastern Brunei, the park contains unspoiled jungle and is known as the Green Jewel of Brunei.
+**Story** (40 words): John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.
 
-**Why it matters** (23 words): It is an important ecotourism centre and part of the Heart of Borneo international conservation agreement, supporting forest habitats and threatened bird species.
+**Why it matters** (31 words): The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.
 
-## Pirin National Park (`xbulgaria`)
+## Katahdin Woods and Waters National Monument (`uskatahdinwoodsandwaters`)
 
-**Story** (43 words): Pirin National Park spans the Pirin Mountains in southwestern Bulgaria, covering an area of 403.56 square kilometers. Established in 1962, it features 118 glacial lakes and includes Vihren, Bulgaria's second highest summit. The park is home to diverse wildlife and ancient coniferous forests.
+**Story** (45 words): Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.
 
-**Why it matters** (31 words): The park protects functioning ecosystems and natural landscapes within the Rodope montane mixed forests ecoregion. Its entire territory is part of the European Union network of nature protection areas Natura 2000.
+**Why it matters** (34 words): The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.
 
-## W National Park and Arly (Burkina Faso) (`xburkina`)
+## Lake Meredith National Recreation Area (`uslakemeredithnationalre`)
 
-**Story** (43 words): W National Park and Arly are located in Burkina Faso, Niger, and Benin. The regional park covers some 10,000 km2 around a meander in the Niger River. It features wetlands, sandstone hills, and savanna, and is home to African elephants, hippos, and lions.
+**Story** (37 words): Lake Meredith National Recreation Area is located in Texas, USA, about 30 miles north of Amarillo in the Texas Panhandle. Its main attraction is 10,000-acre Lake Meredith, a reservoir created by Sanford Dam on the Canadian River.
 
-**Why it matters** (26 words): The park provides a home for some of West Africa's last wild African elephants and is one of the last strongholds for the Northwest African cheetah.
+**Why it matters** (14 words): Alibates Flint Quarries National Monument is located adjacent to Lake Meredith National Recreation Area.
 
-## Kibira National Park (`xburundi`)
+## Lake Roosevelt National Recreation Area (`uslakerooseveltnationalr`)
 
-**Story** (40 words): Kibira National Park covers 400 km2 of northwestern Burundi atop the mountains of the Congo-Nile Divide. It features primary montane rainforest, which is the only montane forest in all of Burundi, and is home to chimpanzees and black-and-white colobus monkeys.
+**Story** (50 words): Lake Roosevelt National Recreation Area is located in eastern Washington state. Established in 1946, it encompasses the 130-mile long Franklin D. Roosevelt Lake between Grand Coulee Dam and Northport. The recreation area provides opportunities for fishing, swimming, canoeing, boating, hunting, camping, and visiting historic Fort Spokane and St. Paul's Mission.
 
-**Why it matters** (35 words): It is considered the most important site in Burundi for the conservation of montane-forest birds. Additionally, the water from its forests accounts for over three-quarters of the water that goes into the country's largest dam.
+**Why it matters** (32 words): The recreation area is a unit of the National Park Service and was created by a memorandum of agreement with the Spokane Tribe, Colville Indian Reservation, and United States Bureau of Reclamation.
 
-## Tonlé Sap Biosphere Reserve (`xcambodia`)
+## Lava Beds National Monument (`uslavabedsnationalmonume`)
 
-**Story** (49 words): Tonle Sap Biosphere Reserve is a unique ecological phenomenon and the largest freshwater lake in Southeast Asia, located in central Cambodia. During the rainy season, the Mekong River reverses the flow of the Tonle Sap River, causing the lake to expand into an enormous wetland area supporting diverse wildlife.
+**Story** (26 words): Lava Beds National Monument is located in northeastern California. It includes more than 46,000 acres and has the largest concentration of lava tubes in North America.
 
-**Why it matters** (27 words): The wetlands serve as an important breeding area for fish from the lake and the Mekong River, while supporting a tremendous amount of rare and endangered biodiversity.
+**Why it matters** (21 words): The monument has lava tubes and a semi-arid desert environment that support a wide diversity of plant life and native wildlife.
 
-## Zapata Swamp (`xcuba`)
+## Montezuma Castle National Monument (`usmontezumacastlenationa`)
 
-**Story** (46 words): The Zapata Swamp is located on the Zapata Peninsula in the southern Matanzas Province of Cuba, less than 150 kilometres southeast of Havana. Spanning over 4,000 km2, it is home to over 900 plant species, 175 bird species, 31 reptile species, and the endemic Cuban crocodile.
+**Story** (37 words): Montezuma Castle National Monument protects a well-preserved cliff dwelling located in Camp Verde, Arizona. Constructed as early as 1125 AD by the Southern Sinagua people, the five-story structure sits up a limestone cliff and features stone-and-mortar masonry.
 
-**Why it matters** (33 words): It is the best preserved wetland in all of the Antilles and is part of the larger Ciénaga de Zapata Biosphere Reserve, which is the largest protected area in Cuba and the Caribbean.
+**Why it matters** (32 words): The national monument encloses 860 acres near the geographic center of Arizona. It preserves important archaeological structures and houses a museum about the Native American communities with cultural connections to the site.
 
-## Troodos Mountains (`xcyprus`)
+## Natural Bridges National Monument (`usnaturalbridgesnational`)
 
-**Story** (39 words): The Troodos Mountains are the largest mountain range in Cyprus, located roughly in the centre of the island with Mount Olympus as the highest peak. The range covers a third of Cyprus and features many endemic plants and animals.
+**Story** (40 words): Natural Bridges National Monument is located in southeast Utah, at the junction of White Canyon and Armstrong Canyon. It features three natural bridges named Kachina, Owachomo, and Sipapu, which were formed through erosion by water flowing in the stream bed.
 
-**Why it matters** (26 words): The mountains are home to the endangered Cyprus mouflon, which is the national animal of Cyprus. They also shelter a rich bird population including Bonelli's eagle.
+**Why it matters** (38 words): The monument protects a landscape featuring unique geological formations and native plant and animal species. Much of the ground is covered in communities of cryptobiotic soil crusts that prevent soil erosion and promote the retention of soil nutrients.
 
-## Sumava National Park (`xczechia`)
+## Organ Pipe Cactus National Monument (`usorganpipecactusnationa`)
 
-**Story** (47 words): Sumava National Park is a forest located in Czechia in the South Bohemian regions along the border with Germany and Austria. It protects a little-inhabited mountain range covered by extensive forest and raised peat bogs. Since the 1970s, the park has sheltered a stable population of lynxes.
+**Story** (45 words): Organ Pipe Cactus National Monument covers 1,340 km2 in southern Arizona, sharing a border with Mexico. It is one of the few places in the United States where the senita and organ pipe cactus grow wild, alongside many other plants native to the Sonoran Desert.
 
-**Why it matters** (30 words): The park preserves the most extensive forest in Central Europe and features a mosaic of habitats like glacial lakes and primeval forest remnants that are little disturbed by human activity.
+**Why it matters** (33 words): In 1976 the monument was declared a Biosphere Reserve by UNESCO. It is bordered to the northwest by Cabeza Prieta National Wildlife Refuge and to the east by the Tohono Oʼodham Indian Reservation.
 
-## Lake Abbe (`xdjibouti`)
+## Padre Island National Seashore (`uspadreislandnationalsea`)
 
-**Story** (37 words): Lake Abbe is a salt lake lying on the Ethiopia-Djibouti border. It is the ultimate destination of the Awash River, at the center of the Afar Depression, and is known for its flamingos and steam-spewing limestone chimneys.
+**Story** (47 words): Padre Island National Seashore is the world's longest barrier island, located on Padre Island off the coast of South Texas, USA. Developed 4,500 to 5,000 years ago, it is part of the world's longest natural barrier bar system and hosts pristine beach, dune, and tidal flat environments.
 
-**Why it matters** (26 words): The lake is part of a chain of six connected lakes and belongs to the wetland ecosystem of Djibouti, which includes large lakes and salt pans.
+**Why it matters** (28 words): The park provides a nesting beach for endangered Kemp's ridley sea turtles and serves as an important habitat along the Central Flyway, a major migratory route for birds.
 
-## Los Haitises National Park (`xdomrep`)
+## Pictured Rocks National Lakeshore (`uspicturedrocksnationall`)
 
-**Story** (38 words): Los Haitises National Park is located on the remote northeast coast of the Dominican Republic and was established in 1976. It features a limestone karst plateau with conical hills, sinkholes, caverns, and a large area of mangrove forest.
+**Story** (36 words): Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.
 
-**Why it matters** (30 words): The park contains a great diversity of mammals and birds, including rare species endemic to the island. It holds the largest population in the world of the endemic Ridgway's hawk.
+**Why it matters** (27 words): The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.
 
-## El Imposible National Park (`xelsalvador`)
+## Point Reyes National Seashore (`uspointreyesnationalseas`)
 
-**Story** (43 words): El Imposible National Park is a tropical forest and protected area in western El Salvador. Established on January 1, 1989, it covers 38.20 km² within the Apaneca llamatepec mountain range, and supports wildlife including pumas, oncillas, wild boars, king hawks and black-crested eagles.
+**Story** (46 words): Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.
 
-**Why it matters** (30 words): The park encompasses eight rivers that contribute to the watershed of Barra de Santiago and the coastal mangrove forests. In 1992, it was included on UNESCO's World Heritage Tentative List.
+**Why it matters** (28 words): The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.
 

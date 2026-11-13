@@ -1,0 +1,21 @@
+{
+ "id": "usfredericksburgandspotn",
+ "name": "Fredericksburg and Spot. National Military Park",
+ "story": "Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.",
+ "matters": "The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1165,
+  "candidatesTokenCount": 69,
+  "totalTokenCount": 1234,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1165
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:42:33+00:00"
+}

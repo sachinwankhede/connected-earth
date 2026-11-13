@@ -1,0 +1,21 @@
+{
+ "id": "usassateagueislandnation",
+ "name": "Assateague Island National Seashore",
+ "story": "Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.",
+ "matters": "Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3355,
+  "candidatesTokenCount": 125,
+  "totalTokenCount": 3480,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3355
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:34:07+00:00"
+}

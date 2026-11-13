@@ -1,0 +1,21 @@
+{
+ "id": "molewisandclark",
+ "name": "Lewis and Clark State Park",
+ "story": "Lewis and Clark State Park is a forest located in Missouri, USA.",
+ "matters": "In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1699,
+  "candidatesTokenCount": 56,
+  "totalTokenCount": 1755,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1699
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:33:02+00:00"
+}

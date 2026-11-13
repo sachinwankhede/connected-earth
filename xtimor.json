@@ -1,0 +1,21 @@
+{
+ "id": "xtimor",
+ "name": "Nino Konis Santana National Park",
+ "story": "Nino Konis Santana National Park covers 1,236 square kilometres in Timor-Leste. Established on 15 August 2007, it is Timor-Leste's first national park and includes lowland, tropical, and monsoon forest as well as marine areas. The park is home to rare birds such as the critically endangered yellow-crested cockatoo.",
+ "matters": "It links important bird areas and includes part of the Coral Triangle, an underwater area containing great diversity of coral and coral reef fish. The park protects both nature and culture as a single unit for conservation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6331,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 6461,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6331
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:53:01+00:00"
+}

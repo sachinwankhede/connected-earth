@@ -1,0 +1,21 @@
+{
+ "id": "xusde",
+ "name": "Delaware Bay and Bombay Hook",
+ "story": "Delaware Bay is the estuary outlet of the Delaware River on the northeast seaboard of the United States, lying between Delaware and New Jersey. The bay is approximately 782 square miles in area and its shores are largely composed of salt marshes and mudflats.",
+ "matters": "Delaware Bay is a key stopover site for over 30 species of migrating shorebirds that migrate north come May and hosts the largest population of horseshoe crabs in the world.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7300,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 7400,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7300
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:56:39+00:00"
+}

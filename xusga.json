@@ -1,0 +1,21 @@
+{
+ "id": "xusga",
+ "name": "Okefenokee National Wildlife Refuge",
+ "story": "The Okefenokee National Wildlife Refuge covers 402,000 acres in Georgia and Florida, United States. It protects the Okefenokee Swamp, a shallow, peat-filled wetland formed over the past 6,500 years. The vast bog features open wet prairies, cypress forests, and numerous lakes.",
+ "matters": "The swamp is one of the world's largest intact freshwater wetland ecosystems and is world-renowned for its amphibian populations that serve as bio-indicators of global health.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7677,
+  "candidatesTokenCount": 119,
+  "totalTokenCount": 7796,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7677
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:56:55+00:00"
+}

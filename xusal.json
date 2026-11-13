@@ -1,0 +1,21 @@
+{
+ "id": "xusal",
+ "name": "Mobile-Tensaw River Delta",
+ "story": "The Mobile-Tensaw River Delta is the largest river delta and wetland in Alabama, covering roughly 300 sq mi. It is home to American alligators, alligator gars, great blue herons, and ospreys across swamps, marshes, and bottomland forests.",
+ "matters": "This delta and the adjacent Mobile estuary make up one of the largest wetland ecosystems in the United States, supporting immense biodiversity that conservators prioritize for protection.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7246,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 7348,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7246
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:55:50+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "mocuivreriver",
+ "name": "Cuivre River State Park",
+ "story": "Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.",
+ "matters": "It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2203,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 2318,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2203
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:30:01+00:00"
+}

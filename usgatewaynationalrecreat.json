@@ -1,0 +1,21 @@
+{
+ "id": "usgatewaynationalrecreat",
+ "name": "Gateway National Recreation Area",
+ "story": "Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.",
+ "matters": "It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3616,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 3727,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3616
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:42:50+00:00"
+}

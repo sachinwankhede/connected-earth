@@ -1,0 +1,21 @@
+{
+ "id": "uslakerooseveltnationalr",
+ "name": "Lake Roosevelt National Recreation Area",
+ "story": "Lake Roosevelt National Recreation Area is located in eastern Washington state. Established in 1946, it encompasses the 130-mile long Franklin D. Roosevelt Lake between Grand Coulee Dam and Northport. The recreation area provides opportunities for fishing, swimming, canoeing, boating, hunting, camping, and visiting historic Fort Spokane and St. Paul's Mission.",
+ "matters": "The recreation area is a unit of the National Park Service and was created by a memorandum of agreement with the Spokane Tribe, Colville Indian Reservation, and United States Bureau of Reclamation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2095,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 2222,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2095
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:45:01+00:00"
+}

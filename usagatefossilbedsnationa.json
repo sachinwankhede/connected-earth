@@ -1,0 +1,21 @@
+{
+ "id": "usagatefossilbedsnationa",
+ "name": "Agate Fossil Beds National Monument",
+ "story": "Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.",
+ "matters": "The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2082,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2179,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2082
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:33:51+00:00"
+}

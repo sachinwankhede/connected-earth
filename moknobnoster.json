@@ -1,0 +1,21 @@
+{
+ "id": "moknobnoster",
+ "name": "Knob Noster State Park",
+ "story": "Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.",
+ "matters": "The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2711,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2817,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2711
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:32:29+00:00"
+}

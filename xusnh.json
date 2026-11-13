@@ -1,0 +1,21 @@
+{
+ "id": "xusnh",
+ "name": "White Mountain National Forest",
+ "story": "The White Mountain National Forest is located in New Hampshire, USA, with a small part in Maine. Established in 1918, it has a total area of 750,852 acres. It is home to wildlife species including the moose, bald eagle, and black bear.",
+ "matters": "It contains six designated Federal Wilderness Areas that are protected from logging and commercial industries and are used solely for recreational and scientific purposes. Over 100 miles of the Appalachian Trail traverses the national forest.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7404,
+  "candidatesTokenCount": 117,
+  "totalTokenCount": 7521,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7404
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:58:34+00:00"
+}

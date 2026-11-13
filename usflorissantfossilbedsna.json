@@ -1,0 +1,21 @@
+{
+ "id": "usflorissantfossilbedsna",
+ "name": "Florissant Fossil Beds National Monument",
+ "story": "Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.",
+ "matters": "The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2978,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 3080,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2978
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:41:52+00:00"
+}

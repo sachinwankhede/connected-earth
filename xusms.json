@@ -1,0 +1,21 @@
+{
+ "id": "xusms",
+ "name": "Pascagoula River",
+ "story": "The Pascagoula River is about 80 miles long in southeastern Mississippi, United States. It flows generally southward through swampy bottomlands in George and Jackson Counties and into the Mississippi Sound of the Gulf of Mexico.",
+ "matters": "It is significant as the only unaffected river with a discharge of over 10 cubic kilometres per year flowing from the United States into the Gulf of Mexico.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6583,
+  "candidatesTokenCount": 91,
+  "totalTokenCount": 6674,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6583
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:58:01+00:00"
+}

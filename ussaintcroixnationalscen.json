@@ -1,0 +1,21 @@
+{
+ "id": "ussaintcroixnationalscen",
+ "name": "Saint Croix National Scenic Riverway",
+ "story": "Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.",
+ "matters": "It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1584,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 1674,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1584
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:47:17+00:00"
+}

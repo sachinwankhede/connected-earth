@@ -1,0 +1,21 @@
+{
+ "id": "mograndgulf",
+ "name": "Grand Gulf State Park",
+ "story": "Grand Gulf State Park is a forest located in Missouri, USA.",
+ "matters": "The park is part of the state parks system of Missouri, USA.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1495,
+  "candidatesTokenCount": 37,
+  "totalTokenCount": 1532,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1495
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:31:22+00:00"
+}

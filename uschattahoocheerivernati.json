@@ -1,0 +1,21 @@
+{
+ "id": "uschattahoocheerivernati",
+ "name": "Chattahoochee River National Recreation Area",
+ "story": "Chattahoochee River National Recreation Area preserves a series of sites between Atlanta and Lake Sidney Lanier along the Chattahoochee River in Georgia, U.S. Established on August 15, 1978, by President Jimmy Carter, the 48-mile stretch of the river affords public recreation opportunities and access to historic sites.",
+ "matters": "The Chattahoochee River is one of Georgia's premier trout streams and was designated as the Chattahoochee River Water Trail to increase access to water-based outdoor recreation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2163,
+  "candidatesTokenCount": 125,
+  "totalTokenCount": 2288,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:36:12+00:00"
+}

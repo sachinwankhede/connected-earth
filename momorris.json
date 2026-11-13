@@ -1,0 +1,21 @@
+{
+ "id": "momorris",
+ "name": "Morris State Park",
+ "story": "Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.",
+ "matters": "The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1436,
+  "candidatesTokenCount": 74,
+  "totalTokenCount": 1510,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1436
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:33:35+00:00"
+}

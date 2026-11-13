@@ -1,0 +1,21 @@
+{
+ "id": "mocastlewood",
+ "name": "Castlewood State Park",
+ "story": "Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.",
+ "matters": "The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2696,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2802,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2696
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:29:45+00:00"
+}

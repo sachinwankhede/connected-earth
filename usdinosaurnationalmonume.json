@@ -1,0 +1,21 @@
+{
+ "id": "usdinosaurnationalmonume",
+ "name": "Dinosaur National Monument",
+ "story": "Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.",
+ "matters": "The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3086,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 3193,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3086
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T11:40:57+00:00"
+}
