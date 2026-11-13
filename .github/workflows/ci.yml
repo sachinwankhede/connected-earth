@@ -165,6 +165,7 @@ jobs:
           python3 tests/jobs/photos_test.py
           python3 tests/jobs/commonsplacephotos_test.py
           python3 tests/jobs/commonsnearby_test.py
+          python3 tests/jobs/commonscategory_test.py
           python3 tests/jobs/gemini_batch_test.py
           python3 tests/jobs/gemini_stories_test.py
           python3 tests/jobs/allowed_sources_test.py
