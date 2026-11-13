@@ -55,7 +55,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(boxes.species, boxes.places, 'one list format: Species rows look like Places rows (#493)');
     const j = await p.evaluate(() => !![...document.querySelectorAll('[data-tab="journeys"]')].find((x) => x.offsetParent));
     if (j) {
-      await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(500);
+      await p.click('[data-tab="journeys"]:visible'); await H.pause(p, 500);
       const jc = await p.evaluate(() => { const c = [...document.querySelectorAll('#xcards li')].find((l) => !l.hidden); if (!c) return null; const i = c.querySelector('.jimg').getBoundingClientRect(), h = c.querySelector('.jtitle').getBoundingClientRect(), r = c.querySelector('.jroute').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: h.top < r.top, caps: getComputedStyle(c.querySelector('.jroute')).textTransform }; });
       if (jc) assert.deepEqual(jc, { pic: '52x52', titleAbove: true, caps: 'none' }, 'Journeys row: ' + JSON.stringify(jc));
       if (jc) assert.deepEqual(await box('#xcards li:not([hidden]) .jcard'), boxes.places, 'one list format: Journeys rows look like Places rows (#493)');
@@ -84,7 +84,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => window.__M.searched === 'osprey' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
     const sr = await p.evaluate(() => document.getElementById('srow').offsetHeight);
     assert.equal(sr, 0, 'no "Connected Earth, N places" line, and no empty row left in its place, while searching (#527)');
-    await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(600);
+    await p.click('[data-tab="journeys"]:visible'); await H.pause(p, 600);
     const j = await p.evaluate(() => { const n = [...document.querySelectorAll('#xcards li')].filter((l) => !l.hidden).length; const chips = [...document.querySelectorAll('#regions [data-jc] b')].map((x) => +x.textContent); return { n, chips, empty: document.getElementById('jempty').hidden, note: document.getElementById('qnote').textContent }; });
     assert.ok(j.chips.every((c) => c >= 1 && c <= j.n), 'every continent chip counts only the matching journeys (' + j.n + '): ' + JSON.stringify(j.chips));
     if (!j.n) assert.equal(j.empty, true, 'one message, not two: ' + j.note);
@@ -118,20 +118,20 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const tx = await tabs(p); assert.match(tx[0], /^Places [1-9]\d*$/); assert.match(tx[1], /^Species [1-9]\d*$/);
     if (tx[2]) {   // Journeys is shown: its count is what its tab lists
       assert.match(tx[2], /^Journeys \d+$/);
-      await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(500);
+      await p.click('[data-tab="journeys"]:visible'); await H.pause(p, 500);
       const shown = await p.evaluate(() => [...document.querySelectorAll('#xcards li')].filter((l) => !l.hidden).length);
       assert.equal('Journeys ' + shown, (await tabs(p))[2], 'the count is the journeys listed');
       assert.equal(await p.evaluate(() => window.__M.tab), 'journeys');
     }
     // the same note line, in the same words, on every tab (#449)
     const note = (kind) => p.evaluate(() => { const n = document.getElementById('qnote'); return n.hidden ? null : n.textContent; });
-    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(400);
+    await p.click('[data-tab="places"]:visible'); await H.pause(p, 400);
     assert.match(await note(), /^\d+ places? match(es)? “elk”$/, 'Places says what it found');
-    await p.click('[data-tab="species"]:visible'); await p.waitForTimeout(600);
+    await p.click('[data-tab="species"]:visible'); await H.pause(p, 600);
     assert.match(await note(), /^\d+ species match(es)? “elk”$/, 'Species says it in the same form');
-    if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await p.waitForTimeout(400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “elk”$/, 'Journeys too'); }
+    if (tx[2]) { await p.click('[data-tab="journeys"]:visible'); await H.pause(p, 400); assert.match(await note(), /^(No|\d+) journeys? match(es)? “elk”$/, 'Journeys too'); }
     await p.click('[data-tab="places"]:visible');
-    await p.click('#qclr'); await p.waitForTimeout(700);
+    await p.click('#qclr'); await H.pause(p, 700);
     assert.equal(await note(), null, 'the note goes with the search');
     assert.deepEqual((await tabs(p)).slice(0, 2), ['Places', 'Species'], 'counts go with the search');
     assert.deepEqual(t.errors, []); await b.close();

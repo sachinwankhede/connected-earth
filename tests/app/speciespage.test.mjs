@@ -23,7 +23,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.match(s.hash, /(^|&)sp=pandion-haliaetus$/, 'the species is in the address');
     if (file.ph) { await p.waitForFunction(() => { const i = document.querySelector('#pview #sp-img img'), w = document.querySelector('#pview .jphoto'); return (i && i.offsetParent) || (w && w.complete && w.naturalWidth > 0); }, null, { timeout: 30000 }); await p.locator('#pview .srcd summary').click(); assert.match(await p.evaluate(() => document.getElementById('spcredit').textContent), /Species photos: Wikipedia/); }
     await p.reload(); await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
-    await p.click('.jback'); await p.waitForTimeout(500);
+    await p.click('.jback'); await H.pause(p, 500);
     s = await page(p); assert.equal(s.hidden, true, 'Back closes the page'); assert.equal(s.map, true); assert.doesNotMatch(s.hash, /sp=/);
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -32,12 +32,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     let b = await H.launch(); let t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); let p = t.page;
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     let s = await page(p); assert.equal(s.back, '‹ Search'); assert.match(s.hash, /(^|&)s=osprey&sp=pandion-haliaetus$/);
-    await p.click('.jback'); await p.waitForTimeout(600);
+    await p.click('.jback'); await H.pause(p, 600);
     s = await page(p); assert.equal(s.map, true); assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey', 'the search is still there');
     assert.deepEqual(t.errors, []); await b.close();
     // no file at all: the name made from the address, no description, the placeholder
     b = await H.launch(); t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=no-such-species' }); p = t.page;
-    await p.waitForSelector('#pview h2', { timeout: 60000 }); await p.waitForTimeout(800);
+    await p.waitForSelector('#pview h2', { timeout: 60000 }); await H.pause(p, 800);
     s = await page(p); assert.equal(s.name, 'No such species'); assert.equal(s.about, null); assert.equal(s.img, false); assert.equal(s.foot, true);
     await b.close();
     // a file with a name and no description and no picture
@@ -64,7 +64,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     let s = await page(p); assert.match(s.hash, new RegExp('(^|&)s=osprey&pg=' + id + '$'), 'the place is in the address'); assert.equal(s.back, '‹ Places');
     await p.evaluate(() => history.back()); await p.waitForSelector('#pview .prow .pmc[data-spp]', { timeout: 60000 });
     s = await page(p); assert.equal(s.name, 'Osprey', 'Back returns to the species page'); assert.match(s.hash, /sp=pandion-haliaetus$/);
-    await p.evaluate(() => document.querySelector('#pview [data-spmap]').click()); await p.waitForTimeout(1200);
+    await p.evaluate(() => document.querySelector('#pview [data-spmap]').click()); await H.pause(p, 1200);
     s = await page(p); assert.equal(s.hidden, true, 'the page is gone'); assert.equal(s.map, true);
     await p.waitForFunction(() => document.getElementById('sheet').classList.contains('mm'), null, { timeout: 30000 }); assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'map mode: the box is empty, the map is filtered to the species (#503)');
     assert.deepEqual(t.errors, []); await b.close();
@@ -145,7 +145,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => document.querySelector('#panel [data-spage]').click());
     await p.waitForFunction(() => document.querySelector('#pview h2') && !document.getElementById('pview').hidden, null, { timeout: 60000 });
     const s = await page(p); assert.match(s.hash, /(^|&)sp=[a-z0-9-]+$/); assert.match(s.back, /^‹ \S/); assert.notEqual(s.back, '‹ Places', 'Back names the place it returns to');
-    await p.evaluate(() => history.back()); await p.waitForTimeout(1200);
+    await p.evaluate(() => history.back()); await H.pause(p, 1200);
     assert.equal(await p.evaluate(() => !document.getElementById('webview').hidden), true, 'Back returns to the graph');
     assert.match(await p.evaluate(() => decodeURIComponent(location.hash)), /(^|&)e=npmammothcave$/);
     assert.deepEqual(t.errors, []); await b.close();
