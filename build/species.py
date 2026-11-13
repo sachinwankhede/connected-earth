@@ -6,7 +6,9 @@ A place file keeps for each species only its id, latin, position (xh) and whatev
   python3 build/species.py unpack write full nodes back into place files (for inspection)
 The build calls join() so the app receives full nodes either way."""
 import json, os, re, sys, collections, datetime
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
+ROOT = paths.DATA_ROOT   # data/ lives here; the repository unless CE_DATA_ROOT is set (#787)
 TABLE = os.path.join(ROOT, 'data', 'species', 'species.json')
 ROWS = os.path.join(ROOT, 'data', 'species', 'rows')   # #276 step 2: one file per species, data/species/rows/<first two letters of sid>/<sid>.json
 ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic', 'cat', 'badge']

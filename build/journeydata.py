@@ -10,7 +10,9 @@ New layout (when data/order/ and data/journeys/config.json exist):
   data/journeys/config.json         {couple, src}
   python3 build/journeydata.py split   one-off: write the new layout from the old files and remove them."""
 import json, os, sys, datetime
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
+ROOT = paths.DATA_ROOT   # data/ lives here; the repository unless CE_DATA_ROOT is set (#787)
 
 def _p(root, *a): return os.path.join(root or ROOT, *a)
 def _load(path): return json.load(open(path, encoding='utf-8'))
