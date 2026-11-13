@@ -9,19 +9,33 @@ OK = ('CC BY-SA 4.0', 'A. Person', 'https://creativecommons.org/licenses/by-sa/4
 
 
 class CategoryTests(unittest.TestCase):
-    def test_a_category_must_share_half_of_the_distinctive_words_and_name_no_building(self):
-        want = g.n.words('Mill Bluff State Park')   # mill, bluff: one needed
-        self.assertEqual(g.good_category(['Hotels in Wisconsin', 'Mill Bluff State Park'], want), 'Mill Bluff State Park')
-        self.assertIsNone(g.good_category(['Wisconsin state parks', 'Mill Hotel'], want))
-        self.assertIsNone(g.good_category([], want))
-        self.assertIsNone(g.good_category(['Mill Bluff'], set()))
+    def test_the_category_must_be_the_place_itself(self):
+        good = g.good_category
+        self.assertEqual(good(['Hotels in Wisconsin', 'Mill Bluff State Park'], 'Mill Bluff State Park'), 'Mill Bluff State Park')
+        self.assertEqual(good(['Castle Rock State Park (California)'], 'Castle Rock State Park'), 'Castle Rock State Park (California)')
+        self.assertEqual(good(['Jones-Confluence Point State Park'], 'Edward "ted" and Pat Jones-confluence Point State Park'), 'Jones-Confluence Point State Park')
+        self.assertEqual(good(['Nisqually State Park'], 'Nisqually'), 'Nisqually State Park')
+        self.assertIsNone(good([], 'Mill Bluff State Park')); self.assertIsNone(good(['Mill Bluff'], 'State Park'))
 
-    def test_a_file_naming_the_place_comes_first_and_buildings_closed_licences_and_pngs_are_refused(self):
+    def test_the_wrong_places_of_the_first_full_run_are_refused(self):
+        good = g.good_category
+        for name, cat in (('Baker Creek State Park', 'Baker River, Washington State'), ('Branch Lake', 'Sprague Branch of the Salt Lake City Public Library'),
+                          ('Buffalo Rock State Park', 'Mount Buffalo'), ('Big Cypress State Park', 'Big Cypress National Preserve'),
+                          ('Natchez State Park', 'Natchez National Historical Park'), ('Hyde Memorial State Park', 'ANZAC War Memorial (Sydney)'),
+                          ('Perry State Park', 'Perry Park, Sydney'), ('Pickett', 'Pickett (surname)'), ('Riverside', 'Riverside'),
+                          ('Pomona State Park', 'Pomona, California'), ('White Lake State Park', 'White Oak Lake State Park'),
+                          ('Lake Greenwood State Park', 'Greenwood Lake Dam'), ('Fall River State Park', 'Fall River Heritage State Park'),
+                          ('Umbagog State Park', 'Umbagog National Wildlife Refuge'), ('Miller Peninsula', 'Olympic Peninsula'),
+                          ('St Marys River Sp', 'Grand Lake St. Marys'), ('Glade Creek State Park', 'Glade Creek Grist Mill')):
+            self.assertIsNone(good([cat], name), (name, cat))
+
+    def test_a_file_naming_the_place_comes_first_and_buildings_closed_licences_pngs_figures_and_clippings_are_refused(self):
         files = ['Sign_at_entrance.jpg', 'Random_view.jpg', 'Mill_Bluff_cliff.jpg', 'Mill_Bluff_a.png', 'Mill_Bluff_b.jpg']
         inf = {f: OK for f in files}; inf['Mill_Bluff_a.png'] = OK[:4] + ('image/png',); inf['Mill_Bluff_b.jpg'] = ('CC BY-NC 4.0',) + OK[1:]
         self.assertEqual(g.choose(files, g.n.words('Mill Bluff'), inf)[0], 'Mill_Bluff_cliff.jpg')
         self.assertEqual(g.choose(['Random_view.jpg'], g.n.words('Mill Bluff'), {'Random_view.jpg': OK})[0], 'Random_view.jpg')   # the category is the place, so a file without the word is fine
-        self.assertIsNone(g.choose(['Sign_at_entrance.jpg', 'Mill_Hotel.jpg'], g.n.words('Mill Bluff'), {f: OK for f in ('Sign_at_entrance.jpg', 'Mill_Hotel.jpg')}))
+        bad = ['Sign_at_entrance.jpg', 'Mill_Hotel.jpg', 'Frog_Figure_2_(cropped).jpg', 'Natchez_Daily_Courier,_1853.jpg', 'Dian_Fossey,_bulletin-1968.jpg']
+        self.assertIsNone(g.choose(bad, g.n.words('Mill Bluff'), {f: OK for f in bad}))
 
 
 class RunTests(unittest.TestCase):
