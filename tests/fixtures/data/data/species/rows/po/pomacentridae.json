@@ -1,0 +1,12 @@
+{
+ "latin": "Pomacentridae",
+ "name": "Damselfish",
+ "tl": 2,
+ "wiki": "Damselfish",
+ "desc": "Guards patches of algae and picks plankton from the water above the reef.",
+ "ic": "trout",
+ "about": "Damselfish are fish within the subfamilies Abudefdufinae, Chrominae, Lepidozyginae, Pomacentrinae, and Stegastinae within the family Pomacentridae.",
+ "sid": "pomacentridae",
+ "sk": "taxon",
+ "src": "legacy"
+}

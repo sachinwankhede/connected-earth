@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold, nutrient-rich water",
+ "tl": 0,
+ "wiki": "Seawater",
+ "desc": "Cold water holds nutrients that feed spring blooms when sunlight returns.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-nutrient-rich-water-2",
+ "sk": "resource",
+ "src": "legacy"
+}

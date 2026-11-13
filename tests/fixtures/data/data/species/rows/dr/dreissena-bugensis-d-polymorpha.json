@@ -1,0 +1,13 @@
+{
+ "latin": "Dreissena bugensis, D. polymorpha",
+ "name": "Quagga & zebra mussels",
+ "tl": 2,
+ "wiki": "Quagga mussel",
+ "desc": "Invasive filter feeders that strip plankton from the water and clear it. They are now the main drain on the lake's food supply.",
+ "ic": "shell",
+ "badge": "Ecosystem engineer",
+ "about": "The quagga mussel is a species of freshwater mussel, an aquatic bivalve mollusc in the family Dreissenidae. It has a lifespan of 3 to 5 years.",
+ "sid": "dreissena-bugensis-d-polymorpha",
+ "sk": "group",
+ "src": "legacy"
+}

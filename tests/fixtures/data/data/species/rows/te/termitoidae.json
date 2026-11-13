@@ -1,0 +1,12 @@
+{
+ "latin": "Termitoidae",
+ "name": "Termites",
+ "tl": 2,
+ "wiki": "Termite",
+ "desc": "Break down dead wood and leaf litter and recycle nutrients. Chimpanzees fish them out of mounds with sticks.",
+ "ic": "ant",
+ "about": "Termites are a group of eusocial insects which consume a variety of decaying plant material, generally in the form of wood, leaf litter, and soil humus.",
+ "sid": "termitoidae",
+ "sk": "taxon",
+ "src": "legacy"
+}

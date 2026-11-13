@@ -2,13 +2,15 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 test('service worker serves cached data and the app shell offline without substituting HTML for data', async () => {
   const browser = await H.launch();
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
   try {
     await ctx.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (route) => route.abort());
-    const appUrl = new URL(await H.urlFor(H.MAIN));
+    const appUrl = new URL(await H.urlFor(H.FMAIN));
     appUrl.hostname = 'localhost';
     await page.goto(appUrl.href);
     await page.evaluate(async () => {
@@ -62,7 +64,7 @@ test('after install the service worker also keeps d3 and the state outlines, so 
   const page = await ctx.newPage();
   try {
     await ctx.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (route) => route.abort());
-    const appUrl = new URL(await H.urlFor(H.MAIN)); appUrl.hostname = 'localhost';
+    const appUrl = new URL(await H.urlFor(H.FMAIN)); appUrl.hostname = 'localhost';
     await page.goto(appUrl.href);
     await page.evaluate(async () => { await navigator.serviceWorker.ready; });
     await page.waitForFunction(async () => {

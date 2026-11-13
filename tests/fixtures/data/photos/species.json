@@ -3,6 +3,10 @@
   "b/b7/White-tailed_deer.jpg/330px-White-tailed_deer.jpg",
   "White-tailed_deer"
  ],
+ "Acer pensylvanicum": [
+  "5/5a/Moosewood_leaves.jpg/330px-Moosewood_leaves.jpg",
+  "Acer_pensylvanicum"
+ ],
  "Achnatherum hymenoides": [
   "https://upload.wikimedia.org/wikipedia/commons/5/5c/Achnatherum_hymenoides_-_Ricegrass.jpg",
   "Eriocoma_hymenoides"
@@ -59,6 +63,10 @@
   "4/4d/Apis_mellifera_Western_honey_bee.jpg/330px-Apis_mellifera_Western_honey_bee.jpg",
   "Western_honey_bee"
  ],
+ "Aralia elata": [
+  "2/23/Aralia_elata_en_fleur4081.jpg/330px-Aralia_elata_en_fleur4081.jpg",
+  "Aralia_elata"
+ ],
  "Ardea alba": [
   "a/a7/Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png/330px-Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png",
   "Great_egret"
@@ -70,13 +78,5 @@
  "Arilus cristatus": [
   "c/c1/Arilus_cristatus_Kaldari_02.jpg/330px-Arilus_cristatus_Kaldari_02.jpg",
   "Arilus_cristatus"
- ],
- "Artemia": [
-  "3/3f/Artemia_salina_4.jpg/330px-Artemia_salina_4.jpg",
-  "Brine_shrimp"
- ],
- "Artemisia tridentata": [
-  "d/df/Sagebrushsjc.jpg/330px-Sagebrushsjc.jpg",
-  "Artemisia_tridentata"
  ]
 }

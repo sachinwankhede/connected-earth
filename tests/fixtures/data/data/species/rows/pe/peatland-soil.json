@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Peatland soil",
+ "tl": 0,
+ "wiki": "Peat",
+ "desc": "Waterlogged swamp soils in the central basin store about 30 petagrams of carbon, roughly as much as all basin forests.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "peatland-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

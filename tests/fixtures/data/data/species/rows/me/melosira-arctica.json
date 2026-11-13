@@ -1,0 +1,11 @@
+{
+ "latin": "Melosira arctica",
+ "name": "Ice algae",
+ "tl": 1,
+ "wiki": "Sea ice algae",
+ "desc": "Algae growing on the underside of sea ice that start the spring bloom.",
+ "ic": "algae",
+ "sid": "melosira-arctica",
+ "sk": "taxon",
+ "src": "legacy"
+}

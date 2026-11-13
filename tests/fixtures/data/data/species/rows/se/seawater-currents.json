@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seawater & currents",
+ "tl": 0,
+ "wiki": "Seawater",
+ "desc": "Warm, clear water carries plankton and keeps temperature in the narrow range corals tolerate.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seawater-currents",
+ "sk": "resource",
+ "src": "legacy"
+}

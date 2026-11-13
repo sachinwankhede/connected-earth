@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal rain and mist",
+ "tl": 0,
+ "wiki": "Galápagos Islands",
+ "desc": "The cold current brings drizzle for much of the year, and rainfall swings wildly between years, with El Niño years much wetter.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "seasonal-rain-and-mist",
+ "sk": "resource",
+ "src": "legacy"
+}

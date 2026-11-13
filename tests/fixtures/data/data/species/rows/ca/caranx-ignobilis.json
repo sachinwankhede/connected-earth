@@ -1,0 +1,12 @@
+{
+ "latin": "Caranx ignobilis",
+ "name": "Giant trevally",
+ "tl": 3,
+ "wiki": "Giant trevally",
+ "desc": "Patrols the reef edge, hunting fish in groups.",
+ "ic": "trout",
+ "about": "The giant trevally, also known as the lowly trevally, barrier trevally, giant kingfish, or ulua, is a species of large marine fish classified in the jack family, Carangidae.",
+ "sid": "caranx-ignobilis",
+ "sk": "taxon",
+ "src": "legacy"
+}

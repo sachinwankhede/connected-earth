@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sandy, nutrient-poor soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Sand and gravel hold little organic matter. Windblown dust is one source of nutrients.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sandy-nutrient-poor-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

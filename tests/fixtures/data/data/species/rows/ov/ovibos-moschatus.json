@@ -1,0 +1,12 @@
+{
+ "latin": "Ovibos moschatus",
+ "name": "Muskox",
+ "tl": 2,
+ "wiki": "Muskox",
+ "desc": "Stays on the tundra all year, circling its calves when wolves approach.",
+ "ic": "bison",
+ "about": "The muskox is a hoofed mammal of the family Bovidae. Native to the Arctic, it is noted for its thick coat and for the strong odor emitted by males during the seasonal rut, from which its name derives.",
+ "sid": "ovibos-moschatus",
+ "sk": "taxon",
+ "src": "legacy"
+}

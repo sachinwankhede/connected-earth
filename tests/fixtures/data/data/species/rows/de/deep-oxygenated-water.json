@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Deep oxygenated water",
+ "tl": 0,
+ "wiki": "Lake Baikal",
+ "desc": "Unlike many deep lakes, Baikal keeps oxygen at depth, which lets animals live throughout the water column.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "deep-oxygenated-water",
+ "sk": "resource",
+ "src": "legacy"
+}

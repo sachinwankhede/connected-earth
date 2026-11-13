@@ -1,0 +1,12 @@
+{
+ "latin": "Conifers, shrubs and berries",
+ "name": "Taiga shore forest",
+ "tl": 1,
+ "wiki": "Taiga",
+ "desc": "Forest and shrub cover around the lake that feeds and shelters shore animals such as bears and sables.",
+ "ic": "aspen",
+ "about": "Taiga or tayga, also known as boreal forest or snow forest, is a biome characterized by coniferous forests consisting mostly of pines, spruces, and larches.",
+ "sid": "conifers-shrubs-and-berries",
+ "sk": "group",
+ "src": "legacy"
+}

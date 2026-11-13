@@ -1,0 +1,12 @@
+{
+ "latin": "Mysis diluviana",
+ "name": "Mysis",
+ "tl": 2,
+ "wiki": "Mysis diluviana",
+ "desc": "A native shrimp-like crustacean of cold deep water. It eats mainly zooplankton, or algae and detritus when zooplankton is scarce.",
+ "ic": "hopper",
+ "about": "Mysis diluviana is a mysid crustacean (opossum shrimp) found in freshwater lakes of northern North America.",
+ "sid": "mysis-diluviana",
+ "sk": "taxon",
+ "src": "legacy"
+}

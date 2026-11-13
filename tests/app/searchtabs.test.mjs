@@ -4,12 +4,14 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const tabs = (p) => p.evaluate(() => [...document.querySelectorAll('#tabs [data-tab], #trow [data-tab]')].filter((b) => b.offsetParent).map((b) => b.textContent.trim()));
 const picLoaded = (p, sel) => p.waitForFunction((s) => { const i = document.querySelector(s + ' img'); return !!i && i.complete && i.naturalWidth > 0 && /photos\/species(?:-md)?\/.+\.webp/.test(i.src); }, sel, { timeout: 30000 });
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: species rows in the dropdown and in the Species tab search show their picture`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
@@ -24,7 +26,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: Places lists the places whose name or region has the word, not every place with a bear in it (#480)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('bear'); await p.keyboard.press('Enter');
     await p.waitForFunction(() => window.__M.searched === 'bear' && /places? match/.test(document.getElementById('qnote').textContent), null, { timeout: 60000 });
@@ -35,7 +37,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a search shows the same row on every tab: picture 52px, title, one muted line, chevron (#483)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
@@ -64,7 +66,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: the count line sits close to the tabs and apart from the list (#482, #509)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
@@ -76,7 +78,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: in a search the Journeys chips count the matching journeys, one message says none, and the title line does not repeat the count (#495, #496)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="journeys"]:visible', { timeout: 60000 });
@@ -95,7 +97,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   if (name === 'phone') test(`${name}: the map fits the search results in the part the open sheet does not cover (#498)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { const m = window.__M.map, f = m.fitBounds.bind(m); window.__fits = []; m.fitBounds = (bb, o) => { window.__fits.push(o && o.padding); return f(bb, o); }; if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.click('#q'); await p.keyboard.type('elk'); await p.keyboard.press('Enter');
@@ -107,7 +109,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: with a search on, every tab says how many it found, and clearing removes the counts`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -138,7 +140,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a search that finds places but no species still says so on the Species tab (#449)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -153,7 +155,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: "Show them on the map" from the Species tab lands on the Places tab`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });

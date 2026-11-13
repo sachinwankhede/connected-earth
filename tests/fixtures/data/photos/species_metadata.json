@@ -5,6 +5,12 @@
   "lu": "",
   "p": "https://commons.wikimedia.org/wiki/File:White-tailed_deer.jpg"
  },
+ "Acer pensylvanicum": {
+  "a": "Jaknouse at English Wikipedia",
+  "l": "Public domain",
+  "lu": "",
+  "p": "https://commons.wikimedia.org/wiki/File:Moosewood_leaves.jpg"
+ },
  "Achnatherum hymenoides": {
   "a": "NRCS",
   "l": "Public domain",
@@ -89,6 +95,12 @@
   "lu": "https://creativecommons.org/licenses/by-sa/2.5",
   "p": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg"
  },
+ "Aralia elata": {
+  "a": "‘Uncle Carl’ (カールおじさん).",
+  "l": "CC BY-SA 3.0",
+  "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+  "p": "https://commons.wikimedia.org/wiki/File:Aralia_elata_en_fleur4081.jpg"
+ },
  "Ardea alba": {
   "a": "Chuck Homler (FocusOnWildlife.Me)",
   "l": "CC BY-SA 4.0",
@@ -106,17 +118,5 @@
   "l": "Public domain",
   "lu": "",
   "p": "https://commons.wikimedia.org/wiki/File:Arilus_cristatus_Kaldari_02.jpg"
- },
- "Artemia": {
-  "a": "Hans Hillewaert",
-  "l": "CC BY-SA 4.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Artemia_salina_4.jpg"
- },
- "Artemisia tridentata": {
-  "a": "Peemus",
-  "l": "CC BY-SA 3.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/3.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Sagebrushsjc.jpg"
  }
 }

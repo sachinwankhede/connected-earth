@@ -1,0 +1,13 @@
+{
+ "latin": "Buteo galapagoensis",
+ "name": "Galápagos hawk",
+ "tl": 4,
+ "wiki": "Galápagos hawk",
+ "desc": "The islands' top land predator. It eats insects, lizards, rodents, small birds and young iguanas and tortoises, and scavenges carrion.",
+ "ic": "hawk",
+ "badge": "Keystone predator",
+ "about": "The Galápagos hawk is a large hawk endemic to most of the Galápagos Islands.",
+ "sid": "buteo-galapagoensis",
+ "sk": "taxon",
+ "src": "legacy"
+}
