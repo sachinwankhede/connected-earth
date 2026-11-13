@@ -307,6 +307,10 @@
   "c": "LC",
   "q": "Q2294077"
  },
+ "cynomys ludovicianus": {
+  "c": "LC",
+  "q": "Q247142"
+ },
  "cynoscion nebulosus": {
   "c": "LC",
   "q": "Q3751557"
@@ -579,6 +583,10 @@
   "c": "LC",
   "q": "Q234014"
  },
+ "mustela nigripes": {
+  "c": "EN",
+  "q": "Q402885"
+ },
  "myocastor coypus": {
   "c": "LC",
   "q": "Q187704"
@@ -675,6 +683,10 @@
   "c": "LC",
   "q": "Q732863"
  },
+ "peromyscus maniculatus": {
+  "c": "LC",
+  "q": "Q649836"
+ },
  "phoca vitulina": {
   "c": "LC",
   "q": "Q26913"
@@ -706,6 +718,10 @@
  "pinus palustris": {
   "c": "EN",
   "q": "Q148542"
+ },
+ "pinus ponderosa": {
+  "c": "LC",
+  "q": "Q460523"
  },
  "pinus strobus": {
   "c": "LC",
@@ -766,6 +782,10 @@
  "prunus serotina": {
   "c": "LC",
   "q": "Q158987"
+ },
+ "prunus virginiana": {
+  "c": "LC",
+  "q": "Q162829"
  },
  "pseudotsuga menziesii": {
   "c": "LC",

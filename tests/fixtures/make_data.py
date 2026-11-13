@@ -23,6 +23,7 @@ MAIN = [
     'xnicaragua', 'xafghan', 'xusks',                                            # country level: Forest, Lakes & wetlands, Grassland
     'ribeavertail', 'nccarverscreek', 'wisaukprairie',                           # local (automatic), Forest, Lakes & wetlands, Grassland
     'uschickasawnationalrecre', 'usgulfislandsnationalsea', 'usagassiznationalwildlif',   # national, Forest, Coast & ocean, Lakes & wetlands
+    'npwindcave',                                                                # park overview, Grassland: shares elk with yellowstone (the place sheet's "Also found in" row)
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
 JOURNEYS = ['osprey', 'knot', 'flamingo']   # their ends must be in MAIN

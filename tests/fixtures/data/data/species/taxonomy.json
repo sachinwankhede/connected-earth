@@ -758,6 +758,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "bouteloua": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 92,
+  "family": "Poaceae",
+  "gname": "Bouteloua Lag.",
+  "key": 7557664,
+  "kingdom": "Plantae",
+  "match": "higher-rank",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "GENUS",
+  "src": "gbif"
+ },
  "bradypus-variegatus": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -1605,6 +1619,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "cynomys-ludovicianus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Sciuridae",
+  "gname": "Cynomys ludovicianus (Ord, 1815)",
+  "key": 2437232,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "cynoscion-nebulosus": {
   "at": "2026-11-04",
   "conf": 100,
@@ -1769,6 +1797,20 @@
   "order": "Volvocales",
   "phylum": "Chlorophyta",
   "rank": "GENUS",
+  "src": "gbif"
+ },
+ "echinacea-angustifolia": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Asteraceae",
+  "gname": "Echinacea angustifolia DC.",
+  "key": 3150933,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Asterales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
   "src": "gbif"
  },
  "echinocystis-lobata": {
@@ -3075,6 +3117,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "mustela-nigripes": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Mustelidae",
+  "gname": "Mustela nigripes (Audubon & Bachman, 1851)",
+  "key": 5218985,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "myocastor-coypus": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -3449,6 +3505,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "pascopyrum-smithii": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 97,
+  "family": "Poaceae",
+  "gname": "Pascopyrum smithii (Rydb.) Barkworth & D.R.Dewey",
+  "key": 2705772,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "passer-domesticus": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -3554,6 +3624,20 @@
   "family": "Cricetidae",
   "gname": "Peromyscus leucopus (Rafinesque, 1818)",
   "key": 2438019,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "peromyscus-maniculatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Cricetidae",
+  "gname": "Peromyscus maniculatus (Wagner, 1845)",
+  "key": 2437967,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Rodentia",
@@ -3680,6 +3764,20 @@
   "family": "Pinaceae",
   "gname": "Pinus palustris Mill.",
   "key": 5285816,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Pinales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "pinus-ponderosa": {
+  "at": "2026-11-04",
+  "class": "Pinopsida",
+  "conf": 97,
+  "family": "Pinaceae",
+  "gname": "Pinus ponderosa Douglas ex C.Lawson",
+  "key": 5285053,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Pinales",
@@ -3929,6 +4027,20 @@
   "family": "Rosaceae",
   "gname": "Prunus serotina Ehrh.",
   "key": 3021850,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Rosales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "prunus-virginiana": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Rosaceae",
+  "gname": "Prunus virginiana L.",
+  "key": 3022668,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Rosales",
