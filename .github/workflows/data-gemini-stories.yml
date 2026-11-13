@@ -1,14 +1,14 @@
 name: data-gemini-stories
 # Manual only (#196, #747). Drafts the story and "why it matters" line with the Gemini API for places that have research (branch `research`) and no story yet.
-# Free-tier friendly: at most `limit` places per run (hard cap 15 in the script), one request every 15 s, and if the quota runs out the script stops cleanly.
+# Free-tier friendly: `limit` places per run (0 = every place left, at most 150 in the script), one request every 15 s, and if the quota runs out the script stops cleanly.
 # Nothing is lost: every draft is written to its own file the moment it is checked, and the "Save the drafts" step runs even if the draft step failed or stopped,
-# committing the drafts to the branch `gemini-stories` (REVIEW.md there lists every draft for the owner to read). The next run resumes where this one stopped.
+# committing the drafts to the branch `gemini-stories` (REVIEW.md there is the index and REVIEW-01.md, REVIEW-02.md ... hold 15 drafts each for the owner to read). The next run resumes where this one stopped.
 # No place file is changed and no pull request is opened: the owner approves drafts first, and a later step promotes them.
 # GEMINI_API_KEY goes to the one step that calls the API (never the whole job). Runs from main only.
 on:
   workflow_dispatch:
     inputs:
-      limit: { description: "Places to draft in this run (the first run: 15; at most 15)", default: "15" }
+      limit: { description: "Places to draft in this run (the first run: 15; 0 = every place left, at most 150)", default: "15" }
       again: { description: "yes = also ask again for places whose draft the checks rejected", default: "no" }
 permissions:
   contents: write
@@ -17,7 +17,7 @@ jobs:
   stories:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 150
     env:
       LIMIT: ${{ github.event.inputs.limit || '15' }}
       AGAIN: ${{ github.event.inputs.again || 'no' }}

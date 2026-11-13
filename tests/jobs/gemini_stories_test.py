@@ -89,7 +89,7 @@ class RunTests(unittest.TestCase):
         self.assertTrue(os.path.exists(os.path.join(self.out, 'aa.json'))); self.assertFalse(os.path.exists(os.path.join(self.out, 'bb.json')))
         self.run_main([self.ok(), self.ok()])
         self.assertTrue(all(os.path.exists(os.path.join(self.out, p + '.json')) for p in ('aa', 'bb', 'cc')))
-        self.assertIn('Place aa', open(os.path.join(self.out, 'REVIEW.md')).read())
+        self.assertIn('Place aa', open(os.path.join(self.out, 'REVIEW-01.md')).read())
 
     def test_a_failed_check_is_kept_as_rejected_and_not_asked_again(self):
         self.run_main([self.ok('Lake Park was founded in 1999.'), self.ok(), self.ok()])
@@ -102,7 +102,17 @@ class RunTests(unittest.TestCase):
         self.run_main([self.ok(), self.ok(), self.ok()], limit='1')
         self.assertEqual(sorted(p for p in os.listdir(self.out) if p.endswith('.json')), ['aa.json'])
         self.assertEqual(before, {f: open(os.path.join(self.data, f)).read() for f in os.listdir(self.data)})
-        self.assertLessEqual(g.MAX_ROWS, 15)
+        self.assertLessEqual(g.MAX_ROWS, 150)
+
+    def test_limit_zero_means_all_left_and_the_review_is_split_into_pages(self):
+        for i in range(17):
+            pid = 'p%02d' % i
+            json.dump({'id': pid, 'name': 'Place ' + pid, 'story': '', 'matters': ''}, open(os.path.join(self.data, pid + '.json'), 'w'))
+            open(os.path.join(self.res, 'research', pid + '.md'), 'w').write(SRC)
+        self.run_main([self.ok() for _ in range(20)], limit='0')
+        files = sorted(f for f in os.listdir(self.out) if f.startswith('REVIEW'))
+        self.assertEqual(files, ['REVIEW-01.md', 'REVIEW-02.md', 'REVIEW.md'])
+        self.assertIn('REVIEW-02.md', open(os.path.join(self.out, 'REVIEW.md')).read())
 
 
 if __name__ == '__main__': unittest.main()

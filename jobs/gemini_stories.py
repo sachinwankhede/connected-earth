@@ -5,7 +5,7 @@ Usage: gemini_stories.py <research dir> <out dir> [limit] [--again]
   <out dir>       a checkout of the `gemini-stories` branch: one file per place, written the moment its answer is checked, so nothing is lost if the run stops
 Places chosen: data/places/<id>.json with no `story` and no `matters`, a research file, no draft yet (a rejected draft is not asked again unless --again).
 Free-tier friendly: one request at a time, at least GAP seconds apart; on a 429 it waits as long as Google says (up to MAX_WAIT) and tries again once, and if that fails too
-it STOPS cleanly (exit 0) with a message: the drafts written so far stay, and the next run carries on where this one stopped. At most `limit` places per run (default MAX_ROWS).
+it STOPS cleanly (exit 0) with a message: the drafts written so far stay, and the next run carries on where this one stopped. `limit` places per run (default 15; 0 = every place left; never more than MAX_ROWS). A big run is safe because it is resumable and stops cleanly on a quota stop.
 The draft is only a draft: it is written to <out dir>/<id>.json (accepted) or <out dir>/rejected/<id>.json (a check failed, with the reason) and to no place file. The owner reads
 the drafts; a later step promotes the approved ones into the place files. Checks: story at most 60 words, why at most 40, every number in the draft appears in the research text, no
 capitalised word in the draft that the research text lacks (names are not invented).
@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, HERE)
 import fetch, urllib.request, urllib.error
 MODEL = 'gemini-3.8-flash'
 URL = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent'
-MAX_ROWS = 15; MAX_OUT = 600; GAP = 15; MAX_WAIT = 90; RESEARCH_CHARS = 30000
+MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = 15; MAX_WAIT = 90; RESEARCH_CHARS = 30000
 PROMPT_VERSION = 'stories-1'
 STORY_WORDS = 60; WHY_WORDS = 40
 SYSTEM = ('You write two short texts about a protected natural place for a children-friendly nature atlas. Use ONLY facts stated in the SOURCE TEXT: no outside knowledge, no guesses. '
@@ -97,20 +97,28 @@ def write(path, obj):
     json.dump(obj, open(tmp, 'w'), ensure_ascii=False, indent=1); os.replace(tmp, path)   # written whole, then moved into place
 
 def review(out_dir):
-    """REVIEW.md: every draft in out_dir (accepted first, then rejected with the reason), for the owner to read."""
-    rows = lambda d: [json.load(open(f)) for f in sorted(glob.glob(os.path.join(out_dir, d, '*.json')))]
-    acc = [json.load(open(f)) for f in sorted(glob.glob(os.path.join(out_dir, '*.json')))]; rej = rows('rejected')
-    out = ['# Story drafts (Gemini, to read and approve)', '', '%d accepted by the checks, %d rejected. Nothing here is in a place file yet.' % (len(acc), len(rej)), '']
-    for r in acc: out += ['## %s (`%s`)' % (r['name'], r['id']), '', '**Story** (%d words): %s' % (words(r['story']), r['story']), '', '**Why it matters** (%d words): %s' % (words(r['matters']), r['matters']), '']
-    if rej: out += ['# Rejected by the checks', '']
-    for r in rej: out += ['## %s (`%s`) - %s' % (r['name'], r['id'], r['rejected']), '', 'Story: %s' % r['story'], '', 'Why: %s' % r['matters'], '']
-    open(os.path.join(out_dir, 'REVIEW.md'), 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    """REVIEW.md (the index) and REVIEW-01.md, REVIEW-02.md ... with PAGE drafts each, so the owner reads one sitting at a time; REVIEW-rejected.md lists the drafts the checks refused with the reason."""
+    for f in glob.glob(os.path.join(out_dir, 'REVIEW*.md')): os.remove(f)
+    acc = [json.load(open(f)) for f in sorted(glob.glob(os.path.join(out_dir, '*.json')))]
+    rej = [json.load(open(f)) for f in sorted(glob.glob(os.path.join(out_dir, 'rejected', '*.json')))]
+    pages = [acc[i:i + PAGE] for i in range(0, len(acc), PAGE)]; names = ['REVIEW-%02d.md' % (k + 1) for k in range(len(pages))]
+    def put(name, lines): open(os.path.join(out_dir, name), 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
+    put('REVIEW.md', ['# Story drafts (Gemini, to read and approve)', '', '%d accepted by the checks, %d rejected. Nothing here is in a place file yet. Read one page at a time:' % (len(acc), len(rej)), ''] +
+        ['- [%s](%s): %s to %s' % (n, n, pg[0]['name'], pg[-1]['name']) for n, pg in zip(names, pages)] + (['- [REVIEW-rejected.md](REVIEW-rejected.md): %d drafts the checks refused' % len(rej)] if rej else []))
+    for n, pg in zip(names, pages):
+        out = ['# %s' % n, '']
+        for r in pg: out += ['## %s (`%s`)' % (r['name'], r['id']), '', '**Story** (%d words): %s' % (words(r['story']), r['story']), '', '**Why it matters** (%d words): %s' % (words(r['matters']), r['matters']), '']
+        put(n, out)
+    if rej:
+        out = ['# Rejected by the checks', '']
+        for r in rej: out += ['## %s (`%s`) - %s' % (r['name'], r['id'], r['rejected']), '', 'Story: %s' % r['story'], '', 'Why: %s' % r['matters'], '']
+        put('REVIEW-rejected.md', out)
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv
     if len(args) < 2: print(__doc__); sys.exit(2)
-    research_dir, out_dir = args[0], args[1]; limit = int(args[2]) if len(args) > 2 else MAX_ROWS
-    limit = min(limit or MAX_ROWS, MAX_ROWS)
+    research_dir, out_dir = args[0], args[1]; limit = int(args[2]) if len(args) > 2 else 15
+    limit = min(limit or MAX_ROWS, MAX_ROWS)   # 0 = all left, capped
     key = os.environ.get('GEMINI_API_KEY', '')
     if not key: print('GEMINI_API_KEY is not set'); sys.exit(2)
     todo_ids = todo(research_dir, out_dir, again); print(len(todo_ids), 'places without a draft;', 'drafting', min(limit, len(todo_ids)), flush=True)
