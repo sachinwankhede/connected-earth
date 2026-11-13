@@ -1,0 +1,35 @@
+name: data-fixcoords
+# Manual only (#767). Finds places whose coordinates lie outside their own state (geo-states.json) and corrects them from the coordinates of their Wikipedia article,
+# accepted only when they fall inside the place's own state; removes two pictures that came from the wrong same-named article. Opens one data pull request listing every change.
+# Shares the group of the photo jobs because it edits place files and photos/places.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-photos
+jobs:
+  coords:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Fix the coordinates
+        run: python3 jobs/fixcoords.py | tee fix.log
+      - name: Validate
+        run: |
+          python3 build/validate.py
+          python3 lib/photo_registry.py validate
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/fixcoords-${GITHUB_RUN_ID}"
+          git add data/places photos/places
+          if git diff --cached --quiet; then echo "nothing to change"; exit 0; fi
+          git commit -m "Place coordinates inside the place's own state"
+          git push -f origin HEAD
+          { printf 'Part of #767. Automatic run of data-fixcoords. Sources: en.wikipedia.org (article coordinates, already allowed); no pictures added, no licence change. A place changes only when the Wikipedia coordinates fall inside its own state.\n\nSpot check (every change listed, read each one):\n\n'; grep -E '^(fixed|unresolved|picture removed)' fix.log | sed 's/^/- /'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Place coordinates inside the place's own state" --body-file body.md
