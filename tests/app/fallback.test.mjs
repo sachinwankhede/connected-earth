@@ -2,6 +2,8 @@ import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 // The base map (street or satellite tiles) can fail while the app is open. The app should quietly fall back and recover.
 const style = (src) => JSON.stringify({ version: 8, name: 't', glyphs: 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf', sources: { openmaptiles: src }, layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#dde' } }, { id: 'lines', type: 'line', source: 'openmaptiles', 'source-layer': 'boundary' }] });
 const tj = (up) => ({ type: 'vector', tiles: ['https://tiles.openfreemap.org/t/{z}/{x}/{y}.pbf'] });
@@ -23,7 +25,7 @@ describe('base map fallback', () => {
     await page.route(/openfreemap\.org\/fonts/, (r) => r.abort());
     await page.route(/arcgisonline/, (r) => (sOk ? r.fulfill({ status: 404 }) && undefined : r.abort()));
     await page.addInitScript((ms) => { if (ms) window.__retryMs = ms; }, retryMs);
-    await page.goto(await H.urlFor(H.MAIN));
+    await page.goto(await H.urlFor(H.FMAIN));
     await page.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 90000 }).catch(() => {});
     return { ctx, page, errors, set: (v, s) => { vOk = v; sOk = s; } };
   }

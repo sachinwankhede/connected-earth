@@ -2,13 +2,15 @@ import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 describe('map layers panel', () => {
   let browser;
   before(async () => { browser = await H.launch(); });
   after(async () => { await browser.close(); });
   for (const [name, size] of Object.entries(H.SIZES)) {
     test(`${name}: style buttons only; no shading button, no version label`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
+      const t = await H.open(browser, H.FMAIN, size);
       await t.page.click('#lyrbtn'); await H.pause(t.page, 400);
       const r = await t.page.evaluate(() => ({
         shade: !!document.getElementById('shadebtn') || !!document.getElementById('shkey'),

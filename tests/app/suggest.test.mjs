@@ -4,9 +4,11 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing shows suggestions, a species row opens the species page, Enter and Clear close them`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i') ? r.querySelector('i').textContent : '', q: r.getAttribute('data-q'), latin: r.getAttribute('data-latin'), id: r.getAttribute('data-id') })); });
     assert.deepEqual(await rows(), [], 'nothing before typing');

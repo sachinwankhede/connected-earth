@@ -3,10 +3,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: no place card shows a missing value, and each shows its species and feeding-link counts`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     const p = t.page;
     await p.waitForSelector('#cards .card', { state: 'attached', timeout: 60000 });
     // ask for more cards where the list is paged (phone), so the later cards are checked too
