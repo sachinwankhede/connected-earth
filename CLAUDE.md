@@ -39,6 +39,7 @@
    - A `perf-ab` result more than 15% slower
    - Raising the first-view size budget (ask before editing `build/firstview.py`).
 8. **No stopgaps.** Before building, name the layer that owns the behaviour (build, data job or app) and put it there. Do not ship an app-side workaround for something that belongs in the build or data; if the proper fix needs a data job or the owner's go-ahead, open the item for that fix and stop. Before merging a behaviour change, list every place it must hold (for search: results list, suggestion dropdown, Species tab) and test each.
+9. **Flaky tests are fixed, not tolerated (owner decision 13 Nov, #786).** A test or check that fails and then passes without a code change gets an issue the first time it is seen (`theme:process`, `status:ready`), and the next session fixes it by finding the condition it really depends on (a fixed wait becomes waiting for the state; a dependence on real data moves to fixture data or a data validator, #787). Re-running, skipping, loosening or quarantining it is not a fix. A flaky-test issue is the first item the agent picks up, ahead of new feature work, and `bash jobs/status.sh` lists it first. A check that fails on main more than once in a day is red main and is fixed or reverted before any other merge.
 
 ## Multi-Agent Collaboration Protocol (Claude & Gemini)
 Multiple AI agents (Claude and Gemini) collaborate on this repository concurrently under the following rules:
