@@ -36,8 +36,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => history.back());
     await p.waitForFunction(() => document.getElementById('q').value === 'osp', null, { timeout: 15000 }).catch(() => {});   // wait for Back to restore the text instead of a fixed pause: a slow runner took longer than 800 ms
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osp', 'Back returns to the search that was typed');
-    await p.click('#q'); await p.keyboard.type('x'); await p.waitForTimeout(200);
-    await p.click('#qclr'); await p.waitForTimeout(200);
+    await p.click('#q'); await p.keyboard.type('x'); await H.pause(p, 200);
+    await p.click('#qclr'); await H.pause(p, 200);
     r = await rows();   // the box is empty and focused: the dropdown now lists the recent searches (#589), each marked as one, and no ordinary suggestion
     assert.ok(r.length >= 1 && r.length <= 3, 'Clear closes the suggestions and shows the recent searches instead: ' + JSON.stringify(r));
     assert.equal(await p.evaluate(() => { const h = document.querySelector('#sug .sgh'); return h && h.firstChild.textContent; }), 'Recent', 'one "Recent" label above them, not a prefix on every row (the Clear link is on the same line, #642)');
