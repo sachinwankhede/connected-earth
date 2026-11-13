@@ -1,0 +1,21 @@
+{
+ "id": "whiguazu",
+ "name": "Iguazú National Park",
+ "story": "Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.",
+ "matters": "The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 4540,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 4660,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4540
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:03:45+00:00"
+}

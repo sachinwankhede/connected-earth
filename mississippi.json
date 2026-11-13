@@ -1,0 +1,21 @@
+{
+ "id": "mississippi",
+ "name": "Mississippi River Floodplain",
+ "story": "The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.",
+ "matters": "The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 5421,
+  "candidatesTokenCount": 92,
+  "totalTokenCount": 5513,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5421
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:58:22+00:00"
+}

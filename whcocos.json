@@ -1,0 +1,28 @@
+{
+ "id": "whcocos",
+ "name": "Cocos Island National Park",
+ "story": "Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.",
+ "matters": "Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7385,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 7501,
+  "cachedContentTokenCount": 3982,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7385
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3982
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:59:57+00:00"
+}

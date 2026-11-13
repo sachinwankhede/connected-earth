@@ -1,0 +1,21 @@
+{
+ "id": "ozarks",
+ "name": "Ozark Forest and Streams",
+ "story": "The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.",
+ "matters": "The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 3004,
+  "candidatesTokenCount": 132,
+  "totalTokenCount": 3136,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3004
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:58:38+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "gulf",
+ "name": "Northern Gulf of Mexico",
+ "story": "Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.",
+ "matters": "The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 6978,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 7075,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6978
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:58:06+00:00"
+}

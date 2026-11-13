@@ -1,0 +1,21 @@
+{
+ "id": "whgrosmorne",
+ "name": "Gros Morne National Park",
+ "story": "Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.",
+ "matters": "The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7275,
+  "candidatesTokenCount": 134,
+  "totalTokenCount": 7409,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7275
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:02:56+00:00"
+}

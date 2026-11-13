@@ -1,0 +1,21 @@
+{
+ "id": "stlurban",
+ "name": "Urban St. Louis",
+ "story": "Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.",
+ "matters": "The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7408,
+  "candidatesTokenCount": 153,
+  "totalTokenCount": 7561,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7408
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:59:10+00:00"
+}

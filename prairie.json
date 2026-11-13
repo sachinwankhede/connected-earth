@@ -1,0 +1,21 @@
+{
+ "id": "prairie",
+ "name": "Missouri Tallgrass Prairie",
+ "story": "Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.",
+ "matters": "The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7512,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 7602,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7512
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T02:58:54+00:00"
+}

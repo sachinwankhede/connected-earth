@@ -1,0 +1,21 @@
+{
+ "id": "whjungfrau",
+ "name": "Swiss Alps Jungfrau-Aletsch",
+ "story": "Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.",
+ "matters": "The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7927,
+  "candidatesTokenCount": 133,
+  "totalTokenCount": 8060,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7927
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:04:01+00:00"
+}

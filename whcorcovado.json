@@ -1,0 +1,21 @@
+{
+ "id": "whcorcovado",
+ "name": "Corcovado National Park",
+ "story": "Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.",
+ "matters": "The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 6677,
+  "candidatesTokenCount": 133,
+  "totalTokenCount": 6810,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6677
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:00:15+00:00"
+}

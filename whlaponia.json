@@ -1,0 +1,21 @@
+{
+ "id": "whlaponia",
+ "name": "Laponian Area",
+ "story": "Sarek National Park is located in the Jokkmokk Municipality, Lapland in northern Sweden, and was established in 1909. The park covers an area of 1,977 square kilometres and is among the oldest national parks in Europe. It is the most mountainous region in Sweden, featuring about 100 glaciers and six peaks over 2,000 metres.",
+ "matters": "The park is adjacent to Padjelanta and Stora Sjöfallet national parks, forming a combined protected area of approximately 5,500 square kilometres. It also provides a remote alpine habitat for various arctic and mountain species such as reindeer and wolverines.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7841,
+  "candidatesTokenCount": 146,
+  "totalTokenCount": 7987,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7841
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:04:51+00:00"
+}

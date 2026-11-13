@@ -1,0 +1,28 @@
+{
+ "id": "whdarien",
+ "name": "Darién National Park",
+ "story": "Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.",
+ "matters": "The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 7236,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 7333,
+  "cachedContentTokenCount": 3980,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7236
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3980
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:02:40+00:00"
+}

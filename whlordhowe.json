@@ -1,0 +1,21 @@
+{
+ "id": "whlordhowe",
+ "name": "Lord Howe Island Group",
+ "story": "Lord Howe Island is an irregularly crescent-shaped volcanic remnant in the Tasman Sea, part of New South Wales, Australia. The island is about 10 km long with an area of 14.55 square kilometers and is home to forested hills rising to Mount Gower. The Lord Howe Island Group comprises 28 islands, islets, and rocks, including Ball's Pyramid.",
+ "matters": "The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-1",
+ "tokens": {
+  "promptTokenCount": 6902,
+  "candidatesTokenCount": 142,
+  "totalTokenCount": 7044,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6902
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:05:08+00:00"
+}
