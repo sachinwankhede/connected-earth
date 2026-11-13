@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const answered = (p, q) => p.waitForFunction((x) => window.__M && window.__M.searched === x, q, { timeout: 60000 });
 const stats = (p) => p.evaluate(() => document.getElementById('stats').textContent);
 const empty = (p) => p.evaluate(() => { const e = document.getElementById('empty'); return { hidden: e.hidden, text: e.textContent }; });
@@ -11,7 +13,7 @@ const cards = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:n
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: using the search box starts the first search request before any letter is typed (#451)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     const urls = []; p.on('request', (r) => urls.push(r.url()));
     await p.click('#q');
@@ -23,7 +25,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a typed word is drawn about once, not once per key`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.evaluate(() => { window.__n = 0; for (const k of ['pushState', 'replaceState']) { const f = history[k]; history[k] = function () { window.__n++; return f.apply(this, arguments); }; } });   // every draw ends in one address update
     await p.click('#q'); await p.keyboard.type('elk');
     await answered(p, 'elk'); await H.pause(p, 800);
@@ -35,7 +37,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: nothing found says what was searched and Clear brings the list back`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.click('#q'); await p.keyboard.type('zzqxv'); await p.keyboard.press('Enter');
     await answered(p, 'zzqxv');
     let e = await empty(p);
@@ -50,7 +52,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: while the index is slow it says "Searching…" and never "nothing found"`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     let release; const gate = new Promise((r) => { release = r; });   // the index answers when the test says so, not after a timer a slow runner can outlast
     await p.route(/api\/search(-pilot)?\/(meta|w-|rows-)/, async (route) => { await gate; await route.continue().catch(() => {}); });
     await p.click('#q'); await p.keyboard.type('zzqxv');
@@ -65,7 +67,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: when the index cannot be had the card text still filters and a note says so`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/search(-pilot)?\/meta\.json/, (route) => route.abort());
     await p.click('#q'); await p.keyboard.type('yellow'); await p.keyboard.press('Enter');
     await answered(p, 'yellow');
@@ -76,7 +78,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: inside a region the line keeps the query`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&s=yellow&r=continent:North%20America' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&s=yellow&r=continent:North%20America' }); const p = t.page;
     await answered(p, 'yellow');
     assert.match(await stats(p), /“yellow” in North America/);
     assert.deepEqual(t.errors, []); await b.close();

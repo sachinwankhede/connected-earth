@@ -199,6 +199,10 @@
   "c": "LC",
   "q": "Q726389"
  },
+ "carex folliculata": {
+  "c": "LC",
+  "q": "Q6736718"
+ },
  "carex scabrata": {
   "c": "LC",
   "q": "Q15579836"
@@ -831,6 +835,10 @@
   "c": "VU",
   "q": "Q18835"
  },
+ "poecile atricapillus": {
+  "c": "LC",
+  "q": "Q282687"
+ },
  "poecile carolinensis": {
   "c": "LC",
   "q": "Q1079441"
@@ -1071,6 +1079,10 @@
   "c": "LC",
   "q": "Q1585636"
  },
+ "tsuga canadensis": {
+  "c": "NT",
+  "q": "Q1137143"
+ },
  "turdus migratorius": {
   "c": "LC",
   "q": "Q460967"
@@ -1126,6 +1138,10 @@
  "vulpes vulpes": {
   "c": "LC",
   "q": "Q8332"
+ },
+ "zenaida macroura": {
+  "c": "LC",
+  "q": "Q750027"
  },
  "zostera marina": {
   "c": "LC",
