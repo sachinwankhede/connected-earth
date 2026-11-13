@@ -136,6 +136,10 @@ class RunTests(unittest.TestCase):
         self.assertEqual(len(asked), 2); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))
         with self.assertRaises(SystemExit): self.chain_run(set(), 'gemini-3.5-flash-lite,gemini-9-ultra')
 
+    def test_the_prompt_asks_for_fewer_words_than_the_limits_and_bans_coordinates(self):
+        self.assertIn('at most %d words' % (g.STORY_WORDS - 10), g.SYSTEM); self.assertIn('at most %d words' % (g.WHY_WORDS - 6), g.SYSTEM)
+        self.assertIn('Never write latitude or longitude', g.SYSTEM); self.assertEqual(g.PROMPT_VERSION, 'stories-2')
+
     def test_a_failed_check_is_kept_as_rejected_and_not_asked_again(self):
         self.run_main([self.ok('Lake Park was founded in 1999.'), self.ok(), self.ok()])
         self.assertTrue(os.path.exists(os.path.join(self.out, 'rejected', 'aa.json'))); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))

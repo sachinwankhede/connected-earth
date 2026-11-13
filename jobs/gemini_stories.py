@@ -18,16 +18,16 @@ MODELS = ('gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.8-flash') 
 MODEL = os.environ.get('GEMINI_MODEL') or MODELS[0]   # one model, or several separated by commas: tried in that order, the next one takes over when a model is out of quota or stays busy
 URL = 'https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent'
 MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = 15; MAX_WAIT = 90; RESEARCH_CHARS = 30000
-PROMPT_VERSION = 'stories-1'
+PROMPT_VERSION = 'stories-2'
 STORY_WORDS = 60; WHY_WORDS = 40
 SYSTEM = ('You write two short texts about a protected natural place for a children-friendly nature atlas. Use ONLY facts stated in the SOURCE TEXT: no outside knowledge, no guesses. '
-          'Every number, name, date and place name you write must appear in the source text. If the source does not support a fact, leave it out. Plain sentences, no marketing words, no lists, no bold.\n'
+          'Every number, name, date and place name you write must appear in the source text. If the source does not support a fact, leave it out. Plain sentences, no marketing words, no lists, no bold. Never write latitude or longitude coordinates; say the region or country instead, and open with what makes the place special.\n'
           '"story": 2 to 3 sentences, at most %d words: where the place is, how big or how old, and what lives or is special there.\n'
           '"matters": 1 to 2 sentences, at most %d words: why the place matters for nature (a species it shelters, a larger ecosystem it belongs to, a connection to other places).\n'
           'Examples of the style (do not copy their facts):\n'
           'story: Gunung Leuser National Park covers 7,927 km² of northern Sumatra, straddling Aceh and North Sumatra. About 40%% of it is steep and over 1,500 m high. With two other parks, it forms the Tropical Rainforest Heritage of Sumatra.\n'
           'matters: It is one of the two remaining habitats of the Sumatran orangutan, which is critically endangered and lives only in northern Sumatra. An orangutan sanctuary operates at Bukit Lawang.\n'
-          'Reply as JSON: {"story": "...", "matters": "..."}.') % (STORY_WORDS, WHY_WORDS)
+          'Reply as JSON: {"story": "...", "matters": "..."}.') % (STORY_WORDS - 10, WHY_WORDS - 6)   # the prompt asks for fewer words than the checks allow, so a draft that runs long still passes
 SCHEMA = {'type': 'OBJECT', 'properties': {'story': {'type': 'STRING'}, 'matters': {'type': 'STRING'}}, 'required': ['story', 'matters']}
 
 class QuotaStop(Exception): pass
