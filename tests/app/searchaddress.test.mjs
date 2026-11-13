@@ -22,7 +22,7 @@ const openFirst = async (p) => {
 const trace = [];
 const hook = () => { window.__h = []; const ps = history.pushState; history.pushState = function (s, t, u) { window.__h.push('P:' + String(u).split('#')[1]); return ps.apply(this, arguments); }; addEventListener('hashchange', (e) => window.__h.push('H:' + e.newURL.split('#')[1])); addEventListener('popstate', () => window.__h.push('pop')); };   // what the browser did, for a failure message
 const mark = async (p, what) => { trace.push(what + ': ' + (await p.evaluate(() => decodeURIComponent(location.hash).replace('#stub&', '') + ' L' + history.length + ' S' + (history.state ? history.state.sp : '-') + ' q=' + document.getElementById('q').value))); };
-const back = async (p) => { await p.evaluate(() => history.back()); await p.waitForTimeout(700); await mark(p, 'after back'); };
+const back = async (p) => { await p.evaluate(() => history.back()); await H.pause(p, 700); await mark(p, 'after back'); };
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing writes s= in the address, a reload brings the same list back, Clear removes it`, async () => {
@@ -36,7 +36,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     s = await state(p);
     assert.equal(s.box, 'elk', 'the box has the text again after a reload'); assert.equal(s.clr, true, 'and its Clear link');
     await same(p, before, 'the same list after a reload (typed: index hits ' + n0 + ')');
-    await p.click('#qclr'); await p.waitForTimeout(400);
+    await p.click('#qclr'); await H.pause(p, 400);
     s = await state(p); assert.equal(s.box, ''); assert.doesNotMatch(s.hash, /(^|&)s=/, 'no search left in the address');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -52,7 +52,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     // reload on the place: the place and the search are both there, and the link back goes to the same list
     await p.reload(); await answered(p, 'elk'); await p.waitForFunction(() => !document.getElementById('pview').hidden && document.querySelector('#pview h2'), null, { timeout: 60000 });
     s = await state(p); assert.equal(s.page, true); assert.equal(s.box, 'elk');
-    await mark(p, 'after reload'); await p.click('[data-pback]'); await p.waitForTimeout(700); await mark(p, 'after link');
+    await mark(p, 'after reload'); await p.click('[data-pback]'); await H.pause(p, 700); await mark(p, 'after link');
     s = await state(p); assert.equal(s.map, true, 'the list is back'); assert.equal(s.box, 'elk', 'with the search');
     assert.doesNotMatch(s.hash, /pg=/); assert.match(s.hash, /(^|&)s=elk$/);
     await same(p, before, 'the same list as before the place (typed: index hits ' + n0 + ')');

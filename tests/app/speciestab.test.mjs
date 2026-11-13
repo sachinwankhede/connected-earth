@@ -34,12 +34,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.locator('#sptab .sgr[data-latin]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr[data-latin]').click()));
     await p.waitForFunction((n) => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === n, top[0][1], { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Species');
-    await p.evaluate(() => history.back()); await p.waitForTimeout(1000);
+    await p.evaluate(() => history.back()); await H.pause(p, 1000);
     assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab'); assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab .sgr[data-latin]').length), top.length);
     assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'the group pills are still there after Back from a species page (#592)');
-    await p.evaluate(() => window.dispatchEvent(new HashChangeEvent('hashchange'))); await p.waitForTimeout(500);   // what a return to the app does: the address is applied again and the list redrawn
+    await p.evaluate(() => window.dispatchEvent(new HashChangeEvent('hashchange'))); await H.pause(p, 500);   // what a return to the app does: the address is applied again and the list redrawn
     assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'a redraw of the places list does not blank the Species pills (#592)');
-    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(500);
+    await p.click('[data-tab="places"]:visible'); await H.pause(p, 500);
     assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), true); assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('cards')).display), 'none', 'the places list is back');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -130,7 +130,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(sug.length > 0 && sug.every((x) => x === 'species'), 'the dropdown has species only: ' + sug);
     await p.locator('#sptab .sgr').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr').click()));
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
-    await p.evaluate(() => history.back()); await p.waitForTimeout(1000);
+    await p.evaluate(() => history.back()); await H.pause(p, 1000);
     assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab');
     await p.click('#q', { clickCount: 3 }).catch(() => {}); await p.keyboard.press('Control+A'); await p.keyboard.type('zzqxv');
     await p.waitForFunction(() => /^No species match/.test(document.getElementById('qnote').textContent) && document.querySelector('#sptab [data-clr]'), null, { timeout: 60000 });
@@ -148,7 +148,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-go="continent"][data-a="North America"]', { state: 'attached', timeout: 60000 });
-    await p.evaluate(() => document.querySelector('[data-go="continent"][data-a="North America"]').click()); await p.waitForTimeout(1500);
+    await p.evaluate(() => document.querySelector('[data-go="continent"][data-a="North America"]').click()); await H.pause(p, 1500);
     const was = await p.evaluate(() => document.getElementById('srow').textContent.trim());
     assert.match(was, /North America/, 'the region is on the Places tab: ' + was);
     await p.click('[data-tab="species"]:visible');
@@ -156,7 +156,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const s = await p.evaluate(() => ({ title: document.getElementById('srow').textContent.trim(), trail: document.querySelectorAll('#srow .sbk').length, stats: getComputedStyle(document.getElementById('stats')).display,
       kinds: getComputedStyle(document.getElementById('kinds')).display, goChips: document.querySelectorAll('#regions [data-go]').length, rows: new Set([...document.querySelectorAll('#regions .chip')].map((c) => Math.round(c.getBoundingClientRect().top))).size }));
     assert.equal(s.trail, 0, 'no region trail: ' + s.title); assert.ok(!/North America/.test(s.title), s.title); assert.equal(s.stats, 'none'); assert.equal(s.kinds, 'none'); assert.equal(s.goChips, 0); assert.equal(s.rows, 1, 'one row of pills');
-    await p.click('[data-tab="places"]:visible'); await p.waitForTimeout(800);
+    await p.click('[data-tab="places"]:visible'); await H.pause(p, 800);
     assert.match(await p.evaluate(() => document.getElementById('srow').textContent.trim()), /North America/, 'Places keeps its region');
     assert.notEqual(await p.evaluate(() => getComputedStyle(document.getElementById('stats')).display), 'none');
     assert.deepEqual(t.errors, []); await b.close();

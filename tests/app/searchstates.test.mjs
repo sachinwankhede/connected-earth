@@ -26,7 +26,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.evaluate(() => { window.__n = 0; for (const k of ['pushState', 'replaceState']) { const f = history[k]; history[k] = function () { window.__n++; return f.apply(this, arguments); }; } });   // every draw ends in one address update
     await p.click('#q'); await p.keyboard.type('elk');
-    await answered(p, 'elk'); await p.waitForTimeout(800);
+    await answered(p, 'elk'); await H.pause(p, 800);
     const n = await p.evaluate(() => window.__n);
     assert.ok(n >= 1 && n <= 8, 'draws for six keys: ' + n);   // before: at least two per key (12 or more); now the first letter, the rest as one, and what the local places and the photos add
     assert.match(await stats(p), /places? match “elk”/);
@@ -42,7 +42,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(e.hidden, true, 'the note says it once; no second message');
     assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
     assert.equal(await p.evaluate(() => [qnote, stats].map(e => e.getAttribute('role')).join()), 'status,status', 'the counts are live regions (#591)');
-    await p.click('#qclr'); await p.waitForTimeout(500);
+    await p.click('#qclr'); await H.pause(p, 500);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), '', 'Clear empties the box');
     e = await empty(p); assert.equal(e.hidden, true, 'the list is back');
     assert.ok(await cards(p) > 0);
@@ -53,7 +53,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/search(-pilot)?\/(meta|w-|rows-)/, async (route) => { await new Promise((r) => setTimeout(r, 1500)); await route.continue(); });
     await p.click('#q'); await p.keyboard.type('zzqxv');
-    await p.waitForTimeout(800);
+    await H.pause(p, 800);
     assert.equal(await stats(p), 'Searching…', 'a slow answer is announced');
     assert.equal((await empty(p)).hidden, true, 'no "nothing found" while the answer is on its way');
     await answered(p, 'zzqxv');
