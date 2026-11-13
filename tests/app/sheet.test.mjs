@@ -49,7 +49,7 @@ describe('place sheet', () => {
 
     test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, sources and credits tucked away, What if last`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
-      await mockPhotos(t.page);
+      await mockPhotos(t.page, { thinPlaces: true });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForSelector('#panel .prow .pmc', { timeout: 30000 });

@@ -23,9 +23,9 @@ export async function mockSpeciesPictures(page, ph = {}) {
   await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {} }) }));
   await page.route(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
 }
-export async function mockPhotos(page, { allPlaces = false } = {}) {   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
+export async function mockPhotos(page, { allPlaces = false, thinPlaces = false } = {}) {   // thinPlaces: drop the picture of every place whose title hashes odd, so a test that needs both a picture and an icon does not depend on how many real places have one   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
   const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
-  const places = Object.fromEntries(Object.entries(placeManifest).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
+  const places = Object.fromEntries(Object.entries(placeManifest).filter(([title]) => !thinPlaces || crypto.createHash('sha1').update(title).digest()[0] % 2 === 0).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
   const tpl = Object.values(placeManifest)[0];
   if (allPlaces) for (const e of readPlaces(true)) if (e.imgwiki && !places[e.imgwiki]) places[e.imgwiki] = { ...tpl, f: `mock/${encodeURIComponent(e.imgwiki)}.png` };
   await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(places) }));
