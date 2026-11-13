@@ -74,7 +74,15 @@ def main():
         if e and len(out) < 8 and os.path.exists(R('photos', 'places', e['f'])):
             out[places[i]['imgwiki']] = e; shutil.copyfile(R('photos', 'places', e['f']), os.path.join(pd, e['f']))
     dump(out, os.path.join(pd, 'places.json'), indent=1)
-    print('fixture data: %d places (%d pilot), %d species, %d journeys, %d place pictures' % (len(ids), len(PILOT), len(keep), len(JOURNEYS), len(out)))
+    # species pictures (#421): the species page's wide photo and the tiles need hosted copies; up to 20 of the fixture's species that have one, white-tailed deer first (speciespage opens it)
+    ph = {n: load(R('photos', n + '.json')) for n in ('species', 'species_hosted', 'species_large', 'species_metadata')}
+    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if k.lower() in low and k in ph['species_large'] and k in ph['species']), key=lambda k: (k != 'Odocoileus virginianus', k))[:20]
+    assert names and names[0] == 'Odocoileus virginianus', 'white-tailed deer needs a hosted picture in the fixture'
+    for n in ('species', 'species_hosted', 'species_large', 'species_metadata'): dump({k: ph[n][k] for k in names if k in ph[n]}, os.path.join(OUT, 'photos', n + '.json'), indent=1)
+    for sub, key in (('species-md', 'species_hosted'), ('species-lg', 'species_large')):
+        os.makedirs(os.path.join(OUT, 'photos', sub), exist_ok=True)
+        for k in names: shutil.copyfile(R('photos', sub, ph[key][k]), os.path.join(OUT, 'photos', sub, ph[key][k]))
+    print('fixture data: %d places (%d pilot), %d species, %d journeys, %d place pictures, %d species pictures' % (len(ids), len(PILOT), len(keep), len(JOURNEYS), len(out), len(names)))
 
 
 if __name__ == '__main__': main()
