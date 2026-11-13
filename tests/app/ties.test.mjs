@@ -11,7 +11,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map && window.__M.map.getSource('atl-t'), null, { timeout: 60000 }); await H.pause(p, 1500);
     for (const how of ['close', 'search', 'home']) {
-      await p.evaluate(() => window.__M.peek('serengeti')); await H.pause(p, 800);
+      await p.evaluate(() => window.__M.peek('yellowstone')); await H.pause(p, 800);
       assert.ok(await ties(p) > 1, how + ': related places shown while the card is open');
       if (how === 'close') await p.evaluate(() => document.querySelector('[data-closepeek]').click());
       if (how === 'search') await p.evaluate(() => { const q = document.getElementById('q'); q.value = 'elk'; q.dispatchEvent(new Event('input', { bubbles: true })); });
