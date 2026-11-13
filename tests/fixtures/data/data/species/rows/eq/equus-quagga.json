@@ -1,0 +1,12 @@
+{
+ "latin": "Equus quagga",
+ "name": "Plains zebra",
+ "tl": 2,
+ "wiki": "Plains zebra",
+ "desc": "Grazes the taller grass first, clearing the way for wildebeest and gazelles.",
+ "ic": "quad",
+ "about": "The plains zebra is the most common and geographically widespread species of zebra. Its range is fragmented, but spans much of southern and eastern Africa south of the Sahara.",
+ "sid": "equus-quagga",
+ "sk": "taxon",
+ "src": "legacy"
+}

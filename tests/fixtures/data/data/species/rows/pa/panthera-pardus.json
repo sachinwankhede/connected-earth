@@ -1,0 +1,12 @@
+{
+ "latin": "Panthera pardus",
+ "name": "Leopard",
+ "tl": 4,
+ "wiki": "Leopard",
+ "desc": "The main natural predator of okapi and a hunter of duikers and monkeys in the forest.",
+ "ic": "lion",
+ "about": "The leopard is one of the five extant cat species in the genus Panthera. It has a pale yellowish to dark golden fur with dark spots grouped in rosettes.",
+ "sid": "panthera-pardus",
+ "sk": "taxon",
+ "src": "legacy"
+}

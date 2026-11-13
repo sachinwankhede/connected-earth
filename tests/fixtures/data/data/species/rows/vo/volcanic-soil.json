@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Volcanic soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Young lava and ash soils hold the nutrients the plants draw on, and are returned by decomposers.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "volcanic-soil",
+ "sk": "resource",
+ "src": "legacy"
+}
