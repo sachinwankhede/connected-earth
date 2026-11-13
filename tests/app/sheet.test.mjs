@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 import { mockPhotos } from './mockphotos.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 describe('place sheet', () => {
   let browser;
   before(async () => { browser = await H.launch(); });
@@ -10,7 +12,7 @@ describe('place sheet', () => {
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: a place opens as just the graph; picking a species brings up its sheet; clearing it takes the sheet away`, async () => {
-      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=npmammothcave' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=nparches' });
       const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { sheet: v('psheet'), back: v('pbk'), graph: document.querySelectorAll('.node').length }; });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       let s = await vis();
@@ -28,7 +30,7 @@ describe('place sheet', () => {
     });
 
     test(`${sizeName}: the long species description arrives after the sheet opens (one small file per species, fetched once)`, async () => {
-      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page);
       let hits = 0; t.page.on('request', (r) => { if (/api\/species\/[a-z0-9-]+\.json/.test(r.url())) hits++; });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
@@ -48,7 +50,7 @@ describe('place sheet', () => {
     });
 
     test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, sources and credits tucked away, What if last`, async () => {
-      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page, { thinPlaces: true });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
@@ -88,7 +90,7 @@ describe('place sheet', () => {
     });
 
     test(`${sizeName}: picking an environment item shows the environment so the selection is visible`, async () => {
-      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&pg=yellowstone' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&pg=yellowstone' });
       await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
       const env = await t.page.evaluate(() => { const c = document.querySelector('.prow .pmc[data-pnode]'); return [...document.querySelectorAll('#pview h3')].find((h) => /^Environment/.test(h.textContent)).nextElementSibling.querySelector('[data-pnode]').getAttribute('data-pnode'); });
       await t.page.click(`#pview [data-pnode="${env}"]`); await H.pause(t.page, 2500);
@@ -98,7 +100,7 @@ describe('place sheet', () => {
     });
 
     test(`${sizeName}: the graph has no toolbar until it is moved; the environment is always shown; sharing lives on the place page`, async () => {
-      const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 }); await H.pause(t.page, 1500);
       const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { env: v('env'), web: v('vt'), more: v('moreb'), share: v('share'), key: v('kbtn'), fit: v('fit'), bar: v('webctl'), cap: v('gcap'), sun: [...document.querySelectorAll('.node')].some((n) => /Sunlight/.test(n.getAttribute('aria-label')) && n.getBoundingClientRect().width > 0) }; });
       let s = await vis();
@@ -113,7 +115,7 @@ describe('place sheet', () => {
     });
 
     test(`${sizeName}: auto-generated places show no tag (the flag stays in the data)`, async () => {
-      const t = await H.open(browser, H.PILOT, size, { hash: '#stub&e=mocastlewood' });
+      const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=ribeavertail' });
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false);
       assert.ok(await t.page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       assert.deepEqual(t.errors, []);
