@@ -16,7 +16,9 @@ jobs:
       - uses: actions/checkout@v5
         with: { ref: main }
       - name: Fix the coordinates
-        run: python3 jobs/fixcoords.py | tee fix.log
+        run: |
+          set -o pipefail
+          python3 jobs/fixcoords.py | tee fix.log
       - name: Validate
         run: |
           python3 build/validate.py
