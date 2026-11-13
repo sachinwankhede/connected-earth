@@ -726,6 +726,7 @@ if __name__ == '__main__':
         main = build(False, O('index.html'), places=True)
         build(True, O('pilot', 'index.html'), write=True, places=True)
         stamp_sw(main)
+        if '--fixture' in a and os.path.isdir(D('photos', 'places')): shutil.copytree(D('photos', 'places'), O('photos', 'places'), dirs_exist_ok=True)   # the fixture's place pictures and their list, next to the page as on the site
         if '--fixture' in a: open(O('.ready'), 'w').write('ok\n')   # written last: the tests wait for it (tests/app/helper.mjs)
     else:
         out = a[a.index('--out') + 1] if '--out' in a else O('dist', 'index.html')

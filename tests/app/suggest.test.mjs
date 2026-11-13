@@ -31,6 +31,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await p.evaluate(() => document.activeElement.id), '', 'and the keyboard leaves');
     await p.click('#qclr'); await p.keyboard.type('osp');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
+    await p.waitForFunction(() => /(^|&)s=osp/.test(location.hash.slice(1)), null, { timeout: 30000 });   // the search must be its own history entry before the tap: a tap that beats the address sync merges the two steps and Back then leaves the search (#715)
     await p.click('#sug .sgr[data-latin="Pandion haliaetus"]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.deepEqual(await rows(), [], 'a tap on a row closes the suggestions');
