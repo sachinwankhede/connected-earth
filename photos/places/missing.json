@@ -1306,17 +1306,5 @@
 "checkedAt": "2026-11-02T21:50:41.389435+00:00",
 "expiresAt": "2027-05-01T21:50:41.389435+00:00",
 "attempts": 1
-},
-"Raymond": {
-"status": "nophoto",
-"checkedAt": "2026-11-13T11:50:07.399981+00:00",
-"expiresAt": "2026-11-13T11:50:08.399981+00:00",
-"attempts": 1
-},
-"Trout Pond": {
-"status": "nophoto",
-"checkedAt": "2026-11-13T11:50:07.399981+00:00",
-"expiresAt": "2026-11-13T11:50:08.399981+00:00",
-"attempts": 1
 }
 }

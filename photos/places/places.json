@@ -12089,6 +12089,21 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
+"Trout Pond": {
+"f": "metroutpond.jpg",
+"a": "Dclemens1971",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Trout_Pond%2C_West_Virginia.jpg",
+"w": "https://en.wikipedia.org/wiki/Trout_Pond",
+"mt": "image/jpeg",
+"width": 330,
+"height": 247,
+"sha256": "d5ef9bd919791dba77544b2058a1ee55fa75b6456e944c5344a2d6eece1dd2ed",
+"reviewStatus": "approved",
+"checkedAt": "2026-11-01T00:35:53.296847+00:00",
+"fetchedAt": null
+},
 "Algonac State Park": {
 "f": "mialgonac.jpg",
 "a": "Notorious4life (talk) (Uploads)",
@@ -14770,6 +14785,21 @@
 "width": 330,
 "height": 109,
 "sha256": "a28e7ded6ac7185d7a9f5f95664313130efbdb18146138c074daa9922331046a",
+"reviewStatus": "approved",
+"checkedAt": "2026-11-01T00:35:53.296847+00:00",
+"fetchedAt": null
+},
+"Raymond": {
+"f": "riraymond.jpg",
+"a": "Antonio del Castillo y Saavedra",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:San_Ram%C3%B3n_Nonato_%28Museo_Ibercaja_Cam%C3%B3n_Aznar%29.jpg",
+"w": "https://en.wikipedia.org/wiki/Raymond",
+"mt": "image/jpeg",
+"width": 330,
+"height": 555,
+"sha256": "f63f7a8b06cdfb98426f8efbf95d48bf0dd449ec34716b74253187a155e5f684",
 "reviewStatus": "approved",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null

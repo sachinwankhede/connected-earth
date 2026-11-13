@@ -1,0 +1,1 @@
+ci bisect of the red main (#776): photo half of #776 reverted. Close without merging.
