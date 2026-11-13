@@ -53,6 +53,12 @@
   "lu": "https://creativecommons.org/licenses/by-sa/3.0",
   "p": "https://commons.wikimedia.org/wiki/File:Antilocapra_americana.jpg"
  },
+ "Aphelocoma woodhouseii": {
+  "a": "Peter Wallack",
+  "l": "CC BY-SA 3.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/3.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Western_Scrub_Jay%2C_Santa_Fe.jpg"
+ },
  "Ardea alba": {
   "a": "Chuck Homler (FocusOnWildlife.Me)",
   "l": "CC BY-SA 4.0",
@@ -112,11 +118,5 @@
   "l": "Public domain",
   "lu": "",
   "p": "https://commons.wikimedia.org/wiki/File:Hackberry_Emperor%2C_Megan_McCarty46.jpg"
- },
- "Atta cephalotes": {
-  "a": "Pjt56",
-  "l": "CC BY-SA 4.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Atta_cephalotes-pjt.jpg"
  }
 }
