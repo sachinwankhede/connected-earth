@@ -67,6 +67,17 @@ The key, host, model and JSON output work. Quality on five journeys: 3 usable; t
 
 The shared calling code lives in `lib/gemini_api.py` (#772): `generate()` (one request with the 429 and busy handling above), `Chain` (the model list and hand-over), `request_body()` (system prompt, user text, JSON schema, temperature, token cap), `retry_delay()`, the errors `QuotaStop` and `Overloaded`, and the constants `GAP`, `MAX_WAIT`, `BUSY_WAITS`, `MAX_BUSY_IN_A_ROW`. `jobs/gemini_stories.py` and the trial `jobs/gemini_batch.py` use it. A new task writes only its prompt, schema, checks and the loop over its rows (see the story job's `main()` for the pattern: pace with `GAP`, `except QuotaStop` and `except Overloaded` call `chain.out(...)`). The module's tests are in `tests/jobs/gemini_stories_test.py` until `ci.yml` (owner-merged) lists a file of their own.
 
+## Pipeline pattern for batch tasks (owner decisions, 13 Nov: generic runner, manual button first, judge plus sample)
+
+Every Gemini task has the same stages: choose the items, gather source text, draft, deterministic checks, judge, human review, merge, report (#779 builds this for stories first).
+- **Task specs and one runner.** A task is a spec in `jobs/` (item selector, source, prompt, schema, checks, judge rubric, writer into a data file). One generic manual workflow runs a spec by name; the caps (rows, tokens, time) are fixed in the workflow so a spec cannot raise them. The workflow is owner-merged once; a new use case is an agent-merged spec with tests and the allowed-sources check. Journeys months is the second task, to prove the pattern.
+- **Files are the interface.** Each stage reads and writes one file per item on a branch and is safe to re-run; state lives in the repository, not in a session.
+- **Review.** Deterministic checks first, then a judge from a different model (it flags or rejects, never edits: unsupported claims, wording unsuited to children, near-duplicates), then a data pull request per batch (about 25 items) carrying the judge's verdicts. Claude reads only what the judge flags (at most 5 a batch); the owner glances at a 5-item sample until the judge proves reliable, then the sample stops. The owner's merge is the approval.
+- **Throttle.** The pipeline refuses to start while an unreviewed batch pull request is open, so the owner's review pace is the speed limit and no quota is spent on drafts nobody will read.
+- **Trigger.** Manual button first (ground rule 4 allows Gemini workflows only by `workflow_dispatch` from `main`). After a few clean batches decide between a scheduled routine of the agent that dispatches it (keeps rule 4, a little session usage) and an owner amendment of rule 4 for a capped GitHub schedule for approved specs (no session usage).
+- **State.** Counts that change (drafted, judged, awaiting review, merged) are computed by `jobs/status.sh` and reported in each batch pull request, not written by hand into `docs/STATE.md`, which keeps decisions and learnings.
+- **Source text is untrusted.** The model has no tools and returns JSON only; a poisoned source can at worst produce a bad draft, which the checks, the judge and the review catch.
+
 ## Other free AI providers (owner, 13 Nov: "there are other free AI key providers too, which we can add later")
 
 Gemini is the first provider, not the only one. Keep this in mind when designing: the task side (prompts, schemas, checks, one file per result, the review pages) must not depend on Gemini, and a second provider is welcome, for example as the judge of the story pipeline (#779), where a different model family makes a more independent reviewer.
@@ -88,3 +99,4 @@ When one is added (each needs the owner's approval first, because `CLAUDE.md` gr
 - 13 Nov 2026: decision and trial (#747); first story runs failed on 503 and a daily limit; retry, early stop (#756) and the model chain (#758) added; stories prompt `stories-2` (#759); 112 drafts promoted (#766). This guide written.
 - 13 Nov 2026: calling code moved into `lib/gemini_api.py` (#772); the story job behaves as before (its 19 tests pass unchanged), the trial uses it without busy retries.
 - 13 Nov 2026: section on other free providers added (owner note); nothing built for them yet.
+- 13 Nov 2026: pipeline pattern decided (generic runner, manual button, judge plus sample); built under #779.
