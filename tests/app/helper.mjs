@@ -128,13 +128,26 @@ export const dots = async (page) => {
     return n('atl-e') + n('atl-f');
   });
 };
+// Wait until the map shows `want` dots (or give up after `ms`), then return the real count so an assertion shows what was there. Replaces fixed sleeps after a click (#786).
+export const dotsEq = async (page, want, ms = 30000) => {
+  await page.waitForFunction((w) => {
+    const n = (id) => { const s = window.__M.map.getSource(id); return s ? ((s._data && s._data.features) || []).length : 0; };
+    return n('atl-e') + n('atl-f') === w;
+  }, want, { timeout: ms }).catch(() => {});
+  return dots(page);
+};
+// Wait until the camera has stopped (three quiet checks in a row).
+export const settle = (page) => page.evaluate(async () => {
+  const m = window.__M.map; await new Promise((r) => setTimeout(r, 150));
+  let quiet = 0; for (let i = 0; i < 150 && quiet < 3; i++) { await new Promise((r) => setTimeout(r, 100)); quiet = m.isMoving() ? 0 : quiet + 1; }
+});
 export const camera = (page) => page.evaluate(() => {
   const m = window.__M.map, c = m.getCenter();
   return { lng: +c.lng.toFixed(2), lat: +c.lat.toFixed(2), zoom: +m.getZoom().toFixed(2) };
 });
 export const jump = async (page, center, zoom) => {
   await page.evaluate(([c, z]) => { window.__M.map.jumpTo({ center: c, zoom: z }); }, [center, zoom]);
-  await page.waitForTimeout(600);
+  await settle(page);
 };
 export const chipLabels = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip')].map((x) => x.textContent.trim()));
 export const dimmed = (page) => page.evaluate(() => [...document.querySelectorAll('#kinds .chip.dim')].map((x) => x.getAttribute('data-kind')).sort());
