@@ -1,0 +1,21 @@
+{
+ "id": "xlebanon",
+ "name": "Al Shouf Cedar Nature Reserve",
+ "story": "Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.",
+ "matters": "The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7771,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 7898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7771
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:36:33+00:00"
+}

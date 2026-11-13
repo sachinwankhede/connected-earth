@@ -1,0 +1,22 @@
+{
+ "id": "xmalawi",
+ "name": "Lake Malawi National Park",
+ "story": "Lake Malawi National Park sits at the southern end of Lake Malawi in Malawi, Southeast Africa. Covering approximately 95 square kilometres, the park features a mountainous headland, rocky islands, and dense forests rising steeply from the water. It is home to animals including chacma baboons, leopards, and crocodiles.",
+ "matters": "Inscribed as a UNESCO World Heritage Site in 1984, the park is of global importance for biodiversity conservation due to its remarkable fish diversity. It shelters hundreds of endemic cichlid fish species that provide an outstanding example of evolution at work.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6784,
+  "candidatesTokenCount": 123,
+  "totalTokenCount": 6907,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6784
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:38:09+00:00",
+ "rejected": "matters has 41 words (limit 40)"
+}

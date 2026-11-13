@@ -1,0 +1,21 @@
+{
+ "id": "xserbia",
+ "name": "Đerdap National Park",
+ "story": "Đerdap National Park stretches along the right bank of the Danube River in Serbia. Established in 1974, the forest park spans 63,786.5 hectares and features the long Đerdap gorge, mountainous terrain, caves, and springs.",
+ "matters": "The heavily forested area is rich in animal life and provides a protected habitat for diverse plant species and rare wildlife such as the Eurasian lynx.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8012,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 8112,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8012
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:42:59+00:00"
+}

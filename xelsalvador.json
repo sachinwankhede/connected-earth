@@ -1,0 +1,21 @@
+{
+ "id": "xelsalvador",
+ "name": "El Imposible National Park",
+ "story": "El Imposible National Park is a tropical forest and protected area in western El Salvador. Established on January 1, 1989, it covers 38.20 km² within the Apaneca llamatepec mountain range, and supports wildlife including pumas, oncillas, wild boars, king hawks and black-crested eagles.",
+ "matters": "The park encompasses eight rivers that contribute to the watershed of Barra de Santiago and the coastal mangrove forests. In 1992, it was included on UNESCO's World Heritage Tentative List.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6008,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 6132,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6008
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:27:29+00:00"
+}

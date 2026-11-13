@@ -1,0 +1,21 @@
+{
+ "id": "xlatvia",
+ "name": "Gauja National Park",
+ "story": "Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.",
+ "matters": "Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8408,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 8522,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8408
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:36:18+00:00"
+}

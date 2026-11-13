@@ -1,0 +1,21 @@
+{
+ "id": "whogasawara",
+ "name": "Ogasawara Islands",
+ "story": "The Ogasawara Islands are a Japanese archipelago of over 30 subtropical and tropical islands located in Japan. The group as a whole has a total area of 84 square kilometers. Because of their isolation, many of their animals and plants have undergone unique evolutionary processes.",
+ "matters": "They were named a Natural World Heritage Site in 2011 and are home to endemic species like the Bonin flying fox, which lives in subtropical forests.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7341,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 7439,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7341
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:16:02+00:00"
+}

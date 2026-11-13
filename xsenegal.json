@@ -1,0 +1,21 @@
+{
+ "id": "xsenegal",
+ "name": "Djoudj National Bird Sanctuary",
+ "story": "Djoudj National Bird Sanctuary lies on the southeast bank of the Senegal River in Senegal. Covering an area of 16,000 hectares, it is the world's 3rd largest ornithological reserve. It provides wetland habitats for large populations of pelicans, flamingos, crocodiles, and manatees.",
+ "matters": "It is a World Heritage Site that serves as a very popular wintering site for migrating birds crossing the Sahara, including aquatic warblers and millions of other birds.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6019,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 6127,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6019
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:42:43+00:00"
+}

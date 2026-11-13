@@ -1,0 +1,21 @@
+{
+ "id": "xeqguinea",
+ "name": "Monte Alén National Park",
+ "story": "Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.",
+ "matters": "The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6678,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 6789,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6678
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:27:45+00:00"
+}

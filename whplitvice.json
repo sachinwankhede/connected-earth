@@ -1,0 +1,21 @@
+{
+ "id": "whplitvice",
+ "name": "Plitvice Lakes National Park",
+ "story": "Plitvice Lakes National Park is one of the oldest and largest national parks in Croatia. Founded in 1949, it covers 296.85 km2 in the mountainous karst area of central Croatia at the border with Bosnia and Herzegovina. The park is famous for its picturesque series of tufa lakes, caves, and connected waterfalls.",
+ "matters": "The afforested mountain slopes serve as a refuge for many animal species, including the brown bear, grey wolf, and Eurasian lynx. The park is inscribed on the UNESCO World Heritage list for its outstanding natural features.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7484,
+  "candidatesTokenCount": 126,
+  "totalTokenCount": 7610,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7484
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:16:44+00:00"
+}

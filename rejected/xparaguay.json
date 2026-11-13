@@ -1,0 +1,22 @@
+{
+ "id": "xparaguay",
+ "name": "Defensores del Chaco National Park",
+ "story": "Defensores del Chaco National Park is the largest protected area in Paraguay, covering 720,000 hectares. Created on 6 August 1975, the park covers a vast plain with low forests, thorn bushes, and cactus. It is home to large mammals like the jaguar, puma, and South American tapir.",
+ "matters": "The park is part of the Paraguayan Chaco, which is the part of the Gran Chaco within Paraguay. The region features high ecological diversity and supports various species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7213,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 7329,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7213
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:40:49+00:00",
+ "rejected": "numbers not in the research text: 720,000"
+}

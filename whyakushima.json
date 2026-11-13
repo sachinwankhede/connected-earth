@@ -1,0 +1,21 @@
+{
+ "id": "whyakushima",
+ "name": "Yakushima",
+ "story": "Yakushima is a forest in Kagoshima, Japan, where 42 percent of the island is within the borders of the Yakushima National Park. Established in 1964, the national park covers 325.53 square kilometres and includes mountains and marine areas. It features ancient cedar trees called Yakusugi and is home to the Yakushima macaque.",
+ "matters": "Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4825,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 4955,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4825
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:21:53+00:00"
+}

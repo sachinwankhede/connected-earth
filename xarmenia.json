@@ -1,0 +1,21 @@
+{
+ "id": "xarmenia",
+ "name": "Khosrov Forest State Reserve",
+ "story": "Khosrov Forest State Reserve is located in Ararat Province of Armenia. It has a history of about 1,700 years, having been founded in the 4th century by King Khosrov Kotak. The reserve covers around 23,213.5 hectares and protects juniper and oak forests from the Tertiary Period.",
+ "matters": "The reserve is unique in the Caucasus ecoregion and protects biological diversity, rare and endangered plants and animals, and their habitats, including being a hotspot for the Persian leopard.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7586,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 7702,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7586
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:22:57+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xbelgium",
+ "name": "Hautes Fagnes (High Fens)",
+ "story": "The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.",
+ "matters": "The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7646,
+  "candidatesTokenCount": 125,
+  "totalTokenCount": 7771,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7646
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:24:01+00:00"
+}

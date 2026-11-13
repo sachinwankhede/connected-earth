@@ -1,0 +1,21 @@
+{
+ "id": "xskorea",
+ "name": "Korean Demilitarized Zone",
+ "story": "The Korean Demilitarized Zone is a strip of land running across the Korean Peninsula in South Korea. Established in 1953, it is 250 kilometers long and about 4 kilometers wide, serving as a heavily militarized border barrier.",
+ "matters": "A population of the long-tailed goral, an endangered species classified as South Korean natural monument 217, exists in the Korean Demilitarized Zone.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7445,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 7540,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7445
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:43:31+00:00"
+}

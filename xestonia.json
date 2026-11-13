@@ -1,0 +1,21 @@
+{
+ "id": "xestonia",
+ "name": "Soomaa National Park",
+ "story": "Soomaa National Park is situated in south-western Estonia. Created in 1993, it protects 390 square kilometres of large raised bogs, floodplain grasslands, paludified forests, and meandering rivers. Steep-sloped raised bogs stand as islands during spring floods.",
+ "matters": "The park is the largest intact peat bog system in Europe preserved as wilderness. It is a home and breeding area for several mammal species that are very rare or extinct in other parts of Europe.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7992,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 8106,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7992
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:28:17+00:00"
+}

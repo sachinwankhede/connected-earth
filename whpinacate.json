@@ -1,0 +1,21 @@
+{
+ "id": "whpinacate",
+ "name": "El Pinacate and Gran Desierto de Altar Biosphere Reserve",
+ "story": "El Pinacate and Gran Desierto de Altar Biosphere Reserve covers an area of 2,695.05 square kilometres in the Sonoran Desert in northwest Mexico. It is a UNESCO World Heritage Site featuring a volcanic shield, active dunes, and the highest concentration of Maar craters. NASA sent astronauts to train there for walking on the Moon.",
+ "matters": "The reserve shelters threatened endemic species including the Sonoran pronghorn, bighorn sheep, gila monster, and desert tortoise. It forms part of a larger desert ecosystem that spans northwest Mexico and the southwestern United States.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6073,
+  "candidatesTokenCount": 126,
+  "totalTokenCount": 6199,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6073
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:16:23+00:00"
+}

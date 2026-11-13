@@ -1,0 +1,21 @@
+{
+ "id": "whwcaucasus",
+ "name": "Western Caucasus",
+ "story": "The Western Caucasus is a western region of the North Caucasus in Southern Russia, extending from the Black Sea to Mount Elbrus. It includes a UNESCO World Heritage Site with varied habitats ranging from lowlands to glaciers. The area features large areas of undisturbed mountain forest and tall Nordmann fir trees.",
+ "matters": "It is a protected natural place that shelters high mountain species of plants, many of which are endemic. It also includes a Persian leopard reintroduction centre and is the place of origin and reintroduction of the Caucasian wisent.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6655,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 6767,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6655
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:21:05+00:00"
+}

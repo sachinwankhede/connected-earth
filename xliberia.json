@@ -1,0 +1,21 @@
+{
+ "id": "xliberia",
+ "name": "Sapo National Park",
+ "story": "Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.",
+ "matters": "The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7387,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 7503,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7387
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:37:05+00:00"
+}

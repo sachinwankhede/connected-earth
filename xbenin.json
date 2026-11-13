@@ -1,0 +1,21 @@
+{
+ "id": "xbenin",
+ "name": "Pendjari National Park",
+ "story": "Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.",
+ "matters": "The park is part of the WAP Complex, a large protected area in Benin, Burkina Faso and Niger. Since 2005, the protected area is considered a Lion Conservation Unit and a potential lion stronghold.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4575,
+  "candidatesTokenCount": 128,
+  "totalTokenCount": 4703,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4575
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:24:17+00:00"
+}

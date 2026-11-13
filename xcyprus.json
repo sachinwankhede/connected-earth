@@ -1,0 +1,21 @@
+{
+ "id": "xcyprus",
+ "name": "Troodos Mountains",
+ "story": "The Troodos Mountains are the largest mountain range in Cyprus, located roughly in the centre of the island with Mount Olympus as the highest peak. The range covers a third of Cyprus and features many endemic plants and animals.",
+ "matters": "The mountains are home to the endangered Cyprus mouflon, which is the national animal of Cyprus. They also shelter a rich bird population including Bonelli's eagle.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5729,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 5822,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5729
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:26:25+00:00"
+}

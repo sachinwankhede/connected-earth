@@ -1,0 +1,21 @@
+{
+ "id": "whsikhote",
+ "name": "Central Sikhote-Alin",
+ "story": "Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.",
+ "matters": "The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5410,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 5504,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5410
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:18:18+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "whnahanni",
+ "name": "Nahanni National Park Reserve",
+ "story": "Nahanni National Park Reserve is located in the Northwest Territories, Canada, protecting a portion of the Mackenzie Mountains Natural Region. The park features the South Nahanni River, which flows through four deep canyons, and includes Virginia Falls, where the river plunges 90 m.",
+ "matters": "The park provides appropriate year-round or seasonal habitat for ten special-concern, threatened, or endangered species, including the grizzly bear, woodland caribou, and wolverine.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7132,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 7238,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7132
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:15:18+00:00"
+}

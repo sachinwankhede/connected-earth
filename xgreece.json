@@ -1,0 +1,21 @@
+{
+ "id": "xgreece",
+ "name": "Vikos-Aoös National Park",
+ "story": "Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.",
+ "matters": "The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8099,
+  "candidatesTokenCount": 129,
+  "totalTokenCount": 8228,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8099
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:30:57+00:00"
+}

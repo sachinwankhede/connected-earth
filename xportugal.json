@@ -1,0 +1,21 @@
+{
+ "id": "xportugal",
+ "name": "Peneda-Gerês National Park",
+ "story": "Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.",
+ "matters": "The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7413,
+  "candidatesTokenCount": 132,
+  "totalTokenCount": 7545,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7413
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:41:22+00:00"
+}

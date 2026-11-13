@@ -1,0 +1,21 @@
+{
+ "id": "whsocotra",
+ "name": "Socotra Archipelago",
+ "story": "Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.",
+ "matters": "About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7317,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 7415,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7317
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:18:36+00:00"
+}

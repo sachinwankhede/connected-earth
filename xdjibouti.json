@@ -1,0 +1,21 @@
+{
+ "id": "xdjibouti",
+ "name": "Lake Abbe",
+ "story": "Lake Abbe is a salt lake lying on the Ethiopia-Djibouti border. It is the ultimate destination of the Awash River, at the center of the Afar Depression, and is known for its flamingos and steam-spewing limestone chimneys.",
+ "matters": "The lake is part of a chain of six connected lakes and belongs to the wetland ecosystem of Djibouti, which includes large lakes and salt pans.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6318,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 6412,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6318
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:26:58+00:00"
+}

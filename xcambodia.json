@@ -1,0 +1,21 @@
+{
+ "id": "xcambodia",
+ "name": "Tonlé Sap Biosphere Reserve",
+ "story": "Tonle Sap Biosphere Reserve is a unique ecological phenomenon and the largest freshwater lake in Southeast Asia, located in central Cambodia. During the rainy season, the Mekong River reverses the flow of the Tonle Sap River, causing the lake to expand into an enormous wetland area supporting diverse wildlife.",
+ "matters": "The wetlands serve as an important breeding area for fish from the lake and the Mekong River, while supporting a tremendous amount of rare and endangered biodiversity.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6623,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 6720,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6623
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:25:53+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xsierra",
+ "name": "Gola Rainforest National Park",
+ "story": "Gola Rainforest National Park protects Sierra Leone's largest tract of rainforest, covering 71,070 ha in the east of the country. It is home to western chimpanzees, pygmy hippopotamuses, and forest elephants.",
+ "matters": "The park forms part of the Upper Guinea Forest, a biodiversity hotspot that stretches from Guinea to Togo. It is designated as a World Heritage Site as part of the Gola-Tiwai complex.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6309,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 6415,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6309
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:43:15+00:00"
+}

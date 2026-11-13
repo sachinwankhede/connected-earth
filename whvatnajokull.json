@@ -1,0 +1,21 @@
+{
+ "id": "whvatnajokull",
+ "name": "Vatnajökull National Park",
+ "story": "Vatnajökull National Park in Iceland covers 14,967 km2, making it Europe's second largest national park. Established on June 7, 2008, and inscribed as a World Heritage Site on July 5, 2019, it encompasses the vast Vatnajökull glacier and features a landscape shaped by rivers, glacial ice, and volcanic and geothermal activity.",
+ "matters": "Areas near the glacier and around Snæfell provide an important habitat for reindeer and pink-footed geese. The park aims to preserve unimpaired natural beauty for future generations.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7865,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 7995,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7865
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:20:32+00:00"
+}

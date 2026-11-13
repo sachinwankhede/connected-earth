@@ -1,0 +1,21 @@
+{
+ "id": "xgreenland",
+ "name": "Northeast Greenland National Park",
+ "story": "Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.",
+ "matters": "The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7381,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 7493,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7381
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:31:13+00:00"
+}

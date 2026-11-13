@@ -1,0 +1,21 @@
+{
+ "id": "xsaudi",
+ "name": "Farasan Islands Marine Reserve",
+ "story": "The Farasan Islands Marine Reserve spans 1050 km² in the southeastern Red Sea within Saudi Arabia, featuring nearly 200 coral islands and islets. It is home to the Arabian gazelle and hosts migratory birds in winter. Oceanic animals such as dugongs and sea turtles also live in the warm shallow sea.",
+ "matters": "The reserve shelters vulnerable and endangered species like dugongs and green and hawksbill sea turtles, and protects the Arabian gazelle in its natural habitat.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5791,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 5902,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5791
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:42:27+00:00"
+}

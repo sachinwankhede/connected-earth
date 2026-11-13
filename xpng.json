@@ -1,0 +1,21 @@
+{
+ "id": "xpng",
+ "name": "Varirata National Park and the Owen Stanley foothills",
+ "story": "Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.",
+ "matters": "The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5463,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 5557,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5463
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:41:05+00:00"
+}

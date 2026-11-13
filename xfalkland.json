@@ -1,0 +1,21 @@
+{
+ "id": "xfalkland",
+ "name": "Falkland Islands: Saunders Island and surrounding sea",
+ "story": "Saunders Island is part of the Falkland Islands, an archipelago in the South Atlantic Ocean on the Patagonian Shelf. The islands lie at the boundary of the subantarctic oceanic and tundra climate zones. They feature mountain ranges and large bird populations, such as the black-browed albatross.",
+ "matters": "The region provides breeding and nesting habitats for seabirds and marine mammals. These populations are part of wider southern ocean ecosystems where species like the black-browed albatross forage over shelf areas.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6056,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 6165,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6056
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:29:21+00:00"
+}

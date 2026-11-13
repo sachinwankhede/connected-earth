@@ -1,0 +1,21 @@
+{
+ "id": "xbahamas",
+ "name": "Exuma Cays Land and Sea Park",
+ "story": "The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.",
+ "matters": "All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6461,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 6559,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6461
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:23:45+00:00"
+}

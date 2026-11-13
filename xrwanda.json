@@ -1,0 +1,21 @@
+{
+ "id": "xrwanda",
+ "name": "Nyungwe Forest National Park",
+ "story": "Nyungwe Forest National Park is located in southwestern Rwanda, covering approximately 1,019 square kilometres of rainforest, bamboo, grassland, swamps, and bogs. Established in 2004, it reaches a maximum altitude of 3,000 metres at Mount Bigugu. It is widely considered the best preserved montane rainforest in Africa.",
+ "matters": "The park is a priority for conservation in Africa, containing 13 primate species and a high number of restricted-range species found only in the Albertine Rift montane forests ecoregion. It shelters colonies of chimpanzees and Angola colobus.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5390,
+  "candidatesTokenCount": 141,
+  "totalTokenCount": 5531,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5390
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:42:11+00:00"
+}

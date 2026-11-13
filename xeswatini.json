@@ -1,0 +1,21 @@
+{
+ "id": "xeswatini",
+ "name": "Hlane Royal National Park",
+ "story": "Hlane Royal National Park covers 300 km² of Eswatini as a flat lowland area of Swazi bushveld. It is Eswatini's largest protected area and park, featuring ancient hardwood trees, grasslands, and shallow pans where lion, elephant, South African giraffe, and white rhinoceros live.",
+ "matters": "The park provides a vital sanctuary and the highest density of nesting white-backed vultures in Africa. It preserves a diverse ecosystem supporting rich birdlife and large mammals within the region.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7602,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 7717,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7602
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:29:04+00:00"
+}

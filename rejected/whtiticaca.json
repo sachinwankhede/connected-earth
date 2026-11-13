@@ -1,0 +1,22 @@
+{
+ "id": "whtiticaca",
+ "name": "Lake Titicaca",
+ "story": "Lake Titicaca is the largest lake in South America and the highest navigable lake in the world, located in the Andes mountains on the border of Bolivia and Peru. It covers a surface area of 8,372 km2 and has a surface elevation of 3,812 m. It is home to more than 530 aquatic species, including large populations of water birds and freshwater snails.",
+ "matters": "The lake is an important bird area and home to threatened species like the endangered Titicaca water frog and the flightless Titicaca grebe, which are largely or entirely restricted to the lake.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7567,
+  "candidatesTokenCount": 134,
+  "totalTokenCount": 7701,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7567
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:19:27+00:00",
+ "rejected": "story has 63 words (limit 60)"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xbosnia",
+ "name": "Sutjeska National Park",
+ "story": "Sutjeska National Park is located in Bosnia and Herzegovina and was established in 1962 as the country's oldest national park. It covers an area of about 17,500 hectares and includes the high peak of Maglić as well as Perućica, which is one of the last two remaining primeval forests in Europe.",
+ "matters": "The park shelters diverse wildlife including the brown bear, wolf, and Balkan chamois. It forms a transboundary protected area connection with the adjoining Durmitor National Park in northwestern Montenegro.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7854,
+  "candidatesTokenCount": 132,
+  "totalTokenCount": 7986,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7854
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:24:33+00:00"
+}

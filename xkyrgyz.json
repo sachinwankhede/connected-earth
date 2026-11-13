@@ -1,0 +1,21 @@
+{
+ "id": "xkyrgyz",
+ "name": "Issyk-Kul Biosphere Reserve",
+ "story": "Issyk-Kul Biosphere Reserve is located in eastern Kyrgyzstan and features Issyk-Kul Lake, an endorheic saline lake in the western Tian Shan mountains. Established in 1948 and covering the Issyk-Kul Region, the lake is fed by about 118 rivers, hot springs, and snow melt.",
+ "matters": "The lake is a Ramsar site of globally significant biodiversity that supports large numbers of wintering waterfowl and endemic fish species, while forming part of the biosphere reserve established in the year 2000.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7543,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 7663,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7543
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:35:45+00:00"
+}

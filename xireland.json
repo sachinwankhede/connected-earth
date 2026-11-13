@@ -1,0 +1,21 @@
+{
+ "id": "xireland",
+ "name": "The Burren",
+ "story": "The Burren is a rocky landscape centered in County Clare on the west coast of Ireland, covering around 530 square kilometres. It features exposed limestone pavement and supports diverse plant growth due to a long growing season. Traditional strongholds for the European pine marten include the Burren.",
+ "matters": "The region supports rich plant growth such as the mountain avens. It serves as a traditional stronghold for the European pine marten, whose recovering population helps native red squirrels by preying on invasive grey squirrels.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6987,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 7096,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6987
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:33:22+00:00"
+}

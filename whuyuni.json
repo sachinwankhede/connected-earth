@@ -1,0 +1,21 @@
+{
+ "id": "whuyuni",
+ "name": "Eduardo Avaroa Andean Fauna National Reserve",
+ "story": "Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.",
+ "matters": "The reserve protects an extreme environment and species adapted to high altitudes, serving as an important habitat for birds and part of the larger Los Lípez Ramsar site.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5146,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 5255,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5146
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:19:59+00:00"
+}

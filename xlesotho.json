@@ -1,0 +1,21 @@
+{
+ "id": "xlesotho",
+ "name": "Sehlabathebe National Park",
+ "story": "Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.",
+ "matters": "The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4731,
+  "candidatesTokenCount": 122,
+  "totalTokenCount": 4853,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4731
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:36:49+00:00"
+}

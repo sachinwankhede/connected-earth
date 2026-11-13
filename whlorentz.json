@@ -1,0 +1,21 @@
+{
+ "id": "whlorentz",
+ "name": "Lorentz National Park",
+ "story": "Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.",
+ "matters": "It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7000,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 7102,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7000
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:13:52+00:00"
+}

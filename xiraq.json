@@ -1,0 +1,21 @@
+{
+ "id": "xiraq",
+ "name": "Ahwar of Southern Iraq (Mesopotamian Marshes)",
+ "story": "The Mesopotamian Marshes are a wetland area located in southern Iraq and southwestern Iran as well as partially in northern Kuwait. Originally covering an area of 20,000 km2, the marshes form a unique landscape home to the Marsh people, who harvest reeds and rice, fish, and herd water buffalo. The marshes were listed as an UNESCO Heritage Site in 2016.",
+ "matters": "The marshes constitute a flooded grasslands and savannas ecoregion and are integral to coastal health by filtering out pollutants and waste before they reach the Gulf. They also serve as spawning and nursery sites for coastal fish and shrimp species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7232,
+  "candidatesTokenCount": 143,
+  "totalTokenCount": 7375,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7232
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:33:06+00:00"
+}

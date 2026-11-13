@@ -1,0 +1,21 @@
+{
+ "id": "whsiankaan",
+ "name": "Sian Ka'an Biosphere Reserve",
+ "story": "Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.",
+ "matters": "It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6122,
+  "candidatesTokenCount": 118,
+  "totalTokenCount": 6240,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6122
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:17:57+00:00"
+}

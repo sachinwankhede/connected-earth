@@ -1,0 +1,21 @@
+{
+ "id": "xhonduras",
+ "name": "Río Plátano Biosphere Reserve",
+ "story": "The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.",
+ "matters": "The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7337,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 7452,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7337
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:32:34+00:00"
+}

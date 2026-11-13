@@ -1,0 +1,21 @@
+{
+ "id": "xcuba",
+ "name": "Zapata Swamp",
+ "story": "The Zapata Swamp is located on the Zapata Peninsula in the southern Matanzas Province of Cuba, less than 150 kilometres southeast of Havana. Spanning over 4,000 km2, it is home to over 900 plant species, 175 bird species, 31 reptile species, and the endemic Cuban crocodile.",
+ "matters": "It is the best preserved wetland in all of the Antilles and is part of the larger Ciénaga de Zapata Biosphere Reserve, which is the largest protected area in Cuba and the Caribbean.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5747,
+  "candidatesTokenCount": 126,
+  "totalTokenCount": 5873,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5747
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:26:09+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xczechia",
+ "name": "Sumava National Park",
+ "story": "Sumava National Park is a forest located in Czechia in the South Bohemian regions along the border with Germany and Austria. It protects a little-inhabited mountain range covered by extensive forest and raised peat bogs. Since the 1970s, the park has sheltered a stable population of lynxes.",
+ "matters": "The park preserves the most extensive forest in Central Europe and features a mosaic of habitats like glacial lakes and primeval forest remnants that are little disturbed by human activity.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7417,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 7523,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7417
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:26:42+00:00"
+}

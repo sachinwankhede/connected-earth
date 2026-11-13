@@ -1,0 +1,21 @@
+{
+ "id": "whputorana",
+ "name": "Putorana Plateau",
+ "story": "The Putorana Plateau is a mountainous area in Russia located in Krasnoyarsk Krai. It is a high-lying plateau crossed by mountain ranges featuring deep lakes and waterfalls. Established in 1988, the Putorana Nature Reserve covers an area of 1,887,251 ha.",
+ "matters": "The reserve was set up to protect the world's largest herd of wild reindeer as well as snow sheep. It contains complete subarctic and arctic ecosystems in an isolated mountain range.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6264,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 6376,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6264
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:17:00+00:00"
+}

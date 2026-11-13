@@ -1,0 +1,21 @@
+{
+ "id": "xeritrea",
+ "name": "Dahlak Archipelago",
+ "story": "The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.",
+ "matters": "The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7341,
+  "candidatesTokenCount": 137,
+  "totalTokenCount": 7478,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7341
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:28:01+00:00"
+}

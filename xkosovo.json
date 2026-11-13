@@ -1,0 +1,21 @@
+{
+ "id": "xkosovo",
+ "name": "Sharr Mountains National Park",
+ "story": "Sharr Mountains National Park covers 532.72 km2 of southern Kosovo on the northern Sharr Mountains. Declared in 1986 and re-established in 2012, it contains glacial lakes, alpine and periglacial landscapes, and numerous species of plants, mammals, birds, reptiles, amphibia, fish, and butterflies.",
+ "matters": "The park falls entirely within the Balkan mixed forests terrestrial ecoregion of the Palearctic temperate broadleaf and mixed forests biome. It provides a home and habitat for diverse native wildlife and vegetation.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8193,
+  "candidatesTokenCount": 132,
+  "totalTokenCount": 8325,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8193
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:35:14+00:00"
+}

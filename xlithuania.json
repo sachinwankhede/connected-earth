@@ -1,0 +1,21 @@
+{
+ "id": "xlithuania",
+ "name": "Curonian Spit",
+ "story": "The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.",
+ "matters": "The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5840,
+  "candidatesTokenCount": 117,
+  "totalTokenCount": 5957,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5840
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:37:21+00:00"
+}

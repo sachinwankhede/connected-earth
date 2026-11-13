@@ -1,0 +1,21 @@
+{
+ "id": "whtikal",
+ "name": "Tikal National Park",
+ "story": "Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.",
+ "matters": "The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7595,
+  "candidatesTokenCount": 134,
+  "totalTokenCount": 7729,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7595
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:19:11+00:00"
+}

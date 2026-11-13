@@ -1,0 +1,21 @@
+{
+ "id": "whvaldes",
+ "name": "Península Valdés",
+ "story": "Península Valdés is a peninsula into the Atlantic Ocean in Chubut, Argentina. It is about 3,625 square kilometers in size and is an important nature reserve listed as a World Heritage Site by UNESCO in 1999. The coastline is inhabited by marine mammals.",
+ "matters": "The adjacent waters contain the most important breeding ground for southern right whales in the world. These whales arrive between May and December for mating and giving birth.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6550,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 6657,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6550
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:20:16+00:00"
+}

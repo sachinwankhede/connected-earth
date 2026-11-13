@@ -1,0 +1,21 @@
+{
+ "id": "whvizcaino",
+ "name": "Whale Sanctuary of El Vizcaíno",
+ "story": "The Whale Sanctuary of El Vizcaíno is located in Baja California Sur, Mexico, and covers an area of over 24,930 square kilometers. Created in 1988, it is the largest wildlife refuge in Mexico. The sanctuary serves as an important habitat for reproducing and wintering gray whales.",
+ "matters": "It is an important habitat for reproducing and wintering gray whales, harbor seals, California sea lions, northern elephant seals, blue whales, and four species of endangered marine turtles. It also serves as an important refuge for waterfowl in the winter.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5483,
+  "candidatesTokenCount": 128,
+  "totalTokenCount": 5611,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5483
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:20:48+00:00"
+}

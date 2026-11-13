@@ -1,0 +1,21 @@
+{
+ "id": "xguinea",
+ "name": "Mount Nimba Strict Nature Reserve",
+ "story": "Mount Nimba Strict Nature Reserve covers 175.4 km2 in Guinea and Côte d'Ivoire. Established in 1943 and 1944, it is a protected area and UNESCO World Heritage Site featuring exceptional flora and fauna.",
+ "matters": "The reserve lies within the Guinean Forests of West Africa Biodiversity Hotspot and shelters rare animals such as the western chimpanzee and the Nimba otter shrew.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5393,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 5488,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5393
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:31:29+00:00"
+}

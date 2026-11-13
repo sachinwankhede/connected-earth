@@ -1,0 +1,21 @@
+{
+ "id": "xqatar",
+ "name": "Al Reem Biosphere Reserve",
+ "story": "Al Reem Biosphere Reserve covers 120,000 hectares of northwest Qatar. Established in 2005, this inhabited area includes semi-arid desert landscapes and is home to gazelles and Arabian oryx. Due to its dense vegetation, the reserve is of great importance for the people of Qatar.",
+ "matters": "The reserve is part of the World Network of Biosphere Reserves in the Arab States and helps protect native desert wildlife such as the Arabian oryx and Arabian gazelle.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5307,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 5422,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5307
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:41:54+00:00"
+}

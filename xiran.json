@@ -1,0 +1,21 @@
+{
+ "id": "xiran",
+ "name": "Hyrcanian Forests",
+ "story": "The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.",
+ "matters": "The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7840,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 7950,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7840
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:32:50+00:00"
+}

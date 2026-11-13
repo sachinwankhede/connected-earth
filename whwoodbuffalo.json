@@ -1,0 +1,21 @@
+{
+ "id": "whwoodbuffalo",
+ "name": "Wood Buffalo National Park",
+ "story": "Wood Buffalo National Park covers 44,741 square kilometres in northeastern Alberta and the southern Northwest Territories in Canada. Established in 1922, it is the largest national park of Canada. It protects the world's largest herd of free-roaming wood bison and one of two known nesting sites of whooping cranes.",
+ "matters": "The park preserves the Peace-Athabasca Delta, which is one of the world's largest fresh-water deltas. It is recognized as the most ecologically complete and largest example of the Great Plains-Boreal grassland ecosystem of North America.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7224,
+  "candidatesTokenCount": 129,
+  "totalTokenCount": 7353,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7224
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:21:21+00:00"
+}

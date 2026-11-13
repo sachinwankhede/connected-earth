@@ -1,0 +1,21 @@
+{
+ "id": "xlaos",
+ "name": "Nam Et-Phou Louey National Protected Area",
+ "story": "Nam Et-Phou Louey National Park is a protected area in northern Laos, covering 4,107.1 km2 across Houaphan, Luang Prabang, and Xieng Khouang. It consists mainly of mountains and hills with a tropical monsoon climate.",
+ "matters": "The area has a high level of biodiversity, sheltering endangered species such as the dhole and the sambar deer within its forests and river habitats.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6870,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 6973,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6870
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:36:01+00:00"
+}

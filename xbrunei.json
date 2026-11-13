@@ -1,0 +1,21 @@
+{
+ "id": "xbrunei",
+ "name": "Ulu Temburong National Park",
+ "story": "Ulu Temburong National Park is the first national park to be established in Brunei, protected since 1991. Covering 550 square kilometres in eastern Brunei, the park contains unspoiled jungle and is known as the Green Jewel of Brunei.",
+ "matters": "It is an important ecotourism centre and part of the Heart of Borneo international conservation agreement, supporting forest habitats and threatened bird species.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7252,
+  "candidatesTokenCount": 91,
+  "totalTokenCount": 7343,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7252
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:24:49+00:00"
+}

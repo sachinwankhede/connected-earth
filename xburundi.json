@@ -1,0 +1,21 @@
+{
+ "id": "xburundi",
+ "name": "Kibira National Park",
+ "story": "Kibira National Park covers 400 km2 of northwestern Burundi atop the mountains of the Congo-Nile Divide. It features primary montane rainforest, which is the only montane forest in all of Burundi, and is home to chimpanzees and black-and-white colobus monkeys.",
+ "matters": "It is considered the most important site in Burundi for the conservation of montane-forest birds. Additionally, the water from its forests accounts for over three-quarters of the water that goes into the country's largest dam.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5755,
+  "candidatesTokenCount": 122,
+  "totalTokenCount": 5877,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5755
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:25:37+00:00"
+}

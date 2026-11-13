@@ -1,0 +1,21 @@
+{
+ "id": "xmacedonia",
+ "name": "Lake Ohrid Region",
+ "story": "Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.",
+ "matters": "It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7526,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 7605,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7526
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:37:53+00:00"
+}

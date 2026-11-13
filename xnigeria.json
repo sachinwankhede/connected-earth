@@ -1,0 +1,21 @@
+{
+ "id": "xnigeria",
+ "name": "Cross River National Park",
+ "story": "Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.",
+ "matters": "The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7010,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 7112,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7010
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:39:29+00:00"
+}

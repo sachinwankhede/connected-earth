@@ -1,0 +1,21 @@
+{
+ "id": "xazer",
+ "name": "Hirkan National Park",
+ "story": "Hirkan National Park covers 40,358 hectares in the Talysh region of Azerbaijan. Established in 2004 and enlarged in 2008, the park is 99% covered by forests in a mountainous region and protects humid subtropical and temperate forests.",
+ "matters": "The park belongs to the Caspian Hyrcanian mixed forests ecoregion and shelters many endemic plant and animal species, including the Caucasian leopard.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8090,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 8188,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8090
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:23:29+00:00"
+}

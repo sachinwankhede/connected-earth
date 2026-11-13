@@ -1,0 +1,21 @@
+{
+ "id": "xpakistan",
+ "name": "Deosai National Park",
+ "story": "Deosai National Park protects 843 square kilometres of high-elevation alpine plain in Pakistan. Situated at an average elevation of 4,114 metres above sea level, it is the second highest plateau in the world. The park is home to rich flora and fauna of the Karakoram-West Tibetan Plateau alpine steppe eco-region.",
+ "matters": "The national park was established to protect the survival of the critically endangered Himalayan brown bear and its habitat. The plateau is currently home to the most significant and stable Himalayan brown bear population.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6028,
+  "candidatesTokenCount": 117,
+  "totalTokenCount": 6145,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6028
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:40:17+00:00"
+}

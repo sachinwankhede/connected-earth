@@ -1,0 +1,28 @@
+{
+ "id": "whmonarch",
+ "name": "Monarch Butterfly Biosphere Reserve",
+ "story": "The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.",
+ "matters": "The reserve is a World Heritage Site containing most of the overwintering sites of the eastern population of the monarch butterfly, serving to protect the butterfly species and its habitat.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7214,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 7320,
+  "cachedContentTokenCount": 3980,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7214
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3980
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:14:58+00:00"
+}

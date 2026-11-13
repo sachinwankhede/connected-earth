@@ -1,0 +1,21 @@
+{
+ "id": "xaustria",
+ "name": "Hohe Tauern National Park",
+ "story": "Hohe Tauern National Park stretches for 100 kilometres along the Hohe Tauern mountain range in Austria and covers an area of about 1,834 square kilometres. It is the largest nature reserve in the Alps and features glaciers, waterfalls, extended tundra areas, and forests.",
+ "matters": "The park shelters diverse alpine flora and fauna, including chamois, Alpine ibex, red deer, griffon vultures, golden eagles, and successfully reintroduced populations of the bearded vulture and Alpine marmot.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7541,
+  "candidatesTokenCount": 116,
+  "totalTokenCount": 7657,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7541
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:23:13+00:00"
+}

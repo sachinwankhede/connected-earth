@@ -1,0 +1,21 @@
+{
+ "id": "xmyanmar",
+ "name": "Hukaung Valley Tiger Reserve",
+ "story": "Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.",
+ "matters": "The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5596,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 5696,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5596
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:38:41+00:00"
+}

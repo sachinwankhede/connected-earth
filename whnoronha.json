@@ -1,0 +1,21 @@
+{
+ "id": "whnoronha",
+ "name": "Fernando de Noronha Archipelago",
+ "story": "Fernando de Noronha is an archipelago of 21 islands and islets extending over 26 square kilometres in the Atlantic Ocean, part of the state of Pernambuco, Brazil. Established in 1988, 70% of its area is a national marine park featuring volcanic rock formations.",
+ "matters": "In 2001, UNESCO designated the islands as a World Heritage Site because of their importance as a feeding ground for tuna, sharks, sea turtles, and marine mammals.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7017,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 7123,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7017
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:15:40+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xmoldova",
+ "name": "Codru Nature Reserve (Codrii)",
+ "story": "Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.",
+ "matters": "The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5858,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 5968,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5858
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:38:25+00:00"
+}

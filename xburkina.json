@@ -1,0 +1,21 @@
+{
+ "id": "xburkina",
+ "name": "W National Park and Arly (Burkina Faso)",
+ "story": "W National Park and Arly are located in Burkina Faso, Niger, and Benin. The regional park covers some 10,000 km2 around a meander in the Niger River. It features wetlands, sandstone hills, and savanna, and is home to African elephants, hippos, and lions.",
+ "matters": "The park provides a home for some of West Africa's last wild African elephants and is one of the last strongholds for the Northwest African cheetah.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5971,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 6074,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5971
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:25:21+00:00"
+}

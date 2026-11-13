@@ -1,0 +1,21 @@
+{
+ "id": "whmanu",
+ "name": "Manú National Park",
+ "story": "Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.",
+ "matters": "It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7357,
+  "candidatesTokenCount": 122,
+  "totalTokenCount": 7479,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7357
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:14:09+00:00"
+}

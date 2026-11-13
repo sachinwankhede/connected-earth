@@ -1,0 +1,21 @@
+{
+ "id": "whwrangel",
+ "name": "Natural System of Wrangel Island Reserve",
+ "story": "Natural System of Wrangel Island Reserve is in Chukotka, Russia, with an area of 7,600 km2. It is roughly the size of Crete and features a central belt of low-relief mountains. The island was home to the last surviving population of woolly mammoths.",
+ "matters": "It serves as a vital breeding ground for polar bears with the highest density of dens in the world. The reserve also protects diverse Arctic plants and numerous seabird colonies.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7444,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 7554,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7444
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:21:37+00:00"
+}

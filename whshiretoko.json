@@ -1,0 +1,21 @@
+{
+ "id": "whshiretoko",
+ "name": "Shiretoko",
+ "story": "Shiretoko National Park covers most of the Shiretoko Peninsula on the island of Hokkaido, Japan. The 70 kilometres long peninsula is best known as the home of Japan's largest population of brown bears and features temperate and subalpine mixed forests.",
+ "matters": "In 2005, UNESCO designated the area a World Heritage Site in recognition of the peninsula being the southernmost point where sea ice usually forms in the Northern Hemisphere.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6250,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 6352,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6250
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:17:39+00:00"
+}

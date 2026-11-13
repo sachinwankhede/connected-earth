@@ -1,0 +1,21 @@
+{
+ "id": "xjamaica",
+ "name": "Blue and John Crow Mountains National Park",
+ "story": "Blue and John Crow Mountains National Park covers 495.2 square kilometers of Jamaica. It accounts for 4.5% of Jamaica's land surface and was inscribed as a UNESCO World Heritage Site on 3 July 2015. The park is recognized for its biodiversity and derives its name from the Blue Mountains and the turkey vulture.",
+ "matters": "The park is the last of two known habitats of the giant swallowtail butterfly, the largest butterfly in the Western Hemisphere. It also serves as a refuge for the endangered Jamaican blackbird, the Jamaican boa, and the Jamaican hutia.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4845,
+  "candidatesTokenCount": 129,
+  "totalTokenCount": 4974,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4845
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:34:10+00:00"
+}

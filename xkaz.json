@@ -1,0 +1,21 @@
+{
+ "id": "xkaz",
+ "name": "Korgalzhyn State Nature Reserve (Tengiz-Korgalzhyn Lakes)",
+ "story": "Korgalzhyn State Nature Reserve covers an area of 543,171 hectares in the Aqmola and Karaganda regions of Kazakhstan, located west of the city of Astana. It includes numerous salt and fresh water bodies, such as Lake Tengiz. The protected reserve territory is home to wolves, saiga antelopes, bobak marmots, and the northernmost population of greater flamingos.",
+ "matters": "The reserve is part of the Saryarka – Steppe and Lakes of Northern Kazakhstan UNESCO heritage site and a wetland of international importance. Extensive reserve waters provide living space for the largest Asian population of wetland birds.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6831,
+  "candidatesTokenCount": 138,
+  "totalTokenCount": 6969,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6831
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:34:42+00:00"
+}

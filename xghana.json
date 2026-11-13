@@ -1,0 +1,21 @@
+{
+ "id": "xghana",
+ "name": "Mole National Park",
+ "story": "Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.",
+ "matters": "The park provides a protected habitat for resident antelope species and serves as an important study area for scientists examining relatively undisturbed sites in West Africa.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 8115,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 8208,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 8115
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:30:41+00:00"
+}

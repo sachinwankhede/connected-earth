@@ -1,0 +1,21 @@
+{
+ "id": "xoman",
+ "name": "Ras al Jinz Turtle Reserve and Arabian Sea coast",
+ "story": "Ras Al Jinz Turtle Reserve is located in Oman on the easternmost peninsula. Designated as a nature reserve on 23 April 1996, it hosts one of the most important populations of green turtles in the Indian Ocean. Throughout the year, these turtles haul their weight from the sea to lay their eggs.",
+ "matters": "It provides a vital breeding ground for green sea turtles, which are part of the biologically productive Arabian Sea large marine ecosystem.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5890,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 5989,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5890
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:40:01+00:00"
+}

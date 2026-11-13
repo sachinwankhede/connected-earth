@@ -1,0 +1,21 @@
+{
+ "id": "xitaly",
+ "name": "Gran Paradiso National Park",
+ "story": "Gran Paradiso National Park is an Italian national park in the Graian Alps, between the Aosta Valley and Piedmont regions. Encompassing 703 square kilometres of alpine terrain, it protects animals like the Alpine ibex, which once survived here with only about 60 individuals.",
+ "matters": "It is connected to France's Vanoise National Park, and together they co-operate in managing the Alpine ibex population, which moves across their shared boundary seasonally.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7814,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 7917,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7814
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:33:54+00:00"
+}

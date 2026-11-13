@@ -1,0 +1,21 @@
+{
+ "id": "xluxembourg",
+ "name": "Müllerthal and Upper Sûre forests",
+ "story": "The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.",
+ "matters": "The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5979,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 6103,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5979
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:37:37+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "whtorres",
+ "name": "Torres del Paine National Park",
+ "story": "Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.",
+ "matters": "The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7641,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 7747,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7641
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:19:43+00:00"
+}

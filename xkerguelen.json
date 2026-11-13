@@ -1,0 +1,21 @@
+{
+ "id": "xkerguelen",
+ "name": "Kerguelen Islands (French Southern Lands reserve)",
+ "story": "The Kerguelen Islands are a group of islands in the subantarctic region within the French Southern and Antarctic Lands. The main island, Grande Terre, is 6,675 square kilometres in area. The islands are home to the Kerguelen cabbage and king penguins.",
+ "matters": "The Kerguelen Islands shelter the king penguin, which breeds on subantarctic islands. Since the end of the whaling and sealing era, most of the islands' species have been able to increase their population again.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7713,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 7826,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7713
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:34:58+00:00"
+}

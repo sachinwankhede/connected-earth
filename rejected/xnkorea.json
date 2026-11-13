@@ -1,0 +1,22 @@
+{
+ "id": "xnkorea",
+ "name": "Mount Paektu",
+ "story": "Mount Paektu is an active stratovolcano on the Chinese-North Korean border. At 2,744 m tall, it is the highest mountain in North Korea and Northeast China, and features a caldera containing Heaven Lake. Long snowy winters and volcanic soil support larch, birch, and Korean pine forests.",
+ "matters": "The mountain is a known habitat for Siberian tigers, Asian black bears, Mongolian wolves, and wild boars. Its broad-leaved and Korean pine forests preserve ancient structural characteristics of the Tertiary plant community and maintain ecological security in northeastern China.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7493,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 7620,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7493
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:39:45+00:00",
+ "rejected": "names not in the research text: Chinese-North"
+}

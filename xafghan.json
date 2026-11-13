@@ -1,0 +1,21 @@
+{
+ "id": "xafghan",
+ "name": "Band-e Amir National Park",
+ "story": "Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.",
+ "matters": "The park provides a pristine landscape and habitat for over 170 bird species, including populations of Himalayan snowcocks within its designated Important Bird Area.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7035,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 7130,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7035
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:22:25+00:00"
+}

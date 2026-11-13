@@ -1,0 +1,21 @@
+{
+ "id": "xgambia",
+ "name": "River Gambia National Park",
+ "story": "River Gambia National Park is a national park in the Gambia. Established in 1978, it lies in the Niamina East district of Central River Division on the left bank of the Gambia River and includes the Baboon Islands archipelago.",
+ "matters": "Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5095,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 5195,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5095
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:30:08+00:00"
+}

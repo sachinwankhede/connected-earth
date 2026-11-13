@@ -1,0 +1,21 @@
+{
+ "id": "xbulgaria",
+ "name": "Pirin National Park",
+ "story": "Pirin National Park spans the Pirin Mountains in southwestern Bulgaria, covering an area of 403.56 square kilometers. Established in 1962, it features 118 glacial lakes and includes Vihren, Bulgaria's second highest summit. The park is home to diverse wildlife and ancient coniferous forests.",
+ "matters": "The park protects functioning ecosystems and natural landscapes within the Rodope montane mixed forests ecoregion. Its entire territory is part of the European Union network of nature protection areas Natura 2000.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7895,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 8015,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7895
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:25:05+00:00"
+}

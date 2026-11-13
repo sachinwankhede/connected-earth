@@ -1,0 +1,21 @@
+{
+ "id": "xpuertorico",
+ "name": "El Yunque National Forest",
+ "story": "El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.",
+ "matters": "It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7143,
+  "candidatesTokenCount": 131,
+  "totalTokenCount": 7274,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7143
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:41:38+00:00"
+}

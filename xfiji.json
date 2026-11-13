@@ -1,0 +1,21 @@
+{
+ "id": "xfiji",
+ "name": "Colo-i-Suva Forest Reserve",
+ "story": "Colo-i-Suva Forest Reserve is a nature reserve near Suva in Fiji. Established in 1872, it covers two and a half square kilometres of verdant rainforests renowned for tropical flora and birds. The Waisila Creek flows through the park.",
+ "matters": "The forest is part of the Queen's Commonwealth Canopy and serves as the water catchment for Nausori and Nasinu creek.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3184,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 3277,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3184
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:29:36+00:00"
+}

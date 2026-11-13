@@ -1,0 +1,21 @@
+{
+ "id": "xdomrep",
+ "name": "Los Haitises National Park",
+ "story": "Los Haitises National Park is located on the remote northeast coast of the Dominican Republic and was established in 1976. It features a limestone karst plateau with conical hills, sinkholes, caverns, and a large area of mangrove forest.",
+ "matters": "The park contains a great diversity of mammals and birds, including rare species endemic to the island. It holds the largest population in the world of the endemic Ridgway's hawk.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5712,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 5809,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5712
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:27:13+00:00"
+}

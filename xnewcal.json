@@ -1,0 +1,21 @@
+{
+ "id": "xnewcal",
+ "name": "Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems",
+ "story": "The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.",
+ "matters": "The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 6574,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 6683,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6574
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:38:57+00:00"
+}

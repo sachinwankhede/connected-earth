@@ -1,0 +1,21 @@
+{
+ "id": "xkuwait",
+ "name": "Bubiyan Island and Kuwait Bay",
+ "story": "Bubiyan Island and Kuwait Bay are located in Kuwait. Bubiyan Island is the largest island in the Kuwaiti coastal island chain with an area of 863 square kilometers and is mainly flat, with salt marshes covering some coasts.",
+ "matters": "The Mubarak al-Kabeer reserve on Bubiyan Island is a Wetland of International Importance that serves as a stop-over for migrating birds and supports the world's largest breeding colony of crab-plover.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 4456,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 4562,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 4456
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:35:29+00:00"
+}

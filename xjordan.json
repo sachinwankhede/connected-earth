@@ -1,0 +1,21 @@
+{
+ "id": "xjordan",
+ "name": "Dana Biosphere Reserve",
+ "story": "Dana Biosphere Reserve is Jordan's largest nature reserve, located in south-central Jordan. Founded in 1989, it covers 308 square kilometres. The reserve crosses four bio-geographical zones and is home to hundreds of plant and animal species.",
+ "matters": "It shelters threatened species like the Nubian ibex and caracal. The diverse environment is the southernmost area in the world to host the Mediterranean cypress.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7080,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 7182,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7080
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:34:26+00:00"
+}

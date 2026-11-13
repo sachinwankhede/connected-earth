@@ -1,0 +1,21 @@
+{
+ "id": "xpalestine",
+ "name": "Judean Desert and Wadi Qelt",
+ "story": "The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.",
+ "matters": "The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7927,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 8031,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7927
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:40:33+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "id": "xisrael",
+ "name": "Hula Valley (Hula Nature Reserve and Agamon Hula)",
+ "story": "The Hula Valley is a topographic depression forming a valley and fertile agricultural region in northern Israel with abundant fresh water that used to be part covered by marshland and Lake Hula. It covers an area of 177 square kilometers. A small section of the valley was later reflooded in an attempt to revive a nearly extinct ecosystem.",
+ "matters": "It is a major stopover for birds migrating along the Great Rift Valley between Africa, Europe, and Asia, with an estimated 500 million migrating birds now pass through the Hula Valley every year.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7621,
+  "candidatesTokenCount": 121,
+  "totalTokenCount": 7742,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7621
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:33:38+00:00"
+}

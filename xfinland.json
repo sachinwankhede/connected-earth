@@ -1,0 +1,21 @@
+{
+ "id": "xfinland",
+ "name": "Oulanka National Park",
+ "story": "Oulanka National Park covers 270 square kilometres in the Northern Ostrobothnia and Lapland regions of Finland. Established in 1956, the park is a combination of northern, southern, and eastern nature featuring untouched boreal forest, mires, and a unique river ecosystem with rapids.",
+ "matters": "The park shelters endangered species such as the bear, lynx, and wolverine, alongside a rich variety of animal and plant species that thrive in its nutrient-rich soil.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 7771,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 7885,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 7771
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:29:52+00:00"
+}

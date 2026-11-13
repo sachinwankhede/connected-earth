@@ -78,3 +78,15 @@
 
 **Why it matters** (40 words): The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.
 
+## Lorentz National Park (`whlorentz`)
+
+**Story** (39 words): Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.
+
+**Why it matters** (28 words): It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.
+
+## Manú National Park (`whmanu`)
+
+**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+
+**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+

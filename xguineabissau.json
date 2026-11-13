@@ -1,0 +1,21 @@
+{
+ "id": "xguineabissau",
+ "name": "Bijagós Archipelago Biosphere Reserve",
+ "story": "The Bijag3s Archipelago Biosphere Reserve is located in the Atlantic Ocean off the coast of Guinea-Bissau and consists of about 88 islands and islets spanning an area of 12,958 square kilometres. Declared a UNESCO Biosphere Reserve in 1996 and a World Heritage Site in 2025, the area features mangroves, palm forests, and coastal savanna supporting various waterbirds, flamingos, and pelicans.",
+ "matters": "The mangroves play a crucial role for the reproduction of molluscs, fish, and sea turtles. The region is also the main habitat of the African gray parrot, which is an endangered species in the subregion.",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 5311,
+  "candidatesTokenCount": 152,
+  "totalTokenCount": 5463,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 5311
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-13T03:31:45+00:00"
+}
