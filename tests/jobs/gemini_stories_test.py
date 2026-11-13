@@ -55,6 +55,18 @@ class AskTests(unittest.TestCase):
             self.assertEqual(g.ask('N', 'W', 'K', SRC, 'k')['draft']['story'], 'a')
         self.assertEqual(len(calls), 2)
 
+    def test_a_503_is_retried_after_a_pause_and_then_given_up(self):
+        import urllib.error
+        calls = []
+        def busy_then_ok(req, timeout=0):
+            calls.append(1)
+            if len(calls) < 3: raise urllib.error.HTTPError('u', 503, 'x', {}, io.BytesIO(b'{}'))
+            return self.Resp({'story': 'a', 'matters': 'b'})
+        with mock.patch.object(g.fetch, 'urlopen', busy_then_ok), mock.patch.object(g.time, 'sleep', lambda s: None):
+            self.assertEqual(g.ask('N', 'W', 'K', SRC, 'k')['draft']['story'], 'a')
+        always = lambda req, timeout=0: (_ for _ in ()).throw(urllib.error.HTTPError('u', 503, 'x', {}, io.BytesIO(b'{}')))
+        with mock.patch.object(g.fetch, 'urlopen', always), mock.patch.object(g.time, 'sleep', lambda s: None), self.assertRaises(g.Overloaded): g.ask('N', 'W', 'K', SRC, 'k')
+
     def test_retry_delay_reads_the_google_message_and_assumes_long_when_missing(self):
         self.assertEqual(g.retry_delay(b'{"retryDelay": "32s"}'), 33); self.assertEqual(g.retry_delay(b'nothing'), 3600)
 
@@ -75,6 +87,7 @@ class RunTests(unittest.TestCase):
         def fake_ask(name, where, kind, source, key):
             a = next(it)
             if a == 'QUOTA': raise g.QuotaStop('x')
+            if a == 'BUSY': raise g.Overloaded('HTTP 503')
             return a
         todo_real = g.todo
         with mock.patch.dict(os.environ, {'GEMINI_API_KEY': 'k'}), mock.patch.object(sys, 'argv', ['x', self.res, self.out, limit]), \
@@ -90,6 +103,11 @@ class RunTests(unittest.TestCase):
         self.run_main([self.ok(), self.ok()])
         self.assertTrue(all(os.path.exists(os.path.join(self.out, p + '.json')) for p in ('aa', 'bb', 'cc')))
         self.assertIn('Place aa', open(os.path.join(self.out, 'REVIEW-01.md')).read())
+
+    def test_a_busy_place_is_skipped_and_the_run_stops_after_three_in_a_row(self):
+        self.run_main(['BUSY', self.ok(), self.ok()])
+        self.assertTrue(all(os.path.exists(os.path.join(self.out, p + '.json')) for p in ('bb', 'cc'))); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))
+        self.run_main(['BUSY', 'BUSY', 'BUSY'])   # a fourth place would have raised StopIteration: the run stopped before asking it
 
     def test_a_failed_check_is_kept_as_rejected_and_not_asked_again(self):
         self.run_main([self.ok('Lake Park was founded in 1999.'), self.ok(), self.ok()])
