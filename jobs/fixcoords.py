@@ -78,12 +78,13 @@ def drop_pictures(root):
     pp, mp = os.path.join(root, 'photos/places/places.json'), os.path.join(root, 'photos/places/missing.json')
     P = json.load(open(pp)); M = json.load(open(mp)); gone = []
     import datetime
-    now = datetime.datetime.utcnow().isoformat() + '+00:00'
+    t0 = datetime.datetime.now(datetime.timezone.utc)
+    now, soon = t0.isoformat(), (t0 + datetime.timedelta(seconds=1)).isoformat()   # a valid entry (attempts >= 1, expiresAt after checkedAt) that is already due, so the photo passes retry it at once
     for t in WRONG_PICTURES:
         if t in P:
             f = P.pop(t).get('f')
             if f and os.path.exists(os.path.join(root, 'photos/places', f)): os.remove(os.path.join(root, 'photos/places', f))
-            M[t] = {'status': 'nophoto', 'checkedAt': now, 'expiresAt': now, 'attempts': 0}; gone.append(t)
+            M[t] = {'status': 'nophoto', 'checkedAt': now, 'expiresAt': soon, 'attempts': 1}; gone.append(t)
     if gone:
         open(pp, 'w').write(json.dumps(P, ensure_ascii=False, indent=0)); open(mp, 'w').write(json.dumps(M, ensure_ascii=False, indent=0))
     return gone
