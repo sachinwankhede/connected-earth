@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const fetched = (p, re) => p.evaluate((s) => performance.getEntriesByType('resource').some((r) => new RegExp(s).test(r.name)), re.source);
 
 // click a pill of the row, through the More list when the row holds it back (#534)
@@ -17,7 +19,7 @@ const pick = async (p, attr, key) => {
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the Species tab loads on demand, lists the most-found species, a row opens the page and Back returns to the tab`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });   // on a phone the tabs are in the sheet, which starts closed
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -48,7 +50,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 // #422 step 3: below the most-found species the groups are listed; a group opens its own list with "‹ Species" at the top, 250 rows at a time with "Show N more".
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the Species tab lists groups; a group opens, pages with Show more, and ‹ Species returns`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -76,7 +78,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
   // #519 level 2: a group with orders turns the one row into its orders (‹ Groups, All <group>, then each order with its count); an order lists only its species; ‹ Groups goes back.
   test(`${name}: the Species pills go group, then order, and back (#519)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -114,7 +116,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 // #422 step 4: on the Species tab the search box looks for species only -- in the tab's list and in the dropdown -- and Clear brings the tab back.
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: on the Species tab the box finds species only and Clear returns to the tab`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
@@ -144,7 +146,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 // #533a: the Places region and the habitat filter chips do not follow you to the Species tab; the tab shows one row of pills (its groups); Places keeps its region.
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the Places region does not carry over to the Species tab, which shows one row of pills`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-go="continent"][data-a="North America"]', { state: 'attached', timeout: 60000 });
@@ -166,7 +168,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 // #534: a row holds at most 8 pills; the rest are under "More", a vertical list; picking one closes it and shows it as the selected pill.
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: at most 8 pills, the rest under More; the pick becomes the selected pill (#534)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });

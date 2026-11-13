@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Heavy rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Over 7,000 mm of rain a year feeds more than 200 waterfalls and the cloud forest, the only humid tropical forest on an oceanic island in the region.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "heavy-rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

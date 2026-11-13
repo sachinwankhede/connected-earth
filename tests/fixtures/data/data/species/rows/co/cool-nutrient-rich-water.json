@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cool nutrient-rich water",
+ "tl": 0,
+ "wiki": "Upwelling",
+ "desc": "Cold, nutrient-bearing water from the deep ocean feeds the algae and plankton of the bay.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cool-nutrient-rich-water",
+ "sk": "resource",
+ "src": "legacy"
+}

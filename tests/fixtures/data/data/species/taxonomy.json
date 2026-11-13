@@ -13,6 +13,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "accipiter-rufitorques": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Accipitridae",
+  "gname": "Accipiter rufitorques (Peale, 1848)",
+  "key": 2480623,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Accipitriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "achnatherum-hymenoides": {
   "at": "2026-11-04",
   "class": "Liliopsida",
@@ -167,6 +181,19 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "amphipoda": {
+  "at": "2026-11-04",
+  "class": "Malacostraca",
+  "conf": 96,
+  "gname": "Amphipoda",
+  "key": 1231,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Amphipoda",
+  "phylum": "Arthropoda",
+  "rank": "ORDER",
+  "src": "gbif"
+ },
  "anabrus-simplex": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -195,6 +222,34 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "anaxyrus-americanus": {
+  "at": "2026-11-04",
+  "class": "Amphibia",
+  "conf": 100,
+  "family": "Bufonidae",
+  "gname": "Anaxyrus americanus (Holbrook, 1836)",
+  "key": 2422872,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Anura",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "anaxyrus-terrestris": {
+  "at": "2026-11-04",
+  "class": "Amphibia",
+  "conf": 100,
+  "family": "Bufonidae",
+  "gname": "Anaxyrus terrestris (Bonnaterre, 1789)",
+  "key": 2422916,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Anura",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "anchoa-mitchilli": {
   "at": "2026-11-04",
   "conf": 100,
@@ -218,6 +273,20 @@
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "angiopteris-evecta": {
+  "at": "2026-11-04",
+  "class": "Polypodiopsida",
+  "conf": 99,
+  "family": "Marattiaceae",
+  "gname": "Angiopteris evecta (G.Forst.) Hoffm.",
+  "key": 5274878,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Marattiales",
   "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
@@ -260,6 +329,20 @@
   "match": "exact",
   "order": "Passeriformes",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "apis-mellifera": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Apidae",
+  "gname": "Apis mellifera Linnaeus, 1758",
+  "key": 1341976,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Hymenoptera",
+  "phylum": "Arthropoda",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -467,6 +550,20 @@
   "match": "exact",
   "order": "Chiroptera",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "artocarpus-altilis": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Moraceae",
+  "gname": "Artocarpus altilis (Parkinson) Fosberg",
+  "key": 2984573,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Rosales",
+  "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -1009,6 +1106,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "carcharodon-carcharias": {
+  "at": "2026-11-04",
+  "class": "Elasmobranchii",
+  "conf": 100,
+  "family": "Lamnidae",
+  "gname": "Carcharodon carcharias (Linnaeus, 1758)",
+  "key": 2420694,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Lamniformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "carcinus-maenas": {
   "at": "2026-11-04",
   "class": "Malacostraca",
@@ -1044,6 +1155,20 @@
   "family": "Cyperaceae",
   "gname": "Carex folliculata L.",
   "key": 2722527,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "carex-gholsonii": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 99,
+  "family": "Cyperaceae",
+  "gname": "Carex gholsonii Naczi & Cochrane",
+  "key": 2729277,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Poales",
@@ -1510,6 +1635,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "cornufer-vitiensis": {
+  "at": "2026-11-04",
+  "class": "Amphibia",
+  "conf": 100,
+  "family": "Ceratobatrachidae",
+  "gname": "Cornufer vitiensis (Girard, 1853)",
+  "key": 10715546,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Anura",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "cornus-canadensis": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -1785,6 +1924,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "danaus-gilippus": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Nymphalidae",
+  "gname": "Danaus gilippus (Cramer, 1775)",
+  "key": 5714299,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Lepidoptera",
+  "phylum": "Arthropoda",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "danaus-plexippus": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -1896,6 +2049,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "ducula-latrans": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Columbidae",
+  "gname": "Ducula latrans (Peale, 1849)",
+  "key": 2495988,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Columbiformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "dunaliella": {
   "at": "2026-11-04",
   "class": "Chlorophyceae",
@@ -1938,6 +2105,19 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "emoia-concolor": {
+  "at": "2026-11-04",
+  "class": "Squamata",
+  "conf": 100,
+  "family": "Scincidae",
+  "gname": "Emoia concolor (Duméril, 1851)",
+  "key": 2463443,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "enhydra-lutris": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -1950,6 +2130,20 @@
   "order": "Carnivora",
   "phylum": "Chordata",
   "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "enhydra-lutris-nereis": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Mustelidae",
+  "gname": "Enhydra lutris nereis (Merriam, 1904)",
+  "key": 6163936,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SUBSPECIES",
   "src": "gbif"
  },
  "ephedra-intermedia": {
@@ -2076,6 +2270,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "erythrina-herbacea": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Fabaceae",
+  "gname": "Erythrina herbacea L.",
+  "key": 5349731,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Fabales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "eryx-elegans": {
   "at": "2026-11-04",
   "class": "Squamata",
@@ -2171,6 +2379,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "felis-catus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Felidae",
+  "gname": "Felis catus Linnaeus, 1758",
+  "key": 2435035,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "festuca-campestris": {
   "at": "2026-11-04",
   "class": "Liliopsida",
@@ -2199,6 +2421,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "ficus": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 95,
+  "family": "Moraceae",
+  "gname": "Ficus L.",
+  "key": 2984588,
+  "kingdom": "Plantae",
+  "match": "higher-rank",
+  "order": "Rosales",
+  "phylum": "Tracheophyta",
+  "rank": "GENUS",
+  "src": "gbif"
+ },
  "forelius-pruinosus": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -2210,6 +2446,20 @@
   "match": "exact",
   "order": "Hymenoptera",
   "phylum": "Arthropoda",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "foulehaio-procerior": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Meliphagidae",
+  "gname": "Foulehaio procerior (Finsch & Hartlaub, 1867)",
+  "key": 8253009,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -2437,6 +2687,20 @@
   "rank": "GENUS",
   "src": "gbif"
  },
+ "haliotis-cracherodii": {
+  "at": "2026-11-04",
+  "class": "Gastropoda",
+  "conf": 100,
+  "family": "Haliotidae",
+  "gname": "Haliotis cracherodii Leach, 1814",
+  "key": 2293077,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Lepetellida",
+  "phylum": "Mollusca",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "harmonia-axyridis": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -2514,6 +2778,20 @@
   "family": "Herpestidae",
   "gname": "Herpestes ichneumon (Linnaeus, 1758)",
   "key": 2434255,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "herpestes-javanicus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Herpestidae",
+  "gname": "Herpestes javanicus (É.Geoffroy Saint-Hilaire, 1818)",
+  "key": 2434271,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",
@@ -2605,6 +2883,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "hypolimnas-bolina": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Nymphalidae",
+  "gname": "Hypolimnas bolina (Linnaeus, 1758)",
+  "key": 1910629,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Lepidoptera",
+  "phylum": "Arthropoda",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "hypophthalmichthys-molitrix": {
   "at": "2026-11-04",
   "conf": 100,
@@ -2645,6 +2937,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "ilex-vomitoria": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Aquifoliaceae",
+  "gname": "Ilex vomitoria Aiton",
+  "key": 5414250,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Aquifoliales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "ipomoea-imperati": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -2655,6 +2961,20 @@
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Solanales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "iva-frutescens": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Asteraceae",
+  "gname": "Iva frutescens L.",
+  "key": 5402625,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Asterales",
   "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
@@ -2750,6 +3070,20 @@
   "family": "Laridae",
   "gname": "Larus argentatus Pontoppidan, 1763",
   "key": 2481139,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Charadriiformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "larus-delawarensis": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Laridae",
+  "gname": "Larus delawarensis Ord, 1815",
+  "key": 2481134,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Charadriiformes",
@@ -2919,6 +3253,20 @@
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Charadriiformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "lithobates-pipiens": {
+  "at": "2026-11-04",
+  "class": "Amphibia",
+  "conf": 100,
+  "family": "Ranidae",
+  "gname": "Lithobates pipiens (Schreber, 1782)",
+  "key": 2427185,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Anura",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
@@ -3129,6 +3477,20 @@
   "match": "exact",
   "order": "Cardiida",
   "phylum": "Mollusca",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "macrocystis-pyrifera": {
+  "at": "2026-11-04",
+  "class": "Phaeophyceae",
+  "conf": 99,
+  "family": "Laminariaceae",
+  "gname": "Macrocystis pyrifera (L.) C.Agardh",
+  "key": 5422328,
+  "kingdom": "Chromista",
+  "match": "exact",
+  "order": "Laminariales",
+  "phylum": "Ochrophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -3465,6 +3827,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "myiagra-vanikorensis": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Monarchidae",
+  "gname": "Myiagra vanikorensis (Quoy & Gaimard, 1830)",
+  "key": 2486634,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "myocastor-coypus": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -3507,6 +3883,20 @@
   "rank": "GENUS",
   "src": "gbif"
  },
+ "mytilus-californianus": {
+  "at": "2026-11-04",
+  "class": "Bivalvia",
+  "conf": 100,
+  "family": "Mytilidae",
+  "gname": "Mytilus californianus Conrad, 1837",
+  "key": 2285680,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Mytilida",
+  "phylum": "Mollusca",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "mytilus-edulis": {
   "at": "2026-11-04",
   "class": "Bivalvia",
@@ -3546,6 +3936,20 @@
   "match": "exact",
   "order": "Carnivora",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "nereocystis-luetkeana": {
+  "at": "2026-11-04",
+  "class": "Phaeophyceae",
+  "conf": 99,
+  "family": "Laminariaceae",
+  "gname": "Nereocystis luetkeana (K.Mertens) Postels & Ruprecht",
+  "key": 4267628,
+  "kingdom": "Chromista",
+  "match": "exact",
+  "order": "Laminariales",
+  "phylum": "Ochrophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -4049,6 +4453,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "phigys-solitarius": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Psittacidae",
+  "gname": "Phigys solitarius (Suckow, 1800)",
+  "key": 2479295,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Psittaciformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "phoca-vitulina": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -4438,6 +4856,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "prosopeia-personata": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Psittacidae",
+  "gname": "Prosopeia personata (G.R.Gray, 1848)",
+  "key": 2479944,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Psittaciformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "proteles-cristata": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -4549,6 +4981,34 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "pteropus-tonganus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Pteropodidae",
+  "gname": "Pteropus tonganus Quoy & Gaimard, 1830",
+  "key": 5218673,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Chiroptera",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "pugettia-producta": {
+  "at": "2026-11-04",
+  "class": "Malacostraca",
+  "conf": 100,
+  "family": "Epialtidae",
+  "gname": "Pugettia producta (Randall, 1840)",
+  "key": 2226672,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Decapoda",
+  "phylum": "Arthropoda",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "puma-concolor": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -4560,6 +5020,34 @@
   "match": "exact",
   "order": "Carnivora",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "pycnonotus-cafer": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Pycnonotidae",
+  "gname": "Pycnonotus cafer (Linnaeus, 1766)",
+  "key": 2486131,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "pycnopodia-helianthoides": {
+  "at": "2026-11-04",
+  "class": "Asteroidea",
+  "conf": 100,
+  "family": "Asteriidae",
+  "gname": "Pycnopodia helianthoides (Brandt, 1835)",
+  "key": 2274565,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Forcipulatida",
+  "phylum": "Echinodermata",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -4603,6 +5091,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "quercus-bicolor": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Fagaceae",
+  "gname": "Quercus bicolor Willd.",
+  "key": 2878470,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Fagales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "quercus-gambelii": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -4638,6 +5140,20 @@
   "family": "Fagaceae",
   "gname": "Quercus nigra L.",
   "key": 2879328,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Fagales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "quercus-rubra": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Fagaceae",
+  "gname": "Quercus rubra L.",
+  "key": 2880539,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Fagales",
@@ -4715,6 +5231,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "rhinella-marina": {
+  "at": "2026-11-04",
+  "class": "Amphibia",
+  "conf": 100,
+  "family": "Bufonidae",
+  "gname": "Rhinella marina (Linnaeus, 1758)",
+  "key": 5216933,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Anura",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "rhizophora-mangle": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -4743,6 +5273,48 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "rhus-typhina": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Anacardiaceae",
+  "gname": "Rhus typhina L.",
+  "key": 3190538,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Sapindales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "ribes-americanum": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Grossulariaceae",
+  "gname": "Ribes americanum Mill.",
+  "key": 2986121,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Saxifragales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "romalea-microptera": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Romaleidae",
+  "gname": "Romalea microptera (Palisot de Beauvois, 1817)",
+  "key": 1714599,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Orthoptera",
+  "phylum": "Arthropoda",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "rosa-rugosa": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -4753,6 +5325,20 @@
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Rosales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "sabal-palmetto": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 98,
+  "family": "Arecaceae",
+  "gname": "Sabal palmetto (Walter) Lodd. ex Schult. & Schult.f.",
+  "key": 4925538,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Arecales",
   "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
@@ -4965,6 +5551,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "setophaga-coronata": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Parulidae",
+  "gname": "Setophaga coronata (Linnaeus, 1766)",
+  "key": 7341805,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "setophaga-petechia": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -5118,6 +5718,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "spathodea-campanulata": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Bignoniaceae",
+  "gname": "Spathodea campanulata Beauverd",
+  "key": 3172574,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Lamiales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "speyeria-idalia": {
   "at": "2026-11-04",
   "class": "Insecta",
@@ -5174,6 +5788,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "strongylocentrotus-purpuratus": {
+  "at": "2026-11-04",
+  "class": "Echinoidea",
+  "conf": 100,
+  "family": "Strongylocentrotidae",
+  "gname": "Strongylocentrotus purpuratus (Stimpson, 1857)",
+  "key": 2278852,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Camarodonta",
+  "phylum": "Echinodermata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "sturnella-magna": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -5227,6 +5855,20 @@
   "match": "exact",
   "order": "Artiodactyla",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "swietenia-macrophylla": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Meliaceae",
+  "gname": "Swietenia macrophylla G.King",
+  "key": 3190484,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Sapindales",
+  "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -5324,6 +5966,20 @@
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Artiodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "tamias-striatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Sciuridae",
+  "gname": "Tamias striatus (Linnaeus, 1758)",
+  "key": 2437438,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
@@ -5664,6 +6320,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "viburnum-opulus": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Viburnaceae",
+  "gname": "Viburnum opulus L.",
+  "key": 2888605,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Dipsacales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "viola-labradorica": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -5699,6 +6369,20 @@
   "family": "Canidae",
   "gname": "Vulpes vulpes (Linnaeus, 1758)",
   "key": 5219243,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "zalophus-californianus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Otariidae",
+  "gname": "Zalophus californianus (Lesson, 1828)",
+  "key": 2433458,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",

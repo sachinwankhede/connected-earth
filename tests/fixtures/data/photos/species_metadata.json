@@ -35,17 +35,41 @@
   "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
   "p": "https://commons.wikimedia.org/wiki/File:Alnus_fruits.jpg"
  },
+ "Amphipoda": {
+  "a": "Michal Maňas",
+  "l": "CC BY 2.5",
+  "lu": "https://creativecommons.org/licenses/by/2.5",
+  "p": "https://commons.wikimedia.org/wiki/File:Gammarus_roeselii.jpg"
+ },
  "Anas platyrhynchos": {
   "a": "This picture was realized by Richard Bartz by using a Canon EF 70-300mm f/4-5.6 IS USM Lens",
   "l": "CC BY-SA 2.5",
   "lu": "https://creativecommons.org/licenses/by-sa/2.5",
   "p": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_male_female_quadrat.jpg"
  },
+ "Anaxyrus americanus": {
+  "a": "Cephas",
+  "l": "CC BY-SA 3.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/3.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Bufo_americanus_PJC1.jpg"
+ },
+ "Anaxyrus terrestris": {
+  "a": "Norman.benton",
+  "l": "Public domain",
+  "lu": "",
+  "p": "https://commons.wikimedia.org/wiki/File:Bufo_terrestris_0.jpg"
+ },
  "Andropogon gerardi": {
   "a": "Matt Lavin from Bozeman, Montana, USA",
   "l": "CC BY-SA 2.0",
   "lu": "https://creativecommons.org/licenses/by-sa/2.0",
   "p": "https://commons.wikimedia.org/wiki/File:Andropogon_gerardii_%283904160434%29.jpg"
+ },
+ "Angiopteris evecta": {
+  "a": "brewbooks from near Seattle, USA",
+  "l": "CC BY-SA 2.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/2.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Flickr_-_brewbooks_-_Angiopteris_evecta_-_Mule%27s_foot_fern_%281%29.jpg"
  },
  "Antilocapra americana": {
   "a": "www.naturespicsonline.com",
@@ -58,6 +82,12 @@
   "l": "CC BY-SA 3.0",
   "lu": "https://creativecommons.org/licenses/by-sa/3.0",
   "p": "https://commons.wikimedia.org/wiki/File:Western_Scrub_Jay%2C_Santa_Fe.jpg"
+ },
+ "Apis mellifera": {
+  "a": "Andreas Trepte",
+  "l": "CC BY-SA 2.5",
+  "lu": "https://creativecommons.org/licenses/by-sa/2.5",
+  "p": "https://commons.wikimedia.org/wiki/File:Apis_mellifera_Western_honey_bee.jpg"
  },
  "Ardea alba": {
   "a": "Chuck Homler (FocusOnWildlife.Me)",
@@ -88,35 +118,5 @@
   "l": "CC BY-SA 3.0",
   "lu": "https://creativecommons.org/licenses/by-sa/3.0",
   "p": "https://commons.wikimedia.org/wiki/File:Sagebrushsjc.jpg"
- },
- "Asclepias incarnata": {
-  "a": "The original uploader was Teune at English Wikipedia.",
-  "l": "CC BY-SA 3.0",
-  "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-  "p": "https://commons.wikimedia.org/wiki/File:Swamp_milkweed_monarch.jpg"
- },
- "Asclepias speciosa": {
-  "a": "vicki watkins from USA",
-  "l": "CC BY 2.0",
-  "lu": "https://creativecommons.org/licenses/by/2.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Asclepias_speciosa1jakesmome.jpg"
- },
- "Asclepias syriaca": {
-  "a": "Amos Oliver Doyle",
-  "l": "CC BY-SA 4.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Asclepias_syriacus.tif"
- },
- "Asclepias tuberosa": {
-  "a": "Eric Hunt",
-  "l": "CC BY-SA 4.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Asclepias_tuberosa_interior.jpg"
- },
- "Asterocampa celtis": {
-  "a": "Meganmccarty",
-  "l": "Public domain",
-  "lu": "",
-  "p": "https://commons.wikimedia.org/wiki/File:Hackberry_Emperor%2C_Megan_McCarty46.jpg"
  }
 }
