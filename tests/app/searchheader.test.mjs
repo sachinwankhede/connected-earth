@@ -21,24 +21,24 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await tap(p, '#qhead a[data-hmap]'); await p.waitForFunction(() => document.querySelector('#qhead.qchip') && !document.getElementById('qhead').hidden && document.getElementById('qhead').textContent.startsWith('‹'), null, { timeout: 30000 });
     assert.match((await head(p)).text, /^‹ Osprey · in \d+ places✕$/, 'map mode: a titled screen with a close at its right (#503, 9 Nov)');
     assert.deepEqual(await p.evaluate(() => ({ box: document.getElementById('q').value, mm: document.getElementById('sheet').classList.contains('mm'), tabs: [...document.querySelectorAll('[data-tab]')].some((x) => x.offsetParent) })), { box: '', mm: true, tabs: false }, 'the box is empty and the tabs are hidden while the map mode is on');
-    await p.click('#qhead a[data-hx]'); await p.waitForTimeout(800);
+    await p.click('#qhead a[data-hx]'); await H.pause(p, 800);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey', 'Back returns to the search the map came from');
     assert.equal(await p.evaluate(() => document.getElementById('sheet').classList.contains('mm')), false, 'and the tabs are back');
-    await p.click('#qclr'); await p.waitForTimeout(400);
+    await p.click('#qclr'); await H.pause(p, 400);
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter'); await answered(p, 'osprey'); await headShown(p);
     await tap(p, '#qhead a[data-hsp]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search');
-    await p.evaluate(() => history.back()); await p.waitForTimeout(800);
+    await p.evaluate(() => history.back()); await H.pause(p, 800);
     assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey'); assert.equal((await head(p)).hidden, false, 'Back returns to the result with its header');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
   test(`${name}: text that is not an exact match, and a search with no result, get no header`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.click('#q'); await p.keyboard.type('ospr'); await p.keyboard.press('Enter'); await answered(p, 'ospr'); await p.waitForTimeout(800);
+    await p.click('#q'); await p.keyboard.type('ospr'); await p.keyboard.press('Enter'); await answered(p, 'ospr'); await H.pause(p, 800);
     assert.equal((await head(p)).hidden, true);
-    await p.click('#qclr'); await p.keyboard.type('zzqxv'); await p.keyboard.press('Enter'); await answered(p, 'zzqxv'); await p.waitForTimeout(500);
+    await p.click('#qclr'); await p.keyboard.type('zzqxv'); await p.keyboard.press('Enter'); await answered(p, 'zzqxv'); await H.pause(p, 500);
     assert.equal((await head(p)).hidden, true);
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -75,7 +75,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(a.mm && a.pills.length > 1 && a.shown, 'pills ' + a.pills.length + ' shown=' + a.shown + ' above=' + a.above + ' mm=' + a.mm); assert.ok(a.head_first, 'the title row is the top row, above the pills');
     assert.ok(a.pills.every((x) => /^continent:/.test(x)) && a.pills.every((x) => /\d$/.test(x)), 'continent pills with counts: ' + a.pills.join(' | '));
     const n0 = +/in (\d+) place/.exec(a.head)[1], k = a.pills[0].split(':')[1];
-    await p.evaluate((k2) => document.querySelector('#regions [data-go="continent"][data-a="' + k2.replace(/"/g, '\\"') + '"]').click(), k); await p.waitForTimeout(1500);
+    await p.evaluate((k2) => document.querySelector('#regions [data-go="continent"][data-a="' + k2.replace(/"/g, '\\"') + '"]').click(), k); await H.pause(p, 1500);
     const c = await st(); const n1 = +/in (\d+) place/.exec(c.head)[1];
     assert.ok(c.mm && c.shown && c.pills.length >= 1 && c.pills.every((x) => /^country:/.test(x)), 'the next level is countries: ' + JSON.stringify(c));
     assert.ok(n1 <= n0 && n1 === +/(\d+)$/.exec(a.pills[0])[1], 'the title count follows the pill: ' + n0 + ' -> ' + n1 + ' for ' + a.pills[0]);
@@ -87,14 +87,14 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
     await tap(p, '#qhead a[data-hmap]');
-    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await p.waitForTimeout(2000);
+    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await H.pause(p, 2000);
     assert.equal(await p.evaluate(() => !!document.querySelector('#qhead [data-hclose]')), true, 'a close sits on the title row');
-    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await p.waitForTimeout(1500);   // a continent: the trail now has World
+    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await H.pause(p, 1500);   // a continent: the trail now has World
     const y = await p.evaluate(() => { const sr = document.getElementById('srow'), lg = [...document.querySelectorAll('#regions .leadg .chip')]; return { lead: lg.map((c) => c.textContent), on: lg.length > 1 && lg[1].classList.contains('on'), kids: document.querySelectorAll('#regions [data-go]:not(.leadg *)').length, trail: !!document.getElementById('qtrail'), srowShows: [...sr.children].some((c) => c.offsetParent) }; });
     assert.ok(y.lead.length === 2 && /^\u2039 World/.test(y.lead[0]) && /^All /.test(y.lead[1]) && y.on && y.kids >= 1 && !y.trail, 'one row: back pill, All pill, then children: ' + JSON.stringify(y)); assert.equal(y.srowShows, false, 'and not at the top');
     const gap = await p.evaluate(() => { const gr = document.querySelector('#shead .grab'), g = gr.offsetParent ? gr.getBoundingClientRect() : { bottom: document.getElementById('sheet').getBoundingClientRect().top }, h = document.getElementById('qhead').getBoundingClientRect(), sr = document.getElementById('srow').getBoundingClientRect(); return { fromHandle: Math.round(h.top - g.bottom), srowH: Math.round(sr.height) }; });
     assert.ok(gap.srowH === 0 && gap.fromHandle <= 24, 'no empty row above the title and no big gaps: ' + JSON.stringify(gap));   // the top spacing, measured (owner, 9 Nov)
-    await p.evaluate(() => document.querySelector('#qhead [data-hclose]').click()); await p.waitForTimeout(1200);
+    await p.evaluate(() => document.querySelector('#qhead [data-hclose]').click()); await H.pause(p, 1200);
     const home = await p.evaluate(() => ({ mm: document.getElementById('sheet').classList.contains('mm'), q: document.getElementById('q').value, tab: window.__M.tab, lead: !!document.querySelector('#regions .leadg') && !!document.querySelector('#sheet.mm') }));
     assert.deepEqual(home, { mm: false, q: '', tab: 'places', lead: false }, 'the close leaves map mode, clears the search and shows the Places tab');
     assert.deepEqual(t.errors, []); await b.close();
@@ -105,12 +105,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('osprey'); await p.keyboard.press('Enter');
     await answered(p, 'osprey'); await headShown(p);
     await tap(p, '#qhead a[data-hmap]');
-    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await p.waitForTimeout(2500);
+    await p.waitForFunction(() => document.querySelector('#qhead.qchip') && /in \d+ place/.test(document.getElementById('qhead').textContent), null, { timeout: 30000 }); await H.pause(p, 2500);
     const st = () => p.evaluate(() => { const r = document.getElementById('regions'), bx = r.getBoundingClientRect(), sh = document.getElementById('sheet').getBoundingClientRect(), h = document.getElementById('qhead').getBoundingClientRect(), c = r.querySelector('[data-go]'), cb = c && c.getBoundingClientRect(); return { n: r.querySelectorAll('[data-go]').length, disp: getComputedStyle(r).display, rt: Math.round(bx.top), rh: Math.round(bx.height), cb: cb ? Math.round(cb.bottom) : -1, ht: Math.round(h.top), st: Math.round(sh.top), ih: innerHeight, state: window.__M && window.__M.sheetState, sc: document.getElementById('sheet').className, head: document.getElementById('qhead').textContent.trim(), cards: document.querySelectorAll('#cards .card').length }; });
     const a = await st(); const msg = 'n=' + a.n + ' disp=' + a.disp + ' regions top=' + a.rt + ' h=' + a.rh + ' chipBottom=' + a.cb + ' head top=' + a.ht + ' sheet top=' + a.st + ' innerH=' + a.ih + ' state=' + a.state + ' [' + a.sc + ']';
     assert.ok(a.n > 1 && a.rh > 0 && a.cb > 0 && a.cb <= a.ih, 'pills not in view: ' + msg); assert.ok(a.ht + 4 <= a.rt, 'title row is above the pills: ' + msg);
     const n0 = +/in (\d+) place/.exec(a.head)[1];
-    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await p.waitForTimeout(1500);
+    await p.locator('#regions [data-go]').first().click({ timeout: 5000 }); await H.pause(p, 1500);
     const c = await st(); const n1 = +/in (\d+) place/.exec(c.head)[1];
     assert.ok(n1 <= n0 && c.n >= 1, 'a tap on a pill narrows the places: ' + n0 + ' -> ' + n1 + ' pills ' + c.n + ' state=' + c.state);
     assert.deepEqual(t.errors, []); await b.close();
@@ -123,10 +123,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
-    await p.waitForFunction(() => document.querySelectorAll('#regions [data-go]').length > 0, null, { timeout: 20000 }).catch(() => {}); await p.waitForTimeout(800);
+    await p.waitForFunction(() => document.querySelectorAll('#regions [data-go]').length > 0, null, { timeout: 20000 }).catch(() => {}); await H.pause(p, 800);
     const a = await p.evaluate(() => ({ pills: [...document.querySelectorAll('#regions [data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a')), lbl: (document.querySelector('#regions .lbl') || {}).textContent }));
     assert.ok(a.pills.length >= 2 && a.pills.every((x) => /^(country|state):/.test(x)), 'pills one level down: ' + a.pills.join(',') + ' label=' + a.lbl);
-    await p.evaluate(() => document.querySelector('#regions [data-go]').click()); await p.waitForTimeout(1200);   // the sheet is not opened here: this species has no header
+    await p.evaluate(() => document.querySelector('#regions [data-go]').click()); await H.pause(p, 1200);   // the sheet is not opened here: this species has no header
     assert.ok(await p.evaluate(() => document.querySelectorAll('#cards .card').length) >= 1, 'the place is still listed after a tap on a pill');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -141,10 +141,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const pills = () => p.evaluate(() => [...document.querySelectorAll('#regions [data-go]')].map((c) => c.getAttribute('data-go') + ':' + c.getAttribute('data-a') + ':' + c.textContent.trim()));
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-go^="country"], #regions [data-go="country"]').length > 1, null, { timeout: 30000 });
     const first = await pills(); assert.ok(first.every((x) => /^country:/.test(x)), 'countries first: ' + first.join(','));
-    await p.evaluate(() => document.querySelector('#regions [data-go="country"]').click()); await p.waitForTimeout(1500);
+    await p.evaluate(() => document.querySelector('#regions [data-go="country"]').click()); await H.pause(p, 1500);
     const up = await p.evaluate(() => { const l = document.querySelector('#regions .leadg [data-go]'); return l ? l.getAttribute('data-go') + ':' + l.textContent.trim() : ''; });
     assert.equal(up, 'world:\u2039 World', 'the up pill skips the continent');
-    await p.evaluate(() => document.querySelector('#regions .leadg [data-go]').click()); await p.waitForTimeout(1500);
+    await p.evaluate(() => document.querySelector('#regions .leadg [data-go]').click()); await H.pause(p, 1500);
     const back = await pills(); assert.deepEqual(back, first, 'the same country pills come back');
     assert.deepEqual(t.errors, []); await b.close();
   });

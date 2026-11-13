@@ -141,6 +141,15 @@ export const settle = (page) => page.evaluate(async () => {
   const m = window.__M.map; await new Promise((r) => setTimeout(r, 150));
   let quiet = 0; for (let i = 0; i < 150 && quiet < 3; i++) { await new Promise((r) => setTimeout(r, 100)); quiet = m.isMoving() ? 0 : quiet + 1; }
 });
+// Wait at least `ms`, then until nothing is animating and the camera is still (at most 5 s more). Never shorter than the old fixed wait, longer on a slow runner (#786).
+export async function pause(page, ms) {
+  await page.waitForTimeout(ms);
+  await page.evaluate(async () => {
+    const sleep = (t) => new Promise((r) => setTimeout(r, t)), m = window.__M && window.__M.map;
+    const busy = () => (document.getAnimations ? document.getAnimations().some((a) => { const t = a.effect && a.effect.getComputedTiming(); return a.playState === 'running' && t && t.iterations !== Infinity; }) : false) || !!(m && m.isMoving && m.isMoving());
+    let quiet = 0; for (let i = 0; i < 50 && quiet < 3; i++) { await sleep(100); quiet = busy() ? 0 : quiet + 1; }
+  }).catch(() => {});   // the page may have navigated
+}
 export const camera = (page) => page.evaluate(() => {
   const m = window.__M.map, c = m.getCenter();
   return { lng: +c.lng.toFixed(2), lat: +c.lat.toFixed(2), zoom: +m.getZoom().toFixed(2) };

@@ -30,7 +30,7 @@ describe('places load on demand', () => {
       (/^species-(index|pictures)\.json$/.test(f) ? index : webs).push(f); return state.fail ? r.abort() : r.continue(); });
     await page.goto(base + 'index.html#stub' + hash); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
-    await page.waitForTimeout(1500);
+    await H.pause(page, 1500);
     return { ctx, page, errors, webs, index, state };
   }
   const places = H.readPlaces(false);
@@ -39,8 +39,8 @@ describe('places load on demand', () => {
     test(`${sizeName}: opening the app fetches no webs; opening a place fetches exactly that one`, async () => {
       const t = await open(size, '');
       assert.deepEqual(t.webs, [], 'nothing fetched at start');
-      await t.page.fill('#q', 'yellowstone'); await t.page.waitForTimeout(600);
-      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(2000);
+      await t.page.fill('#q', 'yellowstone'); await H.pause(t.page, 600);
+      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await H.pause(t.page, 2000);
       assert.equal(t.webs.length, 1, 'one web fetched: ' + t.webs);
       assert.ok(await t.page.evaluate(() => !document.getElementById('pview').hidden && document.querySelectorAll('#pgraph .pn').length > 5), 'place page with its picture');
       assert.deepEqual(t.errors, []); await t.ctx.close();
@@ -48,11 +48,11 @@ describe('places load on demand', () => {
 
     test(`${sizeName}: no species index at start; the first card in a region fetches that region's ties file once`, async () => {
       const t = await open(size, '');
-      await t.page.waitForTimeout(2500);
+      await H.pause(t.page, 2500);
       assert.deepEqual(t.index, [], 'the species index is not fetched at start');
       const ties = []; t.page.on('request', (r) => { const m = /\/api\/(ties(?:-pilot)?\/[\w-]+\.json)/.exec(r.url()); if (m) ties.push(m[1]); });
       const ids = places.filter((x) => x.level !== 'local').slice(0, 2).map((x) => x.id);
-      for (const id of ids) { await t.page.evaluate((i) => window.__M.peek(i), id); await t.page.waitForTimeout(1200); }
+      for (const id of ids) { await t.page.evaluate((i) => window.__M.peek(i), id); await H.pause(t.page, 1200); }
       assert.deepEqual(ties, ['ties/world.json'], 'one ties file for two world places: ' + ties);
       assert.deepEqual(t.index, [], 'cards and arcs do not need the species index');
       assert.deepEqual(t.errors, []); await t.ctx.close();
@@ -61,7 +61,7 @@ describe('places load on demand', () => {
     test(`${sizeName}: search lists places by name, so a species that only lives inside a place's web finds no place, and nothing fetches webs (#480)`, async () => {
       const e = places.find((x) => x.nodes.some((n) => !n.cat && n.latin && n.latin.toLowerCase() === 'ursus arctos')) || places[0];
       const t = await open(size, '');
-      await t.page.fill('#q', 'ursus arctos'); await t.page.waitForTimeout(800);
+      await t.page.fill('#q', 'ursus arctos'); await H.pause(t.page, 800);
       assert.equal(await H.dots(t.page), 0, 'no place is named after the species');
       assert.deepEqual(t.webs, [], 'searching does not fetch webs'); assert.ok(e); await t.ctx.close();
     });
@@ -77,7 +77,7 @@ describe('places load on demand', () => {
         return null;
       });
       assert.ok(jumped, 'found a species with another place');
-      await t.page.waitForTimeout(2500);
+      await H.pause(t.page, 2500);
       const [eco, latin] = jumped.split('|');
       assert.ok(t.webs.some((w) => w === eco + '.json'), 'second web fetched: ' + t.webs);
       assert.equal(await t.page.evaluate(() => document.getElementById('eco').value), eco, 'now in the other place');
@@ -91,7 +91,7 @@ describe('places load on demand', () => {
       const urls = []; page.on('request', (r) => { if (r.url().includes('/api/')) urls.push(r.url()); });
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
       await page.goto(base + 'pilot/index.html#stub&e=mocastlewood'); await page.reload();
-      await page.waitForTimeout(3000);
+      await H.pause(page, 3000);
       assert.ok(urls.some((u) => u.endsWith('/api/mocastlewood.json') && !u.includes('/pilot/')), 'urls: ' + urls);
       assert.ok(await page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       await ctx.close();
@@ -99,13 +99,13 @@ describe('places load on demand', () => {
 
     test(`${sizeName}: if a place cannot be fetched you are told, Back works, and trying again works`, async () => {
       const t = await open(size, '', { failWebs: true });
-      await t.page.fill('#q', 'yellowstone'); await t.page.waitForTimeout(600);
-      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(1500);
+      await t.page.fill('#q', 'yellowstone'); await H.pause(t.page, 600);
+      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await H.pause(t.page, 1500);
       assert.match(await t.page.textContent('#pview'), /could not be loaded/);
-      await t.page.click('#pview [data-pback]'); await t.page.waitForTimeout(600);
+      await t.page.click('#pview [data-pback]'); await H.pause(t.page, 600);
       assert.equal(await t.page.evaluate(() => document.getElementById('mapview').hidden), false, 'back on the map');
       t.state.fail = false;
-      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await t.page.waitForTimeout(2000);
+      await t.page.evaluate(() => document.querySelector('[data-eco]').click()); await H.pause(t.page, 2000);
       assert.ok(await t.page.evaluate(() => document.querySelectorAll('#pgraph .pn').length > 5), 'opens after retry');
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });

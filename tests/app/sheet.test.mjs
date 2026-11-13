@@ -16,11 +16,11 @@ describe('place sheet', () => {
       let s = await vis();
       assert.equal(s.sheet, false, 'no sheet or side panel while nothing is selected'); assert.equal(s.back, true, 'a way back is always there');
       assert.match(await t.page.textContent('#pbk'), /^\u2039 Mammoth Cave National Park$/);
-      await t.page.click('.node >> nth=0'); await t.page.waitForTimeout(1000);
+      await t.page.click('.node >> nth=0'); await H.pause(t.page, 1000);
       s = await vis(); assert.equal(s.sheet, true, 'the species sheet appears'); assert.equal(s.back, true, 'back stays in the same place');
       const picked = await t.page.evaluate(() => ({ lead: document.querySelector('#panel p')?.textContent, sel: document.querySelectorAll('.node.sel,.node.on').length }));
       assert.ok(picked.lead, 'species details shown'); assert.equal(picked.sel, 1, 'exactly one species selected in the graph');
-      await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(500);
+      await t.page.keyboard.press('Escape'); await H.pause(t.page, 500);
       s = await vis(); assert.equal(s.sheet, false, 'sheet goes away'); assert.equal(s.back, true);
       assert.equal(await t.page.evaluate(() => !!document.querySelector('.autotag')), false, 'hand-built place has no auto-generated tag');
       assert.deepEqual(t.errors, []);
@@ -35,11 +35,11 @@ describe('place sheet', () => {
       assert.equal(hits, 0, 'nothing is fetched before a species sheet opens');
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40 && a.querySelector('a'); }, null, { timeout: 30000 });
-      await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(300);
+      await t.page.keyboard.press('Escape'); await H.pause(t.page, 300);
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Bison/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40; }, null, { timeout: 30000 });
       assert.equal(hits, 2, 'one description file per species opened');
-      await t.page.keyboard.press('Escape'); await t.page.waitForTimeout(300);
+      await t.page.keyboard.press('Escape'); await H.pause(t.page, 300);
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40; }, null, { timeout: 30000 });
       assert.equal(hits, 2, 'a species opened again is not fetched again');
@@ -72,12 +72,12 @@ describe('place sheet', () => {
       assert.ok(speciesPhotos.images > 0 && speciesPhotos.placeholders > 0, 'approved species photos show while missing ones keep their icons');
       // tapping a neighbour moves the selection to it
       const before = await t.page.evaluate(() => document.querySelector('#panel h2, #prow .stt').textContent);
-      await t.page.evaluate(() => document.querySelectorAll('#panel .prow')[1].querySelector('.pmc').click()); await t.page.waitForTimeout(800);
+      await t.page.evaluate(() => document.querySelectorAll('#panel .prow')[1].querySelector('.pmc').click()); await H.pause(t.page, 800);
       const after = await t.page.evaluate(() => document.querySelector('#prow .stt').textContent);
       assert.notEqual(after, before, 'selection moved to the tapped species');
       if (sizeName === 'phone') {
         const h = () => t.page.evaluate(() => Math.round(document.getElementById('psheet').getBoundingClientRect().height));
-        await t.page.waitForTimeout(2000); const full = await h(); await t.page.click('.pchev');
+        await H.pause(t.page, 2000); const full = await h(); await t.page.click('.pchev');
         await t.page.waitForFunction(() => document.getElementById('psheet').getBoundingClientRect().height < 100, null, { timeout: 5000 }).catch(() => {});
         const hh = await h(); assert.ok(hh < 100, 'the chevron collapses the sheet to its top line: ' + hh + ' ' + await t.page.evaluate(() => document.getElementById('psheet').className));
         await t.page.click('#phead');
@@ -91,7 +91,7 @@ describe('place sheet', () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&pg=yellowstone' });
       await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
       const env = await t.page.evaluate(() => { const c = document.querySelector('.prow .pmc[data-pnode]'); return [...document.querySelectorAll('#pview h3')].find((h) => /^Environment/.test(h.textContent)).nextElementSibling.querySelector('[data-pnode]').getAttribute('data-pnode'); });
-      await t.page.click(`#pview [data-pnode="${env}"]`); await t.page.waitForTimeout(2500);
+      await t.page.click(`#pview [data-pnode="${env}"]`); await H.pause(t.page, 2500);
       const r = await t.page.evaluate(() => { const n = document.querySelector('.node.sel,.node.on'); const b = n && n.getBoundingClientRect(); return { shown: !!n && b.width > 0, env: document.getElementById('env').getAttribute('aria-pressed'), sheet: document.getElementById('psheet').getBoundingClientRect().width > 0 }; });
       assert.equal(r.env, 'true'); assert.ok(r.shown, 'the selected environment item is on the graph'); assert.ok(r.sheet);
       assert.deepEqual(t.errors, []); await t.close();
@@ -99,12 +99,12 @@ describe('place sheet', () => {
 
     test(`${sizeName}: the graph has no toolbar until it is moved; the environment is always shown; sharing lives on the place page`, async () => {
       const t = await H.open(browser, H.MAIN, size, { hash: '#stub&e=yellowstone' });
-      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 }); await t.page.waitForTimeout(1500);
+      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 }); await H.pause(t.page, 1500);
       const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { env: v('env'), web: v('vt'), more: v('moreb'), share: v('share'), key: v('kbtn'), fit: v('fit'), bar: v('webctl'), cap: v('gcap'), sun: [...document.querySelectorAll('.node')].some((n) => /Sunlight/.test(n.getAttribute('aria-label')) && n.getBoundingClientRect().width > 0) }; });
       let s = await vis();
       assert.deepEqual([s.env, s.web, s.more, s.share, s.key, s.fit, s.bar], [false, false, false, false, false, false, false], 'no buttons on a fresh graph'); assert.ok(s.cap && s.sun, 'caption and environment shown');
-      await t.page.mouse.move(size.width / 2, size.height / 2); await t.page.mouse.wheel(0, -500); await t.page.waitForTimeout(800);
-      s = await vis(); assert.ok(s.fit, 'Fit appears once the graph has been moved'); await t.page.click('#fit'); await t.page.waitForTimeout(900);
+      await t.page.mouse.move(size.width / 2, size.height / 2); await t.page.mouse.wheel(0, -500); await H.pause(t.page, 800);
+      s = await vis(); assert.ok(s.fit, 'Fit appears once the graph has been moved'); await t.page.click('#fit'); await H.pause(t.page, 900);
       s = await vis(); assert.equal(s.fit, false, 'and goes away once it is back');
       await t.page.evaluate(() => window.__M.showPlace('yellowstone')); await t.page.waitForSelector('#pgraph .pn', { timeout: 60000 });
       assert.ok(await t.page.evaluate(() => !!document.querySelector('#pview .shbtn')), 'place page has a share icon');
