@@ -67,6 +67,14 @@ The key, host, model and JSON output work. Quality on five journeys: 3 usable; t
 
 The shared calling code lives in `lib/gemini_api.py` (#772): `generate()` (one request with the 429 and busy handling above), `Chain` (the model list and hand-over), `request_body()` (system prompt, user text, JSON schema, temperature, token cap), `retry_delay()`, the errors `QuotaStop` and `Overloaded`, and the constants `GAP`, `MAX_WAIT`, `BUSY_WAITS`, `MAX_BUSY_IN_A_ROW`. `jobs/gemini_stories.py` and the trial `jobs/gemini_batch.py` use it. A new task writes only its prompt, schema, checks and the loop over its rows (see the story job's `main()` for the pattern: pace with `GAP`, `except QuotaStop` and `except Overloaded` call `chain.out(...)`). The module's tests are in `tests/jobs/gemini_stories_test.py` until `ci.yml` (owner-merged) lists a file of their own.
 
+## Other free AI providers (owner, 13 Nov: "there are other free AI key providers too, which we can add later")
+
+Gemini is the first provider, not the only one. Keep this in mind when designing: the task side (prompts, schemas, checks, one file per result, the review pages) must not depend on Gemini, and a second provider is welcome, for example as the judge of the story pipeline (#779), where a different model family makes a more independent reviewer.
+When one is added (each needs the owner's approval first, because `CLAUDE.md` ground rule 4 names only `GEMINI_API_KEY`):
+1. its host and licence line go into `lib/allowed_sources.json` (owner-merged); its key is a repository secret used only by a manual `data-<provider>-*` workflow, on the one step that calls it, with caps per run, as for Gemini;
+2. read its free-tier limits (requests per minute and per day, tokens, reset time) and its terms, including whether free-tier prompts are used for training (our inputs are public Wikipedia text, but check), and add a limits table to its own section here;
+3. only then generalise: move the shared pieces (`Chain`, the error model, `request_body`) behind a small provider interface (for example a `lib/llm.py` with one adapter per provider, `lib/gemini_api.py` staying the Gemini adapter). Do not build the interface before the second provider exists.
+
 ## Where things are
 
 - Shared code: `lib/gemini_api.py`.
@@ -79,3 +87,4 @@ The shared calling code lives in `lib/gemini_api.py` (#772): `generate()` (one r
 
 - 13 Nov 2026: decision and trial (#747); first story runs failed on 503 and a daily limit; retry, early stop (#756) and the model chain (#758) added; stories prompt `stories-2` (#759); 112 drafts promoted (#766). This guide written.
 - 13 Nov 2026: calling code moved into `lib/gemini_api.py` (#772); the story job behaves as before (its 19 tests pass unchanged), the trial uses it without busy retries.
+- 13 Nov 2026: section on other free providers added (owner note); nothing built for them yet.
