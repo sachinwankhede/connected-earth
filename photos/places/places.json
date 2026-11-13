@@ -18944,21 +18944,6 @@
 "sha256": "a2533a9595e7d75305ba4fe1a0ed27d19b2581adee91a513e60eb6631c8107e5",
 "reviewStatus": "approved"
 },
-"Crawford State Park Lake": {
-"f": "kscrawfordstatepar.jpg",
-"a": "Mark Wagner",
-"l": "CC BY 3.0",
-"lu": "https://creativecommons.org/licenses/by/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:US-Canada_border_at_Crawford_State_Park_20130629.jpg",
-"w": "https://en.wikipedia.org/wiki/Crawford_State_Park_Lake",
-"checkedAt": "2026-11-13T05:13:09.690485+00:00",
-"fetchedAt": "2026-11-13T05:13:09.690485+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 496,
-"sha256": "f9261047f442b16ba74f5889760176c017185fb54296d7b4edb523d914e2100b",
-"reviewStatus": "approved"
-},
 "Cumberland Trail": {
 "f": "tncumberlandtrail.jpg",
 "a": "Brian Stansberry (photographer)",
@@ -19394,36 +19379,6 @@
 "sha256": "8efa03ed3999e4c458659e568af1d7869dd9e3bf3ffd6432fa379db41f05f1c6",
 "reviewStatus": "approved"
 },
-"Pisgah State Park": {
-"f": "nhpisgah.jpg",
-"a": "Nicholas",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Mount_Pisgah_State_Park_frozen_lake.jpg",
-"w": "https://en.wikipedia.org/wiki/Pisgah_State_Park",
-"checkedAt": "2026-11-13T05:20:39.763364+00:00",
-"fetchedAt": "2026-11-13T05:20:39.763364+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "eeb73344c142a026a68f1fc3dc6781c381fef33bf732960eee9888d5ca60fc12",
-"reviewStatus": "approved"
-},
-"Pisgah State Park - Critria 1 lands": {
-"f": "nhpisgahstateparkc.jpg",
-"a": "Nicholas",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Mount_Pisgah_State_Park_frozen_lake.jpg",
-"w": "https://en.wikipedia.org/wiki/Pisgah_State_Park_-_Critria_1_lands",
-"checkedAt": "2026-11-13T05:20:47.623937+00:00",
-"fetchedAt": "2026-11-13T05:20:47.623937+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "eeb73344c142a026a68f1fc3dc6781c381fef33bf732960eee9888d5ca60fc12",
-"reviewStatus": "approved"
-},
 "Point Bridget State Park": {
 "f": "akpointbridget.jpg",
 "a": "Ben Hohenstatt",
@@ -19587,21 +19542,6 @@
 "width": 330,
 "height": 220,
 "sha256": "149305c15231051fbf4d82d4dbf72a8b4b1ea996f763a4da6c0a46e75429fc24",
-"reviewStatus": "approved"
-},
-"Shell Mound Park": {
-"f": "alshellmound.jpg",
-"a": "Ebyabe",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg",
-"w": "https://en.wikipedia.org/wiki/Shell_Mound_Park",
-"checkedAt": "2026-11-13T05:23:11.724104+00:00",
-"fetchedAt": "2026-11-13T05:23:11.724104+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "f10197b144a5d93e652114243460e45d16ac9e033cd1b1d5b19fc6baa49c3564",
 "reviewStatus": "approved"
 },
 "Silver Lake State Park": {
