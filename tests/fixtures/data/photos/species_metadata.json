@@ -5,6 +5,12 @@
   "lu": "",
   "p": "https://commons.wikimedia.org/wiki/File:White-tailed_deer.jpg"
  },
+ "Osprey": {
+  "a": "Chuck Homler / Focus On Wildlife",
+  "l": "CC BY-SA 4.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Osprey_Perched_Snag_Heislerville.jpg"
+ },
  "Acer pensylvanicum": {
   "a": "Jaknouse at English Wikipedia",
   "l": "Public domain",
@@ -112,11 +118,5 @@
   "l": "CC BY-SA 3.0",
   "lu": "https://creativecommons.org/licenses/by-sa/3.0",
   "p": "https://commons.wikimedia.org/wiki/File:Arenicola_marina_2010.JPG"
- },
- "Arilus cristatus": {
-  "a": "Ryan Kaldari",
-  "l": "Public domain",
-  "lu": "",
-  "p": "https://commons.wikimedia.org/wiki/File:Arilus_cristatus_Kaldari_02.jpg"
  }
 }

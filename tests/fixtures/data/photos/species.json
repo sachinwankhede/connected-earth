@@ -3,6 +3,10 @@
   "b/b7/White-tailed_deer.jpg/330px-White-tailed_deer.jpg",
   "White-tailed_deer"
  ],
+ "Osprey": [
+  "a/a0/Osprey_Perched_Snag_Heislerville.jpg/330px-Osprey_Perched_Snag_Heislerville.jpg",
+  "Osprey"
+ ],
  "Acer pensylvanicum": [
   "5/5a/Moosewood_leaves.jpg/330px-Moosewood_leaves.jpg",
   "Acer_pensylvanicum"
@@ -74,9 +78,5 @@
  "Arenicola marina": [
   "e/e7/Arenicola_marina_2010.JPG/330px-Arenicola_marina_2010.JPG",
   "Blow_lugworm"
- ],
- "Arilus cristatus": [
-  "c/c1/Arilus_cristatus_Kaldari_02.jpg/330px-Arilus_cristatus_Kaldari_02.jpg",
-  "Arilus_cristatus"
  ]
 }

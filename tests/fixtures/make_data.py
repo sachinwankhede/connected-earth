@@ -81,7 +81,7 @@ def main():
     dump(out, os.path.join(pd, 'places.json'), indent=1)
     # species pictures (#421): the species page's wide photo and the tiles need hosted copies; up to 20 of the fixture's species that have one, white-tailed deer first (speciespage opens it)
     ph = {n: load(R('photos', n + '.json')) for n in ('species', 'species_hosted', 'species_large', 'species_metadata')}
-    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if k.lower() in low and k in ph['species_large'] and k in ph['species']), key=lambda k: (k != 'Odocoileus virginianus', k))[:20]
+    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if (k.lower() in low or k == 'Osprey') and k in ph['species_large'] and k in ph['species']), key=lambda k: (k not in ('Odocoileus virginianus', 'Osprey'), k != 'Odocoileus virginianus', k))[:20]   # the osprey is keyed by its common name and the search tabs test needs its picture
     assert names and names[0] == 'Odocoileus virginianus', 'white-tailed deer needs a hosted picture in the fixture'
     for n in ('species', 'species_hosted', 'species_large', 'species_metadata'): dump({k: ph[n][k] for k in names if k in ph[n]}, os.path.join(OUT, 'photos', n + '.json'), indent=1)
     for sub, key in (('species-md', 'species_hosted'), ('species-lg', 'species_large')):

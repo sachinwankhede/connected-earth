@@ -149,6 +149,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /places? match(es)? “sahara”$/.test(n.textContent); }, null, { timeout: 30000 });
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /species match(es)? “sahara”$/.test(n.textContent) && !document.querySelector('#regions [data-spg]'); }, null, { timeout: 30000 });
+    await p.waitForFunction(() => { const m = /^(\d+) species match/.exec(document.getElementById('qnote').textContent); return document.querySelectorAll('#sptab .sgr[data-latin]').length === (m ? +m[1] : 0); }, null, { timeout: 30000 });   // the list is drawn to the note's count (#786: the note changes a moment before the rows)
     const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-latin]').length, top: !!document.querySelector('#regions [data-spg]') }));
     assert.equal(list.top, false, 'the groups are out of the way during a search'); assert.equal(/^No species/.test(list.note), list.rows === 0, 'the note and the list agree: ' + JSON.stringify(list));
     assert.deepEqual(t.errors, []); await b.close();
