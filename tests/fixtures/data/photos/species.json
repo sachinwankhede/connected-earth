@@ -23,13 +23,29 @@
   "0/02/Alnus_fruits.jpg/330px-Alnus_fruits.jpg",
   "Alnus_alnobetula"
  ],
+ "Amphipoda": [
+  "3/3f/Gammarus_roeselii.jpg/330px-Gammarus_roeselii.jpg",
+  "Amphipoda"
+ ],
  "Anas platyrhynchos": [
   "b/bf/Anas_platyrhynchos_male_female_quadrat.jpg/330px-Anas_platyrhynchos_male_female_quadrat.jpg",
   "Mallard"
  ],
+ "Anaxyrus americanus": [
+  "0/0f/Bufo_americanus_PJC1.jpg/330px-Bufo_americanus_PJC1.jpg",
+  "American_toad"
+ ],
+ "Anaxyrus terrestris": [
+  "1/1e/Bufo_terrestris_0.jpg/330px-Bufo_terrestris_0.jpg",
+  "Southern_toad"
+ ],
  "Andropogon gerardi": [
   "4/4f/Andropogon_gerardii_%283904160434%29.jpg/330px-Andropogon_gerardii_%283904160434%29.jpg",
   "Andropogon_gerardi"
+ ],
+ "Angiopteris evecta": [
+  "4/4b/Flickr_-_brewbooks_-_Angiopteris_evecta_-_Mule%27s_foot_fern_%281%29.jpg/330px-Flickr_-_brewbooks_-_Angiopteris_evecta_-_Mule%27s_foot_fern_%281%29.jpg",
+  "Angiopteris_evecta"
  ],
  "Antilocapra americana": [
   "a/a3/Antilocapra_americana.jpg/330px-Antilocapra_americana.jpg",
@@ -38,6 +54,10 @@
  "Aphelocoma woodhouseii": [
   "2/24/Western_Scrub_Jay%2C_Santa_Fe.jpg/330px-Western_Scrub_Jay%2C_Santa_Fe.jpg",
   "Woodhouse%27s_scrub_jay"
+ ],
+ "Apis mellifera": [
+  "4/4d/Apis_mellifera_Western_honey_bee.jpg/330px-Apis_mellifera_Western_honey_bee.jpg",
+  "Western_honey_bee"
  ],
  "Ardea alba": [
   "a/a7/Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png/330px-Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png",
@@ -58,25 +78,5 @@
  "Artemisia tridentata": [
   "d/df/Sagebrushsjc.jpg/330px-Sagebrushsjc.jpg",
   "Artemisia_tridentata"
- ],
- "Asclepias incarnata": [
-  "2/21/Swamp_milkweed_monarch.jpg/330px-Swamp_milkweed_monarch.jpg",
-  "Asclepias_incarnata"
- ],
- "Asclepias speciosa": [
-  "d/d1/Asclepias_speciosa1jakesmome.jpg/330px-Asclepias_speciosa1jakesmome.jpg",
-  "Asclepias_speciosa"
- ],
- "Asclepias syriaca": [
-  "7/77/Asclepias_syriacus.tif/lossy-page1-330px-Asclepias_syriacus.tif.jpg",
-  "Asclepias_syriaca"
- ],
- "Asclepias tuberosa": [
-  "2/26/Asclepias_tuberosa_interior.jpg/330px-Asclepias_tuberosa_interior.jpg",
-  "Asclepias_tuberosa"
- ],
- "Asterocampa celtis": [
-  "0/0f/Hackberry_Emperor%2C_Megan_McCarty46.jpg/330px-Hackberry_Emperor%2C_Megan_McCarty46.jpg",
-  "Asterocampa_celtis"
  ]
 }

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Waisila Creek",
+ "tl": 0,
+ "wiki": "Stream",
+ "desc": "Streams and pools run through the reserve and feed the creeks and rivers downstream.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "waisila-creek",
+ "sk": "resource",
+ "src": "legacy"
+}

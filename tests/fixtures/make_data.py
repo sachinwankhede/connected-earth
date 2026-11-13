@@ -26,6 +26,7 @@ MAIN = [
     'npwindcave',                                                                # park overview, Grassland: shares elk with yellowstone (the place sheet's "Also found in" row)
     'npblackcanyon',                                                             # park overview, Polar & mountain: the third elk place; the place sheet test's mocked pictures leave one of the two other elk places with a picture and one without (it checks both)
     'paelk',                                                                     # local (automatic), Forest, "Elk State Park": a place search for "elk" lists a place by name (searchstates)
+    'kelp', 'fleconfinariver', 'xfiji', 'vtnorthhero',                                                # five fish and five amphibian species (a group needs 5, TAB_MIN), so the Species tab has eight groups and a More pill (speciestab)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds

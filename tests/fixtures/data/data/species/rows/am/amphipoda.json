@@ -1,0 +1,12 @@
+{
+ "latin": "Amphipoda",
+ "name": "Amphipods and small crustaceans",
+ "tl": 2,
+ "wiki": "Amphipoda",
+ "desc": "Small crustaceans that live among the kelp and feed on its tissue and drift. Food for small fish.",
+ "ic": "hopper",
+ "about": "Amphipoda () is an order of malacostracan crustaceans characterized by sessile eyes and the absence of a carapace.",
+ "sid": "amphipoda",
+ "sk": "taxon",
+ "src": "legacy"
+}

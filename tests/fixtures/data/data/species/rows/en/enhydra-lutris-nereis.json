@@ -1,0 +1,13 @@
+{
+ "latin": "Enhydra lutris nereis",
+ "name": "Southern sea otter",
+ "tl": 3,
+ "wiki": "Sea otter",
+ "desc": "Eats urchins, abalone, crabs and mussels, which keeps urchin numbers down and lets kelp grow. Great white sharks are its main predator in California.",
+ "ic": "otter",
+ "badge": "Keystone predator",
+ "about": "The sea otter is a marine mammal native to the coasts of the northern and eastern North Pacific Ocean.",
+ "sid": "enhydra-lutris-nereis",
+ "sk": "taxon",
+ "src": "legacy"
+}
