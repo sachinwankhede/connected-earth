@@ -4,13 +4,15 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const CONTINENTS = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania'];
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: each continent is framed above the minimum zoom (#520)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 60000 });
-    await p.waitForTimeout(1000);
+    await H.pause(p, 1000);
     const res = {};
     for (const c of CONTINENTS) {
       res[c] = await p.evaluate(async (cont) => {
@@ -29,9 +31,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
 // #520: the camera must not zoom out to the limit on the way (the default fly path did that for Asia on a phone and held there for a second).
 test('phone: tapping Asia never zooms out below where it started on the way (#520)', async () => {
-  const b = await H.launch(); const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' }); const p = t.page;
+  const b = await H.launch(); const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' }); const p = t.page;
   await p.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 60000 });
-  await p.waitForTimeout(1000);
+  await H.pause(p, 1000);
   const lo = await p.evaluate(async () => {
     const m = window.__M.map; window.__M.go('world', ''); await new Promise((r) => setTimeout(r, 1500));
     let low = 99; const start = m.getZoom(); window.__M.go('continent', 'Asia');

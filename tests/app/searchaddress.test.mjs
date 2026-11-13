@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const same = async (p, b, msg) => { const a = (await names(p)).slice(0, 10), n = await p.evaluate(() => window.__M.hitsN); b = b.slice(0, 10); assert.deepEqual(a, b, msg + ' -- got ' + a.length + ' ' + JSON.stringify(a.slice(0, 3)) + ' (index hits ' + n + ') expected ' + b.length + ' ' + JSON.stringify(b.slice(0, 3))); };
 const names = (p) => p.evaluate(() => [...document.querySelectorAll('#cards li:not([hidden]) h2')].map((h) => h.textContent));
 const state = (p) => p.evaluate(() => ({ box: document.getElementById('q').value, hash: decodeURIComponent(location.hash), page: !document.getElementById('pview').hidden, map: !document.getElementById('mapview').hidden, clr: !document.getElementById('qclr').hidden }));
@@ -26,7 +28,7 @@ const back = async (p) => { await p.evaluate(() => history.back()); await H.paus
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing writes s= in the address, a reload brings the same list back, Clear removes it`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await search(p, 'elk');
     let s = await state(p);
     assert.match(s.hash, /(^|&)s=elk($|&)/, 'the search is in the address');
@@ -42,7 +44,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a place opened from a search keeps the search; Back returns to the list, and once more clears the search`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.addInitScript(hook); await p.evaluate(hook);
     await search(p, 'elk');
     const before = await names(p), n0 = await p.evaluate(() => window.__M.hitsN);
@@ -69,21 +71,21 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a shared link with a search opens it, also with a region and with special characters`, async () => {
-    let b = await H.launch(); let t = await H.open(b, H.MAIN, size, { hash: '#stub&s=elk' }); let p = t.page;
+    let b = await H.launch(); let t = await H.open(b, H.FMAIN, size, { hash: '#stub&s=elk' }); let p = t.page;
     await answered(p, 'elk');
     let s = await state(p);
     assert.equal(s.box, 'elk'); assert.equal(s.clr, true); assert.equal(s.map, true);
     assert.ok((await names(p)).length > 0, 'the list is filtered');
     assert.deepEqual(t.errors, []); await b.close();
 
-    b = await H.launch(); t = await H.open(b, H.MAIN, size, { hash: '#stub&s=elk&r=continent:North%20America' }); p = t.page;
+    b = await H.launch(); t = await H.open(b, H.FMAIN, size, { hash: '#stub&s=elk&r=continent:North%20America' }); p = t.page;
     await answered(p, 'elk');
     s = await state(p);
     assert.equal(s.box, 'elk', 'the search and the region together');
     assert.match(s.hash, /(^|&)s=elk&r=continent:North America$/, 'both stay in the address');
     assert.deepEqual(t.errors, []); await b.close();
 
-    b = await H.launch(); t = await H.open(b, H.MAIN, size, { hash: '#stub' }); p = t.page;
+    b = await H.launch(); t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); p = t.page;
     await p.click('#q'); await p.keyboard.type('a & b 100%'); await p.keyboard.press('Enter'); await answered(p, 'a & b 100%');
     await p.reload(); await answered(p, 'a & b 100%');
     s = await state(p); assert.equal(s.box, 'a & b 100%', 'spaces, & and % survive an address');
