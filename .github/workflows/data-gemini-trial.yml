@@ -1,0 +1,28 @@
+name: data-gemini-trial
+# Manual only (#747). A five-row trial of the Gemini API as a batch inference backend: asks for the months of five journeys, checks the answers and
+# uploads gemini-trial.json (answers and token counts). Changes no data file and opens no pull request. Runs from main only.
+# GEMINI_API_KEY goes to the one step that calls the API (never the whole job); the job can only read the repository.
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency: data-gemini
+jobs:
+  trial:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main, persist-credentials: false }
+      - name: Ask Gemini (five rows, capped)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 jobs/gemini_batch.py gemini-trial.json
+      - name: Keep the result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gemini-trial
+          path: gemini-trial.json
+          if-no-files-found: ignore

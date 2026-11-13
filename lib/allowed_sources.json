@@ -79,6 +79,12 @@
         "ODbL"
       ]
     },
+    "GeminiAPI": {
+      "hosts": [
+        "generativelanguage.googleapis.com"
+      ],
+      "allowed_licences": []
+    },
     "GitHub": {
       "hosts": [
         "github.com"
@@ -104,6 +110,7 @@
     "commons.wikimedia.org",
     "creativecommons.org",
     "en.wikipedia.org",
+    "generativelanguage.googleapis.com",
     "github.com",
     "inaturalist-open-data.s3.amazonaws.com",
     "nominatim.openstreetmap.org",
