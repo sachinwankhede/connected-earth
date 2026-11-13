@@ -1,0 +1,12 @@
+{
+ "latin": "Mytilus edulis",
+ "name": "Blue mussel",
+ "tl": 2,
+ "wiki": "Mytilus edulis",
+ "desc": "A filter feeder that clamps onto rocks in the tidal zone. Sea stars, whelks, gulls and eiders eat it.",
+ "ic": "shell",
+ "about": "The blue mussel, also known as the common mussel, is a medium-sized edible marine bivalve mollusc in the family Mytilidae, the only extant family in the order Mytilida, known as \"true mussels\".",
+ "sid": "mytilus-edulis",
+ "sk": "taxon",
+ "src": "legacy"
+}

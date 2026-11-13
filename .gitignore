@@ -12,3 +12,4 @@ d3-*.js
 species-tab-*.js
 pulse-*.js
 index.unmin.html
+tests/fixtures/build/

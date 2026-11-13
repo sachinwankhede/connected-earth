@@ -4,6 +4,7 @@ import { chromium } from 'playwright';
 import { after } from 'node:test';
 import fs from 'node:fs';
 import http from 'node:http';
+import { spawnSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadSpecies } from '../speciestable.mjs';
@@ -11,6 +12,34 @@ import { loadSpecies } from '../speciestable.mjs';
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const MAIN = path.join(ROOT, 'index.html');
 export const PILOT = path.join(ROOT, 'pilot', 'index.html');
+// The fixture build (#787): the app built from the small frozen dataset in tests/fixtures/data, so a change to the real data cannot reach a test that opens it.
+// `python3 build/build.py --fixture` writes it to tests/fixtures/build; a test file calls `await H.fixtureBuild()` once before opening FMAIN or FPILOT.
+export const FDATA = path.join(ROOT, 'tests', 'fixtures', 'data');
+export const FBUILD = path.join(ROOT, 'tests', 'fixtures', 'build');
+export const FMAIN = path.join(FBUILD, 'index.html');
+export const FPILOT = path.join(FBUILD, 'pilot', 'index.html');
+export const readFixturePlaces = (pilot) => readPlaces(pilot, FDATA);
+const newest = (p) => { const st = fs.statSync(p); if (!st.isDirectory()) return st.mtimeMs; return fs.readdirSync(p).reduce((m, f) => Math.max(m, newest(path.join(p, f))), st.mtimeMs); };
+const ready = path.join(FBUILD, '.ready'), lock = path.join(ROOT, 'tests', 'fixtures', '.build.lock');
+const fresh = () => fs.existsSync(ready) && fs.statSync(ready).mtimeMs >= Math.max(...['build', 'src', path.join('tests', 'fixtures', 'data')].map((d) => newest(path.join(ROOT, d))));
+// Build the fixture app unless a current one exists. Test files run in parallel processes: one builds (holding a lock folder), the others wait for `.ready`.
+export async function fixtureBuild() {
+  const deadline = Date.now() + 240000;
+  while (!fresh()) {
+    let mine = false;
+    try { fs.mkdirSync(lock); mine = true; } catch { /* another process is building */ }
+    if (mine) {
+      try {
+        fs.rmSync(FBUILD, { recursive: true, force: true });
+        const r = spawnSync('python3', ['build/build.py', '--fixture'], { cwd: ROOT, encoding: 'utf8' });
+        if (r.status !== 0) throw new Error('fixture build failed: ' + r.stdout + r.stderr);
+      } finally { fs.rmSync(lock, { recursive: true, force: true }); }
+    } else {
+      if (Date.now() > deadline) throw new Error('the fixture build did not finish');
+      await new Promise((r) => setTimeout(r, 500));
+    }
+  }
+}
 // The app fetches its place files with fetch(). Newer Chromium builds (as on CI) refuse fetch() on file:// pages,
 // so tests load the built files from a small local web server instead, as the real site does.
 const MIME = { '.html': 'text/html', '.js': 'text/javascript', '.json': 'application/json', '.png': 'image/png', '.jpg': 'image/jpeg', '.webmanifest': 'application/manifest+json', '.css': 'text/css', '.svg': 'image/svg+xml' };
@@ -36,17 +65,18 @@ export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 128
 
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
 export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
-const TABLE = loadSpecies(ROOT);
+const TABLES = new Map();
+const tableOf = (root) => { if (!TABLES.has(root)) TABLES.set(root, loadSpecies(root)); return TABLES.get(root); };
 // Same join as build/species.py: a place keeps only what differs from the shared species row.
-const join = (e) => ({ ...e, nodes: e.nodes.map((n) => {
-  const { sp, no, ...rest } = n, base = TABLE[sp] || {}, full = { ...base, ...rest };
+const join = (e, root) => ({ ...e, nodes: e.nodes.map((n) => {
+  const { sp, no, ...rest } = n, base = tableOf(root)[sp] || {}, full = { ...base, ...rest };
   for (const f of no || []) delete full[f];
   if (base.wiki && full.wiki && full.wiki !== base.wiki) full.canonicalWiki = base.wiki;
   return full;
 }) });
-export function readPlaces(pilot) {
-  const dir = (d) => fs.readdirSync(path.join(ROOT, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json', 'bounds.json'].includes(f))
-    .map((f) => join(JSON.parse(fs.readFileSync(path.join(ROOT, d, f), 'utf8'))));
+export function readPlaces(pilot, root = ROOT) {
+  const dir = (d) => fs.readdirSync(path.join(root, d)).filter((f) => f.endsWith('.json') && !['links.json', 'order.json', 'species.json', 'bounds.json'].includes(f))
+    .map((f) => join(JSON.parse(fs.readFileSync(path.join(root, d, f), 'utf8')), root));
   const all = dir('data/places');   // the pilot places are in data/places too, marked stage: pilot
   return pilot ? all : all.filter((e) => e.stage !== 'pilot');
 }

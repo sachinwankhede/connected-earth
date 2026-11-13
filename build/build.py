@@ -4,6 +4,8 @@
   python3 build/build.py --all            build index.html (main), pilot/index.html and sw.js
   python3 build/build.py --out FILE       build the main app to FILE
   python3 build/build.py --pilot --out F  build with the auto-generated places included
+  --fixture                               build main and pilot on tests/fixtures/data into tests/fixtures/build (#787)
+  --data-root DIR / --out-root DIR        read data/ and photos/ from DIR, write the output under DIR (default: the repository; #787, see build/paths.py)
 
 Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
 listed in data/order/ since #277, before that data/journeys/pilot-order.json), node_modules (d3, maplibre-gl).
@@ -12,24 +14,31 @@ import collections, json, re, sys, os, shutil, hashlib, urllib.parse, base64, su
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+if '--fixture' in sys.argv:   # the app on the small frozen dataset of tests/fixtures/data, for the browser tests (#787): same as --all --data-root tests/fixtures/data --out-root tests/fixtures/build
+    os.environ.setdefault('CE_DATA_ROOT', os.path.join(ROOT, 'tests', 'fixtures', 'data')); os.environ.setdefault('CE_OUT_ROOT', os.path.join(ROOT, 'tests', 'fixtures', 'build'))
+for _flag, _env in (('--data-root', 'CE_DATA_ROOT'), ('--out-root', 'CE_OUT_ROOT')):   # before paths is imported (#787)
+    if _flag in sys.argv: os.environ[_env] = sys.argv[sys.argv.index(_flag) + 1]
+import paths
 import species, journeydata, geoids
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
 from photo_registry import https_license
-P = lambda *a: os.path.join(ROOT, *a)
+P = lambda *a: os.path.join(ROOT, *a)                  # code: src/, node_modules/, icons
+D = lambda *a: os.path.join(paths.DATA_ROOT, *a)       # data/ and photos/ (#787)
+O = lambda *a: os.path.join(paths.OUT_ROOT, *a)        # everything the build writes (#787)
 
 
 def load_places(pilot):
     links = journeydata.links()
     order, pilot_order = journeydata.order()
-    ecos = [json.load(open(P('data', 'places', i + '.json'))) for i in order]
+    ecos = [json.load(open(D('data', 'places', i + '.json'))) for i in order]
     if pilot:
         for i in pilot_order:
-            ecos.append(json.load(open(P('data', 'places', i + '.json'))))
+            ecos.append(json.load(open(D('data', 'places', i + '.json'))))
     tab = species.table()
     bad = ['%s: %s' % (e['id'], ', '.join(map(repr, geoids.name_form(e)))) for e in ecos if geoids.name_form(e)]
     if bad: sys.exit('country and state must be ids from data/geo/geo.json (run python3 build/places_ids.py to rewrite names; an unknown name is a mistake):\n  ' + '\n  '.join(bad[:20]))
     ecos = [geoids.names(species.join(e, tab)) for e in ecos]
-    sp = P('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
+    sp = D('data', 'text', 'summaries.json'); sums = json.load(open(sp)) if os.path.exists(sp) else {}
     for e in ecos:
         if e.get('park') and not e.get('story'):
             for src in e.get('sources', []):
@@ -168,7 +177,7 @@ def split_regions(light):
 
 
 def write_regions(light, pilot):
-    d = os.path.join(P('api'), 'places', 'pilot' if pilot else 'main'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'places', 'pilot' if pilot else 'main'); os.makedirs(d, exist_ok=True)
     files = split_regions(light)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
@@ -178,13 +187,13 @@ def write_regions(light, pilot):
 
 def write_journeys(data, pilot):
     """The journeys (and the couple and source settings) are their own file, fetched by the page's head with the world places (#377): api/journeys/main|pilot.json."""
-    d = os.path.join(P('api'), 'journeys'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'journeys'); os.makedirs(d, exist_ok=True)
     open(os.path.join(d, 'pilot.json' if pilot else 'main.json'), 'w').write(data)
 
 
 def clear_old_places_files():
     """The first places files (api/places/index.json, cards.json and the -pilot pair) are not written any more: the app reads api/places/main|pilot/ (#313). Old copies are removed."""
-    d = os.path.join(P('api'), 'places'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'places'); os.makedirs(d, exist_ok=True)
     for f in os.listdir(d):
         if os.path.isfile(os.path.join(d, f)): os.remove(os.path.join(d, f))
 
@@ -208,7 +217,7 @@ def search_bucket(word):
 
 # Other words people type for the same name (#602): the build writes them into the index, so the app's lookup stays a plain prefix match.
 # Spelling pairs apply to every word of a species' usual name; the plural (or, for an irregular plural, the singular) of its last word is added too.
-_SV = json.load(open(P('data', 'species', 'search_vocabulary.json'), encoding='utf-8'))   # spelling pairs and plurals for the search index (#602): data, see the note in the file
+_SV = json.load(open(D('data', 'species', 'search_vocabulary.json'), encoding='utf-8'))   # spelling pairs and plurals for the search index (#602): data, see the note in the file
 SPELLING_PAIRS = [tuple(p) for p in _SV['spelling_pairs']]
 IRREGULAR_PLURALS = _SV['irregular_plurals']
 SAME_PLURAL = set(_SV['same_plural'])   # elk keeps "elks" as well, see _plural
@@ -290,7 +299,7 @@ def split_suggest(light, spt, sidx, pics=None):
 
 def write_search(light, spt, sidx, qs, pilot, pics=None):
     """api/search/ (main) or api/search-pilot/: meta.json, w-<two letters>.json, rows-<n>.json. One build writes one folder; it replaces the folder's old files."""
-    d = os.path.join(P('api'), 'search-pilot' if pilot else 'search'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'search-pilot' if pilot else 'search'); os.makedirs(d, exist_ok=True)
     meta, buckets, rows = split_search(light, spt, sidx, qs)
     sug = split_suggest(light, spt, sidx, pics); meta['sug'] = sorted(sug)   # the two-letter starts that have suggestions
     files = {'meta.json': meta} | {'w-%s.json' % k: v for k, v in buckets.items()} | {'rows-%d.json' % i: r for i, r in enumerate(rows)} | {'s-%s.json' % k: v for k, v in sug.items()}
@@ -390,7 +399,7 @@ def split_ties(light, ties):
 
 def write_ties(light, ties, pilot):
     """api/ties/ (main) or api/ties-pilot/: one file per region. One build writes one folder."""
-    d = os.path.join(P('api'), 'ties-pilot' if pilot else 'ties'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'ties-pilot' if pilot else 'ties'); os.makedirs(d, exist_ok=True)
     files = split_ties(light, ties)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
@@ -411,7 +420,7 @@ def split_species_places(sp):
 
 def write_species_places(sp, pilot):
     """api/species-places/ (main) or api/species-places-pilot/: one file per two-letter bucket. One build writes one folder."""
-    d = os.path.join(P('api'), 'species-places-pilot' if pilot else 'species-places'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'species-places-pilot' if pilot else 'species-places'); os.makedirs(d, exist_ok=True)
     files = split_species_places(sp)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
@@ -423,8 +432,8 @@ def write_species_places(sp, pilot):
 # their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0], most places first, then by name.
 TAB_TOP, TAB_PAGE = 60, 250
 TAB_MIN = 5   # a group, order or family with fewer species than this is not a pill: its species join the Other of the level above (#534, owner, 11 Nov)
-ORDER_NAMES = json.load(open(P('data', 'species', 'order_names.json'), encoding='utf-8'))['names']   # everyday names for the biggest orders (#534): data, see the note in the file
-_TG = json.load(open(P('data', 'species', 'tab_groups.json'), encoding='utf-8'))   # the Species tab's groups and which classes are fish or reptiles (#534): data, see the note in the file
+ORDER_NAMES = json.load(open(D('data', 'species', 'order_names.json'), encoding='utf-8'))['names']   # everyday names for the biggest orders (#534): data, see the note in the file
+_TG = json.load(open(D('data', 'species', 'tab_groups.json'), encoding='utf-8'))   # the Species tab's groups and which classes are fish or reptiles (#534): data, see the note in the file
 TAB_GROUPS = [tuple(g) for g in _TG['groups']]
 TAB_FISH, TAB_REPTILES = set(_TG['fish']), set(_TG['reptiles'])
 
@@ -476,7 +485,7 @@ def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_M
 
 
 def write_species_tab(sp, common, groupof, pics, pilot, orderof=None):
-    d = os.path.join(P('api'), 'species-tab-pilot' if pilot else 'species-tab'); os.makedirs(d, exist_ok=True)
+    d = os.path.join(O('api'), 'species-tab-pilot' if pilot else 'species-tab'); os.makedirs(d, exist_ok=True)
     files = split_species_tab(sp, common, groupof, pics, orderof)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
@@ -500,8 +509,8 @@ def add_overlap(webs, ecos, main_ids):
 
 
 def write_webs(webs, about, pictures=None):
-    d = P('api'); os.makedirs(d, exist_ok=True)
-    if os.path.isdir(P('webs')): shutil.rmtree(P('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
+    d = O('api'); os.makedirs(d, exist_ok=True)
+    if os.path.isdir(O('webs')): shutil.rmtree(O('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
     for f in os.listdir(d):
         if f.endswith('.json') and f[:-5] not in webs and f != 'species-pictures.json': os.remove(os.path.join(d, f))
     if pictures is not None:   # every hosted picture's entry and credit, for the journey and related-place views
@@ -566,7 +575,7 @@ def app_source():
 def build(pilot, out_path, write=False, places=False):
     links, ecos = load_places(pilot)
     tpl = app_source()
-    geo = json.load(open(P('data', 'geo', 'geo.json')))
+    geo = json.load(open(D('data', 'geo', 'geo.json')))
     errs = check(ecos, links, tpl, geo)
     if errs:
         print('\n'.join(errs)); sys.exit(1)
@@ -574,18 +583,18 @@ def build(pilot, out_path, write=False, places=False):
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
         if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
-    phf, phmf = P('photos', 'species.json'), P('photos', 'species_metadata.json')
+    phf, phmf = D('photos', 'species.json'), D('photos', 'species_metadata.json')
     src_ph = json.load(open(phf)) if os.path.exists(phf) else {}
     phm_all = json.load(open(phmf)) if os.path.exists(phmf) else {}
     for _c in phm_all.values():
         if isinstance(_c, dict) and _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
-    hf = P('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
+    hf = D('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
     phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
-    lf = P('photos', 'species_large.json'); large = json.load(open(lf)) if os.path.exists(lf) else {}   # the larger copies (#421): the species page shows one as a wide photo
+    lf = D('photos', 'species_large.json'); large = json.load(open(lf)) if os.path.exists(lf) else {}   # the larger copies (#421): the species page shows one as a wide photo
     phm = {t: phm_all[t] for t in phs if t in phm_all}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
-    txf = P('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
+    txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
@@ -594,7 +603,7 @@ def build(pilot, out_path, write=False, places=False):
         for n in e['nodes']:
             if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
     CS_WORDS = {'LC': 'Least concern', 'NT': 'Near threatened', 'VU': 'Vulnerable', 'EN': 'Endangered', 'CR': 'Critically endangered', 'EW': 'Extinct in the wild', 'EX': 'Extinct'}
-    cons = json.load(open(os.path.join(ROOT, 'data', 'species', 'conservation.json'))) if os.path.exists(os.path.join(ROOT, 'data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
+    cons = json.load(open(D('data', 'species', 'conservation.json'))) if os.path.exists(D('data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
     for k in sorted(used):
         row = tab.get(k)
@@ -634,20 +643,20 @@ def build(pilot, out_path, write=False, places=False):
     ml = P('node_modules', 'maplibre-gl', 'dist')
     out = out.replace('/*__MLCSS__*/', open(os.path.join(ml, 'maplibre-gl.css')).read())
     mlver = ml_version()
-    open(P('geo-states.json'), 'w').write(json.dumps(geo['states'], separators=(',', ':'), ensure_ascii=False))   # US state outlines: their own file, fetched after the map
-    shutil.copyfile(os.path.join(ml, 'maplibre-gl.js'), P('maplibre-gl-%s.js' % mlver))   # the map library is its own file (not part of the page): see the loader in src/app.html
+    open(O('geo-states.json'), 'w').write(json.dumps(geo['states'], separators=(',', ':'), ensure_ascii=False))   # US state outlines: their own file, fetched after the map
+    shutil.copyfile(os.path.join(ml, 'maplibre-gl.js'), O('maplibre-gl-%s.js' % mlver))   # the map library is its own file (not part of the page): see the loader in src/app.html
     out = out.replace('__MLVER__', mlver)
     d3ver = json.load(open(P('node_modules', 'd3', 'package.json')))['version']
-    shutil.copyfile(P('node_modules', 'd3', 'dist', 'd3.min.js'), P('d3-%s.js' % d3ver))   # the diagram library is its own file, loaded when a food web or journey map is first needed
+    shutil.copyfile(P('node_modules', 'd3', 'dist', 'd3.min.js'), O('d3-%s.js' % d3ver))   # the diagram library is its own file, loaded when a food web or journey map is first needed
     out = out.replace('__D3VER__', d3ver)
-    tv = chunk_version(); shutil.copyfile(P('src', 'chunks', 'species-tab.js'), P('species-tab-%s.js' % tv))   # app code that is not in the first view: loaded when the Species tab first opens (#422)
+    tv = chunk_version(); shutil.copyfile(P('src', 'chunks', 'species-tab.js'), O('species-tab-%s.js' % tv))   # app code that is not in the first view: loaded when the Species tab first opens (#422)
     out = out.replace('__TABVER__', tv)
-    pv = chunk_version('pulse'); shutil.copyfile(P('src', 'chunks', 'pulse.js'), P('pulse-%s.js' % pv)); out = out.replace('__PULSEVER__', pv)   # the attention pulse (#689): loaded a moment after the map settles
-    if out_path == P('index.html'): open(P('index.unmin.html'), 'w').write(out)   # the page before minifying, for the tests that cut code out of it by its text (tests/data/*_lookup.test.mjs); not committed
+    pv = chunk_version('pulse'); shutil.copyfile(P('src', 'chunks', 'pulse.js'), O('pulse-%s.js' % pv)); out = out.replace('__PULSEVER__', pv)   # the attention pulse (#689): loaded a moment after the map settles
+    if out_path == O('index.html'): open(O('index.unmin.html'), 'w').write(out)   # the page before minifying, for the tests that cut code out of it by its text (tests/data/*_lookup.test.mjs); not committed
     out = minify_page(out)   # last, after every placeholder is filled
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w').write(out)
-    print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
+    print('built %s: %d bytes, %d places, %d nodes' % (os.path.relpath(out_path, paths.OUT_ROOT), len(out), len(ecos), sum(len(e['nodes']) for e in ecos)))
     return out
 
 
@@ -707,16 +716,17 @@ def chunk_version(name='species-tab'):
 
 def stamp_sw(main_html):
     bid = build_id(main_html)
-    open(P('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']).replace('__TABVER__', chunk_version()).replace('__PULSEVER__', chunk_version('pulse')).replace('__SPECIES_HOSTS__', ', ' + json.dumps(urllib.parse.urlparse(species_base()).hostname) if species_base() else ''))
+    open(O('sw.js'), 'w').write(open(P('src', 'sw.template.js')).read().replace('__BUILD__', bid).replace('__MLVER__', ml_version()).replace('__D3VER__', json.load(open(P('node_modules', 'd3', 'package.json')))['version']).replace('__TABVER__', chunk_version()).replace('__PULSEVER__', chunk_version('pulse')).replace('__SPECIES_HOSTS__', ', ' + json.dumps(urllib.parse.urlparse(species_base()).hostname) if species_base() else ''))
     print('sw.js stamped', bid)
 
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if '--all' in a:
-        main = build(False, P('index.html'), places=True)
-        build(True, P('pilot', 'index.html'), write=True, places=True)
+    if '--all' in a or '--fixture' in a:
+        main = build(False, O('index.html'), places=True)
+        build(True, O('pilot', 'index.html'), write=True, places=True)
         stamp_sw(main)
+        if '--fixture' in a: open(O('.ready'), 'w').write('ok\n')   # written last: the tests wait for it (tests/app/helper.mjs)
     else:
-        out = a[a.index('--out') + 1] if '--out' in a else P('dist', 'index.html')
+        out = a[a.index('--out') + 1] if '--out' in a else O('dist', 'index.html')
         build('--pilot' in a, out)

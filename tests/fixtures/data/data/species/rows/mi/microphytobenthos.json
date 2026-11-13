@@ -1,0 +1,12 @@
+{
+ "latin": "Microphytobenthos",
+ "name": "Mud-surface diatoms",
+ "tl": 1,
+ "wiki": "Microphytobenthos",
+ "desc": "Microscopic algae living in the top millimetres of tidal mud. They feed many deposit-feeding animals when the flats are exposed.",
+ "ic": "algae",
+ "badge": "Foundation species",
+ "sid": "microphytobenthos",
+ "sk": "group",
+ "src": "legacy"
+}

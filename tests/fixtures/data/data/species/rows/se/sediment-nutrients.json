@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Sediment & nutrients",
+ "tl": 0,
+ "wiki": "Sediment",
+ "desc": "Silt carries nitrogen and phosphorus onto the floodplain. Much of it travels downriver to the Gulf of Mexico.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "sediment-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

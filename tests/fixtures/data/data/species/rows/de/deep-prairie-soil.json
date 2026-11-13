@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Deep prairie soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Dense roots hold the soil, with big bluestem roots saturating the top two feet and reaching about twelve feet deep, per the MDC.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "deep-prairie-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

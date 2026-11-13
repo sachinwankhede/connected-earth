@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Tidal mudflats",
+ "tl": 0,
+ "wiki": "Tidal flat",
+ "desc": "Vast intertidal flats and sand banks hold the seagrass beds and feed the wintering shorebirds.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "tidal-mudflats",
+ "sk": "resource",
+ "src": "legacy"
+}

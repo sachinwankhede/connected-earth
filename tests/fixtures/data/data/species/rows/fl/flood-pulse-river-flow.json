@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Flood pulse & river flow",
+ "tl": 0,
+ "wiki": "Flood pulse concept",
+ "desc": "Spring floods spread water, silt and fish across the floodplain. When the water drops, bare mud flats grow moist-soil plants.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "flood-pulse-river-flow",
+ "sk": "resource",
+ "src": "legacy"
+}

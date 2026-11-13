@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rhone water and silt",
+ "tl": 0,
+ "wiki": "Rhône",
+ "desc": "The Rhone splits into two arms that feed the delta with fresh water and mud. Some of the lagoons are remnants of old river channels.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "rhone-water-and-silt",
+ "sk": "resource",
+ "src": "legacy"
+}

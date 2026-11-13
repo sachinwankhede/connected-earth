@@ -1,0 +1,12 @@
+{
+ "latin": "Copepods and larvae",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Zooplankton",
+ "desc": "Tiny animals that graze phytoplankton. Young menhaden and bay anchovies feed on them.",
+ "ic": "mayfly",
+ "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive.",
+ "sid": "copepods-and-larvae",
+ "sk": "group",
+ "src": "legacy"
+}

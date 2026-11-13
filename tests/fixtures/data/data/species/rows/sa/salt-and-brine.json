@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Salt and brine",
+ "tl": 0,
+ "wiki": "Brine",
+ "desc": "Lagoons cut off from the sea by sandbars and long-used salt pans hold salty water. Brine shrimp tolerate salinity that keeps most fish out.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "salt-and-brine",
+ "sk": "resource",
+ "src": "legacy"
+}

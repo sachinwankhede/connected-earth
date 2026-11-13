@@ -1,0 +1,13 @@
+{
+ "latin": "Canis lupus",
+ "name": "Gray wolf",
+ "tl": 4,
+ "wiki": "Gray wolf",
+ "desc": "Packs hunt moose, caribou and beaver, mainly taking calves and weak animals, and sometimes hares.",
+ "ic": "wolf",
+ "badge": "Keystone predator",
+ "about": "The wolf, also known as the grey wolf or gray wolf, is a canine native to Eurasia and North America.",
+ "sid": "canis-lupus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrients",
+ "tl": 0,
+ "wiki": "Nutrient",
+ "desc": "Upwelling and river runoff supply nitrogen and phosphorus. Too much feeds algae at the coral's expense.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

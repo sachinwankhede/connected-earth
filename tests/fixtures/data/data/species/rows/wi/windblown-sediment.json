@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Windblown sediment",
+ "tl": 0,
+ "wiki": "Dust",
+ "desc": "Sediment blown in from the continent adds nutrients and organic matter to the shallow sea.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "windblown-sediment",
+ "sk": "resource",
+ "src": "legacy"
+}

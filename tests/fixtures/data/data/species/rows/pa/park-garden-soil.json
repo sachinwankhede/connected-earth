@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Park & garden soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "The soil beneath parks, yards and gardens holds the nutrients plants use.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "park-garden-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

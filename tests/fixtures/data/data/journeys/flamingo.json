@@ -1,0 +1,36 @@
+{
+ "pos": 2,
+ "id": "flamingo",
+ "type": "species",
+ "title": "Greater flamingo",
+ "ends": [
+  {
+   "eco": "whcamargue",
+   "node": "flamingo"
+  },
+  {
+   "eco": "whdonana",
+   "node": "flamingo"
+  }
+ ],
+ "text": "Greater flamingos ringed in the Camargue are regularly seen in Doñana and other western Mediterranean wetlands. The birds move between them as water levels change.",
+ "imgwiki": "Greater flamingo",
+ "when": "Move between wetlands through the year as water levels rise and fall.",
+ "matters": "Flamingos depend on a network of shallow wetlands. If one dries out or is disturbed, birds move to another.",
+ "sources": [
+  {
+   "t": "Wikipedia: Greater flamingo",
+   "u": "https://en.wikipedia.org/wiki/Greater_flamingo"
+  },
+  {
+   "t": "Wikipedia: Camargue",
+   "u": "https://en.wikipedia.org/wiki/Camargue"
+  },
+  {
+   "t": "Wikipedia: Doñana National Park",
+   "u": "https://en.wikipedia.org/wiki/Doñana_National_Park"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🦩"
+}

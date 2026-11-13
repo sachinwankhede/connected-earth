@@ -1,0 +1,12 @@
+{
+ "latin": "Pandion haliaetus",
+ "name": "Osprey",
+ "tl": 3,
+ "wiki": "Osprey",
+ "desc": "Spends the northern winter fishing Amazon rivers and lakes, then flies north to breed. Ospreys nesting at Yellowstone belong to the same migratory population.",
+ "ic": "osprey",
+ "about": "The osprey, historically known as sea hawk, river hawk, and fish hawk, is a diurnal, fish-eating bird of prey with a cosmopolitan range.",
+ "sid": "pandion-haliaetus",
+ "sk": "taxon",
+ "src": "legacy"
+}

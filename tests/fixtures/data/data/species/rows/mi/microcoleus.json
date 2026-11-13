@@ -1,0 +1,13 @@
+{
+ "latin": "Microcoleus",
+ "name": "Biological soil crust",
+ "tl": 1,
+ "wiki": "Biological soil crust",
+ "desc": "A living skin of cyanobacteria, lichens, mosses, algae and microfungi. It binds sand grains against erosion, soaks up scarce rain and fixes nitrogen, but is easily broken by footsteps.",
+ "ic": "soil",
+ "badge": "Foundation species",
+ "about": "Biological soil crusts, often abbreviated as biocrusts, are communities of living organisms inhabiting the surface of soils in arid and semi-arid ecosystems, which form stable aggregates of soil…",
+ "sid": "microcoleus",
+ "sk": "taxon",
+ "src": "legacy"
+}

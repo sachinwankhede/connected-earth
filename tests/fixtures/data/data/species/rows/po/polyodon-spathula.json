@@ -1,0 +1,12 @@
+{
+ "latin": "Polyodon spathula",
+ "name": "Paddlefish",
+ "tl": 2,
+ "wiki": "Paddlefish",
+ "desc": "A giant filter feeder that eats mainly zooplankton, with a few insect larvae and small fish.",
+ "ic": "trout",
+ "about": "Paddlefish are members of the ray-finned fish family Polyodontidae, which belong to the basal order Acipenseriformes, one of two living groups within this order alongside sturgeons (Acipenseridae).",
+ "sid": "polyodon-spathula",
+ "sk": "taxon",
+ "src": "legacy"
+}

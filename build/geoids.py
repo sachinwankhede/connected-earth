@@ -3,9 +3,11 @@
 A place file may name a country or a US state by its id in data/geo/geo.json (`392`, `01`) or, until the rewrite is done, by its name.
 `names(e)` returns the place with names (what the build, the app and the checks use) and the continent filled in from the country.
 `ids_of(names)` is the other way, for jobs that write places. Unknown values are left as they are, so the checks can report them."""
-import json, os
+import json, os, sys
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import paths
+ROOT = paths.DATA_ROOT   # data/ lives here; the repository unless CE_DATA_ROOT is set (#787)
 _G = {}
 
 
