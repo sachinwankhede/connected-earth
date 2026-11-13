@@ -2,6 +2,10 @@
 # status.sh: what is open, what is running, what is queued. Needs the gh CLI. Usage: bash jobs/status.sh
 R=${REPO:-sachinwankhede/connected-earth}
 # Items first: one issue per item (an outcome), a theme label (theme:*) and a status label (status:*). A pull request is the means, not the item.
+# Flaky tests and checks come first (CLAUDE.md ground rule 9): fix before any new work.
+echo "== FLAKY (label flaky; fix first, ground rule 9)"
+gh api "repos/$R/issues?state=open&labels=flaky&per_page=100" --jq '.[]|select(.pull_request|not)|"* \(.title)  (#\(.number))"'
+echo
 echo "== Items (open issues; closed means done)"
 for st in waiting-owner doing ready idea; do
   case $st in waiting-owner) h="WAITING ON YOU";; doing) h="DOING";; ready) h="READY (decided; the agent can start)";; idea) h="IDEAS (need your go-ahead)";; esac
