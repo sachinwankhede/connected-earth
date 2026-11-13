@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Aguadas and bajos",
+ "tl": 0,
+ "wiki": "Vernal pool",
+ "desc": "The area has little permanent surface water, so seasonal ponds and swampy low spots are vital wildlife water sources.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "aguadas-and-bajos",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Fungi, bacteria and termites",
+ "name": "Leaf-litter decomposers",
+ "tl": 0,
+ "wiki": "Decomposer",
+ "desc": "Break down fallen leaves, fruit and carcasses, returning nutrients to thin forest soil.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "fungi-bacteria-and-termites",
+ "sk": "resource",
+ "src": "legacy"
+}

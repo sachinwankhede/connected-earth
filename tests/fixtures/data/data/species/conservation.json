@@ -139,6 +139,10 @@
   "c": "LC",
   "q": "Q384987"
  },
+ "bourreria succulenta": {
+  "c": "LC",
+  "q": "Q17415462"
+ },
  "bradypus variegatus": {
   "c": "LC",
   "q": "Q148752"
@@ -150,6 +154,10 @@
  "brevoortia patronus": {
   "c": "LC",
   "q": "Q2053687"
+ },
+ "bursera simaruba": {
+  "c": "LC",
+  "q": "Q164698"
  },
  "buteo jamaicensis": {
   "c": "LC",
@@ -182,6 +190,10 @@
  "carcharhinus limbatus": {
   "c": "VU",
   "q": "Q125236"
+ },
+ "carcharhinus perezi": {
+  "c": "EN",
+  "q": "Q592165"
  },
  "cardinalis cardinalis": {
   "c": "LC",
@@ -299,6 +311,10 @@
   "c": "LC",
   "q": "Q838749"
  },
+ "cyclura cychlura": {
+  "c": "VU",
+  "q": "Q1285248"
+ },
  "cygnus columbianus": {
   "c": "LC",
   "q": "Q26603"
@@ -355,6 +371,10 @@
   "c": "LC",
   "q": "Q717867"
  },
+ "epinephelus striatus": {
+  "c": "CR",
+  "q": "Q943193"
+ },
  "equus quagga": {
   "c": "NT",
   "q": "Q245305"
@@ -383,6 +403,10 @@
   "c": "LC",
   "q": "Q25376"
  },
+ "galeocerdo cuvier": {
+  "c": "NT",
+  "q": "Q188212"
+ },
  "gaultheria hispidula": {
   "c": "LC",
   "q": "Q5527672"
@@ -390,6 +414,10 @@
  "genetta genetta": {
   "c": "LC",
   "q": "Q261574"
+ },
+ "geocapromys ingrahami": {
+  "c": "CR",
+  "q": "Q788595"
  },
  "giraffa camelopardalis": {
   "c": "VU",
@@ -495,6 +523,10 @@
   "c": "LC",
   "q": "Q1148148"
  },
+ "lepus americanus": {
+  "c": "LC",
+  "q": "Q81063"
+ },
  "lepus californicus": {
   "c": "LC",
   "q": "Q640645"
@@ -539,6 +571,22 @@
   "c": "LC",
   "q": "Q157513"
  },
+ "malvaviscus arboreus": {
+  "c": "LC",
+  "q": "Q2709838"
+ },
+ "manilkara zapota": {
+  "c": "LC",
+  "q": "Q14959"
+ },
+ "marmota caligata": {
+  "c": "LC",
+  "q": "Q326998"
+ },
+ "martes americana": {
+  "c": "LC",
+  "q": "Q322145"
+ },
  "megaptera novaeangliae": {
   "c": "LC",
   "q": "Q132905"
@@ -551,9 +599,17 @@
   "c": "LC",
   "q": "Q504483"
  },
+ "meleagris ocellata": {
+  "c": "NT",
+  "q": "Q94601"
+ },
  "melospiza melodia": {
   "c": "LC",
   "q": "Q842599"
+ },
+ "metopium brownei": {
+  "c": "LC",
+  "q": "Q4515301"
  },
  "micropogonias undulatus": {
   "c": "LC",
@@ -598,6 +654,10 @@
  "nasua narica": {
   "c": "LC",
   "q": "Q754992"
+ },
+ "nucifraga columbiana": {
+  "c": "LC",
+  "q": "Q1142785"
  },
  "octopus vulgaris": {
   "c": "LC",
@@ -666,6 +726,14 @@
  "passer domesticus": {
   "c": "LC",
   "q": "Q14683"
+ },
+ "patagioenas leucocephala": {
+  "c": "NT",
+  "q": "Q1269998"
+ },
+ "pecari tajacu": {
+  "c": "LC",
+  "q": "Q741516"
  },
  "pelecanus erythrorhynchos": {
   "c": "LC",
@@ -791,6 +859,10 @@
   "c": "LC",
   "q": "Q156687"
  },
+ "pterois volitans": {
+  "c": "LC",
+  "q": "Q824672"
+ },
  "pteronura brasiliensis": {
   "c": "EN",
   "q": "Q83774"
@@ -815,6 +887,10 @@
   "c": "LC",
   "q": "Q156137"
  },
+ "ramphastos sulfuratus": {
+  "c": "NT",
+  "q": "Q47501"
+ },
  "ramphastos toco": {
   "c": "LC",
   "q": "Q376038"
@@ -826,6 +902,10 @@
  "reithrodontomys megalotis": {
   "c": "LC",
   "q": "Q531971"
+ },
+ "rhizophora mangle": {
+  "c": "LC",
+  "q": "Q853914"
  },
  "rhus glabra": {
   "c": "LC",
@@ -895,6 +975,10 @@
   "c": "CR",
   "q": "Q1192406"
  },
+ "sparisoma viride": {
+  "c": "LC",
+  "q": "Q2700140"
+ },
  "spartina alterniflora": {
   "c": "LC",
   "q": "Q2697224"
@@ -963,6 +1047,10 @@
   "c": "LC",
   "q": "Q732340"
  },
+ "thalassia testudinum": {
+  "c": "LC",
+  "q": "Q3519445"
+ },
  "thryothorus ludovicianus": {
   "c": "LC",
   "q": "Q1585636"
@@ -986,6 +1074,10 @@
  "urocitellus armatus": {
   "c": "LC",
   "q": "Q21729942"
+ },
+ "urocitellus columbianus": {
+  "c": "LC",
+  "q": "Q21730465"
  },
  "urocyon cinereoargenteus": {
   "c": "LC",
