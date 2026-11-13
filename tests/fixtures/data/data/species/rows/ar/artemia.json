@@ -1,0 +1,12 @@
+{
+ "latin": "Artemia",
+ "name": "Brine shrimp",
+ "tl": 2,
+ "wiki": "Artemia",
+ "desc": "Tiny crustaceans of salt lakes and brine ponds. Their tolerance of very salty water helps them escape most fish predators.",
+ "ic": "hopper",
+ "about": "Artemia is a genus of aquatic crustaceans also known as brine shrimp. It is the only genus in the family Artemiidae.",
+ "sid": "artemia",
+ "sk": "taxon",
+ "src": "legacy"
+}

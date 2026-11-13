@@ -1,0 +1,12 @@
+{
+ "latin": "Acrididae",
+ "name": "Grasshoppers",
+ "tl": 2,
+ "wiki": "Grasshopper",
+ "desc": "Plant-eating insects that feed on grasses. They are prey for lizards, birds and small mammals.",
+ "ic": "hopper",
+ "about": "Grasshoppers are a group of insects belonging to the suborder Caelifera.",
+ "sid": "acrididae",
+ "sk": "taxon",
+ "src": "legacy"
+}

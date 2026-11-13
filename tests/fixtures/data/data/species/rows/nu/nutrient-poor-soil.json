@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Nutrient-poor soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Heavy rain washes minerals out, so most nutrients are held in living plants and leaf litter.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "nutrient-poor-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

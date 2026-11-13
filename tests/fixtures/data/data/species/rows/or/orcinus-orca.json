@@ -1,0 +1,12 @@
+{
+ "latin": "Orcinus orca",
+ "name": "Orca",
+ "tl": 4,
+ "wiki": "Orca",
+ "desc": "Hunts seals, belugas and walruses as ice retreats and open water spreads.",
+ "ic": "whale",
+ "about": "The orca, or killer whale, is a toothed whale and the largest member of the oceanic dolphin family.",
+ "sid": "orcinus-orca",
+ "sk": "taxon",
+ "src": "legacy"
+}

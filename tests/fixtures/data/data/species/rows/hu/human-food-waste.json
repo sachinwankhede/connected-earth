@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Human food waste",
+ "tl": 0,
+ "wiki": "Food waste",
+ "desc": "Trash, compost, pet food and bird-feeder seed are an extra food supply for raccoons, coyotes, squirrels and urban birds.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "human-food-waste",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Dunaliella",
+ "name": "Lagoon microalgae",
+ "tl": 1,
+ "wiki": "Dunaliella",
+ "desc": "Microscopic algae, including salt-loving types, grow in sunlit lagoons. Brine shrimp feed on planktonic algae; flamingos also take diatoms and blue-green algae.",
+ "ic": "algae",
+ "about": "Dunaliella is a genus of single-celled, photosynthetic green algae, that is characteristic for its ability to thrive and outcompete other organisms in hypersaline environments.",
+ "sid": "dunaliella",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Prairie soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Nutrients released by decay return to the soil and feed the next season of plant growth.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "prairie-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

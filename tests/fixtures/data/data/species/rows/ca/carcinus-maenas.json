@@ -1,0 +1,12 @@
+{
+ "latin": "Carcinus maenas",
+ "name": "Shore crab",
+ "tl": 3,
+ "wiki": "Carcinus maenas",
+ "desc": "An omnivore that eats bivalves, worms, small crustaceans and eelgrass seeds. It will also eat other crabs.",
+ "ic": "hopper",
+ "about": "Carcinus maenas is a common littoral crab. It is known by different names around the world.",
+ "sid": "carcinus-maenas",
+ "sk": "taxon",
+ "src": "legacy"
+}

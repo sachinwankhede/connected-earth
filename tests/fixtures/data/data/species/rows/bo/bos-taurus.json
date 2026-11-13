@@ -1,0 +1,12 @@
+{
+ "latin": "Bos taurus",
+ "name": "Cow",
+ "tl": 2,
+ "wiki": "Bos taurus",
+ "desc": "Dark, semi-wild cattle that roam the marshes under the care of gardians and supply the bulls for the local bull-running tradition.",
+ "ic": "quad",
+ "about": "Cattle are large, domesticated, bovid ungulates widely kept as livestock. They are prominent modern members of the subfamily Bovinae and the most widespread species of the genus Bos.",
+ "sid": "bos-taurus",
+ "sk": "taxon",
+ "src": "legacy"
+}

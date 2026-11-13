@@ -1,0 +1,36 @@
+{
+ "pos": 1,
+ "id": "knot",
+ "type": "species",
+ "title": "Red knot",
+ "ends": [
+  {
+   "eco": "wadden",
+   "node": "knot"
+  },
+  {
+   "eco": "wharguin",
+   "node": "redknot"
+  }
+ ],
+ "text": "Red knots refuel on the Wadden Sea mudflats and then fly on to winter on the coast of West Africa, including Banc d'Arguin in Mauritania. Both sites matter for the same birds.",
+ "imgwiki": "Red knot",
+ "when": "Stop on the Wadden Sea mudflats in spring and autumn, between the Arctic and West Africa.",
+ "matters": "Knots fatten up on a few rich mudflats. Losing one of them can leave birds too weak to finish the trip.",
+ "sources": [
+  {
+   "t": "Wikipedia: Red knot",
+   "u": "https://en.wikipedia.org/wiki/Red_knot"
+  },
+  {
+   "t": "Wikipedia: Wadden Sea",
+   "u": "https://en.wikipedia.org/wiki/Wadden_Sea"
+  },
+  {
+   "t": "Wikipedia: Banc d'Arguin National Park",
+   "u": "https://en.wikipedia.org/wiki/Banc_d'Arguin_National_Park"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🐦"
+}

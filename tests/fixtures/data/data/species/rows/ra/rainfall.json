@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Rainfall",
+ "tl": 0,
+ "wiki": "Rain",
+ "desc": "Rain and river water set how much the plants can grow.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "rainfall",
+ "sk": "resource",
+ "src": "legacy"
+}

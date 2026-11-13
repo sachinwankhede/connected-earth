@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soil & nutrients",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Thin, rocky soils on volcanic rock. Nutrients return to them as dead plants and animals are broken down.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soil-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

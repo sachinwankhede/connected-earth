@@ -4,6 +4,7 @@
   python3 build/build.py --all            build index.html (main), pilot/index.html and sw.js
   python3 build/build.py --out FILE       build the main app to FILE
   python3 build/build.py --pilot --out F  build with the auto-generated places included
+  --fixture                               build main and pilot on tests/fixtures/data into tests/fixtures/build (#787)
   --data-root DIR / --out-root DIR        read data/ and photos/ from DIR, write the output under DIR (default: the repository; #787, see build/paths.py)
 
 Source: src/app.html (one file, with placeholders), data/places/*.json (every place; those with "stage": "pilot" are auto-generated and only in the pilot build,
@@ -13,6 +14,8 @@ import collections, json, re, sys, os, shutil, hashlib, urllib.parse, base64, su
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+if '--fixture' in sys.argv:   # the app on the small frozen dataset of tests/fixtures/data, for the browser tests (#787): same as --all --data-root tests/fixtures/data --out-root tests/fixtures/build
+    os.environ.setdefault('CE_DATA_ROOT', os.path.join(ROOT, 'tests', 'fixtures', 'data')); os.environ.setdefault('CE_OUT_ROOT', os.path.join(ROOT, 'tests', 'fixtures', 'build'))
 for _flag, _env in (('--data-root', 'CE_DATA_ROOT'), ('--out-root', 'CE_OUT_ROOT')):   # before paths is imported (#787)
     if _flag in sys.argv: os.environ[_env] = sys.argv[sys.argv.index(_flag) + 1]
 import paths
@@ -719,10 +722,11 @@ def stamp_sw(main_html):
 
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if '--all' in a:
+    if '--all' in a or '--fixture' in a:
         main = build(False, O('index.html'), places=True)
         build(True, O('pilot', 'index.html'), write=True, places=True)
         stamp_sw(main)
+        if '--fixture' in a: open(O('.ready'), 'w').write('ok\n')   # written last: the tests wait for it (tests/app/helper.mjs)
     else:
         out = a[a.index('--out') + 1] if '--out' in a else O('dist', 'index.html')
         build('--pilot' in a, out)

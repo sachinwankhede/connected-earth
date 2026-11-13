@@ -4,15 +4,15 @@ import * as H from './helper.mjs';
 
 describe('smoke: every build loads cleanly on phone and desktop', () => {
   let browser;
-  before(async () => { browser = await H.launch(); });
+  before(async () => { await H.fixtureBuild(); browser = await H.launch(); });   // the fixture build (#787): a data change cannot reach this file
   after(async () => { await browser.close(); });
 
-  for (const [buildName, file, pilot] of [['main', H.MAIN, false], ['pilot', H.PILOT, true]]) {
+  for (const [buildName, file, pilot] of [['main', H.FMAIN, false], ['pilot', H.FPILOT, true]]) {
     for (const [sizeName, size] of Object.entries(H.SIZES)) {
       test(`${buildName} / ${sizeName}: loads, no page errors, home line matches the data`, async () => {
         const t = await H.open(browser, file, size);
         assert.deepEqual(t.errors, []);
-        const places = H.readPlaces(pilot);
+        const places = H.readFixturePlaces(pilot);
         const visible = places.filter((e) => e.level !== 'local');
         assert.equal(await H.hookText(t.page), H.HOOK);
         // phone: the line must be visible without opening the sheet
@@ -24,8 +24,8 @@ describe('smoke: every build loads cleanly on phone and desktop', () => {
   }
 
   test('main app: local-parks button shows when local parks exist; national auto places wait for zoom', async () => {
-    const t = await H.open(browser, H.MAIN, H.SIZES.phone);
-    const places = H.readPlaces(false), hasLocal = places.some((e) => e.level === 'local');
+    const t = await H.open(browser, H.FMAIN, H.SIZES.phone);
+    const places = H.readFixturePlaces(false), hasLocal = places.some((e) => e.level === 'local');
     assert.equal(await t.page.evaluate(() => getComputedStyle(document.getElementById('locbtn')).display) !== 'none', hasLocal);
     assert.equal(await t.page.evaluate(() => window.__M.map.getSource('atl-e')._data.features.length + window.__M.map.getSource('atl-f')._data.features.length), H.atWorld(places).length);
     await t.close();

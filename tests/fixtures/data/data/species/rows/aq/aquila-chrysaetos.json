@@ -1,0 +1,12 @@
+{
+ "latin": "Aquila chrysaetos",
+ "name": "Golden eagle",
+ "tl": 4,
+ "wiki": "Golden eagle",
+ "desc": "Large raptor that takes marmots and, from general knowledge, pikas and game birds.",
+ "ic": "goldeneagle",
+ "about": "The golden eagle is a bird of prey living in the Northern Hemisphere. It is the most widely distributed species of eagle.",
+ "sid": "aquila-chrysaetos",
+ "sk": "taxon",
+ "src": "legacy"
+}
