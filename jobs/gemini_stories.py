@@ -30,6 +30,9 @@ SYSTEM = ('You write two short texts about a protected natural place for a child
 SCHEMA = {'type': 'OBJECT', 'properties': {'story': {'type': 'STRING'}, 'matters': {'type': 'STRING'}}, 'required': ['story', 'matters']}
 
 class QuotaStop(Exception): pass
+class Overloaded(Exception): pass
+BUSY_WAITS = (30, 90, 180)   # seconds to wait before each retry of a 503 or timeout
+MAX_BUSY_IN_A_ROW = 3        # places in a row that stay busy: stop the run, nothing is lost
 
 def words(s): return len(re.findall(r"\S+", s or ''))
 def numbers(s): return set(re.findall(r'\d[\d,.]*\d|\d', s or ''))
@@ -72,17 +75,21 @@ def ask(name, where, kind, source, key):
             'contents': [{'parts': [{'text': 'PLACE: %s (%s; %s)\n\nSOURCE TEXT:\n%s' % (name, where, kind, source[:RESEARCH_CHARS])}]}],
             'generationConfig': {'temperature': 0.2, 'maxOutputTokens': MAX_OUT, 'responseMimeType': 'application/json', 'responseSchema': SCHEMA}}
     req = urllib.request.Request(URL, data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key}, method='POST')
-    for attempt in (0, 1):
+    attempt = busy = 0
+    while True:
         try:
             j = json.loads(fetch.urlopen(req, timeout=120).read()); break
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 wait = retry_delay(e.read())
-                if attempt == 0 and wait <= MAX_WAIT: time.sleep(wait + 2); continue
+                if attempt == 0 and wait <= MAX_WAIT: attempt = 1; time.sleep(wait + 2); continue
                 raise QuotaStop('HTTP 429, retry in %ss' % wait)
+            if e.code in (500, 503, 504) and busy < len(BUSY_WAITS): time.sleep(BUSY_WAITS[busy]); busy += 1; continue
+            if e.code in (500, 503, 504): raise Overloaded('HTTP %d' % e.code)
             return dict(error='HTTP %d' % e.code, detail=e.read()[:200].decode('utf-8', 'replace'))
         except Exception as e:
-            return dict(error=type(e).__name__)
+            if busy < len(BUSY_WAITS): time.sleep(BUSY_WAITS[busy]); busy += 1; continue
+            raise Overloaded(type(e).__name__)
     try:
         return dict(draft=json.loads(j['candidates'][0]['content']['parts'][0]['text']), tokens=j.get('usageMetadata', {}))
     except Exception:
@@ -122,14 +129,18 @@ def main():
     key = os.environ.get('GEMINI_API_KEY', '')
     if not key: print('GEMINI_API_KEY is not set'); sys.exit(2)
     todo_ids = todo(research_dir, out_dir, again); print(len(todo_ids), 'places without a draft;', 'drafting', min(limit, len(todo_ids)), flush=True)
-    ok = rej = tin = tout = 0; last = 0.0
+    ok = rej = tin = tout = busy_row = 0; last = 0.0
     for pid, name, where, kind in todo_ids[:limit]:
         source = open(os.path.join(research_dir, 'research', pid + '.md'), encoding='utf-8').read()
         wait = last + GAP - time.time()
         if wait > 0: time.sleep(wait)
         try: r = ask(name, where, kind, source, key)
         except QuotaStop as e: print('STOP: the quota is used up (%s). Drafts so far are kept; run again later.' % e); break
-        last = time.time()
+        except Overloaded as e:
+            busy_row += 1; print(pid, 'busy:', e, flush=True)
+            if busy_row >= MAX_BUSY_IN_A_ROW: print('STOP: the model stayed busy for %d places in a row. Drafts so far are kept; run again later.' % busy_row); break
+            continue
+        busy_row = 0; last = time.time()
         if 'error' in r: print(pid, 'error:', r['error'], r.get('detail', '')); continue
         t = r['tokens']; tin += t.get('promptTokenCount', 0); tout += t.get('candidatesTokenCount', 0)
         why = check(r['draft'], source)
