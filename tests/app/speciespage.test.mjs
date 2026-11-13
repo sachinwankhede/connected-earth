@@ -4,6 +4,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const page = (p) => p.evaluate(() => {
   const g = (s) => { const e = document.querySelector('#pview ' + s); return e ? e.textContent.trim() : null; };
   return { hidden: document.getElementById('pview').hidden, name: g('h2'), latin: g('.jr'), kind: g('.jkind'), about: g('.about'), back: g('.jback'), img: !!document.querySelector('#pview #sp-img img'), share: !!document.querySelector('#pview .shbtn'), foot: !!document.querySelector('#pview .srcd'), hash: decodeURIComponent(location.hash), map: !document.getElementById('mapview').hidden };
@@ -11,7 +13,7 @@ const page = (p) => p.evaluate(() => {
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a species page shows its names, kind, description, picture, share and credits, and Back leaves it`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     const file = await p.evaluate(() => fetch('api/species/pandion-haliaetus.json').then((r) => r.json()));
     let s = await page(p);
@@ -29,19 +31,19 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: from a search the link says Search and the address keeps both; a species with no file or no description or picture still renders`, async () => {
-    let b = await H.launch(); let t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); let p = t.page;
+    let b = await H.launch(); let t = await H.open(b, H.FMAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); let p = t.page;
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     let s = await page(p); assert.equal(s.back, '‹ Search'); assert.match(s.hash, /(^|&)s=osprey&sp=pandion-haliaetus$/);
     await p.click('.jback'); await H.pause(p, 600);
     s = await page(p); assert.equal(s.map, true); assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osprey', 'the search is still there');
     assert.deepEqual(t.errors, []); await b.close();
     // no file at all: the name made from the address, no description, the placeholder
-    b = await H.launch(); t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=no-such-species' }); p = t.page;
+    b = await H.launch(); t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=no-such-species' }); p = t.page;
     await p.waitForSelector('#pview h2', { timeout: 60000 }); await H.pause(p, 800);
     s = await page(p); assert.equal(s.name, 'No such species'); assert.equal(s.about, null); assert.equal(s.img, false); assert.equal(s.foot, true);
     await b.close();
     // a file with a name and no description and no picture
-    b = await H.launch(); t = await H.open(b, H.MAIN, size, { hash: '#stub' }); p = t.page;
+    b = await H.launch(); t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); p = t.page;
     await p.route(/api\/species\/test-bird\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=test-bird'; }); await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview .jr') && document.querySelector('#pview .jr').textContent === 'Testus avis', null, { timeout: 60000 });
     s = await page(p); assert.equal(s.latin, 'Testus avis'); assert.equal(s.kind, 'Hunter & scavenger'); assert.equal(s.about, null); assert.equal(s.img, false);
@@ -51,7 +53,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: a species page lists its places as rows, a row opens the place and Back returns, and Show on the map filters the map`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&s=osprey&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .prow .pmc[data-spp]', { timeout: 60000 });
     const info = await p.evaluate(() => ({ h3: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: document.querySelectorAll('#pview .prow .pmc[data-spp]').length, w: document.querySelector('#pview .prow .pmc[data-spp]').getBoundingClientRect().width, sideways: getComputedStyle(document.querySelector('#pview .prow .pmc[data-spp]').parentNode).overflowX === 'auto', mapLink: document.querySelector('#pview [data-spmap]').tagName === 'A' }));
     assert.match(await p.evaluate(() => document.querySelector('#pview .where').textContent), /^(Countries: .+ · )?Continents: .+$/, 'where it lives: countries and continents (#445)');
@@ -71,7 +73,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: the species page lists what it eats and what eats it; a row opens that species and Back says the name (#447)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .prow .pmc[data-latin]', { timeout: 60000 });
     const d = await p.evaluate(() => ({ heads: [...document.querySelectorAll('#pview h3')].map((h) => h.textContent), rows: [...document.querySelectorAll('#pview .prow .pmc[data-latin]')].map((r) => ({ latin: r.getAttribute('data-latin'), line: r.querySelector('small').textContent, w: r.getBoundingClientRect().width })), sideways: [...document.querySelectorAll('#pview .prow')].every((r) => r.scrollWidth >= r.clientWidth && getComputedStyle(r).overflowX === 'auto'), tall: document.querySelectorAll('#pview .sgl .sgr[data-latin]').length })); 
     assert.ok(d.heads.some((h) => h === 'What eats it') || d.heads.some((h) => h === 'What it eats'), 'a diet heading: ' + d.heads);
@@ -86,7 +88,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: the species page names its group, order and family, and the group opens its list in the Species tab (#446)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=pandion-haliaetus' }); const p = t.page;
     await p.waitForSelector('#pview .tax a[data-sg]', { timeout: 60000 });
     const tx = await p.evaluate(() => ({ text: document.querySelector('#pview .tax').textContent, g: document.querySelector('#pview .tax a').getAttribute('data-sg') }));
     assert.equal(tx.g, 'birds'); assert.match(tx.text, /^Birds › Accipitriformes › Pandionidae$/);
@@ -99,7 +101,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: the species page lists related species of the same family and a row opens that species (#448)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=canis-lupus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=canis-lupus' }); const p = t.page;
     await p.waitForFunction(() => [...document.querySelectorAll('#pview h3')].some((h) => h.textContent === 'Related species'), null, { timeout: 60000 });
     const d = await p.evaluate(() => { const h = [...document.querySelectorAll('#pview h3')].find((x) => x.textContent === 'Related species'); const rows = [...h.nextElementSibling.querySelectorAll('.pmc')]; return { n: rows.length, latins: rows.map((r) => r.getAttribute('data-latin')), name: document.querySelector('#pview h2').textContent }; });
     assert.ok(d.n >= 1 && d.n <= 5, 'up to five cards: ' + d.n); assert.ok(!d.latins.includes('Canis lupus'), 'not itself');
@@ -110,7 +112,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a species with a larger picture shows it as a wide photo above the title (#421)`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&sp=odocoileus-virginianus' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&sp=odocoileus-virginianus' }); const p = t.page;
     await p.waitForFunction(() => { const i = document.querySelector('#pview .jphoto'); return i && i.complete && i.naturalWidth > 0 && document.querySelector('#pview article').classList.contains('bigphoto'); }, null, { timeout: 60000 });
     const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, fit: getComputedStyle(i).objectFit, nw: i.naturalWidth, nh: i.naturalHeight, small: getComputedStyle(document.querySelector('#pview .jhimg')).display, title: document.querySelector('#pview h2').textContent }; });
     assert.match(d.src, /photos\/species-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 322, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.fit, 'contain', 'the whole picture is shown, nothing is cropped (#485)'); assert.ok(Math.abs(d.w / d.h - d.nw / d.nh) < 0.05 || d.h > 319, 'the box keeps the picture ratio unless it hits the height limit: ' + d.w + 'x' + d.h + ' of ' + d.nw + 'x' + d.nh); assert.equal(d.small, 'none', 'the small square is not shown next to it');
@@ -119,7 +121,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   });
 
   test(`${name}: a species found in one place shows that place`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
@@ -131,7 +133,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the species sheet of a graph links to the species page and Back returns to the graph`, async () => {
-    const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub&e=npmammothcave' }); const p = t.page;
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&e=nparches' }); const p = t.page;
     await p.waitForSelector('.node', { timeout: 60000 });
     const latin = await p.evaluate(async () => {
       for (const c of [...document.querySelectorAll('.node')]) {
@@ -147,7 +149,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const s = await page(p); assert.match(s.hash, /(^|&)sp=[a-z0-9-]+$/); assert.match(s.back, /^‹ \S/); assert.notEqual(s.back, '‹ Places', 'Back names the place it returns to');
     await p.evaluate(() => history.back()); await H.pause(p, 1200);
     assert.equal(await p.evaluate(() => !document.getElementById('webview').hidden), true, 'Back returns to the graph');
-    assert.match(await p.evaluate(() => decodeURIComponent(location.hash)), /(^|&)e=npmammothcave$/);
+    assert.match(await p.evaluate(() => decodeURIComponent(location.hash)), /(^|&)e=nparches$/);
     assert.deepEqual(t.errors, []); await b.close();
   });
 }
