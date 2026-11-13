@@ -3,8 +3,8 @@
 Usage: commonscategory.py [limit] [--again]
 Many small parks have a Commons category (for example "Category:Mill Bluff State Park") whose files carry no coordinates, so the location search never saw them.
 For each place title in photos/places/missing.json whose place has no picture file yet:
-  1. searches Commons categories for the place name and keeps the first category whose title shares at least half of the place name's distinctive words
-     (generic words such as Park, State, Lake are ignored) and does not name a building or business;
+  1. searches Commons categories for the place name and keeps the first category that is the place itself: its title adds no distinctive word the place name lacks,
+     shares at least half of the place's words, names no building, agrees on state / national / county, and has a Park-or-Lake type word when the place name has none (see good_category);
   2. lists up to 50 files of that category and keeps the first open-licence JPEG (CC0, CC BY, CC BY-SA, public domain: #421) that passes the same checks as commonsplacephotos.pick
      and does not name a building, road, town or sign; files whose name shares a distinctive word with the place come first;
   3. stores it as photos/places/<id>.jpg, adds it to photos/places/places.json (keyed by the place's imgwiki title) and removes the title from missing.json.
@@ -28,18 +28,41 @@ def category_files(cat):
     j = wm.get(q) or {}
     return [m['title'][5:].replace(' ', '_') for m in (j.get('query') or {}).get('categorymembers', [])]
 
-def good_category(cats, want):
-    """The first category title sharing at least half of the place's distinctive words and naming no building or business, else None."""
-    need = (len(want) + 1) // 2
+KIND = {'state', 'national', 'county', 'city', 'regional', 'provincial'}   # who runs the place: a state park is not a national preserve
+# file names that are not a picture of the place: scientific figures, newspaper clippings, portraits
+NOTPLACE = __import__('re').compile(r'(?<![a-z])(figure|fig|diagram|chart|poster|newspaper|courier|bulletin|portrait|congressman|senator|surname)s?(?![a-z])', __import__('re').I)
+
+def toks(s):
+    """Like n.words but from 3 letters up, so a short extra word such as 'Oak' in 'White Oak Lake' still counts as an extra word."""
+    import unicodedata, re
+    s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower()
+    return {w for w in re.findall(r'[a-z]{3,}', s) if w not in n.GENERIC and w not in KIND}
+
+def good_category(cats, name):
+    """The first category that is the place itself, else None. After dropping a bracketed note such as "(California)", the category title must
+    (1) add no distinctive word the place name lacks ("Baker River, Washington State" is not "Baker Creek State Park"),
+    (2) share at least half of the place's distinctive words,
+    (3) name no building or business,
+    (4) agree on who runs the place (state, national, county ...), and
+    (5) when the place name has no word like Park, Lake or Reserve of its own (a bare "Riverside" or "Pickett"), contain one."""
+    import re
+    want = n.words(name)
+    if not want: return None
+    kind = {w for w in re.findall(r'[a-z]+', name.lower()) if w in KIND}; has_type = any(w in n.GENERIC and w not in KIND for w in re.findall(r'[a-z]+', name.lower()))
     for cat in cats:
-        if want and len(want & n.words(cat)) >= need and not n.BUILDING.search(cat): return cat
+        base = re.sub(r'\s*\([^)]*\)', '', cat); got = n.words(base)
+        low = re.findall(r'[a-z]+', base.lower())
+        if not got or toks(base) - toks(name) or len(got) * 2 < len(want) or n.BUILDING.search(cat): continue
+        if kind and kind != {w for w in low if w in KIND}: continue
+        if not has_type and not any(w in n.GENERIC and w not in KIND for w in low): continue
+        return cat
     return None
 
 def choose(files, want, info):
     """The first acceptable file, files naming a distinctive word of the place first; None if no file passes."""
     ordered = [f for f in files if want & n.words(f)] + [f for f in files if not want & n.words(f)]
     for fn in ordered:
-        if n.BUILDING.search(fn): continue
+        if n.BUILDING.search(fn) or NOTPLACE.search(fn): continue
         got = c.pick([fn], info)
         if got: return got
     return None
@@ -55,7 +78,7 @@ def main():
     print(len(todo), 'places to try', flush=True); found_n = 0
     for k, t in enumerate(todo, 1):
         pid, name = info_by[t][0], info_by[t][1]; want = n.words(name) | n.words(t)
-        cat = good_category(categories(name), want); files = category_files(cat) if cat else []
+        cat = good_category(categories(name), name); files = category_files(cat) if cat else []
         got = choose(files, want, cp.commons_info(files[:50])) if files else None
         if not got: tried[t] = today.isoformat(); print('  no:', t, '-', ('category ' + cat + ' has no usable file') if cat else 'no matching category', flush=True)
         else:
