@@ -5,7 +5,9 @@ import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
-for (const [buildName, base] of [['main', H.MAIN], ['pilot', H.PILOT]]) describe(`region counts from the file (${buildName})`, () => {
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
+for (const [buildName, base] of [['main', H.FMAIN], ['pilot', H.FPILOT]]) describe(`region counts from the file (${buildName})`, () => {
   let browser;
   before(async () => { browser = await H.launch(); });
   after(async () => { await browser.close(); });

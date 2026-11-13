@@ -1037,6 +1037,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "carex-folliculata": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 97,
+  "family": "Cyperaceae",
+  "gname": "Carex folliculata L.",
+  "key": 2722527,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "carex-podocarpa": {
   "at": "2026-11-04",
   "class": "Liliopsida",
@@ -1271,6 +1285,20 @@
   "kingdom": "Animalia",
   "match": "exact",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "chinavia-hilaris": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Pentatomidae",
+  "gname": "Chinavia hilaris",
+  "key": 10671194,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Hemiptera",
+  "phylum": "Arthropoda",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -1992,6 +2020,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "erethizon-dorsatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Erethizontidae",
+  "gname": "Erethizon dorsatus (Linnaeus, 1758)",
+  "key": 6066824,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "ericameria-nauseosa": {
   "at": "2026-11-04",
   "class": "Magnoliopsida",
@@ -2448,6 +2490,20 @@
   "match": "exact",
   "order": "Asterales",
   "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "hemaris-thysbe": {
+  "at": "2026-11-04",
+  "class": "Insecta",
+  "conf": 100,
+  "family": "Sphingidae",
+  "gname": "Hemaris thysbe Fabricius, 1775",
+  "key": 1861851,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Lepidoptera",
+  "phylum": "Arthropoda",
   "rank": "SPECIES",
   "src": "gbif"
  },
@@ -3368,6 +3424,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "monarda-fistulosa": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Lamiaceae",
+  "gname": "Monarda fistulosa L.",
+  "key": 5341411,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Lamiales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "mugil-cephalus": {
   "at": "2026-11-04",
   "conf": 100,
@@ -4269,6 +4339,20 @@
   "order": "Poales",
   "phylum": "Tracheophyta",
   "rank": "FAMILY",
+  "src": "gbif"
+ },
+ "poecile-atricapillus": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Paridae",
+  "gname": "Poecile atricapillus (Linnaeus, 1766)",
+  "key": 2487805,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
   "src": "gbif"
  },
  "poecile-carolinensis": {
@@ -5356,6 +5440,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "tsuga-canadensis": {
+  "at": "2026-11-04",
+  "class": "Pinopsida",
+  "conf": 99,
+  "family": "Pinaceae",
+  "gname": "Tsuga canadensis (L.) Carrière",
+  "key": 2687182,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Pinales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "turdus-migratorius": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -5552,6 +5650,34 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "viburnum-lantanoides": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Viburnaceae",
+  "gname": "Viburnum lantanoides Michx.",
+  "key": 2888601,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Dipsacales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "viola-labradorica": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Violaceae",
+  "gname": "Viola labradorica Schrank",
+  "key": 5331200,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Malpighiales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "vireo-olivaceus": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -5576,6 +5702,20 @@
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "zenaida-macroura": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Columbidae",
+  "gname": "Zenaida macroura (Linnaeus, 1758)",
+  "key": 2495347,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Columbiformes",
   "phylum": "Chordata",
   "rank": "SPECIES",
   "src": "gbif"
