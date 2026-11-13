@@ -65,7 +65,7 @@ The key, host, model and JSON output work. Quality on five journeys: 3 usable; t
 
 ## Reuse (planned)
 
-The calling code (key header, retry and busy handling, the quota stop, the model chain, pacing, token counts) lives inside `jobs/gemini_stories.py`, and the trial has its own copy in `jobs/gemini_batch.py`. Item #772 moves it into `lib/gemini.py` so a new task writes only its prompt, schema and checks.
+The calling code (key header, retry and busy handling, the quota stop, the model chain, pacing, token counts) lives inside `jobs/gemini_stories.py`, and the trial has its own copy in `jobs/gemini_batch.py`. Item #772 moves it into `lib/gemini_api.py` so a new task writes only its prompt, schema and checks.
 
 ## Where things are
 
