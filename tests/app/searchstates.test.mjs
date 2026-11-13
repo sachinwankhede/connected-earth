@@ -31,7 +31,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await answered(p, 'elk'); await H.pause(p, 800);
     const n = await p.evaluate(() => window.__n);
     assert.ok(n >= 1 && n <= 8, 'draws for six keys: ' + n);   // before: at least two per key (12 or more); now the first letter, the rest as one, and what the local places and the photos add
-    assert.match(await stats(p), /places? match “elk”/);
+    assert.match(await stats(p), /places? matche?s? “elk”/);
     assert.ok(await cards(p) > 0, 'elk has places');
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -72,7 +72,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#q'); await p.keyboard.type('yellow'); await p.keyboard.press('Enter');
     await answered(p, 'yellow');
     const s = await stats(p);
-    assert.match(s, /places? match “yellow”/); assert.match(s, /Search is limited right now/);
+    assert.match(s, /places? matche?s? “yellow”/); assert.match(s, /Search is limited right now/);
     assert.ok(await cards(p) > 0, 'the card text still finds the place');
     assert.deepEqual(t.errors, []); await b.close();
   });
