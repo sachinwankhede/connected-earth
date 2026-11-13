@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """fixcoords.py: find places whose coordinates lie outside their own state and correct them from Wikipedia (#767).
 Usage: fixcoords.py [--audit]   (--audit only lists, changes nothing)
-Audit: for US places with a `states` list (FIPS codes, as in geo-states.json), a place whose point is more than TOL degrees from every one of its states is flagged
+Audit: for US places with a `states` list (FIPS codes, as in the `states` of data/geo/geo.json), a place whose point is more than TOL degrees from every one of its states is flagged
 (TOL lets coast and island places pass).
 Fix: for a flagged place the coordinates of its Wikipedia article (the imgwiki title first, then the titles in its `sources`) are read with the en.wikipedia.org API
 (prop=coordinates, primary); they are taken only when they fall inside, or within TOL of, one of the place's own states. Otherwise the place is left and listed as
@@ -90,7 +90,7 @@ def drop_pictures(root):
 
 if __name__ == '__main__':
     sys.path.insert(0, HERE); import wm
-    geo = {s['id']: s['g'] for s in json.load(open(os.path.join(ROOT, 'geo-states.json')))}
+    geo = {s['id']: s['g'] for s in json.load(open(os.path.join(ROOT, 'data/geo/geo.json')))['states']}
     if '--audit' in sys.argv:
         for f, d in audit(os.path.join(ROOT, 'data/places'), geo): print('flagged:', d['id'], d['name'], d['place'], d['lat'], d['lon'])
         sys.exit(0)

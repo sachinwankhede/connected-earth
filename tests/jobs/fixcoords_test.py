@@ -37,5 +37,14 @@ class T(unittest.TestCase):
             self.assertEqual(json.load(open(os.path.join(t, 'ok.json')))['lon'], 5)
 
 
+    def test_committed_geo_loads(self):
+        root = os.path.join(os.path.dirname(__file__), '..', '..')
+        geo = {s['id']: s['g'] for s in json.load(open(os.path.join(root, 'data/geo/geo.json')))['states']}
+        self.assertIn('25', geo)                                       # Massachusetts
+        self.assertTrue(fc.near_states(42.3, -71.5, ['25'], geo))
+        self.assertFalse(fc.near_states(43.77, -79.71, ['25'], geo))    # the wrong Wells State Park point (Ontario)
+        fc.audit(os.path.join(root, 'data/places'), geo)               # runs on the committed data
+
+
 if __name__ == '__main__':
     unittest.main()
