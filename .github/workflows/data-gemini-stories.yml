@@ -1,0 +1,56 @@
+name: data-gemini-stories
+# Manual only (#196, #747). Drafts the story and "why it matters" line with the Gemini API for places that have research (branch `research`) and no story yet.
+# Free-tier friendly: at most `limit` places per run (hard cap 15 in the script), one request every 15 s, and if the quota runs out the script stops cleanly.
+# Nothing is lost: every draft is written to its own file the moment it is checked, and the "Save the drafts" step runs even if the draft step failed or stopped,
+# committing the drafts to the branch `gemini-stories` (REVIEW.md there lists every draft for the owner to read). The next run resumes where this one stopped.
+# No place file is changed and no pull request is opened: the owner approves drafts first, and a later step promotes them.
+# GEMINI_API_KEY goes to the one step that calls the API (never the whole job). Runs from main only.
+on:
+  workflow_dispatch:
+    inputs:
+      limit: { description: "Places to draft in this run (the first run: 15; at most 15)", default: "15" }
+      again: { description: "yes = also ask again for places whose draft the checks rejected", default: "no" }
+permissions:
+  contents: write
+concurrency: data-gemini
+jobs:
+  stories:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LIMIT: ${{ github.event.inputs.limit || '15' }}
+      AGAIN: ${{ github.event.inputs.again || 'no' }}
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/checkout@v5
+        with: { ref: research, path: research-src, persist-credentials: false }
+      - name: Open the drafts branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$REMOTE" gemini-stories >/dev/null 2>&1; then
+            git fetch --depth 1 "$REMOTE" gemini-stories
+            git worktree add --detach drafts-out FETCH_HEAD
+          else
+            git worktree add --detach drafts-out
+            (cd drafts-out && git checkout -q --orphan gemini-stories && git rm -rfq . && echo "# Gemini story drafts (#196). REVIEW.md lists every draft." > README.md)
+          fi
+      - name: Draft the stories (capped, resumable)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 jobs/gemini_stories.py research-src drafts-out "$LIMIT" $([ "$AGAIN" = "yes" ] && echo --again)
+      - name: Save the drafts (also after a stop or a failure)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd drafts-out
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing new to save"; exit 0; fi
+          git commit -q -m "Story drafts: $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/gemini-stories
+          { echo "### Story drafts"; echo; echo "Branch \`gemini-stories\`, file REVIEW.md. $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected so far."; } >> "$GITHUB_STEP_SUMMARY"
