@@ -33,7 +33,7 @@ describe('base map fallback', () => {
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: satellite fails, street map still works -> streets, no plain map`, async () => {
       const t = await open(size, { vectorOk: true, satOk: false });
-      await H.jump(t.page, [10, 45], 5); await t.page.waitForTimeout(500);
+      await H.jump(t.page, [10, 45], 5); await H.pause(t.page, 500);
       await wait(t.page, () => window.__M.mode === 'streets');
       const s = await state(t.page);
       assert.equal(s.stub, false); assert.equal(s.nobase, false);

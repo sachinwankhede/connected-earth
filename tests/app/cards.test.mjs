@@ -10,7 +10,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const p = t.page;
     await p.waitForSelector('#cards .card', { state: 'attached', timeout: 60000 });
     // ask for more cards where the list is paged (phone), so the later cards are checked too
-    for (let i = 0; i < 4; i++) { await p.evaluate(() => { const m = document.getElementById('more'); if (m && !m.closest('[hidden]')) m.click(); }); await p.waitForTimeout(150); }
+    for (let i = 0; i < 4; i++) { await p.evaluate(() => { const m = document.getElementById('more'); if (m && !m.closest('[hidden]')) m.click(); }); await H.pause(p, 150); }
     const r = await p.evaluate(() => {
       const cards = [...document.querySelectorAll('#cards li:not([hidden]):not(.pg) .card')];
       const bad = cards.filter((c) => /undefined|NaN|null/.test(c.textContent)).map((c) => c.getAttribute('data-eco'));
