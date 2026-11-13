@@ -9,6 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       limit: { description: "Places to draft in this run (the first run: 15; 0 = every place left, at most 150)", default: "15" }
+      model: { description: "Gemini model: gemini-3.5-flash-lite (500 requests a day on the free tier), gemini-3.1-flash-lite (500) or gemini-3.8-flash (only 20 a day)", default: "gemini-3.5-flash-lite" }
       again: { description: "yes = also ask again for places whose draft the checks rejected", default: "no" }
 permissions:
   contents: write
@@ -21,6 +22,7 @@ jobs:
     env:
       LIMIT: ${{ github.event.inputs.limit || '15' }}
       AGAIN: ${{ github.event.inputs.again || 'no' }}
+      GEMINI_MODEL: ${{ github.event.inputs.model || 'gemini-3.5-flash-lite' }}
     steps:
       - uses: actions/checkout@v5
         with: { ref: main, persist-credentials: false }

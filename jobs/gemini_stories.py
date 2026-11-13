@@ -14,7 +14,8 @@ import sys, os, re, json, time, glob, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, HERE)
 import fetch, urllib.request, urllib.error
-MODEL = 'gemini-3.8-flash'
+MODELS = ('gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.8-flash')   # free-tier daily limits seen 13 Nov: 500, 500 and 20 requests; each model has its own quota
+MODEL = os.environ.get('GEMINI_MODEL') or MODELS[0]
 URL = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent'
 MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = 15; MAX_WAIT = 90; RESEARCH_CHARS = 30000
 PROMPT_VERSION = 'stories-1'
@@ -126,6 +127,7 @@ def main():
     if len(args) < 2: print(__doc__); sys.exit(2)
     research_dir, out_dir = args[0], args[1]; limit = int(args[2]) if len(args) > 2 else 15
     limit = min(limit or MAX_ROWS, MAX_ROWS)   # 0 = all left, capped
+    if MODEL not in MODELS: print('model %r is not one of %s' % (MODEL, ', '.join(MODELS))); sys.exit(2)
     key = os.environ.get('GEMINI_API_KEY', '')
     if not key: print('GEMINI_API_KEY is not set'); sys.exit(2)
     todo_ids = todo(research_dir, out_dir, again); print(len(todo_ids), 'places without a draft;', 'drafting', min(limit, len(todo_ids)), flush=True)

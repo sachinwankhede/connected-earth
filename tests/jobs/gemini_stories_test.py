@@ -109,6 +109,9 @@ class RunTests(unittest.TestCase):
         self.assertTrue(all(os.path.exists(os.path.join(self.out, p + '.json')) for p in ('bb', 'cc'))); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))
         self.run_main(['BUSY', 'BUSY', 'BUSY'])   # a fourth place would have raised StopIteration: the run stopped before asking it
 
+    def test_an_unknown_model_is_refused_before_any_request(self):
+        with mock.patch.object(g, 'MODEL', 'gemini-9-ultra'), mock.patch.dict(os.environ, {'GEMINI_API_KEY': 'k'}), mock.patch.object(sys, 'argv', ['x', self.res, self.out]), self.assertRaises(SystemExit): g.main()
+
     def test_a_failed_check_is_kept_as_rejected_and_not_asked_again(self):
         self.run_main([self.ok('Lake Park was founded in 1999.'), self.ok(), self.ok()])
         self.assertTrue(os.path.exists(os.path.join(self.out, 'rejected', 'aa.json'))); self.assertFalse(os.path.exists(os.path.join(self.out, 'aa.json')))
