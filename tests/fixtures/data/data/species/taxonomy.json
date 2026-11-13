@@ -249,6 +249,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "aphelocoma-woodhouseii": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Corvidae",
+  "gname": "Aphelocoma woodhouseii (S.F.Baird, 1858)",
+  "key": 5844900,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "aplodinotus-grunniens": {
   "at": "2026-11-04",
   "conf": 100,
@@ -1173,6 +1187,20 @@
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Ericales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "cercocarpus-montanus": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Rosaceae",
+  "gname": "Cercocarpus montanus Raf.",
+  "key": 3001912,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Rosales",
   "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
@@ -3603,6 +3631,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "otospermophilus-variegatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Sciuridae",
+  "gname": "Otospermophilus variegatus (Erxleben, 1777)",
+  "key": 7572569,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "ovis-canadensis": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -4049,6 +4091,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "pinus-edulis": {
+  "at": "2026-11-04",
+  "class": "Pinopsida",
+  "conf": 99,
+  "family": "Pinaceae",
+  "gname": "Pinus edulis Engelm.",
+  "key": 5285796,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Pinales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "pinus-palustris": {
   "at": "2026-11-04",
   "class": "Pinopsida",
@@ -4460,6 +4516,20 @@
   "match": "exact",
   "order": "Siluriformes",
   "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "quercus-gambelii": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Fagaceae",
+  "gname": "Quercus gambelii Nutt.",
+  "key": 2878268,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Fagales",
+  "phylum": "Tracheophyta",
   "rank": "SPECIES",
   "src": "gbif"
  },

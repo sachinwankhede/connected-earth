@@ -24,6 +24,7 @@ MAIN = [
     'ribeavertail', 'nccarverscreek', 'wisaukprairie',                           # local (automatic), Forest, Lakes & wetlands, Grassland
     'uschickasawnationalrecre', 'usgulfislandsnationalsea', 'usagassiznationalwildlif',   # national, Forest, Coast & ocean, Lakes & wetlands
     'npwindcave',                                                                # park overview, Grassland: shares elk with yellowstone (the place sheet's "Also found in" row)
+    'npblackcanyon',                                                             # park overview, Polar & mountain: the third elk place; the place sheet test's mocked pictures leave one of the two other elk places with a picture and one without (it checks both)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
@@ -66,11 +67,11 @@ def main():
     con = load(os.path.join(sd, 'conservation.json')); dump({k: v for k, v in con.items() if k in lat}, os.path.join(od, 'conservation.json'), indent=1)
     dump({}, os.path.join(od, 'about.json'))
     os.makedirs(os.path.join(OUT, 'data', 'geo')); shutil.copyfile(R('data', 'geo', 'geo.json'), os.path.join(OUT, 'data', 'geo', 'geo.json'))
-    # place pictures (the app reads photos/places/places.json, keyed by the place's imgwiki title, and the image files next to it): eight places with a picture, the rest without (and npwindcave, so the place sheet's "Also found in" row has a picture to show)
+    # place pictures (the app reads photos/places/places.json, keyed by the place's imgwiki title, and the image files next to it): eight places with a picture, the rest without
     pp = load(R('photos', 'places', 'places.json')); out = {}; pd = os.path.join(OUT, 'photos', 'places'); os.makedirs(pd)
     for i in MAIN:
         e = pp.get(places[i].get('imgwiki') or '')
-        if e and (len(out) < 8 or i == 'npwindcave') and os.path.exists(R('photos', 'places', e['f'])):
+        if e and len(out) < 8 and os.path.exists(R('photos', 'places', e['f'])):
             out[places[i]['imgwiki']] = e; shutil.copyfile(R('photos', 'places', e['f']), os.path.join(pd, e['f']))
     dump(out, os.path.join(pd, 'places.json'), indent=1)
     print('fixture data: %d places (%d pilot), %d species, %d journeys, %d place pictures' % (len(ids), len(PILOT), len(keep), len(JOURNEYS), len(out)))
