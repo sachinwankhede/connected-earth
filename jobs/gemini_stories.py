@@ -14,10 +14,12 @@ import sys, os, re, json, time, glob, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, HERE)
 import fetch, urllib.request, urllib.error
+import gemini_api as api
+from gemini_api import QuotaStop, Overloaded, BUSY_WAITS, MAX_BUSY_IN_A_ROW, retry_delay   # the calling code is shared (lib/gemini_api.py, #772)
 MODELS = ('gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.8-flash')   # free-tier daily limits seen 13 Nov: 500, 500 and 20 requests; each model has its own quota
 MODEL = os.environ.get('GEMINI_MODEL') or MODELS[0]   # one model, or several separated by commas: tried in that order, the next one takes over when a model is out of quota or stays busy
-URL = 'https://generativelanguage.googleapis.com/v1beta/models/%s:generateContent'
-MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = 15; MAX_WAIT = 90; RESEARCH_CHARS = 30000
+URL = api.URL
+MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = api.GAP; MAX_WAIT = api.MAX_WAIT; RESEARCH_CHARS = 30000
 PROMPT_VERSION = 'stories-2'
 STORY_WORDS = 60; WHY_WORDS = 40
 SYSTEM = ('You write two short texts about a protected natural place for a children-friendly nature atlas. Use ONLY facts stated in the SOURCE TEXT: no outside knowledge, no guesses. '
@@ -29,11 +31,6 @@ SYSTEM = ('You write two short texts about a protected natural place for a child
           'matters: It is one of the two remaining habitats of the Sumatran orangutan, which is critically endangered and lives only in northern Sumatra. An orangutan sanctuary operates at Bukit Lawang.\n'
           'Reply as JSON: {"story": "...", "matters": "..."}.') % (STORY_WORDS - 10, WHY_WORDS - 6)   # the prompt asks for fewer words than the checks allow, so a draft that runs long still passes
 SCHEMA = {'type': 'OBJECT', 'properties': {'story': {'type': 'STRING'}, 'matters': {'type': 'STRING'}}, 'required': ['story', 'matters']}
-
-class QuotaStop(Exception): pass
-class Overloaded(Exception): pass
-BUSY_WAITS = (30, 90, 180)   # seconds to wait before each retry of a 503 or timeout
-MAX_BUSY_IN_A_ROW = 3        # places in a row that stay busy: stop the run, nothing is lost
 
 def words(s): return len(re.findall(r"\S+", s or ''))
 def numbers(s): return set(re.findall(r'\d[\d,.]*\d|\d', s or ''))
@@ -72,33 +69,9 @@ def todo(research_dir, out_dir, again, data_dir=None):
     return ids
 
 def ask(name, where, kind, source, key, model=None):
-    body = {'systemInstruction': {'parts': [{'text': SYSTEM}]},
-            'contents': [{'parts': [{'text': 'PLACE: %s (%s; %s)\n\nSOURCE TEXT:\n%s' % (name, where, kind, source[:RESEARCH_CHARS])}]}],
-            'generationConfig': {'temperature': 0.2, 'maxOutputTokens': MAX_OUT, 'responseMimeType': 'application/json', 'responseSchema': SCHEMA}}
-    req = urllib.request.Request(URL % (model or MODEL.split(',')[0].strip()), data=json.dumps(body).encode(), headers={'Content-Type': 'application/json', 'x-goog-api-key': key}, method='POST')
-    attempt = busy = 0
-    while True:
-        try:
-            j = json.loads(fetch.urlopen(req, timeout=120).read()); break
-        except urllib.error.HTTPError as e:
-            if e.code == 429:
-                wait = retry_delay(e.read())
-                if attempt == 0 and wait <= MAX_WAIT: attempt = 1; time.sleep(wait + 2); continue
-                raise QuotaStop('HTTP 429, retry in %ss' % wait)
-            if e.code in (500, 503, 504) and busy < len(BUSY_WAITS): time.sleep(BUSY_WAITS[busy]); busy += 1; continue
-            if e.code in (500, 503, 504): raise Overloaded('HTTP %d' % e.code)
-            return dict(error='HTTP %d' % e.code, detail=e.read()[:200].decode('utf-8', 'replace'))
-        except Exception as e:
-            if busy < len(BUSY_WAITS): time.sleep(BUSY_WAITS[busy]); busy += 1; continue
-            raise Overloaded(type(e).__name__)
-    try:
-        return dict(draft=json.loads(j['candidates'][0]['content']['parts'][0]['text']), tokens=j.get('usageMetadata', {}))
-    except Exception:
-        return dict(error='unreadable answer')
-
-def retry_delay(body):
-    m = re.search(r'"retryDelay"\s*:\s*"(\d+(?:\.\d+)?)s"', body.decode('utf-8', 'replace') if isinstance(body, bytes) else str(body))
-    return int(float(m.group(1))) + 1 if m else 3600
+    body = api.request_body(SYSTEM, 'PLACE: %s (%s; %s)\n\nSOURCE TEXT:\n%s' % (name, where, kind, source[:RESEARCH_CHARS]), SCHEMA, temperature=0.2, max_out=MAX_OUT)
+    r = api.generate(model or MODEL.split(',')[0].strip(), body, key)   # retry, 429 and busy handling are in lib/gemini_api.py
+    return dict(draft=r['answer'], tokens=r['tokens']) if 'answer' in r else r
 
 def write(path, obj):
     os.makedirs(os.path.dirname(path), exist_ok=True); tmp = path + '.tmp'
@@ -127,32 +100,27 @@ def main():
     if len(args) < 2: print(__doc__); sys.exit(2)
     research_dir, out_dir = args[0], args[1]; limit = int(args[2]) if len(args) > 2 else 15
     limit = min(limit or MAX_ROWS, MAX_ROWS)   # 0 = all left, capped
-    chain = [m.strip() for m in MODEL.split(',') if m.strip()]
-    bad = [m for m in chain if m not in MODELS]
-    if not chain or bad: print('model %r is not one of %s' % (', '.join(bad) or MODEL, ', '.join(MODELS))); sys.exit(2)
+    try: chain = api.Chain(MODEL, MODELS)
+    except ValueError as e: print(e); sys.exit(2)
     key = os.environ.get('GEMINI_API_KEY', '')
     if not key: print('GEMINI_API_KEY is not set'); sys.exit(2)
     todo_ids = todo(research_dir, out_dir, again); print(len(todo_ids), 'places without a draft;', 'drafting', min(limit, len(todo_ids)), flush=True)
-    ok = rej = tin = tout = busy_row = idx = 0; last = 0.0; out_of = []
-    def next_model(why):
-        nonlocal idx, busy_row
-        out_of.append(chain[idx]); print('MODEL OUT: %s (%s)%s' % (chain[idx], why, '' if idx + 1 >= len(chain) else '; trying ' + chain[idx + 1]), flush=True)
-        idx += 1; busy_row = 0; return idx < len(chain)
+    ok = rej = tin = tout = 0; last = 0.0
     for pid, name, where, kind in todo_ids[:limit]:
-        if idx >= len(chain): break
+        if chain.exhausted: break
         source = open(os.path.join(research_dir, 'research', pid + '.md'), encoding='utf-8').read()
         r = None
-        while idx < len(chain) and r is None:
+        while not chain.exhausted and r is None:
             wait = last + GAP - time.time()
             if wait > 0: time.sleep(wait)
-            try: r = ask(name, where, kind, source, key, chain[idx])
-            except QuotaStop as e: next_model('quota used up, %s' % e); last = time.time()
+            try: r = ask(name, where, kind, source, key, chain.current)
+            except QuotaStop as e: print(chain.out('quota used up, %s' % e), flush=True); last = time.time()
             except Overloaded as e:
-                busy_row += 1; print(pid, 'busy on', chain[idx] + ':', e, flush=True); last = time.time()
-                if busy_row >= MAX_BUSY_IN_A_ROW: next_model('busy for %d places in a row' % busy_row)
+                chain.busy_row += 1; print(pid, 'busy on', chain.current + ':', e, flush=True); last = time.time()
+                if chain.busy_row >= MAX_BUSY_IN_A_ROW: print(chain.out('busy for %d places in a row' % chain.busy_row), flush=True)
                 else: break   # skip this place for now; it is asked again on the next run
         if r is None: continue
-        busy_row = 0; last = time.time(); used = chain[idx]
+        chain.busy_row = 0; last = time.time(); used = chain.current
         if 'error' in r: print(pid, 'error:', r['error'], r.get('detail', '')); continue
         t = r['tokens']; tin += t.get('promptTokenCount', 0); tout += t.get('candidatesTokenCount', 0)
         why = check(r['draft'], source)
@@ -161,7 +129,7 @@ def main():
         if why: rec['rejected'] = why; write(os.path.join(out_dir, 'rejected', pid + '.json'), rec); rej += 1
         else: write(os.path.join(out_dir, pid + '.json'), rec); ok += 1
         print(pid, '->', 'REJECTED: ' + why if why else 'ok (%d + %d words)' % (words(rec['story']), words(rec['matters'])), flush=True)
-    if idx >= len(chain): print('STOP: every model is out (%s). Drafts so far are kept; run again later.' % ', '.join(out_of))
+    if chain.exhausted: print('STOP: every model is out (%s). Drafts so far are kept; run again later.' % ', '.join(chain.out_of))
     review(out_dir)
     print('accepted', ok, '| rejected', rej, '| prompt tokens', tin, '| output tokens', tout)
 

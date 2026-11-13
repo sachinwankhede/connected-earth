@@ -34,7 +34,7 @@ A retried 503 costs a request. One story draft costs about 6,500 prompt tokens a
 
 ## Error model and the loop through models
 
-Defined in `jobs/gemini_stories.py` (to be shared, see "Reuse"):
+Defined in `jobs/gemini_stories.py` (now in `lib/gemini_api.py`, see "Reuse"):
 
 - **429, quota:** if Google gives a retry delay up to `MAX_WAIT` (90 s) the job waits once and tries again; otherwise that model is **out for the run** (a daily limit can give a delay of hours).
 - **500, 503, 504 and timeouts ("high demand"):** retried after 30, 90 and 180 seconds (`BUSY_WAITS`); if the place stays busy the model is marked out (`Overloaded`). The first run lost 13 minutes to 503s before this existed.
@@ -63,12 +63,13 @@ The key, host, model and JSON output work. Quality on five journeys: 3 usable; t
 6. A unit test with a fake API for the loop, the retries, the quota stop and every check.
 7. Run 10 to 15 rows, read every result, then decide the full run; record the numbers in this file.
 
-## Reuse (planned)
+## Reuse: `lib/gemini_api.py`
 
-The calling code (key header, retry and busy handling, the quota stop, the model chain, pacing, token counts) lives inside `jobs/gemini_stories.py`, and the trial has its own copy in `jobs/gemini_batch.py`. Item #772 moves it into `lib/gemini_api.py` so a new task writes only its prompt, schema and checks.
+The shared calling code lives in `lib/gemini_api.py` (#772): `generate()` (one request with the 429 and busy handling above), `Chain` (the model list and hand-over), `request_body()` (system prompt, user text, JSON schema, temperature, token cap), `retry_delay()`, the errors `QuotaStop` and `Overloaded`, and the constants `GAP`, `MAX_WAIT`, `BUSY_WAITS`, `MAX_BUSY_IN_A_ROW`. `jobs/gemini_stories.py` and the trial `jobs/gemini_batch.py` use it. A new task writes only its prompt, schema, checks and the loop over its rows (see the story job's `main()` for the pattern: pace with `GAP`, `except QuotaStop` and `except Overloaded` call `chain.out(...)`). The module's tests are in `tests/jobs/gemini_stories_test.py` until `ci.yml` (owner-merged) lists a file of their own.
 
 ## Where things are
 
+- Shared code: `lib/gemini_api.py`.
 - Jobs: `jobs/gemini_stories.py` (stories), `jobs/gemini_batch.py` (trial), `jobs/promote_stories.py` (copies approved drafts into place files).
 - Workflows: `data-gemini-stories`, `data-gemini-trial`.
 - Tests: `tests/jobs/gemini_stories_test.py`, `tests/jobs/gemini_batch_test.py`, `tests/jobs/promote_stories_test.py`.
@@ -77,3 +78,4 @@ The calling code (key header, retry and busy handling, the quota stop, the model
 ## Log
 
 - 13 Nov 2026: decision and trial (#747); first story runs failed on 503 and a daily limit; retry, early stop (#756) and the model chain (#758) added; stories prompt `stories-2` (#759); 112 drafts promoted (#766). This guide written.
+- 13 Nov 2026: calling code moved into `lib/gemini_api.py` (#772); the story job behaves as before (its 19 tests pass unchanged), the trial uses it without busy retries.

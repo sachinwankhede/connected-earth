@@ -164,4 +164,38 @@ class RunTests(unittest.TestCase):
         self.assertIn('REVIEW-02.md', open(os.path.join(self.out, 'REVIEW.md')).read())
 
 
+class GeminiApiTests(unittest.TestCase):
+    """The shared calling module lib/gemini_api.py (#772). Kept in this file because it is already listed in ci.yml (owner-merged)."""
+    def test_chain_hands_over_resets_busy_and_stops_when_all_are_out(self):
+        import gemini_api as api
+        c = api.Chain('a, b', ('a', 'b', 'c'))
+        self.assertEqual((c.current, c.exhausted), ('a', False))
+        c.busy_row = 2
+        self.assertIn('trying b', c.out('quota')); self.assertEqual((c.current, c.busy_row), ('b', 0))
+        self.assertNotIn('trying', c.out('busy')); self.assertTrue(c.exhausted); self.assertEqual(c.out_of, ['a', 'b'])
+
+    def test_chain_refuses_unknown_or_empty(self):
+        import gemini_api as api
+        with self.assertRaises(ValueError): api.Chain('a,zzz', ('a',))
+        with self.assertRaises(ValueError): api.Chain(' , ', ('a',))
+
+    def test_request_body_has_system_only_when_given(self):
+        import gemini_api as api
+        b = api.request_body('SYS', 'hello', {'type': 'OBJECT'}, temperature=0.2, max_out=50)
+        self.assertEqual(b['systemInstruction']['parts'][0]['text'], 'SYS'); self.assertEqual(b['generationConfig']['maxOutputTokens'], 50)
+        self.assertNotIn('systemInstruction', api.request_body(None, 'hello', {}))
+
+    def test_generate_reads_the_answer_without_retries_for_other_errors_and_can_skip_busy_retries(self):
+        import gemini_api as api, urllib.error
+        ok = lambda req, timeout=0: AskTests.Resp({'x': 1})
+        with mock.patch.object(api.fetch, 'urlopen', ok):
+            r = api.generate('m', {}, 'k'); self.assertEqual(r['answer'], {'x': 1}); self.assertEqual(r['tokens']['promptTokenCount'], 9)
+        bad = lambda req, timeout=0: (_ for _ in ()).throw(urllib.error.HTTPError('u', 400, 'x', {}, io.BytesIO(b'no')))
+        with mock.patch.object(api.fetch, 'urlopen', bad): self.assertEqual(api.generate('m', {}, 'k')['error'], 'HTTP 400')
+        calls = []
+        def busy(req, timeout=0): calls.append(1); raise urllib.error.HTTPError('u', 503, 'x', {}, io.BytesIO(b'{}'))
+        with mock.patch.object(api.fetch, 'urlopen', busy), mock.patch.object(api.time, 'sleep', lambda s: None), self.assertRaises(api.Overloaded): api.generate('m', {}, 'k', busy_waits=())
+        self.assertEqual(len(calls), 1)
+
+
 if __name__ == '__main__': unittest.main()
