@@ -118,5 +118,20 @@
   "reviewStatus": "approved",
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
+ },
+ "Wind Cave National Park": {
+  "f": "npwindcave.jpg",
+  "a": "National Park Service of the United States of America",
+  "l": "Public domain",
+  "lu": "",
+  "p": "https://commons.wikimedia.org/wiki/File:Skyway_Lake%2C_stalactites%2C_Wind_Cave.jpg",
+  "w": "https://en.wikipedia.org/wiki/Wind_Cave_National_Park",
+  "mt": "image/jpeg",
+  "width": 330,
+  "height": 247,
+  "sha256": "a15b0284e9e95bc4196c5046d9fc8466fc619a64aa21249cf80b14e22c2e5bcf",
+  "reviewStatus": "approved",
+  "checkedAt": "2026-11-01T00:35:53.296847+00:00",
+  "fetchedAt": null
  }
 }
