@@ -51,11 +51,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: while the index is slow it says "Searching…" and never "nothing found"`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.MAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.route(/api\/search(-pilot)?\/(meta|w-|rows-)/, async (route) => { await new Promise((r) => setTimeout(r, 1500)); await route.continue(); });
+    let release; const gate = new Promise((r) => { release = r; });   // the index answers when the test says so, not after a timer a slow runner can outlast
+    await p.route(/api\/search(-pilot)?\/(meta|w-|rows-)/, async (route) => { await gate; await route.continue().catch(() => {}); });
     await p.click('#q'); await p.keyboard.type('zzqxv');
-    await H.pause(p, 800);
+    await p.waitForFunction(() => /Searching/.test(document.getElementById('stats').textContent), null, { timeout: 30000 });
     assert.equal(await stats(p), 'Searching…', 'a slow answer is announced');
     assert.equal((await empty(p)).hidden, true, 'no "nothing found" while the answer is on its way');
+    release();
     await answered(p, 'zzqxv');
     assert.equal((await empty(p)).hidden, true, 'the note says it once');
     assert.equal(await p.evaluate(() => document.getElementById('qnote').textContent), 'No places match “zzqxv”');
