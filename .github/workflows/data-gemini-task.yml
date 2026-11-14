@@ -5,9 +5,9 @@
 on:
   workflow_dispatch:
     inputs:
-      task: { description: "What to draft (jobs/ai_task.py TASKS)", type: choice, options: [stories], default: stories }
+      task: { description: "stories (drafts) or judge (a second model flags the drafts); the name must be in jobs/ai_task.py TASKS, anything else stops the run before it starts", default: stories }
       limit: { description: "Items to draft in this run (the first run: 15; 0 = every item left, at most 150)", default: "15" }
-      model: { description: "Models in the order to try, comma separated; when one is out of quota or stays busy the next takes over. Free-tier requests a day: gemini-3.5-flash-lite 500, gemini-3.1-flash-lite 500, gemini-3.8-flash 20", default: "gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.8-flash" }
+      model: { description: "Models in the order to try, comma separated (empty = the task's own list: stories uses all three, the judge skips the writer's first). Free-tier requests a day: gemini-3.5-flash-lite 500, gemini-3.1-flash-lite 500, gemini-3.8-flash 20", default: "" }
       again: { description: "yes = also ask again for items whose draft the checks rejected", default: "no" }
 permissions:
   contents: write
@@ -21,23 +21,27 @@ jobs:
       TASK: ${{ github.event.inputs.task || 'stories' }}
       LIMIT: ${{ github.event.inputs.limit || '15' }}
       AGAIN: ${{ github.event.inputs.again || 'no' }}
-      GEMINI_MODEL: ${{ github.event.inputs.model || 'gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.8-flash' }}
+      GEMINI_MODEL: ${{ github.event.inputs.model }}
     steps:
       - uses: actions/checkout@v5
         with: { ref: main, persist-credentials: false }
       - uses: actions/checkout@v5
         with: { ref: research, path: research-src, persist-credentials: false }
+      - name: Name the drafts branch (the runner knows each task's branch and refuses an unknown task)
+        run: |
+          B=$(python3 jobs/ai_task.py --branch "$TASK")
+          echo "BRANCH=$B" >> "$GITHUB_ENV"
       - name: Open the drafts branch
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          if git ls-remote --exit-code --heads "$REMOTE" gemini-${TASK} >/dev/null 2>&1; then
-            git fetch --depth 1 "$REMOTE" gemini-${TASK}
+          if git ls-remote --exit-code --heads "$REMOTE" ${BRANCH} >/dev/null 2>&1; then
+            git fetch --depth 1 "$REMOTE" ${BRANCH}
             git worktree add --detach drafts-out FETCH_HEAD
           else
             git worktree add --detach drafts-out
-            (cd drafts-out && git checkout -q --orphan gemini-${TASK} && git rm -rfq . && echo "# Gemini ${TASK} drafts. REVIEW.md lists every draft." > README.md)
+            (cd drafts-out && git checkout -q --orphan ${BRANCH} && git rm -rfq . && echo "# Gemini ${TASK} drafts. REVIEW.md lists every draft." > README.md)
           fi
       - name: Draft (capped, resumable)
         env:
@@ -52,6 +56,6 @@ jobs:
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then echo "nothing new to save"; exit 0; fi
-          git commit -q -m "${TASK} drafts: $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected"
-          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/gemini-${TASK}
-          { echo "### ${TASK} drafts"; echo; echo "Branch \`gemini-${TASK}\`, file REVIEW.md. $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected so far."; } >> "$GITHUB_STEP_SUMMARY"
+          git commit -q -m "${TASK}: $(ls *.json 2>/dev/null | wc -l) drafts, $(ls rejected/*.json 2>/dev/null | wc -l) rejected, $(ls judge/*.json 2>/dev/null | wc -l) judged ok, $(ls judge/rejected/*.json 2>/dev/null | wc -l) flagged"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/${BRANCH}
+          { echo "### ${TASK} drafts"; echo; echo "Branch \`${BRANCH}\`, files REVIEW.md and JUDGE-FLAGGED.md. $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected so far."; } >> "$GITHUB_STEP_SUMMARY"
