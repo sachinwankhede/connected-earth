@@ -7,7 +7,7 @@ import json, os, random, sys, time, urllib.error, urllib.request
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 import fetch
 
-UA = {'User-Agent': 'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
+UA = {'User-Agent': 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'}   # the repository is the contact (Wikimedia accepts a URL); the same string the other jobs send
 GAP = 2.0          # seconds between requests while things are fine
 _last = [0.0]; _gap = [GAP]
 

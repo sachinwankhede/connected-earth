@@ -3,7 +3,7 @@
 Usage: photos.py <outdir> <data-dir> [<data-dir>...]   writes <outdir>/<id>.jpg and <outdir>/places.json (resumable)
 Source: Wikipedia page summary (thumbnail, 330px wide) + file metadata from the English Wikipedia API (Commons files)."""
 import sys,os,re,json,glob,time,html,urllib.request,urllib.parse,datetime
-UA={'User-Agent':'ConnectedEarth/1.0 (sachinw_80@yahoo.com)'}
+UA={'User-Agent':'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'}   # the repository is the contact (Wikimedia accepts a URL)
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0,os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),'lib'))
 import licences
