@@ -100,3 +100,6 @@ When one is added (each needs the owner's approval first, because `CLAUDE.md` gr
 - 13 Nov 2026: calling code moved into `lib/gemini_api.py` (#772); the story job behaves as before (its 19 tests pass unchanged), the trial uses it without busy retries.
 - 13 Nov 2026: section on other free providers added (owner note); nothing built for them yet.
 - 13 Nov 2026: pipeline pattern decided (generic runner, manual button, judge plus sample); built under #779.
+
+## Provider interface (`lib/llm.py`, #779 step a)
+A task calls `llm.complete(provider, chain, system, text, schema, key)` instead of `gemini_api` directly. `llm.get('gemini')` is the adapter over `lib/gemini_api.py` (which keeps the HTTP, retry and quota code); another provider is one `Provider` subclass plus `llm.register()`, with its host in `lib/allowed_sources.json` and its calls through `lib/fetch.py` (both owner-merged). `complete()` returns the answer with the model that gave it, drops a model that is out of quota (or busy for `MAX_BUSY_IN_A_ROW` items in a row) and hands the same item to the next, and says `no model left` when the chain is used up. `QuotaStop` and `Overloaded` are the `gemini_api` classes. Existing jobs are unchanged; moving them onto `llm` is the next step. Tests: `LlmInterfaceTests` in `tests/jobs/gemini_stories_test.py`.
