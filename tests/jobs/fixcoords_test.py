@@ -107,5 +107,30 @@ class PadusTests(unittest.TestCase):
             self.assertEqual(json.load(open(os.path.join(t, 'b.json')))['lat'], 1.0)
 
 
+class NominatimTests(unittest.TestCase):
+    """#767: the third source, OpenStreetMap by name inside the place's own state; and water bodies are not audit errors."""
+    def place(self, **kw): return dict({'id': 'p', 'name': 'Harriman State Park', 'place': 'New York, USA', 'country': '840', 'states': ['01'], 'lat': 5, 'lon': 25}, **kw)
+    def res(self, name, lat, lon): return {'name': name, 'display_name': name + ', X', 'lat': str(lat), 'lon': str(lon)}
+    def test_inside_the_state_with_the_same_name_is_accepted(self):
+        seen = []
+        got = fc.nominatim_coords(self.place(), GEO, lambda u: seen.append(u) or [self.res('Harriman State Park', 5, 5)])
+        self.assertEqual(got, (5.0, 5.0, 'Harriman State Park')); self.assertIn('countrycodes=us', seen[0]); self.assertIn('New+York', seen[0])
+    def test_wrong_state_wrong_type_or_weak_name_is_refused(self):
+        p = self.place()
+        for r in (self.res('Harriman State Park', 50, 250), self.res('Harriman Park', 5, 5), self.res('Other Lake', 5, 5)):
+            self.assertIsNone(fc.nominatim_coords(p, GEO, lambda u, r=r: [r]))
+        self.assertIsNone(fc.nominatim_coords(p, GEO, lambda u: None))
+        self.assertIsNone(fc.nominatim_coords(self.place(states=['01', '02']), GEO, lambda u: [self.res('Harriman State Park', 5, 5)]))
+    def test_fix_tries_openstreetmap_last_and_says_which(self):
+        with tempfile.TemporaryDirectory() as t:
+            json.dump(self.place(id='a'), open(os.path.join(t, 'a.json'), 'w'))
+            fixed, un = fc.fix(t, GEO, lambda u: {}, lambda d, g: None, lambda d, g: (1.0, 2.0, 'Harriman State Park'))
+            self.assertEqual([(f[0], f[3]) for f in fixed], [('a', 'OpenStreetMap "Harriman State Park"')]); self.assertEqual(un, [])
+    def test_water_bodies_are_not_audit_errors(self):
+        with tempfile.TemporaryDirectory() as t:
+            json.dump(self.place(id='greatlakes'), open(os.path.join(t, 'g.json'), 'w'))
+            self.assertEqual(fc.audit(t, GEO), [])
+
+
 if __name__ == '__main__':
     unittest.main()
