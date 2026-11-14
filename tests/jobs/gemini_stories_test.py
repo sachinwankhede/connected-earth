@@ -198,4 +198,52 @@ class GeminiApiTests(unittest.TestCase):
         self.assertEqual(len(calls), 1)
 
 
+class LlmInterfaceTests(unittest.TestCase):
+    """lib/llm.py (#779 step a), the provider interface over gemini_api. Kept in this file because it is already listed in ci.yml (owner-merged)."""
+    class Fake:
+        def __init__(self, script): self.script = list(script); self.seen = []; self.models = ('a', 'b')
+        def generate(self, model, system, text, schema, key, temperature=0, max_out=600, **kw):
+            self.seen.append(model); x = self.script.pop(0)
+            if isinstance(x, Exception): raise x
+            return dict(x)
+
+    def test_the_gemini_adapter_builds_the_request_and_is_registered(self):
+        import llm, gemini_api
+        p = llm.get('gemini'); self.assertIsInstance(p, llm.GeminiProvider)
+        got = {}
+        def fake(model, body, key, **kw): got.update(model=model, body=body, key=key); return {'answer': {'ok': 1}}
+        with mock.patch.object(gemini_api, 'generate', fake):
+            r = p.generate(p.models[0], 'SYS', 'hi', {'type': 'OBJECT'}, 'K', temperature=0.3, max_out=70)
+        self.assertEqual(r, {'answer': {'ok': 1}}); self.assertEqual((got['key'], got['model']), ('K', p.models[0]))
+        self.assertEqual(got['body']['systemInstruction']['parts'][0]['text'], 'SYS'); self.assertEqual(got['body']['generationConfig']['maxOutputTokens'], 70)
+        with self.assertRaises(ValueError): llm.get('nope')
+        with self.assertRaises(ValueError): llm.chain_for(p, 'not-a-model')
+
+    def test_the_error_classes_are_the_ones_in_gemini_api(self):
+        import llm, gemini_api
+        self.assertIs(llm.QuotaStop, gemini_api.QuotaStop); self.assertIs(llm.Overloaded, gemini_api.Overloaded)
+
+    def test_complete_names_the_model_and_drops_one_that_is_out_of_quota(self):
+        import llm
+        f = self.Fake([llm.QuotaStop('daily'), {'answer': {'x': 1}}]); c = llm.Chain('a,b', f.models); lines = []
+        r = llm.complete(f, c, None, 't', {}, 'k', log=lines.append)
+        self.assertEqual((r['answer'], r['model'], f.seen), ({'x': 1}, 'b', ['a', 'b'])); self.assertEqual(len(lines), 1); self.assertIn('MODEL OUT: a', lines[0])
+
+    def test_complete_drops_a_model_only_after_busy_items_in_a_row_and_a_success_resets_the_count(self):
+        import llm
+        busy = llm.Overloaded('HTTP 503')
+        f = self.Fake([busy, busy, {'answer': 1}, busy, busy, busy, {'answer': 2}]); c = llm.Chain('a,b', f.models)
+        self.assertEqual(llm.complete(f, c, None, 't', {}, 'k')['error'], 'busy')
+        self.assertEqual(llm.complete(f, c, None, 't', {}, 'k')['error'], 'busy')
+        self.assertEqual(llm.complete(f, c, None, 't', {}, 'k')['model'], 'a'); self.assertEqual(c.busy_row, 0)
+        self.assertEqual(llm.complete(f, c, None, 't', {}, 'k')['error'], 'busy'); self.assertEqual(llm.complete(f, c, None, 't', {}, 'k')['error'], 'busy')
+        r = llm.complete(f, c, None, 't', {}, 'k'); self.assertEqual((r['answer'], r['model']), (2, 'b')); self.assertEqual(c.out_of, ['a'])
+
+    def test_complete_says_no_model_left_and_keeps_a_bad_answer_without_dropping_the_model(self):
+        import llm
+        f = self.Fake([{'error': 'unreadable answer'}, llm.QuotaStop('q'), llm.QuotaStop('q')]); c = llm.Chain('a,b', f.models)
+        r = llm.complete(f, c, None, 't', {}, 'k'); self.assertEqual((r['error'], r['model'], c.out_of), ('unreadable answer', 'a', []))
+        self.assertEqual(llm.complete(f, c, None, 't', {}, 'k'), {'error': 'no model left'}); self.assertTrue(c.exhausted)
+
+
 if __name__ == '__main__': unittest.main()
