@@ -18,6 +18,7 @@ R = lambda *a: os.path.join(ROOT, *a)
 # Levels: detailed overview places and park overviews at world level, country level (x...), state and local level, national level.
 MAIN = [
     'yellowstone', 'amazon', 'prairie', 'gulf', 'mississippi', 'stlurban',      # detailed places, one per kind where the real set has one
+    'mocastlewood', 'mohawn', 'momeramec',      # local parks near St. Louis (local, filters: Near me, the Missouri view)
     'serengeti', 'wadden', 'whcamargue', 'whdonana', 'wharguin',                              # the ends of the journeys below
     'nparches', 'npglacierbay', 'npgrandteton',                                  # park overviews: Desert, Coast & ocean, Polar & mountain
     'xnicaragua', 'xafghan', 'xusks',                                            # country level: Forest, Lakes & wetlands, Grassland
@@ -34,7 +35,7 @@ MAIN = [
     'sahara',                                                                    # a place search for "sahara" finds a place and no species (searchtabs)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
-PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
+PILOT = ['mobabler', 'mosaintfrancois', 'usgatewayarchnationalpar', 'mojohnsonsshutins', 'usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
 JOURNEYS = ['osprey', 'knot', 'flamingo', 'dust', 'nutrients', 'monarch', 'prairiegulf', 'sockeye', 'greenturtleA', 'pelican', 'caribouwest']   # their ends must be in MAIN; the journey test needs fliers, swimmers and the two flows (journey.test.mjs)
 
 

@@ -151,6 +151,10 @@
   "c": "LC",
   "q": "Q1057909"
  },
+ "asimina triloba": {
+  "c": "LC",
+  "q": "Q948827"
+ },
  "ateles geoffroyi": {
   "c": "EN",
   "q": "Q388032"
@@ -166,6 +170,10 @@
  "basilinna leucotis": {
   "c": "LC",
   "q": "Q997393"
+ },
+ "battus philenor": {
+  "c": "LC",
+  "q": "Q1758032"
  },
  "bertholletia excelsa": {
   "c": "VU",
@@ -387,6 +395,10 @@
   "c": "LC",
   "q": "Q1944775"
  },
+ "columba livia": {
+  "c": "LC",
+  "q": "Q42326"
+ },
  "connochaetes taurinus": {
   "c": "LC",
   "q": "Q328809"
@@ -410,6 +422,10 @@
  "corvus corax": {
   "c": "LC",
   "q": "Q25357"
+ },
+ "corylus americana": {
+  "c": "LC",
+  "q": "Q468659"
  },
  "cricetulus migratorius": {
   "c": "LC",
@@ -510,6 +526,10 @@
  "dorosoma cepedianum": {
   "c": "LC",
   "q": "Q2693645"
+ },
+ "dryobates pubescens": {
+  "c": "LC",
+  "q": "Q27074911"
  },
  "ducula latrans": {
   "c": "LC",
@@ -723,6 +743,10 @@
   "c": "LC",
   "q": "Q178702"
  },
+ "lampropeltis triangulum": {
+  "c": "LC",
+  "q": "Q1257513"
+ },
  "lanius schach": {
   "c": "LC",
   "q": "Q795567"
@@ -878,6 +902,10 @@
  "marmota himalayana": {
   "c": "LC",
   "q": "Q922076"
+ },
+ "marmota monax": {
+  "c": "LC",
+  "q": "Q221612"
  },
  "martes americana": {
   "c": "LC",
@@ -1143,6 +1171,10 @@
   "c": "LC",
   "q": "Q319393"
  },
+ "perilla frutescens": {
+  "c": "LC",
+  "q": "Q1076038"
+ },
  "peromyscus leucopus": {
   "c": "LC",
   "q": "Q732863"
@@ -1359,6 +1391,10 @@
   "c": "LC",
   "q": "Q2266358"
  },
+ "quercus macrocarpa": {
+  "c": "LC",
+  "q": "Q1082365"
+ },
  "quercus marilandica": {
   "c": "LC",
   "q": "Q845791"
@@ -1375,9 +1411,17 @@
   "c": "LC",
   "q": "Q147525"
  },
+ "quercus stellata": {
+  "c": "LC",
+  "q": "Q2600501"
+ },
  "quercus suber": {
   "c": "LC",
   "q": "Q156137"
+ },
+ "quiscalus quiscula": {
+  "c": "NT",
+  "q": "Q1424486"
  },
  "ramphastos sulfuratus": {
   "c": "NT",
@@ -1451,6 +1495,10 @@
   "c": "NT",
   "q": "Q881972"
  },
+ "sayornis phoebe": {
+  "c": "LC",
+  "q": "Q748192"
+ },
  "sceloporus grammicus": {
   "c": "LC",
   "q": "Q3727167"
@@ -1479,9 +1527,17 @@
   "c": "LC",
   "q": "Q21962227"
  },
+ "setophaga pinus": {
+  "c": "LC",
+  "q": "Q27075932"
+ },
  "sialia sialis": {
   "c": "LC",
   "q": "Q600880"
+ },
+ "sitta carolinensis": {
+  "c": "LC",
+  "q": "Q379240"
  },
  "sitta pusilla": {
   "c": "LC",
@@ -1614,6 +1670,10 @@
  "trichechus manatus": {
   "c": "VU",
   "q": "Q40261"
+ },
+ "trillium recurvatum": {
+  "c": "LC",
+  "q": "Q3009702"
  },
  "tsuga canadensis": {
   "c": "NT",

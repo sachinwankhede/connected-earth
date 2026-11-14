@@ -1,6 +1,7 @@
 import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 // A chip dims when no place of that habitat is inside the map view (after the map settles).
 describe('chip dimming follows the map', () => {
@@ -23,14 +24,14 @@ describe('chip dimming follows the map', () => {
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: main app`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
-      await check(t, H.readPlaces(false), false);
+      const t = await H.open(browser, H.FMAIN, size);
+      await check(t, H.readFixturePlaces(false), false);
       assert.deepEqual(t.errors, []);
       await t.close();
     });
     test(`${sizeName}: pilot, local parks off then on`, async () => {
-      const t = await H.open(browser, H.PILOT, size);
-      const places = H.readPlaces(true);
+      const t = await H.open(browser, H.FPILOT, size);
+      const places = H.readFixturePlaces(true);
       await check(t, places, false);
       await t.page.click('#locbtn');
       for (let i = 0; ; i++) {   // the chips settle after the map finishes moving; retry instead of a fixed wait
@@ -41,7 +42,7 @@ describe('chip dimming follows the map', () => {
       await t.close();
     });
     test(`${sizeName}: tapping a dimmed chip selects it and brings the map to that habitat`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
+      const t = await H.open(browser, H.FMAIN, size);
       await H.jump(t.page, [-91, 38.6], 8);
       const d = await H.dimmed(t.page);
       assert.ok(d.length > 0);
