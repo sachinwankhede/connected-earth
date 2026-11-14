@@ -71,7 +71,7 @@ jobs:
       - uses: actions/checkout@v5
       - name: The live site is the build just deployed
         env:
-          URL: ${{ needs.deploy.outputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}
+          URL: ${{ needs.deploy.outputs.url || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}
           STAMP: ${{ needs.verify.outputs.stamp }}
         run: python3 build/live_check.py "$URL" "$STAMP" --tries 18 --wait 10
   alert:

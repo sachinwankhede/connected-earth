@@ -78,7 +78,7 @@ class UserAgentTests(unittest.TestCase):
         for f in glob.glob(os.path.join(jobs, '*.py')):
             for line in open(f, encoding='utf-8'):
                 if 'ConnectedEarth/1.0' in line:
-                    self.assertNotIn('sachinwankhede', line, f); self.assertNotIn('@', line, f)
+                    self.assertNotIn('@', line, f); self.assertNotIn('github.com', line, f)
                     self.assertIn('https://connected-earth-5ps.pages.dev/', line, f)
 
 
