@@ -1,6 +1,6 @@
 name: checks
 # Which checks run depends on what changed (build/ci_changes.py decides; tests/jobs/ci_changes_test.py pins the rules):
-#   app  (src, build, app tests, fonts, package files...): everything, including the browser tests, the Pages payload step and the data tests (#394).
+#   app  (src, build, app tests, fonts, package files...): everything, including the browser tests (three shards), the Pages payload step and, in one `data checks` job instead of once per shard (#821), the data validation and the data tests (#394).
 #   data (data, photos, data tests, this file and pages.yml): validation, pack check, build, Pages payload step, size budgets, data tests and one smoke test.
 #   job scripts (data-job scripts in jobs/, lib, job tests, state/promote tools, ci_changes.py, live_check.py): the job self-tests only.
 #   docs, notes, the data-job workflows and job state files run nothing.
@@ -46,6 +46,41 @@ jobs:
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
+      - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
+        run: npm run build
+      - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
+        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
+        run: python3 build/pages_payload.py
+      - name: Size budget
+        run: python3 build/budget.py
+      - run: npx playwright install --with-deps chromium
+      - name: Browser tests
+        run: |
+          set +e
+          node --test --test-concurrency=2 --test-timeout=300000 --test-shard=${{ matrix.shard }}/3 tests/app/*.test.mjs > test.log 2>&1
+          code=$?
+          if [ $code -ne 0 ]; then
+            grep -h "panel missing" test.log | head -2 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
+            grep -E "^\s*not ok" test.log | head -30 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
+            grep -E "^\s*(not ok|error:|message:|name:)|Error|Timeout" -A3 test.log | head -40 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
+          fi
+          exit $code
+        env:
+          CI: "1"
+
+  data-checks:
+    # The data checks run once per run, not once in each of the three app shards (#821): the same steps the `data` job runs for a data-only change.
+    needs: changes
+    if: needs.changes.outputs.app == 'true'
+    name: data checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
       - name: Validate auto-generated data
         run: |
           python3 build/validate.py $(ls data/places/*.json) | tee validate.log
@@ -70,28 +105,6 @@ jobs:
           for t in tests/data/*_test.py; do echo "== $t"; python3 "$t" || fail=1; done
           node --test tests/data/*.test.mjs || fail=1
           exit $fail
-      - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
-        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
-        run: npm run build
-      - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
-        if: ${{ !cancelled() }}   # keep going: one run reports every failing check
-        run: python3 build/pages_payload.py
-      - name: Size budget
-        run: python3 build/budget.py
-      - run: npx playwright install --with-deps chromium
-      - name: Browser tests
-        run: |
-          set +e
-          node --test --test-concurrency=2 --test-timeout=300000 --test-shard=${{ matrix.shard }}/3 tests/app/*.test.mjs > test.log 2>&1
-          code=$?
-          if [ $code -ne 0 ]; then
-            grep -h "panel missing" test.log | head -2 | while IFS= read -r l; do echo "::error::${l:0:900}"; done
-            grep -E "^\s*not ok" test.log | head -30 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
-            grep -E "^\s*(not ok|error:|message:|name:)|Error|Timeout" -A3 test.log | head -40 | while IFS= read -r l; do echo "::error::${l:0:180}"; done
-          fi
-          exit $code
-        env:
-          CI: "1"
 
   data:
     needs: changes
@@ -177,7 +190,7 @@ jobs:
   gate:
     # Always runs. Passes when every needed job passed (skipped jobs were not needed).
     if: always()
-    needs: [changes, app, data, job-scripts]
+    needs: [changes, app, data-checks, data, job-scripts]
     runs-on: ubuntu-latest
     steps:
       - name: Every needed job passed
