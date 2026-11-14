@@ -33,4 +33,12 @@ class T(unittest.TestCase):
             return {'a': None, 'b': b'data'}[u]
         self.assertEqual(l.download(['bad', 'a', 'b'], get), b'data'); self.assertIsNone(l.download(['bad', 'a'], get)); self.assertIsNone(l.download([], get))
 
+    def test_the_list_is_written_whole_with_every_call(self):
+        import json, tempfile
+        d = tempfile.mkdtemp(); old = l.LARGE; l.LARGE = os.path.join(d, 'large.json')
+        try:
+            l.save({'a': 'a.webp'}); l.save({'a': 'a.webp', 'b': 'b.webp'})
+            self.assertEqual(json.load(open(l.LARGE)), {'a': 'a.webp', 'b': 'b.webp'}); self.assertEqual(os.listdir(d), ['large.json'])
+        finally: l.LARGE = old
+
 if __name__ == '__main__': unittest.main()

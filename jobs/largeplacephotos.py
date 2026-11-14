@@ -39,6 +39,10 @@ def shrink(im, size=SIZE):
     im = im.copy(); im.thumbnail((size, size)); buf = io.BytesIO(); im.save(buf, 'WEBP', quality=QUALITY, method=6)
     return buf.getvalue(), im.size
 
+def save(large):
+    """Write the list whole and move it into place, so a crash cannot leave a half-written list."""
+    tmp = LARGE + '.tmp'; json.dump(large, open(tmp, 'w'), indent=0, sort_keys=True); os.replace(tmp, LARGE)
+
 def todo(places, large, limit):
     """Titles still to do, sorted, at most limit (0 = all): a stored small file, an address on Commons and no copy yet."""
     t = [k for k in sorted(places) if places[k].get('f') and k not in large and commons_name(places[k].get('p'))]
@@ -59,9 +63,9 @@ def main():
             data, size = shrink(Image.open(io.BytesIO(raw)).convert('RGB'))
         except Exception: print('bad image for', t, flush=True); continue
         name = out_name(places[t]['f']); open(os.path.join(OUT, name), 'wb').write(data); large[t] = name; total += len(data); biggest = max(biggest, len(data))
+        save(large)   # the list is written with every file, so a crash leaves at most the one picture in flight unlisted, not up to nine (the first full run left one, 14 Nov); the next run makes it again and lists it
         print('%3d %-40s %3dx%-3d %5d KB' % (i, t[:40], size[0], size[1], round(len(data) / 1024)), flush=True)
-        if i % 10 == 0: json.dump(large, open(LARGE, 'w'), indent=0, sort_keys=True)
-    json.dump(large, open(LARGE, 'w'), indent=0, sort_keys=True)
+    save(large)
     print('copies:', len(large), '; this run', round(total / 1024), 'KB, largest', round(biggest / 1024), 'KB', flush=True)
 
 if __name__ == '__main__': main()
