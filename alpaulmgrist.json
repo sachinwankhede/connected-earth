@@ -1,0 +1,21 @@
+{
+ "story": "Paul M. Grist State Park is located in Alabama, USA, and features a 100-acre lake. Developed by workers in the Civilian Conservation Corps in the 1930s, the park offers a public recreation area operated by the government of Dallas County.",
+ "matters": "The park provides a public recreation area with facilities for camping, picnicking, and water activities on a 100-acre lake stocked with bass, bluegill, redear sunfish, and catfish.",
+ "id": "alpaulmgrist",
+ "name": "Paul M. Grist State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1531,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 1641,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1531
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:54:45+00:00"
+}

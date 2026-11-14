@@ -1,0 +1,21 @@
+{
+ "story": "Chugach State Park is a hilly forest covering 495,204 acres in south-central Alaska, east of Anchorage. Established on August 6, 1970, it is the third-largest state park in the United States and features glaciers, lakes, and towering peaks like Bashful Peak.",
+ "matters": "The park protects the scenic Chugach Mountains, safeguards the water supply for Anchorage, and provides essential natural habitats for brown bears, black bears, moose, and salmon.",
+ "id": "akchugach",
+ "name": "Chugach State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3507,
+  "candidatesTokenCount": 117,
+  "totalTokenCount": 3624,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3507
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:49:09+00:00"
+}

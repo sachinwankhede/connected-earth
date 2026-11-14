@@ -1,0 +1,21 @@
+{
+ "story": "Joe Wheeler State Park is a forest located in northwest Alabama on Wheeler Lake, an impoundment of the Tennessee River. Established in 1949, the park contains 2,550 acres of land and adjoins Wheeler Dam.",
+ "matters": "The park provides a public recreation area and features a 2.5-mile loop trail for hiking and biking.",
+ "id": "aljoewheeler",
+ "name": "Joe Wheeler State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1427,
+  "candidatesTokenCount": 83,
+  "totalTokenCount": 1510,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1427
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:53:08+00:00"
+}

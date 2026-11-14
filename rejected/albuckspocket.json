@@ -1,0 +1,22 @@
+{
+ "story": "Bucks Pocket State Park is a public recreation area occupying 2000 acres in Alabama, USA, surrounding a natural pocket of the Appalachian Mountain chain. Opened in 1971, the park is known for sweeping views of its rugged landscape from Point Rock.",
+ "matters": "The park preserves a canyon along South Sauty Creek and provides a natural habitat for wildlife including whitetailed deer.",
+ "id": "albuckspocket",
+ "name": "Buck's Pocket State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1683,
+  "candidatesTokenCount": 87,
+  "totalTokenCount": 1770,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1683
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:51:17+00:00",
+ "rejected": "numbers not in the research text: 2000"
+}

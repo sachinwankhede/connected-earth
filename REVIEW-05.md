@@ -1,92 +1,92 @@
 # REVIEW-05.md
 
-## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
+## Cumberland Island National Seashore (`uscumberlandislandnation`)
 
-**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
+**Story** (36 words): Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.
 
-**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
+**Why it matters** (29 words): The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.
 
-## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
+## Delaware Water Gap National Recreation Area (`usdelawarewatergapnation`)
 
-**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
+**Story** (49 words): The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.
 
-**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
+**Why it matters** (26 words): The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.
 
-## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
+## Devils Tower National Monument (`usdevilstowernationalmon`)
 
-**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
+**Story** (43 words): Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.
 
-**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
+**Why it matters** (28 words): The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.
 
-## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
+## Dinosaur National Monument (`usdinosaurnationalmonume`)
 
-**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
+**Story** (42 words): Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.
 
-**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
+**Why it matters** (27 words): The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.
 
-## Tonto National Monument (`ustontonationalmonument`)
+## Effigy Mounds National Monument (`useffigymoundsnationalmo`)
 
-**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
+**Story** (32 words): Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.
 
-**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
+**Why it matters** (28 words): The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.
 
-## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
+## El Malpais National Monument (`uselmalpaisnationalmonum`)
 
-**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
+**Story** (42 words): El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.
 
-**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
+**Why it matters** (36 words): The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.
 
-## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
+## Florissant Fossil Beds National Monument (`usflorissantfossilbedsna`)
 
-**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
+**Story** (42 words): Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.
 
-**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
+**Why it matters** (24 words): The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.
 
-## Wupatki National Monument (`uswupatkinationalmonumen`)
+## Fort Pulaski National Monument (`usfortpulaskinationalmon`)
 
-**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
+**Story** (43 words): Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.
 
-**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
+**Why it matters** (31 words): The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.
 
-## Cocos Island National Park (`whcocos`)
+## Fredericksburg and Spot. National Military Park (`usfredericksburgandspotn`)
 
-**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
+**Story** (30 words): Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.
 
-**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
+**Why it matters** (20 words): The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.
 
-## Corcovado National Park (`whcorcovado`)
+## Gateway National Recreation Area (`usgatewaynationalrecreat`)
 
-**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
+**Story** (41 words): Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.
 
-**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
+**Why it matters** (34 words): It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.
 
-## Darién National Park (`whdarien`)
+## George Washington Memorial Parkway (`usgeorgewashingtonmemori`)
 
-**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
+**Story** (28 words): The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.
 
-**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
+**Why it matters** (16 words): The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.
 
-## Gros Morne National Park (`whgrosmorne`)
+## Gulf Islands National Seashore (`usgulfislandsnationalsea`)
 
-**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
+**Story** (41 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.
 
-**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
+**Why it matters** (28 words): The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.
 
-## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
+## Hagerman Fossil Beds National Monument (`ushagermanfossilbedsnati`)
 
-**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
+**Story** (47 words): Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.
 
-**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
+**Why it matters** (27 words): The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.
 
-## Iguazú National Park (`whiguazu`)
+## John Day Fossil Beds National Monument (`usjohndayfossilbedsnatio`)
 
-**Story** (44 words): Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.
+**Story** (40 words): John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.
 
-**Why it matters** (30 words): The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.
+**Why it matters** (31 words): The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.
 
-## Swiss Alps Jungfrau-Aletsch (`whjungfrau`)
+## Katahdin Woods and Waters National Monument (`uskatahdinwoodsandwaters`)
 
-**Story** (51 words): Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.
+**Story** (45 words): Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.
 
-**Why it matters** (37 words): The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.
+**Why it matters** (34 words): The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.
 

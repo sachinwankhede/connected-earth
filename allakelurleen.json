@@ -1,0 +1,21 @@
+{
+ "story": "Lake Lurleen State Park is a publicly owned recreation area located in Alabama, USA. The park covers 1,625 acres, which include a 250-acre lake and a 23-mile trail system.",
+ "matters": "The park is operated by the Alabama Department of Conservation and Natural Resources and offers a 23-mile system of trails for hiking and mountain biking that encircles the lake.",
+ "id": "allakelurleen",
+ "name": "Lake Lurleen State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1832,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 1931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1832
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:53:40+00:00"
+}

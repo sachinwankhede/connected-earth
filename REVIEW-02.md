@@ -1,92 +1,92 @@
 # REVIEW-02.md
 
-## Knob Noster State Park (`moknobnoster`)
+## Joe Wheeler State Park (`aljoewheeler`)
 
-**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
+**Story** (34 words): Joe Wheeler State Park is a forest located in northwest Alabama on Wheeler Lake, an impoundment of the Tennessee River. Established in 1949, the park contains 2,550 acres of land and adjoins Wheeler Dam.
 
-**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
+**Why it matters** (17 words): The park provides a public recreation area and features a 2.5-mile loop trail for hiking and biking.
 
-## Lake of The Ozarks State Park (`molakeoftheozarks`)
+## Lake Guntersville State Park (`allakeguntersville`)
 
-**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Story** (39 words): Lake Guntersville State Park occupies 5,909 acres in Alabama, USA, on the eastern shore of Guntersville Lake. The public recreation area opened in 1974. It is known for its bald eagle population and hosts an annual wildlife education event.
 
-**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
+**Why it matters** (23 words): The park shelters a bald eagle population and features 36 miles of National Recreation Trail-designated trails for hiking, mountain biking, and horseback riding.
 
-## Lewis and Clark State Park (`molewisandclark`)
+## Lake Lurleen State Park (`allakelurleen`)
 
-**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
+**Story** (29 words): Lake Lurleen State Park is a publicly owned recreation area located in Alabama, USA. The park covers 1,625 acres, which include a 250-acre lake and a 23-mile trail system.
 
-**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (29 words): The park is operated by the Alabama Department of Conservation and Natural Resources and offers a 23-mile system of trails for hiking and mountain biking that encircles the lake.
 
-## Long Branch State Park (`molongbranch`)
+## Meaher State Park (`almeaher`)
 
-**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
+**Story** (41 words): Meaher State Park is located on Big Island in Spanish Fort, Alabama, and covers 1,327 acres along the shoreline of Ducker Bay. Opened in 1989, the park features an interpretive boardwalk through the wetlands, a fishing pier, and a camping area.
 
-**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
+**Why it matters** (22 words): The park is surrounded by wetlands of the Mobile Bay estuary at the junction of Mobile Bay and the Mobile-Tensaw River Delta.
 
-## Morris State Park (`momorris`)
+## Monte Sano State Park (`almontesano`)
 
-**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
+**Story** (40 words): Monte Sano State Park is a mountaintop retreat and public recreation area in Alabama, USA. Encompassing 2,140 acres on Monte Sano Mountain, it features hiking trails, picnic areas, and rustic cottages built in the 1930s by the Civilian Conservation Corps.
 
-**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
+**Why it matters** (27 words): The park shares a connection with the adjoining Monte Sano Nature Preserve, which preserves remnants of a historic railway line that once carried visitors up the mountain.
 
-## Ozark Forest and Streams (`ozarks`)
+## Oak Mountain State Park (`aloakmountain`)
 
-**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
+**Story** (43 words): Oak Mountain State Park is a public recreation area located in Alabama, USA, and is the state's largest state park at 9,940 acres. It features three fishing lakes, hiking trails, and the Treetop Nature Trail where owls and turkey vultures can be viewed.
 
-**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
+**Why it matters** (30 words): The park is home to the Alabama Wildlife Center, which is the oldest and largest wildlife rehabilitation and education center in the state and treats injured or orphaned native birds.
 
-## Missouri Tallgrass Prairie (`prairie`)
+## Paul M. Grist State Park (`alpaulmgrist`)
 
-**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
+**Story** (40 words): Paul M. Grist State Park is located in Alabama, USA, and features a 100-acre lake. Developed by workers in the Civilian Conservation Corps in the 1930s, the park offers a public recreation area operated by the government of Dallas County.
 
-**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
+**Why it matters** (27 words): The park provides a public recreation area with facilities for camping, picnicking, and water activities on a 100-acre lake stocked with bass, bluegill, redear sunfish, and catfish.
 
-## Urban St. Louis (`stlurban`)
+## Rickwood Caverns State Park (`alrickwoodcaverns`)
 
-**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
+**Story** (44 words): Rickwood Caverns State Park is a public recreation area and natural history preserve located in Alabama, USA, north of Warrior. The 380-acre state park features caverns with illuminated limestone formations estimated to be 260 million years old, blind cave fish, and an underground pool.
 
-**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
+**Why it matters** (18 words): The park surrounds caverns containing active living formations, spring-fed pools, and visible fossils in the soft limestone walls.
 
-## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
+## Roland Cooper State Park (`alrolandcooper`)
 
-**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
+**Story** (51 words): Roland Cooper State Park is a 236-acre state park located six miles north of Camden, Alabama, on the eastern shore of Dannelly Reservoir. Opened in 1969 as Bridgeport State Park, it was renamed in the 1970s for state senator William Roland Cooper and features cottages, a campground, fishing, and boating facilities.
 
-**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
+**Why it matters** (23 words): The park is situated on Dannelly Reservoir, which is a 22,000-acre impoundment of the Alabama River known locally as the Millers Ferry Reservoir.
 
-## Assateague Island National Seashore (`usassateagueislandnation`)
+## Northern Gulf of Mexico (`gulf`)
 
-**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
+**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
 
-**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
+**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
 
-## Bandelier National Monument (`usbandeliernationalmonum`)
+## Mississippi River Floodplain (`mississippi`)
 
-**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
+**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
 
-**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
+**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
 
-## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
+## Bennett Spring State Park (`mobennettspring`)
 
-**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
+**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
 
-**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
+**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
 
-## Canaveral National Seashore (`uscanaveralnationalseash`)
+## Big Lake State Park (`mobiglake`)
 
-**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
+**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
 
-**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
+**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
 
-## Cape Hatteras National Seashore (`uscapehatterasnationalse`)
+## Big Sugar Creek State Park (`mobigsugarcreek`)
 
-**Story** (42 words): Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.
+**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
 
-**Why it matters** (28 words): The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.
+**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
 
-## Cape Lookout National Seashore (`uscapelookoutnationalsea`)
+## Castlewood State Park (`mocastlewood`)
 
-**Story** (37 words): Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.
+**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
 
-**Why it matters** (28 words): The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.
+**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
 

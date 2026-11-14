@@ -1,92 +1,92 @@
 # REVIEW-03.md
 
-## Cedar Breaks National Monument (`uscedarbreaksnationalmon`)
+## Cuivre River State Park (`mocuivreriver`)
 
-**Story** (48 words): Cedar Breaks National Monument is a natural amphitheater located in Utah, USA, near Cedar City. Established in 1933, the monument stretches across 3 miles with a depth of over 2,000 feet. It features high-altitude forests, subalpine meadows, and bristlecone pines that can be more than 1600 years old.
+**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
 
-**Why it matters** (32 words): The monument area forms the headwaters of Mammoth Creek, a tributary of the Sevier River. It covers the west side of the Markagunt Plateau, sharing geological connections with nearby Zion National Park.
+**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
 
-## Chattahoochee River National Recreation Area (`uschattahoocheerivernati`)
+## Current River State Park (`mocurrentriver`)
 
-**Story** (47 words): Chattahoochee River National Recreation Area preserves a series of sites between Atlanta and Lake Sidney Lanier along the Chattahoochee River in Georgia, U.S. Established on August 15, 1978, by President Jimmy Carter, the 48-mile stretch of the river affords public recreation opportunities and access to historic sites.
+**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
 
-**Why it matters** (26 words): The Chattahoochee River is one of Georgia's premier trout streams and was designated as the Chattahoochee River Water Trail to increase access to water-based outdoor recreation.
+**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
 
-## Chickasaw National Recreation Area (`uschickasawnationalrecre`)
+## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
 
-**Story** (40 words): Chickasaw National Recreation Area is located in south-central Oklahoma in the foothills of the Arbuckle Mountains near Sulphur in Murray County. It covers 9,888.83 acres, with water covering 2,409 acres. The park preserves partially forested hills, springs, streams, and lakes.
+**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
 
-**Why it matters** (22 words): The park preserves natural fresh and mineral springs that were originally protected to prevent developers from turning them into a private resort.
+**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Chiricahua National Monument (`uschiricahuanationalmonu`)
+## Elephant Rocks State Park (`moelephantrocks`)
 
-**Story** (44 words): Chiricahua National Park is located in the Chiricahua Mountains of southeastern Arizona. Originally established as Chiricahua National Monument on April 18, 1924, it preserves extensive hoodoos, balancing rocks, and the Faraway Ranch. Just over 85% of the park is protected as the Chiricahua Wilderness.
+**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
 
-**Why it matters** (36 words): The park preserves the remains of an immense volcanic eruption that shook the region about 27 million years ago. It protects towering rock spires and balanced rocks while featuring ecosystems of meadows, forests, and rock formations.
+**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
 
-## Colorado National Monument (`uscoloradonationalmonume`)
+## Finger Lakes State Park (`mofingerlakes`)
 
-**Story** (31 words): Colorado National Monument is a National Park Service unit near Grand Junction, Colorado, covering 20,500 acres. Sheer-walled canyons cut deep into sandstone and granite-gneiss-schist rock formations in this high desert area.
+**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
 
-**Why it matters** (24 words): The park sits on a large area of high desert in Western Colorado and hosts a wide range of wildlife, including desert bighorn sheep.
+**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
 
-## Craters of the Moon National Monument (`uscratersofthemoonnation`)
+## Grand Gulf State Park (`mograndgulf`)
 
-**Story** (41 words): Craters of the Moon National Monument and Preserve is located in central Idaho in the USA. It features three major lava fields and about 400 square miles of sagebrush steppe grasslands. The area includes volcanic cones, lava tubes, and basaltic lava.
+**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
 
-**Why it matters** (32 words): The monument is part of the Snake River Plain volcanic province and the Lava Beds of Idaho. It belongs to a landscape where older lava fields support drought-resistant plants such as sagebrush.
+**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
 
-## Cumberland Island National Seashore (`uscumberlandislandnation`)
+## Ha Ha Tonka State Park (`mohahatonka`)
 
-**Story** (36 words): Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.
+**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
 
-**Why it matters** (29 words): The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.
+**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
 
-## Delaware Water Gap National Recreation Area (`usdelawarewatergapnation`)
+## Harry S Truman State Park (`moharrystruman`)
 
-**Story** (49 words): The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.
+**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
 
-**Why it matters** (26 words): The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.
+**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
 
-## Devils Tower National Monument (`usdevilstowernationalmon`)
+## Hawn State Park (`mohawn`)
 
-**Story** (43 words): Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.
+**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
 
-**Why it matters** (28 words): The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.
+**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
 
-## Dinosaur National Monument (`usdinosaurnationalmonume`)
+## Knob Noster State Park (`moknobnoster`)
 
-**Story** (42 words): Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.
+**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
 
-**Why it matters** (27 words): The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.
+**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
 
-## Effigy Mounds National Monument (`useffigymoundsnationalmo`)
+## Lake of The Ozarks State Park (`molakeoftheozarks`)
 
-**Story** (32 words): Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.
+**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-**Why it matters** (28 words): The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.
+**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
 
-## El Malpais National Monument (`uselmalpaisnationalmonum`)
+## Lewis and Clark State Park (`molewisandclark`)
 
-**Story** (42 words): El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.
+**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
 
-**Why it matters** (36 words): The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.
+**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Florissant Fossil Beds National Monument (`usflorissantfossilbedsna`)
+## Long Branch State Park (`molongbranch`)
 
-**Story** (42 words): Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.
+**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
 
-**Why it matters** (24 words): The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.
+**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
 
-## Fort Pulaski National Monument (`usfortpulaskinationalmon`)
+## Morris State Park (`momorris`)
 
-**Story** (43 words): Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.
+**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
 
-**Why it matters** (31 words): The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.
+**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
 
-## Fredericksburg and Spot. National Military Park (`usfredericksburgandspotn`)
+## Ozark Forest and Streams (`ozarks`)
 
-**Story** (30 words): Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.
+**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
 
-**Why it matters** (20 words): The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.
+**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
 

@@ -1,0 +1,21 @@
+{
+ "story": "Totem Bight State Historical Park is a 33-acre state park located north of Ketchikan in the U.S. state of Alaska. It is a forest on the former site of a traditional Native campground and contains a collection of totem poles and a replica of a traditional chieftain's house.",
+ "matters": "The historic site comprises 8.5 acres of the park and was added to the National Register of Historic Places on October 27, 1970. The Civilian Conservation Corps project placed 15 totem poles, most of them replicas of 19th-century poles.",
+ "id": "aktotembightstateh",
+ "name": "Totem Bight State Historical Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1671,
+  "candidatesTokenCount": 137,
+  "totalTokenCount": 1808,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1671
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:50:29+00:00"
+}

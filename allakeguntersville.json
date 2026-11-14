@@ -1,0 +1,21 @@
+{
+ "story": "Lake Guntersville State Park occupies 5,909 acres in Alabama, USA, on the eastern shore of Guntersville Lake. The public recreation area opened in 1974. It is known for its bald eagle population and hosts an annual wildlife education event.",
+ "matters": "The park shelters a bald eagle population and features 36 miles of National Recreation Trail-designated trails for hiking, mountain biking, and horseback riding.",
+ "id": "allakeguntersville",
+ "name": "Lake Guntersville State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2168,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2271,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2168
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:53:25+00:00"
+}

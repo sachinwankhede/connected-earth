@@ -1,92 +1,92 @@
 # REVIEW-01.md
 
-## Northern Gulf of Mexico (`gulf`)
+## Chilkat State Park (`akchilkat`)
 
-**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
+**Story** (46 words): Chilkat State Park is a 9,837-acre Alaska state park on a peninsula south of the town of Haines between the Chilkat and Chilkoot inlets. Established in 1970 and enacted in 1975, the remote park features forest trails, beaches, and views of Rainbow Glacier and Davidson Glacier.
 
-**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
+**Why it matters** (30 words): The park provides a habitat and viewing opportunities for a variety of wildlife, including black and brown bears, mountain goats, moose, humpback and orca whales, harbor seals, and bald eagles.
 
-## Mississippi River Floodplain (`mississippi`)
+## Chugach State Park (`akchugach`)
 
-**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
+**Story** (41 words): Chugach State Park is a hilly forest covering 495,204 acres in south-central Alaska, east of Anchorage. Established on August 6, 1970, it is the third-largest state park in the United States and features glaciers, lakes, and towering peaks like Bashful Peak.
 
-**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
+**Why it matters** (26 words): The park protects the scenic Chugach Mountains, safeguards the water supply for Anchorage, and provides essential natural habitats for brown bears, black bears, moose, and salmon.
 
-## Bennett Spring State Park (`mobennettspring`)
+## Denali State Park (`akdenali`)
 
-**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
+**Story** (44 words): Denali State Park is a 325,240-acre state park located in the U.S. state of Alaska. It is an undeveloped wilderness area situated in sight of Denali, the highest mountain peak in North America. The park features diverse habitats including tundra, forests, lakes, and streams.
 
-**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
+**Why it matters** (26 words): The park provides a rugged, uninhabited environment that shelters many unique plant and animal species, including black and grizzly bears, moose, and various birds and fish.
 
-## Big Lake State Park (`mobiglake`)
+## Fort Abercrombie State Historical Park (`akfortabercrombies`)
 
-**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
+**Story** (31 words): Fort Abercrombie State Historical Park is a 182-acre forest established in 1969 on Kodiak Island, Alaska. It features spruce forests, bluffs overlooking the ocean, meadows, and historical World War II fortifications.
 
-**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
+**Why it matters** (14 words): The park preserves historical World War II fortifications and natural scenery on Kodiak Island.
 
-## Big Sugar Creek State Park (`mobigsugarcreek`)
+## Kachemak Bay State Park (`akkachemakbay`)
 
-**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
+**Story** (43 words): Kachemak Bay State Park is a 400,000-acre park in and around Kachemak Bay, Alaska, United States. It was the first legislatively designated state park in the Alaska State Parks system. Wildlife within the park includes marine mammals, large land mammals, and numerous birds.
 
-**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
+**Why it matters** (30 words): Kachemak Bay is considered a critical habitat area due to the biodiversity in the area. The terrain consists of both rocky and sandy beaches, dense mountain forests, glaciers, and icefields.
 
-## Castlewood State Park (`mocastlewood`)
+## Point Bridget State Park (`akpointbridget`)
 
-**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
+**Story** (24 words): Point Bridget State Park is a forest located in Alaska, USA. It is home to species such as the humpback whale and bald eagle.
 
-**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
+**Why it matters** (17 words): The park shelters various native species in Alaska, USA, including the bald eagle and the humpback whale.
 
-## Cuivre River State Park (`mocuivreriver`)
+## Totem Bight State Historical Park (`aktotembightstateh`)
 
-**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
+**Story** (48 words): Totem Bight State Historical Park is a 33-acre state park located north of Ketchikan in the U.S. state of Alaska. It is a forest on the former site of a traditional Native campground and contains a collection of totem poles and a replica of a traditional chieftain's house.
 
-**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
+**Why it matters** (39 words): The historic site comprises 8.5 acres of the park and was added to the National Register of Historic Places on October 27, 1970. The Civilian Conservation Corps project placed 15 totem poles, most of them replicas of 19th-century poles.
 
-## Current River State Park (`mocurrentriver`)
+## Bladon Springs State Park (`albladonsprings`)
 
-**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
+**Story** (33 words): Bladon Springs State Park is located in Choctaw County, Alabama, on the site of four mineral springs. It is a public recreation area and a stop on the Alabama Black Belt Birding Trail.
 
-**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
+**Why it matters** (16 words): The park features sulfur-fixing bacteria in its spring water and offers camping, picnicking, and playground facilities.
 
-## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
+## Blue Springs State Park (`albluesprings`)
 
-**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
+**Story** (46 words): Blue Springs State Park is a public recreation area located in Barbour County, Alabama. The 103-acre state park features a clear blue, natural underground spring that pumps water into two concrete-ringed swimming pools. A small pond in the park is stocked with catfish, bass, and bream.
 
-**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (36 words): The Magnolia Trail crosses two miles of southeast Alabama forest and provides views of the west fork of the Choctawhatchee River. The park also includes acreage purchased by the Forever Wild Land Trust for hiking trails.
 
-## Elephant Rocks State Park (`moelephantrocks`)
+## Cathedral Caverns State Park (`alcathedralcaverns`)
 
-**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
+**Story** (44 words): Cathedral Caverns State Park is a 493-acre public recreation area and natural history preserve in Kennamer Cove, Alabama, featuring a karst cave with a large stalagmite forest. It was declared a National Natural Landmark in 1972 and opened as a state park in 2000.
 
-**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
+**Why it matters** (22 words): The park protects a significant cave system that includes Mystery River and an entrance measuring 25 feet tall and 128 feet wide.
 
-## Finger Lakes State Park (`mofingerlakes`)
+## Cheaha State Park (`alcheaha`)
 
-**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
+**Story** (44 words): Cheaha State Park is a forest located in Alabama, USA, spanning 2,799 acres in Clay and Cleburne counties. It is Alabama's oldest continuously operating state park and includes Cheaha Mountain, the highest point in the state. The park opened to the public in 1933.
 
-**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
+**Why it matters** (29 words): The park adjoins Talladega National Forest and features the Cheaha Trailhead of the Pinhoti Trail system, which weaves through the Talladega National Forest and connects to the Appalachian Trail.
 
-## Grand Gulf State Park (`mograndgulf`)
+## Chewacla State Park (`alchewacla`)
 
-**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
+**Story** (37 words): Chewacla State Park is a public recreation area occupying 696 acres below Interstate 85 on the far south side of Auburn, Alabama. The central feature is Lake Chewacla, which provides opportunities for fishing, swimming, and non-motorized boating.
 
-**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
+**Why it matters** (23 words): The park features a system of trails for hiking and for mountain biking that was designated as a National Recreation Trail in 2011.
 
-## Ha Ha Tonka State Park (`mohahatonka`)
+## DeSoto State Park (`aldesoto`)
 
-**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
+**Story** (38 words): DeSoto State Park is a forest area located in Alabama, USA, covering 3,502 acres of forest, rivers, waterfalls, and mountain terrain on Lookout Mountain. Established in 1935, it features the 104-foot-tall DeSoto Falls and borders the Little River.
 
-**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
+**Why it matters** (16 words): The park borders the Little River, which flows into the nearby Little River Canyon National Preserve.
 
-## Harry S Truman State Park (`moharrystruman`)
+## Frank Jackson State Park (`alfrankjackson`)
 
-**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
+**Story** (30 words): Frank Jackson State Park is a forest area in Alabama, USA, that covers 2,050 acres. It wraps around Lake Frank Jackson in the city of Opp and opened in 1970.
 
-**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
+**Why it matters** (14 words): The park features Lake Frank Jackson, which is an impoundment of Lightwood Knot Creek.
 
-## Hawn State Park (`mohawn`)
+## Gulf State Park (`algulf`)
 
-**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
+**Story** (35 words): Gulf State Park is a public recreation area located on the Gulf of Mexico in Alabama, USA. Covering 6,150 acres, the park encompasses beaches, marshland, boggy tea-colored streams, pine forests, and three spring-fed, fresh-water lakes.
 
-**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
+**Why it matters** (28 words): The park provides habitats for various local species such as the white-tailed deer, bobcat, and osprey, while offering protected natural spaces along the coast of southern Baldwin County.
 

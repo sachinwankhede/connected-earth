@@ -1,0 +1,21 @@
+{
+ "story": "Gulf State Park is a public recreation area located on the Gulf of Mexico in Alabama, USA. Covering 6,150 acres, the park encompasses beaches, marshland, boggy tea-colored streams, pine forests, and three spring-fed, fresh-water lakes.",
+ "matters": "The park provides habitats for various local species such as the white-tailed deer, bobcat, and osprey, while offering protected natural spaces along the coast of southern Baldwin County.",
+ "id": "algulf",
+ "name": "Gulf State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2259,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2362,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2259
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:52:53+00:00"
+}

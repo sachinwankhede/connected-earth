@@ -1,0 +1,21 @@
+{
+ "story": "Chewacla State Park is a public recreation area occupying 696 acres below Interstate 85 on the far south side of Auburn, Alabama. The central feature is Lake Chewacla, which provides opportunities for fishing, swimming, and non-motorized boating.",
+ "matters": "The park features a system of trails for hiking and for mountain biking that was designated as a National Recreation Trail in 2011.",
+ "id": "alchewacla",
+ "name": "Chewacla State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1899,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 1999,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1899
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:52:05+00:00"
+}

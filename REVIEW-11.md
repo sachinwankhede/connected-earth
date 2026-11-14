@@ -1,92 +1,92 @@
 # REVIEW-11.md
 
-## Bubiyan Island and Kuwait Bay (`xkuwait`)
+## Hlane Royal National Park (`xeswatini`)
 
-**Story** (38 words): Bubiyan Island and Kuwait Bay are located in Kuwait. Bubiyan Island is the largest island in the Kuwaiti coastal island chain with an area of 863 square kilometers and is mainly flat, with salt marshes covering some coasts.
+**Story** (43 words): Hlane Royal National Park covers 300 km² of Eswatini as a flat lowland area of Swazi bushveld. It is Eswatini's largest protected area and park, featuring ancient hardwood trees, grasslands, and shallow pans where lion, elephant, South African giraffe, and white rhinoceros live.
 
-**Why it matters** (30 words): The Mubarak al-Kabeer reserve on Bubiyan Island is a Wetland of International Importance that serves as a stop-over for migrating birds and supports the world's largest breeding colony of crab-plover.
+**Why it matters** (30 words): The park provides a vital sanctuary and the highest density of nesting white-backed vultures in Africa. It preserves a diverse ecosystem supporting rich birdlife and large mammals within the region.
 
-## Issyk-Kul Biosphere Reserve (`xkyrgyz`)
+## Falkland Islands: Saunders Island and surrounding sea (`xfalkland`)
 
-**Story** (43 words): Issyk-Kul Biosphere Reserve is located in eastern Kyrgyzstan and features Issyk-Kul Lake, an endorheic saline lake in the western Tian Shan mountains. Established in 1948 and covering the Issyk-Kul Region, the lake is fed by about 118 rivers, hot springs, and snow melt.
+**Story** (46 words): Saunders Island is part of the Falkland Islands, an archipelago in the South Atlantic Ocean on the Patagonian Shelf. The islands lie at the boundary of the subantarctic oceanic and tundra climate zones. They feature mountain ranges and large bird populations, such as the black-browed albatross.
 
-**Why it matters** (33 words): The lake is a Ramsar site of globally significant biodiversity that supports large numbers of wintering waterfowl and endemic fish species, while forming part of the biosphere reserve established in the year 2000.
+**Why it matters** (31 words): The region provides breeding and nesting habitats for seabirds and marine mammals. These populations are part of wider southern ocean ecosystems where species like the black-browed albatross forage over shelf areas.
 
-## Nam Et-Phou Louey National Protected Area (`xlaos`)
+## Colo-i-Suva Forest Reserve (`xfiji`)
 
-**Story** (34 words): Nam Et-Phou Louey National Park is a protected area in northern Laos, covering 4,107.1 km2 across Houaphan, Luang Prabang, and Xieng Khouang. It consists mainly of mountains and hills with a tropical monsoon climate.
+**Story** (38 words): Colo-i-Suva Forest Reserve is a nature reserve near Suva in Fiji. Established in 1872, it covers two and a half square kilometres of verdant rainforests renowned for tropical flora and birds. The Waisila Creek flows through the park.
 
-**Why it matters** (25 words): The area has a high level of biodiversity, sheltering endangered species such as the dhole and the sambar deer within its forests and river habitats.
+**Why it matters** (20 words): The forest is part of the Queen's Commonwealth Canopy and serves as the water catchment for Nausori and Nasinu creek.
 
-## Gauja National Park (`xlatvia`)
+## Oulanka National Park (`xfinland`)
 
-**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
+**Story** (42 words): Oulanka National Park covers 270 square kilometres in the Northern Ostrobothnia and Lapland regions of Finland. Established in 1956, the park is a combination of northern, southern, and eastern nature featuring untouched boreal forest, mires, and a unique river ecosystem with rapids.
 
-**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
+**Why it matters** (27 words): The park shelters endangered species such as the bear, lynx, and wolverine, alongside a rich variety of animal and plant species that thrive in its nutrient-rich soil.
 
-## Al Shouf Cedar Nature Reserve (`xlebanon`)
+## River Gambia National Park (`xgambia`)
 
-**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
+**Story** (39 words): River Gambia National Park is a national park in the Gambia. Established in 1978, it lies in the Niamina East district of Central River Division on the left bank of the Gambia River and includes the Baboon Islands archipelago.
 
-**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
+**Why it matters** (24 words): Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.
 
-## Sehlabathebe National Park (`xlesotho`)
+## Kolkheti National Park (`xgeorgia`)
 
-**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
+**Story** (32 words): Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.
 
-**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
+**Why it matters** (26 words): The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.
 
-## Sapo National Park (`xliberia`)
+## Mole National Park (`xghana`)
 
-**Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
+**Story** (43 words): Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.
 
-**Why it matters** (29 words): The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.
+**Why it matters** (26 words): The park provides a protected habitat for resident antelope species and serves as an important study area for scientists examining relatively undisturbed sites in West Africa.
 
-## Curonian Spit (`xlithuania`)
+## Vikos-Aoös National Park (`xgreece`)
 
-**Story** (43 words): The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.
+**Story** (42 words): Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.
 
-**Why it matters** (31 words): The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.
+**Why it matters** (36 words): The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.
 
-## Müllerthal and Upper Sûre forests (`xluxembourg`)
+## Northeast Greenland National Park (`xgreenland`)
 
-**Story** (42 words): The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.
+**Story** (39 words): Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.
 
-**Why it matters** (34 words): The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.
+**Why it matters** (31 words): The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.
 
-## Lake Ohrid Region (`xmacedonia`)
+## Mount Nimba Strict Nature Reserve (`xguinea`)
 
-**Story** (29 words): Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.
+**Story** (33 words): Mount Nimba Strict Nature Reserve covers 175.4 km2 in Guinea and Côte d'Ivoire. Established in 1943 and 1944, it is a protected area and UNESCO World Heritage Site featuring exceptional flora and fauna.
 
-**Why it matters** (23 words): It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.
+**Why it matters** (26 words): The reserve lies within the Guinean Forests of West Africa Biodiversity Hotspot and shelters rare animals such as the western chimpanzee and the Nimba otter shrew.
 
-## Codru Nature Reserve (Codrii) (`xmoldova`)
+## Bijagós Archipelago Biosphere Reserve (`xguineabissau`)
 
-**Story** (40 words): Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.
+**Story** (60 words): The Bijag3s Archipelago Biosphere Reserve is located in the Atlantic Ocean off the coast of Guinea-Bissau and consists of about 88 islands and islets spanning an area of 12,958 square kilometres. Declared a UNESCO Biosphere Reserve in 1996 and a World Heritage Site in 2025, the area features mangroves, palm forests, and coastal savanna supporting various waterbirds, flamingos, and pelicans.
 
-**Why it matters** (26 words): The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.
+**Why it matters** (35 words): The mangroves play a crucial role for the reproduction of molluscs, fish, and sea turtles. The region is also the main habitat of the African gray parrot, which is an endangered species in the subregion.
 
-## Hukaung Valley Tiger Reserve (`xmyanmar`)
+## Iwokrama Forest (`xguyana`)
 
-**Story** (33 words): Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.
+**Story** (34 words): Iwokrama Forest is a 3,716 square kilometres nature reserve located in central Guyana in the Guiana Shield. The area is covered with lowland tropical forest and is bordered by rivers, mountains, highlands, and savannahs.
 
-**Why it matters** (24 words): The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.
+**Why it matters** (24 words): The reserve is part of the Guiana Shield and provides a natural habitat for various animals such as the jaguar and the black caiman.
 
-## Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems (`xnewcal`)
+## Pic Macaya National Park (`xhaiti`)
 
-**Story** (38 words): The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.
+**Story** (47 words): Pic Macaya National Park is located in Haiti within the southern peninsula and the Massif de la Hotte. Founded in 1984, it encompasses more than 8,000 hectares and reaches a height of 2,347 meters at Pic Macaya. It features the country's last stand of virgin cloud forest.
 
-**Why it matters** (32 words): The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.
+**Why it matters** (26 words): The park belongs to the Massif de la Hotte mountain range and supports endangered plant and animal life, including species endemic to the island of Hispaniola.
 
-## Indio Maiz Biological Reserve (`xnicaragua`)
+## Río Plátano Biosphere Reserve (`xhonduras`)
 
-**Story** (52 words): Indio Maiz Biological Reserve covers about 3,180 square kilometers on the southeastern corner of Nicaragua bordering the San Juan River and Costa Rica. It is one of the largest protected lowland forest systems in Central America and is rich in biodiversity, providing a home for jaguars, Baird's tapirs, and great green macaws.
+**Story** (46 words): The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.
 
-**Why it matters** (29 words): It is a key component in the proposed Mesoamerican Biological Corridor and serves as an important population stronghold for endangered species like the great green macaw and the jaguar.
+**Why it matters** (36 words): The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.
 
-## Cross River National Park (`xnigeria`)
+## Hyrcanian Forests (`xiran`)
 
-**Story** (43 words): Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.
+**Story** (44 words): The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.
 
-**Why it matters** (29 words): The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.
+**Why it matters** (27 words): The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.
 

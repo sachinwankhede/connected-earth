@@ -1,92 +1,92 @@
 # REVIEW-14.md
 
-## Mobile-Tensaw River Delta (`xusal`)
+## Al Reem Biosphere Reserve (`xqatar`)
 
-**Story** (37 words): The Mobile-Tensaw River Delta is the largest river delta and wetland in Alabama, covering roughly 300 sq mi. It is home to American alligators, alligator gars, great blue herons, and ospreys across swamps, marshes, and bottomland forests.
+**Story** (44 words): Al Reem Biosphere Reserve covers 120,000 hectares of northwest Qatar. Established in 2005, this inhabited area includes semi-arid desert landscapes and is home to gazelles and Arabian oryx. Due to its dense vegetation, the reserve is of great importance for the people of Qatar.
 
-**Why it matters** (27 words): This delta and the adjacent Mobile estuary make up one of the largest wetland ecosystems in the United States, supporting immense biodiversity that conservators prioritize for protection.
+**Why it matters** (29 words): The reserve is part of the World Network of Biosphere Reserves in the Arab States and helps protect native desert wildlife such as the Arabian oryx and Arabian gazelle.
 
-## Connecticut River Estuary (`xusct`)
+## Nyungwe Forest National Park (`xrwanda`)
 
-**Story** (42 words): The Connecticut River Estuary is located in the United States in Connecticut, where the Connecticut River discharges into Long Island Sound between Old Saybrook and Old Lyme. It is home to diverse species such as the American shad, osprey, and smooth cordgrass.
+**Story** (46 words): Nyungwe Forest National Park is located in southwestern Rwanda, covering approximately 1,019 square kilometres of rainforest, bamboo, grassland, swamps, and bogs. Established in 2004, it reaches a maximum altitude of 3,000 metres at Mount Bigugu. It is widely considered the best preserved montane rainforest in Africa.
 
-**Why it matters** (25 words): The estuary features smooth cordgrass, which acts as an environmental engineer by accumulating sediment and building up land at the seaward edge of salt marshes.
+**Why it matters** (37 words): The park is a priority for conservation in Africa, containing 13 primate species and a high number of restricted-range species found only in the Albertine Rift montane forests ecoregion. It shelters colonies of chimpanzees and Angola colobus.
 
-## Rock Creek Park (`xusdc`)
+## Farasan Islands Marine Reserve (`xsaudi`)
 
-**Story** (52 words): Rock Creek Park is the oldest natural urban park in the National Park System, located in Washington, D.C., USA. Created by an act of Congress in 1890, the park covers 1,754 acres along the Rock Creek Valley. It is home to wildlife and plants including the white-tailed deer and the American beech.
+**Story** (51 words): The Farasan Islands Marine Reserve spans 1050 km² in the southeastern Red Sea within Saudi Arabia, featuring nearly 200 coral islands and islets. It is home to the Arabian gazelle and hosts migratory birds in winter. Oceanic animals such as dugongs and sea turtles also live in the warm shallow sea.
 
-**Why it matters** (27 words): The park preserves timber, animals, and natural curiosities in their natural condition. The American beech trees in its forests produce nuts that provide food for various animals.
+**Why it matters** (24 words): The reserve shelters vulnerable and endangered species like dugongs and green and hawksbill sea turtles, and protects the Arabian gazelle in its natural habitat.
 
-## Delaware Bay and Bombay Hook (`xusde`)
+## Djoudj National Bird Sanctuary (`xsenegal`)
 
-**Story** (44 words): Delaware Bay is the estuary outlet of the Delaware River on the northeast seaboard of the United States, lying between Delaware and New Jersey. The bay is approximately 782 square miles in area and its shores are largely composed of salt marshes and mudflats.
+**Story** (42 words): Djoudj National Bird Sanctuary lies on the southeast bank of the Senegal River in Senegal. Covering an area of 16,000 hectares, it is the world's 3rd largest ornithological reserve. It provides wetland habitats for large populations of pelicans, flamingos, crocodiles, and manatees.
 
-**Why it matters** (30 words): Delaware Bay is a key stopover site for over 30 species of migrating shorebirds that migrate north come May and hosts the largest population of horseshoe crabs in the world.
+**Why it matters** (28 words): It is a World Heritage Site that serves as a very popular wintering site for migrating birds crossing the Sahara, including aquatic warblers and millions of other birds.
 
-## Okefenokee National Wildlife Refuge (`xusga`)
+## Đerdap National Park (`xserbia`)
 
-**Story** (41 words): The Okefenokee National Wildlife Refuge covers 402,000 acres in Georgia and Florida, United States. It protects the Okefenokee Swamp, a shallow, peat-filled wetland formed over the past 6,500 years. The vast bog features open wet prairies, cypress forests, and numerous lakes.
+**Story** (34 words): Đerdap National Park stretches along the right bank of the Danube River in Serbia. Established in 1974, the forest park spans 63,786.5 hectares and features the long Đerdap gorge, mountainous terrain, caves, and springs.
 
-**Why it matters** (26 words): The swamp is one of the world's largest intact freshwater wetland ecosystems and is world-renowned for its amphibian populations that serve as bio-indicators of global health.
+**Why it matters** (26 words): The heavily forested area is rich in animal life and provides a protected habitat for diverse plant species and rare wildlife such as the Eurasian lynx.
 
-## Loess Hills (`xusia`)
+## Gola Rainforest National Park (`xsierra`)
 
-**Story** (49 words): The Loess Hills are a grassland formation of wind-deposited loess soil in Iowa, USA. These hills rise 200 feet above the flat plains in a narrow band along the Missouri River. They feature unique peak and saddle topography and are home to species like big bluestem and little bluestem.
+**Story** (31 words): Gola Rainforest National Park protects Sierra Leone's largest tract of rainforest, covering 71,070 ha in the east of the country. It is home to western chimpanzees, pygmy hippopotamuses, and forest elephants.
 
-**Why it matters** (27 words): The Loess Hills protect some of the last remaining stands of prairie grass in the region and provide essential thermal updrafts that raptors use during their migrations.
+**Why it matters** (32 words): The park forms part of the Upper Guinea Forest, a biodiversity hotspot that stretches from Guinea to Togo. It is designated as a World Heritage Site as part of the Gola-Tiwai complex.
 
-## Konza Prairie and the Flint Hills (`xusks`)
+## Korean Demilitarized Zone (`xskorea`)
 
-**Story** (44 words): Konza Prairie is an 8,616-acre protected area of native tallgrass prairie located in the Flint Hills of northeastern Kansas. It features a topographically complex landscape with tallgrass, forest, and limestone outcrops. A herd of approximately 2,400 bison graze on the hills of the preserve.
+**Story** (37 words): The Korean Demilitarized Zone is a strip of land running across the Korean Peninsula in South Korea. Established in 1953, it is 250 kilometers long and about 4 kilometers wide, serving as a heavily militarized border barrier.
 
-**Why it matters** (40 words): The site is part of the largest remaining area of unplowed tallgrass prairie in North America, serving as a natural laboratory for studying ecological patterns. Key natural processes such as periodic fire and grazing help sustain this unique grassland ecosystem.
+**Why it matters** (22 words): A population of the long-tailed goral, an endangered species classified as South Korean natural monument 217, exists in the Korean Demilitarized Zone.
 
-## Cape Cod National Seashore (`xusma`)
+## Triglav National Park (`xslovenia`)
 
-**Story** (38 words): Cape Cod National Seashore covers ponds, woods, and beachfront in Massachusetts, USA. Created on August 7, 1961, by President John F. Kennedy, it spans 43,607 acres and includes nearly 40 miles of seashore along the Atlantic-facing eastern shore.
+**Story** (53 words): Triglav National Park is the only national park in Slovenia, located in the northwestern part of the country. Established in its modern form in 1981, it covers an area of 880 km². Mount Triglav stands almost in the middle of the park, and the area is home to over 700 species of animals.
 
-**Why it matters** (23 words): It shelters the Atlantic coastal pine barrens ecoregion and provides vital habitats for species such as the piping plover and the gray seal.
+**Why it matters** (26 words): The park spans two major watersheds, the Sava River watershed and the Soča River watershed. It also protects diverse wildlife, including Alpine chamois and Alpine ibex.
 
-## Pascagoula River (`xusms`)
+## Marovo Lagoon (`xsolomon`)
 
-**Story** (35 words): The Pascagoula River is about 80 miles long in southeastern Mississippi, United States. It flows generally southward through swampy bottomlands in George and Jackson Counties and into the Mississippi Sound of the Gulf of Mexico.
+**Story** (50 words): Marovo Lagoon is the largest double-barrier enclosed lagoon in the world, covering 700 square kilometres in the Western Province of the Solomon Islands between Vangunu and Nggatokae islands. It is protected by a double barrier reef system and includes many islands where some people live and speak the Marovo language.
 
-**Why it matters** (28 words): It is significant as the only unaffected river with a discharge of over 10 cubic kilometres per year flowing from the United States into the Gulf of Mexico.
+**Why it matters** (25 words): The Marovo Lagoon World Heritage Area is considered an area of high biodiversity and conservation value, featuring high live coral cover in the Western Province.
 
-## Platte River sandhill crane migration (central Platte valley) (`xusne`)
+## Lag Badana National Park (Bush-Bush) (`xsomalia`)
 
-**Story** (35 words): The Platte River sandhill crane migration takes place in the central Platte valley in Nebraska, United States. Fossil evidence indicates this crane stopover in the river valley has been active for over 10 million years.
+**Story** (34 words): Lag Badana National Park is a national park of Somalia located on the far southern coast, next to the border with Kenya. It was the first national park to be established in the country.
 
-**Why it matters** (29 words): The central Platte River valley is an important stopover for migratory water birds, such as the whooping crane and sandhill crane, in their yearly traversal of the Central Flyway.
+**Why it matters** (20 words): The protected area is considered a Lion Conservation Unit and has been designated an Important Bird Area by BirdLife International.
 
-## White Mountain National Forest (`xusnh`)
+## Daallo Forest (`xsomaliland`)
 
-**Story** (42 words): The White Mountain National Forest is located in New Hampshire, USA, with a small part in Maine. Established in 1918, it has a total area of 750,852 acres. It is home to wildlife species including the moose, bald eagle, and black bear.
+**Story** (44 words): Daallo Forest is a national park located in the eastern Sanaag region of Somaliland, forming part of the Ogo Mountains. The reserve features an unspoiled wilderness with dense evergreen forest on a limestone and gypsum escarpment, where some trees are over 1000 years old.
 
-**Why it matters** (35 words): It contains six designated Federal Wilderness Areas that are protected from logging and commercial industries and are used solely for recreational and scientific purposes. Over 100 miles of the Appalachian Trail traverses the national forest.
+**Why it matters** (29 words): The site is designated an Important Bird Area by BirdLife International and supports high-elevation species and characteristic fauna of the North Somali mountains such as the endemic Warsangli linnet.
 
-## Adirondack Park (`xusny`)
+## The Sudd (Ramsar wetland) (`xssudan`)
 
-**Story** (34 words): Adirondack Park is located in northeastern New York. Established in 1892, it is the largest park in the contiguous United States at 6.1 million acres and contains old-growth forests, lakes, and the Adirondack Mountains.
+**Story** (41 words): The Sudd is a vast swamp in South Sudan formed by the White Nile's Bahr al-Jabal section. Designated as a Ramsar Wetland in 2006, it covers an area of 57,000 square kilometres and features meandering channels, lagoons, and floating papyrus fields.
 
-**Why it matters** (24 words): The park provides watershed protection and shelters old-growth forests and native wildlife. Its legal protections and management have helped conserve developed and wild lands.
+**Why it matters** (27 words): The Sudd is one of the world's largest wetlands and the largest freshwater wetland in the Nile Basin, storing floodwaters and trapping sediments from the Bahr al-Jabal.
 
-## Joseph H. Williams Tallgrass Prairie Preserve (`xusok`)
+## Central Suriname Nature Reserve (`xsuriname`)
 
-**Story** (55 words): The Joseph H. Williams Tallgrass Prairie Preserve is located in Oklahoma, USA, and is the largest protected tract of tallgrass prairie in the world. Managed by The Nature Conservancy, it covers 39,650 acres owned by the Conservancy and another 6,000 acres leased. The preserve is home to prominent bison and numerous plant and bird species.
+**Story** (56 words): The Central Suriname Nature Reserve is a conservation unit in Suriname that preserves an area of pristine tropical rainforest. Created in 1998, it covers 16,000 square kilometres of montane and lowland primary forest, including granite domes and sections of the Guyana Highlands. It is known for large mammals like the jaguar and eight species of primates.
 
-**Why it matters** (28 words): It protects a rare remnant of the original tallgrass region of the Great Plains and provides a vital habitat for threatened greater prairie-chickens and endangered American burying beetles.
+**Why it matters** (37 words): It is in the Guianan moist forests ecoregion and protects a pristine tropical rainforest ecosystem with over 5,000 different plants and endemic plant species. The reserve is supported for protected-area planning and management by Conservation International Suriname.
 
-## Allegheny National Forest (`xuspa`)
+## Syrian Steppe and Palmyra (`xsyria`)
 
-**Story** (39 words): The Allegheny National Forest is a National Forest in Northwestern Pennsylvania, about 100 miles northeast of Pittsburgh. The forest covers 513,175 acres of land. Within the forest is Kinzua Dam, which impounds the Allegheny River to form Allegheny Reservoir.
+**Story** (41 words): The Syrian Steppe and Palmyra covers a desert region in Syria. It features open, rocky or gravelly desert pavement cut with occasional dry river valleys and oases. The ancient settlement of Palmyra is located here in an oasis surrounded by palms.
 
-**Why it matters** (33 words): The Allegheny National Forest lies in the heart of Pennsylvania's oil and gas region, only 40 miles from the site of the first commercial oil well in the United States at Titusville, Pennsylvania.
+**Why it matters** (24 words): The Syrian Desert ecosystem includes plants like artemisia herba-alba and provides habitat for visitors such as the northern bald ibis and the Egyptian vulture.
 
-## Narragansett Bay and Block Island (`xusri`)
+## Yushan National Park (`xtaiwan`)
 
-**Story** (44 words): Narragansett Bay and Block Island are located in Rhode Island, USA. Narragansett Bay covers 147 square miles and forms New England's largest estuary. Block Island lies less than 20 miles southwest of its opening and is an island of the Outer Lands coastal archipelago.
+**Story** (41 words): Yushan National Park covers a total area of 103,121 hectares in Taiwan. It contains more than thirty peaks over 3,000 metres in elevation, featuring many canyons, cliffs, and valleys. The park is home to a large variety of animals and plants.
 
-**Why it matters** (31 words): About 40 percent of Block Island is set aside for conservation, and much of its northwestern tip is an undeveloped natural area and resting stop for birds along the Atlantic flyway.
+**Why it matters** (31 words): The national park is an important nesting ground for the Taiwanese population of the mountain hawk-eagle. It also shelters the Formosan black bear, which is an endangered species endemic to Taiwan.
 

@@ -1,0 +1,21 @@
+{
+ "story": "Rickwood Caverns State Park is a public recreation area and natural history preserve located in Alabama, USA, north of Warrior. The 380-acre state park features caverns with illuminated limestone formations estimated to be 260 million years old, blind cave fish, and an underground pool.",
+ "matters": "The park surrounds caverns containing active living formations, spring-fed pools, and visible fossils in the soft limestone walls.",
+ "id": "alrickwoodcaverns",
+ "name": "Rickwood Caverns State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2066,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2168,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2066
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:55:01+00:00"
+}

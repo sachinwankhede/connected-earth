@@ -1,0 +1,21 @@
+{
+ "story": "DeSoto State Park is a forest area located in Alabama, USA, covering 3,502 acres of forest, rivers, waterfalls, and mountain terrain on Lookout Mountain. Established in 1935, it features the 104-foot-tall DeSoto Falls and borders the Little River.",
+ "matters": "The park borders the Little River, which flows into the nearby Little River Canyon National Preserve.",
+ "id": "aldesoto",
+ "name": "DeSoto State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1770,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 1863,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1770
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:52:21+00:00"
+}

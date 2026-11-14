@@ -1,92 +1,92 @@
 # REVIEW-06.md
 
-## Laponian Area (`whlaponia`)
+## Lake Meredith National Recreation Area (`uslakemeredithnationalre`)
 
-**Story** (54 words): Sarek National Park is located in the Jokkmokk Municipality, Lapland in northern Sweden, and was established in 1909. The park covers an area of 1,977 square kilometres and is among the oldest national parks in Europe. It is the most mountainous region in Sweden, featuring about 100 glaciers and six peaks over 2,000 metres.
+**Story** (37 words): Lake Meredith National Recreation Area is located in Texas, USA, about 30 miles north of Amarillo in the Texas Panhandle. Its main attraction is 10,000-acre Lake Meredith, a reservoir created by Sanford Dam on the Canadian River.
 
-**Why it matters** (39 words): The park is adjacent to Padjelanta and Stora Sjöfallet national parks, forming a combined protected area of approximately 5,500 square kilometres. It also provides a remote alpine habitat for various arctic and mountain species such as reindeer and wolverines.
+**Why it matters** (14 words): Alibates Flint Quarries National Monument is located adjacent to Lake Meredith National Recreation Area.
 
-## Lord Howe Island Group (`whlordhowe`)
+## Lake Roosevelt National Recreation Area (`uslakerooseveltnationalr`)
 
-**Story** (57 words): Lord Howe Island is an irregularly crescent-shaped volcanic remnant in the Tasman Sea, part of New South Wales, Australia. The island is about 10 km long with an area of 14.55 square kilometers and is home to forested hills rising to Mount Gower. The Lord Howe Island Group comprises 28 islands, islets, and rocks, including Ball's Pyramid.
+**Story** (50 words): Lake Roosevelt National Recreation Area is located in eastern Washington state. Established in 1946, it encompasses the 130-mile long Franklin D. Roosevelt Lake between Grand Coulee Dam and Northport. The recreation area provides opportunities for fishing, swimming, canoeing, boating, hunting, camping, and visiting historic Fort Spokane and St. Paul's Mission.
 
-**Why it matters** (40 words): The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.
+**Why it matters** (32 words): The recreation area is a unit of the National Park Service and was created by a memorandum of agreement with the Spokane Tribe, Colville Indian Reservation, and United States Bureau of Reclamation.
 
-## Lorentz National Park (`whlorentz`)
+## Lava Beds National Monument (`uslavabedsnationalmonume`)
 
-**Story** (39 words): Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.
+**Story** (26 words): Lava Beds National Monument is located in northeastern California. It includes more than 46,000 acres and has the largest concentration of lava tubes in North America.
 
-**Why it matters** (28 words): It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.
+**Why it matters** (21 words): The monument has lava tubes and a semi-arid desert environment that support a wide diversity of plant life and native wildlife.
 
-## Manú National Park (`whmanu`)
+## Montezuma Castle National Monument (`usmontezumacastlenationa`)
 
-**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+**Story** (37 words): Montezuma Castle National Monument protects a well-preserved cliff dwelling located in Camp Verde, Arizona. Constructed as early as 1125 AD by the Southern Sinagua people, the five-story structure sits up a limestone cliff and features stone-and-mortar masonry.
 
-**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+**Why it matters** (32 words): The national monument encloses 860 acres near the geographic center of Arizona. It preserves important archaeological structures and houses a museum about the Native American communities with cultural connections to the site.
 
-## Monarch Butterfly Biosphere Reserve (`whmonarch`)
+## Natural Bridges National Monument (`usnaturalbridgesnational`)
 
-**Story** (39 words): The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.
+**Story** (40 words): Natural Bridges National Monument is located in southeast Utah, at the junction of White Canyon and Armstrong Canyon. It features three natural bridges named Kachina, Owachomo, and Sipapu, which were formed through erosion by water flowing in the stream bed.
 
-**Why it matters** (30 words): The reserve is a World Heritage Site containing most of the overwintering sites of the eastern population of the monarch butterfly, serving to protect the butterfly species and its habitat.
+**Why it matters** (38 words): The monument protects a landscape featuring unique geological formations and native plant and animal species. Much of the ground is covered in communities of cryptobiotic soil crusts that prevent soil erosion and promote the retention of soil nutrients.
 
-## Nahanni National Park Reserve (`whnahanni`)
+## Organ Pipe Cactus National Monument (`usorganpipecactusnationa`)
 
-**Story** (43 words): Nahanni National Park Reserve is located in the Northwest Territories, Canada, protecting a portion of the Mackenzie Mountains Natural Region. The park features the South Nahanni River, which flows through four deep canyons, and includes Virginia Falls, where the river plunges 90 m.
+**Story** (45 words): Organ Pipe Cactus National Monument covers 1,340 km2 in southern Arizona, sharing a border with Mexico. It is one of the few places in the United States where the senita and organ pipe cactus grow wild, alongside many other plants native to the Sonoran Desert.
 
-**Why it matters** (23 words): The park provides appropriate year-round or seasonal habitat for ten special-concern, threatened, or endangered species, including the grizzly bear, woodland caribou, and wolverine.
+**Why it matters** (33 words): In 1976 the monument was declared a Biosphere Reserve by UNESCO. It is bordered to the northwest by Cabeza Prieta National Wildlife Refuge and to the east by the Tohono Oʼodham Indian Reservation.
 
-## Fernando de Noronha Archipelago (`whnoronha`)
+## Padre Island National Seashore (`uspadreislandnationalsea`)
 
-**Story** (43 words): Fernando de Noronha is an archipelago of 21 islands and islets extending over 26 square kilometres in the Atlantic Ocean, part of the state of Pernambuco, Brazil. Established in 1988, 70% of its area is a national marine park featuring volcanic rock formations.
+**Story** (47 words): Padre Island National Seashore is the world's longest barrier island, located on Padre Island off the coast of South Texas, USA. Developed 4,500 to 5,000 years ago, it is part of the world's longest natural barrier bar system and hosts pristine beach, dune, and tidal flat environments.
 
-**Why it matters** (27 words): In 2001, UNESCO designated the islands as a World Heritage Site because of their importance as a feeding ground for tuna, sharks, sea turtles, and marine mammals.
+**Why it matters** (28 words): The park provides a nesting beach for endangered Kemp's ridley sea turtles and serves as an important habitat along the Central Flyway, a major migratory route for birds.
 
-## Ogasawara Islands (`whogasawara`)
+## Pictured Rocks National Lakeshore (`uspicturedrocksnationall`)
 
-**Story** (45 words): The Ogasawara Islands are a Japanese archipelago of over 30 subtropical and tropical islands located in Japan. The group as a whole has a total area of 84 square kilometers. Because of their isolation, many of their animals and plants have undergone unique evolutionary processes.
+**Story** (36 words): Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.
 
-**Why it matters** (26 words): They were named a Natural World Heritage Site in 2011 and are home to endemic species like the Bonin flying fox, which lives in subtropical forests.
+**Why it matters** (27 words): The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.
 
-## El Pinacate and Gran Desierto de Altar Biosphere Reserve (`whpinacate`)
+## Point Reyes National Seashore (`uspointreyesnationalseas`)
 
-**Story** (54 words): El Pinacate and Gran Desierto de Altar Biosphere Reserve covers an area of 2,695.05 square kilometres in the Sonoran Desert in northwest Mexico. It is a UNESCO World Heritage Site featuring a volcanic shield, active dunes, and the highest concentration of Maar craters. NASA sent astronauts to train there for walking on the Moon.
+**Story** (46 words): Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.
 
-**Why it matters** (34 words): The reserve shelters threatened endemic species including the Sonoran pronghorn, bighorn sheep, gila monster, and desert tortoise. It forms part of a larger desert ecosystem that spans northwest Mexico and the southwestern United States.
+**Why it matters** (28 words): The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.
 
-## Plitvice Lakes National Park (`whplitvice`)
+## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
 
-**Story** (52 words): Plitvice Lakes National Park is one of the oldest and largest national parks in Croatia. Founded in 1949, it covers 296.85 km2 in the mountainous karst area of central Croatia at the border with Bosnia and Herzegovina. The park is famous for its picturesque series of tufa lakes, caves, and connected waterfalls.
+**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
 
-**Why it matters** (36 words): The afforested mountain slopes serve as a refuge for many animal species, including the brown bear, grey wolf, and Eurasian lynx. The park is inscribed on the UNESCO World Heritage list for its outstanding natural features.
+**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
 
-## Putorana Plateau (`whputorana`)
+## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
 
-**Story** (40 words): The Putorana Plateau is a mountainous area in Russia located in Krasnoyarsk Krai. It is a high-lying plateau crossed by mountain ranges featuring deep lakes and waterfalls. Established in 1988, the Putorana Nature Reserve covers an area of 1,887,251 ha.
+**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
 
-**Why it matters** (31 words): The reserve was set up to protect the world's largest herd of wild reindeer as well as snow sheep. It contains complete subarctic and arctic ecosystems in an isolated mountain range.
+**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
 
-## Pyrénées - Mont Perdu (`whpyrenees`)
+## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
 
-**Story** (43 words): Pyrénées - Mont Perdu is situated in France and Spain. It is a polar and mountain area featuring high mountain topography, limestone formations, and deep canyons carved by repeated glaciations. Animals such as the Pyrenean chamois and alpine marmot live in this region.
+**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
 
-**Why it matters** (33 words): The park was included in the cross-border Pyrénées - Mont Perdu World Heritage Site because of its spectacular geologic landforms. It protects high mountain topography and shelters various species of raptors and mammals.
+**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
 
-## Shiretoko (`whshiretoko`)
+## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
 
-**Story** (40 words): Shiretoko National Park covers most of the Shiretoko Peninsula on the island of Hokkaido, Japan. The 70 kilometres long peninsula is best known as the home of Japan's largest population of brown bears and features temperate and subalpine mixed forests.
+**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
 
-**Why it matters** (28 words): In 2005, UNESCO designated the area a World Heritage Site in recognition of the peninsula being the southernmost point where sea ice usually forms in the Northern Hemisphere.
+**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
 
-## Sian Ka'an Biosphere Reserve (`whsiankaan`)
+## Tonto National Monument (`ustontonationalmonument`)
 
-**Story** (47 words): Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.
+**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
 
-**Why it matters** (30 words): It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.
+**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
 
-## Central Sikhote-Alin (`whsikhote`)
+## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
 
-**Story** (32 words): Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.
+**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
 
-**Why it matters** (23 words): The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.
+**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
 

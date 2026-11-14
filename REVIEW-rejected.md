@@ -1,5 +1,11 @@
 # Rejected by the checks
 
+## Buck's Pocket State Park (`albuckspocket`) - numbers not in the research text: 2000
+
+Story: Bucks Pocket State Park is a public recreation area occupying 2000 acres in Alabama, USA, surrounding a natural pocket of the Appalachian Mountain chain. Opened in 1971, the park is known for sweeping views of its rugged landscape from Point Rock.
+
+Why: The park preserves a canyon along South Sauty Creek and provides a natural habitat for wildlife including whitetailed deer.
+
 ## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`) - story has 70 words (limit 60)
 
 Story: Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in southernmost Haida Gwaii, 130 kilometres off the mainland of British Columbia, Canada. It protects an archipelago of 138 islands, with close to 90% of the land being forested. The area ranges from deep fjords to rugged mountains and is cooperatively managed by the Council of the Haida Nation and the Government of Canada.

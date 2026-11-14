@@ -1,0 +1,21 @@
+{
+ "story": "Fort Abercrombie State Historical Park is a 182-acre forest established in 1969 on Kodiak Island, Alaska. It features spruce forests, bluffs overlooking the ocean, meadows, and historical World War II fortifications.",
+ "matters": "The park preserves historical World War II fortifications and natural scenery on Kodiak Island.",
+ "id": "akfortabercrombies",
+ "name": "Fort Abercrombie State Historical Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1530,
+  "candidatesTokenCount": 82,
+  "totalTokenCount": 1612,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1530
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:49:41+00:00"
+}

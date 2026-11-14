@@ -1,0 +1,21 @@
+{
+ "story": "Meaher State Park is located on Big Island in Spanish Fort, Alabama, and covers 1,327 acres along the shoreline of Ducker Bay. Opened in 1989, the park features an interpretive boardwalk through the wetlands, a fishing pier, and a camping area.",
+ "matters": "The park is surrounded by wetlands of the Mobile Bay estuary at the junction of Mobile Bay and the Mobile-Tensaw River Delta.",
+ "id": "almeaher",
+ "name": "Meaher State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1609,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1706,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1609
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:53:56+00:00"
+}

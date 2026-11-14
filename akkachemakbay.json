@@ -1,0 +1,21 @@
+{
+ "story": "Kachemak Bay State Park is a 400,000-acre park in and around Kachemak Bay, Alaska, United States. It was the first legislatively designated state park in the Alaska State Parks system. Wildlife within the park includes marine mammals, large land mammals, and numerous birds.",
+ "matters": "Kachemak Bay is considered a critical habitat area due to the biodiversity in the area. The terrain consists of both rocky and sandy beaches, dense mountain forests, glaciers, and icefields.",
+ "id": "akkachemakbay",
+ "name": "Kachemak Bay State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1627,
+  "candidatesTokenCount": 118,
+  "totalTokenCount": 1745,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1627
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:49:57+00:00"
+}

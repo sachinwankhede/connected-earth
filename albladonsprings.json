@@ -1,0 +1,21 @@
+{
+ "story": "Bladon Springs State Park is located in Choctaw County, Alabama, on the site of four mineral springs. It is a public recreation area and a stop on the Alabama Black Belt Birding Trail.",
+ "matters": "The park features sulfur-fixing bacteria in its spring water and offers camping, picnicking, and playground facilities.",
+ "id": "albladonsprings",
+ "name": "Bladon Springs State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1838,
+  "candidatesTokenCount": 80,
+  "totalTokenCount": 1918,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1838
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:50:45+00:00"
+}

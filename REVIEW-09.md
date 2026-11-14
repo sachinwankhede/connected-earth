@@ -1,92 +1,92 @@
 # REVIEW-09.md
 
-## Lake Abbe (`xdjibouti`)
+## Vatnajökull National Park (`whvatnajokull`)
 
-**Story** (37 words): Lake Abbe is a salt lake lying on the Ethiopia-Djibouti border. It is the ultimate destination of the Awash River, at the center of the Afar Depression, and is known for its flamingos and steam-spewing limestone chimneys.
+**Story** (51 words): Vatnajökull National Park in Iceland covers 14,967 km2, making it Europe's second largest national park. Established on June 7, 2008, and inscribed as a World Heritage Site on July 5, 2019, it encompasses the vast Vatnajökull glacier and features a landscape shaped by rivers, glacial ice, and volcanic and geothermal activity.
 
-**Why it matters** (26 words): The lake is part of a chain of six connected lakes and belongs to the wetland ecosystem of Djibouti, which includes large lakes and salt pans.
+**Why it matters** (27 words): Areas near the glacier and around Snæfell provide an important habitat for reindeer and pink-footed geese. The park aims to preserve unimpaired natural beauty for future generations.
 
-## Los Haitises National Park (`xdomrep`)
+## Whale Sanctuary of El Vizcaíno (`whvizcaino`)
 
-**Story** (38 words): Los Haitises National Park is located on the remote northeast coast of the Dominican Republic and was established in 1976. It features a limestone karst plateau with conical hills, sinkholes, caverns, and a large area of mangrove forest.
+**Story** (46 words): The Whale Sanctuary of El Vizcaíno is located in Baja California Sur, Mexico, and covers an area of over 24,930 square kilometers. Created in 1988, it is the largest wildlife refuge in Mexico. The sanctuary serves as an important habitat for reproducing and wintering gray whales.
 
-**Why it matters** (30 words): The park contains a great diversity of mammals and birds, including rare species endemic to the island. It holds the largest population in the world of the endemic Ridgway's hawk.
+**Why it matters** (40 words): It is an important habitat for reproducing and wintering gray whales, harbor seals, California sea lions, northern elephant seals, blue whales, and four species of endangered marine turtles. It also serves as an important refuge for waterfowl in the winter.
 
-## El Imposible National Park (`xelsalvador`)
+## Western Caucasus (`whwcaucasus`)
 
-**Story** (43 words): El Imposible National Park is a tropical forest and protected area in western El Salvador. Established on January 1, 1989, it covers 38.20 km² within the Apaneca llamatepec mountain range, and supports wildlife including pumas, oncillas, wild boars, king hawks and black-crested eagles.
+**Story** (51 words): The Western Caucasus is a western region of the North Caucasus in Southern Russia, extending from the Black Sea to Mount Elbrus. It includes a UNESCO World Heritage Site with varied habitats ranging from lowlands to glaciers. The area features large areas of undisturbed mountain forest and tall Nordmann fir trees.
 
-**Why it matters** (30 words): The park encompasses eight rivers that contribute to the watershed of Barra de Santiago and the coastal mangrove forests. In 1992, it was included on UNESCO's World Heritage Tentative List.
+**Why it matters** (38 words): It is a protected natural place that shelters high mountain species of plants, many of which are endemic. It also includes a Persian leopard reintroduction centre and is the place of origin and reintroduction of the Caucasian wisent.
 
-## Monte Alén National Park (`xeqguinea`)
+## Wood Buffalo National Park (`whwoodbuffalo`)
 
-**Story** (44 words): Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.
+**Story** (49 words): Wood Buffalo National Park covers 44,741 square kilometres in northeastern Alberta and the southern Northwest Territories in Canada. Established in 1922, it is the largest national park of Canada. It protects the world's largest herd of free-roaming wood bison and one of two known nesting sites of whooping cranes.
 
-**Why it matters** (19 words): The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.
+**Why it matters** (35 words): The park preserves the Peace-Athabasca Delta, which is one of the world's largest fresh-water deltas. It is recognized as the most ecologically complete and largest example of the Great Plains-Boreal grassland ecosystem of North America.
 
-## Dahlak Archipelago (`xeritrea`)
+## Natural System of Wrangel Island Reserve (`whwrangel`)
 
-**Story** (41 words): The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.
+**Story** (43 words): Natural System of Wrangel Island Reserve is in Chukotka, Russia, with an area of 7,600 km2. It is roughly the size of Crete and features a central belt of low-relief mountains. The island was home to the last surviving population of woolly mammoths.
 
-**Why it matters** (32 words): The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.
+**Why it matters** (30 words): It serves as a vital breeding ground for polar bears with the highest density of dens in the world. The reserve also protects diverse Arctic plants and numerous seabird colonies.
 
-## Soomaa National Park (`xestonia`)
+## Yakushima (`whyakushima`)
 
-**Story** (36 words): Soomaa National Park is situated in south-western Estonia. Created in 1993, it protects 390 square kilometres of large raised bogs, floodplain grasslands, paludified forests, and meandering rivers. Steep-sloped raised bogs stand as islands during spring floods.
+**Story** (52 words): Yakushima is a forest in Kagoshima, Japan, where 42 percent of the island is within the borders of the Yakushima National Park. Established in 1964, the national park covers 325.53 square kilometres and includes mountains and marine areas. It features ancient cedar trees called Yakusugi and is home to the Yakushima macaque.
 
-**Why it matters** (36 words): The park is the largest intact peat bog system in Europe preserved as wilderness. It is a home and breeding area for several mammal species that are very rare or extinct in other parts of Europe.
+**Why it matters** (29 words): Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.
 
-## Hlane Royal National Park (`xeswatini`)
+## Yasuní National Park (`whyasuni`)
 
-**Story** (43 words): Hlane Royal National Park covers 300 km² of Eswatini as a flat lowland area of Swazi bushveld. It is Eswatini's largest protected area and park, featuring ancient hardwood trees, grasslands, and shallow pans where lion, elephant, South African giraffe, and white rhinoceros live.
+**Story** (33 words): Yasuní National Park covers roughly 10,000 km2 within Amazonian Ecuador, between the Napo and Curaray Rivers. It is primarily rain forest and home to many animal species, including monkeys, jaguars, and harpy eagles.
 
-**Why it matters** (30 words): The park provides a vital sanctuary and the highest density of nesting white-backed vultures in Africa. It preserves a diverse ecosystem supporting rich birdlife and large mammals within the region.
+**Why it matters** (31 words): The park lies within the Napo moist forests ecoregion and is one of the most biologically diverse spots on Earth, holding exceptionally high richness in trees, amphibians, bats, birds, and mammals.
 
-## Falkland Islands: Saunders Island and surrounding sea (`xfalkland`)
+## Band-e Amir National Park (`xafghan`)
 
-**Story** (46 words): Saunders Island is part of the Falkland Islands, an archipelago in the South Atlantic Ocean on the Patagonian Shelf. The islands lie at the boundary of the subantarctic oceanic and tundra climate zones. They feature mountain ranges and large bird populations, such as the black-browed albatross.
+**Story** (37 words): Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.
 
-**Why it matters** (31 words): The region provides breeding and nesting habitats for seabirds and marine mammals. These populations are part of wider southern ocean ecosystems where species like the black-browed albatross forage over shelf areas.
+**Why it matters** (24 words): The park provides a pristine landscape and habitat for over 170 bird species, including populations of Himalayan snowcocks within its designated Important Bird Area.
 
-## Colo-i-Suva Forest Reserve (`xfiji`)
+## Karavasta Lagoon (Divjaka-Karavasta National Park) (`xalbania`)
 
-**Story** (38 words): Colo-i-Suva Forest Reserve is a nature reserve near Suva in Fiji. Established in 1872, it covers two and a half square kilometres of verdant rainforests renowned for tropical flora and birds. The Waisila Creek flows through the park.
+**Story** (48 words): Karavasta Lagoon is the largest lagoon in Albania, spanning an area of 42 square kilometres. It is part of Divjaka-Karavasta National Park and is separated from the Adriatic Sea by a large strip of sand. The area hosts many pine trees, small sandy islands, and the Dalmatian pelican.
 
-**Why it matters** (20 words): The forest is part of the Queen's Commonwealth Canopy and serves as the water catchment for Nausori and Nasinu creek.
+**Why it matters** (39 words): The lagoon is recognized as a wetland of international importance under the Ramsar Convention. It is home to 6.4% of Europe's population of the Dalmatian pelican, serving as its only coastal breeding site along the Adriatic and Ionian Sea.
 
-## Oulanka National Park (`xfinland`)
+## Khosrov Forest State Reserve (`xarmenia`)
 
-**Story** (42 words): Oulanka National Park covers 270 square kilometres in the Northern Ostrobothnia and Lapland regions of Finland. Established in 1956, the park is a combination of northern, southern, and eastern nature featuring untouched boreal forest, mires, and a unique river ecosystem with rapids.
+**Story** (46 words): Khosrov Forest State Reserve is located in Ararat Province of Armenia. It has a history of about 1,700 years, having been founded in the 4th century by King Khosrov Kotak. The reserve covers around 23,213.5 hectares and protects juniper and oak forests from the Tertiary Period.
 
-**Why it matters** (27 words): The park shelters endangered species such as the bear, lynx, and wolverine, alongside a rich variety of animal and plant species that thrive in its nutrient-rich soil.
+**Why it matters** (29 words): The reserve is unique in the Caucasus ecoregion and protects biological diversity, rare and endangered plants and animals, and their habitats, including being a hotspot for the Persian leopard.
 
-## River Gambia National Park (`xgambia`)
+## Hohe Tauern National Park (`xaustria`)
 
-**Story** (39 words): River Gambia National Park is a national park in the Gambia. Established in 1978, it lies in the Niamina East district of Central River Division on the left bank of the Gambia River and includes the Baboon Islands archipelago.
+**Story** (43 words): Hohe Tauern National Park stretches for 100 kilometres along the Hohe Tauern mountain range in Austria and covers an area of about 1,834 square kilometres. It is the largest nature reserve in the Alps and features glaciers, waterfalls, extended tundra areas, and forests.
 
-**Why it matters** (24 words): Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.
+**Why it matters** (29 words): The park shelters diverse alpine flora and fauna, including chamois, Alpine ibex, red deer, griffon vultures, golden eagles, and successfully reintroduced populations of the bearded vulture and Alpine marmot.
 
-## Kolkheti National Park (`xgeorgia`)
+## Hirkan National Park (`xazer`)
 
-**Story** (32 words): Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.
+**Story** (37 words): Hirkan National Park covers 40,358 hectares in the Talysh region of Azerbaijan. Established in 2004 and enlarged in 2008, the park is 99% covered by forests in a mountainous region and protects humid subtropical and temperate forests.
 
-**Why it matters** (26 words): The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.
+**Why it matters** (22 words): The park belongs to the Caspian Hyrcanian mixed forests ecoregion and shelters many endemic plant and animal species, including the Caucasian leopard.
 
-## Mole National Park (`xghana`)
+## Exuma Cays Land and Sea Park (`xbahamas`)
 
-**Story** (43 words): Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.
+**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
 
-**Why it matters** (26 words): The park provides a protected habitat for resident antelope species and serves as an important study area for scientists examining relatively undisturbed sites in West Africa.
+**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
 
-## Vikos-Aoös National Park (`xgreece`)
+## Hautes Fagnes (High Fens) (`xbelgium`)
 
-**Story** (42 words): Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.
+**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
 
-**Why it matters** (36 words): The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.
+**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
 
-## Northeast Greenland National Park (`xgreenland`)
+## Pendjari National Park (`xbenin`)
 
-**Story** (39 words): Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.
+**Story** (46 words): Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.
 
-**Why it matters** (31 words): The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.
+**Why it matters** (34 words): The park is part of the WAP Complex, a large protected area in Benin, Burkina Faso and Niger. Since 2005, the protected area is considered a Lion Conservation Unit and a potential lion stronghold.
 
