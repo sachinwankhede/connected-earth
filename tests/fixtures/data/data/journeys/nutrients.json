@@ -1,0 +1,30 @@
+{
+ "pos": 4,
+ "id": "nutrients",
+ "type": "flow",
+ "title": "River nutrients to the Gulf",
+ "from": {
+  "eco": "mississippi",
+  "node": "sed"
+ },
+ "to": {
+  "eco": "gulf",
+  "node": "plume"
+ },
+ "text": "The Mississippi drains about 41% of the continental US. Its nitrogen and phosphorus, mostly from farm runoff and sewage, feed the algal blooms behind the Gulf's summer dead zone. Wikipedia, citing a NOAA fact sheet, attributes about 70% of the nutrient load to this basin.",
+ "imgwiki": "Gulf of Mexico dead zone",
+ "when": "Flows all year; spring floods bring the biggest load, and the dead zone is largest in summer.",
+ "matters": "Too much nitrogen and phosphorus feeds algae. When the algae die and rot they use up oxygen near the sea floor, and fish and shellfish leave or die.",
+ "sources": [
+  {
+   "t": "Wikipedia: Gulf of Mexico dead zone",
+   "u": "https://en.wikipedia.org/wiki/Gulf_of_Mexico_dead_zone"
+  },
+  {
+   "t": "Wikipedia: Mississippi River",
+   "u": "https://en.wikipedia.org/wiki/Mississippi_River"
+  }
+ ],
+ "go": "Follow the water",
+ "mark": "💧"
+}

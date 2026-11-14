@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Canal freshwater",
+ "tl": 0,
+ "wiki": "Biscayne Bay",
+ "desc": "Canals that drain the Everglades send fresh water, sediment and pollutants into the bay and shift its salinity.",
+ "ic": "rain",
+ "cat": "abiotic",
+ "sid": "canal-freshwater",
+ "sk": "resource",
+ "src": "legacy"
+}

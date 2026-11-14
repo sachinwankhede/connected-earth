@@ -29,11 +29,13 @@ MAIN = [
     'kelp', 'fleconfinariver', 'xfiji', 'vtnorthhero',                                                # five fish and five amphibian species (a group needs 5, TAB_MIN), so the Species tab has eight groups and a More pill (speciestab)
     'congo', 'reef', 'arctic', 'galapagos', 'boreal', 'baikal', 'himalaya', 'greatlakes',   # the other eight of the twelve first-view flagships (FLAGS in maplibre.js; worldview expects twelve)
     'nybearmountain',                                                            # "Bear Mountain": a place search for "bear" lists a place by name (searchtabs)
+    'whmonarch', 'usgatewaynationalrecreat', 'npkatmai', 'whkamchatka', 'npbiscayne', 'npdrytortugas',   # the other ends of the journeys below (monarch, sockeye, green turtle); the dust, nutrients, pelican and prairie-to-gulf ends are above
+    'npkobukvalley', 'npgatesarctic',                                             # the ends of the caribou journey (journey test: "Follow the herd")
     'sahara',                                                                    # a place search for "sahara" finds a place and no species (searchtabs)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
-JOURNEYS = ['osprey', 'knot', 'flamingo']   # their ends must be in MAIN
+JOURNEYS = ['osprey', 'knot', 'flamingo', 'dust', 'nutrients', 'monarch', 'prairiegulf', 'sockeye', 'greenturtleA', 'pelican', 'caribouwest']   # their ends must be in MAIN; the journey test needs fliers, swimmers and the two flows (journey.test.mjs)
 
 
 def load(p): return json.load(open(p, encoding='utf-8'))
@@ -57,7 +59,7 @@ def main():
     shutil.copyfile(R('data', 'journeys', 'config.json'), os.path.join(jd, 'config.json'))
     for n, j in enumerate(JOURNEYS):
         d = load(R('data', 'journeys', j + '.json')); d['pos'] = n
-        for e in d['ends']: assert e['eco'] in places, (j, e['eco'])
+        for e in (d['ends'] if 'ends' in d else [d['from'], d['to']]): assert e['eco'] in places, (j, e['eco'])   # a species journey has ends, a flow has from and to
         dump(d, os.path.join(jd, j + '.json'), indent=1)
     # species: the rows the places use, and the lookup tables the build reads
     tab = species.table(ROOT); keep = {}

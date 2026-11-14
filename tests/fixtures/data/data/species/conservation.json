@@ -1,4 +1,12 @@
 {
+ "abies religiosa": {
+  "c": "LC",
+  "q": "Q378592"
+ },
+ "acanthis flammea": {
+  "c": "LC",
+  "q": "Q20754771"
+ },
  "accipiter cooperii": {
   "c": "LC",
   "q": "Q862896"
@@ -10,6 +18,14 @@
  "acer pensylvanicum": {
   "c": "LC",
   "q": "Q1190312"
+ },
+ "acer platanoides": {
+  "c": "LC",
+  "q": "Q26745"
+ },
+ "acer rubrum": {
+  "c": "LC",
+  "q": "Q161364"
  },
  "acinonyx jubatus": {
   "c": "VU",
@@ -147,6 +163,10 @@
   "c": "LC",
   "q": "Q738534"
  },
+ "basilinna leucotis": {
+  "c": "LC",
+  "q": "Q997393"
+ },
  "bertholletia excelsa": {
   "c": "VU",
   "q": "Q81671"
@@ -207,6 +227,10 @@
   "c": "VU",
   "q": "Q170177"
  },
+ "bubo virginianus": {
+  "c": "LC",
+  "q": "Q81515"
+ },
  "bursera simaruba": {
   "c": "LC",
   "q": "Q164698"
@@ -218,6 +242,10 @@
  "buteo jamaicensis": {
   "c": "LC",
   "q": "Q457471"
+ },
+ "calcarius lapponicus": {
+  "c": "LC",
+  "q": "Q208703"
  },
  "calidris canutus": {
   "c": "NT",
@@ -278,6 +306,10 @@
  "cardinalis cardinalis": {
   "c": "LC",
   "q": "Q726389"
+ },
+ "carex aquatilis": {
+  "c": "LC",
+  "q": "Q159025"
  },
  "carex folliculata": {
   "c": "LC",
@@ -383,6 +415,10 @@
   "c": "LC",
   "q": "Q788391"
  },
+ "crocodylus acutus": {
+  "c": "VU",
+  "q": "Q207836"
+ },
  "crocodylus niloticus": {
   "c": "LC",
   "q": "Q168745"
@@ -398,6 +434,10 @@
  "crotalus oreganus": {
   "c": "LC",
   "q": "Q1810840"
+ },
+ "crotalus triseriatus": {
+  "c": "LC",
+  "q": "Q839889"
  },
  "cyanocitta cristata": {
   "c": "LC",
@@ -503,6 +543,10 @@
   "c": "VU",
   "q": "Q2666277"
  },
+ "equisetum arvense": {
+  "c": "LC",
+  "q": "Q107592"
+ },
  "equus quagga": {
   "c": "NT",
   "q": "Q245305"
@@ -534,6 +578,10 @@
  "foulehaio procerior": {
   "c": "LC",
   "q": "Q20745782"
+ },
+ "fregata magnificens": {
+  "c": "LC",
+  "q": "Q647512"
  },
  "fulica americana": {
   "c": "LC",
@@ -567,6 +615,10 @@
   "c": "VU",
   "q": "Q15083"
  },
+ "gleditsia triacanthos": {
+  "c": "LC",
+  "q": "Q157650"
+ },
  "gorilla gorilla gorilla": {
   "c": "CR",
   "q": "Q876500"
@@ -574,6 +626,10 @@
  "grus canadensis": {
   "c": "LC",
   "q": "Q503804"
+ },
+ "gulo gulo": {
+  "c": "LC",
+  "q": "Q14334"
  },
  "gypaetus barbatus": {
   "c": "NT",
@@ -594,6 +650,10 @@
  "haliaeetus leucocephalus": {
   "c": "LC",
   "q": "Q127216"
+ },
+ "haliaeetus pelagicus": {
+  "c": "VU",
+  "q": "Q269896"
  },
  "haliotis cracherodii": {
   "c": "CR",
@@ -659,9 +719,17 @@
   "c": "LC",
   "q": "Q1257151"
  },
+ "lagopus lagopus": {
+  "c": "LC",
+  "q": "Q178702"
+ },
  "lanius schach": {
   "c": "LC",
   "q": "Q795567"
+ },
+ "larix gmelinii": {
+  "c": "LC",
+  "q": "Q756334"
  },
  "larix laricina": {
   "c": "LC",
@@ -678,6 +746,10 @@
  "larus fuscus": {
   "c": "LC",
   "q": "Q27160"
+ },
+ "larus glaucescens": {
+  "c": "LC",
+  "q": "Q768140"
  },
  "larus hyperboreus": {
   "c": "LC",
@@ -699,6 +771,10 @@
   "c": "LC",
   "q": "Q1762716"
  },
+ "lemmus trimucronatus": {
+  "c": "LC",
+  "q": "Q1769625"
+ },
  "leopardus pardalis": {
   "c": "LC",
   "q": "Q33261"
@@ -718,6 +794,10 @@
  "lepus californicus": {
   "c": "LC",
   "q": "Q640645"
+ },
+ "lepus timidus": {
+  "c": "LC",
+  "q": "Q180035"
  },
  "limosa lapponica": {
   "c": "NT",
@@ -750,6 +830,10 @@
  "lutjanus campechanus": {
   "c": "VU",
   "q": "Q1889210"
+ },
+ "lutjanus griseus": {
+  "c": "LC",
+  "q": "Q2717632"
  },
  "lutra lutra": {
   "c": "NT",
@@ -786,6 +870,10 @@
  "marmota caligata": {
   "c": "LC",
   "q": "Q326998"
+ },
+ "marmota camtschatica": {
+  "c": "LC",
+  "q": "Q742402"
  },
  "marmota himalayana": {
   "c": "LC",
@@ -839,9 +927,17 @@
   "c": "LC",
   "q": "Q1095135"
  },
+ "microtus oeconomus": {
+  "c": "LC",
+  "q": "Q703702"
+ },
  "microtus pennsylvanicus": {
   "c": "LC",
   "q": "Q1765085"
+ },
+ "mimus polyglottos": {
+  "c": "LC",
+  "q": "Q829683"
  },
  "mobula alfredi": {
   "c": "VU",
@@ -859,6 +955,10 @@
   "c": "LC",
   "q": "Q234014"
  },
+ "mustela erminea": {
+  "c": "LC",
+  "q": "Q25345"
+ },
  "mustela nigripes": {
   "c": "EN",
   "q": "Q402885"
@@ -871,6 +971,10 @@
   "c": "LC",
   "q": "Q187704"
  },
+ "myodes rufocanus": {
+  "c": "LC",
+  "q": "Q844638"
+ },
  "myrmecophaga tridactyla": {
   "c": "VU",
   "q": "Q203033"
@@ -878,6 +982,14 @@
  "nasua narica": {
   "c": "LC",
   "q": "Q754992"
+ },
+ "neotomodon alstoni": {
+  "c": "LC",
+  "q": "Q605420"
+ },
+ "nucifraga caryocatactes": {
+  "c": "LC",
+  "q": "Q184820"
  },
  "nucifraga columbiana": {
   "c": "LC",
@@ -907,9 +1019,21 @@
   "c": "EN",
   "q": "Q82037"
  },
+ "oncorhynchus nerka": {
+  "c": "LC",
+  "q": "Q44064"
+ },
  "ondatra zibethicus": {
   "c": "LC",
   "q": "Q26283"
+ },
+ "onychoprion fuscatus": {
+  "c": "LC",
+  "q": "Q28482"
+ },
+ "opuntia humifusa": {
+  "c": "LC",
+  "q": "Q134419"
  },
  "opuntia polyacantha": {
   "c": "LC",
@@ -930,6 +1054,14 @@
  "ovis canadensis": {
   "c": "LC",
   "q": "Q189466"
+ },
+ "ovis dalli": {
+  "c": "LC",
+  "q": "Q576112"
+ },
+ "ovis nivicola": {
+  "c": "LC",
+  "q": "Q918400"
  },
  "ovis vignei": {
   "c": "VU",
@@ -999,6 +1131,10 @@
   "c": "LC",
   "q": "Q735190"
  },
+ "pelecanus occidentalis": {
+  "c": "LC",
+  "q": "Q208714"
+ },
  "pelecanus onocrotalus": {
   "c": "LC",
   "q": "Q199427"
@@ -1015,9 +1151,17 @@
   "c": "LC",
   "q": "Q649836"
  },
+ "peromyscus melanotis": {
+  "c": "LC",
+  "q": "Q1768730"
+ },
  "petromyzon marinus": {
   "c": "LC",
   "q": "Q385764"
+ },
+ "pheucticus melanocephalus": {
+  "c": "LC",
+  "q": "Q998547"
  },
  "phigys solitarius": {
   "c": "LC",
@@ -1042,6 +1186,10 @@
  "pica hudsonia": {
   "c": "LC",
   "q": "Q254057"
+ },
+ "picea glauca": {
+  "c": "LC",
+  "q": "Q128116"
  },
  "picea mariana": {
   "c": "LC",
@@ -1070,6 +1218,10 @@
  "pinus ponderosa": {
   "c": "LC",
   "q": "Q460523"
+ },
+ "pinus pumila": {
+  "c": "LC",
+  "q": "Q243964"
  },
  "pinus rigida": {
   "c": "LC",
@@ -1271,6 +1423,10 @@
   "c": "LC",
   "q": "Q1088471"
  },
+ "salix glauca": {
+  "c": "LC",
+  "q": "Q158458"
+ },
  "salix nigra": {
   "c": "LC",
   "q": "Q469220"
@@ -1294,6 +1450,10 @@
  "sarracenia alata": {
   "c": "NT",
   "q": "Q881972"
+ },
+ "sceloporus grammicus": {
+  "c": "LC",
+  "q": "Q3727167"
  },
  "schoenoplectus tabernaemontani": {
   "c": "LC",
@@ -1354,6 +1514,10 @@
  "spheniscus mendiculus": {
   "c": "EN",
   "q": "Q206668"
+ },
+ "sphyraena barracuda": {
+  "c": "LC",
+  "q": "Q2306485"
  },
  "sphyrna lewini": {
   "c": "CR",
@@ -1447,6 +1611,10 @@
   "c": "LC",
   "q": "Q1585636"
  },
+ "trichechus manatus": {
+  "c": "VU",
+  "q": "Q40261"
+ },
  "tsuga canadensis": {
   "c": "NT",
   "q": "Q1137143"
@@ -1479,6 +1647,10 @@
   "c": "LC",
   "q": "Q21730465"
  },
+ "urocitellus parryii": {
+  "c": "LC",
+  "q": "Q21730506"
+ },
  "urocyon cinereoargenteus": {
   "c": "LC",
   "q": "Q215250"
@@ -1498,6 +1670,10 @@
  "vaccinium arboreum": {
   "c": "LC",
   "q": "Q3249733"
+ },
+ "vaccinium vitis-idaea": {
+  "c": "LC",
+  "q": "Q93235"
  },
  "vachellia tortilis": {
   "c": "LC",

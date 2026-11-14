@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Salmon-borne nutrients",
+ "tl": 0,
+ "wiki": "Nutrient cycle",
+ "desc": "Salmon bring ocean-grown nutrients inland, and their remains are broken down into nutrients that feed streamside soil and lakes.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "salmon-borne-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

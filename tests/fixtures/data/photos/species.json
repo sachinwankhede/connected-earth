@@ -7,9 +7,21 @@
   "a/a0/Osprey_Perched_Snag_Heislerville.jpg/330px-Osprey_Perched_Snag_Heislerville.jpg",
   "Osprey"
  ],
+ "Abies religiosa": [
+  "a/aa/Abies_religiosa%2C_Parque_Nacional_El_Chico%2C_Hidalgo%2C_Mexico_1.jpg/330px-Abies_religiosa%2C_Parque_Nacional_El_Chico%2C_Hidalgo%2C_Mexico_1.jpg",
+  "Abies_religiosa"
+ ],
  "Acer pensylvanicum": [
   "5/5a/Moosewood_leaves.jpg/330px-Moosewood_leaves.jpg",
   "Acer_pensylvanicum"
+ ],
+ "Acer platanoides": [
+  "6/60/Spitz-Ahorn%28mbo%29.jpg/330px-Spitz-Ahorn%28mbo%29.jpg",
+  "Acer_platanoides"
+ ],
+ "Acer rubrum": [
+  "3/36/Acer_rubrum_15-p.bot-a.rubrum-114.jpg/330px-Acer_rubrum_15-p.bot-a.rubrum-114.jpg",
+  "Acer_rubrum"
  ],
  "Achnatherum hymenoides": [
   "https://upload.wikimedia.org/wikipedia/commons/5/5c/Achnatherum_hymenoides_-_Ricegrass.jpg",
@@ -66,17 +78,5 @@
  "Apis mellifera": [
   "4/4d/Apis_mellifera_Western_honey_bee.jpg/330px-Apis_mellifera_Western_honey_bee.jpg",
   "Western_honey_bee"
- ],
- "Aralia elata": [
-  "2/23/Aralia_elata_en_fleur4081.jpg/330px-Aralia_elata_en_fleur4081.jpg",
-  "Aralia_elata"
- ],
- "Ardea alba": [
-  "a/a7/Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png/330px-Great_Egret_%28Ardea_alba%29_in_Breeding_Plumage%2C_Cape_May_County%2C_New_Jersey%2C_USA_%28cropped%29.png",
-  "Great_egret"
- ],
- "Arenicola marina": [
-  "e/e7/Arenicola_marina_2010.JPG/330px-Arenicola_marina_2010.JPG",
-  "Blow_lugworm"
  ]
 }

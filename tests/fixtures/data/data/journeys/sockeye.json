@@ -1,0 +1,32 @@
+{
+ "pos": 7,
+ "id": "sockeye",
+ "type": "species",
+ "title": "Pacific sockeye",
+ "ends": [
+  {
+   "eco": "npkatmai",
+   "node": "sock"
+  },
+  {
+   "eco": "whkamchatka",
+   "node": "sockeye"
+  }
+ ],
+ "text": "Sockeye salmon from Alaska's Bristol Bay rivers and from Kamchatka share the North Pacific while at sea. Each run then returns to its own river and feeds bears, eagles and forests.",
+ "imgwiki": "Sockeye salmon",
+ "when": "Spend a few years at sea, then adults return to their home rivers in summer to spawn.",
+ "matters": "Spawning salmon feed bears, eagles and the trees along the river. Without a run, the forest loses a source of nutrients.",
+ "sources": [
+  {
+   "t": "Wikipedia: Sockeye salmon",
+   "u": "https://en.wikipedia.org/wiki/Sockeye_salmon"
+  },
+  {
+   "t": "Wikipedia: Bristol Bay",
+   "u": "https://en.wikipedia.org/wiki/Bristol_Bay"
+  }
+ ],
+ "go": "Swim the route",
+ "mark": "🐟"
+}

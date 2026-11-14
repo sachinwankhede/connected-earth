@@ -1,0 +1,30 @@
+{
+ "pos": 3,
+ "id": "dust",
+ "type": "flow",
+ "title": "Saharan dust",
+ "to": {
+  "eco": "amazon",
+  "node": "soil"
+ },
+ "text": "Each year winds carry mineral dust, including phosphorus, from the Sahara across the Atlantic to the Amazon. It helps replace nutrients that heavy rain washes out of the soil.",
+ "from": {
+  "eco": "sahara",
+  "node": "soil"
+ },
+ "imgwiki": "Saharan Air Layer",
+ "when": "Strongest in winter and spring, when the winds carry the most dust across the Atlantic.",
+ "matters": "Heavy rain washes phosphorus out of rainforest soil. Dust from the Sahara helps replace part of what is lost.",
+ "sources": [
+  {
+   "t": "Wikipedia: Saharan Air Layer",
+   "u": "https://en.wikipedia.org/wiki/Saharan_Air_Layer"
+  },
+  {
+   "t": "Wikipedia: Bodélé Depression",
+   "u": "https://en.wikipedia.org/wiki/Bodélé_Depression"
+  }
+ ],
+ "go": "Follow the dust",
+ "mark": "💨"
+}

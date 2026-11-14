@@ -1,0 +1,12 @@
+{
+ "latin": "Copepoda and relatives",
+ "name": "Zooplankton",
+ "tl": 2,
+ "wiki": "Zooplankton",
+ "desc": "Tiny animals that graze algae in the lakes. Sockeye salmon feed extensively on them.",
+ "ic": "hopper",
+ "about": "Zooplankton are the heterotrophic component of the planktonic community, having to consume other organisms to thrive.",
+ "sid": "copepoda-and-relatives",
+ "sk": "group",
+ "src": "legacy"
+}
