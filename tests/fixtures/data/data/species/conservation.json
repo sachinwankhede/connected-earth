@@ -63,6 +63,10 @@
   "c": "LC",
   "q": "Q303524"
  },
+ "amblyopsis spelaea": {
+  "c": "NT",
+  "q": "Q2842127"
+ },
  "amblyrhynchus cristatus": {
   "c": "VU",
   "q": "Q208796"
@@ -587,6 +591,10 @@
   "c": "LC",
   "q": "Q207347"
  },
+ "fagus grandifolia": {
+  "c": "LC",
+  "q": "Q149219"
+ },
  "falco biarmicus": {
   "c": "LC",
   "q": "Q33554"
@@ -1003,6 +1011,14 @@
   "c": "LC",
   "q": "Q844638"
  },
+ "myotis grisescens": {
+  "c": "VU",
+  "q": "Q1834518"
+ },
+ "myotis sodalis": {
+  "c": "NT",
+  "q": "Q281343"
+ },
  "myrmecophaga tridactyla": {
   "c": "VU",
   "q": "Q203033"
@@ -1066,6 +1082,10 @@
  "opuntia polyacantha": {
   "c": "LC",
   "q": "Q309965"
+ },
+ "orconectes pellucidus": {
+  "c": "LC",
+  "q": "Q4486223"
  },
  "oryctolagus cuniculus": {
   "c": "NT",

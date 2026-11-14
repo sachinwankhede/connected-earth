@@ -18,6 +18,7 @@ R = lambda *a: os.path.join(ROOT, *a)
 # Levels: detailed overview places and park overviews at world level, country level (x...), state and local level, national level.
 MAIN = [
     'yellowstone', 'amazon', 'prairie', 'gulf', 'mississippi', 'stlurban',      # detailed places, one per kind where the real set has one
+    'npmammothcave',      # lazy: opened by address, with species that also live in other fixture places
     'mocastlewood', 'mohawn', 'momeramec',      # local parks near St. Louis (local, filters: Near me, the Missouri view)
     'serengeti', 'wadden', 'whcamargue', 'whdonana', 'wharguin',                              # the ends of the journeys below
     'nparches', 'npglacierbay', 'npgrandteton',                                  # park overviews: Desert, Coast & ocean, Polar & mountain

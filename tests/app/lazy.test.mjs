@@ -4,6 +4,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json' };
 // A place's full web is fetched only when it is opened.
@@ -12,8 +13,8 @@ describe('places load on demand', () => {
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
-      let f = path.join(H.ROOT, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
-      if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
+      let f = path.join(H.FBUILD, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
+      if (!f.startsWith(H.FBUILD) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
       r.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(fs.readFileSync(f));
     }).listen(0);
     base = `http://localhost:${srv.address().port}/`;
@@ -33,7 +34,7 @@ describe('places load on demand', () => {
     await H.pause(page, 1500);
     return { ctx, page, errors, webs, index, state };
   }
-  const places = H.readPlaces(false);
+  const places = H.readFixturePlaces(false);
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: opening the app fetches no webs; opening a place fetches exactly that one`, async () => {
@@ -90,9 +91,9 @@ describe('places load on demand', () => {
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const urls = []; page.on('request', (r) => { if (r.url().includes('/api/')) urls.push(r.url()); });
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
-      await page.goto(base + 'pilot/index.html#stub&e=mocastlewood'); await page.reload();
+      await page.goto(base + 'pilot/index.html#stub&e=npmammothcave'); await page.reload();
       await H.pause(page, 3000);
-      assert.ok(urls.some((u) => u.endsWith('/api/mocastlewood.json') && !u.includes('/pilot/')), 'urls: ' + urls);
+      assert.ok(urls.some((u) => u.endsWith('/api/npmammothcave.json') && !u.includes('/pilot/')), 'urls: ' + urls);
       assert.ok(await page.evaluate(() => !document.getElementById('webview').hidden), 'the place opened');
       await ctx.close();
     });
