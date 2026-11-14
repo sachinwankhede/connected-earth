@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.join(ROOT, 'build'))
 OUT = os.path.join(ROOT, 'data', 'species', 'taxonomy.json')
 REVIEW = os.path.join(ROOT, 'data', 'species', 'taxonomy_review.json')
 MANUAL = os.path.join(ROOT, 'data', 'species', 'taxonomy_manual.json')   # entered by hand, for names GBIF cannot decide; wins over everything
-UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://github.com/sachinwankhede/connected-earth)'}
+UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://connected-earth-5ps.pages.dev/)'}
 GAP = 0.15            # seconds between requests: polite, and about 4,950 species take 15 minutes
 FUZZY_CONF = 95       # a spelling variant needs this much confidence, plus the same genus and at most two letters of difference
 MIN_CONF = 90         # an exact match below this goes to the review list
