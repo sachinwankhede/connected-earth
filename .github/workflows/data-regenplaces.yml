@@ -1,0 +1,48 @@
+name: data-regenplaces
+# Manual only (#863). Rebuilds the species and food web of automatic places at their CURRENT location (their pin was corrected by #767 after the species were recorded near the old, wrong point), then opens ONE pull request with a before/after table. Never merges.
+on:
+  workflow_dispatch:
+    inputs:
+      ids: { description: "Place ids, comma-separated (for example riraymond,desunsetlake)", default: "" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-regenplaces
+jobs:
+  regen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: Rebuild the places
+        run: python3 jobs/regenplaces.py "${{ github.event.inputs.ids }}" 2>&1 | tee regen.log
+      - name: Checks
+        run: |
+          N=$(python3 -c "import json;print(len(json.load(open('regenplaces.json'))['ids']))")
+          [ "$N" != "0" ] || exit 0
+          python3 build/species.py pack
+          python3 build/build.py --all
+          python3 build/validate.py $(ls data/places/*.json) | tee validate.log
+          ! grep -q "ERROR" validate.log
+          python3 build/budget.py
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(python3 -c "import json;print(len(json.load(open('regenplaces.json'))['ids']))")
+          [ "$N" != "0" ] || { echo "Nothing to rebuild."; exit 0; }
+          BR="data/regenplaces-${GITHUB_RUN_ID}"
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "$BR"
+          mv regenplaces.md /tmp/regenplaces.md; rm -f regenplaces.json regen.log validate.log
+          git add -A -- . ':!jobs/work'
+          git commit -m "Rebuild food webs of corrected places (#863)"
+          bash jobs/syncstep.sh || true; { echo; cat /tmp/sync.md; } >> /tmp/regenplaces.md
+          git push -f origin "$BR"
+          gh pr create --base main --head "$BR" --title "Rebuild food webs of corrected places (#863)" --body-file /tmp/regenplaces.md
+          gh workflow run ci.yml --ref "$BR"
