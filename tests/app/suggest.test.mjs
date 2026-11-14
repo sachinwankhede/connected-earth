@@ -38,7 +38,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search', 'a species row opens its page (#420 step 3)');
     await p.evaluate(() => history.back());
     await p.waitForFunction(() => document.getElementById('q').value === 'osp', null, { timeout: 15000 }).catch(() => {});   // wait for Back to restore the text instead of a fixed pause: a slow runner took longer than 800 ms
-    assert.equal(await p.evaluate(() => document.getElementById('q').value), 'osp', 'Back returns to the search that was typed');
+    const back = await p.evaluate(() => ({ q: document.getElementById('q').value, hash: location.hash, entries: history.length, speciesOpen: !document.getElementById('pview').hidden, sid: window.__M && window.__M.sid }));   // what the page was doing, so a failure names the cause (#715)
+    assert.equal(back.q, 'osp', 'Back returns to the search that was typed; page state after Back: ' + JSON.stringify(back));
     await p.click('#q'); await p.keyboard.type('x'); await H.pause(p, 200);
     await p.click('#qclr'); await H.pause(p, 200);
     r = await rows();   // the box is empty and focused: the dropdown now lists the recent searches (#589), each marked as one, and no ordinary suggestion
