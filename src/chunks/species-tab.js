@@ -115,7 +115,7 @@ window.__chunk["species-tab"] = function (A) {
       var ph = d.l && P.photoOf({ latin: d.l }), b = document.getElementById("sp-img");
       if (ph && b) { var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; P.bindPhoto(im, ph); im.src = ph.src; b.innerHTML = ""; b.appendChild(im); }
       if (ph && d.pl) {   /* a larger copy (400 px) exists: a wide photo above the title instead of the small square (#421) */
-        var big = document.createElement("img"), art = PV.querySelector("article"); big.className = "jphoto"; big.alt = ""; big.referrerPolicy = "no-referrer";
+        var big = document.createElement("img"), art = PV.querySelector("article"); big.className = "jphoto jwhole"; big.alt = ""; big.referrerPolicy = "no-referrer";
         big.onload = function () { art.classList.add("bigphoto"); }; big.onerror = function () { big.remove(); }; big.src = ph.src.replace("/species-md/", "/species-lg/");
         art.insertBefore(big, art.querySelector(".jhero"));
       }
