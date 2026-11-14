@@ -1,92 +1,92 @@
 # REVIEW-21.md
 
-## Sutjeska National Park (`xbosnia`)
+## Sian Ka'an Biosphere Reserve (`whsiankaan`)
 
-**Story** (51 words): Sutjeska National Park is located in Bosnia and Herzegovina and was established in 1962 as the country's oldest national park. It covers an area of about 17,500 hectares and includes the high peak of Maglić as well as Perućica, which is one of the last two remaining primeval forests in Europe.
+**Story** (47 words): Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.
 
-**Why it matters** (29 words): The park shelters diverse wildlife including the brown bear, wolf, and Balkan chamois. It forms a transboundary protected area connection with the adjoining Durmitor National Park in northwestern Montenegro.
+**Why it matters** (30 words): It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.
 
-## Ulu Temburong National Park (`xbrunei`)
+## Central Sikhote-Alin (`whsikhote`)
 
-**Story** (38 words): Ulu Temburong National Park is the first national park to be established in Brunei, protected since 1991. Covering 550 square kilometres in eastern Brunei, the park contains unspoiled jungle and is known as the Green Jewel of Brunei.
+**Story** (32 words): Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.
 
-**Why it matters** (23 words): It is an important ecotourism centre and part of the Heart of Borneo international conservation agreement, supporting forest habitats and threatened bird species.
+**Why it matters** (23 words): The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.
 
-## Pirin National Park (`xbulgaria`)
+## Socotra Archipelago (`whsocotra`)
 
-**Story** (43 words): Pirin National Park spans the Pirin Mountains in southwestern Bulgaria, covering an area of 403.56 square kilometers. Established in 1962, it features 118 glacial lakes and includes Vihren, Bulgaria's second highest summit. The park is home to diverse wildlife and ancient coniferous forests.
+**Story** (50 words): Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.
 
-**Why it matters** (31 words): The park protects functioning ecosystems and natural landscapes within the Rodope montane mixed forests ecoregion. Its entire territory is part of the European Union network of nature protection areas Natura 2000.
+**Why it matters** (24 words): About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.
 
-## W National Park and Arly (Burkina Faso) (`xburkina`)
+## Tasmanian Wilderness World Heritage Area (`whtasmania`)
 
-**Story** (43 words): W National Park and Arly are located in Burkina Faso, Niger, and Benin. The regional park covers some 10,000 km2 around a meander in the Niger River. It features wetlands, sandstone hills, and savanna, and is home to African elephants, hippos, and lions.
+**Story** (36 words): The Tasmanian Wilderness World Heritage Area is located in Tasmania, Australia. Covering 15,800 km2, it is one of the largest conservation areas in Australia and one of the last expanses of temperate wilderness in the world.
 
-**Why it matters** (26 words): The park provides a home for some of West Africa's last wild African elephants and is one of the last strongholds for the Northwest African cheetah.
+**Why it matters** (22 words): It is home to unique fauna like the Tasmanian devil and includes extensive temperate rainforests, supporting high plant diversity and ancient species.
 
-## Kibira National Park (`xburundi`)
+## Tikal National Park (`whtikal`)
 
-**Story** (40 words): Kibira National Park covers 400 km2 of northwestern Burundi atop the mountains of the Congo-Nile Divide. It features primary montane rainforest, which is the only montane forest in all of Burundi, and is home to chimpanzees and black-and-white colobus monkeys.
+**Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
 
-**Why it matters** (35 words): It is considered the most important site in Burundi for the conservation of montane-forest birds. Additionally, the water from its forests accounts for over three-quarters of the water that goes into the country's largest dam.
+**Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
 
-## Tonlé Sap Biosphere Reserve (`xcambodia`)
+## Torres del Paine National Park (`whtorres`)
 
-**Story** (49 words): Tonle Sap Biosphere Reserve is a unique ecological phenomenon and the largest freshwater lake in Southeast Asia, located in central Cambodia. During the rainy season, the Mekong River reverses the flow of the Tonle Sap River, causing the lake to expand into an enormous wetland area supporting diverse wildlife.
+**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
 
-**Why it matters** (27 words): The wetlands serve as an important breeding area for fish from the lake and the Mekong River, while supporting a tremendous amount of rare and endangered biodiversity.
+**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
 
-## Zapata Swamp (`xcuba`)
+## Eduardo Avaroa Andean Fauna National Reserve (`whuyuni`)
 
-**Story** (46 words): The Zapata Swamp is located on the Zapata Peninsula in the southern Matanzas Province of Cuba, less than 150 kilometres southeast of Havana. Spanning over 4,000 km2, it is home to over 900 plant species, 175 bird species, 31 reptile species, and the endemic Cuban crocodile.
+**Story** (33 words): Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.
 
-**Why it matters** (33 words): It is the best preserved wetland in all of the Antilles and is part of the larger Ciénaga de Zapata Biosphere Reserve, which is the largest protected area in Cuba and the Caribbean.
+**Why it matters** (28 words): The reserve protects an extreme environment and species adapted to high altitudes, serving as an important habitat for birds and part of the larger Los Lípez Ramsar site.
 
-## Troodos Mountains (`xcyprus`)
+## Península Valdés (`whvaldes`)
 
-**Story** (39 words): The Troodos Mountains are the largest mountain range in Cyprus, located roughly in the centre of the island with Mount Olympus as the highest peak. The range covers a third of Cyprus and features many endemic plants and animals.
+**Story** (43 words): Península Valdés is a peninsula into the Atlantic Ocean in Chubut, Argentina. It is about 3,625 square kilometers in size and is an important nature reserve listed as a World Heritage Site by UNESCO in 1999. The coastline is inhabited by marine mammals.
 
-**Why it matters** (26 words): The mountains are home to the endangered Cyprus mouflon, which is the national animal of Cyprus. They also shelter a rich bird population including Bonelli's eagle.
+**Why it matters** (28 words): The adjacent waters contain the most important breeding ground for southern right whales in the world. These whales arrive between May and December for mating and giving birth.
 
-## Sumava National Park (`xczechia`)
+## Vatnajökull National Park (`whvatnajokull`)
 
-**Story** (47 words): Sumava National Park is a forest located in Czechia in the South Bohemian regions along the border with Germany and Austria. It protects a little-inhabited mountain range covered by extensive forest and raised peat bogs. Since the 1970s, the park has sheltered a stable population of lynxes.
+**Story** (51 words): Vatnajökull National Park in Iceland covers 14,967 km2, making it Europe's second largest national park. Established on June 7, 2008, and inscribed as a World Heritage Site on July 5, 2019, it encompasses the vast Vatnajökull glacier and features a landscape shaped by rivers, glacial ice, and volcanic and geothermal activity.
 
-**Why it matters** (30 words): The park preserves the most extensive forest in Central Europe and features a mosaic of habitats like glacial lakes and primeval forest remnants that are little disturbed by human activity.
+**Why it matters** (27 words): Areas near the glacier and around Snæfell provide an important habitat for reindeer and pink-footed geese. The park aims to preserve unimpaired natural beauty for future generations.
 
-## Lake Abbe (`xdjibouti`)
+## Whale Sanctuary of El Vizcaíno (`whvizcaino`)
 
-**Story** (37 words): Lake Abbe is a salt lake lying on the Ethiopia-Djibouti border. It is the ultimate destination of the Awash River, at the center of the Afar Depression, and is known for its flamingos and steam-spewing limestone chimneys.
+**Story** (46 words): The Whale Sanctuary of El Vizcaíno is located in Baja California Sur, Mexico, and covers an area of over 24,930 square kilometers. Created in 1988, it is the largest wildlife refuge in Mexico. The sanctuary serves as an important habitat for reproducing and wintering gray whales.
 
-**Why it matters** (26 words): The lake is part of a chain of six connected lakes and belongs to the wetland ecosystem of Djibouti, which includes large lakes and salt pans.
+**Why it matters** (40 words): It is an important habitat for reproducing and wintering gray whales, harbor seals, California sea lions, northern elephant seals, blue whales, and four species of endangered marine turtles. It also serves as an important refuge for waterfowl in the winter.
 
-## Los Haitises National Park (`xdomrep`)
+## Western Caucasus (`whwcaucasus`)
 
-**Story** (38 words): Los Haitises National Park is located on the remote northeast coast of the Dominican Republic and was established in 1976. It features a limestone karst plateau with conical hills, sinkholes, caverns, and a large area of mangrove forest.
+**Story** (51 words): The Western Caucasus is a western region of the North Caucasus in Southern Russia, extending from the Black Sea to Mount Elbrus. It includes a UNESCO World Heritage Site with varied habitats ranging from lowlands to glaciers. The area features large areas of undisturbed mountain forest and tall Nordmann fir trees.
 
-**Why it matters** (30 words): The park contains a great diversity of mammals and birds, including rare species endemic to the island. It holds the largest population in the world of the endemic Ridgway's hawk.
+**Why it matters** (38 words): It is a protected natural place that shelters high mountain species of plants, many of which are endemic. It also includes a Persian leopard reintroduction centre and is the place of origin and reintroduction of the Caucasian wisent.
 
-## El Imposible National Park (`xelsalvador`)
+## Wood Buffalo National Park (`whwoodbuffalo`)
 
-**Story** (43 words): El Imposible National Park is a tropical forest and protected area in western El Salvador. Established on January 1, 1989, it covers 38.20 km² within the Apaneca llamatepec mountain range, and supports wildlife including pumas, oncillas, wild boars, king hawks and black-crested eagles.
+**Story** (49 words): Wood Buffalo National Park covers 44,741 square kilometres in northeastern Alberta and the southern Northwest Territories in Canada. Established in 1922, it is the largest national park of Canada. It protects the world's largest herd of free-roaming wood bison and one of two known nesting sites of whooping cranes.
 
-**Why it matters** (30 words): The park encompasses eight rivers that contribute to the watershed of Barra de Santiago and the coastal mangrove forests. In 1992, it was included on UNESCO's World Heritage Tentative List.
+**Why it matters** (35 words): The park preserves the Peace-Athabasca Delta, which is one of the world's largest fresh-water deltas. It is recognized as the most ecologically complete and largest example of the Great Plains-Boreal grassland ecosystem of North America.
 
-## Monte Alén National Park (`xeqguinea`)
+## Natural System of Wrangel Island Reserve (`whwrangel`)
 
-**Story** (44 words): Monte Al&eacute;n National Park is located near the center of Equatorial Guinea and was established in 1990. Covering an area of 2,000 km2, it is the country's largest national park. The park features the goliath frog, which is the biggest frog in the world.
+**Story** (43 words): Natural System of Wrangel Island Reserve is in Chukotka, Russia, with an area of 7,600 km2. It is roughly the size of Crete and features a central belt of low-relief mountains. The island was home to the last surviving population of woolly mammoths.
 
-**Why it matters** (19 words): The park supports significant populations of many bird species and includes 105 mammal species such as gorillas and chimpanzees.
+**Why it matters** (30 words): It serves as a vital breeding ground for polar bears with the highest density of dens in the world. The reserve also protects diverse Arctic plants and numerous seabird colonies.
 
-## Dahlak Archipelago (`xeritrea`)
+## Yakushima (`whyakushima`)
 
-**Story** (41 words): The Dahlak Archipelago is an Eritrean island group located in the Red Sea, measuring around 643 square km. It consists of two larger and 124 smaller islands, with coral reefs, shoals, and mangroves supporting dolphins, dugongs, sharks, turtles, seabirds, and waders.
+**Story** (52 words): Yakushima is a forest in Kagoshima, Japan, where 42 percent of the island is within the borders of the Yakushima National Park. Established in 1964, the national park covers 325.53 square kilometres and includes mountains and marine areas. It features ancient cedar trees called Yakusugi and is home to the Yakushima macaque.
 
-**Why it matters** (32 words): The archipelago has been designated an Important Bird Area because it supports significant populations of spotted sandgrouse, white-eyed gulls, lesser crested terns, lesser kestrels, sooty falcons, greater hoopoe-larks, blackstarts, and cinereous buntings.
+**Why it matters** (29 words): Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.
 
-## Soomaa National Park (`xestonia`)
+## Yasuní National Park (`whyasuni`)
 
-**Story** (36 words): Soomaa National Park is situated in south-western Estonia. Created in 1993, it protects 390 square kilometres of large raised bogs, floodplain grasslands, paludified forests, and meandering rivers. Steep-sloped raised bogs stand as islands during spring floods.
+**Story** (33 words): Yasuní National Park covers roughly 10,000 km2 within Amazonian Ecuador, between the Napo and Curaray Rivers. It is primarily rain forest and home to many animal species, including monkeys, jaguars, and harpy eagles.
 
-**Why it matters** (36 words): The park is the largest intact peat bog system in Europe preserved as wilderness. It is a home and breeding area for several mammal species that are very rare or extinct in other parts of Europe.
+**Why it matters** (31 words): The park lies within the Napo moist forests ecoregion and is one of the most biologically diverse spots on Earth, holding exceptionally high richness in trees, amphibians, bats, birds, and mammals.
 

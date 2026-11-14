@@ -1,0 +1,21 @@
+{
+ "story": "Koke'e State Park includes 4,345 acres of mountainous terrain in Hawaii, United States. The park features native vegetation, native forest birds, and scenic cliffside views on a plateau.",
+ "matters": "The park provides a home for native forest birds and native vegetation within its mesic and wet forests.",
+ "id": "hikokee",
+ "name": "Koke'e State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3527,
+  "candidatesTokenCount": 72,
+  "totalTokenCount": 3599,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3527
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:15:07+00:00"
+}

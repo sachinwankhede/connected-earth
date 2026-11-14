@@ -1,0 +1,21 @@
+{
+ "story": "Lake Macbride State Park covers 2,180 acres in Johnson County, Iowa, USA, near the city of Solon. The park is centered on Lake Macbride and features 7 miles of hiking and multi-use trails that travel through forests and restored prairie.",
+ "matters": "The park is a popular fishing site where the rare spotted bass can be found in the lake, alongside muskellunge, walleye, and channel catfish.",
+ "id": "ialakemacbride",
+ "name": "Lake Macbride State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1851,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 1954,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1851
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:21:15+00:00"
+}

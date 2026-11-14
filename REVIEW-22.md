@@ -1,92 +1,92 @@
 # REVIEW-22.md
 
-## Hlane Royal National Park (`xeswatini`)
+## Band-e Amir National Park (`xafghan`)
 
-**Story** (43 words): Hlane Royal National Park covers 300 km² of Eswatini as a flat lowland area of Swazi bushveld. It is Eswatini's largest protected area and park, featuring ancient hardwood trees, grasslands, and shallow pans where lion, elephant, South African giraffe, and white rhinoceros live.
+**Story** (37 words): Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.
 
-**Why it matters** (30 words): The park provides a vital sanctuary and the highest density of nesting white-backed vultures in Africa. It preserves a diverse ecosystem supporting rich birdlife and large mammals within the region.
+**Why it matters** (24 words): The park provides a pristine landscape and habitat for over 170 bird species, including populations of Himalayan snowcocks within its designated Important Bird Area.
 
-## Falkland Islands: Saunders Island and surrounding sea (`xfalkland`)
+## Karavasta Lagoon (Divjaka-Karavasta National Park) (`xalbania`)
 
-**Story** (46 words): Saunders Island is part of the Falkland Islands, an archipelago in the South Atlantic Ocean on the Patagonian Shelf. The islands lie at the boundary of the subantarctic oceanic and tundra climate zones. They feature mountain ranges and large bird populations, such as the black-browed albatross.
+**Story** (48 words): Karavasta Lagoon is the largest lagoon in Albania, spanning an area of 42 square kilometres. It is part of Divjaka-Karavasta National Park and is separated from the Adriatic Sea by a large strip of sand. The area hosts many pine trees, small sandy islands, and the Dalmatian pelican.
 
-**Why it matters** (31 words): The region provides breeding and nesting habitats for seabirds and marine mammals. These populations are part of wider southern ocean ecosystems where species like the black-browed albatross forage over shelf areas.
+**Why it matters** (39 words): The lagoon is recognized as a wetland of international importance under the Ramsar Convention. It is home to 6.4% of Europe's population of the Dalmatian pelican, serving as its only coastal breeding site along the Adriatic and Ionian Sea.
 
-## Colo-i-Suva Forest Reserve (`xfiji`)
+## Khosrov Forest State Reserve (`xarmenia`)
 
-**Story** (38 words): Colo-i-Suva Forest Reserve is a nature reserve near Suva in Fiji. Established in 1872, it covers two and a half square kilometres of verdant rainforests renowned for tropical flora and birds. The Waisila Creek flows through the park.
+**Story** (46 words): Khosrov Forest State Reserve is located in Ararat Province of Armenia. It has a history of about 1,700 years, having been founded in the 4th century by King Khosrov Kotak. The reserve covers around 23,213.5 hectares and protects juniper and oak forests from the Tertiary Period.
 
-**Why it matters** (20 words): The forest is part of the Queen's Commonwealth Canopy and serves as the water catchment for Nausori and Nasinu creek.
+**Why it matters** (29 words): The reserve is unique in the Caucasus ecoregion and protects biological diversity, rare and endangered plants and animals, and their habitats, including being a hotspot for the Persian leopard.
 
-## Oulanka National Park (`xfinland`)
+## Hohe Tauern National Park (`xaustria`)
 
-**Story** (42 words): Oulanka National Park covers 270 square kilometres in the Northern Ostrobothnia and Lapland regions of Finland. Established in 1956, the park is a combination of northern, southern, and eastern nature featuring untouched boreal forest, mires, and a unique river ecosystem with rapids.
+**Story** (43 words): Hohe Tauern National Park stretches for 100 kilometres along the Hohe Tauern mountain range in Austria and covers an area of about 1,834 square kilometres. It is the largest nature reserve in the Alps and features glaciers, waterfalls, extended tundra areas, and forests.
 
-**Why it matters** (27 words): The park shelters endangered species such as the bear, lynx, and wolverine, alongside a rich variety of animal and plant species that thrive in its nutrient-rich soil.
+**Why it matters** (29 words): The park shelters diverse alpine flora and fauna, including chamois, Alpine ibex, red deer, griffon vultures, golden eagles, and successfully reintroduced populations of the bearded vulture and Alpine marmot.
 
-## River Gambia National Park (`xgambia`)
+## Hirkan National Park (`xazer`)
 
-**Story** (39 words): River Gambia National Park is a national park in the Gambia. Established in 1978, it lies in the Niamina East district of Central River Division on the left bank of the Gambia River and includes the Baboon Islands archipelago.
+**Story** (37 words): Hirkan National Park covers 40,358 hectares in the Talysh region of Azerbaijan. Established in 2004 and enlarged in 2008, the park is 99% covered by forests in a mountainous region and protects humid subtropical and temperate forests.
 
-**Why it matters** (24 words): Since 1979, the park is the site of a chimpanzee-reintroduction project where chimpanzees confiscated from the illegal animal trade are reintroduced into the wild.
+**Why it matters** (22 words): The park belongs to the Caspian Hyrcanian mixed forests ecoregion and shelters many endemic plant and animal species, including the Caucasian leopard.
 
-## Kolkheti National Park (`xgeorgia`)
+## Exuma Cays Land and Sea Park (`xbahamas`)
 
-**Story** (32 words): Kolkheti National Park covers an area of 28,940 hectares in western Georgia. Established between 1998 and 1999, it lies on a coastal plain on the Black Sea and features wetlands and forests.
+**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
 
-**Why it matters** (26 words): The park protects unique forests and wetlands with high numbers of threatened species and is part of the Colchic Rainforests and Wetlands UNESCO World Heritage site.
+**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
 
-## Mole National Park (`xghana`)
+## Hautes Fagnes (High Fens) (`xbelgium`)
 
-**Story** (43 words): Mole National Park covers about 4,577 square kilometers of fairly undisturbed Guinea savannah in Ghana. It is the country's largest wildlife refuge and features savanna and riparian ecosystems. The park is home to a resident population of 800 elephants and many other mammals.
+**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
 
-**Why it matters** (26 words): The park provides a protected habitat for resident antelope species and serves as an important study area for scientists examining relatively undisturbed sites in West Africa.
+**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
 
-## Vikos-Aoös National Park (`xgreece`)
+## Pendjari National Park (`xbenin`)
 
-**Story** (42 words): Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.
+**Story** (46 words): Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.
 
-**Why it matters** (36 words): The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.
+**Why it matters** (34 words): The park is part of the WAP Complex, a large protected area in Benin, Burkina Faso and Niger. Since 2005, the protected area is considered a Lion Conservation Unit and a potential lion stronghold.
 
-## Northeast Greenland National Park (`xgreenland`)
+## Sutjeska National Park (`xbosnia`)
 
-**Story** (39 words): Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.
+**Story** (51 words): Sutjeska National Park is located in Bosnia and Herzegovina and was established in 1962 as the country's oldest national park. It covers an area of about 17,500 hectares and includes the high peak of Maglić as well as Perućica, which is one of the last two remaining primeval forests in Europe.
 
-**Why it matters** (31 words): The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.
+**Why it matters** (29 words): The park shelters diverse wildlife including the brown bear, wolf, and Balkan chamois. It forms a transboundary protected area connection with the adjoining Durmitor National Park in northwestern Montenegro.
 
-## Mount Nimba Strict Nature Reserve (`xguinea`)
+## Ulu Temburong National Park (`xbrunei`)
 
-**Story** (33 words): Mount Nimba Strict Nature Reserve covers 175.4 km2 in Guinea and Côte d'Ivoire. Established in 1943 and 1944, it is a protected area and UNESCO World Heritage Site featuring exceptional flora and fauna.
+**Story** (38 words): Ulu Temburong National Park is the first national park to be established in Brunei, protected since 1991. Covering 550 square kilometres in eastern Brunei, the park contains unspoiled jungle and is known as the Green Jewel of Brunei.
 
-**Why it matters** (26 words): The reserve lies within the Guinean Forests of West Africa Biodiversity Hotspot and shelters rare animals such as the western chimpanzee and the Nimba otter shrew.
+**Why it matters** (23 words): It is an important ecotourism centre and part of the Heart of Borneo international conservation agreement, supporting forest habitats and threatened bird species.
 
-## Bijagós Archipelago Biosphere Reserve (`xguineabissau`)
+## Pirin National Park (`xbulgaria`)
 
-**Story** (60 words): The Bijag3s Archipelago Biosphere Reserve is located in the Atlantic Ocean off the coast of Guinea-Bissau and consists of about 88 islands and islets spanning an area of 12,958 square kilometres. Declared a UNESCO Biosphere Reserve in 1996 and a World Heritage Site in 2025, the area features mangroves, palm forests, and coastal savanna supporting various waterbirds, flamingos, and pelicans.
+**Story** (43 words): Pirin National Park spans the Pirin Mountains in southwestern Bulgaria, covering an area of 403.56 square kilometers. Established in 1962, it features 118 glacial lakes and includes Vihren, Bulgaria's second highest summit. The park is home to diverse wildlife and ancient coniferous forests.
 
-**Why it matters** (35 words): The mangroves play a crucial role for the reproduction of molluscs, fish, and sea turtles. The region is also the main habitat of the African gray parrot, which is an endangered species in the subregion.
+**Why it matters** (31 words): The park protects functioning ecosystems and natural landscapes within the Rodope montane mixed forests ecoregion. Its entire territory is part of the European Union network of nature protection areas Natura 2000.
 
-## Iwokrama Forest (`xguyana`)
+## W National Park and Arly (Burkina Faso) (`xburkina`)
 
-**Story** (34 words): Iwokrama Forest is a 3,716 square kilometres nature reserve located in central Guyana in the Guiana Shield. The area is covered with lowland tropical forest and is bordered by rivers, mountains, highlands, and savannahs.
+**Story** (43 words): W National Park and Arly are located in Burkina Faso, Niger, and Benin. The regional park covers some 10,000 km2 around a meander in the Niger River. It features wetlands, sandstone hills, and savanna, and is home to African elephants, hippos, and lions.
 
-**Why it matters** (24 words): The reserve is part of the Guiana Shield and provides a natural habitat for various animals such as the jaguar and the black caiman.
+**Why it matters** (26 words): The park provides a home for some of West Africa's last wild African elephants and is one of the last strongholds for the Northwest African cheetah.
 
-## Pic Macaya National Park (`xhaiti`)
+## Kibira National Park (`xburundi`)
 
-**Story** (47 words): Pic Macaya National Park is located in Haiti within the southern peninsula and the Massif de la Hotte. Founded in 1984, it encompasses more than 8,000 hectares and reaches a height of 2,347 meters at Pic Macaya. It features the country's last stand of virgin cloud forest.
+**Story** (40 words): Kibira National Park covers 400 km2 of northwestern Burundi atop the mountains of the Congo-Nile Divide. It features primary montane rainforest, which is the only montane forest in all of Burundi, and is home to chimpanzees and black-and-white colobus monkeys.
 
-**Why it matters** (26 words): The park belongs to the Massif de la Hotte mountain range and supports endangered plant and animal life, including species endemic to the island of Hispaniola.
+**Why it matters** (35 words): It is considered the most important site in Burundi for the conservation of montane-forest birds. Additionally, the water from its forests accounts for over three-quarters of the water that goes into the country's largest dam.
 
-## Río Plátano Biosphere Reserve (`xhonduras`)
+## Tonlé Sap Biosphere Reserve (`xcambodia`)
 
-**Story** (46 words): The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.
+**Story** (49 words): Tonle Sap Biosphere Reserve is a unique ecological phenomenon and the largest freshwater lake in Southeast Asia, located in central Cambodia. During the rainy season, the Mekong River reverses the flow of the Tonle Sap River, causing the lake to expand into an enormous wetland area supporting diverse wildlife.
 
-**Why it matters** (36 words): The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.
+**Why it matters** (27 words): The wetlands serve as an important breeding area for fish from the lake and the Mekong River, while supporting a tremendous amount of rare and endangered biodiversity.
 
-## Hyrcanian Forests (`xiran`)
+## Zapata Swamp (`xcuba`)
 
-**Story** (44 words): The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.
+**Story** (46 words): The Zapata Swamp is located on the Zapata Peninsula in the southern Matanzas Province of Cuba, less than 150 kilometres southeast of Havana. Spanning over 4,000 km2, it is home to over 900 plant species, 175 bird species, 31 reptile species, and the endemic Cuban crocodile.
 
-**Why it matters** (27 words): The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.
+**Why it matters** (33 words): It is the best preserved wetland in all of the Antilles and is part of the larger Ciénaga de Zapata Biosphere Reserve, which is the largest protected area in Cuba and the Caribbean.
 

@@ -1,92 +1,92 @@
 # REVIEW-17.md
 
-## Lake Meredith National Recreation Area (`uslakemeredithnationalre`)
+## Cape Hatteras National Seashore (`uscapehatterasnationalse`)
 
-**Story** (37 words): Lake Meredith National Recreation Area is located in Texas, USA, about 30 miles north of Amarillo in the Texas Panhandle. Its main attraction is 10,000-acre Lake Meredith, a reservoir created by Sanford Dam on the Canadian River.
+**Story** (42 words): Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.
 
-**Why it matters** (14 words): Alibates Flint Quarries National Monument is located adjacent to Lake Meredith National Recreation Area.
+**Why it matters** (28 words): The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.
 
-## Lake Roosevelt National Recreation Area (`uslakerooseveltnationalr`)
+## Cape Lookout National Seashore (`uscapelookoutnationalsea`)
 
-**Story** (50 words): Lake Roosevelt National Recreation Area is located in eastern Washington state. Established in 1946, it encompasses the 130-mile long Franklin D. Roosevelt Lake between Grand Coulee Dam and Northport. The recreation area provides opportunities for fishing, swimming, canoeing, boating, hunting, camping, and visiting historic Fort Spokane and St. Paul's Mission.
+**Story** (37 words): Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.
 
-**Why it matters** (32 words): The recreation area is a unit of the National Park Service and was created by a memorandum of agreement with the Spokane Tribe, Colville Indian Reservation, and United States Bureau of Reclamation.
+**Why it matters** (28 words): The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.
 
-## Lava Beds National Monument (`uslavabedsnationalmonume`)
+## Cedar Breaks National Monument (`uscedarbreaksnationalmon`)
 
-**Story** (26 words): Lava Beds National Monument is located in northeastern California. It includes more than 46,000 acres and has the largest concentration of lava tubes in North America.
+**Story** (48 words): Cedar Breaks National Monument is a natural amphitheater located in Utah, USA, near Cedar City. Established in 1933, the monument stretches across 3 miles with a depth of over 2,000 feet. It features high-altitude forests, subalpine meadows, and bristlecone pines that can be more than 1600 years old.
 
-**Why it matters** (21 words): The monument has lava tubes and a semi-arid desert environment that support a wide diversity of plant life and native wildlife.
+**Why it matters** (32 words): The monument area forms the headwaters of Mammoth Creek, a tributary of the Sevier River. It covers the west side of the Markagunt Plateau, sharing geological connections with nearby Zion National Park.
 
-## Montezuma Castle National Monument (`usmontezumacastlenationa`)
+## Chattahoochee River National Recreation Area (`uschattahoocheerivernati`)
 
-**Story** (37 words): Montezuma Castle National Monument protects a well-preserved cliff dwelling located in Camp Verde, Arizona. Constructed as early as 1125 AD by the Southern Sinagua people, the five-story structure sits up a limestone cliff and features stone-and-mortar masonry.
+**Story** (47 words): Chattahoochee River National Recreation Area preserves a series of sites between Atlanta and Lake Sidney Lanier along the Chattahoochee River in Georgia, U.S. Established on August 15, 1978, by President Jimmy Carter, the 48-mile stretch of the river affords public recreation opportunities and access to historic sites.
 
-**Why it matters** (32 words): The national monument encloses 860 acres near the geographic center of Arizona. It preserves important archaeological structures and houses a museum about the Native American communities with cultural connections to the site.
+**Why it matters** (26 words): The Chattahoochee River is one of Georgia's premier trout streams and was designated as the Chattahoochee River Water Trail to increase access to water-based outdoor recreation.
 
-## Natural Bridges National Monument (`usnaturalbridgesnational`)
+## Chickasaw National Recreation Area (`uschickasawnationalrecre`)
 
-**Story** (40 words): Natural Bridges National Monument is located in southeast Utah, at the junction of White Canyon and Armstrong Canyon. It features three natural bridges named Kachina, Owachomo, and Sipapu, which were formed through erosion by water flowing in the stream bed.
+**Story** (40 words): Chickasaw National Recreation Area is located in south-central Oklahoma in the foothills of the Arbuckle Mountains near Sulphur in Murray County. It covers 9,888.83 acres, with water covering 2,409 acres. The park preserves partially forested hills, springs, streams, and lakes.
 
-**Why it matters** (38 words): The monument protects a landscape featuring unique geological formations and native plant and animal species. Much of the ground is covered in communities of cryptobiotic soil crusts that prevent soil erosion and promote the retention of soil nutrients.
+**Why it matters** (22 words): The park preserves natural fresh and mineral springs that were originally protected to prevent developers from turning them into a private resort.
 
-## Organ Pipe Cactus National Monument (`usorganpipecactusnationa`)
+## Chiricahua National Monument (`uschiricahuanationalmonu`)
 
-**Story** (45 words): Organ Pipe Cactus National Monument covers 1,340 km2 in southern Arizona, sharing a border with Mexico. It is one of the few places in the United States where the senita and organ pipe cactus grow wild, alongside many other plants native to the Sonoran Desert.
+**Story** (44 words): Chiricahua National Park is located in the Chiricahua Mountains of southeastern Arizona. Originally established as Chiricahua National Monument on April 18, 1924, it preserves extensive hoodoos, balancing rocks, and the Faraway Ranch. Just over 85% of the park is protected as the Chiricahua Wilderness.
 
-**Why it matters** (33 words): In 1976 the monument was declared a Biosphere Reserve by UNESCO. It is bordered to the northwest by Cabeza Prieta National Wildlife Refuge and to the east by the Tohono Oʼodham Indian Reservation.
+**Why it matters** (36 words): The park preserves the remains of an immense volcanic eruption that shook the region about 27 million years ago. It protects towering rock spires and balanced rocks while featuring ecosystems of meadows, forests, and rock formations.
 
-## Padre Island National Seashore (`uspadreislandnationalsea`)
+## Colorado National Monument (`uscoloradonationalmonume`)
 
-**Story** (47 words): Padre Island National Seashore is the world's longest barrier island, located on Padre Island off the coast of South Texas, USA. Developed 4,500 to 5,000 years ago, it is part of the world's longest natural barrier bar system and hosts pristine beach, dune, and tidal flat environments.
+**Story** (31 words): Colorado National Monument is a National Park Service unit near Grand Junction, Colorado, covering 20,500 acres. Sheer-walled canyons cut deep into sandstone and granite-gneiss-schist rock formations in this high desert area.
 
-**Why it matters** (28 words): The park provides a nesting beach for endangered Kemp's ridley sea turtles and serves as an important habitat along the Central Flyway, a major migratory route for birds.
+**Why it matters** (24 words): The park sits on a large area of high desert in Western Colorado and hosts a wide range of wildlife, including desert bighorn sheep.
 
-## Pictured Rocks National Lakeshore (`uspicturedrocksnationall`)
+## Craters of the Moon National Monument (`uscratersofthemoonnation`)
 
-**Story** (36 words): Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.
+**Story** (41 words): Craters of the Moon National Monument and Preserve is located in central Idaho in the USA. It features three major lava fields and about 400 square miles of sagebrush steppe grasslands. The area includes volcanic cones, lava tubes, and basaltic lava.
 
-**Why it matters** (27 words): The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.
+**Why it matters** (32 words): The monument is part of the Snake River Plain volcanic province and the Lava Beds of Idaho. It belongs to a landscape where older lava fields support drought-resistant plants such as sagebrush.
 
-## Point Reyes National Seashore (`uspointreyesnationalseas`)
+## Cumberland Island National Seashore (`uscumberlandislandnation`)
 
-**Story** (46 words): Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.
+**Story** (36 words): Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.
 
-**Why it matters** (28 words): The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.
+**Why it matters** (29 words): The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.
 
-## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
+## Delaware Water Gap National Recreation Area (`usdelawarewatergapnation`)
 
-**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
+**Story** (49 words): The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.
 
-**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
+**Why it matters** (26 words): The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.
 
-## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
+## Devils Tower National Monument (`usdevilstowernationalmon`)
 
-**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
+**Story** (43 words): Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.
 
-**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
+**Why it matters** (28 words): The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.
 
-## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
+## Dinosaur National Monument (`usdinosaurnationalmonume`)
 
-**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
+**Story** (42 words): Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.
 
-**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
+**Why it matters** (27 words): The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.
 
-## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
+## Effigy Mounds National Monument (`useffigymoundsnationalmo`)
 
-**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
+**Story** (32 words): Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.
 
-**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
+**Why it matters** (28 words): The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.
 
-## Tonto National Monument (`ustontonationalmonument`)
+## El Malpais National Monument (`uselmalpaisnationalmonum`)
 
-**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
+**Story** (42 words): El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.
 
-**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
+**Why it matters** (36 words): The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.
 
-## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
+## Florissant Fossil Beds National Monument (`usflorissantfossilbedsna`)
 
-**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
+**Story** (42 words): Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.
 
-**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
+**Why it matters** (24 words): The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.
 

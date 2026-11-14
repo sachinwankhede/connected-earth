@@ -1,0 +1,21 @@
+{
+ "story": "Backbone State Park is Iowa's oldest state park, dedicated in 1920 in the USA. It measures 2,001 acres and is heavily forested, mainly in species of oak and maple, featuring a steep ridge of bedrock carved by the Maquoketa River.",
+ "matters": "The park is part of the Driftless Area, remaining unglaciated during the last Ice Age with ancient dolomite formations and active springs, caves, sinkholes, and karsts.",
+ "id": "iabackbone",
+ "name": "Backbone State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3463,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 3570,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3463
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:19:23+00:00"
+}

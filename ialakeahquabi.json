@@ -1,0 +1,21 @@
+{
+ "story": "Lake Ahquabi State Park is located in Warren County, Iowa, United States, and features a 115-acre reservoir. Ahquabi means resting place in the Fox language. The park is six miles south of Indianola and 22 miles south of Des Moines.",
+ "matters": "The park includes a surrounding watershed and buffer wetlands that help improve water quality by reducing sediments and nutrients reaching the lake.",
+ "id": "ialakeahquabi",
+ "name": "Lake Ahquabi State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2910,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 3007,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2910
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:20:43+00:00"
+}

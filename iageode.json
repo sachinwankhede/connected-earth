@@ -1,0 +1,21 @@
+{
+ "story": "Geode State Park is a forest located in Iowa, USA. It covers 1,640 acres and features Lake Geode, which was built in 1950. The park is named for Iowa's state rock, the geode.",
+ "matters": "The park provides a natural area along the Skunk River where animals like white-tailed deer and northern cardinals can be found.",
+ "id": "iageode",
+ "name": "Geode State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2048,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 2142,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2048
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:19:55+00:00"
+}

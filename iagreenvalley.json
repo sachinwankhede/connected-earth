@@ -1,0 +1,21 @@
+{
+ "story": "Green Valley State Park is located in Union County, Iowa, in the United States, featuring Green Valley Lake and land around it. Dedicated as a state park on September 20, 1953, it has nearly 10 miles of hiking trails passing through wetlands, woodlands, and prairie remnants.",
+ "matters": "The park protects a natural area near Green Valley Lake with flora and fauna including shrubs, wildflowers, muskrats, deer, beavers, and various birds. It is also situated near the Mormon Trail.",
+ "id": "iagreenvalley",
+ "name": "Green Valley State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2359,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 2473,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2359
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:20:11+00:00"
+}

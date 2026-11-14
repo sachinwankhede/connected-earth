@@ -1,0 +1,21 @@
+{
+ "story": "Mauna Kea State Recreation Area covers 20.5 acres at the southern base of Mauna Kea in Hawaii. The park features dry shrublands that get cold at night due to the elevation.",
+ "matters": "Wild pigs and sheep can be hunted in the area.",
+ "id": "himaunakea",
+ "name": "Mauna Kea State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2528,
+  "candidatesTokenCount": 63,
+  "totalTokenCount": 2591,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2528
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:16:11+00:00"
+}

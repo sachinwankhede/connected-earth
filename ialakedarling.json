@@ -1,0 +1,21 @@
+{
+ "story": "Lake Darling State Park is located in Washington County, Iowa, United States. The park covers 1,417 acres, and the lake is 302 acres in size. It was dedicated on September 17, 1950, and is named after Jay Norwood Ding Darling.",
+ "matters": "The park is located on Honey Creek, which is a minor tributary of the Skunk River. It is home to a variety of fish and several plant and animal species.",
+ "id": "ialakedarling",
+ "name": "Lake Darling State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1643,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 1749,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1643
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:20:59+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Honey Creek State Park is a 30-acre Oklahoma state park located on Grand Lake, near the city of Grove in Delaware County. It provides access to Grand Lake for fishing and boating.",
+ "matters": "The park provides a habitat where species like the Monarch butterfly interact with plants such as Missouri ironweed and Button Eryngo.",
+ "id": "iahoneycreek",
+ "name": "Honey Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2203,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 2282,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2203
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:20:27+00:00"
+}

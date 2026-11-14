@@ -66,6 +66,18 @@ Story: Ha'ena State Park is a 230-acre park on the north shore of the Hawaiian i
 
 Why: The park is a destination management example for state parks that are environmentally, culturally, or historically unique. It provides access to the Kalalau Trail, which is the only land access to Nā Pali Coast State Park.
 
+## Makena State Park (`himakena`) - names not in the research text: Kinau
+
+Story: Makena State Park is a 165-acre beachside park in Makena on the island of Maui, Hawaii. It contains three separate beaches and a dormant volcanic cinder cone.
+
+Why: Just to the south of the park is the Ahihi Kinau Natural Area Reserve.
+
+## Waimea Canyon State Park (`hiwaimeacanyon`) - names not in the research text: Kauai
+
+Story: Waimea Canyon State Park encompasses 1,866 acres on the western side of Kauai in the Hawaiian Islands of the United States. Also known as the Grand Canyon of the Pacific, the canyon is approximately ten miles long and up to 3,000 feet deep.
+
+Why: The canyon provides a wilderness area with numerous hiking trails and was formed by the erosion of the Waimea River alongside the catastrophic collapse of the volcano that created Kauai.
+
 ## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`) - story has 70 words (limit 60)
 
 Story: Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in southernmost Haida Gwaii, 130 kilometres off the mainland of British Columbia, Canada. It protects an archipelago of 138 islands, with close to 90% of the land being forested. The area ranges from deep fjords to rugged mountains and is cooperatively managed by the Council of the Haida Nation and the Government of Canada.

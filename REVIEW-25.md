@@ -1,92 +1,92 @@
 # REVIEW-25.md
 
-## Al Reem Biosphere Reserve (`xqatar`)
+## Kerguelen Islands (French Southern Lands reserve) (`xkerguelen`)
 
-**Story** (44 words): Al Reem Biosphere Reserve covers 120,000 hectares of northwest Qatar. Established in 2005, this inhabited area includes semi-arid desert landscapes and is home to gazelles and Arabian oryx. Due to its dense vegetation, the reserve is of great importance for the people of Qatar.
+**Story** (41 words): The Kerguelen Islands are a group of islands in the subantarctic region within the French Southern and Antarctic Lands. The main island, Grande Terre, is 6,675 square kilometres in area. The islands are home to the Kerguelen cabbage and king penguins.
 
-**Why it matters** (29 words): The reserve is part of the World Network of Biosphere Reserves in the Arab States and helps protect native desert wildlife such as the Arabian oryx and Arabian gazelle.
+**Why it matters** (34 words): The Kerguelen Islands shelter the king penguin, which breeds on subantarctic islands. Since the end of the whaling and sealing era, most of the islands' species have been able to increase their population again.
 
-## Nyungwe Forest National Park (`xrwanda`)
+## Sharr Mountains National Park (`xkosovo`)
 
-**Story** (46 words): Nyungwe Forest National Park is located in southwestern Rwanda, covering approximately 1,019 square kilometres of rainforest, bamboo, grassland, swamps, and bogs. Established in 2004, it reaches a maximum altitude of 3,000 metres at Mount Bigugu. It is widely considered the best preserved montane rainforest in Africa.
+**Story** (42 words): Sharr Mountains National Park covers 532.72 km2 of southern Kosovo on the northern Sharr Mountains. Declared in 1986 and re-established in 2012, it contains glacial lakes, alpine and periglacial landscapes, and numerous species of plants, mammals, birds, reptiles, amphibia, fish, and butterflies.
 
-**Why it matters** (37 words): The park is a priority for conservation in Africa, containing 13 primate species and a high number of restricted-range species found only in the Albertine Rift montane forests ecoregion. It shelters colonies of chimpanzees and Angola colobus.
+**Why it matters** (32 words): The park falls entirely within the Balkan mixed forests terrestrial ecoregion of the Palearctic temperate broadleaf and mixed forests biome. It provides a home and habitat for diverse native wildlife and vegetation.
 
-## Farasan Islands Marine Reserve (`xsaudi`)
+## Bubiyan Island and Kuwait Bay (`xkuwait`)
 
-**Story** (51 words): The Farasan Islands Marine Reserve spans 1050 km² in the southeastern Red Sea within Saudi Arabia, featuring nearly 200 coral islands and islets. It is home to the Arabian gazelle and hosts migratory birds in winter. Oceanic animals such as dugongs and sea turtles also live in the warm shallow sea.
+**Story** (38 words): Bubiyan Island and Kuwait Bay are located in Kuwait. Bubiyan Island is the largest island in the Kuwaiti coastal island chain with an area of 863 square kilometers and is mainly flat, with salt marshes covering some coasts.
 
-**Why it matters** (24 words): The reserve shelters vulnerable and endangered species like dugongs and green and hawksbill sea turtles, and protects the Arabian gazelle in its natural habitat.
+**Why it matters** (30 words): The Mubarak al-Kabeer reserve on Bubiyan Island is a Wetland of International Importance that serves as a stop-over for migrating birds and supports the world's largest breeding colony of crab-plover.
 
-## Djoudj National Bird Sanctuary (`xsenegal`)
+## Issyk-Kul Biosphere Reserve (`xkyrgyz`)
 
-**Story** (42 words): Djoudj National Bird Sanctuary lies on the southeast bank of the Senegal River in Senegal. Covering an area of 16,000 hectares, it is the world's 3rd largest ornithological reserve. It provides wetland habitats for large populations of pelicans, flamingos, crocodiles, and manatees.
+**Story** (43 words): Issyk-Kul Biosphere Reserve is located in eastern Kyrgyzstan and features Issyk-Kul Lake, an endorheic saline lake in the western Tian Shan mountains. Established in 1948 and covering the Issyk-Kul Region, the lake is fed by about 118 rivers, hot springs, and snow melt.
 
-**Why it matters** (28 words): It is a World Heritage Site that serves as a very popular wintering site for migrating birds crossing the Sahara, including aquatic warblers and millions of other birds.
+**Why it matters** (33 words): The lake is a Ramsar site of globally significant biodiversity that supports large numbers of wintering waterfowl and endemic fish species, while forming part of the biosphere reserve established in the year 2000.
 
-## Đerdap National Park (`xserbia`)
+## Nam Et-Phou Louey National Protected Area (`xlaos`)
 
-**Story** (34 words): Đerdap National Park stretches along the right bank of the Danube River in Serbia. Established in 1974, the forest park spans 63,786.5 hectares and features the long Đerdap gorge, mountainous terrain, caves, and springs.
+**Story** (34 words): Nam Et-Phou Louey National Park is a protected area in northern Laos, covering 4,107.1 km2 across Houaphan, Luang Prabang, and Xieng Khouang. It consists mainly of mountains and hills with a tropical monsoon climate.
 
-**Why it matters** (26 words): The heavily forested area is rich in animal life and provides a protected habitat for diverse plant species and rare wildlife such as the Eurasian lynx.
+**Why it matters** (25 words): The area has a high level of biodiversity, sheltering endangered species such as the dhole and the sambar deer within its forests and river habitats.
 
-## Gola Rainforest National Park (`xsierra`)
+## Gauja National Park (`xlatvia`)
 
-**Story** (31 words): Gola Rainforest National Park protects Sierra Leone's largest tract of rainforest, covering 71,070 ha in the east of the country. It is home to western chimpanzees, pygmy hippopotamuses, and forest elephants.
+**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
 
-**Why it matters** (32 words): The park forms part of the Upper Guinea Forest, a biodiversity hotspot that stretches from Guinea to Togo. It is designated as a World Heritage Site as part of the Gola-Tiwai complex.
+**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
 
-## Korean Demilitarized Zone (`xskorea`)
+## Al Shouf Cedar Nature Reserve (`xlebanon`)
 
-**Story** (37 words): The Korean Demilitarized Zone is a strip of land running across the Korean Peninsula in South Korea. Established in 1953, it is 250 kilometers long and about 4 kilometers wide, serving as a heavily militarized border barrier.
+**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
 
-**Why it matters** (22 words): A population of the long-tailed goral, an endangered species classified as South Korean natural monument 217, exists in the Korean Demilitarized Zone.
+**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
 
-## Triglav National Park (`xslovenia`)
+## Sehlabathebe National Park (`xlesotho`)
 
-**Story** (53 words): Triglav National Park is the only national park in Slovenia, located in the northwestern part of the country. Established in its modern form in 1981, it covers an area of 880 km². Mount Triglav stands almost in the middle of the park, and the area is home to over 700 species of animals.
+**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
 
-**Why it matters** (26 words): The park spans two major watersheds, the Sava River watershed and the Soča River watershed. It also protects diverse wildlife, including Alpine chamois and Alpine ibex.
+**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
 
-## Marovo Lagoon (`xsolomon`)
+## Sapo National Park (`xliberia`)
 
-**Story** (50 words): Marovo Lagoon is the largest double-barrier enclosed lagoon in the world, covering 700 square kilometres in the Western Province of the Solomon Islands between Vangunu and Nggatokae islands. It is protected by a double barrier reef system and includes many islands where some people live and speak the Marovo language.
+**Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
 
-**Why it matters** (25 words): The Marovo Lagoon World Heritage Area is considered an area of high biodiversity and conservation value, featuring high live coral cover in the Western Province.
+**Why it matters** (29 words): The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.
 
-## Lag Badana National Park (Bush-Bush) (`xsomalia`)
+## Curonian Spit (`xlithuania`)
 
-**Story** (34 words): Lag Badana National Park is a national park of Somalia located on the far southern coast, next to the border with Kenya. It was the first national park to be established in the country.
+**Story** (43 words): The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.
 
-**Why it matters** (20 words): The protected area is considered a Lion Conservation Unit and has been designated an Important Bird Area by BirdLife International.
+**Why it matters** (31 words): The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.
 
-## Daallo Forest (`xsomaliland`)
+## Müllerthal and Upper Sûre forests (`xluxembourg`)
 
-**Story** (44 words): Daallo Forest is a national park located in the eastern Sanaag region of Somaliland, forming part of the Ogo Mountains. The reserve features an unspoiled wilderness with dense evergreen forest on a limestone and gypsum escarpment, where some trees are over 1000 years old.
+**Story** (42 words): The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.
 
-**Why it matters** (29 words): The site is designated an Important Bird Area by BirdLife International and supports high-elevation species and characteristic fauna of the North Somali mountains such as the endemic Warsangli linnet.
+**Why it matters** (34 words): The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.
 
-## The Sudd (Ramsar wetland) (`xssudan`)
+## Lake Ohrid Region (`xmacedonia`)
 
-**Story** (41 words): The Sudd is a vast swamp in South Sudan formed by the White Nile's Bahr al-Jabal section. Designated as a Ramsar Wetland in 2006, it covers an area of 57,000 square kilometres and features meandering channels, lagoons, and floating papyrus fields.
+**Story** (29 words): Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.
 
-**Why it matters** (27 words): The Sudd is one of the world's largest wetlands and the largest freshwater wetland in the Nile Basin, storing floodwaters and trapping sediments from the Bahr al-Jabal.
+**Why it matters** (23 words): It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.
 
-## Central Suriname Nature Reserve (`xsuriname`)
+## Codru Nature Reserve (Codrii) (`xmoldova`)
 
-**Story** (56 words): The Central Suriname Nature Reserve is a conservation unit in Suriname that preserves an area of pristine tropical rainforest. Created in 1998, it covers 16,000 square kilometres of montane and lowland primary forest, including granite domes and sections of the Guyana Highlands. It is known for large mammals like the jaguar and eight species of primates.
+**Story** (40 words): Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.
 
-**Why it matters** (37 words): It is in the Guianan moist forests ecoregion and protects a pristine tropical rainforest ecosystem with over 5,000 different plants and endemic plant species. The reserve is supported for protected-area planning and management by Conservation International Suriname.
+**Why it matters** (26 words): The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.
 
-## Syrian Steppe and Palmyra (`xsyria`)
+## Hukaung Valley Tiger Reserve (`xmyanmar`)
 
-**Story** (41 words): The Syrian Steppe and Palmyra covers a desert region in Syria. It features open, rocky or gravelly desert pavement cut with occasional dry river valleys and oases. The ancient settlement of Palmyra is located here in an oasis surrounded by palms.
+**Story** (33 words): Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.
 
-**Why it matters** (24 words): The Syrian Desert ecosystem includes plants like artemisia herba-alba and provides habitat for visitors such as the northern bald ibis and the Egyptian vulture.
+**Why it matters** (24 words): The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.
 
-## Yushan National Park (`xtaiwan`)
+## Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems (`xnewcal`)
 
-**Story** (41 words): Yushan National Park covers a total area of 103,121 hectares in Taiwan. It contains more than thirty peaks over 3,000 metres in elevation, featuring many canyons, cliffs, and valleys. The park is home to a large variety of animals and plants.
+**Story** (38 words): The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.
 
-**Why it matters** (31 words): The national park is an important nesting ground for the Taiwanese population of the mountain hawk-eagle. It also shelters the Formosan black bear, which is an endangered species endemic to Taiwan.
+**Why it matters** (32 words): The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.
 

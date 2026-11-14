@@ -1,0 +1,21 @@
+{
+ "story": "Waiʻanapanapa State Park is a 122-acre state park in Hana, on the island of Maui, in Hawaii. Its natural features include coastal mesic forests, seabird colonies, lava tubes, and anchialine pools.",
+ "matters": "The anchialine tide pools at the park turn red several times a year due to the arrival of shrimp species like Halocaridina rubra and Metabetaeus lohena.",
+ "id": "hiwaianapanapa",
+ "name": "Waiʻanapanapa State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2590,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2687,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2590
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:18:19+00:00"
+}

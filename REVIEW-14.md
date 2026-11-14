@@ -1,92 +1,92 @@
 # REVIEW-14.md
 
-## Cuivre River State Park (`mocuivreriver`)
+## Nā Pali Coast State Park (`hinapalicoast`)
 
-**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
+**Story** (36 words): Nā Pali Coast State Park is a 6,175-acre state park located in Hawaii on the northwest side of Kauaɵi. Formed five million years ago, it features cliffs rising up to 4,000 feet above the Pacific Ocean.
 
-**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
+**Why it matters** (24 words): The state park was formed to protect the Kalalau Valley. To the east, it connects to the Hono O Nā Pali State Natural Reserve.
 
-## Current River State Park (`mocurrentriver`)
+## Old Kona Airport State Recreation Area (`hioldkonaairport`)
 
-**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
+**Story** (43 words): Old Kona Airport State Recreation Area is a park built on the site of an old landing strip just north of Kailua in Hawaii, USA. The facilities span 103.7 acres of the old airport. A marine preserve was created off shore in 1992.
 
-**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
+**Why it matters** (18 words): A marine preserve was created off shore in 1992, featuring a day use boat mooring near Shark Rock.
 
-## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
+## Palaʻau State Park (`hipalaau`)
 
-**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
+**Story** (49 words): Palaau State Park is the sole state park on the Hawaiian island of Molokai, located in Hawaii, USA. It offers a panoramic view of the Kalaupapa settlement and its historical leper colony. Amenities include campsites, a picnic shelter, and a hiking trail leading to a distinctive phallic rock formation.
 
-**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (25 words): The forest park is a habitat for various recorded species, including the Koa tree and native Ohelo, as well as several bird and insect species.
 
-## Elephant Rocks State Park (`moelephantrocks`)
+## Polihale State Park (`hipolihale`)
 
-**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
+**Story** (39 words): Polihale State Park is a remote wild beach on the western side of the Hawaiian island of Kauaʻi. It is the most western publicly accessible area in Hawaii. A sea lettuce called pahapaha grows in the waters near Polihale.
 
-**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
+**Why it matters** (24 words): A wreath made from pahapaha from Polihale can fade and dry out, but when soaked in water, it will revive to its original freshness.
 
-## Finger Lakes State Park (`mofingerlakes`)
+## Sand Island State Recreation Area (`hisandisland`)
 
-**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
+**Story** (30 words): Sand Island State Recreation Area is a small island located in Honolulu, Hawaii, USA. The land area of the island is 203.78 ha, lying at the entrance to Honolulu Harbor.
 
-**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
+**Why it matters** (23 words): The island features lakes and wetlands and is home to a state recreation area alongside a U.S. Coast Guard base and industrial facilities.
 
-## Grand Gulf State Park (`mograndgulf`)
+## Waahila Ridge State Recreation Area (`hiwaahilaridge`)
 
-**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
+**Story** (29 words): Waahila Ridge State Recreation Area is a forest located in Hawaii, USA. It is home to various species such as the strawberry guava, zebra dove, and western honey bee.
 
-**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
+**Why it matters** (21 words): The area supports diverse interactions among species, including the zebra dove eating strawberry guava and the western honey bee visiting plants.
 
-## Ha Ha Tonka State Park (`mohahatonka`)
+## Wahiawa Freshwater State Recreation Area (`hiwahiawafreshwate`)
 
-**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
+**Story** (27 words): Wahiawa Freshwater State Recreation Area is a forest located in Hawaii, USA. It is home to many species such as the wild boar and the Japanese white-eye.
 
-**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
+**Why it matters** (24 words): The park supports various interactions between species, such as the Gulf Fritillary eating wild passion fruit and being preyed on by the green anole.
 
-## Harry S Truman State Park (`moharrystruman`)
+## Waiʻanapanapa State Park (`hiwaianapanapa`)
 
-**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
+**Story** (31 words): Waiʻanapanapa State Park is a 122-acre state park in Hana, on the island of Maui, in Hawaii. Its natural features include coastal mesic forests, seabird colonies, lava tubes, and anchialine pools.
 
-**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
+**Why it matters** (26 words): The anchialine tide pools at the park turn red several times a year due to the arrival of shrimp species like Halocaridina rubra and Metabetaeus lohena.
 
-## Hawn State Park (`mohawn`)
+## Wailoa River State Recreation Area (`hiwailoariver`)
 
-**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
+**Story** (43 words): Wailoa River State Recreation Area is a 131.9-acre park in Hilo on Hawaiȩi Island in Hawaii. It was developed as a buffer zone following the devastating 1960 tsunami. The park features the Wailoa River, which flows from Waiākea Pond to the Pacific Ocean.
 
-**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
+**Why it matters** (27 words): The 131.9-acre park is administered by the Hawaiȩi Department of Land and Natural Resources and acts as a green belt and buffer zone to absorb future tsunamis.
 
-## Knob Noster State Park (`moknobnoster`)
+## Wailua River State Park (`hiwailuariver`)
 
-**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
+**Story** (46 words): Wailua River State Park is located on the eastern side of the Hawaiian island of Kauai. The park consists primarily of the Wailua River valley, which is the only navigable river in Hawaii. Visitors to this park can kayak, take riverboat cruises, and explore the rainforest.
 
-**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
+**Why it matters** (32 words): The park includes the Wailua Complex of Heiaus, a National Historic Landmark that was once the center of chiefly power on the island. Its historical sites are irreplaceable to the Hawaiian culture.
 
-## Lake of The Ozarks State Park (`molakeoftheozarks`)
+## Backbone State Park (`iabackbone`)
 
-**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Story** (40 words): Backbone State Park is Iowa's oldest state park, dedicated in 1920 in the USA. It measures 2,001 acres and is heavily forested, mainly in species of oak and maple, featuring a steep ridge of bedrock carved by the Maquoketa River.
 
-**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
+**Why it matters** (26 words): The park is part of the Driftless Area, remaining unglaciated during the last Ice Age with ancient dolomite formations and active springs, caves, sinkholes, and karsts.
 
-## Lewis and Clark State Park (`molewisandclark`)
+## Elk Rock State Park (`iaelkrock`)
 
-**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
+**Story** (45 words): Elk Rock State Park is a public recreation area in Marion County, Iowa, United States, situated on both upstream banks of Red Rock Reservoir. Native American inhabitation dates back five thousand years. The park comprises its main area and the smaller Mile Long Bridge area.
 
-**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (22 words): Red Rock serves as a stopping point for migratory birds and other waterfowl. Two hundred species of birds have been seen here.
 
-## Long Branch State Park (`molongbranch`)
+## Geode State Park (`iageode`)
 
-**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
+**Story** (33 words): Geode State Park is a forest located in Iowa, USA. It covers 1,640 acres and features Lake Geode, which was built in 1950. The park is named for Iowa's state rock, the geode.
 
-**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
+**Why it matters** (21 words): The park provides a natural area along the Skunk River where animals like white-tailed deer and northern cardinals can be found.
 
-## Morris State Park (`momorris`)
+## Green Valley State Park (`iagreenvalley`)
 
-**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
+**Story** (46 words): Green Valley State Park is located in Union County, Iowa, in the United States, featuring Green Valley Lake and land around it. Dedicated as a state park on September 20, 1953, it has nearly 10 miles of hiking trails passing through wetlands, woodlands, and prairie remnants.
 
-**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
+**Why it matters** (31 words): The park protects a natural area near Green Valley Lake with flora and fauna including shrubs, wildflowers, muskrats, deer, beavers, and various birds. It is also situated near the Mormon Trail.
 
-## Ozark Forest and Streams (`ozarks`)
+## Honey Creek State Park (`iahoneycreek`)
 
-**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
+**Story** (32 words): Honey Creek State Park is a 30-acre Oklahoma state park located on Grand Lake, near the city of Grove in Delaware County. It provides access to Grand Lake for fishing and boating.
 
-**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
+**Why it matters** (21 words): The park provides a habitat where species like the Monarch butterfly interact with plants such as Missouri ironweed and Button Eryngo.
 

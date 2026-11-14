@@ -1,0 +1,21 @@
+{
+ "story": "Sand Island State Recreation Area is a small island located in Honolulu, Hawaii, USA. The land area of the island is 203.78 ha, lying at the entrance to Honolulu Harbor.",
+ "matters": "The island features lakes and wetlands and is home to a state recreation area alongside a U.S. Coast Guard base and industrial facilities.",
+ "id": "hisandisland",
+ "name": "Sand Island State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2392,
+  "candidatesTokenCount": 84,
+  "totalTokenCount": 2476,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2392
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:17:31+00:00"
+}

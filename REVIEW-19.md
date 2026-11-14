@@ -1,92 +1,92 @@
 # REVIEW-19.md
 
-## Fernando de Noronha Archipelago (`whnoronha`)
+## Pictured Rocks National Lakeshore (`uspicturedrocksnationall`)
 
-**Story** (43 words): Fernando de Noronha is an archipelago of 21 islands and islets extending over 26 square kilometres in the Atlantic Ocean, part of the state of Pernambuco, Brazil. Established in 1988, 70% of its area is a national marine park featuring volcanic rock formations.
+**Story** (36 words): Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.
 
-**Why it matters** (27 words): In 2001, UNESCO designated the islands as a World Heritage Site because of their importance as a feeding ground for tuna, sharks, sea turtles, and marine mammals.
+**Why it matters** (27 words): The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.
 
-## Ogasawara Islands (`whogasawara`)
+## Point Reyes National Seashore (`uspointreyesnationalseas`)
 
-**Story** (45 words): The Ogasawara Islands are a Japanese archipelago of over 30 subtropical and tropical islands located in Japan. The group as a whole has a total area of 84 square kilometers. Because of their isolation, many of their animals and plants have undergone unique evolutionary processes.
+**Story** (46 words): Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.
 
-**Why it matters** (26 words): They were named a Natural World Heritage Site in 2011 and are home to endemic species like the Bonin flying fox, which lives in subtropical forests.
+**Why it matters** (28 words): The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.
 
-## El Pinacate and Gran Desierto de Altar Biosphere Reserve (`whpinacate`)
+## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
 
-**Story** (54 words): El Pinacate and Gran Desierto de Altar Biosphere Reserve covers an area of 2,695.05 square kilometres in the Sonoran Desert in northwest Mexico. It is a UNESCO World Heritage Site featuring a volcanic shield, active dunes, and the highest concentration of Maar craters. NASA sent astronauts to train there for walking on the Moon.
+**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
 
-**Why it matters** (34 words): The reserve shelters threatened endemic species including the Sonoran pronghorn, bighorn sheep, gila monster, and desert tortoise. It forms part of a larger desert ecosystem that spans northwest Mexico and the southwestern United States.
+**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
 
-## Plitvice Lakes National Park (`whplitvice`)
+## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
 
-**Story** (52 words): Plitvice Lakes National Park is one of the oldest and largest national parks in Croatia. Founded in 1949, it covers 296.85 km2 in the mountainous karst area of central Croatia at the border with Bosnia and Herzegovina. The park is famous for its picturesque series of tufa lakes, caves, and connected waterfalls.
+**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
 
-**Why it matters** (36 words): The afforested mountain slopes serve as a refuge for many animal species, including the brown bear, grey wolf, and Eurasian lynx. The park is inscribed on the UNESCO World Heritage list for its outstanding natural features.
+**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
 
-## Putorana Plateau (`whputorana`)
+## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
 
-**Story** (40 words): The Putorana Plateau is a mountainous area in Russia located in Krasnoyarsk Krai. It is a high-lying plateau crossed by mountain ranges featuring deep lakes and waterfalls. Established in 1988, the Putorana Nature Reserve covers an area of 1,887,251 ha.
+**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
 
-**Why it matters** (31 words): The reserve was set up to protect the world's largest herd of wild reindeer as well as snow sheep. It contains complete subarctic and arctic ecosystems in an isolated mountain range.
+**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
 
-## Pyrénées - Mont Perdu (`whpyrenees`)
+## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
 
-**Story** (43 words): Pyrénées - Mont Perdu is situated in France and Spain. It is a polar and mountain area featuring high mountain topography, limestone formations, and deep canyons carved by repeated glaciations. Animals such as the Pyrenean chamois and alpine marmot live in this region.
+**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
 
-**Why it matters** (33 words): The park was included in the cross-border Pyrénées - Mont Perdu World Heritage Site because of its spectacular geologic landforms. It protects high mountain topography and shelters various species of raptors and mammals.
+**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
 
-## Shiretoko (`whshiretoko`)
+## Tonto National Monument (`ustontonationalmonument`)
 
-**Story** (40 words): Shiretoko National Park covers most of the Shiretoko Peninsula on the island of Hokkaido, Japan. The 70 kilometres long peninsula is best known as the home of Japan's largest population of brown bears and features temperate and subalpine mixed forests.
+**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
 
-**Why it matters** (28 words): In 2005, UNESCO designated the area a World Heritage Site in recognition of the peninsula being the southernmost point where sea ice usually forms in the Northern Hemisphere.
+**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
 
-## Sian Ka'an Biosphere Reserve (`whsiankaan`)
+## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
 
-**Story** (47 words): Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.
+**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
 
-**Why it matters** (30 words): It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.
+**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
 
-## Central Sikhote-Alin (`whsikhote`)
+## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
 
-**Story** (32 words): Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.
+**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
 
-**Why it matters** (23 words): The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.
+**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
 
-## Socotra Archipelago (`whsocotra`)
+## Wupatki National Monument (`uswupatkinationalmonumen`)
 
-**Story** (50 words): Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.
+**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
 
-**Why it matters** (24 words): About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.
+**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
 
-## Tasmanian Wilderness World Heritage Area (`whtasmania`)
+## Cocos Island National Park (`whcocos`)
 
-**Story** (36 words): The Tasmanian Wilderness World Heritage Area is located in Tasmania, Australia. Covering 15,800 km2, it is one of the largest conservation areas in Australia and one of the last expanses of temperate wilderness in the world.
+**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
 
-**Why it matters** (22 words): It is home to unique fauna like the Tasmanian devil and includes extensive temperate rainforests, supporting high plant diversity and ancient species.
+**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
 
-## Tikal National Park (`whtikal`)
+## Corcovado National Park (`whcorcovado`)
 
-**Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
+**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
 
-**Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
+**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
 
-## Torres del Paine National Park (`whtorres`)
+## Darién National Park (`whdarien`)
 
-**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
+**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
 
-**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
+**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
 
-## Eduardo Avaroa Andean Fauna National Reserve (`whuyuni`)
+## Gros Morne National Park (`whgrosmorne`)
 
-**Story** (33 words): Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.
+**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
 
-**Why it matters** (28 words): The reserve protects an extreme environment and species adapted to high altitudes, serving as an important habitat for birds and part of the larger Los Lípez Ramsar site.
+**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
 
-## Península Valdés (`whvaldes`)
+## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
 
-**Story** (43 words): Península Valdés is a peninsula into the Atlantic Ocean in Chubut, Argentina. It is about 3,625 square kilometers in size and is an important nature reserve listed as a World Heritage Site by UNESCO in 1999. The coastline is inhabited by marine mammals.
+**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
 
-**Why it matters** (28 words): The adjacent waters contain the most important breeding ground for southern right whales in the world. These whales arrive between May and December for mating and giving birth.
+**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
 

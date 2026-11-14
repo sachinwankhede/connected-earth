@@ -1,0 +1,22 @@
+{
+ "story": "Makena State Park is a 165-acre beachside park in Makena on the island of Maui, Hawaii. It contains three separate beaches and a dormant volcanic cinder cone.",
+ "matters": "Just to the south of the park is the Ahihi Kinau Natural Area Reserve.",
+ "id": "himakena",
+ "name": "Makena State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2979,
+  "candidatesTokenCount": 72,
+  "totalTokenCount": 3051,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2979
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:15:38+00:00",
+ "rejected": "names not in the research text: Kinau"
+}

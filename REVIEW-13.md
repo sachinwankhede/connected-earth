@@ -60,33 +60,33 @@
 
 **Why it matters** (14 words): It supports a variety of species including birds and insects found within the region.
 
-## Mississippi River Floodplain (`mississippi`)
+## Keaīwa Heiau State Recreation Area (`hikeaiwaheiau`)
 
-**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
+**Story** (39 words): Keaīwa Heiau State Recreation Area is a forest located on Oʻahu, Hawaiʻi, featuring the ruins of a 16th-century stone temple. The recreation area includes camping facilities and a trail where native ohia lehua and koa trees may be viewed.
 
-**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
+**Why it matters** (30 words): The site contains abundant medicinal herbs that were used as an ancient herbal clinic by kahuna for healing medicine. Visitors still leave temple offerings here hoping to experience medicinal benefits.
 
-## Bennett Spring State Park (`mobennettspring`)
+## Koke'e State Park (`hikokee`)
 
-**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
+**Story** (28 words): Koke'e State Park includes 4,345 acres of mountainous terrain in Hawaii, United States. The park features native vegetation, native forest birds, and scenic cliffside views on a plateau.
 
-**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
+**Why it matters** (18 words): The park provides a home for native forest birds and native vegetation within its mesic and wet forests.
 
-## Big Lake State Park (`mobiglake`)
+## Lydgate State Park (`hilydgate`)
 
-**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
+**Story** (29 words): Lydgate State Park is a forest located in Hawaii, USA. It is home to species such as the Zebra Dove, the Gold dust day gecko, and the House mouse.
 
-**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
+**Why it matters** (22 words): It supports various wildlife species within its ecosystem, including the feral cat that preys on the House mouse and the Wild boar.
 
-## Big Sugar Creek State Park (`mobigsugarcreek`)
+## Malaekahana State Recreation Area (`himalaekahana`)
 
-**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
+**Story** (25 words): Malaekahana State Recreation Area is a forest located in Hawaii, USA. It is home to species such as the Zebra Dove and the Yellow `Ilima.
 
-**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
+**Why it matters** (14 words): It supports various species including birds and insects that interact within the forest environment.
 
-## Castlewood State Park (`mocastlewood`)
+## Mauna Kea State Recreation Area (`himaunakea`)
 
-**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
+**Story** (31 words): Mauna Kea State Recreation Area covers 20.5 acres at the southern base of Mauna Kea in Hawaii. The park features dry shrublands that get cold at night due to the elevation.
 
-**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
+**Why it matters** (10 words): Wild pigs and sheep can be hunted in the area.
 

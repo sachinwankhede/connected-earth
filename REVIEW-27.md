@@ -1,80 +1,92 @@
 # REVIEW-27.md
 
-## Konza Prairie and the Flint Hills (`xusks`)
+## Triglav National Park (`xslovenia`)
 
-**Story** (44 words): Konza Prairie is an 8,616-acre protected area of native tallgrass prairie located in the Flint Hills of northeastern Kansas. It features a topographically complex landscape with tallgrass, forest, and limestone outcrops. A herd of approximately 2,400 bison graze on the hills of the preserve.
+**Story** (53 words): Triglav National Park is the only national park in Slovenia, located in the northwestern part of the country. Established in its modern form in 1981, it covers an area of 880 km². Mount Triglav stands almost in the middle of the park, and the area is home to over 700 species of animals.
 
-**Why it matters** (40 words): The site is part of the largest remaining area of unplowed tallgrass prairie in North America, serving as a natural laboratory for studying ecological patterns. Key natural processes such as periodic fire and grazing help sustain this unique grassland ecosystem.
+**Why it matters** (26 words): The park spans two major watersheds, the Sava River watershed and the Soča River watershed. It also protects diverse wildlife, including Alpine chamois and Alpine ibex.
 
-## Cape Cod National Seashore (`xusma`)
+## Marovo Lagoon (`xsolomon`)
 
-**Story** (38 words): Cape Cod National Seashore covers ponds, woods, and beachfront in Massachusetts, USA. Created on August 7, 1961, by President John F. Kennedy, it spans 43,607 acres and includes nearly 40 miles of seashore along the Atlantic-facing eastern shore.
+**Story** (50 words): Marovo Lagoon is the largest double-barrier enclosed lagoon in the world, covering 700 square kilometres in the Western Province of the Solomon Islands between Vangunu and Nggatokae islands. It is protected by a double barrier reef system and includes many islands where some people live and speak the Marovo language.
 
-**Why it matters** (23 words): It shelters the Atlantic coastal pine barrens ecoregion and provides vital habitats for species such as the piping plover and the gray seal.
+**Why it matters** (25 words): The Marovo Lagoon World Heritage Area is considered an area of high biodiversity and conservation value, featuring high live coral cover in the Western Province.
 
-## Pascagoula River (`xusms`)
+## Lag Badana National Park (Bush-Bush) (`xsomalia`)
 
-**Story** (35 words): The Pascagoula River is about 80 miles long in southeastern Mississippi, United States. It flows generally southward through swampy bottomlands in George and Jackson Counties and into the Mississippi Sound of the Gulf of Mexico.
+**Story** (34 words): Lag Badana National Park is a national park of Somalia located on the far southern coast, next to the border with Kenya. It was the first national park to be established in the country.
 
-**Why it matters** (28 words): It is significant as the only unaffected river with a discharge of over 10 cubic kilometres per year flowing from the United States into the Gulf of Mexico.
+**Why it matters** (20 words): The protected area is considered a Lion Conservation Unit and has been designated an Important Bird Area by BirdLife International.
 
-## Platte River sandhill crane migration (central Platte valley) (`xusne`)
+## Daallo Forest (`xsomaliland`)
 
-**Story** (35 words): The Platte River sandhill crane migration takes place in the central Platte valley in Nebraska, United States. Fossil evidence indicates this crane stopover in the river valley has been active for over 10 million years.
+**Story** (44 words): Daallo Forest is a national park located in the eastern Sanaag region of Somaliland, forming part of the Ogo Mountains. The reserve features an unspoiled wilderness with dense evergreen forest on a limestone and gypsum escarpment, where some trees are over 1000 years old.
 
-**Why it matters** (29 words): The central Platte River valley is an important stopover for migratory water birds, such as the whooping crane and sandhill crane, in their yearly traversal of the Central Flyway.
+**Why it matters** (29 words): The site is designated an Important Bird Area by BirdLife International and supports high-elevation species and characteristic fauna of the North Somali mountains such as the endemic Warsangli linnet.
 
-## White Mountain National Forest (`xusnh`)
+## The Sudd (Ramsar wetland) (`xssudan`)
 
-**Story** (42 words): The White Mountain National Forest is located in New Hampshire, USA, with a small part in Maine. Established in 1918, it has a total area of 750,852 acres. It is home to wildlife species including the moose, bald eagle, and black bear.
+**Story** (41 words): The Sudd is a vast swamp in South Sudan formed by the White Nile's Bahr al-Jabal section. Designated as a Ramsar Wetland in 2006, it covers an area of 57,000 square kilometres and features meandering channels, lagoons, and floating papyrus fields.
 
-**Why it matters** (35 words): It contains six designated Federal Wilderness Areas that are protected from logging and commercial industries and are used solely for recreational and scientific purposes. Over 100 miles of the Appalachian Trail traverses the national forest.
+**Why it matters** (27 words): The Sudd is one of the world's largest wetlands and the largest freshwater wetland in the Nile Basin, storing floodwaters and trapping sediments from the Bahr al-Jabal.
 
-## Adirondack Park (`xusny`)
+## Central Suriname Nature Reserve (`xsuriname`)
 
-**Story** (34 words): Adirondack Park is located in northeastern New York. Established in 1892, it is the largest park in the contiguous United States at 6.1 million acres and contains old-growth forests, lakes, and the Adirondack Mountains.
+**Story** (56 words): The Central Suriname Nature Reserve is a conservation unit in Suriname that preserves an area of pristine tropical rainforest. Created in 1998, it covers 16,000 square kilometres of montane and lowland primary forest, including granite domes and sections of the Guyana Highlands. It is known for large mammals like the jaguar and eight species of primates.
 
-**Why it matters** (24 words): The park provides watershed protection and shelters old-growth forests and native wildlife. Its legal protections and management have helped conserve developed and wild lands.
+**Why it matters** (37 words): It is in the Guianan moist forests ecoregion and protects a pristine tropical rainforest ecosystem with over 5,000 different plants and endemic plant species. The reserve is supported for protected-area planning and management by Conservation International Suriname.
 
-## Joseph H. Williams Tallgrass Prairie Preserve (`xusok`)
+## Syrian Steppe and Palmyra (`xsyria`)
 
-**Story** (55 words): The Joseph H. Williams Tallgrass Prairie Preserve is located in Oklahoma, USA, and is the largest protected tract of tallgrass prairie in the world. Managed by The Nature Conservancy, it covers 39,650 acres owned by the Conservancy and another 6,000 acres leased. The preserve is home to prominent bison and numerous plant and bird species.
+**Story** (41 words): The Syrian Steppe and Palmyra covers a desert region in Syria. It features open, rocky or gravelly desert pavement cut with occasional dry river valleys and oases. The ancient settlement of Palmyra is located here in an oasis surrounded by palms.
 
-**Why it matters** (28 words): It protects a rare remnant of the original tallgrass region of the Great Plains and provides a vital habitat for threatened greater prairie-chickens and endangered American burying beetles.
+**Why it matters** (24 words): The Syrian Desert ecosystem includes plants like artemisia herba-alba and provides habitat for visitors such as the northern bald ibis and the Egyptian vulture.
 
-## Allegheny National Forest (`xuspa`)
+## Yushan National Park (`xtaiwan`)
 
-**Story** (39 words): The Allegheny National Forest is a National Forest in Northwestern Pennsylvania, about 100 miles northeast of Pittsburgh. The forest covers 513,175 acres of land. Within the forest is Kinzua Dam, which impounds the Allegheny River to form Allegheny Reservoir.
+**Story** (41 words): Yushan National Park covers a total area of 103,121 hectares in Taiwan. It contains more than thirty peaks over 3,000 metres in elevation, featuring many canyons, cliffs, and valleys. The park is home to a large variety of animals and plants.
 
-**Why it matters** (33 words): The Allegheny National Forest lies in the heart of Pennsylvania's oil and gas region, only 40 miles from the site of the first commercial oil well in the United States at Titusville, Pennsylvania.
+**Why it matters** (31 words): The national park is an important nesting ground for the Taiwanese population of the mountain hawk-eagle. It also shelters the Formosan black bear, which is an endangered species endemic to Taiwan.
 
-## Narragansett Bay and Block Island (`xusri`)
+## Tajik National Park (Mountains of the Pamirs) (`xtajik`)
 
-**Story** (44 words): Narragansett Bay and Block Island are located in Rhode Island, USA. Narragansett Bay covers 147 square miles and forms New England's largest estuary. Block Island lies less than 20 miles southwest of its opening and is an island of the Outer Lands coastal archipelago.
+**Story** (35 words): Tajik National Park is a national park and nature reserve in eastern Tajikistan that covers parts of the Pamir Mountains, the third-highest mountain system in the world. Established in 1992, it spans 26,116.74 square kilometres.
 
-**Why it matters** (31 words): About 40 percent of Block Island is set aside for conservation, and much of its northwestern tip is an undeveloped natural area and resting stop for birds along the Atlantic flyway.
+**Why it matters** (25 words): The park provides a habitat for wild animals including the snow leopard and Marco Polo sheep. It also includes the Fedchenko Glacier and Karakul Lake.
 
-## Green Mountain National Forest (`xusvt`)
+## Nino Konis Santana National Park (`xtimor`)
 
-**Story** (36 words): Green Mountain National Forest is a national forest located in Vermont, situated in the Green Mountains. Established in 1932, the forest supports wildlife including beaver, moose, coyote, black bear, white-tailed deer, wild turkey, and ruffed grouse.
+**Story** (48 words): Nino Konis Santana National Park covers 1,236 square kilometres in Timor-Leste. Established on 15 August 2007, it is Timor-Leste's first national park and includes lowland, tropical, and monsoon forest as well as marine areas. The park is home to rare birds such as the critically endangered yellow-crested cockatoo.
 
-**Why it matters** (27 words): It is a temperate broadleaf and mixed forest typical of the New England/Acadian forests ecoregion, and is one of only two national forest areas in New England.
+**Why it matters** (37 words): It links important bird areas and includes part of the Coral Triangle, an underwater area containing great diversity of coral and coral reef fish. The park protects both nature and culture as a single unit for conservation.
 
-## Nuratau-Kyzylkum Biosphere Reserve (`xuzb`)
+## Fazao-Malfakassa National Park (`xtogo`)
 
-**Story** (25 words): The Nuratau-Kyzylkum Biosphere Reserve is located in Uzbekistan. It conserves the landscapes and cultural assets of the Nuratau Mountain Range and the adjacent Kyzylkum Desert.
+**Story** (49 words): Fazao-Malfakassa National Park is the largest of three national parks in Togo, situated in semi-mountainous wetland between the Kara Region and Centrale Region. Established in 1975, the park features rocky hills, savanna woodland, gallery forest, submontane forest, and grass-covered hilltops. It provides a home to various antelopes and elephants.
 
-**Why it matters** (28 words): The reserve is the only place in the world where the endangered Severtsov wild sheep still roam in the wild. It also protects unique flora and fruit trees.
+**Why it matters** (35 words): The park supports significant populations of many bird species, making it an Important Bird Area. It is also one of two sites in Togo included in the CITES Monitoring of Illegal Killing of Elephants Program.
 
-## Espiritu Santo Highland Forest (`xvanuatu`)
+## Caroni Swamp (`xtrinidad`)
 
-**Story** (42 words): Espiritu Santo Highland Forest is located in Vanuatu. The island of Espiritu Santo has an area of 3,955.5 square kilometres and is part of the nation and archipelago of Vanuatu. Animals found here include the Pacific imperial pigeon and the swamp harrier.
+**Story** (52 words): The Caroni Swamp is a 12,000 acre swamp located on the west coast of the island of Trinidad in Trinidad and Tobago. It is the largest mangrove forest and the second largest wetland in the country. The swamp serves as a major home and the largest roosting place for the scarlet ibis.
 
-**Why it matters** (24 words): The forest provides a home for various native birds and species found across the Pacific region, contributing to the rich biodiversity of the island.
+**Why it matters** (37 words): The Caroni Swamp is protected under the Ramsar Convention as a wetland of international importance. It supports a rich biodiversity of endangered species, provides food and protection, and acts as a nursery for marine and freshwater species.
 
-## South Luangwa National Park (`xzambia`)
+## Kaçkar Mountains National Park (`xturkey`)
 
-**Story** (47 words): South Luangwa National Park covers 9,050 km2 in eastern Zambia. Founded as a game reserve in 1938 and becoming a national park in 1972, it sits in the valley of the meandering Luangwa River. The park supports over 400 bird species and more than 60 mammal species.
+**Story** (43 words): Kaçkar Mountains National Park rises above the Black Sea coast in northeastern Turkey. Declared a national park in 1994, it features glaciated, alpine mountains with steep rocky peaks and mountain lakes. Wolves, bears, boars, feral goats, deer, jackals, and wild chickens live here.
 
-**Why it matters** (26 words): The park spans woodland savannah eco-regions and includes the Nsefu Sector, supporting stable populations of lions, spotted hyenas, African wild dogs, and high densities of leopards.
+**Why it matters** (33 words): The park provides a breeding habitat for the Caucasian grouse, a bird that breeds in the Caucasus and Pontic Mountains of northeast Turkey. It is a Near Threatened species with a declining population.
+
+## Repetek Biosphere Reserve (`xturkmen`)
+
+**Story** (42 words): Repetek Biosphere State Reserve is a desert nature reserve in Turkmenistan, located in Lebap Province, East Karakum Desert. Established in 1928, it covers 346 km2 and features extensive ridged sand dunes. It is known for its desert monitor and black saxaul trees.
+
+**Why it matters** (28 words): The reserve supports the most complete assemblage of bird species typical of the sand desert of the Karakum. It also has an important population of the goitered gazelle.
+
+## Marawah Marine Biosphere Reserve (`xuae`)
+
+**Story** (31 words): Marawah Marine Biosphere Reserve is located in Abu Dhabi, United Arab Emirates. It is the United Arab Emirates first biosphere reserve. The area features coast and ocean habitats supporting marine life.
+
+**Why it matters** (23 words): The reserve is part of the Zayed Network of Protected Areas and includes Marawah Island, which supports populations of waders and other wildlife.
 

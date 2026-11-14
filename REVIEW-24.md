@@ -1,92 +1,92 @@
 # REVIEW-24.md
 
-## Sapo National Park (`xliberia`)
+## Vikos-Aoös National Park (`xgreece`)
 
-**Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
+**Story** (42 words): Vikos-Aos National Park spans 12,600 hectares of mountainous terrain in the region of Epirus in northwestern Greece, featuring deep canyons and dense forests. Founded in 1973, it is home to a rich variety of flora and large mammals like the brown bear.
 
-**Why it matters** (29 words): The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.
+**Why it matters** (36 words): The park is part of the Natura 2000 ecological network and a UNESCO Geopark, serving as one of the last European strongholds for the brown bear and providing a valuable habitat for nature conservation in Greece.
 
-## Curonian Spit (`xlithuania`)
+## Northeast Greenland National Park (`xgreenland`)
 
-**Story** (43 words): The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.
+**Story** (39 words): Northeast Greenland National Park is the world's largest national park, protecting 972,000 km2 of the interior and northeastern coast of Greenland. Established in 1974, it is the northernmost national park in the world and has no permanent human population.
 
-**Why it matters** (31 words): The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.
+**Why it matters** (31 words): The park provides a crucial home for coastal populations of musk oxen, polar bears, walrus, and Arctic wolves, as well as a large portion of the world population of musk oxen.
 
-## Müllerthal and Upper Sûre forests (`xluxembourg`)
+## Mount Nimba Strict Nature Reserve (`xguinea`)
 
-**Story** (42 words): The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.
+**Story** (33 words): Mount Nimba Strict Nature Reserve covers 175.4 km2 in Guinea and Côte d'Ivoire. Established in 1943 and 1944, it is a protected area and UNESCO World Heritage Site featuring exceptional flora and fauna.
 
-**Why it matters** (34 words): The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.
+**Why it matters** (26 words): The reserve lies within the Guinean Forests of West Africa Biodiversity Hotspot and shelters rare animals such as the western chimpanzee and the Nimba otter shrew.
 
-## Lake Ohrid Region (`xmacedonia`)
+## Bijagós Archipelago Biosphere Reserve (`xguineabissau`)
 
-**Story** (29 words): Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.
+**Story** (60 words): The Bijag3s Archipelago Biosphere Reserve is located in the Atlantic Ocean off the coast of Guinea-Bissau and consists of about 88 islands and islets spanning an area of 12,958 square kilometres. Declared a UNESCO Biosphere Reserve in 1996 and a World Heritage Site in 2025, the area features mangroves, palm forests, and coastal savanna supporting various waterbirds, flamingos, and pelicans.
 
-**Why it matters** (23 words): It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.
+**Why it matters** (35 words): The mangroves play a crucial role for the reproduction of molluscs, fish, and sea turtles. The region is also the main habitat of the African gray parrot, which is an endangered species in the subregion.
 
-## Codru Nature Reserve (Codrii) (`xmoldova`)
+## Iwokrama Forest (`xguyana`)
 
-**Story** (40 words): Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.
+**Story** (34 words): Iwokrama Forest is a 3,716 square kilometres nature reserve located in central Guyana in the Guiana Shield. The area is covered with lowland tropical forest and is bordered by rivers, mountains, highlands, and savannahs.
 
-**Why it matters** (26 words): The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.
+**Why it matters** (24 words): The reserve is part of the Guiana Shield and provides a natural habitat for various animals such as the jaguar and the black caiman.
 
-## Hukaung Valley Tiger Reserve (`xmyanmar`)
+## Pic Macaya National Park (`xhaiti`)
 
-**Story** (33 words): Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.
+**Story** (47 words): Pic Macaya National Park is located in Haiti within the southern peninsula and the Massif de la Hotte. Founded in 1984, it encompasses more than 8,000 hectares and reaches a height of 2,347 meters at Pic Macaya. It features the country's last stand of virgin cloud forest.
 
-**Why it matters** (24 words): The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.
+**Why it matters** (26 words): The park belongs to the Massif de la Hotte mountain range and supports endangered plant and animal life, including species endemic to the island of Hispaniola.
 
-## Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems (`xnewcal`)
+## Río Plátano Biosphere Reserve (`xhonduras`)
 
-**Story** (38 words): The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.
+**Story** (46 words): The Río Plátano Biosphere Reserve covers 5,250 square kilometers of the Gracias a Dios department region on the Caribbean coast of Honduras. Most of the reserve runs along the Río Plátano. It encompasses both mountainous and lowland tropical rainforest, full of diverse wildlife and plant life.
 
-**Why it matters** (32 words): The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.
+**Why it matters** (36 words): The reserve is part of the Mesoamerican Biological Corridor that stretches from Mexico southward through Central America. It has some of the largest remnants of tropical forest in Central America and a number of endangered species.
 
-## Indio Maiz Biological Reserve (`xnicaragua`)
+## Hyrcanian Forests (`xiran`)
 
-**Story** (52 words): Indio Maiz Biological Reserve covers about 3,180 square kilometers on the southeastern corner of Nicaragua bordering the San Juan River and Costa Rica. It is one of the largest protected lowland forest systems in Central America and is rich in biodiversity, providing a home for jaguars, Baird's tapirs, and great green macaws.
+**Story** (44 words): The Hyrcanian forests cover about 55,000 square kilometres near the shores of the Caspian Sea in Iran and Azerbaijan. Designated a UNESCO World Heritage Site in 2019, these lush lowland and montane forests are home to animals like the Persian leopard and brown bear.
 
-**Why it matters** (29 words): It is a key component in the proposed Mesoamerican Biological Corridor and serves as an important population stronghold for endangered species like the great green macaw and the jaguar.
+**Why it matters** (27 words): The ecoregion serves as a key green resting area for birds migrating between central-northern Russia and Africa, and functions as a vital refuge for unique endemic species.
 
-## Cross River National Park (`xnigeria`)
+## Ahwar of Southern Iraq (Mesopotamian Marshes) (`xiraq`)
 
-**Story** (43 words): Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.
+**Story** (60 words): The Mesopotamian Marshes are a wetland area located in southern Iraq and southwestern Iran as well as partially in northern Kuwait. Originally covering an area of 20,000 km2, the marshes form a unique landscape home to the Marsh people, who harvest reeds and rice, fish, and herd water buffalo. The marshes were listed as an UNESCO Heritage Site in 2016.
 
-**Why it matters** (29 words): The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.
+**Why it matters** (40 words): The marshes constitute a flooded grasslands and savannas ecoregion and are integral to coastal health by filtering out pollutants and waste before they reach the Gulf. They also serve as spawning and nursery sites for coastal fish and shrimp species.
 
-## Ras al Jinz Turtle Reserve and Arabian Sea coast (`xoman`)
+## The Burren (`xireland`)
 
-**Story** (52 words): Ras Al Jinz Turtle Reserve is located in Oman on the easternmost peninsula. Designated as a nature reserve on 23 April 1996, it hosts one of the most important populations of green turtles in the Indian Ocean. Throughout the year, these turtles haul their weight from the sea to lay their eggs.
+**Story** (47 words): The Burren is a rocky landscape centered in County Clare on the west coast of Ireland, covering around 530 square kilometres. It features exposed limestone pavement and supports diverse plant growth due to a long growing season. Traditional strongholds for the European pine marten include the Burren.
 
-**Why it matters** (22 words): It provides a vital breeding ground for green sea turtles, which are part of the biologically productive Arabian Sea large marine ecosystem.
+**Why it matters** (35 words): The region supports rich plant growth such as the mountain avens. It serves as a traditional stronghold for the European pine marten, whose recovering population helps native red squirrels by preying on invasive grey squirrels.
 
-## Deosai National Park (`xpakistan`)
+## Hula Valley (Hula Nature Reserve and Agamon Hula) (`xisrael`)
 
-**Story** (50 words): Deosai National Park protects 843 square kilometres of high-elevation alpine plain in Pakistan. Situated at an average elevation of 4,114 metres above sea level, it is the second highest plateau in the world. The park is home to rich flora and fauna of the Karakoram-West Tibetan Plateau alpine steppe eco-region.
+**Story** (58 words): The Hula Valley is a topographic depression forming a valley and fertile agricultural region in northern Israel with abundant fresh water that used to be part covered by marshland and Lake Hula. It covers an area of 177 square kilometers. A small section of the valley was later reflooded in an attempt to revive a nearly extinct ecosystem.
 
-**Why it matters** (34 words): The national park was established to protect the survival of the critically endangered Himalayan brown bear and its habitat. The plateau is currently home to the most significant and stable Himalayan brown bear population.
+**Why it matters** (33 words): It is a major stopover for birds migrating along the Great Rift Valley between Africa, Europe, and Asia, with an estimated 500 million migrating birds now pass through the Hula Valley every year.
 
-## Judean Desert and Wadi Qelt (`xpalestine`)
+## Gran Paradiso National Park (`xitaly`)
 
-**Story** (38 words): The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.
+**Story** (43 words): Gran Paradiso National Park is an Italian national park in the Graian Alps, between the Aosta Valley and Piedmont regions. Encompassing 703 square kilometres of alpine terrain, it protects animals like the Alpine ibex, which once survived here with only about 60 individuals.
 
-**Why it matters** (37 words): The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.
+**Why it matters** (25 words): It is connected to France's Vanoise National Park, and together they co-operate in managing the Alpine ibex population, which moves across their shared boundary seasonally.
 
-## Varirata National Park and the Owen Stanley foothills (`xpng`)
+## Blue and John Crow Mountains National Park (`xjamaica`)
 
-**Story** (31 words): Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.
+**Story** (53 words): Blue and John Crow Mountains National Park covers 495.2 square kilometers of Jamaica. It accounts for 4.5% of Jamaica's land surface and was inscribed as a UNESCO World Heritage Site on 3 July 2015. The park is recognized for its biodiversity and derives its name from the Blue Mountains and the turkey vulture.
 
-**Why it matters** (25 words): The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.
+**Why it matters** (39 words): The park is the last of two known habitats of the giant swallowtail butterfly, the largest butterfly in the Western Hemisphere. It also serves as a refuge for the endangered Jamaican blackbird, the Jamaican boa, and the Jamaican hutia.
 
-## Peneda-Gerês National Park (`xportugal`)
+## Dana Biosphere Reserve (`xjordan`)
 
-**Story** (45 words): Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.
+**Story** (36 words): Dana Biosphere Reserve is Jordan's largest nature reserve, located in south-central Jordan. Founded in 1989, it covers 308 square kilometres. The reserve crosses four bio-geographical zones and is home to hundreds of plant and animal species.
 
-**Why it matters** (36 words): The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.
+**Why it matters** (25 words): It shelters threatened species like the Nubian ibex and caracal. The diverse environment is the southernmost area in the world to host the Mediterranean cypress.
 
-## El Yunque National Forest (`xpuertorico`)
+## Korgalzhyn State Nature Reserve (Tengiz-Korgalzhyn Lakes) (`xkaz`)
 
-**Story** (58 words): El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.
+**Story** (56 words): Korgalzhyn State Nature Reserve covers an area of 543,171 hectares in the Aqmola and Karaganda regions of Kazakhstan, located west of the city of Astana. It includes numerous salt and fresh water bodies, such as Lake Tengiz. The protected reserve territory is home to wolves, saiga antelopes, bobak marmots, and the northernmost population of greater flamingos.
 
-**Why it matters** (30 words): It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.
+**Why it matters** (37 words): The reserve is part of the Saryarka – Steppe and Lakes of Northern Kazakhstan UNESCO heritage site and a wetland of international importance. Extensive reserve waters provide living space for the largest Asian population of wetland birds.
 

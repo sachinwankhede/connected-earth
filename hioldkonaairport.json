@@ -1,0 +1,21 @@
+{
+ "story": "Old Kona Airport State Recreation Area is a park built on the site of an old landing strip just north of Kailua in Hawaii, USA. The facilities span 103.7 acres of the old airport. A marine preserve was created off shore in 1992.",
+ "matters": "A marine preserve was created off shore in 1992, featuring a day use boat mooring near Shark Rock.",
+ "id": "hioldkonaairport",
+ "name": "Old Kona Airport State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3265,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 3362,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3265
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:16:43+00:00"
+}

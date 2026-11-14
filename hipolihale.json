@@ -1,0 +1,21 @@
+{
+ "story": "Polihale State Park is a remote wild beach on the western side of the Hawaiian island of Kauaʻi. It is the most western publicly accessible area in Hawaii. A sea lettuce called pahapaha grows in the waters near Polihale.",
+ "matters": "A wreath made from pahapaha from Polihale can fade and dry out, but when soaked in water, it will revive to its original freshness.",
+ "id": "hipolihale",
+ "name": "Polihale State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3202,
+  "candidatesTokenCount": 92,
+  "totalTokenCount": 3294,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3202
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:17:15+00:00"
+}

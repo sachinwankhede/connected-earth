@@ -1,0 +1,21 @@
+{
+ "story": "Waahila Ridge State Recreation Area is a forest located in Hawaii, USA. It is home to various species such as the strawberry guava, zebra dove, and western honey bee.",
+ "matters": "The area supports diverse interactions among species, including the zebra dove eating strawberry guava and the western honey bee visiting plants.",
+ "id": "hiwaahilaridge",
+ "name": "Waahila Ridge State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2890,
+  "candidatesTokenCount": 69,
+  "totalTokenCount": 2959,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2890
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:17:47+00:00"
+}

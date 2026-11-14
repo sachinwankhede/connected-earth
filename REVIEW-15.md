@@ -1,92 +1,92 @@
 # REVIEW-15.md
 
-## Missouri Tallgrass Prairie (`prairie`)
+## Lake Ahquabi State Park (`ialakeahquabi`)
 
-**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
+**Story** (40 words): Lake Ahquabi State Park is located in Warren County, Iowa, United States, and features a 115-acre reservoir. Ahquabi means resting place in the Fox language. The park is six miles south of Indianola and 22 miles south of Des Moines.
 
-**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
+**Why it matters** (22 words): The park includes a surrounding watershed and buffer wetlands that help improve water quality by reducing sediments and nutrients reaching the lake.
 
-## Urban St. Louis (`stlurban`)
+## Lake Darling State Park (`ialakedarling`)
 
-**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
+**Story** (40 words): Lake Darling State Park is located in Washington County, Iowa, United States. The park covers 1,417 acres, and the lake is 302 acres in size. It was dedicated on September 17, 1950, and is named after Jay Norwood Ding Darling.
 
-**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
+**Why it matters** (30 words): The park is located on Honey Creek, which is a minor tributary of the Skunk River. It is home to a variety of fish and several plant and animal species.
 
-## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
+## Lake Macbride State Park (`ialakemacbride`)
 
-**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
+**Story** (40 words): Lake Macbride State Park covers 2,180 acres in Johnson County, Iowa, USA, near the city of Solon. The park is centered on Lake Macbride and features 7 miles of hiking and multi-use trails that travel through forests and restored prairie.
 
-**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
+**Why it matters** (24 words): The park is a popular fishing site where the rare spotted bass can be found in the lake, alongside muskellunge, walleye, and channel catfish.
 
-## Assateague Island National Seashore (`usassateagueislandnation`)
+## Mississippi River Floodplain (`mississippi`)
 
-**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
+**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
 
-**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
+**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
 
-## Bandelier National Monument (`usbandeliernationalmonum`)
+## Bennett Spring State Park (`mobennettspring`)
 
-**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
+**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
 
-**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
+**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
 
-## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
+## Big Lake State Park (`mobiglake`)
 
-**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
+**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
 
-**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
+**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
 
-## Canaveral National Seashore (`uscanaveralnationalseash`)
+## Big Sugar Creek State Park (`mobigsugarcreek`)
 
-**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
+**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
 
-**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
+**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
 
-## Cape Hatteras National Seashore (`uscapehatterasnationalse`)
+## Castlewood State Park (`mocastlewood`)
 
-**Story** (42 words): Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.
+**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
 
-**Why it matters** (28 words): The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.
+**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
 
-## Cape Lookout National Seashore (`uscapelookoutnationalsea`)
+## Cuivre River State Park (`mocuivreriver`)
 
-**Story** (37 words): Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.
+**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
 
-**Why it matters** (28 words): The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.
+**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
 
-## Cedar Breaks National Monument (`uscedarbreaksnationalmon`)
+## Current River State Park (`mocurrentriver`)
 
-**Story** (48 words): Cedar Breaks National Monument is a natural amphitheater located in Utah, USA, near Cedar City. Established in 1933, the monument stretches across 3 miles with a depth of over 2,000 feet. It features high-altitude forests, subalpine meadows, and bristlecone pines that can be more than 1600 years old.
+**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
 
-**Why it matters** (32 words): The monument area forms the headwaters of Mammoth Creek, a tributary of the Sevier River. It covers the west side of the Markagunt Plateau, sharing geological connections with nearby Zion National Park.
+**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
 
-## Chattahoochee River National Recreation Area (`uschattahoocheerivernati`)
+## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
 
-**Story** (47 words): Chattahoochee River National Recreation Area preserves a series of sites between Atlanta and Lake Sidney Lanier along the Chattahoochee River in Georgia, U.S. Established on August 15, 1978, by President Jimmy Carter, the 48-mile stretch of the river affords public recreation opportunities and access to historic sites.
+**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
 
-**Why it matters** (26 words): The Chattahoochee River is one of Georgia's premier trout streams and was designated as the Chattahoochee River Water Trail to increase access to water-based outdoor recreation.
+**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Chickasaw National Recreation Area (`uschickasawnationalrecre`)
+## Elephant Rocks State Park (`moelephantrocks`)
 
-**Story** (40 words): Chickasaw National Recreation Area is located in south-central Oklahoma in the foothills of the Arbuckle Mountains near Sulphur in Murray County. It covers 9,888.83 acres, with water covering 2,409 acres. The park preserves partially forested hills, springs, streams, and lakes.
+**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
 
-**Why it matters** (22 words): The park preserves natural fresh and mineral springs that were originally protected to prevent developers from turning them into a private resort.
+**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
 
-## Chiricahua National Monument (`uschiricahuanationalmonu`)
+## Finger Lakes State Park (`mofingerlakes`)
 
-**Story** (44 words): Chiricahua National Park is located in the Chiricahua Mountains of southeastern Arizona. Originally established as Chiricahua National Monument on April 18, 1924, it preserves extensive hoodoos, balancing rocks, and the Faraway Ranch. Just over 85% of the park is protected as the Chiricahua Wilderness.
+**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
 
-**Why it matters** (36 words): The park preserves the remains of an immense volcanic eruption that shook the region about 27 million years ago. It protects towering rock spires and balanced rocks while featuring ecosystems of meadows, forests, and rock formations.
+**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
 
-## Colorado National Monument (`uscoloradonationalmonume`)
+## Grand Gulf State Park (`mograndgulf`)
 
-**Story** (31 words): Colorado National Monument is a National Park Service unit near Grand Junction, Colorado, covering 20,500 acres. Sheer-walled canyons cut deep into sandstone and granite-gneiss-schist rock formations in this high desert area.
+**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
 
-**Why it matters** (24 words): The park sits on a large area of high desert in Western Colorado and hosts a wide range of wildlife, including desert bighorn sheep.
+**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
 
-## Craters of the Moon National Monument (`uscratersofthemoonnation`)
+## Ha Ha Tonka State Park (`mohahatonka`)
 
-**Story** (41 words): Craters of the Moon National Monument and Preserve is located in central Idaho in the USA. It features three major lava fields and about 400 square miles of sagebrush steppe grasslands. The area includes volcanic cones, lava tubes, and basaltic lava.
+**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
 
-**Why it matters** (32 words): The monument is part of the Snake River Plain volcanic province and the Lava Beds of Idaho. It belongs to a landscape where older lava fields support drought-resistant plants such as sagebrush.
+**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
 

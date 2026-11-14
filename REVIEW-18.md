@@ -1,92 +1,92 @@
 # REVIEW-18.md
 
-## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
+## Fort Pulaski National Monument (`usfortpulaskinationalmon`)
 
-**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
+**Story** (43 words): Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.
 
-**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
+**Why it matters** (31 words): The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.
 
-## Wupatki National Monument (`uswupatkinationalmonumen`)
+## Fredericksburg and Spot. National Military Park (`usfredericksburgandspotn`)
 
-**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
+**Story** (30 words): Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.
 
-**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
+**Why it matters** (20 words): The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.
 
-## Cocos Island National Park (`whcocos`)
+## Gateway National Recreation Area (`usgatewaynationalrecreat`)
 
-**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
+**Story** (41 words): Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.
 
-**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
+**Why it matters** (34 words): It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.
 
-## Corcovado National Park (`whcorcovado`)
+## George Washington Memorial Parkway (`usgeorgewashingtonmemori`)
 
-**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
+**Story** (28 words): The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.
 
-**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
+**Why it matters** (16 words): The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.
 
-## Darién National Park (`whdarien`)
+## Gulf Islands National Seashore (`usgulfislandsnationalsea`)
 
-**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
+**Story** (41 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.
 
-**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
+**Why it matters** (28 words): The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.
 
-## Gros Morne National Park (`whgrosmorne`)
+## Hagerman Fossil Beds National Monument (`ushagermanfossilbedsnati`)
 
-**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
+**Story** (47 words): Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.
 
-**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
+**Why it matters** (27 words): The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.
 
-## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
+## John Day Fossil Beds National Monument (`usjohndayfossilbedsnatio`)
 
-**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
+**Story** (40 words): John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.
 
-**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
+**Why it matters** (31 words): The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.
 
-## Iguazú National Park (`whiguazu`)
+## Katahdin Woods and Waters National Monument (`uskatahdinwoodsandwaters`)
 
-**Story** (44 words): Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.
+**Story** (45 words): Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.
 
-**Why it matters** (30 words): The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.
+**Why it matters** (34 words): The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.
 
-## Swiss Alps Jungfrau-Aletsch (`whjungfrau`)
+## Lake Meredith National Recreation Area (`uslakemeredithnationalre`)
 
-**Story** (51 words): Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.
+**Story** (37 words): Lake Meredith National Recreation Area is located in Texas, USA, about 30 miles north of Amarillo in the Texas Panhandle. Its main attraction is 10,000-acre Lake Meredith, a reservoir created by Sanford Dam on the Canadian River.
 
-**Why it matters** (37 words): The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.
+**Why it matters** (14 words): Alibates Flint Quarries National Monument is located adjacent to Lake Meredith National Recreation Area.
 
-## Laponian Area (`whlaponia`)
+## Lake Roosevelt National Recreation Area (`uslakerooseveltnationalr`)
 
-**Story** (54 words): Sarek National Park is located in the Jokkmokk Municipality, Lapland in northern Sweden, and was established in 1909. The park covers an area of 1,977 square kilometres and is among the oldest national parks in Europe. It is the most mountainous region in Sweden, featuring about 100 glaciers and six peaks over 2,000 metres.
+**Story** (50 words): Lake Roosevelt National Recreation Area is located in eastern Washington state. Established in 1946, it encompasses the 130-mile long Franklin D. Roosevelt Lake between Grand Coulee Dam and Northport. The recreation area provides opportunities for fishing, swimming, canoeing, boating, hunting, camping, and visiting historic Fort Spokane and St. Paul's Mission.
 
-**Why it matters** (39 words): The park is adjacent to Padjelanta and Stora Sjöfallet national parks, forming a combined protected area of approximately 5,500 square kilometres. It also provides a remote alpine habitat for various arctic and mountain species such as reindeer and wolverines.
+**Why it matters** (32 words): The recreation area is a unit of the National Park Service and was created by a memorandum of agreement with the Spokane Tribe, Colville Indian Reservation, and United States Bureau of Reclamation.
 
-## Lord Howe Island Group (`whlordhowe`)
+## Lava Beds National Monument (`uslavabedsnationalmonume`)
 
-**Story** (57 words): Lord Howe Island is an irregularly crescent-shaped volcanic remnant in the Tasman Sea, part of New South Wales, Australia. The island is about 10 km long with an area of 14.55 square kilometers and is home to forested hills rising to Mount Gower. The Lord Howe Island Group comprises 28 islands, islets, and rocks, including Ball's Pyramid.
+**Story** (26 words): Lava Beds National Monument is located in northeastern California. It includes more than 46,000 acres and has the largest concentration of lava tubes in North America.
 
-**Why it matters** (40 words): The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.
+**Why it matters** (21 words): The monument has lava tubes and a semi-arid desert environment that support a wide diversity of plant life and native wildlife.
 
-## Lorentz National Park (`whlorentz`)
+## Montezuma Castle National Monument (`usmontezumacastlenationa`)
 
-**Story** (39 words): Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.
+**Story** (37 words): Montezuma Castle National Monument protects a well-preserved cliff dwelling located in Camp Verde, Arizona. Constructed as early as 1125 AD by the Southern Sinagua people, the five-story structure sits up a limestone cliff and features stone-and-mortar masonry.
 
-**Why it matters** (28 words): It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.
+**Why it matters** (32 words): The national monument encloses 860 acres near the geographic center of Arizona. It preserves important archaeological structures and houses a museum about the Native American communities with cultural connections to the site.
 
-## Manú National Park (`whmanu`)
+## Natural Bridges National Monument (`usnaturalbridgesnational`)
 
-**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+**Story** (40 words): Natural Bridges National Monument is located in southeast Utah, at the junction of White Canyon and Armstrong Canyon. It features three natural bridges named Kachina, Owachomo, and Sipapu, which were formed through erosion by water flowing in the stream bed.
 
-**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+**Why it matters** (38 words): The monument protects a landscape featuring unique geological formations and native plant and animal species. Much of the ground is covered in communities of cryptobiotic soil crusts that prevent soil erosion and promote the retention of soil nutrients.
 
-## Monarch Butterfly Biosphere Reserve (`whmonarch`)
+## Organ Pipe Cactus National Monument (`usorganpipecactusnationa`)
 
-**Story** (39 words): The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.
+**Story** (45 words): Organ Pipe Cactus National Monument covers 1,340 km2 in southern Arizona, sharing a border with Mexico. It is one of the few places in the United States where the senita and organ pipe cactus grow wild, alongside many other plants native to the Sonoran Desert.
 
-**Why it matters** (30 words): The reserve is a World Heritage Site containing most of the overwintering sites of the eastern population of the monarch butterfly, serving to protect the butterfly species and its habitat.
+**Why it matters** (33 words): In 1976 the monument was declared a Biosphere Reserve by UNESCO. It is bordered to the northwest by Cabeza Prieta National Wildlife Refuge and to the east by the Tohono Oʼodham Indian Reservation.
 
-## Nahanni National Park Reserve (`whnahanni`)
+## Padre Island National Seashore (`uspadreislandnationalsea`)
 
-**Story** (43 words): Nahanni National Park Reserve is located in the Northwest Territories, Canada, protecting a portion of the Mackenzie Mountains Natural Region. The park features the South Nahanni River, which flows through four deep canyons, and includes Virginia Falls, where the river plunges 90 m.
+**Story** (47 words): Padre Island National Seashore is the world's longest barrier island, located on Padre Island off the coast of South Texas, USA. Developed 4,500 to 5,000 years ago, it is part of the world's longest natural barrier bar system and hosts pristine beach, dune, and tidal flat environments.
 
-**Why it matters** (23 words): The park provides appropriate year-round or seasonal habitat for ten special-concern, threatened, or endangered species, including the grizzly bear, woodland caribou, and wolverine.
+**Why it matters** (28 words): The park provides a nesting beach for endangered Kemp's ridley sea turtles and serves as an important habitat along the Central Flyway, a major migratory route for birds.
 

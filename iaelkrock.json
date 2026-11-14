@@ -1,0 +1,21 @@
+{
+ "story": "Elk Rock State Park is a public recreation area in Marion County, Iowa, United States, situated on both upstream banks of Red Rock Reservoir. Native American inhabitation dates back five thousand years. The park comprises its main area and the smaller Mile Long Bridge area.",
+ "matters": "Red Rock serves as a stopping point for migratory birds and other waterfowl. Two hundred species of birds have been seen here.",
+ "id": "iaelkrock",
+ "name": "Elk Rock State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2302,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 2395,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2302
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:19:39+00:00"
+}

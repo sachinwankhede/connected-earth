@@ -1,0 +1,21 @@
+{
+ "story": "Nā Pali Coast State Park is a 6,175-acre state park located in Hawaii on the northwest side of Kauaɵi. Formed five million years ago, it features cliffs rising up to 4,000 feet above the Pacific Ocean.",
+ "matters": "The state park was formed to protect the Kalalau Valley. To the east, it connects to the Hono O Nā Pali State Natural Reserve.",
+ "id": "hinapalicoast",
+ "name": "Nā Pali Coast State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3396,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 3508,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3396
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:16:27+00:00"
+}

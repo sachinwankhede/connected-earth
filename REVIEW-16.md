@@ -1,92 +1,92 @@
 # REVIEW-16.md
 
-## Cumberland Island National Seashore (`uscumberlandislandnation`)
+## Harry S Truman State Park (`moharrystruman`)
 
-**Story** (36 words): Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.
+**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
 
-**Why it matters** (29 words): The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.
+**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
 
-## Delaware Water Gap National Recreation Area (`usdelawarewatergapnation`)
+## Hawn State Park (`mohawn`)
 
-**Story** (49 words): The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.
+**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
 
-**Why it matters** (26 words): The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.
+**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
 
-## Devils Tower National Monument (`usdevilstowernationalmon`)
+## Knob Noster State Park (`moknobnoster`)
 
-**Story** (43 words): Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.
+**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
 
-**Why it matters** (28 words): The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.
+**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
 
-## Dinosaur National Monument (`usdinosaurnationalmonume`)
+## Lake of The Ozarks State Park (`molakeoftheozarks`)
 
-**Story** (42 words): Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.
+**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-**Why it matters** (27 words): The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.
+**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
 
-## Effigy Mounds National Monument (`useffigymoundsnationalmo`)
+## Lewis and Clark State Park (`molewisandclark`)
 
-**Story** (32 words): Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.
+**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
 
-**Why it matters** (28 words): The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.
+**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## El Malpais National Monument (`uselmalpaisnationalmonum`)
+## Long Branch State Park (`molongbranch`)
 
-**Story** (42 words): El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.
+**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
 
-**Why it matters** (36 words): The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.
+**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
 
-## Florissant Fossil Beds National Monument (`usflorissantfossilbedsna`)
+## Morris State Park (`momorris`)
 
-**Story** (42 words): Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.
+**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
 
-**Why it matters** (24 words): The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.
+**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
 
-## Fort Pulaski National Monument (`usfortpulaskinationalmon`)
+## Ozark Forest and Streams (`ozarks`)
 
-**Story** (43 words): Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.
+**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
 
-**Why it matters** (31 words): The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.
+**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
 
-## Fredericksburg and Spot. National Military Park (`usfredericksburgandspotn`)
+## Missouri Tallgrass Prairie (`prairie`)
 
-**Story** (30 words): Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.
+**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
 
-**Why it matters** (20 words): The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.
+**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
 
-## Gateway National Recreation Area (`usgatewaynationalrecreat`)
+## Urban St. Louis (`stlurban`)
 
-**Story** (41 words): Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.
+**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
 
-**Why it matters** (34 words): It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.
+**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
 
-## George Washington Memorial Parkway (`usgeorgewashingtonmemori`)
+## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
 
-**Story** (28 words): The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.
+**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
 
-**Why it matters** (16 words): The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.
+**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
 
-## Gulf Islands National Seashore (`usgulfislandsnationalsea`)
+## Assateague Island National Seashore (`usassateagueislandnation`)
 
-**Story** (41 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.
+**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
 
-**Why it matters** (28 words): The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.
+**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
 
-## Hagerman Fossil Beds National Monument (`ushagermanfossilbedsnati`)
+## Bandelier National Monument (`usbandeliernationalmonum`)
 
-**Story** (47 words): Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.
+**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
 
-**Why it matters** (27 words): The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.
+**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
 
-## John Day Fossil Beds National Monument (`usjohndayfossilbedsnatio`)
+## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
 
-**Story** (40 words): John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.
+**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
 
-**Why it matters** (31 words): The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.
+**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
 
-## Katahdin Woods and Waters National Monument (`uskatahdinwoodsandwaters`)
+## Canaveral National Seashore (`uscanaveralnationalseash`)
 
-**Story** (45 words): Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.
+**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
 
-**Why it matters** (34 words): The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.
+**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
 

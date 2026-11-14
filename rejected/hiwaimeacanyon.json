@@ -1,0 +1,22 @@
+{
+ "story": "Waimea Canyon State Park encompasses 1,866 acres on the western side of Kauai in the Hawaiian Islands of the United States. Also known as the Grand Canyon of the Pacific, the canyon is approximately ten miles long and up to 3,000 feet deep.",
+ "matters": "The canyon provides a wilderness area with numerous hiking trails and was formed by the erosion of the Waimea River alongside the catastrophic collapse of the volcano that created Kauai.",
+ "id": "hiwaimeacanyon",
+ "name": "Waimea Canyon State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2323,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 2422,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2323
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:19:07+00:00",
+ "rejected": "names not in the research text: Kauai"
+}

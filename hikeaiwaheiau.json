@@ -1,0 +1,21 @@
+{
+ "story": "Keaīwa Heiau State Recreation Area is a forest located on Oʻahu, Hawaiʻi, featuring the ruins of a 16th-century stone temple. The recreation area includes camping facilities and a trail where native ohia lehua and koa trees may be viewed.",
+ "matters": "The site contains abundant medicinal herbs that were used as an ancient herbal clinic by kahuna for healing medicine. Visitors still leave temple offerings here hoping to experience medicinal benefits.",
+ "id": "hikeaiwaheiau",
+ "name": "Keaīwa Heiau State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3870,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 3977,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3870
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:14:50+00:00"
+}

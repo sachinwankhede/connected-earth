@@ -1,0 +1,21 @@
+{
+ "story": "Wahiawa Freshwater State Recreation Area is a forest located in Hawaii, USA. It is home to many species such as the wild boar and the Japanese white-eye.",
+ "matters": "The park supports various interactions between species, such as the Gulf Fritillary eating wild passion fruit and being preyed on by the green anole.",
+ "id": "hiwahiawafreshwate",
+ "name": "Wahiawa Freshwater State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1963,
+  "candidatesTokenCount": 74,
+  "totalTokenCount": 2037,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1963
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:18:03+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Palaau State Park is the sole state park on the Hawaiian island of Molokai, located in Hawaii, USA. It offers a panoramic view of the Kalaupapa settlement and its historical leper colony. Amenities include campsites, a picnic shelter, and a hiking trail leading to a distinctive phallic rock formation.",
+ "matters": "The forest park is a habitat for various recorded species, including the Koa tree and native Ohelo, as well as several bird and insect species.",
+ "id": "hipalaau",
+ "name": "Palaʻau State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2022,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 2126,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2022
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:16:59+00:00"
+}

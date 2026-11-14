@@ -1,92 +1,92 @@
 # REVIEW-26.md
 
-## Tajik National Park (Mountains of the Pamirs) (`xtajik`)
+## Indio Maiz Biological Reserve (`xnicaragua`)
 
-**Story** (35 words): Tajik National Park is a national park and nature reserve in eastern Tajikistan that covers parts of the Pamir Mountains, the third-highest mountain system in the world. Established in 1992, it spans 26,116.74 square kilometres.
+**Story** (52 words): Indio Maiz Biological Reserve covers about 3,180 square kilometers on the southeastern corner of Nicaragua bordering the San Juan River and Costa Rica. It is one of the largest protected lowland forest systems in Central America and is rich in biodiversity, providing a home for jaguars, Baird's tapirs, and great green macaws.
 
-**Why it matters** (25 words): The park provides a habitat for wild animals including the snow leopard and Marco Polo sheep. It also includes the Fedchenko Glacier and Karakul Lake.
+**Why it matters** (29 words): It is a key component in the proposed Mesoamerican Biological Corridor and serves as an important population stronghold for endangered species like the great green macaw and the jaguar.
 
-## Nino Konis Santana National Park (`xtimor`)
+## Cross River National Park (`xnigeria`)
 
-**Story** (48 words): Nino Konis Santana National Park covers 1,236 square kilometres in Timor-Leste. Established on 15 August 2007, it is Timor-Leste's first national park and includes lowland, tropical, and monsoon forest as well as marine areas. The park is home to rare birds such as the critically endangered yellow-crested cockatoo.
+**Story** (43 words): Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.
 
-**Why it matters** (37 words): It links important bird areas and includes part of the Coral Triangle, an underwater area containing great diversity of coral and coral reef fish. The park protects both nature and culture as a single unit for conservation.
+**Why it matters** (29 words): The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.
 
-## Fazao-Malfakassa National Park (`xtogo`)
+## Ras al Jinz Turtle Reserve and Arabian Sea coast (`xoman`)
 
-**Story** (49 words): Fazao-Malfakassa National Park is the largest of three national parks in Togo, situated in semi-mountainous wetland between the Kara Region and Centrale Region. Established in 1975, the park features rocky hills, savanna woodland, gallery forest, submontane forest, and grass-covered hilltops. It provides a home to various antelopes and elephants.
+**Story** (52 words): Ras Al Jinz Turtle Reserve is located in Oman on the easternmost peninsula. Designated as a nature reserve on 23 April 1996, it hosts one of the most important populations of green turtles in the Indian Ocean. Throughout the year, these turtles haul their weight from the sea to lay their eggs.
 
-**Why it matters** (35 words): The park supports significant populations of many bird species, making it an Important Bird Area. It is also one of two sites in Togo included in the CITES Monitoring of Illegal Killing of Elephants Program.
+**Why it matters** (22 words): It provides a vital breeding ground for green sea turtles, which are part of the biologically productive Arabian Sea large marine ecosystem.
 
-## Caroni Swamp (`xtrinidad`)
+## Deosai National Park (`xpakistan`)
 
-**Story** (52 words): The Caroni Swamp is a 12,000 acre swamp located on the west coast of the island of Trinidad in Trinidad and Tobago. It is the largest mangrove forest and the second largest wetland in the country. The swamp serves as a major home and the largest roosting place for the scarlet ibis.
+**Story** (50 words): Deosai National Park protects 843 square kilometres of high-elevation alpine plain in Pakistan. Situated at an average elevation of 4,114 metres above sea level, it is the second highest plateau in the world. The park is home to rich flora and fauna of the Karakoram-West Tibetan Plateau alpine steppe eco-region.
 
-**Why it matters** (37 words): The Caroni Swamp is protected under the Ramsar Convention as a wetland of international importance. It supports a rich biodiversity of endangered species, provides food and protection, and acts as a nursery for marine and freshwater species.
+**Why it matters** (34 words): The national park was established to protect the survival of the critically endangered Himalayan brown bear and its habitat. The plateau is currently home to the most significant and stable Himalayan brown bear population.
 
-## Kaçkar Mountains National Park (`xturkey`)
+## Judean Desert and Wadi Qelt (`xpalestine`)
 
-**Story** (43 words): Kaçkar Mountains National Park rises above the Black Sea coast in northeastern Turkey. Declared a national park in 1994, it features glaciated, alpine mountains with steep rocky peaks and mountain lakes. Wolves, bears, boars, feral goats, deer, jackals, and wild chickens live here.
+**Story** (38 words): The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.
 
-**Why it matters** (33 words): The park provides a breeding habitat for the Caucasian grouse, a bird that breeds in the Caucasus and Pontic Mountains of northeast Turkey. It is a Near Threatened species with a declining population.
+**Why it matters** (37 words): The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.
 
-## Repetek Biosphere Reserve (`xturkmen`)
+## Varirata National Park and the Owen Stanley foothills (`xpng`)
 
-**Story** (42 words): Repetek Biosphere State Reserve is a desert nature reserve in Turkmenistan, located in Lebap Province, East Karakum Desert. Established in 1928, it covers 346 km2 and features extensive ridged sand dunes. It is known for its desert monitor and black saxaul trees.
+**Story** (31 words): Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.
 
-**Why it matters** (28 words): The reserve supports the most complete assemblage of bird species typical of the sand desert of the Karakum. It also has an important population of the goitered gazelle.
+**Why it matters** (25 words): The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.
 
-## Marawah Marine Biosphere Reserve (`xuae`)
+## Peneda-Gerês National Park (`xportugal`)
 
-**Story** (31 words): Marawah Marine Biosphere Reserve is located in Abu Dhabi, United Arab Emirates. It is the United Arab Emirates first biosphere reserve. The area features coast and ocean habitats supporting marine life.
+**Story** (45 words): Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.
 
-**Why it matters** (23 words): The reserve is part of the Zayed Network of Protected Areas and includes Marawah Island, which supports populations of waders and other wildlife.
+**Why it matters** (36 words): The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.
 
-## Cairngorms National Park (`xuk`)
+## El Yunque National Forest (`xpuertorico`)
 
-**Story** (50 words): Cairngorms National Park covers 4,528 square kilometres in northeast Scotland. Established in 2003, it is the largest national park in the United Kingdom. It features an arctic-alpine mountain environment with tundra-like characteristics, ancient woodland known as the Caledonian Forest, and the only herd of semi-domesticated reindeer in the British Isles.
+**Story** (58 words): El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.
 
-**Why it matters** (33 words): The park provides a unique alpine semi-tundra moorland habitat that is home to rare plants, birds, and animals, including breeding rock ptarmigan, Eurasian dotterel, snow bunting, golden eagle, ring ouzel, and red grouse.
+**Why it matters** (30 words): It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.
 
-## Cabo Polonio National Park (`xuruguay`)
+## Al Reem Biosphere Reserve (`xqatar`)
 
-**Story** (50 words): Cabo Polonio National Park is situated on the coast and ocean of Rocha, Uruguay. It sits on a peninsula extending into the Atlantic Ocean and features an extensive field of mobile sand dunes reaching 30 metres in height. The area supports herbaceous and shrub ecosystems alongside 155 species of plants.
+**Story** (44 words): Al Reem Biosphere Reserve covers 120,000 hectares of northwest Qatar. Established in 2005, this inhabited area includes semi-arid desert landscapes and is home to gazelles and Arabian oryx. Due to its dense vegetation, the reserve is of great importance for the people of Qatar.
 
-**Why it matters** (27 words): The park shelters the largest sea lion population in Uruguay. It is part of the ecoregion of the sedimentary basin of Laguna Merín and the Atlantic coast.
+**Why it matters** (29 words): The reserve is part of the World Network of Biosphere Reserves in the Arab States and helps protect native desert wildlife such as the Arabian oryx and Arabian gazelle.
 
-## Mobile-Tensaw River Delta (`xusal`)
+## Nyungwe Forest National Park (`xrwanda`)
 
-**Story** (37 words): The Mobile-Tensaw River Delta is the largest river delta and wetland in Alabama, covering roughly 300 sq mi. It is home to American alligators, alligator gars, great blue herons, and ospreys across swamps, marshes, and bottomland forests.
+**Story** (46 words): Nyungwe Forest National Park is located in southwestern Rwanda, covering approximately 1,019 square kilometres of rainforest, bamboo, grassland, swamps, and bogs. Established in 2004, it reaches a maximum altitude of 3,000 metres at Mount Bigugu. It is widely considered the best preserved montane rainforest in Africa.
 
-**Why it matters** (27 words): This delta and the adjacent Mobile estuary make up one of the largest wetland ecosystems in the United States, supporting immense biodiversity that conservators prioritize for protection.
+**Why it matters** (37 words): The park is a priority for conservation in Africa, containing 13 primate species and a high number of restricted-range species found only in the Albertine Rift montane forests ecoregion. It shelters colonies of chimpanzees and Angola colobus.
 
-## Connecticut River Estuary (`xusct`)
+## Farasan Islands Marine Reserve (`xsaudi`)
 
-**Story** (42 words): The Connecticut River Estuary is located in the United States in Connecticut, where the Connecticut River discharges into Long Island Sound between Old Saybrook and Old Lyme. It is home to diverse species such as the American shad, osprey, and smooth cordgrass.
+**Story** (51 words): The Farasan Islands Marine Reserve spans 1050 km² in the southeastern Red Sea within Saudi Arabia, featuring nearly 200 coral islands and islets. It is home to the Arabian gazelle and hosts migratory birds in winter. Oceanic animals such as dugongs and sea turtles also live in the warm shallow sea.
 
-**Why it matters** (25 words): The estuary features smooth cordgrass, which acts as an environmental engineer by accumulating sediment and building up land at the seaward edge of salt marshes.
+**Why it matters** (24 words): The reserve shelters vulnerable and endangered species like dugongs and green and hawksbill sea turtles, and protects the Arabian gazelle in its natural habitat.
 
-## Rock Creek Park (`xusdc`)
+## Djoudj National Bird Sanctuary (`xsenegal`)
 
-**Story** (52 words): Rock Creek Park is the oldest natural urban park in the National Park System, located in Washington, D.C., USA. Created by an act of Congress in 1890, the park covers 1,754 acres along the Rock Creek Valley. It is home to wildlife and plants including the white-tailed deer and the American beech.
+**Story** (42 words): Djoudj National Bird Sanctuary lies on the southeast bank of the Senegal River in Senegal. Covering an area of 16,000 hectares, it is the world's 3rd largest ornithological reserve. It provides wetland habitats for large populations of pelicans, flamingos, crocodiles, and manatees.
 
-**Why it matters** (27 words): The park preserves timber, animals, and natural curiosities in their natural condition. The American beech trees in its forests produce nuts that provide food for various animals.
+**Why it matters** (28 words): It is a World Heritage Site that serves as a very popular wintering site for migrating birds crossing the Sahara, including aquatic warblers and millions of other birds.
 
-## Delaware Bay and Bombay Hook (`xusde`)
+## Đerdap National Park (`xserbia`)
 
-**Story** (44 words): Delaware Bay is the estuary outlet of the Delaware River on the northeast seaboard of the United States, lying between Delaware and New Jersey. The bay is approximately 782 square miles in area and its shores are largely composed of salt marshes and mudflats.
+**Story** (34 words): Đerdap National Park stretches along the right bank of the Danube River in Serbia. Established in 1974, the forest park spans 63,786.5 hectares and features the long Đerdap gorge, mountainous terrain, caves, and springs.
 
-**Why it matters** (30 words): Delaware Bay is a key stopover site for over 30 species of migrating shorebirds that migrate north come May and hosts the largest population of horseshoe crabs in the world.
+**Why it matters** (26 words): The heavily forested area is rich in animal life and provides a protected habitat for diverse plant species and rare wildlife such as the Eurasian lynx.
 
-## Okefenokee National Wildlife Refuge (`xusga`)
+## Gola Rainforest National Park (`xsierra`)
 
-**Story** (41 words): The Okefenokee National Wildlife Refuge covers 402,000 acres in Georgia and Florida, United States. It protects the Okefenokee Swamp, a shallow, peat-filled wetland formed over the past 6,500 years. The vast bog features open wet prairies, cypress forests, and numerous lakes.
+**Story** (31 words): Gola Rainforest National Park protects Sierra Leone's largest tract of rainforest, covering 71,070 ha in the east of the country. It is home to western chimpanzees, pygmy hippopotamuses, and forest elephants.
 
-**Why it matters** (26 words): The swamp is one of the world's largest intact freshwater wetland ecosystems and is world-renowned for its amphibian populations that serve as bio-indicators of global health.
+**Why it matters** (32 words): The park forms part of the Upper Guinea Forest, a biodiversity hotspot that stretches from Guinea to Togo. It is designated as a World Heritage Site as part of the Gola-Tiwai complex.
 
-## Loess Hills (`xusia`)
+## Korean Demilitarized Zone (`xskorea`)
 
-**Story** (49 words): The Loess Hills are a grassland formation of wind-deposited loess soil in Iowa, USA. These hills rise 200 feet above the flat plains in a narrow band along the Missouri River. They feature unique peak and saddle topography and are home to species like big bluestem and little bluestem.
+**Story** (37 words): The Korean Demilitarized Zone is a strip of land running across the Korean Peninsula in South Korea. Established in 1953, it is 250 kilometers long and about 4 kilometers wide, serving as a heavily militarized border barrier.
 
-**Why it matters** (27 words): The Loess Hills protect some of the last remaining stands of prairie grass in the region and provide essential thermal updrafts that raptors use during their migrations.
+**Why it matters** (22 words): A population of the long-tailed goral, an endangered species classified as South Korean natural monument 217, exists in the Korean Demilitarized Zone.
 

@@ -1,0 +1,21 @@
+{
+ "story": "Wailoa River State Recreation Area is a 131.9-acre park in Hilo on Hawaiȩi Island in Hawaii. It was developed as a buffer zone following the devastating 1960 tsunami. The park features the Wailoa River, which flows from Waiākea Pond to the Pacific Ocean.",
+ "matters": "The 131.9-acre park is administered by the Hawaiȩi Department of Land and Natural Resources and acts as a green belt and buffer zone to absorb future tsunamis.",
+ "id": "hiwailoariver",
+ "name": "Wailoa River State Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2736,
+  "candidatesTokenCount": 137,
+  "totalTokenCount": 2873,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2736
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:18:35+00:00"
+}

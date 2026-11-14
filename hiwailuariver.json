@@ -1,0 +1,21 @@
+{
+ "story": "Wailua River State Park is located on the eastern side of the Hawaiian island of Kauai. The park consists primarily of the Wailua River valley, which is the only navigable river in Hawaii. Visitors to this park can kayak, take riverboat cruises, and explore the rainforest.",
+ "matters": "The park includes the Wailua Complex of Heiaus, a National Historic Landmark that was once the center of chiefly power on the island. Its historical sites are irreplaceable to the Hawaiian culture.",
+ "id": "hiwailuariver",
+ "name": "Wailua River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3324,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 3433,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3324
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T19:18:51+00:00"
+}
