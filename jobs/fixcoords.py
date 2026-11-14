@@ -11,9 +11,11 @@ Fix: for a flagged place the coordinates of its Wikipedia article (the imgwiki t
 'unresolved'. A changed place keeps its other fields; `lat` and `lon` are the only edits. Prints 'fixed: id old -> new' and 'unresolved: id ...' lines for the pull request.
 WRONG_PICTURES: titles whose Wikipedia article matched a different place of the same name (found by reading the matches); their picture is removed and the title
 returns to photos/places/missing.json so the photo passes can try again with the corrected coordinates."""
-import sys, os, json, glob, math, re, unicodedata, urllib.parse
+import sys, os, json, glob, math, re, time, unicodedata, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 TOL = 0.1
+# Water bodies and island parks: their point is not inside any state's land, and the audit must not call that an error (#767). Listed by id, not guessed from the name.
+WATER = {'greatlakes', 'gulf', 'npdrytortugas'}
 WRONG_PICTURES = {'Raymond': 'a Spanish museum painting for Raymond, Rhode Island', 'Trout Pond': 'a West Virginia pond for Trout Pond, Maine'}
 
 def rings(g):
@@ -46,7 +48,7 @@ def audit(data_dir, geo):
     out = []
     for f in sorted(glob.glob(os.path.join(data_dir, '*.json'))):
         d = json.load(open(f)); st = d.get('states') or []
-        if d.get('country') != '840' or not st or any(s not in geo for s in st) or 'lat' not in d: continue
+        if d.get('id') in WATER or d.get('country') != '840' or not st or any(s not in geo for s in st) or 'lat' not in d: continue
         if not near_states(d['lat'], d['lon'], st, geo): out.append((f, d))
     return out
 
@@ -98,7 +100,27 @@ def padus_coords(d, geo, get, min_score=0.6):
     lon = (max(x for x, y in ring) + min(x for x, y in ring)) / 2; lat = (max(y for x, y in ring) + min(y for x, y in ring)) / 2
     return (lat, lon, best[1]) if near_states(lat, lon, st, geo) else None
 
-def fix(data_dir, geo, get, padus=None):
+NOMINATIM = 'https://nominatim.openstreetmap.org/search'
+def nominatim_coords(d, geo, get, min_score=0.6):
+    """(lat, lon, name) from OpenStreetMap Nominatim, searched by the place's name and its state (one state only), or None. The result's own name must agree with the place's
+    (Jaccard on the distinctive words, state / national / historic words equal) and the point must be inside, or within TOL of, the state: the same two guards as PAD-US."""
+    st = d.get('states') or []; state = (d.get('place') or '').split(',')[0].strip()
+    names = [n for n in (d.get('name'), d.get('short')) if n]
+    if len(st) != 1 or not state or not names: return None
+    want = name_tokens(names[0]) | name_tokens(d.get('short', '')); wt = type_words(names[0]) | type_words(d.get('short', ''))
+    if not want: return None
+    q = urllib.parse.urlencode(dict(q='%s, %s' % (names[0], state), countrycodes='us', format='jsonv2', limit=5))
+    best = None
+    for r in (get(NOMINATIM + '?' + q) or []):
+        n = r.get('name') or (r.get('display_name') or '').split(',')[0]
+        if type_words(n) != wt: continue
+        t = name_tokens(n); sc = len(want & t) / max(1, len(want | t)) if t else 0
+        try: lat, lon = float(r['lat']), float(r['lon'])
+        except (KeyError, TypeError, ValueError): continue
+        if sc >= min_score and near_states(lat, lon, st, geo) and (best is None or sc > best[0]): best = (sc, lat, lon, n)
+    return (best[1], best[2], best[3]) if best else None
+
+def fix(data_dir, geo, get, padus=None, osm=None):
     """padus: a function (place, geo) -> (lat, lon, unit) or None, tried after Wikipedia (main passes padus_coords with the real getter); None = Wikipedia only."""
     fixed, unresolved = [], []
     for f, d in audit(data_dir, geo):
@@ -109,6 +131,9 @@ def fix(data_dir, geo, get, padus=None):
         if not new and padus:
             c = padus(d, geo)
             if c: new = c[:2]; src = 'PAD-US "%s"' % c[2]
+        if not new and osm:
+            c = osm(d, geo)
+            if c: new = c[:2]; src = 'OpenStreetMap "%s"' % c[2]
         if not new: unresolved.append(d['id']); continue
         raw = open(f).read(); old = (d['lat'], d['lon']); d['lat'], d['lon'] = round(new[0], 4), round(new[1], 4)
         open(f, 'w').write(json.dumps(d, ensure_ascii=False) + ('\n' if raw.endswith('\n') else ''))
@@ -136,7 +161,8 @@ if __name__ == '__main__':
     if '--audit' in sys.argv:
         for f, d in audit(os.path.join(ROOT, 'data/places'), geo): print('flagged:', d['id'], d['name'], d['place'], d['lat'], d['lon'])
         sys.exit(0)
-    fixed, unresolved = fix(os.path.join(ROOT, 'data/places'), geo, wm.get, lambda d, g: padus_coords(d, g, wm.get))
+    def slow_get(u): time.sleep(1.1); return wm.get(u)   # Nominatim allows one request a second
+    fixed, unresolved = fix(os.path.join(ROOT, 'data/places'), geo, wm.get, lambda d, g: padus_coords(d, g, wm.get), lambda d, g: nominatim_coords(d, g, slow_get))
     for i, o, n, src in fixed: print('fixed: %s %s -> %s (%s)' % (i, o, n, src))
     for i in unresolved: print('unresolved:', i)
     for t in drop_pictures(ROOT): print('picture removed: %s (%s)' % (t, WRONG_PICTURES[t]))
