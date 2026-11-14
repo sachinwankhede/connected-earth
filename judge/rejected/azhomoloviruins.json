@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The text refers to the park as 'Homolovi Ruins State Park', but the source states the name was changed to 'Homolovi State Park' in 2011."
+ ],
+ "reason": "The name used in the text is outdated according to the provided source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Homolovi Ruins State Park is located in Arizona, United States, preserving over 300 Ancestral Puebloan archaeological sites. The park is situated on a floodplain of the Little Colorado River and features seven separate pueblo ruins built between approximately 1260 and 1400.",
+ "matters": "This fertile area preserves ancestral Hopi villages that are considered spiritually alive. The park also provides habitat for a bird checklist of over 100 species, including hawks and golden eagles.",
+ "id": "azhomoloviruins",
+ "name": "Homolovi Ruins State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2203,
+  "candidatesTokenCount": 83,
+  "totalTokenCount": 2286,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2203
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:37:28+00:00",
+ "rejected": "The text refers to the park as 'Homolovi Ruins State Park', but the source states the name was changed to 'Homolovi State Park' in 2011."
+}

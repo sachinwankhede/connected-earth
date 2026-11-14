@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The name 'Toltec Mounds Archeological State Park' is outdated as the site was officially renamed to 'Plum Bayou Mounds Archeological State Park' in November 2022."
+ ],
+ "reason": "The text uses an obsolete name for the park, which is misleading given the official renaming documented in the source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Toltec Mounds Archeological State Park is an archaeological site located in Arkansas, USA. It protects an 18-mound complex with the tallest surviving prehistoric mounds in Arkansas, situated on the banks of Mound Lake.",
+ "matters": "The site is designated as a National Historic Landmark and was occupied from the 7th to the 11th century by indigenous ancestors of regional Native Americans.",
+ "id": "artoltecmoundsarch",
+ "name": "Toltec Mounds Archeological State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2263,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 2356,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2263
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:34:54+00:00",
+ "rejected": "The name 'Toltec Mounds Archeological State Park' is outdated as the site was officially renamed to 'Plum Bayou Mounds Archeological State Park' in November 2022."
+}

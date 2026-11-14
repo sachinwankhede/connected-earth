@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in a tone appropriate for a general audience.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Fort Verde State Historic Park is located in the town of Camp Verde, Arizona, and attempts to preserve parts of the Apache Wars-era fort as it appeared in the 1880s. Established in 1970, the park covers ten acres and features historic structures like the commanding officer quarters.",
+ "matters": "The fort is significant as the best preserved and least altered of any military post associated with General Crook’s campaign against the northern Apaches.",
+ "id": "azfortverdestatehi",
+ "name": "Fort Verde State Historic Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1952,
+  "candidatesTokenCount": 48,
+  "totalTokenCount": 2000,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1952
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:36:47+00:00"
+}

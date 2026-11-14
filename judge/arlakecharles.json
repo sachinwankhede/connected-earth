@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Lake Charles State Park is situated in The Ozarks along the Black River in Arkansas in the United States. It features the artificial Lake Charles, which was built to control flooding and preserve the watershed, and was dedicated in 1967.",
+ "matters": "The park helps supply fresh water to the Shirey Bay Rainey Brake Wildlife Management Area during hot summer months and benefits fish and wildlife development.",
+ "id": "arlakecharles",
+ "name": "Lake Charles State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2005,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 2050,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2005
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:30:09+00:00"
+}

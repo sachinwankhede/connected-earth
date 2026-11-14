@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text regarding the location, the existence of two parks with the same name, and the list of species found in the park.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Village Creek State Park includes lakes and wetlands in Arkansas, USA. It is one of two state parks in the United States with this name.",
+ "matters": "The park provides a habitat for various species including the cardinalflower, tuftedtitmouse, and northerncardin.",
+ "id": "arvillagecreek",
+ "name": "Village Creek State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1273,
+  "candidatesTokenCount": 59,
+  "totalTokenCount": 1332,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1273
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:35:33+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Lake Ouachita State Park is a 360-acre public recreation area located in Arkansas, USA. It sits on the eastern side of Lake Ouachita.",
+ "matters": "The park preserves the site of the historic Three Sisters springs, which were once touted for the curative properties of their mineral waters.",
+ "id": "arlakeouachita",
+ "name": "Lake Ouachita State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1361,
+  "candidatesTokenCount": 37,
+  "totalTokenCount": 1398,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1361
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:31:05+00:00"
+}

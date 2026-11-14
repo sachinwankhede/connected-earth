@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Hobbs State Park – Conservation Area is a 12,056-acre Arkansas state park located in Benton, Carroll, and Madison Counties, United States. It was bought in 1979 and sits just south of Beaver Lake, featuring limestone formations, creeks, and extensive trails for recreation.",
+ "matters": "The protected forest provides a natural habitat for diverse wildlife including black bears, coyotes, and white-tailed deer. It is managed jointly by Arkansas State Parks, the Arkansas Natural Heritage Commission, and the Arkansas Game and Fish Commission.",
+ "id": "arhobbsstateparkco",
+ "name": "Hobbs State Park – Conservation Area",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2314,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 2359,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2314
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:29:19+00:00"
+}

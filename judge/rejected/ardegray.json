@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The name of the park is referred to as 'De Gray State Park' instead of the correct 'DeGray Lake Resort State Park'."
+ ],
+ "reason": "The name of the park is incomplete and inconsistent with the official name provided in the source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "De Gray State Park is situated in the Ouachita Mountains in Arkansas, in the United States. The 984-acre state park was created in 1974 and features DeGray Lake.",
+ "matters": "The park features the 13,800-acre DeGray Lake, situated in Clark and Hot Spring counties.",
+ "id": "ardegray",
+ "name": "De Gray State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1909,
+  "candidatesTokenCount": 76,
+  "totalTokenCount": 1985,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:28:29+00:00",
+ "rejected": "The name of the park is referred to as 'De Gray State Park' instead of the correct 'DeGray Lake Resort State Park'."
+}

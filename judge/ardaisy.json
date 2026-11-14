@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Daisy State Park is a 276-acre Arkansas state park located in Pike County in the United States. It sits at the foothills of the Ouachita Mountains and features Lake Greeson, which is a 7,000-acre fishing lake constructed in 1950.",
+ "matters": "The park is surrounded by timberlands and is located near the Ouachita National Forest.",
+ "id": "ardaisy",
+ "name": "Daisy State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1419,
+  "candidatesTokenCount": 38,
+  "totalTokenCount": 1457,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1419
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:28:09+00:00"
+}

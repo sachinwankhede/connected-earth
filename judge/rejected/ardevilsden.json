@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The claim that the park protects the largest sandstone crevice area in the country is not supported by the provided source text."
+ ],
+ "reason": "The source text states the park protects the largest sandstone crevice area in the United States, but the provided text claims it is the largest in the country, which is a redundant but potentially inaccurate generalization if interpreted as a global claim, and the source text does not explicitly confirm this status as a fact.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Devil's Den State Park covers 2,200 acres in the United States, located in the Lee Creek Valley of the Boston Mountains in Arkansas. It protects the largest sandstone crevice area in the country, featuring caves, bluffs, and a CCC-built lake.",
+ "matters": "The park provides habitats for a variety of plant and animal life while connecting to the neighboring Ozark National Forest through its extensive trail system.",
+ "id": "ardevilsden",
+ "name": "Devil's Den State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 3303,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 3417,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3303
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:28:57+00:00",
+ "rejected": "The claim that the park protects the largest sandstone crevice area in the country is not supported by the provided source text."
+}

@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The text claims the site was chosen because of the Little Red River basin, but the source text states the lake was built on the Little River and mentions the Little River basin."
+ ],
+ "reason": "The text contains a factual error regarding the geographical basin associated with the park's location compared to the source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Millwood State Park is a public recreation area located in Arkansas, USA. It is known for fishing and wildlife habitats along Millwood Lake. The park was established on April 1, 1976.",
+ "matters": "The site was chosen because of the important role the lakes in the Little Red River basin play in controlling flooding on the Red River.",
+ "id": "armillwood",
+ "name": "Millwood State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1702,
+  "candidatesTokenCount": 88,
+  "totalTokenCount": 1790,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1702
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:31:21+00:00",
+ "rejected": "The text claims the site was chosen because of the Little Red River basin, but the source text states the lake was built on the Little River and mentions the Little River basin."
+}

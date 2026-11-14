@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The text mentions a 'swimming beach along the White River' while the source text states the town was at the confluence of the 'White River and Black River' but does not explicitly confirm the beach is on the White River specifically."
+ ],
+ "reason": "The text makes a geographical claim about the location of the swimming beach that is not explicitly supported by the provided source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Jacksonport State Park is a 164.7-acre Arkansas state park in Jackson County, Arkansas in the United States. It contains the 1872 Jacksonport courthouse and offers 20 campsites, a playground, a pavilion, a swimming beach along the White River and the Tunstall Riverwalk Trail.",
+ "matters": "The park preserves historical sites including the 1872 Jacksonport courthouse which served as the home of county government from 1872-1892, and features connections to the American Civil War.",
+ "id": "arjacksonport",
+ "name": "Jacksonport State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2055,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2157,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2055
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:29:35+00:00",
+ "rejected": "The text mentions a 'swimming beach along the White River' while the source text states the town was at the confluence of the 'White River and Black River' but does not explicitly confirm the beach is on the White River specifically."
+}

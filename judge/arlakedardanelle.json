@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the Wikipedia source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Lake Dardanelle State Park is located on two sites in Arkansas, USA, on the 34,300-acre Lake Dardanelle. One site is in Russellville and one is in Dardanelle. Both sites include picnic facilities, boat ramps, pavilions, playgrounds, and dump stations.",
+ "matters": "The park hosts many fishing tournaments and offers interpretive programs such as guided hikes, nature talks, kayaking, lake tours and demonstrations, evening slide shows, and movies.",
+ "id": "arlakedardanelle",
+ "name": "Lake Dardanelle State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1328,
+  "candidatesTokenCount": 39,
+  "totalTokenCount": 1367,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1328
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:30:44+00:00"
+}
