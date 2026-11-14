@@ -87,6 +87,11 @@ class PadusTests(unittest.TestCase):
             self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat(other, 2, 2, 4, 4)])), other)
         self.assertEqual(fc.padus_coords(self.place(name='Harriman Historical Area'), GEO, self.getter([self.feat('Harriman Historic Area', 2, 2, 4, 4)]))[2], 'Harriman Historic Area')
 
+    def test_a_bare_name_needs_the_unit_of_exactly_that_name(self):
+        p = self.place(name='Riverside', short='Riverside')
+        self.assertIsNone(fc.padus_coords(p, GEO, self.getter([self.feat('Riverside Park', 1, 1, 3, 3)])))
+        got = fc.padus_coords(p, GEO, self.getter([self.feat('Riverside Park', 1, 1, 3, 3), self.feat('Riverside', 5, 5, 7, 7)]))
+        self.assertEqual(got[2], 'Riverside')
     def test_a_weak_name_match_a_centre_outside_the_state_or_no_state_is_refused(self):
         self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat('Harriman Wildlife Corridor Access', 2, 2, 4, 4)])), 'too few shared words')
         self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat('Harriman State Park', 22, 2, 24, 4)])), 'centre outside the place\'s state')
