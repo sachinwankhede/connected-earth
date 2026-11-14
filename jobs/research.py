@@ -6,13 +6,14 @@ Run by the data-research workflow (open internet); set RESEARCH_OFFLINE=1 to ski
 import datetime, json, os, re, sys, urllib.parse
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, here); import wm
+sys.path.insert(0, os.path.join(ROOT, 'build')); import species   # joins each node with its species-table row, so a node has its common name
 CAP = 40_000; WIKI_CHARS = 9_000; MAX_LINKS = 60
 OFFLINE = bool(os.environ.get('RESEARCH_OFFLINE'))
 TODAY = datetime.date.today().isoformat()
 
 def load(pid):
     p = os.path.join(ROOT, 'data', 'places', pid + '.json')
-    if os.path.exists(p): return json.load(open(p))
+    if os.path.exists(p): return species.load(p)   # not the raw file: its auto nodes carry only a short id ("americanbeaver", "northerncardin"), which a story writer then copies as the name (#779)
     sys.exit('no such place: ' + pid)
 
 def wiki_titles(e):
@@ -39,6 +40,10 @@ def globi(eater, food):
     d = wm.get(u)
     return d if isinstance(d, list) else None
 
+def species_line(sp):
+    """The species of a place as 'Common name (Latin name)', comma separated; a node without a name falls back to its id."""
+    return ', '.join('%s (%s)' % (n.get('name') or n['id'], n.get('latin') or n.get('sp') or '') for n in sp)
+
 def main(pid):
     e = load(pid); nodes = {n['id']: n for n in e['nodes']}; ev = e.get('ev') or {}
     name = lambda i: (nodes.get(i) or {}).get('name') or i
@@ -47,7 +52,7 @@ def main(pid):
     out += ['## 2. What the app says today', '**Story:** %s\n' % (e.get('story') or '(none)'), '**Why it matters:** %s\n' % (e.get('matters') or '(none)'), '**Current notes on sources:** %s\n' % (e.get('notes') or '(none)'),
             '**Current sources:** ' + '; '.join('%s <%s>' % (s.get('title'), s.get('url')) for s in (e.get('sources') or [])) + '\n']
     sp = [n for n in e['nodes'] if not n.get('cat')]
-    out += ['## 3. Species in the app (%d)' % len(sp), ', '.join('%s (%s)' % (n.get('name') or n['id'], n.get('sp') or '') for n in sp) + '\n']
+    out += ['## 3. Species in the app (%d)' % len(sp), species_line(sp) + '\n']
     out += ['## 4. Wikipedia text']
     for t in wiki_titles(e)[:3]:
         title, txt = wiki_text(t)

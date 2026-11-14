@@ -3,6 +3,8 @@ import io, json, os, sys, tempfile, unittest
 from unittest import mock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "jobs"))
 import gemini_stories as g
+os.environ['RESEARCH_OFFLINE'] = '1'
+import research as r
 
 SRC = 'Lake Park is in Utah, USA. It covers 7,927 km2 and is 1,500 m high. Elk and Moose live here. Established in 1962.'
 
@@ -370,6 +372,23 @@ class StoryBatchTests(unittest.TestCase):
         b = open(body).read(); self.assertIn('**1 stories**', b); self.assertIn('invented date', b); self.assertIn('Sources and licences', b); self.assertIn('10-item spot check', b); self.assertIn('- [ ] **A**', b); self.assertIn('Part of #779', b)
         with mock.patch.object(sys, 'argv', ['x', self.dr, '--data', self.da]), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as e: self.sb.main()
         self.assertEqual(e.exception.code, 3)
+
+
+class SpeciesNamesTests(unittest.TestCase):
+    """#779: a research file named species by their short node id ("americanbeaver", "northerncardin"), and the story writer copied it. The file must carry the common name."""
+    def test_a_place_is_loaded_through_the_species_table_not_raw(self):
+        d = tempfile.mkdtemp(); os.makedirs(os.path.join(d, "data", "places"))
+        open(os.path.join(d, "data", "places", "p.json"), "w").write("{}")
+        with mock.patch.object(r, "ROOT", d), mock.patch.object(r.species, "load", lambda path: {"id": "p", "nodes": [], "joined": True}):
+            self.assertTrue(r.load("p")["joined"])
+
+    def test_the_species_line_gives_the_common_name_and_the_latin_name(self):
+        line = r.species_line([{"id": "americanbeaver", "name": "American beaver", "latin": "Castor canadensis"}, {"id": "northerncardin", "name": "Northern cardinal", "latin": "Cardinalis cardinalis"}])
+        self.assertEqual(line, "American beaver (Castor canadensis), Northern cardinal (Cardinalis cardinalis)")
+        self.assertNotIn("americanbeaver", line)
+
+    def test_a_node_without_a_name_falls_back_to_its_id(self):
+        self.assertEqual(r.species_line([{"id": "x", "sp": "genus species"}]), "x (genus species)")
 
 
 if __name__ == '__main__': unittest.main()
