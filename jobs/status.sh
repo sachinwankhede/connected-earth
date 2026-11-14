@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # status.sh: what is open, what is running, what is queued. Needs the gh CLI. Usage: bash jobs/status.sh
-R=${REPO:-sachinwankhede/connected-earth}
+# The repository is read, not typed: REPO (an override), else GITHUB_REPOSITORY (set in GitHub Actions), else the git remote "origin" (a session). `--repo` prints it and stops.
+R=${REPO:-${GITHUB_REPOSITORY:-$(git remote get-url origin 2>/dev/null | sed -E 's#^.*github\.com[:/]##; s#\.git$##')}}
+[ -n "$R" ] || { echo "status.sh: cannot tell the repository: set REPO=owner/name"; exit 2; }
+[ "${1:-}" = "--repo" ] && { echo "$R"; exit 0; }
 # Items first: one issue per item (an outcome), a theme label (theme:*) and a status label (status:*). A pull request is the means, not the item.
 # Flaky tests and checks come first (CLAUDE.md ground rule 9): fix before any new work.
 echo "== FLAKY (label flaky; fix first, ground rule 9)"

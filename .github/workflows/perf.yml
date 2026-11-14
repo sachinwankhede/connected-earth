@@ -7,7 +7,7 @@ on:
     - cron: '17 8 * * *'   # every night, about 3 am in St. Louis
   workflow_dispatch:
     inputs:
-      url: { description: "Page to test", default: "https://sachinwankhede.github.io/connected-earth/" }
+      url: { description: "Page to test (empty = the GitHub Pages site of this repository)", default: "" }
       runs: { description: "Runs per profile (the median is kept)", default: "5" }
 permissions:
   contents: write
@@ -35,7 +35,7 @@ jobs:
       - name: Measure
         env:
           PW_EXPERIMENTAL_SERVICE_WORKER_NETWORK_EVENTS: "1"   # lets the returning-visit section see the worker's own fetch of the page
-        run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url || 'https://sachinwankhede.github.io/connected-earth/' }}" --runs "${{ github.event.inputs.runs || '5' }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
+        run: node tests/perf/perf.mjs --url "${{ github.event.inputs.url || format('https://{0}.github.io/{1}/', github.repository_owner, github.event.repository.name) }}" --runs "${{ github.event.inputs.runs || '5' }}" --history perf-data/history.json --out perf-out.json --md perf-out.md
       - name: Summary
         run: cat perf-out.md >> "$GITHUB_STEP_SUMMARY"
       - name: Save to the perf-data branch

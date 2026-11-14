@@ -78,8 +78,28 @@ class UserAgentTests(unittest.TestCase):
         for f in glob.glob(os.path.join(jobs, '*.py')):
             for line in open(f, encoding='utf-8'):
                 if 'ConnectedEarth/1.0' in line:
-                    self.assertNotIn('sachinwankhede', line, f); self.assertNotIn('@', line, f)
+                    self.assertNotIn('@', line, f); self.assertNotIn('github.com', line, f)
                     self.assertIn('https://connected-earth-5ps.pages.dev/', line, f)
+
+
+class StatusRepoTests(unittest.TestCase):
+    """jobs/status.sh reads the repository from a variable (REPO, GITHUB_REPOSITORY, the git remote) instead of having it typed in."""
+    def run_sh(self, env, cwd):
+        import subprocess
+        sh = os.path.join(os.path.dirname(__file__), '..', '..', 'jobs', 'status.sh')
+        e = {'PATH': os.environ['PATH'], 'HOME': tempfile.mkdtemp()}; e.update(env)
+        return subprocess.run(['bash', sh, '--repo'], env=e, cwd=cwd, capture_output=True, text=True)
+
+    def test_the_order_is_override_then_actions_then_the_remote(self):
+        import subprocess
+        d = tempfile.mkdtemp(); subprocess.run(['git', 'init', '-q', d]); subprocess.run(['git', '-C', d, 'remote', 'add', 'origin', 'https://github.com/o/from-remote.git'])
+        self.assertEqual(self.run_sh({}, d).stdout.strip(), 'o/from-remote')
+        self.assertEqual(self.run_sh({'GITHUB_REPOSITORY': 'o/from-actions'}, d).stdout.strip(), 'o/from-actions')
+        self.assertEqual(self.run_sh({'GITHUB_REPOSITORY': 'o/from-actions', 'REPO': 'o/override'}, d).stdout.strip(), 'o/override')
+
+    def test_no_repository_stops_with_a_message(self):
+        r = self.run_sh({}, tempfile.mkdtemp())
+        self.assertEqual(r.returncode, 2); self.assertIn('REPO=owner/name', r.stdout)
 
 
 if __name__ == '__main__':

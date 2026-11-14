@@ -6,7 +6,8 @@ import fs from 'node:fs';
 import { INITIAL_STAGE_DEFINITIONS, summarizeInitialStages } from './metrics.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
-const URL_ = arg('url', 'https://sachinwankhede.github.io/connected-earth/');
+const URL_ = arg('url', '');
+if (!URL_) { console.error('perf.mjs: pass --url <page to test>'); process.exit(2); }
 const RUNS = +arg('runs', 5), OUT = arg('out', 'perf-out.json'), MD = arg('md', 'perf-out.md'), HIST = arg('history', ''), MAP_WAIT = +arg('mapwait', 45000);
 const PROFILES = {
   phone: { viewport: { width: 390, height: 800 }, cpu: 4, net: { offline: false, latency: 150, downloadThroughput: (1.6e6) / 8, uploadThroughput: (750e3) / 8 } },
