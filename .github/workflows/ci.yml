@@ -153,7 +153,7 @@ jobs:
       - name: Size budget
         run: python3 build/budget.py
       - run: npx playwright install --with-deps chromium
-      - name: One smoke test (the app still opens with this data: tests/real/smoke-real.test.mjs runs below with the budgets; tests/app/smoke.test.mjs is on the fixture)
+      - name: One smoke test (the fixture build opens; the real-data smoke test runs in the next step)
         run: node --test --test-timeout=300000 tests/app/smoke.test.mjs
       - name: Request counts and kilobyte budgets on the real build (#787 step 4; the app shards run the counts on the fixture, only real data shows the sizes)
         if: ${{ !cancelled() }}
