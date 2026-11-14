@@ -103,16 +103,21 @@ test('phone: more places load when you scroll to the end of the list, and a quie
   await H.pause(t.page, 800);
   assert.equal(await shown(), 10, 'nothing loads until the reader scrolls');
   assert.match(await t.page.evaluate(() => document.getElementById('more').textContent), /Show \d+ more places/);
-  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = sb.scrollHeight; });
-  await H.pause(t.page, 1200);
+  // the link first, while many places are left: once the reader has scrolled, bringing the link into view also loads the next batch, which can use up the list and remove the link under the click
+  await t.page.click('#more');
+  await t.page.waitForFunction(() => document.querySelectorAll('#cards li:not(.grp):not(.morerow):not([hidden]):not(.pg)').length >= 25, null, { timeout: 15000 });
   const n1 = await shown();
-  assert.ok(n1 >= 25, 'next batch loaded on scroll: ' + n1);
-  // the link still works for anyone who prefers it
-  await t.page.evaluate(() => { const sb = document.getElementById('sbody'); sb.scrollTop = 0; });
-  await H.pause(t.page, 300);
-  await t.page.evaluate(() => { const m = document.getElementById('more'); if (m) m.scrollIntoView({ block: 'center' }); });
-  await t.page.click('#more'); await H.pause(t.page, 800);
-  assert.ok(await shown() > n1, 'link loads another batch');
+  assert.ok(n1 >= 25, 'the link loads a batch: ' + n1);
+  // then scrolling to the end loads the rest (the click's own scroll may already have loaded it, so the end state is what counts: the list is complete and the link is gone)
+  // a reader keeps scrolling until the list stops growing: each poll moves the list to the end, after a step back so the end is reached afresh (the loader fires when the end comes into view)
+  await t.page.waitForFunction(() => {
+    const sb = document.getElementById('sbody'), m = document.getElementById('morecards');
+    if (!m || m.hidden) return true;
+    window.__back = !window.__back;
+    sb.scrollTop = window.__back ? Math.max(0, sb.scrollHeight - sb.clientHeight - 400) : sb.scrollHeight;
+    return false;
+  }, null, { timeout: 20000, polling: 250 });
+  assert.ok(await shown() >= n1, 'the rest of the list is loaded');
   assert.deepEqual(t.errors, []);
   await b.close();
 });
