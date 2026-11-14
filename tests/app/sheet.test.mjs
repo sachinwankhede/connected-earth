@@ -31,7 +31,7 @@ describe('place sheet', () => {
 
     test(`${sizeName}: the long species description arrives after the sheet opens (one small file per species, fetched once)`, async () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
-      await mockPhotos(t.page);
+      await mockPhotos(t.page, { fixture: true });
       let hits = 0; t.page.on('request', (r) => { if (/api\/species\/[a-z0-9-]+\.json/.test(r.url())) hits++; });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       assert.equal(hits, 0, 'nothing is fetched before a species sheet opens');
@@ -51,7 +51,7 @@ describe('place sheet', () => {
 
     test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, sources and credits tucked away, What if last`, async () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
-      await mockPhotos(t.page, { thinPlaces: true });
+      await mockPhotos(t.page, { thinPlaces: true, fixture: true });
       await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForSelector('#panel .prow .pmc', { timeout: 30000 });
