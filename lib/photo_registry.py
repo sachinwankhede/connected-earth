@@ -12,6 +12,7 @@ import urllib.parse
 PERMANENT = {"nophoto", "notcommons", "notphoto", "notfree", "wrongpage"}   # notfree: the picture exists but its licence is outside the rule (#421); wrongpage: the Wikipedia page is a disambiguation page or names another state (#767)
 ALLOWED_IMAGE_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
 CREDIT_PAGE_HOSTS = {"commons.wikimedia.org", "www.gbif.org", "openverse.org", "www.inaturalist.org"}   # where a species picture's credit page may be (GBIF from #511); place pictures stay on Commons
+PLACE_CREDIT_HOSTS = {"commons.wikimedia.org", "openverse.org"}   # where a place picture's credit page may be (Openverse from #768)
 ALLOWED_LICENSE_HOSTS = {"creativecommons.org", "www.gnu.org", "artlibre.org", "www.flickr.com", "web.archive.org", "www.kogl.or.kr"}
 
 
@@ -150,7 +151,7 @@ def migrate_places(manifest_path, photo_dir):
             author and author.lower() != "unknown author" and license_id
             and not license_id.lower().startswith("see ")
             and ((license_url and safe_https(license_url)) or is_public_domain)
-            and safe_https(row.get("p"), {"commons.wikimedia.org"})
+            and safe_https(row.get("p"), PLACE_CREDIT_HOSTS)
         ) else "legacy"
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, ensure_ascii=False, indent=0)
@@ -182,8 +183,8 @@ def validate():
             errors.append(f"{title}: missing author or license identifier")
         if row.get("lu") and not safe_https(row["lu"]):
             errors.append(f"{title}: license URL must be HTTPS")
-        if not safe_https(row.get("p"), {"commons.wikimedia.org"}):
-            errors.append(f"{title}: invalid Commons source page")
+        if not safe_https(row.get("p"), PLACE_CREDIT_HOSTS):
+            errors.append(f"{title}: invalid source page (Commons or Openverse)")
         if row.get("reviewStatus") == "approved":
             if not row.get("a") or row["a"].lower() == "unknown author" or not row.get("l") or row["l"].lower().startswith("see "):
                 errors.append(f"{title}: approved photo is missing explicit author or license metadata")
