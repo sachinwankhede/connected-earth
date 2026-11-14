@@ -86,5 +86,12 @@ class PhotoRegistryTests(unittest.TestCase):
                 wm.get("https://en.wikipedia.org/api")
 
 
+class MissingStatusSchemaTests(unittest.TestCase):
+    def test_the_schema_allows_exactly_the_permanent_statuses(self):
+        """A status a job can write (PERMANENT) must be one the schema accepts, or its data pull request fails validation (wrongpage, 14 Nov)."""
+        schema = json.load(open(os.path.join(os.path.dirname(__file__), "..", "..", "build", "schemas", "photo-missing.schema.json")))
+        self.assertEqual(set(schema["additionalProperties"]["properties"]["status"]["enum"]), set(photo_registry.PERMANENT))
+
+
 if __name__ == "__main__":
     unittest.main()
