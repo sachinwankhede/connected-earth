@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
+      - run: npx playwright install --with-deps chromium
       - run: npm run build
-      - name: Smoke test and real-data budgets
-        run: node --test --test-timeout=300000 tests/app/smoke.test.mjs tests/real/*.test.mjs
+      - name: Real-data smoke test and budgets
+        run: node --test --test-timeout=300000 tests/real/*.test.mjs
