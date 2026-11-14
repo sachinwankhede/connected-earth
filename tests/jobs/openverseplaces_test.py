@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os, sys, unittest
+from unittest import mock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "jobs"))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
 import openverseplaces as v
@@ -30,6 +31,14 @@ class PlaceTests(unittest.TestCase):
     def test_a_dry_run_says_why_a_place_found_nothing(self):
         rr, ex = v.reject_reasons([res('Trout Pond, West Virginia'), res('Trout Pond Maine', lic='by-nc'), res('Trout Pond Maine', creator=''), res('Trout Pond Maine map')], 'Trout Pond', 'Maine')
         self.assertEqual(rr, {'place or state not in title or tags': 1, 'licence': 1, 'no creator': 1, 'not a photo or unwanted source': 1}); self.assertEqual(ex, ['Trout Pond, West Virginia'])
+
+    def test_the_query_is_the_exact_name_only(self):
+        seen = []
+        with mock.patch.object(v.wm, 'get', lambda u, **k: seen.append(u) or {'results': []}):
+            v.search('Trout Pond', 'Maine')
+        import urllib.parse
+        q = urllib.parse.parse_qs(urllib.parse.urlsplit(seen[0]).query)
+        self.assertEqual(q['q'], ['"Trout Pond"']); self.assertNotIn('Maine', seen[0])
 
     def test_the_entry_validates_as_a_place_credit(self):
         e = v.entry('metroutpond', 'Ann', 'CC BY 4.0', 'https://creativecommons.org/licenses/by/4.0', ID, 'now')

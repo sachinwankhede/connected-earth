@@ -49,8 +49,9 @@ def reject_reasons(results, name, state):
         else: continue
         out[k] = out.get(k, 0) + 1
     return out, ex
-def search(name, state):
-    q = o.API + '?' + urllib.parse.urlencode({'q': '"%s" %s' % (name, state), 'license': 'cc0,pdm,by,by-sa', 'category': 'photograph', 'excluded_source': 'inaturalist', 'page_size': 20})
+def search(name, state=''):
+    """Openverse results for the exact place name. The state is NOT in the query (a phrase plus an extra word returned no result at all for 19 of 20 places in the first dry runs, #768): names_place() checks the state afterwards."""
+    q = o.API + '?' + urllib.parse.urlencode({'q': '"%s"' % name, 'license': 'cc0,pdm,by,by-sa', 'category': 'photograph', 'excluded_source': 'inaturalist', 'page_size': 20})
     return (wm.get(q) or {}).get('results') or []
 def to_jpeg(raw):
     """A 330 px wide JPEG (bytes), or None when it is too big, not an image, or under 200 px on its short side."""
