@@ -49,6 +49,14 @@ jobs:
       - name: Build the pages (index.html, pilot, sw.js and api/ are built here, not committed)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
+      - name: API shapes (#725, the api files the build writes match what the app reads, schema check then the app's own suggestion code on the real files)
+        if: ${{ !cancelled() && matrix.shard == 1 }}
+        run: |
+          python3 -m pip install --break-system-packages jsonschema==4.26.0
+          fail=0
+          python3 build/validate_api.py || fail=1
+          node --test tests/apishape/*.test.mjs || fail=1
+          exit $fail
       - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 build/pages_payload.py
@@ -147,6 +155,14 @@ jobs:
       - name: Build the pages
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: npm run build
+      - name: API shapes (#725, the api files the build writes match what the app reads, schema check then the app's own suggestion code on the real files)
+        if: ${{ !cancelled() }}
+        run: |
+          python3 -m pip install --break-system-packages jsonschema==4.26.0
+          fail=0
+          python3 build/validate_api.py || fail=1
+          node --test tests/apishape/*.test.mjs || fail=1
+          exit $fail
       - name: Stage and verify the Pages payload (the same step the deploy runs, so a build the deploy would reject fails here)
         if: ${{ !cancelled() }}   # keep going: one run reports every failing check
         run: python3 build/pages_payload.py
