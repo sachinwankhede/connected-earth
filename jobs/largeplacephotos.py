@@ -24,6 +24,14 @@ def source_urls(page):
     n = commons_name(page)
     return [thumb_url(n, 500), thumb_url(n, 330)] if n else []
 
+def download(urls, get):
+    """Bytes of the first address that downloads, or None. A thumbnail that Commons cannot make (a TIFF or a very large original answers HTTP 400) is skipped, not fatal: that place keeps its small picture (#727)."""
+    for u in urls:
+        try: raw = get(u, raw=True)
+        except RuntimeError as e: print('skipped', u[-70:], '-', e, flush=True); continue
+        if raw: return raw
+    return None
+
 def out_name(f): return os.path.splitext(f)[0] + '.webp'
 
 def shrink(im, size=SIZE):
@@ -45,7 +53,7 @@ def main():
     print(len(places), 'pictures,', len(large), 'with a copy,', len(work), 'to do in this run', flush=True)
     os.makedirs(OUT, exist_ok=True); total = 0; biggest = 0
     for i, t in enumerate(work, 1):
-        raw = next((r for r in (wm.get(u, raw=True) for u in source_urls(places[t]['p'])) if r), None)
+        raw = download(source_urls(places[t]['p']), wm.get)
         if not raw: print('no download for', t, flush=True); continue
         try:
             data, size = shrink(Image.open(io.BytesIO(raw)).convert('RGB'))

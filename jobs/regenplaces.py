@@ -37,7 +37,8 @@ if __name__ == '__main__':
     json.dump(parks, open(os.path.join(work, 'parks.json'), 'w'), indent=1)
     env = {'WORK': work}
     if parks:
-        run(['python3', 'jobs/draft.py', 'all'], env); run(['python3', 'jobs/autogen.py'], env)
+        for _ in range(3): run(['python3', 'jobs/draft.py', 'all'], env)   # a GBIF call that failed is not cached, so a second and third pass fill the gaps (the first run came back with no plants for 6 of 15 places)
+        run(['python3', 'jobs/autogen.py'], env)
         run(['python3', 'jobs/names.py', '--from-data', os.path.join(work, 'out')], env); run(['python3', 'jobs/autogen.py'], env)
     rows, done = [], []
     for p in parks:
