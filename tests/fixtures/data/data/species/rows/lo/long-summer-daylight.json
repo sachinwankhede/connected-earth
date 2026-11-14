@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Long summer daylight",
+ "tl": 0,
+ "wiki": "Sunbeam",
+ "desc": "Near-constant summer light lets plants and lake algae grow fast in the short warm season.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "long-summer-daylight",
+ "sk": "resource",
+ "src": "legacy"
+}

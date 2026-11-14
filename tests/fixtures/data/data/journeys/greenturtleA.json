@@ -1,0 +1,28 @@
+{
+ "pos": 8,
+ "id": "greenturtleA",
+ "type": "species",
+ "title": "Green sea turtle (Florida Keys)",
+ "ends": [
+  {
+   "eco": "npbiscayne",
+   "node": "greenturtle"
+  },
+  {
+   "eco": "npdrytortugas",
+   "node": "greenturtle"
+  }
+ ],
+ "text": "Green turtles graze the seagrass of Biscayne Bay and nest and feed around the Dry Tortugas. They travel along the Florida reef tract between the two.",
+ "imgwiki": "Green sea turtle",
+ "when": "Adults nest in summer and travel between feeding and nesting sites; hatchlings go to sea.",
+ "matters": "Turtles graze seagrass, which keeps it healthy. They need both safe nesting beaches and seagrass beds.",
+ "sources": [
+  {
+   "t": "Wikipedia: Green sea turtle",
+   "u": "https://en.wikipedia.org/wiki/Green_sea_turtle"
+  }
+ ],
+ "go": "Swim the route",
+ "mark": "🐢"
+}

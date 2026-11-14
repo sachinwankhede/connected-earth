@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Bay nutrients",
+ "tl": 0,
+ "wiki": "Nutrient",
+ "desc": "Nutrients released from dead plants and animals feed seagrass, mangroves and algae again.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "bay-nutrients",
+ "sk": "resource",
+ "src": "legacy"
+}

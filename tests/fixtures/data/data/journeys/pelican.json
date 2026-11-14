@@ -1,0 +1,28 @@
+{
+ "pos": 9,
+ "id": "pelican",
+ "type": "species",
+ "title": "American white pelican",
+ "ends": [
+  {
+   "eco": "mississippi",
+   "node": "pelican"
+  },
+  {
+   "eco": "gulf",
+   "node": "pelican"
+  }
+ ],
+ "text": "American white pelicans nest on lakes across interior North America and winter on the Gulf coast. Wikipedia also says they follow the Mississippi River north as far as St. Paul in winter.",
+ "imgwiki": "American white pelican",
+ "when": "Nest on inland lakes in spring and summer; spend the winter on the Gulf coast.",
+ "matters": "They need undisturbed nesting lakes in summer and fish-rich shallows in winter.",
+ "sources": [
+  {
+   "t": "Wikipedia: American white pelican",
+   "u": "https://en.wikipedia.org/wiki/American_white_pelican"
+  }
+ ],
+ "go": "Fly the route",
+ "mark": "🐦"
+}

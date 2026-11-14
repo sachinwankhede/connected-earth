@@ -1,0 +1,12 @@
+{
+ "latin": "Trichechus manatus",
+ "name": "West Indian manatee",
+ "tl": 2,
+ "wiki": "West Indian manatee",
+ "desc": "A slow, gentle grazer of seagrass that visits the bay. Boat strikes are a main danger.",
+ "ic": "quad",
+ "about": "The West Indian manatee, also known as the North American manatee, is a large, aquatic mammal native to warm coastal areas of the Caribbean, from the Eastern United States to northern Brazil.",
+ "sid": "trichechus-manatus",
+ "sk": "taxon",
+ "src": "legacy"
+}
