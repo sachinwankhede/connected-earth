@@ -5,6 +5,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json' };
 // Opening a US place outlines its real boundary and fits the map to it; closing the card clears it. Other places are untouched.
 describe('real park outlines', () => {
@@ -12,8 +14,8 @@ describe('real park outlines', () => {
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
-      let f = path.join(H.ROOT, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
-      if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
+      let f = path.join(H.FBUILD, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
+      if (!f.startsWith(H.FBUILD) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
       r.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(fs.readFileSync(f));
     }).listen(0);
     base = `http://localhost:${srv.address().port}/`;
@@ -21,9 +23,9 @@ describe('real park outlines', () => {
   after(async () => { await browser.close(); srv.close(); });
 
   // one outline file per park (data/outlines/<id>.json); a park without a file has no outline
-  const OD = path.join(H.ROOT, 'data/outlines');
+  const OD = path.join(H.FDATA, 'data/outlines');
   const B = new Proxy({}, { get: (_, id) => (typeof id === 'string' && fs.existsSync(path.join(OD, id + '.json')) ? JSON.parse(fs.readFileSync(path.join(OD, id + '.json'), 'utf8')) : undefined) });
-  const all = H.readPlaces(true);
+  const all = H.readFixturePlaces(true);
   const withB = all.filter((e) => B[e.id] && !e.auto).slice(0, 1).concat(all.filter((e) => B[e.id] && e.level === 'local').slice(0, 1), all.filter((e) => B[e.id] && e.auto && e.level !== 'local').slice(0, 1));
   const without = all.find((e) => !B[e.id] && e.country !== 'United States of America' && !e.auto);
 
@@ -42,7 +44,7 @@ describe('real park outlines', () => {
     test(`${sizeName}: places with an outline show it, fit the map to it, and clear it on close`, async () => {
       assert.ok(withB.length >= 2, 'need places with outlines');
       for (const e of withB) {
-        const t = await open(size, e.id, e.auto && e.level !== 'local' && !H.readPlaces(false).some((x) => x.id === e.id) ? 'pilot/index.html' : 'index.html');
+        const t = await open(size, e.id, e.auto && e.level !== 'local' && !H.readFixturePlaces(false).some((x) => x.id === e.id) ? 'pilot/index.html' : 'index.html');
         const n = await outline(t.page);
         assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn`);
         assert.ok(t.reqs.length >= 1 && t.reqs.every((u) => u.endsWith('/' + e.id + '.json')), `${e.id}: only this park's outline file is fetched: ${t.reqs}`);
