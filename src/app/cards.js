@@ -54,7 +54,7 @@
       M.qT = setTimeout(function () { M.qLast = Date.now(); runSearch(document.getElementById("q").value); }, 120 - (now - M.qLast));
     });
     qIn.addEventListener("focus", function () { Places.loadLocals(); srchWarm(); }, { once: true });   /* the local places a search needs start coming as soon as the box is used (#414) */
-    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; filterView(); if (FL.local) Places.loadLocals(); });
+    document.getElementById("locbtn").addEventListener("click", function () { FL.local = !FL.local; view.focus = null; if (FL.local && !Places.done) { renderView(false); Places.loadLocals(); return; } filterView(); });   /* until the local parks are here, only the list is redrawn: the camera is decided when they arrive (loadLocals calls filterView), not on an empty set (#825) */
     document.getElementById("kinds").addEventListener("click", function (ev) {
       var pk = ev.target.closest("[data-park]");
       if (pk) { FL.park = !FL.park; view.focus = null; filterView(); return; }
