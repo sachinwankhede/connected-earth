@@ -31,6 +31,14 @@ class PlaceTests(unittest.TestCase):
         rr, ex = v.reject_reasons([res('Trout Pond, West Virginia'), res('Trout Pond Maine', lic='by-nc'), res('Trout Pond Maine', creator=''), res('Trout Pond Maine map')], 'Trout Pond', 'Maine')
         self.assertEqual(rr, {'place or state not in title or tags': 1, 'licence': 1, 'no creator': 1, 'not a photo or unwanted source': 1}); self.assertEqual(ex, ['Trout Pond, West Virginia'])
 
+    def test_the_query_is_the_exact_name_only(self):
+        seen = []
+        with mock.patch.object(v.wm, 'get', lambda u, **k: seen.append(u) or {'results': []}):
+            v.search('Trout Pond', 'Maine')
+        import urllib.parse
+        q = urllib.parse.parse_qs(urllib.parse.urlsplit(seen[0]).query)
+        self.assertEqual(q['q'], ['"Trout Pond"']); self.assertNotIn('Maine', seen[0])
+
     def test_the_entry_validates_as_a_place_credit(self):
         e = v.entry('metroutpond', 'Ann', 'CC BY 4.0', 'https://creativecommons.org/licenses/by/4.0', ID, 'now')
         self.assertTrue(pr.safe_https(e['p'], pr.PLACE_CREDIT_HOSTS)); self.assertEqual(e['f'], 'metroutpond.jpg')
