@@ -196,6 +196,7 @@ jobs:
           python3 tests/jobs/ci_changes_test.py
           python3 tests/jobs/live_check_test.py
           python3 tests/jobs/hostphotos_test.py
+          python3 tests/jobs/largeplacephotos_test.py
           python3 tests/jobs/photos_test.py
           python3 tests/jobs/commonsplacephotos_test.py
           python3 tests/jobs/openverseplaces_test.py
