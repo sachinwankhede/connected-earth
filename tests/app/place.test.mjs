@@ -2,12 +2,13 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 import { mockPhotos } from './mockphotos.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const leave = (p) => p.click('#pbk:visible, #back:visible');
 for (const [name, size] of Object.entries(H.SIZES)) {
   async function start(hash = '#stub', fixtures = false) {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash, fixtures });
+    const t = await H.open(b, H.FMAIN, size, { hash, fixtures });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
     await H.pause(t.page, 500);
     return { b, p: t.page, errors };
@@ -41,7 +42,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     let r = await p.evaluate(() => ({ img: document.querySelectorAll('#pgraph image').length, gl: [...document.querySelectorAll('#pgraph .pn .gl')].filter((g) => g.getBoundingClientRect().width > 0).length }));
     assert.equal(r.img, 0); assert.ok(r.gl >= 25, 'icons shown');
     // photos available
-    await mockPhotos(p, { allPlaces: true });
+    await mockPhotos(p, { allPlaces: true, fixture: true });
     await p.evaluate(() => window.__M.showPlace('serengeti')); await ready(p);
     await p.waitForFunction(() => document.querySelectorAll('#pgraph image').length >= 15, null, { timeout: 30000 });
     await p.waitForFunction(() => document.querySelectorAll('.prow .pmc:not(.ppc) .pph img').length >= document.querySelectorAll('.prow .pmc:not(.ppc)').length, null, { timeout: 30000 });
@@ -60,7 +61,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: places with a story show it under the picture with why it matters, others show neither; environment items get photos`, async () => {
     const { b, p, errors } = await start();
-    await mockPhotos(p);
+    await mockPhotos(p, { fixture: true });
     await p.evaluate(() => window.__M.showPlace('yellowstone')); await ready(p);
     await p.waitForFunction(() => { const c = document.querySelectorAll('.prow .pmc:not(.ppc) .pph'); return c.length > 0 && [...c].every((x) => x.querySelector('img')); }, null, { timeout: 60000 });
     let r = await p.evaluate(() => {
@@ -72,7 +73,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.ok(r.has && r.order, 'the story and why it matters sit between the picture and the species rows'); assert.ok(r.len > 120 && r.matters > 80);
     assert.ok(r.envCards >= 2 && r.envImgs === r.envCards, 'environment items show photos: ' + JSON.stringify(r));
     // a place without a story has neither section
-    const withStory = H.readPlaces(false).filter((e) => e.story).map((e) => e.id);
+    const withStory = H.readFixturePlaces(false).filter((e) => e.story).map((e) => e.id);
     const none = await p.evaluate((skip) => window.__M.ecoIds().filter((i) => !skip.includes(i))[0], withStory);
     await p.evaluate((i) => window.__M.showPlace(i), none); await ready(p);
     r = await p.evaluate(() => { const v = document.getElementById('pview'); return { why: !!v.querySelector('.jwhy'), story: /The story\./.test(v.textContent) }; });

@@ -104,17 +104,17 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Castlewood State Park": {
-  "f": "mocastlewood.jpg",
-  "a": "Archbob",
-  "l": "CC0",
-  "lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
-  "p": "https://commons.wikimedia.org/wiki/File:Castlewoodscenic.JPG",
-  "w": "https://en.wikipedia.org/wiki/Castlewood_State_Park",
+ "Ngorongoro Conservation Area": {
+  "f": "whngorongoro.jpg",
+  "a": "Grahampurse",
+  "l": "CC BY-SA 4.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Ngorongoro-1001-2.jpg",
+  "w": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area",
   "mt": "image/jpeg",
   "width": 330,
-  "height": 220,
-  "sha256": "43b322597448415d60acad8eb444ba6e5cc239c295c8ca6dd4d44478a723e7c5",
+  "height": 186,
+  "sha256": "bfcace8d13c285fd1457ee6c2376ed6076d15b88505837c96c8b5b8718516811",
   "reviewStatus": "approved",
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
