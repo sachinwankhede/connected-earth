@@ -82,6 +82,11 @@ class PadusTests(unittest.TestCase):
         f = self.feat('Harriman State Park', 1, 1, 2, 2); f['geometry']['rings'].append([[4, 4], [8, 4], [8, 8], [4, 8], [4, 4]])
         self.assertEqual(fc.padus_coords(self.place(), GEO, self.getter([f]))[:2], (6.0, 6.0))
 
+    def test_state_national_and_historic_must_agree(self):
+        for other in ('Harriman Park', 'Harriman National Park', 'Harriman Historic Site'):
+            self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat(other, 2, 2, 4, 4)])), other)
+        self.assertEqual(fc.padus_coords(self.place(name='Harriman Historical Area'), GEO, self.getter([self.feat('Harriman Historic Area', 2, 2, 4, 4)]))[2], 'Harriman Historic Area')
+
     def test_a_weak_name_match_a_centre_outside_the_state_or_no_state_is_refused(self):
         self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat('Harriman Wildlife Corridor Access', 2, 2, 4, 4)])), 'too few shared words')
         self.assertIsNone(fc.padus_coords(self.place(), GEO, self.getter([self.feat('Harriman State Park', 22, 2, 24, 4)])), 'centre outside the place\'s state')

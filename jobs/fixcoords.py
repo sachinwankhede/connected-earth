@@ -73,6 +73,8 @@ ABBR = {'Alabama': 'AL', 'Alaska': 'AK', 'Arizona': 'AZ', 'Arkansas': 'AR', 'Cal
 GENERIC = set('national state park forest refuge wildlife monument historic historical site memorial recreation area preserve seashore lakeshore river the of and wilderness natural conservation management'.split())
 def name_tokens(s): return {w for w in re.findall(r'[a-z]+', unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower().replace("'s", 's')) if w not in GENERIC and len(w) > 2}
 
+TYPES = {'state': 'state', 'national': 'national', 'historic': 'historic', 'historical': 'historic'}
+def type_words(s): return {TYPES[w] for w in re.findall(r'[a-z]+', (s or '').lower()) if w in TYPES}
 def padus_coords(d, geo, get, min_score=0.6):
     """(lat, lon, unit name) from PAD-US for place d, or None. The query is restricted to the place's own state (one state: a place with several states is not handled here); the best name match
     needs token overlap (Jaccard) of min_score or more on the distinctive words of the name, and its biggest piece's centre must be inside, or within TOL of, the state."""
@@ -86,8 +88,9 @@ def padus_coords(d, geo, get, min_score=0.6):
     for f in feats:
         n = (f.get('attributes') or {}).get('Unit_Nm') or ''
         if n and f.get('geometry'): units.setdefault(n, []).extend(f['geometry'].get('rings') or [])
-    best = None
+    best = None; wt = type_words(d.get('name', '')) | type_words(d.get('short', ''))
     for n, rs in units.items():
+        if type_words(n) != wt: continue   # "Riverside Park" is not "Riverside State Park" (#767): state, national and historic must agree
         t = name_tokens(n); sc = len(want & t) / max(1, len(want | t)) if t else 0
         if sc >= min_score and rs and (best is None or sc > best[0]): best = (sc, n, rs)
     if not best: return None
