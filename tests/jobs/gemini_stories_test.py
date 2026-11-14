@@ -336,4 +336,40 @@ class JudgeTaskTests(unittest.TestCase):
         j = self.t.Judge(); self.assertNotIn(self.t.Stories().models[0], j.models); self.assertEqual((j.branch, self.t.Stories().branch), ('gemini-stories', 'gemini-stories'))
 
 
+class StoryBatchTests(unittest.TestCase):
+    """jobs/story_batch.py (#779 step c). Kept in this file because it is already listed in ci.yml (owner-merged)."""
+    def setUp(self):
+        import story_batch; self.sb = story_batch
+        self.d = tempfile.mkdtemp(); self.dr = os.path.join(self.d, 'drafts'); self.da = os.path.join(self.d, 'places'); os.makedirs(self.da); os.makedirs(os.path.join(self.dr, 'judge', 'rejected')); os.makedirs(os.path.join(self.dr, 'rejected'))
+    def put(self, path, obj): os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(obj, open(path, 'w'))
+    def draft(self, pid, judged=None, story_in_place=False, place=True):
+        self.put(os.path.join(self.dr, pid + '.json'), {'id': pid, 'name': pid.upper(), 'story': 'S ' + pid, 'matters': 'M ' + pid, 'model': 'w'})
+        if place: self.put(os.path.join(self.da, pid + '.json'), dict({'id': pid, 'name': pid}, **({'story': 'old'} if story_in_place else {})))
+        if judged == 'ok': self.put(os.path.join(self.dr, 'judge', pid + '.json'), {'id': pid, 'verdict': 'ok', 'model': 'j'})
+        if judged == 'flag': self.put(os.path.join(self.dr, 'judge', 'rejected', pid + '.json'), {'id': pid, 'name': pid.upper(), 'rejected': 'invented date', 'model': 'j'})
+
+    def test_only_judge_passed_drafts_for_places_without_a_story_are_chosen_in_id_order_up_to_n(self):
+        self.draft('a', 'ok'); self.draft('b', 'flag'); self.draft('c'); self.draft('d', 'ok', story_in_place=True); self.draft('e', 'ok', place=False); self.draft('f', 'ok'); self.draft('g', 'ok')
+        chosen, flagged, c = self.sb.select(self.dr, self.da, 2)
+        self.assertEqual([x['id'] for x in chosen], ['a', 'f']); self.assertEqual(list(flagged), ['b'])
+        self.assertEqual((c['drafts'], c['passed'], c['flagged'], c['unjudged'], c['qualified'], c['has_story'], c['missing_place']), (7, 5, 1, 1, 3, 1, 1))
+
+    def test_a_pass_file_does_not_count_when_a_flag_file_also_exists(self):
+        self.draft('a', 'ok'); self.put(os.path.join(self.dr, 'judge', 'rejected', 'a.json'), {'id': 'a', 'rejected': 'x'})
+        self.assertEqual(self.sb.select(self.dr, self.da, 5)[0], [])
+
+    def test_the_spot_check_is_ten_evenly_spaced_items_or_all_when_fewer(self):
+        mk = lambda n: [{'id': 'p%02d' % i} for i in range(n)]
+        self.assertEqual(len(self.sb.spot_ids(mk(25))), 10); self.assertEqual(self.sb.spot_ids(mk(25))[0], 'p00'); self.assertEqual(len(set(self.sb.spot_ids(mk(25)))), 10); self.assertEqual(len(self.sb.spot_ids(mk(4))), 4)
+
+    def test_main_writes_the_stories_and_a_body_with_counts_flags_sources_and_the_spot_check_and_exits_3_when_nothing_qualifies(self):
+        import io, contextlib
+        self.draft('a', 'ok'); self.draft('b', 'flag'); body = os.path.join(self.d, 'body.md')
+        with mock.patch.object(sys, 'argv', ['x', self.dr, '--data', self.da, '--n', '5', '--body', body]), contextlib.redirect_stdout(io.StringIO()): self.sb.main()
+        self.assertEqual(json.load(open(os.path.join(self.da, 'a.json')))['story'], 'S a'); self.assertNotIn('story', json.load(open(os.path.join(self.da, 'b.json'))))
+        b = open(body).read(); self.assertIn('**1 stories**', b); self.assertIn('invented date', b); self.assertIn('Sources and licences', b); self.assertIn('10-item spot check', b); self.assertIn('- [ ] **A**', b); self.assertIn('Part of #779', b)
+        with mock.patch.object(sys, 'argv', ['x', self.dr, '--data', self.da]), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as e: self.sb.main()
+        self.assertEqual(e.exception.code, 3)
+
+
 if __name__ == '__main__': unittest.main()
