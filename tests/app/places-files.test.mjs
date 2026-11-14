@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 // The world-level places are two files (api/places/main/index-world.json, cards-world.json), not part of the page (#228 step 2, #313 step 3); the local places follow in two more.
 const block = (ctx) => ctx.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (route) => route.abort());
@@ -11,7 +12,7 @@ test('after one visit the service worker has the world places files, so a reopen
   const page = await ctx.newPage();
   try {
     await block(ctx);
-    const appUrl = new URL(await H.urlFor(H.MAIN)); appUrl.hostname = 'localhost';
+    const appUrl = new URL(await H.urlFor(H.FMAIN)); appUrl.hostname = 'localhost';
     await page.goto(appUrl.href);
     await page.evaluate(async () => { await navigator.serviceWorker.ready; });
     await page.waitForFunction(() => !!navigator.serviceWorker.controller);
@@ -21,7 +22,8 @@ test('after one visit the service worker has the world places files, so a reopen
       for (const k of await caches.keys()) for (const r of await (await caches.open(k)).keys()) out.push(new URL(r.url).pathname);
       return out;
     });
-    for (const f of ['/api/places/main/index-world.json', '/api/places/main/cards-world.json']) assert.ok(cached.includes(f), f + ' is cached');
+    const dir = new URL('.', appUrl).pathname;   // the fixture build is served from a folder, the site from its root
+    for (const f of [dir + 'api/places/main/index-world.json', dir + 'api/places/main/cards-world.json']) assert.ok(cached.includes(f), f + ' is cached');
     H.setServerOffline(true); await ctx.setOffline(true);
     await page.reload();
     await page.waitForSelector('button.card', { state: 'attached', timeout: 20000 });
@@ -40,7 +42,7 @@ test('if the places files do not arrive the start screen says so, with a link to
   try {
     await block(ctx);
     await ctx.route(/api\/places\/main\/cards-world\.json/, (route) => route.fulfill({ status: 500, body: '' }));
-    await page.goto(await H.urlFor(H.MAIN));
+    await page.goto(await H.urlFor(H.FMAIN));
     await page.waitForFunction(() => /did not load/.test(document.getElementById('boot')?.textContent || ''), null, { timeout: 15000 });
     assert.equal(await page.locator('#boot a').count(), 1);
     assert.deepEqual(errors, []);
@@ -58,7 +60,7 @@ test('if a place has no card the start screen says the places did not load, inst
   try {
     await block(ctx);
     await ctx.route(/api\/places\/main\/cards-world\.json/, (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
-    await page.goto(await H.urlFor(H.MAIN));
+    await page.goto(await H.urlFor(H.FMAIN));
     await page.waitForFunction(() => /did not load/.test(document.getElementById('boot')?.textContent || ''), null, { timeout: 15000 });
     assert.equal(await page.locator('#boot a').count(), 1);
     assert.deepEqual(errors, []);
@@ -78,7 +80,7 @@ test('if the first cards file does not match the index (an old copy from a cache
       n++;
       return n === 1 ? route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }) : route.continue();
     });
-    await page.goto(await H.urlFor(H.MAIN));
+    await page.goto(await H.urlFor(H.FMAIN));
     await page.waitForSelector('button.card', { state: 'attached', timeout: 20000 });
     assert.equal(n, 2, 'the cards file was asked for twice');
     assert.ok(await page.evaluate(() => document.querySelectorAll('button.card').length) > 0, 'places are listed');
