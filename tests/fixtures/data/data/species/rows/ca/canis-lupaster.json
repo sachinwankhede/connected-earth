@@ -1,0 +1,12 @@
+{
+ "latin": "Canis lupaster",
+ "name": "African golden wolf",
+ "tl": 3,
+ "wiki": "African golden wolf",
+ "desc": "A generalist canid that eats rodents, hares and carrion. Ethiopian wolves usually win encounters with it, though it is not a rodent specialist.",
+ "ic": "coyote",
+ "about": "The African wolf is a canine native to North Africa, West Africa, the Sahel, northern East Africa, and the Horn of Africa. It is listed as least concern on the IUCN Red List.",
+ "sid": "canis-lupaster",
+ "sk": "taxon",
+ "src": "legacy"
+}

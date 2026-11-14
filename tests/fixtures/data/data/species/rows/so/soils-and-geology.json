@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Soils and geology",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Granite in the west and basalt in the east shape the soils and so the plant communities.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "soils-and-geology",
+ "sk": "resource",
+ "src": "legacy"
+}
