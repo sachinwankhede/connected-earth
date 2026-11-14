@@ -83,6 +83,9 @@ def main():
         e = pp.get(places[i].get('imgwiki') or '')
         if e and len(out) < 8 and os.path.exists(R('photos', 'places', e['f'])):
             out[places[i]['imgwiki']] = e; shutil.copyfile(R('photos', 'places', e['f']), os.path.join(pd, e['f']))
+            lg = os.path.splitext(e['f'])[0] + '.webp'   # the larger copy (#727), when the real data has one: the place page falls back to the small picture without it, and the tests serve their own stand-in
+            if os.path.exists(R('photos', 'places-lg', lg)):
+                os.makedirs(os.path.join(OUT, 'photos', 'places-lg'), exist_ok=True); shutil.copyfile(R('photos', 'places-lg', lg), os.path.join(OUT, 'photos', 'places-lg', lg))
     dump(out, os.path.join(pd, 'places.json'), indent=1)
     # species pictures (#421): the species page's wide photo and the tiles need hosted copies; up to 20 of the fixture's species that have one, white-tailed deer first (speciespage opens it)
     ph = {n: load(R('photos', n + '.json')) for n in ('species', 'species_hosted', 'species_large', 'species_metadata')}

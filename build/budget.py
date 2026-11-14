@@ -84,6 +84,14 @@ if os.path.isdir(lgd):
     for label, n, lim in (('photos/species-lg/ total', sum(lg), LARGE_PHOTOS_MAX), ('photos/species-lg/ largest', max(lg or [0]), LARGE_PHOTO_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+PLACE_LARGE_ONE_MAX = 100_000   # photos/places-lg/<file>.webp: one larger (400 px) place picture (#727; the first 30 ran 8 to 36 KB, 19 KB on average)
+PLACE_LARGE_MAX = 40_000_000   # photos/places-lg/ together (1,312 pictures at about 19 KB is about 25 MB; room for the places still to get a picture)
+pld = os.path.join(ROOT, 'photos', 'places-lg')
+if os.path.isdir(pld):
+    pl = [os.path.getsize(os.path.join(pld, f)) for f in os.listdir(pld)]
+    for label, n, lim in (('photos/places-lg/ total', sum(pl), PLACE_LARGE_MAX), ('photos/places-lg/ largest', max(pl or [0]), PLACE_LARGE_ONE_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 mdd = os.path.join(ROOT, 'photos', 'species-md')
 if os.path.isdir(mdd):
     md = [os.path.getsize(os.path.join(mdd, f)) for f in os.listdir(mdd)]
