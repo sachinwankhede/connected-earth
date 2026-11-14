@@ -11,7 +11,7 @@ import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species
-UA = 'ConnectedEarth/1.0 (https://github.com/sachinwankhede/connected-earth; data job)'
+UA = 'ConnectedEarth/1.0 (https://connected-earth-5ps.pages.dev/; data job)'
 QC = '''SELECT ?c ?cLabel ?area WHERE {
   ?c wdt:P31 wd:Q3624078 ; wdt:P2046 ?area . FILTER NOT EXISTS { ?c wdt:P576 ?end }
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }

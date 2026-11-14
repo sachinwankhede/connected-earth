@@ -71,5 +71,16 @@ class RightPageTests(unittest.TestCase):
         self.assertEqual(pr.failure_class('wrongpage'), 'permanent')
 
 
+class UserAgentTests(unittest.TestCase):
+    def test_no_job_sends_a_username_or_email_in_its_user_agent(self):
+        import glob, re
+        jobs = os.path.join(os.path.dirname(__file__), '..', '..', 'jobs')
+        for f in glob.glob(os.path.join(jobs, '*.py')):
+            for line in open(f, encoding='utf-8'):
+                if 'ConnectedEarth/1.0' in line:
+                    self.assertNotIn('sachinwankhede', line, f); self.assertNotIn('@', line, f)
+                    self.assertIn('https://connected-earth-5ps.pages.dev/', line, f)
+
+
 if __name__ == '__main__':
     unittest.main()
