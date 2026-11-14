@@ -1,0 +1,21 @@
+name: real-data-nightly
+# The browser checks that need the real data (#787 step 4): the request and kilobyte budgets on the real build, once a night on main.
+# Data pull requests run the same files in the `data` job of checks; the app shards run on frozen fixture data and never see data growth.
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build
+      - name: Smoke test and real-data budgets
+        run: node --test --test-timeout=300000 tests/app/smoke.test.mjs tests/real/*.test.mjs

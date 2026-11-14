@@ -155,6 +155,9 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: One smoke test (the app still opens with this data)
         run: node --test --test-timeout=300000 tests/app/smoke.test.mjs
+      - name: Request counts and kilobyte budgets on the real build (#787 step 4; the app shards run the counts on the fixture, only real data shows the sizes)
+        if: ${{ !cancelled() }}
+        run: node --test --test-timeout=300000 tests/real/*.test.mjs
         env:
           CI: "1"
 
