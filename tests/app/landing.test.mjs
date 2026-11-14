@@ -1,10 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+const NJ = Object.keys(JSON.parse(fs.readFileSync(path.join(H.FBUILD, 'api', 'journeys', 'main.json'), 'utf8'))).length;   // the journeys the fixture holds
 
 test('phone: the collapsed sheet pitches the app and peeks at the first place; tapping it opens the sheet', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   await H.pause(t.page, 600);
   const r = await t.page.evaluate(() => ({ pitch: document.querySelector('#hook .pitch').textContent, stat: document.querySelector('#hook .stat').textContent, peek: document.getElementById('speek').textContent, sheet: document.getElementById('sheet').className }));
   assert.match(r.pitch, /See how nature is connected/); assert.match(r.stat, /What eats what/); assert.match(r.peek, /Start here/); assert.match(r.sheet, /s-min/);
@@ -18,7 +23,7 @@ test('phone: the collapsed sheet pitches the app and peeks at the first place; t
 
 test('desktop: plain card wording, continent chips carry counts, no list headings', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.desktop, { hash: '#stub' });
   await H.pause(t.page, 600);
   const r = await t.page.evaluate(() => ({
     g: [...document.querySelectorAll('#cards li.grp')].filter((x) => !x.hidden).map((x) => x.textContent),
@@ -38,7 +43,7 @@ test('desktop: plain card wording, continent chips carry counts, no list heading
 
 test('phone: first batch is about ten places; small regions show everything; no Overview tag; no row label', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   await H.pause(t.page, 600);
   const r = await t.page.evaluate(() => ({ shown: [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length, tag: document.querySelectorAll('#cards .tag').length, lbl: getComputedStyle(document.querySelector('#regions .lbl') || document.body).display }));
   assert.equal(r.shown, 10); assert.equal(r.tag, 0); assert.equal(r.lbl, 'none');
@@ -52,7 +57,7 @@ test('phone: first batch is about ten places; small regions show everything; no 
 
 test('continent, country and state chips run from most places to fewest', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.desktop, { hash: '#stub' });
   await H.pause(t.page, 500);
   const counts = () => t.page.evaluate(() => [...document.querySelectorAll('#regions .chip:not(.leadg .chip)')].map((c) => ({ n: c.textContent.trim(), c: +(c.querySelector('b') || { textContent: -1 }).textContent })));
   const places = await t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].length);
@@ -68,7 +73,7 @@ test('continent, country and state chips run from most places to fewest', async 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: Places | Journeys tabs switch the list, journeys are compact route cards that open on tap`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     await H.pause(t.page, 600);
     if (name === 'phone') { await t.page.click('#speek'); await H.pause(t.page, 600); }
     const vis = (sel) => t.page.evaluate((s) => { const e = document.querySelector(s); return !!e && e.offsetParent !== null; }, sel);
@@ -76,7 +81,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await t.page.click('[data-tab="journeys"]:visible'); await H.pause(t.page, 500);
     assert.equal(await vis('#cards'), false); assert.equal(await vis('#xcards'), true);
     const n = await t.page.evaluate(() => ({ cards: document.querySelectorAll('#xcards .jcard').length, route: document.querySelector('#xcards .jroute').textContent }));
-    assert.ok(n.cards >= 13); assert.match(n.route, /→/);
+    assert.ok(n.cards >= NJ); assert.match(n.route, /→/);
     assert.equal(await t.page.evaluate(() => [...document.querySelectorAll('[data-tab="journeys"]')].find((b) => b.offsetParent).textContent.trim()), 'Journeys', 'no count on the tab');
     // a journey card opens its own page; from there a button opens that place's food web
     await t.page.click('#xcards .jcard >> nth=0'); await H.pause(t.page, 500);
@@ -90,7 +95,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
 test('phone: more places load when you scroll to the end of the list, and a quiet link works too; nothing loads before you scroll', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   await H.pause(t.page, 500);
   await t.page.evaluate(() => window.__M.setSheet('full')); await H.pause(t.page, 800);
   const shown = () => t.page.evaluate(() => [...document.querySelectorAll('#cards li:not(.grp):not(.morerow)')].filter((x) => !x.hidden && !x.classList.contains('pg')).length);
@@ -114,7 +119,7 @@ test('phone: more places load when you scroll to the end of the list, and a quie
 
 test('desktop keeps the pitch and counts in the panel', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.desktop, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.desktop, { hash: '#stub' });
   await H.pause(t.page, 500);
   assert.match(await t.page.evaluate(() => document.getElementById('stats').textContent), /See how nature is connected.*where it travels/);
   await b.close();
@@ -122,7 +127,7 @@ test('desktop keeps the pitch and counts in the panel', async () => {
 
 test('phone: a soft fade at the bottom of the open sheet says the list continues, and goes away at the end', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   await H.pause(t.page, 500);
   const op = () => t.page.evaluate(() => { const s = getComputedStyle(document.getElementById('sheet'), '::after'); return { o: +s.opacity, h: s.content !== 'none' && s.content !== 'normal' ? parseFloat(s.height) : 0 }; });
   assert.equal((await op()).h, 0, 'no fade on the collapsed sheet');
@@ -137,7 +142,7 @@ test('phone: a soft fade at the bottom of the open sheet says the list continues
 
 test('phone: sheet fade coalesces repeated scroll and resize measurements into one frame', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   const measurements = await t.page.evaluate(async () => {
     const sb = document.getElementById('sbody');
     let proto = sb;
@@ -162,7 +167,7 @@ test('phone: sheet fade coalesces repeated scroll and resize measurements into o
 
 test('phone: tabs come first in the open sheet; the title row only appears for a region, with its count; collapsed home keeps its title', async () => {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const t = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   await H.pause(t.page, 500);
   const cnt = () => t.page.evaluate(() => { const e = document.querySelector('#srow .scnt'); return { v: e && e.offsetParent !== null, t: e ? e.textContent : '' }; });
   assert.equal((await cnt()).v, false, 'collapsed home: stats line already says it');
@@ -192,7 +197,7 @@ test('phone: tabs come first in the open sheet; the title row only appears for a
 const SIZES2 = Object.entries(H.SIZES);
 async function setup(name, size, opts = {}) {
   const b = await H.launch();
-  const t = await H.open(b, H.MAIN, size, { hash: '#stub', ...opts });
+  const t = await H.open(b, H.FMAIN, size, { hash: '#stub', ...opts });
   await H.pause(t.page, 500);
   const api = {
     b, t, p: t.page,
@@ -217,7 +222,7 @@ for (const [name, size] of SIZES2) {
     await a.p.click('#regions .chip >> nth=0'); await H.pause(a.p, 600);
     const region = await a.crumbs(); assert.ok(region.length > 0);
     await a.tab('journeys');
-    const all = await a.nJ(); assert.ok(all >= 13, 'all journeys: ' + all);
+    const all = await a.nJ(); assert.ok(all >= NJ, 'all journeys: ' + all);
     assert.match(await a.p.evaluate(() => document.getElementById('jintro').textContent), new RegExp(`^${all} journeys\\.`));
     if (name === 'phone') assert.equal(await a.vis('#srow'), false, 'no region title row on the Journeys tab');
     else assert.equal(await a.p.evaluate(() => document.getElementById('srow').textContent.trim()), 'Connected Earth');
@@ -259,10 +264,10 @@ for (const [name, size] of SIZES2) {
     assert.ok((await a.nP()) >= 1);
     // clearing the search returns to the full places list; Journeys still reachable and unfiltered
     await a.p.fill('#q', ''); await H.pause(a.p, 700);
-    await a.tab('journeys'); assert.ok((await a.nJ()) >= 13);
+    await a.tab('journeys'); assert.ok((await a.nJ()) >= NJ);
     // a habitat filter while on Journeys does not hide journeys, and does narrow Places
     await a.p.click('#kinds .chip >> nth=0'); await H.pause(a.p, 500);
-    assert.ok((await a.nJ()) >= 13, 'habitat chips do not filter journeys');
+    assert.ok((await a.nJ()) >= NJ, 'habitat chips do not filter journeys');
     await a.tab('places');
     const filtered = await a.nP(); await a.p.click('#kinds .chip >> nth=0'); await H.pause(a.p, 500);
     assert.ok((await a.nP()) >= filtered);
@@ -358,13 +363,13 @@ test('arc tap and deep link: a journey card brought up from the map switches to 
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the region row is a tappable trail; one tap jumps up two levels; one-option rows are hidden`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     await H.pause(t.page, 600);
     if (name === 'phone') { await t.page.click('#speek'); await H.pause(t.page, 600); }
     const trail = () => t.page.evaluate(() => { const r = document.getElementById('srow'); return { btns: [...r.querySelectorAll('.sbk')].map((x) => x.textContent), cur: r.querySelector('.stt').textContent, vis: r.offsetParent !== null }; });
     await t.page.evaluate(() => window.__M.go ? window.__M.go('state', 'Missouri') : null);
     const viaHash = await t.page.evaluate(() => !!window.__M.go);
-    if (!viaHash) { await t.page.goto((await H.urlFor(H.MAIN)) + '#stub&r=state:Missouri'); await H.pause(t.page, 1200); if (name === 'phone') { await t.page.click('#speek').catch(() => {}); } }
+    if (!viaHash) { await t.page.goto((await H.urlFor(H.FMAIN)) + '#stub&r=state:Missouri'); await H.pause(t.page, 1200); if (name === 'phone') { await t.page.click('#speek').catch(() => {}); } }
     await H.pause(t.page, 800);
     const s1 = await trail();
     assert.deepEqual(s1.btns, ['World', 'North America', 'United States'], 'full trail above the current state');
@@ -386,7 +391,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: going up a level with the trail closes an open place card and its highlighted links`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     const p = t.page; await H.pause(p, 600);
     if (name === 'phone') { await p.click('#speek'); await H.pause(p, 600); }
     await p.click('#regions .chip:text-matches("^Africa")'); await H.pause(p, 1200);

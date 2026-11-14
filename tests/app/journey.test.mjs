@@ -1,12 +1,17 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+const NJ = Object.keys(JSON.parse(fs.readFileSync(path.join(H.FBUILD, 'api', 'journeys', 'main.json'), 'utf8'))).length;   // the journeys the fixture holds
 import { mockSpeciesPictures } from './mockphotos.mjs';
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   async function start(hash = '#stub', fixtures = false) {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash, fixtures });
+    const t = await H.open(b, H.FMAIN, size, { hash, fixtures });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
     await H.pause(t.page, 700);
     return { b, p: t.page, errors };
@@ -17,7 +22,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
     await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
     await mockSpeciesPictures(p, { Osprey: ['0123456789ab.webp', 'Osprey'] });   // a hosted picture entry for the osprey journey
-    const url = await H.urlFor(H.MAIN);
+    const url = await H.urlFor(H.FMAIN);
     await p.goto(url + hash);
     await H.pause(p, 700);
     await p.evaluate(() => window.__M && window.__M.loadD3 && window.__M.loadD3()); await p.waitForFunction(() => window.d3, null, { timeout: 30000 }).catch(() => {});
@@ -74,7 +79,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: every journey opens without errors and with its two places`, async () => {
     const { b, p, errors } = await start();
     const ids = await p.evaluate(() => [...document.querySelectorAll('#xcards .jcard')].map((c) => c.id.slice(3)));
-    assert.ok(ids.length >= 13);
+    assert.ok(ids.length >= NJ);
     for (const id of ids) {
       await p.evaluate((i) => window.__M.showJourney(i), id);
       const r = await p.evaluate(() => ({ h: document.querySelector('#jview h2').textContent, ends: document.querySelectorAll('#jview .jend').length, pts: window.__M.jpts.length, nan: window.__M.jpts.some((q) => !isFinite(q[0]) || !isFinite(q[1])), inside: window.__M.jpts.every((q) => q[0] > -50 && q[0] < 1000 && q[1] > -50 && q[1] < 700), more: document.querySelectorAll('#jview .jmore button').length }));
