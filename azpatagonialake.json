@@ -1,0 +1,21 @@
+{
+ "story": "Patagonia Lake State Park is a state park of Arizona, United States, containing Patagonia Lake. The 250-acre lake is habitat for reproducing largemouth bass, black crappie, bluegill, green sunfish, flathead catfish, threadfin shad, redear sunfish, channel catfish, and American bullfrogs.",
+ "matters": "The 873-acre preserve protects a magnificent example of the rare Fremont cottonwood-Goodding willow riparian forest, with some trees more than 100 feet tall and 130 years old.",
+ "id": "azpatagonialake",
+ "name": "Patagonia Lake State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1879,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 2003,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1879
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:43:40+00:00"
+}

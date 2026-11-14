@@ -1,0 +1,21 @@
+{
+ "story": "Chatfield State Park is located in Douglas and Jefferson counties of Colorado, United States. The park centers on Chatfield Reservoir, which has a 1,423 acre surface area lake. Over three hundred bird species and a variety of mammals roam the park.",
+ "matters": "The park hosts over three hundred bird species, both migrant and resident, that frequent the area. The Audubon Society of Greater Denver operates a nature education center here with an emphasis on children and families.",
+ "id": "cochatfield",
+ "name": "Chatfield State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2088,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2190,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2088
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:55:05+00:00"
+}

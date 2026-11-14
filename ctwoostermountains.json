@@ -1,0 +1,21 @@
+{
+ "story": "Wooster Mountain State Park covers 444 acres within the city limits of Danbury, Connecticut, USA. Established in 1920 as Connecticut's 23rd state park, it is an undeveloped public recreation area managed by the Connecticut Department of Energy and Environmental Protection.",
+ "matters": "The park is crossed by the Ives Trail and is suitable for hiking and hunting. Its name marks the mountain mass over which General David Wooster pursued British troops in 1777.",
+ "id": "ctwoostermountains",
+ "name": "Wooster Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1621,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 1728,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1621
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:06:13+00:00"
+}

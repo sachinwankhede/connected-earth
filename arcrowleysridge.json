@@ -1,0 +1,21 @@
+{
+ "story": "Crowley's Ridge State Park is a forest park covering 291 acres in Greene County, Arkansas in the United States atop Crowley's Ridge. Located on the former homesite of pioneer Benjamin Crowley, it became a state park in 1933.",
+ "matters": "The park contains many excellent examples of the work done by the Civilian Conservation Corps in the 1930s and is bisected by Crowley's Ridge Parkway.",
+ "id": "arcrowleysridge",
+ "name": "Crowley's Ridge State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1684,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 1783,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1684
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:36:09+00:00"
+}

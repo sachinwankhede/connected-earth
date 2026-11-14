@@ -1,0 +1,21 @@
+{
+ "story": "Red Rock Canyon State Park is a forest located in California, USA, specifically in Kern County, California. It shelters species such as the oneseedjuniper and elk.",
+ "matters": "The park provides a habitat for recorded species within the USA and belongs to a wider region with various canyons and parks.",
+ "id": "caredrockcanyon",
+ "name": "Red Rock Canyon State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1629,
+  "candidatesTokenCount": 74,
+  "totalTokenCount": 1703,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1629
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:52:27+00:00"
+}

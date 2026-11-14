@@ -1,0 +1,21 @@
+{
+ "story": "State Forest State Park is a forest located in Colorado, United States, established in 1970 in the Medicine Bow Range of the Rocky Mountains. The 70,838-acre park features wildlife including moose, bighorn sheep, black bear, mule deer, and elk.",
+ "matters": "North Park is considered the moose viewing capital of Colorado, with over 600 moose to be observed year-round.",
+ "id": "costateforest",
+ "name": "State Forest State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1541,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1638,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1541
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:58:31+00:00"
+}

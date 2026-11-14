@@ -1,0 +1,21 @@
+{
+ "story": "Lums Pond State Park is a forest located near Bear, New Castle County, Delaware in the United States. It surrounds Lums Pond, which is the largest freshwater pond in Delaware. The park covers 1,790 acres and opened to the public in 1963.",
+ "matters": "The park surrounds Lums Pond, an impoundment built by the Chesapeake and Delaware Canal on St. Georges Creek. The pond supplies water and serves as a freshwater fishery.",
+ "id": "delumspond",
+ "name": "Lums Pond State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1853,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 1957,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1853
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:09:57+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Golden Gate Canyon State Park is a forest in Colorado established in 1960. It covers 12,119 acres in Gilpin and Jefferson counties northwest of Golden and features 42 miles of hiking trails.",
+ "matters": "The park shelters wetland and riparian plant communities along Ralston, Nott and Deer creeks. Forested areas contain ponderosa pine, Rocky Mountain juniper, Douglas fir and aspen, alongside wildlife such as mule deer and black bear.",
+ "id": "cogoldengatecanyon",
+ "name": "Golden Gate Canyon State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1496,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 1598,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1496
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:56:08+00:00"
+}

@@ -1,0 +1,22 @@
+{
+ "story": "Honeymoon Island State Park is a Florida state park protecting most of Honeymoon Island, a barrier island on Florida's Gulf coast in Pinellas County, west of Dunedin. The park protects shoreline along the Gulf of Mexico together with seagrass beds, mangrove swamps, slash pine flatwoods, and coastal dunes and grasslands. The state began buying the land in 1974, and the park opened in December 1981.",
+ "matters": "Honeymoon Island supports a healthy gopher tortoise population, one of Florida's most concentrated osprey nesting colonies, and nesting loggerhead sea turtles. It is a wintering and stopover site of state and federal importance for migratory shorebirds.",
+ "id": "flhoneymoonisland",
+ "name": "Honeymoon Island State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3347,
+  "candidatesTokenCount": 156,
+  "totalTokenCount": 3503,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3347
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:14:59+00:00",
+ "rejected": "story has 65 words (limit 60)"
+}

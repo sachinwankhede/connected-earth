@@ -1,0 +1,21 @@
+{
+ "story": "Brandywine Creek State Park is a public recreation area located in Delaware, USA, along the Brandywine Creek. Established in 1965, it contains nature preserves like Tulip Tree Woods, Freshwater Marsh, and Flint Woods.",
+ "matters": "The park's forests are part of the Northeastern coastal forests ecoregion. Flint Woods is home to species of rare song birds and an old-growth forest.",
+ "id": "debrandywinecreek",
+ "name": "Brandywine Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2696,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2793,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2696
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:07:17+00:00"
+}

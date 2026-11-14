@@ -1,0 +1,21 @@
+{
+ "story": "Lory State Park is a forest located west of the city of Fort Collins, Colorado, and west of Horsetooth Reservoir. It features mountain biking, hiking, horseback riding, and rock climbing.",
+ "matters": "The park provides a natural habitat for species such as the mule deer, black bear, and abert's squirrel.",
+ "id": "colory",
+ "name": "Lory State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1398,
+  "candidatesTokenCount": 74,
+  "totalTokenCount": 1472,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1398
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:56:56+00:00"
+}

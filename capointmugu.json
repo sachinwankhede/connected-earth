@@ -1,0 +1,21 @@
+{
+ "story": "Point Mugu State Park is located in the Santa Monica Mountains National Recreation Area in Southern California. It features oceanfront beaches, chaparral-covered mountains, and two major canyons with seasonal rivers. The park adjoins Mugu Lagoon, which is a protected area within Naval Air Station Point Mugu.",
+ "matters": "The western terminus of the Backbone Trail, a multi-use long-distance trail extending nearly 70 miles across the Santa Monica Mountains, is located in the park.",
+ "id": "capointmugu",
+ "name": "Point Mugu State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2372,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2478,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2372
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:51:55+00:00"
+}

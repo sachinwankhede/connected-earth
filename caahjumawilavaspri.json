@@ -1,0 +1,21 @@
+{
+ "story": "Ahjumawi Lava Springs State Park preserves a wilderness of freshwater springs and recent lava flows in northeastern Shasta County, California. It is only accessible to the public by boat and features blue bays and tree-studded islets.",
+ "matters": "The park sits on one of the nation's largest systems of underwater springs, producing billions of gallons of fresh water daily into aboveground waterways.",
+ "id": "caahjumawilavaspri",
+ "name": "Ahjumawi Lava Springs State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2341,
+  "candidatesTokenCount": 82,
+  "totalTokenCount": 2423,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2341
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:46:52+00:00"
+}

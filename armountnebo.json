@@ -1,0 +1,21 @@
+{
+ "story": "Mount Nebo State Park is located near Dardanelle, Arkansas. Developed as a resort area in the late 19th century, it became a state park in 1928 with early development spearheaded by the Civilian Conservation Corps. It offers views of Lake Dardanelle, the Arkansas River, and surrounding mountain ridges.",
+ "matters": "Rainwater percolating down through the soil builds up in underlying pockets on the mountain bench, resulting in numerous springs found on the Bench Trail.",
+ "id": "armountnebo",
+ "name": "Mount Nebo State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3444,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 3550,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3444
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:39:55+00:00"
+}

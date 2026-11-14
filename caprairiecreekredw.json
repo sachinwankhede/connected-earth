@@ -1,0 +1,21 @@
+{
+ "story": "Prairie Creek Redwoods State Park is a coastal sanctuary in California for old-growth Coast Redwood trees. Created in 1923, the 57-square-kilometre park is home to Roosevelt elk, the tailed frog, and several species of salmon.",
+ "matters": "The park is jointly managed as part of the Redwood National and State Parks, which has been collectively designated as a World Heritage Site and forms a part of the California Coast Ranges International Biosphere Reserve.",
+ "id": "caprairiecreekredw",
+ "name": "Prairie Creek Redwoods State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2602,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 2711,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2602
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:52:11+00:00"
+}

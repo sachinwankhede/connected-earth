@@ -1,0 +1,21 @@
+{
+ "story": "Econfina River State Park is a Florida State Park covering 3,377 acres located on the Gulf of Mexico at the mouth of the Econfina River in the United States.",
+ "matters": "The park contains pine flatwoods, oak and palm forests, and broad expanses of salt marsh dotted with pine islands.",
+ "id": "fleconfinariver",
+ "name": "Econfina River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1466,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 1545,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1466
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:13:38+00:00"
+}

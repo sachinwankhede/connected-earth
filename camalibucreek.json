@@ -1,0 +1,21 @@
+{
+ "story": "Malibu Creek State Park preserves the Malibu Creek canyon in the Santa Monica Mountains of California. Established in 1974 and opened in 1976, the 8,215-acre park spans across nature preserves and includes the site of a village called Talepop.",
+ "matters": "The park is a component of the Santa Monica Mountains National Recreation Area, connecting public parkland and linking to the region's long history of native Chumash inhabitants.",
+ "id": "camalibucreek",
+ "name": "Malibu Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3711,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 3814,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3711
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:50:03+00:00"
+}

@@ -1,92 +1,92 @@
 # REVIEW-12.md
 
-## Ahwar of Southern Iraq (Mesopotamian Marshes) (`xiraq`)
+## Chattahoochee Bend State Park (`gachattahoocheeben`)
 
-**Story** (60 words): The Mesopotamian Marshes are a wetland area located in southern Iraq and southwestern Iran as well as partially in northern Kuwait. Originally covering an area of 20,000 km2, the marshes form a unique landscape home to the Marsh people, who harvest reeds and rice, fish, and herd water buffalo. The marshes were listed as an UNESCO Heritage Site in 2016.
+**Story** (41 words): Chattahoochee Bend State Park is located in Coweta County, Georgia, and covers 2,910 acres of forest along a bend in the Chattahoochee River. It is one of the state's largest state parks and opened to the public on July 1, 2011.
 
-**Why it matters** (40 words): The marshes constitute a flooded grasslands and savannas ecoregion and are integral to coastal health by filtering out pollutants and waste before they reach the Gulf. They also serve as spawning and nursery sites for coastal fish and shrimp species.
+**Why it matters** (24 words): The park provides a natural habitat for wildlife including black bears, white-tailed deer, and various bird species across its forest ecosystem in Georgia, USA.
 
-## The Burren (`xireland`)
+## Cloudland Canyon State Park (`gacloudlandcanyon`)
 
-**Story** (47 words): The Burren is a rocky landscape centered in County Clare on the west coast of Ireland, covering around 530 square kilometres. It features exposed limestone pavement and supports diverse plant growth due to a long growing season. Traditional strongholds for the European pine marten include the Burren.
+**Story** (34 words): Cloudland Canyon State Park covers 3,485 acres on the western edge of Lookout Mountain in Georgia, USA. The canyon is more than 1,000 feet deep and features rugged geology, waterfalls, and steep sandstone bluffs.
 
-**Why it matters** (35 words): The region supports rich plant growth such as the mountain avens. It serves as a traditional stronghold for the European pine marten, whose recovering population helps native red squirrels by preying on invasive grey squirrels.
+**Why it matters** (24 words): The park's diverse forests and streams provide a protected habitat for native trees, flowers, and animals such as the black bear and whitetailed deer.
 
-## Hula Valley (Hula Nature Reserve and Agamon Hula) (`xisrael`)
+## Northern Gulf of Mexico (`gulf`)
 
-**Story** (58 words): The Hula Valley is a topographic depression forming a valley and fertile agricultural region in northern Israel with abundant fresh water that used to be part covered by marshland and Lake Hula. It covers an area of 177 square kilometers. A small section of the valley was later reflooded in an attempt to revive a nearly extinct ecosystem.
+**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
 
-**Why it matters** (33 words): It is a major stopover for birds migrating along the Great Rift Valley between Africa, Europe, and Asia, with an estimated 500 million migrating birds now pass through the Hula Valley every year.
+**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
 
-## Gran Paradiso National Park (`xitaly`)
+## Mississippi River Floodplain (`mississippi`)
 
-**Story** (43 words): Gran Paradiso National Park is an Italian national park in the Graian Alps, between the Aosta Valley and Piedmont regions. Encompassing 703 square kilometres of alpine terrain, it protects animals like the Alpine ibex, which once survived here with only about 60 individuals.
+**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
 
-**Why it matters** (25 words): It is connected to France's Vanoise National Park, and together they co-operate in managing the Alpine ibex population, which moves across their shared boundary seasonally.
+**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
 
-## Blue and John Crow Mountains National Park (`xjamaica`)
+## Bennett Spring State Park (`mobennettspring`)
 
-**Story** (53 words): Blue and John Crow Mountains National Park covers 495.2 square kilometers of Jamaica. It accounts for 4.5% of Jamaica's land surface and was inscribed as a UNESCO World Heritage Site on 3 July 2015. The park is recognized for its biodiversity and derives its name from the Blue Mountains and the turkey vulture.
+**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
 
-**Why it matters** (39 words): The park is the last of two known habitats of the giant swallowtail butterfly, the largest butterfly in the Western Hemisphere. It also serves as a refuge for the endangered Jamaican blackbird, the Jamaican boa, and the Jamaican hutia.
+**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
 
-## Dana Biosphere Reserve (`xjordan`)
+## Big Lake State Park (`mobiglake`)
 
-**Story** (36 words): Dana Biosphere Reserve is Jordan's largest nature reserve, located in south-central Jordan. Founded in 1989, it covers 308 square kilometres. The reserve crosses four bio-geographical zones and is home to hundreds of plant and animal species.
+**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
 
-**Why it matters** (25 words): It shelters threatened species like the Nubian ibex and caracal. The diverse environment is the southernmost area in the world to host the Mediterranean cypress.
+**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
 
-## Korgalzhyn State Nature Reserve (Tengiz-Korgalzhyn Lakes) (`xkaz`)
+## Big Sugar Creek State Park (`mobigsugarcreek`)
 
-**Story** (56 words): Korgalzhyn State Nature Reserve covers an area of 543,171 hectares in the Aqmola and Karaganda regions of Kazakhstan, located west of the city of Astana. It includes numerous salt and fresh water bodies, such as Lake Tengiz. The protected reserve territory is home to wolves, saiga antelopes, bobak marmots, and the northernmost population of greater flamingos.
+**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
 
-**Why it matters** (37 words): The reserve is part of the Saryarka – Steppe and Lakes of Northern Kazakhstan UNESCO heritage site and a wetland of international importance. Extensive reserve waters provide living space for the largest Asian population of wetland birds.
+**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
 
-## Kerguelen Islands (French Southern Lands reserve) (`xkerguelen`)
+## Castlewood State Park (`mocastlewood`)
 
-**Story** (41 words): The Kerguelen Islands are a group of islands in the subantarctic region within the French Southern and Antarctic Lands. The main island, Grande Terre, is 6,675 square kilometres in area. The islands are home to the Kerguelen cabbage and king penguins.
+**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
 
-**Why it matters** (34 words): The Kerguelen Islands shelter the king penguin, which breeds on subantarctic islands. Since the end of the whaling and sealing era, most of the islands' species have been able to increase their population again.
+**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
 
-## Sharr Mountains National Park (`xkosovo`)
+## Cuivre River State Park (`mocuivreriver`)
 
-**Story** (42 words): Sharr Mountains National Park covers 532.72 km2 of southern Kosovo on the northern Sharr Mountains. Declared in 1986 and re-established in 2012, it contains glacial lakes, alpine and periglacial landscapes, and numerous species of plants, mammals, birds, reptiles, amphibia, fish, and butterflies.
+**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
 
-**Why it matters** (32 words): The park falls entirely within the Balkan mixed forests terrestrial ecoregion of the Palearctic temperate broadleaf and mixed forests biome. It provides a home and habitat for diverse native wildlife and vegetation.
+**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
 
-## Bubiyan Island and Kuwait Bay (`xkuwait`)
+## Current River State Park (`mocurrentriver`)
 
-**Story** (38 words): Bubiyan Island and Kuwait Bay are located in Kuwait. Bubiyan Island is the largest island in the Kuwaiti coastal island chain with an area of 863 square kilometers and is mainly flat, with salt marshes covering some coasts.
+**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
 
-**Why it matters** (30 words): The Mubarak al-Kabeer reserve on Bubiyan Island is a Wetland of International Importance that serves as a stop-over for migrating birds and supports the world's largest breeding colony of crab-plover.
+**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
 
-## Issyk-Kul Biosphere Reserve (`xkyrgyz`)
+## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
 
-**Story** (43 words): Issyk-Kul Biosphere Reserve is located in eastern Kyrgyzstan and features Issyk-Kul Lake, an endorheic saline lake in the western Tian Shan mountains. Established in 1948 and covering the Issyk-Kul Region, the lake is fed by about 118 rivers, hot springs, and snow melt.
+**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
 
-**Why it matters** (33 words): The lake is a Ramsar site of globally significant biodiversity that supports large numbers of wintering waterfowl and endemic fish species, while forming part of the biosphere reserve established in the year 2000.
+**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Nam Et-Phou Louey National Protected Area (`xlaos`)
+## Elephant Rocks State Park (`moelephantrocks`)
 
-**Story** (34 words): Nam Et-Phou Louey National Park is a protected area in northern Laos, covering 4,107.1 km2 across Houaphan, Luang Prabang, and Xieng Khouang. It consists mainly of mountains and hills with a tropical monsoon climate.
+**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
 
-**Why it matters** (25 words): The area has a high level of biodiversity, sheltering endangered species such as the dhole and the sambar deer within its forests and river habitats.
+**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
 
-## Gauja National Park (`xlatvia`)
+## Finger Lakes State Park (`mofingerlakes`)
 
-**Story** (42 words): Gauja National Park in Latvia is the largest national park in the country, covering 917.86 km2 along the valley of the Gauja River. Forests cover about 47 percent of the territory, which features high biological diversity, rock outcrops, springs, and varied terrain.
+**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
 
-**Why it matters** (25 words): Since 2004, Gauja National Park has been part of the Natura 2000 network as a territory designated for the conservation of protected species and biotopes.
+**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
 
-## Al Shouf Cedar Nature Reserve (`xlebanon`)
+## Grand Gulf State Park (`mograndgulf`)
 
-**Story** (49 words): Al Shouf Cedar Nature Reserve is a forest located in the Chouf and Aley districts of Lebanon on the slopes of Jebel Baruk mountain. Covering 550 km2, it is the largest natural reserve in Lebanon. It contains the Lebanon cedar forests of Barouk, Maaser el Shouf and Ain Zhalta-Bmohray.
+**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
 
-**Why it matters** (35 words): The reserve forms the last natural limits to the spread of Cedrus libani on the planet. Its forests play a crucial role as a carbon sink and help stabilize and protect soils on steep slopes.
+**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
 
-## Sehlabathebe National Park (`xlesotho`)
+## Ha Ha Tonka State Park (`mohahatonka`)
 
-**Story** (39 words): Sehlabathebe National Park is located in the Maloti Mountains in Qacha's Nek District, Lesotho, at an average elevation of some 2,400 metres above sea level. Established on 8 May 1969, the park features grasslands, cliffs, waterfalls, and rock dwellings.
+**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
 
-**Why it matters** (37 words): The park is part of the Maloti-Drakensberg World Heritage Site and its larger ecosystem functions provide freshwater to Lesotho, South Africa, and Namibia. Endangered species such as the Cape vulture and bearded vulture find a home here.
+**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
 

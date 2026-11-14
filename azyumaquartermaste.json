@@ -1,0 +1,21 @@
+{
+ "story": "Yuma Quartermaster Depot State Historic Park is an Arizona state park in the city of Yuma, Arizona, US. The park includes five buildings left over from the quartermaster depot days. The Yuma Quartermaster Depot was an important quartermaster depot during the 1870s.",
+ "matters": "Goods were shipped up the Colorado River from the Gulf of California and stored at Yuma for distribution to the desert frontier forts in the Southwestern United States territories.",
+ "id": "azyumaquartermaste",
+ "name": "Yuma Quartermaster Depot State Historic Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2422,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2528,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2422
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:46:36+00:00"
+}

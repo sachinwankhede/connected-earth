@@ -1,0 +1,21 @@
+{
+ "story": "Woodcutter's Canyon Linear Park is a forest located in Arizona, USA.",
+ "matters": "The park records species occurrences including plants and animals within its area.",
+ "id": "azwoodcutterscanyo",
+ "name": "Woodcutter's Canyon Linear Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1431,
+  "candidatesTokenCount": 39,
+  "totalTokenCount": 1470,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1431
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:46:20+00:00"
+}

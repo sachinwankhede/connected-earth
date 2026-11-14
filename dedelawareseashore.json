@@ -1,0 +1,21 @@
+{
+ "story": "Delaware Seashore State Park covers 2,722 acres in Delaware, United States, near Dewey Beach. Created in 1965, it is bounded by the Atlantic Ocean, Rehoboth Bay, and Indian River Bay. It features a nature trail on Burton's Island offering views of salt marshes.",
+ "matters": "The park provides a habitat for various plants and animals, including loblolly pine, american holly, and white-tailed deer. Its salt marshes and bay islands form a coastal ecosystem connected to the Atlantic Ocean and inland bays.",
+ "id": "dedelawareseashore",
+ "name": "Delaware Seashore State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1900,
+  "candidatesTokenCount": 121,
+  "totalTokenCount": 2021,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1900
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:08:05+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Dead Horse Ranch State Park is located in Arizona, United States, on the Verde River in the Verde River Greenway. It covers 423 acres of land with 10 miles of hiking trails. The park was originally named by the Ireys family.",
+ "matters": "Verde River Day is held annually at the park to celebrate the protection of the river's riparian habitat.",
+ "id": "azdeadhorseranch",
+ "name": "Dead Horse Ranch State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1857,
+  "candidatesTokenCount": 84,
+  "totalTokenCount": 1941,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1857
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:41:48+00:00"
+}

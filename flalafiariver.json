@@ -1,0 +1,21 @@
+{
+ "story": "Alafia River State Park is a Florida State Park located in central Florida in Hillsborough County. It features lakes and wetlands, and has been the center of leisure activities since the early 1880s.",
+ "matters": "The park provides a habitat for various plants and animals and offers a protected natural space in Florida.",
+ "id": "flalafiariver",
+ "name": "Alafia River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1798,
+  "candidatesTokenCount": 78,
+  "totalTokenCount": 1876,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1798
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:11:31+00:00"
+}

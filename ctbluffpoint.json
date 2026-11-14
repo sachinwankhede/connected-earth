@@ -1,0 +1,21 @@
+{
+ "story": "Bluff Point State Park is an undeveloped peninsula located between the Poquonnock River and Mumford Cove on Long Island Sound in the town of Groton, Connecticut. The 806 acres encompass a barrier beach, steep cliffs, forested sections, and tidal wetlands.",
+ "matters": "The Connecticut legislature established Bluff Point as a Coastal Reserve in 1975 to give it the highest possible protection in the State Park system and protect the high number of endangered and threatened species found within the park.",
+ "id": "ctbluffpoint",
+ "name": "Bluff Point State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2912,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 3020,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2912
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:00:07+00:00"
+}

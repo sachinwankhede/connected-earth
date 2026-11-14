@@ -1,0 +1,22 @@
+{
+ "story": "Colt Creek State Park is a 5,067-acre park located in Central Florida within the Green Swamp Wilderness Area. Opened on January 20, 2007, this pristine wilderness features pine flatwoods, cypress domes, open pastures, and three lakes. It is home to animals like the American bald eagle, Southern fox squirrel, gopher tortoise, white-tailed deer, wild turkey, and bobcat.",
+ "matters": "The park is part of the Green Swamp Wilderness Area, serving as a major recharge area for the Floridan Aquifer and helping supply drinking water to millions of Florida residents. Water flowing from the property eventually makes its way into four of Florida's major rivers.",
+ "id": "flcoltcreek",
+ "name": "Colt Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3262,
+  "candidatesTokenCount": 151,
+  "totalTokenCount": 3413,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3262
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:12:35+00:00",
+ "rejected": "matters has 45 words (limit 40)"
+}

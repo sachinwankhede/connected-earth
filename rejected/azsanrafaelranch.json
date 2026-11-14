@@ -1,0 +1,22 @@
+{
+ "story": "San Rafael Ranch Natural Area is a forest located in Arizona, USA. It covers an area of 840. The region is home to various species.",
+ "matters": "The area supports a natural ecosystem including plants, animals, soil, and decomposer communities.",
+ "id": "azsanrafaelranch",
+ "name": "San Rafael Ranch Natural Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1334,
+  "candidatesTokenCount": 60,
+  "totalTokenCount": 1394,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1334
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:44:44+00:00",
+ "rejected": "numbers not in the research text: 840"
+}

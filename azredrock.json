@@ -1,0 +1,21 @@
+{
+ "story": "Red Rock State Park covers 286 acres of Arizona, featuring a red sandstone canyon near Sedona. The park includes a stretch of Oak Creek and serves as an environmental education facility.",
+ "matters": "The rich riparian zone along the creek supports a diverse array of species, including rare native fish and the threatened Sonora mud turtle. Lower Oak Creek has been designated an Important Bird Area.",
+ "id": "azredrock",
+ "name": "Red Rock State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2217,
+  "candidatesTokenCount": 83,
+  "totalTokenCount": 2300,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2217
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:44:13+00:00"
+}

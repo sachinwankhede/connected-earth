@@ -1,0 +1,21 @@
+{
+ "story": "Fort Delaware State Park is a 248-acre Delaware state park on Pea Patch Island in the Delaware River. Established in 1951, it features a historic Civil War fort and a migratory bird rookery.",
+ "matters": "The island provides a significant wetlands stop for migratory birds along the Atlantic Flyway, including herons, egrets, and ibises.",
+ "id": "defortdelaware",
+ "name": "Fort Delaware State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2957,
+  "candidatesTokenCount": 89,
+  "totalTokenCount": 3046,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2957
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:08:53+00:00"
+}

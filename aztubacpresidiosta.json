@@ -1,0 +1,21 @@
+{
+ "story": "Tubac Presidio State Historic Park is located in Tubac, Arizona, United States. It preserves the ruins of the Presidio San Ignacio de Tubac and is the first park in the Arizona state park system.",
+ "matters": "The park presents a timeline of European settlement in this Southern Arizona town and contains an underground archeology exhibit displaying the excavated foundations of the Tubac Presidio.",
+ "id": "aztubacpresidiosta",
+ "name": "Tubac Presidio State Historic Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2432,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 2522,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2432
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:45:48+00:00"
+}

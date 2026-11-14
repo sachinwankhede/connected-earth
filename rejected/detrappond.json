@@ -1,0 +1,22 @@
+{
+ "story": "Trap Pond State Park is a 3,993.28 acres Delaware state park located near Laurel, United States. It preserves one of the largest surviving fragments of an extensive wetland in southwestern Sussex County. The state park features an extensive patch of bald cypress trees and the northernmost park in North America that includes cypress and bald cypress.",
+ "matters": "It preserves an extensive patch of bald cypress trees and one of the largest surviving fragments of what was once an extensive wetland in southwestern Sussex County. Many birds flock to stands of bald cypress, including great blue herons, owls, warblers, and pileated woodpeckers.",
+ "id": "detrappond",
+ "name": "Trap Pond State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2123,
+  "candidatesTokenCount": 139,
+  "totalTokenCount": 2262,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2123
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:10:29+00:00",
+ "rejected": "matters has 44 words (limit 40)"
+}

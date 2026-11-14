@@ -1,0 +1,21 @@
+{
+ "story": "St. Marks River Preserve State Park is located in Florida, USA. It features lakes and wetlands. Species found there include the black bear, wild turkey, and raccoon.",
+ "matters": "The park shelters various wildlife and plant species, including the black bear and wild turkey, within its wetland ecosystem.",
+ "id": "flstmarksriverpres",
+ "name": "St. Marks River Preserve State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1192,
+  "candidatesTokenCount": 66,
+  "totalTokenCount": 1258,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1192
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:16:52+00:00"
+}

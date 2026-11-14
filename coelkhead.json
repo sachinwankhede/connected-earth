@@ -1,0 +1,21 @@
+{
+ "story": "Elkhead State Park is located in Moffat and Routt counties in northwest Colorado, near Craig. Constructed in 1974, the park surrounds and includes the 900 surface acre Elkhead Reservoir, which dams Elkhead Creek draining the Elkhead Mountains to the north.",
+ "matters": "The park is managed as a complex out of the Yampa River State Park office and is stocked with primarily warmwater fish species, including largemouth bass, black crappie, and bluegill.",
+ "id": "coelkhead",
+ "name": "Elkhead State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1431,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 1546,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1431
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:55:52+00:00"
+}

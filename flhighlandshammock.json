@@ -1,0 +1,21 @@
+{
+ "story": "Highlands Hammock State Park covers 9,000 acres in Highlands County, Florida, west of Sebring. Opened in 1931, it features old-growth forest with an old-growth bald cypress swamp and trees believed to be over a thousand years old.",
+ "matters": "Part of the natural area is recognized by the Old-Growth Forest Network. The park shelters wildlife including white-tailed deer, American alligators, and the rare Florida panther.",
+ "id": "flhighlandshammock",
+ "name": "Highlands Hammock State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2029,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2132,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2029
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:14:26+00:00"
+}

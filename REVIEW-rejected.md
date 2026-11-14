@@ -6,6 +6,48 @@ Story: Bucks Pocket State Park is a public recreation area occupying 2000 acres 
 
 Why: The park preserves a canyon along South Sauty Creek and provides a natural habitat for wildlife including whitetailed deer.
 
+## Queen Wilhelmina State Park (`arqueenwihelmina`) - names not in the research text: Arkansas'
+
+Story: Queen Wilhelmina State Park is a forest located in the Ouachita Mountains of Arkansas, USA. It sits on the 2,681-foot Rich Mountain, which is Arkansas' second highest peak. The park features a historic lodge initially built in 1898.
+
+Why: The park is located on Arkansas' second highest peak and is the only lodge open on the 235 mile Ouachita Trail. It belongs to the Arkansas Department of Parks and Tourism as one of its eight mountain parks.
+
+## San Rafael Ranch Natural Area (`azsanrafaelranch`) - numbers not in the research text: 840
+
+Story: San Rafael Ranch Natural Area is a forest located in Arizona, USA. It covers an area of 840. The region is home to various species.
+
+Why: The area supports a natural ecosystem including plants, animals, soil, and decomposer communities.
+
+## Chino Hills State Park (`cachinohills`) - names not in the research text: Chino-Puente
+
+Story: Chino Hills State Park spans 14,102 acres in California, in the United States. It features rolling hills, woodlands, sage scrub, and grasslands. Visitors can explore valleys and ridge tops where native trees like coast live oaks and California sycamores grow.
+
+Why: The park is a critical link in the Chino-Puente Hills wildlife corridor. It serves as a major botanical habitat reserve and a vital refuge for resident and migrating wildlife.
+
+## Sunnybrook State Park (`ctsunnybrook`) - names not in the research text: States, United
+
+Story: Sunnybrook State Park is a public recreation area encompassing 464 acres in Torrington, Connecticut, United States. Opened in 1970, it offers hiking, picnicking, hunting, and fishing along the East Branch Naugatuck River.
+
+Why: The park is the southwestern terminus for the blue-blazed John Muir Trail, which crosses Paugnut State Forest to the loop trail at Burr Pond State Park.
+
+## Trap Pond State Park (`detrappond`) - matters has 44 words (limit 40)
+
+Story: Trap Pond State Park is a 3,993.28 acres Delaware state park located near Laurel, United States. It preserves one of the largest surviving fragments of an extensive wetland in southwestern Sussex County. The state park features an extensive patch of bald cypress trees and the northernmost park in North America that includes cypress and bald cypress.
+
+Why: It preserves an extensive patch of bald cypress trees and one of the largest surviving fragments of what was once an extensive wetland in southwestern Sussex County. Many birds flock to stands of bald cypress, including great blue herons, owls, warblers, and pileated woodpeckers.
+
+## Colt Creek State Park (`flcoltcreek`) - matters has 45 words (limit 40)
+
+Story: Colt Creek State Park is a 5,067-acre park located in Central Florida within the Green Swamp Wilderness Area. Opened on January 20, 2007, this pristine wilderness features pine flatwoods, cypress domes, open pastures, and three lakes. It is home to animals like the American bald eagle, Southern fox squirrel, gopher tortoise, white-tailed deer, wild turkey, and bobcat.
+
+Why: The park is part of the Green Swamp Wilderness Area, serving as a major recharge area for the Floridan Aquifer and helping supply drinking water to millions of Florida residents. Water flowing from the property eventually makes its way into four of Florida's major rivers.
+
+## Honeymoon Island State Park (`flhoneymoonisland`) - story has 65 words (limit 60)
+
+Story: Honeymoon Island State Park is a Florida state park protecting most of Honeymoon Island, a barrier island on Florida's Gulf coast in Pinellas County, west of Dunedin. The park protects shoreline along the Gulf of Mexico together with seagrass beds, mangrove swamps, slash pine flatwoods, and coastal dunes and grasslands. The state began buying the land in 1974, and the park opened in December 1981.
+
+Why: Honeymoon Island supports a healthy gopher tortoise population, one of Florida's most concentrated osprey nesting colonies, and nesting loggerhead sea turtles. It is a wintering and stopover site of state and federal importance for migratory shorebirds.
+
 ## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`) - story has 70 words (limit 60)
 
 Story: Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in southernmost Haida Gwaii, 130 kilometres off the mainland of British Columbia, Canada. It protects an archipelago of 138 islands, with close to 90% of the land being forested. The area ranges from deep fjords to rugged mountains and is cooperatively managed by the Council of the Haida Nation and the Government of Canada.

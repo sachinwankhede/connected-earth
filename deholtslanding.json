@@ -1,0 +1,21 @@
+{
+ "story": "Holts Landing State Park is located in Sussex County, Delaware, United States, covering an area of 205 acres on the southern shore of Indian River Bay. The forest features hiking trails, wilderness campsites, and fresh water ponds, and is home to diverse wildlife including white-tailed deer and ospreys.",
+ "matters": "The park's coastal bay environments, mixed hardwood and conifer forests, marshes, and the Assawoman Canal provide habitats for a wide variety of local plants and animals, including wading birds and songbirds.",
+ "id": "deholtslanding",
+ "name": "Holts Landing State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3422,
+  "candidatesTokenCount": 122,
+  "totalTokenCount": 3544,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3422
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:09:25+00:00"
+}

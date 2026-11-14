@@ -1,92 +1,92 @@
 # REVIEW-03.md
 
-## Cuivre River State Park (`mocuivreriver`)
+## Devil's Den State Park (`ardevilsden`)
 
-**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
+**Story** (40 words): Devil's Den State Park covers 2,200 acres in the United States, located in the Lee Creek Valley of the Boston Mountains in Arkansas. It protects the largest sandstone crevice area in the country, featuring caves, bluffs, and a CCC-built lake.
 
-**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
+**Why it matters** (25 words): The park provides habitats for a variety of plant and animal life while connecting to the neighboring Ozark National Forest through its extensive trail system.
 
-## Current River State Park (`mocurrentriver`)
+## Hobbs State Park – Conservation Area (`arhobbsstateparkco`)
 
-**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
+**Story** (42 words): Hobbs State Park – Conservation Area is a 12,056-acre Arkansas state park located in Benton, Carroll, and Madison Counties, United States. It was bought in 1979 and sits just south of Beaver Lake, featuring limestone formations, creeks, and extensive trails for recreation.
 
-**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
+**Why it matters** (37 words): The protected forest provides a natural habitat for diverse wildlife including black bears, coyotes, and white-tailed deer. It is managed jointly by Arkansas State Parks, the Arkansas Natural Heritage Commission, and the Arkansas Game and Fish Commission.
 
-## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
+## Jacksonport State Park (`arjacksonport`)
 
-**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
+**Story** (43 words): Jacksonport State Park is a 164.7-acre Arkansas state park in Jackson County, Arkansas in the United States. It contains the 1872 Jacksonport courthouse and offers 20 campsites, a playground, a pavilion, a swimming beach along the White River and the Tunstall Riverwalk Trail.
 
-**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (28 words): The park preserves historical sites including the 1872 Jacksonport courthouse which served as the home of county government from 1872-1892, and features connections to the American Civil War.
 
-## Elephant Rocks State Park (`moelephantrocks`)
+## Lake Catherine State Park (`arlakecatherine`)
 
-**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
+**Story** (41 words): Lake Catherine State Park is a 2,180-acre public recreation area located in Arkansas, USA, on the south shore of Lake Catherine. Built in the 1930s by the Civilian Conservation Corps, it features historic rustic cabins and a nature cabin with exhibits.
 
-**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
+**Why it matters** (21 words): The park provides a public recreation area and a nature cabin that houses exhibits on the natural environment of the park.
 
-## Finger Lakes State Park (`mofingerlakes`)
+## Lake Charles State Park (`arlakecharles`)
 
-**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
+**Story** (40 words): Lake Charles State Park is situated in The Ozarks along the Black River in Arkansas in the United States. It features the artificial Lake Charles, which was built to control flooding and preserve the watershed, and was dedicated in 1967.
 
-**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
+**Why it matters** (25 words): The park helps supply fresh water to the Shirey Bay Rainey Brake Wildlife Management Area during hot summer months and benefits fish and wildlife development.
 
-## Grand Gulf State Park (`mograndgulf`)
+## Lake Chicot State Park (`arlakechicot`)
 
-**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
+**Story** (41 words): Lake Chicot State Park is a 211.6 acres Arkansas state park in Chicot County, Arkansas within the Arkansas Delta. The park is located along Lake Chicot, a 22 miles oxbow lake that was formerly the main channel of the Mississippi River.
 
-**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
+**Why it matters** (25 words): Lake Chicot is the state's largest natural lake and the largest oxbow lake in the United States, featuring a bayou environment among large cypress trees.
 
-## Ha Ha Tonka State Park (`mohahatonka`)
+## Lake Dardanelle State Park (`arlakedardanelle`)
 
-**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
+**Story** (39 words): Lake Dardanelle State Park is located on two sites in Arkansas, USA, on the 34,300-acre Lake Dardanelle. One site is in Russellville and one is in Dardanelle. Both sites include picnic facilities, boat ramps, pavilions, playgrounds, and dump stations.
 
-**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
+**Why it matters** (26 words): The park hosts many fishing tournaments and offers interpretive programs such as guided hikes, nature talks, kayaking, lake tours and demonstrations, evening slide shows, and movies.
 
-## Harry S Truman State Park (`moharrystruman`)
+## Lake Ouachita State Park (`arlakeouachita`)
 
-**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
+**Story** (23 words): Lake Ouachita State Park is a 360-acre public recreation area located in Arkansas, USA. It sits on the eastern side of Lake Ouachita.
 
-**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
+**Why it matters** (23 words): The park preserves the site of the historic Three Sisters springs, which were once touted for the curative properties of their mineral waters.
 
-## Hawn State Park (`mohawn`)
+## Millwood State Park (`armillwood`)
 
-**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
+**Story** (31 words): Millwood State Park is a public recreation area located in Arkansas, USA. It is known for fishing and wildlife habitats along Millwood Lake. The park was established on April 1, 1976.
 
-**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
+**Why it matters** (25 words): The site was chosen because of the important role the lakes in the Little Red River basin play in controlling flooding on the Red River.
 
-## Knob Noster State Park (`moknobnoster`)
+## Mount Nebo State Park (`armountnebo`)
 
-**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
+**Story** (48 words): Mount Nebo State Park is located near Dardanelle, Arkansas. Developed as a resort area in the late 19th century, it became a state park in 1928 with early development spearheaded by the Civilian Conservation Corps. It offers views of Lake Dardanelle, the Arkansas River, and surrounding mountain ridges.
 
-**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
+**Why it matters** (24 words): Rainwater percolating down through the soil builds up in underlying pockets on the mountain bench, resulting in numerous springs found on the Bench Trail.
 
-## Lake of The Ozarks State Park (`molakeoftheozarks`)
+## Old Davidsonville State Park (`arolddavidsonville`)
 
-**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Story** (43 words): Old Davidsonville State Park covers 163 acres in Randolph County, Arkansas, in the United States. Situated on a border between The Ozarks and the Arkansas Delta, the park preserves the remains of the abandoned frontier town of Davidsonville, which was founded in 1815.
 
-**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
+**Why it matters** (35 words): The park is situated near the confluence of the Spring River and Eleven Point River with the Black River. It preserves an important river port town site that was one of Arkansas Territory's first settlements.
 
-## Lewis and Clark State Park (`molewisandclark`)
+## Petit Jean State Park (`arpetitjean`)
 
-**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
+**Story** (49 words): Petit Jean State Park is a 3,471-acre park located in Conway County, Arkansas, on top of Petit Jean Mountain next to the Arkansas River. The park features a deep forested canyon with a 95-foot waterfall created by Cedar Creek, alongside historic log and stone structures built during the 1930s.
 
-**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (27 words): The park is situated in the area between the Ouachita Mountains and the Ozark Plateaus, featuring geological and archaeological resources and providing habitat for native wildlife species.
 
-## Long Branch State Park (`molongbranch`)
+## Pinnacle Mountain State Park (`arpinnaclemountain`)
 
-**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
+**Story** (40 words): Pinnacle Mountain State Park is a 2,356-acre state park located in Pulaski County, Arkansas just outside of Little Rock. The main attraction is Pinnacle Mountain, an iconic landmark surrounded by the bottomlands of the Big Maumelle and Little Maumelle rivers.
 
-**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
+**Why it matters** (29 words): The park preserves 2,356 acres set aside for various purposes including environmental education, outdoor recreation, and preservation, and connects to nearby areas like Lake Maumelle and the Ouachita Trail.
 
-## Morris State Park (`momorris`)
+## Toltec Mounds Archeological State Park (`artoltecmoundsarch`)
 
-**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
+**Story** (33 words): Toltec Mounds Archeological State Park is an archaeological site located in Arkansas, USA. It protects an 18-mound complex with the tallest surviving prehistoric mounds in Arkansas, situated on the banks of Mound Lake.
 
-**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
+**Why it matters** (26 words): The site is designated as a National Historic Landmark and was occupied from the 7th to the 11th century by indigenous ancestors of regional Native Americans.
 
-## Ozark Forest and Streams (`ozarks`)
+## Village Creek State Park (`arvillagecreek`)
 
-**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
+**Story** (25 words): Village Creek State Park includes lakes and wetlands in Arkansas, USA. It is one of two state parks in the United States with this name.
 
-**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
+**Why it matters** (14 words): The park provides a habitat for various species including the cardinalflower, tuftedtitmouse, and northerncardin.
 

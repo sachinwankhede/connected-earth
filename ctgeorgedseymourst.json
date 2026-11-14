@@ -1,0 +1,21 @@
+{
+ "story": "George D. Seymour State Park Scenic Reserve is a forest located in Connecticut, USA.",
+ "matters": "The area supports a variety of species including red maple, pitch pine, and whitetailed deer.",
+ "id": "ctgeorgedseymourst",
+ "name": "George D. Seymour State Park Scenic Reserve",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1353,
+  "candidatesTokenCount": 46,
+  "totalTokenCount": 1399,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1353
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:01:26+00:00"
+}

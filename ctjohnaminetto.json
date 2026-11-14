@@ -1,0 +1,21 @@
+{
+ "story": "John A. Minetto State Park is a public recreation area encompassing 715 acres in Connecticut, USA. It is managed by the Connecticut Department of Energy and Environmental Protection and offers facilities for picnicking, fishing, and cross-country skiing.",
+ "matters": "The park is part of a flood control project initiated by the U.S. Army Corps of Engineers following the completion of the Hall Meadow Brook Dam in 1962.",
+ "id": "ctjohnaminetto",
+ "name": "John A. Minetto State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1569,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1666,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1569
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:02:30+00:00"
+}

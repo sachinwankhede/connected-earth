@@ -1,0 +1,21 @@
+{
+ "story": "Eleven Mile State Park is located in Park County, Colorado, USA, and was established in 1970. The 7,662-acre park surrounds the Eleven Mile Canyon Reservoir and features trails for hikers and bicyclists. Animals such as coyotes and pronghorn can be seen in the park.",
+ "matters": "The park and reservoir are located within the South Park National Heritage Area and impound the South Platte River. The reservoir is famous for its thriving Kokanee salmon population.",
+ "id": "coelevenmile",
+ "name": "Eleven Mile State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1979,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 2091,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1979
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:55:37+00:00"
+}

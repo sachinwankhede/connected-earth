@@ -1,0 +1,21 @@
+{
+ "story": "Scantic River State Park in Connecticut, USA, features lakes and wetlands along the Scantic River. It consists of several separated parcels totaling 784 acres across the towns of Enfield, East Windsor, and Somers. The public recreation area was first planned in 1967.",
+ "matters": "Managed by the Connecticut Department of Energy and Environmental Protection, the park is suitable for hiking, fishing, and hunting. Selected parcels are open to hunting, including the Powder Hollow area and the Harrington Lot.",
+ "id": "ctscanticriver",
+ "name": "Scantic River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1800,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 1908,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1800
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:05:25+00:00"
+}

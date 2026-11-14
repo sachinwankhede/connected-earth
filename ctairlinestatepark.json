@@ -1,0 +1,21 @@
+{
+ "story": "Air Line State Park Trail is a linear state park and rail trail located in Connecticut. It is divided into sections designated South, North, and the Thompson addition. The trail features the Rapallo Viaduct and the Lyman Viaduct.",
+ "matters": "The North section of the trail is part of the East Coast Greenway, which will stretch from Florida to Maine. The southern section is recognized as a national recreation trail.",
+ "id": "ctairlinestatepark",
+ "name": "Air Line State Park Trail",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3514,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 3609,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3514
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:59:35+00:00"
+}

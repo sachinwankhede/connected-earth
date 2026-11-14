@@ -1,0 +1,21 @@
+{
+ "story": "Auburn Heights is a forest located in Delaware, USA. It is home to various species such as the whitetaileddee and the redfox.",
+ "matters": "The park hosts a variety of plants and animals, supporting a local community of species.",
+ "id": "deauburnheights",
+ "name": "Auburn Heights",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1667,
+  "candidatesTokenCount": 56,
+  "totalTokenCount": 1723,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1667
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:07:01+00:00"
+}

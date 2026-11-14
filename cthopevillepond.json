@@ -1,0 +1,21 @@
+{
+ "story": "Hopeville Pond State Park is located in Connecticut, USA, on Hopeville Pond in Griswold. A portion of the state park occupies the site of the lost village of Hopeville. The park features a forest and offers trails for hiking and biking, plus camping, fishing, swimming, and boating.",
+ "matters": "The park includes Hopeville Pond, an impoundment of the Pachaug River. The Mohegan people historically constructed stone weirs to harvest fish from the river.",
+ "id": "cthopevillepond",
+ "name": "Hopeville Pond State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2371,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2474,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2371
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:01:58+00:00"
+}

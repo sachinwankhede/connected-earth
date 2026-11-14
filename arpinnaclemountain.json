@@ -1,0 +1,21 @@
+{
+ "story": "Pinnacle Mountain State Park is a 2,356-acre state park located in Pulaski County, Arkansas just outside of Little Rock. The main attraction is Pinnacle Mountain, an iconic landmark surrounded by the bottomlands of the Big Maumelle and Little Maumelle rivers.",
+ "matters": "The park preserves 2,356 acres set aside for various purposes including environmental education, outdoor recreation, and preservation, and connects to nearby areas like Lake Maumelle and the Ouachita Trail.",
+ "id": "arpinnaclemountain",
+ "name": "Pinnacle Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2283,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 2394,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2283
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:40:44+00:00"
+}

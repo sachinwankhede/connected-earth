@@ -1,0 +1,21 @@
+{
+ "story": "Rocky Neck State Park is a public recreation area encompassing 710 acres on Long Island Sound in the town of East Lyme, Connecticut, United States. The park features a white sand beach and small boardwalk, tidal river, and a broad salt marsh.",
+ "matters": "The park provides a natural habitat for wildlife including the bobcat, white-tailed deer, and great egret. Visitors can explore hiking trails leading to a salt marsh, Baker's Cave, and Shipyard.",
+ "id": "ctrockyneck",
+ "name": "Rocky Neck State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2318,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 2422,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2318
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:04:38+00:00"
+}

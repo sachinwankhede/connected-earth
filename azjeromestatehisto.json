@@ -1,0 +1,21 @@
+{
+ "story": "Jerome State Historic Park is a state park of Arizona, United States, located in Jerome, a mining region in the northeast of the Black Hills, east Yavapai County. The park features the Douglas Mansion, built in 1916 by a family of influential mining entrepreneurs.",
+ "matters": "The park's mission is to interpret the history of the Douglas family and the history of Jerome in the mining era.",
+ "id": "azjeromestatehisto",
+ "name": "Jerome State Historic Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1879,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1976,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1879
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:42:36+00:00"
+}

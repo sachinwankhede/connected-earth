@@ -1,0 +1,21 @@
+{
+ "story": "Mooween State Park is a public recreation area covering 577 acres in the town of Lebanon, Connecticut. The park offers hiking and mountain biking plus fishing and boating on 127-acre Red Cedar Lake. The grounds were the home of a summer camp for boys from 1921 through 1960 before the state purchased the site in 1989.",
+ "matters": "The park provides a natural habitat for wildlife species in Connecticut, including the black bear, bobcat, and coyote.",
+ "id": "ctmooween",
+ "name": "Mooween State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1790,
+  "candidatesTokenCount": 115,
+  "totalTokenCount": 1905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1790
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:03:51+00:00"
+}

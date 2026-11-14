@@ -1,0 +1,21 @@
+{
+ "story": "Topanga State Park is located in the Santa Monica Mountains within Los Angeles County, California. Covering 11,000 acres, it is considered the largest park located in the limits of a city. The park features sedimentary sandstone rock formations, coastal sage scrub, and montane chaparral and woodlands.",
+ "matters": "The park is part of the Santa Monica Mountains National Recreation Area and is home to over eighty mammal species as well as many migratory and resident bird species.",
+ "id": "catopanga",
+ "name": "Topanga State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3692,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 3801,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3692
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:53:31+00:00"
+}

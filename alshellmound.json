@@ -1,0 +1,21 @@
+{
+ "story": "Shell Mound Park is a forest located in Alabama, USA. Animals such as the raccoon, coyote, and americanbeaver live there.",
+ "matters": "The park provides a habitat for various species recorded in GBIF, including the americanbeaver and coyote.",
+ "id": "alshellmound",
+ "name": "Shell Mound Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1600,
+  "candidatesTokenCount": 58,
+  "totalTokenCount": 1658,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1600
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:35:21+00:00"
+}

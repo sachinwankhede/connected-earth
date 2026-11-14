@@ -1,0 +1,21 @@
+{
+ "story": "Chattahoochee Bend State Park is located in Coweta County, Georgia, and covers 2,910 acres of forest along a bend in the Chattahoochee River. It is one of the state's largest state parks and opened to the public on July 1, 2011.",
+ "matters": "The park provides a natural habitat for wildlife including black bears, white-tailed deer, and various bird species across its forest ecosystem in Georgia, USA.",
+ "id": "gachattahoocheeben",
+ "name": "Chattahoochee Bend State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1886,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 1992,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1886
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:18:28+00:00"
+}

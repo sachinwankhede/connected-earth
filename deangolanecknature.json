@@ -1,0 +1,21 @@
+{
+ "story": "Angola Neck Nature Preserve is a forest located in Delaware, USA. It is home to animals such as the red fox and the white-tailed deer.",
+ "matters": "The preserve shelters various species like the northern cardinal and the eastern gray squirrel within its forest ecosystem.",
+ "id": "deangolanecknature",
+ "name": "Angola Neck Nature Preserve",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1569,
+  "candidatesTokenCount": 66,
+  "totalTokenCount": 1635,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1569
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:06:45+00:00"
+}

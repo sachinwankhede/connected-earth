@@ -1,0 +1,21 @@
+{
+ "story": "Black Rock State Park is a forest covering 444 acres in the town of Watertown, Connecticut, originating in 1926. It is known for its large rock face called Black Rock, which offers views of Thomaston, Watertown, and portions of Waterbury.",
+ "matters": "The park adjoins Mattatuck State Forest and is crossed by the Mattatuck Trail, offering scenic views of the Naugatuck Valley.",
+ "id": "ctblackrock",
+ "name": "Black Rock State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1666,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1763,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1666
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:59:51+00:00"
+}

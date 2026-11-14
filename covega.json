@@ -1,0 +1,21 @@
+{
+ "story": "Vega State Park is an 1,823-acre Colorado state park located in Mesa County. Established in 1967, it features Vega Reservoir and is situated at the northeast edge of Grand Mesa National Forest in Western Colorado. The park supports mule deer, elk, marmots, and trout.",
+ "matters": "The park sits on the northeastern edge of Grand Mesa and provides a wetland and lake habitat that supports numerous species of trout, birds, and mammals. Uphill areas include aspen forests and mountain shrublands.",
+ "id": "covega",
+ "name": "Vega State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2558,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 2671,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2558
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:59:19+00:00"
+}

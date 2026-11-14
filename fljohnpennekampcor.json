@@ -1,0 +1,21 @@
+{
+ "story": "John Pennekamp Coral Reef State Park is located on Key Largo in Florida and was the first underwater park in the United States. It opened in 1963 and includes around 70 square nautical miles of adjacent Atlantic Ocean waters. The primary attractions are the coral reefs and associated marine life.",
+ "matters": "The Florida Keys are among the only living coral reef formations in the continental United States. The park helps protect these reefs from damage and preserves their marine life.",
+ "id": "fljohnpennekampcor",
+ "name": "John Pennekamp Coral Reef State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2644,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 2752,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2644
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:15:31+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Wekiwa Springs State Park is a 7,000-acre park in Apopka, Florida, located north of Orlando. It contains the head water of the Wekiva River and features a natural spring with crystal clear water and a year-round temperature of 72 °F.",
+ "matters": "The park shelters rare wildlife, including the Wekiwa hydrobe and the Wekiwa siltsnail, which are endemic to Wekiwa Springs and described as critically imperiled.",
+ "id": "flwekiwasprings",
+ "name": "Wekiwa Springs State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2327,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 2436,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2327
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:17:24+00:00"
+}

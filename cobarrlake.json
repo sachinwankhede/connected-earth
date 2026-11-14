@@ -1,0 +1,21 @@
+{
+ "story": "Barr Lake State Park covers 2,715 acres in Colorado, USA, and was established in 1977. Numerous bald eagles spend the winter at the park and one pair nests every year.",
+ "matters": "Over 350 bird species have been observed at the park, which is popular with birders and features a southern half that serves as a wildlife refuge.",
+ "id": "cobarrlake",
+ "name": "Barr Lake State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1919,
+  "candidatesTokenCount": 85,
+  "totalTokenCount": 2004,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1919
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:54:33+00:00"
+}

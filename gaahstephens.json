@@ -1,0 +1,21 @@
+{
+ "story": "A. H. Stephens State Park is a forest located in Crawfordville, Georgia, USA. The park covers 1,177 acres and contains mill ponds for fishing and nature trails.",
+ "matters": "The park provides a natural habitat for various plants and animals, including sweetgum, red maple, and white-tailed deer.",
+ "id": "gaahstephens",
+ "name": "A. H. Stephens State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1860,
+  "candidatesTokenCount": 74,
+  "totalTokenCount": 1934,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1860
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:17:56+00:00"
+}

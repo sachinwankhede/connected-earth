@@ -1,0 +1,21 @@
+{
+ "story": "Sleeping Giant State Park is a forest located in Connecticut, USA. It is named for its resemblance to a slumbering human figure and features a rugged traprock mountain. The park spans 1,500 acres and offers expansive clifftop vistas.",
+ "matters": "The park is part of the narrow, linear Metacomet Ridge. It hosts unusual microclimates that support several plant and animal species that are state-listed or globally rare.",
+ "id": "ctsleepinggiant",
+ "name": "Sleeping Giant State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3720,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 3818,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3720
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:05:41+00:00"
+}

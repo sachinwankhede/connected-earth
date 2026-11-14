@@ -1,0 +1,21 @@
+{
+ "story": "Montaña de Oro State Park is located in California, USA, in Central Coastal California. It consists of 8,000 acres of cliffs, shoreline, sandy beaches, dunes, coastal plains, streams, canyons, and hills, including Valencia Peak.",
+ "matters": "The park features marine protected areas offshore from the Morro Bay area that help conserve ocean wildlife and marine ecosystems.",
+ "id": "camontaadeoro",
+ "name": "Montaña de Oro State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2170,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 2260,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2170
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:50:35+00:00"
+}

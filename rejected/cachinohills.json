@@ -1,0 +1,22 @@
+{
+ "story": "Chino Hills State Park spans 14,102 acres in California, in the United States. It features rolling hills, woodlands, sage scrub, and grasslands. Visitors can explore valleys and ridge tops where native trees like coast live oaks and California sycamores grow.",
+ "matters": "The park is a critical link in the Chino-Puente Hills wildlife corridor. It serves as a major botanical habitat reserve and a vital refuge for resident and migrating wildlife.",
+ "id": "cachinohills",
+ "name": "Chino Hills State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2837,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2939,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2837
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:48:26+00:00",
+ "rejected": "names not in the research text: Chino-Puente"
+}

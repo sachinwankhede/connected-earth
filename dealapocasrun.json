@@ -1,0 +1,21 @@
+{
+ "story": "Alapocas Run State Park is located in Wilmington, Delaware, United States, along Brandywine Creek and its Alapocas Run tributary. Officially dedicated in 2002, the park features mature woodland, hiking and biking trails, and a rock climbing wall in an old quarry.",
+ "matters": "The park provides passive recreation and the preservation of the natural environment, featuring natural areas such as the Alapocas Woods Trail where mature pawpaw trees can be seen.",
+ "id": "dealapocasrun",
+ "name": "Alapocas Run State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3207,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 3314,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3207
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:06:29+00:00"
+}

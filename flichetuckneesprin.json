@@ -1,0 +1,21 @@
+{
+ "story": "Ichetucknee Springs State Park is a 2,241-acre Florida State Park and National Natural Landmark located in Florida, USA, near Fort White. It centers around the Ichetucknee River, which flows through shaded hammocks and wetlands into the Santa Fe River. The river is fed by natural springs from the aquifer.",
+ "matters": "The park protects a spring-run ecosystem where the state of Florida purchased the property in 1970 out of concern for its protection. Park wildlife includes white-tailed deer, American alligators, and West Indian manatees in the winter months.",
+ "id": "flichetuckneesprin",
+ "name": "Ichetucknee Springs State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2379,
+  "candidatesTokenCount": 137,
+  "totalTokenCount": 2516,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2379
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:15:15+00:00"
+}

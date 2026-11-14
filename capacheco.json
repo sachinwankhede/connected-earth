@@ -1,0 +1,21 @@
+{
+ "story": "Pacheco State Park is a forest located in California, USA, containing 6,890 acres in the Diablo Range. It is known for its vistas of the Central Valley and the Santa Clara Valley, and features impressive displays of colorful wildflowers in spring.",
+ "matters": "Wildlife in the park includes tule elk, deer, bobcat, coyote, fox, golden eagles, and several varieties of hawks. Park land is also used for cattle grazing during the winter and spring.",
+ "id": "capacheco",
+ "name": "Pacheco State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2011,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2114,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2011
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:51:39+00:00"
+}

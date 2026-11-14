@@ -1,0 +1,21 @@
+{
+ "story": "Blue Spring State Park is a Florida state park located west of Orange City, Florida, in the United States. The spring in the park is the largest on the St. Johns River. Due to its warm temperature, the spring attracts many Florida manatees during the winter.",
+ "matters": "The park provides a winter refuge for Florida manatees, whose protection was aided by the Florida Manatee Sanctuary Act of 1978.",
+ "id": "flbluespring",
+ "name": "Blue Spring State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3724,
+  "candidatesTokenCount": 95,
+  "totalTokenCount": 3819,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3724
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:12:03+00:00"
+}

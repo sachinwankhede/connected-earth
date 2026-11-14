@@ -1,0 +1,21 @@
+{
+ "story": "Macedonia Brook State Park is a public recreation area covering 2,302 acres in the town of Kent, Connecticut, United States. The park features a 51-site campground and the blue-blazed Macedonia Ridge Trail, which crosses Cobble Mountain and other peaks. Its first 1,552 acres were a gift made in 1918 by the White Memorial Foundation.",
+ "matters": "The park provides a natural forest area in Connecticut, USA, where visitors can camp, picnic, fish, and hike across peaks like Cobble Mountain.",
+ "id": "ctmacedoniabrook",
+ "name": "Macedonia Brook State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1675,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 1805,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1675
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:03:18+00:00"
+}

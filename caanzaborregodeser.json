@@ -1,0 +1,21 @@
+{
+ "story": "Anza-Borrego Desert State Park is located within the Colorado Desert of Southern California, United States. Created in 1932, it is the largest state park in California and features badlands, springs, and seasonal wildflowers.",
+ "matters": "The park is an anchor in the Mojave and Colorado Deserts Biosphere Reserve and provides a protected habitat for the endangered peninsula bighorn sheep.",
+ "id": "caanzaborregodeser",
+ "name": "Anza-Borrego Desert State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3316,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 3410,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3316
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:47:38+00:00"
+}

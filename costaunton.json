@@ -1,0 +1,21 @@
+{
+ "story": "Staunton State Park features dramatic rock outcroppings, several streams and a waterfall in Colorado, USA. Opened on May 18, 2013, the 3,908-acre park was created out of a gift by Frances H. Staunton to be preserved as a natural wilderness-type park.",
+ "matters": "The park preserves Colorado's beautiful mountain forest and meadow region for public benefit and is listed on the National Register of Historic Places.",
+ "id": "costaunton",
+ "name": "Staunton State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1733,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 1836,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1733
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:58:47+00:00"
+}

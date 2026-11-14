@@ -1,0 +1,21 @@
+{
+ "story": "Hillsborough River State Park is located in Florida, USA, covering over 1,369 hectares or 3,383 acres. Created in 1938, it is one of the eight original Florida State Parks and features a swiftly flowing section of the Hillsborough River with small rapids.",
+ "matters": "The park is cleaved into two halves by the Hillsborough River, which is a blackwater river and one of the few rivers in Florida to have a system of rapids.",
+ "id": "flhillsboroughrive",
+ "name": "Hillsborough River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2116,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2222,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2116
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:14:42+00:00"
+}

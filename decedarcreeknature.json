@@ -1,0 +1,21 @@
+{
+ "story": "Cedar Creek Nature Preserve features lakes and wetlands located in Delaware, USA. It is home to various species such as the Bald Eagle, the eastern cottontail, and pickerelweed.",
+ "matters": "The preserve supports recorded species occurrences including the Bald Eagle, which is sheltered within this region of lakes and wetlands in Delaware, USA.",
+ "id": "decedarcreeknature",
+ "name": "Cedar Creek Nature Preserve",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1346,
+  "candidatesTokenCount": 73,
+  "totalTokenCount": 1419,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1346
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:07:49+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Kettletown State Park is a forest and public recreation area in Connecticut, USA, located on the eastern shore of the Housatonic River's Lake Zoar in the towns of Oxford and Southbury.",
+ "matters": "The state park is managed by the Connecticut Department of Energy and Environmental Protection and provides a space for activities like camping, hiking, picnicking, and fishing.",
+ "id": "ctkettletown",
+ "name": "Kettletown State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1224,
+  "candidatesTokenCount": 83,
+  "totalTokenCount": 1307,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1224
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:03:02+00:00"
+}

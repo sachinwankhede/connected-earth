@@ -1,0 +1,21 @@
+{
+ "story": "Bulow Creek State Park is a Florida State Park located in the USA, next to the Atlantic Ocean. It contains the Fairchild Oak, which is over four centuries old and is among the largest of its kind in the southern United States.",
+ "matters": "The park contains one of the largest stands of southern live oak remaining on the east coast of Florida. Its wildlife includes white-tailed deer, barred owls, and raccoons.",
+ "id": "flbulowcreek",
+ "name": "Bulow Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1771,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 1869,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1771
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:12:19+00:00"
+}

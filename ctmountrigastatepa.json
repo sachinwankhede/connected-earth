@@ -1,0 +1,21 @@
+{
+ "story": "Mount Riga State Park is an undeveloped public recreation area located in the town of Salisbury, Connecticut, USA. The state park offers opportunities for hiking and bow hunting.",
+ "matters": "The Undermountain Trail connects to the northernmost section of the Appalachian Trail in Connecticut from the trail head at Mount Riga State Park's parking lot on Connecticut Route 41.",
+ "id": "ctmountrigastatepa",
+ "name": "Mount Riga State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1462,
+  "candidatesTokenCount": 85,
+  "totalTokenCount": 1547,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1462
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:04:06+00:00"
+}

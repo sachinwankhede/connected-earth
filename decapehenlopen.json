@@ -1,0 +1,21 @@
+{
+ "story": "Cape Henlopen State Park covers 5,450 acres on Cape Henlopen in Sussex County, Delaware, United States. William Penn made the beaches one of the first public lands in 1682. The park is home to endangered shorebirds and horseshoe crabs.",
+ "matters": "The park is a stop on Delaware's Coastal Heritage Greenway and serves as the eastern terminus of the American Discovery Trail, connecting it to other regions.",
+ "id": "decapehenlopen",
+ "name": "Cape Henlopen State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2621,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 2719,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2621
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:07:33+00:00"
+}

@@ -1,80 +1,92 @@
 # REVIEW-16.md
 
-## Konza Prairie and the Flint Hills (`xusks`)
+## Pictured Rocks National Lakeshore (`uspicturedrocksnationall`)
 
-**Story** (44 words): Konza Prairie is an 8,616-acre protected area of native tallgrass prairie located in the Flint Hills of northeastern Kansas. It features a topographically complex landscape with tallgrass, forest, and limestone outcrops. A herd of approximately 2,400 bison graze on the hills of the preserve.
+**Story** (36 words): Pictured Rocks National Lakeshore is located in the Upper Peninsula of Michigan, United States, extending along Lake Superior. Designated in 1966, it was America's first national lakeshore and features colorful sandstone cliffs, waterfalls, and sand dunes.
 
-**Why it matters** (40 words): The site is part of the largest remaining area of unplowed tallgrass prairie in North America, serving as a natural laboratory for studying ecological patterns. Key natural processes such as periodic fire and grazing help sustain this unique grassland ecosystem.
+**Why it matters** (27 words): The U.S. Congress authorized the lakeshore to preserve a significant portion of the diminishing United States shoreline and its related geographic and scientific features for the public.
 
-## Cape Cod National Seashore (`xusma`)
+## Point Reyes National Seashore (`uspointreyesnationalseas`)
 
-**Story** (38 words): Cape Cod National Seashore covers ponds, woods, and beachfront in Massachusetts, USA. Created on August 7, 1961, by President John F. Kennedy, it spans 43,607 acres and includes nearly 40 miles of seashore along the Atlantic-facing eastern shore.
+**Story** (46 words): Point Reyes National Seashore is a park preserve located on the Point Reyes Peninsula in Marin County, California. It covers 71,028 acres and features wild coastal beaches, headlands, estuaries, and uplands. No other U.S. national park south of Alaska hosts breeding hoofed megafauna and marine megafauna.
 
-**Why it matters** (23 words): It shelters the Atlantic coastal pine barrens ecoregion and provides vital habitats for species such as the piping plover and the gray seal.
+**Why it matters** (28 words): The park is part of the Golden Gate Biosphere Network and provides rich habitats that support a high diversity of wildlife, including dozens of rare and endangered plants.
 
-## Pascagoula River (`xusms`)
+## Saint Croix National Scenic Riverway (`ussaintcroixnationalscen`)
 
-**Story** (35 words): The Pascagoula River is about 80 miles long in southeastern Mississippi, United States. It flows generally southward through swampy bottomlands in George and Jackson Counties and into the Mississippi Sound of the Gulf of Mexico.
+**Story** (45 words): Saint Croix National Scenic Riverway is a federally protected system of riverways located in eastern Minnesota and northwestern Wisconsin. It protects 252 miles of river, including the St. Croix River and the Namekagon River, and is the largest scenic riverway east of the Mississippi River.
 
-**Why it matters** (28 words): It is significant as the only unaffected river with a discharge of over 10 cubic kilometres per year flowing from the United States into the Gulf of Mexico.
+**Why it matters** (21 words): It is one of the original eight National Wild and Scenic Rivers and is managed overall by the National Park Service.
 
-## Platte River sandhill crane migration (central Platte valley) (`xusne`)
+## Santa Monica Mountains National Recreation Area (`ussantamonicamountainsna`)
 
-**Story** (35 words): The Platte River sandhill crane migration takes place in the central Platte valley in Nebraska, United States. Fossil evidence indicates this crane stopover in the river valley has been active for over 10 million years.
+**Story** (33 words): The Santa Monica Mountains National Recreation Area is located primarily in Southern California's Santa Monica Mountains in California, USA. It is the largest urban national park in the world and contains 153,075 acres.
 
-**Why it matters** (29 words): The central Platte River valley is an important stopover for migratory water birds, such as the whooping crane and sandhill crane, in their yearly traversal of the Central Flyway.
+**Why it matters** (29 words): It is one of the best examples of a Mediterranean climate ecosystem and protects one of the highest densities of archaeological resources in any mountain range in the world.
 
-## White Mountain National Forest (`xusnh`)
+## Scotts Bluff National Monument (`usscottsbluffnationalmon`)
 
-**Story** (42 words): The White Mountain National Forest is located in New Hampshire, USA, with a small part in Maine. Established in 1918, it has a total area of 750,852 acres. It is home to wildlife species including the moose, bald eagle, and black bear.
+**Story** (44 words): Scotts Bluff National Monument is located in western Nebraska, United States. It protects over 3,000 acres of towering bluffs, mixed-grass prairie, rugged badlands, and a riparian area along the North Platte River. The site was designated as a National Monument on December 12, 1919.
 
-**Why it matters** (35 words): It contains six designated Federal Wilderness Areas that are protected from logging and commercial industries and are used solely for recreational and scientific purposes. Over 100 miles of the Appalachian Trail traverses the national forest.
+**Why it matters** (25 words): The monument preserves historic overland trail remnants that served as an important landmark on the Oregon Trail, California Trail, Pony Express Trail, and Mormon Trail.
 
-## Adirondack Park (`xusny`)
+## Sleeping Bear Dunes National Lakeshore (`ussleepingbeardunesnatio`)
 
-**Story** (34 words): Adirondack Park is located in northeastern New York. Established in 1892, it is the largest park in the contiguous United States at 6.1 million acres and contains old-growth forests, lakes, and the Adirondack Mountains.
+**Story** (46 words): Sleeping Bear Dunes National Lakeshore is located in the northwestern Lower Peninsula of Michigan, within Benzie and Leelanau counties. The park preserves 71,199 acres along a 35-mile stretch of Lake Michigan's eastern coastline. It is known for its dune formations, forests, beaches, and ancient glacial phenomena.
 
-**Why it matters** (24 words): The park provides watershed protection and shelters old-growth forests and native wildlife. Its legal protections and management have helped conserve developed and wild lands.
+**Why it matters** (31 words): The landscape was formed approximately 10,000 to 14,000 years ago during the Wisconsin glaciation. A section of the park was named the Sleeping Bear Dunes Wilderness by the United States Congress.
 
-## Joseph H. Williams Tallgrass Prairie Preserve (`xusok`)
+## Tonto National Monument (`ustontonationalmonument`)
 
-**Story** (55 words): The Joseph H. Williams Tallgrass Prairie Preserve is located in Oklahoma, USA, and is the largest protected tract of tallgrass prairie in the world. Managed by The Nature Conservancy, it covers 39,650 acres owned by the Conservancy and another 6,000 acres leased. The preserve is home to prominent bison and numerous plant and bird species.
+**Story** (43 words): Tonto National Monument is located in the Superstition Mountains, in Gila County of central Arizona. It lies on the northeastern edge of the Sonoran Desert ecoregion, featuring well-preserved cliff dwellings occupied by the Salado culture during the 13th, 14th, and early 15th centuries.
 
-**Why it matters** (28 words): It protects a rare remnant of the original tallgrass region of the Great Plains and provides a vital habitat for threatened greater prairie-chickens and endangered American burying beetles.
+**Why it matters** (31 words): The area includes a lush riparian area supported by the Salt River and is surrounded by the Tonto National Forest, serving as a home for native animals and characteristic saguaro cacti.
 
-## Allegheny National Forest (`xuspa`)
+## Tule Springs Fossil Beds National Monument (`ustulespringsfossilbedsn`)
 
-**Story** (39 words): The Allegheny National Forest is a National Forest in Northwestern Pennsylvania, about 100 miles northeast of Pittsburgh. The forest covers 513,175 acres of land. Within the forest is Kinzua Dam, which impounds the Allegheny River to form Allegheny Reservoir.
+**Story** (31 words): Tule Springs Fossil Beds National Monument is a United States National Monument near Las Vegas, Clark County, Nevada. Established in 2014, it covers 22,650 acres and protects Ice Age paleontological discoveries.
 
-**Why it matters** (33 words): The Allegheny National Forest lies in the heart of Pennsylvania's oil and gas region, only 40 miles from the site of the first commercial oil well in the United States at Titusville, Pennsylvania.
+**Why it matters** (27 words): The monument protects part of the Tule Springs in the Upper Las Vegas Wash area, which also includes several patches of the rare Las Vegas bear poppy.
 
-## Narragansett Bay and Block Island (`xusri`)
+## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
 
-**Story** (44 words): Narragansett Bay and Block Island are located in Rhode Island, USA. Narragansett Bay covers 147 square miles and forms New England's largest estuary. Block Island lies less than 20 miles southwest of its opening and is an island of the Outer Lands coastal archipelago.
+**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
 
-**Why it matters** (31 words): About 40 percent of Block Island is set aside for conservation, and much of its northwestern tip is an undeveloped natural area and resting stop for birds along the Atlantic flyway.
+**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
 
-## Green Mountain National Forest (`xusvt`)
+## Wupatki National Monument (`uswupatkinationalmonumen`)
 
-**Story** (36 words): Green Mountain National Forest is a national forest located in Vermont, situated in the Green Mountains. Established in 1932, the forest supports wildlife including beaver, moose, coyote, black bear, white-tailed deer, wild turkey, and ruffed grouse.
+**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
 
-**Why it matters** (27 words): It is a temperate broadleaf and mixed forest typical of the New England/Acadian forests ecoregion, and is one of only two national forest areas in New England.
+**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
 
-## Nuratau-Kyzylkum Biosphere Reserve (`xuzb`)
+## Cocos Island National Park (`whcocos`)
 
-**Story** (25 words): The Nuratau-Kyzylkum Biosphere Reserve is located in Uzbekistan. It conserves the landscapes and cultural assets of the Nuratau Mountain Range and the adjacent Kyzylkum Desert.
+**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
 
-**Why it matters** (28 words): The reserve is the only place in the world where the endangered Severtsov wild sheep still roam in the wild. It also protects unique flora and fruit trees.
+**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
 
-## Espiritu Santo Highland Forest (`xvanuatu`)
+## Corcovado National Park (`whcorcovado`)
 
-**Story** (42 words): Espiritu Santo Highland Forest is located in Vanuatu. The island of Espiritu Santo has an area of 3,955.5 square kilometres and is part of the nation and archipelago of Vanuatu. Animals found here include the Pacific imperial pigeon and the swamp harrier.
+**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
 
-**Why it matters** (24 words): The forest provides a home for various native birds and species found across the Pacific region, contributing to the rich biodiversity of the island.
+**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
 
-## South Luangwa National Park (`xzambia`)
+## Darién National Park (`whdarien`)
 
-**Story** (47 words): South Luangwa National Park covers 9,050 km2 in eastern Zambia. Founded as a game reserve in 1938 and becoming a national park in 1972, it sits in the valley of the meandering Luangwa River. The park supports over 400 bird species and more than 60 mammal species.
+**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
 
-**Why it matters** (26 words): The park spans woodland savannah eco-regions and includes the Nsefu Sector, supporting stable populations of lions, spotted hyenas, African wild dogs, and high densities of leopards.
+**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
+
+## Gros Morne National Park (`whgrosmorne`)
+
+**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
+
+**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
+
+## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
+
+**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
+
+**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
 

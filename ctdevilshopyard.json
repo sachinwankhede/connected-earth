@@ -1,0 +1,21 @@
+{
+ "story": "Devil's Hopyard State Park is a 1,000-acre public recreation area located in the town of East Haddam, Connecticut, at the Eightmile River's Chapman Falls. The park features Chapman Falls dropping more than 60 feet over a series of steps in a Scotland schist stone formation, and includes the Vista Point cliff.",
+ "matters": "The park is located at the Eightmile River's Chapman Falls and includes a forest habitat. It was acquired by the state for use as a state park in 1919.",
+ "id": "ctdevilshopyard",
+ "name": "Devil's Hopyard State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2681,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 2808,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2681
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:01:10+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Lake Kissimmee State Park covers a 5,930-acre Florida State Park located north of State Road 60, fifteen miles east of Lake Wales. It contains floodplain, forest, prairie, hammock, flatwoods and Lakes Kissimmee, Tiger, and Rosalie. The park is home to two hundred species of birds and fifty species of plants and animals that are threatened, of special concern, or endangered.",
+ "matters": "The park is home to fifty species of plants and animals that are either threatened, of special concern, or endangered, and provides access to more than 30,000 acres of lakes.",
+ "id": "fllakekissimmee",
+ "name": "Lake Kissimmee State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2207,
+  "candidatesTokenCount": 143,
+  "totalTokenCount": 2350,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2207
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:16:03+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Mueller State Park is a forest located in Colorado, USA, encompassing 5,112 acres of land outside Divide, west of Colorado Springs. The park offers 55 miles of trails.",
+ "matters": "Mueller is a diverse home to a variety of animals including elk, black bear, eagles, hawks, and bighorn sheep.",
+ "id": "comueller",
+ "name": "Mueller State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1434,
+  "candidatesTokenCount": 78,
+  "totalTokenCount": 1512,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1434
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:57:12+00:00"
+}

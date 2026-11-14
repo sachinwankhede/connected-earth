@@ -1,0 +1,21 @@
+{
+ "story": "Wind Creek State Park is a public recreation area located on the western side of Lake Martin, a reservoir on the Tallapoosa River in Alabama, USA. The state park occupies 1,445 acres.",
+ "matters": "The park includes Lake Martin, a 41,000-acre reservoir on the Tallapoosa River, and features a trail system that was designated as a National Recreation Trail in 2011.",
+ "id": "alwindcreek",
+ "name": "Wind Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1771,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 1874,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1771
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:35:37+00:00"
+}

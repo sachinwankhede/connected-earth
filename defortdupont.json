@@ -1,0 +1,21 @@
+{
+ "story": "Fort DuPont State Park is located in Delaware, USA. It became Delaware's 13th state park in 1992 after a portion of Fort DuPont was redesignated. The fort was originally named in honor of Rear Admiral Samuel Francis Du Pont.",
+ "matters": "The site includes the Fort DuPont Historic District and was listed in the National Register of Historic Places. It connects to the history of the Delaware River and the water approach to Philadelphia.",
+ "id": "defortdupont",
+ "name": "Fort DuPont State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3523,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 3626,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3523
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:09:09+00:00"
+}

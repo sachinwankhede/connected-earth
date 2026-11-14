@@ -1,0 +1,21 @@
+{
+ "story": "Mount San Jacinto State Park is in California, USA, in the San Jacinto Mountains. It encompasses the weathered granite summit of Mount San Jacinto, which reaches 10,834 feet above sea level.",
+ "matters": "Part of the natural area is old-growth forest recognized by the Old-Growth Forest Network. A majority of the park is within the Santa Rosa and San Jacinto Mountains National Monument.",
+ "id": "camountsanjacinto",
+ "name": "Mount San Jacinto State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1913,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 2007,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1913
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:51:07+00:00"
+}

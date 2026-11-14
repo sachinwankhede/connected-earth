@@ -1,0 +1,21 @@
+{
+ "story": "Myakka River State Park is one of the state's largest and oldest parks, located in Florida, USA. It consists of 37,000 acres and is named after the Myakka River, Florida's first Wild and Scenic River. The park is noted for its wildlife, including rare birds and American alligators.",
+ "matters": "The park is in the southeastern conifer forests ecoregion and features diverse plant communities, wetlands, marshes, and floodplains. It supports a wide variety of native flora and fauna, including fish, amphibians, reptiles, and mammals.",
+ "id": "flmyakkariver",
+ "name": "Myakka River State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2350,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 2477,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2350
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:16:36+00:00"
+}

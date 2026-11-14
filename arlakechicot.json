@@ -1,0 +1,21 @@
+{
+ "story": "Lake Chicot State Park is a 211.6 acres Arkansas state park in Chicot County, Arkansas within the Arkansas Delta. The park is located along Lake Chicot, a 22 miles oxbow lake that was formerly the main channel of the Mississippi River.",
+ "matters": "Lake Chicot is the state's largest natural lake and the largest oxbow lake in the United States, featuring a bayou environment among large cypress trees.",
+ "id": "arlakechicot",
+ "name": "Lake Chicot State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1870,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 1968,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1870
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:38:20+00:00"
+}

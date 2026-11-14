@@ -1,92 +1,92 @@
 # REVIEW-07.md
 
-## Whiskeytown-Shasta-Trinity National Recreation Area (`uswhiskeytownshastatrini`)
+## Cherry Creek State Park (`cocherrycreek`)
 
-**Story** (57 words): The Whiskeytown–Shasta–Trinity National Recreation Area is located in northern California and was authorized in 1965 by the United States Congress. It spans a total of 246,087 acres and is divided into the Shasta, Trinity, and Whiskeytown Units, which encompass large reservoirs and surrounding natural features. Plant communities include riparian areas, chaparral, grasslands, woodlands, and mixed evergreen forests.
+**Story** (26 words): Cherry Creek State Park is located in Colorado, United States. It consists of a natural prairie and wetland environment with an 880-acre reservoir at its center.
 
-**Why it matters** (30 words): The recreation area offers wildlife viewing opportunities that include over sixty pairs of osprey, thirty pairs of nesting bald eagles, resident and migrating birds, and populations of deer and bears.
+**Why it matters** (14 words): More than 40 mammal species roam through the park, including white-tailed deer and coyote.
 
-## Wupatki National Monument (`uswupatkinationalmonumen`)
+## Eleven Mile State Park (`coelevenmile`)
 
-**Story** (31 words): Wupatki National Monument is located in north-central Arizona, near Flagstaff. Established in 1924, it spans 35,422 acres and is rich in Native American archaeological sites built by the Ancient Pueblo People.
+**Story** (44 words): Eleven Mile State Park is located in Park County, Colorado, USA, and was established in 1970. The 7,662-acre park surrounds the Eleven Mile Canyon Reservoir and features trails for hikers and bicyclists. Animals such as coyotes and pronghorn can be seen in the park.
 
-**Why it matters** (20 words): The monument is administered by the National Park Service in close conjunction with the nearby Sunset Crater Volcano National Monument.
+**Why it matters** (29 words): The park and reservoir are located within the South Park National Heritage Area and impound the South Platte River. The reservoir is famous for its thriving Kokanee salmon population.
 
-## Cocos Island National Park (`whcocos`)
+## Elkhead State Park (`coelkhead`)
 
-**Story** (51 words): Cocos Island is a volcanic island in the Pacific Ocean administered by Costa Rica. It has an area of approximately 23.85 square kilometers and has been designated a Costa Rican National Park since 1978. Surrounded by deep waters, the island is known for its populations of hammerhead sharks, rays, and dolphins.
+**Story** (40 words): Elkhead State Park is located in Moffat and Routt counties in northwest Colorado, near Craig. Constructed in 1974, the park surrounds and includes the 900 surface acre Elkhead Reservoir, which dams Elkhead Creek draining the Elkhead Mountains to the north.
 
-**Why it matters** (34 words): Cocos Island National Park became a UNESCO World Heritage Site due to the unique ecology of the island and its surrounding waters. Scuba divers admire the area for its populations of large marine species.
+**Why it matters** (30 words): The park is managed as a complex out of the Yampa River State Park office and is stocked with primarily warmwater fish species, including largemouth bass, black crappie, and bluegill.
 
-## Corcovado National Park (`whcorcovado`)
+## Golden Gate Canyon State Park (`cogoldengatecanyon`)
 
-**Story** (55 words): Corcovado National Park is located on the Osa Peninsula in southwestern Costa Rica. Established on October 24, 1975, it covers an area of 424 square kilometres and is the largest park in the country. It features the largest primary forest on the American Pacific coastline and is home to Baird's tapir, jaguars, and scarlet macaws.
+**Story** (32 words): Golden Gate Canyon State Park is a forest in Colorado established in 1960. It covers 12,119 acres in Gilpin and Jefferson counties northwest of Golden and features 42 miles of hiking trails.
 
-**Why it matters** (34 words): The park is part of the Osa Conservation Area and houses 2.5% of the world's biodiversity. It preserves a vital lowland tropical forest and supports endangered species such as the Central American squirrel monkey.
+**Why it matters** (35 words): The park shelters wetland and riparian plant communities along Ralston, Nott and Deer creeks. Forested areas contain ponderosa pine, Rocky Mountain juniper, Douglas fir and aspen, alongside wildlife such as mule deer and black bear.
 
-## Darién National Park (`whdarien`)
+## Lake Pueblo State Park (`colakepueblo`)
 
-**Story** (41 words): Darién National Park is a World Heritage Site in Panama covering 5,790 square kilometers. It acts as a natural bridge spanning North and South America and features rocky coastlines, mangroves, swamps, and tropical forests. Two native tribes dwell inside the park.
+**Story** (39 words): Lake Pueblo State Park is a state park located in Pueblo County, Colorado. It includes 60 miles of shoreline and 10,000 acres of land. The land surrounding the reservoir is very diverse and home to many different animal species.
 
-**Why it matters** (30 words): The park is rich in biodiversity and contains numerous threatened species. It is a protected area inhabited by humans and is adjacent to the Los Katíos National Park in Colombia.
+**Why it matters** (28 words): Water from Pueblo helps enhance recreation, fish, and wildlife. It is also notable in that it is home to a rare species of serpent, the blackneck garter snake.
 
-## Gros Morne National Park (`whgrosmorne`)
+## Lone Mesa State Park (`colonemesa`)
 
-**Story** (49 words): Gros Morne National Park covers 1,805 km2 on the west coast of Newfoundland, Canada. Named after Newfoundland's second-highest mountain peak, it features coastal, forest, bog, and alpine habitats. The park protects eroded remnants of a mountain range formed 1.2 billion years ago and showcases the process of continental drift.
+**Story** (33 words): Lone Mesa State Park is a closed-access forest park in Colorado located 23 miles north of Dolores. It is currently undergoing development and planning and is restricted to hunting, volunteer and educational programs.
 
-**Why it matters** (38 words): The park was designated a UNESCO World Heritage Site in 1987 for its geological history and exceptional scenery, illustrating the concept of plate tectonics. It also supports a wide range of terrestrial and marine wildlife across its habitats.
+**Why it matters** (20 words): Several local endemic species have been located or described in the park including Physaria puvinata Gutierrezia elegens and Pakera mancosana.
 
-## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`)
+## Lory State Park (`colory`)
 
-**Story** (51 words): Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in British Columbia, Canada. It protects an archipelago of 138 islands, covering nearly 5,000 square kilometres from mountain top to ocean depth. The landscapes vary from deep fjords to rugged mountains and coastal temperate rainforest.
+**Story** (30 words): Lory State Park is a forest located west of the city of Fort Collins, Colorado, and west of Horsetooth Reservoir. It features mountain biking, hiking, horseback riding, and rock climbing.
 
-**Why it matters** (38 words): The marine reserve is a primary feeding habitat of the North Pacific population of the humpback whale. It is also home to the Haida Gwaii black bear, a keystone species that transports salmon remains into the surrounding forests.
+**Why it matters** (18 words): The park provides a natural habitat for species such as the mule deer, black bear, and abert's squirrel.
 
-## Iguazú National Park (`whiguazu`)
+## Mueller State Park (`comueller`)
 
-**Story** (44 words): Iguazú National Park is located in Misiones, Argentina, and covers an area of 677 square kilometers. Created in 1934, it protects the Iguazu Falls and the surrounding subtropical jungle. Rare species such as the jaguar, South American tapir, and great dusky swift live here.
+**Story** (28 words): Mueller State Park is a forest located in Colorado, USA, encompassing 5,112 acres of land outside Divide, west of Colorado Springs. The park offers 55 miles of trails.
 
-**Why it matters** (30 words): The park lies within the Alto Paraná Atlantic forests ecoregion, which spans parts of Brazil, Argentina, and Paraguay. Together with its Brazilian counterpart, it forms a UNESCO World Heritage Site.
+**Why it matters** (19 words): Mueller is a diverse home to a variety of animals including elk, black bear, eagles, hawks, and bighorn sheep.
 
-## Swiss Alps Jungfrau-Aletsch (`whjungfrau`)
+## Navajo State Park (`conavajo`)
 
-**Story** (51 words): Swiss Alps Jungfrau-Aletsch is located in south-western Switzerland between the cantons of Bern and Valais. The protected site covers an area of 82,388 ha and contains the largest glaciated area in western Eurasia, including the Aletsch Glacier. It is home to animals such as the chamois, alpine ibex, and red deer.
+**Story** (44 words): Navajo State Park is a state park of Colorado, USA, on the north shore of Navajo Lake. Its area is 15,000 acres, and it has 150 miles of shoreline in two states. The park features pinyon-juniper woodland, sagebrush shrubland and western slope grassland communities.
 
-**Why it matters** (37 words): The area is the first World Natural Heritage site in the Alps and comprises the largest continuous area of ice in the Alps. It shelters numerous plant and vertebrate species adapted to high altitudes and extreme weather.
+**Why it matters** (29 words): The park provides a home for rare wildlife species like the river otter, bald eagle, and white pelican. Many migratory and resident birds are also known in this area.
 
-## Laponian Area (`whlaponia`)
+## Ridgway State Park (`coridgway`)
 
-**Story** (54 words): Sarek National Park is located in the Jokkmokk Municipality, Lapland in northern Sweden, and was established in 1909. The park covers an area of 1,977 square kilometres and is among the oldest national parks in Europe. It is the most mountainous region in Sweden, featuring about 100 glaciers and six peaks over 2,000 metres.
+**Story** (39 words): Ridgway State Park is located in Ouray County, Colorado, United States. Its nature and hiking trails feature great views of the Cimarron Range of the San Juan Mountains. The wildlife consists of deer, mountain lions, coyotes, rabbits, and elk.
 
-**Why it matters** (39 words): The park is adjacent to Padjelanta and Stora Sjöfallet national parks, forming a combined protected area of approximately 5,500 square kilometres. It also provides a remote alpine habitat for various arctic and mountain species such as reindeer and wolverines.
+**Why it matters** (20 words): The park features a variety of animal life and wildlife. Brown, rainbow, and cutthroat trout are commonly caught at Pa-co-chu-puk.
 
-## Lord Howe Island Group (`whlordhowe`)
+## Roxborough State Park (`coroxborough`)
 
-**Story** (57 words): Lord Howe Island is an irregularly crescent-shaped volcanic remnant in the Tasman Sea, part of New South Wales, Australia. The island is about 10 km long with an area of 14.55 square kilometers and is home to forested hills rising to Mount Gower. The Lord Howe Island Group comprises 28 islands, islets, and rocks, including Ball's Pyramid.
+**Story** (39 words): Roxborough State Park covers 3,339 acres in Douglas County, Colorado, and was established in 1975. It is known for dramatic red sandstone formations and forests of ponderosa pine and Douglas fir that support wildlife like black bear and elk.
 
-**Why it matters** (40 words): The Lord Howe Island Group is a World Heritage Site with untouched forest and the world's southernmost barrier coral reef. It shelters unique plants and animals found nowhere else in the world, including the endangered and flightless Lord Howe woodhen.
+**Why it matters** (33 words): It is recognized as a National Natural Landmark because of its ecological systems and geological formations. The park also connects to the Douglas County trail system, Pike National Forest, and Waterton Canyon trails.
 
-## Lorentz National Park (`whlorentz`)
+## Spinney Mountain State Park (`cospinneymountain`)
 
-**Story** (39 words): Lorentz National Park is an Indonesian national park located in the southwest of western New Guinea. Covering 25,056 km2, it is the largest national park in Southeast Asia and was declared a World Heritage Site by UNESCO in 1999.
+**Story** (32 words): Spinney Mountain State Park is a Colorado state park in Park County, United States, centering on the Spinney Mountain Reservoir built in 1981. The park takes its name from nearby Spinney Mountain.
 
-**Why it matters** (28 words): It is one of the most ecologically diverse national parks in the world, containing a full altitudinal array of ecosystems from marine areas and mangroves to equatorial glaciers.
+**Why it matters** (25 words): The reservoir provides the majority of the water supply for the City of Aurora, Colorado, and offers great fishing for rainbow trout and northern pike.
 
-## Manú National Park (`whmanu`)
+## State Forest State Park (`costateforest`)
 
-**Story** (43 words): Manú National Park is a national park and biosphere reserve located in the regions of Madre de Dios and Cusco in Peru. Established on 29 May 1973, it covers an area of 1,716,295.22 hectares. It protects lowland rainforests, cloud forests and Andean grasslands.
+**Story** (39 words): State Forest State Park is a forest located in Colorado, United States, established in 1970 in the Medicine Bow Range of the Rocky Mountains. The 70,838-acre park features wildlife including moose, bighorn sheep, black bear, mule deer, and elk.
 
-**Why it matters** (29 words): It protects a diverse number of ecosystems and provides a home for native communities and native peoples living in voluntary isolation, including the Yora, Mashco-Piro, Matsiguenka, Harakmbut and Yine.
+**Why it matters** (18 words): North Park is considered the moose viewing capital of Colorado, with over 600 moose to be observed year-round.
 
-## Monarch Butterfly Biosphere Reserve (`whmonarch`)
+## Staunton State Park (`costaunton`)
 
-**Story** (39 words): The Monarch Butterfly Biosphere Reserve is located in Mexico within the Trans-Mexican Volcanic Belt pine-oak forests ecoregion, on the border of Michoacan and State of Mexico. Millions of butterflies arrive in the reserve annually to inhabit oyamel fir forests.
+**Story** (41 words): Staunton State Park features dramatic rock outcroppings, several streams and a waterfall in Colorado, USA. Opened on May 18, 2013, the 3,908-acre park was created out of a gift by Frances H. Staunton to be preserved as a natural wilderness-type park.
 
-**Why it matters** (30 words): The reserve is a World Heritage Site containing most of the overwintering sites of the eastern population of the monarch butterfly, serving to protect the butterfly species and its habitat.
+**Why it matters** (23 words): The park preserves Colorado's beautiful mountain forest and meadow region for public benefit and is listed on the National Register of Historic Places.
 
-## Nahanni National Park Reserve (`whnahanni`)
+## Trinidad Lake State Park (`cotrinidadlake`)
 
-**Story** (43 words): Nahanni National Park Reserve is located in the Northwest Territories, Canada, protecting a portion of the Mackenzie Mountains Natural Region. The park features the South Nahanni River, which flows through four deep canyons, and includes Virginia Falls, where the river plunges 90 m.
+**Story** (37 words): Trinidad Lake State Park is a state park located in Colorado, USA, protecting Trinidad Lake, a dammed reservoir. The park features hiking trails, camping and boating opportunities, and historical attractions such as coal mining ruins at Cokedale.
 
-**Why it matters** (23 words): The park provides appropriate year-round or seasonal habitat for ten special-concern, threatened, or endangered species, including the grizzly bear, woodland caribou, and wolverine.
+**Why it matters** (28 words): A portion of the mountain route of the Santa Fe Trail runs through the park, and an exposure of the Cretaceous–Paleogene boundary is visible in the southern part.
 

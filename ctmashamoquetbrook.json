@@ -1,0 +1,21 @@
+{
+ "story": "Mashamoquet Brook State Park is a forest located in Connecticut, USA, in the town of Pomfret. It covers a size of over 900 acres. Notable features include the Wolf Den national historic site, the Brayton Grist Mill, and the Table Rock and Indian Chair natural stone formations.",
+ "matters": "The park includes a hemlock-lined gorge of Mashamoquet Brook and the Wolf Den, which is the site of Israel Putnam's legendary wolf slaying.",
+ "id": "ctmashamoquetbrook",
+ "name": "Mashamoquet Brook State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1546,
+  "candidatesTokenCount": 111,
+  "totalTokenCount": 1657,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1546
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:03:34+00:00"
+}

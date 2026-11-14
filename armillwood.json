@@ -1,0 +1,21 @@
+{
+ "story": "Millwood State Park is a public recreation area located in Arkansas, USA. It is known for fishing and wildlife habitats along Millwood Lake. The park was established on April 1, 1976.",
+ "matters": "The site was chosen because of the important role the lakes in the Little Red River basin play in controlling flooding on the Red River.",
+ "id": "armillwood",
+ "name": "Millwood State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1726,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 1805,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1726
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:39:39+00:00"
+}

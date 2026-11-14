@@ -1,0 +1,21 @@
+{
+ "story": "Riordan Mansion State Historic Park is located in Flagstaff, Arizona, USA, and covers 5 acres of forest. It preserves a thirteen thousand square foot duplex mansion built in 1904 by lumber baron brothers Timothy and Michael Riordan.",
+ "matters": "The park preserves the historic duplex home of lumber barons who played a role in the development of Flagstaff and northern Arizona.",
+ "id": "azriordanmansionst",
+ "name": "Riordan Mansion State Historic Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2010,
+  "candidatesTokenCount": 84,
+  "totalTokenCount": 2094,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2010
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:44:28+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Fenwick Island State Park covers 375 acres in Sussex County, Delaware, United States. Established in 1966, it is located on a narrow strip of land between the Atlantic Ocean and Little Assawoman Bay and remains largely undeveloped due to constantly shifting dunes.",
+ "matters": "The park borders both the Atlantic Ocean and Little Assawoman Bay, offering habitats associated with lakes and wetlands and supporting local wildlife species.",
+ "id": "defenwickisland",
+ "name": "Fenwick Island State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1927,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 2027,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1927
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:08:21+00:00"
+}

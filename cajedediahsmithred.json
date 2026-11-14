@@ -1,0 +1,21 @@
+{
+ "story": "Jedediah Smith Redwoods State Park preserves old-growth redwoods along the Smith River in California, United States. Established in 1929, the park covers 42.2 square kilometres and includes groves of ancient trees as well as the world's largest coast redwood.",
+ "matters": "The park preserves a spawning and migration route for fish in the Smith River, which is the last major undammed river in California and supports species like rainbow trout and salmon.",
+ "id": "cajedediahsmithred",
+ "name": "Jedediah Smith Redwoods State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2225,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2328,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2225
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:49:47+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Lake Catherine State Park is a 2,180-acre public recreation area located in Arkansas, USA, on the south shore of Lake Catherine. Built in the 1930s by the Civilian Conservation Corps, it features historic rustic cabins and a nature cabin with exhibits.",
+ "matters": "The park provides a public recreation area and a nature cabin that houses exhibits on the natural environment of the park.",
+ "id": "arlakecatherine",
+ "name": "Lake Catherine State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2074,
+  "candidatesTokenCount": 90,
+  "totalTokenCount": 2164,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2074
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:37:48+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Hurd State Park is a forest located on the east bank of the Connecticut River in the town of East Hampton, Connecticut. Named for the Hurd family who arrived in 1710, the state purchased the first 150 acres in 1914. It is a public recreation area offering hiking, picnicking, and mountain biking.",
+ "matters": "The park lies adjacent to George Dudley Seymour State Park and is one of four Connecticut state parks that offer primitive camping for boaters on the Connecticut River.",
+ "id": "cthurd",
+ "name": "Hurd State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1611,
+  "candidatesTokenCount": 119,
+  "totalTokenCount": 1730,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1611
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:02:14+00:00"
+}

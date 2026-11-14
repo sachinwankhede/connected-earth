@@ -1,0 +1,21 @@
+{
+ "story": "Faver-Dykes State Park is a Florida State Park located in Florida, USA, bordering Pellicer Creek. The park is a forest where activities include fishing, picnicking, boating, canoeing, camping, and wildlife viewing.",
+ "matters": "The park provides a home for various wildlife, including white-tailed deer, bobcats, river otters, and many birds such as bald eagles, falcons, hawks, egrets, wood storks, white ibis, wild turkeys, and herons.",
+ "id": "flfaverdykes",
+ "name": "Faver-Dykes State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1572,
+  "candidatesTokenCount": 109,
+  "totalTokenCount": 1681,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1572
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:14:10+00:00"
+}

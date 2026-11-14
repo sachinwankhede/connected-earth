@@ -1,0 +1,22 @@
+{
+ "story": "Queen Wilhelmina State Park is a forest located in the Ouachita Mountains of Arkansas, USA. It sits on the 2,681-foot Rich Mountain, which is Arkansas' second highest peak. The park features a historic lodge initially built in 1898.",
+ "matters": "The park is located on Arkansas' second highest peak and is the only lodge open on the 235 mile Ouachita Trail. It belongs to the Arkansas Department of Parks and Tourism as one of its eight mountain parks.",
+ "id": "arqueenwihelmina",
+ "name": "Queen Wilhelmina State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2150,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 2270,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2150
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:41:00+00:00",
+ "rejected": "names not in the research text: Arkansas'"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Cherry Creek State Park is located in Colorado, United States. It consists of a natural prairie and wetland environment with an 880-acre reservoir at its center.",
+ "matters": "More than 40 mammal species roam through the park, including white-tailed deer and coyote.",
+ "id": "cocherrycreek",
+ "name": "Cherry Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1617,
+  "candidatesTokenCount": 64,
+  "totalTokenCount": 1681,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1617
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:55:21+00:00"
+}

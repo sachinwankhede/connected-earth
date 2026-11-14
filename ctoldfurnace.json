@@ -1,0 +1,21 @@
+{
+ "story": "Old Furnace State Park is a forest located in the town of Killingly, Connecticut, USA. Established in 1909 and transferred to the state in 1918, it covers 367 acres at an elevation of 390 feet. The park is adjacent to Ross Pond State Park and features man-made ponds, streams, wetlands, and a second growth forest.",
+ "matters": "Since the end of the industrial era, the trees have come back to form a second growth forest of deciduous and coniferous trees, providing habitats for a variety of wildlife.",
+ "id": "ctoldfurnace",
+ "name": "Old Furnace State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2122,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 2246,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2122
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:04:22+00:00"
+}

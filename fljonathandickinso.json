@@ -1,0 +1,21 @@
+{
+ "story": "Jonathan Dickinson State Park is located in Martin County, Florida, between Hobe Sound and Tequesta. The park opened as a state park in 1950 and includes natural habitats such as sand pine scrub, pine flatwoods, mangroves, and river swamps.",
+ "matters": "The park is home to many significant and endangered species, including barking tree frogs, pine woods tree frogs, and Florida scrub jays. Its wetlands have more species of amphibians than the Everglades do.",
+ "id": "fljonathandickinso",
+ "name": "Jonathan Dickinson State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2204,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2306,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2204
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:15:47+00:00"
+}

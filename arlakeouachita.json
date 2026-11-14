@@ -1,0 +1,21 @@
+{
+ "story": "Lake Ouachita State Park is a 360-acre public recreation area located in Arkansas, USA. It sits on the eastern side of Lake Ouachita.",
+ "matters": "The park preserves the site of the historic Three Sisters springs, which were once touted for the curative properties of their mineral waters.",
+ "id": "arlakeouachita",
+ "name": "Lake Ouachita State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1396,
+  "candidatesTokenCount": 70,
+  "totalTokenCount": 1466,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1396
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:38:52+00:00"
+}

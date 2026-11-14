@@ -1,0 +1,21 @@
+{
+ "story": "Bald Point State Park is a forest located in Florida, USA. As of 2006, the park included approximately 4,860 acres. It features beaches and wildlife viewing.",
+ "matters": "Human activity in the Big Bend coastal region stretches back over 12,000 years, and thirty-one archaeological sites are recorded within or partially within the Bald Point Tract.",
+ "id": "flbaldpoint",
+ "name": "Bald Point State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2105,
+  "candidatesTokenCount": 93,
+  "totalTokenCount": 2198,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2105
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:11:47+00:00"
+}

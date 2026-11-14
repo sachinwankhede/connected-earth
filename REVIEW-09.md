@@ -1,92 +1,92 @@
 # REVIEW-09.md
 
-## Vatnajökull National Park (`whvatnajokull`)
+## Mooween State Park (`ctmooween`)
 
-**Story** (51 words): Vatnajökull National Park in Iceland covers 14,967 km2, making it Europe's second largest national park. Established on June 7, 2008, and inscribed as a World Heritage Site on July 5, 2019, it encompasses the vast Vatnajökull glacier and features a landscape shaped by rivers, glacial ice, and volcanic and geothermal activity.
+**Story** (56 words): Mooween State Park is a public recreation area covering 577 acres in the town of Lebanon, Connecticut. The park offers hiking and mountain biking plus fishing and boating on 127-acre Red Cedar Lake. The grounds were the home of a summer camp for boys from 1921 through 1960 before the state purchased the site in 1989.
 
-**Why it matters** (27 words): Areas near the glacier and around Snæfell provide an important habitat for reindeer and pink-footed geese. The park aims to preserve unimpaired natural beauty for future generations.
+**Why it matters** (18 words): The park provides a natural habitat for wildlife species in Connecticut, including the black bear, bobcat, and coyote.
 
-## Whale Sanctuary of El Vizcaíno (`whvizcaino`)
+## Mount Riga State Park (`ctmountrigastatepa`)
 
-**Story** (46 words): The Whale Sanctuary of El Vizcaíno is located in Baja California Sur, Mexico, and covers an area of over 24,930 square kilometers. Created in 1988, it is the largest wildlife refuge in Mexico. The sanctuary serves as an important habitat for reproducing and wintering gray whales.
+**Story** (28 words): Mount Riga State Park is an undeveloped public recreation area located in the town of Salisbury, Connecticut, USA. The state park offers opportunities for hiking and bow hunting.
 
-**Why it matters** (40 words): It is an important habitat for reproducing and wintering gray whales, harbor seals, California sea lions, northern elephant seals, blue whales, and four species of endangered marine turtles. It also serves as an important refuge for waterfowl in the winter.
+**Why it matters** (29 words): The Undermountain Trail connects to the northernmost section of the Appalachian Trail in Connecticut from the trail head at Mount Riga State Park's parking lot on Connecticut Route 41.
 
-## Western Caucasus (`whwcaucasus`)
+## Old Furnace State Park (`ctoldfurnace`)
 
-**Story** (51 words): The Western Caucasus is a western region of the North Caucasus in Southern Russia, extending from the Black Sea to Mount Elbrus. It includes a UNESCO World Heritage Site with varied habitats ranging from lowlands to glaciers. The area features large areas of undisturbed mountain forest and tall Nordmann fir trees.
+**Story** (55 words): Old Furnace State Park is a forest located in the town of Killingly, Connecticut, USA. Established in 1909 and transferred to the state in 1918, it covers 367 acres at an elevation of 390 feet. The park is adjacent to Ross Pond State Park and features man-made ponds, streams, wetlands, and a second growth forest.
 
-**Why it matters** (38 words): It is a protected natural place that shelters high mountain species of plants, many of which are endemic. It also includes a Persian leopard reintroduction centre and is the place of origin and reintroduction of the Caucasian wisent.
+**Why it matters** (30 words): Since the end of the industrial era, the trees have come back to form a second growth forest of deciduous and coniferous trees, providing habitats for a variety of wildlife.
 
-## Wood Buffalo National Park (`whwoodbuffalo`)
+## Rocky Neck State Park (`ctrockyneck`)
 
-**Story** (49 words): Wood Buffalo National Park covers 44,741 square kilometres in northeastern Alberta and the southern Northwest Territories in Canada. Established in 1922, it is the largest national park of Canada. It protects the world's largest herd of free-roaming wood bison and one of two known nesting sites of whooping cranes.
+**Story** (42 words): Rocky Neck State Park is a public recreation area encompassing 710 acres on Long Island Sound in the town of East Lyme, Connecticut, United States. The park features a white sand beach and small boardwalk, tidal river, and a broad salt marsh.
 
-**Why it matters** (35 words): The park preserves the Peace-Athabasca Delta, which is one of the world's largest fresh-water deltas. It is recognized as the most ecologically complete and largest example of the Great Plains-Boreal grassland ecosystem of North America.
+**Why it matters** (30 words): The park provides a natural habitat for wildlife including the bobcat, white-tailed deer, and great egret. Visitors can explore hiking trails leading to a salt marsh, Baker's Cave, and Shipyard.
 
-## Natural System of Wrangel Island Reserve (`whwrangel`)
+## Scantic River State Park (`ctscanticriver`)
 
-**Story** (43 words): Natural System of Wrangel Island Reserve is in Chukotka, Russia, with an area of 7,600 km2. It is roughly the size of Crete and features a central belt of low-relief mountains. The island was home to the last surviving population of woolly mammoths.
+**Story** (42 words): Scantic River State Park in Connecticut, USA, features lakes and wetlands along the Scantic River. It consists of several separated parcels totaling 784 acres across the towns of Enfield, East Windsor, and Somers. The public recreation area was first planned in 1967.
 
-**Why it matters** (30 words): It serves as a vital breeding ground for polar bears with the highest density of dens in the world. The reserve also protects diverse Arctic plants and numerous seabird colonies.
+**Why it matters** (34 words): Managed by the Connecticut Department of Energy and Environmental Protection, the park is suitable for hiking, fishing, and hunting. Selected parcels are open to hunting, including the Powder Hollow area and the Harrington Lot.
 
-## Yakushima (`whyakushima`)
+## Sleeping Giant State Park (`ctsleepinggiant`)
 
-**Story** (52 words): Yakushima is a forest in Kagoshima, Japan, where 42 percent of the island is within the borders of the Yakushima National Park. Established in 1964, the national park covers 325.53 square kilometres and includes mountains and marine areas. It features ancient cedar trees called Yakusugi and is home to the Yakushima macaque.
+**Story** (38 words): Sleeping Giant State Park is a forest located in Connecticut, USA. It is named for its resemblance to a slumbering human figure and features a rugged traprock mountain. The park spans 1,500 acres and offers expansive clifftop vistas.
 
-**Why it matters** (29 words): Yakushima is the largest nesting ground for the endangered loggerhead sea turtle in the North Pacific, and its ancient forest has been a natural World Heritage Site since 1993.
+**Why it matters** (27 words): The park is part of the narrow, linear Metacomet Ridge. It hosts unusual microclimates that support several plant and animal species that are state-listed or globally rare.
 
-## Yasuní National Park (`whyasuni`)
+## Wooster Mountain State Park (`ctwoostermountains`)
 
-**Story** (33 words): Yasuní National Park covers roughly 10,000 km2 within Amazonian Ecuador, between the Napo and Curaray Rivers. It is primarily rain forest and home to many animal species, including monkeys, jaguars, and harpy eagles.
+**Story** (40 words): Wooster Mountain State Park covers 444 acres within the city limits of Danbury, Connecticut, USA. Established in 1920 as Connecticut's 23rd state park, it is an undeveloped public recreation area managed by the Connecticut Department of Energy and Environmental Protection.
 
-**Why it matters** (31 words): The park lies within the Napo moist forests ecoregion and is one of the most biologically diverse spots on Earth, holding exceptionally high richness in trees, amphibians, bats, birds, and mammals.
+**Why it matters** (31 words): The park is crossed by the Ives Trail and is suitable for hiking and hunting. Its name marks the mountain mass over which General David Wooster pursued British troops in 1777.
 
-## Band-e Amir National Park (`xafghan`)
+## Alapocas Run State Park (`dealapocasrun`)
 
-**Story** (37 words): Band-e Amir National Park is located in the central Bamyan Province of Afghanistan. Established on 22 May 2009, it protects a chain of six intensely blue lakes created by natural travertine dams high in the Hindu Kush.
+**Story** (41 words): Alapocas Run State Park is located in Wilmington, Delaware, United States, along Brandywine Creek and its Alapocas Run tributary. Officially dedicated in 2002, the park features mature woodland, hiking and biking trails, and a rock climbing wall in an old quarry.
 
-**Why it matters** (24 words): The park provides a pristine landscape and habitat for over 170 bird species, including populations of Himalayan snowcocks within its designated Important Bird Area.
+**Why it matters** (28 words): The park provides passive recreation and the preservation of the natural environment, featuring natural areas such as the Alapocas Woods Trail where mature pawpaw trees can be seen.
 
-## Karavasta Lagoon (Divjaka-Karavasta National Park) (`xalbania`)
+## Angola Neck Nature Preserve (`deangolanecknature`)
 
-**Story** (48 words): Karavasta Lagoon is the largest lagoon in Albania, spanning an area of 42 square kilometres. It is part of Divjaka-Karavasta National Park and is separated from the Adriatic Sea by a large strip of sand. The area hosts many pine trees, small sandy islands, and the Dalmatian pelican.
+**Story** (25 words): Angola Neck Nature Preserve is a forest located in Delaware, USA. It is home to animals such as the red fox and the white-tailed deer.
 
-**Why it matters** (39 words): The lagoon is recognized as a wetland of international importance under the Ramsar Convention. It is home to 6.4% of Europe's population of the Dalmatian pelican, serving as its only coastal breeding site along the Adriatic and Ionian Sea.
+**Why it matters** (18 words): The preserve shelters various species like the northern cardinal and the eastern gray squirrel within its forest ecosystem.
 
-## Khosrov Forest State Reserve (`xarmenia`)
+## Auburn Heights (`deauburnheights`)
 
-**Story** (46 words): Khosrov Forest State Reserve is located in Ararat Province of Armenia. It has a history of about 1,700 years, having been founded in the 4th century by King Khosrov Kotak. The reserve covers around 23,213.5 hectares and protects juniper and oak forests from the Tertiary Period.
+**Story** (22 words): Auburn Heights is a forest located in Delaware, USA. It is home to various species such as the whitetaileddee and the redfox.
 
-**Why it matters** (29 words): The reserve is unique in the Caucasus ecoregion and protects biological diversity, rare and endangered plants and animals, and their habitats, including being a hotspot for the Persian leopard.
+**Why it matters** (15 words): The park hosts a variety of plants and animals, supporting a local community of species.
 
-## Hohe Tauern National Park (`xaustria`)
+## Brandywine Creek State Park (`debrandywinecreek`)
 
-**Story** (43 words): Hohe Tauern National Park stretches for 100 kilometres along the Hohe Tauern mountain range in Austria and covers an area of about 1,834 square kilometres. It is the largest nature reserve in the Alps and features glaciers, waterfalls, extended tundra areas, and forests.
+**Story** (33 words): Brandywine Creek State Park is a public recreation area located in Delaware, USA, along the Brandywine Creek. Established in 1965, it contains nature preserves like Tulip Tree Woods, Freshwater Marsh, and Flint Woods.
 
-**Why it matters** (29 words): The park shelters diverse alpine flora and fauna, including chamois, Alpine ibex, red deer, griffon vultures, golden eagles, and successfully reintroduced populations of the bearded vulture and Alpine marmot.
+**Why it matters** (25 words): The park's forests are part of the Northeastern coastal forests ecoregion. Flint Woods is home to species of rare song birds and an old-growth forest.
 
-## Hirkan National Park (`xazer`)
+## Cape Henlopen State Park (`decapehenlopen`)
 
-**Story** (37 words): Hirkan National Park covers 40,358 hectares in the Talysh region of Azerbaijan. Established in 2004 and enlarged in 2008, the park is 99% covered by forests in a mountainous region and protects humid subtropical and temperate forests.
+**Story** (39 words): Cape Henlopen State Park covers 5,450 acres on Cape Henlopen in Sussex County, Delaware, United States. William Penn made the beaches one of the first public lands in 1682. The park is home to endangered shorebirds and horseshoe crabs.
 
-**Why it matters** (22 words): The park belongs to the Caspian Hyrcanian mixed forests ecoregion and shelters many endemic plant and animal species, including the Caucasian leopard.
+**Why it matters** (26 words): The park is a stop on Delaware's Coastal Heritage Greenway and serves as the eastern terminus of the American Discovery Trail, connecting it to other regions.
 
-## Exuma Cays Land and Sea Park (`xbahamas`)
+## Cedar Creek Nature Preserve (`decedarcreeknature`)
 
-**Story** (41 words): The Exuma Cays Land and Sea Park is a protected area in the Exuma Cays of the Bahamas. Established in 1958, it extends from Shroud Cay in the north to Bell Cay in the south. Its headquarters are on Warderick Wells.
+**Story** (28 words): Cedar Creek Nature Preserve features lakes and wetlands located in Delaware, USA. It is home to various species such as the Bald Eagle, the eastern cottontail, and pickerelweed.
 
-**Why it matters** (28 words): All fishing is prohibited within the boundaries of the park, making it a protected replenishment zone. This helps marine species reach adulthood and restock areas outside the park.
+**Why it matters** (23 words): The preserve supports recorded species occurrences including the Bald Eagle, which is sheltered within this region of lakes and wetlands in Delaware, USA.
 
-## Hautes Fagnes (High Fens) (`xbelgium`)
+## Delaware Seashore State Park (`dedelawareseashore`)
 
-**Story** (42 words): The High Fens, declared a nature reserve in 1957, cover an area of 4,501.2 ha in Liège Province in the east of Belgium. The plateau features alpine sphagnum raised bogs that are over 10,000 years old, alongside moorland, forest, and low hills.
+**Story** (43 words): Delaware Seashore State Park covers 2,722 acres in Delaware, United States, near Dewey Beach. Created in 1965, it is bounded by the Atlantic Ocean, Rehoboth Bay, and Indian River Bay. It features a nature trail on Burton's Island offering views of salt marshes.
 
-**Why it matters** (33 words): The bogs and heathers of the reserve maintain biodiversity for rare and threatened flora and fauna, and part of the reserve remains closed during the spring breeding season of the endangered black grouse.
+**Why it matters** (36 words): The park provides a habitat for various plants and animals, including loblolly pine, american holly, and white-tailed deer. Its salt marshes and bay islands form a coastal ecosystem connected to the Atlantic Ocean and inland bays.
 
-## Pendjari National Park (`xbenin`)
+## Fenwick Island State Park (`defenwickisland`)
 
-**Story** (46 words): Pendjari National Park covers an area of 2,755 km2 in north-western Benin and is known for its wildlife. Named for the Pendjari River, the park is home to elephants, lions, hippos, and various antelopes. Hills and cliffs in the Atakora range are visible from the park.
+**Story** (42 words): Fenwick Island State Park covers 375 acres in Sussex County, Delaware, United States. Established in 1966, it is located on a narrow strip of land between the Atlantic Ocean and Little Assawoman Bay and remains largely undeveloped due to constantly shifting dunes.
 
-**Why it matters** (34 words): The park is part of the WAP Complex, a large protected area in Benin, Burkina Faso and Niger. Since 2005, the protected area is considered a Lion Conservation Unit and a potential lion stronghold.
+**Why it matters** (23 words): The park borders both the Atlantic Ocean and Little Assawoman Bay, offering habitats associated with lakes and wetlands and supporting local wildlife species.
 

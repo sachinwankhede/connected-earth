@@ -1,92 +1,92 @@
 # REVIEW-05.md
 
-## Cumberland Island National Seashore (`uscumberlandislandnation`)
+## Verde River Greenway State Natural Area (`azverderivergreenw`)
 
-**Story** (36 words): Cumberland Island National Seashore preserves most of Cumberland Island in Camden County, Georgia, the largest of Georgia's Golden Isles. The seashore features beaches and dunes, marshes, and freshwater lakes. It includes the 9,886-acre Cumberland Island Wilderness.
+**Story** (44 words): Verde River Greenway State Natural Area encompasses 480 acres in Arizona, USA. It is part of the Arizona State Parks system and protects a critical reach of the Verde River and its associated riparian zone between Clarkdale and the Bridgeport State Route 89A Bridge.
 
-**Why it matters** (29 words): The park contains at least 23 distinct ecological communities, making it the largest and most biodiverse of Georgia's barrier islands with a dense diversity of coastal flora and fauna.
+**Why it matters** (23 words): The area protects a vital river stretch and its associated riparian zone identified by the state of Arizona as a critical natural resource.
 
-## Delaware Water Gap National Recreation Area (`usdelawarewatergapnation`)
+## Woodcutter's Canyon Linear Park (`azwoodcutterscanyo`)
 
-**Story** (49 words): The Delaware Water Gap National Recreation Area is a 70,000-acre national recreation area administered by the National Park Service in northwest New Jersey and northeast Pennsylvania. It features the Delaware Water Gap, a mountain pass where the river cuts between Blue Mountain and Kittatinny Mountain, and includes numerous waterfalls.
+**Story** (11 words): Woodcutter's Canyon Linear Park is a forest located in Arizona, USA.
 
-**Why it matters** (26 words): The park includes Worthington State Forest and a section of the long-distance Appalachian Trail, and preserves historical sites from early Dutch settlement and the Minisink region.
+**Why it matters** (12 words): The park records species occurrences including plants and animals within its area.
 
-## Devils Tower National Monument (`usdevilstowernationalmon`)
+## Yuma Quartermaster Depot State Historic Park (`azyumaquartermaste`)
 
-**Story** (43 words): Devils Tower National Monument is located in northeastern Wyoming, USA, and covers an area of 1,347 acres. Established in 1906, it was the first United States national monument. The massive igneous rock formation rises above the Belle Fourche River in the Black Hills.
+**Story** (42 words): Yuma Quartermaster Depot State Historic Park is an Arizona state park in the city of Yuma, Arizona, US. The park includes five buildings left over from the quartermaster depot days. The Yuma Quartermaster Depot was an important quartermaster depot during the 1870s.
 
-**Why it matters** (28 words): The monument protects a unique geological feature surrounded by sedimentary rocks and forests that serve as a habitat for various plants and animals like mule deer and pronghorn.
+**Why it matters** (29 words): Goods were shipped up the Colorado River from the Gulf of California and stored at Yuma for distribution to the desert frontier forts in the Southwestern United States territories.
 
-## Dinosaur National Monument (`usdinosaurnationalmonume`)
+## Ahjumawi Lava Springs State Park (`caahjumawilavaspri`)
 
-**Story** (42 words): Dinosaur National Monument covers 210,844 acres in Colorado and Utah, encompassing the river canyons of the Green and Yampa. It was proclaimed a national monument in 1915 to protect its famous Dinosaur Quarry and contains over 800 paleontological sites with dinosaur fossils.
+**Story** (36 words): Ahjumawi Lava Springs State Park preserves a wilderness of freshwater springs and recent lava flows in northeastern Shasta County, California. It is only accessible to the public by boat and features blue bays and tree-studded islets.
 
-**Why it matters** (27 words): The park preserves a wealth of natural history, including rock layers from the Jurassic Period containing ancient animal remains and sites used by the prehistoric Fremont culture.
+**Why it matters** (24 words): The park sits on one of the nation's largest systems of underwater springs, producing billions of gallons of fresh water daily into aboveground waterways.
 
-## Effigy Mounds National Monument (`useffigymoundsnationalmo`)
+## Anza-Borrego Desert State Park (`caanzaborregodeser`)
 
-**Story** (32 words): Effigy Mounds National Monument covers 2,526 acres in northeastern Iowa. It preserves more than 200 prehistoric mounds built by pre-Columbian Mound Builder cultures. Some of these effigy mounds are shaped like animals.
+**Story** (33 words): Anza-Borrego Desert State Park is located within the Colorado Desert of Southern California, United States. Created in 1932, it is the largest state park in California and features badlands, springs, and seasonal wildflowers.
 
-**Why it matters** (28 words): The monument is located in the Driftless Area, a region that escaped glaciation during the last ice age. It is adjacent to several wildlife refuges and state forests.
+**Why it matters** (24 words): The park is an anchor in the Mojave and Colorado Deserts Biosphere Reserve and provides a protected habitat for the endangered peninsula bighorn sheep.
 
-## El Malpais National Monument (`uselmalpaisnationalmonum`)
+## Big Basin Redwoods State Park (`cabigbasinredwoods`)
 
-**Story** (42 words): El Malpais National Monument is located in western New Mexico, in the Southwestern United States. It became a National Monument in 1987. The park features an extremely barren and dramatic volcanic field with lava flows, cinder cones, lava tubes, and ice caves.
+**Story** (39 words): Big Basin Redwoods State Park is located in California, USA, in Santa Cruz County. Established in 1902, it is California's oldest state park. It is home to the largest continuous stand of ancient coast redwoods south of San Francisco.
 
-**Why it matters** (36 words): The lava flows and associated lava-tubes provide a unique and critical roosting habitat for bats. These underground structures offer stable temperatures, protection, and proximity to limited water resources, making them essential hibernacula for diverse bat species.
+**Why it matters** (21 words): The park is part of the Northern California coastal forests ecoregion and contains old-growth forest recognized by the Old-Growth Forest Network.
 
-## Florissant Fossil Beds National Monument (`usflorissantfossilbedsna`)
+## Calaveras Big Trees State Park (`cacalaverasbigtree`)
 
-**Story** (42 words): Florissant Fossil Beds National Monument is located in Colorado, USA. Established in 1969, the monument preserves a 34 million year old Eocene lake environment. It features an estimated 30 preserved redwood stumps that are among the largest petrified stumps in the world.
+**Story** (42 words): Calaveras Big Trees State Park encompasses 6,498 acres in California, United States, located in Calaveras and Tuolumne counties. Preserving two groves of giant sequoia trees, it features the North Grove and the South Grove. Part of the natural area is old-growth forest.
 
-**Why it matters** (24 words): The site matters because it protects paper shales holding exceptionally preserved insect and plant fossils, offering a detailed record of ancient geology and history.
+**Why it matters** (23 words): The park is home to the most northern grove of Giant Sequoia in the state and is recognized by the Old-Growth Forest Network.
 
-## Fort Pulaski National Monument (`usfortpulaskinationalmon`)
+## Cuyamaca Rancho State Park (`cacuyamacarancho`)
 
-**Story** (43 words): Fort Pulaski National Monument is located on Cockspur Island between Savannah and Tybee Island, Georgia. President Calvin Coolidge declared Fort Pulaski a National Monument on October 15, 1924, and the site includes most of Cockspur Island and all of the adjacent McQueens Island.
+**Story** (38 words): Cuyamaca Rancho State Park covers 26,000 acres of pine, fir, and oak forests in inland San Diego County, California, United States. It features meadows, creeks, streams, and Cuyamaca Peak, which is the second-highest point in San Diego County.
 
-**Why it matters** (31 words): The national monument preserves Fort Pulaski, where the Union Army successfully tested rifled cannons in 1862, rendering brick fortifications obsolete. It was also made a final destination on the Underground Railroad.
+**Why it matters** (25 words): The park is situated near the southernmost reaches of the Cleveland National Forest, as well as the Cuyamaca and Laguna Mountains of the Peninsular Ranges.
 
-## Fredericksburg and Spot. National Military Park (`usfredericksburgandspotn`)
+## Del Norte Coast Redwoods State Park (`cadelnortecoastred`)
 
-**Story** (30 words): Fredericksburg and Spot. National Military Park is a forest located in Virginia, USA. It is home to plants and animals such as mountain laurel, white oak, and the northern cardinal.
+**Story** (40 words): Del Norte Coast Redwoods State Park is a forest located in California, United States. Originally established in 1925, the park is now 126.5 km2 and includes miles of wild Pacific coastline. It is about half old-growth forest of coast redwoods.
 
-**Why it matters** (20 words): The park protects a forest ecosystem that supports various plant and animal species on the official checklist for the park.
+**Why it matters** (24 words): The park is a component of the Redwood National and State Parks. It was designated part of the California Coast Ranges International Biosphere Reserve.
 
-## Gateway National Recreation Area (`usgatewaynationalrecreat`)
+## Henry W. Coe State Park (`cahenrywcoe`)
 
-**Story** (41 words): Gateway National Recreation Area is a 26,607-acre national recreation area located in New York City and Monmouth County, New Jersey. Created in 1972, it provides recreational opportunities like ocean swimming, bird watching, boating, hiking, and camping in a dense urban environment.
+**Story** (36 words): Henry W. Coe State Park is located in California, United States, preserving a vast tract of the Diablo Range. Established in 1959, it contains over 87,000 acres, making it the largest state park in northern California.
 
-**Why it matters** (34 words): It preserves and protects scarce or unique natural, cultural, and recreational resources, representing some of the last remnants of the original shoreline. It also serves as a nesting area for the threatened piping plover.
+**Why it matters** (24 words): The park protects part of the California interior chaparral and woodlands ecoregion. Large parts of the park are covered in chaparral and oak woodlands.
 
-## George Washington Memorial Parkway (`usgeorgewashingtonmemori`)
+## Humboldt Redwoods State Park (`cahumboldtredwoods`)
 
-**Story** (28 words): The George Washington Memorial Parkway is a forest spanning the District of Columbia, Maryland, and Virginia, United States. It runs along the south bank of the Potomac River.
+**Story** (50 words): Humboldt Redwoods State Park is located in California, United States, and contains Rockefeller Forest, the world's largest remaining contiguous old-growth forest of coast redwoods. Established in 1921, the park has grown to cover 51,651 acres and is home to towering coast redwoods that grow to over 300 feet in height.
 
-**Why it matters** (16 words): The parkway provides protection for the Potomac Palisades and connects various historic sites and natural areas.
+**Why it matters** (36 words): The park is part of the Northern California coastal forests ecoregion and contains old-growth redwoods recognized by the Old-Growth Forest Network. It preserves rare old-growth ecosystems where only five percent of old coastal redwood forests remain.
 
-## Gulf Islands National Seashore (`usgulfislandsnationalsea`)
+## Jedediah Smith Redwoods State Park (`cajedediahsmithred`)
 
-**Story** (41 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. Authorized on January 8, 1971, the seashore features sparkling white quartz sand beaches, nature trails, wildlife sanctuaries, and historic fortifications.
+**Story** (39 words): Jedediah Smith Redwoods State Park preserves old-growth redwoods along the Smith River in California, United States. Established in 1929, the park covers 42.2 square kilometres and includes groves of ancient trees as well as the world's largest coast redwood.
 
-**Why it matters** (28 words): The protected regions include mainland areas and parts of seven islands, offering special protection to parts of Petit Bois Island and Horn Island within the Gulf Islands Wilderness.
+**Why it matters** (31 words): The park preserves a spawning and migration route for fish in the Smith River, which is the last major undammed river in California and supports species like rainbow trout and salmon.
 
-## Hagerman Fossil Beds National Monument (`ushagermanfossilbedsnati`)
+## Malibu Creek State Park (`camalibucreek`)
 
-**Story** (47 words): Hagerman Fossil Beds National Monument is a 4,351-acre Pliocene-age site located in Idaho, USA, near Hagerman. It is internationally significant for protecting one of the richest known fossil deposits from the Blancan North American Land Mammal Age, including the largest known concentration of the fossil Hagerman horse.
+**Story** (39 words): Malibu Creek State Park preserves the Malibu Creek canyon in the Santa Monica Mountains of California. Established in 1974 and opened in 1976, the 8,215-acre park spans across nature preserves and includes the site of a village called Talepop.
 
-**Why it matters** (27 words): The monument protects fossils dating from 3.07 million to at least 4 million years ago that represent at least 200 species, such as Camelops and Lontra weiri.
+**Why it matters** (27 words): The park is a component of the Santa Monica Mountains National Recreation Area, connecting public parkland and linking to the region's long history of native Chumash inhabitants.
 
-## John Day Fossil Beds National Monument (`usjohndayfossilbedsnatio`)
+## Mendocino Headlands State Park (`camendocinoheadlan`)
 
-**Story** (40 words): John Day Fossil Beds National Monument is located in east-central Oregon. It covers 13,944 acres of semi-desert shrublands, riparian zones, and colorful badlands across three separate units. The park is known for its well-preserved layers of fossil plants and mammals.
+**Story** (39 words): Mendocino Headlands State Park is located in California, USA, and began operation in 1974. It consists of undeveloped seaside bluffs, islets, two beaches, and the Big River Unit. The park features rocky bluffs overlooking the Pacific Ocean surrounding Mendocino.
 
-**Why it matters** (31 words): The monument preserves fossil plants and mammals that lived in the region between the late Eocene and the late Miocene. Paleontologists have been studying these important fossils since the 19th century.
+**Why it matters** (33 words): The park includes the longest undeveloped estuary in Northern California and wetlands. The hiking path on the north bank of the river leads from the Big River Unit to Mendocino Woodlands State Park.
 
-## Katahdin Woods and Waters National Monument (`uskatahdinwoodsandwaters`)
+## Montaña de Oro State Park (`camontaadeoro`)
 
-**Story** (45 words): Katahdin Woods and Waters National Monument spans 87,563 acres of mountains and forestland in northern Penobscot County, Maine. President Barack Obama proclaimed the land as a national monument on August 24, 2016. Native animals found here include moose, bobcats, bald eagles, salmon, and Canada lynx.
+**Story** (34 words): Montaña de Oro State Park is located in California, USA, in Central Coastal California. It consists of 8,000 acres of cliffs, shoreline, sandy beaches, dunes, coastal plains, streams, canyons, and hills, including Valencia Peak.
 
-**Why it matters** (34 words): The monument is located on the eastern border of Maine's Baxter State Park and includes a section of the East Branch Penobscot River. The Penobscot Nation inhabited the area for more than 11,000 years.
+**Why it matters** (20 words): The park features marine protected areas offshore from the Morro Bay area that help conserve ocean wildlife and marine ecosystems.
 

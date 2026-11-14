@@ -1,0 +1,21 @@
+{
+ "story": "Ridgway State Park is located in Ouray County, Colorado, United States. Its nature and hiking trails feature great views of the Cimarron Range of the San Juan Mountains. The wildlife consists of deer, mountain lions, coyotes, rabbits, and elk.",
+ "matters": "The park features a variety of animal life and wildlife. Brown, rainbow, and cutthroat trout are commonly caught at Pa-co-chu-puk.",
+ "id": "coridgway",
+ "name": "Ridgway State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1522,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 1624,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1522
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:57:44+00:00"
+}

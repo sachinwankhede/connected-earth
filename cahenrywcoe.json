@@ -1,0 +1,21 @@
+{
+ "story": "Henry W. Coe State Park is located in California, United States, preserving a vast tract of the Diablo Range. Established in 1959, it contains over 87,000 acres, making it the largest state park in northern California.",
+ "matters": "The park protects part of the California interior chaparral and woodlands ecoregion. Large parts of the park are covered in chaparral and oak woodlands.",
+ "id": "cahenrywcoe",
+ "name": "Henry W. Coe State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3687,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 3790,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3687
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:49:14+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Mount Diablo State Park is located in California, USA, within the eastern San Francisco Bay Area. The forest covers about 20,000 acres around an isolated upthrust peak.",
+ "matters": "The protected land is part of a larger network of public preserves totaling more than 90,000 acres on and around the mountain.",
+ "id": "camountdiablo",
+ "name": "Mount Diablo State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3539,
+  "candidatesTokenCount": 77,
+  "totalTokenCount": 3616,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3539
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:50:51+00:00"
+}

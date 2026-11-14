@@ -1,0 +1,21 @@
+{
+ "story": "Black Rock Mountain State Park covers 1,743 acres in Rabun County, Georgia, in the Blue Ridge Mountains. Established in 1952, it is the state's highest state park and features sheer cliffs of dark-colored biotite gneiss, four peaks over 3,000 feet, and Black Rock Lake.",
+ "matters": "The park provides hiking trails through forests and mountain streams that connect to the Eastern Continental Divide and flow into the Chattooga River. It shelters diverse plant-filled coves and offers vistas extending into the Great Smoky Mountains National Park.",
+ "id": "gablackrockmountai",
+ "name": "Black Rock Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2938,
+  "candidatesTokenCount": 127,
+  "totalTokenCount": 3065,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2938
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:18:12+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "White Clay Creek State Park covers over 3,000 acres in Delaware along White Clay Creek in New Castle County. Established in 1968, the park offers 40 miles of trails for hiking and mountain biking and preserves historic structures and a nature center.",
+ "matters": "The park is part of the Northeastern coastal forests ecoregion. White Clay Creek is federally protected as part of the National Park Service's National Wild and Scenic Rivers System.",
+ "id": "dewhiteclaycreek",
+ "name": "White Clay Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2678,
+  "candidatesTokenCount": 108,
+  "totalTokenCount": 2786,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2678
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:11:16+00:00"
+}

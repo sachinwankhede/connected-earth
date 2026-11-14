@@ -1,0 +1,21 @@
+{
+ "story": "Devil's Den State Park covers 2,200 acres in the United States, located in the Lee Creek Valley of the Boston Mountains in Arkansas. It protects the largest sandstone crevice area in the country, featuring caves, bluffs, and a CCC-built lake.",
+ "matters": "The park provides habitats for a variety of plant and animal life while connecting to the neighboring Ozark National Forest through its extensive trail system.",
+ "id": "ardevilsden",
+ "name": "Devil's Den State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3312,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 3406,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3312
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:36:57+00:00"
+}

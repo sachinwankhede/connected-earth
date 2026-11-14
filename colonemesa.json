@@ -1,0 +1,21 @@
+{
+ "story": "Lone Mesa State Park is a closed-access forest park in Colorado located 23 miles north of Dolores. It is currently undergoing development and planning and is restricted to hunting, volunteer and educational programs.",
+ "matters": "Several local endemic species have been located or described in the park including Physaria puvinata Gutierrezia elegens and Pakera mancosana.",
+ "id": "colonemesa",
+ "name": "Lone Mesa State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1550,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 1629,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1550
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:56:40+00:00"
+}

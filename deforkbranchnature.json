@@ -1,0 +1,21 @@
+{
+ "story": "Fork Branch Nature Preserve is a forest located in Delaware, USA. It is home to plants and animals such as the american beech, willow oak, american beaver, and white-tailed deer.",
+ "matters": "The preserve shelters various species that interact within its forest ecosystem.",
+ "id": "deforkbranchnature",
+ "name": "Fork Branch Nature Preserve",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1408,
+  "candidatesTokenCount": 66,
+  "totalTokenCount": 1474,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1408
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:08:37+00:00"
+}

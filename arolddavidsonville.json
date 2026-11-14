@@ -1,0 +1,21 @@
+{
+ "story": "Old Davidsonville State Park covers 163 acres in Randolph County, Arkansas, in the United States. Situated on a border between The Ozarks and the Arkansas Delta, the park preserves the remains of the abandoned frontier town of Davidsonville, which was founded in 1815.",
+ "matters": "The park is situated near the confluence of the Spring River and Eleven Point River with the Black River. It preserves an important river port town site that was one of Arkansas Territory's first settlements.",
+ "id": "arolddavidsonville",
+ "name": "Old Davidsonville State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2069,
+  "candidatesTokenCount": 114,
+  "totalTokenCount": 2183,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2069
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:40:12+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "Burr Pond State Park is a forest and public recreation area covering 438 acres in the town of Torrington, Connecticut. It surrounds Burr Pond, an 85-acre man-made body of water created in 1851.",
+ "matters": "The park is adjacent to Paugnut State Forest. A trail across Paugnut State Forest connects the park with Sunnybrook State Park.",
+ "id": "ctburrpond",
+ "name": "Burr Pond State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1917,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 2014,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1917
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:00:54+00:00"
+}

@@ -1,92 +1,92 @@
 # REVIEW-04.md
 
-## Missouri Tallgrass Prairie (`prairie`)
+## Dead Horse Ranch State Park (`azdeadhorseranch`)
 
-**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
+**Story** (41 words): Dead Horse Ranch State Park is located in Arizona, United States, on the Verde River in the Verde River Greenway. It covers 423 acres of land with 10 miles of hiking trails. The park was originally named by the Ireys family.
 
-**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
+**Why it matters** (18 words): Verde River Day is held annually at the park to celebrate the protection of the river's riparian habitat.
 
-## Urban St. Louis (`stlurban`)
+## Fort Verde State Historic Park (`azfortverdestatehi`)
 
-**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
+**Story** (47 words): Fort Verde State Historic Park is located in the town of Camp Verde, Arizona, and attempts to preserve parts of the Apache Wars-era fort as it appeared in the 1880s. Established in 1970, the park covers ten acres and features historic structures like the commanding officer quarters.
 
-**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
+**Why it matters** (24 words): The fort is significant as the best preserved and least altered of any military post associated with General Crook’s campaign against the northern Apaches.
 
-## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
+## Homolovi Ruins State Park (`azhomoloviruins`)
 
-**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
+**Story** (41 words): Homolovi Ruins State Park is located in Arizona, United States, preserving over 300 Ancestral Puebloan archaeological sites. The park is situated on a floodplain of the Little Colorado River and features seven separate pueblo ruins built between approximately 1260 and 1400.
 
-**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
+**Why it matters** (30 words): This fertile area preserves ancestral Hopi villages that are considered spiritually alive. The park also provides habitat for a bird checklist of over 100 species, including hawks and golden eagles.
 
-## Assateague Island National Seashore (`usassateagueislandnation`)
+## Jerome State Historic Park (`azjeromestatehisto`)
 
-**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
+**Story** (44 words): Jerome State Historic Park is a state park of Arizona, United States, located in Jerome, a mining region in the northeast of the Black Hills, east Yavapai County. The park features the Douglas Mansion, built in 1916 by a family of influential mining entrepreneurs.
 
-**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
+**Why it matters** (21 words): The park's mission is to interpret the history of the Douglas family and the history of Jerome in the mining era.
 
-## Bandelier National Monument (`usbandeliernationalmonum`)
+## Kartchner Caverns State Park (`azkartchnercaverns`)
 
-**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
+**Story** (34 words): Kartchner Caverns State Park in Arizona, United States, features a show cave with passages filled with spectacular speleothems growing for 50,000 years or longer. Discovered in 1974, the caverns are carved out of limestone.
 
-**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
+**Why it matters** (18 words): The Big Room serves as a nursery roost for cave bats during the summer months, protecting these animals.
 
-## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
+## Lake Havasu State Park (`azlakehavasu`)
 
-**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
+**Story** (32 words): Lake Havasu State Park is a public recreation area located on Lake Havasu in Mohave County, Arizona, United States. The state park provides outdoor recreation opportunities such as camping, boating, and fishing.
 
-**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
+**Why it matters** (16 words): The Arroyo-Camino Interpretive Garden displays local desert flora, while Windsor Beach includes picnic tables and grills.
 
-## Canaveral National Seashore (`uscanaveralnationalseash`)
+## Oracle State Park (`azoracle`)
 
-**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
+**Story** (45 words): Oracle State Park preserves 3,948 acres in Arizona, United States, in the northeastern foothills of the Santa Catalina Mountains. It serves as a wildlife refuge and features more than 15 miles of hiking trails. Animals such as ringtails, cougars, and mule deer inhabit the park.
 
-**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
+**Why it matters** (34 words): The park protects a designated wildlife refuge and acts as an environmental learning center offering natural history and environmental education programs. In 2014, the International Dark-Sky Association designated it as a Dark Sky Park.
 
-## Cape Hatteras National Seashore (`uscapehatterasnationalse`)
+## Patagonia Lake State Park (`azpatagonialake`)
 
-**Story** (42 words): Cape Hatteras National Seashore is the first national seashore, stretching over 70 miles of barrier islands from Bodie Island to Ocracoke Island in North Carolina. Congress authorized the park on August 17, 1937, and it was officially established on January 12, 1953.
+**Story** (40 words): Patagonia Lake State Park is a state park of Arizona, United States, containing Patagonia Lake. The 250-acre lake is habitat for reproducing largemouth bass, black crappie, bluegill, green sunfish, flathead catfish, threadfin shad, redear sunfish, channel catfish, and American bullfrogs.
 
-**Why it matters** (28 words): The islands provide a variety of habitats and serve as a valuable wintering area for migrating waterfowl. The beaches also provide nesting grounds for shorebirds and sea turtles.
+**Why it matters** (27 words): The 873-acre preserve protects a magnificent example of the rare Fremont cottonwood-Goodding willow riparian forest, with some trees more than 100 feet tall and 130 years old.
 
-## Cape Lookout National Seashore (`uscapelookoutnationalsea`)
+## Picacho Peak State Park (`azpicachopeak`)
 
-**Story** (37 words): Cape Lookout National Seashore preserves a 56-mile long section of the Southern Outer Banks of North Carolina, United States. Three undeveloped barrier islands make up the seashore, which includes Shackleford's wild horses and the Cape Lookout Lighthouse.
+**Story** (42 words): Picacho Peak State Park is located in Arizona, USA. Its summit rises to 3,374 feet above mean sea level. The park features an unspoiled Sonoran Desert setting and is celebrated for wildflowers that appear mid-February to early April following good winter rain.
 
-**Why it matters** (28 words): The seashore was designated the Carolinian-South Atlantic Biosphere Reserve on June 16, 1986. It is authorized as a national seashore and named a North Carolina Natural Heritage Area.
+**Why it matters** (27 words): The park provides an unspoiled Sonoran Desert setting with trails aided by cables and catwalks that form some of the few via ferrata in the United States.
 
-## Cedar Breaks National Monument (`uscedarbreaksnationalmon`)
+## Red Rock State Park (`azredrock`)
 
-**Story** (48 words): Cedar Breaks National Monument is a natural amphitheater located in Utah, USA, near Cedar City. Established in 1933, the monument stretches across 3 miles with a depth of over 2,000 feet. It features high-altitude forests, subalpine meadows, and bristlecone pines that can be more than 1600 years old.
+**Story** (31 words): Red Rock State Park covers 286 acres of Arizona, featuring a red sandstone canyon near Sedona. The park includes a stretch of Oak Creek and serves as an environmental education facility.
 
-**Why it matters** (32 words): The monument area forms the headwaters of Mammoth Creek, a tributary of the Sevier River. It covers the west side of the Markagunt Plateau, sharing geological connections with nearby Zion National Park.
+**Why it matters** (33 words): The rich riparian zone along the creek supports a diverse array of species, including rare native fish and the threatened Sonora mud turtle. Lower Oak Creek has been designated an Important Bird Area.
 
-## Chattahoochee River National Recreation Area (`uschattahoocheerivernati`)
+## Riordan Mansion State Historic Park (`azriordanmansionst`)
 
-**Story** (47 words): Chattahoochee River National Recreation Area preserves a series of sites between Atlanta and Lake Sidney Lanier along the Chattahoochee River in Georgia, U.S. Established on August 15, 1978, by President Jimmy Carter, the 48-mile stretch of the river affords public recreation opportunities and access to historic sites.
+**Story** (37 words): Riordan Mansion State Historic Park is located in Flagstaff, Arizona, USA, and covers 5 acres of forest. It preserves a thirteen thousand square foot duplex mansion built in 1904 by lumber baron brothers Timothy and Michael Riordan.
 
-**Why it matters** (26 words): The Chattahoochee River is one of Georgia's premier trout streams and was designated as the Chattahoochee River Water Trail to increase access to water-based outdoor recreation.
+**Why it matters** (22 words): The park preserves the historic duplex home of lumber barons who played a role in the development of Flagstaff and northern Arizona.
 
-## Chickasaw National Recreation Area (`uschickasawnationalrecre`)
+## Slide Rock State Park (`azsliderock`)
 
-**Story** (40 words): Chickasaw National Recreation Area is located in south-central Oklahoma in the foothills of the Arbuckle Mountains near Sulphur in Murray County. It covers 9,888.83 acres, with water covering 2,409 acres. The park preserves partially forested hills, springs, streams, and lakes.
+**Story** (47 words): Slide Rock State Park is located in Oak Creek Canyon in Arizona, United States. It takes its name from a natural water slide formed by the slippery bed of Oak Creek. The park is located on Coconino National Forest land and contains a 43-acre working apple farm.
 
-**Why it matters** (22 words): The park preserves natural fresh and mineral springs that were originally protected to prevent developers from turning them into a private resort.
+**Why it matters** (32 words): The park contains the Pendley Homestead Historic District, which is one of the few homesteads still preserved in Oak Creek Canyon. Red rock formations typical of the region also surround the park.
 
-## Chiricahua National Monument (`uschiricahuanationalmonu`)
+## Sonoita Creek Natural Area (`azsonoitacreek`)
 
-**Story** (44 words): Chiricahua National Park is located in the Chiricahua Mountains of southeastern Arizona. Originally established as Chiricahua National Monument on April 18, 1924, it preserves extensive hoodoos, balancing rocks, and the Faraway Ranch. Just over 85% of the park is protected as the Chiricahua Wilderness.
+**Story** (16 words): Sonoita Creek Natural Area is located in Arizona, USA. It is classified as lakes and wetlands.
 
-**Why it matters** (36 words): The park preserves the remains of an immense volcanic eruption that shook the region about 27 million years ago. It protects towering rock spires and balanced rocks while featuring ecosystems of meadows, forests, and rock formations.
+**Why it matters** (7 words): The area supports species recorded in GBIF.
 
-## Colorado National Monument (`uscoloradonationalmonume`)
+## Tombstone Courthouse State Historic Park (`aztombstonecourtho`)
 
-**Story** (31 words): Colorado National Monument is a National Park Service unit near Grand Junction, Colorado, covering 20,500 acres. Sheer-walled canyons cut deep into sandstone and granite-gneiss-schist rock formations in this high desert area.
+**Story** (36 words): Tombstone Courthouse State Historic Park preserves the original Cochise County courthouse in Arizona. The two-story Victorian building was constructed in 1882 in the shape of a cross. It is the oldest courthouse still standing in Arizona.
 
-**Why it matters** (24 words): The park sits on a large area of high desert in Western Colorado and hosts a wide range of wildlife, including desert bighorn sheep.
+**Why it matters** (19 words): The park operates as a historical museum featuring exhibits and thousands of artifacts that tell of Tombstone's colorful past.
 
-## Craters of the Moon National Monument (`uscratersofthemoonnation`)
+## Tubac Presidio State Historic Park (`aztubacpresidiosta`)
 
-**Story** (41 words): Craters of the Moon National Monument and Preserve is located in central Idaho in the USA. It features three major lava fields and about 400 square miles of sagebrush steppe grasslands. The area includes volcanic cones, lava tubes, and basaltic lava.
+**Story** (34 words): Tubac Presidio State Historic Park is located in Tubac, Arizona, United States. It preserves the ruins of the Presidio San Ignacio de Tubac and is the first park in the Arizona state park system.
 
-**Why it matters** (32 words): The monument is part of the Snake River Plain volcanic province and the Lava Beds of Idaho. It belongs to a landscape where older lava fields support drought-resistant plants such as sagebrush.
+**Why it matters** (27 words): The park presents a timeline of European settlement in this Southern Arizona town and contains an underground archeology exhibit displaying the excavated foundations of the Tubac Presidio.
 

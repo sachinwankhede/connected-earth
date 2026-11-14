@@ -1,0 +1,21 @@
+{
+ "story": "Crater of Diamonds State Park is a 911-acre Arkansas state park in Pike County, Arkansas, in the United States. It features a 37.5-acre plowed field which is one of the few diamond-bearing sites accessible to the public. Diamonds have been discovered here continuously since 1906.",
+ "matters": "The park is situated over an eroded lamproite volcanic pipe where visitors can hunt for diamonds and other semi-precious gems. Over 75,000 diamonds have been found in the crater.",
+ "id": "arcraterofdiamonds",
+ "name": "Crater of Diamonds State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3128,
+  "candidatesTokenCount": 126,
+  "totalTokenCount": 3254,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3128
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:35:53+00:00"
+}

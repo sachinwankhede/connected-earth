@@ -1,92 +1,92 @@
 # REVIEW-13.md
 
-## Sapo National Park (`xliberia`)
+## Harry S Truman State Park (`moharrystruman`)
 
-**Story** (53 words): Sapo National Park is located in Sinoe County, Liberia, and covers an area of 1,804 square kilometers. It is the country's largest protected area of rainforest and contains the second-largest area of primary tropical rainforest in West Africa. The park is home to wildlife including the African forest elephant and the pygmy hippopotamus.
+**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
 
-**Why it matters** (29 words): The park is located in the Upper Guinean forest ecosystem, which is a biodiversity hotspot. This ecosystem contains the highest mammal species diversity of any region in the world.
+**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
 
-## Curonian Spit (`xlithuania`)
+## Hawn State Park (`mohawn`)
 
-**Story** (43 words): The Curonian Spit is a 98-kilometre-long, thin, curved sand-dune spit that separates the Curonian Lagoon from the Baltic Sea, shared by Lithuania and Russia. It is home to the highest moving sand dunes in Europe, with some attaining a height of 60 metres.
+**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
 
-**Why it matters** (31 words): The location on the East Atlantic Flyway means it is frequently visited by migratory waterfowl, with between 10 and 20 million birds flying over the feature during spring and autumn migrations.
+**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
 
-## Müllerthal and Upper Sûre forests (`xluxembourg`)
+## Knob Noster State Park (`moknobnoster`)
 
-**Story** (42 words): The Mullerthal region is located in the east of Luxembourg and is dominated by craggy terrain, thick forests, caves, and small streams. The Upper Sûre Lake is a large reservoir in north-western Luxembourg created by the Esch-sur-Sûre Dam built in the 1950s.
+**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
 
-**Why it matters** (34 words): The region around the reservoir forms the Upper Sûre Natural Park, and the surrounding valley has been designated as a Ramsar site since 2004. The lake has a very high level of water quality.
+**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
 
-## Lake Ohrid Region (`xmacedonia`)
+## Lake of The Ozarks State Park (`molakeoftheozarks`)
 
-**Story** (29 words): Lake Ohrid straddles the mountainous border between North Macedonia and Albania. It is one of Europe's deepest and oldest lakes, containing clear water and more than 200 endemic species.
+**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-**Why it matters** (23 words): It has a unique aquatic ecosystem of worldwide importance. The lake shelters numerous endemic species, including the Ohrid trout and the Dalmatian pelican.
+**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
 
-## Codru Nature Reserve (Codrii) (`xmoldova`)
+## Lewis and Clark State Park (`molewisandclark`)
 
-**Story** (40 words): Codru Nature Reserve is a scientific reserve located in Străşeni District, Moldova. Established in 1971, it encompasses 5,177 hectares of protected forest ecosystem. The reserve is situated in the central part of Moldova and includes the Condriȓa forest reserve area.
+**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
 
-**Why it matters** (26 words): The Codru Reserve is the single known Moldovan location for the gastropod species Bulgarica cana and protects part of the forest ecosystem of the Codri area.
+**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
 
-## Hukaung Valley Tiger Reserve (`xmyanmar`)
+## Long Branch State Park (`molongbranch`)
 
-**Story** (33 words): Hukaung Valley Tiger Reserve is a protected area in northern Myanmar, covering 17,373.57 square kilometers in the Hukawng Valley. Established in 2004 and extended in 2010, it harbours evergreen and mixed deciduous forests.
+**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
 
-**Why it matters** (24 words): The valley is known as a habitat of tigers and the extremely rare leaf muntjac, also called the phet-gyi, dwarf deer or leaf deer.
+**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
 
-## Lagoons of New Caledonia: Reef Diversity and Associated Ecosystems (`xnewcal`)
+## Morris State Park (`momorris`)
 
-**Story** (38 words): The Lagoons of New Caledonia are located in New Caledonia in the South Pacific. The New Caledonian barrier reef surrounds Grande Terre and reaches a length of 1,500 kilometres. The reef encloses a lagoon of 24,000 square kilometres.
+**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
 
-**Why it matters** (32 words): The reef has great species diversity with a high level of endemism, hosting the third-largest population of endangered dugongs on Earth and serving as an important nesting site for green sea turtles.
+**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
 
-## Indio Maiz Biological Reserve (`xnicaragua`)
+## Ozark Forest and Streams (`ozarks`)
 
-**Story** (52 words): Indio Maiz Biological Reserve covers about 3,180 square kilometers on the southeastern corner of Nicaragua bordering the San Juan River and Costa Rica. It is one of the largest protected lowland forest systems in Central America and is rich in biodiversity, providing a home for jaguars, Baird's tapirs, and great green macaws.
+**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
 
-**Why it matters** (29 words): It is a key component in the proposed Mesoamerican Biological Corridor and serves as an important population stronghold for endangered species like the great green macaw and the jaguar.
+**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
 
-## Cross River National Park (`xnigeria`)
+## Missouri Tallgrass Prairie (`prairie`)
 
-**Story** (43 words): Cross River National Park is a national park in Nigeria with an area of about 4,000 square kilometres. It features primary moist tropical rainforests and mangrove swamps, and borders Korup National Park in Cameroon. Rare animals like common chimpanzees and drills live here.
+**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
 
-**Why it matters** (29 words): The park is a biodiversity hotspot and part of the Guinean Forests of West Africa. It is one of the two parts of Nigeria where Xavier's greenbul is found.
+**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
 
-## Ras al Jinz Turtle Reserve and Arabian Sea coast (`xoman`)
+## Urban St. Louis (`stlurban`)
 
-**Story** (52 words): Ras Al Jinz Turtle Reserve is located in Oman on the easternmost peninsula. Designated as a nature reserve on 23 April 1996, it hosts one of the most important populations of green turtles in the Indian Ocean. Throughout the year, these turtles haul their weight from the sea to lay their eggs.
+**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
 
-**Why it matters** (22 words): It provides a vital breeding ground for green sea turtles, which are part of the biologically productive Arabian Sea large marine ecosystem.
+**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
 
-## Deosai National Park (`xpakistan`)
+## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
 
-**Story** (50 words): Deosai National Park protects 843 square kilometres of high-elevation alpine plain in Pakistan. Situated at an average elevation of 4,114 metres above sea level, it is the second highest plateau in the world. The park is home to rich flora and fauna of the Karakoram-West Tibetan Plateau alpine steppe eco-region.
+**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
 
-**Why it matters** (34 words): The national park was established to protect the survival of the critically endangered Himalayan brown bear and its habitat. The plateau is currently home to the most significant and stable Himalayan brown bear population.
+**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
 
-## Judean Desert and Wadi Qelt (`xpalestine`)
+## Assateague Island National Seashore (`usassateagueislandnation`)
 
-**Story** (38 words): The Judean Desert and Wadi Qelt stretch across the West Bank and Israel, descending from the Judean Mountains to the Dead Sea. This dry desert and valley region features deep ravines, perennial springs, and a well-preserved natural environment.
+**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
 
-**Why it matters** (37 words): The desert and wadi support a unique variety of flora and fauna, including rock hyraxes and Nubian ibex living on the cliffs. It is also recognized as an Important Bird Area for its populations of wild birds.
+**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
 
-## Varirata National Park and the Owen Stanley foothills (`xpng`)
+## Bandelier National Monument (`usbandeliernationalmonum`)
 
-**Story** (31 words): Varirata National Park and the Owen Stanley foothills are located in Papua New Guinea. This forest area is home to wildlife including the Raggiana bird-of-paradise, hooded pitohui, and spectacled flying fox.
+**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
 
-**Why it matters** (25 words): The park provides a habitat for forest species such as the Raggiana bird-of-paradise, which is an important seed disperser of fruiting trees in New Guinea.
+**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
 
-## Peneda-Gerês National Park (`xportugal`)
+## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
 
-**Story** (45 words): Peneda-Geres National Park covers an area of 695.9 km2 in Norte Region, Portugal. Created in May 1971, it is the oldest protected area and the only national park in the country. Precipitous valleys crossed by high flowing streams host lush temperate broadleaf and mixed forests.
+**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
 
-**Why it matters** (36 words): The park is home to around 220 vertebrate species, including native and threatened ones such as the Pyrenean desman and Iberian frog. It protects vital soils, water, flora, fauna, and landscapes in the northwest of Portugal.
+**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
 
-## El Yunque National Forest (`xpuertorico`)
+## Canaveral National Seashore (`uscanaveralnationalseash`)
 
-**Story** (58 words): El Yunque National Forest is a tropical rainforest in the northeast of the main island of Puerto Rico. Covering 28,516 acres of the Sierra de Luquillo mountain subrange, it is the only tropical rainforest in the U.S. National Forest System. It features multiple peaks and rivers, and provides a protected habitat for over 1,000 tree and plant species.
+**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
 
-**Why it matters** (30 words): It operates as an experimental forest providing scientific research on ecology, and it includes the Iguaca Aviary, which is dedicated to the preservation of the critically endangered Puerto Rican parrot.
+**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
 

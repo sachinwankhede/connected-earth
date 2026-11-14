@@ -54,39 +54,39 @@
 
 **Why it matters** (23 words): The park is situated on Dannelly Reservoir, which is a 22,000-acre impoundment of the Alabama River known locally as the Millers Ferry Reservoir.
 
-## Northern Gulf of Mexico (`gulf`)
+## Shell Mound Park (`alshellmound`)
 
-**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
+**Story** (20 words): Shell Mound Park is a forest located in Alabama, USA. Animals such as the raccoon, coyote, and americanbeaver live there.
 
-**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
+**Why it matters** (16 words): The park provides a habitat for various species recorded in GBIF, including the americanbeaver and coyote.
 
-## Mississippi River Floodplain (`mississippi`)
+## Wind Creek State Park (`alwindcreek`)
 
-**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
+**Story** (32 words): Wind Creek State Park is a public recreation area located on the western side of Lake Martin, a reservoir on the Tallapoosa River in Alabama, USA. The state park occupies 1,445 acres.
 
-**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
+**Why it matters** (27 words): The park includes Lake Martin, a 41,000-acre reservoir on the Tallapoosa River, and features a trail system that was designated as a National Recreation Trail in 2011.
 
-## Bennett Spring State Park (`mobennettspring`)
+## Crater of Diamonds State Park (`arcraterofdiamonds`)
 
-**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
+**Story** (45 words): Crater of Diamonds State Park is a 911-acre Arkansas state park in Pike County, Arkansas, in the United States. It features a 37.5-acre plowed field which is one of the few diamond-bearing sites accessible to the public. Diamonds have been discovered here continuously since 1906.
 
-**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
+**Why it matters** (29 words): The park is situated over an eroded lamproite volcanic pipe where visitors can hunt for diamonds and other semi-precious gems. Over 75,000 diamonds have been found in the crater.
 
-## Big Lake State Park (`mobiglake`)
+## Crowley's Ridge State Park (`arcrowleysridge`)
 
-**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
+**Story** (38 words): Crowley's Ridge State Park is a forest park covering 291 acres in Greene County, Arkansas in the United States atop Crowley's Ridge. Located on the former homesite of pioneer Benjamin Crowley, it became a state park in 1933.
 
-**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
+**Why it matters** (25 words): The park contains many excellent examples of the work done by the Civilian Conservation Corps in the 1930s and is bisected by Crowley's Ridge Parkway.
 
-## Big Sugar Creek State Park (`mobigsugarcreek`)
+## Daisy State Park (`ardaisy`)
 
-**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
+**Story** (39 words): Daisy State Park is a 276-acre Arkansas state park located in Pike County in the United States. It sits at the foothills of the Ouachita Mountains and features Lake Greeson, which is a 7,000-acre fishing lake constructed in 1950.
 
-**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
+**Why it matters** (14 words): The park is surrounded by timberlands and is located near the Ouachita National Forest.
 
-## Castlewood State Park (`mocastlewood`)
+## De Gray State Park (`ardegray`)
 
-**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
+**Story** (28 words): De Gray State Park is situated in the Ouachita Mountains in Arkansas, in the United States. The 984-acre state park was created in 1974 and features DeGray Lake.
 
-**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
+**Why it matters** (14 words): The park features the 13,800-acre DeGray Lake, situated in Clark and Hot Spring counties.
 

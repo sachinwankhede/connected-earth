@@ -1,0 +1,21 @@
+{
+ "story": "Mount Tamalpais State Park is located in Marin County, California, and features the 2,571 feet Mount Tamalpais. The mountain covers around 25,000 acres of mostly redwood and oak forests.",
+ "matters": "The park has about 60 miles of hiking trails connected to a larger, 200-mile network of trails in neighboring public lands. Muir Woods National Monument is surrounded by the state park.",
+ "id": "camounttamalpais",
+ "name": "Mount Tamalpais State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1964,
+  "candidatesTokenCount": 99,
+  "totalTokenCount": 2063,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1964
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:51:23+00:00"
+}

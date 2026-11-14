@@ -1,0 +1,21 @@
+{
+ "story": "Picacho Peak State Park is located in Arizona, USA. Its summit rises to 3,374 feet above mean sea level. The park features an unspoiled Sonoran Desert setting and is celebrated for wildflowers that appear mid-February to early April following good winter rain.",
+ "matters": "The park provides an unspoiled Sonoran Desert setting with trails aided by cables and catwalks that form some of the few via ferrata in the United States.",
+ "id": "azpicachopeak",
+ "name": "Picacho Peak State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2062,
+  "candidatesTokenCount": 104,
+  "totalTokenCount": 2166,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2062
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:43:56+00:00"
+}

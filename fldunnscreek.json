@@ -1,0 +1,21 @@
+{
+ "story": "Dunns Creek State Park is a Florida State Park in Florida, USA, covering a 6,302-acre property. It provides outflow from Crescent Lake to the St Johns River and features a history of Native American burial mounds.",
+ "matters": "Together with the Dunns Creek Conservation Area, it provides large floodplain areas and water storage to protect the shoreline on Dunns Creek.",
+ "id": "fldunnscreek",
+ "name": "Dunns Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1584,
+  "candidatesTokenCount": 84,
+  "totalTokenCount": 1668,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1584
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:13:22+00:00"
+}

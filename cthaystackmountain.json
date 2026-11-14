@@ -1,0 +1,21 @@
+{
+ "story": "Haystack Mountain State Park is a forest located in Connecticut, USA, featuring a stone observation tower built in 1929 at the summit of 1,680-foot Haystack Mountain. The park is a public recreation area in Norfolk, Connecticut, offering hiking, picnicking, and cross-country skiing.",
+ "matters": "The park provides views of three states and Long Island Sound from its observation tower. The land and tower were donated by Ellen Battell Stoeckel.",
+ "id": "cthaystackmountain",
+ "name": "Haystack Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1803,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 1916,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1803
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:01:42+00:00"
+}

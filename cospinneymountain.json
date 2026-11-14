@@ -1,0 +1,21 @@
+{
+ "story": "Spinney Mountain State Park is a Colorado state park in Park County, United States, centering on the Spinney Mountain Reservoir built in 1981. The park takes its name from nearby Spinney Mountain.",
+ "matters": "The reservoir provides the majority of the water supply for the City of Aurora, Colorado, and offers great fishing for rainbow trout and northern pike.",
+ "id": "cospinneymountain",
+ "name": "Spinney Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1377,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 1458,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1377
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:58:16+00:00"
+}

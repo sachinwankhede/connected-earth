@@ -1,0 +1,21 @@
+{
+ "story": "Wilder Ranch State Park is a California State Park on the Pacific Ocean coast north of Santa Cruz, California. The park totals 7,000 acres and extends from the shore to the town of Felton. Many ranch buildings have been restored for use as a museum.",
+ "matters": "Natural Bridges State Marine Reserve is a marine protected area along the coast of the park that helps conserve ocean tidal-zone wildlife and marine ecosystems.",
+ "id": "cawilderranch",
+ "name": "Wilder Ranch State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2757,
+  "candidatesTokenCount": 94,
+  "totalTokenCount": 2851,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2757
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:53:47+00:00"
+}

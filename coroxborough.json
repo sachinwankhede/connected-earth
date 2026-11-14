@@ -1,0 +1,21 @@
+{
+ "story": "Roxborough State Park covers 3,339 acres in Douglas County, Colorado, and was established in 1975. It is known for dramatic red sandstone formations and forests of ponderosa pine and Douglas fir that support wildlife like black bear and elk.",
+ "matters": "It is recognized as a National Natural Landmark because of its ecological systems and geological formations. The park also connects to the Douglas County trail system, Pike National Forest, and Waterton Canyon trails.",
+ "id": "coroxborough",
+ "name": "Roxborough State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2163,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2266,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:57:59+00:00"
+}

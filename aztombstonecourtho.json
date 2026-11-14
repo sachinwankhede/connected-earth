@@ -1,0 +1,21 @@
+{
+ "story": "Tombstone Courthouse State Historic Park preserves the original Cochise County courthouse in Arizona. The two-story Victorian building was constructed in 1882 in the shape of a cross. It is the oldest courthouse still standing in Arizona.",
+ "matters": "The park operates as a historical museum featuring exhibits and thousands of artifacts that tell of Tombstone's colorful past.",
+ "id": "aztombstonecourtho",
+ "name": "Tombstone Courthouse State Historic Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2721,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 2802,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2721
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:45:32+00:00"
+}

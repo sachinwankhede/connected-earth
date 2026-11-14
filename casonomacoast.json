@@ -1,0 +1,21 @@
+{
+ "story": "Sonoma Coast State Park is located in California, USA, running for approximately 17 miles to Bodega Head. The park features sandy beaches, rocky shoreline, sea stacks, and a marine terrace with upland California coastal prairie habitat.",
+ "matters": "The park conserves marine ecosystems and ocean and freshwater wildlife through marine protected areas. It is connected to the adjacent Ocean Song preserve, which expands the protected area for wildlife and natural vegetation.",
+ "id": "casonomacoast",
+ "name": "Sonoma Coast State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2916,
+  "candidatesTokenCount": 100,
+  "totalTokenCount": 3016,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2916
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:52:59+00:00"
+}

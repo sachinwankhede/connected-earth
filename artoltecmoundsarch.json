@@ -1,0 +1,21 @@
+{
+ "story": "Toltec Mounds Archeological State Park is an archaeological site located in Arkansas, USA. It protects an 18-mound complex with the tallest surviving prehistoric mounds in Arkansas, situated on the banks of Mound Lake.",
+ "matters": "The site is designated as a National Historic Landmark and was occupied from the 7th to the 11th century by indigenous ancestors of regional Native Americans.",
+ "id": "artoltecmoundsarch",
+ "name": "Toltec Mounds Archeological State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2279,
+  "candidatesTokenCount": 87,
+  "totalTokenCount": 2366,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2279
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:41:16+00:00"
+}

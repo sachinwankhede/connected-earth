@@ -1,0 +1,21 @@
+{
+ "story": "Navajo State Park is a state park of Colorado, USA, on the north shore of Navajo Lake. Its area is 15,000 acres, and it has 150 miles of shoreline in two states. The park features pinyon-juniper woodland, sagebrush shrubland and western slope grassland communities.",
+ "matters": "The park provides a home for rare wildlife species like the river otter, bald eagle, and white pelican. Many migratory and resident birds are also known in this area.",
+ "id": "conavajo",
+ "name": "Navajo State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2207,
+  "candidatesTokenCount": 113,
+  "totalTokenCount": 2320,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2207
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:57:28+00:00"
+}

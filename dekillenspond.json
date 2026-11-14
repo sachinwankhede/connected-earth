@@ -1,0 +1,21 @@
+{
+ "story": "Killens Pond State Park is a forest in Delaware, USA, located in Kent County. It surrounds a pond known as Killens Pond along the Murderkill River and opened to the public in 1965.",
+ "matters": "The park surrounds a 75-acre pond and the Murderkill River, offering trails and habitat for common game fish.",
+ "id": "dekillenspond",
+ "name": "Killens Pond State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1946,
+  "candidatesTokenCount": 79,
+  "totalTokenCount": 2025,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1946
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:09:41+00:00"
+}

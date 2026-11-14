@@ -1,0 +1,21 @@
+{
+ "story": "The Forest of Nisene Marks State Park is located in California, United States, protecting a secondary forest across 10,223 acres of variable terrain. Four-fifths of the park is covered in dense redwood forest, rising from sea level to steep coastal mountains of more than 2,600 feet.",
+ "matters": "The park protects a secondary forest in the watershed of Aptos Creek and Soquel Creek within the Santa Cruz Mountains, featuring an ancient grove of redwood trees.",
+ "id": "catheforestofnisen",
+ "name": "The Forest of Nisene Marks State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2424,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 2536,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2424
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:53:15+00:00"
+}

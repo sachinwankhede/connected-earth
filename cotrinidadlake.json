@@ -1,0 +1,21 @@
+{
+ "story": "Trinidad Lake State Park is a state park located in Colorado, USA, protecting Trinidad Lake, a dammed reservoir. The park features hiking trails, camping and boating opportunities, and historical attractions such as coal mining ruins at Cokedale.",
+ "matters": "A portion of the mountain route of the Santa Fe Trail runs through the park, and an exposure of the Cretaceous–Paleogene boundary is visible in the southern part.",
+ "id": "cotrinidadlake",
+ "name": "Trinidad Lake State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1593,
+  "candidatesTokenCount": 91,
+  "totalTokenCount": 1684,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1593
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:59:03+00:00"
+}

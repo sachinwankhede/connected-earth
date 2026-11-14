@@ -1,0 +1,21 @@
+{
+ "story": "Del Norte Coast Redwoods State Park is a forest located in California, United States. Originally established in 1925, the park is now 126.5 km2 and includes miles of wild Pacific coastline. It is about half old-growth forest of coast redwoods.",
+ "matters": "The park is a component of the Redwood National and State Parks. It was designated part of the California Coast Ranges International Biosphere Reserve.",
+ "id": "cadelnortecoastred",
+ "name": "Del Norte Coast Redwoods State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1691,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1788,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1691
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:48:58+00:00"
+}

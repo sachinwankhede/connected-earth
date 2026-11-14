@@ -1,0 +1,21 @@
+{
+ "story": "Cloudland Canyon State Park covers 3,485 acres on the western edge of Lookout Mountain in Georgia, USA. The canyon is more than 1,000 feet deep and features rugged geology, waterfalls, and steep sandstone bluffs.",
+ "matters": "The park's diverse forests and streams provide a protected habitat for native trees, flowers, and animals such as the black bear and whitetailed deer.",
+ "id": "gacloudlandcanyon",
+ "name": "Cloudland Canyon State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3188,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 3285,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3188
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:18:44+00:00"
+}

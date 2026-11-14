@@ -1,0 +1,21 @@
+{
+ "story": "Torreya State Park is a 13,735 acres Florida State Park located north of S.R 12 on the Apalachicola River, in northwestern Florida. It has one of the most variable terrains of any in Florida, featuring river swamps, high pinelands, extensive ravines, and high bluffs along the river.",
+ "matters": "It is named for the Florida Nutmeg trees, a rare species of Torreya tree endemic to the local east bank of the Apalachicola River's limestone bluffs, and serves as a home for endangered species like the few-flowered croomia.",
+ "id": "fltorreya",
+ "name": "Torreya State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2481,
+  "candidatesTokenCount": 139,
+  "totalTokenCount": 2620,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2481
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:17:08+00:00"
+}

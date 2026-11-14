@@ -1,0 +1,21 @@
+{
+ "story": "Castlewood Canyon State Park is a Colorado state park near Franktown, encompassing 2,136 acres within the northernmost extension of the Black Forest. It contains the remains of the historic Castlewood Canyon Dam and the Cherry Creek Bridge.",
+ "matters": "The park is on the edge of the Palmer Divide, where more moisture falls to water the Black Forest and support a nature preservation area.",
+ "id": "cocastlewoodcanyon",
+ "name": "Castlewood Canyon State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1824,
+  "candidatesTokenCount": 86,
+  "totalTokenCount": 1910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1824
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:54:49+00:00"
+}

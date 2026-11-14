@@ -1,0 +1,21 @@
+{
+ "story": "Kent Falls State Park is located in the town of Kent, Connecticut, within the Litchfield Hills region of the southern Berkshires. Established as a state park in 1919, it is home to a series of waterfalls on Falls Brook that drop 250 feet.",
+ "matters": "The park features a tributary of the Housatonic River and encompasses 200 acres of land given by philanthropist Alain C. White.",
+ "id": "ctkentfalls",
+ "name": "Kent Falls State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1507,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 1609,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1507
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:02:46+00:00"
+}

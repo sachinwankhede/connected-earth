@@ -1,0 +1,21 @@
+{
+ "story": "Edward Ball Wakulla Springs State Park is a 6,000 acre wildlife sanctuary located in Wakulla County, Florida, south of Tallahassee. It contains Wakulla Springs, which is one of the world's largest and deepest first-order freshwater springs.",
+ "matters": "The park is an exit point of the Floridan Aquifer and gives rise to the Wakulla River, which flows several miles to the south where it empties into the Gulf of Mexico.",
+ "id": "fledwardballwakull",
+ "name": "Edward Ball Wakulla Springs State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2018,
+  "candidatesTokenCount": 107,
+  "totalTokenCount": 2125,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2018
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:13:54+00:00"
+}

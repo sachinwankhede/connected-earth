@@ -1,92 +1,92 @@
 # REVIEW-08.md
 
-## Fernando de Noronha Archipelago (`whnoronha`)
+## Vega State Park (`covega`)
 
-**Story** (43 words): Fernando de Noronha is an archipelago of 21 islands and islets extending over 26 square kilometres in the Atlantic Ocean, part of the state of Pernambuco, Brazil. Established in 1988, 70% of its area is a national marine park featuring volcanic rock formations.
+**Story** (44 words): Vega State Park is an 1,823-acre Colorado state park located in Mesa County. Established in 1967, it features Vega Reservoir and is situated at the northeast edge of Grand Mesa National Forest in Western Colorado. The park supports mule deer, elk, marmots, and trout.
 
-**Why it matters** (27 words): In 2001, UNESCO designated the islands as a World Heritage Site because of their importance as a feeding ground for tuna, sharks, sea turtles, and marine mammals.
+**Why it matters** (34 words): The park sits on the northeastern edge of Grand Mesa and provides a wetland and lake habitat that supports numerous species of trout, birds, and mammals. Uphill areas include aspen forests and mountain shrublands.
 
-## Ogasawara Islands (`whogasawara`)
+## Air Line State Park Trail (`ctairlinestatepark`)
 
-**Story** (45 words): The Ogasawara Islands are a Japanese archipelago of over 30 subtropical and tropical islands located in Japan. The group as a whole has a total area of 84 square kilometers. Because of their isolation, many of their animals and plants have undergone unique evolutionary processes.
+**Story** (38 words): Air Line State Park Trail is a linear state park and rail trail located in Connecticut. It is divided into sections designated South, North, and the Thompson addition. The trail features the Rapallo Viaduct and the Lyman Viaduct.
 
-**Why it matters** (26 words): They were named a Natural World Heritage Site in 2011 and are home to endemic species like the Bonin flying fox, which lives in subtropical forests.
+**Why it matters** (30 words): The North section of the trail is part of the East Coast Greenway, which will stretch from Florida to Maine. The southern section is recognized as a national recreation trail.
 
-## El Pinacate and Gran Desierto de Altar Biosphere Reserve (`whpinacate`)
+## Black Rock State Park (`ctblackrock`)
 
-**Story** (54 words): El Pinacate and Gran Desierto de Altar Biosphere Reserve covers an area of 2,695.05 square kilometres in the Sonoran Desert in northwest Mexico. It is a UNESCO World Heritage Site featuring a volcanic shield, active dunes, and the highest concentration of Maar craters. NASA sent astronauts to train there for walking on the Moon.
+**Story** (40 words): Black Rock State Park is a forest covering 444 acres in the town of Watertown, Connecticut, originating in 1926. It is known for its large rock face called Black Rock, which offers views of Thomaston, Watertown, and portions of Waterbury.
 
-**Why it matters** (34 words): The reserve shelters threatened endemic species including the Sonoran pronghorn, bighorn sheep, gila monster, and desert tortoise. It forms part of a larger desert ecosystem that spans northwest Mexico and the southwestern United States.
+**Why it matters** (20 words): The park adjoins Mattatuck State Forest and is crossed by the Mattatuck Trail, offering scenic views of the Naugatuck Valley.
 
-## Plitvice Lakes National Park (`whplitvice`)
+## Bluff Point State Park (`ctbluffpoint`)
 
-**Story** (52 words): Plitvice Lakes National Park is one of the oldest and largest national parks in Croatia. Founded in 1949, it covers 296.85 km2 in the mountainous karst area of central Croatia at the border with Bosnia and Herzegovina. The park is famous for its picturesque series of tufa lakes, caves, and connected waterfalls.
+**Story** (40 words): Bluff Point State Park is an undeveloped peninsula located between the Poquonnock River and Mumford Cove on Long Island Sound in the town of Groton, Connecticut. The 806 acres encompass a barrier beach, steep cliffs, forested sections, and tidal wetlands.
 
-**Why it matters** (36 words): The afforested mountain slopes serve as a refuge for many animal species, including the brown bear, grey wolf, and Eurasian lynx. The park is inscribed on the UNESCO World Heritage list for its outstanding natural features.
+**Why it matters** (38 words): The Connecticut legislature established Bluff Point as a Coastal Reserve in 1975 to give it the highest possible protection in the State Park system and protect the high number of endangered and threatened species found within the park.
 
-## Putorana Plateau (`whputorana`)
+## Burr Pond State Park (`ctburrpond`)
 
-**Story** (40 words): The Putorana Plateau is a mountainous area in Russia located in Krasnoyarsk Krai. It is a high-lying plateau crossed by mountain ranges featuring deep lakes and waterfalls. Established in 1988, the Putorana Nature Reserve covers an area of 1,887,251 ha.
+**Story** (33 words): Burr Pond State Park is a forest and public recreation area covering 438 acres in the town of Torrington, Connecticut. It surrounds Burr Pond, an 85-acre man-made body of water created in 1851.
 
-**Why it matters** (31 words): The reserve was set up to protect the world's largest herd of wild reindeer as well as snow sheep. It contains complete subarctic and arctic ecosystems in an isolated mountain range.
+**Why it matters** (21 words): The park is adjacent to Paugnut State Forest. A trail across Paugnut State Forest connects the park with Sunnybrook State Park.
 
-## Pyrénées - Mont Perdu (`whpyrenees`)
+## Devil's Hopyard State Park (`ctdevilshopyard`)
 
-**Story** (43 words): Pyrénées - Mont Perdu is situated in France and Spain. It is a polar and mountain area featuring high mountain topography, limestone formations, and deep canyons carved by repeated glaciations. Animals such as the Pyrenean chamois and alpine marmot live in this region.
+**Story** (51 words): Devil's Hopyard State Park is a 1,000-acre public recreation area located in the town of East Haddam, Connecticut, at the Eightmile River's Chapman Falls. The park features Chapman Falls dropping more than 60 feet over a series of steps in a Scotland schist stone formation, and includes the Vista Point cliff.
 
-**Why it matters** (33 words): The park was included in the cross-border Pyrénées - Mont Perdu World Heritage Site because of its spectacular geologic landforms. It protects high mountain topography and shelters various species of raptors and mammals.
+**Why it matters** (29 words): The park is located at the Eightmile River's Chapman Falls and includes a forest habitat. It was acquired by the state for use as a state park in 1919.
 
-## Shiretoko (`whshiretoko`)
+## George D. Seymour State Park Scenic Reserve (`ctgeorgedseymourst`)
 
-**Story** (40 words): Shiretoko National Park covers most of the Shiretoko Peninsula on the island of Hokkaido, Japan. The 70 kilometres long peninsula is best known as the home of Japan's largest population of brown bears and features temperate and subalpine mixed forests.
+**Story** (14 words): George D. Seymour State Park Scenic Reserve is a forest located in Connecticut, USA.
 
-**Why it matters** (28 words): In 2005, UNESCO designated the area a World Heritage Site in recognition of the peninsula being the southernmost point where sea ice usually forms in the Northern Hemisphere.
+**Why it matters** (15 words): The area supports a variety of species including red maple, pitch pine, and whitetailed deer.
 
-## Sian Ka'an Biosphere Reserve (`whsiankaan`)
+## Haystack Mountain State Park (`cthaystackmountain`)
 
-**Story** (47 words): Sian Ka'an Biosphere Reserve is located in Quintana Roo, Mexico. Established in 1986 and named a UNESCO World Heritage Site in 1987, it covers 5,280 square kilometers. Part of the reserve is on land and part is in the Caribbean Sea, including a section of coral reef.
+**Story** (42 words): Haystack Mountain State Park is a forest located in Connecticut, USA, featuring a stone observation tower built in 1929 at the summit of 1,680-foot Haystack Mountain. The park is a public recreation area in Norfolk, Connecticut, offering hiking, picnicking, and cross-country skiing.
 
-**Why it matters** (30 words): It is part of the Mesoamerican Barrier Reef System, which is the second-longest reef system in the world. The reserve also supports threatened, endangered, and migratory species through conservation projects.
+**Why it matters** (25 words): The park provides views of three states and Long Island Sound from its observation tower. The land and tower were donated by Ellen Battell Stoeckel.
 
-## Central Sikhote-Alin (`whsikhote`)
+## Hopeville Pond State Park (`cthopevillepond`)
 
-**Story** (32 words): Central Sikhote-Alin is a forest region in Primorsky Krai, Russia. Founded on February 10, 1935, the zapovednik covers 401,428 ha. It protects a population of the sable and the endangered Siberian tiger.
+**Story** (47 words): Hopeville Pond State Park is located in Connecticut, USA, on Hopeville Pond in Griswold. A portion of the state park occupies the site of the lost village of Hopeville. The park features a forest and offers trails for hiking and biking, plus camping, fishing, swimming, and boating.
 
-**Why it matters** (23 words): The region is placed on the World Heritage List for its importance to the survival of endangered species such as the Amur tiger.
+**Why it matters** (24 words): The park includes Hopeville Pond, an impoundment of the Pachaug River. The Mohegan people historically constructed stone weirs to harvest fish from the river.
 
-## Socotra Archipelago (`whsocotra`)
+## Hurd State Park (`cthurd`)
 
-**Story** (50 words): Socotra is a Yemeni island in the Indian Ocean situated between the Gulf of Aden, the Guardafui Channel and the Arabian Sea. The island measures 132 km in length and 42 km across at its widest, and it is unusual in hosting a large number of species that are endemic.
+**Story** (52 words): Hurd State Park is a forest located on the east bank of the Connecticut River in the town of East Hampton, Connecticut. Named for the Hurd family who arrived in 1710, the state purchased the first 150 acres in 1914. It is a public recreation area offering hiking, picnicking, and mountain biking.
 
-**Why it matters** (24 words): About a third of its plant life is found nowhere else on Earth, and the archipelago lies within the Horn of Africa biodiversity hotspot.
+**Why it matters** (28 words): The park lies adjacent to George Dudley Seymour State Park and is one of four Connecticut state parks that offer primitive camping for boaters on the Connecticut River.
 
-## Tasmanian Wilderness World Heritage Area (`whtasmania`)
+## John A. Minetto State Park (`ctjohnaminetto`)
 
-**Story** (36 words): The Tasmanian Wilderness World Heritage Area is located in Tasmania, Australia. Covering 15,800 km2, it is one of the largest conservation areas in Australia and one of the last expanses of temperate wilderness in the world.
+**Story** (37 words): John A. Minetto State Park is a public recreation area encompassing 715 acres in Connecticut, USA. It is managed by the Connecticut Department of Energy and Environmental Protection and offers facilities for picnicking, fishing, and cross-country skiing.
 
-**Why it matters** (22 words): It is home to unique fauna like the Tasmanian devil and includes extensive temperate rainforests, supporting high plant diversity and ancient species.
+**Why it matters** (28 words): The park is part of a flood control project initiated by the U.S. Army Corps of Engineers following the completion of the Hall Meadow Brook Dam in 1962.
 
-## Tikal National Park (`whtikal`)
+## Kent Falls State Park (`ctkentfalls`)
 
-**Story** (48 words): Tikal National Park covers 570 square kilometers of tropical forests, savannas, and wetlands in northern Guatemala. Established in 1955 as Guatemala's first protected area, it features ancient Mayan ruins alongside trees like the gigantic kapok tree. Animals such as Geoffroy's spider monkeys, toucans, and ocellated turkeys live there.
+**Story** (43 words): Kent Falls State Park is located in the town of Kent, Connecticut, within the Litchfield Hills region of the southern Berkshires. Established as a state park in 1919, it is home to a series of waterfalls on Falls Brook that drop 250 feet.
 
-**Why it matters** (32 words): The park is part of the Maya Biosphere Reserve, which protects the largest area of American tropical forest remaining north of the Amazon. It shelters wildlife populations including jaguars, ocelots, and pumas.
+**Why it matters** (21 words): The park features a tributary of the Housatonic River and encompasses 200 acres of land given by philanthropist Alain C. White.
 
-## Torres del Paine National Park (`whtorres`)
+## Kettletown State Park (`ctkettletown`)
 
-**Story** (45 words): Torres del Paine National Park is a national park encompassing mountains, glaciers, lakes, and rivers in southern Chilean Patagonia. Established as a national park in 1959, it features the Cordillera del Paine group of mountains and granite peaks that rise 2,500 metres above sea level.
+**Story** (31 words): Kettletown State Park is a forest and public recreation area in Connecticut, USA, located on the eastern shore of the Housatonic River's Lake Zoar in the towns of Oxford and Southbury.
 
-**Why it matters** (26 words): The park lies in a transition area between the Magellanic subpolar forests and the Patagonian Steppes. It is designated as a World Biosphere Reserve by UNESCO.
+**Why it matters** (26 words): The state park is managed by the Connecticut Department of Energy and Environmental Protection and provides a space for activities like camping, hiking, picnicking, and fishing.
 
-## Eduardo Avaroa Andean Fauna National Reserve (`whuyuni`)
+## Macedonia Brook State Park (`ctmacedoniabrook`)
 
-**Story** (33 words): Eduardo Avaroa Andean Fauna National Reserve covers 714,745 hectares of southwestern Bolivia, featuring mountainous, desert-like landscapes and high-altitude lakes. Established in December 1973, it is home to vicuñas, pumas, and three flamingo species.
+**Story** (54 words): Macedonia Brook State Park is a public recreation area covering 2,302 acres in the town of Kent, Connecticut, United States. The park features a 51-site campground and the blue-blazed Macedonia Ridge Trail, which crosses Cobble Mountain and other peaks. Its first 1,552 acres were a gift made in 1918 by the White Memorial Foundation.
 
-**Why it matters** (28 words): The reserve protects an extreme environment and species adapted to high altitudes, serving as an important habitat for birds and part of the larger Los Lípez Ramsar site.
+**Why it matters** (23 words): The park provides a natural forest area in Connecticut, USA, where visitors can camp, picnic, fish, and hike across peaks like Cobble Mountain.
 
-## Península Valdés (`whvaldes`)
+## Mashamoquet Brook State Park (`ctmashamoquetbrook`)
 
-**Story** (43 words): Península Valdés is a peninsula into the Atlantic Ocean in Chubut, Argentina. It is about 3,625 square kilometers in size and is an important nature reserve listed as a World Heritage Site by UNESCO in 1999. The coastline is inhabited by marine mammals.
+**Story** (47 words): Mashamoquet Brook State Park is a forest located in Connecticut, USA, in the town of Pomfret. It covers a size of over 900 acres. Notable features include the Wolf Den national historic site, the Brayton Grist Mill, and the Table Rock and Indian Chair natural stone formations.
 
-**Why it matters** (28 words): The adjacent waters contain the most important breeding ground for southern right whales in the world. These whales arrive between May and December for mating and giving birth.
+**Why it matters** (23 words): The park includes a hemlock-lined gorge of Mashamoquet Brook and the Wolf Den, which is the site of Israel Putnam's legendary wolf slaying.
 

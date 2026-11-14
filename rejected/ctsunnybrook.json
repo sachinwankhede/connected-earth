@@ -1,0 +1,22 @@
+{
+ "story": "Sunnybrook State Park is a public recreation area encompassing 464 acres in Torrington, Connecticut, United States. Opened in 1970, it offers hiking, picnicking, hunting, and fishing along the East Branch Naugatuck River.",
+ "matters": "The park is the southwestern terminus for the blue-blazed John Muir Trail, which crosses Paugnut State Forest to the loop trail at Burr Pond State Park.",
+ "id": "ctsunnybrook",
+ "name": "Sunnybrook State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1526,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 1629,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1526
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:05:57+00:00",
+ "rejected": "names not in the research text: States, United"
+}
