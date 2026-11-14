@@ -9,7 +9,7 @@ import struct
 import sys
 import urllib.parse
 
-PERMANENT = {"nophoto", "notcommons", "notphoto", "notfree"}   # notfree: the picture exists but its licence is outside the rule (#421)
+PERMANENT = {"nophoto", "notcommons", "notphoto", "notfree", "wrongpage"}   # notfree: the picture exists but its licence is outside the rule (#421); wrongpage: the Wikipedia page is a disambiguation page or names another state (#767)
 ALLOWED_IMAGE_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
 CREDIT_PAGE_HOSTS = {"commons.wikimedia.org", "www.gbif.org", "openverse.org", "www.inaturalist.org"}   # where a species picture's credit page may be (GBIF from #511); place pictures stay on Commons
 ALLOWED_LICENSE_HOSTS = {"creativecommons.org", "www.gnu.org", "artlibre.org", "www.flickr.com", "web.archive.org", "www.kogl.or.kr"}
