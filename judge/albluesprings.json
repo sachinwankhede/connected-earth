@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Blue Springs State Park is a public recreation area located in Barbour County, Alabama. The 103-acre state park features a clear blue, natural underground spring that pumps water into two concrete-ringed swimming pools. A small pond in the park is stocked with catfish, bass, and bream.",
+ "matters": "The Magnolia Trail crosses two miles of southeast Alabama forest and provides views of the west fork of the Choctawhatchee River. The park also includes acreage purchased by the Forever Wild Land Trust for hiking trails.",
+ "id": "albluesprings",
+ "name": "Blue Springs State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2026,
+  "candidatesTokenCount": 46,
+  "totalTokenCount": 2072,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2026
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:59:52+00:00"
+}

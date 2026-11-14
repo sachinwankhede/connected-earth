@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text regarding the park's size, location, history, and the nature of the lake.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Frank Jackson State Park is a forest area in Alabama, USA, that covers 2,050 acres. It wraps around Lake Frank Jackson in the city of Opp and opened in 1970.",
+ "matters": "The park features Lake Frank Jackson, which is an impoundment of Lightwood Knot Creek.",
+ "id": "alfrankjackson",
+ "name": "Frank Jackson State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1438,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 1483,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1438
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:02:19+00:00"
+}

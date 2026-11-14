@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Denali State Park is a 325,240-acre state park located in the U.S. state of Alaska. It is an undeveloped wilderness area situated in sight of Denali, the highest mountain peak in North America. The park features diverse habitats including tundra, forests, lakes, and streams.",
+ "matters": "The park provides a rugged, uninhabited environment that shelters many unique plant and animal species, including black and grizzly bears, moose, and various birds and fish.",
+ "id": "akdenali",
+ "name": "Denali State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2606,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 2651,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2606
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:58:09+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and are written in an appropriate tone for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Oak Mountain State Park is a public recreation area located in Alabama, USA, and is the state's largest state park at 9,940 acres. It features three fishing lakes, hiking trails, and the Treetop Nature Trail where owls and turkey vultures can be viewed.",
+ "matters": "The park is home to the Alabama Wildlife Center, which is the oldest and largest wildlife rehabilitation and education center in the state and treats injured or orphaned native birds.",
+ "id": "aloakmountain",
+ "name": "Oak Mountain State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 3285,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 3330,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3285
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:05:46+00:00"
+}

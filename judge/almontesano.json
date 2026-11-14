@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Monte Sano State Park is a mountaintop retreat and public recreation area in Alabama, USA. Encompassing 2,140 acres on Monte Sano Mountain, it features hiking trails, picnic areas, and rustic cottages built in the 1930s by the Civilian Conservation Corps.",
+ "matters": "The park shares a connection with the adjoining Monte Sano Nature Preserve, which preserves remnants of a historic railway line that once carried visitors up the mountain.",
+ "id": "almontesano",
+ "name": "Monte Sano State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2299,
+  "candidatesTokenCount": 46,
+  "totalTokenCount": 2345,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2299
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:04:43+00:00"
+}

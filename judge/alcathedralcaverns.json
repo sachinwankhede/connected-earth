@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Cathedral Caverns State Park is a 493-acre public recreation area and natural history preserve in Kennamer Cove, Alabama, featuring a karst cave with a large stalagmite forest. It was declared a National Natural Landmark in 1972 and opened as a state park in 2000.",
+ "matters": "The park protects a significant cave system that includes Mystery River and an entrance measuring 25 feet tall and 128 feet wide.",
+ "id": "alcathedralcaverns",
+ "name": "Cathedral Caverns State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2459,
+  "candidatesTokenCount": 38,
+  "totalTokenCount": 2497,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2459
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:00:11+00:00"
+}

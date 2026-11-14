@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the species listed in the source data for the park.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Point Bridget State Park is a forest located in Alaska, USA. It is home to species such as the humpback whale and bald eagle.",
+ "matters": "The park shelters various native species in Alaska, USA, including the bald eagle and the humpback whale.",
+ "id": "akpointbridget",
+ "name": "Point Bridget State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1628,
+  "candidatesTokenCount": 39,
+  "totalTokenCount": 1667,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1628
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:59:01+00:00"
+}

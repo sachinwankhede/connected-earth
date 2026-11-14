@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text regarding the Gulf Islands National Seashore and its wilderness area, and the language is appropriate for a children's atlas.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.",
+ "matters": "The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.",
+ "id": "gulf",
+ "name": "Northern Gulf of Mexico",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 6992,
+  "candidatesTokenCount": 59,
+  "totalTokenCount": 7051,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 6992
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:09:09+00:00"
+}

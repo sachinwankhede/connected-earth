@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Roland Cooper State Park is a 236-acre state park located six miles north of Camden, Alabama, on the eastern shore of Dannelly Reservoir. Opened in 1969 as Bridgeport State Park, it was renamed in the 1970s for state senator William Roland Cooper and features cottages, a campground, fishing, and boating facilities.",
+ "matters": "The park is situated on Dannelly Reservoir, which is a 22,000-acre impoundment of the Alabama River known locally as the Millers Ferry Reservoir.",
+ "id": "alrolandcooper",
+ "name": "Roland Cooper State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1407,
+  "candidatesTokenCount": 38,
+  "totalTokenCount": 1445,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1407
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:07:16+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source document and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Cheaha State Park is a forest located in Alabama, USA, spanning 2,799 acres in Clay and Cleburne counties. It is Alabama's oldest continuously operating state park and includes Cheaha Mountain, the highest point in the state. The park opened to the public in 1933.",
+ "matters": "The park adjoins Talladega National Forest and features the Cheaha Trailhead of the Pinhoti Trail system, which weaves through the Talladega National Forest and connects to the Appalachian Trail.",
+ "id": "alcheaha",
+ "name": "Cheaha State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2006,
+  "candidatesTokenCount": 46,
+  "totalTokenCount": 2052,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2006
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T11:00:28+00:00"
+}
