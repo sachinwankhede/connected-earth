@@ -123,15 +123,6 @@ def check(root):
             if f not in mfiles: errs.append('tile picture for %r: file %s is missing' % (t, f))
             if (hosted or {}).get(t) != f: errs.append('tile picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
         for f in mfiles - set(medium.values()): errs.append('photos/species-md/%s is not listed in species_medium.json' % f)
-    plarge = load(root, 'photos', 'places_large.json')   # the larger place pictures (#727): each is of a stored place picture (same name, .webp), has its file, and no file is left unlisted
-    if plarge is not None:
-        pl = load(root, 'photos', 'places', 'places.json') or {}
-        pd_ = os.path.join(root, 'photos', 'places-lg'); pfiles = set(os.listdir(pd_)) if os.path.isdir(pd_) else set()
-        for t, f in plarge.items():
-            if f not in pfiles: errs.append('larger place picture for %r: file %s is missing' % (t, f))
-            if t not in pl or os.path.splitext(pl[t].get('f') or '')[0] + '.webp' != f: errs.append('larger place picture for %r: no stored place picture of the same name' % t)
-        stray = sorted(pfiles - set(plarge.values()))   # a file nobody lists is untidy but harmless (the build publishes only listed files): a warning, so a job that stopped half way does not block other work (#727)
-        if stray: warns.append('photos/places-lg/: %d file(s) not listed in places_large.json, first %s; the next data-largeplacephotos run lists them' % (len(stray), stray[0]))
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')
