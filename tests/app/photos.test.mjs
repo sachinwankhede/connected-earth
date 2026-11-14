@@ -4,6 +4,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.jpg': 'image/jpeg', '.js': 'text/javascript', '.png': 'image/png', '.webmanifest': 'application/json' };
 
@@ -12,16 +13,16 @@ describe('stored place photos carry a credit line', () => {
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
-      let f = path.join(H.ROOT, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
-      if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
+      let f = path.join(H.FBUILD, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
+      if (!f.startsWith(H.FBUILD) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
       r.writeHead(200, { 'Content-Type': TYPES[path.extname(f)] || 'application/octet-stream' }); r.end(fs.readFileSync(f));
     }).listen(0);
     base = `http://localhost:${srv.address().port}/`;
   });
   after(async () => { await browser.close(); srv.close(); });
 
-  const man = JSON.parse(fs.readFileSync(path.join(H.ROOT, 'photos/places/places.json'), 'utf8'));
-  const places = H.readPlaces(false).filter((e) => e.imgwiki && man[e.imgwiki] && fs.existsSync(path.join(H.ROOT, 'photos/places', man[e.imgwiki].f)));
+  const man = JSON.parse(fs.readFileSync(path.join(H.FDATA, 'photos/places/places.json'), 'utf8'));
+  const places = H.readFixturePlaces(false).filter((e) => e.imgwiki && man[e.imgwiki] && fs.existsSync(path.join(H.FDATA, 'photos/places', man[e.imgwiki].f)));
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: photo comes from our own files, with author, licence and Commons link`, async () => {
