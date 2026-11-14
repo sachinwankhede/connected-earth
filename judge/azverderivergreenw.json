@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text regarding the location, size, and status of the Verde River Greenway State Natural Area.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Verde River Greenway State Natural Area encompasses 480 acres in Arizona, USA. It is part of the Arizona State Parks system and protects a critical reach of the Verde River and its associated riparian zone between Clarkdale and the Bridgeport State Route 89A Bridge.",
+ "matters": "The area protects a vital river stretch and its associated riparian zone identified by the state of Arizona as a critical natural resource.",
+ "id": "azverderivergreenw",
+ "name": "Verde River Greenway State Natural Area",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2852,
+  "candidatesTokenCount": 44,
+  "totalTokenCount": 2896,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2852
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:18:50+00:00"
+}

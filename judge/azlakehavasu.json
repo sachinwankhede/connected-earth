@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts are accurate to the provided source and appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Lake Havasu State Park is a public recreation area located on Lake Havasu in Mohave County, Arizona, United States. The state park provides outdoor recreation opportunities such as camping, boating, and fishing.",
+ "matters": "The Arroyo-Camino Interpretive Garden displays local desert flora, while Windsor Beach includes picnic tables and grills.",
+ "id": "azlakehavasu",
+ "name": "Lake Havasu State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1326,
+  "candidatesTokenCount": 29,
+  "totalTokenCount": 1355,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1326
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:15:38+00:00"
+}

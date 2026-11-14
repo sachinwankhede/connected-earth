@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information in the source text and are written in a tone appropriate for a children's nature atlas.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Big Basin Redwoods State Park is located in California, USA, in Santa Cruz County. Established in 1902, it is California's oldest state park. It is home to the largest continuous stand of ancient coast redwoods south of San Francisco.",
+ "matters": "The park is part of the Northern California coastal forests ecoregion and contains old-growth forest recognized by the Old-Growth Forest Network.",
+ "id": "cabigbasinredwoods",
+ "name": "Big Basin Redwoods State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 3436,
+  "candidatesTokenCount": 50,
+  "totalTokenCount": 3486,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3436
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:20:20+00:00"
+}

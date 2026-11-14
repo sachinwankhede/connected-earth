@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Humboldt Redwoods State Park is located in California, United States, and contains Rockefeller Forest, the world's largest remaining contiguous old-growth forest of coast redwoods. Established in 1921, the park has grown to cover 51,651 acres and is home to towering coast redwoods that grow to over 300 feet in height.",
+ "matters": "The park is part of the Northern California coastal forests ecoregion and contains old-growth redwoods recognized by the Old-Growth Forest Network. It preserves rare old-growth ecosystems where only five percent of old coastal redwood forests remain.",
+ "id": "cahumboldtredwoods",
+ "name": "Humboldt Redwoods State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2497,
+  "candidatesTokenCount": 38,
+  "totalTokenCount": 2535,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2497
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:22:02+00:00"
+}

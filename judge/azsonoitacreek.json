@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the location and classification provided in the source text and are written in a simple, appropriate manner for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Sonoita Creek Natural Area is located in Arizona, USA. It is classified as lakes and wetlands.",
+ "matters": "The area supports species recorded in GBIF.",
+ "id": "azsonoitacreek",
+ "name": "Sonoita Creek Natural Area",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1327,
+  "candidatesTokenCount": 49,
+  "totalTokenCount": 1376,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1327
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:18:03+00:00"
+}

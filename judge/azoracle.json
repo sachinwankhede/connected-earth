@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source material and are written in an appropriate tone for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Oracle State Park preserves 3,948 acres in Arizona, United States, in the northeastern foothills of the Santa Catalina Mountains. It serves as a wildlife refuge and features more than 15 miles of hiking trails. Animals such as ringtails, cougars, and mule deer inhabit the park.",
+ "matters": "The park protects a designated wildlife refuge and acts as an environmental learning center offering natural history and environmental education programs. In 2014, the International Dark-Sky Association designated it as a Dark Sky Park.",
+ "id": "azoracle",
+ "name": "Oracle State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1906,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 1951,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1906
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:15:57+00:00"
+}

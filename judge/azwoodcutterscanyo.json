@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts are accurate based on the provided source and written in a simple, appropriate style for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Woodcutter's Canyon Linear Park is a forest located in Arizona, USA.",
+ "matters": "The park records species occurrences including plants and animals within its area.",
+ "id": "azwoodcutterscanyo",
+ "name": "Woodcutter's Canyon Linear Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 1367,
+  "candidatesTokenCount": 44,
+  "totalTokenCount": 1411,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1367
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:19:15+00:00"
+}

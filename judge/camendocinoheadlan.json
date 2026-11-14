@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text regarding the park's history, features, and geography.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Mendocino Headlands State Park is located in California, USA, and began operation in 1974. It consists of undeveloped seaside bluffs, islets, two beaches, and the Big River Unit. The park features rocky bluffs overlooking the Pacific Ocean surrounding Mendocino.",
+ "matters": "The park includes the longest undeveloped estuary in Northern California and wetlands. The hiking path on the north bank of the river leads from the Big River Unit to Mendocino Woodlands State Park.",
+ "id": "camendocinoheadlan",
+ "name": "Mendocino Headlands State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2103,
+  "candidatesTokenCount": 48,
+  "totalTokenCount": 2151,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2103
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:22:49+00:00"
+}

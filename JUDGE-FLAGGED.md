@@ -1,6 +1,6 @@
 # Flagged by the judge
 
-43 passed, 8 flagged. Read only these; the judge flags or passes and never edits.
+65 passed, 11 flagged. Read only these; the judge flags or passes and never edits.
 
 ## Chilkat State Park (`akchilkat`)
 
@@ -21,6 +21,16 @@ Judge: The text contains a factual inconsistency regarding the age of the fossil
 Story: Rickwood Caverns State Park is a public recreation area and natural history preserve located in Alabama, USA, north of Warrior. The 380-acre state park features caverns with illuminated limestone formations estimated to be 260 million years old, blind cave fish, and an underground pool.
 
 Why: The park surrounds caverns containing active living formations, spring-fed pools, and visible fossils in the soft limestone walls.
+
+## Shell Mound Park (`alshellmound`)
+
+Problems: ['spot check (Claude, 14 Nov): species names are glued slugs from the research text ("americanbeaver"); the story is also thin']
+
+Judge: spot check (Claude, 14 Nov): species names are glued slugs from the research text ("americanbeaver"); the story is also thin (model gemini-3.1-flash-lite, writer gemini-3.5-flash-lite)
+
+Story: Shell Mound Park is a forest located in Alabama, USA. Animals such as the raccoon, coyote, and americanbeaver live there.
+
+Why: The park provides a habitat for various species recorded in GBIF, including the americanbeaver and coyote.
 
 ## De Gray State Park (`ardegray`)
 
@@ -72,6 +82,16 @@ Story: Toltec Mounds Archeological State Park is an archaeological site located 
 
 Why: The site is designated as a National Historic Landmark and was occupied from the 7th to the 11th century by indigenous ancestors of regional Native Americans.
 
+## Village Creek State Park (`arvillagecreek`)
+
+Problems: ['spot check (Claude, 14 Nov): species names are glued or cut slugs from the research text ("cardinalflower", "tuftedtitmouse", "northerncardin")']
+
+Judge: spot check (Claude, 14 Nov): species names are glued or cut slugs from the research text ("cardinalflower", "tuftedtitmouse", "northerncardin") (model gemini-3.1-flash-lite, writer gemini-3.5-flash-lite)
+
+Story: Village Creek State Park includes lakes and wetlands in Arkansas, USA. It is one of two state parks in the United States with this name.
+
+Why: The park provides a habitat for various species including the cardinalflower, tuftedtitmouse, and northerncardin.
+
 ## Homolovi Ruins State Park (`azhomoloviruins`)
 
 Problems: The text refers to the park as 'Homolovi Ruins State Park', but the source states the name was changed to 'Homolovi State Park' in 2011.
@@ -82,11 +102,13 @@ Story: Homolovi Ruins State Park is located in Arizona, United States, preservin
 
 Why: This fertile area preserves ancestral Hopi villages that are considered spiritually alive. The park also provides habitat for a bird checklist of over 100 species, including hawks and golden eagles.
 
+## Yuma Quartermaster Depot State Historic Park (`azyumaquartermaste`)
 
-## Shell Mound Park (`alshellmound`)
+Problems: The text refers to the site as Yuma Quartermaster Depot State Historic Park, but the source states it was renamed to Colorado River State Historic Park in 2017.
 
-Problems: spot check (Claude, 14 Nov): species names are glued slugs from the research text ("americanbeaver"); the story is also thin
+Judge: The name used in the text is outdated according to the provided source text. (model gemini-3.1-flash-lite, writer gemini-3.5-flash-lite)
 
-## Village Creek State Park (`arvillagecreek`)
+Story: Yuma Quartermaster Depot State Historic Park is an Arizona state park in the city of Yuma, Arizona, US. The park includes five buildings left over from the quartermaster depot days. The Yuma Quartermaster Depot was an important quartermaster depot during the 1870s.
 
-Problems: spot check (Claude, 14 Nov): species names are glued or cut slugs from the research text ("cardinalflower", "tuftedtitmouse", "northerncardin")
+Why: Goods were shipped up the Colorado River from the Gulf of California and stored at Yuma for distribution to the desert frontier forts in the Southwestern United States territories.
+

@@ -1,0 +1,28 @@
+{
+ "verdict": "flag",
+ "problems": [
+  "The text refers to the site as Yuma Quartermaster Depot State Historic Park, but the source states it was renamed to Colorado River State Historic Park in 2017."
+ ],
+ "reason": "The name used in the text is outdated according to the provided source text.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Yuma Quartermaster Depot State Historic Park is an Arizona state park in the city of Yuma, Arizona, US. The park includes five buildings left over from the quartermaster depot days. The Yuma Quartermaster Depot was an important quartermaster depot during the 1870s.",
+ "matters": "Goods were shipped up the Colorado River from the Gulf of California and stored at Yuma for distribution to the desert frontier forts in the Southwestern United States territories.",
+ "id": "azyumaquartermaste",
+ "name": "Yuma Quartermaster Depot State Historic Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2419,
+  "candidatesTokenCount": 81,
+  "totalTokenCount": 2500,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2419
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:19:30+00:00",
+ "rejected": "The text refers to the site as Yuma Quartermaster Depot State Historic Park, but the source states it was renamed to Colorado River State Historic Park in 2017."
+}

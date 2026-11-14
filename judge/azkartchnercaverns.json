@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information found in the source text and are written in a manner suitable for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Kartchner Caverns State Park in Arizona, United States, features a show cave with passages filled with spectacular speleothems growing for 50,000 years or longer. Discovered in 1974, the caverns are carved out of limestone.",
+ "matters": "The Big Room serves as a nursery roost for cave bats during the summer months, protecting these animals.",
+ "id": "azkartchnercaverns",
+ "name": "Kartchner Caverns State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 2554,
+  "candidatesTokenCount": 46,
+  "totalTokenCount": 2600,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2554
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:15:22+00:00"
+}

@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The texts accurately reflect the information provided in the source text and use language appropriate for a general audience.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Cuyamaca Rancho State Park covers 26,000 acres of pine, fir, and oak forests in inland San Diego County, California, United States. It features meadows, creeks, streams, and Cuyamaca Peak, which is the second-highest point in San Diego County.",
+ "matters": "The park is situated near the southernmost reaches of the Cleveland National Forest, as well as the Cuyamaca and Laguna Mountains of the Peninsular Ranges.",
+ "id": "cacuyamacarancho",
+ "name": "Cuyamaca Rancho State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 3778,
+  "candidatesTokenCount": 36,
+  "totalTokenCount": 3814,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3778
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:20:51+00:00"
+}

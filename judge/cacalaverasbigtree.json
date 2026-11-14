@@ -1,0 +1,25 @@
+{
+ "verdict": "ok",
+ "problems": [],
+ "reason": "The provided texts accurately reflect the information in the source text and are written in a tone appropriate for children.",
+ "writer_model": "gemini-3.5-flash-lite",
+ "story": "Calaveras Big Trees State Park encompasses 6,498 acres in California, United States, located in Calaveras and Tuolumne counties. Preserving two groves of giant sequoia trees, it features the North Grove and the South Grove. Part of the natural area is old-growth forest.",
+ "matters": "The park is home to the most northern grove of Giant Sequoia in the state and is recognized by the Old-Growth Forest Network.",
+ "id": "cacalaverasbigtree",
+ "name": "Calaveras Big Trees State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "judge-1",
+ "tokens": {
+  "promptTokenCount": 3561,
+  "candidatesTokenCount": 45,
+  "totalTokenCount": 3606,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3561
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T22:20:36+00:00"
+}
