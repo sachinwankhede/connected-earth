@@ -20,17 +20,24 @@ def titles(title):
     for p in (x.strip() for x in title.split('/')) if '/' in title else []:
         if p and PARK_WORD.search(p) and p not in out: out.append(p)
     return out
-def one(i,title,out,man):
+def right_page(j,where):
+    """None when the Wikipedia page summary j can be this place, else 'wrongpage' (#767): a disambiguation page never is, and for a US place (where: its state name) the page must name the state in its title, description or first paragraph, so
+    a page about Trout Pond in West Virginia is not taken for Trout Pond in Maine. where empty: no state check."""
+    if (j or {}).get('type')=='disambiguation': return 'wrongpage'
+    if where and where.lower() not in ' '.join(str((j or {}).get(k) or '') for k in ('title','description','extract')).lower(): return 'wrongpage'
+    return None
+def one(i,title,out,man,where=''):
     """Stores the first free photo found under any of titles(title); the manifest key stays the place's own imgwiki. A transient problem on any title wins over a permanent no-photo, so the place is tried again."""
     res=[]
     for t in titles(title):
-        res.append(fetch(i,t,out,man,title))
+        res.append(fetch(i,t,out,man,title,where))
         if res[-1]=='ok': return 'ok'
     return next((r for r in res if failure_class(r)!='permanent'),res[0])
-def fetch(i,title,out,man,key):
+def fetch(i,title,out,man,key,where=''):
     j=get('https://en.wikipedia.org/api/rest_v1/page/summary/'+urllib.parse.quote(title.replace(' ','_'),safe=''))
     th=(j or {}).get('thumbnail')
     if not th: return 'nophoto'
+    if right_page(j,where): return 'wrongpage'
     if not safe_https(th.get('source'), ALLOWED_IMAGE_HOSTS): return 'source-rejected'
     m=re.search(r'/commons/thumb/\w/\w\w/([^/]+)/',th['source'])
     if not m: return 'notcommons'
@@ -69,7 +76,8 @@ if __name__=='__main__':
             if not t or t in man or (t in miss and cache_active(miss[t])): continue
             if LIMIT and tried>=LIMIT: continue
             tried+=1
-            try: r=one(e['id'],t,out,man)
+            pl=(e.get('place') or '')
+            try: r=one(e['id'],t,out,man,pl.split(',')[0].strip() if pl.endswith(', USA') else '')
             except Exception as ex: r='err '+str(ex)[:50]
             stat[t]=r
             if failure_class(r) == 'permanent':
