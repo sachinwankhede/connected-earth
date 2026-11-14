@@ -89,6 +89,21 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
+ "Mammoth Cave National Park": {
+  "f": "npmammothcave.jpg",
+  "a": "Willis Thomas Lee",
+  "l": "Public domain",
+  "lu": "",
+  "p": "https://commons.wikimedia.org/wiki/File:Mammoth_Cave_Rotunda_%28USGS_Lwt02830%29.jpg",
+  "w": "https://en.wikipedia.org/wiki/Mammoth_Cave_National_Park",
+  "mt": "image/jpeg",
+  "width": 330,
+  "height": 243,
+  "sha256": "333b0c34f512898961736e23512855b2ab037cebb3ce0243a5e1e0f588a87a9a",
+  "reviewStatus": "approved",
+  "checkedAt": "2026-11-01T00:35:53.296847+00:00",
+  "fetchedAt": null
+ },
  "Serengeti National Park": {
   "f": "serengeti.jpg",
   "a": "Bjørn Christian Tørrissen",
@@ -103,20 +118,5 @@
   "height": 190,
   "sha256": "9c75a904fb2774dd4df9ed2f38d1ae8f6d42321f6164ab926db1915a613ceaef",
   "reviewStatus": "approved"
- },
- "Wadden Sea": {
-  "f": "wadden.jpg",
-  "a": "Ralf Roletschek",
-  "l": "CC BY-SA 3.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/3.0",
-  "p": "https://commons.wikimedia.org/wiki/File:13-09-29-nordfriesisches-wattenmeer-RalfR-19.jpg",
-  "w": "https://en.wikipedia.org/wiki/Wadden_Sea",
-  "mt": "image/jpeg",
-  "width": 330,
-  "height": 212,
-  "sha256": "eeb65bcd300678c90f60761682d808154d6811c6fb67b62d955bb52ce7185785",
-  "reviewStatus": "approved",
-  "checkedAt": "2026-11-01T00:35:53.296847+00:00",
-  "fetchedAt": null
  }
 }
