@@ -1,6 +1,6 @@
 # Research file: Waimea Canyon State Park (hiwaimeacanyon)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 22.0741, -159.6716. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 22.0741, -159.6716. Kind: Forest.
 
 **Current sources:** Wikipedia: Waimea Canyon State Park <https://en.wikipedia.org/wiki/Waimea_Canyon_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (16)
-largeleaflanta (lantana camara), beggarslice (bidens alba), cattleyguava (psidium cattleianum), mauritiusraspb (rubus rosifolius), sawtoothblackb (rubus argutus), bananapoka (passiflora tarminiana), gulffritillary (dione vanillae), argentineant (linepithema humile), feralpig (sus scrofa), commonmyna (acridotheres tristis), japanesewhitee (zosterops japonicus), redcrestedcard (paroaria coronata), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (12)
+Lantana (Lantana camara), Beggarticks (Bidens alba), Strawberry guava (Psidium cattleianum), Mauritius raspberry (Rubus rosifolius), Sawtooth blackberry (Rubus argutus), Banana Poka (Passiflora tarminiana), Gulf Fritillary (Dione vanillae), Argentine ant (Linepithema humile), Wild boar (Sus scrofa), Common Myna (Acridotheres tristis), Japanese white-eye (Zosterops japonicus), Red-crested Cardinal (Paroaria coronata)
 
 ## 4. Wikipedia text
 ### Waimea Canyon State Park
-Source: <https://en.wikipedia.org/wiki/Waimea_Canyon_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Waimea_Canyon_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Waimea Canyon, also known as the Grand Canyon of the Pacific, is a large canyon, approximately ten miles (16 km) long and up to 3,000 feet (910 m) deep, located on the western side of Kauaʻi in the Hawaiian Islands of the United States. Waimea is Hawaiian for "reddish water", a reference to the erosion of the canyon's red soil.  The canyon was formed by a deep incision of the Waimea River arising from the extreme rainfall on the island's central peak, Mount Waiʻaleʻale, among the wettest places on earth.
 
@@ -35,36 +35,37 @@ Waimea Canyon State Park encompasses 1,866 acres (7.55 km2) and is a popular tou
 == Gallery ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Lantana -> Gulf Fritillary | g | Dione vanillae -> Lantana camara | 2 record(s): Dione vanillae incarnata eats Lantana camara; Dione vanillae eats Lantana camara |
+| Mauritius raspberry -> Gulf Fritillary | gf | Dione vanillae -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Gulf Fritillary | gf | Dione vanillae -> Rubus argutus | 0 record(s):  |
+| Banana Poka -> Gulf Fritillary | gg | Dione vanillae -> Passiflora tarminiana | 0 record(s):  |
+| Beggarticks -> Gulf Fritillary | g | Dione vanillae -> Bidens alba | 1 record(s): Dione vanillae eats Bidens alba |
+| Mauritius raspberry -> Argentine ant | gf | Linepithema humile -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Argentine ant | gf | Linepithema humile -> Rubus argutus | 0 record(s):  |
+| Beggarticks -> Argentine ant | gf | Linepithema humile -> Bidens alba | 0 record(s):  |
+| Strawberry guava -> Wild boar | gg | Sus scrofa -> Psidium cattleianum | 0 record(s):  |
+| Mauritius raspberry -> Wild boar | gg | Sus scrofa -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Wild boar | gg | Sus scrofa -> Rubus argutus | 0 record(s):  |
+| Beggarticks -> Wild boar | gg | Sus scrofa -> Bidens alba | 0 record(s):  |
+| Lantana -> Common Myna | g | Acridotheres tristis -> Lantana camara | 1 record(s): Acridotheres tristis eats Lantana camara |
+| Strawberry guava -> Common Myna | gg | Acridotheres tristis -> Psidium cattleianum | 0 record(s):  |
+| Mauritius raspberry -> Common Myna | gg | Acridotheres tristis -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Common Myna | gg | Acridotheres tristis -> Rubus argutus | 0 record(s):  |
+| Lantana -> Japanese white-eye | g | Zosterops japonicus -> Lantana camara | 1 record(s): Zosterops japonicus eats Lantana camara |
+| Strawberry guava -> Japanese white-eye | g | Zosterops japonicus -> Psidium cattleianum | 1 record(s): Zosterops japonicus eats Psidium cattleianum |
+| Mauritius raspberry -> Japanese white-eye | g | Zosterops japonicus -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Japanese white-eye | g | Zosterops japonicus -> Rubus argutus | 1 record(s): Zosterops japonicus eats Rubus argutus |
+| Banana Poka -> Japanese white-eye | gg | Zosterops japonicus -> Passiflora tarminiana | 0 record(s):  |
+| Lantana -> Red-crested Cardinal | g | Paroaria coronata -> Lantana camara | 1 record(s): Paroaria coronata eats Lantana camara |
+| Strawberry guava -> Red-crested Cardinal | g | Paroaria coronata -> Psidium cattleianum | 1 record(s): Paroaria coronata eats Psidium cattleianum |
+| Mauritius raspberry -> Red-crested Cardinal | g | Paroaria coronata -> Rubus rosifolius | 0 record(s):  |
+| Sawtooth blackberry -> Red-crested Cardinal | gg | Paroaria coronata -> Rubus argutus | 0 record(s):  |
+| Banana Poka -> Red-crested Cardinal | gg | Paroaria coronata -> Passiflora tarminiana | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- largeleaflanta -> gulffritillary (no evidence entry)
-- mauritiusraspb -> gulffritillary (no evidence entry)
-- sawtoothblackb -> gulffritillary (no evidence entry)
-- bananapoka -> gulffritillary (no evidence entry)
-- beggarslice -> gulffritillary (no evidence entry)
-- mauritiusraspb -> argentineant (no evidence entry)
-- sawtoothblackb -> argentineant (no evidence entry)
-- beggarslice -> argentineant (no evidence entry)
-- cattleyguava -> feralpig (no evidence entry)
-- mauritiusraspb -> feralpig (no evidence entry)
-- sawtoothblackb -> feralpig (no evidence entry)
-- beggarslice -> feralpig (no evidence entry)
-- largeleaflanta -> commonmyna (no evidence entry)
-- cattleyguava -> commonmyna (no evidence entry)
-- mauritiusraspb -> commonmyna (no evidence entry)
-- sawtoothblackb -> commonmyna (no evidence entry)
-- largeleaflanta -> japanesewhitee (no evidence entry)
-- cattleyguava -> japanesewhitee (no evidence entry)
-- mauritiusraspb -> japanesewhitee (no evidence entry)
-- sawtoothblackb -> japanesewhitee (no evidence entry)
-- bananapoka -> japanesewhitee (no evidence entry)
-- largeleaflanta -> redcrestedcard (no evidence entry)
-- cattleyguava -> redcrestedcard (no evidence entry)
-- mauritiusraspb -> redcrestedcard (no evidence entry)
-- sawtoothblackb -> redcrestedcard (no evidence entry)
-- bananapoka -> redcrestedcard (no evidence entry)
+(none)
 

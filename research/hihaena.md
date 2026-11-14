@@ -1,6 +1,6 @@
 # Research file: Ha'ena State Park (hihaena)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 22.216, -159.5867. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 22.216, -159.5867. Kind: Forest.
 
 **Current sources:** Wikipedia: Ha'ena State Park <https://en.wikipedia.org/wiki/Ha'ena_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (22)
-bluesnakeweed (stachytarpheta cayennensis), largeleaflanta (lantana camara), beggarslice (bidens alba), cattleyguava (psidium cattleianum), goldenbellappl (passiflora laurifolia), roundleafchast (vitex rotundifolia), zebradove (geopelia striata), gulffritillary (dione vanillae), westernhoneybe (apis mellifera), blackrat (rattus rattus), housemouse (mus musculus), whiterumpedsha (copsychus malabaricus), japanesewhitee (zosterops japonicus), commonmyna (acridotheres tristis), redcrestedcard (paroaria coronata), cat (felis catus), brownanole (anolis sagrei), greenanole (anolis carolinensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (18)
+Blue snakeweed (Stachytarpheta cayennensis), Lantana (Lantana camara), Beggarticks (Bidens alba), Strawberry guava (Psidium cattleianum), Golden bellapple (Passiflora laurifolia), Roundleaf Chastetree (Vitex rotundifolia), Zebra Dove (Geopelia striata), Gulf Fritillary (Dione vanillae), Western honey bee (Apis mellifera), Black rat (Rattus rattus), House mouse (Mus musculus), White-rumped Shama (Copsychus malabaricus), Japanese white-eye (Zosterops japonicus), Common Myna (Acridotheres tristis), Red-crested Cardinal (Paroaria coronata), Feral cat (Felis catus), Brown anole (Anolis sagrei), Green anole (Anolis carolinensis)
 
 ## 4. Wikipedia text
 ### Hāʻena State Park
-Source: <https://en.wikipedia.org/wiki/H%C4%81%CA%BBena_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/H%C4%81%CA%BBena_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Hāʻena State Park is a state park on the north shore of the Hawaiian island of Kauaʻi. It is often called the "end of the road" and marks the endpoint of the Kuhio Highway. The park provides access to beaches, trails, and several ancient Hawaiian sites, including sea caves estimated to be more than 4,000 years old. Archaeological sites associated with the hula, including a heiau (shrine) dedicated to Laka, are above the park's beaches.
 
@@ -37,52 +37,53 @@ Hāʻena Beach is just east of Haʻena State Park. Haena is Hawaiian for "red ho
 During the park's extended closure because of the 2018 flood damage to Kuhio Highway, a parking and concession agreement was negotiated with a local nonprofit. The park is a destination management example for state parks that are environmentally, culturally, or historically unique.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Lantana -> Zebra Dove | g | Geopelia striata -> Lantana camara | 1 record(s): Geopelia striata eats Lantana camara |
+| Strawberry guava -> Zebra Dove | g | Geopelia striata -> Psidium cattleianum | 1 record(s): Geopelia striata eats Psidium cattleianum |
+| Golden bellapple -> Zebra Dove | gg | Geopelia striata -> Passiflora laurifolia | 0 record(s):  |
+| Blue snakeweed -> Zebra Dove | gf | Geopelia striata -> Stachytarpheta cayennensis | 0 record(s):  |
+| Lantana -> Gulf Fritillary | g | Dione vanillae -> Lantana camara | 2 record(s): Dione vanillae incarnata eats Lantana camara; Dione vanillae eats Lantana camara |
+| Golden bellapple -> Gulf Fritillary | gg | Dione vanillae -> Passiflora laurifolia | 0 record(s):  |
+| Roundleaf Chastetree -> Gulf Fritillary | gg | Dione vanillae -> Vitex rotundifolia | 0 record(s):  |
+| Beggarticks -> Gulf Fritillary | g | Dione vanillae -> Bidens alba | 1 record(s): Dione vanillae eats Bidens alba |
+| Blue snakeweed -> Gulf Fritillary | g | Dione vanillae -> Stachytarpheta cayennensis | 1 record(s): Dione vanillae eats Stachytarpheta cayennensis |
+| Lantana -> Western honey bee | g | Apis mellifera -> Lantana camara | 1 record(s): Apis mellifera eats Lantana camara |
+| Strawberry guava -> Western honey bee | gg | Apis mellifera -> Psidium cattleianum | 1 record(s): Apis mellifera eats Psidium cattleianum |
+| Golden bellapple -> Western honey bee | gg | Apis mellifera -> Passiflora laurifolia | 0 record(s):  |
+| Roundleaf Chastetree -> Western honey bee | gg | Apis mellifera -> Vitex rotundifolia | 0 record(s):  |
+| Beggarticks -> Western honey bee | gg | Apis mellifera -> Bidens alba | 2 record(s): Apis mellifera eats Bidens pilosa; Apis mellifera eats Bidens alba |
+| Blue snakeweed -> Western honey bee | gf | Apis mellifera -> Stachytarpheta cayennensis | 0 record(s):  |
+| Strawberry guava -> Black rat | gf | Rattus rattus -> Psidium cattleianum | 0 record(s):  |
+| Beggarticks -> House mouse | gf | Mus musculus -> Bidens alba | 0 record(s):  |
+| Lantana -> White-rumped Shama | g | Copsychus malabaricus -> Lantana camara | 1 record(s): Copsychus malabaricus eats Lantana camara |
+| Strawberry guava -> White-rumped Shama | g | Copsychus malabaricus -> Psidium cattleianum | 1 record(s): Copsychus malabaricus eats Psidium cattleianum |
+| Golden bellapple -> White-rumped Shama | gg | Copsychus malabaricus -> Passiflora laurifolia | 0 record(s):  |
+| Blue snakeweed -> White-rumped Shama | gf | Copsychus malabaricus -> Stachytarpheta cayennensis | 0 record(s):  |
+| Lantana -> Japanese white-eye | g | Zosterops japonicus -> Lantana camara | 1 record(s): Zosterops japonicus eats Lantana camara |
+| Strawberry guava -> Japanese white-eye | g | Zosterops japonicus -> Psidium cattleianum | 1 record(s): Zosterops japonicus eats Psidium cattleianum |
+| Golden bellapple -> Japanese white-eye | gg | Zosterops japonicus -> Passiflora laurifolia | 0 record(s):  |
+| Roundleaf Chastetree -> Japanese white-eye | gf | Zosterops japonicus -> Vitex rotundifolia | 0 record(s):  |
+| Blue snakeweed -> Japanese white-eye | gf | Zosterops japonicus -> Stachytarpheta cayennensis | 0 record(s):  |
+| Lantana -> Common Myna | g | Acridotheres tristis -> Lantana camara | 1 record(s): Acridotheres tristis eats Lantana camara |
+| Strawberry guava -> Common Myna | gg | Acridotheres tristis -> Psidium cattleianum | 0 record(s):  |
+| Roundleaf Chastetree -> Common Myna | gg | Acridotheres tristis -> Vitex rotundifolia | 0 record(s):  |
+| Blue snakeweed -> Common Myna | gf | Acridotheres tristis -> Stachytarpheta cayennensis | 0 record(s):  |
+| Lantana -> Red-crested Cardinal | g | Paroaria coronata -> Lantana camara | 1 record(s): Paroaria coronata eats Lantana camara |
+| Strawberry guava -> Red-crested Cardinal | g | Paroaria coronata -> Psidium cattleianum | 1 record(s): Paroaria coronata eats Psidium cattleianum |
+| Golden bellapple -> Red-crested Cardinal | gg | Paroaria coronata -> Passiflora laurifolia | 0 record(s):  |
+| Roundleaf Chastetree -> Red-crested Cardinal | gg | Paroaria coronata -> Vitex rotundifolia | 0 record(s):  |
+| Blue snakeweed -> Red-crested Cardinal | gf | Paroaria coronata -> Stachytarpheta cayennensis | 0 record(s):  |
+| Western honey bee -> Red-crested Cardinal | g | Paroaria coronata -> Apis mellifera | 1 record(s): Paroaria coronata preysOn Apis mellifera |
+| Western honey bee -> Brown anole | g | Anolis sagrei -> Apis mellifera | 2 record(s): Anolis sagrei eats Apis mellifera; Anolis sagrei preysOn Apis mellifera |
+| Roundleaf Chastetree -> Green anole | gf | Anolis carolinensis -> Vitex rotundifolia | 0 record(s):  |
+| Gulf Fritillary -> Green anole | g | Anolis carolinensis -> Dione vanillae | 1 record(s): Anolis carolinensis preysOn Dione vanillae |
+| Western honey bee -> Green anole | g | Anolis carolinensis -> Apis mellifera | 2 record(s): Anolis carolinensis preysOn Apis mellifera; Anolis carolinensis preysOn Apis |
+| Black rat -> Feral cat | g | Felis catus -> Rattus rattus | 2 record(s): Felis catus preysOn Rattus rattus; Felis catus eats Rattus rattus |
+| House mouse -> Feral cat | g | Felis catus -> Mus musculus | 2 record(s): Felis catus eats Mus musculus; Felis catus preysOn Mus musculus |
 
 ### Links with no GloBI record (be careful with these)
-- largeleaflanta -> zebradove (no evidence entry)
-- cattleyguava -> zebradove (no evidence entry)
-- goldenbellappl -> zebradove (no evidence entry)
-- bluesnakeweed -> zebradove (no evidence entry)
-- largeleaflanta -> gulffritillary (no evidence entry)
-- goldenbellappl -> gulffritillary (no evidence entry)
-- roundleafchast -> gulffritillary (no evidence entry)
-- beggarslice -> gulffritillary (no evidence entry)
-- bluesnakeweed -> gulffritillary (no evidence entry)
-- largeleaflanta -> westernhoneybe (no evidence entry)
-- cattleyguava -> westernhoneybe (no evidence entry)
-- goldenbellappl -> westernhoneybe (no evidence entry)
-- roundleafchast -> westernhoneybe (no evidence entry)
-- beggarslice -> westernhoneybe (no evidence entry)
-- bluesnakeweed -> westernhoneybe (no evidence entry)
-- cattleyguava -> blackrat (no evidence entry)
-- beggarslice -> housemouse (no evidence entry)
-- largeleaflanta -> whiterumpedsha (no evidence entry)
-- cattleyguava -> whiterumpedsha (no evidence entry)
-- goldenbellappl -> whiterumpedsha (no evidence entry)
-- bluesnakeweed -> whiterumpedsha (no evidence entry)
-- largeleaflanta -> japanesewhitee (no evidence entry)
-- cattleyguava -> japanesewhitee (no evidence entry)
-- goldenbellappl -> japanesewhitee (no evidence entry)
-- roundleafchast -> japanesewhitee (no evidence entry)
-- bluesnakeweed -> japanesewhitee (no evidence entry)
-- largeleaflanta -> commonmyna (no evidence entry)
-- cattleyguava -> commonmyna (no evidence entry)
-- roundleafchast -> commonmyna (no evidence entry)
-- bluesnakeweed -> commonmyna (no evidence entry)
-- largeleaflanta -> redcrestedcard (no evidence entry)
-- cattleyguava -> redcrestedcard (no evidence entry)
-- goldenbellappl -> redcrestedcard (no evidence entry)
-- roundleafchast -> redcrestedcard (no evidence entry)
-- bluesnakeweed -> redcrestedcard (no evidence entry)
-- westernhoneybe -> redcrestedcard (no evidence entry)
-- westernhoneybe -> brownanole (no evidence entry)
-- roundleafchast -> greenanole (no evidence entry)
-- gulffritillary -> greenanole (no evidence entry)
-- westernhoneybe -> greenanole (no evidence entry)
-- blackrat -> cat (no evidence entry)
-- housemouse -> cat (no evidence entry)
+(none)
 

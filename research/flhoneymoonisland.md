@@ -1,6 +1,6 @@
 # Research file: Honeymoon Island State Park (flhoneymoonisland)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Florida, USA. Coordinates 28.069, -82.8276. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Florida, USA. Coordinates 28.069, -82.8276. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Honeymoon Island State Park <https://en.wikipedia.org/wiki/Honeymoon_Island_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (17)
-seagrape (coccoloba uvifera), bayhops (ipomoea pes-caprae), bristlythistle (cirsium horridulum), beggarslice (bidens alba), seasideoats (uniola paniculata), cabbagepalm (sabal palmetto), gulffritillary (dione vanillae), whitepeacock (anartia jatrophae), ceraunusblue (hemiargus ceraunus), westernhoneybe (apis mellifera), greategret (ardea alba), northernmockin (mimus polyglottos), brownanole (anolis sagrei), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (13)
+Seagrape (Coccoloba uvifera), Bayhops (Ipomoea pes-caprae), Yellow thistle (Cirsium horridulum), Beggarticks (Bidens alba), Seaoats (Uniola paniculata), Cabbage palm (Sabal palmetto), Gulf Fritillary (Dione vanillae), White Peacock (Anartia jatrophae), Ceraunus Blue (Hemiargus ceraunus), Western honey bee (Apis mellifera), Great Egret (Ardea alba), Northern Mockingbird (Mimus polyglottos), Brown anole (Anolis sagrei)
 
 ## 4. Wikipedia text
 ### Honeymoon Island State Park
-Source: <https://en.wikipedia.org/wiki/Honeymoon_Island_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Honeymoon_Island_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Honeymoon Island State Park is a 2,824.52-acre (1,143.04 ha) Florida state park protecting most of Honeymoon Island, a barrier island on Florida's Gulf coast in Pinellas County, west of Dunedin. The park protects approximately 4.25 miles (6.84 km) of shoreline along the Gulf of Mexico together with extensive seagrass beds, mangrove swamps, slash pine flatwoods, and coastal dunes and grasslands. The state began buying the land in 1974, and the park opened in December 1981.
 The island is south of the Anclote Keys and north of Caladesi Island, being separated by a hurricane in 1921. The two islands originally formed a single island named Hog Island, with the inlet between them being known as Hurricane Pass. The park's landform includes a wind and wave shaped finger at its northern end that has grown outward by more than 160 ft (50 m) per year since the late 1970s.
@@ -61,35 +61,36 @@ Radiocarbon-calibrated sea-level curves place the modern island at 4,800 to 7,00
 [...trimmed]
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Seagrape -> Gulf Fritillary | gf | Dione vanillae -> Coccoloba uvifera | 0 record(s):  |
+| Yellow thistle -> Gulf Fritillary | gg | Dione vanillae -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> Gulf Fritillary | g | Dione vanillae -> Bidens alba | 1 record(s): Dione vanillae eats Bidens alba |
+| Seagrape -> White Peacock | gf | Anartia jatrophae -> Coccoloba uvifera | 0 record(s):  |
+| Yellow thistle -> White Peacock | gf | Anartia jatrophae -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> White Peacock | g | Anartia jatrophae -> Bidens alba | 1 record(s): Anartia jatrophae eats Bidens alba |
+| Seagrape -> Ceraunus Blue | gf | Hemiargus ceraunus -> Coccoloba uvifera | 0 record(s):  |
+| Yellow thistle -> Ceraunus Blue | gf | Hemiargus ceraunus -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> Ceraunus Blue | g | Hemiargus ceraunus -> Bidens alba | 1 record(s): Hemiargus ceraunus eats Bidens alba |
+| Seagrape -> Western honey bee | gf | Apis mellifera -> Coccoloba uvifera | 0 record(s):  |
+| Bayhops -> Western honey bee | gg | Apis mellifera -> Ipomoea pes-caprae | 0 record(s):  |
+| Yellow thistle -> Western honey bee | gg | Apis mellifera -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> Western honey bee | gg | Apis mellifera -> Bidens alba | 2 record(s): Apis mellifera eats Bidens pilosa; Apis mellifera eats Bidens alba |
+| Seaoats -> Western honey bee | gf | Apis mellifera -> Uniola paniculata | 0 record(s):  |
+| Cabbage palm -> Western honey bee | gf | Apis mellifera -> Sabal palmetto | 0 record(s):  |
+| Yellow thistle -> Great Egret | gf | Ardea alba -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> Great Egret | gf | Ardea alba -> Bidens alba | 0 record(s):  |
+| Seaoats -> Great Egret | gf | Ardea alba -> Uniola paniculata | 0 record(s):  |
+| Seagrape -> Northern Mockingbird | gg | Mimus polyglottos -> Coccoloba uvifera | 0 record(s):  |
+| Bayhops -> Northern Mockingbird | gg | Mimus polyglottos -> Ipomoea pes-caprae | 0 record(s):  |
+| Yellow thistle -> Northern Mockingbird | gf | Mimus polyglottos -> Cirsium horridulum | 0 record(s):  |
+| Beggarticks -> Northern Mockingbird | gf | Mimus polyglottos -> Bidens alba | 0 record(s):  |
+| Cabbage palm -> Northern Mockingbird | g | Mimus polyglottos -> Sabal palmetto | 2 record(s): Mimus polyglottos eats Sabal palmetto; Mimus polyglottos eats Sabal mexicana |
+| Western honey bee -> Northern Mockingbird | g | Mimus polyglottos -> Apis mellifera | 1 record(s): Mimus polyglottos preysOn Apis mellifera |
+| Western honey bee -> Brown anole | g | Anolis sagrei -> Apis mellifera | 2 record(s): Anolis sagrei eats Apis mellifera; Anolis sagrei preysOn Apis mellifera |
 
 ### Links with no GloBI record (be careful with these)
-- seagrape -> gulffritillary (no evidence entry)
-- bristlythistle -> gulffritillary (no evidence entry)
-- beggarslice -> gulffritillary (no evidence entry)
-- seagrape -> whitepeacock (no evidence entry)
-- bristlythistle -> whitepeacock (no evidence entry)
-- beggarslice -> whitepeacock (no evidence entry)
-- seagrape -> ceraunusblue (no evidence entry)
-- bristlythistle -> ceraunusblue (no evidence entry)
-- beggarslice -> ceraunusblue (no evidence entry)
-- seagrape -> westernhoneybe (no evidence entry)
-- bayhops -> westernhoneybe (no evidence entry)
-- bristlythistle -> westernhoneybe (no evidence entry)
-- beggarslice -> westernhoneybe (no evidence entry)
-- seasideoats -> westernhoneybe (no evidence entry)
-- cabbagepalm -> westernhoneybe (no evidence entry)
-- bristlythistle -> greategret (no evidence entry)
-- beggarslice -> greategret (no evidence entry)
-- seasideoats -> greategret (no evidence entry)
-- seagrape -> northernmockin (no evidence entry)
-- bayhops -> northernmockin (no evidence entry)
-- bristlythistle -> northernmockin (no evidence entry)
-- beggarslice -> northernmockin (no evidence entry)
-- cabbagepalm -> northernmockin (no evidence entry)
-- westernhoneybe -> northernmockin (no evidence entry)
-- westernhoneybe -> brownanole (no evidence entry)
+(none)
 

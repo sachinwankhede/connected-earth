@@ -1,6 +1,6 @@
 # Research file: Geode State Park (iageode)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Iowa, USA. Coordinates 40.8169, -91.3788. Kind: Forest.
@@ -14,12 +14,12 @@ Iowa, USA. Coordinates 40.8169, -91.3788. Kind: Forest.
 
 **Current sources:** Wikipedia: Geode State Park <https://en.wikipedia.org/wiki/Geode_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (19)
-prairietrilliu (trillium recurvatum), mayapple (podophyllum peltatum), fragrantsumac (rhus aromatica), garlicmustard (alliaria petiolata), grasssedge (carex jamesii), inflatednarrow (carex grisea), northerncardin (cardinalis cardinalis), pearlcrescent (phyciodes tharos), whitetaileddee (odocoileus virginianus), woodlandvole (microtus pinetorum), redbelliedwood (melanerpes carolinus), americanrobin (turdus migratorius), americancrow (corvus brachyrhynchos), redheadedwoodp (melanerpes erythrocephalus), blackratsnake (pantherophis obsoletus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (15)
+Prairie trillium (Trillium recurvatum), Mayapple (Podophyllum peltatum), Fragrant sumac (Rhus aromatica), Garlic Mustard (Alliaria petiolata), Grass sedge (Carex jamesii), Inflated narrow-leaf sedge (Carex grisea), Northern Cardinal (Cardinalis cardinalis), Pearl Crescent (Phyciodes tharos), White-tailed deer (Odocoileus virginianus), Woodland vole (Microtus pinetorum), Red-bellied Woodpecker (Melanerpes carolinus), American Robin (Turdus migratorius), American Crow (Corvus brachyrhynchos), Red-headed Woodpecker (Melanerpes erythrocephalus), Black Rat Snake (Pantherophis obsoletus)
 
 ## 4. Wikipedia text
 ### Geode State Park
-Source: <https://en.wikipedia.org/wiki/Geode_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Geode_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Geode State Park is a state park in Henry County, Iowa bordering Des Moines County. It is managed by the Iowa Department of Natural Resources. While it is named for Iowa's state rock, the geode, few can be found in the park. A display of geodes, with their mysterious crystal formations in their hollow cavities, can be seen at the park office. It is illegal to remove geodes from state parks.
 The prime attraction of the 1,640-acre (660 ha) park is Lake Geode, a 187-acre (76 ha) lake built in 1950. Over the years, the lake has become well known for excellent fishing for largemouth bass, bluegill, crappie, channel catfish, bullhead, red-eared sunfish.
@@ -30,28 +30,29 @@ Nearby towns are Burlington, 15 miles (24 km) to the east; New London, 6 miles (
 The park can be reached from Middletown on Iowa 79 or from Lowell on County Road J-20.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Fragrant sumac -> Northern Cardinal | g | Cardinalis cardinalis -> Rhus aromatica | 0 record(s):  |
+| Grass sedge -> Northern Cardinal | gg | Cardinalis cardinalis -> Carex jamesii | 0 record(s):  |
+| Inflated narrow-leaf sedge -> Northern Cardinal | gg | Cardinalis cardinalis -> Carex grisea | 0 record(s):  |
+| Fragrant sumac -> Pearl Crescent | gg | Phyciodes tharos -> Rhus aromatica | 0 record(s):  |
+| Garlic Mustard -> Pearl Crescent | gf | Phyciodes tharos -> Alliaria petiolata | 0 record(s):  |
+| Prairie trillium -> White-tailed deer | gg | Odocoileus virginianus -> Trillium recurvatum | 0 record(s):  |
+| Mayapple -> White-tailed deer | gf | Odocoileus virginianus -> Podophyllum peltatum | 0 record(s):  |
+| Grass sedge -> White-tailed deer | gg | Odocoileus virginianus -> Carex jamesii | 0 record(s):  |
+| Inflated narrow-leaf sedge -> White-tailed deer | gg | Odocoileus virginianus -> Carex grisea | 0 record(s):  |
+| Grass sedge -> Woodland vole | gf | Microtus pinetorum -> Carex jamesii | 0 record(s):  |
+| Inflated narrow-leaf sedge -> Woodland vole | gf | Microtus pinetorum -> Carex grisea | 0 record(s):  |
+| Fragrant sumac -> Red-bellied Woodpecker | gg | Melanerpes carolinus -> Rhus aromatica | 0 record(s):  |
+| Mayapple -> American Robin | gf | Turdus migratorius -> Podophyllum peltatum | 0 record(s):  |
+| Fragrant sumac -> American Robin | gg | Turdus migratorius -> Rhus aromatica | 2 record(s): Turdus migratorius eats Rhus typhina; Turdus migratorius preysOn Rhus typhina |
+| Garlic Mustard -> American Robin | gf | Turdus migratorius -> Alliaria petiolata | 0 record(s):  |
+| Fragrant sumac -> American Crow | gg | Corvus brachyrhynchos -> Rhus aromatica | 1 record(s): Corvus brachyrhynchos eats Rhus typhina |
+| Fragrant sumac -> Red-headed Woodpecker | gf | Melanerpes erythrocephalus -> Rhus aromatica | 0 record(s):  |
+| Northern Cardinal -> Black Rat Snake | g | Pantherophis obsoletus -> Cardinalis cardinalis | 3 record(s): Pantherophis alleghaniensis eats Cardinalis cardinalis; Pantherophis obsoletus preysOn Cardinalis cardinalis; Pantherophis alleghaniensis preysOn Cardinalis cardinalis |
 
 ### Links with no GloBI record (be careful with these)
-- fragrantsumac -> northerncardin (no evidence entry)
-- grasssedge -> northerncardin (no evidence entry)
-- inflatednarrow -> northerncardin (no evidence entry)
-- fragrantsumac -> pearlcrescent (no evidence entry)
-- garlicmustard -> pearlcrescent (no evidence entry)
-- prairietrilliu -> whitetaileddee (no evidence entry)
-- mayapple -> whitetaileddee (no evidence entry)
-- grasssedge -> whitetaileddee (no evidence entry)
-- inflatednarrow -> whitetaileddee (no evidence entry)
-- grasssedge -> woodlandvole (no evidence entry)
-- inflatednarrow -> woodlandvole (no evidence entry)
-- fragrantsumac -> redbelliedwood (no evidence entry)
-- mayapple -> americanrobin (no evidence entry)
-- fragrantsumac -> americanrobin (no evidence entry)
-- garlicmustard -> americanrobin (no evidence entry)
-- fragrantsumac -> americancrow (no evidence entry)
-- fragrantsumac -> redheadedwoodp (no evidence entry)
-- northerncardin -> blackratsnake (no evidence entry)
+(none)
 

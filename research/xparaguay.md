@@ -1,6 +1,6 @@
 # Research file: Defensores del Chaco National Park (xparaguay)
 
-Retrieved 2026-10-29. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Paraguay. Coordinates -20.0, -61.0. Kind: Forest.
@@ -14,12 +14,12 @@ Paraguay. Coordinates -20.0, -61.0. Kind: Forest.
 
 **Current sources:** Wikipedia: National Parks in the Paraguayan Chaco <https://en.wikipedia.org/wiki/National_Parks_in_the_Paraguayan_Chaco>; UNESCO tentative list: Defensores del Chaco <https://whc.unesco.org/en/tentativelists/6610>; Wikipedia: Dry Chaco <https://en.wikipedia.org/wiki/Dry_Chaco>
 
-## 3. Species in the app (22)
-sun (sunlight), rain (seasonal rain), water (timane river and waterholes), soil (soil and nutrients), Fungi, bacteria and termites (decomposer community), algarrobo (prosopis alba), cactus (stetsonia coryne), grass (urochloa), chacoan (catagonus wagneri), tapir (tapirus terrestris), brocket (mazama gouazoubira), dove (zenaida auriculata), parrot (amazona aestiva), armadillo (tolypeutes matacus), ant (atta), fox (cerdocyon thous), seriema (chunga burmeisteri), snake (philodryas baroni), hawk (buteogallus meridionalis), vulture (coragyps atratus), jaguar (panthera onca), puma (puma concolor)
+## 3. Species in the app (17)
+White carob (algarrobo) (Prosopis alba), Toothpick cactus (Stetsonia coryne), Signalgrass (Urochloa), Chacoan peccary (Catagonus wagneri), Lowland tapir (Tapirus terrestris), Gray brocket (Mazama gouazoubira), Eared dove (Zenaida auriculata), Turquoise-fronted parrot (Amazona aestiva), Southern three-banded armadillo (Tolypeutes matacus), Leafcutter ants (Atta), Crab-eating fox (Cerdocyon thous), Black-legged seriema (Chunga burmeisteri), Baron's green racer (Philodryas baroni), Savanna hawk (Buteogallus meridionalis), Black vulture (Coragyps atratus), Jaguar (Panthera onca), Puma (Puma concolor)
 
 ## 4. Wikipedia text
 ### Gran Chaco
-Source: <https://en.wikipedia.org/wiki/Gran_Chaco> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Gran_Chaco> (CC BY-SA), retrieved 2026-11-14.
 
 The Gran Chaco (also called Chaco or Chaco Plain) is a vast semiarid lowland region in central South America, spanning over one million square kilometres (390,000 sq mi) across eastern Bolivia, western Paraguay, northern Argentina, and parts of Brazil. It forms part of the Río de la Plata basin. 
 The Gran Chaco features a mix of tropical and subtropical dry broadleaf forests, thorn scrub, savannas, wetlands, and palm groves, making it the continent's second-largest forested ecoregion and a region of high ecological diversity.
@@ -58,7 +58,7 @@ At higher elevations of the eastern zone of the Humid Chaco, mature forests tran
 [...trimmed]
 
 ### National Parks in the Paraguayan Chaco
-Source: <https://en.wikipedia.org/wiki/National_Parks_in_the_Paraguayan_Chaco> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/National_Parks_in_the_Paraguayan_Chaco> (CC BY-SA), retrieved 2026-11-14.
 
 There are a number of national parks and protected areas in the Paraguayan Chaco. The Paraguayan Chaco is the part of the Gran Chaco, South America's second-largest forest, which is within Paraguay, making up 23% of its ~1.000.000 km2 land area. It is the largest bioregion in Paraguay, and can be divided into the northwest Dry Chaco, covered by xenomorphic forests adapted to irregular rainfall, and the Humid Chaco, a mosaic of dry forests, palm savannahs, and seasonally flooded wetlands.
 Geologically, the Great South American Chaco is a plain and its formation, millions of years ago, is very closely related to the formation of the Andes and the erosive process afterwards. Originally the Chaco was a basin, which within time, was filled with sediments of aerial origin (through wind action) and of pluvial origin (through rivers taking and depositing sediments in the Chaco).
@@ -105,7 +105,7 @@ There are many shrubs adapted to the floods, and animals such as the ñandy, wil
 The way to get there is through the Transchaco road, 180 km, then Pozo Colorado, a detour to the west, to Fortín General Diaz.
 
 ### Gran Chaco
-Source: <https://en.wikipedia.org/wiki/Gran_Chaco> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Gran_Chaco> (CC BY-SA), retrieved 2026-11-14.
 
 The Gran Chaco (also called Chaco or Chaco Plain) is a vast semiarid lowland region in central South America, spanning over one million square kilometres (390,000 sq mi) across eastern Bolivia, western Paraguay, northern Argentina, and parts of Brazil. It forms part of the Río de la Plata basin. 
 The Gran Chaco features a mix of tropical and subtropical dry broadleaf forests, thorn scrub, savannas, wetlands, and palm groves, making it the continent's second-largest forested ecoregion and a region of high ecological diversity.
@@ -144,35 +144,35 @@ At higher elevations of the eastern zone of the Humid Chaco, mature forests tran
 [...trimmed]
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-10-29. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
-| parrot -> snake | g | Philodryas baroni -> Amazona aestiva | 1 record(s): Philodryas baroni preysOn Amazona aestiva |
-| tapir -> jaguar | g | Panthera onca -> Tapirus terrestris | 3 record(s): Panthera onca eats Tapirus terrestris; Panthera onca preysOn Tapirus terrestris |
-| brocket -> jaguar | g | Panthera onca -> Mazama gouazoubira | 1 record(s): Panthera onca eats Mazama gouazoubira |
-| brocket -> puma | g | Puma concolor -> Mazama gouazoubira | 1 record(s): Puma concolor eats Mazama gouazoubira |
-| grass -> tapir | ga | Tapirus terrestris -> Urochloa | 1 record(s): Tapirus terrestris eats Urochloa |
-| dove -> puma | ga | Puma concolor -> Zenaida auriculata | 1 record(s): Puma concolor eats Zenaida auriculata |
+| Turquoise-fronted parrot -> Baron's green racer | g | Philodryas baroni -> Amazona aestiva | 1 record(s): Philodryas baroni preysOn Amazona aestiva |
+| Lowland tapir -> Jaguar | g | Panthera onca -> Tapirus terrestris | 3 record(s): Panthera onca eats Tapirus terrestris; Panthera onca preysOn Tapirus terrestris |
+| Gray brocket -> Jaguar | g | Panthera onca -> Mazama gouazoubira | 1 record(s): Panthera onca eats Mazama gouazoubira |
+| Gray brocket -> Puma | g | Puma concolor -> Mazama gouazoubira | 1 record(s): Puma concolor eats Mazama gouazoubira |
+| Signalgrass -> Lowland tapir | ga | Tapirus terrestris -> Urochloa | 1 record(s): Tapirus terrestris eats Urochloa |
+| Eared dove -> Puma | ga | Puma concolor -> Zenaida auriculata | 1 record(s): Puma concolor eats Zenaida auriculata |
 
 ### Links with no GloBI record (be careful with these)
-- cactus -> chacoan (no GloBI record found; from general ecology)
-- algarrobo -> tapir (no GloBI record found; from general ecology)
-- algarrobo -> brocket (no GloBI record found; from general ecology)
-- algarrobo -> parrot (no GloBI record found; from general ecology)
-- algarrobo -> ant (no GloBI record found; from general ecology)
-- algarrobo -> fox (no GloBI record found; from general ecology)
-- grass -> dove (no GloBI record found; from general ecology)
-- ant -> armadillo (no GloBI record found; from general ecology)
-- ant -> seriema (no GloBI record found; from general ecology)
-- dove -> fox (no GloBI record found; from general ecology)
-- snake -> seriema (no GloBI record found; from general ecology)
-- snake -> hawk (no GloBI record found; from general ecology)
-- chacoan -> jaguar (no GloBI record found; from general ecology)
-- armadillo -> jaguar (no GloBI record found; from general ecology)
-- chacoan -> puma (no GloBI record found; from general ecology)
-- armadillo -> puma (no GloBI record found; from general ecology)
-- chacoan -> vulture (no GloBI record found; from general ecology)
-- tapir -> vulture (no GloBI record found; from general ecology)
-- brocket -> vulture (no GloBI record found; from general ecology)
+- Toothpick cactus -> Chacoan peccary (no GloBI record found; from general ecology)
+- White carob (algarrobo) -> Lowland tapir (no GloBI record found; from general ecology)
+- White carob (algarrobo) -> Gray brocket (no GloBI record found; from general ecology)
+- White carob (algarrobo) -> Turquoise-fronted parrot (no GloBI record found; from general ecology)
+- White carob (algarrobo) -> Leafcutter ants (no GloBI record found; from general ecology)
+- White carob (algarrobo) -> Crab-eating fox (no GloBI record found; from general ecology)
+- Signalgrass -> Eared dove (no GloBI record found; from general ecology)
+- Leafcutter ants -> Southern three-banded armadillo (no GloBI record found; from general ecology)
+- Leafcutter ants -> Black-legged seriema (no GloBI record found; from general ecology)
+- Eared dove -> Crab-eating fox (no GloBI record found; from general ecology)
+- Baron's green racer -> Black-legged seriema (no GloBI record found; from general ecology)
+- Baron's green racer -> Savanna hawk (no GloBI record found; from general ecology)
+- Chacoan peccary -> Jaguar (no GloBI record found; from general ecology)
+- Southern three-banded armadillo -> Jaguar (no GloBI record found; from general ecology)
+- Chacoan peccary -> Puma (no GloBI record found; from general ecology)
+- Southern three-banded armadillo -> Puma (no GloBI record found; from general ecology)
+- Chacoan peccary -> Black vulture (no GloBI record found; from general ecology)
+- Lowland tapir -> Black vulture (no GloBI record found; from general ecology)
+- Gray brocket -> Black vulture (no GloBI record found; from general ecology)
 

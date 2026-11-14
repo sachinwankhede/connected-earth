@@ -1,6 +1,6 @@
 # Research file: Roaring River State Park (moroaringriver)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Missouri, USA. Coordinates 36.5852, -93.8314. Kind: Forest.
@@ -14,12 +14,12 @@ Missouri, USA. Coordinates 36.5852, -93.8314. Kind: Forest.
 
 **Current sources:** Wikipedia: List of Missouri state parks <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-whiteflowerlea (polymnia canadensis), americanbellfl (campanulastrum americanum), ouachitaspurge (euphorbia ouachitana), tapertipwakero (trillium viridescens), ozarkchinkapin (castanea ozarkensis), easternredbud (cercis canadensis), northerncardin (cardinalis cardinalis), tuftedtitmouse (baeolophus bicolor), carolinachicka (poecile carolinensis), blackwavedflan (megalopyge crispata), spicebushswall (papilio troilus), groundhog (marmota monax), easterngraysqu (sciurus carolinensis), turkeyvulture (cathartes aura), americancrow (corvus brachyrhynchos), carolinawren (thryothorus ludovicianus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Whiteflower leafcup (Polymnia canadensis), American bellflower (Campanulastrum americanum), Ouachita spurge (Euphorbia ouachitana), Tapertip wakerobin (Trillium viridescens), Ozark chinkapin (Castanea ozarkensis), Eastern Redbud (Cercis canadensis), Northern Cardinal (Cardinalis cardinalis), Tufted Titmouse (Baeolophus bicolor), Carolina Chickadee (Poecile carolinensis), Black-waved Flannel Moth (Megalopyge crispata), Spicebush Swallowtail (Papilio troilus), Groundhog (Marmota monax), Eastern gray squirrel (Sciurus carolinensis), Turkey vulture (Cathartes aura), American Crow (Corvus brachyrhynchos), Carolina Wren (Thryothorus ludovicianus)
 
 ## 4. Wikipedia text
 ### Roaring River State Park
-Source: <https://en.wikipedia.org/wiki/Roaring_River_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Roaring_River_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Roaring River State Park is a public recreation area covering of 4,294 acres (1,738 ha) eight miles (13 km) south of Cassville in Barry County, Missouri. The state park offers trout fishing on the Roaring River, hiking on seven different trails, and the seasonally open Ozark Chinquapin Nature Center.
 
@@ -39,7 +39,7 @@ Shelter Kitchen No. 2 and Rest Room (NRIS 85000521): The Shelter Kitchen No. 2, 
 In April, 2002, the restored Russell family gravesite and monument was dedicated. In the 1830s, Milo B. Russell and his wife, Unice Mariah Haddock Russell, homesteaded land on the eastern end of what is now Roaring River State Park. The monument includes an exhibit of historical photographs of the old homestead.
 
 ### List of Missouri state parks
-Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-14.
 
 This is a list of state parks and state historic sites in Missouri.  In the U.S. state of Missouri both state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.  As of 2026 the division manages a total of 93 parks and historic sites plus the trails at Roger Pryor Pioneer Backcountry, which together total more than 160,000 acres (65,000 ha).  According to the state, its parks system includes approximately 3,500 campsites, 194 cabins, and 1,000 miles (1,600 km) of trails, including the longest developed rails-to-trail project in the nation.
 
@@ -50,33 +50,34 @@ This is a list of state parks and state historic sites in Missouri.  In the U.S.
 == Other facilities ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Whiteflower leafcup -> Northern Cardinal | gf | Cardinalis cardinalis -> Polymnia canadensis | 0 record(s):  |
+| Ouachita spurge -> Northern Cardinal | gg | Cardinalis cardinalis -> Euphorbia ouachitana | 0 record(s):  |
+| Eastern Redbud -> Northern Cardinal | g | Cardinalis cardinalis -> Cercis canadensis | 1 record(s): Cardinalis cardinalis eats Cercis canadensis |
+| Whiteflower leafcup -> Tufted Titmouse | gf | Baeolophus bicolor -> Polymnia canadensis | 0 record(s):  |
+| Ozark chinkapin -> Tufted Titmouse | gf | Baeolophus bicolor -> Castanea ozarkensis | 0 record(s):  |
+| Whiteflower leafcup -> Carolina Chickadee | gf | Poecile carolinensis -> Polymnia canadensis | 0 record(s):  |
+| Ouachita spurge -> Carolina Chickadee | gf | Poecile carolinensis -> Euphorbia ouachitana | 0 record(s):  |
+| Eastern Redbud -> Carolina Chickadee | gf | Poecile carolinensis -> Cercis canadensis | 0 record(s):  |
+| Ozark chinkapin -> Black-waved Flannel Moth | gf | Megalopyge crispata -> Castanea ozarkensis | 0 record(s):  |
+| Whiteflower leafcup -> Spicebush Swallowtail | gf | Papilio troilus -> Polymnia canadensis | 0 record(s):  |
+| American bellflower -> Spicebush Swallowtail | gf | Papilio troilus -> Campanulastrum americanum | 0 record(s):  |
+| Eastern Redbud -> Spicebush Swallowtail | gf | Papilio troilus -> Cercis canadensis | 0 record(s):  |
+| Whiteflower leafcup -> Groundhog | gf | Marmota monax -> Polymnia canadensis | 0 record(s):  |
+| Eastern Redbud -> Groundhog | gf | Marmota monax -> Cercis canadensis | 0 record(s):  |
+| Whiteflower leafcup -> Eastern gray squirrel | gf | Sciurus carolinensis -> Polymnia canadensis | 0 record(s):  |
+| Ozark chinkapin -> Eastern gray squirrel | gf | Sciurus carolinensis -> Castanea ozarkensis | 0 record(s):  |
+| Eastern Redbud -> Eastern gray squirrel | gf | Sciurus carolinensis -> Cercis canadensis | 0 record(s):  |
+| Groundhog -> Turkey vulture | g | Cathartes aura -> Marmota monax | 1 record(s): Cathartes aura eats Marmota monax |
+| Eastern gray squirrel -> Turkey vulture | g | Cathartes aura -> Sciurus carolinensis | 2 record(s): Cathartes aura eats Sciurus carolinensis; Cathartes aura preysOn Sciurus carolinensis |
+| Whiteflower leafcup -> American Crow | gf | Corvus brachyrhynchos -> Polymnia canadensis | 0 record(s):  |
+| Ouachita spurge -> American Crow | gg | Corvus brachyrhynchos -> Euphorbia ouachitana | 0 record(s):  |
+| Ozark chinkapin -> American Crow | gf | Corvus brachyrhynchos -> Castanea ozarkensis | 0 record(s):  |
+| Ozark chinkapin -> Carolina Wren | gf | Thryothorus ludovicianus -> Castanea ozarkensis | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- whiteflowerlea -> northerncardin (no evidence entry)
-- ouachitaspurge -> northerncardin (no evidence entry)
-- easternredbud -> northerncardin (no evidence entry)
-- whiteflowerlea -> tuftedtitmouse (no evidence entry)
-- ozarkchinkapin -> tuftedtitmouse (no evidence entry)
-- whiteflowerlea -> carolinachicka (no evidence entry)
-- ouachitaspurge -> carolinachicka (no evidence entry)
-- easternredbud -> carolinachicka (no evidence entry)
-- ozarkchinkapin -> blackwavedflan (no evidence entry)
-- whiteflowerlea -> spicebushswall (no evidence entry)
-- americanbellfl -> spicebushswall (no evidence entry)
-- easternredbud -> spicebushswall (no evidence entry)
-- whiteflowerlea -> groundhog (no evidence entry)
-- easternredbud -> groundhog (no evidence entry)
-- whiteflowerlea -> easterngraysqu (no evidence entry)
-- ozarkchinkapin -> easterngraysqu (no evidence entry)
-- easternredbud -> easterngraysqu (no evidence entry)
-- groundhog -> turkeyvulture (no evidence entry)
-- easterngraysqu -> turkeyvulture (no evidence entry)
-- whiteflowerlea -> americancrow (no evidence entry)
-- ouachitaspurge -> americancrow (no evidence entry)
-- ozarkchinkapin -> americancrow (no evidence entry)
-- ozarkchinkapin -> carolinawren (no evidence entry)
+(none)
 

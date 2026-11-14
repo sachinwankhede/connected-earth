@@ -1,6 +1,6 @@
 # Research file: Lake Ahquabi State Park (ialakeahquabi)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Iowa, USA. Coordinates 41.2909, -93.5923. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Iowa, USA. Coordinates 41.2909, -93.5923. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Lake Ahquabi State Park <https://en.wikipedia.org/wiki/Lake_Ahquabi_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (19)
-cupplant (silphium perfoliatum), commonmilkweed (asclepias syriaca), blackeyedsusan (rudbeckia hirta), butterflymilkw (asclepias tuberosa), greaterplantai (plantago major), redclover (trifolium pratense), northerncardin (cardinalis cardinalis), americangoldfi (spinus tristis), whitetaileddee (odocoileus virginianus), foxsquirrel (sciurus niger), easterncottont (sylvilagus floridanus), bluejay (cyanocitta cristata), Turkey Vulture (cathartes aura), redheadedwoodp (melanerpes erythrocephalus), whitebreastedn (sitta carolinensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (15)
+Cup-plant (Silphium perfoliatum), Common Milkweed (Asclepias syriaca), Black-eyed-susan (Rudbeckia hirta), Butterfly Milkweed (Asclepias tuberosa), Greater Plantain (Plantago major), Red Clover (Trifolium pratense), Northern Cardinal (Cardinalis cardinalis), American Goldfinch (Spinus tristis), White-tailed deer (Odocoileus virginianus), Fox squirrel (Sciurus niger), Eastern cottontail (Sylvilagus floridanus), Blue Jay (Cyanocitta cristata), Turkey Vulture (Cathartes aura), Red-headed Woodpecker (Melanerpes erythrocephalus), White-breasted Nuthatch (Sitta carolinensis)
 
 ## 4. Wikipedia text
 ### Lake Ahquabi State Park
-Source: <https://en.wikipedia.org/wiki/Lake_Ahquabi_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Lake_Ahquabi_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Lake Ahquabi State Park is a state park in Warren County, Iowa, United States, featuring a 115-acre (47 ha) reservoir. Ahquabi means "resting place" in the Fox language. The park is six miles (10 km) south of Indianola and 22 miles (35 km) south of Des Moines. Three sections of the park were listed on the National Register of Historic Places in 1991.
 
@@ -39,39 +39,40 @@ The lakeside campground offers 141 sites, 85 of which have electrical hookups, a
 Lake Ahquabi State Park includes a sandy beach and two boat ramps. A park concession rents canoes, kayaks, and paddleboats and sells food and bait. Jetties and an enclosed, handicap-accessible pier accommodate shoreline fishing. Circling Lake Ahquabi is a gravel trail which in winter is open to snowmobiling and cross-country skiing. Other trails wind through the woods that flank the reservoir.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Black-eyed-susan -> Northern Cardinal | gf | Cardinalis cardinalis -> Rudbeckia hirta | 0 record(s):  |
+| Greater Plantain -> Northern Cardinal | gg | Cardinalis cardinalis -> Plantago major | 0 record(s):  |
+| Red Clover -> Northern Cardinal | gf | Cardinalis cardinalis -> Trifolium pratense | 0 record(s):  |
+| Cup-plant -> Northern Cardinal | gf | Cardinalis cardinalis -> Silphium perfoliatum | 0 record(s):  |
+| Black-eyed-susan -> American Goldfinch | g | Spinus tristis -> Rudbeckia hirta | 1 record(s): Spinus tristis eats Rudbeckia hirta |
+| Red Clover -> American Goldfinch | gf | Spinus tristis -> Trifolium pratense | 0 record(s):  |
+| Cup-plant -> American Goldfinch | g | Spinus tristis -> Silphium perfoliatum | 1 record(s): Spinus tristis eats Silphium perfoliatum |
+| Black-eyed-susan -> White-tailed deer | gf | Odocoileus virginianus -> Rudbeckia hirta | 0 record(s):  |
+| Red Clover -> White-tailed deer | gg | Odocoileus virginianus -> Trifolium pratense | 0 record(s):  |
+| Cup-plant -> White-tailed deer | gf | Odocoileus virginianus -> Silphium perfoliatum | 0 record(s):  |
+| Black-eyed-susan -> Fox squirrel | gf | Sciurus niger -> Rudbeckia hirta | 0 record(s):  |
+| Red Clover -> Fox squirrel | gf | Sciurus niger -> Trifolium pratense | 0 record(s):  |
+| Cup-plant -> Fox squirrel | gf | Sciurus niger -> Silphium perfoliatum | 0 record(s):  |
+| Black-eyed-susan -> Eastern cottontail | gg | Sylvilagus floridanus -> Rudbeckia hirta | 0 record(s):  |
+| Greater Plantain -> Eastern cottontail | gg | Sylvilagus floridanus -> Plantago major | 0 record(s):  |
+| Red Clover -> Eastern cottontail | g | Sylvilagus floridanus -> Trifolium pratense | 1 record(s): Sylvilagus floridanus eats Trifolium pratense |
+| Cup-plant -> Eastern cottontail | gf | Sylvilagus floridanus -> Silphium perfoliatum | 0 record(s):  |
+| Common Milkweed -> Eastern cottontail | g | Sylvilagus floridanus -> Asclepias syriaca | 1 record(s): Sylvilagus floridanus eats Asclepias syriaca |
+| Butterfly Milkweed -> Eastern cottontail | gg | Sylvilagus floridanus -> Asclepias tuberosa | 0 record(s):  |
+| Black-eyed-susan -> Blue Jay | gf | Cyanocitta cristata -> Rudbeckia hirta | 0 record(s):  |
+| Red Clover -> Blue Jay | gf | Cyanocitta cristata -> Trifolium pratense | 0 record(s):  |
+| Cup-plant -> Blue Jay | gf | Cyanocitta cristata -> Silphium perfoliatum | 0 record(s):  |
+| White-tailed deer -> Turkey Vulture | g | Cathartes aura -> Odocoileus virginianus | 3 record(s): Cathartes aura septentrionalis eats Odocoileus virginianus; Cathartes aura eats Odocoileus virginianus; Cathartes aura preysOn Odocoileus virginianus |
+| Fox squirrel -> Turkey Vulture | g | Cathartes aura -> Sciurus niger | 3 record(s): Cathartes aura aura eats Sciurus niger; Cathartes aura eats Sciurus niger; Cathartes aura preysOn Sciurus niger |
+| Eastern cottontail -> Turkey Vulture | g | Cathartes aura -> Sylvilagus floridanus | 2 record(s): Cathartes aura eats Sylvilagus floridanus; Cathartes aura preysOn Sylvilagus floridanus |
+| Black-eyed-susan -> Red-headed Woodpecker | gf | Melanerpes erythrocephalus -> Rudbeckia hirta | 0 record(s):  |
+| Cup-plant -> Red-headed Woodpecker | gf | Melanerpes erythrocephalus -> Silphium perfoliatum | 0 record(s):  |
+| Black-eyed-susan -> White-breasted Nuthatch | gf | Sitta carolinensis -> Rudbeckia hirta | 0 record(s):  |
+| Cup-plant -> White-breasted Nuthatch | gf | Sitta carolinensis -> Silphium perfoliatum | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- blackeyedsusan -> northerncardin (no evidence entry)
-- greaterplantai -> northerncardin (no evidence entry)
-- redclover -> northerncardin (no evidence entry)
-- cupplant -> northerncardin (no evidence entry)
-- blackeyedsusan -> americangoldfi (no evidence entry)
-- redclover -> americangoldfi (no evidence entry)
-- cupplant -> americangoldfi (no evidence entry)
-- blackeyedsusan -> whitetaileddee (no evidence entry)
-- redclover -> whitetaileddee (no evidence entry)
-- cupplant -> whitetaileddee (no evidence entry)
-- blackeyedsusan -> foxsquirrel (no evidence entry)
-- redclover -> foxsquirrel (no evidence entry)
-- cupplant -> foxsquirrel (no evidence entry)
-- blackeyedsusan -> easterncottont (no evidence entry)
-- greaterplantai -> easterncottont (no evidence entry)
-- redclover -> easterncottont (no evidence entry)
-- cupplant -> easterncottont (no evidence entry)
-- commonmilkweed -> easterncottont (no evidence entry)
-- butterflymilkw -> easterncottont (no evidence entry)
-- blackeyedsusan -> bluejay (no evidence entry)
-- redclover -> bluejay (no evidence entry)
-- cupplant -> bluejay (no evidence entry)
-- whitetaileddee -> Turkey Vulture (no evidence entry)
-- foxsquirrel -> Turkey Vulture (no evidence entry)
-- easterncottont -> Turkey Vulture (no evidence entry)
-- blackeyedsusan -> redheadedwoodp (no evidence entry)
-- cupplant -> redheadedwoodp (no evidence entry)
-- blackeyedsusan -> whitebreastedn (no evidence entry)
-- cupplant -> whitebreastedn (no evidence entry)
+(none)
 

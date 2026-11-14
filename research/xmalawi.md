@@ -1,6 +1,6 @@
 # Research file: Lake Malawi National Park (xmalawi)
 
-Retrieved 2026-10-29. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Malawi. Coordinates -14.0, 34.9. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Malawi. Coordinates -14.0, 34.9. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Lake Malawi National Park <https://en.wikipedia.org/wiki/Lake_Malawi_National_Park>; Wikipedia: Lake Malawi <https://en.wikipedia.org/wiki/Lake_Malawi>; Wikipedia: African fish eagle <https://en.wikipedia.org/wiki/African_fish_eagle>; Wikipedia: Nile crocodile <https://en.wikipedia.org/wiki/Nile_crocodile>; Wikipedia: Nile monitor <https://en.wikipedia.org/wiki/Nile_monitor>; Wikipedia: Chacma baboon <https://en.wikipedia.org/wiki/Chacma_baboon>
 
-## 3. Species in the app (22)
-sun (sunlight), lake (lake water and nutrients), rain (seasonal rains), Bacteria and fungi (decomposer community), phyto (microscopic algae), Rock algae (aufwuchs) (periphyton), baobab (adansonia digitata), fig (ficus abutilifolia), zoo (copepoda), Chambo (oreochromis), mbuna (maylandia), baboon (papio cynocephalus), bulbul (pycnonotus barbatus), kungu (chaoborus edulis), utaka (copadichromis), hap (nimbochromis), kingf (ceryle rudis), hamer (scopus umbretta), monitor (varanus niloticus), eagle (haliaeetus vocifer), croc (crocodylus niloticus), leopard (panthera pardus)
+## 3. Species in the app (18)
+Phytoplankton (Microscopic algae), Rock algae (aufwuchs) (Periphyton), Baobab (Adansonia digitata), Rock fig (Ficus abutilifolia), Zooplankton (Copepoda), Chambo (Oreochromis), Mbuna (Maylandia), Yellow baboon (Papio cynocephalus), Common bulbul (Pycnonotus barbatus), Lake fly (kungu) (Chaoborus edulis), Utaka (Copadichromis), Predatory haps (Nimbochromis), Pied kingfisher (Ceryle rudis), Hamerkop (Scopus umbretta), Nile monitor (Varanus niloticus), African fish eagle (Haliaeetus vocifer), Nile crocodile (Crocodylus niloticus), Leopard (Panthera pardus)
 
 ## 4. Wikipedia text
 ### Lake Malawi National Park
-Source: <https://en.wikipedia.org/wiki/Lake_Malawi_National_Park> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Lake_Malawi_National_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Lake Malawi National Park is a national park at the southern end of Lake Malawi in Malawi, Southeast Africa. It is the only national park in Malawi that was created with the purpose of protecting fish and aquatic habitats. Despite this being its main purpose, Lake Malawi National Park includes a fair amount of land, including a headland, the foreshore and several small rocky islands in Lake Malawi.
 Lake Malawi National Park was inscribed as a UNESCO World Heritage Site in 1984, being of "global importance for biodiversity conservation due particularly to its fish diversity". This fish diversity is remarkable because the mbuna, as the cichlid fish are known locally, provide an outstanding example of evolution at work. Other attributes of the park include the outstanding natural beauty of the area, with its craggy landscape contrasting with the clear waters of the lake.
@@ -40,7 +40,7 @@ Dr. David Livingstone was the first European to see Lake Nyassa, as it was then 
 == Gallery ==
 
 ### Lake Malawi
-Source: <https://en.wikipedia.org/wiki/Lake_Malawi> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Lake_Malawi> (CC BY-SA), retrieved 2026-11-14.
 
 Lake Malawi, also known as Lake Nyasa in Tanzania and Lago Niassa in Mozambique, (Swahili: Ziwa Nyasa) is an African Great Lake and the southernmost lake in the East African Rift system, located between Malawi, Mozambique and Tanzania.
 It is the fourth largest freshwater lake in the world by volume, the ninth largest lake in the world by area and the third largest and second deepest lake in Africa. Lake Malawi is home to more species of fish than any other lake in the world, including at least 700 species of cichlid. The Mozambique portion of the lake was officially declared a reserve by the Government of Mozambique on June 10, 2011, while in Malawi a portion of the lake is included in Lake Malawi National Park.
@@ -91,7 +91,7 @@ Lake Malawi has for millennia provided a major food source to the residents of i
 [...trimmed]
 
 ### African fish eagle
-Source: <https://en.wikipedia.org/wiki/African_fish_eagle> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/African_fish_eagle> (CC BY-SA), retrieved 2026-11-14.
 
 The African fish eagle (Icthyophaga vocifer) or the African sea eagle is a large species of eagle found throughout sub-Saharan Africa wherever large bodies of open water with an abundant food supply occur. It is the national bird of Malawi, Namibia, Zambia, and Zimbabwe. As a result of its large range, it is known in many languages. Examples of names include: visarend in Afrikaans, nkwazi in Chewa, aigle pêcheur in French, idì in Yoruba, hungwe in Shona, inkwazi in isiZulu, and ntšhu in Northern Sotho. Though this species may superficially resemble the bald eagle in appearance they are not closely related and the two species occur on different continents, with the bald eagle being endemic to North America.
 
@@ -129,37 +129,37 @@ Mummified examples of the African fish eagle  have been found at the Necropolis 
 == Gallery ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-10-29. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
-| Rock algae (aufwuchs) -> mbuna | g | Maylandia -> Periphyton | 0 record(s):  |
-| kungu -> utaka | g | Copadichromis -> Chaoborus edulis | 2 record(s): Copadichromis jacksoni eats Chaoborus edulis; Copadichromis quadrimaculatus eats Chaoborus edulis |
-| Chambo -> croc | g | Crocodylus niloticus -> Oreochromis | 1 record(s): Crocodylus niloticus africanus preysOn Oreochromis |
-| baboon -> croc | gg | Crocodylus niloticus -> Papio cynocephalus | 0 record(s):  |
-| baboon -> leopard | g | Panthera pardus -> Papio cynocephalus | 1 record(s): Panthera pardus eats Papio cynocephalus |
-| baobab -> baboon | g | Papio cynocephalus -> Adansonia digitata | 1 record(s): Papio cynocephalus eats Adansonia digitata |
-| fig -> bulbul | g | Pycnonotus barbatus -> Ficus abutilifolia | 1 record(s): Pycnonotus barbatus eats Ficus abutilifolia |
+| Rock algae (aufwuchs) -> Mbuna | g | Maylandia -> Periphyton | 0 record(s):  |
+| Lake fly (kungu) -> Utaka | g | Copadichromis -> Chaoborus edulis | 2 record(s): Copadichromis jacksoni eats Chaoborus edulis; Copadichromis quadrimaculatus eats Chaoborus edulis |
+| Chambo -> Nile crocodile | g | Crocodylus niloticus -> Oreochromis | 1 record(s): Crocodylus niloticus africanus preysOn Oreochromis |
+| Yellow baboon -> Nile crocodile | gg | Crocodylus niloticus -> Papio cynocephalus | 0 record(s):  |
+| Yellow baboon -> Leopard | g | Panthera pardus -> Papio cynocephalus | 1 record(s): Panthera pardus eats Papio cynocephalus |
+| Baobab -> Yellow baboon | g | Papio cynocephalus -> Adansonia digitata | 1 record(s): Papio cynocephalus eats Adansonia digitata |
+| Rock fig -> Common bulbul | g | Pycnonotus barbatus -> Ficus abutilifolia | 1 record(s): Pycnonotus barbatus eats Ficus abutilifolia |
 | Rock algae (aufwuchs) -> Chambo | ga | Oreochromis -> Periphyton | 1 record(s): Oreochromis macrochir eats Periphyton |
-| Chambo -> hamer | ga | Scopus umbretta -> Oreochromis | 3 record(s): Scopus umbretta eats Oreochromis; Scopus umbretta preysOn Oreochromis; Scopus umbretta umbretta preysOn Oreochromis |
-| monitor -> croc | ga | Crocodylus niloticus -> Varanus niloticus | 2 record(s): Crocodylus niloticus preysOn Varanus niloticus; Crocodylus niloticus cowiei preysOn Varanus niloticus |
+| Chambo -> Hamerkop | ga | Scopus umbretta -> Oreochromis | 3 record(s): Scopus umbretta eats Oreochromis; Scopus umbretta preysOn Oreochromis; Scopus umbretta umbretta preysOn Oreochromis |
+| Nile monitor -> Nile crocodile | ga | Crocodylus niloticus -> Varanus niloticus | 2 record(s): Crocodylus niloticus preysOn Varanus niloticus; Crocodylus niloticus cowiei preysOn Varanus niloticus |
 
 ### Links with no GloBI record (be careful with these)
-- phyto -> zoo (no GloBI record found; from general ecology)
-- phyto -> Chambo (no GloBI record found; from general ecology)
-- zoo -> kungu (no GloBI record found; from general ecology)
-- zoo -> utaka (no GloBI record found; from general ecology)
-- mbuna -> hap (no GloBI record found; from general ecology)
-- utaka -> hap (no GloBI record found; from general ecology)
-- Chambo -> hap (no GloBI record found; from general ecology)
-- utaka -> kingf (no GloBI record found; from general ecology)
-- mbuna -> kingf (no GloBI record found; from general ecology)
-- mbuna -> hamer (no GloBI record found; from general ecology)
-- mbuna -> monitor (no GloBI record found; from general ecology)
-- bulbul -> monitor (no GloBI record found; from general ecology)
-- hap -> eagle (no GloBI record found; from general ecology)
-- utaka -> eagle (no GloBI record found; from general ecology)
-- Chambo -> eagle (no GloBI record found; from general ecology)
-- monitor -> eagle (no GloBI record found; from general ecology)
-- hap -> croc (no GloBI record found; from general ecology)
+- Phytoplankton -> Zooplankton (no GloBI record found; from general ecology)
+- Phytoplankton -> Chambo (no GloBI record found; from general ecology)
+- Zooplankton -> Lake fly (kungu) (no GloBI record found; from general ecology)
+- Zooplankton -> Utaka (no GloBI record found; from general ecology)
+- Mbuna -> Predatory haps (no GloBI record found; from general ecology)
+- Utaka -> Predatory haps (no GloBI record found; from general ecology)
+- Chambo -> Predatory haps (no GloBI record found; from general ecology)
+- Utaka -> Pied kingfisher (no GloBI record found; from general ecology)
+- Mbuna -> Pied kingfisher (no GloBI record found; from general ecology)
+- Mbuna -> Hamerkop (no GloBI record found; from general ecology)
+- Mbuna -> Nile monitor (no GloBI record found; from general ecology)
+- Common bulbul -> Nile monitor (no GloBI record found; from general ecology)
+- Predatory haps -> African fish eagle (no GloBI record found; from general ecology)
+- Utaka -> African fish eagle (no GloBI record found; from general ecology)
+- Chambo -> African fish eagle (no GloBI record found; from general ecology)
+- Nile monitor -> African fish eagle (no GloBI record found; from general ecology)
+- Predatory haps -> Nile crocodile (no GloBI record found; from general ecology)
 

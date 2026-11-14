@@ -1,6 +1,6 @@
 # Research file: Old Kona Airport State Recreation Area (hioldkonaairport)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 19.6449, -156.0118. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 19.6449, -156.0118. Kind: Forest.
 
 **Current sources:** Wikipedia: Old Kona Airport State Recreation Area <https://en.wikipedia.org/wiki/Old_Kona_Airport_State_Recreation_Area>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (21)
-christmasberry (schinus terebinthifolia), bayhops (ipomoea pes-caprae), paintedeuphorb (euphorbia heterophylla), kou (cordia subcordata), pillpodsandmat (euphorbia hirta), seashoredropse (sporobolus virginicus), zebradove (geopelia striata), housesparrow (passer domesticus), spotteddove (spilopelia chinensis), monarchbutterf (danaus plexippus), westernhoneybe (apis mellifera), domesticgoat (capra hircus), commonmyna (acridotheres tristis), saffronfinch (sicalis flaveola), japanesewhitee (zosterops japonicus), humpbackwhale (megaptera novaeangliae), cat (felis catus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (17)
+Christmas berry (Schinus terebinthifolia), Bayhops (Ipomoea pes-caprae), Painted Euphorbia (Euphorbia heterophylla), Kou (Cordia subcordata), Pillpod Sandmat (Euphorbia hirta), Seashore Dropseed (Sporobolus virginicus), Zebra Dove (Geopelia striata), House Sparrow (Passer domesticus), Spotted Dove (Spilopelia chinensis), Monarch butterfly (Danaus plexippus), Western honey bee (Apis mellifera), Feral goat (Capra hircus), Common Myna (Acridotheres tristis), Saffron Finch (Sicalis flaveola), Japanese white-eye (Zosterops japonicus), Humpback whale (Megaptera novaeangliae), Feral cat (Felis catus)
 
 ## 4. Wikipedia text
 ### Old Kona Airport State Recreation Area
-Source: <https://en.wikipedia.org/wiki/Old_Kona_Airport_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Old_Kona_Airport_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-14.
 
 Old Kona Airport State Recreation Area (known locally as Old A) is a park built on the site of an old landing strip just north of Kailua, Hawaii County, Hawaii.
 
@@ -41,53 +41,54 @@ The old 3,800-foot-long (1,200 m) runway now serves as an access road and large 
 == Gallery ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Christmas berry -> Zebra Dove | g | Geopelia striata -> Schinus terebinthifolia | 1 record(s): Geopelia striata eats Schinus terebinthifolia |
+| Painted Euphorbia -> Zebra Dove | gf | Geopelia striata -> Euphorbia heterophylla | 0 record(s):  |
+| Pillpod Sandmat -> Zebra Dove | gf | Geopelia striata -> Euphorbia hirta | 0 record(s):  |
+| Seashore Dropseed -> Zebra Dove | gf | Geopelia striata -> Sporobolus virginicus | 0 record(s):  |
+| Painted Euphorbia -> House Sparrow | gg | Passer domesticus -> Euphorbia heterophylla | 0 record(s):  |
+| Pillpod Sandmat -> House Sparrow | gg | Passer domesticus -> Euphorbia hirta | 0 record(s):  |
+| Bayhops -> House Sparrow | gf | Passer domesticus -> Ipomoea pes-caprae | 0 record(s):  |
+| Seashore Dropseed -> House Sparrow | gg | Passer domesticus -> Sporobolus virginicus | 0 record(s):  |
+| Christmas berry -> Spotted Dove | g | Spilopelia chinensis -> Schinus terebinthifolia | 1 record(s): Spilopelia chinensis eats Schinus terebinthifolia |
+| Painted Euphorbia -> Spotted Dove | g | Spilopelia chinensis -> Euphorbia heterophylla | 0 record(s):  |
+| Kou -> Spotted Dove | gg | Spilopelia chinensis -> Cordia subcordata | 0 record(s):  |
+| Pillpod Sandmat -> Spotted Dove | g | Spilopelia chinensis -> Euphorbia hirta | 0 record(s):  |
+| Bayhops -> Spotted Dove | gg | Spilopelia chinensis -> Ipomoea pes-caprae | 0 record(s):  |
+| Seashore Dropseed -> Spotted Dove | gg | Spilopelia chinensis -> Sporobolus virginicus | 0 record(s):  |
+| Christmas berry -> Monarch butterfly | gg | Danaus plexippus -> Schinus terebinthifolia | 0 record(s):  |
+| Painted Euphorbia -> Monarch butterfly | gg | Danaus plexippus -> Euphorbia heterophylla | 0 record(s):  |
+| Kou -> Monarch butterfly | gg | Danaus plexippus -> Cordia subcordata | 0 record(s):  |
+| Pillpod Sandmat -> Monarch butterfly | gg | Danaus plexippus -> Euphorbia hirta | 0 record(s):  |
+| Bayhops -> Monarch butterfly | gg | Danaus plexippus -> Ipomoea pes-caprae | 0 record(s):  |
+| Christmas berry -> Western honey bee | gg | Apis mellifera -> Schinus terebinthifolia | 0 record(s):  |
+| Painted Euphorbia -> Western honey bee | gg | Apis mellifera -> Euphorbia heterophylla | 0 record(s):  |
+| Kou -> Western honey bee | gg | Apis mellifera -> Cordia subcordata | 0 record(s):  |
+| Pillpod Sandmat -> Western honey bee | gg | Apis mellifera -> Euphorbia hirta | 0 record(s):  |
+| Bayhops -> Western honey bee | gg | Apis mellifera -> Ipomoea pes-caprae | 0 record(s):  |
+| Seashore Dropseed -> Western honey bee | gg | Apis mellifera -> Sporobolus virginicus | 0 record(s):  |
+| Christmas berry -> Feral goat | gf | Capra hircus -> Schinus terebinthifolia | 0 record(s):  |
+| Seashore Dropseed -> Feral goat | gf | Capra hircus -> Sporobolus virginicus | 0 record(s):  |
+| Christmas berry -> Common Myna | gf | Acridotheres tristis -> Schinus terebinthifolia | 0 record(s):  |
+| Kou -> Common Myna | gg | Acridotheres tristis -> Cordia subcordata | 0 record(s):  |
+| Christmas berry -> Saffron Finch | gg | Sicalis flaveola -> Schinus terebinthifolia | 0 record(s):  |
+| Painted Euphorbia -> Saffron Finch | gf | Sicalis flaveola -> Euphorbia heterophylla | 0 record(s):  |
+| Pillpod Sandmat -> Saffron Finch | gf | Sicalis flaveola -> Euphorbia hirta | 0 record(s):  |
+| Seashore Dropseed -> Saffron Finch | gf | Sicalis flaveola -> Sporobolus virginicus | 0 record(s):  |
+| Christmas berry -> Japanese white-eye | g | Zosterops japonicus -> Schinus terebinthifolia | 1 record(s): Zosterops japonicus eats Schinus terebinthifolia |
+| Painted Euphorbia -> Japanese white-eye | gf | Zosterops japonicus -> Euphorbia heterophylla | 0 record(s):  |
+| Pillpod Sandmat -> Japanese white-eye | gf | Zosterops japonicus -> Euphorbia hirta | 0 record(s):  |
+| Painted Euphorbia -> Humpback whale | gf | Megaptera novaeangliae -> Euphorbia heterophylla | 0 record(s):  |
+| Pillpod Sandmat -> Humpback whale | gf | Megaptera novaeangliae -> Euphorbia hirta | 0 record(s):  |
+| Seashore Dropseed -> Feral cat | gf | Felis catus -> Sporobolus virginicus | 0 record(s):  |
+| House Sparrow -> Feral cat | g | Felis catus -> Passer domesticus | 4 record(s): Felis catus preysOn Passer domesticus; Felis catus preysOn Passer domesticus domesticus; Felis catus eats Passer domesticus |
+| Spotted Dove -> Feral cat | g | Felis catus -> Spilopelia chinensis | 2 record(s): Felis catus eats Spilopelia chinensis; Felis catus preysOn Spilopelia chinensis |
+| Monarch butterfly -> Feral cat | g | Felis catus -> Danaus plexippus | 1 record(s): Felis catus preysOn Danaus plexippus |
+| Feral goat -> Feral cat | g | Felis catus -> Capra hircus | 1 record(s): Felis catus preysOn Capra hircus |
 
 ### Links with no GloBI record (be careful with these)
-- christmasberry -> zebradove (no evidence entry)
-- paintedeuphorb -> zebradove (no evidence entry)
-- pillpodsandmat -> zebradove (no evidence entry)
-- seashoredropse -> zebradove (no evidence entry)
-- paintedeuphorb -> housesparrow (no evidence entry)
-- pillpodsandmat -> housesparrow (no evidence entry)
-- bayhops -> housesparrow (no evidence entry)
-- seashoredropse -> housesparrow (no evidence entry)
-- christmasberry -> spotteddove (no evidence entry)
-- paintedeuphorb -> spotteddove (no evidence entry)
-- kou -> spotteddove (no evidence entry)
-- pillpodsandmat -> spotteddove (no evidence entry)
-- bayhops -> spotteddove (no evidence entry)
-- seashoredropse -> spotteddove (no evidence entry)
-- christmasberry -> monarchbutterf (no evidence entry)
-- paintedeuphorb -> monarchbutterf (no evidence entry)
-- kou -> monarchbutterf (no evidence entry)
-- pillpodsandmat -> monarchbutterf (no evidence entry)
-- bayhops -> monarchbutterf (no evidence entry)
-- christmasberry -> westernhoneybe (no evidence entry)
-- paintedeuphorb -> westernhoneybe (no evidence entry)
-- kou -> westernhoneybe (no evidence entry)
-- pillpodsandmat -> westernhoneybe (no evidence entry)
-- bayhops -> westernhoneybe (no evidence entry)
-- seashoredropse -> westernhoneybe (no evidence entry)
-- christmasberry -> domesticgoat (no evidence entry)
-- seashoredropse -> domesticgoat (no evidence entry)
-- christmasberry -> commonmyna (no evidence entry)
-- kou -> commonmyna (no evidence entry)
-- christmasberry -> saffronfinch (no evidence entry)
-- paintedeuphorb -> saffronfinch (no evidence entry)
-- pillpodsandmat -> saffronfinch (no evidence entry)
-- seashoredropse -> saffronfinch (no evidence entry)
-- christmasberry -> japanesewhitee (no evidence entry)
-- paintedeuphorb -> japanesewhitee (no evidence entry)
-- pillpodsandmat -> japanesewhitee (no evidence entry)
-- paintedeuphorb -> humpbackwhale (no evidence entry)
-- pillpodsandmat -> humpbackwhale (no evidence entry)
-- seashoredropse -> cat (no evidence entry)
-- housesparrow -> cat (no evidence entry)
-- spotteddove -> cat (no evidence entry)
-- monarchbutterf -> cat (no evidence entry)
-- domesticgoat -> cat (no evidence entry)
+(none)
 

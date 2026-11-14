@@ -1,6 +1,6 @@
 # Research file: Colt Creek State Park (flcoltcreek)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Florida, USA. Coordinates 28.2842, -82.0389. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Florida, USA. Coordinates 28.2842, -82.0389. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Colt Creek State Park <https://en.wikipedia.org/wiki/Colt_Creek_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (21)
-wildcoffee (psychotria tenuifolia), americanbeauty (callicarpa americana), caesarweed (urena lobata), fourpetalstjoh (hypericum tetrapetalum), sweetgum (liquidambar styraciflua), purplepassionf (passiflora incarnata), gulffritillary (dione vanillae), hedonevibex (hedone vibex), orangetip (abaeis nicippe), whitetaileddee (odocoileus virginianus), easterngraysqu (sciurus carolinensis), foxsquirrel (sciurus niger), easterncottont (sylvilagus floridanus), greategret (ardea alba), turkeyvulture (cathartes aura), americancrow (corvus brachyrhynchos), redshoulderedb (buteo lineatus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (17)
+Wild coffee (Psychotria tenuifolia), American beauty-berry (Callicarpa americana), Caesar Weed (Urena lobata), Fourpetal St. Johnswort (Hypericum tetrapetalum), Sweetgum (Liquidambar styraciflua), Purple Passionflower (Passiflora incarnata), Gulf Fritillary (Dione vanillae), Hedone vibex (Hedone vibex), Orange-tip (Abaeis nicippe), White-tailed deer (Odocoileus virginianus), Eastern gray squirrel (Sciurus carolinensis), Fox squirrel (Sciurus niger), Eastern cottontail (Sylvilagus floridanus), Great Egret (Ardea alba), Turkey vulture (Cathartes aura), American Crow (Corvus brachyrhynchos), Red-shouldered/Broad-winged Hawk (Buteo lineatus)
 
 ## 4. Wikipedia text
 ### Colt Creek State Park
-Source: <https://en.wikipedia.org/wiki/Colt_Creek_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Colt_Creek_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Colt Creek State Park is a Florida State Park in Central Florida, 16 miles (26 km) north of Lakeland off of State Road 471. This 5,067-acre park nestled within the Green Swamp Wilderness Area and named after one of the tributaries that flows through the property was opened to the public on January 20, 2007. Composed mainly of pine flatwoods, cypress domes and open pasture land, this piece of pristine wilderness is home to many animal species including the American bald eagle, Southern fox squirrel, gopher tortoise, white-tailed deer, wild turkey and bobcat.
 The park offers over 15 miles of multi-use trails which make for horse-back riding, hiking and biking opportunities. These trails meander through the pine flatwoods and cypress domes, bottomland forest and past open pastures. The park offers fishing, canoeing and kayaking at one of its three lakes. Other recreational opportunities include picnic pavilions, ranger-led programs and primitive and full-facility camping options.
@@ -61,39 +61,40 @@ The park's cypress domes mainly consist of bald cypress (Taxodium distichum) int
 [...trimmed]
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Wild coffee -> Gulf Fritillary | gf | Dione vanillae -> Psychotria tenuifolia | 0 record(s):  |
+| American beauty-berry -> Gulf Fritillary | gf | Dione vanillae -> Callicarpa americana | 0 record(s):  |
+| Caesar Weed -> Gulf Fritillary | gf | Dione vanillae -> Urena lobata | 0 record(s):  |
+| Purple Passionflower -> Gulf Fritillary | g | Dione vanillae -> Passiflora incarnata | 2 record(s): Agraulis vanillae eats Passiflora incarnata; Dione vanillae eats Passiflora incarnata |
+| American beauty-berry -> Hedone vibex | gf | Hedone vibex -> Callicarpa americana | 0 record(s):  |
+| Wild coffee -> Orange-tip | gf | Abaeis nicippe -> Psychotria tenuifolia | 0 record(s):  |
+| American beauty-berry -> Orange-tip | gf | Abaeis nicippe -> Callicarpa americana | 0 record(s):  |
+| Caesar Weed -> Orange-tip | gf | Abaeis nicippe -> Urena lobata | 0 record(s):  |
+| Wild coffee -> White-tailed deer | gf | Odocoileus virginianus -> Psychotria tenuifolia | 0 record(s):  |
+| Caesar Weed -> White-tailed deer | gf | Odocoileus virginianus -> Urena lobata | 0 record(s):  |
+| Wild coffee -> Eastern gray squirrel | gf | Sciurus carolinensis -> Psychotria tenuifolia | 0 record(s):  |
+| American beauty-berry -> Eastern gray squirrel | g | Sciurus carolinensis -> Callicarpa americana | 1 record(s): Sciurus carolinensis eats Callicarpa americana |
+| Sweetgum -> Eastern gray squirrel | g | Sciurus carolinensis -> Liquidambar styraciflua | 1 record(s): Sciurus carolinensis eats Liquidambar styraciflua |
+| Wild coffee -> Fox squirrel | gf | Sciurus niger -> Psychotria tenuifolia | 0 record(s):  |
+| Caesar Weed -> Fox squirrel | gf | Sciurus niger -> Urena lobata | 0 record(s):  |
+| Purple Passionflower -> Fox squirrel | gg | Sciurus niger -> Passiflora incarnata | 0 record(s):  |
+| Wild coffee -> Eastern cottontail | gf | Sylvilagus floridanus -> Psychotria tenuifolia | 0 record(s):  |
+| American beauty-berry -> Great Egret | gf | Ardea alba -> Callicarpa americana | 0 record(s):  |
+| Caesar Weed -> Great Egret | gf | Ardea alba -> Urena lobata | 0 record(s):  |
+| White-tailed deer -> Turkey vulture | g | Cathartes aura -> Odocoileus virginianus | 3 record(s): Cathartes aura septentrionalis eats Odocoileus virginianus; Cathartes aura eats Odocoileus virginianus; Cathartes aura preysOn Odocoileus virginianus |
+| Eastern gray squirrel -> Turkey vulture | g | Cathartes aura -> Sciurus carolinensis | 2 record(s): Cathartes aura eats Sciurus carolinensis; Cathartes aura preysOn Sciurus carolinensis |
+| Fox squirrel -> Turkey vulture | g | Cathartes aura -> Sciurus niger | 3 record(s): Cathartes aura aura eats Sciurus niger; Cathartes aura eats Sciurus niger; Cathartes aura preysOn Sciurus niger |
+| Eastern cottontail -> Turkey vulture | g | Cathartes aura -> Sylvilagus floridanus | 2 record(s): Cathartes aura eats Sylvilagus floridanus; Cathartes aura preysOn Sylvilagus floridanus |
+| Sweetgum -> American Crow | g | Corvus brachyrhynchos -> Liquidambar styraciflua | 1 record(s): Corvus brachyrhynchos eats Liquidambar styraciflua |
+| White-tailed deer -> Red-shouldered/Broad-winged Hawk | g | Buteo lineatus -> Odocoileus virginianus | 1 record(s): Buteo lineatus eats Odocoileus virginianus |
+| Eastern gray squirrel -> Red-shouldered/Broad-winged Hawk | g | Buteo lineatus -> Sciurus carolinensis | 2 record(s): Buteo lineatus eats Sciurus carolinensis; Buteo lineatus preysOn Sciurus carolinensis |
+| Fox squirrel -> Red-shouldered/Broad-winged Hawk | g | Buteo lineatus -> Sciurus niger | 2 record(s): Buteo lineatus eats Sciurus niger; Buteo lineatus preysOn Sciurus niger |
+| Eastern cottontail -> Red-shouldered/Broad-winged Hawk | g | Buteo lineatus -> Sylvilagus floridanus | 2 record(s): Buteo lineatus eats Sylvilagus floridanus; Buteo lineatus preysOn Sylvilagus floridanus |
+| American Crow -> Red-shouldered/Broad-winged Hawk | g | Buteo lineatus -> Corvus brachyrhynchos | 1 record(s): Buteo lineatus preysOn Corvus brachyrhynchos |
 
 ### Links with no GloBI record (be careful with these)
-- wildcoffee -> gulffritillary (no evidence entry)
-- americanbeauty -> gulffritillary (no evidence entry)
-- caesarweed -> gulffritillary (no evidence entry)
-- purplepassionf -> gulffritillary (no evidence entry)
-- americanbeauty -> hedonevibex (no evidence entry)
-- wildcoffee -> orangetip (no evidence entry)
-- americanbeauty -> orangetip (no evidence entry)
-- caesarweed -> orangetip (no evidence entry)
-- wildcoffee -> whitetaileddee (no evidence entry)
-- caesarweed -> whitetaileddee (no evidence entry)
-- wildcoffee -> easterngraysqu (no evidence entry)
-- americanbeauty -> easterngraysqu (no evidence entry)
-- sweetgum -> easterngraysqu (no evidence entry)
-- wildcoffee -> foxsquirrel (no evidence entry)
-- caesarweed -> foxsquirrel (no evidence entry)
-- purplepassionf -> foxsquirrel (no evidence entry)
-- wildcoffee -> easterncottont (no evidence entry)
-- americanbeauty -> greategret (no evidence entry)
-- caesarweed -> greategret (no evidence entry)
-- whitetaileddee -> turkeyvulture (no evidence entry)
-- easterngraysqu -> turkeyvulture (no evidence entry)
-- foxsquirrel -> turkeyvulture (no evidence entry)
-- easterncottont -> turkeyvulture (no evidence entry)
-- sweetgum -> americancrow (no evidence entry)
-- whitetaileddee -> redshoulderedb (no evidence entry)
-- easterngraysqu -> redshoulderedb (no evidence entry)
-- foxsquirrel -> redshoulderedb (no evidence entry)
-- easterncottont -> redshoulderedb (no evidence entry)
-- americancrow -> redshoulderedb (no evidence entry)
+(none)
 

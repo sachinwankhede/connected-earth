@@ -1,6 +1,6 @@
 # Research file: Koke'e State Park (hikokee)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 22.1303, -159.6617. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 22.1303, -159.6617. Kind: Forest.
 
 **Current sources:** Wikipedia: Koke'e State Park <https://en.wikipedia.org/wiki/Koke'e_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-kahilagarlandl (hedychium gardnerianum), cattleyguava (psidium cattleianum), sawtoothblackb (rubus argutus), bananapoka (passiflora tarminiana), dianellasandwi (dianella sandwicensis), yellowgingerye (hedychium flavescens), Apapane (himatione sanguinea), argentineant (linepithema humile), domesticgoat (capra hircus), feralpig (sus scrofa), blackrat (rattus rattus), housemouse (mus musculus), japanesewhitee (zosterops japonicus), commonmyna (acridotheres tristis), redcrestedcard (paroaria coronata), cat (felis catus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Kahila garland-lily (Hedychium gardnerianum), Strawberry guava (Psidium cattleianum), Sawtooth blackberry (Rubus argutus), Banana Poka (Passiflora tarminiana), Dianella sandwicensis (Dianella sandwicensis), Yellow ginger; Yellow ginger lily (Hedychium flavescens), Apapane (Himatione sanguinea), Argentine ant (Linepithema humile), Feral goat (Capra hircus), Wild boar (Sus scrofa), Black rat (Rattus rattus), House mouse (Mus musculus), Japanese white-eye (Zosterops japonicus), Common Myna (Acridotheres tristis), Red-crested Cardinal (Paroaria coronata), Feral cat (Felis catus)
 
 ## 4. Wikipedia text
 ### Kōkeʻe State Park
-Source: <https://en.wikipedia.org/wiki/K%C5%8Dke%CA%BBe_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/K%C5%8Dke%CA%BBe_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Kōkeʻe State Park is a state park in northwestern Kauaʻi, Hawaii, United States. The park is located north of Waimea Canyon State Park on the island's west side and is administered by the Hawaii Department of Land and Natural Resources. It includes the Kōkeʻe Museum at the 15 mi (24 km) marker on State Road 550, cabins for rent and hiking trails. The park includes 4,345 acres (17.58 km2) of mountainous terrain on a plateau ranging from about 3,200 to 4,200 ft (980 to 1,280 m) above sea level.
 The main attractions of Kōkeʻe State Park trails are the native vegetation, native forest birds, and the scenic cliffside views. Situated on a plateau between 3,200 and 4,200 ft (980 and 1,280 m), much of Kōkeʻe is a montane (infrequent frost) mesic forest (50 to 100 in or 1,300 to 2,500 mm annual rainfall with moist soil conditions) dominated by koa (Acacia koa) and ʻōhiʻa lehua (Metrosideros polymorpha) trees. The park receives around 70 inches (1,800 mm) of rain per year, mostly from October to May.
@@ -57,36 +57,37 @@ Waininiua Trail, length: 0.6 mi (0.97 km). A trail from which to see a relativel
 Water Tank Trail, length: 1 mi (1.6 km). This trail provides an example of a native koa/ʻōhiʻa forest.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Sawtooth blackberry -> Apapane | g | Himatione sanguinea -> Rubus argutus | 1 record(s): Himatione sanguinea eats Rubus argutus |
+| Strawberry guava -> Apapane | g | Himatione sanguinea -> Psidium cattleianum | 1 record(s): Himatione sanguinea eats Psidium cattleianum |
+| Kahila garland-lily -> Apapane | g | Himatione sanguinea -> Hedychium gardnerianum | 1 record(s): Himatione sanguinea eats Hedychium gardnerianum |
+| Dianella sandwicensis -> Apapane | g | Himatione sanguinea -> Dianella sandwicensis | 1 record(s): Himatione sanguinea eats Dianella sandwicensis |
+| Yellow ginger; Yellow ginger lily -> Apapane | gg | Himatione sanguinea -> Hedychium flavescens | 0 record(s):  |
+| Sawtooth blackberry -> Argentine ant | gf | Linepithema humile -> Rubus argutus | 0 record(s):  |
+| Dianella sandwicensis -> Feral goat | gf | Capra hircus -> Dianella sandwicensis | 0 record(s):  |
+| Sawtooth blackberry -> Wild boar | gg | Sus scrofa -> Rubus argutus | 0 record(s):  |
+| Strawberry guava -> Wild boar | gg | Sus scrofa -> Psidium cattleianum | 0 record(s):  |
+| Strawberry guava -> Black rat | gf | Rattus rattus -> Psidium cattleianum | 0 record(s):  |
+| Sawtooth blackberry -> House mouse | gg | Mus musculus -> Rubus argutus | 0 record(s):  |
+| Sawtooth blackberry -> Japanese white-eye | g | Zosterops japonicus -> Rubus argutus | 1 record(s): Zosterops japonicus eats Rubus argutus |
+| Strawberry guava -> Japanese white-eye | g | Zosterops japonicus -> Psidium cattleianum | 1 record(s): Zosterops japonicus eats Psidium cattleianum |
+| Kahila garland-lily -> Japanese white-eye | g | Zosterops japonicus -> Hedychium gardnerianum | 1 record(s): Zosterops japonicus eats Hedychium gardnerianum |
+| Banana Poka -> Japanese white-eye | gg | Zosterops japonicus -> Passiflora tarminiana | 0 record(s):  |
+| Dianella sandwicensis -> Japanese white-eye | g | Zosterops japonicus -> Dianella sandwicensis | 1 record(s): Zosterops japonicus eats Dianella sandwicensis |
+| Yellow ginger; Yellow ginger lily -> Japanese white-eye | gg | Zosterops japonicus -> Hedychium flavescens | 0 record(s):  |
+| Sawtooth blackberry -> Common Myna | gg | Acridotheres tristis -> Rubus argutus | 0 record(s):  |
+| Strawberry guava -> Common Myna | gg | Acridotheres tristis -> Psidium cattleianum | 0 record(s):  |
+| Sawtooth blackberry -> Red-crested Cardinal | gg | Paroaria coronata -> Rubus argutus | 0 record(s):  |
+| Strawberry guava -> Red-crested Cardinal | g | Paroaria coronata -> Psidium cattleianum | 1 record(s): Paroaria coronata eats Psidium cattleianum |
+| Banana Poka -> Red-crested Cardinal | gg | Paroaria coronata -> Passiflora tarminiana | 0 record(s):  |
+| Feral goat -> Feral cat | g | Felis catus -> Capra hircus | 1 record(s): Felis catus preysOn Capra hircus |
+| Wild boar -> Feral cat | g | Felis catus -> Sus scrofa | 1 record(s): Felis catus preysOn Sus scrofa |
+| Black rat -> Feral cat | g | Felis catus -> Rattus rattus | 2 record(s): Felis catus preysOn Rattus rattus; Felis catus eats Rattus rattus |
+| House mouse -> Feral cat | g | Felis catus -> Mus musculus | 2 record(s): Felis catus eats Mus musculus; Felis catus preysOn Mus musculus |
 
 ### Links with no GloBI record (be careful with these)
-- sawtoothblackb -> Apapane (no evidence entry)
-- cattleyguava -> Apapane (no evidence entry)
-- kahilagarlandl -> Apapane (no evidence entry)
-- dianellasandwi -> Apapane (no evidence entry)
-- yellowgingerye -> Apapane (no evidence entry)
-- sawtoothblackb -> argentineant (no evidence entry)
-- dianellasandwi -> domesticgoat (no evidence entry)
-- sawtoothblackb -> feralpig (no evidence entry)
-- cattleyguava -> feralpig (no evidence entry)
-- cattleyguava -> blackrat (no evidence entry)
-- sawtoothblackb -> housemouse (no evidence entry)
-- sawtoothblackb -> japanesewhitee (no evidence entry)
-- cattleyguava -> japanesewhitee (no evidence entry)
-- kahilagarlandl -> japanesewhitee (no evidence entry)
-- bananapoka -> japanesewhitee (no evidence entry)
-- dianellasandwi -> japanesewhitee (no evidence entry)
-- yellowgingerye -> japanesewhitee (no evidence entry)
-- sawtoothblackb -> commonmyna (no evidence entry)
-- cattleyguava -> commonmyna (no evidence entry)
-- sawtoothblackb -> redcrestedcard (no evidence entry)
-- cattleyguava -> redcrestedcard (no evidence entry)
-- bananapoka -> redcrestedcard (no evidence entry)
-- domesticgoat -> cat (no evidence entry)
-- feralpig -> cat (no evidence entry)
-- blackrat -> cat (no evidence entry)
-- housemouse -> cat (no evidence entry)
+(none)
 

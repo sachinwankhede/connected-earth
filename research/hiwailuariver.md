@@ -1,6 +1,6 @@
 # Research file: Wailua River State Park (hiwailuariver)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 22.0451, -159.3628. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 22.0451, -159.3628. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Wailua River State Park <https://en.wikipedia.org/wiki/Wailua_River_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-bluesnakeweed (stachytarpheta cayennensis), parasolleaftre (macaranga tanarius), shoebuttonardi (ardisia elliptica), spinyfiddlewoo (citharexylum spinosum), bittergourd (momordica charantia), cattleyguava (psidium cattleianum), zebradove (geopelia striata), gulffritillary (dione vanillae), crazyant (anoplolepis gracilipes), feralpig (sus scrofa), europeanrabbit (oryctolagus cuniculus), commonmyna (acridotheres tristis), japanesewhitee (zosterops japonicus), whiterumpedsha (copsychus malabaricus), cat (felis catus), greenanole (anolis carolinensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Blue snakeweed (Stachytarpheta cayennensis), Macaranga (Macaranga tanarius), Shoebutton ardisia (Ardisia elliptica), Spiny Fiddlewood (Citharexylum spinosum), Bitter gourd (Momordica charantia), Strawberry guava (Psidium cattleianum), Zebra Dove (Geopelia striata), Gulf Fritillary (Dione vanillae), Crazy ant (Anoplolepis gracilipes), Wild boar (Sus scrofa), European rabbit (Oryctolagus cuniculus), Common Myna (Acridotheres tristis), Japanese white-eye (Zosterops japonicus), White-rumped Shama (Copsychus malabaricus), Feral cat (Felis catus), Green anole (Anolis carolinensis)
 
 ## 4. Wikipedia text
 ### Wailua River State Park
-Source: <https://en.wikipedia.org/wiki/Wailua_River_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Wailua_River_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Wailua River State Park and the Wailua Complex of Heiaus, which it includes, are located on the eastern side of the Hawaiian island of Kauai. The park consists primarily of the Wailua River valley, which is the only navigable river in Hawaii. Visitors to this park can kayak, take riverboat cruises and explore the rainforest. Even motorboats and water skiing are permissible on the river.
 
@@ -39,45 +39,46 @@ Of these, only Holoholokū has been largely restored.
 Wailua was the land of the ali'i (kings) and was one of the largest ahupuaʻa (subdivisions) on Kauai. It is said that King Kaumuali'i's favorite place to live was in Wailua. The huaka'i po (Ghost Warriors) are said to walk ancient trails along the river at night up to Mount Waiʻaleʻale. Wailua has many moʻo ʻōlelo (ancient stories) of the area that begins at Hikinaʻakalā heiau to Kaʻawakoʻo atop Mount Waiʻaleʻale, the area long known as the King's highway, and it is still very sacred to many Hawaiians.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Strawberry guava -> Zebra Dove | g | Geopelia striata -> Psidium cattleianum | 1 record(s): Geopelia striata eats Psidium cattleianum |
+| Macaranga -> Zebra Dove | g | Geopelia striata -> Macaranga tanarius | 1 record(s): Geopelia striata eats Macaranga tanarius |
+| Shoebutton ardisia -> Zebra Dove | g | Geopelia striata -> Ardisia elliptica | 1 record(s): Geopelia striata eats Ardisia elliptica |
+| Bitter gourd -> Zebra Dove | g | Geopelia striata -> Momordica charantia | 1 record(s): Geopelia striata eats Momordica charantia |
+| Spiny Fiddlewood -> Zebra Dove | gf | Geopelia striata -> Citharexylum spinosum | 0 record(s):  |
+| Blue snakeweed -> Zebra Dove | gf | Geopelia striata -> Stachytarpheta cayennensis | 0 record(s):  |
+| Macaranga -> Gulf Fritillary | gf | Dione vanillae -> Macaranga tanarius | 0 record(s):  |
+| Spiny Fiddlewood -> Gulf Fritillary | gf | Dione vanillae -> Citharexylum spinosum | 0 record(s):  |
+| Blue snakeweed -> Gulf Fritillary | g | Dione vanillae -> Stachytarpheta cayennensis | 1 record(s): Dione vanillae eats Stachytarpheta cayennensis |
+| Strawberry guava -> Crazy ant | gf | Anoplolepis gracilipes -> Psidium cattleianum | 0 record(s):  |
+| Strawberry guava -> Wild boar | gg | Sus scrofa -> Psidium cattleianum | 0 record(s):  |
+| Macaranga -> Wild boar | gf | Sus scrofa -> Macaranga tanarius | 0 record(s):  |
+| Shoebutton ardisia -> Wild boar | gf | Sus scrofa -> Ardisia elliptica | 0 record(s):  |
+| Bitter gourd -> Wild boar | gf | Sus scrofa -> Momordica charantia | 0 record(s):  |
+| Strawberry guava -> European rabbit | gf | Oryctolagus cuniculus -> Psidium cattleianum | 0 record(s):  |
+| Strawberry guava -> Common Myna | gg | Acridotheres tristis -> Psidium cattleianum | 0 record(s):  |
+| Bitter gourd -> Common Myna | gf | Acridotheres tristis -> Momordica charantia | 0 record(s):  |
+| Spiny Fiddlewood -> Common Myna | gf | Acridotheres tristis -> Citharexylum spinosum | 0 record(s):  |
+| Blue snakeweed -> Common Myna | gf | Acridotheres tristis -> Stachytarpheta cayennensis | 0 record(s):  |
+| Strawberry guava -> Japanese white-eye | g | Zosterops japonicus -> Psidium cattleianum | 1 record(s): Zosterops japonicus eats Psidium cattleianum |
+| Macaranga -> Japanese white-eye | g | Zosterops japonicus -> Macaranga tanarius | 1 record(s): Zosterops japonicus eats Macaranga tanarius |
+| Shoebutton ardisia -> Japanese white-eye | g | Zosterops japonicus -> Ardisia elliptica | 1 record(s): Zosterops japonicus eats Ardisia elliptica |
+| Bitter gourd -> Japanese white-eye | g | Zosterops japonicus -> Momordica charantia | 1 record(s): Zosterops japonicus eats Momordica charantia |
+| Spiny Fiddlewood -> Japanese white-eye | gg | Zosterops japonicus -> Citharexylum spinosum | 1 record(s): Zosterops japonicus eats Citharexylum caudatum |
+| Blue snakeweed -> Japanese white-eye | gf | Zosterops japonicus -> Stachytarpheta cayennensis | 0 record(s):  |
+| Strawberry guava -> White-rumped Shama | g | Copsychus malabaricus -> Psidium cattleianum | 1 record(s): Copsychus malabaricus eats Psidium cattleianum |
+| Macaranga -> White-rumped Shama | g | Copsychus malabaricus -> Macaranga tanarius | 1 record(s): Copsychus malabaricus eats Macaranga tanarius |
+| Shoebutton ardisia -> White-rumped Shama | g | Copsychus malabaricus -> Ardisia elliptica | 1 record(s): Copsychus malabaricus eats Ardisia elliptica |
+| Bitter gourd -> White-rumped Shama | g | Copsychus malabaricus -> Momordica charantia | 1 record(s): Copsychus malabaricus eats Momordica charantia |
+| Spiny Fiddlewood -> White-rumped Shama | gg | Copsychus malabaricus -> Citharexylum spinosum | 1 record(s): Copsychus malabaricus eats Citharexylum caudatum |
+| Blue snakeweed -> White-rumped Shama | gf | Copsychus malabaricus -> Stachytarpheta cayennensis | 0 record(s):  |
+| Macaranga -> Green anole | gf | Anolis carolinensis -> Macaranga tanarius | 0 record(s):  |
+| Gulf Fritillary -> Green anole | g | Anolis carolinensis -> Dione vanillae | 1 record(s): Anolis carolinensis preysOn Dione vanillae |
+| Wild boar -> Feral cat | g | Felis catus -> Sus scrofa | 1 record(s): Felis catus preysOn Sus scrofa |
+| European rabbit -> Feral cat | g | Felis catus -> Oryctolagus cuniculus | 4 record(s): Felis catus preysOn Oryctolagus cuniculus cuniculus; Felis catus eats Oryctolagus cuniculus; Felis catus preysOn Oryctolagus cuniculus |
 
 ### Links with no GloBI record (be careful with these)
-- cattleyguava -> zebradove (no evidence entry)
-- parasolleaftre -> zebradove (no evidence entry)
-- shoebuttonardi -> zebradove (no evidence entry)
-- bittergourd -> zebradove (no evidence entry)
-- spinyfiddlewoo -> zebradove (no evidence entry)
-- bluesnakeweed -> zebradove (no evidence entry)
-- parasolleaftre -> gulffritillary (no evidence entry)
-- spinyfiddlewoo -> gulffritillary (no evidence entry)
-- bluesnakeweed -> gulffritillary (no evidence entry)
-- cattleyguava -> crazyant (no evidence entry)
-- cattleyguava -> feralpig (no evidence entry)
-- parasolleaftre -> feralpig (no evidence entry)
-- shoebuttonardi -> feralpig (no evidence entry)
-- bittergourd -> feralpig (no evidence entry)
-- cattleyguava -> europeanrabbit (no evidence entry)
-- cattleyguava -> commonmyna (no evidence entry)
-- bittergourd -> commonmyna (no evidence entry)
-- spinyfiddlewoo -> commonmyna (no evidence entry)
-- bluesnakeweed -> commonmyna (no evidence entry)
-- cattleyguava -> japanesewhitee (no evidence entry)
-- parasolleaftre -> japanesewhitee (no evidence entry)
-- shoebuttonardi -> japanesewhitee (no evidence entry)
-- bittergourd -> japanesewhitee (no evidence entry)
-- spinyfiddlewoo -> japanesewhitee (no evidence entry)
-- bluesnakeweed -> japanesewhitee (no evidence entry)
-- cattleyguava -> whiterumpedsha (no evidence entry)
-- parasolleaftre -> whiterumpedsha (no evidence entry)
-- shoebuttonardi -> whiterumpedsha (no evidence entry)
-- bittergourd -> whiterumpedsha (no evidence entry)
-- spinyfiddlewoo -> whiterumpedsha (no evidence entry)
-- bluesnakeweed -> whiterumpedsha (no evidence entry)
-- parasolleaftre -> greenanole (no evidence entry)
-- gulffritillary -> greenanole (no evidence entry)
-- feralpig -> cat (no evidence entry)
-- europeanrabbit -> cat (no evidence entry)
+(none)
 

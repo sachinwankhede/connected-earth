@@ -1,6 +1,6 @@
 # Research file: Washington State Park (mowashington)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Missouri, USA. Coordinates 38.0823, -90.6878. Kind: Forest.
@@ -14,12 +14,12 @@ Missouri, USA. Coordinates 38.0823, -90.6878. Kind: Forest.
 
 **Current sources:** Wikipedia: List of Missouri state parks <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (19)
-wildcolumbine (aquilegia canadensis), springblueeyed (collinsia verna), firepink (silene virginica), fremontsclemat (clematis fremontii), birdfootviolet (viola pedata), celandinepoppy (stylophorum diphyllum), northerncardin (cardinalis cardinalis), blueswallowtai (battus philenor), commonbuckeye (junonia coenia), greatspangledf (speyeria cybele), elkalycecomynt (elkalyce comyntas), easternchipmun (tamias striatus), turkeyvulture (cathartes aura), virginiaopossu (didelphis virginiana), bobcat (lynx rufus), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (15)
+Wild columbine (Aquilegia canadensis), Spring blue eyed Mary (Collinsia verna), Fire-pink (Silene virginica), Fremont's clematis (Clematis fremontii), Bird-foot Violet (Viola pedata), Celandine-poppy (Stylophorum diphyllum), Northern Cardinal (Cardinalis cardinalis), Blue Swallowtail (Battus philenor), Common Buckeye (Junonia coenia), Great Spangled Fritillary (Speyeria cybele), Elkalyce comyntas (Elkalyce comyntas), Eastern chipmunk (Tamias striatus), Turkey vulture (Cathartes aura), Virginia opossum (Didelphis virginiana), Bobcat (Lynx rufus)
 
 ## 4. Wikipedia text
 ### Washington State Park
-Source: <https://en.wikipedia.org/wiki/Washington_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Washington_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Washington State Park is a public recreation area covering 2,157 acres (873 ha) in Washington County in the central eastern part of the state of Missouri. It is located on Highway 21 about 14 miles (23 km) northeast of Potosi or 7 miles (11 km) southwest of De Soto on the eastern edge of the Ozarks. The state park is noted for its Native American rock carvings and for its finely crafted stonework from the 1930s.
 
@@ -35,7 +35,7 @@ The park was built during the Great Depression of the 1930s by the African-Ameri
 Park activities include camping, fishing, canoeing, hiking, and swimming in both the Big River and an olympic-sized pool.
 
 ### List of Missouri state parks
-Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-14.
 
 This is a list of state parks and state historic sites in Missouri.  In the U.S. state of Missouri both state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.  As of 2026 the division manages a total of 93 parks and historic sites plus the trails at Roger Pryor Pioneer Backcountry, which together total more than 160,000 acres (65,000 ha).  According to the state, its parks system includes approximately 3,500 campsites, 194 cabins, and 1,000 miles (1,600 km) of trails, including the longest developed rails-to-trail project in the nation.
 
@@ -46,29 +46,30 @@ This is a list of state parks and state historic sites in Missouri.  In the U.S.
 == Other facilities ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Spring blue eyed Mary -> Northern Cardinal | gf | Cardinalis cardinalis -> Collinsia verna | 0 record(s):  |
+| Celandine-poppy -> Northern Cardinal | gf | Cardinalis cardinalis -> Stylophorum diphyllum | 0 record(s):  |
+| Wild columbine -> Blue Swallowtail | gf | Battus philenor -> Aquilegia canadensis | 0 record(s):  |
+| Spring blue eyed Mary -> Blue Swallowtail | gf | Battus philenor -> Collinsia verna | 0 record(s):  |
+| Fremont's clematis -> Blue Swallowtail | gf | Battus philenor -> Clematis fremontii | 0 record(s):  |
+| Spring blue eyed Mary -> Common Buckeye | gf | Junonia coenia -> Collinsia verna | 0 record(s):  |
+| Bird-foot Violet -> Great Spangled Fritillary | gg | Speyeria cybele -> Viola pedata | 0 record(s):  |
+| Wild columbine -> Elkalyce comyntas | gf | Elkalyce comyntas -> Aquilegia canadensis | 0 record(s):  |
+| Spring blue eyed Mary -> Elkalyce comyntas | gf | Elkalyce comyntas -> Collinsia verna | 0 record(s):  |
+| Fire-pink -> Elkalyce comyntas | gf | Elkalyce comyntas -> Silene virginica | 0 record(s):  |
+| Fremont's clematis -> Elkalyce comyntas | gf | Elkalyce comyntas -> Clematis fremontii | 0 record(s):  |
+| Bird-foot Violet -> Elkalyce comyntas | gg | Elkalyce comyntas -> Viola pedata | 0 record(s):  |
+| Wild columbine -> Eastern chipmunk | gf | Tamias striatus -> Aquilegia canadensis | 0 record(s):  |
+| Fremont's clematis -> Eastern chipmunk | gf | Tamias striatus -> Clematis fremontii | 0 record(s):  |
+| Eastern chipmunk -> Turkey vulture | g | Cathartes aura -> Tamias striatus | 1 record(s): Cathartes aura eats Tamias striatus |
+| Northern Cardinal -> Virginia opossum | g | Didelphis virginiana -> Cardinalis cardinalis | 1 record(s): Didelphis virginiana eats Cardinalis cardinalis |
+| Northern Cardinal -> Bobcat | g | Lynx rufus -> Cardinalis cardinalis | 1 record(s): Lynx rufus preysOn Cardinalis cardinalis |
+| Eastern chipmunk -> Bobcat | g | Lynx rufus -> Tamias striatus | 2 record(s): Lynx rufus eats Tamias striatus |
+| Virginia opossum -> Bobcat | g | Lynx rufus -> Didelphis virginiana | 3 record(s): Lynx rufus eats Didelphis virginiana; Lynx rufus preysOn Didelphis virginiana |
 
 ### Links with no GloBI record (be careful with these)
-- springblueeyed -> northerncardin (no evidence entry)
-- celandinepoppy -> northerncardin (no evidence entry)
-- wildcolumbine -> blueswallowtai (no evidence entry)
-- springblueeyed -> blueswallowtai (no evidence entry)
-- fremontsclemat -> blueswallowtai (no evidence entry)
-- springblueeyed -> commonbuckeye (no evidence entry)
-- birdfootviolet -> greatspangledf (no evidence entry)
-- wildcolumbine -> elkalycecomynt (no evidence entry)
-- springblueeyed -> elkalycecomynt (no evidence entry)
-- firepink -> elkalycecomynt (no evidence entry)
-- fremontsclemat -> elkalycecomynt (no evidence entry)
-- birdfootviolet -> elkalycecomynt (no evidence entry)
-- wildcolumbine -> easternchipmun (no evidence entry)
-- fremontsclemat -> easternchipmun (no evidence entry)
-- easternchipmun -> turkeyvulture (no evidence entry)
-- northerncardin -> virginiaopossu (no evidence entry)
-- northerncardin -> bobcat (no evidence entry)
-- easternchipmun -> bobcat (no evidence entry)
-- virginiaopossu -> bobcat (no evidence entry)
+(none)
 

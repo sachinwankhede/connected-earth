@@ -1,6 +1,6 @@
 # Research file: Onondaga Cave State Park (moonondagacave)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Missouri, USA. Coordinates 38.0761, -91.1884. Kind: Forest.
@@ -14,12 +14,12 @@ Missouri, USA. Coordinates 38.0761, -91.1884. Kind: Forest.
 
 **Current sources:** Wikipedia: List of Missouri state parks <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-thimbleweed (anemone virginiana), americanbladde (staphylea trifolia), goatsrue (tephrosia virginiana), americanelderb (sambucus canadensis), greatwaterleaf (hydrophyllum appendiculatum), americanbellfl (campanulastrum americanum), northerncardin (cardinalis cardinalis), canadagoose (branta canadensis), blueswallowtai (battus philenor), spicebushswall (papilio troilus), muskrat (ondatra zibethicus), groundhog (marmota monax), easterngraysqu (sciurus carolinensis), turkeyvulture (cathartes aura), redbelliedwood (melanerpes carolinus), redfox (vulpes vulpes), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Thimbleweed (Anemone virginiana), American bladdernut (Staphylea trifolia), Goat's rue (Tephrosia virginiana), American elderberry (Sambucus canadensis), Great waterleaf (Hydrophyllum appendiculatum), American bellflower (Campanulastrum americanum), Northern Cardinal (Cardinalis cardinalis), Canada goose (Branta canadensis), Blue Swallowtail (Battus philenor), Spicebush Swallowtail (Papilio troilus), Muskrat (Ondatra zibethicus), Groundhog (Marmota monax), Eastern gray squirrel (Sciurus carolinensis), Turkey vulture (Cathartes aura), Red-bellied Woodpecker (Melanerpes carolinus), Red fox (Vulpes vulpes)
 
 ## 4. Wikipedia text
 ### Onondaga Cave State Park
-Source: <https://en.wikipedia.org/wiki/Onondaga_Cave_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Onondaga_Cave_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Onondaga Cave State Park is a Missouri state park located on the Meramec River approximately 5 miles (8.0 km) southeast of the village of Leasburg. The park was established in 1982. Park activities include cave tours, camping, fishing, hiking, picnicking, and swimming.
 
@@ -50,7 +50,7 @@ Opposition to the dam began in the 1960s from both local and nearby St. Louis ar
 [...trimmed]
 
 ### List of Missouri state parks
-Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-14.
 
 This is a list of state parks and state historic sites in Missouri.  In the U.S. state of Missouri both state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.  As of 2026 the division manages a total of 93 parks and historic sites plus the trails at Roger Pryor Pioneer Backcountry, which together total more than 160,000 acres (65,000 ha).  According to the state, its parks system includes approximately 3,500 campsites, 194 cabins, and 1,000 miles (1,600 km) of trails, including the longest developed rails-to-trail project in the nation.
 
@@ -61,35 +61,36 @@ This is a list of state parks and state historic sites in Missouri.  In the U.S.
 == Other facilities ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Goat's rue -> Northern Cardinal | gf | Cardinalis cardinalis -> Tephrosia virginiana | 0 record(s):  |
+| American elderberry -> Northern Cardinal | g | Cardinalis cardinalis -> Sambucus canadensis | 1 record(s): Cardinalis cardinalis eats Sambucus canadensis |
+| Thimbleweed -> Canada goose | gf | Branta canadensis -> Anemone virginiana | 0 record(s):  |
+| Goat's rue -> Canada goose | gf | Branta canadensis -> Tephrosia virginiana | 0 record(s):  |
+| Thimbleweed -> Blue Swallowtail | gf | Battus philenor -> Anemone virginiana | 0 record(s):  |
+| Goat's rue -> Blue Swallowtail | gf | Battus philenor -> Tephrosia virginiana | 0 record(s):  |
+| American bellflower -> Blue Swallowtail | gf | Battus philenor -> Campanulastrum americanum | 0 record(s):  |
+| Thimbleweed -> Spicebush Swallowtail | gf | Papilio troilus -> Anemone virginiana | 0 record(s):  |
+| Goat's rue -> Spicebush Swallowtail | gf | Papilio troilus -> Tephrosia virginiana | 0 record(s):  |
+| American bellflower -> Spicebush Swallowtail | gf | Papilio troilus -> Campanulastrum americanum | 0 record(s):  |
+| Thimbleweed -> Muskrat | gf | Ondatra zibethicus -> Anemone virginiana | 0 record(s):  |
+| Goat's rue -> Groundhog | gf | Marmota monax -> Tephrosia virginiana | 0 record(s):  |
+| Goat's rue -> Eastern gray squirrel | gf | Sciurus carolinensis -> Tephrosia virginiana | 0 record(s):  |
+| Canada goose -> Turkey vulture | g | Cathartes aura -> Branta canadensis | 1 record(s): Cathartes aura eats Branta canadensis |
+| Muskrat -> Turkey vulture | g | Cathartes aura -> Ondatra zibethicus | 1 record(s): Cathartes aura eats Ondatra zibethicus |
+| Groundhog -> Turkey vulture | g | Cathartes aura -> Marmota monax | 1 record(s): Cathartes aura eats Marmota monax |
+| Eastern gray squirrel -> Turkey vulture | g | Cathartes aura -> Sciurus carolinensis | 2 record(s): Cathartes aura eats Sciurus carolinensis; Cathartes aura preysOn Sciurus carolinensis |
+| Goat's rue -> Red-bellied Woodpecker | gf | Melanerpes carolinus -> Tephrosia virginiana | 0 record(s):  |
+| American elderberry -> Red-bellied Woodpecker | gf | Melanerpes carolinus -> Sambucus canadensis | 0 record(s):  |
+| Goat's rue -> Red fox | gf | Vulpes vulpes -> Tephrosia virginiana | 0 record(s):  |
+| American elderberry -> Red fox | gg | Vulpes vulpes -> Sambucus canadensis | 0 record(s):  |
+| Canada goose -> Red fox | g | Vulpes vulpes -> Branta canadensis | 2 record(s): Vulpes vulpes eats Branta canadensis; Vulpes vulpes preysOn Branta canadensis |
+| Muskrat -> Red fox | g | Vulpes vulpes -> Ondatra zibethicus | 4 record(s): Vulpes vulpes eats Ondatra zibethicus; Vulpes vulpes fulva preysOn Ondatra zibethicus; Vulpes vulpes preysOn Ondatra zibethicus |
+| Groundhog -> Red fox | g | Vulpes vulpes -> Marmota monax | 4 record(s): Vulpes vulpes eats Marmota monax; Vulpes vulpes fulva preysOn Marmota monax; Vulpes vulpes preysOn Marmota monax |
+| Eastern gray squirrel -> Red fox | g | Vulpes vulpes -> Sciurus carolinensis | 4 record(s): Vulpes vulpes fulva eats Sciurus carolinensis; Vulpes vulpes eats Sciurus carolinensis; Vulpes vulpes fulva preysOn Sciurus carolinensis |
 
 ### Links with no GloBI record (be careful with these)
-- goatsrue -> northerncardin (no evidence entry)
-- americanelderb -> northerncardin (no evidence entry)
-- thimbleweed -> canadagoose (no evidence entry)
-- goatsrue -> canadagoose (no evidence entry)
-- thimbleweed -> blueswallowtai (no evidence entry)
-- goatsrue -> blueswallowtai (no evidence entry)
-- americanbellfl -> blueswallowtai (no evidence entry)
-- thimbleweed -> spicebushswall (no evidence entry)
-- goatsrue -> spicebushswall (no evidence entry)
-- americanbellfl -> spicebushswall (no evidence entry)
-- thimbleweed -> muskrat (no evidence entry)
-- goatsrue -> groundhog (no evidence entry)
-- goatsrue -> easterngraysqu (no evidence entry)
-- canadagoose -> turkeyvulture (no evidence entry)
-- muskrat -> turkeyvulture (no evidence entry)
-- groundhog -> turkeyvulture (no evidence entry)
-- easterngraysqu -> turkeyvulture (no evidence entry)
-- goatsrue -> redbelliedwood (no evidence entry)
-- americanelderb -> redbelliedwood (no evidence entry)
-- goatsrue -> redfox (no evidence entry)
-- americanelderb -> redfox (no evidence entry)
-- canadagoose -> redfox (no evidence entry)
-- muskrat -> redfox (no evidence entry)
-- groundhog -> redfox (no evidence entry)
-- easterngraysqu -> redfox (no evidence entry)
+(none)
 

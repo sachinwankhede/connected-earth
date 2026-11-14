@@ -1,6 +1,6 @@
 # Research file: Chino Hills State Park (cachinohills)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 California, USA. Coordinates 33.9063, -117.7402. Kind: Forest.
@@ -14,12 +14,12 @@ California, USA. Coordinates 33.9063, -117.7402. Kind: Forest.
 
 **Current sources:** Wikipedia: Chino Hills State Park <https://en.wikipedia.org/wiki/Chino_Hills_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (26)
-castoroilplant (ricinus communis), stickybacchari (baccharis salicifolia), treetobacco (nicotiana glauca), californiawaln (juglans californica), sacreddatura (datura wrightii), californiabrit (encelia californica), housefinch (haemorhous mexicanus), lessergoldfinc (spinus psaltria), californiatowh (melozone crissalis), mourningdove (zenaida macroura), westernencepha (culex tarsalis), westernhoneybe (apis mellifera), californiagrou (otospermophilus beecheyi), foxsquirrel (sciurus niger), desertcottonta (sylvilagus audubonii), yellowrumpedwa (setophaga coronata), sevenspotladyb (coccinella septempunctata), virginiaopossu (didelphis virginiana), raccoon (procyon lotor), westernfenceli (sceloporus occidentalis), abyssus (crotalus oreganus), coyote (canis latrans), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (22)
+Castor-oil-Plant (Ricinus communis), Sticky baccharis (Baccharis salicifolia), Tree Tobacco (Nicotiana glauca), California walnut (Juglans californica), Sacred datura (Datura wrightii), California brittlebush (Encelia californica), House Finch (Haemorhous mexicanus), Lesser Goldfinch (Spinus psaltria), California Towhee (Melozone crissalis), Mourning Dove (Zenaida macroura), Western encephalitis mosquito (Culex tarsalis), Western honey bee (Apis mellifera), California ground squirrel (Otospermophilus beecheyi), Fox squirrel (Sciurus niger), Desert cottontail (Sylvilagus audubonii), Yellow-rumped Warbler (Setophaga coronata), Seven-spot Ladybird (Coccinella septempunctata), Virginia opossum (Didelphis virginiana), Raccoon (Procyon lotor), Western Fence Lizard (Sceloporus occidentalis), Western rattlesnake (Crotalus oreganus), Coyote (Canis latrans)
 
 ## 4. Wikipedia text
 ### Chino Hills State Park
-Source: <https://en.wikipedia.org/wiki/Chino_Hills_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Chino_Hills_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Chino Hills State Park is a state park of California, in the United States. It is located in the Chino Hills, foothills of the Santa Ana Mountains.  It is a critical link in the Chino–Puente Hills wildlife corridor, and a major botanical habitat reserve for resident and migrating wildlife.
 Visitors can walk, horseback ride, or mountain bike on trails through valleys and along ridge tops through woodlands, sage scrub and grasslands. 60 miles (100 km) of trails and fire roads also offer opportunities for viewing wildlife and native plants. Facilities consist of a picnic area, camping sites, equestrian staging area and corrals, a historic barn, water and restrooms. Most of the trails are multiple mode use. A few trails are designated for hiking only for safety or habitat protection.
@@ -41,68 +41,69 @@ Private land acquisition began in the 1870s and continued into the 1890s. In 184
 In 1977 the California legislature passed a resolution directing California State Parks to conduct a study on acquiring Chino Hills land for park purposes. A local citizen group, Hills for Everyone, worked closely with California State Parks and the legislature to create the park with an initial acquisition of 2,237 acres (905 ha). In 1984, the State Park and Recreation Commission officially declared the area a unit of the State Park System. Since that date, Chino Hills State Park has been expanded by numerous land acquisitions from various private landowners. Current documentation gives the park an area of 14,173 acres (5,736 ha) and an establishment date of 1981.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Castor-oil-Plant -> House Finch | gf | Haemorhous mexicanus -> Ricinus communis | 0 record(s):  |
+| Sticky baccharis -> House Finch | gg | Haemorhous mexicanus -> Baccharis salicifolia | 0 record(s):  |
+| Tree Tobacco -> House Finch | gf | Haemorhous mexicanus -> Nicotiana glauca | 0 record(s):  |
+| Sacred datura -> House Finch | gf | Haemorhous mexicanus -> Datura wrightii | 0 record(s):  |
+| California brittlebush -> House Finch | gg | Haemorhous mexicanus -> Encelia californica | 0 record(s):  |
+| Castor-oil-Plant -> Lesser Goldfinch | gf | Spinus psaltria -> Ricinus communis | 0 record(s):  |
+| Sticky baccharis -> Lesser Goldfinch | gg | Spinus psaltria -> Baccharis salicifolia | 0 record(s):  |
+| Tree Tobacco -> Lesser Goldfinch | g | Spinus psaltria -> Nicotiana glauca | 1 record(s): Spinus psaltria eats Nicotiana glauca |
+| Castor-oil-Plant -> California Towhee | gf | Melozone crissalis -> Ricinus communis | 0 record(s):  |
+| Sticky baccharis -> California Towhee | gf | Melozone crissalis -> Baccharis salicifolia | 0 record(s):  |
+| Tree Tobacco -> California Towhee | gf | Melozone crissalis -> Nicotiana glauca | 0 record(s):  |
+| Sacred datura -> California Towhee | gf | Melozone crissalis -> Datura wrightii | 0 record(s):  |
+| California brittlebush -> California Towhee | gf | Melozone crissalis -> Encelia californica | 0 record(s):  |
+| Castor-oil-Plant -> Mourning Dove | gf | Zenaida macroura -> Ricinus communis | 0 record(s):  |
+| Sticky baccharis -> Western encephalitis mosquito | gg | Culex tarsalis -> Baccharis salicifolia | 0 record(s):  |
+| California brittlebush -> Western encephalitis mosquito | gf | Culex tarsalis -> Encelia californica | 0 record(s):  |
+| Sticky baccharis -> California ground squirrel | gg | Otospermophilus beecheyi -> Baccharis salicifolia | 0 record(s):  |
+| Tree Tobacco -> California ground squirrel | g | Otospermophilus beecheyi -> Nicotiana glauca | 1 record(s): Otospermophilus beecheyi eats Nicotiana glauca |
+| California walnut -> California ground squirrel | gg | Otospermophilus beecheyi -> Juglans californica | 0 record(s):  |
+| Sacred datura -> California ground squirrel | gf | Otospermophilus beecheyi -> Datura wrightii | 0 record(s):  |
+| California brittlebush -> California ground squirrel | g | Otospermophilus beecheyi -> Encelia californica | 1 record(s): Otospermophilus beecheyi eats Encelia californica |
+| Castor-oil-Plant -> Western honey bee | g | Apis mellifera -> Ricinus communis | 1 record(s): Apis mellifera eats Ricinus communis |
+| Sticky baccharis -> Western honey bee | g | Apis mellifera -> Baccharis salicifolia | 1 record(s): Apis mellifera eats Baccharis salicifolia |
+| Tree Tobacco -> Western honey bee | gg | Apis mellifera -> Nicotiana glauca | 0 record(s):  |
+| California walnut -> Western honey bee | gg | Apis mellifera -> Juglans californica | 0 record(s):  |
+| Sacred datura -> Western honey bee | g | Apis mellifera -> Datura wrightii | 1 record(s): Apis mellifera eats Datura wrightii |
+| California brittlebush -> Western honey bee | g | Apis mellifera -> Encelia californica | 1 record(s): Apis mellifera eats Encelia californica |
+| Sticky baccharis -> Fox squirrel | gf | Sciurus niger -> Baccharis salicifolia | 0 record(s):  |
+| California walnut -> Fox squirrel | g | Sciurus niger -> Juglans californica | 1 record(s): Sciurus niger eats Juglans californica |
+| Sacred datura -> Fox squirrel | gf | Sciurus niger -> Datura wrightii | 0 record(s):  |
+| California brittlebush -> Fox squirrel | gf | Sciurus niger -> Encelia californica | 0 record(s):  |
+| California brittlebush -> Desert cottontail | gf | Sylvilagus audubonii -> Encelia californica | 0 record(s):  |
+| Castor-oil-Plant -> Yellow-rumped Warbler | gf | Setophaga coronata -> Ricinus communis | 0 record(s):  |
+| California walnut -> Yellow-rumped Warbler | gf | Setophaga coronata -> Juglans californica | 0 record(s):  |
+| California brittlebush -> Yellow-rumped Warbler | gf | Setophaga coronata -> Encelia californica | 0 record(s):  |
+| Western honey bee -> Western Fence Lizard | g | Sceloporus occidentalis -> Apis mellifera | 4 record(s): Sceloporus occidentalis eats Apis mellifera; Sceloporus occidentalis longipes preysOn Apis mellifera; Sceloporus occidentalis preysOn Apis mellifera |
+| California ground squirrel -> Western rattlesnake | g | Crotalus oreganus -> Otospermophilus beecheyi | 5+ record(s): Crotalus oreganus oreganus eats Otospermophilus beecheyi; Crotalus oreganus helleri eats Otospermophilus beecheyi; Crotalus oreganus oreganus preysOn Otospermophilus beecheyi |
+| Desert cottontail -> Western rattlesnake | g | Crotalus oreganus -> Sylvilagus audubonii | 2 record(s): Crotalus oreganus eats Sylvilagus audubonii; Crotalus oreganus helleri preysOn Sylvilagus audubonii |
+| Castor-oil-Plant -> Seven-spot Ladybird | gf | Coccinella septempunctata -> Ricinus communis | 0 record(s):  |
+| Sticky baccharis -> Seven-spot Ladybird | gg | Coccinella septempunctata -> Baccharis salicifolia | 0 record(s):  |
+| California brittlebush -> Seven-spot Ladybird | gf | Coccinella septempunctata -> Encelia californica | 0 record(s):  |
+| Tree Tobacco -> Virginia opossum | gf | Didelphis virginiana -> Nicotiana glauca | 0 record(s):  |
+| California walnut -> Virginia opossum | gf | Didelphis virginiana -> Juglans californica | 0 record(s):  |
+| Sacred datura -> Virginia opossum | gf | Didelphis virginiana -> Datura wrightii | 0 record(s):  |
+| Fox squirrel -> Virginia opossum | g | Didelphis virginiana -> Sciurus niger | 1 record(s): Didelphis virginiana eats Sciurus niger |
+| Tree Tobacco -> Raccoon | gf | Procyon lotor -> Nicotiana glauca | 0 record(s):  |
+| California walnut -> Raccoon | gg | Procyon lotor -> Juglans californica | 0 record(s):  |
+| Sacred datura -> Raccoon | gf | Procyon lotor -> Datura wrightii | 0 record(s):  |
+| House Finch -> Raccoon | g | Procyon lotor -> Haemorhous mexicanus | 1 record(s): Procyon lotor eats Haemorhous mexicanus |
+| Mourning Dove -> Raccoon | g | Procyon lotor -> Zenaida macroura | 1 record(s): Procyon lotor eats Zenaida macroura |
+| Western honey bee -> Raccoon | g | Procyon lotor -> Apis mellifera | 1 record(s): Procyon lotor eats Apis mellifera |
+| Tree Tobacco -> Coyote | gf | Canis latrans -> Nicotiana glauca | 0 record(s):  |
+| Sacred datura -> Coyote | gf | Canis latrans -> Datura wrightii | 0 record(s):  |
+| California ground squirrel -> Coyote | g | Canis latrans -> Otospermophilus beecheyi | 2 record(s): Canis latrans eats Otospermophilus beecheyi; Canis latrans preysOn Otospermophilus beecheyi |
+| Fox squirrel -> Coyote | g | Canis latrans -> Sciurus niger | 3 record(s): Canis latrans eats Sciurus niger; Canis latrans preysOn Sciurus niger |
+| Desert cottontail -> Coyote | g | Canis latrans -> Sylvilagus audubonii | 2 record(s): Canis latrans eats Sylvilagus audubonii; Canis latrans preysOn Sylvilagus audubonii |
+| Virginia opossum -> Coyote | g | Canis latrans -> Didelphis virginiana | 2 record(s): Canis latrans eats Didelphis virginiana |
+| Raccoon -> Coyote | g | Canis latrans -> Procyon lotor | 3 record(s): Canis latrans eats Procyon lotor; Canis latrans preysOn Procyon lotor |
 
 ### Links with no GloBI record (be careful with these)
-- castoroilplant -> housefinch (no evidence entry)
-- stickybacchari -> housefinch (no evidence entry)
-- treetobacco -> housefinch (no evidence entry)
-- sacreddatura -> housefinch (no evidence entry)
-- californiabrit -> housefinch (no evidence entry)
-- castoroilplant -> lessergoldfinc (no evidence entry)
-- stickybacchari -> lessergoldfinc (no evidence entry)
-- treetobacco -> lessergoldfinc (no evidence entry)
-- castoroilplant -> californiatowh (no evidence entry)
-- stickybacchari -> californiatowh (no evidence entry)
-- treetobacco -> californiatowh (no evidence entry)
-- sacreddatura -> californiatowh (no evidence entry)
-- californiabrit -> californiatowh (no evidence entry)
-- castoroilplant -> mourningdove (no evidence entry)
-- stickybacchari -> westernencepha (no evidence entry)
-- californiabrit -> westernencepha (no evidence entry)
-- stickybacchari -> californiagrou (no evidence entry)
-- treetobacco -> californiagrou (no evidence entry)
-- californiawaln -> californiagrou (no evidence entry)
-- sacreddatura -> californiagrou (no evidence entry)
-- californiabrit -> californiagrou (no evidence entry)
-- castoroilplant -> westernhoneybe (no evidence entry)
-- stickybacchari -> westernhoneybe (no evidence entry)
-- treetobacco -> westernhoneybe (no evidence entry)
-- californiawaln -> westernhoneybe (no evidence entry)
-- sacreddatura -> westernhoneybe (no evidence entry)
-- californiabrit -> westernhoneybe (no evidence entry)
-- stickybacchari -> foxsquirrel (no evidence entry)
-- californiawaln -> foxsquirrel (no evidence entry)
-- sacreddatura -> foxsquirrel (no evidence entry)
-- californiabrit -> foxsquirrel (no evidence entry)
-- californiabrit -> desertcottonta (no evidence entry)
-- castoroilplant -> yellowrumpedwa (no evidence entry)
-- californiawaln -> yellowrumpedwa (no evidence entry)
-- californiabrit -> yellowrumpedwa (no evidence entry)
-- westernhoneybe -> westernfenceli (no evidence entry)
-- californiagrou -> abyssus (no evidence entry)
-- desertcottonta -> abyssus (no evidence entry)
-- castoroilplant -> sevenspotladyb (no evidence entry)
-- stickybacchari -> sevenspotladyb (no evidence entry)
-- californiabrit -> sevenspotladyb (no evidence entry)
-- treetobacco -> virginiaopossu (no evidence entry)
-- californiawaln -> virginiaopossu (no evidence entry)
-- sacreddatura -> virginiaopossu (no evidence entry)
-- foxsquirrel -> virginiaopossu (no evidence entry)
-- treetobacco -> raccoon (no evidence entry)
-- californiawaln -> raccoon (no evidence entry)
-- sacreddatura -> raccoon (no evidence entry)
-- housefinch -> raccoon (no evidence entry)
-- mourningdove -> raccoon (no evidence entry)
-- westernhoneybe -> raccoon (no evidence entry)
-- treetobacco -> coyote (no evidence entry)
-- sacreddatura -> coyote (no evidence entry)
-- californiagrou -> coyote (no evidence entry)
-- foxsquirrel -> coyote (no evidence entry)
-- desertcottonta -> coyote (no evidence entry)
-- virginiaopossu -> coyote (no evidence entry)
-- raccoon -> coyote (no evidence entry)
+(none)
 

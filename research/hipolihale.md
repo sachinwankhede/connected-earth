@@ -1,6 +1,6 @@
 # Research file: Polihale State Park (hipolihale)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 22.0811, -159.7629. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 22.0811, -159.7629. Kind: Forest.
 
 **Current sources:** Wikipedia: Polihale State Park <https://en.wikipedia.org/wiki/Polihale_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-roundleafchast (vitex rotundifolia), bayhops (ipomoea pes-caprae), beachmorninggl (ipomoea imperati), ekoko (euphorbia celastroides), lovevine (cassytha filiformis), oheohe (polyscias kavaiensis), northerncardin (cardinalis cardinalis), zebradove (geopelia striata), spotteddove (spilopelia chinensis), commonpaperwas (polistes fuscatus), hunterslittlep (polistes dorsalis), redcrestedcard (paroaria coronata), commonmyna (acridotheres tristis), northernmockin (mimus polyglottos), cat (felis catus), humpbackwhale (megaptera novaeangliae), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Roundleaf Chastetree (Vitex rotundifolia), Bayhops (Ipomoea pes-caprae), Beach morningglory (Ipomoea imperati), `ekoko (Euphorbia celastroides), Love-vine (Cassytha filiformis), `ohe`ohe (Polyscias kavaiensis), Northern Cardinal (Cardinalis cardinalis), Zebra Dove (Geopelia striata), Spotted Dove (Spilopelia chinensis), Common Paper Wasp (Polistes fuscatus), Hunter's Little Paper Wasp (Polistes dorsalis), Red-crested Cardinal (Paroaria coronata), Common Myna (Acridotheres tristis), Northern Mockingbird (Mimus polyglottos), Feral cat (Felis catus), Humpback whale (Megaptera novaeangliae)
 
 ## 4. Wikipedia text
 ### Polihale State Park
-Source: <https://en.wikipedia.org/wiki/Polihale_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Polihale_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Polihale State Park is a remote wild beach on the western side of the Hawaiian island of Kauaʻi. It is the most western publicly accessible area in Hawaii, although the privately owned island of Niʻihau is farther west. The park is miles away from the town of Kekaha, and it can only be reached via a poorly marked, dirt sugarcane road, making a four-wheel drive vehicle preferable. The beach is several miles long, yet only the area known as "Queen's Pond" offers safe swimming.
 
@@ -47,41 +47,42 @@ As of March 25, 2011 the road to the park prefers a 4-wheel drive vehicle but a 
 == Gallery ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| `ohe`ohe -> Northern Cardinal | gg | Cardinalis cardinalis -> Polyscias kavaiensis | 0 record(s):  |
+| `ekoko -> Northern Cardinal | gg | Cardinalis cardinalis -> Euphorbia celastroides | 0 record(s):  |
+| Roundleaf Chastetree -> Northern Cardinal | gf | Cardinalis cardinalis -> Vitex rotundifolia | 0 record(s):  |
+| Love-vine -> Northern Cardinal | gf | Cardinalis cardinalis -> Cassytha filiformis | 0 record(s):  |
+| `ohe`ohe -> Zebra Dove | gf | Geopelia striata -> Polyscias kavaiensis | 0 record(s):  |
+| `ekoko -> Zebra Dove | gf | Geopelia striata -> Euphorbia celastroides | 0 record(s):  |
+| `ohe`ohe -> Spotted Dove | gg | Spilopelia chinensis -> Polyscias kavaiensis | 0 record(s):  |
+| `ekoko -> Spotted Dove | gg | Spilopelia chinensis -> Euphorbia celastroides | 0 record(s):  |
+| Roundleaf Chastetree -> Spotted Dove | gf | Spilopelia chinensis -> Vitex rotundifolia | 0 record(s):  |
+| Bayhops -> Spotted Dove | gg | Spilopelia chinensis -> Ipomoea pes-caprae | 0 record(s):  |
+| Beach morningglory -> Spotted Dove | gg | Spilopelia chinensis -> Ipomoea imperati | 0 record(s):  |
+| Love-vine -> Spotted Dove | g | Spilopelia chinensis -> Cassytha filiformis | 1 record(s): Spilopelia chinensis eats Cassytha filiformis |
+| `ekoko -> Common Paper Wasp | gg | Polistes fuscatus -> Euphorbia celastroides | 0 record(s):  |
+| Roundleaf Chastetree -> Common Paper Wasp | gf | Polistes fuscatus -> Vitex rotundifolia | 0 record(s):  |
+| Roundleaf Chastetree -> Hunter's Little Paper Wasp | gf | Polistes dorsalis -> Vitex rotundifolia | 0 record(s):  |
+| Bayhops -> Hunter's Little Paper Wasp | gf | Polistes dorsalis -> Ipomoea pes-caprae | 0 record(s):  |
+| Beach morningglory -> Hunter's Little Paper Wasp | gf | Polistes dorsalis -> Ipomoea imperati | 0 record(s):  |
+| `ekoko -> Red-crested Cardinal | gf | Paroaria coronata -> Euphorbia celastroides | 0 record(s):  |
+| Roundleaf Chastetree -> Red-crested Cardinal | gg | Paroaria coronata -> Vitex rotundifolia | 0 record(s):  |
+| Love-vine -> Red-crested Cardinal | gf | Paroaria coronata -> Cassytha filiformis | 0 record(s):  |
+| `ohe`ohe -> Common Myna | gg | Acridotheres tristis -> Polyscias kavaiensis | 0 record(s):  |
+| Roundleaf Chastetree -> Common Myna | gg | Acridotheres tristis -> Vitex rotundifolia | 0 record(s):  |
+| Love-vine -> Common Myna | g | Acridotheres tristis -> Cassytha filiformis | 1 record(s): Acridotheres tristis eats Cassytha filiformis |
+| `ohe`ohe -> Northern Mockingbird | gg | Mimus polyglottos -> Polyscias kavaiensis | 0 record(s):  |
+| `ekoko -> Northern Mockingbird | gf | Mimus polyglottos -> Euphorbia celastroides | 0 record(s):  |
+| Roundleaf Chastetree -> Northern Mockingbird | gf | Mimus polyglottos -> Vitex rotundifolia | 0 record(s):  |
+| Bayhops -> Northern Mockingbird | gg | Mimus polyglottos -> Ipomoea pes-caprae | 0 record(s):  |
+| Beach morningglory -> Northern Mockingbird | gg | Mimus polyglottos -> Ipomoea imperati | 0 record(s):  |
+| Love-vine -> Northern Mockingbird | gf | Mimus polyglottos -> Cassytha filiformis | 0 record(s):  |
+| Spotted Dove -> Feral cat | g | Felis catus -> Spilopelia chinensis | 2 record(s): Felis catus eats Spilopelia chinensis; Felis catus preysOn Spilopelia chinensis |
+| `ekoko -> Humpback whale | gf | Megaptera novaeangliae -> Euphorbia celastroides | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- oheohe -> northerncardin (no evidence entry)
-- ekoko -> northerncardin (no evidence entry)
-- roundleafchast -> northerncardin (no evidence entry)
-- lovevine -> northerncardin (no evidence entry)
-- oheohe -> zebradove (no evidence entry)
-- ekoko -> zebradove (no evidence entry)
-- oheohe -> spotteddove (no evidence entry)
-- ekoko -> spotteddove (no evidence entry)
-- roundleafchast -> spotteddove (no evidence entry)
-- bayhops -> spotteddove (no evidence entry)
-- beachmorninggl -> spotteddove (no evidence entry)
-- lovevine -> spotteddove (no evidence entry)
-- ekoko -> commonpaperwas (no evidence entry)
-- roundleafchast -> commonpaperwas (no evidence entry)
-- roundleafchast -> hunterslittlep (no evidence entry)
-- bayhops -> hunterslittlep (no evidence entry)
-- beachmorninggl -> hunterslittlep (no evidence entry)
-- ekoko -> redcrestedcard (no evidence entry)
-- roundleafchast -> redcrestedcard (no evidence entry)
-- lovevine -> redcrestedcard (no evidence entry)
-- oheohe -> commonmyna (no evidence entry)
-- roundleafchast -> commonmyna (no evidence entry)
-- lovevine -> commonmyna (no evidence entry)
-- oheohe -> northernmockin (no evidence entry)
-- ekoko -> northernmockin (no evidence entry)
-- roundleafchast -> northernmockin (no evidence entry)
-- bayhops -> northernmockin (no evidence entry)
-- beachmorninggl -> northernmockin (no evidence entry)
-- lovevine -> northernmockin (no evidence entry)
-- spotteddove -> cat (no evidence entry)
-- ekoko -> humpbackwhale (no evidence entry)
+(none)
 

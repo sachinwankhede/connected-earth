@@ -1,6 +1,6 @@
 # Research file: Pershing State Park (mopershing)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Missouri, USA. Coordinates 39.7685, -93.2266. Kind: Forest.
@@ -14,12 +14,12 @@ Missouri, USA. Coordinates 39.7685, -93.2266. Kind: Forest.
 
 **Current sources:** Wikipedia: List of Missouri state parks <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (18)
-arkansassedge (carex arkansana), wildbluephlox (phlox divaricata), sycamore (platanus occidentalis), starrycampion (silene stellata), hungarianbrome (bromus inermis), bluntspikerush (eleocharis obtusa), northerncardin (cardinalis cardinalis), pearlcrescent (phyciodes tharos), housemouse (mus musculus), prairievole (microtus ochrogaster), redbelliedwood (melanerpes carolinus), bluejay (cyanocitta cristata), redheadedwoodp (melanerpes erythrocephalus), americanrobin (turdus migratorius), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (14)
+Arkansas sedge (Carex arkansana), Wild blue phlox (Phlox divaricata), Sycamore (Platanus occidentalis), Starry Campion (Silene stellata), Hungarian Brome (Bromus inermis), Blunt Spikerush (Eleocharis obtusa), Northern Cardinal (Cardinalis cardinalis), Pearl Crescent (Phyciodes tharos), House mouse (Mus musculus), Prairie vole (Microtus ochrogaster), Red-bellied Woodpecker (Melanerpes carolinus), Blue Jay (Cyanocitta cristata), Red-headed Woodpecker (Melanerpes erythrocephalus), American Robin (Turdus migratorius)
 
 ## 4. Wikipedia text
 ### Pershing State Park
-Source: <https://en.wikipedia.org/wiki/Pershing_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Pershing_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Pershing State Park is a public recreation area covering more than 5,000 acres (2,000 ha) off U.S. Route 36, three miles west of Laclede in Linn County, Missouri.  The state park was named in honor of General of the Armies John J. Pershing, who led the United States forces in Europe in World War I and who grew up in Laclede.
 
@@ -35,7 +35,7 @@ The park's War Mothers Memorial honors mothers who have lost their sons in war. 
 Much of the park is undeveloped native habitat. Hiking trails include the 1.5-mile-long Boardwalk Trail that winds through shrub swamps, wet prairie, marshland, and bottomland forest. The trail area has been designated an Important Bird Area by the National Audubon Society. The 6-mile-long Locust Creek Riparian Trail links the park to the Fountain Grove Conservation Area. The park also offers camping, fishing and boating on four small lakes, and picnicking facilities.
 
 ### List of Missouri state parks
-Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/List_of_Missouri_state_parks> (CC BY-SA), retrieved 2026-11-14.
 
 This is a list of state parks and state historic sites in Missouri.  In the U.S. state of Missouri both state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.  As of 2026 the division manages a total of 93 parks and historic sites plus the trails at Roger Pryor Pioneer Backcountry, which together total more than 160,000 acres (65,000 ha).  According to the state, its parks system includes approximately 3,500 campsites, 194 cabins, and 1,000 miles (1,600 km) of trails, including the longest developed rails-to-trail project in the nation.
 
@@ -46,25 +46,26 @@ This is a list of state parks and state historic sites in Missouri.  In the U.S.
 == Other facilities ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Arkansas sedge -> Northern Cardinal | gg | Cardinalis cardinalis -> Carex arkansana | 0 record(s):  |
+| Hungarian Brome -> Northern Cardinal | gf | Cardinalis cardinalis -> Bromus inermis | 0 record(s):  |
+| Blunt Spikerush -> Northern Cardinal | gf | Cardinalis cardinalis -> Eleocharis obtusa | 0 record(s):  |
+| Arkansas sedge -> House mouse | gf | Mus musculus -> Carex arkansana | 0 record(s):  |
+| Starry Campion -> House mouse | gf | Mus musculus -> Silene stellata | 0 record(s):  |
+| Hungarian Brome -> House mouse | gg | Mus musculus -> Bromus inermis | 0 record(s):  |
+| Blunt Spikerush -> House mouse | gf | Mus musculus -> Eleocharis obtusa | 0 record(s):  |
+| Wild blue phlox -> Pearl Crescent | gf | Phyciodes tharos -> Phlox divaricata | 0 record(s):  |
+| Hungarian Brome -> Pearl Crescent | gf | Phyciodes tharos -> Bromus inermis | 0 record(s):  |
+| Hungarian Brome -> Prairie vole | gf | Microtus ochrogaster -> Bromus inermis | 0 record(s):  |
+| Hungarian Brome -> Red-bellied Woodpecker | gf | Melanerpes carolinus -> Bromus inermis | 0 record(s):  |
+| Hungarian Brome -> Blue Jay | gf | Cyanocitta cristata -> Bromus inermis | 0 record(s):  |
+| Hungarian Brome -> Red-headed Woodpecker | gf | Melanerpes erythrocephalus -> Bromus inermis | 0 record(s):  |
+| Starry Campion -> American Robin | gf | Turdus migratorius -> Silene stellata | 0 record(s):  |
+| Hungarian Brome -> American Robin | gf | Turdus migratorius -> Bromus inermis | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- arkansassedge -> northerncardin (no evidence entry)
-- hungarianbrome -> northerncardin (no evidence entry)
-- bluntspikerush -> northerncardin (no evidence entry)
-- arkansassedge -> housemouse (no evidence entry)
-- starrycampion -> housemouse (no evidence entry)
-- hungarianbrome -> housemouse (no evidence entry)
-- bluntspikerush -> housemouse (no evidence entry)
-- wildbluephlox -> pearlcrescent (no evidence entry)
-- hungarianbrome -> pearlcrescent (no evidence entry)
-- hungarianbrome -> prairievole (no evidence entry)
-- hungarianbrome -> redbelliedwood (no evidence entry)
-- hungarianbrome -> bluejay (no evidence entry)
-- hungarianbrome -> redheadedwoodp (no evidence entry)
-- starrycampion -> americanrobin (no evidence entry)
-- hungarianbrome -> americanrobin (no evidence entry)
+(none)
 

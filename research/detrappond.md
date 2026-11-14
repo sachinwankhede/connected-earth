@@ -1,6 +1,6 @@
 # Research file: Trap Pond State Park (detrappond)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Delaware, USA. Coordinates 38.5155, -75.4793. Kind: Forest.
@@ -14,12 +14,12 @@ Delaware, USA. Coordinates 38.5155, -75.4793. Kind: Forest.
 
 **Current sources:** Wikipedia: Trap Pond State Park <https://en.wikipedia.org/wiki/Trap_Pond_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (22)
-buttonwillow (cephalanthus occidentalis), loblollypine (pinus taeda), wateroak (quercus nigra), scrubpine (pinus virginiana), spanishoak (quercus falcata), swamprose (rosa palustris), carolinachicka (poecile carolinensis), canadagoose (branta canadensis), northerncardin (cardinalis cardinalis), tuftedtitmouse (baeolophus bicolor), spicebushswall (papilio troilus), easterntigersw (papilio glaucus), easterngraysqu (sciurus carolinensis), whitetaileddee (odocoileus virginianus), whitefootedmou (peromyscus leucopus), groundhog (marmota monax), carolinawren (thryothorus ludovicianus), northamericanr (lontra canadensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (18)
+Button-willow (Cephalanthus occidentalis), Loblolly pine (Pinus taeda), Water Oak (Quercus nigra), Scrub pine (Pinus virginiana), Spanish oak (Quercus falcata), Swamp Rose (Rosa palustris), Carolina Chickadee (Poecile carolinensis), Canada goose (Branta canadensis), Northern Cardinal (Cardinalis cardinalis), Tufted Titmouse (Baeolophus bicolor), Spicebush Swallowtail (Papilio troilus), Eastern Tiger Swallowtail (Papilio glaucus), Eastern gray squirrel (Sciurus carolinensis), White-tailed deer (Odocoileus virginianus), White-footed mouse (Peromyscus leucopus), Groundhog (Marmota monax), Carolina Wren (Thryothorus ludovicianus), North American river otter (Lontra canadensis)
 
 ## 4. Wikipedia text
 ### Trap Pond State Park
-Source: <https://en.wikipedia.org/wiki/Trap_Pond_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Trap_Pond_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Trap Pond State Park is a 3,993.28 acres (1,616.02 ha) Delaware state park located near Laurel, Delaware, United States. It preserves one of the largest surviving fragments of what was once an extensive wetland in what is now southwestern Sussex County. The state park features an extensive patch of bald cypress trees.
 
@@ -49,46 +49,47 @@ Trap Pond State Park's campground offers RV and tent sites, cabins and yurts.
 A sandy swimming beach was among the amenities already in place when the Delaware State Parks Commission took over Trap Pond in 1951, but is no longer available after being permanently closed on May 17, 2000.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Loblolly pine -> Carolina Chickadee | gg | Poecile carolinensis -> Pinus taeda | 0 record(s):  |
+| Scrub pine -> Carolina Chickadee | gg | Poecile carolinensis -> Pinus virginiana | 0 record(s):  |
+| Swamp Rose -> Canada goose | gf | Branta canadensis -> Rosa palustris | 0 record(s):  |
+| Button-willow -> Canada goose | gf | Branta canadensis -> Cephalanthus occidentalis | 0 record(s):  |
+| Swamp Rose -> Northern Cardinal | gg | Cardinalis cardinalis -> Rosa palustris | 0 record(s):  |
+| Button-willow -> Northern Cardinal | gf | Cardinalis cardinalis -> Cephalanthus occidentalis | 0 record(s):  |
+| Loblolly pine -> Tufted Titmouse | gf | Baeolophus bicolor -> Pinus taeda | 0 record(s):  |
+| Water Oak -> Tufted Titmouse | gg | Baeolophus bicolor -> Quercus nigra | 0 record(s):  |
+| Scrub pine -> Tufted Titmouse | gf | Baeolophus bicolor -> Pinus virginiana | 0 record(s):  |
+| Spanish oak -> Tufted Titmouse | gg | Baeolophus bicolor -> Quercus falcata | 0 record(s):  |
+| Swamp Rose -> Tufted Titmouse | gf | Baeolophus bicolor -> Rosa palustris | 0 record(s):  |
+| Swamp Rose -> Spicebush Swallowtail | gf | Papilio troilus -> Rosa palustris | 0 record(s):  |
+| Button-willow -> Spicebush Swallowtail | g | Papilio troilus -> Cephalanthus occidentalis | 1 record(s): Papilio troilus eats Cephalanthus occidentalis |
+| Loblolly pine -> Eastern gray squirrel | gg | Sciurus carolinensis -> Pinus taeda | 0 record(s):  |
+| Water Oak -> Eastern gray squirrel | gg | Sciurus carolinensis -> Quercus nigra | 0 record(s):  |
+| Scrub pine -> Eastern gray squirrel | gg | Sciurus carolinensis -> Pinus virginiana | 0 record(s):  |
+| Spanish oak -> Eastern gray squirrel | gg | Sciurus carolinensis -> Quercus falcata | 0 record(s):  |
+| Swamp Rose -> Eastern gray squirrel | gg | Sciurus carolinensis -> Rosa palustris | 0 record(s):  |
+| Button-willow -> Eastern gray squirrel | g | Sciurus carolinensis -> Cephalanthus occidentalis | 1 record(s): Sciurus carolinensis eats Cephalanthus occidentalis |
+| Swamp Rose -> Eastern Tiger Swallowtail | gf | Papilio glaucus -> Rosa palustris | 0 record(s):  |
+| Button-willow -> Eastern Tiger Swallowtail | g | Papilio glaucus -> Cephalanthus occidentalis | 1 record(s): Papilio glaucus eats Cephalanthus occidentalis |
+| Loblolly pine -> White-tailed deer | gg | Odocoileus virginianus -> Pinus taeda | 0 record(s):  |
+| Water Oak -> White-tailed deer | g | Odocoileus virginianus -> Quercus nigra | 1 record(s): Odocoileus virginianus eats Quercus nigra |
+| Scrub pine -> White-tailed deer | gg | Odocoileus virginianus -> Pinus virginiana | 0 record(s):  |
+| Spanish oak -> White-tailed deer | gg | Odocoileus virginianus -> Quercus falcata | 0 record(s):  |
+| Swamp Rose -> White-tailed deer | gg | Odocoileus virginianus -> Rosa palustris | 0 record(s):  |
+| Button-willow -> White-tailed deer | gf | Odocoileus virginianus -> Cephalanthus occidentalis | 0 record(s):  |
+| Loblolly pine -> White-footed mouse | gg | Peromyscus leucopus -> Pinus taeda | 0 record(s):  |
+| Water Oak -> White-footed mouse | gf | Peromyscus leucopus -> Quercus nigra | 0 record(s):  |
+| Scrub pine -> White-footed mouse | gg | Peromyscus leucopus -> Pinus virginiana | 0 record(s):  |
+| Spanish oak -> White-footed mouse | gf | Peromyscus leucopus -> Quercus falcata | 0 record(s):  |
+| Button-willow -> White-footed mouse | gf | Peromyscus leucopus -> Cephalanthus occidentalis | 0 record(s):  |
+| Swamp Rose -> Groundhog | gg | Marmota monax -> Rosa palustris | 0 record(s):  |
+| Water Oak -> Carolina Wren | gg | Thryothorus ludovicianus -> Quercus nigra | 0 record(s):  |
+| Spanish oak -> Carolina Wren | gg | Thryothorus ludovicianus -> Quercus falcata | 0 record(s):  |
+| Canada goose -> North American river otter | g | Lontra canadensis -> Branta canadensis | 1 record(s): Lontra canadensis preysOn Branta canadensis |
 
 ### Links with no GloBI record (be careful with these)
-- loblollypine -> carolinachicka (no evidence entry)
-- scrubpine -> carolinachicka (no evidence entry)
-- swamprose -> canadagoose (no evidence entry)
-- buttonwillow -> canadagoose (no evidence entry)
-- swamprose -> northerncardin (no evidence entry)
-- buttonwillow -> northerncardin (no evidence entry)
-- loblollypine -> tuftedtitmouse (no evidence entry)
-- wateroak -> tuftedtitmouse (no evidence entry)
-- scrubpine -> tuftedtitmouse (no evidence entry)
-- spanishoak -> tuftedtitmouse (no evidence entry)
-- swamprose -> tuftedtitmouse (no evidence entry)
-- swamprose -> spicebushswall (no evidence entry)
-- buttonwillow -> spicebushswall (no evidence entry)
-- loblollypine -> easterngraysqu (no evidence entry)
-- wateroak -> easterngraysqu (no evidence entry)
-- scrubpine -> easterngraysqu (no evidence entry)
-- spanishoak -> easterngraysqu (no evidence entry)
-- swamprose -> easterngraysqu (no evidence entry)
-- buttonwillow -> easterngraysqu (no evidence entry)
-- swamprose -> easterntigersw (no evidence entry)
-- buttonwillow -> easterntigersw (no evidence entry)
-- loblollypine -> whitetaileddee (no evidence entry)
-- wateroak -> whitetaileddee (no evidence entry)
-- scrubpine -> whitetaileddee (no evidence entry)
-- spanishoak -> whitetaileddee (no evidence entry)
-- swamprose -> whitetaileddee (no evidence entry)
-- buttonwillow -> whitetaileddee (no evidence entry)
-- loblollypine -> whitefootedmou (no evidence entry)
-- wateroak -> whitefootedmou (no evidence entry)
-- scrubpine -> whitefootedmou (no evidence entry)
-- spanishoak -> whitefootedmou (no evidence entry)
-- buttonwillow -> whitefootedmou (no evidence entry)
-- swamprose -> groundhog (no evidence entry)
-- wateroak -> carolinawren (no evidence entry)
-- spanishoak -> carolinawren (no evidence entry)
-- canadagoose -> northamericanr (no evidence entry)
+(none)
 

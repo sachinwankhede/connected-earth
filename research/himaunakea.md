@@ -1,6 +1,6 @@
 # Research file: Mauna Kea State Recreation Area (himaunakea)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 19.7529, -155.5244. Kind: Forest.
@@ -14,17 +14,17 @@ Hawaii, USA. Coordinates 19.7529, -155.5244. Kind: Forest.
 
 **Current sources:** Wikipedia: Mauna Kea State Recreation Area <https://en.wikipedia.org/wiki/Mauna_Kea_State_Recreation_Area>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (18)
-alaweo (chenopodium oahuense), rescuegrass (bromus catharticus), koa (acacia koa), leastmallow (malva parviflora), bronchograss (bromus diandrus), argentinepeppe (lepidium bonariense), housesparrow (passer domesticus), housefinch (haemorhous mexicanus), californiaquai (callipepla californica), argentineant (linepithema humile), housemouse (mus musculus), domesticgoat (capra hircus), commonmyna (acridotheres tristis), eurasianskylar (alauda arvensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (14)
+Alaweo (Chenopodium oahuense), Rescuegrass (Bromus catharticus), Koa (Acacia koa), Least Mallow (Malva parviflora), Broncho grass (Bromus diandrus), Argentine Pepperwort (Lepidium bonariense), House Sparrow (Passer domesticus), House Finch (Haemorhous mexicanus), California Quail (Callipepla californica), Argentine ant (Linepithema humile), House mouse (Mus musculus), Feral goat (Capra hircus), Common Myna (Acridotheres tristis), Eurasian Skylark (Alauda arvensis)
 
 ## 4. Wikipedia text
 ### Mauna Kea State Park
-Source: <https://en.wikipedia.org/wiki/Mauna_Kea_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Mauna_Kea_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 (not retrieved)
 
 ### Mauna Kea State Recreation Area
-Source: <https://en.wikipedia.org/wiki/Mauna_Kea_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Mauna_Kea_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-14.
 
 Mauna Kea State Recreation Area, also known as Mauna Kea State Park, is a state of  Hawaii protected area at the southern base of Mauna Kea.
 The  20.5-acre (8.3 ha) park is administered by the Hawai'i Department of Land and Natural Resources.
@@ -37,48 +37,49 @@ The fire burned for over a week, with traffic diverted to the older saddle road 
 In 2014, Hawaiʻi County took over management from the state in 2014 to improve the facilities.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Alaweo -> House Sparrow | gg | Passer domesticus -> Chenopodium oahuense | 0 record(s):  |
+| Koa -> House Sparrow | gg | Passer domesticus -> Acacia koa | 0 record(s):  |
+| Least Mallow -> House Sparrow | gg | Passer domesticus -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> House Sparrow | g | Passer domesticus -> Bromus catharticus | 1 record(s): Passer domesticus eats Bromus catharticus |
+| Broncho grass -> House Sparrow | gg | Passer domesticus -> Bromus diandrus | 0 record(s):  |
+| Argentine Pepperwort -> House Sparrow | gg | Passer domesticus -> Lepidium bonariense | 0 record(s):  |
+| Alaweo -> House Finch | gg | Haemorhous mexicanus -> Chenopodium oahuense | 0 record(s):  |
+| Koa -> House Finch | gg | Haemorhous mexicanus -> Acacia koa | 0 record(s):  |
+| Least Mallow -> House Finch | gf | Haemorhous mexicanus -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> House Finch | gf | Haemorhous mexicanus -> Bromus catharticus | 0 record(s):  |
+| Broncho grass -> House Finch | gf | Haemorhous mexicanus -> Bromus diandrus | 0 record(s):  |
+| Argentine Pepperwort -> House Finch | gf | Haemorhous mexicanus -> Lepidium bonariense | 0 record(s):  |
+| Alaweo -> California Quail | gg | Callipepla californica -> Chenopodium oahuense | 0 record(s):  |
+| Koa -> California Quail | gg | Callipepla californica -> Acacia koa | 0 record(s):  |
+| Least Mallow -> California Quail | gg | Callipepla californica -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> California Quail | gg | Callipepla californica -> Bromus catharticus | 0 record(s):  |
+| Broncho grass -> California Quail | gg | Callipepla californica -> Bromus diandrus | 0 record(s):  |
+| Argentine Pepperwort -> California Quail | gg | Callipepla californica -> Lepidium bonariense | 0 record(s):  |
+| Alaweo -> House mouse | gg | Mus musculus -> Chenopodium oahuense | 0 record(s):  |
+| Koa -> House mouse | gf | Mus musculus -> Acacia koa | 0 record(s):  |
+| Least Mallow -> House mouse | gg | Mus musculus -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> House mouse | gg | Mus musculus -> Bromus catharticus | 0 record(s):  |
+| Broncho grass -> House mouse | gg | Mus musculus -> Bromus diandrus | 0 record(s):  |
+| Argentine Pepperwort -> House mouse | gg | Mus musculus -> Lepidium bonariense | 0 record(s):  |
+| Least Mallow -> Argentine ant | gg | Linepithema humile -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> Argentine ant | gf | Linepithema humile -> Bromus catharticus | 0 record(s):  |
+| Broncho grass -> Argentine ant | gf | Linepithema humile -> Bromus diandrus | 0 record(s):  |
+| Koa -> Feral goat | gf | Capra hircus -> Acacia koa | 0 record(s):  |
+| Rescuegrass -> Feral goat | gf | Capra hircus -> Bromus catharticus | 0 record(s):  |
+| Broncho grass -> Feral goat | gf | Capra hircus -> Bromus diandrus | 0 record(s):  |
+| Koa -> Common Myna | gg | Acridotheres tristis -> Acacia koa | 0 record(s):  |
+| Least Mallow -> Common Myna | gf | Acridotheres tristis -> Malva parviflora | 0 record(s):  |
+| Alaweo -> Eurasian Skylark | gg | Alauda arvensis -> Chenopodium oahuense | 0 record(s):  |
+| Koa -> Eurasian Skylark | gg | Alauda arvensis -> Acacia koa | 0 record(s):  |
+| Least Mallow -> Eurasian Skylark | gg | Alauda arvensis -> Malva parviflora | 0 record(s):  |
+| Rescuegrass -> Eurasian Skylark | g | Alauda arvensis -> Bromus catharticus | 1 record(s): Alauda arvensis eats Bromus catharticus |
+| Broncho grass -> Eurasian Skylark | gg | Alauda arvensis -> Bromus diandrus | 0 record(s):  |
+| Argentine Pepperwort -> Eurasian Skylark | gg | Alauda arvensis -> Lepidium bonariense | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- alaweo -> housesparrow (no evidence entry)
-- koa -> housesparrow (no evidence entry)
-- leastmallow -> housesparrow (no evidence entry)
-- rescuegrass -> housesparrow (no evidence entry)
-- bronchograss -> housesparrow (no evidence entry)
-- argentinepeppe -> housesparrow (no evidence entry)
-- alaweo -> housefinch (no evidence entry)
-- koa -> housefinch (no evidence entry)
-- leastmallow -> housefinch (no evidence entry)
-- rescuegrass -> housefinch (no evidence entry)
-- bronchograss -> housefinch (no evidence entry)
-- argentinepeppe -> housefinch (no evidence entry)
-- alaweo -> californiaquai (no evidence entry)
-- koa -> californiaquai (no evidence entry)
-- leastmallow -> californiaquai (no evidence entry)
-- rescuegrass -> californiaquai (no evidence entry)
-- bronchograss -> californiaquai (no evidence entry)
-- argentinepeppe -> californiaquai (no evidence entry)
-- alaweo -> housemouse (no evidence entry)
-- koa -> housemouse (no evidence entry)
-- leastmallow -> housemouse (no evidence entry)
-- rescuegrass -> housemouse (no evidence entry)
-- bronchograss -> housemouse (no evidence entry)
-- argentinepeppe -> housemouse (no evidence entry)
-- leastmallow -> argentineant (no evidence entry)
-- rescuegrass -> argentineant (no evidence entry)
-- bronchograss -> argentineant (no evidence entry)
-- koa -> domesticgoat (no evidence entry)
-- rescuegrass -> domesticgoat (no evidence entry)
-- bronchograss -> domesticgoat (no evidence entry)
-- koa -> commonmyna (no evidence entry)
-- leastmallow -> commonmyna (no evidence entry)
-- alaweo -> eurasianskylar (no evidence entry)
-- koa -> eurasianskylar (no evidence entry)
-- leastmallow -> eurasianskylar (no evidence entry)
-- rescuegrass -> eurasianskylar (no evidence entry)
-- bronchograss -> eurasianskylar (no evidence entry)
-- argentinepeppe -> eurasianskylar (no evidence entry)
+(none)
 

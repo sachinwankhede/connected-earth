@@ -1,6 +1,6 @@
 # Research file: Mount Paektu (xnkorea)
 
-Retrieved 2026-10-29. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 North Korea. Coordinates 41.99, 128.08. Kind: Polar & mountain.
@@ -14,12 +14,12 @@ North Korea. Coordinates 41.99, 128.08. Kind: Polar & mountain.
 
 **Current sources:** Wikipedia: Mount Paektu <https://en.wikipedia.org/wiki/Mount_Paektu>; Wikipedia: Changbai Mountains <https://en.wikipedia.org/wiki/Changbai_Mountains>; Wikipedia: Korean pine <https://en.wikipedia.org/wiki/Korean_pine>; Wikipedia: Eurasian nutcracker <https://en.wikipedia.org/wiki/Eurasian_nutcracker>; Wikipedia: Siberian tiger <https://en.wikipedia.org/wiki/Siberian_tiger>; Wikipedia: Siberian roe deer <https://en.wikipedia.org/wiki/Siberian_roe_deer>
 
-## 3. Species in the app (22)
-snow (long snowy winters), lake (heaven lake and meltwater), soil (volcanic soil), Soil fungi and bacteria (decomposer community), larch (larix gmelinii), birch (betula ermanii), koreanpine (pinus koraiensis), sedge (carex atrata), Stinging nettle (urtica dioica), chipmunk (tamias sibiricus), pika (ochotona coreana), roedeer (capreolus pygargus), boar (sus scrofa), Gray red-backed vole (myodes rufocanus), nutcracker (nucifraga caryocatactes), peacock (aglais io), weasel (mustela sibirica), kestrel (falco tinnunculus), crow (corvus macrorhynchos), wagtail (motacilla cinerea), Siberian tiger (panthera tigris tigris), bear (ursus arctos)
+## 3. Species in the app (18)
+Dahurian larch (Larix gmelinii), Erman's birch (Betula ermanii), Korean pine (Pinus koraiensis), Alpine sedges and herbs (Carex atrata), Stinging nettle (Urtica dioica), Siberian chipmunk (Tamias sibiricus), Korean pika (Ochotona coreana), Siberian roe deer (Capreolus pygargus), Wild boar (Sus scrofa), Gray red-backed vole (Myodes rufocanus), Eurasian nutcracker (Nucifraga caryocatactes), Peacock butterfly (Aglais io), Siberian weasel (Mustela sibirica), Eurasian kestrel (Falco tinnunculus), Large-billed crow (Corvus macrorhynchos), Gray wagtail (Motacilla cinerea), Siberian tiger (Panthera tigris tigris), Brown bear (Ursus arctos)
 
 ## 4. Wikipedia text
 ### Mount Paektu
-Source: <https://en.wikipedia.org/wiki/Mount_Paektu> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Mount_Paektu> (CC BY-SA), retrieved 2026-11-14.
 
 Mount Paektu or Mount Baekdu (Korean: 백두산) is an active stratovolcano on the Chinese–North Korean border. In China, it is known as Changbai Mountain (Chinese: 长白山, Chinese Korean: 장백산). At 2,744 m (9,003 ft), it is the tallest mountain in North Korea and Northeast China and the tallest mountain of the Baekdu-daegan and Changbai mountain ranges. The highest peak, called Janggun Peak, belongs to North Korea. The mountain notably features a caldera that contains a large crater lake called Heaven Lake, which serves as the source of the Songhua, Tumen, and Yalu rivers. Korean and Manchu people assign a mythical quality to the mountain and its lake, and consider the mountain to be their ancestral homeland.
 The mountain's caldera was formed by an eruption in 946 that released about 100–120 km3 (24–29 cu mi) of tephra. It was among the largest and most powerful eruptions on Earth in the last 5,000 years. The volcano last erupted in 1903, and is expected to erupt roughly once every hundred years. In the 2010s, concerns over an upcoming eruption prompted several countries to commission research into when the volcano might next erupt.
@@ -40,7 +40,7 @@ Heaven Lake has a circumference of 12 to 14 kilometers (7.5 to 8.7 mi), with an 
 The weather on the mountain can be very erratic, sometimes severe. The annual average temperature at the peak is −4.9 °C (23.2 °F). During summer, temperatures of about 18 °C (64 °F) or higher can be reached, and during winter temperatures can drop to −48 °C (−54 °F). The lowest record temperature was −51 °C (−60 °F) on 2 January 1997. The average temperature is about −24 °C (−11 °F) in January, and 10 °C (50 °F) in July, remaining below freezing for eight months of the year. The average wind speed is 42 km/h (26 mph), peaking at 63 km/h (39 mph). The relative humidity averages 74%.
 
 == Geological history ==
-The geological origin of Mount Paektu remains a mystery. Two leading theories are a hotspot, or an uncharted portion of the Pacific Plate sinking beneath Mount Paektu.
+Observations have shown that the source of Paektu's volcanism is likely caused by hot partial melt material rising from a stagnant slab in the transition zone, this stagnant slab is indicated to be a piece of the currently subducting Pacific plate.  
 Beginning about 5 million years ago, Paekdu Mountain erupted, releasing a series of basaltic lava flows that formed a lava plateau. The construction of the cone of the volcano began approximately 1 million years ago, as the eruptive materials transitioned into trachytic, pyroclastic, and lava flows. During the cone-construction stage, major Plinian-type eruptions occurred 448, 67.6, 85.8 and 24.5 thousand years ago (ka) and deposited ash in the Sea of Japan. The cone's growth was halted by two widely-recognized major explosive eruptions: Tianwenfeng and Millennium.
 
 === Tianwenfeng eruption ===
@@ -60,11 +60,11 @@ After these major eruptions, Mount Paektu had at least three smaller eruptions, 
 In 2011, experts in North and South Korea met to discuss the potential for a significant eruption in the near future, as the last eruption was in 1903 and the volcano is expected to erupt around every 100 years. The Government of North Korea invited several volcanologists, including James Hammond, Clive Oppenheimer, and Kayla Iacovino, to study the mountain for recent volcanic activity. This made Iacovino the first foreign female researcher to conduct research in North Korea. The researchers began publishing their research in 2016 and in February 2020 formed the Mt. Paektu Research Center.
 
 == Flora and fauna ==
-There are five known species of plants in the lake on the peak, and some 168 have been counted along its shores. The forest on the Chinese
+There are five known species of plants in the lake on t
 [...trimmed]
 
 ### Changbai Mountains
-Source: <https://en.wikipedia.org/wiki/Changbai_Mountains> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Changbai_Mountains> (CC BY-SA), retrieved 2026-11-14.
 
 The Changbai Mountains (simplified Chinese: 长白山脉; traditional Chinese: 長白山脈; lit. 'long white mountain range') are a major mountain range in East Asia that extends from the Northeast Chinese provinces of Heilongjiang, Jilin and Liaoning, across the China-North Korea border (41°41' to 42°51'N; 127°43' to 128°16'E), to the North Korean provinces of Ryanggang and Chagang. They are also referred to as the Šanggiyan Mountains in the Manchu language, or the Great Paekdu in Korean. Most of its peaks exceed 2,000 m (6,600 ft) in height, with the tallest summit being Paektu Mountain at 2,744 m (9,003 ft), which contains the Heaven Lake, a large volcanic crater lake at a surface elevation of 2,189.1 m (7,182 ft). The protected area Longwanqun National Forest Park is located within the vicinity of the mountain range.
 
@@ -87,7 +87,7 @@ The area is a known habitat for Siberian tigers, Asian black bears, Mongolian wo
 == Gallery ==
 
 ### Pinus koraiensis
-Source: <https://en.wikipedia.org/wiki/Pinus_koraiensis> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Pinus_koraiensis> (CC BY-SA), retrieved 2026-11-14.
 
 Pinus koraiensis is a species of pine known commonly as the Korean pine. It is a relic species of the Tertiary, identified as a rare tree species by United Nations. It is native to eastern Asia, in Korea, northeastern China, the temperate rainforests of the Russian Far East, and central Japan. In the north of its range, it grows at moderate elevations, typically 600 to 900 metres (2,000 to 3,000 feet), whereas further south, it is a mountain tree, growing at 2,000 to 2,600 m (6,600 to 8,500 ft) elevation in Japan. Other common names include "Chinese pinenut". The ancient woodland of P. koraiensis on the earth is about 50 million hectares, and China has about 30 million hectares, accounting for 60%. It is a second-class national key protected plant in China. P. koraiensis is a tree species with high economic and ecological value. The official name in Chinese is "红松 hóng sōng/red pine", because almost every part of it is related to red.
 According to some research, P. koraiensis can be divided into two natural types according to the thickness of the bark, namely Pinus koraiensis Sieb. et Zucc. f. pachidermis Wang et Chi and Pinus koraiensis Sieb. et Zucc. f. leptodermis Wang et Chi, though these are not accepted as distinct by the Plants of the World Online database.
@@ -112,40 +112,40 @@ The wood is versatile and very useful for construction. It is light, with straig
 == Gallery ==
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-10-29. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
-| koreanpine -> nutcracker | gg | Nucifraga caryocatactes -> Pinus koraiensis | 1 record(s): Nucifraga caryocatactes eats Pinus strobus |
-| koreanpine -> bear | gg | Ursus arctos -> Pinus koraiensis | 0 record(s):  |
-| Stinging nettle -> peacock | g | Aglais io -> Urtica dioica | 1 record(s): Aglais io eats Urtica dioica |
-| Gray red-backed vole -> weasel | g | Mustela sibirica -> Myodes rufocanus | 1 record(s): Mustela sibirica eats Myodes rufocanus |
-| chipmunk -> kestrel | g | Falco tinnunculus -> Tamias sibiricus | 2 record(s): Falco tinnunculus eats Tamias sibiricus; Falco tinnunculus preysOn Tamias sibiricus |
-| Gray red-backed vole -> kestrel | g | Falco tinnunculus -> Myodes rufocanus | 1 record(s): Falco tinnunculus eats Myodes rufocanus |
-| peacock -> wagtail | g | Motacilla cinerea -> Aglais io | 1 record(s): Motacilla cinerea preysOn Aglais io |
-| Gray red-backed vole -> boar | g | Sus scrofa -> Myodes rufocanus | 1 record(s): Sus scrofa eats Myodes rufocanus |
-| roedeer -> Siberian tiger | g | Panthera tigris -> Capreolus pygargus | 2 record(s): Panthera tigris eats Capreolus pygargus |
-| boar -> Siberian tiger | g | Panthera tigris -> Sus scrofa | 3 record(s): Panthera tigris eats Sus scrofa; Panthera tigris preysOn Sus scrofa |
-| roedeer -> bear | g | Ursus arctos -> Capreolus pygargus | 2 record(s): Ursus arctos eats Capreolus pygargus |
-| nutcracker -> kestrel | ga | Falco tinnunculus -> Nucifraga caryocatactes | 1 record(s): Falco tinnunculus preysOn Nucifraga caryocatactes |
-| chipmunk -> bear | ga | Ursus arctos -> Tamias sibiricus | 2 record(s): Ursus arctos eats Tamias sibiricus; Ursus arctos preysOn Tamias sibiricus |
-| boar -> bear | ga | Ursus arctos -> Sus scrofa | 4 record(s): Ursus arctos eats Sus scrofa; Ursus arctos preysOn Sus scrofa |
-| Gray red-backed vole -> bear | ga | Ursus arctos -> Myodes rufocanus | 1 record(s): Ursus arctos eats Myodes rufocanus |
+| Korean pine -> Eurasian nutcracker | gg | Nucifraga caryocatactes -> Pinus koraiensis | 1 record(s): Nucifraga caryocatactes eats Pinus strobus |
+| Korean pine -> Brown bear | gg | Ursus arctos -> Pinus koraiensis | 0 record(s):  |
+| Stinging nettle -> Peacock butterfly | g | Aglais io -> Urtica dioica | 1 record(s): Aglais io eats Urtica dioica |
+| Gray red-backed vole -> Siberian weasel | g | Mustela sibirica -> Myodes rufocanus | 1 record(s): Mustela sibirica eats Myodes rufocanus |
+| Siberian chipmunk -> Eurasian kestrel | g | Falco tinnunculus -> Tamias sibiricus | 2 record(s): Falco tinnunculus eats Tamias sibiricus; Falco tinnunculus preysOn Tamias sibiricus |
+| Gray red-backed vole -> Eurasian kestrel | g | Falco tinnunculus -> Myodes rufocanus | 1 record(s): Falco tinnunculus eats Myodes rufocanus |
+| Peacock butterfly -> Gray wagtail | g | Motacilla cinerea -> Aglais io | 1 record(s): Motacilla cinerea preysOn Aglais io |
+| Gray red-backed vole -> Wild boar | g | Sus scrofa -> Myodes rufocanus | 1 record(s): Sus scrofa eats Myodes rufocanus |
+| Siberian roe deer -> Siberian tiger | g | Panthera tigris -> Capreolus pygargus | 2 record(s): Panthera tigris eats Capreolus pygargus |
+| Wild boar -> Siberian tiger | g | Panthera tigris -> Sus scrofa | 3 record(s): Panthera tigris eats Sus scrofa; Panthera tigris preysOn Sus scrofa |
+| Siberian roe deer -> Brown bear | g | Ursus arctos -> Capreolus pygargus | 2 record(s): Ursus arctos eats Capreolus pygargus |
+| Eurasian nutcracker -> Eurasian kestrel | ga | Falco tinnunculus -> Nucifraga caryocatactes | 1 record(s): Falco tinnunculus preysOn Nucifraga caryocatactes |
+| Siberian chipmunk -> Brown bear | ga | Ursus arctos -> Tamias sibiricus | 2 record(s): Ursus arctos eats Tamias sibiricus; Ursus arctos preysOn Tamias sibiricus |
+| Wild boar -> Brown bear | ga | Ursus arctos -> Sus scrofa | 4 record(s): Ursus arctos eats Sus scrofa; Ursus arctos preysOn Sus scrofa |
+| Gray red-backed vole -> Brown bear | ga | Ursus arctos -> Myodes rufocanus | 1 record(s): Ursus arctos eats Myodes rufocanus |
 
 ### Links with no GloBI record (be careful with these)
-- koreanpine -> chipmunk (no GloBI record found; from general ecology)
-- koreanpine -> boar (no GloBI record found; from general ecology)
-- larch -> chipmunk (no GloBI record found; from general ecology)
-- sedge -> pika (no GloBI record found; from general ecology)
-- sedge -> roedeer (no GloBI record found; from general ecology)
-- birch -> roedeer (no GloBI record found; from general ecology)
-- sedge -> Gray red-backed vole (no GloBI record found; from general ecology)
-- birch -> Gray red-backed vole (no GloBI record found; from general ecology)
-- sedge -> boar (no GloBI record found; from general ecology)
-- peacock -> crow (no GloBI record found; from general ecology)
-- pika -> Siberian tiger (no GloBI record found; from general ecology)
-- roedeer -> crow (no GloBI record found; from general ecology)
-- boar -> crow (no GloBI record found; from general ecology)
-- Siberian tiger -> bear (no GloBI record found; from general ecology)
-- Siberian tiger -> crow (no GloBI record found; from general ecology)
+- Korean pine -> Siberian chipmunk (no GloBI record found; from general ecology)
+- Korean pine -> Wild boar (no GloBI record found; from general ecology)
+- Dahurian larch -> Siberian chipmunk (no GloBI record found; from general ecology)
+- Alpine sedges and herbs -> Korean pika (no GloBI record found; from general ecology)
+- Alpine sedges and herbs -> Siberian roe deer (no GloBI record found; from general ecology)
+- Erman's birch -> Siberian roe deer (no GloBI record found; from general ecology)
+- Alpine sedges and herbs -> Gray red-backed vole (no GloBI record found; from general ecology)
+- Erman's birch -> Gray red-backed vole (no GloBI record found; from general ecology)
+- Alpine sedges and herbs -> Wild boar (no GloBI record found; from general ecology)
+- Peacock butterfly -> Large-billed crow (no GloBI record found; from general ecology)
+- Korean pika -> Siberian tiger (no GloBI record found; from general ecology)
+- Siberian roe deer -> Large-billed crow (no GloBI record found; from general ecology)
+- Wild boar -> Large-billed crow (no GloBI record found; from general ecology)
+- Siberian tiger -> Brown bear (no GloBI record found; from general ecology)
+- Siberian tiger -> Large-billed crow (no GloBI record found; from general ecology)
 

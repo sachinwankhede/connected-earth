@@ -1,6 +1,6 @@
 # Research file: New Jersey Pine Barrens (Pinelands National Reserve) (xusnj)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 New Jersey, USA. Coordinates 39.8, -74.5. Kind: Forest.
@@ -14,12 +14,12 @@ New Jersey, USA. Coordinates 39.8, -74.5. Kind: Forest.
 
 **Current sources:** Wikipedia: Pine Barrens (New Jersey) <https://en.wikipedia.org/wiki/New_Jersey_Pine_Barrens>; Wikipedia: Pitch pine <https://en.wikipedia.org/wiki/Pitch_pine>; Wikipedia: Northern pine snake <https://en.wikipedia.org/wiki/Northern_pine_snake>; Wikipedia: Pine Barrens tree frog <https://en.wikipedia.org/wiki/Pine_Barrens_tree_frog>; Wikipedia: Sarracenia purpurea <https://en.wikipedia.org/wiki/Sarracenia_purpurea>
 
-## 3. Species in the app (23)
-pitchpine (pinus rigida), oak (quercus marilandica), cranberry (vaccinium macrocarpon), Purple pitcher plant (sarracenia purpurea), Moths and caterpillars (lepidoptera), deer (odocoileus virginianus), gsquirrel (sciurus carolinensis), cottontail (sylvilagus floridanus), wfmouse (peromyscus leucopus), bluejay (cyanocitta cristata), treefrog (dryophytes andersonii), fencelizard (sceloporus undulatus), pinesnake (pituophis melanoleucus), redfox (vulpes vulpes), raccoon (procyon lotor), vulture (cathartes aura), coyote (canis latrans), rattler (crotalus horridus), fire (fire), aquifer (aquifer water), soil (sandy acidic soil), sun (sunlight), Decomposers (decomposer community)
+## 3. Species in the app (18)
+Pitch pine (Pinus rigida), Blackjack oak (Quercus marilandica), Cranberry (Vaccinium macrocarpon), Purple pitcher plant (Sarracenia purpurea), Moths and caterpillars (Lepidoptera), White-tailed deer (Odocoileus virginianus), Eastern gray squirrel (Sciurus carolinensis), Eastern cottontail (Sylvilagus floridanus), White-footed mouse (Peromyscus leucopus), Blue Jay (Cyanocitta cristata), Pine Barrens treefrog (Dryophytes andersonii), Eastern fence lizard (Sceloporus undulatus), Northern pine snake (Pituophis melanoleucus), Red fox (Vulpes vulpes), Raccoon (Procyon lotor), Turkey vulture (Cathartes aura), Coyote (Canis latrans), Timber rattlesnake (Crotalus horridus)
 
 ## 4. Wikipedia text
 ### New Jersey Pine Barrens
-Source: <https://en.wikipedia.org/wiki/New_Jersey_Pine_Barrens> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/New_Jersey_Pine_Barrens> (CC BY-SA), retrieved 2026-11-14.
 
 The New Jersey Pine Barrens, also known as the Pinelands or simply the Pines, is the largest remaining example of the Atlantic coastal pine barrens ecosystem, stretching across more than seven counties of New Jersey. Two other large, contiguous examples of this ecosystem remain in the northeastern United States: the Long Island Central Pine Barrens and the Massachusetts Coastal Pine Barrens. The name pine barrens refers to the area's sandy, acidic, nutrient-poor soil. Although European settlers could not cultivate their familiar crops there, the unique ecology of the Pine Barrens supports a diverse spectrum of plant life, including orchids and carnivorous plants. The area is also notable for its populations of rare pygmy pitch pines and other plant species that depend on the frequent fires of the Pine Barrens to reproduce. The sand that composes much of the area's soil is referred to by the locals as sugar sand.
 The Pine Barrens remains mostly rural and undisturbed despite its proximity to the sprawling metropolitan cities of Philadelphia and New York City, in the center of the very densely populated Boston-Washington Corridor on the Eastern Seaboard. The heavily traveled Garden State Parkway and Atlantic City Expressway traverse sections of the eastern and southern Pine Barrens, respectively. The Pine Barrens territory helps recharge the 17-trillion-U.S.-gallon (64×10^9 m3) Kirkwood–Cohansey aquifer, containing some of the purest water in the United States. 
@@ -60,7 +60,7 @@ The reserve contains Wharton State Forest, Brendan T. Byrne State Forest, Bass R
 [...trimmed]
 
 ### Pinus rigida
-Source: <https://en.wikipedia.org/wiki/Pinus_rigida> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Pinus_rigida> (CC BY-SA), retrieved 2026-11-14.
 
 Pinus rigida, the pitch pine, is a small-to-medium-sized conifer in the family Pinaceae. It is a pine native to eastern North America, primarily from central Maine south to Georgia and as far west as Kentucky. It is found in environments which other species would find unsuitable for growth, such as acidic, sandy, and low-nutrient soils.
 
@@ -89,7 +89,7 @@ Archaeology indicates that the Haudenosaunee, Shinnecock, and Cherokee all utili
 == Gallery ==
 
 ### Pituophis melanoleucus
-Source: <https://en.wikipedia.org/wiki/Pituophis_melanoleucus> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Pituophis_melanoleucus> (CC BY-SA), retrieved 2026-11-14.
 
 Pituophis melanoleucus, commonly known as the eastern pine snake, is a species of nonvenomous snake in the family Colubridae. The species is native to the southeastern United States. Three subspecies are traditionally recognized as being valid, though taxonomic changes may be occurring.
 
@@ -128,49 +128,49 @@ After mating has taken place in spring, clutches of three to 24 eggs are laid in
 The pine snake is classified as least concern on the IUCN Red List, due to its wide distribution and large number of subpopulations; while the total populations appears to be declining, this is likely happening at a slow rate. However, the species is thought to be impacted by continued habitat degradation and destruction. It is present in a variety of protected areas. Habitat loss is the major threat to populations of this species. Construction of hibernacula is an effective tool for enhancing the survival rates of the species.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
-| deer -> redfox | ga | Vulpes vulpes -> Odocoileus virginianus | 4 record(s): Vulpes vulpes fulva eats Odocoileus virginianus; Vulpes vulpes eats Odocoileus virginianus; Vulpes vulpes preysOn Odocoileus virginianus |
-| deer -> raccoon | ga | Procyon lotor -> Odocoileus virginianus | 3 record(s): Procyon lotor lotor eats Odocoileus virginianus; Procyon lotor eats Odocoileus virginianus |
+| Blackjack oak -> White-tailed deer | gg | Odocoileus virginianus -> Quercus marilandica | 0 record(s):  |
+| Pitch pine -> White-tailed deer | gg | Odocoileus virginianus -> Pinus rigida | 0 record(s):  |
+| Blackjack oak -> Eastern gray squirrel | gg | Sciurus carolinensis -> Quercus marilandica | 0 record(s):  |
+| Pitch pine -> Eastern gray squirrel | gg | Sciurus carolinensis -> Pinus rigida | 0 record(s):  |
+| Pitch pine -> White-footed mouse | gg | Peromyscus leucopus -> Pinus rigida | 0 record(s):  |
+| Blackjack oak -> Blue Jay | gg | Cyanocitta cristata -> Quercus marilandica | 0 record(s):  |
+| Moths and caterpillars -> Blue Jay | g | Cyanocitta cristata -> Lepidoptera | 5+ record(s): Cyanocitta cristata eats Lepidoptera; Cyanocitta cristata preysOn Lepidoptera; Cyanocitta cristata eats Mimus polyglottos |
+| Cranberry -> Red fox | g | Vulpes vulpes -> Vaccinium macrocarpon | 0 record(s):  |
+| White-footed mouse -> Red fox | g | Vulpes vulpes -> Peromyscus leucopus | 1 record(s): Vulpes vulpes eats Peromyscus leucopus |
+| Eastern gray squirrel -> Red fox | g | Vulpes vulpes -> Sciurus carolinensis | 4 record(s): Vulpes vulpes fulva eats Sciurus carolinensis; Vulpes vulpes eats Sciurus carolinensis; Vulpes vulpes fulva preysOn Sciurus carolinensis |
+| Eastern cottontail -> Red fox | g | Vulpes vulpes -> Sylvilagus floridanus | 5+ record(s): Vulpes vulpes eats Sylvilagus floridanus; Vulpes vulpes preysOn Sylvilagus floridanus; Vulpes vulpes fulva preysOn Sylvilagus floridanus |
+| Eastern gray squirrel -> Raccoon | g | Procyon lotor -> Sciurus carolinensis | 1 record(s): Procyon lotor preysOn Sciurus carolinensis |
+| Eastern cottontail -> Raccoon | g | Procyon lotor -> Sylvilagus floridanus | 3 record(s): Procyon lotor eats Sylvilagus floridanus; Procyon lotor preysOn Sylvilagus floridanus |
+| Blue Jay -> Raccoon | g | Procyon lotor -> Cyanocitta cristata | 1 record(s): Procyon lotor eats Cyanocitta cristata |
+| Blue Jay -> Red fox | g | Vulpes vulpes -> Cyanocitta cristata | 1 record(s): Vulpes vulpes eats Cyanocitta cristata |
+| White-tailed deer -> Turkey vulture | g | Cathartes aura -> Odocoileus virginianus | 3 record(s): Cathartes aura septentrionalis eats Odocoileus virginianus; Cathartes aura eats Odocoileus virginianus; Cathartes aura preysOn Odocoileus virginianus |
+| Eastern cottontail -> Turkey vulture | g | Cathartes aura -> Sylvilagus floridanus | 2 record(s): Cathartes aura eats Sylvilagus floridanus; Cathartes aura preysOn Sylvilagus floridanus |
+| Eastern gray squirrel -> Turkey vulture | g | Cathartes aura -> Sciurus carolinensis | 2 record(s): Cathartes aura eats Sciurus carolinensis; Cathartes aura preysOn Sciurus carolinensis |
+| White-tailed deer -> Coyote | g | Canis latrans -> Odocoileus virginianus | 5+ record(s): Coyote eats Odocoileus virginianus; Canis latrans eats Odocoileus virginianus; Canis latrans preysOn Odocoileus virginianus |
+| Eastern cottontail -> Coyote | g | Canis latrans -> Sylvilagus floridanus | 3 record(s): Canis latrans eats Sylvilagus floridanus; Canis latrans preysOn Sylvilagus floridanus |
+| Eastern gray squirrel -> Coyote | g | Canis latrans -> Sciurus carolinensis | 3 record(s): Canis latrans eats Sciurus carolinensis; Canis latrans preysOn Sciurus carolinensis |
+| White-footed mouse -> Coyote | g | Canis latrans -> Peromyscus leucopus | 2 record(s): Canis latrans eats Peromyscus leucopus |
+| Red fox -> Coyote | g | Canis latrans -> Vulpes vulpes | 2 record(s): Canis latrans eats Vulpes vulpes |
+| Raccoon -> Coyote | g | Canis latrans -> Procyon lotor | 3 record(s): Canis latrans eats Procyon lotor; Canis latrans preysOn Procyon lotor |
+| White-footed mouse -> Timber rattlesnake | g | Crotalus horridus -> Peromyscus leucopus | 1 record(s): Crotalus horridus preysOn Peromyscus leucopus |
+| Eastern gray squirrel -> Timber rattlesnake | g | Crotalus horridus -> Sciurus carolinensis | 2 record(s): Crotalus horridus eats Sciurus carolinensis; Crotalus horridus preysOn Sciurus carolinensis |
+| Eastern cottontail -> Timber rattlesnake | g | Crotalus horridus -> Sylvilagus floridanus | 2 record(s): Crotalus horridus eats Sylvilagus floridanus; Crotalus horridus preysOn Sylvilagus floridanus |
+| Eastern cottontail -> Northern pine snake | ga | Pituophis melanoleucus -> Sylvilagus floridanus | 1 record(s): Pituophis melanoleucus mugitus eats Sylvilagus floridanus |
+| White-tailed deer -> Red fox | ga | Vulpes vulpes -> Odocoileus virginianus | 4 record(s): Vulpes vulpes fulva eats Odocoileus virginianus; Vulpes vulpes eats Odocoileus virginianus; Vulpes vulpes preysOn Odocoileus virginianus |
+| White-tailed deer -> Raccoon | ga | Procyon lotor -> Odocoileus virginianus | 3 record(s): Procyon lotor lotor eats Odocoileus virginianus; Procyon lotor eats Odocoileus virginianus |
+| Moths and caterpillars -> Coyote | ga | Canis latrans -> Lepidoptera | 1 record(s): Canis latrans preysOn Lepidoptera |
 
 ### Links with no GloBI record (be careful with these)
-- oak -> Moths and caterpillars (no evidence entry)
-- pitchpine -> Moths and caterpillars (no evidence entry)
-- oak -> deer (no evidence entry)
-- pitchpine -> deer (no evidence entry)
-- oak -> gsquirrel (no evidence entry)
-- pitchpine -> gsquirrel (no evidence entry)
-- oak -> cottontail (no evidence entry)
-- oak -> wfmouse (no GloBI record found; from general ecology)
-- pitchpine -> wfmouse (no evidence entry)
-- oak -> bluejay (no evidence entry)
-- Moths and caterpillars -> bluejay (no evidence entry)
-- Moths and caterpillars -> treefrog (no evidence entry)
-- Moths and caterpillars -> fencelizard (no evidence entry)
-- wfmouse -> pinesnake (no evidence entry)
-- cranberry -> redfox (no evidence entry)
-- wfmouse -> redfox (no evidence entry)
-- gsquirrel -> redfox (no evidence entry)
-- cottontail -> redfox (no evidence entry)
-- pinesnake -> redfox (no evidence entry)
-- gsquirrel -> raccoon (no evidence entry)
-- cottontail -> raccoon (no evidence entry)
-- bluejay -> raccoon (no evidence entry)
-- bluejay -> redfox (no evidence entry)
-- deer -> vulture (no evidence entry)
-- cottontail -> vulture (no evidence entry)
-- gsquirrel -> vulture (no evidence entry)
-- deer -> coyote (no evidence entry)
-- cottontail -> coyote (no evidence entry)
-- gsquirrel -> coyote (no evidence entry)
-- wfmouse -> coyote (no evidence entry)
-- redfox -> coyote (no evidence entry)
-- raccoon -> coyote (no evidence entry)
-- wfmouse -> rattler (no evidence entry)
-- gsquirrel -> rattler (no evidence entry)
-- cottontail -> rattler (no evidence entry)
-- cottontail -> pinesnake (no evidence entry)
-- Moths and caterpillars -> coyote (no evidence entry)
+- Blackjack oak -> Moths and caterpillars (no GloBI record found; from general ecology)
+- Pitch pine -> Moths and caterpillars (no GloBI record found; from general ecology)
+- Blackjack oak -> Eastern cottontail (no GloBI record found; from general ecology)
+- Blackjack oak -> White-footed mouse (no GloBI record found; from general ecology)
+- Moths and caterpillars -> Pine Barrens treefrog (no GloBI record found; from general ecology)
+- Moths and caterpillars -> Eastern fence lizard (no GloBI record found; from general ecology)
+- White-footed mouse -> Northern pine snake (no GloBI record found; from general ecology)
+- Northern pine snake -> Red fox (no GloBI record found; from general ecology)
 

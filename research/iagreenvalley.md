@@ -1,6 +1,6 @@
 # Research file: Green Valley State Park (iagreenvalley)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Iowa, USA. Coordinates 41.1093, -94.3811. Kind: Forest.
@@ -14,12 +14,12 @@ Iowa, USA. Coordinates 41.1093, -94.3811. Kind: Forest.
 
 **Current sources:** Wikipedia: Green Valley State Park <https://en.wikipedia.org/wiki/Green_Valley_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (19)
-sawtoothsunflo (helianthus grosseserratus), perennialragwe (ambrosia trifida), amphibiousbist (persicaria amphibia), whitemulberry (morus alba), virginianjunip (juniperus virginiana), poisonmilkweed (euphorbia corollata), canadagoose (branta canadensis), northerncardin (cardinalis cardinalis), redwingedblack (agelaius phoeniceus), americansnout (libytheana carinenta), easterntigersw (papilio glaucus), paintedlady (vanessa cardui), americanrobin (turdus migratorius), bluejay (cyanocitta cristata), americancrow (corvus brachyrhynchos), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (15)
+Sawtooth sunflower (Helianthus grosseserratus), Perennial Ragweed (Ambrosia trifida), Amphibious Bistort (Persicaria amphibia), White Mulberry (Morus alba), Virginian Juniper (Juniperus virginiana), Poison-milkweed (Euphorbia corollata), Canada goose (Branta canadensis), Northern Cardinal (Cardinalis cardinalis), Red-winged Blackbird (Agelaius phoeniceus), American Snout (Libytheana carinenta), Eastern Tiger Swallowtail (Papilio glaucus), Painted Lady (Vanessa cardui), American Robin (Turdus migratorius), Blue Jay (Cyanocitta cristata), American Crow (Corvus brachyrhynchos)
 
 ## 4. Wikipedia text
 ### Green Valley State Park
-Source: <https://en.wikipedia.org/wiki/Green_Valley_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Green_Valley_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Green Valley State Park is a state park in Union County, Iowa, in the United States. The park is composed of Green Valley Lake and land around it, approximately three miles (4.8 km) north of the town of Creston. Green Valley Lake is an artificial lake, one of a number of such lakes in southwest Iowa created after a special legislation appropriation in 1947. 
 
@@ -30,40 +30,41 @@ The area used to be filled with tallgrass prairie, but much of that was gone by 
 Green Valley State Park has nearly 10 miles (16 km) of hiking trails that go through wetlands, woodlands, prairie remnants, and near Green Valley Lake. Fishing and boating are offered, including fishing on two piers that are accessible for people with disabilities. There are three cabins and a campground. The flora and fauna include shrubs, wildflowers, muskrats, deer, beavers, and various birds. The state park is near the Mormon Trail.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Sawtooth sunflower -> Canada goose | gg | Branta canadensis -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> Canada goose | gf | Branta canadensis -> Ambrosia trifida | 0 record(s):  |
+| Amphibious Bistort -> Canada goose | gf | Branta canadensis -> Persicaria amphibia | 0 record(s):  |
+| Sawtooth sunflower -> Northern Cardinal | gg | Cardinalis cardinalis -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> Northern Cardinal | g | Cardinalis cardinalis -> Ambrosia trifida | 1 record(s): Cardinalis cardinalis eats Ambrosia trifida |
+| Amphibious Bistort -> Northern Cardinal | gg | Cardinalis cardinalis -> Persicaria amphibia | 0 record(s):  |
+| White Mulberry -> Northern Cardinal | g | Cardinalis cardinalis -> Morus alba | 1 record(s): Cardinalis cardinalis eats Morus alba |
+| Virginian Juniper -> Northern Cardinal | g | Cardinalis cardinalis -> Juniperus virginiana | 1 record(s): Cardinalis cardinalis eats Juniperus virginiana |
+| Poison-milkweed -> Northern Cardinal | gg | Cardinalis cardinalis -> Euphorbia corollata | 0 record(s):  |
+| Sawtooth sunflower -> Red-winged Blackbird | gg | Agelaius phoeniceus -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> Red-winged Blackbird | gg | Agelaius phoeniceus -> Ambrosia trifida | 0 record(s):  |
+| Amphibious Bistort -> Red-winged Blackbird | gg | Agelaius phoeniceus -> Persicaria amphibia | 0 record(s):  |
+| Poison-milkweed -> Red-winged Blackbird | gf | Agelaius phoeniceus -> Euphorbia corollata | 0 record(s):  |
+| Sawtooth sunflower -> American Snout | gf | Libytheana carinenta -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> American Snout | gf | Libytheana carinenta -> Ambrosia trifida | 0 record(s):  |
+| Amphibious Bistort -> American Snout | gg | Libytheana carinenta -> Persicaria amphibia | 0 record(s):  |
+| Sawtooth sunflower -> Eastern Tiger Swallowtail | gg | Papilio glaucus -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> Painted Lady | gg | Vanessa cardui -> Ambrosia trifida | 0 record(s):  |
+| Sawtooth sunflower -> American Robin | gg | Turdus migratorius -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> American Robin | gg | Turdus migratorius -> Ambrosia trifida | 0 record(s):  |
+| Amphibious Bistort -> American Robin | gg | Turdus migratorius -> Persicaria amphibia | 0 record(s):  |
+| White Mulberry -> American Robin | g | Turdus migratorius -> Morus alba | 1 record(s): Turdus migratorius eats Morus alba |
+| Virginian Juniper -> American Robin | g | Turdus migratorius -> Juniperus virginiana | 1 record(s): Turdus migratorius eats Juniperus virginiana |
+| Sawtooth sunflower -> Blue Jay | gg | Cyanocitta cristata -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> Blue Jay | gf | Cyanocitta cristata -> Ambrosia trifida | 0 record(s):  |
+| Sawtooth sunflower -> American Crow | gg | Corvus brachyrhynchos -> Helianthus grosseserratus | 0 record(s):  |
+| Perennial Ragweed -> American Crow | gg | Corvus brachyrhynchos -> Ambrosia trifida | 0 record(s):  |
+| Amphibious Bistort -> American Crow | gf | Corvus brachyrhynchos -> Persicaria amphibia | 0 record(s):  |
+| White Mulberry -> American Crow | gg | Corvus brachyrhynchos -> Morus alba | 0 record(s):  |
+| Poison-milkweed -> American Crow | gg | Corvus brachyrhynchos -> Euphorbia corollata | 0 record(s):  |
 
 ### Links with no GloBI record (be careful with these)
-- sawtoothsunflo -> canadagoose (no evidence entry)
-- perennialragwe -> canadagoose (no evidence entry)
-- amphibiousbist -> canadagoose (no evidence entry)
-- sawtoothsunflo -> northerncardin (no evidence entry)
-- perennialragwe -> northerncardin (no evidence entry)
-- amphibiousbist -> northerncardin (no evidence entry)
-- whitemulberry -> northerncardin (no evidence entry)
-- virginianjunip -> northerncardin (no evidence entry)
-- poisonmilkweed -> northerncardin (no evidence entry)
-- sawtoothsunflo -> redwingedblack (no evidence entry)
-- perennialragwe -> redwingedblack (no evidence entry)
-- amphibiousbist -> redwingedblack (no evidence entry)
-- poisonmilkweed -> redwingedblack (no evidence entry)
-- sawtoothsunflo -> americansnout (no evidence entry)
-- perennialragwe -> americansnout (no evidence entry)
-- amphibiousbist -> americansnout (no evidence entry)
-- sawtoothsunflo -> easterntigersw (no evidence entry)
-- perennialragwe -> paintedlady (no evidence entry)
-- sawtoothsunflo -> americanrobin (no evidence entry)
-- perennialragwe -> americanrobin (no evidence entry)
-- amphibiousbist -> americanrobin (no evidence entry)
-- whitemulberry -> americanrobin (no evidence entry)
-- virginianjunip -> americanrobin (no evidence entry)
-- sawtoothsunflo -> bluejay (no evidence entry)
-- perennialragwe -> bluejay (no evidence entry)
-- sawtoothsunflo -> americancrow (no evidence entry)
-- perennialragwe -> americancrow (no evidence entry)
-- amphibiousbist -> americancrow (no evidence entry)
-- whitemulberry -> americancrow (no evidence entry)
-- poisonmilkweed -> americancrow (no evidence entry)
+(none)
 

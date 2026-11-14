@@ -1,6 +1,6 @@
 # Research file: Lake Titicaca (whtiticaca)
 
-Retrieved 2026-10-29. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Peru and Bolivia. Coordinates -15.9, -69.4. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Peru and Bolivia. Coordinates -15.9, -69.4. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Lake Titicaca <https://en.wikipedia.org/wiki/Lake_Titicaca>; Wikipedia: Titicaca water frog <https://en.wikipedia.org/wiki/Titicaca_water_frog>; Wikipedia: Titicaca grebe <https://en.wikipedia.org/wiki/Titicaca_grebe>; Wikipedia: Slate-colored coot <https://en.wikipedia.org/wiki/Slate-colored_coot>; Wikipedia: Orestias <https://en.wikipedia.org/wiki/Orestias_(fish)>; Wikipedia: Andean gull <https://en.wikipedia.org/wiki/Andean_gull>
 
-## 3. Species in the app (19)
-totora (schoenoplectus californicus), chara (chara), phyto (diatoms and green algae), ichu (jarava ichu), hyalella (hyalella), heleobia (heleobia), coot (fulica ardesiaca), flamingo (phoenicopterus chilensis), viscacha (lagidium viscacia), orestias (orestias), frog (telmatobius culeus), gull (chroicocephalus serranus), ibis (plegadis ridgwayi), trout (oncorhynchus mykiss), grebe (rollandia microptera), sun (sunlight), lake (lake water), nutrients (nutrients and runoff), decomp (bacteria and fungi)
+## 3. Species in the app (15)
+Totora reed (Schoenoplectus californicus), Stoneworts and pondweeds (Chara), Phytoplankton and algae (Diatoms and green algae), Ichu bunchgrass (Jarava ichu), Hyalella amphipods (Hyalella), Heleobia snails (Heleobia), Slate-colored coot (Fulica ardesiaca), Chilean flamingo (Phoenicopterus chilensis), Southern viscacha (Lagidium viscacia), Orestias killifish (Orestias), Titicaca water frog (Telmatobius culeus), Andean gull (Chroicocephalus serranus), Puna ibis (Plegadis ridgwayi), Rainbow trout (Oncorhynchus mykiss), Titicaca grebe (Rollandia microptera)
 
 ## 4. Wikipedia text
 ### Lake Titicaca
-Source: <https://en.wikipedia.org/wiki/Lake_Titicaca> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Lake_Titicaca> (CC BY-SA), retrieved 2026-11-14.
 
 Lake Titicaca (; Spanish: Lago Titicaca [ˈlaɣo titiˈkaka]; Quechua: Titiqaqa and Aymara: Titiqaqa) is a large lake in the Andes mountains on the border of Bolivia and Peru. It is often called the highest navigable lake in the world. It is often listed as a freshwater lake, though its waters are slightly brackish.  Titicaca is the largest lake in South America, both in terms of the volume of water and surface area. It is the 18th largest lake in the world.  It has a surface elevation of 3,812 m (12,507 ft).
 
@@ -57,10 +57,10 @@ The Tinajani Basin, in which Lake Titicaca lies, is an intermontane basin. This 
 [...trimmed]
 
 ### Telmatobius culeus
-Source: <https://en.wikipedia.org/wiki/Telmatobius_culeus> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Telmatobius_culeus> (CC BY-SA), retrieved 2026-11-14.
 
 Telmatobius culeus, commonly known as the Titicaca water frog or Lake Titicaca frog, is a medium-large to very large and endangered species of frog in the family Telmatobiidae. It is entirely aquatic and found only in the Lake Titicaca basin, including rivers that flow into it and smaller connected lakes like Arapa, Lagunillas and Saracocha, in the Andean highlands of Bolivia and Peru. In reference to its loose skin, it is sometimes jokingly referred to as the Titicaca scrotum frog.
-It is closely related to the more widespread and semiaquatic marbled water frog (T. marmoratus), which also occurs in shallow, coastal parts of Lake Titicaca, but lacks the excessive skin and it is generally smaller (although overlapping in size with some forms of the Titicaca water frog).
+It is closely related to the more widespread and semiaquatic marbled water frog (T. marmoratus), which also occurs in shallow, coastal parts of Lake Titicaca, but lacks the excessive skin and is generally smaller (although overlapping in size with some forms of the Titicaca water frog).
 
 == Appearance ==
 
@@ -104,11 +104,11 @@ It was once common, with a survey in the late 1960s by Jacques Cousteau and coll
 The causes of the precarious status of the Titicaca water frog are over-collecting for human consumption, pollution and introduced trout, and it may also be threatened by disease. Additionally, the Titicaca grebe, which are flightless birds that reside in the local area of Titicaca lake, have been targeting the animal. These birds have a Papillae that reacts positively to the skin of the frog.
 
 === Capture for food ===
-The species is consumed as a traditional food or blended drink known as frog jui
+The species is consumed as a traditional food or blended drink known as frog juice,
 [...trimmed]
 
 ### Titicaca grebe
-Source: <https://en.wikipedia.org/wiki/Titicaca_grebe> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Titicaca_grebe> (CC BY-SA), retrieved 2026-11-14.
 
 The Titicaca grebe (Rollandia microptera), also known as the Titicaca flightless grebe or short-winged grebe, is a flightless species of grebe found on the altiplano of Peru and Bolivia. As its name implies, its main population occurs on Lake Titicaca. Lake Uru Uru and Poopó, the Rio Desaguadero, and small lakes that connect to Lake Titicaca in wet years, serve as "spillovers" territory. In the past, the population was larger and several of these lakes – such as Lakes Umayo and Arapa – apparently had and may still have permanent large colonies (BirdLife International 2006). It is sometimes placed in Podiceps or a monotypic genus Centropelma. Its local name is zampullín del Titicaca.
 
@@ -135,33 +135,33 @@ Apart from drowning in gill nets, other threats are probably only relevant in th
 Pejerrey fishery occurs mostly in waters too deep to be utilized by the grebes.  While the coarser gill nets used for fishing pejerrey are technically more of a threat to the sizable grebes than the finer ones preferred for Orestias, the latter will still catch and drown especially young and inexperienced birds, and probably even attract these due to holding their favorite food. O. bonariensis is not only one of the two major hauls of the local fishing industries, but places a strain on the Orestias stocks. Insofar, a shift by the fishermen from Orestias to the silversides is likely to benefit them, the grebes, and the entire lake ecosystem.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-10-29. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
 
 ### Links with no GloBI record (be careful with these)
-- phyto -> hyalella (no GloBI record found; from general ecology)
-- chara -> hyalella (no GloBI record found; from general ecology)
-- phyto -> heleobia (no GloBI record found; from general ecology)
-- chara -> heleobia (no GloBI record found; from general ecology)
-- chara -> coot (no GloBI record found; from general ecology)
-- phyto -> flamingo (no GloBI record found; from general ecology)
-- hyalella -> flamingo (no GloBI record found; from general ecology)
-- ichu -> viscacha (no GloBI record found; from general ecology)
-- hyalella -> frog (no GloBI record found; from general ecology)
-- heleobia -> frog (no GloBI record found; from general ecology)
-- orestias -> frog (no GloBI record found; from general ecology)
-- hyalella -> orestias (no GloBI record found; from general ecology)
-- heleobia -> orestias (no GloBI record found; from general ecology)
-- phyto -> orestias (no GloBI record found; from general ecology)
-- orestias -> gull (no GloBI record found; from general ecology)
-- frog -> gull (no GloBI record found; from general ecology)
-- hyalella -> ibis (no GloBI record found; from general ecology)
-- heleobia -> ibis (no GloBI record found; from general ecology)
-- orestias -> ibis (no GloBI record found; from general ecology)
-- orestias -> trout (no GloBI record found; from general ecology)
-- hyalella -> trout (no GloBI record found; from general ecology)
-- orestias -> grebe (no GloBI record found; from general ecology)
-- frog -> grebe (no GloBI record found; from general ecology)
+- Phytoplankton and algae -> Hyalella amphipods (no GloBI record found; from general ecology)
+- Stoneworts and pondweeds -> Hyalella amphipods (no GloBI record found; from general ecology)
+- Phytoplankton and algae -> Heleobia snails (no GloBI record found; from general ecology)
+- Stoneworts and pondweeds -> Heleobia snails (no GloBI record found; from general ecology)
+- Stoneworts and pondweeds -> Slate-colored coot (no GloBI record found; from general ecology)
+- Phytoplankton and algae -> Chilean flamingo (no GloBI record found; from general ecology)
+- Hyalella amphipods -> Chilean flamingo (no GloBI record found; from general ecology)
+- Ichu bunchgrass -> Southern viscacha (no GloBI record found; from general ecology)
+- Hyalella amphipods -> Titicaca water frog (no GloBI record found; from general ecology)
+- Heleobia snails -> Titicaca water frog (no GloBI record found; from general ecology)
+- Orestias killifish -> Titicaca water frog (no GloBI record found; from general ecology)
+- Hyalella amphipods -> Orestias killifish (no GloBI record found; from general ecology)
+- Heleobia snails -> Orestias killifish (no GloBI record found; from general ecology)
+- Phytoplankton and algae -> Orestias killifish (no GloBI record found; from general ecology)
+- Orestias killifish -> Andean gull (no GloBI record found; from general ecology)
+- Titicaca water frog -> Andean gull (no GloBI record found; from general ecology)
+- Hyalella amphipods -> Puna ibis (no GloBI record found; from general ecology)
+- Heleobia snails -> Puna ibis (no GloBI record found; from general ecology)
+- Orestias killifish -> Puna ibis (no GloBI record found; from general ecology)
+- Orestias killifish -> Rainbow trout (no GloBI record found; from general ecology)
+- Hyalella amphipods -> Rainbow trout (no GloBI record found; from general ecology)
+- Orestias killifish -> Titicaca grebe (no GloBI record found; from general ecology)
+- Titicaca water frog -> Titicaca grebe (no GloBI record found; from general ecology)
 

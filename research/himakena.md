@@ -1,6 +1,6 @@
 # Research file: Makena State Park (himakena)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 20.6357, -156.4467. Kind: Forest.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 20.6357, -156.4467. Kind: Forest.
 
 **Current sources:** Wikipedia: Makena State Park <https://en.wikipedia.org/wiki/Makena_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (22)
-goldencrownbea (verbesina encelioides), treetobacco (nicotiana glauca), bayhops (ipomoea pes-caprae), largeleaflanta (lantana camara), roundleafchast (vitex rotundifolia), pillpodsandmat (euphorbia hirta), northerncardin (cardinalis cardinalis), housesparrow (passer domesticus), zebradove (geopelia striata), monarchbutterf (danaus plexippus), westernhoneybe (apis mellifera), orangetip (abaeis nicippe), cottonaphid (aphis gossypii), feralpig (sus scrofa), commonmyna (acridotheres tristis), redcrestedcard (paroaria coronata), humpbackwhale (megaptera novaeangliae), brownanole (anolis sagrei), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (18)
+Golden Crownbeard (Verbesina encelioides), Tree Tobacco (Nicotiana glauca), Bayhops (Ipomoea pes-caprae), Lantana (Lantana camara), Roundleaf Chastetree (Vitex rotundifolia), Pillpod Sandmat (Euphorbia hirta), Northern Cardinal (Cardinalis cardinalis), House Sparrow (Passer domesticus), Zebra Dove (Geopelia striata), Monarch butterfly (Danaus plexippus), Western honey bee (Apis mellifera), Orange-tip (Abaeis nicippe), Cotton aphid (Aphis gossypii), Wild boar (Sus scrofa), Common Myna (Acridotheres tristis), Red-crested Cardinal (Paroaria coronata), Humpback whale (Megaptera novaeangliae), Brown anole (Anolis sagrei)
 
 ## 4. Wikipedia text
 ### Mākena State Park
-Source: <https://en.wikipedia.org/wiki/M%C4%81kena_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/M%C4%81kena_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Mākena State Park is a  165-acre (0.7 km2) beachside park in Makena on the island of Maui, Hawaii. Located just south of Wailea, it contains three separate beaches and a dormant volcanic cinder cone.
 Big Beach, also known as "Oneloa Beach" and "Mākena Beach", is a popular spot for sunbathing and bodyboarding by both tourists and locals. Big Beach is 1.5 miles (2.4 km) long and more than 100 feet (30 m) wide. The shore is fairly protected from wind.  The "Makena cloud" that stretches from the top of Haleakalā to Kahoʻolawe is often overhead, cooling the sand. The beach is informally divided into three sections based on its main three entrances, commonly referred to as "Firsts", "Seconds", and "Thirds". This informal system provided a practical way to specify specific locations along the expansive beach.
@@ -30,56 +30,57 @@ The park is located on Mākena Road at 20°37′52″N 156°26′46″W.
 Just to the south is the ʻAhihi Kinaʻu Natural Area Reserve.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Lantana -> Northern Cardinal | g | Cardinalis cardinalis -> Lantana camara | 1 record(s): Cardinalis cardinalis eats Lantana camara |
+| Roundleaf Chastetree -> Northern Cardinal | gf | Cardinalis cardinalis -> Vitex rotundifolia | 0 record(s):  |
+| Pillpod Sandmat -> Northern Cardinal | gg | Cardinalis cardinalis -> Euphorbia hirta | 0 record(s):  |
+| Golden Crownbeard -> Northern Cardinal | gf | Cardinalis cardinalis -> Verbesina encelioides | 0 record(s):  |
+| Bayhops -> House Sparrow | gf | Passer domesticus -> Ipomoea pes-caprae | 0 record(s):  |
+| Pillpod Sandmat -> House Sparrow | gg | Passer domesticus -> Euphorbia hirta | 0 record(s):  |
+| Golden Crownbeard -> House Sparrow | gf | Passer domesticus -> Verbesina encelioides | 0 record(s):  |
+| Tree Tobacco -> House Sparrow | gf | Passer domesticus -> Nicotiana glauca | 0 record(s):  |
+| Lantana -> Zebra Dove | g | Geopelia striata -> Lantana camara | 1 record(s): Geopelia striata eats Lantana camara |
+| Pillpod Sandmat -> Zebra Dove | gf | Geopelia striata -> Euphorbia hirta | 0 record(s):  |
+| Lantana -> Monarch butterfly | g | Danaus plexippus -> Lantana camara | 3 record(s): Danaus plexippus plexippus eats Lantana camara; Danaus plexippus eats Lantana camara; Danaus plexippus eats Lantana camara aculeata |
+| Bayhops -> Monarch butterfly | gg | Danaus plexippus -> Ipomoea pes-caprae | 0 record(s):  |
+| Roundleaf Chastetree -> Monarch butterfly | gg | Danaus plexippus -> Vitex rotundifolia | 0 record(s):  |
+| Pillpod Sandmat -> Monarch butterfly | gg | Danaus plexippus -> Euphorbia hirta | 0 record(s):  |
+| Golden Crownbeard -> Monarch butterfly | g | Danaus plexippus -> Verbesina encelioides | 2 record(s): Danaus plexippus plexippus eats Verbesina encelioides; Danaus plexippus eats Verbesina encelioides |
+| Tree Tobacco -> Monarch butterfly | gf | Danaus plexippus -> Nicotiana glauca | 0 record(s):  |
+| Lantana -> Western honey bee | g | Apis mellifera -> Lantana camara | 1 record(s): Apis mellifera eats Lantana camara |
+| Bayhops -> Western honey bee | gg | Apis mellifera -> Ipomoea pes-caprae | 0 record(s):  |
+| Roundleaf Chastetree -> Western honey bee | gg | Apis mellifera -> Vitex rotundifolia | 0 record(s):  |
+| Pillpod Sandmat -> Western honey bee | gg | Apis mellifera -> Euphorbia hirta | 0 record(s):  |
+| Golden Crownbeard -> Western honey bee | gg | Apis mellifera -> Verbesina encelioides | 1 record(s): Apis mellifera eats Verbesina encelioides |
+| Tree Tobacco -> Western honey bee | gg | Apis mellifera -> Nicotiana glauca | 0 record(s):  |
+| Lantana -> Orange-tip | gg | Abaeis nicippe -> Lantana camara | 0 record(s):  |
+| Bayhops -> Orange-tip | gg | Abaeis nicippe -> Ipomoea pes-caprae | 0 record(s):  |
+| Roundleaf Chastetree -> Orange-tip | gf | Abaeis nicippe -> Vitex rotundifolia | 0 record(s):  |
+| Golden Crownbeard -> Orange-tip | g | Abaeis nicippe -> Verbesina encelioides | 1 record(s): Abaeis nicippe eats Verbesina encelioides |
+| Lantana -> Cotton aphid | gf | Aphis gossypii -> Lantana camara | 0 record(s):  |
+| Bayhops -> Cotton aphid | gg | Aphis gossypii -> Ipomoea pes-caprae | 0 record(s):  |
+| Roundleaf Chastetree -> Cotton aphid | gf | Aphis gossypii -> Vitex rotundifolia | 0 record(s):  |
+| Pillpod Sandmat -> Cotton aphid | gf | Aphis gossypii -> Euphorbia hirta | 0 record(s):  |
+| Golden Crownbeard -> Cotton aphid | gf | Aphis gossypii -> Verbesina encelioides | 0 record(s):  |
+| Tree Tobacco -> Cotton aphid | gg | Aphis gossypii -> Nicotiana glauca | 0 record(s):  |
+| Bayhops -> Wild boar | gg | Sus scrofa -> Ipomoea pes-caprae | 0 record(s):  |
+| Roundleaf Chastetree -> Wild boar | gg | Sus scrofa -> Vitex rotundifolia | 0 record(s):  |
+| Golden Crownbeard -> Wild boar | gf | Sus scrofa -> Verbesina encelioides | 0 record(s):  |
+| Tree Tobacco -> Wild boar | gf | Sus scrofa -> Nicotiana glauca | 0 record(s):  |
+| Lantana -> Common Myna | g | Acridotheres tristis -> Lantana camara | 1 record(s): Acridotheres tristis eats Lantana camara |
+| Roundleaf Chastetree -> Common Myna | gg | Acridotheres tristis -> Vitex rotundifolia | 0 record(s):  |
+| Tree Tobacco -> Common Myna | gf | Acridotheres tristis -> Nicotiana glauca | 0 record(s):  |
+| Lantana -> Red-crested Cardinal | g | Paroaria coronata -> Lantana camara | 1 record(s): Paroaria coronata eats Lantana camara |
+| Roundleaf Chastetree -> Red-crested Cardinal | gg | Paroaria coronata -> Vitex rotundifolia | 0 record(s):  |
+| Pillpod Sandmat -> Red-crested Cardinal | gf | Paroaria coronata -> Euphorbia hirta | 0 record(s):  |
+| Tree Tobacco -> Red-crested Cardinal | gf | Paroaria coronata -> Nicotiana glauca | 0 record(s):  |
+| Western honey bee -> Red-crested Cardinal | g | Paroaria coronata -> Apis mellifera | 1 record(s): Paroaria coronata preysOn Apis mellifera |
+| Pillpod Sandmat -> Humpback whale | gf | Megaptera novaeangliae -> Euphorbia hirta | 0 record(s):  |
+| Western honey bee -> Brown anole | g | Anolis sagrei -> Apis mellifera | 2 record(s): Anolis sagrei eats Apis mellifera; Anolis sagrei preysOn Apis mellifera |
 
 ### Links with no GloBI record (be careful with these)
-- largeleaflanta -> northerncardin (no evidence entry)
-- roundleafchast -> northerncardin (no evidence entry)
-- pillpodsandmat -> northerncardin (no evidence entry)
-- goldencrownbea -> northerncardin (no evidence entry)
-- bayhops -> housesparrow (no evidence entry)
-- pillpodsandmat -> housesparrow (no evidence entry)
-- goldencrownbea -> housesparrow (no evidence entry)
-- treetobacco -> housesparrow (no evidence entry)
-- largeleaflanta -> zebradove (no evidence entry)
-- pillpodsandmat -> zebradove (no evidence entry)
-- largeleaflanta -> monarchbutterf (no evidence entry)
-- bayhops -> monarchbutterf (no evidence entry)
-- roundleafchast -> monarchbutterf (no evidence entry)
-- pillpodsandmat -> monarchbutterf (no evidence entry)
-- goldencrownbea -> monarchbutterf (no evidence entry)
-- treetobacco -> monarchbutterf (no evidence entry)
-- largeleaflanta -> westernhoneybe (no evidence entry)
-- bayhops -> westernhoneybe (no evidence entry)
-- roundleafchast -> westernhoneybe (no evidence entry)
-- pillpodsandmat -> westernhoneybe (no evidence entry)
-- goldencrownbea -> westernhoneybe (no evidence entry)
-- treetobacco -> westernhoneybe (no evidence entry)
-- largeleaflanta -> orangetip (no evidence entry)
-- bayhops -> orangetip (no evidence entry)
-- roundleafchast -> orangetip (no evidence entry)
-- goldencrownbea -> orangetip (no evidence entry)
-- largeleaflanta -> cottonaphid (no evidence entry)
-- bayhops -> cottonaphid (no evidence entry)
-- roundleafchast -> cottonaphid (no evidence entry)
-- pillpodsandmat -> cottonaphid (no evidence entry)
-- goldencrownbea -> cottonaphid (no evidence entry)
-- treetobacco -> cottonaphid (no evidence entry)
-- bayhops -> feralpig (no evidence entry)
-- roundleafchast -> feralpig (no evidence entry)
-- goldencrownbea -> feralpig (no evidence entry)
-- treetobacco -> feralpig (no evidence entry)
-- largeleaflanta -> commonmyna (no evidence entry)
-- roundleafchast -> commonmyna (no evidence entry)
-- treetobacco -> commonmyna (no evidence entry)
-- largeleaflanta -> redcrestedcard (no evidence entry)
-- roundleafchast -> redcrestedcard (no evidence entry)
-- pillpodsandmat -> redcrestedcard (no evidence entry)
-- treetobacco -> redcrestedcard (no evidence entry)
-- westernhoneybe -> redcrestedcard (no evidence entry)
-- pillpodsandmat -> humpbackwhale (no evidence entry)
-- westernhoneybe -> brownanole (no evidence entry)
+(none)
 

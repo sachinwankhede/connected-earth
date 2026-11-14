@@ -1,6 +1,6 @@
 # Research file: Esteros del Iberá (whibera)
 
-Retrieved 2026-10-29. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Corrientes, Argentina. Coordinates -28.3, -57.2. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Corrientes, Argentina. Coordinates -28.3, -57.2. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Iberá Wetlands <https://en.wikipedia.org/wiki/Iber%C3%A1_Wetlands>; Wikipedia: Iberá National Park <https://en.wikipedia.org/wiki/Iber%C3%A1_National_Park>; Wikipedia: Marsh deer <https://en.wikipedia.org/wiki/Marsh_deer>; Wikipedia: Jaguar <https://en.wikipedia.org/wiki/Jaguar>; Wikipedia: Yacare caiman <https://en.wikipedia.org/wiki/Yacare_caiman>; Wikipedia: Capybara <https://en.wikipedia.org/wiki/Capybara>
 
-## 3. Species in the app (21)
-paspalum (paspalum), pontederia (pontederia azurea), ludwigia (ludwigia grandiflora), caranday (copernicia alba), cap (hydrochoerus hydrochaeris), marsh (blastocerus dichotomus), pampasdeer (ozotoceros bezoarticus), howler (alouatta caraya), screamer (chauna torquata), guineapig (cavia aperea), caracara (caracara plancus), caiman (caiman yacare), pfox (lycalopex gymnocercus), geoff (leopardus geoffroyi), maned (chrysocyon brachyurus), jaguar (panthera onca), sun (sun), water (floodwater), fire (fire), soil (soil & peat), Decomposers (decomposer community)
+## 3. Species in the app (16)
+Paspalum grasses (Paspalum), Anchored waterhyacinth (Pontederia azurea), Water primrose (Ludwigia grandiflora), Caranday palm (Copernicia alba), Capybara (Hydrochoerus hydrochaeris), Marsh deer (Blastocerus dichotomus), Pampas deer (Ozotoceros bezoarticus), Black howler (Alouatta caraya), Southern screamer (Chauna torquata), Brazilian guinea pig (Cavia aperea), Southern caracara (Caracara plancus), Yacare caiman (Caiman yacare), Pampas fox (Lycalopex gymnocercus), Geoffroy's cat (Leopardus geoffroyi), Maned wolf (Chrysocyon brachyurus), Jaguar (Panthera onca)
 
 ## 4. Wikipedia text
 ### Iberá Wetlands
-Source: <https://en.wikipedia.org/wiki/Iber%C3%A1_Wetlands> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Iber%C3%A1_Wetlands> (CC BY-SA), retrieved 2026-11-14.
 
 The Iberá Wetlands (Spanish: Esteros del Iberá, from Guaraní ý berá: "bright water") are a mix of swamps, bogs, stagnant lakes, lagoons, natural slough, and courses of water in the center and center-north of the province of Corrientes, Argentina.
 Iberá is one of the most important freshwater reservoirs in South America and the second-largest wetland in the world after Pantanal in Brazil. It is of pluvial origin, with a total area of 15,000–20,000 km2 (5,800–7,700 sq mi).
@@ -27,7 +27,7 @@ Since 1982, part of the wetland is included within a provincial protected area, 
 It is home to a wide variety of fauna, including capybara, 60 species of reptiles including caimans and snakes, frogs, anteaters, otters, several species of deer, and over 350 species of birds. The region was once threatened by poaching, cattle ranching, and foresting which threatened several of these species, but thanks to a rewilding initiative, several species have been re-introduced, including the jaguar. This initiative also sought to reorient the economy of the area to be more focused on tourism, in order to keep the newly reintroduced species populations safe.
 
 ### Iberá National Park
-Source: <https://en.wikipedia.org/wiki/Iber%C3%A1_National_Park> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Iber%C3%A1_National_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Iberá National Park is a national park in Argentina located in the northeast province of Corrientes. The national park adjoins the 5,530 km2 Iberá Provincial Park to the southeast. The national park and provincial park are both within the Iberá Provincial Nature Reserve, a conservation area of 13,245 km2 created in 1982. The combined protected area is the largest in Argentina.
 The national park protects a portion of the Iberá Wetlands, one of the largest wetlands in the world. In 2002 an area of 24,500 ha (245 km2; 95 sq mi) was listed as a Wetland of International Importance under the Ramsar convention.
@@ -43,7 +43,7 @@ In 2007, Tompkins Conservation established a rewilding program with nonprofit pa
 In January and February 2022, wildfires burned nearly 60% of the park. At least one fire was started by a lightning strike but many of the fires were started on nearby cattle ranches. Managing cattle ranches and grasslands with fire is a common practice in the area, though climate change has affected the area's ability to stop these fires from causing severe damage. Temperatures in the park are higher than seen before and at the time of the fire had been in a two and a half year drought, so the fires were able to get out of control. While the grasslands that cover much of Iberá have evolved with fire and are dependent upon it, forested areas of the park also burned and these forests do not usually experience fire so their recovery will not be quick. Many animals did not survive the fire, since due to the drought there was not much water or unburned patches to seek refuge in. Many of the reintroduced animals were rescued by Rewilding Argentina.
 
 ### Marsh deer
-Source: <https://en.wikipedia.org/wiki/Marsh_deer> (CC BY-SA), retrieved 2026-10-29.
+Source: <https://en.wikipedia.org/wiki/Marsh_deer> (CC BY-SA), retrieved 2026-11-14.
 
 The marsh deer (Blastocerus dichotomus) is a species of deer native to South America. It is the largest living species of South American deer. It is the only species in the genus Blastocerus.
 
@@ -78,35 +78,35 @@ For humans, marsh deer have a reputation of providing unpalatable meat when hunt
 The natural predators of the marsh deer – the jaguar (locally called onça or yaguaraté) (Panthera onca) and the puma (Puma concolor) – have almost completely disappeared from its habitat. The former major threat was poaching for its antlers, but this is somewhat under control. Destruction of its habitat presents nowadays the major threat to marsh deer.  The Yacyretá Dam altered an area in which several hundred individuals lived and the draining of marshes for farmland and cattle farming threaten hundreds of hectares every year in Argentina and Brazil.  Contagious diseases from cattle are also a problem, though it has been shown that the deer is not affected by brucellosis. In October 2018, Argentina established the Ciervo de los Pantanos National Park to help protect this species.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-10-29. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
-| caranday -> howler | g | Alouatta caraya -> Copernicia alba | 1 record(s): Alouatta caraya eats Copernicia alba |
-| caranday -> maned | g | Chrysocyon brachyurus -> Copernicia alba | 0 record(s):  |
-| guineapig -> pfox | g | Lycalopex gymnocercus -> Cavia aperea | 1 record(s): Lycalopex gymnocercus eats Cavia aperea |
-| guineapig -> geoff | g | Leopardus geoffroyi -> Cavia aperea | 2 record(s): Leopardus geoffroyi preysOn Cavia aperea; Leopardus geoffroyi eats Cavia aperea |
-| guineapig -> maned | g | Chrysocyon brachyurus -> Cavia aperea | 1 record(s): Chrysocyon brachyurus eats Cavia aperea |
-| cap -> geoff | g | Leopardus geoffroyi -> Hydrochoerus hydrochaeris | 1 record(s): Leopardus geoffroyi eats Hydrochoerus hydrochaeris |
-| cap -> jaguar | g | Panthera onca -> Hydrochoerus hydrochaeris | 2 record(s): Panthera onca eats Hydrochoerus hydrochaeris; Panthera onca preysOn Hydrochoerus hydrochaeris |
-| marsh -> jaguar | g | Panthera onca -> Blastocerus dichotomus | 1 record(s): Panthera onca preysOn Blastocerus dichotomus |
-| pampasdeer -> jaguar | g | Panthera onca -> Ozotoceros bezoarticus | 1 record(s): Panthera onca preysOn Ozotoceros bezoarticus |
-| caiman -> jaguar | g | Panthera onca -> Caiman yacare | 2 record(s): Panthera onca eats Caiman yacare; Panthera onca preysOn Caiman yacare |
-| pfox -> caracara | g | Caracara plancus -> Lycalopex gymnocercus | 1 record(s): Caracara plancus eats Lycalopex gymnocercus |
-| cap -> caracara | g | Caracara plancus -> Hydrochoerus hydrochaeris | 1 record(s): Caracara plancus plancus eats Hydrochoerus hydrochaeris |
-| pampasdeer -> maned | g | Chrysocyon brachyurus -> Ozotoceros bezoarticus | 1 record(s): Chrysocyon brachyurus eats Ozotoceros bezoarticus |
-| cap -> maned | ga | Chrysocyon brachyurus -> Hydrochoerus hydrochaeris | 1 record(s): Chrysocyon brachyurus eats Hydrochoerus hydrochaeris |
-| marsh -> maned | ga | Chrysocyon brachyurus -> Blastocerus dichotomus | 1 record(s): Chrysocyon brachyurus eats Blastocerus dichotomus |
+| Caranday palm -> Black howler | g | Alouatta caraya -> Copernicia alba | 1 record(s): Alouatta caraya eats Copernicia alba |
+| Caranday palm -> Maned wolf | g | Chrysocyon brachyurus -> Copernicia alba | 0 record(s):  |
+| Brazilian guinea pig -> Pampas fox | g | Lycalopex gymnocercus -> Cavia aperea | 1 record(s): Lycalopex gymnocercus eats Cavia aperea |
+| Brazilian guinea pig -> Geoffroy's cat | g | Leopardus geoffroyi -> Cavia aperea | 2 record(s): Leopardus geoffroyi preysOn Cavia aperea; Leopardus geoffroyi eats Cavia aperea |
+| Brazilian guinea pig -> Maned wolf | g | Chrysocyon brachyurus -> Cavia aperea | 1 record(s): Chrysocyon brachyurus eats Cavia aperea |
+| Capybara -> Geoffroy's cat | g | Leopardus geoffroyi -> Hydrochoerus hydrochaeris | 1 record(s): Leopardus geoffroyi eats Hydrochoerus hydrochaeris |
+| Capybara -> Jaguar | g | Panthera onca -> Hydrochoerus hydrochaeris | 2 record(s): Panthera onca eats Hydrochoerus hydrochaeris; Panthera onca preysOn Hydrochoerus hydrochaeris |
+| Marsh deer -> Jaguar | g | Panthera onca -> Blastocerus dichotomus | 1 record(s): Panthera onca preysOn Blastocerus dichotomus |
+| Pampas deer -> Jaguar | g | Panthera onca -> Ozotoceros bezoarticus | 1 record(s): Panthera onca preysOn Ozotoceros bezoarticus |
+| Yacare caiman -> Jaguar | g | Panthera onca -> Caiman yacare | 2 record(s): Panthera onca eats Caiman yacare; Panthera onca preysOn Caiman yacare |
+| Pampas fox -> Southern caracara | g | Caracara plancus -> Lycalopex gymnocercus | 1 record(s): Caracara plancus eats Lycalopex gymnocercus |
+| Capybara -> Southern caracara | g | Caracara plancus -> Hydrochoerus hydrochaeris | 1 record(s): Caracara plancus plancus eats Hydrochoerus hydrochaeris |
+| Pampas deer -> Maned wolf | g | Chrysocyon brachyurus -> Ozotoceros bezoarticus | 1 record(s): Chrysocyon brachyurus eats Ozotoceros bezoarticus |
+| Capybara -> Maned wolf | ga | Chrysocyon brachyurus -> Hydrochoerus hydrochaeris | 1 record(s): Chrysocyon brachyurus eats Hydrochoerus hydrochaeris |
+| Marsh deer -> Maned wolf | ga | Chrysocyon brachyurus -> Blastocerus dichotomus | 1 record(s): Chrysocyon brachyurus eats Blastocerus dichotomus |
 
 ### Links with no GloBI record (be careful with these)
-- paspalum -> cap (no GloBI record found; from general ecology)
-- pontederia -> cap (no GloBI record found; from general ecology)
-- paspalum -> marsh (no GloBI record found; from general ecology)
-- pontederia -> marsh (no GloBI record found; from general ecology)
-- ludwigia -> marsh (no GloBI record found; from general ecology)
-- paspalum -> pampasdeer (no GloBI record found; from general ecology)
-- pontederia -> screamer (no GloBI record found; from general ecology)
-- ludwigia -> screamer (no GloBI record found; from general ecology)
-- paspalum -> guineapig (no GloBI record found; from general ecology)
-- cap -> caiman (no GloBI record found; from general ecology)
+- Paspalum grasses -> Capybara (no GloBI record found; from general ecology)
+- Anchored waterhyacinth -> Capybara (no GloBI record found; from general ecology)
+- Paspalum grasses -> Marsh deer (no GloBI record found; from general ecology)
+- Anchored waterhyacinth -> Marsh deer (no GloBI record found; from general ecology)
+- Water primrose -> Marsh deer (no GloBI record found; from general ecology)
+- Paspalum grasses -> Pampas deer (no GloBI record found; from general ecology)
+- Anchored waterhyacinth -> Southern screamer (no GloBI record found; from general ecology)
+- Water primrose -> Southern screamer (no GloBI record found; from general ecology)
+- Paspalum grasses -> Brazilian guinea pig (no GloBI record found; from general ecology)
+- Capybara -> Yacare caiman (no GloBI record found; from general ecology)
 

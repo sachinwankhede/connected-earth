@@ -1,6 +1,6 @@
 # Research file: Backbone State Park (iabackbone)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Iowa, USA. Coordinates 42.6147, -91.5541. Kind: Forest.
@@ -14,12 +14,12 @@ Iowa, USA. Coordinates 42.6147, -91.5541. Kind: Forest.
 
 **Current sources:** Wikipedia: Backbone State Park <https://en.wikipedia.org/wiki/Backbone_State_Park>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (18)
-virginiabluebe (mertensia virginica), sharplobedhepa (hepatica acutiloba), commonlousewor (pedicularis canadensis), hackberry (celtis occidentalis), manyfloweredro (rosa multiflora), bellwort (uvularia grandiflora), northerncardin (cardinalis cardinalis), blackcappedchi (poecile atricapillus), canadagoose (branta canadensis), easternchipmun (tamias striatus), whitetaileddee (odocoileus virginianus), americancrow (corvus brachyrhynchos), americanrobin (turdus migratorius), Turkey Vulture (cathartes aura), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (14)
+Virginia bluebells (Mertensia virginica), Sharp-lobed hepatica (Hepatica acutiloba), Common lousewort (Pedicularis canadensis), Hackberry (Celtis occidentalis), Many-flowered Rose (Rosa multiflora), Bellwort (Uvularia grandiflora), Northern Cardinal (Cardinalis cardinalis), Black-capped Chickadee (Poecile atricapillus), Canada goose (Branta canadensis), Eastern chipmunk (Tamias striatus), White-tailed deer (Odocoileus virginianus), American Crow (Corvus brachyrhynchos), American Robin (Turdus migratorius), Turkey Vulture (Cathartes aura)
 
 ## 4. Wikipedia text
 ### Backbone State Park
-Source: <https://en.wikipedia.org/wiki/Backbone_State_Park> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Backbone_State_Park> (CC BY-SA), retrieved 2026-11-14.
 
 Backbone State Park is Iowa's oldest state park, dedicated in 1920. Located in the valley of the Maquoketa River, it is approximately three miles (5 km) south of Strawberry Point in Delaware County. It is named for a narrow and steep ridge of bedrock carved by a loop of the Maquoketa River originally known as the Devil's Backbone. The initial 1,200 acres (490 ha) were donated by E.M. Carr of Lamont, Iowa. Backbone Lake Dam, a relatively low dam built by the Civilian Conservation Corps (CCC) in the 1930s, created Backbone Lake. The CCC constructed a majority of trails and buildings which make up the park.
 
@@ -49,27 +49,28 @@ Backbone State Forest is immediately adjacent to the park. It consists of 186 ac
 The Iowa Civilian Conservation Corps Museum provides exhibits about the activities of the Civilian Conservation Corps (CCC) in Iowa state parks. Backbone State Park was the site of two CCC camps, and many of the buildings and trails in the park were built by the CCC. The museum opened in 1991.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Hackberry -> Northern Cardinal | gg | Cardinalis cardinalis -> Celtis occidentalis | 0 record(s):  |
+| Many-flowered Rose -> Northern Cardinal | gg | Cardinalis cardinalis -> Rosa multiflora | 0 record(s):  |
+| Many-flowered Rose -> Black-capped Chickadee | gf | Poecile atricapillus -> Rosa multiflora | 0 record(s):  |
+| Many-flowered Rose -> Canada goose | gf | Branta canadensis -> Rosa multiflora | 0 record(s):  |
+| Sharp-lobed hepatica -> Canada goose | gf | Branta canadensis -> Hepatica acutiloba | 0 record(s):  |
+| Many-flowered Rose -> Eastern chipmunk | gf | Tamias striatus -> Rosa multiflora | 0 record(s):  |
+| Sharp-lobed hepatica -> Eastern chipmunk | gf | Tamias striatus -> Hepatica acutiloba | 0 record(s):  |
+| Many-flowered Rose -> White-tailed deer | gg | Odocoileus virginianus -> Rosa multiflora | 0 record(s):  |
+| Bellwort -> White-tailed deer | g | Odocoileus virginianus -> Uvularia grandiflora | 1 record(s): Odocoileus virginianus eats Uvularia grandiflora |
+| Sharp-lobed hepatica -> White-tailed deer | gf | Odocoileus virginianus -> Hepatica acutiloba | 0 record(s):  |
+| Hackberry -> American Crow | gg | Corvus brachyrhynchos -> Celtis occidentalis | 0 record(s):  |
+| Many-flowered Rose -> American Crow | gf | Corvus brachyrhynchos -> Rosa multiflora | 0 record(s):  |
+| Hackberry -> American Robin | g | Turdus migratorius -> Celtis occidentalis | 0 record(s):  |
+| Many-flowered Rose -> American Robin | g | Turdus migratorius -> Rosa multiflora | 1 record(s): Turdus migratorius eats Rosa multiflora |
+| Canada goose -> Turkey Vulture | g | Cathartes aura -> Branta canadensis | 1 record(s): Cathartes aura eats Branta canadensis |
+| Eastern chipmunk -> Turkey Vulture | g | Cathartes aura -> Tamias striatus | 1 record(s): Cathartes aura eats Tamias striatus |
+| White-tailed deer -> Turkey Vulture | g | Cathartes aura -> Odocoileus virginianus | 3 record(s): Cathartes aura septentrionalis eats Odocoileus virginianus; Cathartes aura eats Odocoileus virginianus; Cathartes aura preysOn Odocoileus virginianus |
 
 ### Links with no GloBI record (be careful with these)
-- hackberry -> northerncardin (no evidence entry)
-- manyfloweredro -> northerncardin (no evidence entry)
-- manyfloweredro -> blackcappedchi (no evidence entry)
-- manyfloweredro -> canadagoose (no evidence entry)
-- sharplobedhepa -> canadagoose (no evidence entry)
-- manyfloweredro -> easternchipmun (no evidence entry)
-- sharplobedhepa -> easternchipmun (no evidence entry)
-- manyfloweredro -> whitetaileddee (no evidence entry)
-- bellwort -> whitetaileddee (no evidence entry)
-- sharplobedhepa -> whitetaileddee (no evidence entry)
-- hackberry -> americancrow (no evidence entry)
-- manyfloweredro -> americancrow (no evidence entry)
-- hackberry -> americanrobin (no evidence entry)
-- manyfloweredro -> americanrobin (no evidence entry)
-- canadagoose -> Turkey Vulture (no evidence entry)
-- easternchipmun -> Turkey Vulture (no evidence entry)
-- whitetaileddee -> Turkey Vulture (no evidence entry)
+(none)
 

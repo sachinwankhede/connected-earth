@@ -1,6 +1,6 @@
 # Research file: Wahiawa Freshwater State Recreation Area (hiwahiawafreshwate)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 21.4924, -158.0223. Kind: Forest.
@@ -14,48 +14,49 @@ Hawaii, USA. Coordinates 21.4924, -158.0223. Kind: Forest.
 
 **Current sources:** Wikipedia: Wahiawa Freshwater State Recreation Area <https://en.wikipedia.org/wiki/Wahiawa_Freshwater_State_Recreation_Area>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (20)
-dahoon (ilex cassine), oceanbluemorni (ipomoea indica), malaysiancinna (cinnamomum burmanni), fencemorninggl (ipomoea ochracea), ribwortplantai (plantago lanceolata), wildpassionfru (passiflora suberosa), zebradove (geopelia striata), spotteddove (spilopelia chinensis), gulffritillary (dione vanillae), feralpig (sus scrofa), housemouse (mus musculus), commonmyna (acridotheres tristis), redventedbulbu (pycnonotus cafer), japanesewhitee (zosterops japonicus), whiterumpedsha (copsychus malabaricus), greenanole (anolis carolinensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (16)
+Dahoon (Ilex cassine), Oceanblue Morningglory (Ipomoea indica), Malaysian Cinnamon (Cinnamomum burmanni), Fence morning-glory (Ipomoea ochracea), Ribwort Plantain (Plantago lanceolata), Wild passion fruit (Passiflora suberosa), Zebra Dove (Geopelia striata), Spotted Dove (Spilopelia chinensis), Gulf Fritillary (Dione vanillae), Wild boar (Sus scrofa), House mouse (Mus musculus), Common Myna (Acridotheres tristis), Red-vented bulbul (Pycnonotus cafer), Japanese white-eye (Zosterops japonicus), White-rumped Shama (Copsychus malabaricus), Green anole (Anolis carolinensis)
 
 ## 4. Wikipedia text
 ### Wahiawa Freshwater State Recreation Area
-Source: <https://en.wikipedia.org/wiki/Wahiawa_Freshwater_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Wahiawa_Freshwater_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-14.
 
 (not retrieved)
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Wild passion fruit -> Zebra Dove | g | Geopelia striata -> Passiflora suberosa | 1 record(s): Geopelia striata eats Passiflora suberosa |
+| Dahoon -> Spotted Dove | gg | Spilopelia chinensis -> Ilex cassine | 0 record(s):  |
+| Wild passion fruit -> Spotted Dove | g | Spilopelia chinensis -> Passiflora suberosa | 1 record(s): Spilopelia chinensis eats Passiflora suberosa |
+| Malaysian Cinnamon -> Spotted Dove | gg | Spilopelia chinensis -> Cinnamomum burmanni | 0 record(s):  |
+| Oceanblue Morningglory -> Spotted Dove | gg | Spilopelia chinensis -> Ipomoea indica | 0 record(s):  |
+| Fence morning-glory -> Spotted Dove | gg | Spilopelia chinensis -> Ipomoea ochracea | 0 record(s):  |
+| Ribwort Plantain -> Spotted Dove | gg | Spilopelia chinensis -> Plantago lanceolata | 0 record(s):  |
+| Dahoon -> Wild boar | gg | Sus scrofa -> Ilex cassine | 0 record(s):  |
+| Malaysian Cinnamon -> Wild boar | gf | Sus scrofa -> Cinnamomum burmanni | 0 record(s):  |
+| Oceanblue Morningglory -> Wild boar | gg | Sus scrofa -> Ipomoea indica | 0 record(s):  |
+| Fence morning-glory -> Wild boar | gg | Sus scrofa -> Ipomoea ochracea | 0 record(s):  |
+| Ribwort Plantain -> Wild boar | gg | Sus scrofa -> Plantago lanceolata | 0 record(s):  |
+| Wild passion fruit -> Gulf Fritillary | g | Dione vanillae -> Passiflora suberosa | 3 record(s): Dione vanillae eats Passiflora suberosa; Agraulis vanillae eats Passiflora suberosa; Dione vanillae eats Passiflora viridiflora |
+| Ribwort Plantain -> Gulf Fritillary | gf | Dione vanillae -> Plantago lanceolata | 0 record(s):  |
+| Oceanblue Morningglory -> House mouse | gf | Mus musculus -> Ipomoea indica | 0 record(s):  |
+| Fence morning-glory -> House mouse | gf | Mus musculus -> Ipomoea ochracea | 0 record(s):  |
+| Dahoon -> Common Myna | gg | Acridotheres tristis -> Ilex cassine | 0 record(s):  |
+| Malaysian Cinnamon -> Common Myna | gg | Acridotheres tristis -> Cinnamomum burmanni | 0 record(s):  |
+| Dahoon -> Red-vented bulbul | gg | Pycnonotus cafer -> Ilex cassine | 0 record(s):  |
+| Wild passion fruit -> Red-vented bulbul | g | Pycnonotus cafer -> Passiflora suberosa | 1 record(s): Pycnonotus cafer eats Passiflora suberosa |
+| Malaysian Cinnamon -> Red-vented bulbul | gg | Pycnonotus cafer -> Cinnamomum burmanni | 0 record(s):  |
+| Dahoon -> Japanese white-eye | gg | Zosterops japonicus -> Ilex cassine | 0 record(s):  |
+| Wild passion fruit -> Japanese white-eye | g | Zosterops japonicus -> Passiflora suberosa | 1 record(s): Zosterops japonicus eats Passiflora suberosa |
+| Malaysian Cinnamon -> Japanese white-eye | gg | Zosterops japonicus -> Cinnamomum burmanni | 0 record(s):  |
+| Dahoon -> White-rumped Shama | gg | Copsychus malabaricus -> Ilex cassine | 0 record(s):  |
+| Wild passion fruit -> White-rumped Shama | g | Copsychus malabaricus -> Passiflora suberosa | 1 record(s): Copsychus malabaricus eats Passiflora suberosa |
+| Malaysian Cinnamon -> White-rumped Shama | gg | Copsychus malabaricus -> Cinnamomum burmanni | 0 record(s):  |
+| Gulf Fritillary -> Green anole | g | Anolis carolinensis -> Dione vanillae | 1 record(s): Anolis carolinensis preysOn Dione vanillae |
 
 ### Links with no GloBI record (be careful with these)
-- wildpassionfru -> zebradove (no evidence entry)
-- dahoon -> spotteddove (no evidence entry)
-- wildpassionfru -> spotteddove (no evidence entry)
-- malaysiancinna -> spotteddove (no evidence entry)
-- oceanbluemorni -> spotteddove (no evidence entry)
-- fencemorninggl -> spotteddove (no evidence entry)
-- ribwortplantai -> spotteddove (no evidence entry)
-- dahoon -> feralpig (no evidence entry)
-- malaysiancinna -> feralpig (no evidence entry)
-- oceanbluemorni -> feralpig (no evidence entry)
-- fencemorninggl -> feralpig (no evidence entry)
-- ribwortplantai -> feralpig (no evidence entry)
-- wildpassionfru -> gulffritillary (no evidence entry)
-- ribwortplantai -> gulffritillary (no evidence entry)
-- oceanbluemorni -> housemouse (no evidence entry)
-- fencemorninggl -> housemouse (no evidence entry)
-- dahoon -> commonmyna (no evidence entry)
-- malaysiancinna -> commonmyna (no evidence entry)
-- dahoon -> redventedbulbu (no evidence entry)
-- wildpassionfru -> redventedbulbu (no evidence entry)
-- malaysiancinna -> redventedbulbu (no evidence entry)
-- dahoon -> japanesewhitee (no evidence entry)
-- wildpassionfru -> japanesewhitee (no evidence entry)
-- malaysiancinna -> japanesewhitee (no evidence entry)
-- dahoon -> whiterumpedsha (no evidence entry)
-- wildpassionfru -> whiterumpedsha (no evidence entry)
-- malaysiancinna -> whiterumpedsha (no evidence entry)
-- gulffritillary -> greenanole (no evidence entry)
+(none)
 

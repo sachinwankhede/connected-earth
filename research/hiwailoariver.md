@@ -1,6 +1,6 @@
 # Research file: Wailoa River State Recreation Area (hiwailoariver)
 
-Retrieved 2026-11-13. Each section names its source. Nothing here is verified beyond what the source says.
+Retrieved 2026-11-14. Each section names its source. Nothing here is verified beyond what the source says.
 
 ## 1. Where the place is
 Hawaii, USA. Coordinates 19.7195, -155.0744. Kind: Lakes & wetlands.
@@ -14,12 +14,12 @@ Hawaii, USA. Coordinates 19.7195, -155.0744. Kind: Lakes & wetlands.
 
 **Current sources:** Wikipedia: Wailoa River State Recreation Area <https://en.wikipedia.org/wiki/Wailoa_River_State_Recreation_Area>; GBIF: species occurrence records <https://www.gbif.org/>; GloBI: Global Biotic Interactions <https://www.globalbioticinteractions.org/>
 
-## 3. Species in the app (18)
-australianpine (casuarina equisetifolia), indiaalmond (terminalia catappa), chinesebanyan (ficus microcarpa), thomasbirdseye (ochna thomasiana), pengua (macaranga mappa), bittergourd (momordica charantia), zebradove (geopelia striata), housesparrow (passer domesticus), spotteddove (spilopelia chinensis), feralpig (sus scrofa), commonmyna (acridotheres tristis), saffronfinch (sicalis flaveola), cat (felis catus), greenanole (anolis carolinensis), sun (sunlight), rain (rainfall), soil (soil and nutrients), decomp (decomposer community)
+## 3. Species in the app (14)
+Australian pine tree (Casuarina equisetifolia), India Almond (Terminalia catappa), Chinese Banyan (Ficus microcarpa), Thomas' Bird's-Eye Bush (Ochna thomasiana), Pengua (Macaranga mappa), Bitter gourd (Momordica charantia), Zebra Dove (Geopelia striata), House Sparrow (Passer domesticus), Spotted Dove (Spilopelia chinensis), Wild boar (Sus scrofa), Common Myna (Acridotheres tristis), Saffron Finch (Sicalis flaveola), Feral cat (Felis catus), Green anole (Anolis carolinensis)
 
 ## 4. Wikipedia text
 ### Wailoa River State Recreation Area
-Source: <https://en.wikipedia.org/wiki/Wailoa_River_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-13.
+Source: <https://en.wikipedia.org/wiki/Wailoa_River_State_Recreation_Area> (CC BY-SA), retrieved 2026-11-14.
 
 The Wailoa River State Recreation Area, also known as Wailoa River State Park, is a park in Hilo, on Hawaiʻi Island in the US state of Hawaii. It was developed as a buffer zone following the devastating 1960 tsunami that wiped out the central bayfront district of Hilo.
 
@@ -50,33 +50,34 @@ The Hawaiʻi County Board of Supervisors formed the Hawaii Redevelopment Agency 
 Plans for Project Kaikoʻo were approved in March 1961; most businesses agreed to move to public lands zoned for light industrial uses near the airport, but residents were more stubborn and refused relocation. In some cases, land had to be condemned and the property seized. 600,000 yd3 (460,000 m3) of volcanic fill were used to create the new commercial center plateau, and the project received a strong endorsement in 1963 when the County decided to build its new center on the elevated site.
 
 ## 5. Feeding links and what GloBI records say
-Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-13. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
+Source: GloBI <https://www.globalbioticinteractions.org>, retrieved 2026-11-14. Codes: g = recorded for these species, gg = genus, gf = family, ga = added from a record.
 
 | Link | Code | Query | Records found |
 |---|---|---|---|
+| Pengua -> Zebra Dove | g | Geopelia striata -> Macaranga mappa | 1 record(s): Geopelia striata eats Macaranga mappa |
+| Bitter gourd -> Zebra Dove | g | Geopelia striata -> Momordica charantia | 1 record(s): Geopelia striata eats Momordica charantia |
+| Chinese Banyan -> House Sparrow | gf | Passer domesticus -> Ficus microcarpa | 0 record(s):  |
+| Pengua -> House Sparrow | gf | Passer domesticus -> Macaranga mappa | 0 record(s):  |
+| Bitter gourd -> House Sparrow | gf | Passer domesticus -> Momordica charantia | 0 record(s):  |
+| Chinese Banyan -> Spotted Dove | g | Spilopelia chinensis -> Ficus microcarpa | 1 record(s): Spilopelia chinensis eats Ficus microcarpa |
+| Thomas' Bird's-Eye Bush -> Spotted Dove | gg | Spilopelia chinensis -> Ochna thomasiana | 0 record(s):  |
+| Pengua -> Spotted Dove | g | Spilopelia chinensis -> Macaranga mappa | 1 record(s): Spilopelia chinensis eats Macaranga mappa |
+| Bitter gourd -> Spotted Dove | gg | Spilopelia chinensis -> Momordica charantia | 0 record(s):  |
+| Australian pine tree -> Spotted Dove | gg | Spilopelia chinensis -> Casuarina equisetifolia | 0 record(s):  |
+| Chinese Banyan -> Wild boar | gg | Sus scrofa -> Ficus microcarpa | 0 record(s):  |
+| Pengua -> Wild boar | gf | Sus scrofa -> Macaranga mappa | 0 record(s):  |
+| Bitter gourd -> Wild boar | gf | Sus scrofa -> Momordica charantia | 0 record(s):  |
+| India Almond -> Wild boar | gg | Sus scrofa -> Terminalia catappa | 0 record(s):  |
+| Chinese Banyan -> Common Myna | g | Acridotheres tristis -> Ficus microcarpa | 1 record(s): Acridotheres tristis eats Ficus microcarpa |
+| Thomas' Bird's-Eye Bush -> Common Myna | gg | Acridotheres tristis -> Ochna thomasiana | 0 record(s):  |
+| Bitter gourd -> Common Myna | gf | Acridotheres tristis -> Momordica charantia | 0 record(s):  |
+| Chinese Banyan -> Saffron Finch | gg | Sicalis flaveola -> Ficus microcarpa | 1 record(s): Sicalis flaveola eats Ficus benjamina |
+| Pengua -> Saffron Finch | gf | Sicalis flaveola -> Macaranga mappa | 0 record(s):  |
+| Pengua -> Green anole | gf | Anolis carolinensis -> Macaranga mappa | 0 record(s):  |
+| House Sparrow -> Feral cat | g | Felis catus -> Passer domesticus | 4 record(s): Felis catus preysOn Passer domesticus; Felis catus preysOn Passer domesticus domesticus; Felis catus eats Passer domesticus |
+| Spotted Dove -> Feral cat | g | Felis catus -> Spilopelia chinensis | 2 record(s): Felis catus eats Spilopelia chinensis; Felis catus preysOn Spilopelia chinensis |
+| Wild boar -> Feral cat | g | Felis catus -> Sus scrofa | 1 record(s): Felis catus preysOn Sus scrofa |
 
 ### Links with no GloBI record (be careful with these)
-- pengua -> zebradove (no evidence entry)
-- bittergourd -> zebradove (no evidence entry)
-- chinesebanyan -> housesparrow (no evidence entry)
-- pengua -> housesparrow (no evidence entry)
-- bittergourd -> housesparrow (no evidence entry)
-- chinesebanyan -> spotteddove (no evidence entry)
-- thomasbirdseye -> spotteddove (no evidence entry)
-- pengua -> spotteddove (no evidence entry)
-- bittergourd -> spotteddove (no evidence entry)
-- australianpine -> spotteddove (no evidence entry)
-- chinesebanyan -> feralpig (no evidence entry)
-- pengua -> feralpig (no evidence entry)
-- bittergourd -> feralpig (no evidence entry)
-- indiaalmond -> feralpig (no evidence entry)
-- chinesebanyan -> commonmyna (no evidence entry)
-- thomasbirdseye -> commonmyna (no evidence entry)
-- bittergourd -> commonmyna (no evidence entry)
-- chinesebanyan -> saffronfinch (no evidence entry)
-- pengua -> saffronfinch (no evidence entry)
-- pengua -> greenanole (no evidence entry)
-- housesparrow -> cat (no evidence entry)
-- spotteddove -> cat (no evidence entry)
-- feralpig -> cat (no evidence entry)
+(none)
 
