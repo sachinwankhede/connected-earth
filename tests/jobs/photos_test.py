@@ -71,6 +71,30 @@ class RightPageTests(unittest.TestCase):
         self.assertEqual(pr.failure_class('wrongpage'), 'permanent')
 
 
+class PruneLargeTests(unittest.TestCase):
+    def setUp(self):
+        self.base = tempfile.mkdtemp(); self.out = os.path.join(self.base, 'places'); os.makedirs(self.out); os.makedirs(os.path.join(self.base, 'places-lg'))
+        for n in ('keep.webp', 'gone.webp', 'renamed.webp'): open(os.path.join(self.base, 'places-lg', n), 'wb').write(b'x')
+        import json
+        json.dump({'Keep': 'keep.webp', 'Gone': 'gone.webp', 'Renamed': 'renamed.webp'}, open(os.path.join(self.base, 'places_large.json'), 'w'))
+        self.man = {'Keep': {'f': 'keep.jpg'}, 'Renamed': {'f': 'other.jpg'}}
+
+    def test_a_copy_whose_picture_was_removed_or_renamed_goes_with_its_list_entry(self):
+        import json
+        self.assertEqual(sorted(p.prune_large(self.out, self.man)), ['Gone', 'Renamed'])
+        self.assertEqual(json.load(open(os.path.join(self.base, 'places_large.json'))), {'Keep': 'keep.webp'})
+        self.assertEqual(sorted(os.listdir(os.path.join(self.base, 'places-lg'))), ['keep.webp'])
+
+    def test_it_changes_nothing_when_pictures_and_copies_agree(self):
+        self.man['Gone'] = {'f': 'gone.jpg'}; self.man['Renamed'] = {'f': 'renamed.jpg'}
+        self.assertEqual(p.prune_large(self.out, self.man), [])
+        self.assertEqual(len(os.listdir(os.path.join(self.base, 'places-lg'))), 3)
+
+    def test_no_list_yet_is_fine(self):
+        os.remove(os.path.join(self.base, 'places_large.json'))
+        self.assertEqual(p.prune_large(self.out, self.man), [])
+
+
 class UserAgentTests(unittest.TestCase):
     def test_no_job_sends_a_username_or_email_in_its_user_agent(self):
         import glob, re

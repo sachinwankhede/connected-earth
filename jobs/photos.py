@@ -58,6 +58,20 @@ def fetch(i,title,out,man,key,where=''):
     now=datetime.datetime.now(datetime.timezone.utc).isoformat()
     man[key]=dict(f=i+'.jpg',a=v('Artist') or v('Credit') or 'Unknown author',l=v('LicenseShortName') or 'See file page',lu=v('LicenseUrl'),p='https://commons.wikimedia.org/wiki/File:'+urllib.parse.quote(fn.replace(' ','_')),w='https://en.wikipedia.org/wiki/'+urllib.parse.quote(j.get('title',title).replace(' ','_')),checkedAt=now,fetchedAt=now)
     return 'ok'
+def prune_large(out,man):
+    """Drop every larger copy (photos/places-lg/, listed in photos/places_large.json) whose small picture is no longer stored under the same name.
+    The job that removes or replaces a place picture owns its larger copy too (ground rule 10, #727): the list and the files must agree, so a removed picture
+    cannot leave a copy behind that the data check then fails on. Idempotent; the copy is made again by data-largeplacephotos if the picture comes back."""
+    base=os.path.dirname(os.path.normpath(out)); lp=os.path.join(base,'places_large.json'); ld=os.path.join(base,'places-lg')
+    if not os.path.exists(lp): return []
+    large=json.load(open(lp)); gone=[t for t,n in large.items() if t not in man or os.path.splitext(man[t].get('f',''))[0]+'.webp'!=n]
+    for t in gone:
+        try: os.remove(os.path.join(ld,large[t]))
+        except OSError: pass
+        del large[t]; print('removed larger copy of',t,flush=True)
+    if gone:
+        tmp=lp+'.tmp'; json.dump(large,open(tmp,'w'),indent=0,sort_keys=True); os.replace(tmp,lp)
+    return gone
 if __name__=='__main__':
     out=sys.argv[1]; os.makedirs(out,exist_ok=True); mp=os.path.join(out,'places.json')
     man=json.load(open(mp)) if os.path.exists(mp) else {}
@@ -88,4 +102,5 @@ if __name__=='__main__':
             json.dump(man,open(mp,'w'),ensure_ascii=False,indent=0)
             if r!='ok': print(t,r,flush=True)
     print('done',len(man),'photos;',len(miss),'places with no usable photo; tried',tried,'this run; problems:',sum(1 for r in stat.values() if r not in ('ok','nophoto','notcommons','notphoto')))
+    prune_large(out,man)   # after every change above, so the larger copies follow the pictures
     open(os.path.join(out,'.tried'),'w').write(str(tried))
