@@ -29,6 +29,15 @@ class DataFormat(unittest.TestCase):
             self.assertIn('species-lg/orphan.webp is not listed', text); self.assertNotIn('is missing', text)
             os.remove(os.path.join(r, 'photos/species-lg/f.webp')); errs, _ = check(r)
             self.assertIn('file f.webp is missing', ' | '.join(errs))
+    def test_larger_place_pictures_and_their_list_must_match_exactly(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'photos/places/places.json', {'Park': {'f': 'park.jpg'}}); put(r, 'photos/places_large.json', {'Park': 'park.webp'}); put(r, 'photos/places-lg/park.webp', b'x')
+            self.assertEqual([e for e in check(r)[0] if 'larger place' in e or 'places-lg' in e], [])
+            put(r, 'photos/places-lg/stray.webp', b'x'); self.assertTrue([e for e in check(r)[0] if 'stray.webp is not listed' in e])
+            os.remove(os.path.join(r, 'photos/places-lg/stray.webp')); os.remove(os.path.join(r, 'photos/places-lg/park.webp'))
+            self.assertTrue([e for e in check(r)[0] if 'park.webp is missing' in e])
+            put(r, 'photos/places-lg/park.webp', b'x'); put(r, 'photos/places_large.json', {'Park': 'other.webp'}); put(r, 'photos/places-lg/other.webp', b'x')
+            self.assertTrue([e for e in check(r)[0] if 'no stored place picture of the same name' in e])
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})
