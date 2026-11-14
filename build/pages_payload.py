@@ -112,6 +112,12 @@ def main(mode='all'):
         if not source.is_file():
             raise SystemExit('larger species picture missing: photos/species-lg/' + name)
         copy_file(source, 'photos/species-lg/' + name, expected)
+    place_large = json.loads((ROOT / 'photos/places_large.json').read_text()) if (ROOT / 'photos/places_large.json').exists() else {}   # larger copies of the place pictures (#727)
+    for name in sorted(set(place_large.values())):
+        source = ROOT / 'photos/places-lg' / name
+        if not source.is_file():
+            raise SystemExit('larger place picture missing: photos/places-lg/' + name)
+        copy_file(source, 'photos/places-lg/' + name, expected)
     place_photos = json.loads((ROOT / 'photos/places/places.json').read_text())
     for record in place_photos.values():
         path = place_image_path(record['f'])

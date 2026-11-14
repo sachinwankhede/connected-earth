@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
@@ -79,6 +81,28 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     r = await p.evaluate(() => { const v = document.getElementById('pview'); return { why: !!v.querySelector('.jwhy'), story: /The story\./.test(v.textContent) }; });
     assert.ok(!r.why && !r.story, 'no empty story sections');
     assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: a place with a picture shows the larger copy full width above the name; if it cannot load, the small picture stays (#727)`, async () => {
+    const man = JSON.parse(fs.readFileSync(path.join(H.FBUILD, 'photos', 'places', 'places.json'), 'utf8'));
+    const place = H.readFixturePlaces(false).find((e) => man[e.imgwiki]); assert.ok(place, 'the fixture has a place with a picture');
+    const lgDir = path.join(H.FBUILD, 'photos', 'species-lg'), stand = fs.readFileSync(path.join(lgDir, fs.readdirSync(lgDir)[0]));   // a stand-in 400 px WebP: the test does not depend on which larger copies the real data has yet
+    for (const served of [true, false]) {
+      const { b, p, errors } = await start();
+      await p.route(/\/photos\/places-lg\//, (rt) => served ? rt.fulfill({ status: 200, contentType: 'image/webp', body: stand }) : rt.abort());
+      await p.evaluate((i) => window.__M.showPlace(i), place.id);
+      await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview #pp-main img'), null, { timeout: 60000 });
+      if (served) {
+        await p.waitForFunction(() => { const i = document.querySelector('#pview .jphoto'); return i && i.complete && i.naturalWidth > 0 && document.querySelector('#pview article').classList.contains('bigphoto'); }, null, { timeout: 30000 });
+        const d = await p.evaluate(() => { const i = document.querySelector('#pview .jphoto'), r = i.getBoundingClientRect(), h2 = document.querySelector('#pview h2').getBoundingClientRect(); return { src: i.src, w: r.width, h: r.height, fit: getComputedStyle(i).objectFit, small: getComputedStyle(document.querySelector('#pview #pp-main')).display, above: r.bottom <= h2.top + 1, credit: !!document.querySelector('#pview #pcredit') }; });
+        assert.match(d.src, /photos\/places-lg\/.+\.webp$/); assert.ok(d.w > 200 && d.h > 100 && d.h <= 322, 'a wide photo: ' + d.w + 'x' + d.h); assert.equal(d.fit, 'contain'); assert.equal(d.small, 'none', 'the small picture is hidden'); assert.ok(d.above, 'above the name'); assert.ok(d.credit, 'the credit stays in Sources & credits');
+      } else {
+        await H.pause(p, 1500);
+        const d = await p.evaluate(() => ({ big: !!document.querySelector('#pview .jphoto'), cls: document.querySelector('#pview article').classList.contains('bigphoto'), small: getComputedStyle(document.querySelector('#pview #pp-main')).display, img: !!document.querySelector('#pview #pp-main img') }));
+        assert.deepEqual(d, { big: false, cls: false, small: d.small, img: true }); assert.notEqual(d.small, 'none', 'the small picture stays');
+      }
+      assert.deepEqual(errors.filter((e) => !/places-lg/.test(e)), []); await b.close();
+    }
   });
 
   test(`${name}: every place gets a page that fits the screen`, async () => {

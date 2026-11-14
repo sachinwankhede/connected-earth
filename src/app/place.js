@@ -127,6 +127,14 @@
     if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
     var ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki], l = [];
     if (ph && m && m.querySelector("img")) l.push(creditHTML(ph));
+    if (ph && ph.src && m && m.querySelector("img")) {   /* the larger copy (400 px WebP, photos/places-lg/): a wide photo above the name instead of the small one, as on the species page (#727); the small one stays if it does not load */
+      var art = PV.querySelector("article.jp"), lg = ph.src.replace("/photos/places/", "/photos/places-lg/").replace(/\.[A-Za-z0-9]+$/, ".webp");
+      if (art && lg !== ph.src && !art.querySelector(".jphoto")) {
+        var big = document.createElement("img"); big.className = "jphoto"; big.alt = ""; big.referrerPolicy = "no-referrer";
+        big.onload = function () { art.classList.add("bigphoto"); }; big.onerror = function () { big.remove(); }; big.src = lg;
+        art.insertBefore(big, art.querySelector(".jhero"));
+      }
+    }
     l.push("Species photos: Wikipedia");
     fillPhotos("pcredit", l);
   }
