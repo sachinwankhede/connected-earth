@@ -1042,7 +1042,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 .me { width: 16px; height: 16px; border-radius: 50%; background: #2a7fff; border: 3px solid #fff; box-shadow: 0 0 0 4px rgba(42,127,255,.28); }
 .jp .tax { margin: 4px 0 0; }
 .jp .tax a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 6px 0; display: inline-block; }
-.jp .jphoto { display: block; width: 100%; height: auto; max-height: 320px; object-fit: contain; border-radius: 14px; margin: 0 0 12px; background: var(--grid); }
+/* the hero picture is one fixed frame (3:2, at most 320px tall) on every place and species page, so the sizes do not change from page to page (owner, 14 Nov, #727). A place picture fills it (cropped, centred); a species picture is shown whole inside it (.jwhole), so an animal's head is never cut off (#485) */
+.jp .jphoto { display: block; width: 100%; aspect-ratio: 3 / 2; max-height: 320px; object-fit: cover; border-radius: 14px; margin: 0 0 12px; background: var(--grid); }
+.jp .jphoto.jwhole { object-fit: contain; }
 .jp.bigphoto .jhimg { display: none; }
 
 /* one result row on every tab (#483): picture 52px, title, one muted line, chevron. Places, Species and Journeys look the same; the kind line is plain text, not capitals (#481) */
