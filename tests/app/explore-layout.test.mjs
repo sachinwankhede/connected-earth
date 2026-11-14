@@ -1,8 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
-const places = new Map(H.readPlaces(false).map((place) => [place.id, place]));
+const places = new Map(H.readFixturePlaces(false).map((place) => [place.id, place]));
 function assertEquivalentLayout(actual, expected, message) {
   assert.deepEqual(actual.map(([id, label]) => [id, label]), expected.map(([id, label]) => [id, label]), message);
   actual.forEach(([id, , x, y], i) => {
@@ -13,7 +14,7 @@ function assertEquivalentLayout(actual, expected, message) {
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: Explore reuses only matching settled layouts`, async () => {
     const browser = await H.launch();
-    const t = await H.open(browser, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(browser, H.FMAIN, size, { hash: '#stub' });
     const p = t.page;
     await p.route('**/photos/species.json', (route) => route.fulfill({ contentType: 'application/json', body: '{}' }));
     await p.route(/\/api\/[\w-]+\.json(?:\?|$)/, async (route) => {   // no pictures: a place also carries its own picture entries now
