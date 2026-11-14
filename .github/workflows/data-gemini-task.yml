@@ -1,0 +1,57 @@
+# Manual only (#779 step a, #747). The generic runner for the Gemini pipeline: `task` picks what to draft (jobs/ai_task.py; stories is the first task, journey months come later).
+# Same safety as data-gemini-stories: `limit` items per run (0 = every item left, at most 150), one request every 15 s through lib/llm.py and its model chain, a clean stop when every model is out of quota,
+# every draft written the moment it is checked, and the "Save the drafts" step runs even after a stop or a failure, committing to the branch `gemini-<task>`; the next run resumes. No place file is changed and no pull request is opened.
+# GEMINI_API_KEY goes to the one step that calls the API (never the whole job). Runs from main only. data-gemini-stories stays until this one has done a batch (then it is removed in its own pull request).
+on:
+  workflow_dispatch:
+    inputs:
+      task: { description: "What to draft (jobs/ai_task.py TASKS)", type: choice, options: [stories], default: stories }
+      limit: { description: "Items to draft in this run (the first run: 15; 0 = every item left, at most 150)", default: "15" }
+      model: { description: "Models in the order to try, comma separated; when one is out of quota or stays busy the next takes over. Free-tier requests a day: gemini-3.5-flash-lite 500, gemini-3.1-flash-lite 500, gemini-3.8-flash 20", default: "gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.8-flash" }
+      again: { description: "yes = also ask again for items whose draft the checks rejected", default: "no" }
+permissions:
+  contents: write
+concurrency: data-gemini
+jobs:
+  task:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      TASK: ${{ github.event.inputs.task || 'stories' }}
+      LIMIT: ${{ github.event.inputs.limit || '15' }}
+      AGAIN: ${{ github.event.inputs.again || 'no' }}
+      GEMINI_MODEL: ${{ github.event.inputs.model || 'gemini-3.5-flash-lite,gemini-3.1-flash-lite,gemini-3.8-flash' }}
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main, persist-credentials: false }
+      - uses: actions/checkout@v5
+        with: { ref: research, path: research-src, persist-credentials: false }
+      - name: Open the drafts branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          REMOTE="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          if git ls-remote --exit-code --heads "$REMOTE" gemini-${TASK} >/dev/null 2>&1; then
+            git fetch --depth 1 "$REMOTE" gemini-${TASK}
+            git worktree add --detach drafts-out FETCH_HEAD
+          else
+            git worktree add --detach drafts-out
+            (cd drafts-out && git checkout -q --orphan gemini-${TASK} && git rm -rfq . && echo "# Gemini ${TASK} drafts. REVIEW.md lists every draft." > README.md)
+          fi
+      - name: Draft (capped, resumable)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python3 jobs/ai_task.py "$TASK" research-src drafts-out "$LIMIT" $([ "$AGAIN" = "yes" ] && echo --again)
+      - name: Save the drafts (also after a stop or a failure)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd drafts-out
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing new to save"; exit 0; fi
+          git commit -q -m "${TASK} drafts: $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:refs/heads/gemini-${TASK}
+          { echo "### ${TASK} drafts"; echo; echo "Branch \`gemini-${TASK}\`, file REVIEW.md. $(ls *.json 2>/dev/null | wc -l) accepted, $(ls rejected/*.json 2>/dev/null | wc -l) rejected so far."; } >> "$GITHUB_STEP_SUMMARY"

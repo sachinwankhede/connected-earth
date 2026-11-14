@@ -246,4 +246,53 @@ class LlmInterfaceTests(unittest.TestCase):
         self.assertEqual(llm.complete(f, c, None, 't', {}, 'k'), {'error': 'no model left'}); self.assertTrue(c.exhausted)
 
 
+class AiTaskRunnerTests(unittest.TestCase):
+    """jobs/ai_task.py (#779 step a), the generic runner. Kept in this file because it is already listed in ci.yml (owner-merged)."""
+    def setUp(self):
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
+        import ai_task, llm
+        self.t, self.llm = ai_task, llm; self.out = tempfile.mkdtemp()
+        class Toy(ai_task.Task):
+            name = 'toy'; prompt_version = 'toy-1'
+            def items(s, i, o, again): return [ai_task.Item(x, x.upper(), 'ask ' + x, 'src ' + x) for x in ('a', 'b', 'c', 'd') if not os.path.exists(os.path.join(o, x + '.json')) and (again or not os.path.exists(os.path.join(o, 'rejected', x + '.json')))]
+            def check(s, ans, src): return 'too long' if len(ans.get('v', '')) > 3 else None
+            def review(s, o): s.reviewed = True
+        self.Toy = Toy
+    def run_task(self, script, limit=0, again=False, models='m1,m2'):
+        f = LlmInterfaceTests.Fake(script); f.models = ('m1', 'm2'); task = self.Toy(); lines = []
+        n = self.t.run(task, 'in', self.out, limit, again, self.llm.Chain(models, f.models), 'k', provider=f, gap=0, log=lines.append, sleep=lambda s: None)
+        return n, f, task, lines
+    ok = staticmethod(lambda v: {'answer': {'v': v}, 'tokens': {'promptTokenCount': 5, 'candidatesTokenCount': 2}})
+
+    def test_accepted_and_rejected_drafts_are_written_with_the_run_fields_and_counted(self):
+        n, f, task, lines = self.run_task([self.ok('ab '), self.ok('toolong')], limit=2)
+        self.assertEqual((n['accepted'], n['rejected'], n['tokens_in'], n['tokens_out']), (1, 1, 10, 4)); self.assertTrue(task.reviewed)
+        a = json.load(open(os.path.join(self.out, 'a.json'))); self.assertEqual((a['v'], a['id'], a['name'], a['model'], a['prompt']), ('ab', 'a', 'A', 'm1', 'toy-1'))
+        r = json.load(open(os.path.join(self.out, 'rejected', 'b.json'))); self.assertEqual(r['rejected'], 'too long')
+
+    def test_the_next_run_resumes_and_again_asks_rejected_items_once_more(self):
+        self.run_task([self.ok('ab'), self.ok('toolong')], limit=2)
+        n, f, task, lines = self.run_task([self.ok('c1'), self.ok('d1')]); self.assertEqual((n['accepted'], f.seen), (2, ['m1', 'm1']))   # a is done, b was rejected: c and d only
+        n, f, task, lines = self.run_task([self.ok('b1')], again=True); self.assertEqual((n['accepted'], f.seen), (1, ['m1']))
+
+    def test_a_model_out_of_quota_hands_over_and_all_out_stops_cleanly_keeping_what_was_written(self):
+        q = self.llm.QuotaStop('daily')
+        n, f, task, lines = self.run_task([self.ok('x1'), q, self.ok('y1'), q])
+        self.assertEqual((n['accepted'], n['stopped'], f.seen), (2, True, ['m1', 'm1', 'm2', 'm2'])); self.assertTrue(any('STOP: every model is out' in l for l in lines))
+        self.assertTrue(os.path.exists(os.path.join(self.out, 'a.json')) and os.path.exists(os.path.join(self.out, 'b.json')))
+
+    def test_a_busy_item_is_skipped_and_the_limit_is_respected(self):
+        n, f, task, lines = self.run_task([self.llm.Overloaded('HTTP 503'), self.ok('ok')], limit=2)
+        self.assertEqual((n['skipped'], n['accepted']), (1, 1)); self.assertFalse(os.path.exists(os.path.join(self.out, 'a.json')))
+
+    def test_the_stories_task_lists_places_like_the_job_and_builds_its_prompt_from_the_research(self):
+        d = tempfile.mkdtemp(); res = os.path.join(d, 'research'); os.makedirs(res); pl = os.path.join(d, 'places'); os.makedirs(pl)
+        json.dump({'id': 'p1', 'name': 'Lake Park', 'country': 'Utah', 'kind': 'park'}, open(os.path.join(pl, 'p1.json'), 'w')); open(os.path.join(res, 'p1.md'), 'w').write(SRC)
+        task = self.t.Stories()
+        with mock.patch.object(g, 'todo', lambda r, o, a: g.todo.__wrapped__(r, o, a, pl) if hasattr(g.todo, '__wrapped__') else [('p1', 'Lake Park', 'Utah', 'park')]):
+            its = task.items(d, self.out, False)
+        self.assertEqual([i.id for i in its], ['p1']); self.assertIn('SOURCE TEXT:\n' + SRC, its[0].text); self.assertEqual(its[0].source, SRC)
+        self.assertEqual((task.system, task.prompt_version), (g.SYSTEM, g.PROMPT_VERSION)); self.assertIsNone(task.check({'story': 'Lake Park is in Utah, USA.', 'matters': 'Elk live here.'}, SRC))
+
+
 if __name__ == '__main__': unittest.main()
