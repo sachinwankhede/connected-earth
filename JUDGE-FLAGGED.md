@@ -82,3 +82,11 @@ Story: Homolovi Ruins State Park is located in Arizona, United States, preservin
 
 Why: This fertile area preserves ancestral Hopi villages that are considered spiritually alive. The park also provides habitat for a bird checklist of over 100 species, including hawks and golden eagles.
 
+
+## Shell Mound Park (`alshellmound`)
+
+Problems: spot check (Claude, 14 Nov): species names are glued slugs from the research text ("americanbeaver"); the story is also thin
+
+## Village Creek State Park (`arvillagecreek`)
+
+Problems: spot check (Claude, 14 Nov): species names are glued or cut slugs from the research text ("cardinalflower", "tuftedtitmouse", "northerncardin")
