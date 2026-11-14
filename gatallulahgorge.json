@@ -1,0 +1,21 @@
+{
+ "story": "Tallulah Gorge State Park is a 2,689-acre state park located in Georgia, USA, along the county line between Rabun and Habersham Counties. The park surrounds Tallulah Gorge, a 1,000-foot deep gorge formed by the Tallulah River, featuring six waterfalls known as the Tallulah Falls.",
+ "matters": "The park surrounds Tallulah Gorge, which is formed by the action of the Tallulah River running along the floor of the gorge.",
+ "id": "gatallulahgorge",
+ "name": "Tallulah Gorge State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1727,
+  "candidatesTokenCount": 112,
+  "totalTokenCount": 1839,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1727
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:24:06+00:00"
+}

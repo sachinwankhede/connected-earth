@@ -1,0 +1,21 @@
+{
+ "story": "Hard Labor Creek State Park is a 5,804 acre Georgia state park located between Bostwick and Rutledge. It features lakes and wetlands, including Lake Rutledge and Lake Brantley, which were built by the Civilian Conservation Corps in the 1930s.",
+ "matters": "The park is named after Hard Labor Creek, a small stream that cuts through the area, and serves as a public space with a golf course, group camps, and an observatory.",
+ "id": "gahardlaborcreek",
+ "name": "Hard Labor Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2229,
+  "candidatesTokenCount": 103,
+  "totalTokenCount": 2332,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2229
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:21:25+00:00"
+}

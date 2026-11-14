@@ -1,0 +1,21 @@
+{
+ "story": "Sweetwater Creek State Park is a state park in Georgia, USA, located in east Douglas County. Named after Sweetwater Creek which runs through it, the park features wooded walking and hiking trails, the George Sparks Reservoir, and mill ruins.",
+ "matters": "The park protects the pristine area around the mill ruins and its mission is to conserve natural, historic, and cultural resources. It provides critical protection during fast urban growth and helps reduce the urban heat island effect.",
+ "id": "gasweetwatercreek",
+ "name": "Sweetwater Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 3527,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 3633,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 3527
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:23:50+00:00"
+}

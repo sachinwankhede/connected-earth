@@ -1,0 +1,21 @@
+{
+ "story": "Fort Mountain State Park is a forest in Georgia, USA, that covers 3,712 acres and was founded in 1938. It is named for an ancient 885-foot-long rock wall located on the peak. The park features a mixture of hardwood and pine forests, waterfalls, and a mountain lake.",
+ "matters": "Situated in the Chattahoochee National Forest, the park provides a protected habitat for diverse wildlife such as black bears and white-tailed deer. Its forests and trails support a local decomposer community, plants, and various animal species.",
+ "id": "gafortmountain",
+ "name": "Fort Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2058,
+  "candidatesTokenCount": 133,
+  "totalTokenCount": 2191,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2058
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:19:33+00:00"
+}

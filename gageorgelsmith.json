@@ -1,0 +1,21 @@
+{
+ "story": "George L. Smith State Park is a 1,634-acre Georgia state park located in Emanuel County. Its location on a 412-acre mill pond dotted with many cypress trees makes it a destination for anglers and canoeists. Rare birds in residence include the great blue heron and the white ibis.",
+ "matters": "The park includes nature trails that pass through a bird sanctuary and a tortoise habitat, and features educational materials on the 15 Mile Creek watershed and estuary.",
+ "id": "gageorgelsmith",
+ "name": "George L. Smith State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1981,
+  "candidatesTokenCount": 106,
+  "totalTokenCount": 2087,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1981
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:20:53+00:00"
+}

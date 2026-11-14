@@ -1,0 +1,21 @@
+{
+ "story": "Don Carter State Park is a forest located in Hall County, Georgia, along the shores of Lake Lanier. Opened to the public in 2013, it is Georgia's newest state park as of 2022.",
+ "matters": "It is the only state park along the shores of Lake Lanier, situated on the north side of the reservoir.",
+ "id": "gadoncarter",
+ "name": "Don Carter State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1971,
+  "candidatesTokenCount": 86,
+  "totalTokenCount": 2057,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1971
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:19:01+00:00"
+}

@@ -1,0 +1,22 @@
+{
+ "story": "Akaka Falls State Park is a state park on Hawaii Island, located north of Hilo. It includes the 442-foot tall Akaka Falls and the 300-foot tall Kahuna Falls along Kolekole Stream.",
+ "matters": "The park shelters the oopu alamo, an endemic Hawaiian species of goby fish that climbs the waterfall to spawn in the stream above.",
+ "id": "hiakakafalls",
+ "name": "ʻAkaka Falls State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2206,
+  "candidatesTokenCount": 88,
+  "totalTokenCount": 2294,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2206
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:25:11+00:00",
+ "rejected": "names not in the research text: Kahuna"
+}

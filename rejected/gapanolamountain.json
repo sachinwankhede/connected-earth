@@ -1,0 +1,22 @@
+{
+ "story": "Panola Mountain is a 100-acre granite monadnock located in Rockdale County, Georgia, in the United States. Its peak rises 260 feet above the South River and reaches 946 feet above sea level.",
+ "matters": "Due to its delicate ecological features, Panola Mountain was designated a National Natural Landmark on December 16, 1980.",
+ "id": "gapanolamountain",
+ "name": "Panola Mountain State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1733,
+  "candidatesTokenCount": 89,
+  "totalTokenCount": 1822,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1733
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:22:46+00:00",
+ "rejected": "names not in the research text: States, United"
+}

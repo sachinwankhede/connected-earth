@@ -1,0 +1,21 @@
+{
+ "story": "General Coffee State Park is a 1,511-acre Georgia state park located near Douglas. The park is named after General John E. Coffee and features cypress swamps through which the Seventeen Mile River winds.",
+ "matters": "The park is host to many rare and endangered species, especially in the cypress swamps.",
+ "id": "gageneralcoffee",
+ "name": "General Coffee State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1519,
+  "candidatesTokenCount": 70,
+  "totalTokenCount": 1589,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1519
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:20:37+00:00"
+}

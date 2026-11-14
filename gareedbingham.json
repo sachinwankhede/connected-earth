@@ -1,0 +1,21 @@
+{
+ "story": "Reed Bingham State Park is a 1,613 acre Georgia state park located in Colquitt County and Cook County. The park surrounds a 375-acre lake and features a 3.5 mile long Coastal Plains Nature Trail going through a baldcypress swamp, a pitcher plant bog, and sandhill area.",
+ "matters": "The park contains many animals, including the threatened gopher tortoise and the indigo snake.",
+ "id": "gareedbingham",
+ "name": "Reed Bingham State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1992,
+  "candidatesTokenCount": 102,
+  "totalTokenCount": 2094,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1992
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:23:18+00:00"
+}

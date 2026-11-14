@@ -1,0 +1,21 @@
+{
+ "story": "Kolomoki Mounds State Park is located in southwest Georgia, near the Chattahoochee River. Covering approximately three hundred acres, it contains one of the largest and earliest Woodland period earthwork mound complexes in the Southeastern United States. The eight visible mounds were built between 350 and 950 CE.",
+ "matters": "The park is an important archaeological site preserving ancient Native American burial mounds, a ceremonial plaza, and Georgia's oldest great temple mound. Designated as a National Historic Landmark in 1964, it protects significant pieces of North American history.",
+ "id": "gakolomokimounds",
+ "name": "Kolomoki Mounds State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2511,
+  "candidatesTokenCount": 124,
+  "totalTokenCount": 2635,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2511
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:21:58+00:00"
+}

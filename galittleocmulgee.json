@@ -1,0 +1,21 @@
+{
+ "story": "Little Ocmulgee State Park is a forest covering 1,360 acres in Georgia, USA, located north of McRae-Helena on the Little Ocmulgee River. It features a 256-acre lake and a 2.6-mile long Oak Ridge Trail.",
+ "matters": "The park allows visitors to see native wildlife and plants along the Oak Ridge Trail.",
+ "id": "galittleocmulgee",
+ "name": "Little Ocmulgee State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1679,
+  "candidatesTokenCount": 89,
+  "totalTokenCount": 1768,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1679
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:22:14+00:00"
+}

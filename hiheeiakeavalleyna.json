@@ -1,0 +1,21 @@
+{
+ "story": "Heeia Kea Valley Nature Park is a forest located in Hawaii, USA.",
+ "matters": "The park provides a home for various species.",
+ "id": "hiheeiakeavalleyna",
+ "name": "Heeia Kea Valley Nature Park (undevel)",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1507,
+  "candidatesTokenCount": 42,
+  "totalTokenCount": 1549,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1507
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:25:44+00:00"
+}

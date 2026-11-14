@@ -1,0 +1,21 @@
+{
+ "story": "Mistletoe State Park is a 1,972 acre Georgia state park located northwest of Augusta, Georgia on the southern shore of Lake Strom Thurmond. The park gets its name from Mistletoe Corners.",
+ "matters": "Its strategic location on the lake makes it one of the finest bass fishing spots in the nation.",
+ "id": "gamistletoe",
+ "name": "Mistletoe State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1459,
+  "candidatesTokenCount": 73,
+  "totalTokenCount": 1532,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1459
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:22:30+00:00"
+}

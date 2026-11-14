@@ -1,0 +1,21 @@
+{
+ "story": "Watson Mill Bridge State Park is a forest park located in Georgia, USA, near Comer and Carlton on the South Fork of the Broad River. It covers 1,018 acres and features the longest original-site covered bridge in Georgia, built in 1885.",
+ "matters": "The park includes a scenic nature trail and a hiking and riding trail that winds through thick forests and along the river edge.",
+ "id": "gawatsonmillbridge",
+ "name": "Watson Mill Bridge State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1701,
+  "candidatesTokenCount": 97,
+  "totalTokenCount": 1798,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1701
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:24:38+00:00"
+}

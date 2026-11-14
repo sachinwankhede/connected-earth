@@ -1,0 +1,21 @@
+{
+ "story": "Standing Boy Creek State Park is located in Georgia, USA, and features lakes and wetlands. It is home to various species including slendervervain, catbrier, and northern cardinal.",
+ "matters": "The park provides a habitat for multiple recorded species, contributing to the local ecosystem and biodiversity in Georgia.",
+ "id": "gastandingboycreek",
+ "name": "Standing Boy Creek State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1240,
+  "candidatesTokenCount": 67,
+  "totalTokenCount": 1307,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1240
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:23:34+00:00"
+}

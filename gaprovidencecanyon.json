@@ -1,0 +1,21 @@
+{
+ "story": "Providence Canyon Outdoor Recreation Area is a forest located in Georgia, USA. It is home to many plants and animals, including the whiteoak, whitetaileddee, and raccoon.",
+ "matters": "This forest shelters various species like the northerncardin and carolinachicka, contributing to the local ecosystem in Georgia, USA.",
+ "id": "gaprovidencecanyon",
+ "name": "Providence Canyon Outdoor Recreation Area",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1389,
+  "candidatesTokenCount": 78,
+  "totalTokenCount": 1467,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1389
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:23:02+00:00"
+}

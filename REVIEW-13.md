@@ -1,92 +1,92 @@
 # REVIEW-13.md
 
-## Harry S Truman State Park (`moharrystruman`)
+## Reed Bingham State Park (`gareedbingham`)
 
-**Story** (26 words): Harry S Truman State Park occupies 1,440 acres on a peninsula on Truman Lake in Missouri, USA. The park is a public recreation area near Warsaw.
+**Story** (46 words): Reed Bingham State Park is a 1,613 acre Georgia state park located in Colquitt County and Cook County. The park surrounds a 375-acre lake and features a 3.5 mile long Coastal Plains Nature Trail going through a baldcypress swamp, a pitcher plant bog, and sandhill area.
 
-**Why it matters** (9 words): Truman Lake is an impoundment of the Osage River.
+**Why it matters** (14 words): The park contains many animals, including the threatened gopher tortoise and the indigo snake.
 
-## Hawn State Park (`mohawn`)
+## Standing Boy Creek State Park (`gastandingboycreek`)
 
-**Story** (43 words): Hawn State Park is a forest located in Missouri, USA. The nearly 5,000 acres include three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. The first 1500 acres were willed to the state in 1952 by Helen Coffer Hawn.
+**Story** (27 words): Standing Boy Creek State Park is located in Georgia, USA, and features lakes and wetlands. It is home to various species including slendervervain, catbrier, and northern cardinal.
 
-**Why it matters** (25 words): The park includes three state-designated natural areas: Pickle Creek, LaMotte Sandstone Barrens, and Botkins Pine Woods. Orchid Valley is also considered part of the park.
+**Why it matters** (18 words): The park provides a habitat for multiple recorded species, contributing to the local ecosystem and biodiversity in Georgia.
 
-## Knob Noster State Park (`moknobnoster`)
+## Sweetwater Creek State Park (`gasweetwatercreek`)
 
-**Story** (44 words): Pin Oak Slough Natural Area is a four-acre section of Knob Noster State Park in Missouri, United States. It is a wet-mesic forest and shrub swamp located in a former oxbow slough of Clearfork Creek. Water pools there during spring to form vernal pools.
+**Story** (39 words): Sweetwater Creek State Park is a state park in Georgia, USA, located in east Douglas County. Named after Sweetwater Creek which runs through it, the park features wooded walking and hiking trails, the George Sparks Reservoir, and mill ruins.
 
-**Why it matters** (25 words): The area shelters the rare pale green orchid. Trees growing in the natural area include pin oak, swamp white oak, bur oak, and silver maple.
+**Why it matters** (37 words): The park protects the pristine area around the mill ruins and its mission is to conserve natural, historic, and cultural resources. It provides critical protection during fast urban growth and helps reduce the urban heat island effect.
 
-## Lake of The Ozarks State Park (`molakeoftheozarks`)
+## Tallulah Gorge State Park (`gatallulahgorge`)
 
-**Story** (33 words): Lake of The Ozarks State Park is a forest located in Missouri, USA. It is part of the system administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Story** (44 words): Tallulah Gorge State Park is a 2,689-acre state park located in Georgia, USA, along the county line between Rabun and Habersham Counties. The park surrounds Tallulah Gorge, a 1,000-foot deep gorge formed by the Tallulah River, featuring six waterfalls known as the Tallulah Falls.
 
-**Why it matters** (20 words): The park belongs to the state parks system of Missouri, which includes a total of 93 parks and historic sites.
+**Why it matters** (22 words): The park surrounds Tallulah Gorge, which is formed by the action of the Tallulah River running along the floor of the gorge.
 
-## Lewis and Clark State Park (`molewisandclark`)
+## Unicoi State Park (`gaunicoi`)
 
-**Story** (12 words): Lewis and Clark State Park is a forest located in Missouri, USA.
+**Story** (43 words): Unicoi State Park is a 1,050-acre forest established in 1954 in Georgia, USA, located in the northeastern portion of the state. Its centerpiece is Unicoi Lake on Smith Creek, and the park is especially popular in October when the autumn leaves change colors.
 
-**Why it matters** (27 words): In the U.S. state of Missouri, state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (25 words): The park provides a habitat for various animals such as the black bear, white-tailed deer, and gray fox, while offering access to Anna Ruby Falls.
 
-## Long Branch State Park (`molongbranch`)
+## Watson Mill Bridge State Park (`gawatsonmillbridge`)
 
-**Story** (53 words): Long Branch State Park occupies 1,828 acres adjacent to the Long Branch Reservoir in Macon County, Missouri. Created in 1983, the public recreation area consists of three units located some two miles west of Macon. The large public acreage surrounding the lake provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl.
+**Story** (41 words): Watson Mill Bridge State Park is a forest park located in Georgia, USA, near Comer and Carlton on the South Fork of the Broad River. It covers 1,018 acres and features the longest original-site covered bridge in Georgia, built in 1885.
 
-**Why it matters** (19 words): The park provides opportunities for viewing white-tailed deer, wild turkey, and migratory waterfowl in the U.S. state of Missouri.
+**Why it matters** (23 words): The park includes a scenic nature trail and a hiking and riding trail that winds through thick forests and along the river edge.
 
-## Morris State Park (`momorris`)
+## Northern Gulf of Mexico (`gulf`)
 
-**Story** (29 words): Morris State Park is a public recreation area consisting of 161 acres in Dunklin County, Missouri. It was donated to the state in 1999 by businessman Jim D. Morris.
+**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
 
-**Why it matters** (19 words): The state park preserves a section of Crowley's Ridge, a unique geologic feature of southeast Missouri and northeast Arkansas.
+**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
 
-## Ozark Forest and Streams (`ozarks`)
+## Ahupuaʻa O Kahana State Park (`hiahupuaaokahana`)
 
-**Story** (54 words): The Ozark National Scenic Riverways covers 80,000 acres in the Ozarks of southern Missouri in the U.S. Created by an Act of Congress in 1964 and formally dedicated in 1971, the park protects the Current and Jacks Fork rivers. It is home to many caves, resident feral horses, and abundant animal and plant species.
+**Story** (46 words): Ahupuaʻa O Kahana State Park is located on the windward side of Oʻahu between Kaʻaʻawa and Punaluʻu in the state of Hawaii, stretching from the sea to the tip of Puʻu Pauao at 2670 feet. It is Hawaii's only public ahupuaʻa and features a tropical climate.
 
-**Why it matters** (34 words): The park protects the Current and Jacks Fork rivers and contains the United States' largest concentration of first magnitude springs in dolomite rock. It provides a protected habitat for abundant animal and plant species.
+**Why it matters** (31 words): The park supports a wide variety of birds and fish, including endangered species such as the Hawaiian coot and Hawaiian gallinule. Its main purpose is to embrace and teach Hawaiian culture.
 
-## Missouri Tallgrass Prairie (`prairie`)
+## Heeia Kea Valley Nature Park (undevel) (`hiheeiakeavalleyna`)
 
-**Story** (25 words): Missouri Tallgrass Prairie is located in Missouri, USA, at coordinates 37.5, -94.6. This grassland supports species such as bluestem, bison, deer, and the greater prairie-chicken.
+**Story** (12 words): Heeia Kea Valley Nature Park is a forest located in Hawaii, USA.
 
-**Why it matters** (25 words): The tallgrass prairie ecosystem is home to diverse species like milkweed, voles, and badgers. Very little of the original tallgrass prairie remains across North America.
+**Why it matters** (8 words): The park provides a home for various species.
 
-## Urban St. Louis (`stlurban`)
+## Kaena Point State Park (`hikaenapoint`)
 
-**Story** (58 words): Urban St. Louis is located in Missouri, USA, with coordinates 38.63, -90.25. It is home to Forest Park, a public park in western St. Louis covering 1,326 acres that opened in 1876. The park features meadows, trees, ponds, lakes, and freshwater streams, and has restored prairie and wetlands areas that attract a greater variety of birds and wildlife.
+**Story** (21 words): Kaena Point State Park is a forest located in Hawaii, USA. It is home to plants such as yellowilima and bayhops.
 
-**Why it matters** (32 words): The park's restored natural habitats reduce flooding and attract an increased variety of birds and wildlife. These habitats provide homes for many species, including urban coyotes, peregrine falcons, Cooper's hawks, and raccoons.
+**Why it matters** (14 words): It supports a variety of species including birds and insects found within the region.
 
-## Agate Fossil Beds National Monument (`usagatefossilbedsnationa`)
+## Mississippi River Floodplain (`mississippi`)
 
-**Story** (35 words): Agate Fossil Beds National Monument is a U.S. National Monument near Harrison, Nebraska, featuring a valley of the Niobrara River. Authorized on June 5, 1965, and established on June 14, 1997, it preserves grass-covered plains.
+**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
 
-**Why it matters** (20 words): The site is best known for a large number of well-preserved Miocene fossils found on Carnegie Hill and University Hill.
+**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
 
-## Assateague Island National Seashore (`usassateagueislandnation`)
+## Bennett Spring State Park (`mobennettspring`)
 
-**Story** (48 words): Assateague Island National Seashore is located on the East Coast along the Atlantic Ocean in Maryland and Virginia. It encompasses a 37-mile-long barrier island and 41,346 acres of land and water. The island is shaped by stormy seas and gentle winds along the coast of the Delmarva Peninsula.
+**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
 
-**Why it matters** (37 words): Assateague Island is the largest natural barrier island ecosystem in the Middle Atlantic states region that remains predominantly unaffected by human development. The park aims to preserve and protect unique coastal resources and the natural ecosystem conditions.
+**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
 
-## Bandelier National Monument (`usbandeliernationalmonum`)
+## Big Lake State Park (`mobiglake`)
 
-**Story** (34 words): Bandelier National Monument covers 33,677 acres in New Mexico, USA, near Los Alamos. The monument preserves the homes and territory of the Ancestral Puebloans and features deep canyons, mesas, and over 70% wilderness area.
+**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
 
-**Why it matters** (22 words): The monument protects a diverse and scenic landscape with a wide range of life zones and wildlife habitats, including the Jemez Mountains.
+**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
 
-## Bighorn Canyon National Recreation Area (`usbighorncanyonnationalr`)
+## Big Sugar Creek State Park (`mobigsugarcreek`)
 
-**Story** (42 words): Bighorn Canyon National Recreation Area spans 120,296.22 acres, straddling the border between Wyoming and Montana. Established on October 15, 1966, the area features Bighorn Lake, which extends 71 miles through Wyoming and Montana, with 55 miles lying within the national recreation area.
+**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
 
-**Why it matters** (31 words): Nearly one-quarter of the Pryor Mountains Wild Horse Range lies within the Bighorn Canyon National Recreation Area. About one third of the park unit is located on the Crow Indian Reservation.
+**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
 
-## Canaveral National Seashore (`uscanaveralnationalseash`)
+## Castlewood State Park (`mocastlewood`)
 
-**Story** (41 words): Canaveral National Seashore is located on a barrier island between New Smyrna Beach and Titusville, Florida, in Volusia and Brevard Counties. Created on January 3, 1975, the park occupies 57,662 acres and features 24 miles of beaches, dunes, and mangrove wetlands.
+**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
 
-**Why it matters** (29 words): The park is home to more than 1,000 plant species and 310 bird species. It also represents the longest expanse of undeveloped land along the East Coast of Florida.
+**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
 

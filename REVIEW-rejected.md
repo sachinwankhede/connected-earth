@@ -48,6 +48,24 @@ Story: Honeymoon Island State Park is a Florida state park protecting most of Ho
 
 Why: Honeymoon Island supports a healthy gopher tortoise population, one of Florida's most concentrated osprey nesting colonies, and nesting loggerhead sea turtles. It is a wintering and stopover site of state and federal importance for migratory shorebirds.
 
+## Panola Mountain State Park (`gapanolamountain`) - names not in the research text: States, United
+
+Story: Panola Mountain is a 100-acre granite monadnock located in Rockdale County, Georgia, in the United States. Its peak rises 260 feet above the South River and reaches 946 feet above sea level.
+
+Why: Due to its delicate ecological features, Panola Mountain was designated a National Natural Landmark on December 16, 1980.
+
+## ʻAkaka Falls State Park (`hiakakafalls`) - names not in the research text: Kahuna
+
+Story: Akaka Falls State Park is a state park on Hawaii Island, located north of Hilo. It includes the 442-foot tall Akaka Falls and the 300-foot tall Kahuna Falls along Kolekole Stream.
+
+Why: The park shelters the oopu alamo, an endemic Hawaiian species of goby fish that climbs the waterfall to spawn in the stream above.
+
+## Ha'ena State Park (`hihaena`) - names not in the research text: Kaua'i
+
+Story: Ha'ena State Park is a 230-acre park on the north shore of the Hawaiian island of Kaua'i. It features beaches, trails, and ancient Hawaiian sites including sea caves estimated to be more than 4,000 years old. The area surrounding the beaches is vegetated by ironwood trees, coconut palms, ti, and guava.
+
+Why: The park is a destination management example for state parks that are environmentally, culturally, or historically unique. It provides access to the Kalalau Trail, which is the only land access to Nā Pali Coast State Park.
+
 ## Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site (`whgwaiihaanas`) - story has 70 words (limit 60)
 
 Story: Gwaii Haanas National Park Reserve, National Marine Conservation Area Reserve, and Haida Heritage Site is located in southernmost Haida Gwaii, 130 kilometres off the mainland of British Columbia, Canada. It protects an archipelago of 138 islands, with close to 90% of the land being forested. The area ranges from deep fjords to rugged mountains and is cooperatively managed by the Council of the Haida Nation and the Government of Canada.

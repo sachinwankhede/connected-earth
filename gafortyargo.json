@@ -1,0 +1,21 @@
+{
+ "story": "Fort Yargo State Park is an 1,816-acre U.S. state park located in Winder, Georgia, situated between Athens and Atlanta. The park features a 260-acre lake with a public beach and a log fort built in 1793.",
+ "matters": "The park hosts Camp Will-A-Way, an accessible camp designed for individuals with developmental disabilities, in partnership with Camp Twin Lakes.",
+ "id": "gafortyargo",
+ "name": "Fort Yargo State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2427,
+  "candidatesTokenCount": 98,
+  "totalTokenCount": 2525,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2427
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:20:20+00:00"
+}

@@ -12,81 +12,81 @@
 
 **Why it matters** (24 words): The park's diverse forests and streams provide a protected habitat for native trees, flowers, and animals such as the black bear and whitetailed deer.
 
-## Northern Gulf of Mexico (`gulf`)
+## Don Carter State Park (`gadoncarter`)
 
-**Story** (42 words): Gulf Islands National Seashore preserves natural and historic resources along the Gulf of Mexico barrier islands of Florida, Alabama, and Mississippi. The protected regions include mainland areas and parts of seven islands. The barrier islands started forming 4500 to 5400 years ago.
+**Story** (33 words): Don Carter State Park is a forest located in Hall County, Georgia, along the shores of Lake Lanier. Opened to the public in 2013, it is Georgia's newest state park as of 2022.
 
-**Why it matters** (23 words): The seashore includes the 4,080 acres Gulf Islands Wilderness, offering special protection to parts of Petit Bois Island and Horn Island in Mississippi.
+**Why it matters** (20 words): It is the only state park along the shores of Lake Lanier, situated on the north side of the reservoir.
 
-## Mississippi River Floodplain (`mississippi`)
+## F. D. Roosevelt State Park (`gafdroosevelt`)
 
-**Story** (35 words): The Mississippi River Floodplain is located in the St. Louis region, across Missouri and Illinois. It features lakes and wetlands along the river corridor. Wildlife found here include the canvasback duck, white-tailed deer, and muskrat.
+**Story** (44 words): F.D. Roosevelt State Park is Georgia's largest state park, covering 9,049 acres along the Pine Mountain Range near Warm Springs. Named after former U.S. President Franklin Delano Roosevelt, the park features the Pine Mountain Trail and historic structures built by the Civilian Conservation Corps.
 
-**Why it matters** (28 words): The area is an important element of the Mississippi Flyway, which is a bird migration route used by about 40% of all North American migrating waterfowl and shorebirds.
+**Why it matters** (27 words): The park protects the Pine Mountain Ridge, which is Georgia's southernmost mountainous area and a feature of the Piedmont Plateau, providing habitats for hardwood and pine forests.
 
-## Bennett Spring State Park (`mobennettspring`)
+## Fort Mountain State Park (`gafortmountain`)
 
-**Story** (41 words): Bennett Spring State Park is a public recreation area in Missouri, USA, located in Bennett Springs. Centered on a spring that flows into the Niangua River, the park offers trout fishing for rainbow and brown trout, camping, hiking trails, and canoeing.
+**Story** (47 words): Fort Mountain State Park is a forest in Georgia, USA, that covers 3,712 acres and was founded in 1938. It is named for an ancient 885-foot-long rock wall located on the peak. The park features a mixture of hardwood and pine forests, waterfalls, and a mountain lake.
 
-**Why it matters** (23 words): The park is centered on a natural spring that averages 100 million gallons of daily flow and supplies water to a fish hatchery.
+**Why it matters** (36 words): Situated in the Chattahoochee National Forest, the park provides a protected habitat for diverse wildlife such as black bears and white-tailed deer. Its forests and trails support a local decomposer community, plants, and various animal species.
 
-## Big Lake State Park (`mobiglake`)
+## Fort Yargo State Park (`gafortyargo`)
 
-**Story** (33 words): Big Lake State Park is located in northwest Missouri, United States. Established in 1932, the 407-acre state park sits at the northern end of Big Lake, which is the state's largest oxbow lake.
+**Story** (36 words): Fort Yargo State Park is an 1,816-acre U.S. state park located in Winder, Georgia, situated between Athens and Atlanta. The park features a 260-acre lake with a public beach and a log fort built in 1793.
 
-**Why it matters** (16 words): The public recreation area provides space for activities such as boating, camping, picnicking, fishing, and swimming.
+**Why it matters** (20 words): The park hosts Camp Will-A-Way, an accessible camp designed for individuals with developmental disabilities, in partnership with Camp Twin Lakes.
 
-## Big Sugar Creek State Park (`mobigsugarcreek`)
+## General Coffee State Park (`gageneralcoffee`)
 
-**Story** (39 words): Big Sugar Creek State Park is a public recreation area encompassing more than 2,000 acres in southwest Missouri, United States. Established in 1992, the park features a three-mile-long trail for hiking and includes the Elk River Breaks Natural Area.
+**Story** (33 words): General Coffee State Park is a 1,511-acre Georgia state park located near Douglas. The park is named after General John E. Coffee and features cypress swamps through which the Seventeen Mile River winds.
 
-**Why it matters** (23 words): The park matters because it was established to preserve part of the Elk River water system, which Big Sugar Creek is part of.
+**Why it matters** (15 words): The park is host to many rare and endangered species, especially in the cypress swamps.
 
-## Castlewood State Park (`mocastlewood`)
+## George L. Smith State Park (`gageorgelsmith`)
 
-**Story** (47 words): Castlewood State Park is a public recreation area and Missouri state park occupying 1,818 acres that straddles the Meramec River in St. Louis County, Missouri. Established in 1974, the park offers fishing, boating, and more than 26 miles of trails for hiking, mountain biking, and equestrian use.
+**Story** (48 words): George L. Smith State Park is a 1,634-acre Georgia state park located in Emanuel County. Its location on a 412-acre mill pond dotted with many cypress trees makes it a destination for anglers and canoeists. Rare birds in residence include the great blue heron and the white ibis.
 
-**Why it matters** (23 words): The park acreage on the south side of the river is accessed from Lone Elk County Park and includes the World Bird Sanctuary.
+**Why it matters** (27 words): The park includes nature trails that pass through a bird sanctuary and a tortoise habitat, and features educational materials on the 15 Mile Creek watershed and estuary.
 
-## Cuivre River State Park (`mocuivreriver`)
+## Georgia Veterans State Park (`gageorgiaveterans`)
 
-**Story** (52 words): Cuivre River State Park covers more than 6,400 acres northeast of the city of Troy in the Lincoln Hills region of northeastern Missouri, United States. Its rugged landscapes range from native grasslands and savannas to limestone bluffs overlooking forested hills. The park began as a federal recreation demonstration area in the 1930s.
+**Story** (43 words): Georgia Veterans State Park covers 1,308 acres on Lake Blackshear in Crisp County, west of Cordele, Georgia, and was established on December 4, 1946. It is a memorial to U.S. Veterans that features a museum with aircraft, vehicles, weapons, uniforms and other memorabilia.
 
-**Why it matters** (32 words): It encompasses the Lincoln Hills Natural Area and two designated wild areas named Big Sugar Creek and Northwoods. The park offers an extensive system of hiking trails plus swimming and camping facilities.
+**Why it matters** (22 words): The park provides a forest habitat in Georgia, USA, where species like the whitetailed deer and northern cardinal live near Lake Blackshear.
 
-## Current River State Park (`mocurrentriver`)
+## Hard Labor Creek State Park (`gahardlaborcreek`)
 
-**Story** (38 words): Current River State Park is a public recreation area occupying 839 acres along the Current River in Shannon County, Missouri. The park consists of land and buildings originally developed as the Alton Club in the 1930s and 1940s.
+**Story** (39 words): Hard Labor Creek State Park is a 5,804 acre Georgia state park located between Bostwick and Rutledge. It features lakes and wetlands, including Lake Rutledge and Lake Brantley, which were built by the Civilian Conservation Corps in the 1930s.
 
-**Why it matters** (18 words): Rustic buildings associated with the Alton Club were added to the National Register of Historic Places in 2005.
+**Why it matters** (31 words): The park is named after Hard Labor Creek, a small stream that cuts through the area, and serves as a public space with a golf course, group camps, and an observatory.
 
-## Edward "ted" and Pat Jones-confluence Point State Park (`moedwardtedandp`)
+## Jekyll Island State Park (`gajekyllisland`)
 
-**Story** (15 words): Edward "ted" and Pat Jones-confluence Point State Park is a forest located in Missouri, USA.
+**Story** (27 words): Jekyll Island State Park is located in Georgia, USA, featuring lakes and wetlands. It is home to many recorded species including the bobcat, raccoon, whitetaileddee, and liveoak.
 
-**Why it matters** (28 words): The park is in Missouri, USA, where state parks and state historic sites are administered by the Division of State Parks of the Missouri Department of Natural Resources.
+**Why it matters** (19 words): It supports a diverse community of animals and plants like the northerncardin, carolinachicka, and greenanole within the Georgia ecosystem.
 
-## Elephant Rocks State Park (`moelephantrocks`)
+## Kolomoki Mounds State Park (`gakolomokimounds`)
 
-**Story** (46 words): Elephant Rocks State Park is a geologic reserve in the Saint Francois Mountains in the U.S. state of Missouri. It features large granite boulders formed 1.4 billion years ago that resemble a train of pink circus elephants. The land was donated to the state in 1967.
+**Story** (47 words): Kolomoki Mounds State Park is located in southwest Georgia, near the Chattahoochee River. Covering approximately three hundred acres, it contains one of the largest and earliest Woodland period earthwork mound complexes in the Southeastern United States. The eight visible mounds were built between 350 and 950 CE.
 
-**Why it matters** (24 words): The park preserves a unique outcropping of Precambrian granite and includes an abandoned quarry. It is managed by the Missouri Department of Natural Resources.
+**Why it matters** (38 words): The park is an important archaeological site preserving ancient Native American burial mounds, a ceremonial plaza, and Georgia's oldest great temple mound. Designated as a National Historic Landmark in 1964, it protects significant pieces of North American history.
 
-## Finger Lakes State Park (`mofingerlakes`)
+## Little Ocmulgee State Park (`galittleocmulgee`)
 
-**Story** (59 words): Finger Lakes State Park is an unusual public recreation area in Boone County near the city of Columbia, Missouri, because the site was reclaimed after having been strip mined for coal. It consists of 1,138 acres and is adjacent to the Rocky Fork Lakes Conservation Area. The park features many hills and gullies crossed by trails for off-road vehicles.
+**Story** (34 words): Little Ocmulgee State Park is a forest covering 1,360 acres in Georgia, USA, located north of McRae-Helena on the Little Ocmulgee River. It features a 256-acre lake and a 2.6-mile long Oak Ridge Trail.
 
-**Why it matters** (31 words): The park is one of two state parks in Missouri used for off-road vehicles. Its history is connected to mining, and it demonstrates the conversion of strip-mined land to recreational use.
+**Why it matters** (15 words): The park allows visitors to see native wildlife and plants along the Oak Ridge Trail.
 
-## Grand Gulf State Park (`mograndgulf`)
+## Mistletoe State Park (`gamistletoe`)
 
-**Story** (11 words): Grand Gulf State Park is a forest located in Missouri, USA.
+**Story** (31 words): Mistletoe State Park is a 1,972 acre Georgia state park located northwest of Augusta, Georgia on the southern shore of Lake Strom Thurmond. The park gets its name from Mistletoe Corners.
 
-**Why it matters** (12 words): The park is part of the state parks system of Missouri, USA.
+**Why it matters** (18 words): Its strategic location on the lake makes it one of the finest bass fishing spots in the nation.
 
-## Ha Ha Tonka State Park (`mohahatonka`)
+## Providence Canyon Outdoor Recreation Area (`gaprovidencecanyon`)
 
-**Story** (28 words): Ha Ha Tonka State Park is located in Missouri, USA. It features the ruins of an early 20th-century stone mansion modeled after European castles of the 16th century.
+**Story** (26 words): Providence Canyon Outdoor Recreation Area is a forest located in Georgia, USA. It is home to many plants and animals, including the whiteoak, whitetaileddee, and raccoon.
 
-**Why it matters** (25 words): The park features caves, sinkholes, and bluffs overlooking the lake, serving as a prominent example of karst topography shaped by the dissolution of soluble bedrock.
+**Why it matters** (18 words): This forest shelters various species like the northerncardin and carolinachicka, contributing to the local ecosystem in Georgia, USA.
 

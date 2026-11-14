@@ -1,0 +1,21 @@
+{
+ "story": "Georgia Veterans State Park covers 1,308 acres on Lake Blackshear in Crisp County, west of Cordele, Georgia, and was established on December 4, 1946. It is a memorial to U.S. Veterans that features a museum with aircraft, vehicles, weapons, uniforms and other memorabilia.",
+ "matters": "The park provides a forest habitat in Georgia, USA, where species like the whitetailed deer and northern cardinal live near Lake Blackshear.",
+ "id": "gageorgiaveterans",
+ "name": "Georgia Veterans State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 1638,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 1748,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1638
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:21:09+00:00"
+}

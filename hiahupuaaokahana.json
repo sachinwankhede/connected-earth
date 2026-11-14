@@ -1,0 +1,21 @@
+{
+ "story": "Ahupuaʻa O Kahana State Park is located on the windward side of Oʻahu between Kaʻaʻawa and Punaluʻu in the state of Hawaii, stretching from the sea to the tip of Puʻu Pauao at 2670 feet. It is Hawaii's only public ahupuaʻa and features a tropical climate.",
+ "matters": "The park supports a wide variety of birds and fish, including endangered species such as the Hawaiian coot and Hawaiian gallinule. Its main purpose is to embrace and teach Hawaiian culture.",
+ "id": "hiahupuaaokahana",
+ "name": "Ahupuaʻa O Kahana State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2331,
+  "candidatesTokenCount": 130,
+  "totalTokenCount": 2461,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2331
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:24:54+00:00"
+}

@@ -1,0 +1,21 @@
+{
+ "story": "F.D. Roosevelt State Park is Georgia's largest state park, covering 9,049 acres along the Pine Mountain Range near Warm Springs. Named after former U.S. President Franklin Delano Roosevelt, the park features the Pine Mountain Trail and historic structures built by the Civilian Conservation Corps.",
+ "matters": "The park protects the Pine Mountain Ridge, which is Georgia's southernmost mountainous area and a feature of the Piedmont Plateau, providing habitats for hardwood and pine forests.",
+ "id": "gafdroosevelt",
+ "name": "F. D. Roosevelt State Park",
+ "model": "gemini-3.5-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2730,
+  "candidatesTokenCount": 110,
+  "totalTokenCount": 2840,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2730
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T12:19:17+00:00"
+}
