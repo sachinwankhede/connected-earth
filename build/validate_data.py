@@ -130,7 +130,8 @@ def check(root):
         for t, f in plarge.items():
             if f not in pfiles: errs.append('larger place picture for %r: file %s is missing' % (t, f))
             if t not in pl or os.path.splitext(pl[t].get('f') or '')[0] + '.webp' != f: errs.append('larger place picture for %r: no stored place picture of the same name' % t)
-        for f in pfiles - set(plarge.values()): errs.append('photos/places-lg/%s is not listed in places_large.json' % f)
+        stray = sorted(pfiles - set(plarge.values()))   # a file nobody lists is untidy but harmless (the build publishes only listed files): a warning, so a job that stopped half way does not block other work (#727)
+        if stray: warns.append('photos/places-lg/: %d file(s) not listed in places_large.json, first %s; the next data-largeplacephotos run lists them' % (len(stray), stray[0]))
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')
