@@ -20,7 +20,9 @@ jobs:
         with: { node-version: 22, cache: npm }
       - run: npm ci
       - name: Rebuild the places
-        run: python3 jobs/regenplaces.py "${{ github.event.inputs.ids }}" 2>&1 | tee regen.log
+        run: |
+          set -o pipefail   # a failed step of the job must fail this step, not be hidden by tee
+          python3 jobs/regenplaces.py "${{ github.event.inputs.ids }}" 2>&1 | tee regen.log
       - name: Checks
         run: |
           N=$(python3 -c "import json;print(len(json.load(open('regenplaces.json'))['ids']))")

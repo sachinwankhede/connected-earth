@@ -19,4 +19,16 @@ class T(unittest.TestCase):
     def test_species_names_skip_the_environment_items(self):
         self.assertEqual(r.species_names({'nodes': [{'name': 'Moose'}, {'sp': 'x'}, {'name': 'Sunlight', 'cat': 'env'}]}), ['Moose', 'x'])
 
+class DraftUserAgentTests(unittest.TestCase):
+    def test_every_request_names_the_site_because_globi_refuses_the_default_user_agent(self):
+        import tempfile
+        from unittest import mock
+        os.environ.setdefault('WORK', tempfile.mkdtemp())
+        import draft
+        seen = []
+        with mock.patch.object(draft.fetch, 'fetch_text', side_effect=lambda u, **kw: seen.append(kw) or 'ok'):
+            self.assertEqual(draft.getu('https://api.globalbioticinteractions.org/interaction?x=1'), 'ok')
+        self.assertEqual(seen[0]['headers'], draft.UA); ua = draft.UA['User-Agent']
+        self.assertIn('https://connected-earth-5ps.pages.dev/', ua); self.assertNotIn('@', ua); self.assertNotIn('github.com', ua)
+
 if __name__ == '__main__': unittest.main()

@@ -27,4 +27,10 @@ class T(unittest.TestCase):
         im = Image.new('RGB', (1000, 500), (10, 120, 60)); data, size = l.shrink(im)
         self.assertEqual(size, (400, 200)); out = Image.open(io.BytesIO(data)); self.assertEqual(out.format, 'WEBP'); self.assertEqual(l.out_name('x/y.jpg'), 'x/y.webp')
 
+    def test_a_failing_address_is_skipped_and_the_next_one_tried(self):
+        def get(u, raw=False):
+            if u == 'bad': raise RuntimeError('too many errors (HTTP 400) for x')
+            return {'a': None, 'b': b'data'}[u]
+        self.assertEqual(l.download(['bad', 'a', 'b'], get), b'data'); self.assertIsNone(l.download(['bad', 'a'], get)); self.assertIsNone(l.download([], get))
+
 if __name__ == '__main__': unittest.main()
