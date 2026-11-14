@@ -4,6 +4,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const testImage = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVR4nGP4DwQACfsD/fteaysAAAAASUVORK5CYII=', 'base64');
 const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in these tests
@@ -21,15 +22,15 @@ describe('species pictures come only from our hosted copies', () => {
       if (u === '/photos/species-md/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
       if (u.endsWith('/api/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
-      if (fs.existsSync(path.join(H.ROOT, u))) { const list = H.fixtureList(u, fs.readFileSync(path.join(H.ROOT, u), 'utf8')); if (list) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(list); } }   // the fixture places are added to the world places
-      if (/\/api\/[\w-]+\.json$/.test(u) && (H.fixturePlace(u) || fs.existsSync(path.join(H.ROOT, u)))) {
+      if (fs.existsSync(path.join(H.FBUILD, u))) { const list = H.fixtureList(u, fs.readFileSync(path.join(H.FBUILD, u), 'utf8')); if (list) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(list); } }   // the fixture places are added to the world places
+      if (/\/api\/[\w-]+\.json$/.test(u) && (H.fixturePlace(u) || fs.existsSync(path.join(H.FBUILD, u)))) {
         // give the place exactly the picture entries this test wants
-        const w = H.fixturePlace(u) || JSON.parse(fs.readFileSync(path.join(H.ROOT, u), 'utf8'));
+        const w = H.fixturePlace(u) || JSON.parse(fs.readFileSync(path.join(H.FBUILD, u), 'utf8'));
         w.ph = { ...pics }; w.phm = {};
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
       }
-      let f = path.join(H.ROOT, u); if (f.endsWith('/')) f += 'index.html';
-      if (!f.startsWith(H.ROOT) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); return r.end(); }
+      let f = path.join(H.FBUILD, u); if (f.endsWith('/')) f += 'index.html';
+      if (!f.startsWith(H.FBUILD) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { r.writeHead(404); return r.end(); }
       const type = { '.html': 'text/html; charset=utf-8', '.json': 'application/json', '.webp': 'image/webp' }[path.extname(f)] || 'application/octet-stream';
       r.writeHead(200, { 'Content-Type': type }); r.end(fs.readFileSync(f));
     }).listen(0);
