@@ -36,6 +36,19 @@ def candidates(results, name, state):
         if not lic or not au or au.lower() in ('unknown', 'anonymous', 'n/a', 'none'): continue
         out.append((rid, o.API + rid + '/thumb/', au, lic[0], lic[1]))
     return out
+def reject_reasons(results, name, state):
+    """{reason: count} for the results candidates() refuses, plus up to 3 example titles that failed only on the place or state words, so a dry run shows why a place found nothing."""
+    out = {}; ex = []
+    for r in results or []:
+        if o.unwanted(r) or cp.NOTPHOTO.search(r.get('title') or ''): k = 'not a photo or unwanted source'
+        elif not o.licence_of(r): k = 'licence'
+        elif not ' '.join(str(r.get('creator') or '').split()): k = 'no creator'
+        elif not names_place(r, name, state):
+            k = 'place or state not in title or tags'
+            if len(ex) < 3: ex.append(r.get('title') or '')
+        else: continue
+        out[k] = out.get(k, 0) + 1
+    return out, ex
 def search(name, state):
     q = o.API + '?' + urllib.parse.urlencode({'q': '"%s" %s' % (name, state), 'license': 'cc0,pdm,by,by-sa', 'category': 'photograph', 'excluded_source': 'inaturalist', 'page_size': 20})
     return (wm.get(q) or {}).get('results') or []
@@ -71,9 +84,11 @@ def main():
         json.dump(man, open(MAN, 'w'), ensure_ascii=False, indent=0); json.dump(miss, open(MISS, 'w'), ensure_ascii=False, indent=0)
         json.dump(tried, open(TRIED, 'w'), ensure_ascii=False, indent=0, sort_keys=True)
     for i, t in enumerate(todo, 1):
-        e = info[ids[t]]; name = e.get('short') or e.get('name') or t; state = where_of(e.get('place')); why = ''
+        before = found; e = info[ids[t]]; name = e.get('short') or e.get('name') or t; state = where_of(e.get('place')); why = ''
         try:
-            cs = candidates(search(name, state), name, state); why = '%d usable photos' % len(cs); fails = 0
+            res = search(name, state); cs = candidates(res, name, state); why = '%d usable photos of %d results' % (len(cs), len(res)); fails = 0
+            if not cs and res:
+                rr, ex = reject_reasons(res, name, state); why += ' (%s%s)' % (', '.join('%s %d' % (k, n) for k, n in sorted(rr.items())), '; e.g. ' + ' / '.join(ex) if ex else '')
             for rid, url, au, lic, lu in cs[:TRY_FILES]:
                 jpg = to_jpeg(wm.get(url, raw=True, tries=2))
                 if not jpg: why += '; %s too small or not an image' % rid; continue
@@ -86,6 +101,6 @@ def main():
             fails += 1; print('  retry later:', t, '- request failed:', ex, flush=True)
             if fails >= 3: print('STOP: three requests in a row failed (a key needed, or throttled); nothing more is tried. Ask the owner.', flush=True); save(); sys.exit(2)
             continue
-        if t not in man: tried[t] = today.isoformat(); print('  no:', t, '-', why, flush=True)
+        if found == before: tried[t] = today.isoformat(); print('  no:', t, '-', why, flush=True)
         if i % 10 == 0 or i == len(todo): save(); print(i, 'of', len(todo), '| found', found, flush=True)
 if __name__ == '__main__': main()
