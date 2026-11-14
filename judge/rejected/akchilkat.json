@@ -1,0 +1,24 @@
+{
+ "story": "Chilkat State Park is a 9,837-acre Alaska state park on a peninsula south of the town of Haines between the Chilkat and Chilkoot inlets. Established in 1970 and enacted in 1975, the remote park features forest trails, beaches, and views of Rainbow Glacier and Davidson Glacier.",
+ "matters": "The park provides a habitat and viewing opportunities for a variety of wildlife, including black and brown bears, mountain goats, moose, humpback and orca whales, harbor seals, and bald eagles.",
+ "id": "akchilkat",
+ "name": "Chilkat State Park",
+ "model": "gemini-3.1-flash-lite",
+ "prompt": "stories-2",
+ "tokens": {
+  "promptTokenCount": 2715,
+  "candidatesTokenCount": 120,
+  "totalTokenCount": 2835,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 2715
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "at": "2026-11-14T10:48:54+00:00",
+ "rejected": "spot check (Claude, 14 Nov): \"Established in 1970 and enacted in 1975\" is Kachemak Bay State Park's history, which the Chilkat research text also carries; wrong for Chilkat",
+ "reason": "flagged by a person after the judge passed it",
+ "writer_model": "gemini-3.5-flash-lite"
+}
