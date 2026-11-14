@@ -27,7 +27,9 @@ jobs:
         run: pip install pillow
       - name: Make the larger copies
         if: steps.open.outputs.n == '0'
-        run: python3 jobs/largeplacephotos.py "${{ github.event.inputs.limit }}" | tee large.log | tail -60
+        run: |
+          set -o pipefail   # a crash of the job must fail the step, not be hidden by tee and tail
+          python3 jobs/largeplacephotos.py "${{ github.event.inputs.limit }}" | tee large.log | tail -60
       - name: Commit and open the pull request
         if: steps.open.outputs.n == '0'
         env:
