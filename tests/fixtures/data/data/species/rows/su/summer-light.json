@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Summer light",
+ "tl": 0,
+ "wiki": "Midnight sun",
+ "desc": "The park lies north of the Arctic Circle, so growth is crammed into a short summer of very long days.",
+ "ic": "sun",
+ "cat": "abiotic",
+ "sid": "summer-light",
+ "sk": "resource",
+ "src": "legacy"
+}

@@ -30,11 +30,12 @@ MAIN = [
     'congo', 'reef', 'arctic', 'galapagos', 'boreal', 'baikal', 'himalaya', 'greatlakes',   # the other eight of the twelve first-view flagships (FLAGS in maplibre.js; worldview expects twelve)
     'nybearmountain',                                                            # "Bear Mountain": a place search for "bear" lists a place by name (searchtabs)
     'whmonarch', 'usgatewaynationalrecreat', 'npkatmai', 'whkamchatka', 'npbiscayne', 'npdrytortugas',   # the other ends of the journeys below (monarch, sockeye, green turtle); the dust, nutrients, pelican and prairie-to-gulf ends are above
+    'npkobukvalley', 'npgatesarctic',                                             # the ends of the caribou journey (journey test: "Follow the herd")
     'sahara',                                                                    # a place search for "sahara" finds a place and no species (searchtabs)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
-JOURNEYS = ['osprey', 'knot', 'flamingo', 'dust', 'nutrients', 'monarch', 'prairiegulf', 'sockeye', 'greenturtleA', 'pelican']   # their ends must be in MAIN; the journey test needs fliers, swimmers and the two flows (journey.test.mjs)
+JOURNEYS = ['osprey', 'knot', 'flamingo', 'dust', 'nutrients', 'monarch', 'prairiegulf', 'sockeye', 'greenturtleA', 'pelican', 'caribouwest']   # their ends must be in MAIN; the journey test needs fliers, swimmers and the two flows (journey.test.mjs)
 
 
 def load(p): return json.load(open(p, encoding='utf-8'))

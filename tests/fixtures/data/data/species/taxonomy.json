@@ -27,6 +27,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "acanthis-flammea": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Fringillidae",
+  "gname": "Acanthis flammea (Linnaeus, 1758)",
+  "key": 5231630,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "acanthuridae": {
   "at": "2026-11-04",
   "conf": 96,
@@ -1326,6 +1340,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "calcarius-lapponicus": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Calcariidae",
+  "gname": "Calcarius lapponicus (Linnaeus, 1758)",
+  "key": 2491678,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Passeriformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "calidris-canutus": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -1603,6 +1631,20 @@
   "order": "Poales",
   "phylum": "Tracheophyta",
   "rank": "GENUS",
+  "src": "gbif"
+ },
+ "carex-aquatilis": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 97,
+  "family": "Cyperaceae",
+  "gname": "Carex aquatilis Wahlenb.",
+  "key": 2724150,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
   "src": "gbif"
  },
  "carex-folliculata": {
@@ -3484,6 +3526,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "gulo-gulo": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Mustelidae",
+  "gname": "Gulo gulo (Linnaeus, 1758)",
+  "key": 5219073,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "gypaetus-barbatus": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -3972,6 +4028,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "lagopus-lagopus": {
+  "at": "2026-11-04",
+  "class": "Aves",
+  "conf": 100,
+  "family": "Phasianidae",
+  "gname": "Lagopus lagopus (Linnaeus, 1758)",
+  "key": 2473421,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Galliformes",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "lanius-schach": {
   "at": "2026-11-04",
   "class": "Aves",
@@ -4133,6 +4203,20 @@
   "family": "Cricetidae",
   "gname": "Lemmiscus curtatus (Cope, 1868)",
   "key": 2438225,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "lemmus-trimucronatus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 99,
+  "family": "Cricetidae",
+  "gname": "Lemmus trimucronatus (Richardson, 1825)",
+  "key": 5219836,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Rodentia",
@@ -5057,6 +5141,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "mustela-erminea": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Mustelidae",
+  "gname": "Mustela erminea Linnaeus, 1758",
+  "key": 5219019,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Carnivora",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "mustela-nigripes": {
   "at": "2026-11-04",
   "class": "Mammalia",
@@ -5134,6 +5232,20 @@
   "family": "Cricetidae",
   "gname": "Myodes rufocanus (Sundevall, 1846)",
   "key": 5706769,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Rodentia",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "myodes-rutilus": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Cricetidae",
+  "gname": "Myodes rutilus (Pallas, 1779)",
+  "key": 5706762,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Rodentia",
@@ -5578,6 +5690,20 @@
   "family": "Bovidae",
   "gname": "Ovis canadensis Shaw, 1804",
   "key": 2441119,
+  "kingdom": "Animalia",
+  "match": "exact",
+  "order": "Artiodactyla",
+  "phylum": "Chordata",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "ovis-dalli": {
+  "at": "2026-11-04",
+  "class": "Mammalia",
+  "conf": 100,
+  "family": "Bovidae",
+  "gname": "Ovis dalli Nelson, 1884",
+  "key": 2441118,
   "kingdom": "Animalia",
   "match": "exact",
   "order": "Artiodactyla",
@@ -6447,6 +6573,20 @@
   "rank": "SPECIES",
   "src": "gbif"
  },
+ "poa-glauca": {
+  "at": "2026-11-04",
+  "class": "Liliopsida",
+  "conf": 97,
+  "family": "Poaceae",
+  "gname": "Poa glauca Vahl",
+  "key": 2704218,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Poales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
  "poaceae": {
   "at": "2026-11-04",
   "class": "Liliopsida",
@@ -7261,6 +7401,20 @@
   "family": "Salicaceae",
   "gname": "Salix arctica Pall.",
   "key": 5372665,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Malpighiales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "salix-glauca": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 97,
+  "family": "Salicaceae",
+  "gname": "Salix glauca L.",
+  "key": 5372963,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Malpighiales",
@@ -8386,6 +8540,20 @@
   "family": "Ericaceae",
   "gname": "Vaccinium uliginosum L.",
   "key": 8073364,
+  "kingdom": "Plantae",
+  "match": "exact",
+  "order": "Ericales",
+  "phylum": "Tracheophyta",
+  "rank": "SPECIES",
+  "src": "gbif"
+ },
+ "vaccinium-vitis-idaea": {
+  "at": "2026-11-04",
+  "class": "Magnoliopsida",
+  "conf": 99,
+  "family": "Ericaceae",
+  "gname": "Vaccinium vitis-idaea L.",
+  "key": 2882835,
   "kingdom": "Plantae",
   "match": "exact",
   "order": "Ericales",

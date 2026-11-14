@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin tundra soil",
+ "tl": 0,
+ "wiki": "Soil",
+ "desc": "Cold, thin soils keep most trees and shrubs small, according to Wikipedia.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-tundra-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

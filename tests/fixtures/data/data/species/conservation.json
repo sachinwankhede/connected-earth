@@ -3,6 +3,10 @@
   "c": "LC",
   "q": "Q378592"
  },
+ "acanthis flammea": {
+  "c": "LC",
+  "q": "Q20754771"
+ },
  "accipiter cooperii": {
   "c": "LC",
   "q": "Q862896"
@@ -239,6 +243,10 @@
   "c": "LC",
   "q": "Q457471"
  },
+ "calcarius lapponicus": {
+  "c": "LC",
+  "q": "Q208703"
+ },
  "calidris canutus": {
   "c": "NT",
   "q": "Q27124"
@@ -298,6 +306,10 @@
  "cardinalis cardinalis": {
   "c": "LC",
   "q": "Q726389"
+ },
+ "carex aquatilis": {
+  "c": "LC",
+  "q": "Q159025"
  },
  "carex folliculata": {
   "c": "LC",
@@ -615,6 +627,10 @@
   "c": "LC",
   "q": "Q503804"
  },
+ "gulo gulo": {
+  "c": "LC",
+  "q": "Q14334"
+ },
  "gypaetus barbatus": {
   "c": "NT",
   "q": "Q126167"
@@ -703,6 +719,10 @@
   "c": "LC",
   "q": "Q1257151"
  },
+ "lagopus lagopus": {
+  "c": "LC",
+  "q": "Q178702"
+ },
  "lanius schach": {
   "c": "LC",
   "q": "Q795567"
@@ -750,6 +770,10 @@
  "lemmiscus curtatus": {
   "c": "LC",
   "q": "Q1762716"
+ },
+ "lemmus trimucronatus": {
+  "c": "LC",
+  "q": "Q1769625"
  },
  "leopardus pardalis": {
   "c": "LC",
@@ -931,6 +955,10 @@
   "c": "LC",
   "q": "Q234014"
  },
+ "mustela erminea": {
+  "c": "LC",
+  "q": "Q25345"
+ },
  "mustela nigripes": {
   "c": "EN",
   "q": "Q402885"
@@ -1026,6 +1054,10 @@
  "ovis canadensis": {
   "c": "LC",
   "q": "Q189466"
+ },
+ "ovis dalli": {
+  "c": "LC",
+  "q": "Q576112"
  },
  "ovis nivicola": {
   "c": "LC",
@@ -1391,6 +1423,10 @@
   "c": "LC",
   "q": "Q1088471"
  },
+ "salix glauca": {
+  "c": "LC",
+  "q": "Q158458"
+ },
  "salix nigra": {
   "c": "LC",
   "q": "Q469220"
@@ -1634,6 +1670,10 @@
  "vaccinium arboreum": {
   "c": "LC",
   "q": "Q3249733"
+ },
+ "vaccinium vitis-idaea": {
+  "c": "LC",
+  "q": "Q93235"
  },
  "vachellia tortilis": {
   "c": "LC",

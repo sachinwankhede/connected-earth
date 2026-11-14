@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Thin cold soil",
+ "tl": 0,
+ "wiki": "Permafrost",
+ "desc": "Plants face strong winds, thin soils and a short growing season, according to the park service.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "thin-cold-soil",
+ "sk": "resource",
+ "src": "legacy"
+}
