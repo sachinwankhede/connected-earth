@@ -255,7 +255,7 @@ class AiTaskRunnerTests(unittest.TestCase):
         class Toy(ai_task.Task):
             name = 'toy'; prompt_version = 'toy-1'
             def items(s, i, o, again): return [ai_task.Item(x, x.upper(), 'ask ' + x, 'src ' + x) for x in ('a', 'b', 'c', 'd') if not os.path.exists(os.path.join(o, x + '.json')) and (again or not os.path.exists(os.path.join(o, 'rejected', x + '.json')))]
-            def check(s, ans, src): return 'too long' if len(ans.get('v', '')) > 3 else None
+            def check(s, ans, src, it=None): return 'too long' if len(ans.get('v', '')) > 3 else None
             def review(s, o): s.reviewed = True
         self.Toy = Toy
     def run_task(self, script, limit=0, again=False, models='m1,m2'):
@@ -293,6 +293,47 @@ class AiTaskRunnerTests(unittest.TestCase):
             its = task.items(d, self.out, False)
         self.assertEqual([i.id for i in its], ['p1']); self.assertIn('SOURCE TEXT:\n' + SRC, its[0].text); self.assertEqual(its[0].source, SRC)
         self.assertEqual((task.system, task.prompt_version), (g.SYSTEM, g.PROMPT_VERSION)); self.assertIsNone(task.check({'story': 'Lake Park is in Utah, USA.', 'matters': 'Elk live here.'}, SRC))
+
+
+class JudgeTaskTests(unittest.TestCase):
+    """The judge task in jobs/ai_task.py (#779 step b). Kept in this file because it is already listed in ci.yml (owner-merged)."""
+    def setUp(self):
+        sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
+        import ai_task, llm
+        self.t, self.llm = ai_task, llm; self.d = tempfile.mkdtemp(); self.res = os.path.join(self.d, 'research'); os.makedirs(self.res)
+        self.out = os.path.join(self.d, 'out'); os.makedirs(self.out)
+    def draft(self, pid, story, matters='Elk live here.', model='gemini-3.5-flash-lite'):
+        json.dump({'id': pid, 'name': pid.upper(), 'story': story, 'matters': matters, 'model': model}, open(os.path.join(self.out, pid + '.json'), 'w')); open(os.path.join(self.res, pid + '.md'), 'w').write(SRC)
+    def run_judge(self, script, again=False):
+        f = LlmInterfaceTests.Fake(script); f.models = ('gemini-3.1-flash-lite', 'gemini-3.8-flash'); lines = []
+        n = self.t.run(self.t.Judge(), self.d, self.out, 0, again, self.llm.Chain(','.join(f.models), f.models), 'k', provider=f, gap=0, log=lines.append, sleep=lambda s: None)
+        return n, f
+    ok = staticmethod(lambda: {'answer': {'verdict': 'ok', 'problems': [], 'reason': 'supported'}, 'tokens': {}})
+    flag = staticmethod(lambda: {'answer': {'verdict': 'flag', 'problems': ['"1963" is not in the source'], 'reason': 'invented date'}, 'tokens': {}})
+
+    def test_passes_and_flags_are_filed_apart_with_the_writer_model_and_only_flags_are_listed_for_reading(self):
+        self.draft('a', 'Lake Park is in Utah.'); self.draft('b', 'It was set up in 1963 in Utah.')
+        n, f = self.run_judge([self.ok(), self.flag()])
+        self.assertEqual((n['accepted'], n['rejected']), (1, 1))
+        ok = json.load(open(os.path.join(self.out, 'judge', 'a.json'))); fl = json.load(open(os.path.join(self.out, 'judge', 'rejected', 'b.json')))
+        self.assertEqual((ok['verdict'], ok['writer_model'], ok['model']), ('ok', 'gemini-3.5-flash-lite', 'gemini-3.1-flash-lite')); self.assertIn('1963', fl['rejected'])
+        md = open(os.path.join(self.out, 'JUDGE-FLAGGED.md')).read(); self.assertIn('`b`', md); self.assertNotIn('`a`', md); self.assertIn('1 passed, 1 flagged', md)
+        self.assertTrue(os.path.exists(os.path.join(self.out, 'a.json')))   # the drafts themselves are untouched
+
+    def test_the_prompt_carries_the_draft_and_the_source_and_a_judged_draft_is_not_asked_again(self):
+        self.draft('a', 'Lake Park is in Utah.')
+        item = self.t.Judge().items(self.d, self.out, False)[0]
+        n, f = self.run_judge([self.ok()]); n2, f2 = self.run_judge([]); self.assertEqual((n['accepted'], f2.seen), (1, []))
+        self.assertIn('STORY: Lake Park is in Utah.', item.text); self.assertIn('SOURCE TEXT:\n' + SRC, item.text)
+
+    def test_near_duplicate_drafts_are_flagged_by_the_text_comparison_even_when_the_model_says_ok(self):
+        same = 'Lake Park is in Utah and it covers a large area of high dry land with elk.'
+        self.draft('a', same); self.draft('b', same); self.draft('c', 'Moose wade in cold ponds near Lake Park in the north.')
+        n, f = self.run_judge([self.ok(), self.ok(), self.ok()])
+        self.assertEqual((n['accepted'], n['rejected']), (1, 2)); self.assertIn('near-duplicate of the draft for b', json.load(open(os.path.join(self.out, 'judge', 'rejected', 'a.json')))['rejected'])
+
+    def test_only_flagging_models_differ_from_the_writer_by_default_and_the_branch_is_the_drafts_branch(self):
+        j = self.t.Judge(); self.assertNotIn(self.t.Stories().models[0], j.models); self.assertEqual((j.branch, self.t.Stories().branch), ('gemini-stories', 'gemini-stories'))
 
 
 if __name__ == '__main__': unittest.main()
