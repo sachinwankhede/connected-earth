@@ -172,6 +172,8 @@ jobs:
       - uses: actions/setup-node@v5
         with: { node-version: 22, cache: npm }
       - run: npm ci
+      - name: Install Pillow (the Openverse place-picture test makes a JPEG)
+        run: python3 -m pip install --break-system-packages pillow==11.3.0
       - name: Job self-tests
         run: |
           python3 tests/jobs/photo_registry_test.py
@@ -180,6 +182,7 @@ jobs:
           python3 tests/jobs/hostphotos_test.py
           python3 tests/jobs/photos_test.py
           python3 tests/jobs/commonsplacephotos_test.py
+          python3 tests/jobs/openverseplaces_test.py
           python3 tests/jobs/commonsnearby_test.py
           python3 tests/jobs/commonscategory_test.py
           python3 tests/jobs/fixcoords_test.py

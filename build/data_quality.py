@@ -7,7 +7,7 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
-from lib.photo_registry import safe_https
+from lib.photo_registry import PLACE_CREDIT_HOSTS, safe_https
 
 
 def read_json(path):
@@ -27,7 +27,7 @@ def photo_metadata(root):
             and isinstance(digest, str) and re.fullmatch(r"[a-fA-F0-9]{64}", digest)
             and isinstance(row.get("a"), str) and row["a"].strip()
             and isinstance(row.get("l"), str) and row["l"].strip()
-            and safe_https(row.get("p"), {"commons.wikimedia.org"})
+            and safe_https(row.get("p"), PLACE_CREDIT_HOSTS)
         )
     return complete, len(manifest)
 
