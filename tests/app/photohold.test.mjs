@@ -4,6 +4,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const isPicture = (url) => /photos\/places\/.+\.jpg|rest_v1\/page\/summary|photos\/species(?:-md)?\/.+\.webp/.test(url);
 const isPlacePicture = (url) => /photos\/places\/.+\.jpg/.test(url);
@@ -14,8 +15,8 @@ describe('pictures wait for the map', () => {
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
-      let f = path.join(H.ROOT, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
-      if (!f.startsWith(H.ROOT) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
+      let f = path.join(H.FBUILD, decodeURIComponent(q.url.split('?')[0])); if (f.endsWith('/')) f += 'index.html';
+      if (!f.startsWith(H.FBUILD) || !fs.existsSync(f)) { r.writeHead(404); return r.end(); }
       r.writeHead(200, { 'Content-Type': f.endsWith('.html') ? 'text/html; charset=utf-8' : f.endsWith('.json') ? 'application/json' : f.endsWith('.jpg') ? 'image/jpeg' : 'application/octet-stream' }); r.end(fs.readFileSync(f));
     }).listen(0);
     base = `http://localhost:${srv.address().port}/`;

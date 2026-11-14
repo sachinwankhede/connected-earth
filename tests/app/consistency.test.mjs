@@ -1,6 +1,7 @@
 import { test, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 // docs/DESIGN.md: one back link, same look and place on every screen.
 for (const [name, size] of Object.entries(H.SIZES)) {
@@ -8,7 +9,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch();
     const seen = [];
     for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['species', '#stub&sp=pandion-haliaetus'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
-      const t = await H.open(b, H.MAIN, size, { hash }); const p = t.page;
+      const t = await H.open(b, H.FMAIN, size, { hash }); const p = t.page;
       if (scr === 'journey') await p.evaluate(() => window.__M.showJourney(window.__M.journeyIds()[0]));
       await p.waitForSelector(scr === 'explore' ? '#pbk' : '.jback', { state: 'visible', timeout: 60000 });
       const r = await p.evaluate(() => {
@@ -33,7 +34,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: journey, place and explore all have a share icon; pages and the species sheet share one footer`, async () => {
     const b = await H.launch();
     for (const [scr, hash] of [['place', '#stub&pg=yellowstone'], ['species', '#stub&sp=pandion-haliaetus'], ['explore', '#stub&e=yellowstone'], ['journey', '#stub']]) {
-      const t = await H.open(b, H.MAIN, size, { hash }); const p = t.page;
+      const t = await H.open(b, H.FMAIN, size, { hash }); const p = t.page;
       if (scr === 'journey') await p.evaluate(() => window.__M.showJourney(window.__M.journeyIds()[0]));
       await p.waitForSelector(scr === 'explore' ? '#pbk' : '.jback', { state: 'visible', timeout: 60000 }); await H.pause(p, 1000);
       const r = await p.evaluate(() => { const v = [...document.querySelectorAll('.shbtn')].filter((e) => e.getBoundingClientRect().width > 0); const f = [...document.querySelectorAll('details.srcd summary')].filter((e) => e.getBoundingClientRect().width > 0).map((e) => e.textContent.trim()); return { share: v.length, foot: f }; });
