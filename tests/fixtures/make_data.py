@@ -7,7 +7,7 @@ The browser tests open `python3 build/build.py --fixture`, which builds the app 
 The layout mirrors the repository (tests/fixtures/data/data/..., tests/fixtures/data/photos/...) and is passed to the build as --data-root. The files are copied once from data/ and then frozen: nothing reads the real data afterwards, so they do not drift. Re-run this script only to change
 which places are in the set, and review the diff. Never edit the files by hand.
 """
-import json, os, shutil, sys
+import json, os, re, shutil, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 import species
@@ -89,6 +89,14 @@ def main():
     for sub, key in (('species-md', 'species_hosted'), ('species-lg', 'species_large')):
         os.makedirs(os.path.join(OUT, 'photos', sub), exist_ok=True)
         for k in names: shutil.copyfile(R('photos', sub, ph[key][k]), os.path.join(OUT, 'photos', sub, ph[key][k]))
+    # park summaries (data/text/summaries.json, keyed by the Wikipedia article title): the ones the fixture's parks use, by the build's own rule (a park's first Wikipedia source names the article)
+    sums = load(R('data', 'text', 'summaries.json')) if os.path.exists(R('data', 'text', 'summaries.json')) else {}; keepsum = {}
+    for p in places.values():
+        src = next((x for x in (p.get('sources') or []) if re.match(r'^Wikipedia:', x.get('title', ''))), None); m = src and re.search(r'wikipedia\.org/wiki/([^#?]+)', src.get('url') or '')
+        if m:
+            t = urllib.parse.unquote(m.group(1)).replace('_', ' ')
+            if t in sums: keepsum[t] = sums[t]
+    dump(keepsum, os.path.join(OUT, 'data', 'text', 'summaries.json'), indent=1)
     print('fixture data: %d places (%d pilot), %d species, %d journeys, %d place pictures, %d species pictures' % (len(ids), len(PILOT), len(keep), len(JOURNEYS), len(out), len(names)))
 
 

@@ -2,19 +2,20 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 import fs from 'node:fs';
-const sums = JSON.parse(fs.readFileSync(new URL('../../data/text/summaries.json', import.meta.url), 'utf8'));
+const sums = JSON.parse(fs.readFileSync(H.FDATA + '/data/text/summaries.json', 'utf8'));
 // the same rule build.py uses: the park's first Wikipedia source names the article
 const summaryOf = (e) => { const s = (e.sources || []).find((x) => /^Wikipedia:/.test(x.title)), m = s && /wikipedia\.org\/wiki\/([^#?]+)/.exec(s.url || ''); return (m && sums[decodeURIComponent(m[1]).replace(/_/g, ' ')]) || ''; };
-const places = H.readPlaces(true).map((e) => ({ ...e, summary: summaryOf(e) }));
+const places = H.readFixturePlaces(true).map((e) => ({ ...e, summary: summaryOf(e) }));
 const withSummary = places.filter((e) => e.park && !e.story && e.summary);
 const without = places.filter((e) => e.park && !e.story && !e.summary && e.blurb);
 
 for (const [name, size] of Object.entries(H.SIZES)) {
   async function show(id) {
     const b = await H.launch();
-    const t = await H.open(b, H.PILOT, size, { hash: '#stub' });
+    const t = await H.open(b, H.FPILOT, size, { hash: '#stub' });
     const errors = []; t.page.on('pageerror', (e) => errors.push(String(e)));
     await t.page.waitForTimeout(500);
     await t.page.evaluate((i) => window.__M.showPlace(i), id);
