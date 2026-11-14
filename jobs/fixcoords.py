@@ -93,6 +93,7 @@ def padus_coords(d, geo, get, min_score=0.6):
     best = None; wt = type_words(d.get('name', '')) | type_words(d.get('short', ''))
     for n, rs in units.items():
         if type_words(n) != wt: continue   # "Riverside Park" is not "Riverside State Park" (#767): state, national and historic must agree
+        if not wt and re.sub(r'[^a-z]', '', n.lower()) not in {re.sub(r'[^a-z]', '', x.lower()) for x in (d.get('name'), d.get('short')) if x}: continue   # a bare name ("Riverside", "Raymond", "Sunset Lake") needs the unit of exactly that name: "Riverside Park" is another place (#767, #863)
         t = name_tokens(n); sc = len(want & t) / max(1, len(want | t)) if t else 0
         if sc >= min_score and rs and (best is None or sc > best[0]): best = (sc, n, rs)
     if not best: return None
