@@ -1,16 +1,17 @@
 import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 describe('habitat chips', () => {
   let browser;
   before(async () => { browser = await H.launch(); });
   after(async () => { await browser.close(); });
-  const places = H.atWorld(H.readPlaces(false));
+  const places = H.atWorld(H.readFixturePlaces(false));
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: five short chips, no counts, no "Protected areas"`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
+      const t = await H.open(browser, H.FMAIN, size);
       const labels = await H.chipLabels(t.page);
       assert.deepEqual(labels, Object.keys(H.GROUPS));
       assert.ok(labels.every((l) => !/\d/.test(l)), 'no counts on chips');
@@ -18,7 +19,7 @@ describe('habitat chips', () => {
     });
 
     test(`${sizeName}: each chip filters to its habitats and switches off again`, async () => {
-      const t = await H.open(browser, H.MAIN, size);
+      const t = await H.open(browser, H.FMAIN, size);
       const all = await H.dots(t.page);
       assert.equal(all, places.length);
       for (const [label, kinds] of Object.entries(H.GROUPS)) {
@@ -34,7 +35,7 @@ describe('habitat chips', () => {
     });
 
     test(`${sizeName}: a filter keeps the camera if something is in view, moves it if nothing is`, async () => {
-      const t = await H.open(browser, H.PILOT, size);
+      const t = await H.open(browser, H.FPILOT, size);
       await H.jump(t.page, [-91, 38.6], 8);
       const start = await H.camera(t.page);
       await t.page.click('#locbtn'); await H.settle(t.page);
