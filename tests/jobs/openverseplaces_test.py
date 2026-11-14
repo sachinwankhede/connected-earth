@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os, sys, unittest
+from unittest import mock
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "jobs"))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
 import openverseplaces as v
