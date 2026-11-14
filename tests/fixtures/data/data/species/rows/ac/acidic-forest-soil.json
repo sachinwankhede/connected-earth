@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Acidic forest soil",
+ "tl": 0,
+ "wiki": "Podzol",
+ "desc": "Needle litter makes cool, acidic soils that break down slowly.",
+ "ic": "soil",
+ "cat": "abiotic",
+ "sid": "acidic-forest-soil",
+ "sk": "resource",
+ "src": "legacy"
+}

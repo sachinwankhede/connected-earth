@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Oasis groundwater",
+ "tl": 0,
+ "wiki": "Oasis",
+ "desc": "Water close to the surface at oases and in wadis lets trees and palms grow where the surrounding desert is bare.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "oasis-groundwater",
+ "sk": "resource",
+ "src": "legacy"
+}

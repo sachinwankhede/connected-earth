@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Cold deep water",
+ "tl": 0,
+ "wiki": "Hypolimnion",
+ "desc": "Cold bottom water below the thermocline is the home of Mysis, Diporeia and lake trout.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cold-deep-water",
+ "sk": "resource",
+ "src": "legacy"
+}

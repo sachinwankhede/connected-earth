@@ -1,0 +1,12 @@
+{
+ "latin": "Diatoms and other algae",
+ "name": "Phytoplankton",
+ "tl": 1,
+ "wiki": "Phytoplankton",
+ "desc": "Drifting algae that feed the bay's filter feeders and zooplankton. Too many nutrients cause blooms that block light and use up oxygen when they die and decay.",
+ "ic": "algae",
+ "about": "Phytoplankton () are the autotrophic (self-feeding) components of the plankton community and a key part of ocean and freshwater ecosystems.",
+ "sid": "diatoms-and-other-algae",
+ "sk": "group",
+ "src": "legacy"
+}

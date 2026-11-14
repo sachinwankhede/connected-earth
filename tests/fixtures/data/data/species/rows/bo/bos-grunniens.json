@@ -1,0 +1,12 @@
+{
+ "latin": "Bos grunniens",
+ "name": "Yak",
+ "tl": 2,
+ "wiki": "Yak",
+ "desc": "Grazing livestock herded in the high valleys, which overlap heavily with wild herbivores for pasture.",
+ "ic": "bison",
+ "about": "The yak is a species of long-haired domesticated Asian cattle found throughout the Himalayan region, the Tibetan Plateau, Tajikistan, the Pamir Mountains, and as far north as Mongolia and Siberia.",
+ "sid": "bos-grunniens",
+ "sk": "taxon",
+ "src": "legacy"
+}

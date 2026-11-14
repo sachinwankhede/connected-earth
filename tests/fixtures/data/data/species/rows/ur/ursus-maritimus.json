@@ -1,0 +1,13 @@
+{
+ "latin": "Ursus maritimus",
+ "name": "Polar bear",
+ "tl": 4,
+ "wiki": "Polar bear",
+ "desc": "Hunts seals from the sea ice, so it depends on that ice to feed.",
+ "ic": "grizzly",
+ "badge": "Keystone predator",
+ "about": "The polar bear is a large bear native to the Arctic and nearby areas. It is closely related to the brown bear, and the two species can interbreed.",
+ "sid": "ursus-maritimus",
+ "sk": "taxon",
+ "src": "legacy"
+}

@@ -1,0 +1,12 @@
+{
+ "latin": "Bubo scandiacus",
+ "name": "Snowy owl",
+ "tl": 3,
+ "wiki": "Snowy owl",
+ "desc": "Hunts lemmings by day and lays more eggs in years when lemmings are plentiful.",
+ "ic": "hawk",
+ "about": "The snowy owl, also known as the polar owl, the white owl and the Arctic owl, is a large, white owl of the true owl family.",
+ "sid": "bubo-scandiacus",
+ "sk": "taxon",
+ "src": "legacy"
+}

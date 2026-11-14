@@ -2,11 +2,13 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import * as H from './helper.mjs';
 
+await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
+
 // First view: a few named flagship places with no counts; they fold back into the normal dots once zoomed in.
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: world view shows flagships apart from the clusters, and hands them back when zoomed in`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     const n = (id) => t.page.evaluate((i) => window.__M.map.getSource(i)._data.features.length, id);
     const total = await H.dots(t.page);
     assert.equal(await n('atl-f'), 12, 'twelve flagships at the first view');
@@ -47,7 +49,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: first-view dots are tiny and untappable, grow with zoom, and a tap beside them zooms in`, async () => {
     const b = await H.launch();
-    const t = await H.open(b, H.MAIN, size, { hash: '#stub' });
+    const t = await H.open(b, H.FMAIN, size, { hash: '#stub' });
     const rad = () => t.page.evaluate(() => JSON.stringify(window.__M.map.getPaintProperty('atl-n-pt', 'circle-radius')));
     assert.match(await rad(), /1\.4/, 'needle-sized at the first view');
     assert.equal(await t.page.evaluate(() => window.__M.map.getLayoutProperty('atl-cl', 'visibility')), 'none', 'no clusters at the first view');
@@ -78,9 +80,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 test('place names flip to white on the satellite view and stay dark on plain maps', async () => {
   const b = await H.launch();
   const col = (t) => t.page.evaluate(() => window.__M.map.getPaintProperty('atl-f-lb', 'text-color'));
-  const plain = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const plain = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   assert.notEqual(await col(plain), '#ffffff');
-  const sat = await H.open(b, H.MAIN, H.SIZES.phone, {});
+  const sat = await H.open(b, H.FMAIN, H.SIZES.phone, {});
   const c = await sat.page.evaluate(() => { const m = window.__M.map; return m.getStyle().name === 'satellite' ? m.getPaintProperty('atl-f-lb', 'text-color') : 'left-satellite'; });
   assert.ok(c === '#ffffff' || c === 'left-satellite', 'satellite labels are white: ' + c);
   await b.close();
@@ -91,9 +93,9 @@ test('satellite uses the brighter colours and the chips match; plain maps keep t
   const b = await H.launch();
   const chip = (t) => t.page.evaluate(() => getComputedStyle(document.querySelector('#kinds .chip i.kd')).backgroundColor);
   const dot = (t) => t.page.evaluate(() => { const f = window.__M.map.getSource('atl-f')._data.features[0]; return f.properties.kc; });
-  const plain = await H.open(b, H.MAIN, H.SIZES.phone, { hash: '#stub' });
+  const plain = await H.open(b, H.FMAIN, H.SIZES.phone, { hash: '#stub' });
   assert.equal(await chip(plain), 'rgb(47, 125, 79)', 'plain: original forest green');
-  const sat = await H.open(b, H.MAIN, H.SIZES.phone, {});
+  const sat = await H.open(b, H.FMAIN, H.SIZES.phone, {});
   const on = await sat.page.evaluate(() => window.__M.map.getStyle().name === 'satellite');
   if (on) {
     assert.equal(await chip(sat), 'rgb(67, 199, 121)', 'satellite: brighter forest green');

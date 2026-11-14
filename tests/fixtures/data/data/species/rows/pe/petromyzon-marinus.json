@@ -1,0 +1,12 @@
+{
+ "latin": "Petromyzon marinus",
+ "name": "Sea lamprey",
+ "tl": 3,
+ "wiki": "Sea lamprey",
+ "desc": "An invasive parasite that feeds on the blood of large fish such as lake trout and whitefish. It is held in check by control programs.",
+ "ic": "snake",
+ "about": "The sea lamprey is a parasitic lamprey native to the Northern Hemisphere. It is sometimes referred to as the \"vampire fish\".",
+ "sid": "petromyzon-marinus",
+ "sk": "taxon",
+ "src": "legacy"
+}

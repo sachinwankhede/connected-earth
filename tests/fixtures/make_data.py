@@ -27,6 +27,9 @@ MAIN = [
     'npblackcanyon',                                                             # park overview, Polar & mountain: the third elk place; the place sheet test's mocked pictures leave one of the two other elk places with a picture and one without (it checks both)
     'paelk',                                                                     # local (automatic), Forest, "Elk State Park": a place search for "elk" lists a place by name (searchstates)
     'kelp', 'fleconfinariver', 'xfiji', 'vtnorthhero',                                                # five fish and five amphibian species (a group needs 5, TAB_MIN), so the Species tab has eight groups and a More pill (speciestab)
+    'congo', 'reef', 'arctic', 'galapagos', 'boreal', 'baikal', 'himalaya', 'greatlakes',   # the other eight of the twelve first-view flagships (FLAGS in maplibre.js; worldview expects twelve)
+    'nybearmountain',                                                            # "Bear Mountain": a place search for "bear" lists a place by name (searchtabs)
+    'sahara',                                                                    # a place search for "sahara" finds a place and no species (searchtabs)
     'whbanff', 'whcalakmul', 'xbahamas',                                         # Canada, Mexico and the Bahamas: North America has several countries, so a species there gets country pills (searchheader); xbahamas has osprey
 ]
 PILOT = ['usmontevistanationalwild', 'uslenoregamerange', 'usapachenationalforest', 'iaprairierose', 'akwoodtikchik', 'usapostleislandsnational']   # pilot: national and local, several kinds
@@ -78,7 +81,7 @@ def main():
     dump(out, os.path.join(pd, 'places.json'), indent=1)
     # species pictures (#421): the species page's wide photo and the tiles need hosted copies; up to 20 of the fixture's species that have one, white-tailed deer first (speciespage opens it)
     ph = {n: load(R('photos', n + '.json')) for n in ('species', 'species_hosted', 'species_large', 'species_metadata')}
-    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if k.lower() in low and k in ph['species_large'] and k in ph['species']), key=lambda k: (k != 'Odocoileus virginianus', k))[:20]
+    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if (k.lower() in low or k == 'Osprey') and k in ph['species_large'] and k in ph['species']), key=lambda k: (k not in ('Odocoileus virginianus', 'Osprey'), k != 'Odocoileus virginianus', k))[:20]   # the osprey is keyed by its common name and the search tabs test needs its picture
     assert names and names[0] == 'Odocoileus virginianus', 'white-tailed deer needs a hosted picture in the fixture'
     for n in ('species', 'species_hosted', 'species_large', 'species_metadata'): dump({k: ph[n][k] for k in names if k in ph[n]}, os.path.join(OUT, 'photos', n + '.json'), indent=1)
     for sub, key in (('species-md', 'species_hosted'), ('species-lg', 'species_large')):

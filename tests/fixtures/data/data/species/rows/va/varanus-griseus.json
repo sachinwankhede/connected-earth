@@ -1,0 +1,12 @@
+{
+ "latin": "Varanus griseus",
+ "name": "Desert monitor",
+ "tl": 4,
+ "wiki": "Desert monitor",
+ "desc": "A large lizard that hunts small mammals, reptiles and insects across sand and gravel plains.",
+ "ic": "croc",
+ "about": "The desert monitor is a species of monitor lizard of the order Squamata found living throughout North Africa and Central and South Asia.",
+ "sid": "varanus-griseus",
+ "sk": "taxon",
+ "src": "legacy"
+}

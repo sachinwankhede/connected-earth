@@ -1,0 +1,12 @@
+{
+ "latin": "Halimeda spp.",
+ "name": "Macroalgae",
+ "tl": 1,
+ "wiki": "Halimeda",
+ "desc": "Seaweeds on reef flats that grazers keep from smothering the coral.",
+ "ic": "algae",
+ "about": "Halimeda is a genus of green macroalgae. The algal body (thallus) is composed of calcified green segments.",
+ "sid": "halimeda-spp",
+ "sk": "group",
+ "src": "legacy"
+}

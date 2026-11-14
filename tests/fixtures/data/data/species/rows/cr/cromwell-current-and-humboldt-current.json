@@ -1,0 +1,12 @@
+{
+ "latin": "Cromwell Current and Humboldt Current",
+ "name": "Cold upwelling",
+ "tl": 0,
+ "wiki": "Cromwell Current",
+ "desc": "Seamounts push the nutrient-rich Cromwell Current upward near the islands. El Niño shuts this upwelling off and warms the water.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "cromwell-current-and-humboldt-current",
+ "sk": "resource",
+ "src": "legacy"
+}
