@@ -4,9 +4,10 @@ import sys,json,math,subprocess,urllib.parse,os,csv,io,hashlib
 from concurrent.futures import ThreadPoolExecutor
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here=os.environ.get('WORK') or os.path.dirname(os.path.abspath(__file__))  # work dir holds cache/ drafts/ parks.json
+UA = {'User-Agent': 'ConnectedEarth/1.0 (+https://connected-earth-5ps.pages.dev/)'}   # GloBI answers 403 to Python's default User-Agent (14 Nov, #863); the live site is the contact
 def getu(u):
     for _ in range(3):
-        try: return fetch.fetch_text(u, timeout=90, encoding='utf8')
+        try: return fetch.fetch_text(u, timeout=90, encoding='utf8', headers=UA)
         except PermissionError: raise
         except Exception: pass
     return None
