@@ -2,6 +2,9 @@ name: data-research
 # Manual only. Collects the source material for one place into research/<id>.md on the `research` branch
 # (never merged, never part of the app) so a story or a feeding-link check can be written from real sources.
 on:
+  workflow_call:
+    inputs:
+      place: { type: string, required: true }
   workflow_dispatch:
     inputs:
       place: { description: "Place id (serengeti), several (serengeti,whkomodo), or next:N or next:N:prefix (next:40:wh = the next 40 World Heritage places with no story or research yet)", required: true }
@@ -18,7 +21,7 @@ jobs:
       - name: Gather
         run: |
           git fetch -q origin research:refs/remotes/origin/research || true
-          python3 jobs/researchlist.py "${{ github.event.inputs.place }}"
+          python3 jobs/researchlist.py "${{ inputs.place }}"
       - name: Save on the research branch
         run: |
           git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"

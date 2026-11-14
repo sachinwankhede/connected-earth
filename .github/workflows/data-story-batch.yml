@@ -4,6 +4,9 @@ name: data-story-batch
 # The throttle: it refuses to start while a pull request from a `data/story-batch-*` branch is open, so the owner's review pace is the speed limit.
 # No model call, no secret: GITHUB_TOKEN only (jobs/story_batch.py reads files). CI is started for the new branch the way data-promote does it.
 on:
+  workflow_call:
+    inputs:
+      n: { type: string, default: "25" }
   workflow_dispatch:
     inputs:
       n: { description: "Stories in the batch (about 25: what can be read in one sitting)", default: "25" }
@@ -18,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      N: ${{ github.event.inputs.n || '25' }}
+      N: ${{ inputs.n || '25' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Refuse to start while a story batch pull request is open

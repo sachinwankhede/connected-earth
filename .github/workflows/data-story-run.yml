@@ -1,0 +1,69 @@
+name: data-story-run
+# Manual only (#779, owner 14 Nov: "start from getting research result using GitHub which goes as input to stories"). One button for the whole story pipeline:
+# research (data-research, only when `research` > 0) -> writer (data-gemini-task, task stories) -> judge (data-gemini-task, task judge) -> batch (data-story-batch, ONE pull request of about `n` judge-passed stories).
+# Each step is the existing workflow called as it is, so every cap, the key handling (GEMINI_API_KEY only in the step that calls the API, rule 4) and the branches are unchanged, and each workflow keeps its own button.
+# It refuses to start while a data/story-batch-* pull request is open. A step that fails stops the run (the drafts already saved stay on gemini-stories). Never merges.
+on:
+  workflow_dispatch:
+    inputs:
+      n: { description: "Stories in the batch and places to draft (about 25: what one spot check covers; at most 50)", default: "25" }
+      research: { description: "Places to research first (next:N places with no research; 0 = skip when enough researched places have no story yet)", default: "25" }
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+concurrency: data-story-run
+jobs:
+  guard:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      GH_TOKEN: ${{ github.token }}
+      N: ${{ inputs.n }}
+      R: ${{ inputs.research }}
+    steps:
+      - name: Check the inputs and that no story batch pull request is open
+        run: |
+          case "$N" in ''|*[!0-9]*) echo "n must be a number"; exit 2;; esac
+          case "$R" in ''|*[!0-9]*) echo "research must be a number"; exit 2;; esac
+          [ "$N" -ge 1 ] && [ "$N" -le 50 ] || { echo "n must be 1 to 50"; exit 2; }
+          [ "$R" -le 100 ] || { echo "research must be 0 to 100"; exit 2; }
+          OPEN=$(gh pr list --repo "$GITHUB_REPOSITORY" --state open --json number,headRefName --jq '[.[]|select(.headRefName|startswith("data/story-batch-"))|.number]|join(" ")')
+          [ -z "$OPEN" ] || { echo "A story batch pull request is still open (#$OPEN): merge or close it first."; exit 1; }
+  research:
+    needs: guard
+    if: inputs.research != '0'
+    uses: ./.github/workflows/data-research.yml
+    with:
+      place: next:${{ inputs.research }}
+    permissions:
+      contents: write
+  write:
+    needs: [guard, research]
+    if: ${{ !failure() && !cancelled() }}
+    uses: ./.github/workflows/data-gemini-task.yml
+    with:
+      task: stories
+      limit: ${{ inputs.n }}
+    secrets: inherit
+    permissions:
+      contents: write
+  judge:
+    needs: write
+    uses: ./.github/workflows/data-gemini-task.yml
+    with:
+      task: judge
+      limit: ${{ inputs.n }}
+    secrets: inherit
+    permissions:
+      contents: write
+  batch:
+    needs: judge
+    uses: ./.github/workflows/data-story-batch.yml
+    with:
+      n: ${{ inputs.n }}
+    permissions:
+      contents: write
+      pull-requests: write
+      actions: write
