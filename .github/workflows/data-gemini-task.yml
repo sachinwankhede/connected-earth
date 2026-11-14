@@ -3,6 +3,12 @@
 # every draft written the moment it is checked, and the "Save the drafts" step runs even after a stop or a failure, committing to the branch `gemini-<task>`; the next run resumes. No place file is changed and no pull request is opened.
 # GEMINI_API_KEY goes to the one step that calls the API (never the whole job). Runs from main only. data-gemini-stories stays until this one has done a batch (then it is removed in its own pull request).
 on:
+  workflow_call:
+    inputs:
+      task: { type: string, default: stories }
+      limit: { type: string, default: "15" }
+      model: { type: string, default: "" }
+      again: { type: string, default: "no" }
   workflow_dispatch:
     inputs:
       task: { description: "stories (drafts) or judge (a second model flags the drafts); the name must be in jobs/ai_task.py TASKS, anything else stops the run before it starts", default: stories }
@@ -18,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 150
     env:
-      TASK: ${{ github.event.inputs.task || 'stories' }}
-      LIMIT: ${{ github.event.inputs.limit || '15' }}
-      AGAIN: ${{ github.event.inputs.again || 'no' }}
-      GEMINI_MODEL: ${{ github.event.inputs.model }}
+      TASK: ${{ inputs.task || 'stories' }}
+      LIMIT: ${{ inputs.limit || '15' }}
+      AGAIN: ${{ inputs.again || 'no' }}
+      GEMINI_MODEL: ${{ inputs.model }}
     steps:
       - uses: actions/checkout@v5
         with: { ref: main, persist-credentials: false }
