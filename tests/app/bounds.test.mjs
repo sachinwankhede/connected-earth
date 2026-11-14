@@ -27,6 +27,7 @@ describe('real park outlines', () => {
   const B = new Proxy({}, { get: (_, id) => (typeof id === 'string' && fs.existsSync(path.join(OD, id + '.json')) ? JSON.parse(fs.readFileSync(path.join(OD, id + '.json'), 'utf8')) : undefined) });
   const all = H.readFixturePlaces(true);
   const withB = all.filter((e) => B[e.id] && !e.auto).slice(0, 1).concat(all.filter((e) => B[e.id] && e.level === 'local').slice(0, 1), all.filter((e) => B[e.id] && e.auto && e.level !== 'local').slice(0, 1));
+  const mainIds = new Set(H.readFixturePlaces(false).map((x) => x.id)); const inMain = (id) => mainIds.has(id);   // a place that is only in the pilot build opens from pilot/index.html
   const without = all.find((e) => !B[e.id] && e.country !== 'United States of America' && !e.auto);
 
   async function open(size, id, file = 'index.html') {
@@ -44,7 +45,7 @@ describe('real park outlines', () => {
     test(`${sizeName}: places with an outline show it, fit the map to it, and clear it on close`, async () => {
       assert.ok(withB.length >= 2, 'need places with outlines');
       for (const e of withB) {
-        const t = await open(size, e.id, e.auto && e.level !== 'local' && !H.readFixturePlaces(false).some((x) => x.id === e.id) ? 'pilot/index.html' : 'index.html');
+        const t = await open(size, e.id, inMain(e.id) ? 'index.html' : 'pilot/index.html');
         const n = await outline(t.page);
         assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn`);
         assert.ok(t.reqs.length >= 1 && t.reqs.every((u) => u.endsWith('/' + e.id + '.json')), `${e.id}: only this park's outline file is fetched: ${t.reqs}`);
