@@ -732,6 +732,7 @@ if __name__ == '__main__':
                 if os.path.isdir(D('photos', sub)): shutil.copytree(D('photos', sub), O('photos', sub), dirs_exist_ok=True)
         if '--fixture' in a:   # the files the service worker keeps when it installs (SHELL_FILES in src/sw.template.js): without them the install fails and the worker never becomes ready
             for f in ('manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'): shutil.copyfile(P(f), O(f))
+            if os.path.isdir(D('data', 'outlines')): shutil.copytree(D('data', 'outlines'), O('data', 'outlines'), dirs_exist_ok=True)   # the park outlines the app fetches next to the page (data/outlines/<id>.json), as on the site
         if '--fixture' in a: open(O('.ready'), 'w').write('ok\n')   # written last: the tests wait for it (tests/app/helper.mjs)
     else:
         out = a[a.index('--out') + 1] if '--out' in a else O('dist', 'index.html')
