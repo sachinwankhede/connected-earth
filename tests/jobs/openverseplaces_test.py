@@ -27,6 +27,10 @@ class PlaceTests(unittest.TestCase):
         c = v.candidates([res('Trout Pond Maine', lic='cc0', ver='1.0')], 'Trout Pond', 'Maine')[0]
         self.assertEqual((c[2], c[3]), ('Ann', 'CC0 1.0')); self.assertTrue(c[1].startswith('https://api.openverse.org/v1/images/') and c[1].endswith('/thumb/'))
 
+    def test_a_dry_run_says_why_a_place_found_nothing(self):
+        rr, ex = v.reject_reasons([res('Trout Pond, West Virginia'), res('Trout Pond Maine', lic='by-nc'), res('Trout Pond Maine', creator=''), res('Trout Pond Maine map')], 'Trout Pond', 'Maine')
+        self.assertEqual(rr, {'place or state not in title or tags': 1, 'licence': 1, 'no creator': 1, 'not a photo or unwanted source': 1}); self.assertEqual(ex, ['Trout Pond, West Virginia'])
+
     def test_the_entry_validates_as_a_place_credit(self):
         e = v.entry('metroutpond', 'Ann', 'CC BY 4.0', 'https://creativecommons.org/licenses/by/4.0', ID, 'now')
         self.assertTrue(pr.safe_https(e['p'], pr.PLACE_CREDIT_HOSTS)); self.assertEqual(e['f'], 'metroutpond.jpg')
