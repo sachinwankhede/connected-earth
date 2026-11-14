@@ -1,0 +1,12 @@
+{
+ "latin": "Macrotermes",
+ "name": "Termites & fungi",
+ "tl": 0,
+ "wiki": "Termite",
+ "desc": "Termites and the fungi that work with them break down dead grass and wood, and their mounds seed new islands.",
+ "ic": "decomp",
+ "cat": "decomp",
+ "sid": "macrotermes",
+ "sk": "resource",
+ "src": "legacy"
+}

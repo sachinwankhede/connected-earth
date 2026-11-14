@@ -1,0 +1,12 @@
+{
+ "latin": "",
+ "name": "Seasonal flood",
+ "tl": 0,
+ "wiki": "Okavango Delta",
+ "desc": "Rain on the Angolan highlands sends a pulse of water that reaches the delta in the dry season and spreads over the sands.",
+ "ic": "water",
+ "cat": "abiotic",
+ "sid": "seasonal-flood",
+ "sk": "resource",
+ "src": "legacy"
+}

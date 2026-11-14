@@ -104,19 +104,19 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Serengeti National Park": {
-  "f": "serengeti.jpg",
-  "a": "Bjørn Christian Tørrissen",
-  "l": "CC BY-SA 3.0",
-  "lu": "https://creativecommons.org/licenses/by-sa/3.0",
-  "p": "https://commons.wikimedia.org/wiki/File:Serengeti-Landscape-2012.JPG",
-  "w": "https://en.wikipedia.org/wiki/Serengeti_National_Park",
-  "checkedAt": "2026-11-12T22:25:19.275351+00:00",
-  "fetchedAt": "2026-11-12T22:25:19.275351+00:00",
+ "Ngorongoro Conservation Area": {
+  "f": "whngorongoro.jpg",
+  "a": "Grahampurse",
+  "l": "CC BY-SA 4.0",
+  "lu": "https://creativecommons.org/licenses/by-sa/4.0",
+  "p": "https://commons.wikimedia.org/wiki/File:Ngorongoro-1001-2.jpg",
+  "w": "https://en.wikipedia.org/wiki/Ngorongoro_Conservation_Area",
   "mt": "image/jpeg",
   "width": 330,
-  "height": 190,
-  "sha256": "9c75a904fb2774dd4df9ed2f38d1ae8f6d42321f6164ab926db1915a613ceaef",
-  "reviewStatus": "approved"
+  "height": 186,
+  "sha256": "bfcace8d13c285fd1457ee6c2376ed6076d15b88505837c96c8b5b8718516811",
+  "reviewStatus": "approved",
+  "checkedAt": "2026-11-01T00:35:53.296847+00:00",
+  "fetchedAt": null
  }
 }

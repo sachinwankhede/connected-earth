@@ -39,6 +39,10 @@
   "c": "CR",
   "q": "Q190154"
  },
+ "aepyceros melampus": {
+  "c": "LC",
+  "q": "Q132576"
+ },
  "agelaius phoeniceus": {
   "c": "LC",
   "q": "Q754043"
@@ -267,6 +271,10 @@
   "c": "LC",
   "q": "Q44299"
  },
+ "canis lupaster": {
+  "c": "LC",
+  "q": "Q105272263"
+ },
  "canis lupus": {
   "c": "LC",
   "q": "Q18498"
@@ -395,6 +403,10 @@
   "c": "LC",
   "q": "Q1944775"
  },
+ "colophospermum mopane": {
+  "c": "LC",
+  "q": "Q641513"
+ },
  "connochaetes taurinus": {
   "c": "LC",
   "q": "Q328809"
@@ -498,6 +510,10 @@
  "delphinapterus leucas": {
   "c": "LC",
   "q": "Q132072"
+ },
+ "diceros bicornis": {
+  "c": "CR",
+  "q": "Q95036"
  },
  "dicrostonyx groenlandicus": {
   "c": "LC",
@@ -647,6 +663,10 @@
   "c": "NT",
   "q": "Q126167"
  },
+ "gyps africanus": {
+  "c": "CR",
+  "q": "Q281874"
+ },
  "gyps rueppelli": {
   "c": "CR",
   "q": "Q55111925"
@@ -666,6 +686,10 @@
  "haliaeetus pelagicus": {
   "c": "VU",
   "q": "Q269896"
+ },
+ "haliaeetus vocifer": {
+  "c": "LC",
+  "q": "Q217497"
  },
  "haliotis cracherodii": {
   "c": "CR",
@@ -703,6 +727,10 @@
   "c": "LC",
   "q": "Q131538"
  },
+ "hyphaene petersiana": {
+  "c": "LC",
+  "q": "Q2704920"
+ },
  "hypophthalmichthys molitrix": {
   "c": "NT",
   "q": "Q76115"
@@ -730,6 +758,10 @@
  "junonia coenia": {
   "c": "LC",
   "q": "Q1257151"
+ },
+ "kobus leche": {
+  "c": "NT",
+  "q": "Q273565"
  },
  "lagopus lagopus": {
   "c": "LC",
@@ -798,6 +830,10 @@
  "lepomis macrochirus": {
   "c": "LC",
   "q": "Q1148148"
+ },
+ "leptailurus serval": {
+  "c": "LC",
+  "q": "Q42699"
  },
  "lepus americanus": {
   "c": "LC",
@@ -1111,6 +1147,10 @@
   "c": "LC",
   "q": "Q7131124"
  },
+ "panicum repens": {
+  "c": "LC",
+  "q": "Q3024698"
+ },
  "panthera leo": {
   "c": "VU",
   "q": "Q140"
@@ -1194,6 +1234,10 @@
  "phoca vitulina": {
   "c": "LC",
   "q": "Q26913"
+ },
+ "phoeniconaias minor": {
+  "c": "NT",
+  "q": "Q242369"
  },
  "phoenicopterus roseus": {
   "c": "LC",
@@ -1491,6 +1535,10 @@
   "c": "LC",
   "q": "Q468500"
  },
+ "sclerocarya birrea": {
+  "c": "LC",
+  "q": "Q675778"
+ },
  "scutellaria galericulata": {
   "c": "LC",
   "q": "Q158111"
@@ -1622,6 +1670,10 @@
  "taxidea taxus": {
   "c": "LC",
   "q": "Q232129"
+ },
+ "terathopius ecaudatus": {
+  "c": "EN",
+  "q": "Q726387"
  },
  "tetraogallus himalayensis": {
   "c": "LC",

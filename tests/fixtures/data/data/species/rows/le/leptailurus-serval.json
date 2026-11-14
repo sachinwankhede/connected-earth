@@ -1,0 +1,12 @@
+{
+ "latin": "Leptailurus serval",
+ "name": "Serval",
+ "tl": 3,
+ "wiki": "Serval",
+ "desc": "A slender cat that hunts rodents, and is recorded in the park among the root-rat predators.",
+ "ic": "lion",
+ "about": "The serval is a wild small cat native to Africa. It is widespread in sub-Saharan countries, where it inhabits grasslands, wetlands, moorlands and bamboo thickets.",
+ "sid": "leptailurus-serval",
+ "sk": "taxon",
+ "src": "legacy"
+}
