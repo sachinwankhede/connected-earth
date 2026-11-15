@@ -8,6 +8,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 from lib.photo_registry import PLACE_CREDIT_HOSTS, safe_https
+from lib import journey_pics
 
 
 def read_json(path):
@@ -62,6 +63,13 @@ def cross_link_endpoints(root, links, ids):
     return unresolved, total
 
 
+def journey_cover_row(root):
+    j = journey_pics.load(root)
+    if j["shape"] != "journey": return ""
+    total = len(journey_pics.journey_ids(root))
+    return f"| Journey cover pictures | {len(j['pics'])}/{total} | Journeys with their own picture in `photos/journey_pictures.json` (keyed by journey id); {len(j['missing'])} recorded as having no picture. |"
+
+
 def report(root=ROOT):
     complete, photo_total = photo_metadata(root)
     links, ids = place_ids(root)
@@ -69,7 +77,7 @@ def report(root=ROOT):
     unresolved, endpoint_total = cross_link_endpoints(root, links, ids)
     species = read_json(os.path.join(root, "photos", "species.json")) or read_json(os.path.join(root, "photos", "species_pictures.json")) or {}   # the old list, or the by-id rows after the migration (#934)
 
-    return "\n".join((
+    lines = [
         "## Informational data-quality summary",
         "",
         "Counts are informational; this report sets no quality thresholds and does not perform network lookups.",
@@ -81,7 +89,10 @@ def report(root=ROOT):
         f"| Unresolved cross-place link endpoints | {unresolved}/{endpoint_total} | Endpoints in the journey files in `data/journeys/` whose place or node ID is not found in the main-app place files. This follows the endpoint integrity check used by the build. |",
         f"| Species-photo attribution metadata | unavailable ({len(species)} legacy candidates) | `photos/species.json` stores image paths and labels, not author/license records, so comparable completeness cannot be counted from this source. |",
         "",
-    ))
+    ]
+    jp = journey_cover_row(root)   # only once the journey pictures are keyed by journey id (lib/journey_pics.py); until then the report is unchanged
+    if jp: lines.insert(-1, jp)
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

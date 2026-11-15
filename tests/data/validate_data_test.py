@@ -65,6 +65,17 @@ class DataFormat(unittest.TestCase):
             put(r, 'photos/species_missing.json', {'c-d': {'status': 'nophoto', 'checkedAt': '2026-11-15T12:00:00+00:00', 'expiresAt': '2027-05-14T12:00:00+00:00', 'attempts': 1}})   # a miss by species id is a record, not a word
             self.assertEqual([e for e in check(r)[0] if 'species_missing' in e], [])
             put(r, 'photos/species_missing.json', {'c-d': 'nophoto'}); self.assertTrue([e for e in check(r)[0] if 'species_missing' in e])
+    def test_journey_pictures_by_journey_id_are_checked_by_their_writer_and_absent_files_change_nothing(self):   # phase 2 of the journey pictures (#945)
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
+            self.assertEqual([e for e in check(r)[0] if 'journey' in e.lower() and 'picture' in e.lower()], [])   # no photos/journey_pictures.json: nothing to check
+            put(r, 'photos/journey_pictures.json', {'j': {'f': 'j.webp', 'a': 'Someone', 'l': 'CC BY 4.0', 'wiki': 'T'}}); put(r, 'photos/journeys/j.webp', b'x')
+            self.assertEqual([e for e in check(r)[0] if 'journey' in e], [])
+            put(r, 'photos/journeys/stray.webp', b'x'); put(r, 'photos/journey_pictures.json', {'j': {'f': 'j.webp', 'a': 'Someone', 'l': 'CC BY 4.0'}, 'zz': {'f': 'zz.webp', 'a': 'S', 'l': 'CC0'}})
+            text = ' | '.join(check(r)[0])
+            self.assertIn('stray.webp is not listed', text); self.assertIn('zz is not a journey id', text); self.assertIn('zz.webp is missing', text)
+            put(r, 'photos/journey_pictures.json', {'j': {'f': 'j.webp', 'a': '', 'l': 'CC BY 4.0'}}); self.assertIn('no named author', ' | '.join(check(r)[0]))
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})
