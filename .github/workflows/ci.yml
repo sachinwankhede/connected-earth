@@ -202,6 +202,7 @@ jobs:
           python3 tests/jobs/regenplaces_test.py
           python3 tests/jobs/largeplacephotos_test.py
           python3 tests/jobs/photos_test.py
+          python3 tests/jobs/authorlookup_test.py
           python3 tests/jobs/commonsplacephotos_test.py
           python3 tests/jobs/openverseplaces_test.py
           python3 tests/jobs/commonsnearby_test.py
