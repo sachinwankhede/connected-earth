@@ -22,9 +22,8 @@ def shape(obj, kind, where, errs):
         errs.append('%s%s: %s' % (where, ' [%s]' % path if path else '', e.message[:160]))
 
 # Two places must not share one `imgwiki` (the Wikipedia title the place's picture and links come from; #887, #908).
-# Ten places share five titles today, and fixing them needs a data job (#908), so for now the check is a WARNING.
-# When #908 has merged, change this to True: the same check then fails the data pull request as an ERROR.
-SHARED_IMGWIKI_IS_ERROR = False
+# The ten places that shared five titles were fixed in #908 (data-fiximgwiki: six got their own title, the duplicate sdponca was removed, 15 Nov), so the check is an ERROR: it fails the data pull request.
+SHARED_IMGWIKI_IS_ERROR = True
 
 def shared_imgwiki(root):
     """{title: [place ids]} for every `imgwiki` used by more than one place (reads only that field of each file)."""
