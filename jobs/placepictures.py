@@ -272,7 +272,7 @@ def main(argv=None, root=ROOT):
     only = opt('--strategy', 'all'); limit = int(opt('--limit', 120)); max_mb = float(opt('--max-mb', 25))
     if only not in ['all', 'large'] + [s[0] for s in STRATEGIES]: print('unknown strategy', only); return 1
     w = pp.PlacePhotos(root); units, shared = load_units(os.path.join(root, 'data', 'places'))
-    if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is still keyed by title: run the migration (data-photos-rekey) first'); return 1
+    if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is keyed by title, not by place id: this job needs the id-keyed files (migration #906)'); return 1
     print('%d places with a title, %d skipped because another place has the same title: %s' % (len(units), len(shared), ', '.join(sorted(u['id'] for u in shared)) or 'none'))
     stats, stopped = acquire(w, units, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=make_large)
     for name, s in stats.items():
