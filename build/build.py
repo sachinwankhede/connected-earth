@@ -21,6 +21,7 @@ for _flag, _env in (('--data-root', 'CE_DATA_ROOT'), ('--out-root', 'CE_OUT_ROOT
 import paths
 import species, journeydata, geoids
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
+import species_pics
 from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)                  # code: src/, node_modules/, icons
 D = lambda *a: os.path.join(paths.DATA_ROOT, *a)       # data/ and photos/ (#787)
@@ -583,16 +584,17 @@ def build(pilot, out_path, write=False, places=False):
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
     for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
         if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
-    phf, phmf = D('photos', 'species.json'), D('photos', 'species_metadata.json')
-    src_ph = json.load(open(phf)) if os.path.exists(phf) else {}
-    phm_all = json.load(open(phmf)) if os.path.exists(phmf) else {}
-    for _c in phm_all.values():
-        if isinstance(_c, dict) and _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
-    hf = D('photos', 'species_hosted.json'); hosted = json.load(open(hf)) if os.path.exists(hf) else {}
+    nodetitles = {}   # the titles a species' place nodes carry (wiki, canonicalWiki, latin), by species id: the old shape looked a picture up under them
+    for e in ecos:
+        for n in e['nodes']:
+            if n.get('latin') and not n.get('cat'): nodetitles.setdefault(species.slug(n['latin']), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+    sp = species_pics.load(paths.DATA_ROOT, nodetitles)   # the pictures by species id, from either shape on disk (lib/species_pics.py; #934)
+    for _c in list(sp['pics'].values()) + list(sp['titles'].values()):
+        if _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
-    phs = {t: [hosted[t], src_ph[t][1]] for t in sorted(hosted) if t in src_ph}
-    lf = D('photos', 'species_large.json'); large = json.load(open(lf)) if os.path.exists(lf) else {}   # the larger copies (#421): the species page shows one as a wide photo
-    phm = {t: phm_all[t] for t in phs if t in phm_all}
+    phs = {t: [r['f'], r.get('page') or t] for t, r in sorted(sp['titles'].items())}   # by title, for the journeys (they name a picture by its title)
+    large = sp['title_large']   # the larger copies (#421): the species page shows one as a wide photo
+    phm = {t: species_pics.credit(r) for t, r in sp['titles'].items() if species_pics.credit(r)}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
@@ -612,9 +614,12 @@ def build(pilot, out_path, write=False, places=False):
         if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
-        pk = next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
-        if pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
-        if pk and large.get(pk) == phs[pk][0]: f['pl'] = 1
+        own = sp['pics'].get(row['sid'])   # this species' own picture; failing that the picture of a title one of its nodes carries
+        pk = None if own else next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
+        if own: f['ph'] = [own['f'], own.get('page') or own.get('wiki')]; f['phm'] = species_pics.credit(own) or None; pics[row['latin']] = own['f']
+        elif pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
+        if own and sp['large'].get(row['sid']) == own['f']: f['pl'] = 1
+        elif pk and large.get(pk) == phs[pk][0]: f['pl'] = 1
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
     species_related(about, common, pics, species_diet(ecos, about, common, pics))
