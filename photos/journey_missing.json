@@ -1,0 +1,26 @@
+{
+"dust": {
+"attempts": 1,
+"checkedAt": "2026-11-15T16:57:15.458316+00:00",
+"expiresAt": "2026-11-15T18:57:15.458316+00:00",
+"status": "notyet"
+},
+"monarch": {
+"attempts": 1,
+"checkedAt": "2026-11-15T16:57:15.458550+00:00",
+"expiresAt": "2026-11-15T18:57:15.458550+00:00",
+"status": "notyet"
+},
+"nutrients": {
+"attempts": 1,
+"checkedAt": "2026-11-15T16:57:15.458557+00:00",
+"expiresAt": "2026-11-15T18:57:15.458557+00:00",
+"status": "notyet"
+},
+"prairiegulf": {
+"attempts": 1,
+"checkedAt": "2026-11-15T16:57:15.458637+00:00",
+"expiresAt": "2026-11-15T18:57:15.458637+00:00",
+"status": "notyet"
+}
+}
