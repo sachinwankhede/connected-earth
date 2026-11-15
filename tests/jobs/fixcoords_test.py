@@ -46,19 +46,10 @@ class T(unittest.TestCase):
         fc.audit(os.path.join(root, 'data/places'), geo)               # runs on the committed data
 
 
-    def test_drop_pictures_writes_valid_missing_entries(self):
-        with tempfile.TemporaryDirectory() as t:
-            os.makedirs(os.path.join(t, 'photos/places'))
-            json.dump({'Raymond': {'f': 'x.jpg'}, 'Keep': {'f': 'k.jpg'}}, open(os.path.join(t, 'photos/places/places.json'), 'w'))
-            json.dump({}, open(os.path.join(t, 'photos/places/missing.json'), 'w'))
-            open(os.path.join(t, 'photos/places/x.jpg'), 'w').write('x')
-            self.assertEqual(fc.drop_pictures(t), ['Raymond'])
-            self.assertFalse(os.path.exists(os.path.join(t, 'photos/places/x.jpg')))
-            self.assertEqual(list(json.load(open(os.path.join(t, 'photos/places/places.json')))), ['Keep'])
-            e = json.load(open(os.path.join(t, 'photos/places/missing.json')))['Raymond']
-            self.assertGreaterEqual(e['attempts'], 1)
-            self.assertGreater(e['expiresAt'], e['checkedAt'])
-            self.assertEqual(e['status'], 'nophoto')
+    def test_the_job_no_longer_touches_pictures(self):
+        self.assertFalse(hasattr(fc, 'drop_pictures'), 'picture writes go through lib/place_photos.py (#887)')
+        self.assertFalse(hasattr(fc, 'WRONG_PICTURES'))
+        self.assertNotIn('photos/places', open(fc.__file__).read())
 
 
 class PadusTests(unittest.TestCase):

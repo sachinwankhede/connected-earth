@@ -9,14 +9,12 @@ cannot match the one in Idaho; the centre of the biggest piece of the best name 
 Fix: for a flagged place the coordinates of its Wikipedia article (the imgwiki title first, then the titles in its `sources`) are read with the en.wikipedia.org API
 (prop=coordinates, primary); they are taken only when they fall inside, or within TOL of, one of the place's own states. Otherwise the place is left and listed as
 'unresolved'. A changed place keeps its other fields; `lat` and `lon` are the only edits. Prints 'fixed: id old -> new' and 'unresolved: id ...' lines for the pull request.
-WRONG_PICTURES: titles whose Wikipedia article matched a different place of the same name (found by reading the matches); their picture is removed and the title
-returns to photos/places/missing.json so the photo passes can try again with the corrected coordinates."""
+(The two pictures that came from a wrong same-named article, Raymond and Trout Pond, were removed by the first runs; the picture removal is gone, #887. Pictures are written only through lib/place_photos.py.)"""
 import sys, os, json, glob, math, re, time, unicodedata, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 TOL = 0.1
 # Water bodies and island parks: their point is not inside any state's land, and the audit must not call that an error (#767). Listed by id, not guessed from the name.
 WATER = {'greatlakes', 'gulf', 'npdrytortugas'}
-WRONG_PICTURES = {'Raymond': 'a Spanish museum painting for Raymond, Rhode Island', 'Trout Pond': 'a West Virginia pond for Trout Pond, Maine'}
 
 def rings(g):
     for p in (g['coordinates'] if g['type'] == 'MultiPolygon' else [g['coordinates']]):
@@ -141,21 +139,6 @@ def fix(data_dir, geo, get, padus=None, osm=None):
         fixed.append((d['id'], old, (d['lat'], d['lon']), src))
     return fixed, unresolved
 
-def drop_pictures(root):
-    pp, mp = os.path.join(root, 'photos/places/places.json'), os.path.join(root, 'photos/places/missing.json')
-    P = json.load(open(pp)); M = json.load(open(mp)); gone = []
-    import datetime
-    t0 = datetime.datetime.now(datetime.timezone.utc)
-    now, soon = t0.isoformat(), (t0 + datetime.timedelta(seconds=1)).isoformat()   # a valid entry (attempts >= 1, expiresAt after checkedAt) that is already due, so the photo passes retry it at once
-    for t in WRONG_PICTURES:
-        if t in P:
-            f = P.pop(t).get('f')
-            if f and os.path.exists(os.path.join(root, 'photos/places', f)): os.remove(os.path.join(root, 'photos/places', f))
-            M[t] = {'status': 'nophoto', 'checkedAt': now, 'expiresAt': soon, 'attempts': 1}; gone.append(t)
-    if gone:
-        open(pp, 'w').write(json.dumps(P, ensure_ascii=False, indent=0)); open(mp, 'w').write(json.dumps(M, ensure_ascii=False, indent=0))
-    return gone
-
 if __name__ == '__main__':
     sys.path.insert(0, HERE); import wm
     geo = {s['id']: s['g'] for s in json.load(open(os.path.join(ROOT, 'data/geo/geo.json')))['states']}
@@ -166,5 +149,4 @@ if __name__ == '__main__':
     fixed, unresolved = fix(os.path.join(ROOT, 'data/places'), geo, wm.get, lambda d, g: padus_coords(d, g, wm.get), lambda d, g: nominatim_coords(d, g, slow_get))
     for i, o, n, src in fixed: print('fixed: %s %s -> %s (%s)' % (i, o, n, src))
     for i in unresolved: print('unresolved:', i)
-    for t in drop_pictures(ROOT): print('picture removed: %s (%s)' % (t, WRONG_PICTURES[t]))
     print('%d fixed, %d unresolved' % (len(fixed), len(unresolved)))
