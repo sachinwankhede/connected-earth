@@ -187,7 +187,8 @@ def check(root):
     names = load(root, 'jobs', 'names.json')
     if names is not None: shape(names, 'names', 'jobs/names.json', errs)
     sm = load(root, 'photos', 'species_missing.json')
-    if sm is not None: shape(sm, 'species-missing', 'photos/species_missing.json', errs)
+    if sm is not None:   # old shape: a plain reason per title; by species id (#934): the same record as a place miss (status, checkedAt, expiresAt, attempts)
+        shape(sm, 'photo-missing' if sid_shape else 'species-missing', 'photos/species_missing.json', errs)
     pm = load(root, 'photos', 'places', 'missing.json')
     if pm is not None:
         old = sorted(k for k, v in pm.items() if isinstance(v, str))
