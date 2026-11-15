@@ -58,6 +58,20 @@ The seven writers (`photos`, `commonsnearby`, `commonscategory`, `commonsplaceph
 6. **What stays out.** Species pictures keep their title-keyed lists for now (6 parallel dictionaries keyed by wiki title is the same disease and is the next item after step 4; it is not mixed into this one). Pictures that are wrong in content (Fisherman's, Olallie, `gulf`) are fixed by the job that stores them through the new writer, not by hand.
 7. **Open decisions that are not 3 and 4.** The 98 pictures credited to "unknown author" (licence doubt, owner); whether the health report needs thresholds; how to treat `sdponca` (a duplicate of Nebraska's Ponca State Park).
 
+## Place pictures: what we learned (15 Nov, #887, #908)
+These are the traps behind the rules; `docs/ARCHITECTURE-DATA.md` ("Place pictures") says how it fits together.
+
+1. **Key by identity, not by a name that can repeat.** Wikipedia titles were the key, and two places can share one (Harriman, Village Creek); a picture could land on the wrong place. Keys are place ids now, and a shared title is a validator error.
+2. **One writer for everything that must agree.** Five jobs each wrote their own list and a killed run left a list row without its file or a larger copy of a picture that was gone. `PlacePhotos` writes files first and lists last, and `check()` finds any disagreement.
+3. **Refuse at the writer, not in each job.** A CC BY picture with no author got in because nothing refused it. `put()` now raises; the Commons name lookup stays in the job because it needs the network.
+4. **The author comes from Commons, not the uploader.** Take the Artist or Attribution field; use the uploader only when the credit says "own work". An email, a talk-page stamp, an "original uploader" sentence or a web address is cleaned to the name or counts as no author (`lib/author_clean.py`).
+5. **Never loosen a validator to get green.** Fix the data job; a warning that only flags known data becomes an error once the data is fixed (shared titles, 15 Nov).
+6. **Verify a "probable duplicate" before removing a place.** `sdponca` and `neponca` were the same park (same name, 0.4 km, same title); removal re-checks name and distance in the job and the owner decides first.
+7. **Add a source as a function plus a stub, never a new job.** The contract test holds every source to the same rules, so a new source cannot skip the author or licence rule.
+8. **Tests that patch a function patch it where it is used.** Moving a helper into `lib/` broke tests that patched the old job module; patch the `lib/` module.
+9. **Do not poll the live site.** Fetching it is disallowed (robots); read data and CI instead.
+10. **Quiet by design.** Retry holds (90 days) keep a weekly run silent once a place was tried; skipping the PR to save noise would lose the retry notes, so no minimum count.
+
 ## What this plan does not do
 
 No database or server. No new photo source before the writer exists. No more per-job regular-expression tightening as a substitute for identity checks. No raising of a threshold to turn a check green. No `species.py pack` as a silent rewrite of everything inside unrelated jobs.
