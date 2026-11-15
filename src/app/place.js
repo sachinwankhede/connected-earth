@@ -116,7 +116,7 @@
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
       ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
-        var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && o.imgwiki;
+        var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && (k.charAt(0) === "e" ? PhotoRegistry.placeKey(o.id) : o.imgwiki);   /* a place is found by its id, a journey by its title */
         if (w && k.charAt(0) === "e" && !o.li) makeCard(o);   /* a related place's picture is registered when its card is built, and cards are built on demand now */
         if (w) pWant({ isPage: true, eco: id, id: k, wiki: w });
       });
@@ -125,7 +125,7 @@
   function pPhoto() {
     var id = M.pid, m = document.getElementById("pp-main"), c = id && cimg(id);
     if (m && c && c.querySelector("img")) m.innerHTML = c.innerHTML;
-    var ph = ECO_BY[id] && PHOTOS[ECO_BY[id].imgwiki], l = [];
+    var ph = ECO_BY[id] && PHOTOS[PhotoRegistry.placeKey(id)], l = [];
     if (ph && m && m.querySelector("img")) l.push(creditHTML(ph));
     if (ph && ph.src && m && m.querySelector("img")) {   /* the larger copy (400 px WebP, photos/places-lg/): a wide photo above the name instead of the small one, as on the species page (#727); the small one stays if it does not load */
       var art = PV.querySelector("article.jp"), lg = ph.src.replace("/photos/places/", "/photos/places-lg/").replace(/\.[A-Za-z0-9]+$/, ".webp");

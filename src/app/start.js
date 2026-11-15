@@ -7,8 +7,20 @@
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   var man = null, manAsked = false;   /* the stored place photo list: fetched when the photos are released (#397), not at start; nothing reads it before it has arrived */
-  function stored(t) {
-    var m = man && man[t], candidate = m && PhotoRegistry.placeCandidate(m, PB);
+  /* The stored list is keyed by place id (a row's `wiki` is its Wikipedia title); a list still keyed by title is read by title (tests and old caches), and then only by title. A place's picture is registered under its own id (PhotoRegistry.placeKey), so two places on one title never share a picture (#968). */
+  var manT = null, byId = false;
+  function index() {
+    if (manT) return;
+    manT = {}; Object.keys(man).forEach(function (k) { var r = man[k], w = r && r.wiki ? r.wiki : k; if (!(w in manT)) manT[w] = r; if (r && r.wiki && r.wiki !== k) byId = true; });
+  }
+  function titleRow(t) { index(); return manT[t]; }
+  function storedRow(e) { if (!man) return null; index(); return man[e.id] || (byId ? null : manT[e.imgwiki]) || null; }
+  function stored(e) {
+    var m = storedRow(e), candidate = m && PhotoRegistry.placeCandidate(m, PB);
+    if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.placeKey(e.id), candidate);
+  }
+  function storedTitle(t) {   /* a journey's cover falls back to the picture of its own title (as before) */
+    var m = man && titleRow(t), candidate = m && PhotoRegistry.placeCandidate(m, PB);
     if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
   }
   /* Place photos are loaded only from the approved local manifest. */
@@ -24,18 +36,18 @@
     if (M.heldLoad) { M.heldLoad = false; loadPhotos(); }
   };
   var wp = M.wantPhoto = function (e) {
-    if (!e.imgwiki) return;
+    if (!e.id) return;
     if (!man) { if (!e.held) { e.held = 1; HELD.push(function () { e.held = 0; wp(e); }); } return; }
-    var tt = e.imgwiki; stored(tt);
-    if (PHOTOS[tt]) { ecoPhoto(e); return; }
+    stored(e);
+    if (PHOTOS[PhotoRegistry.placeKey(e.id)]) { ecoPhoto(e); return; }
   };
-  M.placePhotos = function (titles, done) {   /* the dropdown rows of places that have no card yet: release the photos, then read their entries from the stored list */
-    M.releasePhotos(); var go = function () { titles.forEach(stored); done(); }; if (man) go(); else HELD.push(go);
+  M.placePhotos = function (ids, done) {   /* the dropdown rows of places that have no card yet: release the photos, then read their entries from the stored list */
+    M.releasePhotos(); var go = function () { ids.forEach(function (id) { if (ECO_BY[id]) stored(ECO_BY[id]); }); done(); }; if (man) go(); else HELD.push(go);
   };
   function crossPhotos() {
     CROSS.forEach(function (c) {
       var tt = c.imgwiki;
-      if (!tt) return; stored(tt);
+      if (!tt) return; storedTitle(tt);
       if (PHOTOS[tt]) { linkPhoto(c); return; }
     });
   }

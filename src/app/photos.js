@@ -56,7 +56,7 @@
     relayoutTimer = setTimeout(function () { configure(); pendingFit = !userMoved; sim.alpha(0.35).restart(); }, 300);
   }
   function ecoPhoto(e) {
-    var p = PHOTOS[e.imgwiki], box = e.li && e.li.querySelector(".cimg");
+    var p = PHOTOS[PhotoRegistry.placeKey(e.id)], box = e.li && e.li.querySelector(".cimg");
     if (!p || !box) return;
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
     var im = box.querySelector("img");

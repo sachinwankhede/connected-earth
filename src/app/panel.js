@@ -32,8 +32,8 @@
     if (!state.sel) return;
     panel.querySelectorAll(".pph[data-eid]").forEach(function (b) {
       var e = ECO_BY[b.getAttribute("data-eid")];
-      if (e && e.imgwiki && !e.li) makeCard(e);   /* cards are built only when needed now: a related place shown here asks for its picture by building its card */
-      var ph = e && e.imgwiki && PHOTOS[e.imgwiki];
+      if (e && !e.li) makeCard(e);   /* cards are built only when needed now: a related place shown here asks for its picture by building its card */
+      var ph = e && PHOTOS[PhotoRegistry.placeKey(e.id)];
       if (!ph || b.querySelector("img")) return;
       var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; im.loading = "lazy"; bindPhoto(im, ph); im.src = ph.src; b.appendChild(im); b.classList.add("has");
     });
@@ -61,7 +61,7 @@
   }
   function emptyHTML() {
     var t = ECO.tip, n = BY[t.id];
-    var ph = ECO.imgwiki && PHOTOS[ECO.imgwiki] ? '<figure class="shot"><img src="' + esc(PHOTOS[ECO.imgwiki].src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer"' + photoAttrs(PHOTOS[ECO.imgwiki], "parent") + '><figcaption>' + creditHTML(PHOTOS[ECO.imgwiki]) + '</figcaption></figure>' : "";
+    var pp = PHOTOS[PhotoRegistry.placeKey(ECO.id)], ph = pp ? '<figure class="shot"><img src="' + esc(pp.src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer"' + photoAttrs(pp, "parent") + '><figcaption>' + creditHTML(pp) + '</figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
       footHTML({ sources: ECO.sources, notes: ECO.notes }) +
