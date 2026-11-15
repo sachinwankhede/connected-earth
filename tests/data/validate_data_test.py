@@ -120,5 +120,28 @@ class SchemasAndCrossFileRules(unittest.TestCase):
             errs, _ = check(r); text = ' | '.join(errs)
             for want in ("'from' is a required property", "'src' is a required property", "'half' is not of type 'number'"):
                 self.assertIn(want, text)
+    def shared_tree(self, r):
+        put(r, 'data/places/a.json', {'imgwiki': 'Same'}); put(r, 'data/places/b.json', {'imgwiki': 'Same'})
+        put(r, 'data/places/c.json', {'imgwiki': 'Own'}); put(r, 'data/places/d.json', {})
+    def test_shared_imgwiki_is_a_warning_for_now(self):
+        import validate_data
+        self.assertFalse(validate_data.SHARED_IMGWIKI_IS_ERROR)
+        with tempfile.TemporaryDirectory() as r:
+            self.shared_tree(r); errs, warns = check(r)
+            self.assertEqual([e for e in errs if 'imgwiki' in e], [])
+            w = [x for x in warns if 'imgwiki' in x]
+            self.assertEqual(len(w), 1); self.assertIn('1 imgwiki title(s) shared by 2 places', w[0]); self.assertIn('Same (a, b)', w[0]); self.assertNotIn('Own', w[0])
+    def test_shared_imgwiki_is_an_error_once_the_switch_is_on(self):
+        import validate_data
+        old = validate_data.SHARED_IMGWIKI_IS_ERROR; validate_data.SHARED_IMGWIKI_IS_ERROR = True
+        try:
+            with tempfile.TemporaryDirectory() as r:
+                self.shared_tree(r); errs, warns = check(r)
+                self.assertEqual(len([e for e in errs if 'imgwiki' in e]), 1); self.assertEqual([x for x in warns if 'imgwiki' in x], [])
+        finally: validate_data.SHARED_IMGWIKI_IS_ERROR = old
+    def test_unique_imgwiki_is_silent(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/places/a.json', {'imgwiki': 'A'}); put(r, 'data/places/b.json', {'imgwiki': 'B'})
+            self.assertEqual([x for x in check(r)[1] if 'imgwiki' in x], [])
 
 if __name__ == '__main__': unittest.main()

@@ -20,6 +20,23 @@ def shape(obj, kind, where, errs):
         path = '/'.join(str(p) for p in e.absolute_path)
         errs.append('%s%s: %s' % (where, ' [%s]' % path if path else '', e.message[:160]))
 
+# Two places must not share one `imgwiki` (the Wikipedia title the place's picture and links come from; #887, #908).
+# Ten places share five titles today, and fixing them needs a data job (#908), so for now the check is a WARNING.
+# When #908 has merged, change this to True: the same check then fails the data pull request as an ERROR.
+SHARED_IMGWIKI_IS_ERROR = False
+
+def shared_imgwiki(root):
+    """{title: [place ids]} for every `imgwiki` used by more than one place (reads only that field of each file)."""
+    by = {}; full = os.path.join(root, 'data/places')
+    if os.path.isdir(full):
+        for f in sorted(os.listdir(full)):
+            if not f.endswith('.json') or f in ('order.json', 'links.json'): continue
+            try: e = json.load(open(os.path.join(full, f)))
+            except (OSError, ValueError): continue
+            t = e.get('imgwiki') if isinstance(e, dict) else None
+            if isinstance(t, str) and t: by.setdefault(t, []).append(f[:-5])
+    return {t: ids for t, ids in by.items() if len(ids) > 1}
+
 def place_ids(root):
     ids = set()
     full = os.path.join(root, 'data/places')
@@ -185,6 +202,10 @@ def check(root):
             for i in sorted({i for i in ids if ids.count(i) > 1}, key=str): errs.append('data/geo/geo.json %s: id %r is repeated' % (kind, i))
     land = load(root, 'data', 'geo', 'land.json')
     if land is not None: shape(land, 'land', 'data/geo/land.json', errs)
+    dup = shared_imgwiki(root)
+    if dup:
+        msg = 'data/places: %d imgwiki title(s) shared by %d places (each place needs its own, #908): %s' % (len(dup), sum(len(v) for v in dup.values()), '; '.join('%s (%s)' % (t, ', '.join(ids)) for t, ids in sorted(dup.items())))
+        (errs if SHARED_IMGWIKI_IS_ERROR else warns).append(msg)
     return errs, warns
 
 if __name__ == '__main__':
