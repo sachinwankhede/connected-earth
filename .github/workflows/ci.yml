@@ -204,6 +204,8 @@ jobs:
           python3 tests/jobs/authorlookup_test.py
           python3 tests/jobs/dropunnamed_test.py
           python3 tests/jobs/placepictures_test.py
+          python3 tests/jobs/speciespictures_test.py
+          python3 tests/jobs/rekeyspeciesphotos_test.py
           python3 tests/jobs/commonsplacephotos_test.py
           python3 tests/jobs/openverseplaces_test.py
           python3 tests/jobs/commonsnearby_test.py

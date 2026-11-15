@@ -1,0 +1,64 @@
+name: data-speciespictures
+# By hand only (#934, docs/DATA-PLAN.md "Species pictures", phase 4); a weekly schedule is added by the owner after one good run, the way data-placepictures got its schedule. The ONE job that finds pictures for species without one. It replaces data-speciesphotos, data-commonsphotos, data-gbifphotos, data-openversephotos, data-inaturalistphotos, data-hostphotos and data-largephotos (their schedules are already off; the files are removed after this job's first good run).
+# The five sources are its strategies, tried in this order (wikipedia, commons, gbif, openverse, inaturalist); a species stops at the first accepted picture (jobs/speciespictures.py). A title shared by several species is fetched once. Everything is written through lib/species_photos.py, keyed by species id; the 192 px and 400 px copies are made in the same commit.
+# It needs the id-keyed files (the migration, jobs/rekeyspeciesphotos.py) and refuses to run on the old title-keyed ones. A CC BY / CC BY-SA picture with no author is refused. A run that finds nothing and changes no retry ledger opens no pull request. It stops while a photo pull request is open.
+# strategy = all runs every source in order, then makes the missing copies; or name one (wikipedia, commons, gbif, openverse, inaturalist); medium or large = only make the missing copies, no new pictures. dry = yes prints what would be kept and writes nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      strategy: { description: "all, or one of: wikipedia, commons, gbif, openverse, inaturalist, medium, large", default: "all" }
+      limit: { description: "Titles to try per strategy (0 = all left)", default: "120" }
+      dry: { description: "yes = only print what would be kept, write nothing and open no pull request", default: "yes" }
+      again: { description: "yes = also try species a source tried inside its hold (90 days; wikipedia: until the record expires)", default: "no" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-photos
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    env:
+      DRY: ${{ github.event_name == 'schedule' && 'no' || github.event.inputs.dry }}   # a scheduled run has no inputs: it is live
+    timeout-minutes: 170
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - run: pip install pillow
+      - name: Stop while a photo pull request is open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|test("^data/(photos|placepictures|dropunnamed|commons|largephoto|largeplacephoto|hostphoto|openverse|rekey|droppictures|fixcoords|species)"))]|length')
+          echo "open photo pull requests: $N"; echo "n=$N" >> "$GITHUB_OUTPUT"
+      - name: Find the pictures
+        id: find
+        if: steps.open.outputs.n == '0'
+        run: |
+          set +e
+          python3 jobs/speciespictures.py --strategy "${{ github.event.inputs.strategy || 'all' }}" --limit "${{ github.event.inputs.limit || '120' }}" ${{ env.DRY != 'no' && '--dry' || '' }} ${{ github.event.inputs.again == 'yes' && '--again' || '' }} | tee find.log | tail -150
+          RC=${PIPESTATUS[0]}
+          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+          [ "$RC" = "0" ] || [ "$RC" = "2" ] || exit "$RC"
+      - name: Validate the new files
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        run: |
+          set -o pipefail
+          python3 build/validate_data.py | tail -20
+      - name: Commit and open the pull request
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/speciespictures-${GITHUB_RUN_ID}"
+          git add -A photos
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          NY=$(grep -c '^yes ' find.log || true); NR=$(grep -c '^refused ' find.log || true); NL=$(grep -c '^copies ' find.log || true)
+          git commit -m "Species pictures: $NY found, $NL larger copies (strategy ${{ github.event.inputs.strategy || 'all' }})"
+          git push -f origin HEAD
+          { printf 'Part of #934 (`docs/DATA-PLAN.md`, "Species pictures"). Automatic run of data-speciespictures, strategy `%s`, limit `%s`.\n\n**Result:** %s pictures found, %s larger copies made (400 px WebP from the Commons thumbnail; a picture Commons cannot thumbnail keeps its small picture and the app falls back to it), %s refused because a CC BY / CC BY-SA picture had no author (listed as `refused` in the run log), the rest recorded in `photos/species_tried.json` so each source tries them again only after its hold (90 days).\n\n**By source:**\n\n' "${{ github.event.inputs.strategy || 'all' }}" "${{ github.event.inputs.limit || '120' }}" "$NY" "$NL" "$NR"; grep '^summary ' find.log | sed 's/^summary /- /'; printf '\n**Sources and licences:** Wikipedia and Wikidata, Wikimedia Commons, GBIF, Openverse and iNaturalist, all already in `lib/allowed_sources.json`; only CC0, CC BY, CC BY-SA and public domain are kept (#421). Licences of the new pictures:\n\n'; grep '^yes ' find.log | awk -F' [|] ' '{print $2}' | sort | uniq -c | sed 's/^ *\([0-9]*\) \(.*\)$/- \2: \1/'; printf '\n**Spot check (10 of them):**\n\n'; NYS=$(( NY/10 > 0 ? NY/10 : 1 )); grep '^yes ' find.log | awk -v n="$NYS" 'n==1 || NR%n==1' | head -10 | sed 's/^yes /- /'; [ -f speciespictures_stats.md ] && { printf '\n'; cat speciespictures_stats.md; }; printf '\nFull list in the run log.\n\n_Generated by [Claude Code](https://claude.ai/code)_\n'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species pictures: $NY found, $NL larger copies (strategy ${{ github.event.inputs.strategy || 'all' }})" --body-file body.md
+      - name: Say so when a source stopped the run
+        if: steps.find.outputs.rc == '2'
+        run: echo "A source stopped the run (throttled or refused); see the STOP line in the log." && exit 1
