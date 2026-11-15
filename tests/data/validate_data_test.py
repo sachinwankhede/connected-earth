@@ -50,6 +50,17 @@ class DataFormat(unittest.TestCase):
             errs, warns = check(r); self.assertTrue([e for e in errs if 'need cleaning' in e and 'okpark' in e]); self.assertEqual([w for w in warns if 'need cleaning' in w], [])
             put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Beeblebrox', 'l': 'CC BY 4.0'}})
             self.assertEqual([e for e in check(r)[0] if 'need cleaning' in e], [])
+    def test_species_pictures_by_species_id_are_checked_by_their_writer(self):   # the new shape (#934): files, rows, copies, authors agree
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Someone', 'l': 'CC BY 4.0', 'wiki': 'A b'}}); put(r, 'photos/species/f.webp', b'x')
+            self.assertEqual(check(r), ([], []))
+            put(r, 'photos/species_large.json', {'a-b': 'f.webp'}); self.assertTrue([e for e in check(r)[0] if 'species_large.json' in e and 'missing' in e])
+            put(r, 'photos/species-lg/f.webp', b'x'); put(r, 'photos/species/stray.webp', b'x')
+            self.assertEqual([e for e in check(r)[0] if 'large' in e], []); self.assertTrue([e for e in check(r)[0] if 'stray.webp' in e])
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': '', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
+            self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})

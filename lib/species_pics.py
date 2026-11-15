@@ -27,7 +27,7 @@ def new_shape(root='.'): return os.path.exists(os.path.join(root, 'photos', 'spe
 
 
 def load(root='.', titles=None):
-    """{'pics': {sid: row}, 'medium': {sid: file}, 'large': {sid: file}, 'missing': {sid: entry}, 'titles': {title: row}, 'title_large': {title: file}, 'shape': 'sid'|'title'}. `titles` (old shape only) is {sid: [titles a species is shown under on the places, e.g. from
+    """{'pics': {sid: row}, 'medium': {sid: file}, 'large': {sid: file}, 'missing': {sid: entry}, 'titles': {title: row}, 'title_large': {title: file}, 'title_medium': {title: file}, 'shape': 'sid'|'title'}. `titles` (old shape only) is {sid: [titles a species is shown under on the places, e.g. from
     the nodes' wiki and canonicalWiki]}: the old build looked a species' picture up under those, its Latin name first, so a species' row is the first of them that has a picture. The `titles` and
     `title_large` results are the same pictures by Wikipedia title, for the journeys, which still name a picture by title (every hosted title in the old shape). A row is the credit row ({a, l, lu, p, ...}) plus
     `f` (the 96 px file name), `wiki` (the title the picture was found under), `page` (the Wikipedia page the species page links to) and `u` (the source path the larger copies
@@ -35,15 +35,16 @@ def load(root='.', titles=None):
     if new_shape(root):
         d = {'pics': _read(root, 'photos', 'species_pictures.json'), 'medium': _read(root, 'photos', 'species_medium.json') or {},
                 'large': _read(root, 'photos', 'species_large.json') or {}, 'missing': _read(root, 'photos', 'species_missing.json') or {}, 'shape': 'sid'}
-        d['titles'] = by_title(d['pics']); d['title_large'] = {}
+        d['titles'] = by_title(d['pics']); d['title_large'] = {}; d['title_medium'] = {}
         for sid in sorted(d['pics']):
             if d['large'].get(sid) == d['pics'][sid]['f']: d['title_large'].setdefault(d['pics'][sid].get('wiki'), d['pics'][sid]['f'])
+            if d['medium'].get(sid) == d['pics'][sid]['f']: d['title_medium'].setdefault(d['pics'][sid].get('wiki'), d['pics'][sid]['f'])
         return d
     man = _read(root, 'photos', 'species.json') or {}; hosted = _read(root, 'photos', 'species_hosted.json') or {}; meta = _read(root, 'photos', 'species_metadata.json') or {}
     med = _read(root, 'photos', 'species_medium.json') or {}; lg = _read(root, 'photos', 'species_large.json') or {}; miss = _read(root, 'photos', 'species_missing.json') or {}
     out = {'pics': {}, 'medium': {}, 'large': {}, 'missing': {}, 'shape': 'title'}
     out['titles'] = {t: dict(meta.get(t) or {}, f=hosted[t], wiki=t, **({'u': man[t][0], 'page': man[t][1]} if t in man else {})) for t in sorted(hosted)}
-    out['title_large'] = {t: lg[t] for t in sorted(hosted) if lg.get(t) == hosted[t]}
+    out['title_large'] = {t: lg[t] for t in sorted(hosted) if lg.get(t) == hosted[t]}; out['title_medium'] = {t: med[t] for t in sorted(hosted) if med.get(t) == hosted[t]}
     for r in rows(root):
         # the title the old build looked a species' picture up under: its Latin name first, then the titles of its place nodes, then its row title (#934: 'Canis lupus' and 'Gray wolf' can carry different pictures)
         cands = sorted(set((titles or {}).get(r['sid'], ())), key=lambda x: (x != r['latin'], x)) or [r['latin'], r['wiki']]
@@ -73,3 +74,10 @@ def by_title(pics):
     out = {}
     for sid in sorted(pics): out.setdefault(pics[sid].get('wiki'), pics[sid])
     out.pop(None, None); return out
+
+
+def legacy_lists(root='.', d=None):
+    """The four title-keyed lists (`species`, `species_hosted`, `species_metadata`, `species_large`) as the old shape had them, from either shape, for the code that still wants them (the fixture maker, #934)."""
+    d = d or load(root); t = d['titles']
+    return {'species': {k: [r.get('u', ''), r.get('page') or k] for k, r in t.items()}, 'species_hosted': {k: r['f'] for k, r in t.items()},
+            'species_metadata': {k: credit(r) for k, r in t.items() if credit(r)}, 'species_large': dict(d['title_large'])}

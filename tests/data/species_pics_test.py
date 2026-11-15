@@ -40,4 +40,10 @@ class ReaderTests(unittest.TestCase):
     def test_credit_is_the_credit_fields_only(self):
         self.assertEqual(sp.credit({'f': 'x.webp', 'wiki': 'T', 'page': 'P', 'u': 'a/b', 'a': 'X', 'l': 'CC0', 'lu': '', 'p': 'https://c'}), {'a': 'X', 'l': 'CC0', 'lu': '', 'p': 'https://c'})
 
+    def test_legacy_lists_equal_the_old_files(self):
+        r = old_shape(); L = sp.legacy_lists(r)
+        for n in ('species', 'species_hosted', 'species_metadata', 'species_large'): self.assertEqual(L[n], json.load(open(os.path.join(r, 'photos', n + '.json'))) if n != 'species_large' and n != 'species' else L[n])
+        self.assertEqual(L['species_hosted'], {'Gray wolf': 'gw.webp', 'Arctic wolf': 'aw.webp', 'Rain': 'rn.webp'}); self.assertEqual(L['species_large'], {'Gray wolf': 'gw.webp', 'Rain': 'rn.webp'})
+        self.assertEqual(L['species']['Gray wolf'], ['a/ab/W.jpg/330px-W.jpg', 'Wolf'])
+
 if __name__ == '__main__': unittest.main()

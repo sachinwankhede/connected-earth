@@ -67,7 +67,7 @@ def report(root=ROOT):
     links, ids = place_ids(root)
     outlines, place_total = outline_coverage(root, ids)
     unresolved, endpoint_total = cross_link_endpoints(root, links, ids)
-    species = read_json(os.path.join(root, "photos", "species.json"))
+    species = read_json(os.path.join(root, "photos", "species.json")) or read_json(os.path.join(root, "photos", "species_pictures.json")) or {}   # the old list, or the by-id rows after the migration (#934)
 
     return "\n".join((
         "## Informational data-quality summary",
