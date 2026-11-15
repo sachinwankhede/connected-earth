@@ -115,14 +115,8 @@ def check(root):
             if f not in lfiles: errs.append('larger picture for %r: file %s is missing' % (t, f))
             if (hosted or {}).get(t) != f: errs.append('larger picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
         for f in lfiles - set(large.values()): errs.append('photos/species-lg/%s is not listed in species_large.json' % f)
-    plarge = load(root, 'photos', 'places_large.json')   # the larger place pictures (#727): each is of a stored place picture (same name, .webp), has its file, and no file is left unlisted. The app does not depend on this (a place without one shows its small picture); the data keeps itself consistent
-    if plarge is not None:
-        pl = load(root, 'photos', 'places', 'places.json') or {}
-        pd_ = os.path.join(root, 'photos', 'places-lg'); pfiles = set(os.listdir(pd_)) if os.path.isdir(pd_) else set()
-        for t, f in plarge.items():
-            if f not in pfiles: errs.append('larger place picture for %r: file %s is missing' % (t, f))
-            if t not in pl or os.path.splitext(pl[t].get('f') or '')[0] + '.webp' != f: errs.append('larger place picture for %r: no stored place picture of the same name' % t)
-        for f in sorted(pfiles - set(plarge.values())): errs.append('photos/places-lg/%s is not listed in places_large.json' % f)
+    sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
+    import place_photos; errs += place_photos.PlacePhotos(root).check()
     medium = load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
     if medium is not None:
         md = os.path.join(root, 'photos', 'species-md')
