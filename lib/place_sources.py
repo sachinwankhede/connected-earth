@@ -223,6 +223,7 @@ class Vetted:
         row = self.info.get(key)
         if row is None: return default
         lic, au, lu, thumb, mime = row
+        au = al.clean(au) or au   # the one stored form (lib/author_clean.py)
         if al.by_licence(lic) and al.unknown(au):
             cls, name = al.lookup(key)
             if cls != 'none' and name: au = name

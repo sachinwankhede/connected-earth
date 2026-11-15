@@ -12,6 +12,7 @@ found and where from, so the owner can see the numbers before deciding to fill t
 It never proposes an uploader's name unless the credit says own work (an uploader is not always the author). Host: commons.wikimedia.org (already allowed)."""
 import json, os, re, sys, urllib.parse, html
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
+sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib')); import author_clean
 
 API = 'https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo|revisions&iiprop=extmetadata&iiextmetadatafilter=Artist|Credit|Attribution' \
       '&rvprop=user&rvdir=newer&rvlimit=1&titles='
@@ -21,8 +22,11 @@ def strip(s):
     return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s or ''))).strip()
 
 def unknown(author):
-    a = (author or '').strip().lower()
-    return a in UNKNOWN or a.startswith('unknown')
+    """No usable author: empty, 'Unknown ...', or only an email address (lib/author_clean.py)."""
+    return author_clean.clean_author(author) == ''
+
+def clean(author):
+    return author_clean.clean_author(author)
 
 def by_licence(lic):
     return (lic or '').upper().startswith('CC BY')

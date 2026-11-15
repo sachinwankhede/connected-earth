@@ -3,6 +3,7 @@
 Species table, journeys, outlines, hosted species pictures. Prints one line per problem and exits 1 if there is any."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
+DIRTY_AUTHOR_IS_ERROR = False   # set to True in the pull request that merges the cleanauthors data (then the validator fails a place picture with a dirty author)
 
 def load(root, *p):
     path = os.path.join(root, *p)
@@ -133,7 +134,9 @@ def check(root):
             if (hosted or {}).get(t) != f: errs.append('larger picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
         for f in lfiles - set(large.values()): errs.append('photos/species-lg/%s is not listed in species_large.json' % f)
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
-    import place_photos; errs += place_photos.PlacePhotos(root).check()
+    import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
+    dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); a warning until jobs/cleanauthors.py has cleaned the stored rows, then DIRTY_AUTHOR_IS_ERROR = True
+    if dirty: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/places/places.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty), ', '.join(dirty[:5])))
     medium = load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
     if medium is not None:
         md = os.path.join(root, 'photos', 'species-md')
