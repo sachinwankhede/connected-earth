@@ -38,6 +38,13 @@ class DataFormat(unittest.TestCase):
             self.assertTrue([e for e in check(r)[0] if 'park.webp is missing' in e])
             put(r, 'photos/places-lg/park.webp', b'x'); put(r, 'photos/places_large.json', {'Park': 'other.webp'}); put(r, 'photos/places-lg/other.webp', b'x')
             self.assertTrue([e for e in check(r)[0] if 'no stored place picture of the same name' in e])
+    def test_larger_place_pictures_are_checked_the_same_way_when_the_list_is_keyed_by_place_id(self):   # the new shape (#887): key = place id, the title in `wiki`
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'wiki': 'Park'}}); put(r, 'photos/places_large.json', {'okpark': 'okpark.webp'}); put(r, 'photos/places-lg/okpark.webp', b'x')
+            self.assertEqual([e for e in check(r)[0] if 'larger place' in e or 'places-lg' in e], [])
+            put(r, 'photos/places-lg/stray.webp', b'x'); self.assertTrue([e for e in check(r)[0] if 'stray.webp is not listed' in e])
+            os.remove(os.path.join(r, 'photos/places-lg/stray.webp')); put(r, 'photos/places/places.json', {})   # the picture is gone, its larger copy is not: the Arrowhead case
+            self.assertTrue([e for e in check(r)[0] if 'no stored place picture of the same name' in e])
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})
