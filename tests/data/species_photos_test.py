@@ -24,30 +24,36 @@ class WriterTests(unittest.TestCase):
         w = self.fresh(); self.assertTrue(w.is_missing('abies-alba'))
         w.put('abies-alba', row(), b'WEBP'); w.commit(); w = self.fresh()
         self.assertTrue(w.has('abies-alba')); self.assertFalse(w.is_missing('abies-alba')); self.assertNotIn('abies-alba', w.tried)
-        self.assertEqual(w.pics['abies-alba']['f'], 'abies-alba.webp'); self.assertEqual(self.read('photos/species/abies-alba.webp'), b'WEBP'); self.assertEqual(w.check(), [])
+        f = w.pics['abies-alba']['f']; self.assertEqual(self.read('photos/species/' + f), b'WEBP'); self.assertEqual(w.check(), [])
 
-    def test_two_species_sharing_a_title_each_get_their_own_picture(self):
-        self.w.put('podocarpus', row(), b'A'); self.w.put('podocarpus-urbanii', row(), b'B'); self.w.commit(); w = self.fresh()
-        self.assertEqual(w.pics['podocarpus']['wiki'], w.pics['podocarpus-urbanii']['wiki'])
-        self.assertEqual(self.read('photos/species/podocarpus.webp'), b'A'); self.assertEqual(self.read('photos/species/podocarpus-urbanii.webp'), b'B'); self.assertEqual(w.check(), [])
-        w.remove('podocarpus', 'notfree'); w.commit(); w = self.fresh()
+    def test_two_species_sharing_a_title_each_get_their_own_row(self):
+        self.w.put('podocarpus', row(), b'A'); self.w.put('podocarpus-urbanii', row(p='https://commons.wikimedia.org/wiki/File:Z.jpg'), b'B'); self.w.commit(); w = self.fresh()
+        self.assertEqual(w.pics['podocarpus']['wiki'], w.pics['podocarpus-urbanii']['wiki']); self.assertNotEqual(w.pics['podocarpus']['f'], w.pics['podocarpus-urbanii']['f'])
+        self.assertEqual(w.check(), []); w.remove('podocarpus', 'notfree'); w.commit(); w = self.fresh()
         self.assertTrue(w.has('podocarpus-urbanii')); self.assertFalse(w.has('podocarpus')); self.assertEqual(w.check(), [])
+
+    def test_species_showing_the_same_picture_share_one_file_until_the_last_one_goes(self):
+        for sid in ('rain', 'rainfall'): self.w.put(sid, row(), b'SAME'); self.w.put_medium(sid, b'M'); self.w.put_large(sid, b'L')
+        self.w.commit(); w = self.fresh(); f = w.pics['rain']['f']; self.assertEqual(f, w.pics['rainfall']['f'])
+        self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species'))), 1); self.assertEqual(w.check(), [])
+        w.remove('rain', 'notfree'); w.commit(); w = self.fresh(); self.assertEqual(w.check(), []); self.assertTrue(os.path.exists(os.path.join(self.d, 'photos/species-lg', f)))
+        w.remove('rainfall', 'notfree'); w.commit(); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/species-lg', f))); self.assertEqual(self.fresh().check(), [])
 
     def test_a_copy_needs_a_stored_picture(self):
         for fn in (self.w.put_medium, self.w.put_large):
             with self.assertRaises(ValueError): fn('aa', b'W')
         self.full('aa'); w = self.fresh()
-        self.assertTrue(w.has_medium('aa') and w.has_large('aa')); self.assertEqual(w.large['aa'], 'aa.webp'); self.assertEqual(w.check(), [])
+        self.assertTrue(w.has_medium('aa') and w.has_large('aa')); self.assertEqual(w.large['aa'], w.pics['aa']['f']); self.assertEqual(w.check(), [])
 
     def test_remove_takes_both_copies_with_it_and_records_why(self):
         self.full(); w = self.fresh(); w.remove('podocarpus', 'notfree', 'commons'); w.commit(); w = self.fresh()
         self.assertFalse(w.has('podocarpus') or w.has_medium('podocarpus') or w.has_large('podocarpus')); self.assertTrue(w.is_missing('podocarpus'))
-        for rel in ('species', 'species-md', 'species-lg'): self.assertFalse(os.path.exists(os.path.join(self.d, 'photos', rel, 'podocarpus.webp')))
+        for rel in ('species', 'species-md', 'species-lg'): self.assertEqual(os.listdir(os.path.join(self.d, 'photos', rel)), [])
         self.assertEqual(w.check(), [])
 
     def test_a_different_picture_drops_the_old_copies(self):
         self.full(); w = self.fresh(); w.put('podocarpus', row('https://commons.wikimedia.org/wiki/File:Y.jpg'), b'S2'); w.commit(); w = self.fresh()
-        self.assertFalse(w.has_medium('podocarpus') or w.has_large('podocarpus')); self.assertEqual(w.check(), [])
+        self.assertFalse(w.has_medium('podocarpus') or w.has_large('podocarpus')); self.assertEqual(w.check(), []); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-lg'))), 0)
 
     def test_the_same_picture_keeps_its_copies(self):
         self.full(); w = self.fresh(); w.put('podocarpus', row(), b'S'); w.commit(); w = self.fresh()
@@ -60,7 +66,7 @@ class WriterTests(unittest.TestCase):
         self.w.note_tried('cc', 'openverse'); self.assertIn('openverse', self.w.tried['cc']); self.assertFalse(self.w.is_missing('cc'))
 
     def test_check_finds_what_a_killed_job_leaves_and_repair_removes_it(self):
-        self.full(); os.remove(os.path.join(self.d, 'photos/species-lg/podocarpus.webp'))
+        self.full(); f = self.fresh().pics['podocarpus']['f']; os.remove(os.path.join(self.d, 'photos/species-lg', f))
         with open(os.path.join(self.d, 'photos/species/stray.webp'), 'wb') as f: f.write(b'x')
         w = self.fresh(); self.assertEqual(len(w.check()), 2)
         w.repair(); w = self.fresh(); self.assertEqual(w.check(), []); self.assertTrue(w.has('podocarpus')); self.assertFalse(w.has_large('podocarpus'))

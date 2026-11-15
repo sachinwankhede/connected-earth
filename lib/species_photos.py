@@ -1,15 +1,17 @@
 #!/usr/bin/env python3
 """species_photos.py: the one writer for species pictures (docs/DATA-PLAN.md, "Species pictures"; #934).
 
-A species picture is several things that must agree: the 96 px file `photos/species/<sid>.webp`, its row in `photos/species_pictures.json` (credit and source), the 192 px tile
-copy `photos/species-md/<sid>.webp` and the 400 px copy `photos/species-lg/<sid>.webp` with their rows in `photos/species_medium.json` and `photos/species_large.json`, and the
+A species picture is several things that must agree: the 96 px file `photos/species/<f>`, its row in `photos/species_pictures.json` (credit and source), the 192 px tile
+copy `photos/species-md/<f>` and the 400 px copy `photos/species-lg/<f>` with their rows in `photos/species_medium.json` and `photos/species_large.json`, and the
 species' absence from `photos/species_missing.json` and from the retry ledger `photos/species_tried.json`. Everything is keyed by the species `sid` (the Latin-name slug), never by a
-Wikipedia title (151 titles are shared by 618 species rows; owner, 15 Nov: "Per sid"); each row carries the title it came from as `wiki`.
+Wikipedia title (151 titles are shared by 618 species rows; owner, 15 Nov: "Per sid"); each row carries the title it came from as `wiki`. The file name `<f>` is the first 12 hex digits of the sha256 of the 96 px picture, so two species that show the same picture
+(a title shared by several species rows, such as Rain) share one file in each folder instead of each carrying a copy (the larger-copy budget has no room for 460 more); a file is deleted only when no
+species row still points at it.
 
 Jobs call put / put_medium / put_large / remove / miss / note_tried and then commit(); none of them writes those files itself. commit() writes every file through a temporary name and
 os.replace, files first and lists last, deletions after that, so a killed job leaves at worst a file no list mentions (check() finds it, repair() removes it), never a list row without its file
 and never a larger copy of a picture that is gone. The same methods as lib/place_photos.py, with one more copy size."""
-import json, os, sys
+import hashlib, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 import author_clean as ac
@@ -43,8 +45,8 @@ class SpeciesPhotos:
         different picture are dropped (the job makes new ones)."""
         entry = dict(entry); entry['a'] = ac.clean_author(entry.get('a')) or 'Unknown author'   # one stored form for the author (lib/author_clean.py)
         if author_missing(entry): raise ValueError('picture for %r is %s with no named author: refused' % (sid, entry.get('l')))
-        entry['f'] = sid + '.webp'
-        if sid in self.pics and self.pics[sid].get('p') != entry.get('p'): self._drop_copies(sid)
+        entry['f'] = hashlib.sha256(webp).hexdigest()[:12] + '.webp'
+        if sid in self.pics and self.pics[sid].get('f') != entry['f']: self._drop_copies(sid); self._delete.append(self._path(SMALL_DIR, self.pics[sid]['f']))
         self.pics[sid] = entry; self._write[self._path(SMALL_DIR, entry['f'])] = webp
         self.miss_.pop(sid, None); self.tried.pop(sid, None)
 
@@ -53,13 +55,13 @@ class SpeciesPhotos:
 
     def _put_copy(self, sid, which, webp):
         if sid not in self.pics: raise ValueError('no stored species picture for %r: a %s copy needs one' % (sid, which))
-        name = sid + '.webp'; (self.medium if which == 'medium' else self.large)[sid] = name
+        name = self.pics[sid]['f']; (self.medium if which == 'medium' else self.large)[sid] = name
         self._write[self._path(COPIES[which][0], name)] = webp
 
     def remove(self, sid, status, source='', now=None):
         """Remove a species' picture with everything that depends on it, and record why (status is one of photo_registry.PERMANENT or a transient word)."""
-        if sid in self.pics: self._delete.append(self._path(SMALL_DIR, self.pics.pop(sid).get('f') or sid + '.webp'))
-        self._write.pop(self._path(SMALL_DIR, sid + '.webp'), None); self._drop_copies(sid)
+        if sid in self.pics: self._delete.append(self._path(SMALL_DIR, self.pics.pop(sid)['f']))
+        self._drop_copies(sid)
         self.miss(sid, status, source, now=now)
 
     def miss(self, sid, status, source='', attempts=None, now=None):
@@ -78,15 +80,15 @@ class SpeciesPhotos:
         for which in ('medium', 'large'):
             d = self.medium if which == 'medium' else self.large; name = d.pop(sid, None)
             if name: self._delete.append(self._path(COPIES[which][0], name))
-            self._write.pop(self._path(COPIES[which][0], sid + '.webp'), None)
 
     def commit(self):
         """Files first, then the lists, then deletions. Idempotent."""
         for path, data in self._write.items(): _write_bytes(path, data)
         for parts, obj in ((PICS, self.pics), (MISSING, self.miss_), (MEDIUM, self.medium), (LARGE, self.large), (TRIED, self.tried)):
             _write_json(os.path.join(self.root, *parts), obj, indent=0 if parts != TRIED else None)
+        keep = {self._path(SMALL_DIR, e['f']) for e in self.pics.values()} | {self._path(MEDIUM_DIR, n) for n in self.medium.values()} | {self._path(LARGE_DIR, n) for n in self.large.values()}
         for path in self._delete:
-            if path not in self._write:
+            if path not in keep and path not in self._write:   # a file another species still shows stays
                 try: os.remove(path)
                 except OSError: pass
         self._write = {}; self._delete = []
@@ -99,7 +101,7 @@ class SpeciesPhotos:
         """Problems between the files and the lists. Empty means consistent."""
         errs = []; sf = {f for f in self._files(SMALL_DIR) if f.endswith('.webp')}
         for sid, e in sorted(self.pics.items()):
-            if e.get('f') != sid + '.webp': errs.append('%s: file name %r is not %s.webp' % (sid, e.get('f'), sid))
+            if not e.get('f'): errs.append('%s: no file name' % sid)
             elif e['f'] not in sf: errs.append('%s: listed in species_pictures.json but %s is missing' % (sid, e['f']))
             if sid in self.miss_: errs.append('%s: has a picture and is also in species_missing.json' % sid)
             if author_missing(e): errs.append('%s: %s picture with no named author' % (sid, e.get('l')))
@@ -108,7 +110,7 @@ class SpeciesPhotos:
             files = self._files(COPIES[which][0]); label = os.path.join(*COPIES[which][1])[len('photos/'):]
             for sid, name in sorted(d.items()):
                 if sid not in self.pics: errs.append('%s: %s copy but no stored picture' % (sid, which))
-                elif name != sid + '.webp': errs.append('%s: %s copy name %r is not %s.webp' % (sid, which, name, sid))
+                elif name != self.pics[sid].get('f'): errs.append('%s: %s copy %r is not the file of its picture %r' % (sid, which, name, self.pics[sid].get('f')))
                 elif name not in files: errs.append('%s: listed in %s but %s is missing' % (sid, label, name))
             for f in sorted(files - set(d.values())): errs.append('photos/%s/%s is not listed in %s' % (os.path.join(*COPIES[which][0])[len('photos/'):], f, label))
         return errs
@@ -126,6 +128,6 @@ class SpeciesPhotos:
                 if f.endswith('.webp') and f not in d: os.remove(os.path.join(base, f)); removed.append(os.path.join(*parts, f))
         for which, parts, d in (('medium', MEDIUM_DIR, self.medium), ('large', LARGE_DIR, self.large)):
             for sid in [s for s, n in d.items() if s not in self.pics or not os.path.exists(os.path.join(self.root, *parts, n))]: del d[sid]; removed.append('%s:%s' % (which, sid))
-        for sid in [s for s, e in self.pics.items() if not os.path.exists(os.path.join(self.root, *SMALL_DIR, e.get('f', '')))]: del self.pics[sid]; removed.append('species_pictures.json:' + sid)
+        for sid in [s for s, e in self.pics.items() if not os.path.exists(os.path.join(self.root, *SMALL_DIR, e.get('f') or '-'))]: del self.pics[sid]; removed.append('species_pictures.json:' + sid)
         if removed: self.commit()
         return removed
