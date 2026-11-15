@@ -14,12 +14,12 @@ import datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 
-_UNKNOWN = {'', 'unknown', 'unknown author', 'anonymous', 'author unknown', 'n/a', '?', 'see file page'}
+import author_clean as ac
+
 def author_missing(entry):
-    """A CC BY / CC BY-SA picture with no named author (the licence needs one). The same rule as jobs/authorlookup.py, kept here as a local test with no
-    network: the lookup that can fill a name in lives in the job, this only refuses (#887)."""
-    a = (entry.get('a') or '').strip().lower()
-    return (entry.get('l') or '').upper().startswith('CC BY') and (a in _UNKNOWN or a.startswith('unknown'))
+    """A CC BY / CC BY-SA picture with no usable author (the licence needs one; an email address counts as none, lib/author_clean.py). A local test with no network:
+    the lookup that can fill a name in lives in the job, this only refuses (#887)."""
+    return (entry.get('l') or '').upper().startswith('CC BY') and ac.clean_author(entry.get('a')) == ''
 
 PLACES = ('photos', 'places', 'places.json'); MISSING = ('photos', 'places', 'missing.json')
 LARGE = ('photos', 'places_large.json'); TRIED = ('photos', 'places_tried.json')
@@ -58,6 +58,7 @@ class PlacePhotos:
     def put(self, pid, entry, jpg):
         """Store a picture for this place. The file name is always <id>.jpg. The place leaves missing.json and the ledger; a larger copy of a
         different picture is dropped (placepictures makes a new one)."""
+        entry = dict(entry); entry['a'] = ac.clean_author(entry.get('a')) or 'Unknown author'   # one stored form for the author (lib/author_clean.py)
         if author_missing(entry): raise ValueError('picture for %r is %s with no named author: refused' % (pid, entry.get('l')))
         entry = dict(entry); entry['f'] = pid + '.jpg'
         if pid in self.pics and self.pics[pid].get('sha256') != entry.get('sha256'): self._drop_large(pid)
@@ -122,6 +123,10 @@ class PlacePhotos:
             elif name not in lfiles: errs.append('%s: listed in places_large.json but %s is missing' % (pid, name))
         for f in sorted(lfiles - set(self.large.values())): errs.append('photos/places-lg/%s is not listed in places_large.json' % f)
         return errs
+
+    def dirty_authors(self):
+        """Place ids whose stored author clean_author would change (an email, a talk stamp, a web address, an uploader sentence). Reported by the validator; jobs/cleanauthors.py fixes them."""
+        return sorted(pid for pid, e in self.pics.items() if ac.is_dirty(e.get('a')))
 
     def repair(self):
         """Remove files no list mentions and list rows whose file is gone (what a killed job can leave). Returns what it removed."""

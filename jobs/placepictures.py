@@ -94,6 +94,7 @@ def make_large(entry, get=None):
 # --- the author rule
 def vet(entry):
     """(entry, '') when the picture may be kept, with the author filled in if Commons knows one; (None, why) for a CC BY / CC BY-SA picture with no author to be found."""
+    entry = dict(entry, a=al.clean(entry.get('a')) or entry.get('a'))   # the one stored form (lib/author_clean.py)
     if not (al.by_licence(entry.get('l')) and al.unknown(entry.get('a'))): return entry, ''
     fn = al.file_of(entry.get('p'))
     if fn:
