@@ -7,7 +7,7 @@ Five titles are the `imgwiki` of ten places, so placepictures skips them (a pict
 (Harriman, Village Creek), two keep the title they have (it is the right one), and `sdponca` looks like a duplicate of `neponca` (Ponca State Park lies wholly in Nebraska).
 PROPOSED lists, for the six places that need one, the titles to try in order. A title is taken only when its article exists, is not a disambiguation page, has a primary coordinate within the place's
 radius (30 km for a park, 600 km for a region), and no other place already uses it. Otherwise the place is left and listed `unresolved`. Only `imgwiki` is edited.
-`sdponca` is never touched: the job lists it as `owner-decision` while it shares a title, because removing a place is the owner's call."""
+`sdponca` is a verified duplicate of `neponca` and is removed (owner decision 15 Nov): see DUPLICATES and remove_duplicates."""
 import json, math, os, sys, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 
@@ -20,7 +20,11 @@ PROPOSED = {
     'arvillagecreek': (30, ['Village Creek State Park (Arkansas)', 'Village Creek State Park']),
     'txvillagecreek': (30, ['Village Creek State Park (Texas)', 'Village Creek State Park (Lumberton, Texas)']),
 }
-OWNER_DECISION = ['sdponca']
+OWNER_DECISION = []
+# Owner decision 15 Nov (#908): a duplicate place is removed, but only after the job re-checks that it IS one: same name, within DUPLICATE_KM of the place that stays, and that place exists.
+# Wikipedia puts Ponca State Park wholly in Nebraska, and `sdponca` (labelled South Dakota) sits 0.4 km from `neponca` with the same name and the same Wikipedia title.
+DUPLICATES = {'sdponca': 'neponca'}
+DUPLICATE_KM = 5
 
 def km(a, b):
     p = math.pi / 180; dl = (b[1] - a[1]) * p; x = math.sin((b[0] - a[0]) * p / 2) ** 2 + math.cos(a[0] * p) * math.cos(b[0] * p) * math.sin(dl / 2) ** 2
@@ -70,6 +74,27 @@ def run(data_dir, get, dry=False):
     owner = [p for p in OWNER_DECISION if p in shared and len(used.get(places[p][2].get('imgwiki'), ())) > 1]
     return done, unresolved, owner
 
+def remove_duplicates(root, dry=False):
+    """Remove each place in DUPLICATES that is a verified duplicate of the one that stays: its file in data/places, its outline data/outlines/<id>.json and its entry in the place order (data/order/*.json; the validator needs both).
+    Returns (removed [(id, kept, km)], refused [(id, why)]). Nothing else refers to a place by id except the outline and the order and what the build derives."""
+    data_dir = os.path.join(root, 'data', 'places'); places = load(data_dir); removed, refused = [], []
+    for pid, keep in DUPLICATES.items():
+        if pid not in places: continue
+        if keep not in places: refused.append((pid, '%s, the place that stays, does not exist' % keep)); continue
+        a, b = places[pid][2], places[keep][2]; dist = km((a['lat'], a['lon']), (b['lat'], b['lon']))
+        if a.get('name') != b.get('name'): refused.append((pid, 'name %r differs from %r' % (a.get('name'), b.get('name')))); continue
+        if dist > DUPLICATE_KM: refused.append((pid, '%.1f km from %s (limit %d)' % (dist, keep, DUPLICATE_KM))); continue
+        removed.append((pid, keep, dist))
+        if dry: continue
+        os.remove(places[pid][0]); ol = os.path.join(root, 'data', 'outlines', pid + '.json')
+        if os.path.exists(ol): os.remove(ol)   # the outline file is named by the place id (the validator fails on an outline with no place)
+        od = os.path.join(root, 'data', 'order')
+        for f in sorted(os.listdir(od)) if os.path.isdir(od) else []:
+            fp = os.path.join(od, f); raw = open(fp, encoding='utf-8').read()
+            if f.endswith('.json') and pid in json.loads(raw):
+                json.dump([i for i in json.loads(raw) if i != pid], open(fp, 'w', encoding='utf-8')); open(fp, 'a', encoding='utf-8').write('\n' if raw.endswith('\n') else '')
+    return removed, refused
+
 def main():
     import wm
     dry = '--dry' in sys.argv
@@ -77,5 +102,8 @@ def main():
     for pid, old, new, d in done: print('set %s: %s -> %s (%.1f km from the place)' % (pid, old, new, d))
     for pid, why in unresolved: print('unresolved %s: %s' % (pid, why))
     for pid in owner: print('owner-decision %s: shares its title with another place (a probable duplicate); not changed' % pid)
+    removed, refused = remove_duplicates(ROOT, dry)
+    for pid, keep, d in removed: print('remove %s: a duplicate of %s (same name, %.1f km apart)' % (pid, keep, d))
+    for pid, why in refused: print('refused %s: %s' % (pid, why))
     print(len(done), 'titles', 'to set' if dry else 'set', '|', len(unresolved), 'unresolved |', len(owner), 'for the owner')
 if __name__ == '__main__': main()
