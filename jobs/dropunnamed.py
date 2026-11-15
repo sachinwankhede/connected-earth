@@ -6,6 +6,8 @@ A picture whose author Commons now gives (artist, attribution, own work) is kept
 Removal goes through jobs/droppictures.py: places (with their larger copy; the place goes to missing.json as 'notfree'), species (every row; Commons is not asked again for 90 days). Host: commons.wikimedia.org."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
+sys.path.insert(0, os.path.join(ROOT, 'lib'))
+from place_photos import PlacePhotos
 import authorlookup as al, droppictures as dp
 
 def split(rows):
@@ -22,16 +24,19 @@ def fills(rows):
 def fill(root, names, dry=False):
     """Write the found names into the stored author ('a') of places.json and species_metadata.json; only rows whose author is still unknown. Returns how many were filled."""
     n = 0
-    for kind, path in (('place', 'photos/places/places.json'), ('species', 'photos/species_metadata.json')):
-        p = os.path.join(root, path)
-        if not names[kind] or not os.path.exists(p): continue
+    if names['place']:
+        w = PlacePhotos(root); changed = 0
+        for k, name in names['place'].items():
+            if k in w.pics and al.unknown(w.pics[k].get('a')): w.pics[k]['a'] = name; changed += 1
+        n += changed
+        if changed and not dry: w.commit()   # places go through the one writer (#887)
+    p = os.path.join(root, 'photos/species_metadata.json')
+    if names['species'] and os.path.exists(p):
         d = json.load(open(p, encoding='utf-8')); changed = 0
-        for k, name in names[kind].items():
+        for k, name in names['species'].items():
             if k in d and al.unknown(d[k].get('a')): d[k]['a'] = name; changed += 1
         n += changed
-        if changed and not dry:
-            if kind == 'place': json.dump(d, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
-            else: json.dump(d, open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layouts droppictures.py keeps
+        if changed and not dry: json.dump(d, open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layout droppictures.py keeps
     return n
 
 def main():

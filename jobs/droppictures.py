@@ -8,6 +8,7 @@ No network. Prints one line per licence name and the total."""
 import sys, os, json, collections, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'lib')); import licences, photo_registry
+from place_photos import PlacePhotos
 P = {n: os.path.join('photos', n + '.json') for n in ('species_metadata', 'species_hosted', 'species_large', 'species_medium', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried')}
 def source_of(meta):
     p = meta.get('p') or ''
@@ -41,20 +42,13 @@ def drop(root, dry=False, titles=None, hold=False):
 def drop_places(root, dry=False, titles=None):
     """The same for the place pictures (photos/places/places.json, one <id>.jpg each). A dropped place goes to photos/places/missing.json as 'notfree' (kept 180 days), so jobs/photos.py does not fetch it again.
     Its larger copy (photos/places-lg/, photos/places_large.json) goes with it. titles: drop exactly these keys whatever their licence (the unnamed-author pictures, #887)."""
-    pd = os.path.join(root, 'photos', 'places'); mp, ms = os.path.join(pd, 'places.json'), os.path.join(pd, 'missing.json')
-    man = json.load(open(mp, encoding='utf-8')); miss = json.load(open(ms, encoding='utf-8')) if os.path.exists(ms) else {}
+    man = PlacePhotos(root).pics
     bad = sorted(t for t in titles if t in man) if titles else sorted(t for t, v in man.items() if not licences.ok('Wikimedia', v.get('l', '')))
     counts = collections.Counter(man[t].get('l', '') or '(none)' for t in bad)
     if dry or not bad: return bad, counts
-    ml = os.path.join(root, 'photos', 'places_large.json'); large = json.load(open(ml, encoding='utf-8')) if os.path.exists(ml) else {}
-    for t in bad:
-        p = os.path.join(pd, man[t]['f'])
-        if os.path.exists(p): os.remove(p)
-        del man[t]; miss[t] = photo_registry.negative_entry('notfree')
-        name = large.pop(t, None)
-        if name and os.path.exists(os.path.join(root, 'photos', 'places-lg', name)): os.remove(os.path.join(root, 'photos', 'places-lg', name))
-    if os.path.exists(ml): json.dump(large, open(ml, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
-    json.dump(man, open(mp, 'w', encoding='utf-8'), ensure_ascii=False, indent=0); json.dump(miss, open(ms, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+    w = PlacePhotos(root)   # the one writer for place pictures (#887): file, row, larger copy and missing record go together
+    for t in bad: w.remove(t, 'notfree')
+    w.commit()
     return bad, counts
 if __name__ == '__main__':
     places = 'places' in sys.argv
