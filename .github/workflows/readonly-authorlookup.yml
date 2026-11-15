@@ -1,0 +1,16 @@
+name: readonly-authorlookup
+# Manual, read-only (#887). For every CC BY or CC BY-SA picture whose stored author is "Unknown author" (places) or "Unknown" (species), asks Wikimedia Commons
+# whether an author can be found (the Artist field now, the Attribution field, or the uploader when the credit says "own work") and prints the counts and one line
+# per picture in the run summary. It changes nothing: no commit, no pull request, no secret. Host: commons.wikimedia.org only (lib/allowed_sources.json).
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  lookup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - name: Look up the authors (read-only)
+        run: python3 jobs/authorlookup.py
