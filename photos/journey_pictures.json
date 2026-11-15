@@ -89,6 +89,17 @@
 "u": "b/bf/M%C3%A4nnliche_Rohrweihe_im_Flug_04.jpg/330px-M%C3%A4nnliche_Rohrweihe_im_Flug_04.jpg",
 "wiki": "Western marsh harrier"
 },
+"monarch": {
+"a": "Didier Descouens",
+"f": "monarch.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Danaus_plexippus_MHNT_femelle.jpg",
+"page": "Monarch_butterfly",
+"src": "wikidata-p18",
+"u": "0/0e/Danaus_plexippus_MHNT_femelle.jpg/330px-Danaus_plexippus_MHNT_femelle.jpg",
+"wiki": "Monarch butterfly"
+},
 "osprey": {
 "a": "Chuck Homler / Focus On Wildlife",
 "f": "osprey.webp",
@@ -108,6 +119,17 @@
 "page": "American_white_pelican",
 "u": "3/32/American_White_Pelican.jpg/330px-American_White_Pelican.jpg",
 "wiki": "American white pelican"
+},
+"prairiegulf": {
+"a": "Walter Siegmund",
+"f": "prairiegulf.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Agelaius_phoeniceus_0110_taxo.jpg",
+"page": "Red-winged_blackbird",
+"src": "wikidata-p18",
+"u": "6/60/Agelaius_phoeniceus_0110_taxo.jpg/330px-Agelaius_phoeniceus_0110_taxo.jpg",
+"wiki": "Red-winged blackbird"
 },
 "shorebird": {
 "a": "Chuck Homler d/b/a Focus On Wildlife",
