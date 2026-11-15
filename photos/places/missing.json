@@ -1354,5 +1354,101 @@
 "checkedAt": "2026-11-14T18:14:43.523261+00:00",
 "expiresAt": "2027-05-13T18:14:43.523261+00:00",
 "attempts": 1
+},
+"Blake Island": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.421370+00:00",
+"expiresAt": "2027-05-14T04:09:16.421370+00:00",
+"attempts": 1
+},
+"Bwindi Impenetrable National Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.421688+00:00",
+"expiresAt": "2027-05-14T04:09:16.421688+00:00",
+"attempts": 1
+},
+"Camargue": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.421955+00:00",
+"expiresAt": "2027-05-14T04:09:16.421955+00:00",
+"attempts": 1
+},
+"Doñana National Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.422174+00:00",
+"expiresAt": "2027-05-14T04:09:16.422174+00:00",
+"attempts": 1
+},
+"Elmore State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.422385+00:00",
+"expiresAt": "2027-05-14T04:09:16.422385+00:00",
+"attempts": 1
+},
+"Evansburg State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.422574+00:00",
+"expiresAt": "2027-05-14T04:09:16.422574+00:00",
+"attempts": 1
+},
+"False Cape State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.422762+00:00",
+"expiresAt": "2027-05-14T04:09:16.422762+00:00",
+"attempts": 1
+},
+"Fort Bridger": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.422948+00:00",
+"expiresAt": "2027-05-14T04:09:16.422948+00:00",
+"attempts": 1
+},
+"Gran Chaco": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.423135+00:00",
+"expiresAt": "2027-05-14T04:09:16.423135+00:00",
+"attempts": 1
+},
+"Hampton Beach State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.423338+00:00",
+"expiresAt": "2027-05-14T04:09:16.423338+00:00",
+"attempts": 1
+},
+"Independence Rock": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.423522+00:00",
+"expiresAt": "2027-05-14T04:09:16.423522+00:00",
+"attempts": 1
+},
+"Jordanelle State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.423709+00:00",
+"expiresAt": "2027-05-14T04:09:16.423709+00:00",
+"attempts": 1
+},
+"Kerguelen Islands": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.423894+00:00",
+"expiresAt": "2027-05-14T04:09:16.423894+00:00",
+"attempts": 1
+},
+"Lake Waccamaw State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.424077+00:00",
+"expiresAt": "2027-05-14T04:09:16.424077+00:00",
+"attempts": 1
+},
+"Pilot Mountain State Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.424268+00:00",
+"expiresAt": "2027-05-14T04:09:16.424268+00:00",
+"attempts": 1
+},
+"Tongariro National Park": {
+"status": "notfree",
+"checkedAt": "2026-11-15T04:09:16.424461+00:00",
+"expiresAt": "2027-05-14T04:09:16.424461+00:00",
+"attempts": 1
 }
 }

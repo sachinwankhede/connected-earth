@@ -265,12 +265,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Achnatherum_hymenoides_-_Ricegrass.jpg"
 },
-"Achyrachaena mollis": {
-"a": "Unknown",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Achyrachaena_mollis_000.jpg"
-},
 "Acmella repens": {
 "a": "Juan Carlos Fonseca Mata",
 "l": "CC BY-SA 4.0",
@@ -446,12 +440,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Aegilops_geniculata_Enfoque_2010-5-08_DehesaBoyaldePuertollano.jpg"
-},
-"Aesculus glabra": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Aesculus_glabra_var._glabra.jpg"
 },
 "Aesculus pavia": {
 "a": "Eric Hunt",
@@ -735,12 +723,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Wood_Duck_Wissahickon_Creek.png"
 },
-"Akodon cursor": {
-"a": "Unknown authorUnknown author",
-"l": "CC BY 4.0",
-"lu": "https://creativecommons.org/licenses/by/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Akodon_cursor.jpg"
-},
 "Alauda arvensis": {
 "a": "User:Diliff",
 "l": "CC BY-SA 3.0",
@@ -770,12 +752,6 @@
 "l": "CC BY 2.0",
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Switzerland%2C_Bettmeralp_%2819505442736%29.jpg"
-},
-"Alewife (fish)": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Alosa_pseudoharengus.jpg"
 },
 "Algae": {
 "a": "Toby Hudson",
@@ -1540,12 +1516,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Anogeissus_acuminata_Govindoo.jpg"
 },
-"Anole": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Green_anole.jpg"
-},
 "Anolis carolinensis": {
 "a": "Paul Hirst (Phirst)",
 "l": "CC BY-SA 2.5",
@@ -1968,7 +1938,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Arctostaphylos_patula_08399.JPG"
 },
 "Arctostaphylos pringlei": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Arctostaphylos_pringlei_ssp_drupacea_2.jpg"
@@ -2516,12 +2486,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Aspidotis_densa_5982.JPG"
 },
-"Asplenium": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Asplenium_trichomanes_subsp_quadrivalens.jpg"
-},
 "Asplenium montanum": {
 "a": "Jaknouse",
 "l": "CC BY 3.0",
@@ -3001,7 +2965,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Baccharis_pilularis_kz04.jpg"
 },
 "Baccharis salicifolia": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Baccharis_salicifolia_1.jpg"
@@ -4440,12 +4404,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Brunnichia_ovata.jpg"
 },
-"Brush rabbit": {
-"a": "Unknown",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Sylvilagus_bachmani_01035t.JPG"
-},
 "Brush-furred mouse": {
 "a": "No machine-readable author provided. Aranae assumed (based on copyright claims).",
 "l": "Public domain",
@@ -4535,12 +4493,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Sonnenbrandbaum1.jpg"
-},
-"Bush hyrax": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Ein_klippschliefer.jpg"
 },
 "Bushbuck": {
 "a": "flowcomm",
@@ -4669,12 +4621,6 @@
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:California_Sea_Lion%2C_Monterey%2C_California%2C_United_States_imported_from_iNaturalist_photo_203598492.jpg"
 },
-"California sheephead": {
-"a": "Unknown",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Sheephead.JPG"
-},
 "Calla palustris": {
 "a": "Kurt Stüber [1]",
 "l": "CC BY-SA 3.0",
@@ -4694,7 +4640,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Calligonum_polygonoides.JPG"
 },
 "Callinectes sapidus": {
-"a": "Unknown",
+"a": "The Children's Museum of Indianapolis",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:The_Childrens_Museum_of_Indianapolis_-_Atlantic_blue_crab.jpg"
@@ -4788,12 +4734,6 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Calochortus_macrocarpus.jpg"
-},
-"Calochortus nuttallii": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Sego_lily_cm.jpg"
 },
 "Calochortus pulchellus": {
 "a": "Miguel Vieira",
@@ -4896,12 +4836,6 @@
 "l": "CC0",
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Campaea_perlata_01.jpg"
-},
-"Campanula rotundifolia": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Campanula_rotondifolia.jpg"
 },
 "Campanulastrum americanum": {
 "a": "Cbaile19",
@@ -5786,12 +5720,6 @@
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Petrochelidon_fulva.jpg"
 },
-"Cay": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Heron_Island%2C_Australia_-_View_of_Island_from_helicopter.JPG"
-},
 "Ceanothus": {
 "a": "unknown author, USFWS",
 "l": "Public domain",
@@ -6081,12 +6009,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Curl-leaf_mountain_mahogany_Cercocarpus_ledifolius_big_bush.jpg"
-},
-"Cercocarpus montanus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Alderleaf_Mountain_Mahogany.jpg"
 },
 "Cercyonis oetus": {
 "a": "Charles J. Sharp",
@@ -6782,12 +6704,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Claytonia_virginica_2_Radnor_Lake.jpg"
 },
-"Claytosmunda claytoniana": {
-"a": "Unknown",
-"l": "CC BY-SA 2.0 ca",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0/ca/deed.en",
-"p": "https://commons.wikimedia.org/wiki/File:Osmunda_claytoniana_JSG.jpg"
-},
 "Clematis drummondii": {
 "a": "Mike",
 "l": "CC BY-SA 3.0",
@@ -6799,12 +6715,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Clematis_fremontii_2.jpg"
-},
-"Clematis terniflora": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Virgin%27s_bower_%28Clematis_terniflora%29.jpg"
 },
 "Cleomella lutea": {
 "a": "William Curtis",
@@ -7187,7 +7097,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Genetta_genetta_felina_%28Wroclaw_zoo%29.JPG"
 },
 "Common grape vine": {
-"a": "Unknown",
+"a": "BerndtF",
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Cabernet_Sauvignon_Gaillac.jpg"
@@ -7197,12 +7107,6 @@
 "l": "CC BY-SA 2.5",
 "lu": "https://creativecommons.org/licenses/by-sa/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Larus_canus_Common_Gull_in_Norway.jpg"
-},
-"Common hazel": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Corylus_avellana.jpg"
 },
 "Common kestrel": {
 "a": "Andreas Trepte",
@@ -7564,12 +7468,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Vulpes_corsac.jpg"
-},
-"Corvus brachyrhynchos": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Corvus-brachyrhynchos-001.jpg"
 },
 "Corvus ossifragus": {
 "a": "Rhododendrites",
@@ -8112,12 +8010,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cymodocea_nodosa.jpg"
 },
-"Cynips quercusfolii": {
-"a": "Unknown",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Cynips_quercusfolii.jpg"
-},
 "Cynodon dactylon": {
 "a": "Bidgee",
 "l": "CC BY-SA 3.0",
@@ -8147,12 +8039,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cynomys_ludovicianus_%2854906540630%29.jpg"
-},
-"Cyperaceae": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Pycreus.jpg"
 },
 "Cyperus bipartitus": {
 "a": "Reuven Martin",
@@ -8225,12 +8111,6 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Cyprus_Whip_Snake%2C_Cyprus_imported_from_iNaturalist_photo_339514173.jpg"
-},
-"Cyrilla racemiflora": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:CyrillaRacemosa.jpg"
 },
 "Cystopteris fragilis": {
 "a": "Stan Shebs",
@@ -8517,12 +8397,6 @@
 "l": "CC BY 2.0",
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Dipodomys-deserti.jpg"
-},
-"Desert lark": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Steinlerche.jpg"
 },
 "Desert locust": {
 "a": "Christiaan Kooyman",
@@ -9067,7 +8941,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ladder-back_Woodpecker_on_Cactus.jpg"
 },
 "Dryocampa rubicunda": {
-"a": "Unknown",
+"a": "PiccoloNamek",
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Rosy_Maple_Moth.png"
@@ -9560,7 +9434,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Familiar_bluet_%2821468%29.jpg"
 },
 "Encelia": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Encelia_farinosa_form.jpg"
@@ -9578,7 +9452,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Brittlebush_stands_out_on_this_hillside.jpg"
 },
 "Encelia virginensis": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Encelia_virginensis_9.jpg"
@@ -9673,18 +9547,6 @@
 "l": "CC BY 3.0",
 "lu": "https://creativecommons.org/licenses/by/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Epinephelus_coioides_Thailand.jpg"
-},
-"Epipactis gigantea": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Epipactis_gigantea.jpg"
-},
-"Epipactis helleborine": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Epipactis_helleborine_flowers1_220703.jpg"
 },
 "Epischura baikalensis": {
 "a": "EnterFraiser",
@@ -9946,7 +9808,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Eriogonumlatifolium.jpg"
 },
 "Eriogonum ovalifolium": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Eriogonum_ovalifolium_ovalifolium_2.jpg"
@@ -10234,12 +10096,6 @@
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://www.inaturalist.org/photos/168437661",
 "s": "iNaturalist"
-},
-"Euphorbia celastroides": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Chamaesyce_cyathia.jpg"
 },
 "Euphorbia cordifolia": {
 "a": "sonnia hill",
@@ -10633,12 +10489,6 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Eurybia_macrophylla.jpg"
-},
-"Eustoma russellianum": {
-"a": "Unknown",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Eustoma_grandiflorum_purple_02.jpg"
 },
 "Euterpe edulis": {
 "a": "João Medeiros",
@@ -11461,12 +11311,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Gemsbok_%28Oryx_gazella%29_male.jpg"
 },
-"Gentiana": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Gentiana-verna2.jpg"
-},
 "Gentiana algida": {
 "a": "James St. John",
 "l": "CC BY 2.0",
@@ -11849,12 +11693,6 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Goodyera_pubescens_544680894.jpg"
-},
-"Gran Chaco": {
-"a": "Unknown",
-"l": "CC BY 1.0",
-"lu": "https://creativecommons.org/licenses/by/1.0",
-"p": "https://commons.wikimedia.org/wiki/File:Chaco_Boreal_Paraguay.jpg"
 },
 "Grapsus grapsus": {
 "a": "Nosferattus",
@@ -12265,12 +12103,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Gum_Plant_%28Grindelia_hirsutula%29_%284324634490%29.jpg"
 },
-"Grindelia squarrosa": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Curlycup_Gumweed.jpg"
-},
 "Griselinia littoralis": {
 "a": "Mike Dickison",
 "l": "CC BY 4.0",
@@ -12475,12 +12307,6 @@
 "lu": "https://creativecommons.org/licenses/by/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:HALIMEDA_PICT0294.jpg"
 },
-"Halocnemum strobilaceum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Halocnemum_strobilaceum_01.jpg"
-},
 "Halogeton glomeratus": {
 "a": "Sheri Hagwood",
 "l": "Public domain",
@@ -12498,12 +12324,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Halophila_ovalis.jpg"
-},
-"Haloxylon ammodendron": {
-"a": "Unknown",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Saxaul-baum.JPG"
 },
 "Haloxylon persicum": {
 "a": "Abodi009",
@@ -12802,23 +12622,11 @@
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Helianthus_resinosus%2C_Old_US_Highway_52_S%2C_Morven%2C_NC%2C_US_imported_from_iNaturalist_photo_84560526.jpg"
 },
-"Helianthus tuberosus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Sunroot_top.jpg"
-},
 "Helichrysum": {
 "a": "Iorsh at English Wikipedia",
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Helichrysum_sanguineum.jpg"
-},
-"Helichrysum luteoalbum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Pseudognaphalium_luteoalbum01.jpg"
 },
 "Heliconia": {
 "a": "Justin Lebar",
@@ -13393,12 +13201,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Hymenocallis_occidentalis_Arkansas.jpg"
-},
-"Hymenophyllaceae": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:WP-Hymenophyllum-Exkursion_nach_Berdorf_%28Luxemburgexkursion%29_011.jpg"
 },
 "Hymenoxys grandiflora": {
 "a": "John Sowell",
@@ -14301,23 +14103,11 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Juniperus_monosperma_UGA.jpg"
 },
-"Juniperus occidentalis": {
-"a": "Unknown",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Juniperus_occidentalis_8247.jpg"
-},
 "Juniperus osteosperma": {
 "a": "Fcb981",
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Juniperus_osteosperma_1.jpg"
-},
-"Juniperus phoenicea": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Juniperus_phoenicea1.jpg"
 },
 "Juniperus pinchotii": {
 "a": "CK Kelly",
@@ -14444,12 +14234,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:New_Zealand_pigeon_%28Hemiphaga_novaeseelandiae%29_Waitakere.jpg"
-},
-"Kerguelen cabbage": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Pringlea_antiscorbutica.JPG"
 },
 "Kerodon rupestris": {
 "a": "The original uploader was Brian.gratwicke at English Wikipedia.",
@@ -15399,12 +15183,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Queensland_Fan_Palm.jpg"
 },
-"Ligustrum sinense": {
-"a": "Unknown",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Ligustrum_sinense.jpg"
-},
 "Lilium columbianum": {
 "a": "Walter Siegmund (talk)",
 "l": "CC BY-SA 3.0",
@@ -16099,12 +15877,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Lupinus_perennis_in_flower.jpg"
 },
-"Lupinus polyphyllus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Lupinus_polyphyllus.JPG"
-},
 "Lupinus pusillus": {
 "a": "Matt Lavin from Bozeman, Montana, USA",
 "l": "CC BY-SA 2.0",
@@ -16149,12 +15921,6 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://openverse.org/image/a7c78b99-0272-4213-ad92-bfdf1fcafe32",
 "s": "Openverse"
-},
-"Lycium": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:African_boxthorn.jpg"
 },
 "Lycium andersonii": {
 "a": "Stan Shebs",
@@ -16843,12 +16609,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Rhithrogena_germanica_subimago_on_Equisetum_hyemale.jpg"
 },
-"Mbuna": {
-"a": "Unknown",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Melanochromis_cyaneorhabdos.jpg"
-},
 "Meadow": {
 "a": "Nikater",
 "l": "Public domain",
@@ -16866,12 +16626,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Medeola_virginiana_4055.JPG"
-},
-"Medicago lupulina": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:MedicagoLupulina02.jpg"
 },
 "Medicago sativa": {
 "a": "Amédée Masclef",
@@ -17759,12 +17513,6 @@
 "lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
 "p": "https://commons.wikimedia.org/wiki/File:Myriophyllum_sibiricum_95298624.jpg"
 },
-"Myriophyllum spicatum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Cleaned-Illustration_Myriophyllum_spicatum.jpg"
-},
 "Myriopteris gracilis": {
 "a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
@@ -18397,12 +18145,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Nyssa_sylvatica_v_sylvatica.jpg"
 },
-"Oak": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Quercus_robur.jpg"
-},
 "Oarisma garita": {
 "a": "Northern Prairie Wildlife Research Center - USGS",
 "l": "Public domain",
@@ -18726,7 +18468,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Starr_050415-0054_Oplismenus_hirtellus.jpg"
 },
 "Opuntia": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Opuntia_littoralis_var_vaseyi_4.jpg"
@@ -21006,7 +20748,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Kaldari_Batrachoseps_attenuatus_02.jpg"
 },
 "Pluchea sericea": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Pluchea_sericea_1.jpg"
@@ -21066,7 +20808,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Poasecunda.jpg"
 },
 "Poaceae": {
-"a": "Unknown",
+"a": "Fir0002",
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Meadow_Foxtail_head.jpg"
@@ -21438,12 +21180,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:PotamogetonPerfoliatus2.jpg"
 },
-"Potamogeton crispus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:PotamogetonCrispus.jpg"
-},
 "Potamogeton foliosus": {
 "a": "Robert H. Mohlenbrock",
 "l": "Public domain",
@@ -21512,7 +21248,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:ERA5_global_precipitation_sum.png"
 },
 "Prenolepis imparis": {
-"a": "Unknown",
+"a": "The photographer and www.AntWeb.org",
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Prenolepis_imparis_casent0005429_profile_1.jpg"
@@ -21717,12 +21453,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Prunus_gracilis.jpg"
 },
-"Prunus mahaleb": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Prunus_mahaleb2.jpg"
-},
 "Prunus maritima": {
 "a": "Unknown",
 "l": "Public domain",
@@ -21752,12 +21482,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Prunus_pumila%2C_South_Ste._Marys_Island.JPG"
-},
-"Prunus serotina": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Amerikaanse_vogelkers_Prunus_serotina_closeup.jpg"
 },
 "Prunus virginiana": {
 "a": "Nadiatalent",
@@ -21838,7 +21562,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ara%C3%A7%C3%A1-rosa_%28do_tupi_aras%C3%A1%29%2C_Psidium_cattleyanum_02.jpg"
 },
 "Psidium guajava": {
-"a": "Unknown",
+"a": "A-giâu",
 "l": "CC BY-SA 3.0",
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Psidium_guajava_fruit.jpg"
@@ -22108,12 +21832,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Researcher_holding_juvenile_queen_conch.jpg"
 },
-"Quercus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Quercus_robur.jpg"
-},
 "Quercus acutissima": {
 "a": "Daderot",
 "l": "Public domain",
@@ -22239,12 +21957,6 @@
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Matrimonial_Oak_San_Saba_County_Texas.jpg"
-},
-"Quercus gambelii": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Gambel_oak_1.jpg"
 },
 "Quercus garryana": {
 "a": "The original uploader was Llywrch at English Wikipedia.",
@@ -22401,12 +22113,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Tree_in_Mississippi.jpg"
-},
-"Quercus robur": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Quercus_robur.jpg"
 },
 "Quercus rubra": {
 "a": "No machine-readable author provided. Velela assumed (based on copyright claims).",
@@ -23176,7 +22882,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ribes_lacustre_5047.JPG"
 },
 "Ribes malvaceum": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Ribes_malvaceum_var_veridifolium_2.jpg"
@@ -23218,7 +22924,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Pink_Flowering_Currant_closeup%2C_Ribes_sanguineum.jpg"
 },
 "Ribes speciosum": {
-"a": "Unknown",
+"a": "Stan Shebs",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Ribes_speciosum_2.jpg"
@@ -23662,23 +23368,11 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Rufous-collared_sparrow_%28Zonotrichia_capensis_costaricensis%29_2.jpg"
 },
-"Rumex acetosella": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Ahosuolahein%C3%A4_%28Rumex_acetosella%29.jpg"
-},
 "Rumex crispus": {
 "a": "Olivier Pichard",
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Rumex_crispus_vallee-de-grace-amiens_80_12062007_3.jpg"
-},
-"Rumex fueginus": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:RumexMaritimus.jpg"
 },
 "Rumex hymenosepalus": {
 "a": "Stan Shebs",
@@ -23963,12 +23657,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Salix_planifolia_2001-07-15.jpg"
 },
-"Salix polaris": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Polarwillow1.jpg"
-},
 "Salix pulchra": {
 "a": "Поспелов И. Н.",
 "l": "CC BY 4.0",
@@ -24047,12 +23735,6 @@
 "lu": "https://creativecommons.org/licenses/by/2.5",
 "p": "https://commons.wikimedia.org/wiki/File:Salvia_elegans.jpg"
 },
-"Salvia farinacea": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Salvia_farinacea1.jpg"
-},
 "Salvia leucophylla": {
 "a": "No machine-readable author provided. NoahElhardt assumed (based on copyright claims).",
 "l": "CC BY-SA 2.5",
@@ -24094,12 +23776,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Sambar_%28Cervus_unicolor_unicolor%29_male.jpg"
-},
-"Sambucus canadensis": {
-"a": "Unknown",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Sambucus_nigra_subsp_canadensis_-_Indiana.jpg"
 },
 "Sambucus cerulea": {
 "a": "No machine-readable author provided. Wsiegmund assumed (based on copyright claims).",
@@ -24775,12 +24451,6 @@
 "l": "CC BY-SA 2.0",
 "lu": "https://creativecommons.org/licenses/by-sa/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Shepherdia_rotundifolia_%288003258721%29.jpg"
-},
-"Sherardia arvensis": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Sherardia_arvensis_050731.jpg"
 },
 "Shkumbin": {
 "a": "Original uploader was Albinfo at de.wikipedia",
@@ -25499,12 +25169,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Solidago_flexicaulis01.jpg"
 },
-"Solidago gigantea": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Solidago_gigantea01.jpg"
-},
 "Solidago mollis": {
 "a": "Unknown",
 "l": "Public domain",
@@ -25981,12 +25645,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Yellow-bellied_sapsucker_in_CP_%2840484%29.jpg"
-},
-"Spigelia marilandica": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Spigelia_marilandica_-_woodland_pinkroot_-_desc-flowers_3.jpg"
 },
 "Spilogale gracilis": {
 "a": "Unknown",
@@ -26552,12 +26210,6 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Stygian_Owl_%28Asio_stygius%29.jpg"
 },
-"Stylophorum diphyllum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Stylophorum_diphyllum_-_woodland_poppy_-_desc-flower_open.jpg"
-},
 "Styrax redivivus": {
 "a": "Stickpen",
 "l": "Public domain",
@@ -26617,12 +26269,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Borneo_clouded_leopard.jpg"
-},
-"Surgeonfish": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Acanthurussohal-ArabischerDoktor.jpg"
 },
 "Swamp": {
 "a": "Unknown",
@@ -26894,12 +26540,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Richardson%27s_red_squirrel_%28Tamiasciurus_hudsonicus_richardsoni%29_Moraine_Lake.jpg"
 },
-"Tanacetum parthenium": {
-"a": "Unknown",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Feverfew.jpg"
-},
 "Tanacetum vulgare": {
 "a": "Ivar Leidus",
 "l": "CC BY-SA 3.0",
@@ -26907,7 +26547,7 @@
 "p": "https://commons.wikimedia.org/wiki/File:Tanacetum_vulgare_-_harilik_soolikarohi_Keilas2.jpg"
 },
 "Tapinoma sessile": {
-"a": "Unknown",
+"a": "The photographer and www.AntWeb.org",
 "l": "CC BY 4.0",
 "lu": "https://creativecommons.org/licenses/by/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Tapinoma_sessile_casent0005329_profile_1.jpg"
@@ -26995,12 +26635,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Temminck%27s_Sunbird_0A2A9899.jpg"
-},
-"Tenrec": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Tanrek.jpg"
 },
 "Tephrosia virginiana": {
 "a": "Eric Hunt",
@@ -27184,12 +26818,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Essex_skipper_%28Thymelicus_lineola%29_male.jpg"
 },
-"Thymus praecox": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Thymus_praecox.JPG"
-},
 "Thyridopteryx ephemeraeformis": {
 "a": "Unknown authorUnknown author",
 "l": "Public domain",
@@ -27279,12 +26907,6 @@
 "l": "Public domain",
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Python_timoriensis_Tropicario_1.JPG"
-},
-"Tineidae": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Nemapogon_granella01.jpg"
 },
 "Tipularia discolor": {
 "a": "Eric Hunt",
@@ -27839,12 +27461,6 @@
 "lu": "https://creativecommons.org/licenses/by/2.0",
 "p": "https://commons.wikimedia.org/wiki/File:Bl%C3%A9_tendre_%28GRAPELLI%29_AO-5-cliche_Jean_Weber_%285%29_%2823975019962%29.jpg"
 },
-"Triticum monococcum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum0.jpg"
-},
 "Troglodytes aedon": {
 "a": "Paul Danese",
 "l": "CC BY-SA 4.0",
@@ -28205,12 +27821,6 @@
 "lu": "",
 "p": "https://commons.wikimedia.org/wiki/File:Vaccinium_cespitosum_0806025.jpg"
 },
-"Vaccinium corymbosum": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Vaccinium_corymbosum%2801%29.jpg"
-},
 "Vaccinium crassifolium": {
 "a": "James Kingdon",
 "l": "Public domain",
@@ -28519,12 +28129,6 @@
 "lu": "http://creativecommons.org/licenses/by-sa/3.0/",
 "p": "https://commons.wikimedia.org/wiki/File:Verbena_urticifolia_001.JPG"
 },
-"Verbesina alternifolia": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Verbesina_alternifolia0.jpg"
-},
 "Verbesina encelioides": {
 "a": "Copyright by Curtis Clark, licensed as noted",
 "l": "CC BY-SA 2.5",
@@ -28584,12 +28188,6 @@
 "l": "CC BY-SA 3.0",
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Veronica_persica_060403Fw.jpg"
-},
-"Veronica scutellata": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Veronica_scutellata_eF.jpg"
 },
 "Veronicastrum virginicum": {
 "a": "Crazytwoknobs",
@@ -28819,12 +28417,6 @@
 "lu": "https://creativecommons.org/licenses/by-sa/3.0",
 "p": "https://commons.wikimedia.org/wiki/File:Viola_sororia_in_Wisconsin.jpg"
 },
-"Violaceae": {
-"a": "Unknown",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Viola_hedercea01.jpg"
-},
 "Vipera ammodytes": {
 "a": "Holger Krisp",
 "l": "CC BY 3.0",
@@ -28994,12 +28586,6 @@
 "l": "CC BY-SA 4.0",
 "lu": "https://creativecommons.org/licenses/by-sa/4.0",
 "p": "https://commons.wikimedia.org/wiki/File:Walrus_in_the_Russian_Arctic_National_Park%2C_Novaya_Zemlya_2015-2.jpg"
-},
-"Washingtonia filifera": {
-"a": "Unknown",
-"l": "CC BY-SA 1.0",
-"lu": "https://creativecommons.org/licenses/by-sa/1.0",
-"p": "https://commons.wikimedia.org/wiki/File:Washingtonia_filifera.jpg"
 },
 "Water": {
 "a": "Blue_ice.jpg: Stephanie Costa\nWassertropfen.jpg: Sven Hoppe\nAbove_the_Clouds.jpg: Arun Kulshreshtha\nderivative work: StarLight (talk)",

@@ -1139,21 +1139,6 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
-"Bwindi Impenetrable National Park": {
-"f": "whbwindi.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Bwindi.JPG",
-"w": "https://en.wikipedia.org/wiki/Bwindi_Impenetrable_National_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "f514d4737fe94fa08a66f7407c9b16a2ec2f55775e9eb82e63397cf984e6a83e",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
 "Calakmul Biosphere Reserve": {
 "f": "whcalakmul.jpg",
 "a": "Beatriz Moisset",
@@ -1376,21 +1361,6 @@
 "height": 249,
 "sha256": "67c84dbc9bb322d2cdc473c65ad0b8568b127d7c93148035843fa649ecd0d92a",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Doñana National Park": {
-"f": "whdonana.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Wetlands_in_Donana.jpg",
-"w": "https://en.wikipedia.org/wiki/Do%C3%B1ana_National_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 220,
-"sha256": "6a30f8b2c57c1de3ca0871c7bc0c0fdb6306f8e2bc5deb2a752d38b158a10b53",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -2141,21 +2111,6 @@
 "height": 220,
 "sha256": "ce5a3f7a1955707f548806c0db3086ef9ab838b66d5ce0e4f2a5b0d4ee2148f2",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Tongariro National Park": {
-"f": "whtongariro.jpg",
-"a": "Unknown author",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Tongariro_Mahuia_River_n.jpg",
-"w": "https://en.wikipedia.org/wiki/Tongariro_National_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 496,
-"sha256": "1e64f128ec8c7e30d92b1e8fdccc3b80621f20295dc8ff400bc2762d2a7e93f4",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -3176,21 +3131,6 @@
 "height": 220,
 "sha256": "cab22e5a0636e149be90ff7e83dced8414048932123a22e3175bce0fa850a820",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Gran Chaco": {
-"f": "xparaguay.jpg",
-"a": "Unknown author",
-"l": "CC BY 1.0",
-"lu": "https://creativecommons.org/licenses/by/1.0",
-"p": "https://commons.wikimedia.org/wiki/File:Chaco_Boreal_Paraguay.jpg",
-"w": "https://en.wikipedia.org/wiki/Gran_Chaco",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "daf37d1cf6c87f41a84a97490b36b3989e6b60ec77f1d6de933e69cc0f4b8bba",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -12719,21 +12659,6 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
-"Lake Waccamaw State Park": {
-"f": "nclakewaccamaw.jpg",
-"a": "Unknown author",
-"l": "CC BY 3.0",
-"lu": "https://creativecommons.org/licenses/by/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Grass_Sunset.jpg",
-"w": "https://en.wikipedia.org/wiki/Lake_Waccamaw_State_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 440,
-"sha256": "129ad8b20833981924f1347512f17acf69b5f2d756abaa3c97f783f7906fd1bd",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
 "Lumber River State Park": {
 "f": "nclumberriver.jpg",
 "a": "Dincher",
@@ -12790,21 +12715,6 @@
 "width": 330,
 "height": 247,
 "sha256": "2ccbb13c4dcfac7dd7649e9eb0f593771e7e1ed26a67c308056bd42e4b23a9a4",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Pilot Mountain State Park": {
-"f": "ncpilotmountain.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Big_Pinnacle_of_Pilot_Mountain.jpg",
-"w": "https://en.wikipedia.org/wiki/Pilot_Mountain_State_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "953a18d7abaae2c42f39e9abd5b3aa61ba856f91b6ebe12e30c63ddca3497544",
 "reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
@@ -13316,21 +13226,6 @@
 "height": 219,
 "sha256": "149d114edd3cdf3b96deec872cfd661e6ab5a7fd1884ed0e3b57e7d32a39af1f",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Hampton Beach State Park": {
-"f": "nhhamptonbeach.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Seashell_Hampton_Beach_State_Park_NH.jpg",
-"w": "https://en.wikipedia.org/wiki/Hampton_Beach_State_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "b9910070a356bd3875aa4fb9beaf80b92393a005dd860c06db958c6a0659ffbc",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -15374,21 +15269,6 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
-"Jordanelle State Park": {
-"f": "utjordanelle.jpg",
-"a": "Unknown author",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Jordanelle.JPG",
-"w": "https://en.wikipedia.org/wiki/Jordanelle_Reservoir",
-"mt": "image/jpeg",
-"width": 330,
-"height": 219,
-"sha256": "440fde8d3dff4b11f6c831c93c11edbc9c6b71d6d880a498259ae74b17e0ff35",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
 "Kodachrome Basin State Park": {
 "f": "utkodachromebasin.jpg",
 "a": "Photographersnature",
@@ -15536,21 +15416,6 @@
 "height": 247,
 "sha256": "f4803d59e336552cd0e6940d864078cc9b925b910a2789dde3d3f6195a668da6",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"False Cape State Park": {
-"f": "vafalsecape.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:FalseCapeBackBay1.wmg.jpg",
-"w": "https://en.wikipedia.org/wiki/False_Cape_State_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "ccec73a65daf4e690218288605cb9624c7d4407441d7f4901223af3172826052",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -15764,21 +15629,6 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
-"Elmore State Park": {
-"f": "vtelmore.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Lake_elmore_vermont.jpg",
-"w": "https://en.wikipedia.org/wiki/Elmore_State_Park",
-"mt": "image/jpeg",
-"width": 330,
-"height": 330,
-"sha256": "1f23d37f57994689adddac85f186ad944701b55b79938b6a7de91c1f22a14f72",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
 "Sentinel Rock State Park": {
 "f": "vtsentinelrock.jpg",
 "a": "User:Magicpiano",
@@ -15791,21 +15641,6 @@
 "height": 219,
 "sha256": "d6af124038acb89f7db44e988d9cdeda68582009fa9029159156f870955fccbe",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Blake Island": {
-"f": "wablakeisland.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:BlakeIslandWashington.jpg",
-"w": "https://en.wikipedia.org/wiki/Blake_Island",
-"mt": "image/jpeg",
-"width": 330,
-"height": 146,
-"sha256": "53cdfd24677a86b0db9464a1087cf6850cd37745e95c146521e186cfcdbc5aa5",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -16214,21 +16049,6 @@
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
-"Fort Bridger": {
-"f": "wyfortbridger.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Fortbridger.JPG",
-"w": "https://en.wikipedia.org/wiki/Fort_Bridger",
-"mt": "image/jpeg",
-"width": 330,
-"height": 219,
-"sha256": "2911a96fcc0378dddfc4515093d4bb3ae578690f71019b092592b68bd320abe3",
-"reviewStatus": "legacy",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
 "Fort Phil Kearny": {
 "f": "wyfortphilkearny.jpg",
 "a": "Gcoudert at English Wikipedia",
@@ -16256,21 +16076,6 @@
 "height": 247,
 "sha256": "98a979942000db75af792f985160bb2b09bec0dd82b27ba18dac4ae5e886014a",
 "reviewStatus": "approved",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"fetchedAt": null
-},
-"Independence Rock": {
-"f": "wyindependencerock.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Independence_Rock_WY.jpg",
-"w": "https://en.wikipedia.org/wiki/Independence_Rock",
-"mt": "image/jpeg",
-"width": 330,
-"height": 206,
-"sha256": "ef5e63c61b52be5c10c23430e74bf32880f996984ecb09c74d289b697f30c233",
-"reviewStatus": "legacy",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
 "fetchedAt": null
 },
@@ -16724,21 +16529,6 @@
 "sha256": "f8e51e23631ea4899724b4cb5237034efed50caefc4392f987d534240eebd98b",
 "reviewStatus": "approved"
 },
-"Camargue": {
-"f": "whcamargue.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Rhone_delta.jpg",
-"w": "https://en.wikipedia.org/wiki/Camargue",
-"checkedAt": "2026-11-12T22:23:09.277750+00:00",
-"fetchedAt": "2026-11-12T22:23:09.277750+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 264,
-"sha256": "a1f21d53404178dcb4575e63e8cbb505cb7db06060ead26255f5b8885c13420e",
-"reviewStatus": "legacy"
-},
 "Canadian Rocky Mountain Parks": {
 "f": "whbanff.jpg",
 "a": "Photo by Scott Bauer.",
@@ -16964,21 +16754,6 @@
 "sha256": "dd23bfb844217e39984eec7f53dca177fee43b9ea5d6bc1fb53682b82d40945d",
 "reviewStatus": "approved"
 },
-"Evansburg State Park": {
-"f": "paevansburg.jpg",
-"a": "Unknown author",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Evansburg.jpg",
-"w": "https://en.wikipedia.org/wiki/Evansburg_State_Park",
-"checkedAt": "2026-11-12T22:23:53.289988+00:00",
-"fetchedAt": "2026-11-12T22:23:53.289988+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 247,
-"sha256": "cb5c7ca38c93dab916c2f08453dd1ba8b251ee47bac4a29c2bae508e3b629e61",
-"reviewStatus": "legacy"
-},
 "Falkland Islands": {
 "f": "xfalkland.jpg",
 "a": "NASA",
@@ -17128,21 +16903,6 @@
 "height": 220,
 "sha256": "224cbb2054adbe0ccd5a31e50d8f1c1f685d62147add7a31a47608783918ab96",
 "reviewStatus": "approved"
-},
-"Kerguelen Islands": {
-"f": "xkerguelen.jpg",
-"a": "Unknown author",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Mirounga_leonina_harem.JPG",
-"w": "https://en.wikipedia.org/wiki/Kerguelen_Islands",
-"checkedAt": "2026-11-12T22:24:21.278588+00:00",
-"fetchedAt": "2026-11-12T22:24:21.278588+00:00",
-"mt": "image/jpeg",
-"width": 330,
-"height": 227,
-"sha256": "dd17b7d899441356915125874df1e17d62cf7f13cd279eecb35a7cf24b278d0b",
-"reviewStatus": "legacy"
 },
 "Lake Titicaca": {
 "f": "whtiticaca.jpg",
