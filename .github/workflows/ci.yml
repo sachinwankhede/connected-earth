@@ -200,7 +200,6 @@ jobs:
           python3 tests/jobs/live_check_test.py
           python3 tests/jobs/hostphotos_test.py
           python3 tests/jobs/regenplaces_test.py
-          python3 tests/jobs/largeplacephotos_test.py
           python3 tests/jobs/photos_test.py
           python3 tests/jobs/authorlookup_test.py
           python3 tests/jobs/dropunnamed_test.py

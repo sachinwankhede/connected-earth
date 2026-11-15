@@ -61,7 +61,7 @@ def fetch(i,title,out,man,key,where=''):
 def prune_large(out,man):
     """Drop every larger copy (photos/places-lg/, listed in photos/places_large.json) whose small picture is no longer stored under the same name.
     The job that removes or replaces a place picture owns its larger copy too (ground rule 10, #727): the list and the files must agree, so a removed picture
-    cannot leave a copy behind that the data check then fails on. Idempotent; the copy is made again by data-largeplacephotos if the picture comes back."""
+    cannot leave a copy behind that the data check then fails on. Idempotent; the copy is made again by data-placepictures if the picture comes back."""
     base=os.path.dirname(os.path.normpath(out)); lp=os.path.join(base,'places_large.json'); ld=os.path.join(base,'places-lg')
     if not os.path.exists(lp): return []
     large=json.load(open(lp)); gone=[t for t,n in large.items() if t not in man or os.path.splitext(man[t].get('f',''))[0]+'.webp'!=n]

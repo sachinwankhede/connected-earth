@@ -50,7 +50,7 @@ class PlacePhotos:
     # --- writing (nothing touches the disk until commit)
     def put(self, pid, entry, jpg):
         """Store a picture for this place. The file name is always <id>.jpg. The place leaves missing.json and the ledger; a larger copy of a
-        different picture is dropped (data-largeplacephotos makes a new one)."""
+        different picture is dropped (placepictures makes a new one)."""
         entry = dict(entry); entry['f'] = pid + '.jpg'
         if pid in self.pics and self.pics[pid].get('sha256') != entry.get('sha256'): self._drop_large(pid)
         self.pics[pid] = entry; self._write[self._path(SMALL_DIR, entry['f'])] = jpg
