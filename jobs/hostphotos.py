@@ -7,6 +7,7 @@ For each Wikipedia title in photos/species.json (only the species of one place w
   3. downloads the 330 px thumbnail, shrinks it to 96 px WebP and writes photos/species/<id>.webp.
 Writes photos/species_hosted.json {title: file name} and adds credits to photos/species_metadata.json. Resumable; polite pace via wm.py."""
 import sys, os, io, re, json, hashlib, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib')); import licences
 OUT = 'photos/species'; HOSTED = 'photos/species_hosted.json'; META = 'photos/species_metadata.json'; SKIPPED = 'photos/species_hosted_skipped.json'

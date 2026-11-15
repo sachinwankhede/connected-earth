@@ -7,6 +7,7 @@ For each one not yet done: downloads the thumbnail of its source (Commons 500 px
 and writes photos/species-lg/<same file name as the thumbnail>, and from the same download a 192 px copy to photos/species-md/<same file name> (#669, the photo tiles). Writes photos/species_large.json and photos/species_medium.json, each {title: file name}; a species with one size but not the other gets the missing one. Resumable; polite pace via wm.py."""
 import sys, os, io, re, json
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'build'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 import wm, hostphotos as hp
 OUT = 'photos/species-lg'; LARGE = 'photos/species_large.json'; SIZE = 400; QUALITY = 70
 OUT_MD = 'photos/species-md'; MEDIUM = 'photos/species_medium.json'; SIZE_MD = 192   # the sharper copy for the small photo tiles (#669; 3x screens)

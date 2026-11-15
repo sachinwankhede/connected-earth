@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """fiximgwiki.py: give the places that share a Wikipedia title their own (#908; docs/DATA-PLAN.md).
-Usage: fiximgwiki.py [--dry]   (run from the repository root; --dry lists and changes nothing). Host: en.wikipedia.org (already allowed), through jobs/wm.py.
+Usage: fiximgwiki.py [--dry]   (run from the repository root; --dry lists and changes nothing). Host: en.wikipedia.org (already allowed), through lib/wm.py.
 
 Five titles are the `imgwiki` of ten places, so placepictures skips them (a picture keyed by title could land on the wrong place). Two of the ten carry a title that belongs to a different place
 (`gulf`, the Northern Gulf of Mexico, has "Gulf Islands National Seashore"; `ozarks`, the Ozark habitat, has "Ozark National Scenic Riverways"), four are real parks that share a name across states
@@ -96,6 +96,7 @@ def remove_duplicates(root, dry=False):
     return removed, refused
 
 def main():
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
     import wm
     dry = '--dry' in sys.argv
     done, unresolved, owner = run(os.path.join(ROOT, 'data', 'places'), wm.get, dry)

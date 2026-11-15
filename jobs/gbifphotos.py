@@ -12,6 +12,7 @@ licence and the GBIF occurrence page in photos/species_metadata.json, the source
 Titles with no usable picture stay in species_missing.json and get today's date in photos/species_gbif_tried.json, so they are tried again only after 90 days.
 Resumable, polite pace via wm.py. Only https links are fetched; nothing is stored but the 96 px copy and its credit."""
 import sys, os, io, re, json, hashlib, datetime, ipaddress, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 MAN = 'photos/species.json'; MISS = 'photos/species_missing.json'; SRC = 'photos/species_source.json'; TRIED = 'photos/species_gbif_tried.json'
 HOSTED = 'photos/species_hosted.json'; META = 'photos/species_metadata.json'; OUT = 'photos/species'
@@ -35,7 +36,7 @@ def from_inaturalist(rec, media):
     """True for a record that came through iNaturalist: its dataset, institution code, or any link of the record."""
     blob = ' '.join(str(x) for x in (rec.get('institutionCode'), rec.get('collectionCode'), rec.get('references'), media.get('references'), media.get('identifier'), media.get('source'), media.get('publisher')) if x).lower()
     return rec.get('datasetKey') == INAT_DATASET or 'inaturalist' in blob
-SHEET_WORDS = ('herbari', 'specimen', 'nmnh', 'extant biology', 'iiif', 'museum', 'collections.')   # records of herbaria and museums, even when GBIF labels them as observations
+from openverse_api import SHEET_WORDS   # the word list lives in lib/openverse_api.py, where the Openverse rule `unwanted` needs it too
 def from_collection(rec, media):
     """True for a herbarium sheet or museum object that GBIF labels as an observation (the Smithsonian NMNH and Meise records were)."""
     blob = ' '.join(str(x) for x in (rec.get('datasetName'), rec.get('collectionCode'), rec.get('collectionKey'), rec.get('typeStatus'), rec.get('preparations'), media.get('identifier'), media.get('references'), media.get('source')) if x).lower()

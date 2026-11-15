@@ -12,31 +12,16 @@ Titles with no usable picture get today's date in photos/species_openverse_tried
 Stops at once and says so when Openverse answers 401 or 403 (a key is needed: that is a secret, ask the owner) or throttles three titles in a row.
 --dry prints what would be kept and writes nothing. Only https links are fetched."""
 import sys, os, re, json, hashlib, datetime, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm, gbifphotos as g
 MAN, MISS, SRC = g.MAN, g.MISS, g.SRC; HOSTED, META, OUT = g.HOSTED, g.META, g.OUT
+from openverse_api import API, LICENCES, BAD_PROVIDERS, licence_of, norm, unwanted   # moved to lib/openverse_api.py (unwanted uses its copy of g.SHEET_WORDS)
 TRIED = 'photos/species_openverse_tried.json'
 RETRY_DAYS = 90; TRY_FILES = 4
-API = 'https://api.openverse.org/v1/images/'
-# Openverse's licence codes -> (short name, licence link). Never NC or ND.
-LICENCES = {('cc0', ''): ('CC0 1.0', 'https://creativecommons.org/publicdomain/zero/1.0'), ('pdm', ''): ('Public domain', 'https://creativecommons.org/publicdomain/mark/1.0'),
-            ('by', None): ('CC BY', 'https://creativecommons.org/licenses/by/%s'), ('by-sa', None): ('CC BY-SA', 'https://creativecommons.org/licenses/by-sa/%s')}
-BAD_PROVIDERS = ('inaturalist',)
-def licence_of(r):
-    """(short name with version, https licence link) for a result under CC0, PDM, CC BY or CC BY-SA, else None."""
-    code = (r.get('license') or '').lower().strip(); ver = (r.get('license_version') or '').strip()
-    if code in ('cc0', 'pdm'): name, link = LICENCES[(code, '')]; return (name, link)
-    if code in ('by', 'by-sa') and re.fullmatch(r'\d\.\d', ver):
-        name, link = LICENCES[(code, None)]; return ('%s %s' % (name, ver), link % ver)
-    return None
-def norm(s): return ' '.join(re.sub(r'[^a-z0-9]+', ' ', (s or '').lower()).split())
 def names_species(r, name):
     """True when the Latin name is in the title or one of the tags."""
     n = norm(name)
     return bool(n) and (n in norm(r.get('title')) or any(n in norm(t.get('name')) for t in r.get('tags') or []))
-def unwanted(r):
-    """True for iNaturalist (provider, source, or any link) and for herbarium or museum records."""
-    blob = ' '.join(str(r.get(k) or '') for k in ('provider', 'source', 'foreign_landing_url', 'url', 'title', 'category', 'attribution')).lower()
-    return any(b in blob for b in BAD_PROVIDERS) or any(w in blob for w in g.SHEET_WORDS) or 'herbarium' in blob
 def candidates(results, name):
     """[(id, thumbnail link, creator, short licence, licence link)] in Openverse's order, only what may be used."""
     out = []

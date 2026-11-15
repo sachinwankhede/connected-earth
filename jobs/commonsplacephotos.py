@@ -9,6 +9,7 @@ A kept picture is downloaded to photos/places/<id>.jpg and added to photos/place
 Titles with no usable picture stay in missing.json and get today's date in photos/places_commons_tried.json, so they are tried again only after 90 days. Resumable; polite pace via wm.py.
 The workflow then runs photo_registry.py migrate and validate, as data-photos does."""
 import sys, os, json, glob, datetime, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https

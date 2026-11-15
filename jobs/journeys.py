@@ -63,6 +63,7 @@ def mentions(text):
 def evidence(titles):
     """{wiki title: (score, snippet)}. The whole article is read (one request each, so it is slow but runs in a job):
     3 for a migrat* category, plus half a point per sentence that says it migrates (at most 5)."""
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
     import wm
     out = {}
     for t in titles:
