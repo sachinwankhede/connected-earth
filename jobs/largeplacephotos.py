@@ -41,7 +41,7 @@ def shrink(im, size=SIZE):
 
 def save(large):
     """Write the list whole and move it into place, so a crash cannot leave a half-written list."""
-    tmp = LARGE + '.tmp'; json.dump(large, open(tmp, 'w'), indent=0, sort_keys=True); os.replace(tmp, LARGE)
+    tmp = LARGE + '.tmp'; json.dump(large, open(tmp, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False); os.replace(tmp, LARGE)
 
 def todo(places, large, limit):
     """Titles still to do, sorted, at most limit (0 = all): a stored small file, an address on Commons and no copy yet."""
