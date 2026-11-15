@@ -2,7 +2,7 @@
 """dropunnamed.py: remove CC BY and CC BY-SA pictures that cannot be credited (#887; owner, 15 Nov: "remove the pictures which don't have license information and author").
 Usage: dropunnamed.py [--dry]   (run from the repository root; --dry prints the list and changes nothing)
 Takes the pictures jobs/authorlookup.py picks (CC BY or CC BY-SA, stored author unknown), asks Commons again for each, and removes those for which no author can be found (class `none`).
-A picture whose author Commons now gives (artist, attribution, own work) is kept: filling in names is a separate decision.
+A picture whose author Commons now gives (artist, attribution, own work) is kept and its stored author is filled in with that name (owner, 15 Nov: "update the missing name at the same time").
 Removal goes through jobs/droppictures.py: places (with their larger copy; the place goes to missing.json as 'notfree'), species (every row; Commons is not asked again for 90 days). Host: commons.wikimedia.org."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
@@ -11,6 +11,28 @@ import authorlookup as al, droppictures as dp
 def split(rows):
     """(place keys, species keys) of the rows whose class is 'none'."""
     return sorted(r['key'] for r in rows if r['kind'] == 'place' and r['class'] == 'none'), sorted(r['key'] for r in rows if r['kind'] == 'species' and r['class'] == 'none')
+
+def fills(rows):
+    """{'place': {key: name}, 'species': {key: name}} for the rows where Commons gave a name."""
+    out = {'place': {}, 'species': {}}
+    for r in rows:
+        if r['class'] != 'none' and r['name']: out[r['kind']][r['key']] = r['name']
+    return out
+
+def fill(root, names, dry=False):
+    """Write the found names into the stored author ('a') of places.json and species_metadata.json; only rows whose author is still unknown. Returns how many were filled."""
+    n = 0
+    for kind, path in (('place', 'photos/places/places.json'), ('species', 'photos/species_metadata.json')):
+        p = os.path.join(root, path)
+        if not names[kind] or not os.path.exists(p): continue
+        d = json.load(open(p, encoding='utf-8')); changed = 0
+        for k, name in names[kind].items():
+            if k in d and al.unknown(d[k].get('a')): d[k]['a'] = name; changed += 1
+        n += changed
+        if changed and not dry:
+            if kind == 'place': json.dump(d, open(p, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+            else: json.dump(d, open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layouts droppictures.py keeps
+    return n
 
 def main():
     load = lambda p: json.load(open(os.path.join(ROOT, p))) if os.path.exists(os.path.join(ROOT, p)) else {}
@@ -22,6 +44,10 @@ def main():
     places, species = split(rows); dry = '--dry' in sys.argv
     bp, _ = dp.drop_places(ROOT, dry, titles=places) if places else ([], None)
     bs, _ = dp.drop(ROOT, dry, titles=species, hold=True) if species else ([], None)
+    names = fills(rows); nf = fill(ROOT, {k: {t: v for t, v in m.items() if t not in set(bp) | set(bs)} for k, m in names.items()}, dry)
+    print(nf, 'stored authors', 'to fill in' if dry else 'filled in')
+    for kind in ('place', 'species'):
+        for t, v in sorted(names[kind].items()): print('name', kind, t, '=', v)
     print(len(bp), 'place pictures', 'to remove' if dry else 'removed', '|', len(bs), 'species pictures', 'to remove' if dry else 'removed')
     for t in bp: print('place', t)
     for t in bs: print('species', t)
