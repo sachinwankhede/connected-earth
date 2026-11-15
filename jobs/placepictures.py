@@ -5,11 +5,11 @@ Usage: placepictures.py [--strategy all|wikipedia|commons|nearby|category|openve
 It replaces the five acquire jobs for place pictures (jobs/photos.py, commonsplacephotos.py, commonsnearby.py, commonscategory.py, openverseplaces.py), which each wrote the files and lists in their own way. Here the five
 SOURCES are strategies tried in this order, and a place stops at the first one that gives an accepted picture:
   wikipedia  the picture of the place's Wikipedia page (photos.one)
-  commons    Wikidata's image property, then the file's licence on Commons (commonsplacephotos.pick)
-  nearby     Commons files geotagged within 1.5 km whose name shares a distinctive word with the place (commonsnearby.match)
-  category   the place's own Commons category (commonscategory.good_category, choose: other-state and other-country files are refused, #891)
-  openverse  US places only: an Openverse photograph that names the place and the state, with a named creator (openverseplaces.candidates)
-The per-source rules are the old jobs' own functions, imported, not copied: this file decides only the order, the holds, the author rule and the writing.
+  commons    Wikidata's image property, then the file's licence on Commons (place_sources.pick)
+  nearby     Commons files geotagged within 1.5 km whose name shares a distinctive word with the place (place_sources.match)
+  category   the place's own Commons category (place_sources.good_category, choose: other-state and other-country files are refused, #891)
+  openverse  US places only: an Openverse photograph that names the place and the state, with a named creator (place_sources.openverse_candidates)
+The per-source rules live in lib/place_sources.py (one function per source, moved there from the old jobs unchanged): this file decides only the order, the holds, the author rule and the writing.
 
 The larger copy (400 px WebP, the full-width hero of the place page, #727) is made HERE too, right after a picture is accepted and in the SAME commit (PlacePhotos.put, then put_large), so a picture never lands without its pair when
 one can be made. Commons cannot thumbnail some originals (a TIFF or a very large file answers HTTP 400; Karavasta Lagoon, Wupatki National Monument, Leasburg Dam State Park): that picture is kept alone, the app shows the small one
@@ -28,15 +28,12 @@ import collections, datetime, glob, hashlib, io, json, os, re, shutil, sys, temp
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
 import wm, place_photos as pp, photo_registry as pr
-import authorlookup as al, photos as ph, commonsplacephotos as cpp, commonsnearby as nb, commonscategory as cat, openverseplaces as ov
-cs = cpp.cp   # commonsphotos: resolve, wikidata_images, commons_info
+import authorlookup as al
+from place_sources import Res, Vetted, now_iso, SOURCES, find_wikipedia, find_commons, find_nearby, find_category, find_openverse   # noqa: F401 (re-exported: the tests and callers use pj.Res, pj.Vetted, pj.find_*)
 
 COMMIT_EVERY = 25
 COMMONS_THUMBS = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'; LARGE_SIZE = 400; LARGE_QUALITY = 70
-Res = collections.namedtuple('Res', 'kind entry jpg why status note', defaults=(None, None, '', 'nophoto', ''))   # kind: found | miss | retry
 
-
-def now_iso(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 def load_units(data_dir):
     """(units, shared): one dict per place with an imgwiki title (id, title, name, short, lat, lon, place, region) in id order; `shared` are the places whose title another place uses too, which no strategy tries."""
@@ -104,21 +101,6 @@ def vet(entry):
         if cls != 'none' and name: return dict(entry, a=name), ''
     return None, 'CC BY / BY-SA with no author'
 
-class Vetted:
-    """The rows of cs.commons_info, vetted when a strategy first reads one (only a CC BY / BY-SA row with an unknown author costs the extra Commons request): a row with no author to be found loses its licence, so
-    commonsplacephotos.pick (which the strategies use unchanged) passes over it and may take the next file."""
-    def __init__(self, info): self.info = info; self.done = {}
-    def get(self, key, default=None):
-        if key in self.done: return self.done[key]
-        row = self.info.get(key)
-        if row is None: return default
-        lic, au, lu, thumb, mime = row
-        if al.by_licence(lic) and al.unknown(au):
-            cls, name = al.lookup(key)
-            if cls != 'none' and name: au = name
-            else: lic = ''
-        self.done[key] = (lic, au, lu, thumb, mime); return self.done[key]
-
 def measure(entry, jpg):
     """The row with its measured fields (media type, size, sha256, review status), made by photo_registry.migrate_places on a scratch copy so nothing else in the repository is rewritten."""
     d = tempfile.mkdtemp()
@@ -129,82 +111,8 @@ def measure(entry, jpg):
         with open(os.path.join(d, 'places.json'), encoding='utf-8') as f: return json.load(f)['x']
     finally: shutil.rmtree(d, ignore_errors=True)
 
-# --- the five strategies: each takes the places to try and yields (place, Res)
-def where_of(u):
-    return u['place'].split(',')[0].strip() if u['place'].endswith(', USA') else ''
-
-def find_wikipedia(todo):
-    tmp = tempfile.mkdtemp()
-    try:
-        for u in todo:
-            man = {}
-            try: r = ph.one(u['id'], u['title'], tmp, man, where_of(u))   # writes tmp/<id>.jpg and man[title]; photos.py's own rules, untouched
-            except Exception as ex: r = 'err ' + str(ex)[:50]
-            if r == 'ok':
-                path = os.path.join(tmp, u['id'] + '.jpg')
-                with open(path, 'rb') as f: jpg = f.read()
-                os.remove(path); yield u, Res('found', man[u['title']], jpg)
-            elif pr.failure_class(r) == 'permanent': yield u, Res('miss', why=r, status=r)
-            else: yield u, Res('retry', why=r)
-    finally: shutil.rmtree(tmp, ignore_errors=True)
-
-def find_commons(todo):
-    for i in range(0, len(todo), 50):
-        batch = todo[i:i + 50]; res = cs.resolve([u['title'] for u in batch]); names = cs.wikidata_images(sorted(set(res.values())))
-        files = sorted({n.replace(' ', '_') for v in names.values() for n in v[:2]}); info = Vetted(cs.commons_info(files) if files else {})
-        for u in batch:
-            page = res.get(u['title'], u['title'])
-            if page not in names: yield u, Res('miss', why='no Wikidata item for this page (after following redirects)'); continue
-            got = cpp.pick(names[page], info)
-            if not got: yield u, Res('miss', why='no usable picture among %s' % names[page][:2]); continue
-            b = wm.get(got[4], raw=True)
-            if not b: yield u, Res('retry', why='download failed'); continue
-            yield u, Res('found', cpp.entry(u['id'], page, got, now_iso()), b, note=got[0])
-
-def find_nearby(todo):
-    for u in todo:
-        cands = nb.nearby(u['lat'], u['lon']); want = nb.words(u['name']) | nb.words(u['title'])
-        files = [fn for fn, _ in cands if want & nb.words(fn) and not nb.BUILDING.search(fn)]
-        m = nb.match(u['name'], u['title'], cands, Vetted(cs.commons_info(files[:50]) if files else {}))
-        if not m: yield u, Res('miss', why='%d files nearby, %d with a matching name word' % (len(cands), len(files))); continue
-        got, dist = m; b = wm.get(got[4], raw=True)
-        if not b: yield u, Res('retry', why='download failed'); continue
-        yield u, Res('found', cpp.entry(u['id'], u['title'], got, now_iso()), b, note='%s (%d m)' % (got[0], dist))
-
-def find_category(todo):
-    for u in todo:
-        name = u['name']; want = nb.words(name) | nb.words(u['title']); region = u['region']
-        c = cat.good_category(cat.categories(name), name, region); files = cat.category_files(c) if c else []
-        kind = {w for w in re.findall(r'[a-z]+', name.lower()) if w in cat.KIND}
-        got = cat.choose(files, want, Vetted(cs.commons_info(files[:50])), kind, region) if files else None
-        if not got: yield u, Res('miss', why=('category %s has no usable file' % c) if c else 'no matching category'); continue
-        b = wm.get(got[4], raw=True)
-        if not b: yield u, Res('retry', why='download failed'); continue
-        yield u, Res('found', cpp.entry(u['id'], u['title'], got, now_iso()), b, note='%s (category %s)' % (got[0], c))
-
-def find_openverse(todo):
-    fails = 0
-    for u in todo:
-        name = u['short'] or u['name']; state = ov.where_of(u['place'])
-        try:
-            res = ov.search(name, state); cands = ov.candidates(res, name, state); fails = 0; hit = None
-            for rid, url, au, lic, lu in cands[:ov.TRY_FILES]:
-                jpg = ov.to_jpeg(wm.get(url, raw=True, tries=2))
-                if jpg: hit = (rid, au, lic, lu, jpg); break
-        except RuntimeError as ex:
-            fails += 1; yield u, Res('retry', why='request failed: %s' % ex)
-            if fails >= 3: raise
-            continue
-        if hit: yield u, Res('found', ov.entry(u['id'], hit[1], hit[2], hit[3], hit[0], now_iso()), hit[4], note='https://openverse.org/image/' + hit[0])
-        else: yield u, Res('miss', why='%d usable photos of %d results' % (len(cands), len(res)))
-
-def _missing(w, u): return w.is_missing(u['id'])
-# (name, strategy, which places it applies to, retry days; None = the missing record's own expiry)
-STRATEGIES = [('wikipedia', find_wikipedia, lambda w, u: True, None),
-              ('commons', find_commons, _missing, cpp.RETRY_DAYS),
-              ('nearby', find_nearby, lambda w, u: _missing(w, u) and u['lat'] is not None and u['lon'] is not None, nb.RETRY_DAYS),
-              ('category', find_category, _missing, cat.RETRY_DAYS),
-              ('openverse', find_openverse, lambda w, u: _missing(w, u) and bool(ov.where_of(u['place'])), ov.RETRY_DAYS)]
+# --- the five sources (wikipedia, commons, nearby, category, openverse) live in lib/place_sources.py; STRATEGIES is its SOURCES list, in the order they are tried
+STRATEGIES = SOURCES
 
 def held(w, pid, source, days, today):
     """True while the source must not try this place again."""

@@ -14,11 +14,9 @@ sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
 import commonsphotos as cp
 import photos as pp
+from place_sources import NOTPHOTO, pick, entry   # the rules moved to lib/place_sources.py (#887); imported back so this job and its tests are unchanged
 OUT = 'photos/places'; MAN = OUT + '/places.json'; MISS = OUT + '/missing.json'; TRIED = 'photos/places_commons_tried.json'; DATA = 'data/places'
 RETRY_DAYS = 90
-# photos.py's not-a-photo name filter without its bare "arrowhead" (the National Park Service logo, which also says "logo" or is an .svg): a place such as Arrowhead State Park has a real photo with that word in its file name
-NOTPHOTO = pp.re.compile(pp.NOTPHOTO.pattern.replace('arrowhead|', '', 1), pp.re.I)
-
 def place_ids(data_dir):
     """{imgwiki title: id of the first place (by id) that uses it}: one picture file per title, as photos.py stores it."""
     out = {}
@@ -27,21 +25,6 @@ def place_ids(data_dir):
         e = json.load(open(f)); t = e.get('imgwiki')
         if t and t not in out: out[t] = e['id']
     return out
-
-def pick(names, info):
-    """The first of the (at most two) candidate files that is an open-licence JPEG photo: (file name, licence, author, licence url, thumbnail url) or None."""
-    for n in names[:2]:
-        lic, author, lu, thumb, mime = info.get(n.replace(' ', '_'), ('', '', '', '', ''))
-        if cp.is_photo_type(mime) and cp.open_licence(lic) and thumb and not NOTPHOTO.search(n) and safe_https(thumb.split('?')[0], ALLOWED_IMAGE_HOSTS):
-            return n.replace(' ', '_'), lic, author, lu, thumb
-    return None
-
-def entry(place_id, page, found, now):
-    """The places.json row photos.py writes; migrate adds the measured fields."""
-    fn, lic, author, lu, _ = found
-    return dict(f=place_id + '.jpg', a=author or 'Unknown author', l=lic or 'See file page', lu=lu,
-                p='https://commons.wikimedia.org/wiki/File:' + urllib.parse.quote(fn),
-                w='https://en.wikipedia.org/wiki/' + urllib.parse.quote(page.replace(' ', '_')), checkedAt=now, fetchedAt=now)
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv
