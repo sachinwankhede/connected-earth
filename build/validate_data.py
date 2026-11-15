@@ -116,6 +116,11 @@ def check(root):
         import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check()
         dirty_sp = spw.dirty_authors()
         if dirty_sp: warns.append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
+    import journey_pics   # journey cover pictures (#945): by journey id, checked by their one writer once photos/journey_pictures.json exists (nothing to check before)
+    errs += journey_pics.check(root)
+    if journey_pics.new_shape(root):
+        import journey_photos; dirty_jp = journey_photos.JourneyPhotos(root).dirty_authors()
+        if dirty_jp: warns.append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
     hosted = None if sid_shape else load(root, 'photos', 'species_hosted.json')
     if hosted is not None:
         meta = load(root, 'photos', 'species_metadata.json') or {}

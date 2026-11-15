@@ -21,7 +21,7 @@ for _flag, _env in (('--data-root', 'CE_DATA_ROOT'), ('--out-root', 'CE_OUT_ROOT
 import paths
 import species, journeydata, geoids
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
-import species_pics
+import species_pics, journey_pics
 from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)                  # code: src/, node_modules/, icons
 D = lambda *a: os.path.join(paths.DATA_ROOT, *a)       # data/ and photos/ (#787)
@@ -509,6 +509,22 @@ def add_overlap(webs, ecos, main_ids):
             elif i in main_ids: w['relp'] = []
 
 
+def journey_cover_pictures(jpics, links):
+    """The journey covers by journey id for api/species-pictures.json: `jpic` {journey id: [96 px file, Wikipedia page]}, `jpicm` {id: credit} and `jpicl` [ids that have a larger copy]. Empty (so the file is
+    unchanged) while photos/journey_pictures.json does not exist; the app adopts it later (docs/DATA-PLAN.md, "Journey pictures: by journey id", phase 5)."""
+    if jpics['shape'] != 'journey': return {}
+    ids = [c['id'] for c in links['cross'] if c.get('id') in jpics['pics']]
+    out = {'jpic': {}, 'jpicm': {}, 'jpicl': []}
+    for i in sorted(ids):
+        r = dict(jpics['pics'][i])
+        if r.get('lu'): r['lu'] = https_license(r['lu'])
+        out['jpic'][i] = [r['f'], r.get('page') or r.get('wiki')]
+        cr = species_pics.credit(r)
+        if cr: out['jpicm'][i] = cr
+        if jpics['large'].get(i) == r['f']: out['jpicl'].append(i)
+    return out
+
+
 def write_webs(webs, about, pictures=None):
     d = O('api'); os.makedirs(d, exist_ok=True)
     if os.path.isdir(O('webs')): shutil.rmtree(O('webs'))   # the folder used to be webs/ (#305): drop a stale copy so nothing serves the old path
@@ -633,7 +649,9 @@ def build(pilot, out_path, write=False, places=False):
             if n: jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
     jp = {t: phs[t] for t in sorted(jt) if t in phs}
     if write: add_overlap(webs, ecos, set(links['order']))
-    if write: write_webs(webs, about, {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}})
+    pictures = {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm}}
+    pictures.update(journey_cover_pictures(journey_pics.load(paths.DATA_ROOT), links))   # additive: the covers by journey id, only once photos/journey_pictures.json exists (lib/journey_pics.py)
+    if write: write_webs(webs, about, pictures)
     if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot, orderof); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
