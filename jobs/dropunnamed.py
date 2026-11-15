@@ -3,11 +3,13 @@
 Usage: dropunnamed.py [--dry]   (run from the repository root; --dry prints the list and changes nothing)
 Takes the pictures jobs/authorlookup.py picks (CC BY or CC BY-SA, stored author unknown), asks Commons again for each, and removes those for which no author can be found (class `none`).
 A picture whose author Commons now gives (artist, attribution, own work) is kept and its stored author is filled in with that name (owner, 15 Nov: "update the missing name at the same time").
-Removal goes through jobs/droppictures.py: places (with their larger copy; the place goes to missing.json as 'notfree'), species (every row; Commons is not asked again for 90 days). Host: commons.wikimedia.org."""
+Removal goes through jobs/droppictures.py: places (with their larger copy; the place goes to missing.json as 'notfree'), species (by sid once photos/species_pictures.json exists, by title before; Commons is not asked again for 90 days). Host: commons.wikimedia.org."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE); sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib'))
 from place_photos import PlacePhotos
+from species_photos import SpeciesPhotos
+import species_pics
 import authorlookup as al, droppictures as dp
 
 def split(rows):
@@ -30,6 +32,13 @@ def fill(root, names, dry=False):
             if k in w.pics and al.unknown(w.pics[k].get('a')): w.pics[k]['a'] = name; changed += 1
         n += changed
         if changed and not dry: w.commit()   # places go through the one writer (#887)
+    if names['species'] and species_pics.new_shape(root):   # keyed by sid, through the one writer (#934)
+        w = SpeciesPhotos(root); changed = 0
+        for k, name in names['species'].items():
+            if k in w.pics and al.unknown(w.pics[k].get('a')): w.pics[k]['a'] = name; changed += 1
+        n += changed
+        if changed and not dry: w.commit()
+        return n
     p = os.path.join(root, 'photos/species_metadata.json')
     if names['species'] and os.path.exists(p):
         d = json.load(open(p, encoding='utf-8')); changed = 0
@@ -41,7 +50,7 @@ def fill(root, names, dry=False):
 
 def main():
     load = lambda p: json.load(open(os.path.join(ROOT, p))) if os.path.exists(os.path.join(ROOT, p)) else {}
-    cands = al.candidates(load('photos/places/places.json'), load('photos/species_metadata.json')); print(len(cands), 'candidates', flush=True)
+    cands = al.candidates(load('photos/places/places.json'), al.species_credits(ROOT)); print(len(cands), 'candidates', flush=True)
     rows = []
     for k, c in enumerate(cands, 1):
         c['class'], c['name'] = al.lookup(c['file']); rows.append(c)

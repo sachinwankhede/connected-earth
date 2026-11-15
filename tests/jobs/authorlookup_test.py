@@ -41,4 +41,12 @@ class RunTests(unittest.TestCase):
         text = a.report(rows)
         self.assertIn('| place | 1 | 1 | 0 | 0 | 0 |', text); self.assertIn('| species | 1 | 0 | 0 | 0 | 1 |', text); self.assertIn('| place | A | CC BY 4.0 | Unknown author | artist | Jane |', text)
 
+
+class SpeciesShapeTests(unittest.TestCase):
+    def test_species_credits_follow_the_shape_on_disk(self):
+        import json, tempfile
+        r = tempfile.mkdtemp(); os.makedirs(os.path.join(r, 'photos')); self.assertEqual(a.species_credits(r), {})
+        json.dump({'Old': {'a': 'x'}}, open(os.path.join(r, 'photos/species_metadata.json'), 'w')); self.assertEqual(a.species_credits(r), {'Old': {'a': 'x'}})
+        json.dump({'sid-1': {'a': 'y', 'f': 'f.webp'}}, open(os.path.join(r, 'photos/species_pictures.json'), 'w')); self.assertEqual(list(a.species_credits(r)), ['sid-1'])
+
 if __name__ == '__main__': unittest.main()
