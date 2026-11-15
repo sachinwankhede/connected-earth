@@ -14,6 +14,13 @@ import datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 
+_UNKNOWN = {'', 'unknown', 'unknown author', 'anonymous', 'author unknown', 'n/a', '?', 'see file page'}
+def author_missing(entry):
+    """A CC BY / CC BY-SA picture with no named author (the licence needs one). The same rule as jobs/authorlookup.py, kept here as a local test with no
+    network: the lookup that can fill a name in lives in the job, this only refuses (#887)."""
+    a = (entry.get('a') or '').strip().lower()
+    return (entry.get('l') or '').upper().startswith('CC BY') and (a in _UNKNOWN or a.startswith('unknown'))
+
 PLACES = ('photos', 'places', 'places.json'); MISSING = ('photos', 'places', 'missing.json')
 LARGE = ('photos', 'places_large.json'); TRIED = ('photos', 'places_tried.json')
 SMALL_DIR = ('photos', 'places'); LARGE_DIR = ('photos', 'places-lg')
@@ -51,6 +58,7 @@ class PlacePhotos:
     def put(self, pid, entry, jpg):
         """Store a picture for this place. The file name is always <id>.jpg. The place leaves missing.json and the ledger; a larger copy of a
         different picture is dropped (data-largeplacephotos makes a new one)."""
+        if author_missing(entry): raise ValueError('picture for %r is %s with no named author: refused' % (pid, entry.get('l')))
         entry = dict(entry); entry['f'] = pid + '.jpg'
         if pid in self.pics and self.pics[pid].get('sha256') != entry.get('sha256'): self._drop_large(pid)
         self.pics[pid] = entry; self._write[self._path(SMALL_DIR, entry['f'])] = jpg
@@ -106,6 +114,7 @@ class PlacePhotos:
             if e.get('f') != pid + '.jpg': errs.append('%s: file name %r is not %s.jpg' % (pid, e.get('f'), pid))
             elif e['f'] not in files: errs.append('%s: listed in places.json but %s is missing' % (pid, e['f']))
             if pid in self.miss_: errs.append('%s: has a picture and is also in missing.json' % pid)
+            if author_missing(e): errs.append('%s: %s picture with no named author' % (pid, e.get('l')))
         for f in sorted(files - {e.get('f') for e in self.pics.values()}): errs.append('photos/places/%s is not listed in places.json' % f)
         for pid, name in sorted(self.large.items()):
             if pid not in self.pics: errs.append('%s: larger copy but no stored picture' % pid)
