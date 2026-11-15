@@ -9,7 +9,7 @@ Jobs call put / put_large / remove / miss and then commit(); none of them writes
 and os.replace, files first and lists last, deletions after that, so a job that is killed leaves at worst a file no list mentions (check() finds it, repair() removes
 it), never a list row without its file, and never a larger copy of a picture that is gone.
 
-Phase 1 of the plan: nothing calls this yet. `rekey` reads the old title-keyed shape for the later migration job."""
+The place pictures are keyed by place id (migration #906, 15 Nov); each row carries the Wikipedia title it was keyed by as `wiki`."""
 import datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
@@ -125,16 +125,3 @@ class PlacePhotos:
         for pid in [p for p, e in self.pics.items() if not os.path.exists(os.path.join(sd, e.get('f', '')))]: del self.pics[pid]; removed.append('places.json:' + pid)
         if removed: self.commit()
         return removed
-
-
-def rekey(by_title, ids_by_title):
-    """Old title-keyed rows -> place-id keyed rows, for the migration. by_title: {title: row}; ids_by_title: {title: [place ids that use it]}.
-    Returns (by_id, shared, unplaced): a title used by more than one place goes to `shared` (title -> ids) and is NOT copied, so two places never share a record
-    by accident; a title no place uses goes to `unplaced`. Each copied row gets 'wiki' = the title it was keyed by."""
-    by_id, shared, unplaced = {}, {}, []
-    for title, row in by_title.items():
-        ids = sorted(ids_by_title.get(title, []))
-        if not ids: unplaced.append(title)
-        elif len(ids) > 1: shared[title] = ids
-        else: by_id[ids[0]] = dict(row, wiki=title)
-    return by_id, shared, sorted(unplaced)

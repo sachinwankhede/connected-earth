@@ -82,13 +82,4 @@ class WriterTests(unittest.TestCase):
         self.assertEqual(len(errs), 3, errs); self.assertTrue(any('aa.jpg is missing' in e for e in errs)); self.assertTrue(any('congo.jpg is not listed' in e for e in errs)); self.assertTrue(any('zz.webp is not listed' in e for e in errs))
 
 
-class RekeyTests(unittest.TestCase):
-    def test_a_title_used_by_two_places_is_not_copied_and_titles_become_a_field(self):
-        old = {'Alpha Park': row('a'), 'Harriman State Park': row('h'), 'Orphan title': row('o')}
-        ids = {'Alpha Park': ['alpha'], 'Harriman State Park': ['nyharriman', 'idharriman']}
-        new, shared, unplaced = pp.rekey(old, ids)
-        self.assertEqual(sorted(new), ['alpha']); self.assertEqual(new['alpha']['wiki'], 'Alpha Park')
-        self.assertEqual(shared, {'Harriman State Park': ['idharriman', 'nyharriman']}); self.assertEqual(unplaced, ['Orphan title'])
-
-
 if __name__ == '__main__': unittest.main()

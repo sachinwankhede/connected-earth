@@ -1,7 +1,7 @@
 name: data-placepictures
 # Manual only, no schedule (#887, docs/DATA-PLAN.md step 4). The ONE job that finds pictures for places without one. It replaces data-photos, data-commonsplacephotos, data-commonsnearby, data-commonscategory and data-openverseplaces:
 # the five sources are its strategies, tried in that order, and a place stops at the first accepted picture (jobs/placepictures.py). Everything is written through lib/place_photos.py, keyed by place id.
-# It needs the id-keyed files made by data-photos-rekey and refuses to run on the old title-keyed ones. A CC BY / CC BY-SA picture with no author is refused. A run that finds nothing and changes no retry ledger opens no pull request.
+# It needs the id-keyed files (the one-time migration, #906) and refuses to run on the old title-keyed ones. A CC BY / CC BY-SA picture with no author is refused. A run that finds nothing and changes no retry ledger opens no pull request.
 # strategy = all runs every source in order; or name one (wikipedia, commons, nearby, category, openverse). dry = yes prints what would be kept and writes nothing.
 on:
   workflow_dispatch:
