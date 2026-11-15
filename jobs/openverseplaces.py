@@ -12,7 +12,6 @@ Stops at once when Openverse answers 401 or 403 (a key is needed: ask the owner)
 import sys, os, re, io, json, glob, datetime, urllib.parse
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
-import openversephotos as o
 import commonsplacephotos as cp
 OUT = 'photos/places'; MAN = OUT + '/places.json'; MISS = OUT + '/missing.json'; TRIED = 'photos/places_openverse_tried.json'; DATA = 'data/places'
 RETRY_DAYS = 90

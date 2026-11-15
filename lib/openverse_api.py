@@ -1,5 +1,5 @@
-"""openverse_api.py: what a place or species picture from Openverse must be (#887). MOVED from jobs/openversephotos.py (which imports them back) so lib/place_sources.py does not reach into jobs/.
-SHEET_WORDS (the herbarium and museum words) lives here; jobs/gbifphotos.py imports it, so the GBIF and Openverse rules share one list."""
+"""openverse_api.py: what a place or species picture from Openverse must be (#887). MOVED from the old jobs/openversephotos.py (deleted, #934) so lib/place_sources.py does not reach into jobs/.
+SHEET_WORDS (the herbarium and museum words) lives here; lib/species_sources.py imports it, so the GBIF and Openverse rules share one list."""
 import re
 
 SHEET_WORDS = ('herbari', 'specimen', 'nmnh', 'extant biology', 'iiif', 'museum', 'collections.')   # records of herbaria and museums, even when GBIF labels them as observations

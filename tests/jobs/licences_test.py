@@ -1,8 +1,8 @@
 import os, sys, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, os.path.join(ROOT, 'jobs'))
+sys.path.insert(0, os.path.join(ROOT, 'lib'))
 import licences as L
-import gbifphotos as g
+import species_sources as g
 
 class LicenceRuleTests(unittest.TestCase):
     def test_canonical_names(self):
@@ -20,7 +20,20 @@ class LicenceRuleTests(unittest.TestCase):
         self.assertFalse(L.ok('Wikimedia', 'GFDL'))
 
     def test_gbif_licences_are_inside_the_rule(self):
-        for url, (name, _) in g.LICENCES.items():
+        for url, (name, _) in g.GBIF_LICENCES.items():
             self.assertTrue(L.ok('GBIF', name), name)
+
+FREE = L.matcher('Wikimedia')
+
+
+class HostedLicenceTests(unittest.TestCase):   # the Wikimedia rule that decides what is hosted (from the old hostphotos_test)
+    def test_rule_licences_are_hosted(self):
+        for lic in ("CC0", "CC BY 4.0", "CC BY-SA 4.0", "CC BY-SA 3.0", "Public domain", "PD"):
+            self.assertTrue(FREE.match(lic), lic)
+
+    def test_everything_else_stays_blocked(self):
+        for lic in ("", "unknown", "Fair use", "All rights reserved", "CC BY-NC 4.0", "CC BY-NC-SA 3.0", "CC BY-ND 2.0", "KOGL Type 1", "KOGL Type 4", "Copyrighted", "Copyrighted free use", "No restrictions", "Attribution", "FAL", "Free Art License", "LGPL", "GFDL", "GPL"):
+            self.assertFalse(FREE.match(lic), lic)
+
 
 if __name__ == '__main__': unittest.main()

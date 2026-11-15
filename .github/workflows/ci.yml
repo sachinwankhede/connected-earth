@@ -198,7 +198,8 @@ jobs:
           python3 tests/jobs/photo_registry_test.py
           python3 tests/jobs/ci_changes_test.py
           python3 tests/jobs/live_check_test.py
-          python3 tests/jobs/hostphotos_test.py
+          python3 tests/jobs/species_sources_test.py
+          python3 tests/jobs/commons_api_test.py
           python3 tests/jobs/regenplaces_test.py
           python3 tests/jobs/photos_test.py
           python3 tests/jobs/authorlookup_test.py

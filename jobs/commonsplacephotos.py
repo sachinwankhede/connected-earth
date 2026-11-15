@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
-import commonsphotos as cp
+import commons_api as cp   # the Wikidata and Commons lookups live in lib/commons_api.py
 import photos as pp
 from place_sources import NOTPHOTO, pick, entry   # the rules moved to lib/place_sources.py (#887); imported back so this job and its tests are unchanged
 OUT = 'photos/places'; MAN = OUT + '/places.json'; MISS = OUT + '/missing.json'; TRIED = 'photos/places_commons_tried.json'; DATA = 'data/places'

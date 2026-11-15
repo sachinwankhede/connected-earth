@@ -1,4 +1,4 @@
-"""commons_api.py: Wikidata and Commons lookups for a picture (#421 B1; #887). MOVED unchanged from jobs/commonsphotos.py (which imports them back and keeps its species-picture job) so lib/place_sources.py
+"""commons_api.py: Wikidata and Commons lookups for a picture (#421 B1; #887). MOVED unchanged from the old jobs/commonsphotos.py (deleted, #934) so lib/place_sources.py
 does not reach into jobs/. Network through lib/wm.py; licences by lib/licences.py."""
 import os, re, json, sys, urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
