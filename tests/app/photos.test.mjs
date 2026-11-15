@@ -24,6 +24,23 @@ describe('stored place photos carry a credit line', () => {
   const man = JSON.parse(fs.readFileSync(path.join(H.FDATA, 'photos/places/places.json'), 'utf8'));
   const places = H.readFixturePlaces(false).filter((e) => e.imgwiki && man[e.imgwiki] && fs.existsSync(path.join(H.FDATA, 'photos/places', man[e.imgwiki].f)));
 
+  test('a picture list keyed by place id (the title in each row) shows the same picture and credit (#887)', async () => {
+    const e = places[0], m = man[e.imgwiki];
+    const byId = Object.fromEntries(places.map((x) => [x.id, { ...man[x.imgwiki], wiki: x.imgwiki }]));   // the new shape: key = place id, the title in `wiki`
+    const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
+    const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
+    await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
+    await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(byId) }));
+    await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
+    await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
+    await page.waitForFunction(() => { const i = document.querySelector('#pp-main img'); return i && i.complete && i.naturalWidth > 0; }, null, { timeout: 60000 }).catch(() => {});
+    const r = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); const f = document.getElementById('pcredit'); if (!i) return null; return { src: i.getAttribute('src'), ok: i.naturalWidth > 0, cap: f ? f.textContent : '' }; });
+    assert.ok(r, 'photo figure shown from an id-keyed list');
+    assert.ok(r.src.includes('photos/places/' + m.f), 'served from our files: ' + r.src); assert.ok(r.ok, 'image loaded'); assert.ok(r.cap.includes(m.l.slice(0, 8)), 'licence shown: ' + r.cap);
+    assert.deepEqual(errors, []);
+    await ctx.close();
+  });
+
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: photo comes from our own files, with author, licence and Commons link`, async () => {
       assert.ok(places.length > 0, 'at least one stored photo');

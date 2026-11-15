@@ -6,6 +6,12 @@
       if (!window.fetch) return Promise.reject();
       return fetch(url).then(function (r) { if (r.status === 404 && missing !== undefined) return missing; if (!r.ok) throw 0; return r.json(); });
     }
+    /* The stored place photos are listed by Wikipedia title (the old shape) or by place id with the title in each row's `wiki` (the new shape, #887). The app looks pictures up by title, so a row that carries `wiki` is keyed by it here: both shapes read the same, and the data can change shape without the app waiting. */
+    function placeRows(m) {
+      var o = {}, k, r; m = m || {};
+      for (k in m) { r = m[k]; o[r && r.wiki ? r.wiki : k] = r; }
+      return o;
+    }
     return {
       root: root,
       json: json,
@@ -19,7 +25,7 @@
       ties: function (k) { return json(root + "api/ties__PLACES_SFX__/" + k + ".json", {}); },   /* the ties of one region; {} when there is no file */
       search: function (f) { return json("api/search__PLACES_SFX__/" + f); },   /* a search file (meta, word bucket or rows); a page-relative address, as before */
       pictures: function () { return json(root + "api/species-pictures.json"); },   /* every hosted species picture with its credit */
-      placePhotos: function () { return json(root + "photos/places/places.json").catch(function () { return {}; }); }   /* the stored place photos; {} when missing */
+      placePhotos: function () { return json(root + "photos/places/places.json").then(placeRows).catch(function () { return {}; }); }   /* the stored place photos; {} when missing */
     };
   })();
   // A species' long description is its own small file, api/species/<id>.json, fetched when its sheet opens (no file for a species without one).
