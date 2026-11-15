@@ -1,9 +1,11 @@
 name: data-speciespictures
-# By hand only (#934, docs/DATA-PLAN.md "Species pictures", phase 4); a weekly schedule is added by the owner after one good run, the way data-placepictures got its schedule. The ONE job that finds pictures for species without one. It replaces data-speciesphotos, data-commonsphotos, data-gbifphotos, data-openversephotos, data-inaturalistphotos, data-hostphotos and data-largephotos (their schedules are already off; the files are removed after this job's first good run).
+# Weekly (Tuesday 04:23 UTC, owner go-ahead 15 Nov after the first good run, #955) and by hand (#934, docs/DATA-PLAN.md "Species pictures", phase 4); a scheduled run is live (dry = no) with the default limit of 120 titles per strategy, the way data-placepictures got its schedule. The ONE job that finds pictures for species without one. It replaces data-speciesphotos, data-commonsphotos, data-gbifphotos, data-openversephotos, data-inaturalistphotos, data-hostphotos and data-largephotos (their schedules are already off; the files are removed after this job's first good run).
 # The five sources are its strategies, tried in this order (wikipedia, commons, gbif, openverse, inaturalist); a species stops at the first accepted picture (jobs/speciespictures.py). A title shared by several species is fetched once. Everything is written through lib/species_photos.py, keyed by species id; the 192 px and 400 px copies are made in the same commit.
 # It needs the id-keyed files (the migration, jobs/rekeyspeciesphotos.py) and refuses to run on the old title-keyed ones. A CC BY / CC BY-SA picture with no author is refused. A run that finds nothing and changes no retry ledger opens no pull request. It stops while a photo pull request is open.
 # strategy = all runs every source in order, then makes the missing copies; or name one (wikipedia, commons, gbif, openverse, inaturalist); medium or large = only make the missing copies, no new pictures. dry = yes prints what would be kept and writes nothing.
 on:
+  schedule:
+    - cron: '23 4 * * 2'
   workflow_dispatch:
     inputs:
       strategy: { description: "all, or one of: wikipedia, commons, gbif, openverse, inaturalist, medium, large", default: "all" }
