@@ -1308,15 +1308,63 @@
 "attempts": 1
 },
 "Raymond": {
-"status": "nophoto",
-"checkedAt": "2026-11-13T11:50:07.399981+00:00",
-"expiresAt": "2026-11-13T11:50:08.399981+00:00",
-"attempts": 1
+"status": "wrongpage",
+"checkedAt": "2026-11-14T18:14:27.259474+00:00",
+"expiresAt": "2027-05-13T18:14:27.259474+00:00",
+"attempts": 2
 },
 "Trout Pond": {
+"status": "wrongpage",
+"checkedAt": "2026-11-14T18:13:49.455969+00:00",
+"expiresAt": "2027-05-13T18:13:49.455969+00:00",
+"attempts": 2
+},
+"Waiahole / Waikane Nature Preserve": {
 "status": "nophoto",
-"checkedAt": "2026-11-13T11:50:07.399981+00:00",
-"expiresAt": "2026-11-13T11:50:08.399981+00:00",
+"checkedAt": "2026-11-14T18:13:47.365308+00:00",
+"expiresAt": "2027-05-13T18:13:47.365308+00:00",
+"attempts": 1
+},
+"Flathead Lake/Big Arm State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:13:53.499381+00:00",
+"expiresAt": "2027-05-13T18:13:53.499381+00:00",
+"attempts": 1
+},
+"Arrowhead State Park": {
+"status": "notphoto",
+"checkedAt": "2026-11-14T18:14:19.508211+00:00",
+"expiresAt": "2027-05-13T18:14:19.508211+00:00",
+"attempts": 1
+},
+"Okmulgee/dripping State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:14:23.477995+00:00",
+"expiresAt": "2027-05-13T18:14:23.477995+00:00",
+"attempts": 1
+},
+"Western Hills Guest Ranch/sequoya Sp State Resort": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:14:25.453365+00:00",
+"expiresAt": "2027-05-13T18:14:25.453365+00:00",
+"attempts": 1
+},
+"Jordan River OHV/ Modelport State Park": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:14:31.451411+00:00",
+"expiresAt": "2027-05-13T18:14:31.451411+00:00",
+"attempts": 1
+},
+"Hoko River / Cowan Ranch": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:14:41.473866+00:00",
+"expiresAt": "2027-05-13T18:14:41.473866+00:00",
+"attempts": 1
+},
+"South Pass City / Edness K Wilkins": {
+"status": "nophoto",
+"checkedAt": "2026-11-14T18:14:43.523261+00:00",
+"expiresAt": "2027-05-13T18:14:43.523261+00:00",
 "attempts": 1
 }
 }
