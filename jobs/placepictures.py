@@ -242,7 +242,7 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
                             if webp: w.put_large(pid, webp); s['large'] += 1; spent += len(webp); log('larger copy %s %s %d KB' % (name, pid, round(len(webp) / 1024)))
                             else: s['nolarge'] += 1; log('no larger copy %s %s (%s) - %s; the small picture stays' % (name, pid, u['title'], lwhy))
                 elif r.kind == 'miss':
-                    s['miss'] += 1; log('no %s %s (%s) - %s' % (name, pid, u['title'], r.why))
+                    s['miss'] += 1; s['refused_licence'] += (r.status == 'notfree'); log('no %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                     if not dry: (w.miss(pid, r.status, 'wikipedia') if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
                 else: s['retry'] += 1; log('retry %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                 if pending >= COMMIT_EVERY and not dry: w.commit(); pending = 0
@@ -267,6 +267,19 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
     return stats, stopped
 
+def stats_block(w, counters, dry=False):
+    """The end-of-run stats as a compact Markdown block (pure). counters = {'places': total places, 'strategies': the per-strategy Counters acquire returns}. `w` is read for the pictures now on disk.
+    Refusals by reason: no author (the author rule), licence not allowed (a source answered 'notfree'), other (the source had no usable picture). Under --dry nothing was written, so the picture count adds what would be kept."""
+    st = counters.get('strategies', {}); total = counters.get('places', 0)
+    g = lambda k: sum(s[k] for s in st.values()); added = g('found'); large = g('large') + g('made')
+    have = len(w.pics) + (added if dry else 0); lic = g('refused_licence'); noauth = g('refused'); other = g('miss') - lic
+    lines = ['### placepictures stats' + (' (dry run: nothing written)' if dry else ''), '',
+             '- places: %d total, %d with a picture, %d still missing, %d added this run' % (total, have, max(total - have, 0), added),
+             '- refusals: no author %d, licence not allowed %d, other (nothing usable) %d' % (noauth, lic, other),
+             '- added per source: ' + (', '.join('%s %d' % (n, s['found']) for n, s in st.items() if n != 'large') or 'none'),
+             '- larger copies made: %d' % large]
+    return '\n'.join(lines) + '\n'
+
 def main(argv=None, root=ROOT):
     a = list(sys.argv[1:] if argv is None else argv); opt = lambda k, d: a[a.index(k) + 1] if k in a else d
     only = opt('--strategy', 'all'); limit = int(opt('--limit', 120)); max_mb = float(opt('--max-mb', 25))
@@ -279,6 +292,10 @@ def main(argv=None, root=ROOT):
         if name == 'large': print('summary large: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, larger copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['large'], s['nolarge']))
     print('added %d pictures, %d larger copies' % (sum(s['found'] for s in stats.values()), sum(s['large'] + s['made'] for s in stats.values())))
+    block = stats_block(w, dict(places=len(units) + len(shared), strategies=stats), dry='--dry' in a); print(block)
+    try:
+        with open('placepictures_stats.md', 'w', encoding='utf-8') as f: f.write(block)   # not committed: the workflow may put it in the PR body
+    except OSError as ex: print('could not write placepictures_stats.md:', ex)
     if '--dry' not in a:
         bad = pp.PlacePhotos(root).check()
         if bad: print('CHECK FAILED:'); print('\n'.join(bad[:30])); return 1
