@@ -113,6 +113,8 @@
   /* Species pictures are our own hosted copies (photos/species-md/<file>.webp, 192 px). A place brings the entries for its own species; the journey and related-place
      views read api/species-pictures.json (every hosted picture's entry and credit). There is no fallback to another site: a species without a hosted copy shows the placeholder. */
   var SPX = null, SPX_WAIT = [];
+  /* Journey covers are not species files: they are published with the app (photos/journeys/), at the same address root as the place pictures (not on the species host). */
+  var JB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/journeys/";
   PhotoRegistry.setSpeciesBase(__SPECIES_PHOTOS__ + "photos/species-md/");
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;
@@ -128,7 +130,7 @@
       });
       var jp = all.jpic || {}, jm = all.jpicm || {};   /* the journeys' own covers by journey id (none until the data has them: then the title picture is used) */
       Object.keys(jp).forEach(function (id) {
-        var candidate = PhotoRegistry.journeyCandidate(jp[id], __SPECIES_PHOTOS__ + "photos/journeys/", jm[id]);
+        var candidate = PhotoRegistry.journeyCandidate(jp[id], JB, jm[id]);
         if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.coverKey(id), candidate);
       });
       CROSS.forEach(function (c) { if (PhotoRegistry.coverPhoto(PHOTOS, c)) linkPhoto(c); });
