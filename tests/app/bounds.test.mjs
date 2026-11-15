@@ -30,13 +30,14 @@ describe('real park outlines', () => {
   const mainIds = new Set(H.readFixturePlaces(false).map((x) => x.id)); const inMain = (id) => mainIds.has(id);   // a place that is only in the pilot build opens from pilot/index.html
   const without = all.find((e) => !B[e.id] && e.country !== 'United States of America' && !e.auto);
 
-  async function open(size, id, file = 'index.html') {
+  async function open(size, id, file = 'index.html', features = null) {   // features: how many outline features the place should show (waits for that state; 0 waits for the place card to open)
     const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
     const errors = [], reqs = []; page.on('pageerror', (x) => errors.push(String(x))); page.on('request', (r) => { if (/\/data\/outlines\//.test(r.url())) reqs.push(r.url()); });
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
     await page.goto(base + file + '#stub&p=' + id); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
-    await page.waitForTimeout(2500);
+    if (features) await page.waitForFunction((n) => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return d && d.features && d.features.length === n; }, features, { timeout: 30000 }).catch(() => {});   // the outline is drawn: read in the test, which then reports what was there
+    else await page.waitForFunction(() => { const p = document.getElementById('peek'); return p && !p.hidden; }, null, { timeout: 30000 }).catch(() => {});
     return { ctx, page, errors, reqs };
   }
   const outline = (page) => page.evaluate(() => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return d && d.features ? d.features.length : -1; });
@@ -45,15 +46,18 @@ describe('real park outlines', () => {
     test(`${sizeName}: places with an outline show it, fit the map to it, and clear it on close`, async () => {
       assert.ok(withB.length >= 2, 'need places with outlines');
       for (const e of withB) {
-        const t = await open(size, e.id, inMain(e.id) ? 'index.html' : 'pilot/index.html');
+        const t = await open(size, e.id, inMain(e.id) ? 'index.html' : 'pilot/index.html', B[e.id].r.length);
         const n = await outline(t.page);
         assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn`);
         assert.ok(t.reqs.length >= 1 && t.reqs.every((u) => u.endsWith('/' + e.id + '.json')), `${e.id}: only this park's outline file is fetched: ${t.reqs}`);
-        await t.page.waitForTimeout(900);
-        const inView = await t.page.evaluate(([x0, y0, x1, y1]) => { const b = window.__M.map.getBounds(); return b.getWest() <= x0 + 1e-6 && b.getEast() >= x1 - 1e-6 && b.getSouth() <= y0 + 1e-6 && b.getNorth() >= y1 - 1e-6; }, (() => { let a = 999, b = 99, c = -999, d = -99; for (const f of B[e.id].r) for (let i = 0; i < f.length; i += 2) { a = Math.min(a, f[i]); c = Math.max(c, f[i]); b = Math.min(b, f[i + 1]); d = Math.max(d, f[i + 1]); } return [a, b, c, d]; })());
+        const box = (() => { let a = 999, b = 99, c = -999, d = -99; for (const f of B[e.id].r) for (let i = 0; i < f.length; i += 2) { a = Math.min(a, f[i]); c = Math.max(c, f[i]); b = Math.min(b, f[i + 1]); d = Math.max(d, f[i + 1]); } return [a, b, c, d]; })();
+        const fits = ([x0, y0, x1, y1]) => { const b = window.__M.map.getBounds(); return b.getWest() <= x0 + 1e-6 && b.getEast() >= x1 - 1e-6 && b.getSouth() <= y0 + 1e-6 && b.getNorth() >= y1 - 1e-6; };
+        await t.page.waitForFunction(fits, box, { timeout: 30000 }).catch(() => {});   // the map has fitted to the outline
+        const inView = await t.page.evaluate(fits, box);
         assert.ok(inView, `${e.id}: the whole outline is in view`);
         assert.match(await t.page.textContent('#peek'), /Outlined on the map/);
-        await t.page.evaluate(() => document.querySelector('[data-closepeek]').click()); await t.page.waitForTimeout(1200);
+        await t.page.evaluate(() => document.querySelector('[data-closepeek]').click());
+        await t.page.waitForFunction(() => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return !d || !d.features || d.features.length === 0; }, null, { timeout: 30000 }).catch(() => {});   // the outline is cleared
         assert.equal(await outline(t.page), 0, `${e.id}: outline cleared on close`);
         assert.deepEqual(t.errors, []); await t.ctx.close();
       }
