@@ -12,7 +12,8 @@ class CleanTests(unittest.TestCase):
         self.assertEqual(c('Kabelleger / David Gubler (http://www.bahnbilder.ch).'), 'Kabelleger / David Gubler')
         self.assertEqual(c('Jane Doe [www.example.org]'), 'Jane Doe'); self.assertEqual(c('Jane Doe (jane@example.org)'), 'Jane Doe')
         self.assertEqual(c('Michael from Minnesota (@Michael)'), 'Michael from Minnesota (@Michael)')   # a real bracket stays
-        self.assertEqual(c('Sasata (edited by Noodle snacks'), 'Sasata'); self.assertEqual(c('Aviceda at English Wikipedia\n\n(Original text: Tom (talk))'), 'Aviceda at English Wikipedia')
+        self.assertEqual(c('Sasata (edited by Noodle snacks'), 'Sasata (edited by Noodle snacks'); self.assertEqual(c('James Roberts (Jampp…'), 'James Roberts (Jampp…'); self.assertFalse(is_dirty('James Roberts (Jampp…'))   # a source's own truncation is not touched
+        self.assertEqual(c('Aviceda at English Wikipedia\n\n(Original text: Tom (talk))'), 'Aviceda at English Wikipedia')
         self.assertEqual(c("Noodle snacks (https://www.jjharrison.com.au/)Bennett's Wallaby)"), "Noodle snacks Bennett's Wallaby")
     def test_email_is_no_author(self):
         self.assertEqual(c('toddander@gmail.com'), ''); self.assertFalse(is_unknown('toddander@gmail.com'))

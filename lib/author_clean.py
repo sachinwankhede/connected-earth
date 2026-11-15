@@ -19,18 +19,20 @@ def is_unknown(a):
     return a in UNKNOWN or a.startswith('unknown')
 
 def clean_author(a):
-    s = _squash(a)
+    s = _squash(a); squashed = s
     m = re.search(r'original uploader was (.+?) at (?:the )?(?:English )?(?:en\.)?wikipedia', s, re.I)
     if m: s = m.group(1)
     m = re.match(r'no machine-readable author provided\.? (.+?) assumed', s, re.I)
     if m: s = m.group(1)
     s = re.split(r'\s*\(talk\)', s, maxsplit=1, flags=re.I)[0]
     s = re.split(r'Camera location', s, maxsplit=1)[0]
+    cut = s != squashed   # a sentence or stamp was cut away above
     s = _EMAIL.sub('', s); s = _URL.sub('', s)
     s = re.sub(r'\(\s*\)|\[\s*\]', '', s)   # the brackets a web address or email was inside
     s = re.sub(r'\s+', ' ', s).strip(' -–—:;,|/')
     s = re.sub(r'\s+[.(\[]+$', '', s).strip(' -–—:;,|/')   # a full stop or opening bracket left on its own at the end
-    while s.count('(') > s.count(')'): s = s[:s.rfind('(')].rstrip(' -–—:;,|/')   # an opened bracket the cut text never closed: drop it and what follows
+    if cut:
+        while s.count('(') > s.count(')'): s = s[:s.rfind('(')].rstrip(' -–—:;,|/')   # a bracket one of the cuts above left open: drop it and what follows (one already open in the stored text stays: it is the source's own truncation)
     while s.count(')') > s.count('(') and s.endswith(')'): s = s[:-1].rstrip(' -–—:;,|/')   # a closing bracket whose opening one was cut
     return '' if is_unknown(s) else s
 
