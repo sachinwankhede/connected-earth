@@ -122,3 +122,5 @@ Done 10 Nov: #591 (#596); #303 and #558 were already done and closed; #406 step 
 **Rule: app tolerates data gaps, data keeps integrity (owner, 14 Nov, #727).** Recorded as ground rule 10 in `CLAUDE.md`. First applied to the place hero (#870: fallback to the small picture; #873: strict list/file check, list written with every file).
 
 **Hero frame (owner, 14 Nov, #727).** Every hero picture is one fixed frame (full width, 3:2, at most 320px tall). Places fill it (cropped, centred); species are shown whole inside it, so a head is never cut (#485 kept). `docs/DESIGN.md` has the Hero frame rule. 1,312 place pictures: 955 are already 4:3 to 3:2 (little or no crop), 191 wider, 111 portrait and 55 squarer (cropped).
+
+**Place page order (owner, 14 Nov, #727).** Owner: move the story and why it matters before the food web. Order is now hero, name, story, why it matters, food-web graph, then the rows and sources; `docs/DESIGN.md` has the rule. Layout only (`src/app/place.js`), no data.

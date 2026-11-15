@@ -26,9 +26,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       const circles = [...g.querySelectorAll('.pn .core')].map((c) => c.getBoundingClientRect());
       const hit = circles.filter((c) => c.right > pl.left && c.left < pl.right && c.bottom > pl.top && c.top < pl.bottom).length;
       const labels = [...g.querySelectorAll('.pn text')].map((t) => t.getBoundingClientRect()), overlap = labels.filter((a, i) => labels.some((c, j) => j > i && a.left < c.right - 1 && a.right > c.left + 1 && a.top < c.bottom - 1 && a.bottom > c.top + 1)).length;
-      return { title: v.querySelector('h2').textContent, place: v.querySelector('.jr').textContent, lead: !!v.querySelector('.pstory'), order: top('h2') < top('#pgraph') && top('#pgraph') < top('.pstory') && top('.pstory') < top('h3'), nodes: g.querySelectorAll('.pn').length, heads: [...v.querySelectorAll('h3')].map((h) => h.textContent), chips: v.querySelectorAll('[data-pnode]').length, hit, overlap, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: v.querySelector('[data-pback]').textContent.trim(), web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden };
+      return { title: v.querySelector('h2').textContent, place: v.querySelector('.jr').textContent, lead: !!v.querySelector('.pstory'), order: top('h2') < top('.pstory') && top('.pstory') < top('#pgraph') && top('#pgraph') < top('h3'), nodes: g.querySelectorAll('.pn').length, heads: [...v.querySelectorAll('h3')].map((h) => h.textContent), chips: v.querySelectorAll('[data-pnode]').length, hit, overlap, over: document.documentElement.scrollWidth - document.documentElement.clientWidth, back: v.querySelector('[data-pback]').textContent.trim(), web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden };
     });
-    assert.equal(r.title, 'Testland National Test Forest'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then hook, then the web, then detail');
+    assert.equal(r.title, 'Testland National Test Forest'); assert.ok(r.place.length > 5); assert.ok(r.lead); assert.ok(r.order, 'name, then the story, then the web, then detail');
     assert.equal(r.nodes, 8); const ix = ['Top predators', 'Hunters', 'Plant-eaters', 'Plants'].map((x) => r.heads.findIndex((h) => h.startsWith(x))); assert.ok(ix.every((v, i) => v >= 0 && (i === 0 || v === ix[i - 1] + 1)), 'four rows by level in order: ' + r.heads);
     assert.ok(r.heads.includes('Who feeds whom') && r.heads.includes('Shares species with'));   // 'Journeys through here' needs a journey: the journey tests cover it
     assert.ok(r.chips >= 8); assert.equal(r.hit, 0, 'the Explore label sits clear of the species'); assert.equal(r.overlap, 0, 'labels do not overlap'); assert.ok(r.over <= 0);
@@ -70,9 +70,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       const v = document.getElementById('pview'), h = [...v.querySelectorAll('h3')].map((x) => x.textContent), top = (el) => el.getBoundingClientRect().top;
       const st = v.querySelector('.pstory'), wm = v.querySelector('.jwhy'), g = v.querySelector('#pgraph'), first = v.querySelector('.prow');
       const env = [...v.querySelectorAll('h3')].find((x) => /^Environment/.test(x.textContent)).nextElementSibling;
-      return { has: !!st && !!wm, order: st && wm && top(g) < top(st) && top(st) < top(wm) && top(wm) < top(first), len: st ? st.textContent.length : 0, matters: wm ? wm.textContent.length : 0, envCards: env.querySelectorAll('.pmc').length, envImgs: env.querySelectorAll('.pph img').length };
+      return { has: !!st && !!wm, order: st && wm && top(st) < top(wm) && top(wm) < top(g) && top(g) < top(first), len: st ? st.textContent.length : 0, matters: wm ? wm.textContent.length : 0, envCards: env.querySelectorAll('.pmc').length, envImgs: env.querySelectorAll('.pph img').length };
     });
-    assert.ok(r.has && r.order, 'the story and why it matters sit between the picture and the species rows'); assert.ok(r.len > 120 && r.matters > 80);
+    assert.ok(r.has && r.order, 'the story and why it matters come before the food web, then the species rows'); assert.ok(r.len > 120 && r.matters > 80);
     assert.ok(r.envCards >= 2 && r.envImgs === r.envCards, 'environment items show photos: ' + JSON.stringify(r));
     // a place without a story has neither section
     const withStory = H.readFixturePlaces(false).filter((e) => e.story).map((e) => e.id);
