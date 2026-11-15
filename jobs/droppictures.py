@@ -15,7 +15,7 @@ def source_of(meta):
 def outside(meta, hosted):
     """Titles with a hosted picture whose licence is outside the rule."""
     return sorted(t for t in hosted if not licences.ok(source_of(meta.get(t) or {}), (meta.get(t) or {}).get('l', '')))
-def drop(root, dry=False, titles=None):
+def drop(root, dry=False, titles=None, hold=False):
     load = lambda n: json.load(open(os.path.join(root, P[n]), encoding='utf-8')) if os.path.exists(os.path.join(root, P[n])) else {}
     d = {n: load(n) for n in P}
     bad = sorted(t for t in titles if t in d['species_hosted']) if titles else outside(d['species_metadata'], d['species_hosted'])   # a named title is dropped whatever its licence
@@ -31,23 +31,29 @@ def drop(root, dry=False, titles=None):
         d['species_missing'][t] = 'nophoto'
         if src_of == 'Openverse': d['species_openverse_tried'][t] = today   # jobs/openversephotos.py tries it again only after 90 days, not at once
         if src_of == 'iNaturalist': d['species_inaturalist_tried'][t] = today   # the same for jobs/inaturalistphotos.py
+        if hold and src_of == 'Wikimedia': d['species_commons_tried'][t] = today   # hold: the same picture would be found again (an unnamed author), so Commons is tried again only after 90 days
     for n in ('species_metadata', 'species_hosted', 'species_large', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried'):
         p = os.path.join(root, P[n])
         if not (os.path.exists(p) or n == 'species_missing' or (n in ('species_openverse_tried', 'species_inaturalist_tried') and d[n])): continue
         if n in ('species_metadata', 'species_hosted', 'species_large'): json.dump(d[n], open(p, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)   # the layout hostphotos.py and largephotos.py write
         else: json.dump(d[n], open(p, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'), sort_keys=(n in ('species_source', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried')))   # the layout commonsphotos.py writes
     return bad, counts
-def drop_places(root, dry=False):
-    """The same for the place pictures (photos/places/places.json, one <id>.jpg each). A dropped place goes to photos/places/missing.json as 'notfree' (kept 180 days), so jobs/photos.py does not fetch it again."""
+def drop_places(root, dry=False, titles=None):
+    """The same for the place pictures (photos/places/places.json, one <id>.jpg each). A dropped place goes to photos/places/missing.json as 'notfree' (kept 180 days), so jobs/photos.py does not fetch it again.
+    Its larger copy (photos/places-lg/, photos/places_large.json) goes with it. titles: drop exactly these keys whatever their licence (the unnamed-author pictures, #887)."""
     pd = os.path.join(root, 'photos', 'places'); mp, ms = os.path.join(pd, 'places.json'), os.path.join(pd, 'missing.json')
     man = json.load(open(mp, encoding='utf-8')); miss = json.load(open(ms, encoding='utf-8')) if os.path.exists(ms) else {}
-    bad = sorted(t for t, v in man.items() if not licences.ok('Wikimedia', v.get('l', '')))
+    bad = sorted(t for t in titles if t in man) if titles else sorted(t for t, v in man.items() if not licences.ok('Wikimedia', v.get('l', '')))
     counts = collections.Counter(man[t].get('l', '') or '(none)' for t in bad)
     if dry or not bad: return bad, counts
+    ml = os.path.join(root, 'photos', 'places_large.json'); large = json.load(open(ml, encoding='utf-8')) if os.path.exists(ml) else {}
     for t in bad:
         p = os.path.join(pd, man[t]['f'])
         if os.path.exists(p): os.remove(p)
         del man[t]; miss[t] = photo_registry.negative_entry('notfree')
+        name = large.pop(t, None)
+        if name and os.path.exists(os.path.join(root, 'photos', 'places-lg', name)): os.remove(os.path.join(root, 'photos', 'places-lg', name))
+    if os.path.exists(ml): json.dump(large, open(ml, 'w', encoding='utf-8'), ensure_ascii=False, indent=0, sort_keys=True)
     json.dump(man, open(mp, 'w', encoding='utf-8'), ensure_ascii=False, indent=0); json.dump(miss, open(ms, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
     return bad, counts
 if __name__ == '__main__':
