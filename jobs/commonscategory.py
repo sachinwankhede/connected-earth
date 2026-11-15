@@ -5,6 +5,7 @@ Many small parks have a Commons category (for example "Category:Mill Bluff State
 For each place title in photos/places/missing.json whose place has no picture file yet:
   1. searches Commons categories for the place name and keeps the first category that is the place itself: its title adds no distinctive word the place name lacks,
      shares at least half of the place's words, names no building, agrees on state / national / county, and has a Park-or-Lake type word when the place name has none (see good_category);
+     a file whose name names another US state or a country than the place's own region is refused (names_another_place: a Florida park is not the Alabama one);
   2. lists up to 50 files of that category and keeps the first open-licence JPEG (CC0, CC BY, CC BY-SA, public domain: #421) that passes the same checks as commonsplacephotos.pick
      and does not name a building, road, town or sign; files whose name shares a distinctive word with the place come first;
   3. stores it as photos/places/<id>.jpg, adds it to photos/places/places.json (keyed by the place's imgwiki title) and removes the title from missing.json.
@@ -65,11 +66,31 @@ def good_category(cats, name, region=''):
         return cat
     return None
 
-def choose(files, want, info, kind=()):
+US_STATES = {'alabama': 'AL', 'alaska': 'AK', 'arizona': 'AZ', 'arkansas': 'AR', 'california': 'CA', 'colorado': 'CO', 'connecticut': 'CT', 'delaware': 'DE', 'florida': 'FL', 'georgia': 'GA',
+             'hawaii': 'HI', 'idaho': 'ID', 'illinois': 'IL', 'indiana': 'IN', 'iowa': 'IA', 'kansas': 'KS', 'kentucky': 'KY', 'louisiana': 'LA', 'maine': 'ME', 'maryland': 'MD',
+             'massachusetts': 'MA', 'michigan': 'MI', 'minnesota': 'MN', 'mississippi': 'MS', 'missouri': 'MO', 'montana': 'MT', 'nebraska': 'NE', 'nevada': 'NV', 'new hampshire': 'NH',
+             'new jersey': 'NJ', 'new mexico': 'NM', 'new york': 'NY', 'north carolina': 'NC', 'north dakota': 'ND', 'ohio': 'OH', 'oklahoma': 'OK', 'oregon': 'OR', 'pennsylvania': 'PA',
+             'rhode island': 'RI', 'south carolina': 'SC', 'south dakota': 'SD', 'tennessee': 'TN', 'texas': 'TX', 'utah': 'UT', 'vermont': 'VT', 'virginia': 'VA', 'washington': 'WA',
+             'west virginia': 'WV', 'wisconsin': 'WI', 'wyoming': 'WY'}
+OTHER_COUNTRIES = ('canada', 'mexico', 'australia', 'england', 'scotland', 'wales', 'ireland', 'france', 'germany', 'india')
+
+def names_another_place(fn, region):
+    """True when a file name names a US state (written out, or as a capital two-letter code) or a country other than the place's own region ("Alabama, USA"),
+    for example Cedar_Key_FL_Shell_Mound_Park for an Alabama place or US-Canada_border_at_Crawford_State_Park for a Kansas one. An empty region checks nothing."""
+    import re
+    if not region: return False
+    text = ' '.join(re.findall(r'[A-Za-z]+', fn)).lower(); own = region.lower()
+    mine = {s for s in US_STATES if re.search(r'(?<![a-z])%s(?![a-z])' % s, own)}
+    for s, ab in US_STATES.items():
+        if s in mine: continue
+        if re.search(r'(?<![a-z])%s(?![a-z])' % s, text) or re.search(r'(?<![A-Za-z])%s(?![A-Za-z])' % ab, ' '.join(re.findall(r'[A-Za-z]+', fn))): return True
+    return any(re.search(r'(?<![a-z])%s(?![a-z])' % w, text) and w not in own for w in OTHER_COUNTRIES)
+
+def choose(files, want, info, kind=(), region=''):
     """The first acceptable file, files naming a distinctive word of the place first; None if no file passes."""
     ordered = [f for f in files if want & n.words(f)] + [f for f in files if not want & n.words(f)]
     for fn in ordered:
-        if n.BUILDING.search(fn) or NOTPLACE.search(fn): continue
+        if n.BUILDING.search(fn) or NOTPLACE.search(fn) or names_another_place(fn, region): continue
         fk = {w for w in __import__('re').findall(r'[a-z]+', fn.lower()) if w in KIND}
         if kind and fk and fk != set(kind): continue   # a file about a county park is not a picture of a state park
         got = c.pick([fn], info)
@@ -101,7 +122,7 @@ def main():
         import re
         if len(regions_of.get(t, ())) > 1: tried[t] = today.isoformat(); print('  no:', t, '- the same title is used by places in different regions', flush=True); continue
         cat = good_category(categories(name), name, region_of.get(pid, '')); files = category_files(cat) if cat else []
-        got = choose(files, want, cp.commons_info(files[:50]), {w for w in re.findall(r'[a-z]+', name.lower()) if w in KIND}) if files else None
+        got = choose(files, want, cp.commons_info(files[:50]), {w for w in re.findall(r'[a-z]+', name.lower()) if w in KIND}, region_of.get(pid, '')) if files else None
         if not got: tried[t] = today.isoformat(); print('  no:', t, '-', ('category ' + cat + ' has no usable file') if cat else 'no matching category', flush=True)
         else:
             b = wm.get(got[4], raw=True)

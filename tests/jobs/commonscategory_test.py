@@ -43,6 +43,17 @@ class CategoryTests(unittest.TestCase):
         self.assertEqual(g.choose(files, g.n.words('Pisgah State Park'), {f: OK for f in files}, {'state'})[0], 'Pisgah_State_Park_trail.jpg')
         self.assertIsNone(g.choose(files[:1], g.n.words('Pisgah State Park'), {files[0]: OK}, {'state'}))
 
+    def test_a_file_naming_another_state_or_a_country_is_refused(self):
+        # the two wrong matches of the 15 Nov category run (#890)
+        refused = (('Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg', 'Alabama, USA'), ('US-Canada_border_at_Crawford_State_Park_20130629.jpg', 'Kansas, USA'),
+                   ('Park_in_New_York_view.jpg', 'New Hampshire, USA'))
+        for fn, region in refused: self.assertTrue(g.names_another_place(fn, region), (fn, region))
+        accepted = (('Mount_Pisgah_State_Park_frozen_lake.jpg', 'New Hampshire, USA'), ('Cedar_Key_FL_view.jpg', 'Florida, USA'), ('Cedar_Key_FL_view.jpg', ''),
+                    ('Canada_goose_at_Pisgah.jpg', 'Canada'), ('Hawaiian_view.jpg', 'Hawaii, USA'), ('West_Virginia_gorge.jpg', 'West Virginia, USA'))
+        for fn, region in accepted: self.assertFalse(g.names_another_place(fn, region), (fn, region))
+        self.assertIsNone(g.choose(['Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg'], g.n.words('Shell Mound Park'), {'Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg': OK}, (), 'Alabama, USA'))
+        self.assertIsNotNone(g.choose(['Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg'], g.n.words('Shell Mound Park'), {'Cedar_Key_FL_Shell_Mound_Park_bdwk01.jpg': OK}, (), 'Florida, USA'))
+
     def test_a_file_naming_the_place_comes_first_and_buildings_closed_licences_pngs_figures_and_clippings_are_refused(self):
         files = ['Sign_at_entrance.jpg', 'Random_view.jpg', 'Mill_Bluff_cliff.jpg', 'Mill_Bluff_a.png', 'Mill_Bluff_b.jpg']
         inf = {f: OK for f in files}; inf['Mill_Bluff_a.png'] = OK[:4] + ('image/png',); inf['Mill_Bluff_b.jpg'] = ('CC BY-NC 4.0',) + OK[1:]
