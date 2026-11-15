@@ -42,42 +42,7 @@ class PhotoRegistryTests(unittest.TestCase):
                 f.write(b"\x89PNG\r\n\x1a\n" + b"\x00\x00\x00\x0dIHDR" + struct.pack(">II", 23, 17))
             self.assertEqual(photo_registry.image_info(path), ("image/png", (23, 17)))
 
-    def test_species_url_validation_accepts_wikimedia_direct_urls_only(self):
-        self.assertTrue(photo_registry.safe_species_asset("https://upload.wikimedia.org/wikipedia/commons/a.jpg"))
-        self.assertTrue(photo_registry.safe_species_asset("2/2f/a.jpg/330px-a.jpg"))
-        self.assertFalse(photo_registry.safe_species_asset("http://upload.wikimedia.org/a.jpg"))
-        self.assertFalse(photo_registry.safe_species_asset("https://example.com/a.jpg"))
-        self.assertFalse(photo_registry.safe_species_asset("../a.jpg"))
-
-    def test_species_metadata_requires_explicit_attribution_license_and_commons_page(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            root = os.path.join(tmp, "repo")
-            os.makedirs(os.path.join(root, "lib"))
-            photos = os.path.join(root, "photos")
-            os.makedirs(os.path.join(photos, "places"))
-            with open(os.path.join(photos, "places", "places.json"), "w", encoding="utf-8") as f:
-                json.dump({}, f)
-            with open(os.path.join(photos, "species.json"), "w", encoding="utf-8") as f:
-                json.dump({"Verified species": ["2/2f/File.jpg/330px-File.jpg", "Species"]}, f)
-            with open(os.path.join(photos, "species_hosted.json"), "w", encoding="utf-8") as f:
-                json.dump({"Verified species": "0123456789ab.webp"}, f)   # only credits of hosted pictures are checked
-            metadata = os.path.join(photos, "species_metadata.json")
-            record = {
-                "a": "Photographer", "l": "CC BY 4.0",
-                "lu": "https://creativecommons.org/licenses/by/4.0",
-                "p": "https://commons.wikimedia.org/wiki/File:File.jpg"
-            }
-            with patch.object(photo_registry, "__file__", os.path.join(root, "lib", "photo_registry.py")):
-                with open(metadata, "w", encoding="utf-8") as f:
-                    json.dump({"Verified species": record}, f)
-                photo_registry.validate()
-                record["a"] = "Unknown author"
-                with open(metadata, "w", encoding="utf-8") as f:
-                    json.dump({"Verified species": record}, f)
-                with self.assertRaisesRegex(ValueError, "missing an explicit author"):
-                    photo_registry.validate()
-
-    def test_species_pictures_by_species_id_are_checked_without_the_title_lists(self):   # #934: the migration removes photos/species.json, species_metadata.json and species_hosted.json
+    def test_species_pictures_by_species_id_are_checked_without_the_title_lists(self):   # #934: the title lists are gone; no list at all means no species pictures
         with tempfile.TemporaryDirectory() as tmp:
             root = os.path.join(tmp, "repo")
             os.makedirs(os.path.join(root, "lib"))
@@ -92,6 +57,9 @@ class PhotoRegistryTests(unittest.TestCase):
                 with open(by_id, "w", encoding="utf-8") as f:
                     json.dump({"verified-species": row}, f)
                 photo_registry.validate()
+                os.remove(by_id); photo_registry.validate()   # a tree with no species list validates (nothing to check)
+                with open(by_id, "w", encoding="utf-8") as f:
+                    json.dump({"verified-species": row}, f)
                 row["a"] = "Unknown author"
                 with open(by_id, "w", encoding="utf-8") as f:
                     json.dump({"verified-species": row}, f)

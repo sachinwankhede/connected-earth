@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """validate_data.py [root]: format checks for the data files that are not places (places have build/validate.py).
-Species table, journeys, outlines, hosted species pictures. Prints one line per problem and exits 1 if there is any."""
+Species table, journeys, outlines, species pictures (by species id). Prints one line per problem and exits 1 if there is any."""
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIRTY_AUTHOR_IS_ERROR = True   # the cleanauthors data merged on 15 Nov (#930), so the validator fails a place picture whose author is not in the stored form (lib/author_clean.py)
@@ -53,6 +53,18 @@ def local_ids(root):
             except (OSError, ValueError): continue
             if isinstance(e, dict) and e.get('level') == 'local': out.add(f[:-5])
     return out
+
+def species_sid_errors(spw, sids):
+    """What lib/species_photos.SpeciesPhotos.check() does not see (#934 phase 6): every list is keyed by a species id that is a row of data/species/rows, and no file of the picture folders
+    is of a kind the writer never makes (check() only counts .webp in photos/species)."""
+    import species_photos as spm
+    errs = []
+    for label, d in (('species_pictures.json', spw.pics), ('species_medium.json', spw.medium), ('species_large.json', spw.large), ('species_missing.json', spw.miss_), ('species_tried.json', spw.tried)):
+        for sid in sorted(set(d) - sids): errs.append('photos/%s: %r is not a species row' % (label, sid))
+    for parts in (spm.SMALL_DIR, spm.MEDIUM_DIR, spm.LARGE_DIR):
+        for f in sorted(spw._files(parts)):
+            if not f.endswith('.webp'): errs.append('%s/%s is not a .webp picture (nothing writes it)' % ('/'.join(parts), f))
+    return errs
 
 def check(root):
     errs = []; warns = []
@@ -110,51 +122,19 @@ def check(root):
                 if len(ring) % 2: errs.append('outline %s: ring %d has an odd number of values (it is [lon, lat, ...])' % (f, n))
                 elif any(not -180 <= ring[i] <= 180 or not -90 <= ring[i + 1] <= 90 for i in range(0, len(ring), 2)):
                     errs.append('outline %s: ring %d has a point outside lon -180..180 / lat -90..90' % (f, n))
-    sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib')); import species_pics   # species pictures (#934): after the migration they are keyed by species id and checked by their one writer; the title-keyed checks below stay for the old shape
-    sid_shape = species_pics.new_shape(root)
-    if sid_shape:
-        import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check()
-        dirty_sp = spw.dirty_authors()
-        if dirty_sp: warns.append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
+    sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # species pictures (#934): keyed by species id, checked by their one writer (lib/species_photos.py); a missing list is an empty one
+    import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check(); errs += species_sid_errors(spw, {r.get('sid') for r in sp.values()})
+    dirty_sp = spw.dirty_authors()   # a warning until the cleanauthors job has run over the stored rows
+    if dirty_sp: warns.append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
     import journey_pics   # journey cover pictures (#945): by journey id, checked by their one writer once photos/journey_pictures.json exists (nothing to check before)
     errs += journey_pics.check(root)
     if journey_pics.new_shape(root):
         import journey_photos; dirty_jp = journey_photos.JourneyPhotos(root).dirty_authors()
         if dirty_jp: warns.append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
-    hosted = None if sid_shape else load(root, 'photos', 'species_hosted.json')
-    if hosted is not None:
-        meta = load(root, 'photos', 'species_metadata.json') or {}
-        pd = os.path.join(root, 'photos', 'species')
-        files = set(os.listdir(pd)) if os.path.isdir(pd) else set()
-        for t, f in hosted.items():
-            if f not in files: errs.append('hosted picture for %r: file %s is missing' % (t, f))
-            m = meta.get(t)
-            if not m or not m.get('a') or not m.get('l'): errs.append('hosted picture for %r: author or licence missing' % t)
-        for f in files - set(hosted.values()): errs.append('photos/species/%s is not listed in species_hosted.json' % f)
-        listed = load(root, 'photos', 'species.json')   # every species in the picture list is hosted or skipped on purpose (#238): none is left to a missing picture by accident
-        if listed is not None:
-            skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
-            for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
-    large = None if sid_shape else load(root, 'photos', 'species_large.json')   # the larger copies (#421): each is of a hosted picture, has its file, and no file is left unlisted
-    if large is not None:
-        ld = os.path.join(root, 'photos', 'species-lg')
-        lfiles = set(os.listdir(ld)) if os.path.isdir(ld) else set()
-        for t, f in large.items():
-            if f not in lfiles: errs.append('larger picture for %r: file %s is missing' % (t, f))
-            if (hosted or {}).get(t) != f: errs.append('larger picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
-        for f in lfiles - set(large.values()): errs.append('photos/species-lg/%s is not listed in species_large.json' % f)
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
     import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)
     if dirty: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/places/places.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty), ', '.join(dirty[:5])))
-    medium = None if sid_shape else load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
-    if medium is not None:
-        md = os.path.join(root, 'photos', 'species-md')
-        mfiles = set(os.listdir(md)) if os.path.isdir(md) else set()
-        for t, f in medium.items():
-            if f not in mfiles: errs.append('tile picture for %r: file %s is missing' % (t, f))
-            if (hosted or {}).get(t) != f: errs.append('tile picture for %r: it has no thumbnail of the same name in species_hosted.json' % t)
-        for f in mfiles - set(medium.values()): errs.append('photos/species-md/%s is not listed in species_medium.json' % f)
     # taxonomy sidecar (#254): shape per file, and rules across files
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')
@@ -192,8 +172,8 @@ def check(root):
     names = load(root, 'jobs', 'names.json')
     if names is not None: shape(names, 'names', 'jobs/names.json', errs)
     sm = load(root, 'photos', 'species_missing.json')
-    if sm is not None:   # old shape: a plain reason per title; by species id (#934): the same record as a place miss (status, checkedAt, expiresAt, attempts)
-        shape(sm, 'photo-missing' if sid_shape else 'species-missing', 'photos/species_missing.json', errs)
+    if sm is not None:   # by species id (#934): the same record as a place miss (status, checkedAt, expiresAt, attempts)
+        shape(sm, 'photo-missing', 'photos/species_missing.json', errs)
     pm = load(root, 'photos', 'places', 'missing.json')
     if pm is not None:
         old = sorted(k for k, v in pm.items() if isinstance(v, str))
