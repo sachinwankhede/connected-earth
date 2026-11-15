@@ -53,7 +53,8 @@ class SpeciesTab(unittest.TestCase):
 
     @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'odocoileus-virginianus.json')) and os.path.exists(os.path.join(ROOT, 'photos', 'species_large.json')), 'needs a build')
     def test_species_file_marks_a_larger_picture(self):   # #421: pl = 1 only where photos/species-lg/ has a copy of the same picture
-        large = json.load(open(os.path.join(ROOT, 'photos', 'species_large.json')))
+        sys.path.insert(0, os.path.join(ROOT, 'lib')); import species_pics
+        large = species_pics.load(ROOT)['large']   # by species id, from either shape (#934)
         d = json.load(open(os.path.join(ROOT, 'api', 'species', 'odocoileus-virginianus.json')))
         self.assertEqual(d.get('pl'), 1 if d['ph'][0] in large.values() else None)
 
