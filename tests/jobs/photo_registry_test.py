@@ -77,6 +77,27 @@ class PhotoRegistryTests(unittest.TestCase):
                 with self.assertRaisesRegex(ValueError, "missing an explicit author"):
                     photo_registry.validate()
 
+    def test_species_pictures_by_species_id_are_checked_without_the_title_lists(self):   # #934: the migration removes photos/species.json, species_metadata.json and species_hosted.json
+        with tempfile.TemporaryDirectory() as tmp:
+            root = os.path.join(tmp, "repo")
+            os.makedirs(os.path.join(root, "lib"))
+            photos = os.path.join(root, "photos")
+            os.makedirs(os.path.join(photos, "places"))
+            with open(os.path.join(photos, "places", "places.json"), "w", encoding="utf-8") as f:
+                json.dump({}, f)
+            row = {"f": "0123456789ab.webp", "a": "Photographer", "l": "CC BY 4.0", "lu": "https://creativecommons.org/licenses/by/4.0",
+                   "p": "https://commons.wikimedia.org/wiki/File:File.jpg", "wiki": "Verified species"}
+            by_id = os.path.join(photos, "species_pictures.json")
+            with patch.object(photo_registry, "__file__", os.path.join(root, "lib", "photo_registry.py")):
+                with open(by_id, "w", encoding="utf-8") as f:
+                    json.dump({"verified-species": row}, f)
+                photo_registry.validate()
+                row["a"] = "Unknown author"
+                with open(by_id, "w", encoding="utf-8") as f:
+                    json.dump({"verified-species": row}, f)
+                with self.assertRaisesRegex(ValueError, "verified-species: species photo metadata is missing an explicit author"):
+                    photo_registry.validate()
+
     def test_wikimedia_retry_after_is_bounded(self):
         headers = Message()
         headers["Retry-After"] = "301"
