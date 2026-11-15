@@ -42,6 +42,14 @@ class DataFormat(unittest.TestCase):
             self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
             put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Unknown author', 'l': 'CC0'}})
             self.assertEqual([e for e in check(r)[0] if 'okpark' in e], [])
+    def test_a_stored_place_author_that_needs_cleaning_is_an_error(self):   # an email, a talk stamp, a web address or an uploader sentence is not the stored form (lib/author_clean.py)
+        import validate_data
+        self.assertTrue(validate_data.DIRTY_AUTHOR_IS_ERROR)
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Beeblebrox (talk) 06:06, 13 January 2009 (UTC)', 'l': 'CC BY 4.0'}}); put(r, 'photos/places/okpark.jpg', b'x')
+            errs, warns = check(r); self.assertTrue([e for e in errs if 'need cleaning' in e and 'okpark' in e]); self.assertEqual([w for w in warns if 'need cleaning' in w], [])
+            put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Beeblebrox', 'l': 'CC BY 4.0'}})
+            self.assertEqual([e for e in check(r)[0] if 'need cleaning' in e], [])
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})
