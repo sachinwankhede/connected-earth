@@ -767,6 +767,22 @@
 "width": 330,
 "wiki": "Toltec Mounds Archeological State Park"
 },
+"arvillagecreek": {
+"a": "Thomas R Machnitzki",
+"checkedAt": "2026-11-15T10:22:34.731593+00:00",
+"f": "arvillagecreek.jpg",
+"fetchedAt": "2026-11-15T10:22:34.731593+00:00",
+"height": 247,
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Village_Creek_State_Park_Wynne_AR_07.jpg",
+"reviewStatus": "approved",
+"sha256": "8d215aa929184b0da03b7338926db0131c3742b646cb6b09428218ae993779cf",
+"w": "https://en.wikipedia.org/wiki/Village_Creek_State_Park_%28Arkansas%29",
+"width": 330,
+"wiki": "Village Creek State Park (Arkansas)"
+},
 "arwithrowsprings": {
 "a": "Brandonrush",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -1726,6 +1742,22 @@
 "w": "https://en.wikipedia.org/wiki/Navajo_State_Park",
 "width": 330,
 "wiki": "Navajo State Park"
+},
+"congo": {
+"a": "Unknown author",
+"checkedAt": "2026-11-15T10:25:11.030904+00:00",
+"f": "congo.jpg",
+"fetchedAt": "2026-11-15T10:25:11.030904+00:00",
+"height": 212,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:105_Sur_le_Congo._-_La_factorerie_de_Mussuk.jpg",
+"reviewStatus": "legacy",
+"sha256": "f85a2f1aa708577811ac4d2415dcb32d8b5322145c0fced6972dc37c9bc9411a",
+"w": "https://en.wikipedia.org/wiki/Congo_Basin",
+"width": 330,
+"wiki": "Congo Basin"
 },
 "copaonia": {
 "a": "Jeffrey Beall",
@@ -3087,6 +3119,22 @@
 "width": 330,
 "wiki": "Lake Michigan"
 },
+"gulf": {
+"a": "Earth Science and Remote Sensing Unit, Lyndon B. Johnson Space Center",
+"checkedAt": "2026-11-15T10:24:00.722961+00:00",
+"f": "gulf.jpg",
+"fetchedAt": "2026-11-15T10:24:00.722961+00:00",
+"height": 225,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:ISS006-E-49139_-_View_of_the_Gulf_of_Mexico.jpg",
+"reviewStatus": "approved",
+"sha256": "5f19fc5a06e59a56c695e31802f7b89ff30ee22bf52fdf9f4fcebd474ea5b27a",
+"w": "https://en.wikipedia.org/wiki/Gulf_of_Mexico",
+"width": 330,
+"wiki": "Gulf of Mexico"
+},
 "hiakakafalls": {
 "a": "Dllu",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -3758,6 +3806,22 @@
 "w": "https://en.wikipedia.org/wiki/Farragut_State_Park",
 "width": 330,
 "wiki": "Farragut State Park"
+},
+"idharriman": {
+"a": "Samoht27",
+"checkedAt": "2026-11-15T10:22:42.764188+00:00",
+"f": "idharriman.jpg",
+"fetchedAt": "2026-11-15T10:22:42.764188+00:00",
+"height": 186,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:HarrimanIdahoStatePark.jpg",
+"reviewStatus": "approved",
+"sha256": "dfa623b94e44fbed8e11a9e3d3bb84ca87b2f0b7ed9284856df0242c9d0d68b9",
+"w": "https://en.wikipedia.org/wiki/Harriman_State_Park_%28Idaho%29",
+"width": 330,
+"wiki": "Harriman State Park (Idaho)"
 },
 "idhellsgate": {
 "a": "Vichogue",
@@ -4510,6 +4574,22 @@
 "w": "https://en.wikipedia.org/wiki/Versailles_State_Park",
 "width": 330,
 "wiki": "Versailles State Park"
+},
+"kelp": {
+"a": "Kip Evans",
+"checkedAt": "2026-11-15T10:23:20.712028+00:00",
+"f": "kelp.jpg",
+"fetchedAt": "2026-11-15T10:23:20.712028+00:00",
+"height": 313,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Kelp_forest.jpg",
+"reviewStatus": "approved",
+"sha256": "d4baadb9968be5b9e4b1e6861e0e01bdabc2198c99246c335f77285fed221dc1",
+"w": "https://en.wikipedia.org/wiki/Kelp_forest",
+"width": 240,
+"wiki": "Kelp forest"
 },
 "kscedarbluff": {
 "a": "Ngresonance at English Wikipedia",
@@ -8127,6 +8207,22 @@
 "width": 330,
 "wiki": "Lake James State Park"
 },
+"nclakewaccamaw": {
+"a": "ncwetlands.org",
+"checkedAt": "2026-11-15T10:23:24.760940+00:00",
+"f": "nclakewaccamaw.jpg",
+"fetchedAt": "2026-11-15T10:23:24.760940+00:00",
+"height": 220,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Scene_lake_fringe_wetland_Lake_Waccamaw_State_Park_ncwetlands_KG_%2815%29.jpg",
+"reviewStatus": "approved",
+"sha256": "5d723f6abdea4e4b2f0239c233402db494b7b3b4bfb5b3c327f7ef4ed3d0b393",
+"w": "https://en.wikipedia.org/wiki/Lake_Waccamaw_State_Park",
+"width": 330,
+"wiki": "Lake Waccamaw State Park"
+},
 "nclumberriver": {
 "a": "Dincher",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -8606,6 +8702,22 @@
 "w": "https://en.wikipedia.org/wiki/Greenfield_State_Park",
 "width": 330,
 "wiki": "Greenfield State Park"
+},
+"nhhamptonbeach": {
+"a": "Decumanus",
+"checkedAt": "2026-11-15T10:23:30.727721+00:00",
+"f": "nhhamptonbeach.jpg",
+"fetchedAt": "2026-11-15T10:23:30.727721+00:00",
+"height": 210,
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0/",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Hampton_Beach%2C_New_Hampshire_2004.jpg",
+"reviewStatus": "approved",
+"sha256": "3a9578619177b2940819a77eafed8fbb0a0ef4d3fd0896afb53f5ac79b3ffc6d",
+"w": "https://en.wikipedia.org/wiki/Hampton_Beach_State_Park",
+"width": 330,
+"wiki": "Hampton Beach State Park"
 },
 "nhjerichomountain": {
 "a": "TimothyLev at English Wikipedia",
@@ -10543,6 +10655,22 @@
 "width": 330,
 "wiki": "Green Lakes State Park"
 },
+"nyharriman": {
+"a": "EddieWexler",
+"checkedAt": "2026-11-15T10:22:54.733638+00:00",
+"f": "nyharriman.jpg",
+"fetchedAt": "2026-11-15T10:22:54.733638+00:00",
+"height": 239,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Lake_Nawahunta%2C_Harriman_St._Pk.%2C_October%2C_2026.jpg",
+"reviewStatus": "approved",
+"sha256": "30ef19e6e8e03aec61b955e89e2b8ac786afdac8cef800dab260ca2ae8afc0e2",
+"w": "https://en.wikipedia.org/wiki/Harriman_State_Park_%28New_York%29",
+"width": 330,
+"wiki": "Harriman State Park (New York)"
+},
 "nyheckscher": {
 "a": "Harvey Barrison",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -11023,6 +11151,22 @@
 "width": 330,
 "wiki": "Wolf Run State Park"
 },
+"okarrowhead": {
+"a": "Corey Taratuta",
+"checkedAt": "2026-11-15T10:23:34.765082+00:00",
+"f": "okarrowhead.jpg",
+"fetchedAt": "2026-11-15T10:23:34.765082+00:00",
+"height": 247,
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Arrowhead_State_Park.jpg",
+"reviewStatus": "approved",
+"sha256": "4bd3349a049552b3f8421f94610b082bb8dca2fbea7b2b934d10ce296ce80200",
+"w": "https://en.wikipedia.org/wiki/Arrowhead_State_Park",
+"width": 330,
+"wiki": "Arrowhead State Park"
+},
 "okboilingstatepark": {
 "a": "Leaflet",
 "checkedAt": "2026-11-12T23:43:17.583101+00:00",
@@ -11199,6 +11343,22 @@
 "width": 330,
 "wiki": "Robbers Cave State Resort Park"
 },
+"ozarks": {
+"a": "Diedrichb",
+"checkedAt": "2026-11-15T10:23:02.724822+00:00",
+"f": "ozarks.jpg",
+"fetchedAt": "2026-11-15T10:23:02.724822+00:00",
+"height": 219,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Commercial_Street_Historic_District%2C_Springfield%2C_Missouri.jpg",
+"reviewStatus": "approved",
+"sha256": "a63ed1142ab1016ffcffd72bc95509811d10fc7527fbd858f4d425e008631ea7",
+"w": "https://en.wikipedia.org/wiki/Ozarks",
+"width": 330,
+"wiki": "Ozarks"
+},
 "pabaldeagle": {
 "a": "U.S. Army Corps of Engineers from USA; cropped by Beyond My Ken (talk) 00:01, 29 January 2015 (UTC)",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -11310,6 +11470,22 @@
 "w": "https://en.wikipedia.org/wiki/Elk_State_Park",
 "width": 330,
 "wiki": "Elk State Park"
+},
+"paevansburg": {
+"a": "Montgomery County (PA) Planning Commision",
+"checkedAt": "2026-11-15T10:25:35.173087+00:00",
+"f": "paevansburg.jpg",
+"fetchedAt": "2026-11-15T10:25:35.173087+00:00",
+"height": 220,
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Evansburg_Park_Skippack_Creek_MCPC.jpg",
+"reviewStatus": "approved",
+"sha256": "e0957ecb1f72fb93b7cc684a6197675c07076942e0ef485a6364000854c10bb5",
+"w": "https://en.wikipedia.org/wiki/Evansburg_State_Park",
+"width": 330,
+"wiki": "Evansburg State Park"
 },
 "pafrenchcreek": {
 "a": "Sdwelch1031",
@@ -12815,6 +12991,22 @@
 "width": 330,
 "wiki": "South Llano River State Park"
 },
+"txvillagecreek": {
+"a": "Larry D. Moore",
+"checkedAt": "2026-11-15T10:23:11.026890+00:00",
+"f": "txvillagecreek.jpg",
+"fetchedAt": "2026-11-15T10:23:11.026890+00:00",
+"height": 186,
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Campsite_Village_Creek_State_Park_Texas_2023.jpg",
+"reviewStatus": "approved",
+"sha256": "aece188115ca39ceb31d8f537cc13a5e813d7e51f17c07158966ee1c7a49491e",
+"w": "https://en.wikipedia.org/wiki/Village_Creek_State_Park_%28Texas%29",
+"width": 330,
+"wiki": "Village Creek State Park (Texas)"
+},
 "usagassiznationalwildlif": {
 "a": "Gary Tischer, U.S. Fish and Wildlife Service",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -13982,6 +14174,22 @@
 "w": "https://en.wikipedia.org/wiki/Gila_National_Forest",
 "width": 330,
 "wiki": "Gila National Forest"
+},
+"usgulfislandsnationalsea": {
+"a": "National Park Service",
+"checkedAt": "2026-11-15T10:23:40.722920+00:00",
+"f": "usgulfislandsnationalsea.jpg",
+"fetchedAt": "2026-11-15T10:23:40.722920+00:00",
+"height": 269,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Gulf_Islands_NS.jpg",
+"reviewStatus": "approved",
+"sha256": "9d0778f21a3a1a5e0de6cbbb82a735ddad7af6956c89aaca53905e74572613b3",
+"w": "https://en.wikipedia.org/wiki/Gulf_Islands_National_Seashore",
+"width": 330,
+"wiki": "Gulf Islands National Seashore"
 },
 "ushagermanfossilbedsnati": {
 "a": "NPS photo",
@@ -15855,6 +16063,22 @@
 "width": 330,
 "wiki": "Hyrum State Park"
 },
+"utjordanelle": {
+"a": "An Errant Knight",
+"checkedAt": "2026-11-15T10:23:44.736672+00:00",
+"f": "utjordanelle.jpg",
+"fetchedAt": "2026-11-15T10:23:44.736672+00:00",
+"height": 247,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:North_across_Jordanelle_Reservoir_from_Jordanelle_State_Park_Overlook%2C_Apr_16.jpg",
+"reviewStatus": "approved",
+"sha256": "4e38ce70772001c74ac71ec89f075c9ace5706e6adfbd58e2cf8204097622e39",
+"w": "https://en.wikipedia.org/wiki/Jordanelle_Reservoir",
+"width": 330,
+"wiki": "Jordanelle State Park"
+},
 "utkodachromebasin": {
 "a": "Photographersnature",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -16078,6 +16302,22 @@
 "w": "https://en.wikipedia.org/wiki/Fairy_Stone_State_Park",
 "width": 330,
 "wiki": "Fairy Stone State Park"
+},
+"vafalsecape": {
+"a": "Lago Mar",
+"checkedAt": "2026-11-15T10:23:48.765723+00:00",
+"f": "vafalsecape.jpg",
+"fetchedAt": "2026-11-15T10:23:48.765723+00:00",
+"height": 247,
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:False_Cape_State_Park_Visitor_Center.jpg",
+"reviewStatus": "approved",
+"sha256": "53939b6f84a6c7ab95a990dd35cd532045d3d567669764ec930661ba646de46e",
+"w": "https://en.wikipedia.org/wiki/False_Cape_State_Park",
+"width": 330,
+"wiki": "False Cape State Park"
 },
 "vafirstlanding": {
 "a": "Virginia State Parks staff",
@@ -16415,6 +16655,22 @@
 "width": 330,
 "wiki": "Camels Hump State Park"
 },
+"vtelmore": {
+"a": "Connie from Cambridge, MA, USA",
+"checkedAt": "2026-11-15T10:25:51.539240+00:00",
+"f": "vtelmore.jpg",
+"fetchedAt": "2026-11-15T10:25:51.539240+00:00",
+"height": 440,
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Elmore_State_Park_%284287397771%29.jpg",
+"reviewStatus": "approved",
+"sha256": "c6d6feec9d06a45ef7123f7ebf75729d5405083f1fd33529d034a8256c16332b",
+"w": "https://en.wikipedia.org/wiki/Elmore_State_Park",
+"width": 330,
+"wiki": "Elmore State Park"
+},
 "vtemeraldlake": {
 "a": "Artaxerxes",
 "checkedAt": "2026-11-12T22:23:49.293522+00:00",
@@ -16542,6 +16798,22 @@
 "w": "https://en.wikipedia.org/wiki/Beacon_Rock",
 "width": 330,
 "wiki": "Beacon Rock"
+},
+"wablakeisland": {
+"a": "Joe Mabel",
+"checkedAt": "2026-11-15T10:25:59.634403+00:00",
+"f": "wablakeisland.jpg",
+"fetchedAt": "2026-11-15T10:25:59.634403+00:00",
+"height": 220,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_Seattle_from_the_First_Ave_S_Bridge_toward_Blake_Island.jpg",
+"reviewStatus": "approved",
+"sha256": "c381cf8e883e495408c48dfd883c3615b6d4ab2d86e2de137511ee1bf947e214",
+"w": "https://en.wikipedia.org/wiki/Blake_Island",
+"width": 330,
+"wiki": "Blake Island"
 },
 "wabrooksmemorial": {
 "a": "ECTran71",
@@ -16831,6 +17103,22 @@
 "width": 330,
 "wiki": "Golden Mountains of Altai"
 },
+"wharguin": {
+"a": "Kokopelado",
+"checkedAt": "2026-11-15T10:26:11.625160+00:00",
+"f": "wharguin.jpg",
+"fetchedAt": "2026-11-15T10:26:11.625160+00:00",
+"height": 47,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Banc_d%27Arguin_National_Park_banner.jpg",
+"reviewStatus": "approved",
+"sha256": "6546d33cca8fc5abd3f2b932cc47ac0b7310b58e746626049dbdabca68567f19",
+"w": "https://en.wikipedia.org/wiki/Banc_d%27Arguin_National_Park",
+"width": 330,
+"wiki": "Banc d'Arguin National Park"
+},
 "whatlantic": {
 "a": "Maury Santos",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -16910,6 +17198,22 @@
 "w": "https://en.wikipedia.org/wiki/Bia%C5%82owie%C5%BCa_Forest",
 "width": 330,
 "wiki": "Białowieża Forest"
+},
+"whbwindi": {
+"a": "Thomas Fuhrmann",
+"checkedAt": "2026-11-15T10:26:21.653844+00:00",
+"f": "whbwindi.jpg",
+"fetchedAt": "2026-11-15T10:26:21.653844+00:00",
+"height": 220,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Bwindi_Impenetrable_National_Park_10.jpg",
+"reviewStatus": "approved",
+"sha256": "766395b8007d4a969f5174bd3232fc115cacfb94386a9066147dede4834a2a88",
+"w": "https://en.wikipedia.org/wiki/Bwindi_Impenetrable_National_Park",
+"width": 330,
+"wiki": "Bwindi Impenetrable National Park"
 },
 "whcalakmul": {
 "a": "Beatriz Moisset",
@@ -18031,6 +18335,22 @@
 "width": 330,
 "wiki": "Lake Titicaca"
 },
+"whtongariro": {
+"a": "Pavel Špindler",
+"checkedAt": "2026-11-15T10:24:35.064223+00:00",
+"f": "whtongariro.jpg",
+"fetchedAt": "2026-11-15T10:24:35.064223+00:00",
+"height": 253,
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Lower_Tama_Lake_-_Tongariro_N.P._-_panoramio.jpg",
+"reviewStatus": "approved",
+"sha256": "66ece69555b475ed28384e89e90303fa6930792ef10a271d4430d32609fca0af",
+"w": "https://en.wikipedia.org/wiki/Tongariro_National_Park",
+"width": 330,
+"wiki": "Tongariro National Park"
+},
 "whtorres": {
 "a": "Karen Chan 16 y Miguel.v ( local | logs | global ) (originales), y Jorge Morales Piderit (montaje).",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -18943,6 +19263,22 @@
 "width": 330,
 "wiki": "Curt Gowdy State Park"
 },
+"wyfortbridger": {
+"a": "gillfoto",
+"checkedAt": "2026-11-15T10:24:43.627142+00:00",
+"f": "wyfortbridger.jpg",
+"fetchedAt": "2026-11-15T10:24:43.627142+00:00",
+"height": 440,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Fort_Bridger_SP_4160.jpg",
+"reviewStatus": "approved",
+"sha256": "c03d23c0b27f8eb7153c61a21fac9c58600c09bd8aa0ea9e8163ddaf77ee72f0",
+"w": "https://en.wikipedia.org/wiki/Fort_Bridger",
+"width": 330,
+"wiki": "Fort Bridger"
+},
 "wyfortphilkearny": {
 "a": "Gcoudert at English Wikipedia",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -19022,6 +19358,22 @@
 "w": "https://en.wikipedia.org/wiki/Hot_Springs_State_Park",
 "width": 330,
 "wiki": "Hot Springs State Park"
+},
+"wyindependencerock": {
+"a": "Paul Hermans",
+"checkedAt": "2026-11-15T10:24:51.013688+00:00",
+"f": "wyindependencerock.jpg",
+"fetchedAt": "2026-11-15T10:24:51.013688+00:00",
+"height": 130,
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Independence_Rock_14-9-2014_12-24-22.JPG",
+"reviewStatus": "approved",
+"sha256": "77ec0d4bf07152879db3c05479155d2213c7444f61e68d6f5491cbc0d3786061",
+"w": "https://en.wikipedia.org/wiki/Independence_Rock",
+"width": 330,
+"wiki": "Independence Rock"
 },
 "wykeyholereservoir": {
 "a": "Tony Webster",
@@ -19358,6 +19710,22 @@
 "w": "https://en.wikipedia.org/wiki/%C5%A0umava_National_Park",
 "width": 330,
 "wiki": "Šumava National Park"
+},
+"xdjibouti": {
+"a": "Jbcombes",
+"checkedAt": "2026-11-15T10:26:39.678416+00:00",
+"f": "xdjibouti.jpg",
+"fetchedAt": "2026-11-15T10:26:39.678416+00:00",
+"height": 211,
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Abbe-3.jpg",
+"reviewStatus": "approved",
+"sha256": "e741c7ad6c266df76992d83f7ac6515b8c2e53027077fbdd25e2174beea34b6e",
+"w": "https://en.wikipedia.org/wiki/Lake_Abbe",
+"width": 330,
+"wiki": "Lake Abbe"
 },
 "xdomrep": {
 "a": "Anton Bielousov",
