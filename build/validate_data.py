@@ -124,13 +124,13 @@ def check(root):
                     errs.append('outline %s: ring %d has a point outside lon -180..180 / lat -90..90' % (f, n))
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # species pictures (#934): keyed by species id, checked by their one writer (lib/species_photos.py); a missing list is an empty one
     import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check(); errs += species_sid_errors(spw, {r.get('sid') for r in sp.values()})
-    dirty_sp = spw.dirty_authors()   # a warning until the cleanauthors job has run over the stored rows
-    if dirty_sp: warns.append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
+    dirty_sp = spw.dirty_authors()   # an error since the cleanauthors job cleaned the stored rows (15 Nov, #964), as for places
+    if dirty_sp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
     import journey_pics   # journey cover pictures (#945): by journey id, checked by their one writer once photos/journey_pictures.json exists (nothing to check before)
     errs += journey_pics.check(root)
     if journey_pics.new_shape(root):
         import journey_photos; dirty_jp = journey_photos.JourneyPhotos(root).dirty_authors()
-        if dirty_jp: warns.append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
+        if dirty_jp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
     import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)

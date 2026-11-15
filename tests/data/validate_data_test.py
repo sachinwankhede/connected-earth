@@ -41,14 +41,14 @@ class DataFormat(unittest.TestCase):
             text = ' | '.join(check(r)[0])
             self.assertIn('a-b: has a picture and is also in species_missing.json', text)
             for sid, f in (('zz', 'species_pictures.json'), ('yy', 'species_missing.json'), ('xx', 'species_tried.json')): self.assertIn("photos/%s: '%s' is not a species row" % (f, sid), text)
-    def test_a_species_cc_by_picture_with_no_author_fails_and_a_dirty_author_only_warns(self):
+    def test_a_species_cc_by_picture_with_no_author_fails_and_so_does_a_dirty_author(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {}); put(r, 'photos/species/f.webp', b'x')
             for lic in ('CC BY 4.0', 'CC BY-SA 3.0'):
                 put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': lic, 'wiki': 'A b'}}); self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
             put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': 'CC0', 'wiki': 'A b'}}); self.assertEqual(check(r), ([], []))
             put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Beeblebrox (talk) 06:06, 13 January 2009 (UTC)', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
-            errs, warns = check(r); self.assertEqual(errs, []); self.assertTrue([w for w in warns if 'species_pictures.json' in w and 'need cleaning' in w])
+            errs, warns = check(r); self.assertTrue([e for e in errs if 'species_pictures.json' in e and 'need cleaning' in e]); self.assertEqual([w for w in warns if 'need cleaning' in w], [])   # an error since the 15 Nov cleanauthors data (#964)
     def test_a_stray_non_webp_file_in_a_species_folder_is_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {}); put(r, 'photos/species/x.jpg', b'x')
