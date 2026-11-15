@@ -61,6 +61,10 @@ class DataFormat(unittest.TestCase):
             self.assertEqual([e for e in check(r)[0] if 'large' in e], []); self.assertTrue([e for e in check(r)[0] if 'stray.webp' in e])
             put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': '', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
             self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Someone', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
+            put(r, 'photos/species_missing.json', {'c-d': {'status': 'nophoto', 'checkedAt': '2026-11-15T12:00:00+00:00', 'expiresAt': '2027-05-14T12:00:00+00:00', 'attempts': 1}})   # a miss by species id is a record, not a word
+            self.assertEqual([e for e in check(r)[0] if 'species_missing' in e], [])
+            put(r, 'photos/species_missing.json', {'c-d': 'nophoto'}); self.assertTrue([e for e in check(r)[0] if 'species_missing' in e])
     def test_journey_pictures_by_journey_id_are_checked_by_their_writer_and_absent_files_change_nothing(self):   # phase 2 of the journey pictures (#945)
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
