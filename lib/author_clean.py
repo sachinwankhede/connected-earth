@@ -10,7 +10,7 @@ import html, re
 
 UNKNOWN = {'', 'unknown', 'unknown author', 'anonymous', 'author unknown', 'n/a', '?', 'see file page'}
 _EMAIL = re.compile(r'<?[\w.+-]+@[\w-]+(?:\.[\w-]+)+>?')
-_URL = re.compile(r'(?:https?://|www\.)\S+')
+_URL = re.compile(r'(?:https?://|www\.)[^\s)\]>]+')   # stops before a closing bracket, so "(https://x.org)" leaves the pair to be removed whole
 
 def _squash(s): return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s or ''))).strip()
 
@@ -27,7 +27,11 @@ def clean_author(a):
     s = re.split(r'\s*\(talk\)', s, maxsplit=1, flags=re.I)[0]
     s = re.split(r'Camera location', s, maxsplit=1)[0]
     s = _EMAIL.sub('', s); s = _URL.sub('', s)
+    s = re.sub(r'\(\s*\)|\[\s*\]', '', s)   # the brackets a web address or email was inside
     s = re.sub(r'\s+', ' ', s).strip(' -–—:;,|/')
+    s = re.sub(r'\s+[.(\[]+$', '', s).strip(' -–—:;,|/')   # a full stop or opening bracket left on its own at the end
+    while s.count('(') > s.count(')'): s = s[:s.rfind('(')].rstrip(' -–—:;,|/')   # an opened bracket the cut text never closed: drop it and what follows
+    while s.count(')') > s.count('(') and s.endswith(')'): s = s[:-1].rstrip(' -–—:;,|/')   # a closing bracket whose opening one was cut
     return '' if is_unknown(s) else s
 
 def is_dirty(a):

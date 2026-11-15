@@ -7,6 +7,13 @@ class CleanTests(unittest.TestCase):
     def test_names_and_handles_are_unchanged(self):
         for a in ('Diego Delso', 'Geoff0522', '1brownsfan', 'Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC', 'Michael from Minnesota (@Michael)'):
             self.assertEqual(c(a), a); self.assertFalse(is_dirty(a))
+    def test_a_web_address_in_brackets_leaves_no_dangling_bracket(self):   # the 15 Nov cleanauthors run wrote "JJ Harrison (" and "David Gubler ("
+        self.assertEqual(c('JJ Harrison (https://www.jjharrison.com.au/)'), 'JJ Harrison')
+        self.assertEqual(c('Kabelleger / David Gubler (http://www.bahnbilder.ch).'), 'Kabelleger / David Gubler')
+        self.assertEqual(c('Jane Doe [www.example.org]'), 'Jane Doe'); self.assertEqual(c('Jane Doe (jane@example.org)'), 'Jane Doe')
+        self.assertEqual(c('Michael from Minnesota (@Michael)'), 'Michael from Minnesota (@Michael)')   # a real bracket stays
+        self.assertEqual(c('Sasata (edited by Noodle snacks'), 'Sasata'); self.assertEqual(c('Aviceda at English Wikipedia\n\n(Original text: Tom (talk))'), 'Aviceda at English Wikipedia')
+        self.assertEqual(c("Noodle snacks (https://www.jjharrison.com.au/)Bennett's Wallaby)"), "Noodle snacks Bennett's Wallaby")
     def test_email_is_no_author(self):
         self.assertEqual(c('toddander@gmail.com'), ''); self.assertFalse(is_unknown('toddander@gmail.com'))
         self.assertEqual(c('Jane Doe <jane@example.org>'), 'Jane Doe'); self.assertEqual(c('mailto me: jane@example.org'), 'mailto me')
