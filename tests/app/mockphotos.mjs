@@ -11,7 +11,9 @@ function source(fixture) {
   if (sources[k]) return sources[k];
   const root = fixture ? FDATA : new URL('../..', import.meta.url).pathname.replace(/\/$/, '');
   const places = readPlaces(true, root), journeyLinks = loadJourneys(root);
-  const speciesManifest = JSON.parse(fs.readFileSync(root + '/photos/species.json', 'utf8'));
+  // the species picture manifest {title: [path, page]}: the old photos/species.json, or the same from the rows of photos/species_pictures.json after the species pictures moved to species ids (#934)
+  const speciesManifest = fs.existsSync(root + '/photos/species.json') ? JSON.parse(fs.readFileSync(root + '/photos/species.json', 'utf8'))
+    : Object.fromEntries(Object.values(JSON.parse(fs.readFileSync(root + '/photos/species_pictures.json', 'utf8'))).filter((r) => r.wiki).map((r) => [r.wiki, [r.u || '', r.page || r.wiki]]));
   let placeManifest = JSON.parse(fs.readFileSync(root + '/photos/places/places.json', 'utf8'));
   // the fixture holds only a few place pictures; every fixture place with a picture title gets an entry shaped like them, so which places lose theirs under thinPlaces (by the title's hash) does not depend on how many pictures the fixture kept
   if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.imgwiki, placeManifest[e.imgwiki] || tpl])); }
