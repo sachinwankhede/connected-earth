@@ -22,6 +22,7 @@ URL = api.URL
 MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = api.GAP; MAX_WAIT = api.MAX_WAIT; RESEARCH_CHARS = 30000
 PROMPT_VERSION = 'stories-2'
 STORY_WORDS = 60; WHY_WORDS = 40
+STORY_CHARS = (120, 620); WHY_CHARS = (80, 520)   # the place check in build/validate.py refuses anything outside these, so a draft outside them can never go in a batch (#779, 14 Nov)
 SYSTEM = ('You write two short texts about a protected natural place for a children-friendly nature atlas. Use ONLY facts stated in the SOURCE TEXT: no outside knowledge, no guesses. '
           'Every number, name, date and place name you write must appear in the source text. If the source does not support a fact, leave it out. Plain sentences, no marketing words, no lists, no bold. Never write latitude or longitude coordinates; say the region or country instead, and open with what makes the place special.\n'
           '"story": 2 to 3 sentences, at most %d words: where the place is, how big or how old, and what lives or is special there.\n'
@@ -48,6 +49,8 @@ def check(draft, source):
     if not st or not wy: return 'story or matters is empty'
     if words(st) > STORY_WORDS: return 'story has %d words (limit %d)' % (words(st), STORY_WORDS)
     if words(wy) > WHY_WORDS: return 'matters has %d words (limit %d)' % (words(wy), WHY_WORDS)
+    if not STORY_CHARS[0] <= len(st) <= STORY_CHARS[1]: return 'story has %d characters (the place check needs %d to %d)' % ((len(st),) + STORY_CHARS)
+    if not WHY_CHARS[0] <= len(wy) <= WHY_CHARS[1]: return 'matters has %d characters (the place check needs %d to %d)' % ((len(wy),) + WHY_CHARS)
     src_nums = numbers(source); bad = sorted(n for n in numbers(st + ' ' + wy) if n not in src_nums)
     if bad: return 'numbers not in the research text: ' + ', '.join(bad)
     low = source.lower(); miss = sorted(w for w in capwords(st + ' ' + wy) if w.lower() not in low)
