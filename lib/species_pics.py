@@ -26,22 +26,50 @@ def rows(root='.'):
 def new_shape(root='.'): return os.path.exists(os.path.join(root, 'photos', 'species_pictures.json'))
 
 
-def load(root='.'):
-    """{'pics': {sid: row}, 'medium': {sid: file}, 'large': {sid: file}, 'missing': {sid: entry}, 'shape': 'sid'|'title'}. A row is the credit row ({a, l, lu, p, ...}) plus
-    `f` (the 96 px file name), `wiki` (the Wikipedia title) and `u` (the source path the larger copies are made from; absent in the new shape until a job stores it)."""
+def load(root='.', titles=None):
+    """{'pics': {sid: row}, 'medium': {sid: file}, 'large': {sid: file}, 'missing': {sid: entry}, 'titles': {title: row}, 'title_large': {title: file}, 'shape': 'sid'|'title'}. `titles` (old shape only) is {sid: [titles a species is shown under on the places, e.g. from
+    the nodes' wiki and canonicalWiki]}: the old build looked a species' picture up under those, its Latin name first, so a species' row is the first of them that has a picture. The `titles` and
+    `title_large` results are the same pictures by Wikipedia title, for the journeys, which still name a picture by title (every hosted title in the old shape). A row is the credit row ({a, l, lu, p, ...}) plus
+    `f` (the 96 px file name), `wiki` (the title the picture was found under), `page` (the Wikipedia page the species page links to) and `u` (the source path the larger copies
+    are made from; a job that stores a picture in the new shape sets both)."""
     if new_shape(root):
-        return {'pics': _read(root, 'photos', 'species_pictures.json'), 'medium': _read(root, 'photos', 'species_medium.json') or {},
+        d = {'pics': _read(root, 'photos', 'species_pictures.json'), 'medium': _read(root, 'photos', 'species_medium.json') or {},
                 'large': _read(root, 'photos', 'species_large.json') or {}, 'missing': _read(root, 'photos', 'species_missing.json') or {}, 'shape': 'sid'}
+        d['titles'] = by_title(d['pics']); d['title_large'] = {}
+        for sid in sorted(d['pics']):
+            if d['large'].get(sid) == d['pics'][sid]['f']: d['title_large'].setdefault(d['pics'][sid].get('wiki'), d['pics'][sid]['f'])
+        return d
     man = _read(root, 'photos', 'species.json') or {}; hosted = _read(root, 'photos', 'species_hosted.json') or {}; meta = _read(root, 'photos', 'species_metadata.json') or {}
     med = _read(root, 'photos', 'species_medium.json') or {}; lg = _read(root, 'photos', 'species_large.json') or {}; miss = _read(root, 'photos', 'species_missing.json') or {}
     out = {'pics': {}, 'medium': {}, 'large': {}, 'missing': {}, 'shape': 'title'}
+    out['titles'] = {t: dict(meta.get(t) or {}, f=hosted[t], wiki=t, **({'u': man[t][0], 'page': man[t][1]} if t in man else {})) for t in sorted(hosted)}
+    out['title_large'] = {t: lg[t] for t in sorted(hosted) if lg.get(t) == hosted[t]}
     for r in rows(root):
-        t = r['wiki']
+        # the title the old build looked a species' picture up under: its Latin name first, then the titles of its place nodes, then its row title (#934: 'Canis lupus' and 'Gray wolf' can carry different pictures)
+        cands = sorted(set((titles or {}).get(r['sid'], ())), key=lambda x: (x != r['latin'], x)) or [r['latin'], r['wiki']]
+        cands = list(dict.fromkeys(cands + [r['latin'], r['wiki']]))
+        t = next((x for x in cands if x in hosted), None) or next((x for x in cands if x in miss), r['wiki'])
         if t in hosted:
             e = dict(meta.get(t) or {}); e['f'] = hosted[t]; e['wiki'] = t
-            if t in man: e['u'] = man[t][0]
+            if t in man: e['u'] = man[t][0]; e['page'] = man[t][1]
             out['pics'][r['sid']] = e
             if t in med: out['medium'][r['sid']] = med[t]
             if t in lg: out['large'][r['sid']] = lg[t]
         elif t in miss: out['missing'][r['sid']] = miss[t]
     return out
+
+
+CREDIT = ('a', 'l', 'lu', 'p')   # the credit fields of a row; everything else (f, wiki, page, u) is bookkeeping
+
+
+def credit(row):
+    """The credit of a picture as the app and the species file carry it: the credit fields the row has."""
+    return {k: row[k] for k in row if k not in ('f', 'wiki', 'page', 'u')}
+
+
+def by_title(pics):
+    """{title: row} from the by-sid rows, for the code that still looks a picture up by Wikipedia title (the journeys' covers and ends). A title shared by several species gives the row of the first sid in
+    order; a consumer that knows the species uses its own sid instead."""
+    out = {}
+    for sid in sorted(pics): out.setdefault(pics[sid].get('wiki'), pics[sid])
+    out.pop(None, None); return out
