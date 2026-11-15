@@ -8,7 +8,7 @@ diff is the review: merging is the approval) and the body is written to --body: 
 (`docs/PROMOTION.md`): ten evenly spaced stories to read against their research text. Exit 3 and no change when nothing qualifies. Nothing is fetched and no model is called."""
 import os, sys, json, glob, tempfile, shutil
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-import promote_stories
+import promote_stories, gemini_stories
 
 def load(d, sub=''):
     out = {}
@@ -21,16 +21,18 @@ def select(drafts_dir, data_dir, n):
     """-> (chosen drafts in id order, flagged {id: record}, counts). A draft counts as passed only when the judge's pass file exists and its flag file does not."""
     drafts = {i: d for i, d in load(drafts_dir).items() if 'story' in d and 'matters' in d}
     passed, flagged = load(drafts_dir, 'judge'), load(drafts_dir, os.path.join('judge', 'rejected'))
-    rejected = load(drafts_dir, 'rejected'); chosen = []; has_story = missing = 0
+    rejected = load(drafts_dir, 'rejected'); chosen = []; has_story = missing = short = 0
     for pid in sorted(drafts):
         if pid not in passed or pid in flagged: continue
         f = os.path.join(data_dir, pid + '.json')
         if not os.path.exists(f): missing += 1; continue
         with open(f, encoding='utf-8') as h: p = json.load(h)
         if p.get('story') or p.get('matters'): has_story += 1; continue
+        sc, wc = gemini_stories.STORY_CHARS, gemini_stories.WHY_CHARS
+        if not (sc[0] <= len(drafts[pid]['story']) <= sc[1] and wc[0] <= len(drafts[pid]['matters']) <= wc[1]): short += 1; continue   # the place check would refuse it and fail the whole batch (14 Nov: two thin drafts did)
         chosen.append(dict(drafts[pid], judge=passed[pid]))
     unjudged = sorted(i for i in drafts if i not in passed and i not in flagged)
-    return chosen[:n], flagged, dict(drafts=len(drafts), passed=len(passed), flagged=len(flagged), rejected=len(rejected), unjudged=len(unjudged), qualified=len(chosen), has_story=has_story, missing_place=missing)
+    return chosen[:n], flagged, dict(drafts=len(drafts), passed=len(passed), flagged=len(flagged), rejected=len(rejected), unjudged=len(unjudged), qualified=len(chosen), has_story=has_story, missing_place=missing, short=short)
 
 def spot_ids(chosen, k=10):
     """k evenly spaced items (all of them when there are fewer)."""
@@ -42,7 +44,7 @@ def words(s): return len(s.split())
 def body(chosen, flagged, c):
     models = sorted({d.get('model', '') for d in chosen if d.get('model')}); jmodels = sorted({d['judge'].get('model', '') for d in chosen if d['judge'].get('model')})
     L = ['Part of #779 (story pipeline). Merging this pull request is the approval of these stories: the diff is the review.', '',
-         '**%d stories** are in this batch (of %d that qualify). %d drafts so far: %d judge-passed, %d flagged by the judge (not here), %d rejected by the checks, %d not judged yet.' % (len(chosen), c['qualified'], c['drafts'], c['passed'], c['flagged'], c['rejected'], c['unjudged']), '',
+         '**%d stories** are in this batch (of %d that qualify). %d drafts so far: %d judge-passed, %d flagged by the judge (not here), %d rejected by the checks, %d not judged yet.' % (len(chosen), c['qualified'], c['drafts'], c['passed'], c['flagged'], c['rejected'], c['unjudged']) + (' %d judge-passed drafts were left out because they are too short for the place check (story under %d or why under %d characters); they stay on `gemini-stories`.' % (c['short'], gemini_stories.STORY_CHARS[0], gemini_stories.WHY_CHARS[0]) if c.get('short') else ''), '',
          '## Sources and licences',
          'Each story and "why it matters" line was drafted by Gemini (%s) from the place\'s research text on the `research` branch (Wikipedia text, CC BY-SA 4.0, and the other hosts in `lib/allowed_sources.json`), and only from it: the checks refuse a number or a name that is not in that text, a story over 60 words and a why line over 40. A second model (%s) then read each story against the same text and passed it; the ones it flagged are not in this pull request. The judge and the writer share the research text, so an error in the source passes both.' % (', '.join(models) or 'n/a', ', '.join(jmodels) or 'n/a'), '',
          '## In this batch', '', '| place | id | story words | why words | writer | judge |', '|---|---|---|---|---|---|']

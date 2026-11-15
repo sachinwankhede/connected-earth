@@ -6,12 +6,18 @@ import gemini_stories as g
 os.environ['RESEARCH_OFFLINE'] = '1'
 import research as r
 
+def pad(x, n=130):
+    """x followed by plain sentences from the source until it is n characters long, so the length rule does not hide what a test is about."""
+    while len(x) < n: x += ' Elk and Moose live here.'
+    return x
+
+
 SRC = 'Lake Park is in Utah, USA. It covers 7,927 km2 and is 1,500 m high. Elk and Moose live here. Established in 1962.'
 
 
 class CheckTests(unittest.TestCase):
     def test_a_draft_with_only_source_facts_passes(self):
-        self.assertIsNone(g.check({'story': 'Lake Park is in Utah, USA and covers 7,927 km2.', 'matters': 'Elk and Moose live here.'}, SRC))
+        self.assertIsNone(g.check({'story': pad('Lake Park is in Utah, USA and covers 7,927 km2.'), 'matters': pad('Elk and Moose live here.')}, SRC))
 
     def test_word_limits(self):
         self.assertIn('story has', g.check({'story': ' '.join(['word'] * 61), 'matters': 'ok'}, SRC))
@@ -19,13 +25,23 @@ class CheckTests(unittest.TestCase):
         self.assertIsNone(g.check({'story': ' '.join(['the'] * 60), 'matters': ' '.join(['the'] * 40)}, SRC))
 
     def test_a_number_not_in_the_source_is_rejected(self):
-        self.assertIn('1963', g.check({'story': 'It was set up in 1963.', 'matters': 'Elk live here.'}, SRC))
-        self.assertIsNone(g.check({'story': 'It was set up in 1962.', 'matters': 'Elk live here.'}, SRC))
+        self.assertIn('1963', g.check({'story': pad('It was set up in 1963.'), 'matters': pad('Elk live here.')}, SRC))
+        self.assertIsNone(g.check({'story': pad('It was set up in 1962.'), 'matters': pad('Elk live here.')}, SRC))
 
     def test_an_invented_name_is_rejected_but_a_sentence_start_is_not(self):
-        r = g.check({'story': 'It shelters Wolves and Bears.', 'matters': 'Elk live here.'}, SRC)
+        r = g.check({'story': pad('It shelters Wolves and Bears.'), 'matters': pad('Elk live here.')}, SRC)
         self.assertIn('Wolves', r)
-        self.assertIsNone(g.check({'story': 'Utah has it. Moose live here.', 'matters': 'Elk live here.'}, SRC))
+        self.assertIsNone(g.check({'story': pad('Utah has it. Moose live here.'), 'matters': pad('Elk live here.')}, SRC))
+
+    def test_a_draft_outside_the_place_checks_length_range_is_rejected(self):
+        r = g.check({'story': 'Lake Park is in Utah, USA. Elk.', 'matters': pad('Elk live here.')}, SRC); self.assertIn('story has', r); self.assertIn('characters', r)
+        r = g.check({'story': pad('Lake Park is in Utah, USA.'), 'matters': 'Elk live here.'}, SRC); self.assertIn('matters has', r); self.assertIn('characters', r)
+        r = g.check({'story': ' '.join(['abcdefghijklm'] * 50), 'matters': pad('Elk live here.')}, SRC); self.assertIn('story has 699 characters', r)   # few words, too many characters
+
+    def test_the_limits_are_the_ones_the_place_check_uses(self):
+        import re
+        src = open(os.path.join(os.path.dirname(__file__), '..', '..', 'build', 'validate.py')).read()
+        self.assertIn("('story',%d,%d),('matters',%d,%d)" % (g.STORY_CHARS + g.WHY_CHARS), src)
 
     def test_empty_is_rejected(self):
         self.assertIsNotNone(g.check({'story': '', 'matters': 'x'}, SRC))
@@ -97,7 +113,7 @@ class RunTests(unittest.TestCase):
                 mock.patch.object(g, 'todo', lambda r, o, a: todo_real(r, o, a, self.data)):
             g.main()
 
-    def ok(self, s='Lake Park is in Utah, USA.'): return dict(draft={'story': s, 'matters': 'Elk live here.'}, tokens={'promptTokenCount': 5, 'candidatesTokenCount': 3})
+    def ok(self, s='Lake Park is in Utah, USA.'): return dict(draft={'story': pad(s), 'matters': pad('Elk live here.')}, tokens={'promptTokenCount': 5, 'candidatesTokenCount': 3})
 
     def test_a_quota_stop_keeps_the_drafts_and_the_next_run_resumes(self):
         self.run_main([self.ok(), 'QUOTA'])
@@ -294,7 +310,7 @@ class AiTaskRunnerTests(unittest.TestCase):
         with mock.patch.object(g, 'todo', lambda r, o, a: g.todo.__wrapped__(r, o, a, pl) if hasattr(g.todo, '__wrapped__') else [('p1', 'Lake Park', 'Utah', 'park')]):
             its = task.items(d, self.out, False)
         self.assertEqual([i.id for i in its], ['p1']); self.assertIn('SOURCE TEXT:\n' + SRC, its[0].text); self.assertEqual(its[0].source, SRC)
-        self.assertEqual((task.system, task.prompt_version), (g.SYSTEM, g.PROMPT_VERSION)); self.assertIsNone(task.check({'story': 'Lake Park is in Utah, USA.', 'matters': 'Elk live here.'}, SRC))
+        self.assertEqual((task.system, task.prompt_version), (g.SYSTEM, g.PROMPT_VERSION)); self.assertIsNone(task.check({'story': pad('Lake Park is in Utah, USA.'), 'matters': pad('Elk live here.')}, SRC))
 
 
 class JudgeTaskTests(unittest.TestCase):
@@ -345,7 +361,7 @@ class StoryBatchTests(unittest.TestCase):
         self.d = tempfile.mkdtemp(); self.dr = os.path.join(self.d, 'drafts'); self.da = os.path.join(self.d, 'places'); os.makedirs(self.da); os.makedirs(os.path.join(self.dr, 'judge', 'rejected')); os.makedirs(os.path.join(self.dr, 'rejected'))
     def put(self, path, obj): os.makedirs(os.path.dirname(path), exist_ok=True); json.dump(obj, open(path, 'w'))
     def draft(self, pid, judged=None, story_in_place=False, place=True):
-        self.put(os.path.join(self.dr, pid + '.json'), {'id': pid, 'name': pid.upper(), 'story': 'S ' + pid, 'matters': 'M ' + pid, 'model': 'w'})
+        self.put(os.path.join(self.dr, pid + '.json'), {'id': pid, 'name': pid.upper(), 'story': ('S ' + pid + ' ') * 40, 'matters': ('M ' + pid + ' ') * 30, 'model': 'w'})
         if place: self.put(os.path.join(self.da, pid + '.json'), dict({'id': pid, 'name': pid}, **({'story': 'old'} if story_in_place else {})))
         if judged == 'ok': self.put(os.path.join(self.dr, 'judge', pid + '.json'), {'id': pid, 'verdict': 'ok', 'model': 'j'})
         if judged == 'flag': self.put(os.path.join(self.dr, 'judge', 'rejected', pid + '.json'), {'id': pid, 'name': pid.upper(), 'rejected': 'invented date', 'model': 'j'})
@@ -355,6 +371,14 @@ class StoryBatchTests(unittest.TestCase):
         chosen, flagged, c = self.sb.select(self.dr, self.da, 2)
         self.assertEqual([x['id'] for x in chosen], ['a', 'f']); self.assertEqual(list(flagged), ['b'])
         self.assertEqual((c['drafts'], c['passed'], c['flagged'], c['unjudged'], c['qualified'], c['has_story'], c['missing_place']), (7, 5, 1, 1, 3, 1, 1))
+
+    def test_a_judge_passed_draft_the_place_check_would_refuse_is_left_out_and_counted(self):
+        self.draft('a', 'ok'); self.draft('b', 'ok'); self.draft('c', 'ok')
+        self.put(os.path.join(self.dr, 'b.json'), {'id': 'b', 'name': 'B', 'story': 'Too short.', 'matters': ('M b ') * 30, 'model': 'w'})
+        self.put(os.path.join(self.dr, 'c.json'), {'id': 'c', 'name': 'C', 'story': ('S c ') * 40, 'matters': 'Short.', 'model': 'w'})
+        chosen, flagged, c = self.sb.select(self.dr, self.da, 5)
+        self.assertEqual([x['id'] for x in chosen], ['a']); self.assertEqual((c['qualified'], c['short']), (1, 2))
+        self.assertIn('2 judge-passed drafts were left out', self.sb.body(chosen, flagged, c))
 
     def test_a_pass_file_does_not_count_when_a_flag_file_also_exists(self):
         self.draft('a', 'ok'); self.put(os.path.join(self.dr, 'judge', 'rejected', 'a.json'), {'id': 'a', 'rejected': 'x'})
@@ -368,7 +392,7 @@ class StoryBatchTests(unittest.TestCase):
         import io, contextlib
         self.draft('a', 'ok'); self.draft('b', 'flag'); body = os.path.join(self.d, 'body.md')
         with mock.patch.object(sys, 'argv', ['x', self.dr, '--data', self.da, '--n', '5', '--body', body]), contextlib.redirect_stdout(io.StringIO()): self.sb.main()
-        self.assertEqual(json.load(open(os.path.join(self.da, 'a.json')))['story'], 'S a'); self.assertNotIn('story', json.load(open(os.path.join(self.da, 'b.json'))))
+        self.assertEqual(json.load(open(os.path.join(self.da, 'a.json')))['story'], 'S a ' * 40); self.assertNotIn('story', json.load(open(os.path.join(self.da, 'b.json'))))
         b = open(body).read(); self.assertIn('**1 stories**', b); self.assertIn('invented date', b); self.assertIn('Sources and licences', b); self.assertIn('10-item spot check', b); self.assertIn('- [ ] **A**', b); self.assertIn('Part of #779', b)
         with mock.patch.object(sys, 'argv', ['x', self.dr, '--data', self.da]), contextlib.redirect_stdout(io.StringIO()), self.assertRaises(SystemExit) as e: self.sb.main()
         self.assertEqual(e.exception.code, 3)
