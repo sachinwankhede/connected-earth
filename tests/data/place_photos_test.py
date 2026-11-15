@@ -55,6 +55,13 @@ class WriterTests(unittest.TestCase):
         self.assertEqual(self.w.miss_['aa']['expiresAt'], self.w.miss_['bb']['expiresAt']); self.assertEqual(self.w.miss_['aa'], pr.negative_entry('nophoto', 1, t))
         self.w.miss('aa', 'nophoto', 'category', now=t); self.assertEqual(self.w.miss_['aa']['attempts'], 2); self.assertEqual(sorted(self.w.tried['aa']), ['category', 'nearby'])
 
+    def test_note_tried_writes_only_the_ledger(self):
+        self.w.miss('aa', 'nophoto', 'wikipedia'); self.w.commit(); before = self.fresh().miss_['aa']
+        w = self.fresh(); w.note_tried('aa', 'commons'); w.commit(); w = self.fresh()
+        self.assertEqual(w.miss_['aa'], before, 'the missing record is untouched'); self.assertEqual(sorted(w.tried['aa']), ['commons', 'wikipedia'])
+        w.put('aa', row(), b'J')
+        with self.assertRaises(ValueError): w.note_tried('aa', 'nearby')
+
     def test_nothing_is_written_before_commit(self):
         self.w.put('aa', row(), b'J')
         self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/places/aa.jpg'))); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/places/places.json')))

@@ -74,6 +74,12 @@ class PlacePhotos:
         e = pr.negative_entry(status, n, now); self.miss_[pid] = e
         if source: self.tried.setdefault(pid, {})[source] = e['checkedAt'][:10]
 
+    def note_tried(self, pid, source, now=None):
+        """Record in the ledger only that `source` looked for this place's picture and found none: missing.json is not touched (a later source may still try the place).
+        The retry hold of a source is read from this date (jobs/placepictures.py)."""
+        if pid in self.pics: raise ValueError('%r has a stored picture: nothing to note' % pid)
+        self.tried.setdefault(pid, {})[source] = (now or pr._utcnow()).isoformat()[:10]
+
     def _drop_large(self, pid):
         name = self.large.pop(pid, None)
         if name: self._delete.append(self._path(LARGE_DIR, name))
