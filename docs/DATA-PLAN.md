@@ -87,6 +87,9 @@ Owner: "Same treatment with one id, one writer, one acquire job, one author rule
 
 **Owner-merged parts:** workflow changes (`.github/**`). Everything else the agent merges on green `gate`.
 
+## Journey pictures: by journey id (owner, 15 Nov: "Own")
+Today a journey has no picture of its own: its cover is the picture of the title in its `imgwiki` (a species such as "Osprey", or "Saharan Air Layer" for the two flow journeys) and each end shows its place's `imgwiki` picture, all looked up by title (`PHOTOS[title]`, `src/app/journeys.js`). Decision: the same treatment as places and species. A journey cover is its own picture row **keyed by journey id** (own file, credit and licence), found by the same acquire job (a journey strategy there, not a new job), written only through one writer (a `lib/journey_photos.py` modelled on `PlacePhotos`/`SpeciesPhotos`), with the same author rule and one validator. The ends of a journey use the place pictures by place id. The build and the app stop looking journey pictures up by title. Phases: 1 writer and reader (nothing calls it), 2 build/payload/validator read it, 3 migration of the 19 cover pictures (a one-off job, a manual workflow, owner-merged), 4 the acquire strategy, 5 the app reads the cover by journey id. Starts after the species migration (#934) is merged.
+
 ## What this plan does not do
 
 No database or server. No new photo source before the writer exists. No more per-job regular-expression tightening as a substitute for identity checks. No raising of a threshold to turn a check green. No `species.py pack` as a silent rewrite of everything inside unrelated jobs.
