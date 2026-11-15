@@ -77,12 +77,6 @@
 "expiresAt": "2027-04-30T17:59:06.185941+00:00",
 "status": "nophoto"
 },
-"congo": {
-"attempts": 1,
-"checkedAt": "2026-11-01T17:59:08.182488+00:00",
-"expiresAt": "2027-04-30T17:59:08.182488+00:00",
-"status": "notphoto"
-},
 "ctairlinestatepark": {
 "attempts": 1,
 "checkedAt": "2026-11-01T17:59:10.429066+00:00",
@@ -195,12 +189,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-01T17:59:44.395768+00:00",
 "expiresAt": "2027-04-30T17:59:44.395768+00:00",
-"status": "nophoto"
-},
-"gulf": {
-"attempts": 1,
-"checkedAt": "2026-11-15T07:55:14.444918+00:00",
-"expiresAt": "2027-05-14T07:55:14.444918+00:00",
 "status": "nophoto"
 },
 "hiahupuaaokahana": {
@@ -346,12 +334,6 @@
 "checkedAt": "2026-11-01T18:00:52.495184+00:00",
 "expiresAt": "2027-04-30T18:00:52.495184+00:00",
 "status": "nophoto"
-},
-"kelp": {
-"attempts": 1,
-"checkedAt": "2026-11-01T18:00:54.178698+00:00",
-"expiresAt": "2027-04-30T18:00:54.178698+00:00",
-"status": "notcommons"
 },
 "kscheney": {
 "attempts": 1,
@@ -629,6 +611,12 @@
 "expiresAt": "2027-05-02T19:37:02.305837+00:00",
 "status": "nophoto"
 },
+"moozarknationalsce": {
+"attempts": 1,
+"checkedAt": "2026-11-15T10:22:46.697541+00:00",
+"expiresAt": "2027-05-14T10:22:46.697541+00:00",
+"status": "notphoto"
+},
 "mosaintjoe": {
 "attempts": 1,
 "checkedAt": "2026-11-02T21:47:10.158552+00:00",
@@ -719,12 +707,6 @@
 "expiresAt": "2027-05-01T21:50:19.421496+00:00",
 "status": "nophoto"
 },
-"nclakewaccamaw": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.424077+00:00",
-"expiresAt": "2027-05-14T04:09:16.424077+00:00",
-"status": "notfree"
-},
 "ncpilotmountain": {
 "attempts": 1,
 "checkedAt": "2026-11-15T04:09:16.424268+00:00",
@@ -767,11 +749,11 @@
 "expiresAt": "2027-05-01T21:50:29.688328+00:00",
 "status": "nophoto"
 },
-"nhhamptonbeach": {
+"neponca": {
 "attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.423338+00:00",
-"expiresAt": "2027-05-14T04:09:16.423338+00:00",
-"status": "notfree"
+"checkedAt": "2026-11-15T10:22:48.692899+00:00",
+"expiresAt": "2027-05-14T10:22:48.692899+00:00",
+"status": "nophoto"
 },
 "nhmanchesterportsm": {
 "attempts": 1,
@@ -881,12 +863,6 @@
 "expiresAt": "2027-05-02T19:42:31.755848+00:00",
 "status": "nophoto"
 },
-"okarrowhead": {
-"attempts": 1,
-"checkedAt": "2026-11-14T18:14:19.508211+00:00",
-"expiresAt": "2027-05-13T18:14:19.508211+00:00",
-"status": "notphoto"
-},
 "okblackmesastatepa": {
 "attempts": 1,
 "checkedAt": "2026-11-03T19:42:37.981595+00:00",
@@ -982,12 +958,6 @@
 "checkedAt": "2026-11-02T21:56:54.521001+00:00",
 "expiresAt": "2027-05-01T21:56:54.521001+00:00",
 "status": "nophoto"
-},
-"paevansburg": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.422574+00:00",
-"expiresAt": "2027-05-14T04:09:16.422574+00:00",
-"status": "notfree"
 },
 "riburlingame": {
 "attempts": 1,
@@ -1139,12 +1109,6 @@
 "expiresAt": "2027-05-02T19:46:15.382752+00:00",
 "status": "nophoto"
 },
-"usgulfislandsnationalsea": {
-"attempts": 1,
-"checkedAt": "2026-11-15T07:55:14.444972+00:00",
-"expiresAt": "2027-05-14T07:55:14.444972+00:00",
-"status": "nophoto"
-},
 "usjacksoncountywaterfowl": {
 "attempts": 1,
 "checkedAt": "2026-11-03T19:46:17.443076+00:00",
@@ -1181,23 +1145,11 @@
 "expiresAt": "2027-05-02T19:46:45.277237+00:00",
 "status": "nophoto"
 },
-"utjordanelle": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.423709+00:00",
-"expiresAt": "2027-05-14T04:09:16.423709+00:00",
-"status": "notfree"
-},
 "utjordanriverohvmo": {
 "attempts": 1,
 "checkedAt": "2026-11-14T18:14:31.451411+00:00",
 "expiresAt": "2027-05-13T18:14:31.451411+00:00",
 "status": "nophoto"
-},
-"vafalsecape": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.422762+00:00",
-"expiresAt": "2027-05-14T04:09:16.422762+00:00",
-"status": "notfree"
 },
 "vtbomoseen": {
 "attempts": 1,
@@ -1216,12 +1168,6 @@
 "checkedAt": "2026-11-03T19:49:34.385206+00:00",
 "expiresAt": "2027-05-02T19:49:34.385206+00:00",
 "status": "nophoto"
-},
-"vtelmore": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.422385+00:00",
-"expiresAt": "2027-05-14T04:09:16.422385+00:00",
-"status": "notfree"
 },
 "vtgreenriverreserv": {
 "attempts": 1,
@@ -1259,12 +1205,6 @@
 "expiresAt": "2027-05-02T19:49:54.351900+00:00",
 "status": "nophoto"
 },
-"wablakeisland": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.421370+00:00",
-"expiresAt": "2027-05-14T04:09:16.421370+00:00",
-"status": "notfree"
-},
 "wahokorivercowanra": {
 "attempts": 1,
 "checkedAt": "2026-11-14T18:14:41.473866+00:00",
@@ -1282,18 +1222,6 @@
 "checkedAt": "2026-11-04T20:05:28.311424+00:00",
 "expiresAt": "2027-05-03T20:05:28.311424+00:00",
 "status": "nophoto"
-},
-"wharguin": {
-"attempts": 1,
-"checkedAt": "2026-11-04T20:05:34.360250+00:00",
-"expiresAt": "2027-05-03T20:05:34.360250+00:00",
-"status": "notphoto"
-},
-"whbwindi": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.421688+00:00",
-"expiresAt": "2027-05-14T04:09:16.421688+00:00",
-"status": "notfree"
 },
 "whcamargue": {
 "attempts": 1,
@@ -1318,12 +1246,6 @@
 "checkedAt": "2026-11-04T20:05:42.535383+00:00",
 "expiresAt": "2027-05-03T20:05:42.535383+00:00",
 "status": "nophoto"
-},
-"whtongariro": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.424461+00:00",
-"expiresAt": "2027-05-14T04:09:16.424461+00:00",
-"status": "notfree"
 },
 "wichippewamoraine": {
 "attempts": 1,
@@ -1361,23 +1283,11 @@
 "expiresAt": "2027-05-03T20:06:02.806077+00:00",
 "status": "notcommons"
 },
-"wyfortbridger": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.422948+00:00",
-"expiresAt": "2027-05-14T04:09:16.422948+00:00",
-"status": "notfree"
-},
 "wyfortfredsteele": {
 "attempts": 1,
 "checkedAt": "2026-11-04T20:06:07.308953+00:00",
 "expiresAt": "2027-05-03T20:06:07.308953+00:00",
 "status": "nophoto"
-},
-"wyindependencerock": {
-"attempts": 1,
-"checkedAt": "2026-11-15T04:09:16.423522+00:00",
-"expiresAt": "2027-05-14T04:09:16.423522+00:00",
-"status": "notfree"
 },
 "wyseminoereservoir": {
 "attempts": 1,
@@ -1390,12 +1300,6 @@
 "checkedAt": "2026-11-14T18:14:43.523261+00:00",
 "expiresAt": "2027-05-13T18:14:43.523261+00:00",
 "status": "nophoto"
-},
-"xdjibouti": {
-"attempts": 1,
-"checkedAt": "2026-11-04T20:07:38.363194+00:00",
-"expiresAt": "2027-05-03T20:07:38.363194+00:00",
-"status": "notphoto"
 },
 "xhaiti": {
 "attempts": 1,
