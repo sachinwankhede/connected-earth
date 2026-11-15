@@ -41,6 +41,13 @@ class DropTests(unittest.TestCase):
         j = lambda n: json.load(open(os.path.join(self.r, 'photos', n + '.json')))
         self.assertEqual(j('species_hosted'), {'Bad': 'b.webp'}); self.assertEqual(j('species_missing'), {'Good': 'nophoto'})
         self.assertFalse(os.path.exists(os.path.join(self.r, 'photos', 'species', 'a.webp')))
+    def test_the_tile_copy_goes_too(self):   # #898: the 192 px tile copy (species_medium.json, species-md/) was left behind and validate_data failed
+        put(self.r, 'species_metadata', {'Good': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:A.jpg'}, 'Bad': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:B.jpg'}})
+        put(self.r, 'species_hosted', {'Good': 'a.webp', 'Bad': 'b.webp'}); put(self.r, 'species_medium', {'Good': 'a.webp', 'Bad': 'b.webp'})
+        md = os.path.join(self.r, 'photos', 'species-md'); os.makedirs(md)
+        for f in ('a.webp', 'b.webp'): open(os.path.join(md, f), 'w').write('x')
+        D.drop(self.r, False, ['Bad'])
+        self.assertEqual(json.load(open(os.path.join(self.r, 'photos', 'species_medium.json'))), {'Good': 'a.webp'}); self.assertEqual(os.listdir(md), ['a.webp'])
     def test_hold_marks_a_dropped_commons_picture_as_tried(self):   # an unnamed-author picture would be found again at once
         put(self.r, 'species_metadata', {'Good': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:A.jpg'}, 'Bad': {'l': 'CC BY 4.0', 'p': 'https://commons.wikimedia.org/wiki/File:B.jpg'}})
         put(self.r, 'species_hosted', {'Good': 'a.webp', 'Bad': 'b.webp'})
