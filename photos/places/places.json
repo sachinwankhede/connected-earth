@@ -19738,5 +19738,35 @@
 "height": 247,
 "sha256": "8a6bf9ed882fc2d0c72d361b6000ba39f6a34b1578bcba68f50dc9f2ff710499",
 "reviewStatus": "approved"
+},
+"Okmulgee/dripping State Park": {
+"f": "okokmulgeedripping.jpg",
+"a": "Thomas & Dianne Jones",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Kayak_Fishing_at_Okmulgee_Lake_-_Flickr_-_FreeWine.jpg",
+"w": "https://en.wikipedia.org/wiki/Okmulgee/dripping_State_Park",
+"checkedAt": "2026-11-15T01:22:32.752682+00:00",
+"fetchedAt": "2026-11-15T01:22:32.752682+00:00",
+"mt": "image/jpeg",
+"width": 330,
+"height": 413,
+"sha256": "f6ba89d1acc844e7dc69dd8bb0995f4a697c08326c1e9dc332c59fe917966d79",
+"reviewStatus": "approved"
+},
+"Shawnee State Park": {
+"f": "ohshawnee.jpg",
+"a": "Aaron Zhu",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Roosevelt_Lake_at_Shawnee_State_Park_-_panoramio.jpg",
+"w": "https://en.wikipedia.org/wiki/Shawnee_State_Park",
+"checkedAt": "2026-11-15T01:24:00.727861+00:00",
+"fetchedAt": "2026-11-15T01:24:00.727861+00:00",
+"mt": "image/jpeg",
+"width": 330,
+"height": 220,
+"sha256": "d160746408bf669587941adc14f48a496d8c42edb029f9e024987107b1616c67",
+"reviewStatus": "approved"
 }
 }

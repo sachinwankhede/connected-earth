@@ -305,12 +305,6 @@
 "expiresAt": "2027-05-02T19:42:31.755848+00:00",
 "attempts": 1
 },
-"Shawnee State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-03T19:42:35.757997+00:00",
-"expiresAt": "2027-05-02T19:42:35.757997+00:00",
-"attempts": 1
-},
 "Henry Horton": {
 "status": "nophoto",
 "checkedAt": "2026-11-02T21:57:46.533135+00:00",
@@ -1335,12 +1329,6 @@
 "status": "notphoto",
 "checkedAt": "2026-11-14T18:14:19.508211+00:00",
 "expiresAt": "2027-05-13T18:14:19.508211+00:00",
-"attempts": 1
-},
-"Okmulgee/dripping State Park": {
-"status": "nophoto",
-"checkedAt": "2026-11-14T18:14:23.477995+00:00",
-"expiresAt": "2027-05-13T18:14:23.477995+00:00",
 "attempts": 1
 },
 "Western Hills Guest Ranch/sequoya Sp State Resort": {
