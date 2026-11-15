@@ -10,7 +10,7 @@ import html, re
 
 UNKNOWN = {'', 'unknown', 'unknown author', 'anonymous', 'author unknown', 'n/a', '?', 'see file page'}
 _EMAIL = re.compile(r'<?[\w.+-]+@[\w-]+(?:\.[\w-]+)+>?')
-_URL = re.compile(r'(?:https?://|www\.)[^\s)\]>]+')   # stops before a closing bracket, so "(https://x.org)" leaves the pair to be removed whole
+_URL = re.compile(r'(?:https?://|www\.)[^\s)\]>]+')   # stops before a closing bracket, so an address inside brackets leaves the pair to be removed whole
 
 def _squash(s): return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s or ''))).strip()
 
