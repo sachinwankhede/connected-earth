@@ -34,6 +34,18 @@ class LargePhotosTests(unittest.TestCase):
         hosted = {'Osprey': 'a.webp', 'Moose': 'b.webp', 'Brown bear': 'c.webp'}
         self.assertEqual(lp.ranking(ecos, hosted), [('Osprey', 3), ('Brown bear', 1), ('Moose', 1)], 'most places first, then by title; no picture, no entry; resources are not species')
 
+    def test_lists_are_written_as_utf8_like_the_other_writers(self):
+        import json, tempfile
+        d = tempfile.mkdtemp(); old = (lp.LARGE, lp.MEDIUM)
+        lp.LARGE = os.path.join(d, 'l.json'); lp.MEDIUM = os.path.join(d, 'm.json')
+        try:
+            lp.save_lists({'Adélie penguin': 'a.webp'}, {'Açaí palm': 'b.webp'})
+            raw = open(lp.LARGE, encoding='utf-8').read() + open(lp.MEDIUM, encoding='utf-8').read()
+            self.assertIn('Adélie penguin', raw); self.assertIn('Açaí palm', raw); self.assertNotIn('\\u00', raw)
+            self.assertEqual(json.load(open(lp.LARGE, encoding='utf-8')), {'Adélie penguin': 'a.webp'})
+        finally:
+            lp.LARGE, lp.MEDIUM = old
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -17,6 +17,12 @@ def shrink(im, size):
     return buf.getvalue(), im.size
 
 
+def save_lists(large, medium):
+    """Write both lists in the layout the other writers use (real UTF-8, not \\u escapes), so a run that adds nothing leaves the files as they are."""
+    for path, d in ((LARGE, large), (MEDIUM, medium)):
+        json.dump(d, open(path, 'w', encoding='utf-8'), indent=0, sort_keys=True, ensure_ascii=False)
+
+
 def width_path(u, w):
     """Path below hp.BASE of the thumbnail of the manifest picture u at w px wide (Commons serves 330, 500, 960 ... only)."""
     p = hp.thumb_path(u).split('/')
@@ -68,7 +74,7 @@ def main():
             if t not in medium: data_md, size_md = shrink(im, SIZE_MD); open(os.path.join(OUT_MD, hosted[t]), 'wb').write(data_md); medium[t] = hosted[t]; total += len(data_md)
         except Exception: print('bad image for', t, flush=True); continue
         print('%3d %-40s %2d places %3dx%-3d' % (i, t[:40], c, im.size[0], im.size[1]), flush=True)
-        if i % 10 == 0: json.dump(large, open(LARGE, 'w'), indent=0, sort_keys=True); json.dump(medium, open(MEDIUM, 'w'), indent=0, sort_keys=True)
-    json.dump(large, open(LARGE, 'w'), indent=0, sort_keys=True); json.dump(medium, open(MEDIUM, 'w'), indent=0, sort_keys=True)
+        if i % 10 == 0: save_lists(large, medium)
+    if todo: save_lists(large, medium)   # nothing to do: the files are not touched (#903 was a pull request of only re-escaped names)
     print('large copies:', len(large), '; 192 px copies:', len(medium), '; this run', round(total / 1024), 'KB', flush=True)
 if __name__ == '__main__': main()
