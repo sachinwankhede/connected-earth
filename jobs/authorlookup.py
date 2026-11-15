@@ -2,7 +2,7 @@
 """authorlookup.py: a READ-ONLY report on pictures whose author is unknown (#887).
 Usage: authorlookup.py   (run from the repository root; changes nothing, writes only to stdout and the run summary)
 
-A CC BY or CC BY-SA picture needs a named author. Some of ours say "Unknown author" (places) or "Unknown" (species): the writers took the Commons "Artist" field
+A CC BY or CC BY-SA picture needs a named author. Species are keyed by sid once photos/species_pictures.json exists, by Wikipedia title before. Some of ours say "Unknown author" (places) or "Unknown" (species): the writers took the Commons "Artist" field
 and, when it was empty, wrote that text, and nothing refused the picture. This job asks Commons about each such picture and says, for each, whether an author can be
 found and where from, so the owner can see the numbers before deciding to fill them in, remove them or hide them:
   artist       the Commons Artist field now has a real name (the stored credit is out of date)
@@ -12,6 +12,7 @@ found and where from, so the owner can see the numbers before deciding to fill t
 It never proposes an uploader's name unless the credit says own work (an uploader is not always the author). Host: commons.wikimedia.org (already allowed)."""
 import json, os, re, sys, urllib.parse, html
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib')); import wm, author_clean
+import species_pics
 from author_lookup import API, UNKNOWN, strip, unknown, clean, by_licence, file_of, classify, lookup   # the rules live in lib/author_lookup.py (moved unchanged)
 
 
@@ -32,6 +33,14 @@ def candidates(places, species):
 
 
 
+def species_credits(root='.'):
+    """The species credit rows to look at: by sid from photos/species_pictures.json (#934), else the title-keyed photos/species_metadata.json of the old shape."""
+    if species_pics.new_shape(root):
+        from species_photos import SpeciesPhotos
+        return SpeciesPhotos(root).pics
+    p = os.path.join(root, 'photos/species_metadata.json')
+    return json.load(open(p, encoding='utf-8')) if os.path.exists(p) else {}
+
 def report(rows):
     """Markdown: counts by kind and class, then one line per picture."""
     lines = ['| kind | CC BY / BY-SA with unknown author | artist | attribution | own-work | none |', '|---|---|---|---|---|---|']
@@ -45,7 +54,7 @@ def report(rows):
 
 def main():
     load = lambda p: json.load(open(p)) if os.path.exists(p) else {}
-    cands = candidates(load('photos/places/places.json'), load('photos/species_metadata.json'))
+    cands = candidates(load('photos/places/places.json'), species_credits('.'))
     print(len(cands), 'pictures to look up', flush=True)
     rows = []
     for k, c in enumerate(cands, 1):
