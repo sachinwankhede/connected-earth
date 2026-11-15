@@ -29,7 +29,8 @@ on:
       - data-names
       - data-openversephotos
       - data-outlines
-      - data-photos
+      - data-photos-rekey
+      - data-placepictures
       - data-promote
       - data-regen
       - data-research
