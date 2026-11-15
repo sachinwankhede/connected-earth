@@ -14,18 +14,8 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); imp
 import commonsplacephotos as c
 cp = c.cp
 OUT = c.OUT; MAN = c.MAN; MISS = c.MISS; TRIED = 'photos/places_nearby_tried.json'; DATA = c.DATA
-RADIUS = 1500; RETRY_DAYS = 90
-# file names about a building, business, road, town or sign: a photo of a hotel, a highway or the next village near the place is not a photo of the place (whole words only)
-BUILDING = re.compile(r'(?<![a-z])(hotel|motel|casino|resort|church|cathedral|restaurant|cafe|diner|school|hospital|mall|store|shop|supermarket|apartments?|museum|station|airport|office|factory|plant|bank|inn|interstate|route|highway|freeway|boulevard|avenue|road|street|village|temple|capitol|lodge|damage|sign)s?(?![a-z])', re.I)
-GENERIC = set('national state park parks lake lakes river rivers mountain mountains mount forest preserve reserve refuge wildlife monument recreation area '
-              'historic site seashore lakeshore island islands bay beach beaches creek canyon valley falls trail trails the of and de la los las del'.split())
-
-def words(s):
-    """Distinctive lower-case words (4+ letters, ASCII-folded, not generic) of a name or file name."""
-    import unicodedata
-    s = unicodedata.normalize('NFKD', s).encode('ascii', 'ignore').decode().lower()
-    return {w for w in re.findall(r'[a-z]{4,}', s) if w not in GENERIC}
-
+RETRY_DAYS = 90
+from place_sources import RADIUS, BUILDING, GENERIC, words, nearby, match   # the rules moved to lib/place_sources.py (#887); imported back so this job and its tests are unchanged
 def place_info(data_dir):
     """{imgwiki title: (id, name, lat, lon)} of the first place (by id) using each title."""
     out = {}
@@ -34,22 +24,6 @@ def place_info(data_dir):
         e = json.load(open(f)); t = e.get('imgwiki')
         if t and t not in out and 'lat' in e and 'lon' in e: out[t] = (e['id'], e.get('name', t), e['lat'], e['lon'])
     return out
-
-def nearby(lat, lon):
-    """Commons file names (with underscores), nearest first, geotagged within RADIUS metres."""
-    q = ('https://commons.wikimedia.org/w/api.php?action=query&list=geosearch&gsnamespace=6&gslimit=30&format=json&gsradius=%d&gscoord=%s%%7C%s'
-         % (RADIUS, lat, lon))
-    j = wm.get(q) or {}
-    return [(g['title'][5:].replace(' ', '_'), g.get('dist', 0)) for g in (j.get('query') or {}).get('geosearch', [])]
-
-def match(name, title, cands, info):
-    """(pick tuple, distance) for the nearest candidate that passes the same checks as commonsplacephotos.pick and shares a distinctive word with the place name; else None."""
-    want = words(name) | words(title); need = (len(want) + 1) // 2   # at least half of the place's distinctive words must appear in the file name
-    for fn, dist in cands:
-        if len(want & words(fn)) < need or BUILDING.search(fn): continue
-        got = c.pick([fn], info)
-        if got: return got, dist
-    return None
 
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv
