@@ -65,7 +65,7 @@ CREDIT = ('a', 'l', 'lu', 'p')   # the credit fields of a row; everything else (
 
 def credit(row):
     """The credit of a picture as the app and the species file carry it: the credit fields the row has."""
-    return {k: row[k] for k in row if k not in ('f', 'wiki', 'page', 'u')}
+    return {k: row[k] for k in row if k not in ('f', 'wiki', 'page', 'u', 'src')}
 
 
 def by_title(pics):
