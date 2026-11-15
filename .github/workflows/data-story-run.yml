@@ -51,6 +51,7 @@ jobs:
       contents: write
   judge:
     needs: write
+    if: ${{ !failure() && !cancelled() }}   # research is skipped when its input is 0, and a skipped ancestor would skip this job too (#882)
     uses: ./.github/workflows/data-gemini-task.yml
     with:
       task: judge
@@ -60,6 +61,7 @@ jobs:
       contents: write
   batch:
     needs: judge
+    if: ${{ !failure() && !cancelled() }}
     uses: ./.github/workflows/data-story-batch.yml
     with:
       n: ${{ inputs.n }}
