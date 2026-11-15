@@ -6,6 +6,8 @@ import shutil
 import sys
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / 'lib'))
+import species_pics
 DEST = ROOT / 'dist' / 'pages'
 # The species files (descriptions and the 192 px and 400 px pictures) can be published apart from the app (item #692), because a Cloudflare Pages project holds at most 20,000 files.
 # Modes: all (everything in dist/pages, as before; GitHub Pages), app (dist/pages without the species files; the app reads them from SPECIES_BASE), species (only the species files, in dist/pages-species).
@@ -98,16 +100,15 @@ def main(mode='all'):
     copy_file(ROOT / 'photos/places/places.json', 'photos/places/places.json', expected)
     # our own copies of the species pictures: the app reads the 192 px (species-md) and 400 px (species-lg) copies. The 96 px files in photos/species/ stay in the repository
     # (the 192 px step reads them as its fallback) but are not published, which keeps the payload under Cloudflare Pages' 20,000 file limit (#690).
-    hosted = json.loads((ROOT / 'photos/species_hosted.json').read_text()) if (ROOT / 'photos/species_hosted.json').exists() else {}
-    medium = json.loads((ROOT / 'photos/species_medium.json').read_text()) if (ROOT / 'photos/species_medium.json').exists() else {}   # 192 px tile copies (#669)
-    medium_files = set(medium.values())
-    for name in sorted(set(hosted.values())):   # a species without a 192 px copy gets its 96 px file under the same name
+    sp = species_pics.load(str(ROOT)); pics = list(sp['pics'].values()) + list(sp['titles'].values())   # by species id, from either shape; the journeys' pictures are by title (#934)
+    hosted_names = {r['f'] for r in pics}
+    medium_files = set(sp['medium'].values()) | set(sp['title_medium'].values())   # 192 px tile copies (#669)
+    for name in sorted(hosted_names):   # a species without a 192 px copy gets its 96 px file under the same name
         source = ROOT / 'photos/species-md' / name
         if name not in medium_files or not source.is_file():
             source = ROOT / 'photos/species' / name
         copy_file(source, 'photos/species-md/' + name, expected)
-    large = json.loads((ROOT / 'photos/species_large.json').read_text()) if (ROOT / 'photos/species_large.json').exists() else {}   # larger copies of the busiest species (#421)
-    for name in sorted(set(large.values())):
+    for name in sorted(set(sp['large'].values()) | set(sp['title_large'].values())):   # larger copies (#421)
         source = ROOT / 'photos/species-lg' / name
         if not source.is_file():
             raise SystemExit('larger species picture missing: photos/species-lg/' + name)

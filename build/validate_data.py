@@ -110,7 +110,13 @@ def check(root):
                 if len(ring) % 2: errs.append('outline %s: ring %d has an odd number of values (it is [lon, lat, ...])' % (f, n))
                 elif any(not -180 <= ring[i] <= 180 or not -90 <= ring[i + 1] <= 90 for i in range(0, len(ring), 2)):
                     errs.append('outline %s: ring %d has a point outside lon -180..180 / lat -90..90' % (f, n))
-    hosted = load(root, 'photos', 'species_hosted.json')
+    sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib')); import species_pics   # species pictures (#934): after the migration they are keyed by species id and checked by their one writer; the title-keyed checks below stay for the old shape
+    sid_shape = species_pics.new_shape(root)
+    if sid_shape:
+        import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check()
+        dirty_sp = spw.dirty_authors()
+        if dirty_sp: warns.append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
+    hosted = None if sid_shape else load(root, 'photos', 'species_hosted.json')
     if hosted is not None:
         meta = load(root, 'photos', 'species_metadata.json') or {}
         pd = os.path.join(root, 'photos', 'species')
@@ -124,7 +130,7 @@ def check(root):
         if listed is not None:
             skipped = load(root, 'photos', 'species_hosted_skipped.json') or {}
             for t in sorted(set(listed) - set(hosted) - set(skipped)): errs.append('species picture list: %r is neither hosted nor in species_hosted_skipped.json' % t)
-    large = load(root, 'photos', 'species_large.json')   # the larger copies (#421): each is of a hosted picture, has its file, and no file is left unlisted
+    large = None if sid_shape else load(root, 'photos', 'species_large.json')   # the larger copies (#421): each is of a hosted picture, has its file, and no file is left unlisted
     if large is not None:
         ld = os.path.join(root, 'photos', 'species-lg')
         lfiles = set(os.listdir(ld)) if os.path.isdir(ld) else set()
@@ -136,7 +142,7 @@ def check(root):
     import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)
     if dirty: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/places/places.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty), ', '.join(dirty[:5])))
-    medium = load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
+    medium = None if sid_shape else load(root, 'photos', 'species_medium.json')   # the 192 px tile copies (#669): same rules as the larger copies
     if medium is not None:
         md = os.path.join(root, 'photos', 'species-md')
         mfiles = set(os.listdir(md)) if os.path.isdir(md) else set()
