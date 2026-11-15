@@ -178,6 +178,25 @@ class LargeTests(unittest.TestCase):
         self.assertEqual(self.files(), before)
         self.w = self.fresh(); self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'x'), only='large', dry=True); self.assertEqual(self.files(), before)
 
+class StatsTests(unittest.TestCase):
+    def test_stats_block_counts_and_the_file_is_written(self):
+        d = tempfile.mkdtemp(); w = pp.PlacePhotos(d); w.put('aa', dict(row('aa'), wiki='Aa'), jpeg()); w.commit()
+        C = __import__('collections').Counter
+        st = {'wikipedia': C(found=1, miss=3, refused_licence=1, large=1), 'commons': C(found=2, refused=2, miss=1), 'large': C(made=2)}
+        b = pj.stats_block(w, dict(places=10, strategies=st))
+        self.assertIn('10 total, 1 with a picture, 9 still missing, 3 added this run', b)
+        self.assertIn('no author 2, licence not allowed 1, other (nothing usable) 3', b)
+        self.assertIn('wikipedia 1, commons 2', b); self.assertIn('larger copies made: 3', b)
+        self.assertIn('2 with a picture, 8 still missing, 1 added', pj.stats_block(w, dict(places=10, strategies={'wikipedia': C(found=1)}), dry=True))
+        self.assertIn('dry run', pj.stats_block(w, dict(places=0, strategies={}), dry=True))
+        cwd = os.getcwd(); os.chdir(d)
+        try:
+            old = sys.stdout; sys.stdout = io.StringIO()
+            try: pj.main([], root=d)
+            finally: sys.stdout = old
+            self.assertTrue(os.path.exists('placepictures_stats.md'))
+        finally: os.chdir(cwd)
+
 class UnitsTests(unittest.TestCase):
     def test_places_with_a_shared_title_are_skipped(self):
         d = tempfile.mkdtemp()
