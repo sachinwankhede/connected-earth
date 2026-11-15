@@ -15,20 +15,44 @@ class DataFormat(unittest.TestCase):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
             put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
-            put(r, 'photos/species_hosted.json', {'A b': 'f.webp'}); put(r, 'photos/species/f.webp', b'x')
-            put(r, 'photos/species_metadata.json', {'A b': {'a': 'Someone', 'l': 'CC BY 4.0'}})
-            put(r, 'photos/species.json', {'A b': ['f.webp', 'A_b'], 'C d': ['x', 'C_d']}); put(r, 'photos/species_hosted_skipped.json', {'C d': 'not on Commons'})
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Someone', 'l': 'CC BY 4.0', 'wiki': 'A b'}}); put(r, 'photos/species/f.webp', b'x')
             self.assertEqual(check(r), ([], []))
-    def test_larger_pictures_are_checked(self):
+    def test_larger_and_tile_species_copies_are_checked(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
-            put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
-            put(r, 'photos/species_hosted.json', {'A b': 'f.webp'}); put(r, 'photos/species/f.webp', b'x'); put(r, 'photos/species_metadata.json', {'A b': {'a': 'S', 'l': 'CC BY 4.0'}})
-            put(r, 'photos/species_large.json', {'A b': 'f.webp'}); put(r, 'photos/species-lg/f.webp', b'x'); put(r, 'photos/species-lg/orphan.webp', b'x')
-            errs, _ = check(r); text = ' | '.join(errs)
-            self.assertIn('species-lg/orphan.webp is not listed', text); self.assertNotIn('is missing', text)
-            os.remove(os.path.join(r, 'photos/species-lg/f.webp')); errs, _ = check(r)
-            self.assertIn('file f.webp is missing', ' | '.join(errs))
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'S', 'l': 'CC BY 4.0', 'wiki': 'A b'}}); put(r, 'photos/species/f.webp', b'x')
+            put(r, 'photos/species_large.json', {'a-b': 'f.webp'}); put(r, 'photos/species-lg/f.webp', b'x'); put(r, 'photos/species-lg/orphan.webp', b'x')
+            put(r, 'photos/species_medium.json', {'a-b': 'f.webp'}); put(r, 'photos/species-md/f.webp', b'x'); put(r, 'photos/species-md/orphan2.webp', b'x')
+            text = ' | '.join(check(r)[0])
+            self.assertIn('species-lg/orphan.webp is not listed', text); self.assertIn('species-md/orphan2.webp is not listed', text); self.assertNotIn('is missing', text)
+            os.remove(os.path.join(r, 'photos/species-lg/f.webp')); self.assertIn('f.webp is missing', ' | '.join(check(r)[0]))
+    def test_a_species_copy_of_another_file_than_its_picture_is_found(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'S', 'l': 'CC0', 'wiki': 'A b'}}); put(r, 'photos/species/f.webp', b'x')
+            put(r, 'photos/species_medium.json', {'a-b': 'g.webp'}); put(r, 'photos/species-md/g.webp', b'x')
+            self.assertTrue([e for e in check(r)[0] if 'medium copy' in e and 'not the file of its picture' in e])
+    def test_species_with_both_a_picture_and_a_miss_and_unknown_sids_are_found(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            miss = {'status': 'nophoto', 'checkedAt': '2026-11-15T12:00:00+00:00', 'expiresAt': '2027-05-14T12:00:00+00:00', 'attempts': 1}
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'S', 'l': 'CC0', 'wiki': 'A b'}, 'zz': {'f': 'f.webp', 'a': 'S', 'l': 'CC0'}}); put(r, 'photos/species/f.webp', b'x')
+            put(r, 'photos/species_missing.json', {'a-b': miss, 'yy': miss}); put(r, 'photos/species_tried.json', {'xx': {'commons': '2026-11-15'}})
+            text = ' | '.join(check(r)[0])
+            self.assertIn('a-b: has a picture and is also in species_missing.json', text)
+            for sid, f in (('zz', 'species_pictures.json'), ('yy', 'species_missing.json'), ('xx', 'species_tried.json')): self.assertIn("photos/%s: '%s' is not a species row" % (f, sid), text)
+    def test_a_species_cc_by_picture_with_no_author_fails_and_a_dirty_author_only_warns(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {}); put(r, 'photos/species/f.webp', b'x')
+            for lic in ('CC BY 4.0', 'CC BY-SA 3.0'):
+                put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': lic, 'wiki': 'A b'}}); self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': 'CC0', 'wiki': 'A b'}}); self.assertEqual(check(r), ([], []))
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Beeblebrox (talk) 06:06, 13 January 2009 (UTC)', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
+            errs, warns = check(r); self.assertEqual(errs, []); self.assertTrue([w for w in warns if 'species_pictures.json' in w and 'need cleaning' in w])
+    def test_a_stray_non_webp_file_in_a_species_folder_is_found(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {}); put(r, 'photos/species/x.jpg', b'x')
+            self.assertTrue([e for e in check(r)[0] if 'x.jpg is not a .webp' in e])
     def test_larger_place_pictures_are_checked_the_same_way_when_the_list_is_keyed_by_place_id(self):   # the new shape (#887): key = place id, the title in `wiki`
         with tempfile.TemporaryDirectory() as r:
             put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'wiki': 'Park', 'a': 'Someone', 'l': 'CC BY 4.0'}}); put(r, 'photos/places_large.json', {'okpark': 'okpark.webp'}); put(r, 'photos/places-lg/okpark.webp', b'x')
@@ -52,7 +76,7 @@ class DataFormat(unittest.TestCase):
             self.assertEqual([e for e in check(r)[0] if 'need cleaning' in e], [])
     def test_species_pictures_by_species_id_are_checked_by_their_writer(self):   # the new shape (#934): files, rows, copies, authors agree
         with tempfile.TemporaryDirectory() as r:
-            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'data/species/species.json', dict(SP, **{'c d': dict(SP['a b'], latin='C d', sid='c-d', wiki='C d')})); put(r, 'data/places/p.json', {})
             put(r, 'data/journeys/links.json', {'order': ['p'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'p', 'node': 'n'}]}]})
             put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Someone', 'l': 'CC BY 4.0', 'wiki': 'A b'}}); put(r, 'photos/species/f.webp', b'x')
             self.assertEqual(check(r), ([], []))
@@ -82,9 +106,9 @@ class DataFormat(unittest.TestCase):
             put(r, 'data/places/p.json', {})
             put(r, 'data/journeys/links.json', {'order': ['p', 'p', 'gone'], 'cross': [{'id': 'j', 'type': 'species', 'title': 'T', 'text': 'x', 'ends': [{'eco': 'zz'}]}]})
             put(r, 'data/outlines/stray.json', {})
-            put(r, 'photos/species_hosted.json', {'A b': 'missing.webp'}); put(r, 'photos/species/orphan.webp', b'x'); put(r, 'photos/species.json', {'A b': [], 'Left out': []})
+            put(r, 'photos/species_pictures.json', {'zz': {'f': 'missing.webp', 'a': '', 'l': 'CC BY 4.0'}}); put(r, 'photos/species/orphan.webp', b'x')
             errs, warns = check(r); text = ' | '.join(errs + warns)
-            for want in ('neither hosted nor', "'ic' is a required property", 'own sid', "'sk' is a required property", 'not the lowercase Latin', "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'author or licence missing', 'orphan.webp is not listed'):
+            for want in ("'ic' is a required property", 'own sid', "'sk' is a required property", 'not the lowercase Latin', "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'no named author', 'orphan.webp is not listed', "'zz' is not a species row"):
                 self.assertIn(want, text)
 
 class JourneyEnds(unittest.TestCase):
@@ -125,7 +149,7 @@ class SchemasAndCrossFileRules(unittest.TestCase):
             put(r, 'data/species/about.json', {'A': 'x', 'B': '', 'C': 3})
             put(r, 'data/text/summaries.json', {'p': 5})
             put(r, 'jobs/names.json', {'A b': None, 'C d': 'Cee', 'E f': 7})
-            put(r, 'photos/species_missing.json', {'A b': 'nophoto', 'C d': 'gone'})
+            put(r, 'photos/species_missing.json', {'a-b': {'status': 'gone', 'checkedAt': '2026-01-01T00:00:00', 'expiresAt': '2026-02-01T00:00:00', 'attempts': 1}})
             put(r, 'photos/places/missing.json', {'Old': 'nophoto', 'New': {'status': 'nophoto', 'checkedAt': '2026-01-02T00:00:00', 'expiresAt': '2026-01-01T00:00:00', 'attempts': 0}})
             errs, warns = check(r); text = ' | '.join(errs); wtext = ' | '.join(warns)
             for want in ("3 is not of type 'string'", "5 is not of type 'string'", "7 is not of type", "'gone' is not one of", "0 is less than the minimum", 'expiresAt is not after checkedAt'):

@@ -75,7 +75,8 @@ def report(root=ROOT):
     links, ids = place_ids(root)
     outlines, place_total = outline_coverage(root, ids)
     unresolved, endpoint_total = cross_link_endpoints(root, links, ids)
-    species = read_json(os.path.join(root, "photos", "species.json")) or read_json(os.path.join(root, "photos", "species_pictures.json")) or {}   # the old list, or the by-id rows after the migration (#934)
+    species = read_json(os.path.join(root, "photos", "species_pictures.json")) if os.path.exists(os.path.join(root, "photos", "species_pictures.json")) else {}   # by species id (#934)
+    species_credited = sum(1 for r in species.values() if isinstance(r, dict) and all(isinstance(r.get(k), str) and r[k].strip() for k in ("a", "l")) and r["a"].strip().lower() != "unknown author")
 
     lines = [
         "## Informational data-quality summary",
@@ -87,7 +88,7 @@ def report(root=ROOT):
         f"| Place-photo metadata fields present | {complete}/{photo_total} | Candidate records in `photos/places/places.json` with supported MIME type, positive integer dimensions, 64-character SHA-256, non-empty author/license, and an HTTPS Commons source page. Existing photo validation separately checks these values against local image files. |",
         f"| Place outlines present | {outlines}/{place_total} | Place IDs in `data/order/` with a corresponding `data/outlines/<id>.json` file; absence does not necessarily mean an outline is expected. |",
         f"| Unresolved cross-place link endpoints | {unresolved}/{endpoint_total} | Endpoints in the journey files in `data/journeys/` whose place or node ID is not found in the main-app place files. This follows the endpoint integrity check used by the build. |",
-        f"| Species-photo attribution metadata | unavailable ({len(species)} legacy candidates) | `photos/species.json` stores image paths and labels, not author/license records, so comparable completeness cannot be counted from this source. |",
+        f"| Species-photo attribution metadata | {species_credited}/{len(species)} | Rows in `photos/species_pictures.json` (keyed by species id) with a named author and a licence identifier; author-less CC BY and CC BY-SA rows fail `build/validate_data.py` outright. |",
         "",
     ]
     jp = journey_cover_row(root)   # only once the journey pictures are keyed by journey id (lib/journey_pics.py); until then the report is unchanged

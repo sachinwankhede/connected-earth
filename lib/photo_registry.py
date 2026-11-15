@@ -100,17 +100,6 @@ def safe_https(url, allowed_hosts=None):
         return False
 
 
-def safe_species_asset(value):
-    if not isinstance(value, str) or not value:
-        return False
-    if value.startswith("https://"):
-        return safe_https(value, ALLOWED_IMAGE_HOSTS)
-    decoded = urllib.parse.unquote(value)
-    return not (re.match(r"^[a-z][a-z0-9+.-]*:", value, re.I) or value.startswith("/")
-                or any(segment in (".", "..") for segment in decoded.split("/"))
-                or "?" in value or "#" in value)
-
-
 def https_license(url):
     """http -> https for the licence hosts we allow; anything else is returned unchanged."""
     parsed = urllib.parse.urlsplit(url or "")
@@ -190,25 +179,13 @@ def validate():
                 errors.append(f"{title}: approved photo is missing explicit author or license metadata")
             if not (row.get("lu") and safe_https(row["lu"])) and row.get("l", "").lower() not in {"public domain", "cc0"}:
                 errors.append(f"{title}: approved photo is missing a secure license URL")
-    by_id_path = os.path.join(root, "photos", "species_pictures.json")   # since #934 the species pictures are keyed by species id: one row holds the picture and its credit, and there is no title-keyed list
+    by_id_path = os.path.join(root, "photos", "species_pictures.json")   # since #934 the species pictures are keyed by species id: one row holds the picture and its credit; no list means no pictures
+    species_metadata = {}
     if os.path.exists(by_id_path):
         with open(by_id_path, encoding="utf-8") as f:
             species_metadata = json.load(f)
-        species = species_metadata
-        hosted = species_metadata
-    else:
-        with open(os.path.join(root, "photos", "species.json"), encoding="utf-8") as f:
-            species = json.load(f)
-        for title, row in species.items():
-            if not isinstance(row, list) or len(row) < 2 or not safe_species_asset(row[0]):
-                errors.append(f"{title}: invalid or unsupported species image URL")
-        with open(os.path.join(root, "photos", "species_metadata.json"), encoding="utf-8") as f:
-            species_metadata = json.load(f)
-        hosted_path = os.path.join(root, "photos", "species_hosted.json")
-        hosted = json.load(open(hosted_path, encoding="utf-8")) if os.path.exists(hosted_path) else {}
+    species = species_metadata
     for title, credit in species_metadata.items():
-        if title not in hosted:
-            continue   # a credit recorded for a picture we looked at but did not host (skipped licence): nothing is shown, so nothing to check
         if not isinstance(credit, dict):
             errors.append(f"{title}: species photo metadata must be an object")
             continue

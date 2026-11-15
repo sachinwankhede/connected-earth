@@ -28,7 +28,7 @@ class DataQualityReportTest(unittest.TestCase):
                 "Complete": valid_photo,
                 "Incomplete": {"a": "Unknown", "sha256": 5},
             })
-            self.write_json(root, "photos/species.json", {"Legacy species": ["image.jpg", "Species"]})
+            self.write_json(root, "photos/species_pictures.json", {"a-b": {"f": "x.webp", "a": "Someone", "l": "CC BY 4.0"}, "c-d": {"f": "y.webp", "a": "Unknown author", "l": "CC0"}})
             self.write_json(root, "data/journeys/links.json", {
                 "order": ["eco1", "eco2"],
                 "cross": [
@@ -52,7 +52,7 @@ class DataQualityReportTest(unittest.TestCase):
         self.assertIn("| Place-photo metadata fields present | 1/2 |", output)
         self.assertIn("| Place outlines present | 1/2 |", output)
         self.assertIn("| Unresolved cross-place link endpoints | 2/4 |", output)
-        self.assertIn("Species-photo attribution metadata | unavailable (1 legacy candidates)", output)
+        self.assertIn("Species-photo attribution metadata | 1/2 |", output)
         self.assertIn("sets no quality thresholds", output)
 
     @staticmethod
