@@ -18,7 +18,7 @@ def check(e):
     if links and fam/len(links)>FAMILY_MAX: why.append('family-level links %d%%>%d%%'%(round(100*fam/len(links)),round(100*FAMILY_MAX)))
     unev=[r for r in links if '%s>%s'%(r[0],r[1]) not in (e.get('ev') or {})]
     if unev: why.append('%d links without evidence'%len(unev))
-    ph='stored' if e.get('imgwiki') in man else ('icon/live' )
+    ph='stored' if (e.get('id') in man or e.get('imgwiki') in man) else ('icon/live' )   # the picture list is keyed by place id (new shape, #887) or by Wikipedia title (old shape)
     return dict(id=e['id'],name=e['name'],official=official,species=len(sp),plants=len(pl),links=len(links),photo=ph,pass_=not why,why=why)
 if __name__=='__main__':
     want=set(sys.argv[1:]); rows=[]
