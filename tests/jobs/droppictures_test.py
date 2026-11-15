@@ -83,4 +83,27 @@ class PlaceTests(unittest.TestCase):
         src = open(os.path.join(ROOT, 'lib', 'wikipedia_photo.py')).read()
         self.assertIn("licences.ok('Wikimedia'", src); self.assertIn("return 'notfree'", src)
         import photo_registry; self.assertEqual(photo_registry.failure_class('notfree'), 'permanent')
+
+class SpeciesBySidTests(unittest.TestCase):   # #934: the new shape goes through lib/species_photos.py
+    def setUp(self):
+        from species_photos import SpeciesPhotos
+        self.r = tempfile.mkdtemp(); w = SpeciesPhotos(self.r); c = 'https://commons.wikimedia.org/wiki/File:'
+        w.put('good', {'a': 'x', 'l': 'CC BY 4.0', 'p': c + 'A.jpg', 'wiki': 'Good'}, b'a'); w.put('bad', {'a': 'y', 'l': 'GFDL 1.2', 'p': c + 'B.jpg', 'wiki': 'Bad'}, b'b')
+        w.put('ov', {'a': 'z', 'l': 'FAL', 'p': 'https://openverse.org/image/1', 'wiki': 'Ov'}, b'c'); w.put('named', {'a': 'n', 'l': 'CC BY 4.0', 'p': c + 'N.jpg', 'wiki': 'N'}, b'd')
+        for s in ('bad', 'named'): w.put_large(s, b'L' + s.encode()); w.put_medium(s, b'M' + s.encode())
+        w.commit()
+    def test_dry_changes_nothing(self):
+        bad, cnt = D.drop(self.r, True); self.assertEqual(bad, ['bad', 'ov']); self.assertEqual(cnt['GFDL 1.2'], 1)
+        from species_photos import SpeciesPhotos; self.assertTrue(SpeciesPhotos(self.r).has('bad'))
+    def test_drop_removes_every_copy_and_records_it(self):
+        from species_photos import SpeciesPhotos
+        D.drop(self.r); w = SpeciesPhotos(self.r)
+        self.assertEqual(sorted(w.pics), ['good', 'named']); self.assertEqual(w.miss_['bad']['status'], 'notfree'); self.assertEqual(w.tried['ov'], {'openverse': w.tried['ov']['openverse']}); self.assertNotIn('bad', w.tried)
+        self.assertEqual(w.check(), []); self.assertIn('bad', w.miss_)
+    def test_sids_drop_a_good_licence_and_hold_notes_commons(self):
+        from species_photos import SpeciesPhotos
+        bad, _ = D.drop(self.r, False, ['named', 'nope'], hold=True); self.assertEqual(bad, ['named'])
+        w = SpeciesPhotos(self.r); self.assertEqual(sorted(w.pics), ['bad', 'good', 'ov']); self.assertEqual(list(w.tried['named']), ['commons']); self.assertEqual(w.check(), [])
+        self.assertEqual(sorted(os.listdir(os.path.join(self.r, 'photos', 'species-lg'))), [__import__('hashlib').sha256(b'b').hexdigest()[:12] + '.webp'])
+
 if __name__ == '__main__': unittest.main()

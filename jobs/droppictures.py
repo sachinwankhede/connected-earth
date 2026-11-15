@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """droppictures.py: remove hosted species pictures whose licence is outside the picture rule (#421).
-Usage: droppictures.py [species|places] [--dry] [--title NAME ...]   (species is the default; --dry prints the counts and writes nothing; --title drops those species' pictures whatever their licence, e.g. a picture the owner rejected)
+Usage: droppictures.py [species|places] [--dry] [--title NAME ...]   (species is the default; once photos/species_pictures.json exists species are keyed by species id: --title takes sids and the pictures go through lib/species_photos.py; --dry prints the counts and writes nothing; --title drops those species' pictures whatever their licence, e.g. a picture the owner rejected)
 A picture is kept when lib/licences.py says its licence in photos/species_metadata.json is allowed for its source (GBIF pages: 'GBIF', Openverse pages: 'Openverse', all others: 'Wikimedia').
 A dropped picture loses its thumbnail (photos/species/), its larger copy (photos/species-lg/), and its rows in species_hosted.json, species_metadata.json, species_large.json,
 species.json and species_source.json. The title goes to species_missing.json as 'nophoto' with no tried date, so data-commonsphotos tries it again and may find a picture inside the rule.
@@ -9,6 +9,8 @@ import sys, os, json, collections, datetime
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, 'lib')); import licences, photo_registry
 from place_photos import PlacePhotos
+from species_photos import SpeciesPhotos
+import species_pics
 P = {n: os.path.join('photos', n + '.json') for n in ('species_metadata', 'species_hosted', 'species_large', 'species_medium', 'species', 'species_source', 'species_missing', 'species_commons_tried', 'species_gbif_tried', 'species_openverse_tried', 'species_inaturalist_tried')}
 def source_of(meta):
     p = meta.get('p') or ''
@@ -16,7 +18,21 @@ def source_of(meta):
 def outside(meta, hosted):
     """Titles with a hosted picture whose licence is outside the rule."""
     return sorted(t for t in hosted if not licences.ok(source_of(meta.get(t) or {}), (meta.get(t) or {}).get('l', '')))
+LEDGER = {'Openverse': 'openverse', 'iNaturalist': 'inaturalist'}   # the sources a dropped picture must not be fetched from again at once (lib/species_sources.py names)
+def drop_species(root, dry=False, sids=None, hold=False):
+    """The same for the sid-keyed species pictures (photos/species_pictures.json, #934), through SpeciesPhotos: file, row, both larger copies and the missing record go together.
+    The dropped species goes to species_missing.json as 'notfree' (kept 180 days) and an Openverse or iNaturalist picture is noted in the ledger so that source does not find it again; hold also notes Commons (the same unnamed-author picture)."""
+    w = SpeciesPhotos(root); man = w.pics
+    bad = sorted(s for s in sids if s in man) if sids else sorted(s for s, v in man.items() if not licences.ok(source_of(v), v.get('l', '')))
+    counts = collections.Counter(man[s].get('l', '') or '(none)' for s in bad)
+    if dry or not bad: return bad, counts
+    for s in bad:
+        src = source_of(man[s]); led = LEDGER.get(src) or ('commons' if hold and src == 'Wikimedia' else '')
+        w.remove(s, 'notfree', led)
+    w.commit()
+    return bad, counts
 def drop(root, dry=False, titles=None, hold=False):
+    if species_pics.new_shape(root): return drop_species(root, dry, titles, hold)   # titles are species ids there
     load = lambda n: json.load(open(os.path.join(root, P[n]), encoding='utf-8')) if os.path.exists(os.path.join(root, P[n])) else {}
     d = {n: load(n) for n in P}
     bad = sorted(t for t in titles if t in d['species_hosted']) if titles else outside(d['species_metadata'], d['species_hosted'])   # a named title is dropped whatever its licence
