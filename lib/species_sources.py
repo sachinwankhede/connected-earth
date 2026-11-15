@@ -20,6 +20,7 @@ RETRY_DAYS = 90   # every source but wikipedia: tried again this long after its 
 # --- Wikipedia: the picture of the species' page (from speciesphotos.py for the link, hostphotos.py for the licence and the download)
 NOTPHOTO = re.compile(r'logo|emblem|coat[_ ]of[_ ]arms|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|locator|diagram|[_ -]chart', re.I)
 THUMB_BASE = 'https://thumb.wikimedia.org/wikipedia/commons/thumb/'
+SKIPPED = {}   # title -> file name of the page picture that pageimages() refused as not a photo (read for the log line)
 BASE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/'   # hostphotos.BASE: where the 330 px thumbnails are downloaded and the larger copies' addresses start
 
 def commons_file(u):
@@ -63,7 +64,9 @@ def pageimages(batch):
             if th and not safe_https(src, ALLOWED_IMAGE_HOSTS): continue
             if th and not NOTPHOTO.search(urllib.parse.unquote(src.split('/')[-2] if '/thumb/' in src else src)):
                 hit[n] = (src.replace(THUMB_BASE, ''), urllib.parse.quote(p['title'].replace(' ', '_')))
-            else: hit[n] = None
+            else:
+                hit[n] = None
+                if th: SKIPPED[n] = urllib.parse.unquote(src.split('/')[-2] if '/thumb/' in src else src.split('/')[-1])   # a map, diagram, logo or flag: the log says which
     return {t: hit[t] for t in batch if t in hit}, {x for v in back.values() for x in v}
 
 def find_wikipedia(todo):
@@ -82,7 +85,7 @@ def find_wikipedia(todo):
         for u in batch:
             t = u['title']; h = hit.get(t)
             if not h:
-                if t in hit or t in known: yield u, Res('miss', why='Wikipedia has no usable picture for the page', status='nophoto')
+                if t in hit or t in known: yield u, Res('miss', why=('Wikipedia has no usable picture for the page' if t not in SKIPPED else 'skipped as not a photo (map, diagram, logo or flag): %s' % SKIPPED[t]), status='nophoto')
                 else: yield u, Res('retry', why='the title was not in the answer')
                 continue
             f = files.get(t)
