@@ -31,8 +31,10 @@ export function png(seed, w = 48, h = 48) {
 }
 const hostedName = (title) => crypto.createHash('sha1').update(title).digest('hex').slice(0, 12) + '.webp';   // the same shape as a real hosted file name
 // For a test that needs only a few hosted species pictures: answers the picture list with exactly `ph` ({title: [file, page]}) and every hosted species file with a generated picture.
-export async function mockSpeciesPictures(page, ph = {}) {
-  await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {} }) }));
+// `extra` adds keys to the list ({jpic, jpicm}: the journey covers by journey id) and answers the hosted journey files.
+export async function mockSpeciesPictures(page, ph = {}, extra = null) {
+  await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph, phm: {}, ...(extra || {}) }) }));
+  if (extra) await page.route(/\/photos\/journeys\/[\w-]+\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
   await page.route(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
 }
 export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, fixture = false } = {}) {   // fixture: take the pictures' source data from the fixture dataset, not the real data (#787)

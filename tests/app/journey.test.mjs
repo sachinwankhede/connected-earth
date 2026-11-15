@@ -16,12 +16,12 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await H.pause(t.page, 700);
     return { b, p: t.page, errors };
   }
-  async function startWithPhotos(hash = '#stub') {
+  async function startWithPhotos(hash = '#stub', extra = null) {
     const b = await H.launch(), ctx = await b.newContext({ viewport: size }), p = await ctx.newPage();
     const errors = [];
     p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
     await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
-    await mockSpeciesPictures(p, { Osprey: ['0123456789ab.webp', 'Osprey'] });   // a hosted picture entry for the osprey journey
+    await mockSpeciesPictures(p, { Osprey: ['0123456789ab.webp', 'Osprey'] }, extra);   // a hosted picture entry for the osprey journey
     const url = await H.urlFor(H.FMAIN);
     await p.goto(url + hash);
     await H.pause(p, 700);
@@ -73,6 +73,24 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       }));
       assert.deepEqual(fallback, { photo: false, icon: true }, id + ' has no approved manifest match and keeps its fallback');
     }
+    assert.deepEqual(errors, []); await b.close();
+  });
+
+  test(`${name}: a journey with its own picture row (jpic) shows it by id with its own credit; one without keeps the title picture`, async () => {
+    const jc = { a: 'Jo Journey', l: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0/', p: 'https://commons.wikimedia.org/wiki/File:Own.jpg' };
+    const { b, p, errors, url } = await startWithPhotos('#stub', { jpic: { osprey: ['osprey.webp', 'Osprey'] }, jpicm: { osprey: jc } });
+    if (name === 'phone') { await p.click('#speek'); await H.pause(p, 500); }
+    await p.click('[data-tab="journeys"]:visible');
+    await p.waitForSelector('#xi-osprey img[loading="lazy"]');
+    assert.ok((await p.locator('#xi-osprey img').getAttribute('src')).endsWith('/photos/journeys/osprey.webp'), 'the card uses the journey\'s own picture');
+    await p.goto(url + '#stub&j=osprey');
+    await p.waitForSelector('#jview #jp-main img[loading="lazy"]');
+    const hero = await p.evaluate(() => ({ src: document.querySelector('#jp-main img')?.getAttribute('src'), credit: document.getElementById('jcredit')?.textContent || '', own: [...document.querySelectorAll('#jcredit a')].some((a) => a.href === 'https://commons.wikimedia.org/wiki/File:Own.jpg') }));
+    assert.ok(hero.src.endsWith('/photos/journeys/osprey.webp'), 'the cover is the journey\'s own picture: ' + hero.src);
+    assert.ok(hero.credit.includes('Photo: Jo Journey') && hero.own, 'its credit is the journey row\'s: ' + hero.credit);
+    assert.ok(!hero.credit.includes('Photo: Wikipedia'), 'the title picture is no longer the cover credit');
+    await p.evaluate(() => window.__M.showJourney('dust')); await H.pause(p, 300);
+    assert.deepEqual(await p.evaluate(() => ({ photo: !!document.querySelector('#jp-main img'), icon: !!document.querySelector('#jp-main svg') })), { photo: false, icon: true }, 'a journey with no row and no title picture keeps the icon');
     assert.deepEqual(errors, []); await b.close();
   });
 
