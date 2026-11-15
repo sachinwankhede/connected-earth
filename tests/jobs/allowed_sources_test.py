@@ -124,12 +124,12 @@ class AllowedSourcesTest(unittest.TestCase):
             fetch.check_url('ftp://upload.wikimedia.org/file.jpg')
 
     def test_wm_routes_through_fetch(self):
-        """Verifies that jobs/wm.py imports and routes through lib/fetch.py."""
-        wm_path = os.path.join(ROOT, 'jobs', 'wm.py')
+        """Verifies that lib/wm.py imports and routes through lib/fetch.py."""
+        wm_path = os.path.join(ROOT, 'lib', 'wm.py')
         with open(wm_path) as f:
             content = f.read()
-        self.assertIn('import fetch', content, 'jobs/wm.py must import lib/fetch.py')
-        self.assertIn('fetch.urlopen', content, 'jobs/wm.py must route downloads through fetch.urlopen')
+        self.assertIn('import fetch', content, 'lib/wm.py must import lib/fetch.py')
+        self.assertIn('fetch.urlopen', content, 'lib/wm.py must route downloads through fetch.urlopen')
 
 
     def test_no_download_bypasses_the_guard(self):

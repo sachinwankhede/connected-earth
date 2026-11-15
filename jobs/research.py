@@ -5,6 +5,7 @@ say about each feeding link. Every item names its source and the date it was ret
 Run by the data-research workflow (open internet); set RESEARCH_OFFLINE=1 to skip the web calls when testing the layout."""
 import datetime, json, os, re, sys, urllib.parse
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, here); import wm
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species   # joins each node with its species-table row, so a node has its common name
 CAP = 40_000; WIKI_CHARS = 9_000; MAX_LINKS = 60

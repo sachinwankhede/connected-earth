@@ -4,6 +4,7 @@ Usage: speciesphotos.py <outfile> [limit]   writes {wiki title: [thumbnail path 
 Titles Wikipedia has no picture for go to <outfile minus .json>_missing.json and are not tried again.
 Uses the batched pageimages query (50 titles per request), so about 115 requests cover all species. Links only; no image files are stored."""
 import sys, os, json, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 from photo_registry import ALLOWED_IMAGE_HOSTS, cache_active, negative_entry, safe_https

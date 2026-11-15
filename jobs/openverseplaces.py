@@ -10,6 +10,7 @@ A kept picture is added to photos/places/places.json keyed by the place's imgwik
 photo_registry.py migrate and validate. Titles with no usable picture get today's date in photos/places_openverse_tried.json and are tried again only after 90 days.
 Stops at once when Openverse answers 401 or 403 (a key is needed: ask the owner) or three requests in a row fail. --dry prints what would be kept and writes nothing. Only https links are fetched."""
 import sys, os, re, io, json, glob, datetime, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
 import openversephotos as o
 import commonsplacephotos as cp

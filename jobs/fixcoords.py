@@ -140,6 +140,7 @@ def fix(data_dir, geo, get, padus=None, osm=None):
     return fixed, unresolved
 
 if __name__ == '__main__':
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
     sys.path.insert(0, HERE); import wm
     geo = {s['id']: s['g'] for s in json.load(open(os.path.join(ROOT, 'data/geo/geo.json')))['states']}
     if '--audit' in sys.argv:

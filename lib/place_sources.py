@@ -5,13 +5,13 @@ jobs/placepictures.py decides the order, the holds, the author rule and the writ
 To add a source, write its function here and add its line to SOURCES (and a stub for its network in tests/jobs/place_sources_test.py, which holds every source to the same contract:
 a found Res carries a row with author, licence, licence link and file page, and a downloaded picture; placepictures then refuses a CC BY / BY-SA row with no author, whatever the source).
 The rules below were the five old jobs' own functions (jobs/photos.py, commonsplacephotos.py, commonsnearby.py, commonscategory.py, openverseplaces.py); they were MOVED here unchanged and those job
-files import them back, so their own tests still hold. Network goes through jobs/wm.py (hosts listed in lib/allowed_sources.json, enforced by lib/fetch.py); no host is added."""
+files import them back, so their own tests still hold. Network goes through lib/wm.py (hosts listed in lib/allowed_sources.json, enforced by lib/fetch.py); no host is added."""
 import collections, datetime, glob, io, json, os, re, shutil, sys, tempfile, unicodedata, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'jobs'))
+sys.path.insert(0, HERE)
 import wm, photo_registry as pr
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
-import authorlookup as al, photos as ph, commonsphotos as cs, openversephotos as o
+import author_lookup as al, wikipedia_photo as ph, commons_api as cs, openverse_api as o   # nothing here imports from jobs/
 
 RETRY_DAYS = 90   # every source but wikipedia: tried again this long after its date in photos/places_tried.json
 Res = collections.namedtuple('Res', 'kind entry jpg why status note', defaults=(None, None, '', 'nophoto', ''))   # kind: found | miss | retry

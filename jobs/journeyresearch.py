@@ -19,6 +19,7 @@ WANT = re.compile(r'migrat|distribution|range|habitat|winter|breeding|behavio|ec
 SEC = 3000; TOTAL = 9000
 
 def article(title):
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
     import wm
     d = wm.get('https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=extracts|categories&explaintext=1&exlimit=1&cllimit=max&clshow=!hidden&titles=' + urllib.parse.quote(title))
     p = next(iter(((d or {}).get('query', {}).get('pages', {})).values()), {})

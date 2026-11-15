@@ -27,8 +27,9 @@ Caps: --limit places per strategy (default 120, 0 = all left), --max-mb of pictu
 import collections, datetime, glob, hashlib, io, json, os, re, shutil, sys, tempfile, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 import wm, place_photos as pp, photo_registry as pr
-import authorlookup as al
+import author_lookup as al
 from place_sources import Res, Vetted, now_iso, SOURCES, find_wikipedia, find_commons, find_nearby, find_category, find_openverse   # noqa: F401 (re-exported: the tests and callers use pj.Res, pj.Vetted, pj.find_*)
 
 COMMIT_EVERY = 25

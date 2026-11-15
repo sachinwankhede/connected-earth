@@ -4,7 +4,7 @@ and keeps the gap longer after a throttle. Never gives up on throttling, only on
 
 import json, os, random, sys, time, urllib.error, urllib.request
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import fetch
 
 UA = {'User-Agent': 'ConnectedEarth/1.0 (https://connected-earth-5ps.pages.dev/; data job)'}   # the live site is the contact (Wikimedia accepts a URL); the same string the other jobs send

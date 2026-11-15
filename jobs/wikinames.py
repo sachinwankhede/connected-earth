@@ -97,6 +97,7 @@ def selftest():
 
 if __name__ == '__main__':
     if '--selftest' in sys.argv: selftest(); sys.exit(0)
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
     import state, wm
     st = sys.argv[1].upper(); full = state.STATES[st]; d = os.path.join(ROOT, 'data', 'places'); rows = []; changed = 0
     for f in sorted(os.listdir(d)):

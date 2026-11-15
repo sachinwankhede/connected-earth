@@ -6,6 +6,7 @@ It also fetches a one-sentence summary for each state park or refuge without a s
 import json,os,sys,urllib.parse
 here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here); OUT=os.path.join(ROOT,'data','species','about.json'); SUMS=os.path.join(ROOT,'data','text','summaries.json')
 sys.path.insert(0,os.path.join(ROOT,'build')); sys.path.insert(0,here)
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 import species, wm
 tab=species.table(); got=json.load(open(OUT)) if os.path.exists(OUT) else {}
 titles=sorted({r['wiki'] for r in tab.values() if r.get('wiki') and not r.get('cat')} - set(got))

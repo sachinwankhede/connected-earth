@@ -12,6 +12,7 @@ For each place title in photos/places/missing.json whose place has no picture fi
 Titles with no match stay in missing.json and get today's date in photos/places_category_tried.json (tried again after 90 days). Every match is printed as
 'place -> file (category)' so the pull request shows what was matched. Polite pace via wm.py."""
 import sys, os, json, datetime, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); import wm
 import commonsnearby as n
 c = n.c; cp = n.cp

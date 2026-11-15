@@ -11,6 +11,7 @@ A kept picture is written like an Openverse one: ['inaturalist/<photo id>', page
 it leaves species_missing.json. Titles with no usable picture get today's date in photos/species_inaturalist_tried.json and are tried again only after 90 days.
 iNaturalist asks for at most about one request a second: wm.get keeps a 2 s gap. Stops at once when three requests in a row fail. --dry prints what would be kept and writes nothing."""
 import sys, os, re, json, glob, datetime, urllib.parse
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import wm, gbifphotos as g, openversephotos as o
 MAN, MISS, SRC = g.MAN, g.MISS, g.SRC; HOSTED, META, OUT = g.HOSTED, g.META, g.OUT
 TRIED = 'photos/species_inaturalist_tried.json'

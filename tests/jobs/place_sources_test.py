@@ -8,7 +8,7 @@ import io, os, sys, tempfile, unittest
 from unittest import mock
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', 'jobs')); sys.path.insert(0, os.path.join(HERE, '..', '..', 'lib'))
-import place_sources as ps, placepictures as pj, place_photos as pp, authorlookup as al
+import place_sources as ps, placepictures as pj, place_photos as pp, author_lookup as al
 
 def jpeg(size=(300, 250)):
     from PIL import Image

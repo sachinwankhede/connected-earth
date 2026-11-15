@@ -80,7 +80,7 @@ class PlaceTests(unittest.TestCase):
         self.assertFalse(os.path.exists(os.path.join(ld, 'b.webp'))); self.assertTrue(os.path.exists(os.path.join(ld, 'a.webp')))
         self.assertEqual(json.load(open(os.path.join(pd, 'missing.json')))['Unnamed']['status'], 'notfree')
     def test_place_job_uses_the_rule(self):   # jobs/photos.py talks to the network, so the test reads its source
-        src = open(os.path.join(ROOT, 'jobs', 'photos.py')).read()
+        src = open(os.path.join(ROOT, 'lib', 'wikipedia_photo.py')).read()
         self.assertIn("licences.ok('Wikimedia'", src); self.assertIn("return 'notfree'", src)
         import photo_registry; self.assertEqual(photo_registry.failure_class('notfree'), 'permanent')
 if __name__ == '__main__': unittest.main()
