@@ -72,6 +72,21 @@ These are the traps behind the rules; `docs/ARCHITECTURE-DATA.md` ("Place pictur
 9. **Do not poll the live site.** Fetching it is disallowed (robots); read data and CI instead.
 10. **Quiet by design.** Retry holds (90 days) keep a weekly run silent once a place was tried; skipping the PR to save noise would lose the retry notes, so no minimum count.
 
+## Species pictures: the same treatment (owner, 15 Nov, #934)
+Owner: "Same treatment with one id, one writer, one acquire job, one author rule" and, on shared titles, "Per sid". Measured on main (15 Nov): 5,623 species rows, 5,156 wiki titles, 151 titles shared by 618 rows; pictures are keyed by wiki title in 6 lists (`species`, `species_hosted`, `species_metadata`, `species_large`, `species_medium`, `species_missing`), 4 ledgers (`species_commons_tried`, `species_openverse_tried`, `species_inaturalist_tried`, `species_gbif_tried`) and 7 jobs. 4,865 hosted, 4,863 with both copies, 267 recorded as no photo, 12 CC BY rows with no author, 272 dirty authors.
+
+**Decisions.** Key: the species `sid` (the Latin-name slug), one entry per sid, so each species is checked and credited on its own (a title shared by two sids gives each sid its own entry; a shared title is no longer a collision). Writer: `lib/species_photos.py` (`SpeciesPhotos`, the same methods as `PlacePhotos`: put / put_large / put_medium / remove / miss / note_tried / commit / check / repair), files first, lists last. One acquire job `speciespictures` with a function per source (Commons, Openverse, iNaturalist, GBIF; `lib/species_sources.py`, like `place_sources.py`). One author rule: `lib/author_clean.py`, applied by the writer; `put()` refuses CC BY / BY-SA without an author; the validator makes a dirty author an error.
+
+**Phases (each a small pull request, green on its own).**
+1. This design and `lib/species_photos.py` with tests (nothing calls it yet; reads both shapes).
+2. Consumers accept both shapes (`build/build.py`, `build/pages_payload.py`, `build/validate_data.py`, `build/promote_check.py`, the app reader, fixtures); rule 10, so no app pull request waits for a data job.
+3. Migration as a data job: re-keys the lists to sid, ledgers 4 to 1 (`photos/species_tried.json`), prints a before and after table and the round trip, one data PR. Species schedules stay paused (they are).
+4. `speciespictures` acquire job; the 7 old jobs and their workflows retire after one good run; `largephotos`, `hostphotos` fold into it as `put_large`/`put_medium`.
+5. Author rule for species: `data-dropunnamed` for the 12 CC BY rows with no name, `cleanauthors` extended to species (272), validator error.
+6. Validators by sid: orphan files, larger and medium copies follow the picture, one entry per sid.
+
+**Owner-merged parts:** workflow changes (`.github/**`). Everything else the agent merges on green `gate`.
+
 ## What this plan does not do
 
 No database or server. No new photo source before the writer exists. No more per-job regular-expression tightening as a substitute for identity checks. No raising of a threshold to turn a check green. No `species.py pack` as a silent rewrite of everything inside unrelated jobs.
