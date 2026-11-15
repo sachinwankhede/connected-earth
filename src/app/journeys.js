@@ -75,7 +75,7 @@
     jRelated(c).forEach(function (o) { var s = document.getElementById("xi-" + o.id), b = document.getElementById("jm-" + o.id); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     jEnds(c).forEach(function (x, i) { var s = cimg(x.eco), b = document.getElementById("jp-e" + i); if (s && b && s.querySelector("img")) b.innerHTML = s.innerHTML; });
     
-    var seen = {}, lines = [c.imgwiki].concat(jEnds(c).map(function (x) { return x.e.imgwiki; })).map(function (w) { return w && PHOTOS[w]; }).filter(function (ph) { if (!ph || seen[ph.src]) return false; seen[ph.src] = 1; return true; });
+    var lines = PhotoRegistry.coverCredits(PHOTOS, c, jEnds(c).map(function (x) { return x.e.imgwiki; }));   /* the journey's own row, then the two end places' rows, one line per picture */
     fillPhotos("jcredit", lines.map(creditHTML));
   }
   function jFly(c, pts) {

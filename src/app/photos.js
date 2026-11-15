@@ -68,8 +68,8 @@
     if (M.jid) jPhotos();
   }
   function linkPhoto(c, refresh) {
-    var p = PHOTOS[c.imgwiki], box = document.getElementById("xi-" + c.id);
-    if (!p || !box || box.querySelector("img")) return;
+    var p = PhotoRegistry.coverPhoto(PHOTOS, c), box = document.getElementById("xi-" + c.id), have = box && box.querySelector("img");
+    if (!p || !box || (have && have.getAttribute("src") === p.src)) return;   /* the journey's own picture (by id) replaces a title picture shown before it loaded */
     box.innerHTML = '<img src="' + esc(p.src) + '" alt="" referrerpolicy="no-referrer" loading="lazy"' + photoAttrs(p, "remove") + '>';
     var im = box.querySelector("img");
     im.onerror = function () { if (!photoFallback(im, "remove")) box.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[ECO_BY[ecoEnds(c)[0].eco].icon] || "") + "</svg>"; };
@@ -126,7 +126,12 @@
         var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1, credits[t]);
         if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
       });
-      CROSS.forEach(function (c) { if (c.imgwiki && PHOTOS[c.imgwiki]) linkPhoto(c); });
+      var jp = all.jpic || {}, jm = all.jpicm || {};   /* the journeys' own covers by journey id (none until the data has them: then the title picture is used) */
+      Object.keys(jp).forEach(function (id) {
+        var candidate = PhotoRegistry.journeyCandidate(jp[id], __SPECIES_PHOTOS__ + "photos/journeys/", jm[id]);
+        if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.coverKey(id), candidate);
+      });
+      CROSS.forEach(function (c) { if (PhotoRegistry.coverPhoto(PHOTOS, c)) linkPhoto(c); });
       SPX = true;
       var waiting = SPX_WAIT; SPX_WAIT = []; waiting.forEach(function (f) { f(); });
       if (M.jid) jPhotos();

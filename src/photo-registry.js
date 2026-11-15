@@ -64,6 +64,27 @@
     };
   }
 
+  // A journey cover is its own picture row keyed by journey id: {id: [96 px file, page]} (jpic) with its credit (jpicm) in api/species-pictures.json. The file is read from <base>/<name>.
+  function journeyCandidate(value, base, metadata) {
+    if (!Array.isArray(value) || typeof value[0] !== "string" || !/^[\w-]+\.webp$/.test(value[0]) || typeof base !== "string") return null;
+    var c = speciesCandidate(["000000000000.webp", value[1]], null, 1, metadata);
+    c.assetUrl = base + value[0];
+    c.sourcePageUrl = value[1] ? (/^https?:/.test(value[1]) ? value[1] : wikiUrl(value[1])) : null;
+    return c;
+  }
+  function coverKey(id) { return "journey:" + id; }
+  // The picture a journey shows as its cover: its own row by id when there is one, else the picture of its imgwiki title (as before).
+  function coverPhoto(photos, c) { return c && (photos[coverKey(c.id)] || (c.imgwiki && photos[c.imgwiki])) || null; }
+  // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src).
+  function coverCredits(photos, c, endTitles) {
+    var seen = {}, out = [];
+    [coverPhoto(photos, c)].concat((endTitles || []).map(function (w) { return w && photos[w]; })).forEach(function (p) {
+      if (!p || seen[p.src]) return;
+      seen[p.src] = 1; out.push(p);
+    });
+    return out;
+  }
+
   function placeCandidate(value, assetBase) {
     if (!value || typeof value !== "object" || typeof value.f !== "string") return null;
     var file = value.f;
@@ -138,6 +159,10 @@
   }
 
   return {
+    coverCredits: coverCredits,
+    coverKey: coverKey,
+    coverPhoto: coverPhoto,
+    journeyCandidate: journeyCandidate,
     nextCandidate: nextCandidate,
     placeCandidate: placeCandidate,
     register: register,
