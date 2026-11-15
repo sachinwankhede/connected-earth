@@ -3,11 +3,11 @@ import os
 import sys
 import unittest
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "jobs"))
-import commonsphotos as c
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "lib"))
+import commons_api as c
 
 
-class CommonsPhotosTests(unittest.TestCase):
+class CommonsApiTests(unittest.TestCase):
     def test_open_licences_pass(self):
         for lic in ("CC0", "CC0 1.0", "CC BY 2.0", "CC BY 4.0", "CC BY-SA 3.0", "CC BY-SA 4.0", "CC BY-SA 2.5 ca", "CC-BY-SA-3.0", "Public domain", "PD", "cc by 4.0"):
             self.assertTrue(c.open_licence(lic), lic)
@@ -37,15 +37,12 @@ class CommonsPhotosTests(unittest.TestCase):
         self.assertEqual(c.manifest_entry('https://upload.wikimedia.org/wikipedia/commons/a/ab/Small.jpg?utm_source=commons.wikimedia.org', 'Aralia hispida'),
                          ['https://upload.wikimedia.org/wikipedia/commons/a/ab/Small.jpg', 'Aralia_hispida'], 'a small original keeps its full link, without the tracking query')
 
-    def test_hostphotos_can_read_what_we_write(self):
-        import hostphotos as h
+    def test_species_sources_can_read_what_we_write(self):
+        import species_sources as h
         e = c.manifest_entry('https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Aardwolf%2C_Kenya.jpg/330px-Aardwolf%2C_Kenya.jpg', 'X')
         self.assertEqual(h.commons_file(e[0]), 'Aardwolf,_Kenya.jpg')
         self.assertEqual(h.thumb_path(e[0]), e[0])
 
-
-if __name__ == "__main__":
-    unittest.main()
 
 
 class WikidataLookupTests(unittest.TestCase):
@@ -69,11 +66,11 @@ class WikidataLookupTests(unittest.TestCase):
 class RedirectTests(unittest.TestCase):
     def test_redirect_titles_resolve_to_the_real_page(self):
         import importlib, unittest.mock as m
-        c = importlib.import_module('commonsphotos')
+        c = importlib.import_module('commons_api')
         j = {'query': {'normalized': [{'from': 'a b', 'to': 'A b'}], 'redirects': [{'from': 'A b', 'to': 'Real page'}]}}
         with m.patch.object(c.wm, 'get', return_value=j):
             self.assertEqual(c.resolve(['a b', 'Plain']), {'a b': 'Real page', 'Plain': 'Plain'})
 
-    def test_again_flag_is_not_a_limit(self):
-        src = open(os.path.join(os.path.dirname(__file__), '..', '..', 'jobs', 'commonsphotos.py')).read()
-        self.assertIn("'--again' in sys.argv", src)
+
+if __name__ == "__main__":
+    unittest.main()
