@@ -112,6 +112,72 @@ class AcquireTests(unittest.TestCase):
         self.run_([strategy('wikipedia', found={'aa'}, miss={'bb'})], [unit('aa'), unit('bb')], dry=True)
         self.assertFalse(os.path.exists(os.path.join(self.d, 'photos'))); self.assertTrue(any(l.startswith('yes wikipedia aa') for l in self.log))
 
+class LargeTests(unittest.TestCase):
+    """The larger copy (400 px WebP): made with the picture, kept alone when Commons has none, backfilled by strategy `large` (#887)."""
+    PAGE = 'https://commons.wikimedia.org/wiki/File:Amazon17_%285641020319%29.jpg'
+    def setUp(self): self.d = tempfile.mkdtemp(); self.w = pp.PlacePhotos(self.d); self.log = []
+    def fresh(self): return pp.PlacePhotos(self.d)
+    def files(self):
+        out = {}
+        for r, _, fs in os.walk(self.d):
+            for f in fs: out[os.path.join(r, f)] = open(os.path.join(r, f), 'rb').read()
+        return out
+    def acq(self, strategies, units, large, **kw): return pj.acquire(self.w, units, strategies, log=self.log.append, large=large, **kw)
+
+    def test_helpers_name_and_address_the_commons_thumbnail(self):
+        import hashlib
+        n = 'Amazon17_(5641020319).jpg'; h = hashlib.md5(n.encode()).hexdigest()
+        self.assertEqual(pj.commons_file_name(self.PAGE), n); self.assertEqual(pj.commons_file_name('https://commons.wikimedia.org/wiki/File:A b.jpg#x'), 'A_b.jpg')
+        for bad in (None, '', 'https://example.org/wiki/File:A.jpg', 'https://commons.wikimedia.org/wiki/Category:A'): self.assertIsNone(pj.commons_file_name(bad))
+        u = pj.commons_thumb_url(n, 500)
+        self.assertTrue(u.startswith('https://upload.wikimedia.org/wikipedia/commons/thumb/%s/%s/' % (h[0], h[:2]))); self.assertTrue(u.endswith('/500px-Amazon17_%285641020319%29.jpg'))
+        self.assertEqual(pj.large_urls(self.PAGE), [pj.commons_thumb_url(n, 500), pj.commons_thumb_url(n, 330)]); self.assertEqual(pj.large_urls('x'), [])
+
+    def test_copy_is_a_webp_of_at_most_400_px(self):
+        from PIL import Image
+        data, size = pj.shrink(Image.new('RGB', (1000, 500), (10, 120, 60)))
+        self.assertEqual(size, (400, 200)); self.assertEqual(Image.open(io.BytesIO(data)).format, 'WEBP')
+
+    def test_a_failing_address_is_skipped_and_the_next_one_tried(self):
+        def get(u, raw=False):
+            if u == 'bad': raise RuntimeError('too many errors (HTTP 400) for x')
+            return {'a': None, 'b': b'data'}[u]
+        self.assertEqual(pj.download_thumb(['bad', 'a', 'b'], get), b'data'); self.assertIsNone(pj.download_thumb(['bad', 'a'], get)); self.assertIsNone(pj.download_thumb([], get))
+
+    def test_make_large_says_why_when_it_cannot(self):
+        self.assertEqual(pj.make_large({'p': 'https://x.org/'}, get=lambda u, raw=False: b'x'), (None, 'not a Commons file'))
+        def bad(u, raw=False): raise RuntimeError('HTTP 400')
+        self.assertEqual(pj.make_large({'p': self.PAGE}, get=bad)[0], None)
+        self.assertEqual(pj.make_large({'p': self.PAGE}, get=lambda u, raw=False: b'not an image')[0], None)
+        data, why = pj.make_large({'p': self.PAGE}, get=lambda u, raw=False: jpeg()); self.assertTrue(data); self.assertEqual(why, '')
+
+    def test_picture_and_larger_copy_are_written_together(self):
+        self.acq([strategy('wikipedia', found={'aa'})], [unit('aa')], lambda e: (b'WEBP', ''))
+        w = self.fresh(); self.assertTrue(w.has('aa')); self.assertTrue(w.has_large('aa')); self.assertEqual(w.check(), [])
+        self.assertEqual(open(os.path.join(self.d, 'photos/places-lg/aa.webp'), 'rb').read(), b'WEBP')
+        self.assertTrue(any(l.startswith('larger copy ') for l in self.log))
+
+    def test_a_picture_is_kept_alone_when_no_larger_copy_can_be_made(self):
+        stats, _ = self.acq([strategy('wikipedia', found={'aa'})], [unit('aa')], lambda e: (None, 'Commons has no thumbnail for it'))
+        w = self.fresh(); self.assertTrue(w.has('aa')); self.assertFalse(w.has_large('aa')); self.assertEqual(w.check(), [])
+        self.assertTrue(any(l.startswith('no larger copy ') and 'small picture stays' in l for l in self.log)); self.assertEqual(stats['wikipedia']['nolarge'], 1)
+
+    def test_strategy_large_fills_only_the_gaps_and_adds_no_pictures(self):
+        self.w.put('aa', row('aa'), jpeg()); self.w.put('bb', row('bb'), jpeg()); self.w.put_large('aa', b'OLD'); self.w.commit(); self.w = self.fresh()
+        asked = []
+        def large(e): asked.append(e['f']); return b'NEW', ''
+        found = []; strat = strategy('wikipedia', found={'cc'}, offered=found)
+        self.acq([strat], [unit('aa'), unit('bb'), unit('cc')], large, only='large')
+        w = self.fresh(); self.assertEqual(asked, ['bb.jpg']); self.assertEqual(found, [], 'no picture strategy is asked'); self.assertEqual(sorted(w.pics), ['aa', 'bb'])
+        self.assertEqual(open(os.path.join(self.d, 'photos/places-lg/aa.webp'), 'rb').read(), b'OLD'); self.assertEqual(open(os.path.join(self.d, 'photos/places-lg/bb.webp'), 'rb').read(), b'NEW'); self.assertEqual(w.check(), [])
+
+    def test_a_run_that_adds_nothing_leaves_every_file_byte_identical(self):
+        self.w.put('aa', row('aa'), jpeg()); self.w.put_large('aa', b'OLD'); self.w.put('bb', row('bb'), jpeg()); self.w.commit(); self.w = self.fresh()
+        before = self.files()
+        self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'Commons has no thumbnail for it'), only='large')
+        self.assertEqual(self.files(), before)
+        self.w = self.fresh(); self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'x'), only='large', dry=True); self.assertEqual(self.files(), before)
+
 class UnitsTests(unittest.TestCase):
     def test_places_with_a_shared_title_are_skipped(self):
         d = tempfile.mkdtemp()
