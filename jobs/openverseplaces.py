@@ -14,59 +14,10 @@ HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE); imp
 import openversephotos as o
 import commonsplacephotos as cp
 OUT = 'photos/places'; MAN = OUT + '/places.json'; MISS = OUT + '/missing.json'; TRIED = 'photos/places_openverse_tried.json'; DATA = 'data/places'
-RETRY_DAYS = 90; TRY_FILES = 4; MIN_SIDE = 200; WIDTH = 330; MAX_BYTES = 8_000_000
+RETRY_DAYS = 90
+from place_sources import TRY_FILES, MIN_SIDE, WIDTH, MAX_BYTES, names_place, reject_reasons, to_jpeg   # the rules moved to lib/place_sources.py (#887); imported back so this job and its tests are unchanged
+from place_sources import state_of_place as where_of, openverse_candidates as candidates, openverse_search as search, openverse_entry as entry
 
-def where_of(place):
-    """The US state name of a place whose `place` field is "<State>, USA", else ''."""
-    p = (place or '').strip()
-    return p.split(',')[0].strip() if p.endswith(', USA') else ''
-def names_place(r, name, state):
-    """True when the result's title or tags contain the whole place name and the state name."""
-    n, s = o.norm(name), o.norm(state)
-    if not n or not s: return False
-    blob = [o.norm(r.get('title'))] + [o.norm(t.get('name')) for t in r.get('tags') or []]
-    return any(n in b for b in blob) and any(s in b for b in blob)
-def candidates(results, name, state):
-    """[(id, thumbnail link, creator, short licence, licence link)] in Openverse's order, only what may be used for this place."""
-    out = []
-    for r in results or []:
-        rid = r.get('id') or ''
-        if not re.fullmatch(r'[0-9a-f-]{36}', rid) or o.unwanted(r) or cp.NOTPHOTO.search(r.get('title') or '') or not names_place(r, name, state): continue
-        lic = o.licence_of(r); au = ' '.join(str(r.get('creator') or '').split())
-        if not lic or not au or au.lower() in ('unknown', 'anonymous', 'n/a', 'none'): continue
-        out.append((rid, o.API + rid + '/thumb/', au, lic[0], lic[1]))
-    return out
-def reject_reasons(results, name, state):
-    """{reason: count} for the results candidates() refuses, plus up to 3 example titles that failed only on the place or state words, so a dry run shows why a place found nothing."""
-    out = {}; ex = []
-    for r in results or []:
-        if o.unwanted(r) or cp.NOTPHOTO.search(r.get('title') or ''): k = 'not a photo or unwanted source'
-        elif not o.licence_of(r): k = 'licence'
-        elif not ' '.join(str(r.get('creator') or '').split()): k = 'no creator'
-        elif not names_place(r, name, state):
-            k = 'place or state not in title or tags'
-            if len(ex) < 3: ex.append(r.get('title') or '')
-        else: continue
-        out[k] = out.get(k, 0) + 1
-    return out, ex
-def search(name, state=''):
-    """Openverse results for the exact place name. The state is NOT in the query (a phrase plus an extra word returned no result at all for 19 of 20 places in the first dry runs, #768): names_place() checks the state afterwards."""
-    q = o.API + '?' + urllib.parse.urlencode({'q': '"%s"' % name, 'license': 'cc0,pdm,by,by-sa', 'category': 'photograph', 'excluded_source': 'inaturalist', 'page_size': 20})
-    return (wm.get(q) or {}).get('results') or []
-def to_jpeg(raw):
-    """A 330 px wide JPEG (bytes), or None when it is too big, not an image, or under 200 px on its short side."""
-    from PIL import Image
-    if not raw or len(raw) > MAX_BYTES: return None
-    try:
-        im = Image.open(io.BytesIO(raw)); im.load()
-        if min(im.size) < MIN_SIDE: return None
-        im = im.convert('RGB')
-        if im.size[0] > WIDTH: im = im.resize((WIDTH, max(1, round(im.size[1] * WIDTH / im.size[0]))))
-        b = io.BytesIO(); im.save(b, 'JPEG', quality=82); return b.getvalue()
-    except Exception: return None
-def entry(pid, creator, lic, lu, rid, now):
-    page = 'https://openverse.org/image/%s' % rid
-    return dict(f=pid + '.jpg', a=creator, l=lic, lu=lu, p=page, w=page, s='Openverse', checkedAt=now, fetchedAt=now)
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]; again = '--again' in sys.argv; dry = '--dry' in sys.argv
     limit = int(args[0]) if args else 0
