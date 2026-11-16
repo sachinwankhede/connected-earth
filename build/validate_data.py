@@ -4,6 +4,7 @@ Species table, journeys, outlines, species pictures (by species id). Prints one 
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIRTY_AUTHOR_IS_ERROR = True   # the cleanauthors data merged on 15 Nov (#930), so the validator fails a place picture whose author is not in the stored form (lib/author_clean.py)
+OUTSIDE_IS_ERROR = False   # a place's own point more than 5 km outside its own outline (#977; lib/outline_check.py): 22 places today, so a warning until the data job that fixes them has merged, then set this to True (the one-line change that makes it fail a data pull request)
 
 def load(root, *p):
     path = os.path.join(root, *p)
@@ -147,6 +148,8 @@ def check(root):
         if dirty_jp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
     import node_photos   # pictures of non-species nodes (#976): by node id, checked by their one writer (lib/node_photos.py); nothing to check before photos/node_pictures.json exists
     errs += node_photos.NodePhotos(root).check()
+    import outline_check; far = outline_check.outside(root, 5.0)   # a point far outside its own outline means a wrong point or the wrong outline (#977, docs/DATA-AUDIT.md)
+    if far: (errs if OUTSIDE_IS_ERROR else warns).append('%d place point(s) lie more than 5 km outside their own outline, first %s' % (len(far), ', '.join('%s (%s km)' % (pid, d) for d, pid in far[:5])))
     import outline_records   # credit records of park outlines (#977): files and records agree, once data/outline_records.json exists (nothing to check before)
     errs += outline_records.OutlineRecords(root).check()
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
