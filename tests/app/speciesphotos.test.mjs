@@ -101,6 +101,21 @@ describe('species pictures come only from our hosted copies', () => {
       await t.ctx.close();
     });
 
+    test(`${sizeName}: a picture listed under the species id shows for that species only (#974)`, async () => {
+      const coyote = H.fixturePlace('/api/testland.json').nodes.find((n) => n.id === 'coyote');
+      const sid = coyote.latin.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');   // the species id: the slug of the Latin name (build/species.py)
+      pics = { [sid]: [FAKE, 'Test_page'] };
+      const t = await open(size);
+      await t.page.goto(base + 'index.html#e=testland');
+      await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the coyote node to draw the picture listed under its species id');
+      assert.ok((await nodeHref(t.page, 'coyote')).endsWith('photos/species-md/' + FAKE), 'the picture under the species id is the coyote\'s');
+      const others = await t.page.evaluate(() => [...document.querySelectorAll('#svg .node')].filter((x) => x.__data__ && x.__data__.id !== 'coyote' && x.querySelector('image.photo')).length);
+      assert.equal(others, 0, 'no other species shows a picture that is listed under another species id');
+      assert.deepEqual(t.outside, []);
+      assert.deepEqual(t.errors, []);
+      await t.ctx.close();
+    });
+
     test(`${sizeName}: a species wiki alias uses its canonical hosted picture`, async () => {
       const aliased = H.fixturePlace('/api/testland.json').nodes.find((n) => n.id === 'coyote');   // the fixture's node named by an alias
       assert.equal(aliased.wiki, 'Coyote alias');

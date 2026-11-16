@@ -20,7 +20,7 @@
     var e = ECO_BY[id];
     if (e.nodes) return Promise.resolve(true);
     if (!e._wp) e._wp = Data.place(id).then(function (w) { e.nodes = w.nodes; e.raw = w.raw; e.ev = w.ev; e.sources = w.sources; e.notes = w.notes; e.tip = w.tip; e.rel = PILOT && w.relp ? w.relp : (w.rel || []); e.story = w.story; e.matters = w.matters; e.summary = w.summary;
-      if (w.ph) { e.phLocal = true; Object.keys(w.ph).forEach(function (t) { var c = PhotoRegistry.speciesCandidate(w.ph[t], w.ph[t] && w.ph[t][1], 1, (w.phm || {})[t]); if (c) PhotoRegistry.register(PHOTOS, t, c); }); }   /* this place's own species pictures: no list of every species is needed to show them */
+      if (w.ph) { e.phLocal = true; Object.keys(w.ph).forEach(function (t) { var c = PhotoRegistry.speciesCandidate(w.ph[t], w.ph[t] && w.ph[t][1], 1, (w.phm || {})[t]); if (c) { PhotoRegistry.register(PHOTOS, t, c); if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(t)) PhotoRegistry.register(PHOTOS, PhotoRegistry.speciesKey(t), c); } });   /* an entry keyed by a species id is also registered under species:<id> (a title is never that shape) */ }   /* this place's own species pictures: no list of every species is needed to show them */
       return true; }).catch(function () { e._wp = null; return false; });
     return e._wp;
   }
