@@ -101,7 +101,7 @@ window.__chunk["species-tab"] = function (A) {
       var latin = d.l || words, name = d.n || latin;
       return '<article class="jp"><div class="jtop"><button type="button" class="jback" data-pback="1">\u2039 ' + escH(M.spFrom || (P.FL.q ? "Search" : "Places")) + "</button>" + P.shareBtn() + "</div>" +
         '<div class="jhero sph"><span class="jhimg" id="sp-img">' + (P.ICONS[d.ic] ? '<svg viewBox="0 0 24 24" aria-hidden="true">' + P.ICONS[d.ic] + "</svg>" : A.leaf) + '</span><div><p class="jkind">' + escH(P.PNAMES[d.tl] || "Species") + (d.cl ? " \u00b7 " + escH(d.cl) : "") + "</p><h2>" + escH(name) + '</h2><p class="jr"><i>' + escH(latin) + "</i></p>" + taxLine(d) + "</div></div>" +
-        (d.t ? '<p class="about">' + P.aboutText({ latin: latin, wiki: d.ph && d.ph[1] }) + "</p>" : "") +
+        (d.t ? '<p class="about">' + P.aboutText({ sid: sid, latin: latin, wiki: d.ph && d.ph[1] }) + "</p>" : "") +
         P.footHTML({ photoId: "spcredit", sources: [{ title: "Wikipedia: " + escH(latin), url: "https://en.wikipedia.org/wiki/" + encodeURIComponent(((d.ph && d.ph[1]) || latin).replace(/ /g, "_")) }] }) + "</article>";
     }
     if (M.sid !== sid) return;
@@ -112,7 +112,7 @@ window.__chunk["species-tab"] = function (A) {
       d = d || {}; if (d.t) P.ABOUT[sid] = d.t;
       PV.innerHTML = page(d);
       var c = d.ph && A.PhotoRegistry.speciesCandidate(d.ph, d.ph[1], 1, d.phm); if (c) { A.PhotoRegistry.register(P.PHOTOS, A.PhotoRegistry.speciesKey(sid), c); }   /* by species id only (#973 phase 4) */
-      var ph = d.l && P.photoOf({ latin: d.l }), b = document.getElementById("sp-img");
+      var ph = d.l && P.photoOf({ sid: sid }), b = document.getElementById("sp-img");
       if (ph && b) { var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; P.bindPhoto(im, ph); im.src = ph.src; b.innerHTML = ""; b.appendChild(im); }
       if (ph && d.pl) {   /* a larger copy (400 px) exists: a wide photo above the title instead of the small square (#421) */
         var big = document.createElement("img"), art = PV.querySelector("article"); big.className = "jphoto jwhole"; big.alt = ""; big.referrerPolicy = "no-referrer";

@@ -35,7 +35,8 @@
     "xh": 0.4,
     "wiki": "Grass",
     "desc": "Shared grass.",
-    "ic": "grass"
+    "ic": "grass",
+    "sid": "poa-testensis"
    },
    {
     "id": "elk",
@@ -45,7 +46,8 @@
     "xh": 0.5,
     "wiki": "Elk",
     "desc": "Shared elk.",
-    "ic": "elk"
+    "ic": "elk",
+    "sid": "cervus-testensis"
    },
    {
     "id": "wolf",
@@ -55,7 +57,8 @@
     "xh": 0.5,
     "wiki": "Gray_wolf",
     "desc": "Shared wolf.",
-    "ic": "wolf"
+    "ic": "wolf",
+    "sid": "canis-testlupus"
    },
    {
     "id": "sun",

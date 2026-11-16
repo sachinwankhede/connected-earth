@@ -155,21 +155,21 @@
     return rows.length ? '<details class="evd"><summary>Evidence for feeding links (' + rows.length + ")</summary><ul>" + rows.join("") + "</ul></details>" : "";
   }
   function whereHTML(n, ids) {
-    var hits = ids.filter(function (i) { return i !== state.eco && ECO_BY[i]; }).map(function (i) { return { e: ECO_BY[i], sid: sidOf(n) }; });
+    var hits = ids.filter(function (i) { return i !== state.eco && ECO_BY[i]; }).map(function (i) { return { e: ECO_BY[i], sid: n.sid }; });
     if (!hits.length) return "";
-    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + '<a href="#" data-spage="' + sidOf(n) + '">Species page \u203a</a>' + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
+    return '<h3 class="hrow"><span>Also found in ' + hits.length + (hits.length === 1 ? " other place" : " other places") + "</span>" + '<a href="#" data-spage="' + n.sid + '">Species page \u203a</a>' + '</h3><div class="prow">' + hits.slice(0, 12).map(function (h) {
       return '<button type="button" class="pmc ppc" data-jump-sp="' + h.e.id + "|" + h.sid + '"><span class="pbox"><span class="pph" data-eid="' + h.e.id + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[h.e.icon] || "") + "</svg></span></span><b>" + escH(h.e.short) + "</b><small>" + escH(h.e.place || "") + "</small></button>";
     }).join("") + "</div>";
   }
   function whereElseHTML(n) {
-    if (n.cat || !n.latin) return "";
-    var sid = sidOf(n);
+    if (n.cat || !n.sid) return "";
+    var sid = n.sid;
     if (SPPL.d[sid]) return whereHTML(n, SPPL.d[sid]);
     sppPlaces(sid).then(function (ids) {   /* the places of this species are a small file of their own: the row fills in when it arrives */
       var el = document.getElementById("where-else");
-      if (el && el.getAttribute("data-latin") === n.latin && state.sel && BY[state.sel] === n) { el.outerHTML = whereHTML(n, ids); pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); }); }
+      if (el && el.getAttribute("data-sid") === sid && state.sel && BY[state.sel] === n) { el.outerHTML = whereHTML(n, ids); pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); }); }
     });
-    return '<div id="where-else" data-latin="' + esc(n.latin) + '"></div>';
+    return '<div id="where-else" data-sid="' + sid + '"></div>';
   }
   var P = { set: function () {}, toggle: function () {}, last: undefined };
   function renderPanel() {

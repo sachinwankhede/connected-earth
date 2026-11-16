@@ -86,7 +86,8 @@ def split(ecos, links, sp=None, nps=None):
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
-        webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
+        wnodes = [dict(n, sid=species.slug(n['latin'])) if n.get('latin') and not n.get('cat') else dict(n, nid=node_photos.node_id(n['wiki'])) if n.get('cat') and n.get('wiki') else n for n in nodes]   # the id of a node's species (sid) or concept (nid) is written with it: the app reads it and works out no id from a name (#973)
+        webs[e['id']] = {'nodes': wnodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if True:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one shows none (#973 phase 4: it no longer borrows the picture of a Wikipedia title, 2 species did)
             own = {}; ownm = {}
