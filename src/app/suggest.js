@@ -69,13 +69,13 @@
       var sp = r.t === "s", e = ECO_BY[r.id], nm = escH(r.name), chip = sp && M.chip === q;
       hd.className = "qhead" + (chip ? " qchip" : "");
       if (chip) { withSpeciesTab(function (c) { c.mapHead(hd, r); hd.hidden = false; }); return; }
-      hd.innerHTML = "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + esc(r.latin) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
+      hd.innerHTML = "<b>" + nm + "</b> \u00b7 " + (sp ? 'found in <a href="#" data-hmap="' + esc(r.latin) + '" data-hn="' + esc(r.name) + '">' + r.n + (r.n === 1 ? " place" : " places") + '</a> \u00b7 <a href="#" data-hsp="' + sidOf({ latin: r.latin }) + '">Species page \u203a</a>' : '<a href="#" data-hpl="' + r.id + '">Open the place \u203a</a>');
       hd.hidden = M.tab === "journeys";   /* the Journeys tab says what it found once, in the note */
     }).catch(function () {});
   }
   document.getElementById("qhead").addEventListener("click", function (ev) {
     var a = ev.target.closest("a"); if (!a) return; ev.preventDefault();
-    if (a.hasAttribute("data-hsp")) showSpecies(sidOf({ latin: a.getAttribute("data-hsp") }));
+    if (a.hasAttribute("data-hsp")) showSpecies(a.getAttribute("data-hsp"));
     else if (a.hasAttribute("data-hmap")) speciesMap(a.getAttribute("data-hn"), a.getAttribute("data-hmap"));   /* the places of the species, on the map (the search list is by name) */
     else if (a.hasAttribute("data-hpl")) showPlace(a.getAttribute("data-hpl"));
     else withSpeciesTab(function (c) { c.mapBack(); });

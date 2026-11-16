@@ -132,6 +132,29 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 }
 
 for (const [name, size] of Object.entries(H.SIZES)) {
+  test(`${name}: "Also found in" opens the other place on the same species, found by species id (#973)`, async () => {
+    const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&e=nparches' }); const p = t.page;
+    await p.waitForSelector('.node', { timeout: 60000 });
+    const want = await p.evaluate(async () => {
+      for (const c of [...document.querySelectorAll('.node')]) {
+        c.dispatchEvent(new MouseEvent('click', { bubbles: true })); await new Promise((r) => setTimeout(r, 300));
+        for (let w = 0; w < 40 && document.getElementById('where-else'); w++) await new Promise((r) => setTimeout(r, 100));
+        const j = document.querySelector('#panel [data-jump-sp]'), l = document.querySelector('#panel .latin');
+        if (j && l) return { jump: j.getAttribute('data-jump-sp'), latin: l.textContent };
+      }
+      return null;
+    });
+    assert.ok(want, 'a species that lives in another place has the link');
+    const [eco, sid] = want.jump.split('|');
+    assert.notEqual(eco, 'nparches'); assert.match(sid, /^[a-z0-9]+(-[a-z0-9]+)*$/, 'the link carries the species id, not the Latin name');
+    await p.evaluate(() => document.querySelector('#panel [data-jump-sp]').click());
+    await p.waitForFunction((e) => new RegExp('(^|&)e=' + e + '($|&)').test(decodeURIComponent(location.hash)), eco, { timeout: 60000 });
+    await p.waitForFunction((l) => { const x = document.querySelector('#panel .latin'); return x && x.textContent === l; }, want.latin, { timeout: 60000 });
+    assert.deepEqual(t.errors, []); await b.close();
+  });
+}
+
+for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: the species sheet of a graph links to the species page and Back returns to the graph`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub&e=nparches' }); const p = t.page;
     await p.waitForSelector('.node', { timeout: 60000 });
