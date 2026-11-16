@@ -21,7 +21,7 @@ CR = {'a': 'Jane Doe', 'l': 'CC BY-SA 4.0', 'lu': 'https://creativecommons.org/l
 
 def tree():
     d = tempfile.mkdtemp()
-    rows = {'heavy-rain': ('resource', 'Rain'), 'winter-rain': ('resource', 'Rain'), 'termitidae': ('taxon', 'Termite'), 'canis-lupus': ('taxon', 'Gray wolf')}
+    rows = {'antarctic-convergence': ('resource', 'Antarctic Convergence'), 'heavy-rain': ('resource', 'Rain'), 'winter-rain': ('resource', 'Rain'), 'termitidae': ('taxon', 'Termite'), 'canis-lupus': ('taxon', 'Gray wolf')}
     for sid, (sk, wiki) in rows.items(): w(d, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'wiki': wiki, 'sk': sk})
     pics = {'heavy-rain': dict(CR, f='r1.webp'), 'winter-rain': dict(CR, f='r1.webp'), 'termitidae': dict(CR, f='t1.webp', wiki='Termite', page='Termite'), 'canis-lupus': dict(CR, f='w1.webp', wiki='Gray wolf')}
     w(d, 'photos/species_pictures.json', pics); w(d, 'photos/species_medium.json', {'heavy-rain': 'r1.webp', 'winter-rain': 'r1.webp'})
@@ -40,6 +40,11 @@ class MigrateTests(unittest.TestCase):
         with open(os.path.join(d, 'photos', 'nodes', e['f']), 'rb') as f: self.assertEqual(f.read(), b'tile-rain', 'the 192 px tile is copied')
         self.assertEqual(read(os.path.join(d, 'photos', 'species_pictures.json')), before, 'nothing in the species data changes')
         self.assertTrue(os.path.exists(os.path.join(d, 'photos', 'species', 'r1.webp')))
+
+    def test_a_concept_with_no_picture_goes_to_the_missing_list_for_the_acquire_job(self):
+        d = tree(); nm.migrate(d); miss = json.loads(read(os.path.join(d, 'photos', 'node_missing.json')))
+        self.assertEqual(sorted(miss), ['antarctic-convergence']); self.assertEqual(miss['antarctic-convergence']['status'], 'notyet')
+        self.assertNotIn('antarctic-convergence', json.loads(read(os.path.join(d, 'photos', 'node_pictures.json'))))
 
     def test_dry_run_writes_nothing_and_a_second_run_is_refused(self):
         d = tree(); nm.migrate(d, dry=True); self.assertFalse(os.path.exists(os.path.join(d, 'photos', 'node_pictures.json')))

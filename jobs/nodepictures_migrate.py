@@ -6,7 +6,7 @@ Today the pictures of sunlight, rain, soil and decomposers are filed in photos/s
 `sk: resource` rows of data/species/rows, every one pointing at the picture of its Wikipedia concept title (`wiki`: Soil, Rain, Sunbeam, Decomposer). This reads those rows through lib/species_pics.py and writes ONE record
 per concept through lib/node_photos.py: the id is the slug of the concept title, the record is the credit of the picture the rows share (a, l, lu, p, page, wiki, src), the file is a copy of the 192 px tile
 photos/species-md/<f> as photos/nodes/<f2>, and the record gets `built` and `checkedAt` (no `expires`). It is ADDITIVE: no species row, picture or file is changed or removed (that is a later step, after the app reads
-node pictures); a taxon that happens to share a concept title (Termite, Sponge) is not a `resource` row and is left alone. Rows of one concept that disagree on the picture or credit are listed and the first by id is used.
+node pictures); a concept with no picture at all (antarctic-convergence, little-missouri-river) is recorded in photos/node_missing.json with status `notyet` (nothing has looked for it yet) for the acquire job; a taxon that happens to share a concept title (Termite, Sponge) is not a `resource` row and is left alone. Rows of one concept that disagree on the picture or credit are listed and the first by id is used.
 Refuses when photos/node_pictures.json already exists. Prints a table (node id, concept title, rows, file, licence, author) and checks the round trip: every `resource` row with a picture shows the same credit through
 its node id. `dry` writes nothing. Deleted after the migration has run (as the place, species and journey ones were)."""
 import glob, json, os, sys
@@ -18,12 +18,12 @@ from node_photos import node_id
 from place_photos import author_missing
 
 
-def resource_sids(root):
-    """The species ids of the `sk: resource` rows (not taxa, not groups): node labels filed as species."""
-    out = set()
+def resource_rows(root):
+    """{species id: concept title (`wiki`)} of the `sk: resource` rows (not taxa, not groups): node labels filed as species, with or without a picture."""
+    out = {}
     for f in glob.glob(os.path.join(root, 'data', 'species', 'rows', '*', '*.json')):
         with open(f) as h: r = json.load(h)
-        if r.get('sk') == 'resource': out.add(r['sid'])
+        if r.get('sk') == 'resource': out[r['sid']] = r.get('wiki')
     return out
 
 
@@ -33,11 +33,16 @@ def blob(root, *parts):
 
 def plan(root):
     """{node id: [(sid, row)]} for every resource row that has a picture and a concept title, rows in sid order."""
-    pics = species_pics.load(root)['pics']; res = resource_sids(root); groups = {}
+    pics = species_pics.load(root)['pics']; res = resource_rows(root); groups = {}
     for sid in sorted(pics):
         row = pics[sid]
         if sid in res and row.get('wiki'): groups.setdefault(node_id(row['wiki']), []).append((sid, row))
     return groups
+
+
+def unpictured(root, groups):
+    """Concept ids of resource rows that have a concept title but whose concept has no picture (e.g. antarctic-convergence, little-missouri-river): they go to the missing list so the acquire job looks for them by node id."""
+    return sorted({node_id(w) for w in resource_rows(root).values() if w} - set(groups))
 
 
 def migrate(root, dry=False):
@@ -54,9 +59,10 @@ def migrate(root, dry=False):
         with open(tile, 'rb') as f: webp = f.read()
         w.put(nid, e, webp)
         lines.append('| %s | %s | %d | %s | %s | %s |' % (nid, row.get('wiki'), len(rows), w.pics[nid]['f'], row.get('l', ''), row.get('a', '')))
+    for nid in unpictured(root, groups): w.miss(nid, 'notyet')
     problems += round_trip(groups, w)
     table = '\n'.join(['| Node id | Concept title | Rows | File | Licence | Author |', '|---|---|---:|---|---|---|'] + lines +
-                      ['', '%d node pictures from %d resource rows' % (len(w.pics), sum(len(v) for v in groups.values()))] + (['', 'Rows that disagree (first used):'] + differ if differ else []))
+                      ['', '%d node pictures from %d resource rows; %d concepts without a picture go to node_missing.json (status notyet): %s' % (len(w.pics), sum(len(v) for v in groups.values()), len(w.miss_), ', '.join(sorted(w.miss_)) or 'none')] + (['', 'Rows that disagree (first used):'] + differ if differ else []))
     print(table)
     if problems:
         print('\n'.join('PROBLEM ' + p for p in problems)); sys.exit(1)
