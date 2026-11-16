@@ -21,7 +21,7 @@ for _flag, _env in (('--data-root', 'CE_DATA_ROOT'), ('--out-root', 'CE_OUT_ROOT
 import paths
 import species, journeydata, geoids
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "lib"))
-import species_pics, journey_pics
+import species_pics, journey_pics, node_photos
 from photo_registry import https_license
 P = lambda *a: os.path.join(ROOT, *a)                  # code: src/, node_modules/, icons
 D = lambda *a: os.path.join(paths.DATA_ROOT, *a)       # data/ and photos/ (#787)
@@ -69,7 +69,7 @@ HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out 
 UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the app (stage only tells the build which places are pilot-only)
 
 
-def split(ecos, links, phs=None, phm=None, sp=None):
+def split(ecos, links, phs=None, phm=None, sp=None, nps=None):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for api/<id>.json.
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
@@ -91,6 +91,14 @@ def split(ecos, links, phs=None, phm=None, sp=None):
             # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one keeps the title entries it had (the picture of a title one of its nodes carries)
             own = {}; ownm = {}; keys = set()
             for n in nodes:
+                nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node (sunlight, rain, soil...) has its picture by node id (#976), listed under node:<id>; a node without a node picture keeps its title entries as before
+                nr = nps.get(nid) if nps and nid else None
+                if nr:
+                    own['node:' + nid] = [nr['f'], nr.get('page') or nr.get('wiki')]
+                    ncr = {k: nr[k] for k in ('a', 'l', 'lu', 'p') if nr.get(k)}
+                    if ncr.get('lu'): ncr['lu'] = https_license(ncr['lu'])
+                    ownm['node:' + nid] = ncr
+                if nr: continue   # this node's picture is the node entry: its title entries are not repeated (the place file carries each picture once)
                 sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
                 r = sp['pics'].get(sid) if sp is not None and sid else None
                 if r:
@@ -619,7 +627,7 @@ def build(pilot, out_path, write=False, places=False):
     phs = {t: [r['f'], r.get('page') or t] for t, r in sorted(sp['titles'].items())}   # by title, for the journeys (they name a picture by its title)
     large = sp['title_large']   # the larger copies (#421): the species page shows one as a wide photo
     phm = {t: species_pics.credit(r) for t, r in sp['titles'].items() if species_pics.credit(r)}
-    light, webs, spt, sidx, qs = split(ecos, links, phs, phm, sp)
+    light, webs, spt, sidx, qs = split(ecos, links, phs, phm, sp, node_photos.NodePhotos(paths.DATA_ROOT).pics)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
@@ -767,7 +775,7 @@ if __name__ == '__main__':
         if '--fixture' in a and os.path.isdir(D('photos', 'places')): shutil.copytree(D('photos', 'places'), O('photos', 'places'), dirs_exist_ok=True)   # the fixture's place pictures and their list, next to the page as on the site
         if '--fixture' in a and os.path.isdir(D('photos', 'places-lg')): shutil.copytree(D('photos', 'places-lg'), O('photos', 'places-lg'), dirs_exist_ok=True)   # and their larger copies (#727)
         if '--fixture' in a:   # the fixture's species pictures (medium and large copies), next to the pages like the place pictures
-            for sub in ('species-md', 'species-lg'):
+            for sub in ('species-md', 'species-lg', 'nodes'):
                 if os.path.isdir(D('photos', sub)): shutil.copytree(D('photos', sub), O('photos', sub), dirs_exist_ok=True)
         if '--fixture' in a:   # the files the service worker keeps when it installs (SHELL_FILES in src/sw.template.js): without them the install fails and the worker never becomes ready
             for f in ('manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'): shutil.copyfile(P(f), O(f))

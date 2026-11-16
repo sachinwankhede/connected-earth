@@ -98,6 +98,14 @@ if os.path.isdir(mdd):
     for label, n, lim in (('photos/species-md/ total', sum(md), MEDIUM_PHOTOS_MAX), ('photos/species-md/ largest', max(md or [0]), MEDIUM_PHOTO_ONE_MAX)):
         ok = n <= lim; bad += not ok
         print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
+NODE_PHOTO_ONE_MAX = 30_000   # photos/nodes/<file>.webp: one 192 px picture of a non-species node (#976; the 188 moved from the species tiles run 7 to 12 KB)
+NODE_PHOTOS_MAX = 5_000_000   # photos/nodes/ together (about 250 concepts at 10 KB; published with the app)
+nd = os.path.join(ROOT, 'photos', 'nodes')
+if os.path.isdir(nd):
+    nf = [os.path.getsize(os.path.join(nd, f)) for f in os.listdir(nd)]
+    for label, n, lim in (('photos/nodes/ total', sum(nf), NODE_PHOTOS_MAX), ('photos/nodes/ largest', max(nf or [0]), NODE_PHOTO_ONE_MAX)):
+        ok = n <= lim; bad += not ok
+        print('%-30s %9d / %9d %s' % (label, n, lim, 'ok' if ok else 'OVER'))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import firstview   # the first-view weight: gzip bytes of the page, map library and world places, and which outside hosts it reaches (#369)
 lines, fv_bad = firstview.check()

@@ -73,6 +73,16 @@
     return c;
   }
   function coverKey(id) { return "journey:" + id; }
+  // A non-species node (sunlight, rain, soil, decomposers...) has its picture by node id, the slug of its concept title (#976). The file is one of our own copies, read from <base>/<name>.
+  function nodeId(wiki) { return String(wiki || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+  function nodeKey(id) { return "node:" + id; }
+  function nodeCandidate(value, base, metadata) {
+    if (!Array.isArray(value) || typeof value[0] !== "string" || !/^[0-9a-f]{12}\.webp$/.test(value[0]) || typeof base !== "string") return null;
+    var c = speciesCandidate(["000000000000.webp", value[1]], null, 1, metadata);
+    c.assetUrl = base + value[0];
+    c.sourcePageUrl = value[1] ? (/^https?:/.test(value[1]) ? value[1] : wikiUrl(value[1])) : null;
+    return c;
+  }
   // A place's picture is registered under its place id (never its Wikipedia title, which two places can share, #908, #968).
   function placeKey(id) { return "place:" + id; }
   // A species' picture is registered under its species id, the slug of its Latin name (the same id the build gives it, build/species.py slug), never its Latin name or a Wikipedia title that two species can share (#934, #974).
@@ -166,6 +176,9 @@
   return {
     coverCredits: coverCredits,
     coverKey: coverKey,
+    nodeId: nodeId,
+    nodeKey: nodeKey,
+    nodeCandidate: nodeCandidate,
     coverPhoto: coverPhoto,
     journeyCandidate: journeyCandidate,
     placeKey: placeKey,
