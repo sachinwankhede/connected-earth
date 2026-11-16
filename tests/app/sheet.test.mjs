@@ -14,7 +14,7 @@ describe('place sheet', () => {
     test(`${sizeName}: a place opens as just the graph; picking a species brings up its sheet; clearing it takes the sheet away`, async () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=nparches' });
       const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { sheet: v('psheet'), back: v('pbk'), graph: document.querySelectorAll('.node').length }; });
-      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
+      await H.nodesDrawn(t, 3);
       let s = await vis();
       assert.equal(s.sheet, false, 'no sheet or side panel while nothing is selected'); assert.equal(s.back, true, 'a way back is always there');
       assert.match(await t.page.textContent('#pbk'), /^\u2039 Arches National Park$/);
@@ -33,7 +33,7 @@ describe('place sheet', () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page, { fixture: true });
       let hits = 0; t.page.on('request', (r) => { if (/api\/species\/[a-z0-9-]+\.json/.test(r.url())) hits++; });
-      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
+      await H.nodesDrawn(t, 3);
       assert.equal(hits, 0, 'nothing is fetched before a species sheet opens');
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForFunction(() => { const a = document.querySelector('#panel .about'); return a && a.textContent.length > 40 && a.querySelector('a'); }, null, { timeout: 30000 });
@@ -52,7 +52,7 @@ describe('place sheet', () => {
     test(`${sizeName}: a species sheet shows what it eats and what eats it as photo cards, sources and credits tucked away, What if last`, async () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
       await mockPhotos(t.page, { thinPlaces: true, fixture: true });
-      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 });
+      await H.nodesDrawn(t, 3);
       await t.page.evaluate(() => [...document.querySelectorAll('.node')].find((n) => /Elk/.test(n.getAttribute('aria-label'))).dispatchEvent(new MouseEvent('click', { bubbles: true })));
       await t.page.waitForSelector('#panel .prow .pmc', { timeout: 30000 });
       const r = await t.page.evaluate(() => {
@@ -101,7 +101,7 @@ describe('place sheet', () => {
 
     test(`${sizeName}: the graph has no toolbar until it is moved; the environment is always shown; sharing lives on the place page`, async () => {
       const t = await H.open(browser, H.FMAIN, size, { hash: '#stub&e=yellowstone' });
-      await t.page.waitForFunction(() => document.querySelectorAll('.node').length > 3, null, { timeout: 60000 }); await H.pause(t.page, 1500);
+      await H.nodesDrawn(t, 3); await H.pause(t.page, 1500);
       const vis = () => t.page.evaluate(() => { const v = (id) => { const e = document.getElementById(id); return !!e && e.getBoundingClientRect().width > 0 && getComputedStyle(e).display !== 'none'; }; return { env: v('env'), web: v('vt'), more: v('moreb'), share: v('share'), key: v('kbtn'), fit: v('fit'), bar: v('webctl'), cap: v('gcap'), sun: [...document.querySelectorAll('.node')].some((n) => /Sunlight/.test(n.getAttribute('aria-label')) && n.getBoundingClientRect().width > 0) }; });
       let s = await vis();
       assert.deepEqual([s.env, s.web, s.more, s.share, s.key, s.fit, s.bar], [false, false, false, false, false, false, false], 'no buttons on a fresh graph'); assert.ok(s.cap && s.sun, 'caption and environment shown');

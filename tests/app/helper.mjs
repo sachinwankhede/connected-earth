@@ -138,8 +138,10 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   });
   const page = await ctx.newPage();
   page.setDefaultTimeout(90000); // CI machines draw the map in software and can be several times slower than a laptop
-  const errors = [];
+  const errors = [], failed = [];   // failed: requests that did not complete or answered 4xx/5xx (not the outside hosts the test aborts on purpose), named in a wait's timeout message
   page.on('pageerror', (e) => errors.push(String(e)));
+  page.on('requestfailed', (r) => { if (!/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/.test(r.url())) failed.push(`${r.url().slice(-80)}: ${r.failure() && r.failure().errorText}`); });
+  page.on('response', (r) => { if (r.status() >= 400 && !/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/.test(r.url())) failed.push(`${r.url().slice(-80)}: ${r.status()}`); });
   await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
   if (fixtures) await routeFixtures(page);
   await page.goto((await urlFor(file)) + hash);
@@ -149,7 +151,17 @@ export async function open(browser, file, size, { hash = '', geo = null, extraCs
   await page.waitForFunction(() => window.d3, null, { timeout: 30000 }).catch(() => {});
   await page.waitForTimeout(500);
   if (extraCss) await page.addStyleTag({ content: extraCss });
-  return { ctx, page, errors, close: () => ctx.close() };
+  return { ctx, page, errors, failed, close: () => ctx.close() };
+}
+
+// Wait until a food web has drawn more than `min` nodes. A timeout says which stage was reached (address, map style, diagram library, drawn nodes, page errors, failed requests), so a slow runner and a
+// food web that never opens can be told apart; the wait is never lengthened to hide a stall (#984).
+export async function nodesDrawn(t, min = 3, timeout = 60000) {
+  try { await t.page.waitForFunction((m) => document.querySelectorAll('.node').length > m, min, { timeout }); }
+  catch (e) {
+    const where = await t.page.evaluate(() => ({ hash: location.hash, styleReady: !!(window.__M && window.__M.styleReady), d3: typeof window.d3, svgNodes: document.querySelectorAll('#svg .node').length, nodes: document.querySelectorAll('.node').length })).catch(() => 'page gone');
+    throw new Error(`timed out after ${timeout} ms waiting for more than ${min} nodes; the page was at ${JSON.stringify(where)}; page errors ${JSON.stringify(t.errors)}; failed requests ${JSON.stringify(t.failed.slice(0, 8))}`);
+  }
 }
 
 export const dots = async (page) => {
