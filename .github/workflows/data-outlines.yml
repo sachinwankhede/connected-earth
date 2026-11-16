@@ -1,7 +1,10 @@
 name: data-outlines
-# Manual only. Tries again for the park outlines that are missing (PAD-US, US Geological Survey), for every US park or for the ids given,
-# and opens one pull request with the new files and a list of the parks that still have none. Nothing reaches the live site until it is merged.
+# Weekly (Wednesday 03:37 UTC) and by hand. Tries again for the park outlines that are missing (PAD-US, US Geological Survey, then Wikidata and OpenStreetMap), for every park or for the ids given,
+# writes each outline's credit record (data/outline_records.json) and the misses with their retry delay (data/outline_missing.json, #977), and opens one pull request with the new files and a list of the
+# parks that still have none. A run does nothing while an outline pull request is open. Nothing reaches the live site until it is merged.
 on:
+  schedule:
+    - cron: '37 3 * * 3'
   workflow_dispatch:
     inputs:
       ids: { description: "Place ids, space-separated. Blank = every US park without an outline", default: "" }
@@ -17,19 +20,33 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with: { ref: main }
-      - uses: actions/setup-node@v5
-        with: { node-version: 22, cache: npm }
-      - run: npm ci
-      - name: Fetch the missing outlines from PAD-US (US parks)
-        run: python3 jobs/bounds.py ${{ github.event.inputs.ids }} | tee outlines.log
-      - name: Try Wikidata and OpenStreetMap for the rest
-        run: python3 jobs/bounds_more.py ${{ github.event.inputs.ids }} | tee outlines_more.log
-      - name: Check the size budget
+      - name: Stop while an outline pull request is open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|test("^data/(outline|bounds)"))]|length')
+          echo "open outline pull requests: $N"; echo "n=$N" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@v5
+        if: steps.open.outputs.n == '0'
+        with: { node-version: 22, cache: npm }
+      - if: steps.open.outputs.n == '0'
+        run: npm ci
+      - name: Fetch the missing outlines from PAD-US (US parks)
+        if: steps.open.outputs.n == '0'
+        run: python3 jobs/bounds.py ${{ github.event.inputs.ids }} | tee outlines.log
+      - name: Try Wikidata and OpenStreetMap for the rest (and record every outline)
+        if: steps.open.outputs.n == '0'
+        run: python3 jobs/bounds_more.py ${{ github.event.inputs.ids }} | tee outlines_more.log
+      - name: Check the data and the size budget
+        if: steps.open.outputs.n == '0'
+        run: |
+          python3 build/validate_data.py
           python3 build/species.py pack
           python3 build/build.py --all
           python3 build/budget.py
       - name: Commit and open the pull request
+        if: steps.open.outputs.n == '0'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -41,7 +58,8 @@ jobs:
           git add -f jobs/reports/outlines_missing.md; git commit -qm "Places without an outline" || true; git push -q -f origin data/outlines-report
           git checkout -q -B "$BR" origin/main 2>/dev/null || git checkout -q -B "$BR" main
           git add -A -- data/outlines
-          if git diff --cached --quiet; then echo "No new outlines."; exit 0; fi
+          if git diff --cached --quiet; then echo "No new outlines (a weekly run that finds none opens no pull request; the misses are tried again after their delay)."; exit 0; fi
+          git add -A -- data/outline_records.json data/outline_missing.json
           N=$(git diff --cached --name-only | wc -l)
           git commit -m "Park outlines: $N more"
           bash jobs/syncstep.sh || true
