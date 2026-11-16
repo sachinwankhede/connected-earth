@@ -42,7 +42,7 @@
       row.innerHTML = '<span class="sgi">' + ico + '</span><span class="sgt"><b></b>' + (r.t === "q" ? "" : "<i></i>") + "</span>" + (r.t === "q" ? "" : SUG_CHEV);   /* a typed search: one line, no chevron (a chevron opens a page) */
       row.querySelector("b").textContent = r.name || r.q;
       if (r.t !== "q") row.querySelector("i").textContent = r.t === "p" ? (e && e.place ? "Place · " + e.place : "Place") : "Species · in " + r.n + (r.n === 1 ? " place" : " places");;
-      var p = r.t === "q" ? 0 : r.t === "p" ? (e && PHOTOS[PhotoRegistry.placeKey(e.id)]) : PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
+      var p = r.t === "q" ? 0 : r.t === "p" ? (e && PHOTOS[PhotoRegistry.placeKey(e.id)]) : PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(r.latin))] || PHOTOS[r.latin] || (r.pic && (c = PhotoRegistry.speciesCandidate([r.pic, r.latin], r.latin, 1, null)) && { src: c.assetUrl, key: r.latin });   /* the hosted picture is in the row itself (#443) */
       if (p) sugImg(row.querySelector(".sgi"), p, ico);
       sugBox.appendChild(row);
     });
