@@ -111,7 +111,7 @@ window.__chunk["species-tab"] = function (A) {
       if (M.sid !== sid) return;
       d = d || {}; if (d.t) P.ABOUT[sid] = d.t;
       PV.innerHTML = page(d);
-      var c = d.ph && A.PhotoRegistry.speciesCandidate(d.ph, d.ph[1], 1, d.phm); if (c) A.PhotoRegistry.register(P.PHOTOS, d.l, c);
+      var c = d.ph && A.PhotoRegistry.speciesCandidate(d.ph, d.ph[1], 1, d.phm); if (c) { A.PhotoRegistry.register(P.PHOTOS, A.PhotoRegistry.speciesKey(sid), c); A.PhotoRegistry.register(P.PHOTOS, d.l, c); }   /* by species id first; the Latin name stays until the old keys go (#973) */
       var ph = d.l && P.photoOf({ latin: d.l }), b = document.getElementById("sp-img");
       if (ph && b) { var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; P.bindPhoto(im, ph); im.src = ph.src; b.innerHTML = ""; b.appendChild(im); }
       if (ph && d.pl) {   /* a larger copy (400 px) exists: a wide photo above the title instead of the small square (#421) */

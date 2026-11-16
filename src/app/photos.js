@@ -126,7 +126,10 @@
       var m = all.ph || {}, credits = all.phm || {};
       Object.keys(m).forEach(function (t) {
         var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1, credits[t]);
-        if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
+        if (candidate) {
+          PhotoRegistry.register(PHOTOS, t, candidate);
+          if (/^[a-z0-9]+(-[a-z0-9]+)*$/.test(t)) PhotoRegistry.register(PHOTOS, PhotoRegistry.speciesKey(t), candidate);   /* a species id: the app asks by id first (#973) */
+        }
       });
       var jp = all.jpic || {}, jm = all.jpicm || {};   /* the journeys' own covers by journey id (none until the data has them: then the title picture is used) */
       Object.keys(jp).forEach(function (id) {
