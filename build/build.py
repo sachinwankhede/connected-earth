@@ -88,25 +88,24 @@ def split(ecos, links, phs=None, phm=None, sp=None, nps=None):
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
-            # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one keeps the title entries it had (the picture of a title one of its nodes carries)
-            own = {}; ownm = {}; keys = set()
+            # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one shows none (#973 phase 4: it no longer borrows the picture of a Wikipedia title, 2 species did)
+            own = {}; ownm = {}
             for n in nodes:
-                nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node (sunlight, rain, soil...) has its picture by node id (#976), listed under node:<id>; a node without a node picture keeps its title entries as before
+                nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node (sunlight, rain, soil...) has its picture by node id (#976), listed under node:<id>; a node without a node picture keeps its icon
                 nr = nps.get(nid) if nps and nid else None
                 if nr:
                     own['node:' + nid] = [nr['f'], nr.get('page') or nr.get('wiki')]
                     ncr = {k: nr[k] for k in ('a', 'l', 'lu', 'p') if nr.get(k)}
                     if ncr.get('lu'): ncr['lu'] = https_license(ncr['lu'])
                     ownm['node:' + nid] = ncr
-                if nr: continue   # this node's picture is the node entry: its title entries are not repeated (the place file carries each picture once)
+                    continue
                 sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
                 r = sp['pics'].get(sid) if sp is not None and sid else None
                 if r:
                     own[sid] = [r['f'], r.get('page') or r.get('wiki')]
                     if species_pics.credit(r): ownm[sid] = species_pics.credit(r)
-                else: keys |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
-            webs[e['id']]['ph'] = own | {k: phs[k] for k in sorted(keys) if k in phs and k not in own}
-            webs[e['id']]['phm'] = ownm | {k: phm[k] for k in sorted(keys) if phm and k in phm and k not in ownm}
+            webs[e['id']]['ph'] = own
+            webs[e['id']]['phm'] = ownm
         light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY + UNUSED} | {'idx': idx})
     return light, webs, spt, sidx, qs
 
@@ -625,17 +624,13 @@ def build(pilot, out_path, write=False, places=False):
         if _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
     phs = {t: [r['f'], r.get('page') or t] for t, r in sorted(sp['titles'].items())}   # by title, for the journeys (they name a picture by its title)
-    large = sp['title_large']   # the larger copies (#421): the species page shows one as a wide photo
     phm = {t: species_pics.credit(r) for t, r in sp['titles'].items() if species_pics.credit(r)}
     light, webs, spt, sidx, qs = split(ecos, links, phs, phm, sp, node_photos.NodePhotos(paths.DATA_ROOT).pics)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
-    common = {l.lower(): c for l, c in spt}; keys = {}
-    for e in ecos:
-        for n in e['nodes']:
-            if n.get('latin') and not n.get('cat'): keys.setdefault(n['latin'].lower(), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+    common = {l.lower(): c for l, c in spt}
     CS_WORDS = {'LC': 'Least concern', 'NT': 'Near threatened', 'VU': 'Vulnerable', 'EN': 'Endangered', 'CR': 'Critically endangered', 'EW': 'Extinct in the wild', 'EX': 'Extinct'}
     cons = json.load(open(D('data', 'species', 'conservation.json'))) if os.path.exists(D('data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
@@ -646,12 +641,9 @@ def build(pilot, out_path, write=False, places=False):
         if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
-        own = sp['pics'].get(row['sid'])   # this species' own picture; failing that the picture of a title one of its nodes carries
-        pk = None if own else next((t for t in sorted(keys.get(k, ()), key=lambda t: (t != row['latin'], t)) if t in phs), None)
+        own = sp['pics'].get(row['sid'])   # this species' own picture; a species without one shows none (#973 phase 4: no borrowing of a title's picture)
         if own: f['ph'] = [own['f'], own.get('page') or own.get('wiki')]; f['phm'] = species_pics.credit(own) or None; pics[row['latin']] = own['f']
-        elif pk: f['ph'] = phs[pk]; f['phm'] = phm[pk] if pk in phm else None; pics[row['latin']] = phs[pk][0]
         if own and sp['large'].get(row['sid']) == own['f']: f['pl'] = 1
-        elif pk and large.get(pk) == phs[pk][0]: f['pl'] = 1
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
     species_related(about, common, pics, species_diet(ecos, about, common, pics))
