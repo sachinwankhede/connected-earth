@@ -7,14 +7,8 @@
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   var man = null, manAsked = false;   /* the stored place photo list: fetched when the photos are released (#397), not at start; nothing reads it before it has arrived */
-  /* The stored list is keyed by place id (a row's `wiki` is its Wikipedia title); a list still keyed by title is read by title (tests and old caches), and then only by title. A place's picture is registered under its own id (PhotoRegistry.placeKey), so two places on one title never share a picture (#968). */
-  var manT = null, byId = false;
-  function index() {
-    if (manT) return;
-    manT = {}; Object.keys(man).forEach(function (k) { var r = man[k], w = r && r.wiki ? r.wiki : k; if (!(w in manT)) manT[w] = r; if (r && r.wiki && r.wiki !== k) byId = true; });
-  }
-  function titleRow(t) { index(); return manT[t]; }
-  function storedRow(e) { if (!man) return null; index(); return man[e.id] || (byId ? null : manT[e.imgwiki]) || null; }
+  /* The stored list is keyed by place id (a row's `wiki` is its Wikipedia title, only a credit). A place's picture is registered under its own id (PhotoRegistry.placeKey), so two places on one title never share a picture (#968); no row is ever found by title (#973 phase 4). */
+  function storedRow(e) { return man ? man[e.id] || null : null; }
   function stored(e) {
     var m = storedRow(e), candidate = m && PhotoRegistry.placeCandidate(m, PB);
     if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.placeKey(e.id), candidate);

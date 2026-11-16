@@ -8,7 +8,8 @@ if not os.path.exists(f):
     print('skipped: the build has not run'); sys.exit(0)
 d = json.load(open(f))
 ids = [k for k in d['ph'] if re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', k)]
-assert len(ids) == len(d['ph']), 'a title key is left in the shared picture file: %s' % [k for k in d['ph'] if k not in ids][:3]   # #973 phase 4
+rest = [k for k in d['ph'] if k not in ids and not re.fullmatch(r'node:[a-z0-9]+(-[a-z0-9]+)*', k)]
+assert not rest, 'a title key is left in the shared picture file: %s' % rest[:3]   # species ids and node:<id> only   # #973 phase 4
 assert ids, 'no species id entries in the shared picture file'
 for k in ids:
     e = d['ph'][k]

@@ -14,7 +14,8 @@ const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in th
 // (api/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
 describe('species pictures come only from our hosted copies', () => {
   let browser, srv, base, pics = {}, placePics = null, nodePic = false;   // placePics: null = the place file carries the same entries as pics; false = the place file has no picture entries at all (the app then reads the shared list)
-  const speciesTitle = H.fixturePlace('/api/testland.json').nodes.find((n) => n.wiki).wiki;   // these tests use the made-up Testland (tests/fixtures), not a real place
+  const slug = (latin) => latin.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');   // the species id: the slug of the Latin name (build/species.py)
+  const speciesSid = slug(H.fixturePlace('/api/testland.json').nodes.find((n) => n.latin && !n.cat).latin);   // these tests use the made-up Testland (tests/fixtures), not a real place
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
@@ -89,7 +90,7 @@ describe('species pictures come only from our hosted copies', () => {
     });
 
     test(`${sizeName}: a listed species uses its hosted copy as a lazy thumbnail`, async () => {
-      pics = { [speciesTitle]: [FAKE, 'Test_page'] };
+      pics = { [speciesSid]: [FAKE, 'Test_page'] };
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=testland');
       await t.page.waitForFunction(() => document.querySelectorAll('#svg image.photo').length > 0, null, { timeout: 30000 });
@@ -149,41 +150,11 @@ describe('species pictures come only from our hosted copies', () => {
       } finally { nodePic = false; }
     });
 
-    test(`${sizeName}: a species wiki alias uses its canonical hosted picture`, async () => {
-      const aliased = H.fixturePlace('/api/testland.json').nodes.find((n) => n.id === 'coyote');   // the fixture's node named by an alias
-      assert.equal(aliased.wiki, 'Coyote alias');
-      assert.equal(aliased.canonicalWiki, 'Coyote canonical');
-      const want = FAKE;
-      pics = { [aliased.canonicalWiki]: [FAKE, 'Test_page'] };   // only the canonical article has a picture, the node itself is named by the alias
-      const t = await open(size);
-      await t.page.goto(base + 'index.html#e=testland');
-      await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the aliased node to draw its picture in the food web');
-      const href = await nodeHref(t.page, 'coyote');
-      assert.ok(href && href.endsWith('photos/species-md/' + want), 'food web resolves the alias to the canonical hosted file: ' + href);
-      await t.page.goto(base + 'index.html#pg=testland');
-      await until(t.page, () => document.querySelector('#pgraph .pn[data-node="coyote"] image[loading="lazy"]'), 'the coyote alias node to draw its picture in the place graph');
-      assert.deepEqual(t.outside, []);
-      assert.deepEqual(t.errors, []);
-      await t.ctx.close();
-    });
-
-    test(`${sizeName}: the canonical Latin picture key matches the common name`, async () => {
-      const want = FAKE;
-      pics = { 'Corvus testensis': [FAKE, 'Test_page'] };   // keyed by the Latin name only
-      const t = await open(size);
-      await t.page.goto(base + 'index.html#e=testland');
-      await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'raven'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the raven node to draw its picture in the food web');
-      const href = await nodeHref(t.page, 'raven');
-      assert.ok(href && href.endsWith('photos/species-md/' + want), 'food web resolves the canonical Latin-keyed picture: ' + href);
-      await t.page.goto(base + 'index.html#pg=testland');
-      await until(t.page, () => document.querySelector('#pgraph .pn[data-node="raven"] image[loading="lazy"]'), 'the raven node to draw its picture in the place graph');
-      assert.deepEqual(t.errors, []);
-      await t.ctx.close();
-    });
+    // a title, an alias or a Latin name is no longer a key for a picture (#973 phase 4): the entries above are all by species id
 
     test(`${sizeName}: an entry that points to another site is never used`, async () => {
       const other = ['https://upload.wikimedia.org/wikipedia/commons/5/5c/Exact_file.jpg', 'Test_page'];
-      pics = { [speciesTitle]: other, Osprey: other };
+      pics = { [speciesSid]: other };
       const t = await open(size);
       await t.page.goto(base + 'index.html#e=testland');
       await t.page.waitForSelector('#svg .node .glyph', { timeout: 30000 });

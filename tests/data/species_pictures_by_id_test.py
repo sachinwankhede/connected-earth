@@ -15,9 +15,7 @@ nodes = [
 ]
 ecos = [{'id': 'testplace', 'nodes': nodes, 'raw': []}]
 sp = {'pics': {'canis-lupus': row('aaaaaaaaaaaa.webp', 'Canis_lupus', wiki='Gray wolf')}}
-phs = {'Gray wolf': ['aaaaaaaaaaaa.webp', 'Canis_lupus'], 'Bryum': ['bbbbbbbbbbbb.webp', 'Bryum']}
-phm = {'Gray wolf': {'a': 'An Author', 'l': 'CC BY 4.0'}, 'Bryum': {'a': 'Other', 'l': 'CC0'}}
-webs = B.split(ecos, {'cross': [], 'order': [], 'src': {}, 'couple': 0}, phs, phm, sp)[1]['testplace']
+webs = B.split(ecos, {'cross': [], 'order': [], 'src': {}, 'couple': 0}, sp)[1]['testplace']
 ph, pm = webs['ph'], webs['phm']
 assert ph['canis-lupus'] == ['aaaaaaaaaaaa.webp', 'Canis_lupus'], ph                     # listed under its species id
 assert 'canis-lupus' in pm and pm['canis-lupus']['a'] == 'An Author', pm                 # with its credit, by id

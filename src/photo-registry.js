@@ -91,9 +91,9 @@
   // The picture a journey shows as its cover: its own row by journey id (#973 phase 4: no title fallback; a journey without a row shows its icon).
   function coverPhoto(photos, c) { return c && photos[coverKey(c.id)] || null; }
   // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src; the end places by their place key).
-  function coverCredits(photos, c, endTitles) {
+  function coverCredits(photos, c, endKeys) {
     var seen = {}, out = [];
-    [coverPhoto(photos, c)].concat((endTitles || []).map(function (w) { return w && photos[w]; })).forEach(function (p) {
+    [coverPhoto(photos, c)].concat((endKeys || []).map(function (w) { return w && photos[w]; })).forEach(function (p) {
       if (!p || seen[p.src]) return;
       seen[p.src] = 1; out.push(p);
     });

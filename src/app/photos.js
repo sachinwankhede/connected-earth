@@ -43,7 +43,7 @@
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (c.s || "Wikimedia Commons") + "</a>";
   }
-  function photoOf(n) { return (n.cat && n.wiki && PHOTOS[PhotoRegistry.nodeKey(PhotoRegistry.nodeId(n.wiki))]) || (n.latin && !n.cat && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || null; }   /* by id only (#973 phase 4): a node has the picture of its node id or of its species id, nothing borrowed from a title */
+  function photoOf(n) { return (n.key && PHOTOS[n.key]) || (n.cat && n.wiki && PHOTOS[PhotoRegistry.nodeKey(PhotoRegistry.nodeId(n.wiki))]) || (n.latin && !n.cat && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || null; }   /* by id only (#973 phase 4): a node has the picture of its node id or of its species id, nothing borrowed from a title */
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";
@@ -127,6 +127,7 @@
       var m = all.ph || {}, credits = all.phm || {};
       Object.keys(m).forEach(function (t) {
         var candidate = PhotoRegistry.speciesCandidate(m[t], m[t] && m[t][1], 1, credits[t]);
+        if (/^node:/.test(t)) { var nc = PhotoRegistry.nodeCandidate(m[t], NB, credits[t]); if (nc) PhotoRegistry.register(PHOTOS, t, nc); return; }   /* a non-species node at a journey end, by node id */
         if (candidate && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(t)) PhotoRegistry.register(PHOTOS, PhotoRegistry.speciesKey(t), candidate);   /* a species id (#973 phase 4: the list holds ids only; anything else is ignored) */
       });
       var jp = all.jpic || {}, jm = all.jpicm || {};   /* the journeys' own covers by journey id (none until the data has them: then the title picture is used) */

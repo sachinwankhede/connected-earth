@@ -18,8 +18,10 @@ function source(fixture) {
   // the fixture holds only a few place pictures; every fixture place with a picture title gets an entry shaped like them, so which places lose theirs under thinPlaces (by the title's hash) does not depend on how many pictures the fixture kept
   if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.imgwiki, placeManifest[e.imgwiki] || tpl])); }
   const speciesTitles = new Set([...places.flatMap((e) => e.nodes.map((n) => n.wiki).filter(Boolean)), ...journeyLinks.map((c) => c.imgwiki).filter(Boolean)]);
-  return (sources[k] = { places, speciesManifest, placeManifest, speciesTitles });
+  const speciesIds = new Set(places.flatMap((e) => e.nodes.filter((n) => n.latin && !n.cat).map((n) => slug(n.latin))));   // species pictures are listed by species id (#973 phase 4)
+  return (sources[k] = { places, speciesManifest, placeManifest, speciesTitles, speciesIds });
 }
+export const slug = (latin) => latin.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');   // the species id: the slug of the Latin name (build/species.py)
 function crc(buf) { let c, crcT = []; for (let n = 0; n < 256; n++) { c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xedb88320 ^ (c >>> 1) : c >>> 1; crcT[n] = c >>> 0; } let x = 0xffffffff; for (const b of buf) x = crcT[(x ^ b) & 0xff] ^ (x >>> 8); return (x ^ 0xffffffff) >>> 0; }
 function chunk(t, d) { const len = Buffer.alloc(4); len.writeUInt32BE(d.length); const td = Buffer.concat([Buffer.from(t), d]); const c = Buffer.alloc(4); c.writeUInt32BE(crc(td)); return Buffer.concat([len, td, c]); }
 export function png(seed, w = 48, h = 48) {
@@ -38,8 +40,8 @@ export async function mockSpeciesPictures(page, ph = {}, extra = null) {
   await page.route(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
 }
 export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, fixture = false } = {}) {   // fixture: take the pictures' source data from the fixture dataset, not the real data (#787)
-  const { places: allReal, speciesManifest, placeManifest, speciesTitles } = source(fixture);   // thinPlaces: drop the picture of every place whose title hashes odd, so a test that needs both a picture and an icon does not depend on how many real places have one   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
-  const species = Object.fromEntries([...new Set([...Object.keys(speciesManifest), ...speciesTitles])].map((title) => [title, [hostedName(title), speciesManifest[title]?.[1] || encodeURIComponent(title.replace(/ /g, '_'))]]));
+  const { places: allReal, placeManifest, speciesIds } = source(fixture);   // thinPlaces: drop the picture of every place whose title hashes odd, so a test that needs both a picture and an icon does not depend on how many real places have one   // allPlaces: also a picture for each place that names one but has none in the real list (the licence rule, #421, removed some)
+  const species = Object.fromEntries([...speciesIds].map((sid) => [sid, [hostedName(sid), sid]]));   // by species id
   const places = Object.fromEntries(Object.entries(placeManifest).filter(([title]) => !thinPlaces || crypto.createHash('sha1').update(title).digest()[0] % 2 === 0).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
   const tpl = Object.values(placeManifest)[0];
   if (allPlaces) for (const e of allReal) if (e.imgwiki && !places[e.imgwiki]) places[e.imgwiki] = { ...tpl, f: `mock/${encodeURIComponent(e.imgwiki)}.png` };
@@ -52,7 +54,7 @@ export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, 
     if (!res.ok()) return r.fallback();   // not a built file: a fixture place is answered by its own route
     const w = await res.json();
     w.ph = {}; w.phm = {};
-    for (const n of w.nodes || []) for (const k of [n.wiki, n.canonicalWiki, n.latin]) if (k && species[k]) w.ph[k] = species[k];
+    for (const n of w.nodes || []) if (n.latin && !n.cat) { const k = slug(n.latin); if (species[k]) w.ph[k] = species[k]; }
     return r.fulfill({ response: res, body: JSON.stringify(w) });
   });
   await page.route(/\/photos\/places\/mock\/|\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
