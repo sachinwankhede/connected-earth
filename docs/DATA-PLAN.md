@@ -17,7 +17,7 @@ The owner's order: **3 and 4 first.** Steps 1 and 2 are listed because 3 and 4 l
 
 | # | step | layer | owner action |
 |---|---|---|---|
-| 3 | Key place pictures by place id | data format, build, app reader, jobs | none |
+| 3 | Key place pictures by place id | data format, build, app reader, jobs | none (done 16 Nov: the data was keyed by id already; the app reader now registers and reads `place:<id>`, #969) |
 | 4 | One writer for place pictures; retire the `data-photos` overlay | `lib/`, 7 jobs, workflow | the workflow change (`.github/**`) |
 | 1 | CI hardening: `pipefail`, job tests by glob, orphan-picture check | `ci.yml`, validators | merges `ci.yml` |
 | 2 | Contracts module: photo statuses, retry windows, story words and characters | `lib/` | none |
