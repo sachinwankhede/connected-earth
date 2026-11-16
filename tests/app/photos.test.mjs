@@ -54,11 +54,12 @@ describe('stored place photos carry a credit line', () => {
       await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
       await page.waitForFunction(() => document.querySelector('#pp-main img'), null, { timeout: 15000 }).catch(() => {});
-      const has = await page.evaluate(() => !!document.querySelector('#pp-main img'));
-      assert.deepEqual(errors, []); await ctx.close(); return has;
+      const seen = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); return i ? { src: i.getAttribute('src'), main: document.getElementById('pp-main').innerHTML.slice(0, 200) } : null; });   // #989: what drew it, when it shows
+      assert.deepEqual(errors, []); await ctx.close(); return seen;
     };
-    assert.equal(await shows(a), true, 'the place with a row under its own id shows its picture');
-    assert.equal(await shows(b), false, 'a place with no row under its own id shows no picture, whatever another row\'s title says');
+    assert.ok(await shows(a), 'the place with a row under its own id shows its picture');
+    const got = await shows(b);
+    assert.equal(got, null, 'a place with no row under its own id shows no picture, whatever another row\'s title says: ' + JSON.stringify(got) + ' (a\'s file is ' + man[a.imgwiki].f + ', b\'s title row is ' + (man[b.imgwiki] && man[b.imgwiki].f) + ')');
   });
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
