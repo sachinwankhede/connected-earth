@@ -17,7 +17,7 @@ def size(p): return os.path.getsize(os.path.join(ROOT, p))
 for p, lim in LIMITS.items():
     n = size(p); ok = n <= lim; bad += not ok
     print('%-22s %9d / %9d %s' % (p, n, lim, 'ok' if ok else 'OVER'))
-rt = sum(os.path.getsize(os.path.join(dp, f)) for dp, _, fs in os.walk(os.path.join(ROOT, 'data', 'species', 'rows')) for f in fs)
+rt = sum(os.path.getsize(os.path.join(dp, f)) for sub in (('data', 'species', 'rows'), ('data', 'nodes', 'rows')) for dp, _, fs in os.walk(os.path.join(ROOT, *sub)) for f in fs)
 bad += rt > SPECIES_ROWS_TOTAL
 print('%-22s %9d / %9d %s' % ('data/species/rows/ total', rt, SPECIES_ROWS_TOTAL, 'ok' if rt <= SPECIES_ROWS_TOTAL else 'OVER'))
 tx = sum(size('data/species/' + f) for f in ('taxonomy.json', 'taxonomy_review.json') if os.path.exists(os.path.join(ROOT, 'data', 'species', f)))
