@@ -153,8 +153,8 @@
     else { var pn = ev.target.closest(".pn"), nd = pn && pn.getAttribute("data-node"); PV.hidden = true; M.pid = null; showWeb(id, nd ? function () { select(nd); } : null, null, id); }
   });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
-  /* open a place on a species by its Latin name (the page no longer carries node ids for every place's species) */
-  function jumpSp(eco, latin) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.latin === latin; })[0]; if (n) select(n.id); }); }
+  /* open a place on a species by its species id (a place's node ids are its own, so the species is found among the nodes by id) */
+  function jumpSp(eco, sid) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.latin && !q.cat && sidOf(q) === sid; })[0]; if (n) select(n.id); }); }
   function showMap() {
     M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.sid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;
