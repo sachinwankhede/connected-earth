@@ -9,7 +9,7 @@
     /* The stored place photos are listed by Wikipedia title (the old shape) or by place id with the title in each row's `wiki` (the new shape, #887). The app looks pictures up by title, so a row that carries `wiki` is keyed by it here: both shapes read the same, and the data can change shape without the app waiting. */
     function placeRows(m) {
       var o = {}, k, r; m = m || {};
-      for (k in m) { r = m[k]; o[r && r.wiki ? r.wiki : k] = r; }
+      for (k in m) o[k] = m[k];   /* keyed as stored: by place id (a list still keyed by title is read by title, see start.js) */
       return o;
     }
     return {

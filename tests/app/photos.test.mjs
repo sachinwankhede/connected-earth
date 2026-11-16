@@ -41,6 +41,26 @@ describe('stored place photos carry a credit line', () => {
     await ctx.close();
   });
 
+  test('a place is found by its id: a row keyed by another place id with this place\'s title is not its picture (#968)', async () => {
+    const a = places[0], b = places[1];
+    assert.ok(b, 'the fixture has two places with pictures');
+    // a's row under its own id; a second row under an unrelated id that carries b's title (two places on one title, #908): b has no row of its own
+    const list = { [a.id]: { ...man[a.imgwiki], wiki: a.imgwiki }, 'someotherplace': { ...man[a.imgwiki], wiki: b.imgwiki } };
+    const shows = async (e) => {
+      const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
+      const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
+      await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
+      await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(list) }));
+      await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
+      await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
+      await page.waitForFunction(() => document.querySelector('#pp-main img'), null, { timeout: 15000 }).catch(() => {});
+      const has = await page.evaluate(() => !!document.querySelector('#pp-main img'));
+      assert.deepEqual(errors, []); await ctx.close(); return has;
+    };
+    assert.equal(await shows(a), true, 'the place with a row under its own id shows its picture');
+    assert.equal(await shows(b), false, 'a place with no row under its own id shows no picture, whatever another row\'s title says');
+  });
+
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: photo comes from our own files, with author, licence and Commons link`, async () => {
       assert.ok(places.length > 0, 'at least one stored photo');

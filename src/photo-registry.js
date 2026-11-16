@@ -73,6 +73,8 @@
     return c;
   }
   function coverKey(id) { return "journey:" + id; }
+  // A place's picture is registered under its place id (never its Wikipedia title, which two places can share, #908, #968).
+  function placeKey(id) { return "place:" + id; }
   // The picture a journey shows as its cover: its own row by id when there is one, else the picture of its imgwiki title (as before).
   function coverPhoto(photos, c) { return c && (photos[coverKey(c.id)] || (c.imgwiki && photos[c.imgwiki])) || null; }
   // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src).
@@ -163,6 +165,7 @@
     coverKey: coverKey,
     coverPhoto: coverPhoto,
     journeyCandidate: journeyCandidate,
+    placeKey: placeKey,
     nextCandidate: nextCandidate,
     placeCandidate: placeCandidate,
     register: register,
