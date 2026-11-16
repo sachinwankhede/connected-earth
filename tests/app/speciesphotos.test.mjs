@@ -29,7 +29,7 @@ describe('species pictures come only from our hosted copies', () => {
         // give the place exactly the picture entries this test wants
         const w = H.fixturePlace(u) || JSON.parse(fs.readFileSync(path.join(H.FBUILD, u), 'utf8'));
         if (placePics === false) { delete w.ph; delete w.phm; } else { w.ph = { ...(placePics || pics) }; w.phm = {}; }
-        if (nodePic) { w.nodes.find((n) => n.id === 'sun').wiki = 'Sunbeam'; w.ph = { ...(w.ph || {}), 'node:sunbeam': [FAKE, 'Sunbeam'] }; w.phm = { ...(w.phm || {}), 'node:sunbeam': { a: 'Test author', l: 'CC0', lu: '', p: 'https://commons.wikimedia.org/wiki/File:Sunbeam.jpg' } }; }   // the place file lists the picture under its node id
+        if (nodePic) { Object.assign(w.nodes.find((n) => n.id === 'sun'), { wiki: 'Sunbeam', nid: 'sunbeam' }); w.ph = { ...(w.ph || {}), 'node:sunbeam': [FAKE, 'Sunbeam'] }; w.phm = { ...(w.phm || {}), 'node:sunbeam': { a: 'Test author', l: 'CC0', lu: '', p: 'https://commons.wikimedia.org/wiki/File:Sunbeam.jpg' } }; }   // the place file lists the picture under its node id
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
       }
       let f = path.join(H.FBUILD, u); if (f.endsWith('/')) f += 'index.html';

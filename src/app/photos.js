@@ -43,7 +43,7 @@
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (c.s || "Wikimedia Commons") + "</a>";
   }
-  function photoOf(n) { return (n.key && PHOTOS[n.key]) || (n.cat && n.wiki && PHOTOS[PhotoRegistry.nodeKey(PhotoRegistry.nodeId(n.wiki))]) || (n.latin && !n.cat && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || null; }   /* by id only (#973 phase 4): a node has the picture of its node id or of its species id, nothing borrowed from a title */
+  function photoOf(n) { return (n.key && PHOTOS[n.key]) || (n.nid && PHOTOS[PhotoRegistry.nodeKey(n.nid)]) || (n.sid && PHOTOS[PhotoRegistry.speciesKey(n.sid)]) || null; }   /* by id only (#973): the node carries the id of its concept (nid) or species (sid), written by the build; nothing is worked out from a name */
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";

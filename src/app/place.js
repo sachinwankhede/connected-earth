@@ -81,7 +81,7 @@
       footHTML({ sources: e.sources, notes: e.notes, photoId: "pcredit" }) + "</article>";
   }
   function pWant(n) {
-    if (!n.wiki && !n.latin && !n.key) return;
+    if (!n.sid && !n.nid && !n.key) return;
     if (photoOf(n)) { pShow(n); return; }
     var pe = ECO_BY[n.eco]; if (pe && pe.phLocal && !/^[ej]-/.test(n.id)) return;   /* the place carries its own entries: a species without one has no picture */
     withSpeciesPhotos(function () { if (photoOf(n)) pShow(n); });
@@ -114,7 +114,7 @@
       M.loading = null;
       if (!ok) { PV.querySelector(".fine").textContent = "This place could not be loaded. Check your connection and try again."; return; }
       PV.innerHTML = pHTML(id); PV.scrollTop = 0; pPhoto(); requestAnimationFrame(function () { rowHints(PV); });
-      ECO_BY[id].nodes.forEach(function (n) { if (n.wiki || n.latin) pWant({ isPage: true, eco: id, id: n.id, wiki: n.wiki, canonicalWiki: n.canonicalWiki, latin: n.latin, cat: n.cat }); });
+      ECO_BY[id].nodes.forEach(function (n) { if (n.sid || n.nid) pWant({ isPage: true, eco: id, id: n.id, sid: n.sid, nid: n.nid }); });
       PV.querySelectorAll(".pph[data-pid^='e-'],.pph[data-pid^='j-']").forEach(function (b) {
         var k = b.getAttribute("data-pid"), o = k.charAt(0) === "e" ? ECO_BY[k.slice(2)] : jbyId(k.slice(2)), w = o && (k.charAt(0) === "e" ? PhotoRegistry.placeKey(o.id) : PhotoRegistry.coverKey(o.id));   /* a place and a journey are both found by their id (#973 phase 4) */
         if (w && k.charAt(0) === "e" && !o.li) makeCard(o);   /* a related place's picture is registered when its card is built, and cards are built on demand now */
@@ -154,7 +154,7 @@
   });
   function jump(eco, nodeId) { showWeb(eco, function () { select(nodeId); }); }
   /* open a place on a species by its species id (a place's node ids are its own, so the species is found among the nodes by id) */
-  function jumpSp(eco, sid) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.latin && !q.cat && sidOf(q) === sid; })[0]; if (n) select(n.id); }); }
+  function jumpSp(eco, sid) { showWeb(eco, function () { var n = NODES.filter(function (q) { return q.sid === sid; })[0]; if (n) select(n.id); }); }
   function showMap() {
     M.loading = null; sim.stop(); PV.hidden = true; M.pid = null; M.sid = null; M.cameFromP = null;
     el.mapview.hidden = false; el.webview.hidden = true; el.legend.hidden = true; el.webctl.hidden = true; el.back.hidden = true;

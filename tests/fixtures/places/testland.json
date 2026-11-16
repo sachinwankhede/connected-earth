@@ -35,7 +35,8 @@
     "xh": 0.3,
     "wiki": "Grass",
     "desc": "Grass of the made-up Testland meadow. It feeds the plant-eaters.",
-    "ic": "grass"
+    "ic": "grass",
+    "sid": "poa-testensis"
    },
    {
     "id": "willow",
@@ -46,7 +47,8 @@
     "wiki": "Willow",
     "desc": "A streamside shrub of Testland.",
     "ic": "willow",
-    "badge": "Foundation species"
+    "badge": "Foundation species",
+    "sid": "salix-testensis"
    },
    {
     "id": "vole",
@@ -56,7 +58,8 @@
     "xh": 0.2,
     "wiki": "Vole",
     "desc": "A small grazer of the Testland meadow.",
-    "ic": "vole"
+    "ic": "vole",
+    "sid": "microtus-testensis"
    },
    {
     "id": "elk",
@@ -66,7 +69,8 @@
     "xh": 0.55,
     "wiki": "Elk",
     "desc": "A large grazer of Testland.",
-    "ic": "elk"
+    "ic": "elk",
+    "sid": "cervus-testensis"
    },
    {
     "id": "beaver",
@@ -77,7 +81,8 @@
     "wiki": "Beaver",
     "desc": "Builds the Testland ponds.",
     "ic": "beaver",
-    "badge": "Ecosystem engineer"
+    "badge": "Ecosystem engineer",
+    "sid": "castor-testensis"
    },
    {
     "id": "raven",
@@ -87,7 +92,8 @@
     "xh": 0.3,
     "wiki": "Common_raven",
     "desc": "A scavenger of Testland.",
-    "ic": "raven"
+    "ic": "raven",
+    "sid": "corvus-testensis"
    },
    {
     "id": "coyote",
@@ -98,7 +104,8 @@
     "wiki": "Coyote alias",
     "desc": "A hunter of Testland.",
     "ic": "coyote",
-    "canonicalWiki": "Coyote canonical"
+    "canonicalWiki": "Coyote canonical",
+    "sid": "canis-testensis"
    },
    {
     "id": "wolf",
@@ -109,7 +116,8 @@
     "wiki": "Gray_wolf",
     "desc": "The top predator of Testland.",
     "ic": "wolf",
-    "badge": "Keystone predator"
+    "badge": "Keystone predator",
+    "sid": "canis-testlupus"
    },
    {
     "id": "water",
