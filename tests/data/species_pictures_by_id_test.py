@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """#934, #974: a place file lists a species' picture under its species id (the slug of its Latin name), not under a title two species can share.
-A species with a picture of its own is listed by id only; a species without one keeps the title entries it had (the picture of a title one of its nodes carries)."""
+A species with a picture of its own is listed by id only; a species without one is listed under nothing: it no longer borrows the picture of a title (#973 phase 4)."""
 import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
@@ -21,9 +21,5 @@ webs = B.split(ecos, {'cross': [], 'order': [], 'src': {}, 'couple': 0}, phs, ph
 ph, pm = webs['ph'], webs['phm']
 assert ph['canis-lupus'] == ['aaaaaaaaaaaa.webp', 'Canis_lupus'], ph                     # listed under its species id
 assert 'canis-lupus' in pm and pm['canis-lupus']['a'] == 'An Author', pm                 # with its credit, by id
-assert 'Gray wolf' in ph, 'the species without a picture of its own keeps the title entry (the borrow stays until the last phase)'
-assert ph['Bryum'] == ['bbbbbbbbbbbb.webp', 'Bryum'], ph                                  # unchanged for a species without its own picture
-# with no species pictures by id (the old shape alone) the lists are as they were: titles only
-old = B.split(ecos, {'cross': [], 'order': [], 'src': {}, 'couple': 0}, phs, phm)[1]['testplace']
-assert set(old['ph']) == {'Gray wolf', 'Bryum'} and 'canis-lupus' not in old['ph'], old['ph']
+assert set(ph) == {'canis-lupus'} and set(pm) == {'canis-lupus'}, (ph, pm)           # no title entry: the red wolf (same title as the gray wolf) and the moss (a title picture exists) show none
 print('ok')

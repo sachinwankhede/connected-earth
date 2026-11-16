@@ -100,6 +100,13 @@ class DataFormat(unittest.TestCase):
             text = ' | '.join(check(r)[0])
             self.assertIn('stray.webp is not listed', text); self.assertIn('zz is not a journey id', text); self.assertIn('zz.webp is missing', text)
             put(r, 'photos/journey_pictures.json', {'j': {'f': 'j.webp', 'a': '', 'l': 'CC BY 4.0'}}); self.assertIn('no named author', ' | '.join(check(r)[0]))
+    def test_a_food_web_node_naming_a_species_row_that_is_not_there_is_found(self):   # #973 phase 4
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP)
+            put(r, 'data/places/p.json', {'nodes': [{'id': 'n1', 'sp': 'a b', 'xh': 0.5}]})
+            self.assertEqual([e for e in check(r)[0] if 'names species row' in e], [])
+            put(r, 'data/places/p.json', {'nodes': [{'id': 'n1', 'sp': 'a b', 'xh': 0.5}, {'id': 'n2', 'sp': 'gone', 'xh': 0.5}]})
+            self.assertEqual(len([e for e in check(r)[0] if "node 'n2' names species row 'gone'" in e]), 1)
     def test_problems_are_found(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'x': {'latin': 'Y y', 'name': 'n', 'tl': '2', 'wiki': 'w', 'desc': 'd'}})
