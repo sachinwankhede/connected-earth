@@ -2,13 +2,16 @@
 """bounds_more.py [id ...]: park outlines for places that bounds.py (PAD-US, US only) did not give one, from two open sources:
   1. Wikidata/Wikimedia Commons: the park's Wikipedia article -> Wikidata item -> its map boundary file (property P3896, CC0).
   2. OpenStreetMap, through Nominatim: a boundary whose Wikidata id is the park's, or else one with a matching name that lies within 30 km of the park's point.
-Writes data/outlines/<id>.json = {"n": name, "r": [flat ring, ...], "s": "wikidata" | "osm"} (same shape as bounds.py; "s" is the source) and
-jobs/reports/outlines_missing.md listing the places that still have none. Resumable: places with a file are skipped.
+Writes data/outlines/<id>.json = {"n": name, "r": [flat ring, ...], "s": "wikidata" | "osm"} (same shape as bounds.py; "s" is the source), the place's credit record in
+data/outline_records.json and, for a place where nothing was found, an entry in data/outline_missing.json with the shared retry policy (lib/photo_registry.negative_entry: a miss is tried again after
+its delay, the weekly workflow data-outlines-acquire runs this job; #977). Also jobs/reports/outlines_missing.md listing the places that still have none. Resumable: places with a file are skipped,
+and so are places whose miss has not yet expired.
 OpenStreetMap data is (c) OpenStreetMap contributors, ODbL: the app's credits say so."""
 import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species, geoids
+sys.path.insert(0, os.path.join(ROOT, 'lib')); import outline_records, photo_registry
 OUT = os.path.join(ROOT, 'data', 'outlines'); UA = 'ConnectedEarth/1.0 (https://connected-earth-5ps.pages.dev/; data job)'
 sys.setrecursionlimit(20000)
 MAXPTS = 2500    # points per park, keeps a file well under the 400 KB budget
@@ -67,6 +70,10 @@ def from_commons(f):
     for ft in d.get('features', [d]) if d.get('type') == 'FeatureCollection' else [d]:
         rings += rings_of(ft.get('geometry', ft))
     return rings
+def osm_page(x):
+    """Where the matched OpenStreetMap object can be looked at (a reference on the record, never fetched)."""
+    t = (x.get('osm_type') or '')[:1].upper()
+    return 'https://nominatim.openstreetmap.org/ui/details.html?osmtype=%s&osmid=%s' % (t, x['osm_id']) if t and x.get('osm_id') else None
 def from_osm(e, qid):
     q = e['name'] + ', ' + geoids.country_name(e.get('country') or '')
     r = json.loads(get('https://nominatim.openstreetmap.org/search?format=jsonv2&polygon_geojson=1&polygon_threshold=0.0005&extratags=1&limit=6&q=' + urllib.parse.quote(q)))
@@ -75,11 +82,11 @@ def from_osm(e, qid):
     for x in r:
         g = x.get('geojson') or {}
         if g.get('type') not in ('Polygon', 'MultiPolygon'): continue
-        if qid and (x.get('extratags') or {}).get('wikidata') == qid: return rings_of(g)
+        if qid and (x.get('extratags') or {}).get('wikidata') == qid: return rings_of(g), osm_page(x)
         near = km(e['lat'], e['lon'], float(x['lat']), float(x['lon'])) < 30
         t = toks(x.get('name', '') or x.get('display_name', '').split(',')[0])
-        if near and want and len(want & t) / len(want | t) >= 0.5 and x.get('category') in ('boundary', 'leisure', 'landuse', 'natural') and best is None: best = rings_of(g)
-    return best
+        if near and want and len(want & t) / len(want | t) >= 0.5 and x.get('category') in ('boundary', 'leisure', 'landuse', 'natural') and best is None: best = (rings_of(g), osm_page(x))
+    return best or (None, None)
 def plausible(e, rings):
     # the outline must be about where the place is: the centre of its box within max(30, 0.6 x its width) km of the place's point
     xs = [x for r in rings for x, y in r]; ys = [y for r in rings for x, y in r]
@@ -87,27 +94,42 @@ def plausible(e, rings):
     cx, cy = (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2
     span = max(km(min(ys), min(xs), max(ys), min(xs)), km(cy, min(xs), cy, max(xs)))
     return km(e['lat'], e['lon'], cy, cx) <= max(30, 0.6 * span)
-def places():
-    for p in species.files():
-        e = json.load(open(p))
+def places(root=ROOT):
+    d = os.path.join(root, 'data', 'places')
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.json') or f in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
+        e = json.load(open(os.path.join(d, f)))
         if e.get('park') and e.get('lat') is not None and e.get('name'): yield e
-if __name__ == '__main__':
-    os.makedirs(OUT, exist_ok=True); want = sys.argv[1:]; got = 0; missing = []
-    for e in places():
-        if (want and e['id'] not in want) or os.path.exists(path(e['id'])): continue
-        rings = None; src = None
+def run(want=(), root=ROOT, now=None):
+    """Find the outline of every park without one (the places named in `want` when given), write the file and its credit record, record a miss for the rest. Returns (got, missing places)."""
+    out = os.path.join(root, 'data', 'outlines'); os.makedirs(out, exist_ok=True); got = 0; missing = []
+    rec = outline_records.OutlineRecords(root); now = now or photo_registry._utcnow()
+    for e in places(root):
+        f = os.path.join(out, e['id'] + '.json')
+        if (want and e['id'] not in want) or os.path.exists(f): continue
+        if not want and photo_registry.cache_active(rec.miss_.get(e['id']), now): missing.append(e); continue   # tried lately: not again before its delay is over
+        rings = None; src = None; page = None
         try:
             qid, shape = wikidata(e)
             if shape:
-                rings = from_commons(shape); src = 'wikidata'
+                rings = from_commons(shape); src = 'wikidata'; page = 'https://www.wikidata.org/wiki/' + qid
             if not rings:
-                rings = from_osm(e, qid); src = 'osm'
+                rings, page = from_osm(e, qid); src = 'osm'
         except Exception as ex: print('ERR', e['id'], ex, flush=True)
         if rings and not plausible(e, rings): print('far from the place, dropped', e['id'], e['name'], src, flush=True); rings = None
-        out = pack(rings) if rings else []
-        if not out: missing.append(e); print('none', e['id'], e['name'], flush=True); continue
-        json.dump({'n': e['name'], 'r': out, 's': src}, open(path(e['id']), 'w'), separators=(',', ':'), ensure_ascii=False); got += 1
-        print('ok', src, e['id'], e['name'], len(out), flush=True); time.sleep(0.5)
+        packed = pack(rings) if rings else []
+        if not packed: missing.append(e); rec.miss(e['id'], 'none', now=now); print('none', e['id'], e['name'], flush=True); continue
+        json.dump({'n': e['name'], 'r': packed, 's': src}, open(f, 'w'), separators=(',', ':'), ensure_ascii=False); got += 1
+        rec.record(e['id'], src, page=page, now=now)
+        print('ok', src, e['id'], e['name'], len(packed), flush=True); time.sleep(0.5)
+    for f in sorted(os.listdir(out)):   # an outline written by bounds.py (PAD-US) in the same run, or by hand, gets its record too: a file always has its credit record
+        pid = f[:-5]
+        if f.endswith('.json') and not rec.has(pid):
+            with open(os.path.join(out, f)) as h: rec.record(pid, outline_records.source_of(json.load(h)), now=now)
+    rec.commit()
+    return got, missing
+if __name__ == '__main__':
+    got, missing = run(sys.argv[1:])
     os.makedirs(os.path.join(here, 'reports'), exist_ok=True)
     with open(os.path.join(here, 'reports', 'outlines_missing.md'), 'w') as f:
         f.write('# Places without an outline (%d)\n\n| id | name | country |\n|---|---|---|\n' % len(missing))
