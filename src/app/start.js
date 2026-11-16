@@ -19,10 +19,6 @@
     var m = storedRow(e), candidate = m && PhotoRegistry.placeCandidate(m, PB);
     if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.placeKey(e.id), candidate);
   }
-  function storedTitle(t) {   /* a journey's cover falls back to the picture of its own title (as before) */
-    var m = man && titleRow(t), candidate = m && PhotoRegistry.placeCandidate(m, PB);
-    if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
-  }
   /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait for the map (or a touch, or 9 s): they competed with its tiles */
   M.photoGo = false; var HELD = [];
@@ -44,15 +40,7 @@
   M.placePhotos = function (ids, done) {   /* the dropdown rows of places that have no card yet: release the photos, then read their entries from the stored list */
     M.releasePhotos(); var go = function () { ids.forEach(function (id) { if (ECO_BY[id]) stored(ECO_BY[id]); }); done(); }; if (man) go(); else HELD.push(go);
   };
-  function crossPhotos() {
-    CROSS.forEach(function (c) {
-      var tt = c.imgwiki;
-      if (!tt) return; storedTitle(tt);
-      if (PHOTOS[tt]) { linkPhoto(c); return; }
-    });
-  }
   ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
-  if (window.fetch) HELD.push(crossPhotos);
   var goPhotos = function () { M.releasePhotos(); };
   addEventListener("pointerdown", loadCounts, { once: true, capture: true });   /* the per-region counts are fetched at the first touch, not at start: the first view makes no request for them (#261) */
   addEventListener("pointerdown", goPhotos, { once: true, capture: true }); addEventListener("keydown", goPhotos, { once: true, capture: true });

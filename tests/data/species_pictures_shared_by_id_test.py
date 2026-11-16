@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""#973 phase 3: api/species-pictures.json (read by the journey views) lists the species at a journey end under their species id as well as under their title,
+"""#973 phase 3: api/species-pictures.json (read by the journey views) lists the species at a journey end under their species id only (the title keys are gone, #973 phase 4),
 with the credit of the same picture. Runs on the built site; skipped when the build has not run."""
 import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -8,6 +8,7 @@ if not os.path.exists(f):
     print('skipped: the build has not run'); sys.exit(0)
 d = json.load(open(f))
 ids = [k for k in d['ph'] if re.fullmatch(r'[a-z0-9]+(-[a-z0-9]+)*', k)]
+assert len(ids) == len(d['ph']), 'a title key is left in the shared picture file: %s' % [k for k in d['ph'] if k not in ids][:3]   # #973 phase 4
 assert ids, 'no species id entries in the shared picture file'
 for k in ids:
     e = d['ph'][k]

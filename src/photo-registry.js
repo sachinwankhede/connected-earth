@@ -88,9 +88,9 @@
   // A species' picture is registered under its species id, the slug of its Latin name (the same id the build gives it, build/species.py slug), never its Latin name or a Wikipedia title that two species can share (#934, #974).
   function sidOf(latin) { return String(latin || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
   function speciesKey(sid) { return "species:" + sid; }
-  // The picture a journey shows as its cover: its own row by id when there is one, else the picture of its imgwiki title (as before).
-  function coverPhoto(photos, c) { return c && (photos[coverKey(c.id)] || (c.imgwiki && photos[c.imgwiki])) || null; }
-  // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src).
+  // The picture a journey shows as its cover: its own row by journey id (#973 phase 4: no title fallback; a journey without a row shows its icon).
+  function coverPhoto(photos, c) { return c && photos[coverKey(c.id)] || null; }
+  // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src; the end places by their place key).
   function coverCredits(photos, c, endTitles) {
     var seen = {}, out = [];
     [coverPhoto(photos, c)].concat((endTitles || []).map(function (w) { return w && photos[w]; })).forEach(function (p) {

@@ -648,23 +648,20 @@ def build(pilot, out_path, write=False, places=False):
         about[row['sid']] = f
     species_related(about, common, pics, species_diet(ecos, about, common, pics))
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
-    byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set(); js = {}   # js: the species id of each species at a journey end that has a hosted picture of its own (#973)
-    for c in links['cross']:
-        if c.get('imgwiki'): jt.add(c['imgwiki'])
+    byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; js = {}   # js: the species id of each species at a journey end that has a hosted picture of its own (#973)
     for eco_id, node_ids in cross_ends(links).items():
         for nid in node_ids:
             n = byid.get(eco_id, {}).get(nid)
             if n:
-                jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
                 sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
                 if sid and sp['pics'].get(sid): js[sid] = sp['pics'][sid]
-    jp = {t: phs[t] for t in sorted(jt) if t in phs}
+    jp = {}   # by species id only: the title keys are gone (#973 phase 4)
     jpm_ids = {}
-    for sid, r in sorted(js.items()):   # by species id as well as by title: the app asks by id first, the title entries stay until the old keys go (#973)
+    for sid, r in sorted(js.items()):
         jp[sid] = [r['f'], r.get('page') or r.get('wiki')]
         if species_pics.credit(r): jpm_ids[sid] = species_pics.credit(r)
     if write: add_overlap(webs, ecos, set(links['order']))
-    pictures = {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm} | jpm_ids}
+    pictures = {'ph': jp, 'phm': jpm_ids}
     pictures.update(journey_cover_pictures(journey_pics.load(paths.DATA_ROOT), links))   # additive: the covers by journey id, only once photos/journey_pictures.json exists (lib/journey_pics.py)
     if write: write_webs(webs, about, pictures)
     if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot, orderof); write_ties(light, ov[1], pilot)
