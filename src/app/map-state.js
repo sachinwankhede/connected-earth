@@ -109,6 +109,7 @@
     if (M.sid) return part("sp=" + M.sid);
     if (!el.webview.hidden) return part("e=" + el.eco.value);
     if (!document.getElementById("peek").hidden && M.peekId) return part("p=" + M.peekId);
+    if (M.pendingPeek) return part("p=" + M.pendingPeek);   /* the place the address names is waiting for the map style: the address keeps it, so a reload in that moment still opens it (#994) */
     if (view.level === "continent") return part("r=continent:" + view.cont);
     if (view.level === "country") return part("r=country:" + view.country);
     if (view.level === "state") return part("r=state:" + view.state);
