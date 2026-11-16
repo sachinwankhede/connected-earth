@@ -104,6 +104,7 @@
   function hashState() {
     var s = document.getElementById("q").value.trim(), pre = s ? "s=" + encodeURIComponent(s) : "";   /* the search comes first: r= takes the rest of the address (#412) */
     function part(x) { return pre && x ? pre + "&" + x : pre || x; }
+    if (M.holdHash) return M.holdHash;
     if (M.jid) return part("j=" + M.jid);
     if (M.pid) return part("pg=" + M.pid);
     if (M.sid) return part("sp=" + M.sid);
@@ -133,7 +134,7 @@
   function applyHash(h0) {
     var h = ""; try { h = decodeURIComponent(typeof h0 === "string" ? h0 : location.hash.slice(1)); } catch (e) {}
     var m, want = /(?:^|&)(?:pg|e|p)=([\w-]+)/.exec(h);
-    if (want && !ECO_BY[want[1]] && !Places.done) { Places.loadLocals().then(function (ok) { if (ok) applyHash(h0); }); return; }   /* a link to a local place: they come first */
+    if (want && !ECO_BY[want[1]] && !Places.done) { M.holdHash = h.replace(/(^|&)stub(?=&|$)/, "").replace(/^&/, ""); M.waitLocals = true; Places.loadLocals().then(function (ok) { M.holdHash = null; M.waitLocals = false; if (ok) applyHash(h0); }); return; }   /* a link to a local place: they come first; until they have, the address keeps what it names (M.holdHash), or the map moving in that moment would rewrite it without the place and the link would be lost (#994) */
     M.fromHash = true;   /* what the address opens is not a new step */
     var sm = /(?:^|&)s=([^&]*)/.exec(h), sq = ""; if (sm) { try { sq = decodeURIComponent(sm[1]); } catch (e) { sq = sm[1]; } }
     if (sq.toLowerCase() !== (FL.q || "") || sq !== document.getElementById("q").value.trim()) runSearch(sq);   /* an address brings its own search or clears it; a reload restores the box text before the search runs */

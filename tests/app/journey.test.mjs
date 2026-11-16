@@ -47,36 +47,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.deepEqual(errors, []); await b.close();
   });
 
-  test(`${name}: approved species photos fill journey cards and direct pages; unmatched routes keep icons`, async () => {
-    const { b, p, errors, url } = await startWithPhotos();
+  test(`${name}: a picture listed under a Wikipedia title is no longer a journey cover; every journey without its own row keeps its icon (#973 phase 4)`, async () => {
+    const { b, p, errors } = await startWithPhotos();   // the list holds a picture under the title 'Osprey' and no journey row
     if (name === 'phone') { await p.click('#speek'); await H.pause(p, 500); }
     await p.click('[data-tab="journeys"]:visible');
-    await p.waitForSelector('#xi-osprey img[loading="lazy"]');
-    const card = await p.locator('#xi-osprey img').getAttribute('src');
-    assert.ok(/\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp$/.test(card), 'journey cards use our hosted picture');
-
-    await p.goto(url + '#stub&j=osprey');
-    await p.waitForSelector('#jview #jp-main img[loading="lazy"]');
-    const hero = await p.evaluate(() => ({
-      src: document.querySelector('#jp-main img')?.getAttribute('src'),
-      credit: document.getElementById('jcredit')?.textContent || '',
-      article: [...document.querySelectorAll('#jcredit a')].some((a) => a.href === 'https://en.wikipedia.org/wiki/Osprey')
-    }));
-    assert.ok(hero.src && /\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp$/.test(hero.src), 'direct journey links load our hosted picture');
-    assert.ok(hero.credit.includes('Photo: Wikipedia') && hero.article, 'the journey retains its photo article credit');
-
-    for (const id of ['dust', 'nutrients', 'monarch', 'prairiegulf']) {
+    await p.waitForSelector('#xi-osprey');
+    await H.pause(p, 1500);
+    assert.equal(await p.locator('#xcards .jcard img[src*="/photos/"]').count(), 0, 'no journey card borrows a title picture');
+    for (const id of ['osprey', 'dust', 'nutrients', 'monarch', 'prairiegulf']) {
       await p.evaluate((journey) => window.__M.showJourney(journey), id);
-      const fallback = await p.evaluate(() => ({
-        photo: !!document.querySelector('#jp-main img'),
-        icon: !!document.querySelector('#jp-main svg')
-      }));
-      assert.deepEqual(fallback, { photo: false, icon: true }, id + ' has no approved manifest match and keeps its fallback');
+      const fallback = await p.evaluate(() => ({ photo: !!document.querySelector('#jp-main img'), icon: !!document.querySelector('#jp-main svg') }));
+      assert.deepEqual(fallback, { photo: false, icon: true }, id + ' has no row of its own and keeps its icon');
     }
     assert.deepEqual(errors, []); await b.close();
   });
 
-  test(`${name}: a journey with its own picture row (jpic) shows it by id with its own credit; one without keeps the title picture`, async () => {
+  test(`${name}: a journey with its own picture row (jpic) shows it by id with its own credit; one without keeps the icon`, async () => {
     const jc = { a: 'Jo Journey', l: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0/', p: 'https://commons.wikimedia.org/wiki/File:Own.jpg' };
     const { b, p, errors, url } = await startWithPhotos('#stub', { jpic: { osprey: ['osprey.webp', 'Osprey'] }, jpicm: { osprey: jc } });
     if (name === 'phone') { await p.click('#speek'); await H.pause(p, 500); }

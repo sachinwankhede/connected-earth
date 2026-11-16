@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 const require = createRequire(import.meta.url);
 const R = require('../../src/photo-registry.js');
 
-// The cover of a journey by journey id (owner, 15 Nov: "Own"): jpic/jpicm in api/species-pictures.json. Without a row the title picture is used, exactly as before.
+// The cover of a journey by journey id (owner, 15 Nov: "Own"): jpic/jpicm in api/species-pictures.json. Without a row a journey has no cover (#973 phase 4: the title picture is no longer a fallback).
 const BASE = 'photos/journeys/';
 const credit = { a: 'Ann', l: 'CC BY 4.0', lu: 'https://creativecommons.org/licenses/by/4.0/', p: 'https://commons.wikimedia.org/wiki/File:A.jpg' };
 const journey = { id: 'osprey-route', imgwiki: 'Osprey' };
@@ -33,10 +33,10 @@ test('journeyCandidate refuses anything that is not a plain hosted .webp name', 
   assert.equal(R.journeyCandidate(['x.webp', 'p'], null, null), null);
 });
 
-test('no jpic: the cover and the credits are the imgwiki title picture and the end places, as today', () => {
+test('no jpic: the journey has no cover, whatever picture its title has; the credits are the end places only', () => {
   const p = world();
-  assert.equal(R.coverPhoto(p, journey), p.Osprey);
-  assert.deepEqual(R.coverCredits(p, journey, ['Place A', 'Place C']), [p.Osprey, p['Place A'], p['Place C']]);
+  assert.equal(R.coverPhoto(p, journey), null);
+  assert.deepEqual(R.coverCredits(p, journey, ['Place A', 'Place C']), [p['Place A'], p['Place C']]);
 });
 
 test('jpic row: the cover is the journey\'s own picture with its own credit; the ends stay the place pictures', () => {
@@ -50,14 +50,15 @@ test('jpic row: the cover is the journey\'s own picture with its own credit; the
 
 test('credits list each picture once (same src), and the cover once when an end shares it', () => {
   const p = world();
-  assert.equal(R.coverCredits(p, journey, ['Place A', 'Place B']).length, 2);   // Osprey + the one shared end picture
-  assert.equal(R.coverCredits(p, journey, ['Osprey', 'Osprey']).length, 1);
+  R.register(p, R.coverKey(journey.id), R.journeyCandidate(['osprey-route.webp', 'Osprey'], BASE, null));
+  assert.equal(R.coverCredits(p, journey, ['Place A', 'Place B']).length, 2);   // the cover + the one shared end picture
+  assert.equal(R.coverCredits(p, journey, ['Place A', 'Place A']).length, 2);
 });
 
-test('a journey id missing from jpic falls back to its title; a journey with neither has no cover and no credit', () => {
+test('a journey id missing from jpic has no cover and no credit, whatever its title', () => {
   const p = world();
   R.register(p, R.coverKey('other'), R.journeyCandidate(['other.webp', 'X'], BASE, null));
-  assert.equal(R.coverPhoto(p, journey), p.Osprey);
+  assert.equal(R.coverPhoto(p, journey), null);
   assert.equal(R.coverPhoto(p, { id: 'none', imgwiki: 'Nothing' }), null);
   assert.deepEqual(R.coverCredits(p, { id: 'none' }, [undefined, 'Place Z']), []);
   assert.equal(R.coverPhoto({}, null), null);

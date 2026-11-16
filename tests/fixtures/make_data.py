@@ -77,12 +77,12 @@ def main():
     con = load(os.path.join(sd, 'conservation.json')); dump({k: v for k, v in con.items() if k in lat}, os.path.join(od, 'conservation.json'), indent=1)
     dump({}, os.path.join(od, 'about.json'))
     os.makedirs(os.path.join(OUT, 'data', 'geo')); shutil.copyfile(R('data', 'geo', 'geo.json'), os.path.join(OUT, 'data', 'geo', 'geo.json'))
-    # place pictures (the app reads photos/places/places.json, keyed by the place's imgwiki title, and the image files next to it): eight places with a picture, the rest without
+    # place pictures (the app reads photos/places/places.json, keyed by the place id (#973 phase 4), and the image files next to it): eight places with a picture, the rest without
     pp = load(R('photos', 'places', 'places.json')); out = {}; pd = os.path.join(OUT, 'photos', 'places'); os.makedirs(pd)
     for i in MAIN:
-        e = pp.get(places[i].get('imgwiki') or '')
+        e = pp.get(i) or pp.get(places[i].get('imgwiki') or '')
         if e and len(out) < 8 and os.path.exists(R('photos', 'places', e['f'])):
-            out[places[i]['imgwiki']] = e; shutil.copyfile(R('photos', 'places', e['f']), os.path.join(pd, e['f']))
+            out[i] = e; shutil.copyfile(R('photos', 'places', e['f']), os.path.join(pd, e['f']))
             lg = os.path.splitext(e['f'])[0] + '.webp'   # the larger copy (#727), when the real data has one: the place page falls back to the small picture without it, and the tests serve their own stand-in
             if os.path.exists(R('photos', 'places-lg', lg)):
                 os.makedirs(os.path.join(OUT, 'photos', 'places-lg'), exist_ok=True); shutil.copyfile(R('photos', 'places-lg', lg), os.path.join(OUT, 'photos', 'places-lg', lg))

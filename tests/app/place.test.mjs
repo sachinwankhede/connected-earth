@@ -85,7 +85,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: a place with a picture shows the larger copy full width above the name; if it cannot load, the small picture stays (#727)`, async () => {
     const man = JSON.parse(fs.readFileSync(path.join(H.FBUILD, 'photos', 'places', 'places.json'), 'utf8'));
-    const place = H.readFixturePlaces(false).find((e) => man[e.imgwiki]); assert.ok(place, 'the fixture has a place with a picture');
+    const place = H.readFixturePlaces(false).find((e) => man[e.id]); assert.ok(place, 'the fixture has a place with a picture');
     const lgDir = path.join(H.FBUILD, 'photos', 'species-lg'), stand = fs.readFileSync(path.join(lgDir, fs.readdirSync(lgDir)[0]));   // a stand-in 400 px WebP: the test does not depend on which larger copies the real data has yet
     for (const served of [true, false]) {
       const { b, p, errors } = await start();

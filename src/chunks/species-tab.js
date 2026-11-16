@@ -111,7 +111,7 @@ window.__chunk["species-tab"] = function (A) {
       if (M.sid !== sid) return;
       d = d || {}; if (d.t) P.ABOUT[sid] = d.t;
       PV.innerHTML = page(d);
-      var c = d.ph && A.PhotoRegistry.speciesCandidate(d.ph, d.ph[1], 1, d.phm); if (c) { A.PhotoRegistry.register(P.PHOTOS, A.PhotoRegistry.speciesKey(sid), c); A.PhotoRegistry.register(P.PHOTOS, d.l, c); }   /* by species id first; the Latin name stays until the old keys go (#973) */
+      var c = d.ph && A.PhotoRegistry.speciesCandidate(d.ph, d.ph[1], 1, d.phm); if (c) { A.PhotoRegistry.register(P.PHOTOS, A.PhotoRegistry.speciesKey(sid), c); }   /* by species id only (#973 phase 4) */
       var ph = d.l && P.photoOf({ latin: d.l }), b = document.getElementById("sp-img");
       if (ph && b) { var im = document.createElement("img"); im.alt = ""; im.referrerPolicy = "no-referrer"; P.bindPhoto(im, ph); im.src = ph.src; b.innerHTML = ""; b.appendChild(im); }
       if (ph && d.pl) {   /* a larger copy (400 px) exists: a wide photo above the title instead of the small square (#421) */
@@ -138,7 +138,7 @@ window.__chunk["species-tab"] = function (A) {
           return '<button type="button" class="pmc ppc" data-spp="' + i + '"><span class="pbox"><span class="pph" data-pid="e-' + i + '"><svg viewBox="0 0 24 24" aria-hidden="true">' + (P.ICONS[e.icon] || "") + "</svg></span></span><b>" + escH(e.short) + "</b><small>" + escH(e.place || "") + "</small></button>";
         }).join("") + "</div>" + (ids.length > 10 ? '<p class="fine">Showing 10 of ' + ids.length + ".</p>" : "") + '<p class="fine"><a href="#" data-spmap="1">Show ' + (ids.length > 1 ? "them" : "it") + " on the map</a></p>";
         PV.querySelector("article").insertBefore(w, PV.querySelector(".srcd"));
-        ids.slice(0, 10).forEach(function (i) { var o = P.ECO_BY[i]; if (o.imgwiki) { if (!o.li) P.makeCard(o); P.pWant({ isPage: true, eco: sid, id: "e-" + i, wiki: o.imgwiki }); } });
+        ids.slice(0, 10).forEach(function (i) { var o = P.ECO_BY[i]; if (o) { if (!o.li) P.makeCard(o); P.pWant({ isPage: true, eco: sid, id: "e-" + i, key: A.PhotoRegistry.placeKey(i) }); } });
       });
     });
   }

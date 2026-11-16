@@ -69,7 +69,7 @@ HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out 
 UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the app (stage only tells the build which places are pilot-only)
 
 
-def split(ecos, links, phs=None, phm=None, sp=None, nps=None):
+def split(ecos, links, sp=None, nps=None):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for api/<id>.json.
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
@@ -87,7 +87,7 @@ def split(ecos, links, phs=None, phm=None, sp=None, nps=None):
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
-        if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
+        if True:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one shows none (#973 phase 4: it no longer borrows the picture of a Wikipedia title, 2 species did)
             own = {}; ownm = {}
             for n in nodes:
@@ -623,9 +623,8 @@ def build(pilot, out_path, write=False, places=False):
     for _c in list(sp['pics'].values()) + list(sp['titles'].values()):
         if _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
     # the app reads our own hosted copies only: an entry is [hosted file name, Wikipedia page], and a species without a hosted copy has no entry (the placeholder shows)
-    phs = {t: [r['f'], r.get('page') or t] for t, r in sorted(sp['titles'].items())}   # by title, for the journeys (they name a picture by its title)
-    phm = {t: species_pics.credit(r) for t, r in sp['titles'].items() if species_pics.credit(r)}
-    light, webs, spt, sidx, qs = split(ecos, links, phs, phm, sp, node_photos.NodePhotos(paths.DATA_ROOT).pics)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
+    nps = node_photos.NodePhotos(paths.DATA_ROOT).pics
+    light, webs, spt, sidx, qs = split(ecos, links, sp, nps)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
@@ -648,23 +647,27 @@ def build(pilot, out_path, write=False, places=False):
         about[row['sid']] = f
     species_related(about, common, pics, species_diet(ecos, about, common, pics))
     # the journey views need the pictures of the journeys themselves (their cover species and the species at their ends); every place brings its own
-    byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; jt = set(); js = {}   # js: the species id of each species at a journey end that has a hosted picture of its own (#973)
-    for c in links['cross']:
-        if c.get('imgwiki'): jt.add(c['imgwiki'])
+    byid = {e['id']: {n['id']: n for n in e['nodes']} for e in ecos}; js = {}; jn = {}   # js: the species id of each species at a journey end that has a hosted picture of its own (#973)
     for eco_id, node_ids in cross_ends(links).items():
         for nid in node_ids:
             n = byid.get(eco_id, {}).get(nid)
             if n:
-                jt |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
                 sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
                 if sid and sp['pics'].get(sid): js[sid] = sp['pics'][sid]
-    jp = {t: phs[t] for t in sorted(jt) if t in phs}
+                nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node at a journey end (sunlight, rain...) has its picture by node id (#976, #973 phase 4)
+                if nid and nps.get(nid): jn[nid] = nps[nid]
+    jp = {}   # by species id only: the title keys are gone (#973 phase 4)
     jpm_ids = {}
-    for sid, r in sorted(js.items()):   # by species id as well as by title: the app asks by id first, the title entries stay until the old keys go (#973)
+    for sid, r in sorted(js.items()):
         jp[sid] = [r['f'], r.get('page') or r.get('wiki')]
         if species_pics.credit(r): jpm_ids[sid] = species_pics.credit(r)
+    for nid, r in sorted(jn.items()):
+        jp['node:' + nid] = [r['f'], r.get('page') or r.get('wiki')]
+        cr = {k: r[k] for k in ('a', 'l', 'lu', 'p') if r.get(k)}
+        if cr.get('lu'): cr['lu'] = https_license(cr['lu'])
+        if cr: jpm_ids['node:' + nid] = cr
     if write: add_overlap(webs, ecos, set(links['order']))
-    pictures = {'ph': jp, 'phm': {t: phm[t] for t in jp if t in phm} | jpm_ids}
+    pictures = {'ph': jp, 'phm': jpm_ids}
     pictures.update(journey_cover_pictures(journey_pics.load(paths.DATA_ROOT), links))   # additive: the covers by journey id, only once photos/journey_pictures.json exists (lib/journey_pics.py)
     if write: write_webs(webs, about, pictures)
     if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot, orderof); write_ties(light, ov[1], pilot)

@@ -1,27 +1,19 @@
   M.h0 = location.hash.slice(1);
+  M.holdHash = M.h0.replace(/(^|&)stub(?=&|$)/, "").replace(/^&/, "") || null;   /* the address is kept as it came while start-up draws the map and applies it (the first draw would otherwise write it back without the place, and a reload in that moment lost the link, #994) */
   buildMap();
   if (window.maplibregl || window.__mapLib) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   M.fromHash = true;   /* start-up first draws the map and then applies the address: neither is a new history step, and the first draw must not wipe the entry's state (#412) */
   showMap();
   applyHash(M.h0);
+  if (!M.waitLocals) M.holdHash = null;   /* applied; or waiting for the local places, which release it themselves */
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   var man = null, manAsked = false;   /* the stored place photo list: fetched when the photos are released (#397), not at start; nothing reads it before it has arrived */
-  /* The stored list is keyed by place id (a row's `wiki` is its Wikipedia title); a list still keyed by title is read by title (tests and old caches), and then only by title. A place's picture is registered under its own id (PhotoRegistry.placeKey), so two places on one title never share a picture (#968). */
-  var manT = null, byId = false;
-  function index() {
-    if (manT) return;
-    manT = {}; Object.keys(man).forEach(function (k) { var r = man[k], w = r && r.wiki ? r.wiki : k; if (!(w in manT)) manT[w] = r; if (r && r.wiki && r.wiki !== k) byId = true; });
-  }
-  function titleRow(t) { index(); return manT[t]; }
-  function storedRow(e) { if (!man) return null; index(); return man[e.id] || (byId ? null : manT[e.imgwiki]) || null; }
+  /* The stored list is keyed by place id (a row's `wiki` is its Wikipedia title, only a credit). A place's picture is registered under its own id (PhotoRegistry.placeKey), so two places on one title never share a picture (#968); no row is ever found by title (#973 phase 4). */
+  function storedRow(e) { return man ? man[e.id] || null : null; }
   function stored(e) {
     var m = storedRow(e), candidate = m && PhotoRegistry.placeCandidate(m, PB);
     if (candidate) PhotoRegistry.register(PHOTOS, PhotoRegistry.placeKey(e.id), candidate);
-  }
-  function storedTitle(t) {   /* a journey's cover falls back to the picture of its own title (as before) */
-    var m = man && titleRow(t), candidate = m && PhotoRegistry.placeCandidate(m, PB);
-    if (candidate) PhotoRegistry.register(PHOTOS, t, candidate);
   }
   /* Place photos are loaded only from the approved local manifest. */
   /* pictures wait for the map (or a touch, or 9 s): they competed with its tiles */
@@ -44,15 +36,7 @@
   M.placePhotos = function (ids, done) {   /* the dropdown rows of places that have no card yet: release the photos, then read their entries from the stored list */
     M.releasePhotos(); var go = function () { ids.forEach(function (id) { if (ECO_BY[id]) stored(ECO_BY[id]); }); done(); }; if (man) go(); else HELD.push(go);
   };
-  function crossPhotos() {
-    CROSS.forEach(function (c) {
-      var tt = c.imgwiki;
-      if (!tt) return; storedTitle(tt);
-      if (PHOTOS[tt]) { linkPhoto(c); return; }
-    });
-  }
   ECOS.forEach(function (e) { if (e.li) M.wantPhoto(e); });
-  if (window.fetch) HELD.push(crossPhotos);
   var goPhotos = function () { M.releasePhotos(); };
   addEventListener("pointerdown", loadCounts, { once: true, capture: true });   /* the per-region counts are fetched at the first touch, not at start: the first view makes no request for them (#261) */
   addEventListener("pointerdown", goPhotos, { once: true, capture: true }); addEventListener("keydown", goPhotos, { once: true, capture: true });
