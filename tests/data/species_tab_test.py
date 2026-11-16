@@ -40,9 +40,9 @@ class SpeciesTab(unittest.TestCase):
                 {'nodes': [{'id': 'd', 'latin': 'Deer d', 'name': 'Deer'}, {'id': 'w', 'latin': 'Wolf w', 'name': 'Wolf'}], 'raw': [['d', 'w']]}]
         about = {'deer-d': {'l': 'Deer d'}, 'wolf-w': {'l': 'Wolf w'}, 'grass-g': {'l': 'Grass g'}}
         B.species_diet(ecos, about, {'deer d': 'Deer', 'wolf w': 'Wolf', 'grass g': 'Grass'}, {'Deer d': 'd.webp'})
-        self.assertEqual(about['wolf-w']['ea'], [['Deer d', 'Deer', 2, 'd.webp']]); self.assertNotIn('eb', about['wolf-w'])
-        self.assertEqual(about['deer-d']['ea'], [['Grass g', 'Grass', 1, 0]]); self.assertEqual(about['deer-d']['eb'], [['Wolf w', 'Wolf', 2, 0]])
-        self.assertNotIn('ea', about['grass-g'], 'the sun and itself are not food'); self.assertEqual(about['grass-g']['eb'], [['Deer d', 'Deer', 2, 'd.webp']])
+        self.assertEqual(about['wolf-w']['ea'], [['Deer d', 'Deer', 2, 'd.webp', 'deer-d']]); self.assertNotIn('eb', about['wolf-w'])
+        self.assertEqual(about['deer-d']['ea'], [['Grass g', 'Grass', 1, 0, 'grass-g']]); self.assertEqual(about['deer-d']['eb'], [['Wolf w', 'Wolf', 2, 0, 'wolf-w']])
+        self.assertNotIn('ea', about['grass-g'], 'the sun and itself are not food'); self.assertEqual(about['grass-g']['eb'], [['Deer d', 'Deer', 2, 'd.webp', 'deer-d']])
 
     @unittest.skipUnless(os.path.exists(os.path.join(ROOT, 'api', 'species', 'pandion-haliaetus.json')), 'needs a build')
     def test_species_file_has_group_order_family(self):   # #446: the species page names them
@@ -61,16 +61,16 @@ class SpeciesTab(unittest.TestCase):
     def test_related_species_of_the_same_family(self):   # #448
         about = {'a': {'l': 'A a', 'fa': 'F1'}, 'b': {'l': 'B b', 'fa': 'F1'}, 'c': {'l': 'C c', 'fa': 'F1'}, 'd': {'l': 'D d', 'fa': 'F2'}, 'e': {'l': 'E e'}}
         B.species_related(about, {'a a': 'Alpha', 'b b': 'Beta', 'c c': 'Charlie'}, {'C c': 'c.webp'}, {'A a': 1, 'B b': 5, 'C c': 5})
-        self.assertEqual(about['a']['rl'], [['B b', 'Beta', 5, 0], ['C c', 'Charlie', 5, 'c.webp']], 'most places first, then by name; not itself')
+        self.assertEqual(about['a']['rl'], [['B b', 'Beta', 5, 0, 'b-b'], ['C c', 'Charlie', 5, 'c.webp', 'c-c']], 'most places first, then by name; not itself')
         self.assertEqual(about['b']['rl'][0][0], 'C c'); self.assertNotIn('rl', about['d'], 'alone in its family'); self.assertNotIn('rl', about['e'], 'no family')
 
     def test_rows_order_pages_and_totals(self):
         sp = {'A a': ['p1', 'p2', 'p3'], 'B b': ['p1'], 'C c': ['p1', 'p2'], 'D d': ['p1', 'p2']}
         common = {'A a': 'Alpha', 'B b': 'Beta', 'C c': 'Charlie', 'D d': 'Delta'}
         f = B.split_species_tab(sp, common, {'A a': 'birds', 'B b': 'birds', 'C c': 'plants', 'D d': 'plants'}, {'A a': 'x.webp'}, None, 1)
-        self.assertEqual(f['top.json'], [['A a', 'Alpha', 3, 'x.webp'], ['C c', 'Charlie', 2, 0], ['D d', 'Delta', 2, 0], ['B b', 'Beta', 1, 0]], 'most places first, then by name; 0 when no picture')
+        self.assertEqual(f['top.json'], [['A a', 'Alpha', 3, 'x.webp', 'a-a'], ['C c', 'Charlie', 2, 0, 'c-c'], ['D d', 'Delta', 2, 0, 'd-d'], ['B b', 'Beta', 1, 0, 'b-b']], 'most places first, then by name; 0 when no picture')
         self.assertEqual(f['groups.json'], [['birds', 'Birds', 2, 1], ['plants', 'Plants', 2, 1]], 'only groups that have species')
-        self.assertEqual(f['g-birds-0.json'], [['A a', 'Alpha', 3, 'x.webp'], ['B b', 'Beta', 1, 0]])
+        self.assertEqual(f['g-birds-0.json'], [['A a', 'Alpha', 3, 'x.webp', 'a-a'], ['B b', 'Beta', 1, 0, 'b-b']])
         big = {'S%d s' % i: ['p'] for i in range(B.TAB_PAGE * 2 + 1)}
         f = B.split_species_tab(big, {}, {l: 'plants' for l in big}, {})
         self.assertEqual(f['groups.json'], [['plants', 'Plants', len(big), 3]]); self.assertEqual(len(f['g-plants-2.json']), 1)
