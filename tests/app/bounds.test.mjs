@@ -36,7 +36,8 @@ describe('real park outlines', () => {
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
     await page.goto(base + file + '#stub&p=' + id); await page.reload();
     await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
-    if (features) await page.waitForFunction((n) => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return d && d.features && d.features.length === n; }, features, { timeout: 30000 }).catch(() => {});   // the outline is drawn: read in the test, which then reports what was there
+    const failed = []; page.on('requestfailed', (r) => { if (!/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/.test(r.url())) failed.push(r.url()); }); page.on('response', (r) => { if (r.status() >= 400) failed.push(r.status() + ' ' + r.url()); });
+    if (features) await page.waitForFunction((n) => { const s = window.__M.map.getSource('atl-bound'); const d = s && s._data; return d && d.features && d.features.length === n; }, features, { timeout: 30000 }).catch(async () => { reqs.push('STALLED: ' + JSON.stringify(await page.evaluate(() => ({ hash: location.hash, styleReady: !!(window.__M && window.__M.styleReady), source: !!(window.__M && window.__M.map && window.__M.map.getSource('atl-bound')) }))) + ' failed: ' + failed.join(', ')); });   // the outline is drawn: read in the test, which then reports what was there (#994: and where it stalled)
     else await page.waitForFunction(() => { const p = document.getElementById('peek'); return p && !p.hidden; }, null, { timeout: 30000 }).catch(() => {});
     return { ctx, page, errors, reqs };
   }
@@ -48,7 +49,7 @@ describe('real park outlines', () => {
       for (const e of withB) {
         const t = await open(size, e.id, inMain(e.id) ? 'index.html' : 'pilot/index.html', B[e.id].r.length);
         const n = await outline(t.page);
-        assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn`);
+        assert.equal(n, B[e.id].r.length, `${e.id}: outline drawn; requests: ${t.reqs.join(' | ')}`);
         assert.ok(t.reqs.length >= 1 && t.reqs.every((u) => u.endsWith('/' + e.id + '.json')), `${e.id}: only this park's outline file is fetched: ${t.reqs}`);
         const box = (() => { let a = 999, b = 99, c = -999, d = -99; for (const f of B[e.id].r) for (let i = 0; i < f.length; i += 2) { a = Math.min(a, f[i]); c = Math.max(c, f[i]); b = Math.min(b, f[i + 1]); d = Math.max(d, f[i + 1]); } return [a, b, c, d]; })();
         const fits = ([x0, y0, x1, y1]) => { const b = window.__M.map.getBounds(); return b.getWest() <= x0 + 1e-6 && b.getEast() >= x1 - 1e-6 && b.getSouth() <= y0 + 1e-6 && b.getNorth() >= y1 - 1e-6; };
