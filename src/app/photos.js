@@ -43,7 +43,7 @@
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (c.s || "Wikimedia Commons") + "</a>";
   }
-  function photoOf(n) { return (n.latin && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
+  function photoOf(n) { return (n.cat && n.wiki && PHOTOS[PhotoRegistry.nodeKey(PhotoRegistry.nodeId(n.wiki))]) || (n.latin && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";
@@ -115,6 +115,7 @@
   var SPX = null, SPX_WAIT = [];
   /* Journey covers are not species files: they are published with the app (photos/journeys/), at the same address root as the place pictures (not on the species host). */
   var JB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/journeys/";
+  var NB = JB.replace(/journeys\/$/, "nodes/");   /* non-species node pictures (#976) are published with the app too (photos/nodes/) */
   PhotoRegistry.setSpeciesBase(__SPECIES_PHOTOS__ + "photos/species-md/");
   function withSpeciesPhotos(done) {
     if (!window.fetch) return;

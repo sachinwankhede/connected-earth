@@ -13,13 +13,14 @@ const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in th
 // These tests never read the real hosted list (photos/species_hosted.json): the server answers every picture-entry request
 // (api/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
 describe('species pictures come only from our hosted copies', () => {
-  let browser, srv, base, pics = {}, placePics = null;   // placePics: null = the place file carries the same entries as pics; false = the place file has no picture entries at all (the app then reads the shared list)
+  let browser, srv, base, pics = {}, placePics = null, nodePic = false;   // placePics: null = the place file carries the same entries as pics; false = the place file has no picture entries at all (the app then reads the shared list)
   const speciesTitle = H.fixturePlace('/api/testland.json').nodes.find((n) => n.wiki).wiki;   // these tests use the made-up Testland (tests/fixtures), not a real place
   before(async () => {
     browser = await H.launch();
     srv = http.createServer((q, r) => {
       const u = decodeURIComponent(q.url.split('?')[0]);
       if (u === '/photos/species-md/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }
+      if (u === '/photos/nodes/' + FAKE) { r.writeHead(200, { 'Content-Type': 'image/png' }); return r.end(testImage); }   // a non-species node's picture is our own file under photos/nodes/ (#976)
       if (u.endsWith('/photos/places/places.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end('{}'); }   // no place photos: these tests are about species pictures
       if (u.endsWith('/api/species-pictures.json')) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify({ ph: pics, phm: {} })); }
       if (fs.existsSync(path.join(H.FBUILD, u))) { const list = H.fixtureList(u, fs.readFileSync(path.join(H.FBUILD, u), 'utf8')); if (list) { r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(list); } }   // the fixture places are added to the world places
@@ -27,6 +28,7 @@ describe('species pictures come only from our hosted copies', () => {
         // give the place exactly the picture entries this test wants
         const w = H.fixturePlace(u) || JSON.parse(fs.readFileSync(path.join(H.FBUILD, u), 'utf8'));
         if (placePics === false) { delete w.ph; delete w.phm; } else { w.ph = { ...(placePics || pics) }; w.phm = {}; }
+        if (nodePic) { w.nodes.find((n) => n.id === 'sun').wiki = 'Sunbeam'; w.ph = { ...(w.ph || {}), 'node:sunbeam': [FAKE, 'Sunbeam'] }; w.phm = { ...(w.phm || {}), 'node:sunbeam': { a: 'Test author', l: 'CC0', lu: '', p: 'https://commons.wikimedia.org/wiki/File:Sunbeam.jpg' } }; }   // the place file lists the picture under its node id
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
       }
       let f = path.join(H.FBUILD, u); if (f.endsWith('/')) f += 'index.html';
@@ -129,6 +131,22 @@ describe('species pictures come only from our hosted copies', () => {
         assert.deepEqual(t.errors, []);
         await t.ctx.close();
       } finally { placePics = null; }
+    });
+
+    test(`${sizeName}: a non-species node shows the picture listed under its node id, from photos/nodes/ (#976)`, async () => {
+      pics = {}; nodePic = true;
+      try {
+        const t = await open(size);
+        await t.page.goto(base + 'index.html#e=testland');
+        await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'sun'); return n && n.querySelector('image.photo'); }, 'the Sunlight node to draw the picture listed under its node id');
+        const href = await nodeHref(t.page, 'sun');
+        assert.ok(href.endsWith('photos/nodes/' + FAKE) && !/^https?:/.test(href), 'the node picture is our own file, read from our own site: ' + href);
+        const others = await t.page.evaluate(() => [...document.querySelectorAll('#svg .node')].filter((x) => x.__data__ && x.__data__.id !== 'sun' && x.querySelector('image.photo')).length);
+        assert.equal(others, 0, 'no other node shows that picture');
+        assert.deepEqual(t.outside, []);
+        assert.deepEqual(t.errors, []);
+        await t.ctx.close();
+      } finally { nodePic = false; }
     });
 
     test(`${sizeName}: a species wiki alias uses its canonical hosted picture`, async () => {
