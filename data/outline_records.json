@@ -370,6 +370,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"arvillagecreek": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=485781580",
+"source": "osm"
+},
 "arwithrowsprings": {
 "built": "2026-11-16T09:42:09.817909+00:00",
 "checkedAt": "2026-11-16T09:42:09.817909+00:00",
@@ -677,6 +685,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"caredrockcanyon": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=186211",
+"source": "osm"
 },
 "casilverstrandstat": {
 "built": "2026-11-16T09:42:09.818002+00:00",
@@ -1686,6 +1702,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"iahoneycreek": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=56026382",
+"source": "osm"
+},
 "ialaceykeosauqua": {
 "built": "2026-11-16T09:42:09.818311+00:00",
 "checkedAt": "2026-11-16T09:42:09.818311+00:00",
@@ -1847,6 +1871,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"idharriman": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=49063425",
+"source": "osm"
+},
 "idhellsgate": {
 "built": "2026-11-16T09:42:09.818359+00:00",
 "checkedAt": "2026-11-16T09:42:09.818359+00:00",
@@ -1979,6 +2011,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"ilcastlerock": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=328448966",
+"source": "osm"
 },
 "ilcaveinrock": {
 "built": "2026-11-16T09:42:09.818399+00:00",
@@ -3261,6 +3301,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"misilverlake": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=11498549",
+"source": "osm"
+},
 "misleepyhollow": {
 "built": "2026-11-16T09:42:09.818797+00:00",
 "checkedAt": "2026-11-16T09:42:09.818797+00:00",
@@ -3463,6 +3511,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"mnwhitewater": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=39876346",
+"source": "osm"
 },
 "mnwildriver": {
 "built": "2026-11-16T09:42:09.818857+00:00",
@@ -5445,6 +5501,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"nyharriman": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=4080499",
+"source": "osm"
+},
 "nyheckscher": {
 "built": "2026-11-16T09:42:09.819449+00:00",
 "checkedAt": "2026-11-16T09:42:09.819449+00:00",
@@ -5640,6 +5704,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"ohshawnee": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=9690610",
+"source": "osm"
 },
 "ohstonelick": {
 "built": "2026-11-16T09:42:09.819507+00:00",
@@ -6613,6 +6685,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"txvillagecreek": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=W&osmid=28714897",
+"source": "osm"
 },
 "usagassiznationalwildlif": {
 "built": "2026-11-16T09:42:09.819799+00:00",
@@ -8195,6 +8275,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"vanaturalbridge": {
+"built": "2026-11-16T13:02:34.973249+00:00",
+"checkedAt": "2026-11-16T13:02:34.973249+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=14032027",
+"source": "osm"
 },
 "vanewrivertrail": {
 "built": "2026-11-16T09:42:09.820255+00:00",
