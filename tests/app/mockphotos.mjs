@@ -16,7 +16,7 @@ function source(fixture) {
     : Object.fromEntries(Object.values(JSON.parse(fs.readFileSync(root + '/photos/species_pictures.json', 'utf8'))).filter((r) => r.wiki).map((r) => [r.wiki, [r.u || '', r.page || r.wiki]]));
   let placeManifest = JSON.parse(fs.readFileSync(root + '/photos/places/places.json', 'utf8'));
   // the fixture holds only a few place pictures; every fixture place with a picture title gets an entry shaped like them, so which places lose theirs under thinPlaces (by the title's hash) does not depend on how many pictures the fixture kept
-  if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.id, placeManifest[e.id] || placeManifest[e.imgwiki] || tpl]));   // by place id: the app reads the stored list by id only (#973 phase 4) }
+  if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.id, placeManifest[e.id] || placeManifest[e.imgwiki] || tpl])); }
   const speciesTitles = new Set([...places.flatMap((e) => e.nodes.map((n) => n.wiki).filter(Boolean)), ...journeyLinks.map((c) => c.imgwiki).filter(Boolean)]);
   const speciesIds = new Set(places.flatMap((e) => e.nodes.filter((n) => n.latin && !n.cat).map((n) => slug(n.latin))));   // species pictures are listed by species id (#973 phase 4)
   return (sources[k] = { places, speciesManifest, placeManifest, speciesTitles, speciesIds });
