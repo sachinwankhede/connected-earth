@@ -14,7 +14,7 @@ const names = (rows) => rows.map((r) => r.name);
 test('a species comes back for the start of its name, with its number of places; ranks never go backwards', { skip: !built }, () => {
   const { pick } = load()(5);
   const rows = pick('osp', file('os'));
-  assert.ok(rows.some((r) => r.t === 's' && r.latin === 'Pandion haliaetus' && r.n > 1), 'osprey with its number of places');
+  assert.ok(rows.some((r) => r.t === 's' && r.latin === 'Pandion haliaetus' && r.sid === 'pandion-haliaetus' && r.n > 1), 'osprey with its number of places');
   const ks = rows.map((r) => r.k);
   assert.deepEqual(ks, [...ks].sort(), 'exact, then starts-with, then contains');
   assert.ok(rows.every((r) => [0, 1, 2].includes(r.k)));
@@ -22,24 +22,24 @@ test('a species comes back for the start of its name, with its number of places;
 
 test('the whole name typed comes first, whatever the type (#424)', () => {
   const { pick } = load()(5);
-  const d = { p: [['osprey-lake', 'Osprey Lake'], ['osprey-bay', 'Osprey']], s: [['Pandion haliaetus', 'Osprey', 35], ['Pandion cristatus', 'Eastern osprey', 3]] };
+  const d = { p: [['osprey-lake', 'Osprey Lake'], ['osprey-bay', 'Osprey']], s: [['Pandion haliaetus', 'Osprey', 35, 0, 'pandion-haliaetus'], ['Pandion cristatus', 'Eastern osprey', 3, 0, 'pandion-cristatus']] };
   assert.deepEqual(names(pick('osprey', d)), ['Osprey', 'Osprey', 'Osprey Lake', 'Eastern osprey'], 'exact names, then starts-with, then a word that starts with it');
   const rows = pick('osprey', d);
   assert.deepEqual(rows.map((r) => r.k), [0, 0, 1, 2]);
   // a species is not ranked above a place just for being a species, and the other way round
-  const e = pick('osprey', { p: [['osprey-lake', 'Osprey Lake']], s: [['Pandion haliaetus', 'Osprey', 35]] });
+  const e = pick('osprey', { p: [['osprey-lake', 'Osprey Lake']], s: [['Pandion haliaetus', 'Osprey', 35, 0, 'pandion-haliaetus']] });
   assert.deepEqual(e.map((r) => r.t), ['s', 'p'], 'the osprey beats Osprey Lake');
-  const f = pick('osprey', { p: [['osprey', 'Osprey']], s: [['Pandion haliaetus', 'Osprey Hawk', 35]] });
+  const f = pick('osprey', { p: [['osprey', 'Osprey']], s: [['Pandion haliaetus', 'Osprey Hawk', 35, 0, 'pandion-haliaetus']] });
   assert.deepEqual(f.map((r) => r.t), ['p', 's'], 'a place named exactly beats a longer species name');
   // the Latin name counts too, and so does a Latin name that is only the start
-  const l = pick('pandion haliaetus', { p: [], s: [['Pandion haliaetus', 'Osprey', 35], ['Pandion haliaetus carolinensis', 'American osprey', 2]] });
+  const l = pick('pandion haliaetus', { p: [], s: [['Pandion haliaetus', 'Osprey', 35, 0, 'pandion-haliaetus'], ['Pandion haliaetus carolinensis', 'American osprey', 2, 0, 'pandion-haliaetus-carolinensis']] });
   assert.deepEqual(l.map((r) => r.latin), ['Pandion haliaetus', 'Pandion haliaetus carolinensis']);
   assert.deepEqual(l.map((r) => r.k), [0, 1]);
 });
 
 test('within one rank the better known first, and places and species take turns (#424)', () => {
   const { pick } = load()(8);
-  const d = { p: [['p1', 'Elk A'], ['p2', 'Elk B'], ['p3', 'Elk C']], s: [['S one', 'Elk X', 50], ['S two', 'Elk Y', 20]] };
+  const d = { p: [['p1', 'Elk A'], ['p2', 'Elk B'], ['p3', 'Elk C']], s: [['S one', 'Elk X', 50, 0, 's-one'], ['S two', 'Elk Y', 20, 0, 's-two']] };
   assert.deepEqual(names(pick('elk', d)), ['Elk A', 'Elk X', 'Elk B', 'Elk Y', 'Elk C'], 'best place, best species, second place, second species, ...');
   // the order inside a kind is the order of the file (home-list order for places, most places first for species)
   assert.deepEqual(pick('elk', d).filter((r) => r.t === 'p').map((r) => r.id), ['p1', 'p2', 'p3']);
@@ -66,9 +66,9 @@ test('Latin names and accents work', { skip: !built }, () => {
 
 test('another word for the same name finds the species: plurals and spelling pairs (#602)', () => {
   const { pick } = load()(5);
-  const d = { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0, 'grey wolves']] };
+  const d = { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0, 'canis-lupus', 'grey wolves']] };
   for (const q of ['wolves', 'grey', 'grey wolves', 'gray wolf']) assert.deepEqual(pick(q, d).map((r) => r.latin), ['Canis lupus'], q);
-  assert.deepEqual(pick('wolves', { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0]] }), [], 'a row without the field matches only its own words');
+  assert.deepEqual(pick('wolves', { p: [], s: [['Canis lupus', 'Gray wolf', 52, 0, 'canis-lupus']] }), [], 'a row without the field matches only its own words');
 });
 
 test('the built suggestion files carry the other words (#602)', { skip: !built }, () => {

@@ -10,7 +10,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   test(`${name}: typing shows suggestions, a species row opens the species page, Enter and Clear close them`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
-    const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i') ? r.querySelector('i').textContent : '', q: r.getAttribute('data-q'), latin: r.getAttribute('data-latin'), id: r.getAttribute('data-id') })); });
+    const rows = () => p.evaluate(() => { const s = document.getElementById('sug'); return s.hidden ? [] : [...s.querySelectorAll('.sgr')].map((r) => ({ name: r.querySelector('b').textContent, line: r.querySelector('i') ? r.querySelector('i').textContent : '', q: r.getAttribute('data-q'), sid: r.getAttribute('data-sid'), id: r.getAttribute('data-id') })); });
     assert.deepEqual(await rows(), [], 'nothing before typing');
     await p.click('#q'); await p.keyboard.type('o');
     assert.deepEqual(await rows(), [], 'one letter is not enough');
@@ -18,7 +18,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     let r = await rows();
     assert.ok(r.length >= 1 && r.length <= (name === 'phone' ? 3 : 5), 'row count');
-    const osprey = r.find((x) => x.latin === 'Pandion haliaetus');
+    const osprey = r.find((x) => x.sid === 'pandion-haliaetus');
     assert.ok(osprey, 'osprey is suggested for "osp"');
     assert.match(osprey.line, /^Species · in \d+ places$/);
     const hit = await p.evaluate(() => { const b = document.querySelector('#sug .sgr').getBoundingClientRect(); return b.height; });
@@ -32,7 +32,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr'); await p.keyboard.type('osp');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     await p.waitForFunction(() => /(^|&)s=osp/.test(location.hash.slice(1)), null, { timeout: 30000 });   // the search must be its own history entry before the tap: a tap that beats the address sync merges the two steps and Back then leaves the search (#715)
-    await p.click('#sug .sgr[data-latin="Pandion haliaetus"]');
+    await p.click('#sug .sgr[data-sid="pandion-haliaetus"]');
     await p.waitForFunction(() => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === 'Osprey', null, { timeout: 60000 });
     assert.deepEqual(await rows(), [], 'a tap on a row closes the suggestions');
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Search', 'a species row opens its page (#420 step 3)');
@@ -58,7 +58,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('#qclr'); await p.keyboard.type('osprey');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     r = await rows();
-    assert.equal(r[0].latin, 'Pandion haliaetus', 'the species named exactly "Osprey" is the first row');
+    assert.equal(r[0].sid, 'pandion-haliaetus', 'the species named exactly "Osprey" is the first row');
     assert.deepEqual(t.errors, []); await b.close();
   });
 }

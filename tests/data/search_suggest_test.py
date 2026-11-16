@@ -23,7 +23,7 @@ def check(pilot):
             for w in B.search_words(c + ' ' + l) | B.search_aliases(c): full_s.setdefault(B.search_bucket(w), set()).add(l)
     assert set(sug) == set(full_p) | set(full_s), 'one file for every start that has a name'
     for key, b in sug.items():
-        assert all(len(r) in (4, 5) and (r[3] == 0 or r[3].endswith('.webp')) and (len(r) == 4 or (isinstance(r[4], str) and r[4])) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0] and, when there are other words for the name, a fifth field with them (#443, #602)'
+        assert all(len(r) in (5, 6) and (r[3] == 0 or r[3].endswith('.webp')) and r[4] == B.species.slug(r[0]) and (len(r) == 5 or (isinstance(r[5], str) and r[5])) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0, species id] and, when there are other words for the name, a fifth field with them (#443, #602)'
         assert len(b['p']) <= B.SUGGEST_PER and len(b['s']) <= B.SUGGEST_PER
         ns = [byid[i][0] for i, _ in b['p']]
         assert ns == sorted(ns) and len(set(ns)) == len(ns), key + ': places in page order, once each'

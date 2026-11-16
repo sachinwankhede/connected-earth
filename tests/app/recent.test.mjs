@@ -6,7 +6,7 @@ import * as H from './helper.mjs';
 await H.fixtureBuild();   // the fixture build (#787): a change to the real data cannot reach this file
 
 const stored = (p) => p.evaluate(() => JSON.parse(localStorage.getItem('ceRs') || '[]'));
-const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((r) => [r.getAttribute('data-q') || r.getAttribute('data-id') || r.getAttribute('data-latin'), r.querySelector('i') ? r.querySelector('i').textContent : '']));
+const rows = (p) => p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((r) => [r.getAttribute('data-q') || r.getAttribute('data-id') || r.getAttribute('data-sid'), r.querySelector('i') ? r.querySelector('i').textContent : '']));
 // #684: a click that never goes through on a fresh page. Wait for the same readiness open() waits for (map style drawn), then click; if it still times out, print one compact line (what is on top of the box, ready state, sheet state) so the CI log shows the cause, because CI cuts the Playwright call log.
 const tap = async (p, sel) => {
   await p.waitForFunction(() => window.__M && window.__M.map && window.__M.styleReady, null, { timeout: 60000 }).catch(() => {});
@@ -85,9 +85,9 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
-    await p.waitForSelector('#sug .sgr[data-latin="Pandion haliaetus"]', { timeout: 15000 });
-    await p.click('#sug .sgr[data-latin="Pandion haliaetus"]');
-    assert.deepEqual((await stored(p)).map((x) => x.t + ':' + x.latin), ['s:Pandion haliaetus']);
+    await p.waitForSelector('#sug .sgr[data-sid="pandion-haliaetus"]', { timeout: 15000 });
+    await p.click('#sug .sgr[data-sid="pandion-haliaetus"]');
+    assert.deepEqual((await stored(p)).map((x) => x.t + ':' + x.sid), ['s:pandion-haliaetus']);
     assert.equal((await stored(p))[0].rc, 0);
     assert.deepEqual(t.errors, []); await b.close();
   });

@@ -15,7 +15,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => window.__M && window.__M.map, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
-    await picLoaded(p, '#sug .sgr[data-latin="Pandion haliaetus"]');
+    await picLoaded(p, '#sug .sgr[data-sid="pandion-haliaetus"]');
     await p.keyboard.press('Enter');
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });

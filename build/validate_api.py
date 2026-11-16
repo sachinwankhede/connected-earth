@@ -10,7 +10,7 @@ SCHEMAS = {
     'search/rows-*.json': dict(type='array', items=S()),
     'search/s-*.json': dict(type='object', required=['p', 's'], properties=dict(
         p=dict(type='array', items=dict(type='array', minItems=2, maxItems=2, items=S())),
-        s=dict(type='array', items=dict(type='array', minItems=4, maxItems=5, prefixItems=[S(), S(), I, dict(type=['string', 'integer'])], items=S())))),
+        s=dict(type='array', items=dict(type='array', minItems=5, maxItems=6, prefixItems=[S(), S(), I, dict(type=['string', 'integer']), S()], items=S())))),
     'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'imgwiki', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), imgwiki=S(), idx=dict(type='object')))),
     'species/*.json': dict(type='object', required=['l', 'n', 'tl', 'ic'], properties=dict(l=S(), n=S(), tl=I, ic=S())),
 }
