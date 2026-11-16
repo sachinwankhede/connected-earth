@@ -163,8 +163,9 @@
   }
   function whereElseHTML(n) {
     if (n.cat || !n.latin) return "";
-    if (SPPL.d[n.latin]) return whereHTML(n, SPPL.d[n.latin]);
-    sppPlaces(n.latin).then(function (ids) {   /* the places of this species are a small file of their own: the row fills in when it arrives */
+    var sid = sidOf(n);
+    if (SPPL.d[sid]) return whereHTML(n, SPPL.d[sid]);
+    sppPlaces(sid).then(function (ids) {   /* the places of this species are a small file of their own: the row fills in when it arrives */
       var el = document.getElementById("where-else");
       if (el && el.getAttribute("data-latin") === n.latin && state.sel && BY[state.sel] === n) { el.outerHTML = whereHTML(n, ids); pnlPhotos(); requestAnimationFrame(function () { rowHints(panel); }); }
     });
