@@ -12,12 +12,12 @@ from place_photos import _read, _write_json
 
 RECORDS = ('data', 'outline_records.json'); MISSING = ('data', 'outline_missing.json'); DIR = ('data', 'outlines')
 ID_RE = re.compile(r'^[a-z0-9]+$')
-# source -> (licence, licence link). A link is None where the authoritative host (www.usgs.gov, opendatacommons.org) is not in lib/allowed_sources.json: owner decision, then the link is added here.
+# source -> (licence, licence link). The links are the authoritative licence pages (hosts approved by the owner, 16 Nov); they are references on the record, never fetched.
 # The outline file carries `s` for the two open sources; a file without `s` is PAD-US.
 SOURCES = {
-    'padus': ('Public domain (US Geological Survey)', None),
+    'padus': ('Public domain (US Geological Survey)', 'https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview'),
     'wikidata': ('CC0 1.0', 'https://creativecommons.org/publicdomain/zero/1.0/'),
-    'osm': ('ODbL 1.0', None),
+    'osm': ('ODbL 1.0', 'https://opendatacommons.org/licenses/odbl/1-0/'),
 }
 
 
