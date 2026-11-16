@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """A node's picture id and a species' id are worked out from a title or a Latin name by the app (src/photo-registry.js) and by the build (lib/node_photos.py, build/species.py).
-They must give the same id for every title, or a picture is looked up under an id the build never wrote (#973). Pinned here on tricky titles and on every title of the shipped place files."""
+They must give the same id for every title, or a picture is looked up under an id the build never wrote (#973). Pinned here on tricky titles and on every title and name of the shipped place files that has one."""
 import json, os, subprocess, sys, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, os.path.join(ROOT, 'build'))
@@ -11,7 +11,7 @@ for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
     try: d = json.load(open(f))
     except Exception: continue
     for n in d.get('nodes') or []:
-        for k in ('wiki', 'latin'):
+        for k in ('wiki', 'latin', 'sp'):
             if n.get(k): titles.append(n[k])
 titles = sorted(set(titles))
 js = "const R=require(process.argv[1]);const t=JSON.parse(require('fs').readFileSync(0,'utf8'));process.stdout.write(JSON.stringify(t.map(x=>[R.nodeId(x),R.sidOf(x)])))"
