@@ -70,5 +70,18 @@ describe('real park outlines', () => {
       assert.equal(await t.page.evaluate(() => !document.getElementById('peek').hidden), true, 'card is open');
       assert.deepEqual(t.errors, []); await t.ctx.close();
     });
+    test(`${sizeName}: an address naming a local place is never written back without it while the app starts (#994)`, async () => {
+      const loc = all.find((e) => B[e.id] && e.level === 'local' && inMain(e.id)); assert.ok(loc, 'a local place with an outline is in the main build');
+      const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage(); const errors = [];
+      page.on('pageerror', (x) => errors.push(String(x)));
+      await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
+      await page.addInitScript(() => { window.__writes = []; const o = history.replaceState.bind(history); history.replaceState = function (a, b, u) { window.__writes.push(String(u)); return o(a, b, u); }; });   // every address the app writes, from the first line it runs
+      await page.goto(base + 'index.html#stub&p=' + loc.id);
+      await page.waitForFunction(() => { const p = document.getElementById('peek'); return p && !p.hidden; }, null, { timeout: 30000 });
+      const writes = await page.evaluate(() => window.__writes);
+      assert.ok(writes.length >= 1, 'the app wrote its address');
+      assert.ok(writes.every((u) => u.includes('p=' + loc.id)), 'every address written names the place, even before the local places have arrived: ' + JSON.stringify(writes));
+      assert.deepEqual(errors, []); await ctx.close();
+    });
   }
 });

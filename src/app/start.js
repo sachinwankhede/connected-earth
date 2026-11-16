@@ -1,9 +1,11 @@
   M.h0 = location.hash.slice(1);
+  M.holdHash = M.h0.replace(/(^|&)stub(?=&|$)/, "").replace(/^&/, "") || null;   /* the address is kept as it came while start-up draws the map and applies it (the first draw would otherwise write it back without the place, and a reload in that moment lost the link, #994) */
   buildMap();
   if (window.maplibregl || window.__mapLib) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   M.fromHash = true;   /* start-up first draws the map and then applies the address: neither is a new history step, and the first draw must not wipe the entry's state (#412) */
   showMap();
   applyHash(M.h0);
+  if (!M.waitLocals) M.holdHash = null;   /* applied; or waiting for the local places, which release it themselves */
   addEventListener("hashchange", function () { applyHash(); });
   var PB = location.pathname.replace(/[^\/]*$/, "").replace(/(pilot|preview\/[^\/]+)\/$/, "") + "photos/places/";
   var man = null, manAsked = false;   /* the stored place photo list: fetched when the photos are released (#397), not at start; nothing reads it before it has arrived */
