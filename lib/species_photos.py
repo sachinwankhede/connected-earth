@@ -64,6 +64,11 @@ class SpeciesPhotos:
         self._drop_copies(sid)
         self.miss(sid, status, source, now=now)
 
+    def forget(self, sid):
+        """Drop everything held for this id (picture, larger copies, missing entry, ledger) and record nothing: the id is no longer a species (#976: it became a node, whose picture is filed by node id)."""
+        if sid in self.pics: self._delete.append(self._path(SMALL_DIR, self.pics.pop(sid)['f']))
+        self._drop_copies(sid); self.miss_.pop(sid, None); self.tried.pop(sid, None)
+
     def miss(self, sid, status, source='', attempts=None, now=None):
         """Record that no usable picture was found for this species. One retry policy (photo_registry.negative_entry) for every source; the ledger notes who tried."""
         if sid in self.pics: raise ValueError('%r has a stored picture: use remove() to drop it first' % sid)

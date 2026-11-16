@@ -70,20 +70,27 @@ def check(root):
     errs = []; warns = []
     sys.path.insert(0, HERE); import species
     sp = species.table(root)
-    rows_dir = os.path.join(root, 'data', 'species', 'rows')
-    if os.path.isdir(rows_dir):   # one file per species (#276): each is checked on its own, and sits where its sid says
+    rows_dir = os.path.join(root, 'data', 'species', 'rows'); nodes_dir = os.path.join(root, 'data', 'nodes', 'rows')
+    node_sids = set()
+    if os.path.isdir(rows_dir):   # one file per species (#276) and per non-species node (#976): each is checked on its own, and sits where its sid says
         keys = {}
-        for d in sorted(os.listdir(rows_dir)):
-            for f in sorted(os.listdir(os.path.join(rows_dir, d))):
-                if not f.endswith('.json'): continue
-                r = json.load(open(os.path.join(rows_dir, d, f)))
-                shape(r, 'species-row', 'species file %s/%s' % (d, f), errs)
-                if isinstance(r, dict) and isinstance(r.get('sid'), str) and (d, f) != (r['sid'][:2], r['sid'] + '.json'):
-                    errs.append('species file %s/%s: a row with sid %r belongs in %s/%s.json' % (d, f, r['sid'], r['sid'][:2], r['sid']))
-                if isinstance(r, dict) and r.get('name'):
-                    k = (r.get('latin') or r['name']).lower()
-                    if k in keys: errs.append('species files %s and %s have the same table key %r (the loader keeps only one)' % (keys[k], '%s/%s' % (d, f), k))
-                    keys.setdefault(k, '%s/%s' % (d, f))
+        for base, label in ((rows_dir, 'species'), (nodes_dir, 'node')):
+            if not os.path.isdir(base): continue
+            for d in sorted(os.listdir(base)):
+                for f in sorted(os.listdir(os.path.join(base, d))):
+                    if not f.endswith('.json'): continue
+                    r = json.load(open(os.path.join(base, d, f)))
+                    shape(r, 'species-row', '%s file %s/%s' % (label, d, f), errs)
+                    if isinstance(r, dict) and isinstance(r.get('sid'), str) and (d, f) != (r['sid'][:2], r['sid'] + '.json'):
+                        errs.append('%s file %s/%s: a row with sid %r belongs in %s/%s.json' % (label, d, f, r['sid'], r['sid'][:2], r['sid']))
+                    if isinstance(r, dict) and label == 'node':
+                        node_sids.add(r.get('sid'))
+                        if r.get('sk') != 'resource': errs.append('node file %s/%s: data/nodes/rows holds only rows of kind resource (sk is %r)' % (d, f, r.get('sk')))
+                    elif isinstance(r, dict) and r.get('sk') == 'resource' and os.path.isdir(nodes_dir): errs.append('species file %s/%s: a row of kind resource is not a species, it belongs in data/nodes/rows (#976; checked once that folder exists, so the one-time move job can land after this code)' % (d, f))
+                    if isinstance(r, dict) and r.get('name'):
+                        k = (r.get('latin') or r['name']).lower()
+                        if k in keys: errs.append('%s files %s and %s have the same table key %r (the loader keeps only one)' % (label, keys[k], '%s/%s' % (d, f), k))
+                        keys.setdefault(k, '%s/%s' % (d, f))
     else:
         for k, v in sp.items(): shape(v, 'species-row', 'species %r' % k, errs)
     for k, v in sp.items():
@@ -123,7 +130,7 @@ def check(root):
                 elif any(not -180 <= ring[i] <= 180 or not -90 <= ring[i + 1] <= 90 for i in range(0, len(ring), 2)):
                     errs.append('outline %s: ring %d has a point outside lon -180..180 / lat -90..90' % (f, n))
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # species pictures (#934): keyed by species id, checked by their one writer (lib/species_photos.py); a missing list is an empty one
-    import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check(); errs += species_sid_errors(spw, {r.get('sid') for r in sp.values()})
+    import species_photos; spw = species_photos.SpeciesPhotos(root); errs += spw.check(); errs += species_sid_errors(spw, {r.get('sid') for r in sp.values()} - node_sids)
     dirty_sp = spw.dirty_authors()   # an error since the cleanauthors job cleaned the stored rows (15 Nov, #964), as for places
     if dirty_sp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/species_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_sp), ', '.join(dirty_sp[:5])))
     import journey_pics   # journey cover pictures (#945): by journey id, checked by their one writer once photos/journey_pictures.json exists (nothing to check before)

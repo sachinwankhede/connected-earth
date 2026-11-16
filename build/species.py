@@ -11,6 +11,7 @@ import paths
 ROOT = paths.DATA_ROOT   # data/ lives here; the repository unless CE_DATA_ROOT is set (#787)
 TABLE = os.path.join(ROOT, 'data', 'species', 'species.json')
 ROWS = os.path.join(ROOT, 'data', 'species', 'rows')   # #276 step 2: one file per species, data/species/rows/<first two letters of sid>/<sid>.json
+NODES = os.path.join(ROOT, 'data', 'nodes', 'rows')   # #976: the rows of non-species nodes (sunlight, rain, soil, a river, a current: `sk` resource), one file each, data/nodes/rows/<first two letters of sid>/<sid>.json; they are not species and have no species picture
 ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic', 'cat', 'badge']
 SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
@@ -33,29 +34,31 @@ def assign(new, old):
             used.add(sid)
         new[k]['sid'] = sid; new[k]['sk'] = o.get('sk') or kind_of(k, new[k])
 
-def row_path(sid, rows=None):
-    rows = rows or ROWS
+def row_path(sid, rows=None, node=False):
+    rows = rows or (NODES if node else ROWS)
     return os.path.join(rows, sid[:2], sid + '.json')
 
-def read_rows(rows):
+def read_rows(*dirs):
     out = {}
-    for d in sorted(os.listdir(rows)):
-        for f in sorted(os.listdir(os.path.join(rows, d))):
-            if f.endswith('.json'):
-                r = json.load(open(os.path.join(rows, d, f)))
-                out[(r.get('latin') or r['name']).lower()] = r
+    for rows in dirs:
+        if not os.path.isdir(rows): continue
+        for d in sorted(os.listdir(rows)):
+            for f in sorted(os.listdir(os.path.join(rows, d))):
+                if f.endswith('.json'):
+                    r = json.load(open(os.path.join(rows, d, f)))
+                    out[(r.get('latin') or r['name']).lower()] = r
     return dict(sorted(out.items()))
 
 def table(root=None):
     """The species table {lowercase Latin name: row}. Read from the row files when data/species/rows/ exists, else from the one old file."""
     root = root or ROOT
     rows = os.path.join(root, 'data', 'species', 'rows')
-    if os.path.isdir(rows): return read_rows(rows)
+    if os.path.isdir(rows): return read_rows(rows, os.path.join(root, 'data', 'nodes', 'rows'))   # species rows and node rows: a place node points at either with `sp`
     old = os.path.join(root, 'data', 'species', 'species.json')
     return json.load(open(old)) if os.path.exists(old) else {}
 
 def write_row(r, rows=None):
-    p = row_path(r['sid'], rows); os.makedirs(os.path.dirname(p), exist_ok=True)
+    p = row_path(r['sid'], rows, node=r.get('sk') == 'resource'); os.makedirs(os.path.dirname(p), exist_ok=True)
     json.dump(r, open(p, 'w'), indent=1, ensure_ascii=False)
 
 def split():
