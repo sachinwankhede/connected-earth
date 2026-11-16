@@ -13,7 +13,7 @@ const FAKE = 'abcdef012345.webp';   // a hosted file name that only exists in th
 // These tests never read the real hosted list (photos/species_hosted.json): the server answers every picture-entry request
 // (api/species-pictures.json and the ph map of each place file) from `pics`, a small fixture {title: [file, page]} set per test.
 describe('species pictures come only from our hosted copies', () => {
-  let browser, srv, base, pics = {};
+  let browser, srv, base, pics = {}, placePics = null;   // placePics: null = the place file carries the same entries as pics; false = the place file has no picture entries at all (the app then reads the shared list)
   const speciesTitle = H.fixturePlace('/api/testland.json').nodes.find((n) => n.wiki).wiki;   // these tests use the made-up Testland (tests/fixtures), not a real place
   before(async () => {
     browser = await H.launch();
@@ -26,7 +26,7 @@ describe('species pictures come only from our hosted copies', () => {
       if (/\/api\/[\w-]+\.json$/.test(u) && (H.fixturePlace(u) || fs.existsSync(path.join(H.FBUILD, u)))) {
         // give the place exactly the picture entries this test wants
         const w = H.fixturePlace(u) || JSON.parse(fs.readFileSync(path.join(H.FBUILD, u), 'utf8'));
-        w.ph = { ...pics }; w.phm = {};
+        if (placePics === false) { delete w.ph; delete w.phm; } else { w.ph = { ...(placePics || pics) }; w.phm = {}; }
         r.writeHead(200, { 'Content-Type': 'application/json' }); return r.end(JSON.stringify(w));
       }
       let f = path.join(H.FBUILD, u); if (f.endsWith('/')) f += 'index.html';
@@ -114,6 +114,21 @@ describe('species pictures come only from our hosted copies', () => {
       assert.deepEqual(t.outside, []);
       assert.deepEqual(t.errors, []);
       await t.ctx.close();
+    });
+
+    test(`${sizeName}: a picture in the shared list under the species id shows for that species (#973)`, async () => {
+      const coyote = H.fixturePlace('/api/testland.json').nodes.find((n) => n.id === 'coyote');
+      const sid = coyote.latin.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+      pics = { [sid]: [FAKE, 'Test_page'] }; placePics = false;   // only api/species-pictures.json has the entry: the place file carries none (an older place file)
+      try {
+        const t = await open(size);
+        await t.page.goto(base + 'index.html#e=testland');
+        await until(t.page, () => { const n = [...document.querySelectorAll('#svg .node')].find((x) => x.__data__ && x.__data__.id === 'coyote'); return n && n.querySelector('image.photo[loading="lazy"]'); }, 'the coyote node to draw the picture the shared list has under its species id');
+        assert.ok((await nodeHref(t.page, 'coyote')).endsWith('photos/species-md/' + FAKE));
+        assert.deepEqual(t.outside, []);
+        assert.deepEqual(t.errors, []);
+        await t.ctx.close();
+      } finally { placePics = null; }
     });
 
     test(`${sizeName}: a species wiki alias uses its canonical hosted picture`, async () => {
