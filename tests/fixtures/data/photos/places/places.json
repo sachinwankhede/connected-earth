@@ -1,5 +1,5 @@
 {
- "Yellowstone National Park": {
+ "yellowstone": {
   "f": "yellowstone.jpg",
   "a": "Rhododendrites",
   "l": "CC BY-SA 4.0",
@@ -14,7 +14,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Amazon rainforest": {
+ "amazon": {
   "f": "amazon.jpg",
   "a": "CIAT",
   "l": "CC BY-SA 2.0",
@@ -29,7 +29,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Tallgrass Prairie National Preserve": {
+ "prairie": {
   "f": "prairie.jpg",
   "a": "NPS",
   "l": "Public domain",
@@ -44,7 +44,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Gulf Islands National Seashore": {
+ "usgulfislandsnationalsea": {
   "f": "gulf.jpg",
   "a": "National Park Service",
   "l": "Public domain",
@@ -59,7 +59,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Upper Mississippi River National Wildlife and Fish Refuge": {
+ "mississippi": {
   "f": "mississippi.jpg",
   "a": "Royalbroil",
   "l": "CC BY-SA 3.0",
@@ -74,7 +74,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Forest Park (St. Louis)": {
+ "stlurban": {
   "f": "stlurban.jpg",
   "a": "Kris from Seattle, USA",
   "l": "CC BY 2.0",
@@ -89,7 +89,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Mammoth Cave National Park": {
+ "npmammothcave": {
   "f": "npmammothcave.jpg",
   "a": "Willis Thomas Lee",
   "l": "Public domain",
@@ -104,7 +104,7 @@
   "checkedAt": "2026-11-01T00:35:53.296847+00:00",
   "fetchedAt": null
  },
- "Ngorongoro Conservation Area": {
+ "whngorongoro": {
   "f": "whngorongoro.jpg",
   "a": "Grahampurse",
   "l": "CC BY-SA 4.0",

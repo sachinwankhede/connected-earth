@@ -16,7 +16,7 @@ function source(fixture) {
     : Object.fromEntries(Object.values(JSON.parse(fs.readFileSync(root + '/photos/species_pictures.json', 'utf8'))).filter((r) => r.wiki).map((r) => [r.wiki, [r.u || '', r.page || r.wiki]]));
   let placeManifest = JSON.parse(fs.readFileSync(root + '/photos/places/places.json', 'utf8'));
   // the fixture holds only a few place pictures; every fixture place with a picture title gets an entry shaped like them, so which places lose theirs under thinPlaces (by the title's hash) does not depend on how many pictures the fixture kept
-  if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.imgwiki, placeManifest[e.imgwiki] || tpl])); }
+  if (fixture) { const tpl = Object.values(placeManifest)[0]; placeManifest = Object.fromEntries(places.filter((e) => e.imgwiki).map((e) => [e.id, placeManifest[e.id] || placeManifest[e.imgwiki] || tpl]));   // by place id: the app reads the stored list by id only (#973 phase 4) }
   const speciesTitles = new Set([...places.flatMap((e) => e.nodes.map((n) => n.wiki).filter(Boolean)), ...journeyLinks.map((c) => c.imgwiki).filter(Boolean)]);
   const speciesIds = new Set(places.flatMap((e) => e.nodes.filter((n) => n.latin && !n.cat).map((n) => slug(n.latin))));   // species pictures are listed by species id (#973 phase 4)
   return (sources[k] = { places, speciesManifest, placeManifest, speciesTitles, speciesIds });
@@ -44,7 +44,7 @@ export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, 
   const species = Object.fromEntries([...speciesIds].map((sid) => [sid, [hostedName(sid), sid]]));   // by species id
   const places = Object.fromEntries(Object.entries(placeManifest).filter(([title]) => !thinPlaces || crypto.createHash('sha1').update(title).digest()[0] % 2 === 0).map(([title, photo]) => [title, { ...photo, f: `mock/${encodeURIComponent(title)}.png` }]));
   const tpl = Object.values(placeManifest)[0];
-  if (allPlaces) for (const e of allReal) if (e.imgwiki && !places[e.imgwiki]) places[e.imgwiki] = { ...tpl, f: `mock/${encodeURIComponent(e.imgwiki)}.png` };
+  if (allPlaces) for (const e of allReal) if (e.imgwiki && !places[e.id]) places[e.id] = { ...tpl, f: `mock/${encodeURIComponent(e.id)}.png` };
   await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(places) }));
   await page.route(/\/api\/species-pictures\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ph: species, phm: {} }) }));
   // a place carries its own species picture entries now: give each place file the mocked entries for its species

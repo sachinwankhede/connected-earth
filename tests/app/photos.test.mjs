@@ -22,11 +22,11 @@ describe('stored place photos carry a credit line', () => {
   after(async () => { await browser.close(); srv.close(); });
 
   const man = JSON.parse(fs.readFileSync(path.join(H.FDATA, 'photos/places/places.json'), 'utf8'));
-  const places = H.readFixturePlaces(false).filter((e) => e.imgwiki && man[e.imgwiki] && fs.existsSync(path.join(H.FDATA, 'photos/places', man[e.imgwiki].f)));
+  const places = H.readFixturePlaces(false).filter((e) => e.imgwiki && man[e.id] && fs.existsSync(path.join(H.FDATA, 'photos/places', man[e.id].f)));
 
   test('a picture list keyed by place id (the title in each row) shows the same picture and credit (#887)', async () => {
-    const e = places[0], m = man[e.imgwiki];
-    const byId = Object.fromEntries(places.map((x) => [x.id, { ...man[x.imgwiki], wiki: x.imgwiki }]));   // the new shape: key = place id, the title in `wiki`
+    const e = places[0], m = man[e.id];
+    const byId = Object.fromEntries(places.map((x) => [x.id, { ...man[x.id], wiki: x.imgwiki }]));   // the new shape: key = place id, the title in `wiki`
     const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
     const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
@@ -45,7 +45,7 @@ describe('stored place photos carry a credit line', () => {
     const a = places[0], b = places[1];
     assert.ok(b, 'the fixture has two places with pictures');
     // a's row under its own id; a second row under an unrelated id that carries b's title (two places on one title, #908): b has no row of its own
-    const list = { [a.id]: { ...man[a.imgwiki], wiki: a.imgwiki }, 'someotherplace': { ...man[a.imgwiki], wiki: b.imgwiki } };
+    const list = { [a.id]: { ...man[a.id], wiki: a.imgwiki }, 'someotherplace': { ...man[a.id], wiki: b.imgwiki } };
     const shows = async (e) => {
       const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
@@ -59,13 +59,13 @@ describe('stored place photos carry a credit line', () => {
     };
     assert.ok(await shows(a), 'the place with a row under its own id shows its picture');
     const got = await shows(b);
-    assert.equal(got, null, 'a place with no row under its own id shows no picture, whatever another row\'s title says: ' + JSON.stringify(got) + ' (a\'s file is ' + man[a.imgwiki].f + ', b\'s title row is ' + (man[b.imgwiki] && man[b.imgwiki].f) + ')');
+    assert.equal(got, null, 'a place with no row under its own id shows no picture, whatever another row\'s title says: ' + JSON.stringify(got) + ' (a\'s file is ' + man[a.id].f + ', b\'s title row is ' + (man[b.id] && man[b.id].f) + ')');
   });
 
   for (const [sizeName, size] of Object.entries(H.SIZES)) {
     test(`${sizeName}: photo comes from our own files, with author, licence and Commons link`, async () => {
       assert.ok(places.length > 0, 'at least one stored photo');
-      const e = places[0], m = man[e.imgwiki];
+      const e = places[0], m = man[e.id];
       const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
