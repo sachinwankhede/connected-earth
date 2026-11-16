@@ -59,22 +59,10 @@
 "expiresAt": "2027-05-14T14:23:29.593442+00:00",
 "status": "nophoto"
 },
-"antarctic-convergence": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593444+00:00",
-"expiresAt": "2027-05-14T14:23:29.593444+00:00",
-"status": "nophoto"
-},
 "aporosaura-anchietae": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593446+00:00",
 "expiresAt": "2027-05-14T14:23:29.593446+00:00",
-"status": "nophoto"
-},
-"aquifer-water": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593448+00:00",
-"expiresAt": "2027-05-14T14:23:29.593448+00:00",
 "status": "nophoto"
 },
 "asclepias-kansana": {
@@ -153,12 +141,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593475+00:00",
 "expiresAt": "2027-05-14T14:23:29.593475+00:00",
-"status": "nophoto"
-},
-"bay-nutrients": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593477+00:00",
-"expiresAt": "2027-05-14T14:23:29.593477+00:00",
 "status": "nophoto"
 },
 "botrychium-michiganense": {
@@ -257,30 +239,6 @@
 "expiresAt": "2027-05-14T14:23:29.593517+00:00",
 "status": "nophoto"
 },
-"clear-low-nutrient-water": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593521+00:00",
-"expiresAt": "2027-05-14T14:23:29.593521+00:00",
-"status": "nophoto"
-},
-"cold-deep-water": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593525+00:00",
-"expiresAt": "2027-05-14T14:23:29.593525+00:00",
-"status": "nophoto"
-},
-"cold-dry-continental-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593527+00:00",
-"expiresAt": "2027-05-14T14:23:29.593527+00:00",
-"status": "nophoto"
-},
-"cold-short-growing-season": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593529+00:00",
-"expiresAt": "2027-05-14T14:23:29.593529+00:00",
-"status": "nophoto"
-},
 "condalia-ericoides": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593531+00:00",
@@ -291,18 +249,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593533+00:00",
 "expiresAt": "2027-05-14T14:23:29.593533+00:00",
-"status": "nophoto"
-},
-"cool-maritime-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593534+00:00",
-"expiresAt": "2027-05-14T14:23:29.593534+00:00",
-"status": "nophoto"
-},
-"cool-water-temperature": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593536+00:00",
-"expiresAt": "2027-05-14T14:23:29.593536+00:00",
 "status": "nophoto"
 },
 "corispermum-villosum": {
@@ -353,12 +299,6 @@
 "expiresAt": "2027-05-14T14:23:29.593565+00:00",
 "status": "nophoto"
 },
-"dark-water-rivers": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593570+00:00",
-"expiresAt": "2027-05-14T14:23:29.593570+00:00",
-"status": "nophoto"
-},
 "diatoms-living-in-and-under-ice": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593572+00:00",
@@ -399,12 +339,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593585+00:00",
 "expiresAt": "2027-05-14T14:23:29.593585+00:00",
-"status": "nophoto"
-},
-"dissolved-nutrients": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593587+00:00",
-"expiresAt": "2027-05-14T14:23:29.593587+00:00",
 "status": "nophoto"
 },
 "elkalyce-comyntas": {
@@ -641,24 +575,6 @@
 "expiresAt": "2027-05-14T14:23:29.593696+00:00",
 "status": "nophoto"
 },
-"lagoon-water": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593698+00:00",
-"expiresAt": "2027-05-14T14:23:29.593698+00:00",
-"status": "nophoto"
-},
-"lake-edward-and-rivers": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593700+00:00",
-"expiresAt": "2027-05-14T14:23:29.593700+00:00",
-"status": "nophoto"
-},
-"lake-urema-floods": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593702+00:00",
-"expiresAt": "2027-05-14T14:23:29.593702+00:00",
-"status": "nophoto"
-},
 "lasioglossum-acuminatum": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593706+00:00",
@@ -729,12 +645,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593733+00:00",
 "expiresAt": "2027-05-14T14:23:29.593733+00:00",
-"status": "nophoto"
-},
-"little-missouri-river": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593735+00:00",
-"expiresAt": "2027-05-14T14:23:29.593735+00:00",
 "status": "nophoto"
 },
 "lomatium-planosum": {
@@ -839,12 +749,6 @@
 "expiresAt": "2027-05-14T14:23:29.593777+00:00",
 "status": "nophoto"
 },
-"mild-winters": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593779+00:00",
-"expiresAt": "2027-05-14T14:23:29.593779+00:00",
-"status": "nophoto"
-},
 "mugil": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593781+00:00",
@@ -861,12 +765,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593785+00:00",
 "expiresAt": "2027-05-14T14:23:29.593785+00:00",
-"status": "nophoto"
-},
-"nutrients": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593787+00:00",
-"expiresAt": "2027-05-14T14:23:29.593787+00:00",
 "status": "nophoto"
 },
 "occidryas-chalcedona": {
@@ -1067,12 +965,6 @@
 "expiresAt": "2027-05-14T14:23:29.593881+00:00",
 "status": "nophoto"
 },
-"ramganga-and-reservoir": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593883+00:00",
-"expiresAt": "2027-05-14T14:23:29.593883+00:00",
-"status": "nophoto"
-},
 "ranunculus-harveyi": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593885+00:00",
@@ -1095,12 +987,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593891+00:00",
 "expiresAt": "2027-05-14T14:23:29.593891+00:00",
-"status": "nophoto"
-},
-"river-silt-and-nutrients": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593894+00:00",
-"expiresAt": "2027-05-14T14:23:29.593894+00:00",
 "status": "nophoto"
 },
 "rorippa-calycina": {
@@ -1157,12 +1043,6 @@
 "expiresAt": "2027-05-14T14:23:29.593910+00:00",
 "status": "nophoto"
 },
-"salmon-borne-nitrogen": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593912+00:00",
-"expiresAt": "2027-05-14T14:23:29.593912+00:00",
-"status": "nophoto"
-},
 "salvia-farinacea": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593914+00:00",
@@ -1173,12 +1053,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593923+00:00",
 "expiresAt": "2027-05-14T14:23:29.593923+00:00",
-"status": "nophoto"
-},
-"sandy-cays": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593927+00:00",
-"expiresAt": "2027-05-14T14:23:29.593927+00:00",
 "status": "nophoto"
 },
 "sasa-kurilensis": {
@@ -1203,12 +1077,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593935+00:00",
 "expiresAt": "2027-05-14T14:23:29.593935+00:00",
-"status": "nophoto"
-},
-"seasonal-rains-and-river-floods": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593937+00:00",
-"expiresAt": "2027-05-14T14:23:29.593937+00:00",
 "status": "nophoto"
 },
 "semicossyphus-pulcher": {
@@ -1257,12 +1125,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593957+00:00",
 "expiresAt": "2027-05-14T14:23:29.593957+00:00",
-"status": "nophoto"
-},
-"stony-salty-soils": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593959+00:00",
-"expiresAt": "2027-05-14T14:23:29.593959+00:00",
 "status": "nophoto"
 },
 "strymon-sylvinus": {
@@ -1319,18 +1181,6 @@
 "expiresAt": "2027-05-14T14:23:29.593977+00:00",
 "status": "nophoto"
 },
-"tidal-salinity": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593979+00:00",
-"expiresAt": "2027-05-14T14:23:29.593979+00:00",
-"status": "nophoto"
-},
-"timane-river-and-waterholes": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593981+00:00",
-"expiresAt": "2027-05-14T14:23:29.593981+00:00",
-"status": "nophoto"
-},
 "trifolium-beckwithii": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593983+00:00",
@@ -1353,12 +1203,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593989+00:00",
 "expiresAt": "2027-05-14T14:23:29.593989+00:00",
-"status": "nophoto"
-},
-"troodos-rock-and-thin-soil": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593991+00:00",
-"expiresAt": "2027-05-14T14:23:29.593991+00:00",
 "status": "nophoto"
 },
 "vaccinium-corymbosum": {
@@ -1403,22 +1247,10 @@
 "expiresAt": "2027-05-14T14:23:29.594008+00:00",
 "status": "nophoto"
 },
-"warm-clear-water": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.594010+00:00",
-"expiresAt": "2027-05-14T14:23:29.594010+00:00",
-"status": "nophoto"
-},
 "washingtonia-filifera": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.594012+00:00",
 "expiresAt": "2027-05-14T14:23:29.594012+00:00",
-"status": "nophoto"
-},
-"winter-rain-and-snow": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.594014+00:00",
-"expiresAt": "2027-05-14T14:23:29.594014+00:00",
 "status": "nophoto"
 },
 "xyphon-triguttatum": {
