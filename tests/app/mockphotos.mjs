@@ -54,9 +54,12 @@ export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, 
     if (!res.ok()) return r.fallback();   // not a built file: a fixture place is answered by its own route
     const w = await res.json();
     w.ph = {}; w.phm = {};
-    for (const n of w.nodes || []) if (n.latin && !n.cat) { const k = slug(n.latin); if (species[k]) w.ph[k] = species[k]; }
+    for (const n of w.nodes || []) {
+      if (n.latin && !n.cat) { const k = slug(n.latin); if (species[k]) w.ph[k] = species[k]; }
+      else if (n.cat && n.wiki) { const id = slug(n.wiki); w.ph['node:' + id] = [hostedName('node:' + id), n.wiki]; w.phm['node:' + id] = { a: 'Mock author', l: 'CC0', lu: '', p: 'https://commons.wikimedia.org/wiki/File:Mock.jpg' }; }   // a non-species node has its picture by node id (#976)
+    }
     return r.fulfill({ response: res, body: JSON.stringify(w) });
   });
-  await page.route(/\/photos\/places\/mock\/|\/photos\/species(?:-md)?\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
+  await page.route(/\/photos\/places\/mock\/|\/photos\/(?:species(?:-md)?|nodes)\/[0-9a-f]{12}\.webp/, (r) => r.fulfill({ status: 200, contentType: 'image/png', body: png(r.request().url()) }));
   await page.reload();
 }
