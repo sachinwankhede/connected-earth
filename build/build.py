@@ -295,7 +295,7 @@ SUGGEST_PER = 40   # most places and most species kept for one two-letter start 
 
 def split_suggest(light, spt, sidx, pics=None):
     """Suggestions while typing (item #413): {two letters: {'p': places, 's': species}} for the first two letters of every word of a name.
-    p: [id, name] in page order (the home list order, featured first). s: [latin, usual name, number of places, hosted picture file or 0] most places first, then by name (the picture shows in the dropdown and in the Species tab's search, #443).
+    p: [id, name] in page order (the home list order, featured first). s: [latin, usual name, number of places, hosted picture file or 0, species id] most places first, then by name (the picture shows in the dropdown and in the Species tab's search, #443).
     The app keeps the entries whose name starts with what is typed above those that only have a word that starts with it."""
     count = {}
     for e in light:
@@ -307,10 +307,10 @@ def split_suggest(light, spt, sidx, pics=None):
             if len(b) < SUGGEST_PER and not any(x[0] == e['id'] for x in b): b.append([e['id'], e['name']])
     sp = sorted(((-count[l], c, l) for l, c in spt if l in count), key=lambda t: (t[0], t[1], t[2]))
     for neg, c, l in sp:
-        al = search_aliases(c)   # other words for the same name (#602): the row carries them as a fifth field the app matches against
+        al = search_aliases(c)   # other words for the same name (#602): the row carries them as a sixth field the app matches against
         for w in search_words(c + ' ' + l) | al:
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
-            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0)] + ([' '.join(sorted(al))] if al else []))
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0), species.slug(l)] + ([' '.join(sorted(al))] if al else []))
     return out
 
 

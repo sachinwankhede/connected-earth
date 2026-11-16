@@ -103,13 +103,13 @@
     return [[b[0], b[1]], [b[2], b[3]]];
   }
   /* "Found in N ecosystems": every web that holds the same species, shown on the map */
-  function speciesMap(name, latin) {   /* the places of a species come from its small file (api/species-places); without a Latin name the word index is used */
-    var q = name.toLowerCase(); M.mFrom = [FL.q && M.chip !== FL.q ? document.getElementById("q").value.trim() : "", latin];
+  function speciesMap(name, sid) {   /* the places of a species come from its small file (api/species-places, by species id); without an id the word index is used */
+    var q = name.toLowerCase(); M.mFrom = [FL.q && M.chip !== FL.q ? document.getElementById("q").value.trim() : "", sid];
     if (!FL.q) M.pushNext = true;   /* a species filter that starts from no search is a step Back can undo (#412) */
-    clearTimeout(M.qT); clearTimeout(M.busyT); FL.busy = !!latin; FL.limited = false;   /* a species with a Latin name waits for its places file, and says so */
-    FL.q = q; M.chip = latin ? q : null; FL.hits = latin ? new Set() : null;   /* a species filter shows as a visible chip (#425) */
-    if (latin) sppPlaces(sidOf({ latin: latin })).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); FL.busy = false; M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab !== "places") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
-    document.getElementById("q").value = latin ? "" : name; qSync();
+    clearTimeout(M.qT); clearTimeout(M.busyT); FL.busy = !!sid; FL.limited = false;   /* a species with a Latin name waits for its places file, and says so */
+    FL.q = q; M.chip = sid ? q : null; FL.hits = sid ? new Set() : null;   /* a species filter shows as a visible chip (#425) */
+    if (sid) sppPlaces(sid).then(function (ids) { if (FL.q === q && FL.hits) { FL.hits = new Set(ids); FL.busy = false; M.pgKey = null; filterView(); } }); else searchFor(q); if (M.tab !== "places") setTab("places"); FL.kind = null; FL.park = false; view = { level: "world", cont: null, country: null, state: null }; view.focus = null;
+    document.getElementById("q").value = sid ? "" : name; qSync();
     document.getElementById("peek").hidden = true; showTies(null);
     showMap(); renderView(true);
     window.scrollTo(0, 0);

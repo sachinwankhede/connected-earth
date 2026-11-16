@@ -121,7 +121,7 @@ window.__chunk["species-tab"] = function (A) {
       }
       P.fillPhotos("spcredit", ph && b.querySelector("img") ? [P.creditHTML(ph), "Species photos: Wikipedia"] : []);
       if (!d.l) return;
-      M.spN = d.n || d.l; M.spL = d.l;
+      M.spN = d.n || d.l; M.spSid = sid;
       [["ea", "What it eats"], ["eb", "What eats it"], ["rl", "Related species"]].forEach(function (x) {   /* from the food webs of the atlas (#447): the links found in the most places; related species of the same family (#448) */
         if (!d[x[0]]) return;
         var w = document.createElement("div"); w.innerHTML = "<h3>" + x[1] + "</h3>"; w.appendChild(strip(d[x[0]]));
@@ -149,7 +149,7 @@ window.__chunk["species-tab"] = function (A) {
     if (t.hasAttribute("data-sg")) { M.sid = null; PV.hidden = true; P.showMap(); P.setTab("species"); openGroup(t.getAttribute("data-sg")); }   /* the group's list in the Species tab */
     else if (t.hasAttribute("data-pback")) P.closeSpecies();
     else if (t.hasAttribute("data-spp")) { M.pushNext = true; P.showPlace(t.getAttribute("data-spp")); }   /* a place opened from the page is a step Back undoes */
-    else P.speciesMap(M.spN, M.spL);
+    else P.speciesMap(M.spN, M.spSid);
   });
   return {
     mapHead: function (hd, r) {   /* map mode: the title is a back link to the search or the species page the map came from (#503); ✕ closes the map mode and goes home; the regions are one row of pills under the title, led by ‹ parent and All <region> (owner, #568) */
@@ -163,7 +163,7 @@ window.__chunk["species-tab"] = function (A) {
     },
     mapBack: function () {
       var f = M.mFrom, q = document.getElementById("q");
-      if (f && f[0]) { q.value = f[0]; q.dispatchEvent(new Event("input", { bubbles: true })); } else if (f) A.go(f[1], "Search"); else document.getElementById("qclr").click();
+      if (f && f[0]) { q.value = f[0]; q.dispatchEvent(new Event("input", { bubbles: true })); } else if (f) A.goSid(f[1], "Search"); else document.getElementById("qclr").click();
     },
     show: show,
     open: function () {
