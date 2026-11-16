@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'lib'))
-import species_pics, journey_pics
+import species_pics, journey_pics, node_photos
 DEST = ROOT / 'dist' / 'pages'
 # The species files (descriptions and the 192 px and 400 px pictures) can be published apart from the app (item #692), because a Cloudflare Pages project holds at most 20,000 files.
 # Modes: all (everything in dist/pages, as before; GitHub Pages), app (dist/pages without the species files; the app reads them from SPECIES_BASE), species (only the species files, in dist/pages-species).
@@ -119,6 +119,11 @@ def main(mode='all'):
         if not source.is_file():
             raise SystemExit('journey picture missing: photos/journeys/' + row['f'])
         copy_file(source, 'photos/journeys/' + row['f'], expected)
+    for row in sorted(node_photos.NodePhotos(str(ROOT)).pics.values(), key=lambda r: r['f']):   # the pictures of non-species nodes by node id (#976): published with the app, like the journey covers
+        source = ROOT / 'photos/nodes' / row['f']
+        if not source.is_file():
+            raise SystemExit('node picture missing: photos/nodes/' + row['f'])
+        copy_file(source, 'photos/nodes/' + row['f'], expected)
     for name in sorted(set(jpics['large'].values())):
         source = ROOT / 'photos/journeys-lg' / name
         if not source.is_file():
