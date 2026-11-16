@@ -69,7 +69,7 @@ HEAVY = ('sources', 'notes', 'tip', 'story', 'matters', 'summary')   # kept out 
 UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the app (stage only tells the build which places are pilot-only)
 
 
-def split(ecos, links, phs=None, phm=None):
+def split(ecos, links, phs=None, phm=None, sp=None):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for api/<id>.json.
     The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
@@ -88,9 +88,17 @@ def split(ecos, links, phs=None, phm=None):
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
         webs[e['id']] = {'nodes': nodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if phs is not None:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
-            keys = {k for n in nodes for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
-            webs[e['id']]['ph'] = {k: phs[k] for k in sorted(keys) if k in phs}
-            webs[e['id']]['phm'] = {k: phm[k] for k in sorted(keys) if phm and k in phm}
+            # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one keeps the title entries it had (the picture of a title one of its nodes carries)
+            own = {}; ownm = {}; keys = set()
+            for n in nodes:
+                sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
+                r = sp['pics'].get(sid) if sp is not None and sid else None
+                if r:
+                    own[sid] = [r['f'], r.get('page') or r.get('wiki')]
+                    if species_pics.credit(r): ownm[sid] = species_pics.credit(r)
+                else: keys |= {k for k in (n.get('wiki'), n.get('canonicalWiki'), n.get('latin')) if k}
+            webs[e['id']]['ph'] = own | {k: phs[k] for k in sorted(keys) if k in phs and k not in own}
+            webs[e['id']]['phm'] = ownm | {k: phm[k] for k in sorted(keys) if phm and k in phm and k not in ownm}
         light.append({k: v for k, v in e.items() if k not in ('nodes', 'raw', 'ev') + HEAVY + UNUSED} | {'idx': idx})
     return light, webs, spt, sidx, qs
 
@@ -611,7 +619,7 @@ def build(pilot, out_path, write=False, places=False):
     phs = {t: [r['f'], r.get('page') or t] for t, r in sorted(sp['titles'].items())}   # by title, for the journeys (they name a picture by its title)
     large = sp['title_large']   # the larger copies (#421): the species page shows one as a wide photo
     phm = {t: species_pics.credit(r) for t, r in sp['titles'].items() if species_pics.credit(r)}
-    light, webs, spt, sidx, qs = split(ecos, links, phs, phm)
+    light, webs, spt, sidx, qs = split(ecos, links, phs, phm, sp)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
     groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
     orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)

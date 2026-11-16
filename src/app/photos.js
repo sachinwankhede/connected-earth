@@ -43,7 +43,7 @@
     return "Photo: " + escH(a) + " \u00B7 " + (c.lu ? '<a href="' + esc(c.lu) + '" target="_blank" rel="noopener">' + escH(c.l) + "</a>" : escH(c.l)) +
       ' \u00B7 <a href="' + esc(c.p) + '" target="_blank" rel="noopener">' + (c.s || "Wikimedia Commons") + "</a>";
   }
-  function photoOf(n) { return (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
+  function photoOf(n) { return (n.latin && PHOTOS[PhotoRegistry.speciesKey(PhotoRegistry.sidOf(n.latin))]) || (n.wiki && PHOTOS[n.wiki]) || (n.canonicalWiki && PHOTOS[n.canonicalWiki]) || (n.latin && PHOTOS[n.latin]) || null; }
   function shot(n) {
     var p = photoOf(n);
     if (!p) return "";

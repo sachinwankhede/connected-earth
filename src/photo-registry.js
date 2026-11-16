@@ -75,6 +75,9 @@
   function coverKey(id) { return "journey:" + id; }
   // A place's picture is registered under its place id (never its Wikipedia title, which two places can share, #908, #968).
   function placeKey(id) { return "place:" + id; }
+  // A species' picture is registered under its species id, the slug of its Latin name (the same id the build gives it, build/species.py slug), never its Latin name or a Wikipedia title that two species can share (#934, #974).
+  function sidOf(latin) { return String(latin || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""); }
+  function speciesKey(sid) { return "species:" + sid; }
   // The picture a journey shows as its cover: its own row by id when there is one, else the picture of its imgwiki title (as before).
   function coverPhoto(photos, c) { return c && (photos[coverKey(c.id)] || (c.imgwiki && photos[c.imgwiki])) || null; }
   // The credit rows of a journey page: the cover, then the two end places' pictures (by title), one per picture (same src).
@@ -166,6 +169,8 @@
     coverPhoto: coverPhoto,
     journeyCandidate: journeyCandidate,
     placeKey: placeKey,
+    sidOf: sidOf,
+    speciesKey: speciesKey,
     nextCandidate: nextCandidate,
     placeCandidate: placeCandidate,
     register: register,
