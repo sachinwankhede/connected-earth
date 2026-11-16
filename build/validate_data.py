@@ -133,6 +133,8 @@ def check(root):
         if dirty_jp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
     import node_photos   # pictures of non-species nodes (#976): by node id, checked by their one writer (lib/node_photos.py); nothing to check before photos/node_pictures.json exists
     errs += node_photos.NodePhotos(root).check()
+    import outline_records   # credit records of park outlines (#977): files and records agree, once data/outline_records.json exists (nothing to check before)
+    errs += outline_records.OutlineRecords(root).check()
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
     import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)
