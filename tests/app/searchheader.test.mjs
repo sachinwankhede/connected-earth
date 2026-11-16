@@ -120,7 +120,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: a species that sits in one continent and one country still gets pills, one level down (#528)`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
+    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'testus-avis': ['yellowstone'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });
@@ -135,7 +135,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: a species in one continent: "‹" from a country goes back to the country pills, not to a continent never shown`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone', 'whbanff', 'whcalakmul'] }) }));
+    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'testus-avis': ['yellowstone', 'whbanff', 'whcalakmul'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
     await p.waitForSelector('#pview [data-spmap]', { timeout: 60000 });

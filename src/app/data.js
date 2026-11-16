@@ -71,17 +71,17 @@
   /* Related places and the places of a species come from the build, not from a scan of every place: a place file carries rel (relp on the pilot page),
      api/species-places/<first two letters>.json lists the places of every species, also one found in one place only (items #252, #253, #420). */
   var PILOT = "__PLACES_DIR__" === "pilot", SPPL = { f: {}, d: {} };
-  function sppBucket(l) { return (l.toLowerCase().replace(/[^a-z0-9]/g, "") + "__").slice(0, 2); }
-  function sppFile(l) {
-    var k = sppBucket(l);
+  function sppBucket(sid) { return (sid.replace(/[^a-z0-9]/g, "") + "__").slice(0, 2); }
+  function sppFile(sid) {
+    var k = sppBucket(sid);
     if (!SPPL.f[k]) SPPL.f[k] = Data.speciesPlaces(k).catch(function () { SPPL.f[k] = null; return {}; });
     return SPPL.f[k];
   }
-  /* a promise of the ids of the places that list the species, in page order; local ones load first */
-  function sppPlaces(l) {
-    return sppFile(l).then(function (d) {
-      var ids = d[l] || [];
-      return (!Places.done && ids.some(function (i) { return !ECO_BY[i]; }) ? Places.loadLocals() : Promise.resolve()).then(function () { if (SPPL.f[sppBucket(l)]) SPPL.d[l] = ids; return ids; });
+  /* a promise of the ids of the places that list the species (by species id), in page order; local ones load first */
+  function sppPlaces(sid) {
+    return sppFile(sid).then(function (d) {
+      var ids = d[sid] || [];
+      return (!Places.done && ids.some(function (i) { return !ECO_BY[i]; }) ? Places.loadLocals() : Promise.resolve()).then(function () { if (SPPL.f[sppBucket(sid)]) SPPL.d[sid] = ids; return ids; });
     });
   }
   function relatedFor(e, n) { return (e.rel || []).filter(function (x) { return ECO_BY[x[0]]; }).slice(0, n).map(function (x) { return { e: ECO_BY[x[0]], c: x[1] }; }); }

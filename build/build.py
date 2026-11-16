@@ -423,14 +423,17 @@ def write_ties(light, ties, pilot):
         open(os.path.join(d, f), 'w').write(json.dumps(obj, separators=(',', ':'), ensure_ascii=False))
 
 
-def species_bucket(latin):
-    """The file a species is in: its first two letters or digits (the Latin name lower-cased, anything else dropped), padded with _."""
-    return (re.sub(r'[^a-z0-9]', '', latin.lower()) + '__')[:2]
+def species_bucket(sid):
+    """The file a species is in: the first two letters or digits of its id (anything else dropped), padded with _."""
+    return (re.sub(r'[^a-z0-9]', '', sid.lower()) + '__')[:2]
 
 
 def split_species_places(sp):
+    """{file name: {species id: [place ids]}}: the files are keyed by species id (species.slug of the Latin name, the key of the species' picture and description too), not by Latin name (#973)."""
+    byid = {}
+    for lat in sorted(sp): byid[species.slug(lat)] = list(dict.fromkeys(byid.get(species.slug(lat), []) + sp[lat]))
     files = {}
-    for lat in sorted(sp): files.setdefault(species_bucket(lat), {})[lat] = sp[lat]
+    for sid in sorted(byid): files.setdefault(species_bucket(sid), {})[sid] = byid[sid]
     return {'%s.json' % k: v for k, v in sorted(files.items())}
 
 

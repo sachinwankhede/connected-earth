@@ -127,7 +127,7 @@ window.__chunk["species-tab"] = function (A) {
         var w = document.createElement("div"); w.innerHTML = "<h3>" + x[1] + "</h3>"; w.appendChild(strip(d[x[0]]));
         PV.querySelector("article").insertBefore(w, PV.querySelector(".srcd"));
       });
-      P.sppPlaces(d.l).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
+      P.sppPlaces(sid).then(function (ids) {   /* where it lives: the first ten places in page order as rows, the rest on the map */
         ids = ids.filter(function (i) { return P.ECO_BY[i]; });
         if (M.sid !== sid || !ids.length) return;
         var w = document.createElement("div"), cc = {}, ct = {};   /* where it lives (#445): the countries and continents of all its places, most places first */

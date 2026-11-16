@@ -122,7 +122,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
 
   test(`${name}: a species found in one place shows that place`, async () => {
     const b = await H.launch(); const t = await H.open(b, H.FMAIN, size, { hash: '#stub' }); const p = t.page;
-    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'Testus avis': ['yellowstone'] }) }));
+    await p.route(/api\/species-places\/te\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ 'testus-avis': ['yellowstone'] }) }));
     await p.route(/api\/species\/testus-avis\.json/, (route) => route.fulfill({ contentType: 'application/json', body: JSON.stringify({ l: 'Testus avis', n: 'Test bird', tl: 3 }) }));
     await p.evaluate(() => { location.hash = '#stub&sp=testus-avis'; });
     await p.waitForSelector('#pview .prow .pmc[data-spp="yellowstone"]', { timeout: 60000 });
