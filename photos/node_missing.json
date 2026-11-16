@@ -1,0 +1,164 @@
+{
+"aletsch-glacier": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361490+00:00",
+"expiresAt": "2026-11-16T06:00:53.361490+00:00",
+"status": "notyet"
+},
+"antarctic-convergence": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361530+00:00",
+"expiresAt": "2026-11-16T06:00:53.361530+00:00",
+"status": "notyet"
+},
+"aquifer": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361536+00:00",
+"expiresAt": "2026-11-16T06:00:53.361536+00:00",
+"status": "notyet"
+},
+"black-water-river": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361539+00:00",
+"expiresAt": "2026-11-16T06:00:53.361539+00:00",
+"status": "notyet"
+},
+"california-current": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361541+00:00",
+"expiresAt": "2026-11-16T06:00:53.361541+00:00",
+"status": "notyet"
+},
+"cay": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361543+00:00",
+"expiresAt": "2026-11-16T06:00:53.361543+00:00",
+"status": "notyet"
+},
+"continental-climate": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361546+00:00",
+"expiresAt": "2026-11-16T06:00:53.361546+00:00",
+"status": "notyet"
+},
+"florida-current": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361548+00:00",
+"expiresAt": "2026-11-16T06:00:53.361548+00:00",
+"status": "notyet"
+},
+"gran-chaco": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361550+00:00",
+"expiresAt": "2026-11-16T06:00:53.361550+00:00",
+"status": "notyet"
+},
+"hamad": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361552+00:00",
+"expiresAt": "2026-11-16T06:00:53.361552+00:00",
+"status": "notyet"
+},
+"hypolimnion": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361555+00:00",
+"expiresAt": "2026-11-16T06:00:53.361555+00:00",
+"status": "notyet"
+},
+"lake-edward": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361557+00:00",
+"expiresAt": "2026-11-16T06:00:53.361557+00:00",
+"status": "notyet"
+},
+"lake-urema": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361559+00:00",
+"expiresAt": "2026-11-16T06:00:53.361559+00:00",
+"status": "notyet"
+},
+"little-missouri-river": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361561+00:00",
+"expiresAt": "2026-11-16T06:00:53.361561+00:00",
+"status": "notyet"
+},
+"marine-derived-nutrients": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361564+00:00",
+"expiresAt": "2026-11-16T06:00:53.361564+00:00",
+"status": "notyet"
+},
+"mediterranean-climate": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361566+00:00",
+"expiresAt": "2026-11-16T06:00:53.361566+00:00",
+"status": "notyet"
+},
+"nutrient": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361568+00:00",
+"expiresAt": "2026-11-16T06:00:53.361568+00:00",
+"status": "notyet"
+},
+"oceanic-climate": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361570+00:00",
+"expiresAt": "2026-11-16T06:00:53.361570+00:00",
+"status": "notyet"
+},
+"oligotroph": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361572+00:00",
+"expiresAt": "2026-11-16T06:00:53.361572+00:00",
+"status": "notyet"
+},
+"pendjari-river": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361574+00:00",
+"expiresAt": "2026-11-16T06:00:53.361574+00:00",
+"status": "notyet"
+},
+"ramganga-river": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361576+00:00",
+"expiresAt": "2026-11-16T06:00:53.361576+00:00",
+"status": "notyet"
+},
+"salinity": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361579+00:00",
+"expiresAt": "2026-11-16T06:00:53.361579+00:00",
+"status": "notyet"
+},
+"sea-surface-temperature": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361581+00:00",
+"expiresAt": "2026-11-16T06:00:53.361581+00:00",
+"status": "notyet"
+},
+"subarctic-climate": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361584+00:00",
+"expiresAt": "2026-11-16T06:00:53.361584+00:00",
+"status": "notyet"
+},
+"termite": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361586+00:00",
+"expiresAt": "2026-11-16T06:00:53.361586+00:00",
+"status": "notyet"
+},
+"troodos-ophiolite": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361588+00:00",
+"expiresAt": "2026-11-16T06:00:53.361588+00:00",
+"status": "notyet"
+},
+"wet-season": {
+"attempts": 1,
+"checkedAt": "2026-11-16T04:00:53.361590+00:00",
+"expiresAt": "2026-11-16T06:00:53.361590+00:00",
+"status": "notyet"
+}
+}
