@@ -18,7 +18,7 @@ class RecordTests(unittest.TestCase):
     def test_a_record_has_the_shared_shape_and_no_author_or_expiry(self):
         outline(self.root, 'akchilkat'); w = orc.OutlineRecords(self.root); w.record('akchilkat', 'padus', now=NOW); w.commit()
         e = orc.OutlineRecords(self.root).recs['akchilkat']
-        self.assertEqual(set(e), {'source', 'licence', 'built', 'checkedAt'})
+        self.assertEqual(set(e), {'source', 'licence', 'licence link', 'built', 'checkedAt'})
         self.assertEqual((e['built'], e['checkedAt']), (NOW.isoformat(), NOW.isoformat())); self.assertEqual(orc.OutlineRecords(self.root).check(), [])
 
     def test_replacing_a_record_keeps_built_and_moves_checkedAt(self):

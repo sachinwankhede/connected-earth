@@ -65,7 +65,8 @@
     },
     "PAD-US": {
       "hosts": [
-        "services.arcgis.com"
+        "services.arcgis.com",
+        "www.usgs.gov"
       ],
       "allowed_licences": [
         "Public Domain"
@@ -73,7 +74,8 @@
     },
     "OpenStreetMap": {
       "hosts": [
-        "nominatim.openstreetmap.org"
+        "nominatim.openstreetmap.org",
+        "opendatacommons.org"
       ],
       "allowed_licences": [
         "ODbL"
@@ -115,6 +117,7 @@
     "github.com",
     "inaturalist-open-data.s3.amazonaws.com",
     "nominatim.openstreetmap.org",
+    "opendatacommons.org",
     "openverse.org",
     "query.wikidata.org",
     "services.arcgis.com",
@@ -123,6 +126,7 @@
     "www.gbif.org",
     "www.globalbioticinteractions.org",
     "www.inaturalist.org",
+    "www.usgs.gov",
     "www.wikidata.org"
   ],
   "licence_note": "Pictures follow one rule (#421): CC0, CC BY, CC BY-SA and public domain from Wikimedia; GBIF only CC0 and CC BY with a named author; Openverse (#511, owner approved 9 Nov, pictures only through its own thumbnail address, never the original host) the same four as Wikimedia, with the creator named. iNaturalist (#511, owner approved 12 Nov) only its taxon photos under CC0, CC BY or CC BY-SA with the photographer named, from its open-data bucket only (never static.inaturalist.org, never NC, ND or all rights reserved). lib/licences.py reads this file; lib/fetch.py enforces hosts only."
