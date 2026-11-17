@@ -348,7 +348,7 @@ def species_diet(ecos, about, common, pics):
             eats.setdefault(a, {})[b] = eats.setdefault(a, {}).get(b, 0) + 1
             eaten.setdefault(b, {})[a] = eaten.setdefault(b, {}).get(a, 0) + 1
     def rows(d):
-        return [[l, common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
+        return [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
     for f in about.values():
         l = f['l']
         if eats.get(l): f['ea'] = rows(eats[l])
@@ -360,14 +360,14 @@ RELATED_ROWS = 5   # the same family: at most this many on the species page (#44
 
 
 def species_related(about, common, pics, places):
-    """Adds 'rl' (other species of the same family) to the species files in about: [[Latin name, usual name, number of places, hosted picture file or 0, species id], ...], found in the most places first, then by name. Needs 'fa' (family) and 'l'."""
+    """Adds 'rl' (other species of the same family) to the species files in about: [[usual name, number of places, hosted picture file or 0, species id], ...], found in the most places first, then by name. Needs 'fa' (family) and 'l'."""
     fam = {}
     for f in about.values():
         if f.get('fa'): fam.setdefault(f['fa'], []).append(f['l'])
     for f in about.values():
         if not f.get('fa'): continue
         o = sorted((l for l in fam[f['fa']] if l != f['l']), key=lambda l: (-places.get(l, 0), common.get(l.lower(), l).lower(), l))[:RELATED_ROWS]
-        if o: f['rl'] = [[l, common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l in o]
+        if o: f['rl'] = [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l in o]
 
 
 def species_overlap(ecos):
@@ -449,7 +449,7 @@ def write_species_places(sp, pilot):
 
 
 # The Species tab (#422): what the tab reads, in api/species-tab/ (main) and api/species-tab-pilot/. top.json: the species found in the most places; groups.json: the groups with
-# their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [Latin name, usual name, number of places, hosted picture file or 0, species id], most places first, then by name.
+# their number of species and pages; g-<group>-<n>.json: one page of a group. A row is [usual name, number of places, hosted picture file or 0, species id] (no Latin name: the app shows the usual name and opens the species by its id), most places first, then by name.
 TAB_TOP, TAB_PAGE = 60, 250
 TAB_MIN = 5   # a group, order or family with fewer species than this is not a pill: its species join the Other of the level above (#534, owner, 11 Nov)
 ORDER_NAMES = json.load(open(D('data', 'species', 'order_names.json'), encoding='utf-8'))['names']   # everyday names for the biggest orders (#534): data, see the note in the file
@@ -501,6 +501,8 @@ def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_M
                 files['o-%s.json' % key] = olist; row.append(len(olist))
         groups.append(row)
     files['groups.json'] = groups
+    for k in files:   # the pages of species rows (top and the group and order pages) carry no Latin name: the app shows the usual name and opens a species by its id
+        if k == 'top.json' or k.startswith('g-'): files[k] = [r[1:] for r in files[k]]
     return files
 
 
