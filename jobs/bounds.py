@@ -61,12 +61,21 @@ def fetch(e):
         for x,y in r: flat+= [round(x,4),round(y,4)]
         out.append(flat)
     return top,out
+_missing={}
+def on_missing_list(i, root=None):
+    """#977: a place on data/outline_missing.json was tried here already (no PAD-US match, or a match that was another unit and was dropped, as for xusia and xusri), so PAD-US does not give it the same unit again; the Wikidata and OpenStreetMap step (bounds_more.py) looks for it."""
+    root = root or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    if root not in _missing:
+        sys.path.insert(0, os.path.join(root, 'lib')); import outline_records
+        _missing[root] = outline_records.OutlineRecords(root)
+    return _missing[root].is_missing(i)
 if __name__=='__main__':
     os.makedirs(OUT,exist_ok=True)
     want=sys.argv[1:]; miss=[]; have=sum(1 for f in os.listdir(OUT) if f.endswith('.json'))
     for e in places():
         if want and e['id'] not in want: continue
         if os.path.exists(path(e['id'])): continue
+        if on_missing_list(e['id']): print('skip',e['id'],'(on the missing list)'); continue
         try: r=fetch(e)
         except Exception as ex: print('ERR',e['id'],ex); continue
         if not r: miss.append(e['id']); print('none',e['id'],e['name'],flush=True); continue
