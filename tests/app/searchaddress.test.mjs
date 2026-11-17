@@ -92,4 +92,16 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     s = await state(p); assert.equal(s.box, 'a & b 100%', 'spaces, & and % survive an address');
     assert.deepEqual(t.errors, []); await b.close();
   });
+  test(`${name}: a reload before the search has answered keeps the region in the address (#1011)`, async () => {
+    const b = await H.launch(); const ctx = await b.newContext({ viewport: size }); const p = await ctx.newPage();
+    await p.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
+    let hold = true; await p.route(/api\/search/, async (r) => { while (hold) await new Promise((x) => setTimeout(x, 100)); r.continue(); });   // the index answers only when the test lets it: the address is read in the gap
+    await p.addInitScript(() => { window.__w = []; const o = history.replaceState.bind(history); history.replaceState = function (st, t, u) { window.__w.push(String(u).split('#')[1] || ''); return o(st, t, u); }; });   // every address the page writes
+    await p.goto((await H.urlFor(H.FMAIN)) + '#stub&s=yellowstone&r=continent:North%20America');
+    await p.waitForFunction(() => window.__M && window.__M.map && window.__w.length > 0, null, { timeout: 60000 });
+    const early = await p.evaluate(() => window.__w.slice());
+    assert.ok(early.every((u) => !/%25/.test(u) && /r=continent:North%20America$/.test(u)), 'the address is not encoded twice while the search waits: ' + early.join(' | '));
+    hold = false; await answered(p, 'yellowstone');
+    await b.close();
+  });
 }
