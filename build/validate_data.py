@@ -4,7 +4,7 @@ Species table, journeys, outlines, species pictures (by species id). Prints one 
 import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 DIRTY_AUTHOR_IS_ERROR = True   # the cleanauthors data merged on 15 Nov (#930), so the validator fails a place picture whose author is not in the stored form (lib/author_clean.py)
-OUTSIDE_IS_ERROR = False   # a place's own point more than 5 km outside its own outline (#977; lib/outline_check.py): 22 places today, so a warning until the data job that fixes them has merged, then set this to True (the one-line change that makes it fail a data pull request)
+OUTSIDE_IS_ERROR = True   # a place's own point more than 5 km outside its own outline (#977; lib/outline_check.py) fails a data pull request (#1004: the 22 places were fixed by jobs/fixoutlinepoints.py, 17 Nov)
 
 def load(root, *p):
     path = os.path.join(root, *p)
