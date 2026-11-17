@@ -69,7 +69,7 @@ def review(root):
         ka, kb = kind(p.get('name')), kind(o.get('n'))
         if ka and kb and ka != kb: why.append('kind')
         if b - a: why.append('extra words')
-        if toks(p.get('name')) - b and toks(p.get('short')) - b: why.append('missing words')
+        if toks(p.get('name')) - b and (not toks(p.get('short')) or toks(p.get('short')) - b): why.append('missing words')
         km = span_km([r for r in (o.get('r') or []) if isinstance(r, list) and len(r) >= 4 and len(r) % 2 == 0])
         if why and km < SMALL_KM: why.append('small')
         if why: out.append((pid, p.get('name'), o.get('n'), round(km), why))
