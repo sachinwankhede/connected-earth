@@ -31,6 +31,42 @@
       "attempts": {
         "type": "integer",
         "minimum": 1
+      },
+      "inputs": {
+        "type": "object",
+        "required": [
+          "lat",
+          "lon",
+          "name",
+          "title"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "lat": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "lon": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "name": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
       }
     },
     "additionalProperties": false
