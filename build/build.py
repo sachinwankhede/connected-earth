@@ -36,7 +36,7 @@ def load_places(pilot):
         for i in pilot_order:
             ecos.append(json.load(open(D('data', 'places', i + '.json'))))
     tab = species.table()
-    SIDS.clear(); SIDS.update({k: r['sid'] for k, r in tab.items()})
+    SIDS.clear(); SIDS.update({species.name_key(r): r['sid'] for r in tab.values()})
     bad = ['%s: %s' % (e['id'], ', '.join(map(repr, geoids.name_form(e)))) for e in ecos if geoids.name_form(e)]
     if bad: sys.exit('country and state must be ids from data/geo/geo.json (run python3 build/places_ids.py to rewrite names; an unknown name is a mistake):\n  ' + '\n  '.join(bad[:20]))
     ecos = [geoids.names(species.join(e, tab)) for e in ecos]
@@ -645,7 +645,7 @@ def build(pilot, out_path, write=False, places=False):
     cons = json.load(open(D('data', 'species', 'conservation.json'))) if os.path.exists(D('data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
     for k in sorted(used):
-        row = tab.get(k)
+        row = tab.get(SIDS.get(k))
         if not row or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
         if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)

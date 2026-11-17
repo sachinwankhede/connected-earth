@@ -61,7 +61,7 @@ def place_files(root):
 def pack(root=None, legacy=False, check=False, src=None):
     """Returns a summary dict. Without `check`, writes the new table entries and the slimmed place files."""
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import species
-    root = root or ROOT; tab = species.table(root); t = dict(table(root))
+    root = root or ROOT; t = dict(table(root))
     places = {}; occ = collections.defaultdict(list)
     for p in place_files(root):
         d = json.load(open(p)); places[p] = d; nm = {n['id']: n.get('sp') for n in d['nodes']}

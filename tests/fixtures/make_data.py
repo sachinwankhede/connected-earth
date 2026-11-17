@@ -65,14 +65,14 @@ def main():
         for e in (d['ends'] if 'ends' in d else [d['from'], d['to']]): assert e['eco'] in places, (j, e['eco'])   # a species journey has ends, a flow has from and to
         dump(d, os.path.join(jd, j + '.json'), indent=1)
     # species: the rows the places use, and the lookup tables the build reads
-    tab = species.table(ROOT); keep = {}; key = {r['sid']: k for k, r in tab.items() if r.get('sid')}   # a node's `sp` is a species id (#1013)
+    tab = species.table(ROOT); keep = {}   # {sid: row}; a node's `sp` is a species id (#1013)
     for p in places.values():
         for n in p['nodes']:
-            if 'sp' in n: keep[key[n['sp']]] = tab[key[n['sp']]]
+            if 'sp' in n: keep[n['sp']] = tab[n['sp']]
     for k, r in keep.items(): species.write_row(r, os.path.join(OUT, 'data', 'species', 'rows'))
     sd = R('data', 'species'); od = os.path.join(OUT, 'data', 'species')
     for f in ('search_vocabulary.json', 'order_names.json', 'tab_groups.json'): shutil.copyfile(os.path.join(sd, f), os.path.join(od, f))
-    sids = {r['sid'] for r in keep.values()}; lat = {k for k in keep}
+    sids = {r['sid'] for r in keep.values()}; lat = {species.name_key(r) for r in keep.values()}
     tax = load(os.path.join(sd, 'taxonomy.json')); dump({k: v for k, v in tax.items() if k in sids}, os.path.join(od, 'taxonomy.json'), indent=1)
     con = load(os.path.join(sd, 'conservation.json')); dump({k: v for k, v in con.items() if k in lat}, os.path.join(od, 'conservation.json'), indent=1)
     dump({}, os.path.join(od, 'about.json'))
@@ -90,7 +90,7 @@ def main():
     # species pictures (#421): the species page's wide photo and the tiles need hosted copies; up to 20 of the fixture's species that have one, white-tailed deer first (speciespage opens it)
     sys.path.insert(0, R('lib')); import species_pics   # the real pictures in the old title-keyed lists, from either shape on disk (#934); the fixture itself stays in the old shape
     ph = species_pics.legacy_lists(ROOT)
-    low = {k.lower() for k in keep}; names = sorted((k for k in ph['species_hosted'] if (k.lower() in low or k == 'Osprey') and k in ph['species_large'] and k in ph['species']), key=lambda k: (k not in ('Odocoileus virginianus', 'Osprey'), k != 'Odocoileus virginianus', k))[:20]   # the osprey is keyed by its common name and the search tabs test needs its picture
+    low = {species.name_key(r) for r in keep.values()}; names = sorted((k for k in ph['species_hosted'] if (k.lower() in low or k == 'Osprey') and k in ph['species_large'] and k in ph['species']), key=lambda k: (k not in ('Odocoileus virginianus', 'Osprey'), k != 'Odocoileus virginianus', k))[:20]   # the osprey is keyed by its common name and the search tabs test needs its picture
     assert names and names[0] == 'Odocoileus virginianus', 'white-tailed deer needs a hosted picture in the fixture'
     for n in ('species', 'species_hosted', 'species_large', 'species_metadata'): dump({k: ph[n][k] for k in names if k in ph[n]}, os.path.join(OUT, 'photos', n + '.json'), indent=1)
     for sub, key in (('species-md', 'species_hosted'), ('species-lg', 'species_large')):

@@ -6,7 +6,7 @@ Everything else those birds eat (fish, crustaceans, squid, lizards, ...) stays. 
 A species with no taxonomy is never touched. No network. Prints one line per link and the number of place rows."""
 import sys, os, json, glob
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(ROOT, 'build')); import diets, species
+sys.path.insert(0, os.path.join(ROOT, 'build')); import diets
 FISH_FAMILIES = {'Pandionidae', 'Alcedinidae', 'Halcyonidae', 'Cerylidae', 'Pelecanidae', 'Phalacrocoracidae', 'Sulidae', 'Anhingidae', 'Gaviidae', 'Podicipedidae', 'Spheniscidae', 'Alcidae', 'Fregatidae', 'Phaethontidae'}
 def wrong(cons_tx, prey_tx):
     """True for a fish specialist (by family) eating a mammal or a plant."""
@@ -16,7 +16,6 @@ def drop(root, dry=False):
     tx = json.load(open(os.path.join(root, 'data', 'species', 'taxonomy.json'), encoding='utf-8'))
     tab = diets.table(root); pairs = sorted((k[0], k[1]) for k in tab if wrong(tx.get(k[1]), tx.get(k[0])))   # (prey sid, consumer sid)
     want = set(pairs); rows = 0; files = 0
-    st = species.table(root)
     for p in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))):
         d = json.load(open(p, encoding='utf-8')); nm = {n['id']: n.get('sp') for n in d.get('nodes', [])}
         keep = [r for r in d.get('raw', []) if (nm.get(r[0]), nm.get(r[1])) not in want]

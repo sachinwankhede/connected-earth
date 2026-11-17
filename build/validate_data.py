@@ -94,8 +94,6 @@ def check(root):
                         keys.setdefault(k, '%s/%s' % (d, f))
     else:
         for k, v in sp.items(): shape(v, 'species-row', 'species %r' % k, errs)
-    for k, v in sp.items():
-        if v.get('latin') and k != v['latin'].lower(): errs.append('species %r: key is not the lowercase Latin name' % k)
     sids = [v.get('sid') for v in sp.values()]
     if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
     for k, v in sp.items():   # #1013: the build writes the id of a species node, a file name and a link from the stored sid, and the app and the tests treat it as the slug of the Latin name; that holds for every taxon and group today, so it is enforced here. A resource row (rain, soil: not a species) may carry a `-2` suffix when two names slug alike.

@@ -15,7 +15,7 @@ class DataFormat(unittest.TestCase):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', {'a b': dict(SP['a b'], sid='a-b-2'), 'soil': {'name': 'Soil', 'tl': 0, 'ic': 'x', 'sid': 'soil-2', 'sk': 'resource', 'cat': 'rock'}}); put(r, 'data/places/p.json', {})
             errs, _ = check(r); text = '\n'.join(errs)
-            self.assertIn("species 'a b': its sid 'a-b-2' is not the slug of its name ('a-b')", text)
+            self.assertIn("species 'a-b-2': its sid 'a-b-2' is not the slug of its name ('a-b')", text)
             self.assertEqual(sum('slug of its name' in e for e in errs), 1)   # the resource row is not reported
     def test_clean_tree_has_no_problems(self):
         with tempfile.TemporaryDirectory() as r:
@@ -121,7 +121,7 @@ class DataFormat(unittest.TestCase):
             put(r, 'data/outlines/stray.json', {})
             put(r, 'photos/species_pictures.json', {'zz': {'f': 'missing.webp', 'a': '', 'l': 'CC BY 4.0'}}); put(r, 'photos/species/orphan.webp', b'x')
             errs, warns = check(r); text = ' | '.join(errs + warns)
-            for want in ("'ic' is a required property", 'own sid', "'sk' is a required property", 'not the lowercase Latin', "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'no named author', 'orphan.webp is not listed', "'zz' is not a species row"):
+            for want in ("'ic' is a required property", 'own sid', "'sk' is a required property", "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'no named author', 'orphan.webp is not listed', "'zz' is not a species row"):
                 self.assertIn(want, text)
 
 class JourneyEnds(unittest.TestCase):

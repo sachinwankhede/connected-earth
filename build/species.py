@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared species table. data/species/species.json holds one row per species (key = lowercase Latin name):
+"""Shared species table. data/species/rows/ holds one file per species, named by its id (sid); table() returns {sid: row}:
 the usual name, wiki page, icon, description, trophic level, category and badge.
 A place file keeps for each species only its species id (`sp`), position (xh) and whatever differs from the shared row.
   python3 build/species.py pack   fold place files into the table and slim them (safe to repeat)
@@ -46,16 +46,22 @@ def read_rows(*dirs):
             for f in sorted(os.listdir(os.path.join(rows, d))):
                 if f.endswith('.json'):
                     r = json.load(open(os.path.join(rows, d, f)))
-                    out[(r.get('latin') or r['name']).lower()] = r
+                    out[r['sid']] = r
     return dict(sorted(out.items()))
 
 def table(root=None):
-    """The species table {lowercase Latin name: row}. Read from the row files when data/species/rows/ exists, else from the one old file."""
+    """The species table {species id (sid): row}. Read from the row files when data/species/rows/ exists, else from the one old file (keyed by name, rows without an id keep their name as key)."""
     root = root or ROOT
     rows = os.path.join(root, 'data', 'species', 'rows')
     if os.path.isdir(rows): return read_rows(rows, os.path.join(root, 'data', 'nodes', 'rows'))   # species rows and node rows: a place node points at either with `sp`
     old = os.path.join(root, 'data', 'species', 'species.json')
-    return json.load(open(old)) if os.path.exists(old) else {}
+    return {r.get('sid') or k: r for k, r in json.load(open(old)).items()} if os.path.exists(old) else {}
+
+def name_key(r): return (r.get('latin') or r['name']).lower()
+
+def by_name(tab=None):
+    """The table keyed by lowercase Latin name (or name) instead of id: for the few steps that start from a name (the vote in pack, the about lines, the conservation list)."""
+    return {name_key(r): r for r in (table() if tab is None else tab).values()}
 
 def write_row(r, rows=None):
     p = row_path(r['sid'], rows, node=r.get('sk') == 'resource'); os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -97,7 +103,7 @@ def files():
         yield os.path.join(ROOT, d, f)
 
 def pack():
-    tab = table(); ecos = {}
+    tab = table(); old = by_name(tab); ecos = {}
     own_ev = {}   # #256: a place keeps only its own `ev` (the table holds the rest); the join below fills it in for counting, and the file is written back with what it had
     for p in files():
         d = json.load(open(p)); own_ev[p] = d['ev'] if 'ev' in d else None; ecos[p] = join(d, tab)   # full nodes
@@ -106,7 +112,7 @@ def pack():
         for n in e['nodes']:
             for f in SHARED:
                 seen[key(n)][f][json.dumps(n.get(f), ensure_ascii=False)] += 1
-    new = {}; old = tab; rows_mode = os.path.isdir(ROWS)
+    new = {}; rows_mode = os.path.isdir(ROWS)
     for k, fs in sorted(seen.items()):
         row = {}
         for f in SHARED:
@@ -143,19 +149,6 @@ def pack():
     if os.path.isdir(diets.dir_of()):   # #256: new eating links go into data/diets/ in the same step, so every job and CI check that runs this pack covers the table too
         s = diets.pack(src=os.environ.get('SPECIES_SRC')); print('eating links: %d new pairs, %d evidence entries moved to data/diets/' % (s['new_pairs'], s['ev_dropped']))
 
-def migrate_sp():
-    """One-off (#1013): a place node's `sp` named its species row by the lowercase Latin name; it now holds the row's id (`sid`). Rewrites every place file; a value that is already an id (or a row's key and id are the same word) is left as it is, so it is safe to repeat."""
-    tab = table(); by_sid = {r['sid'] for r in tab.values() if r.get('sid')}; n = f = 0
-    for p in files():
-        d = json.load(open(p)); changed = False
-        for x in d.get('nodes', []):
-            if 'sp' not in x: continue
-            sid = tab[x['sp']]['sid'] if x['sp'] in tab else x['sp']
-            if sid not in by_sid: raise SystemExit('%s: node %s names %r, which is neither a species key nor an id' % (p, x.get('id'), x['sp']))
-            if sid != x['sp']: x['sp'] = sid; changed = True; n += 1
-        if changed: json.dump(d, open(p, 'w'), ensure_ascii=False); f += 1
-    print(n, 'nodes in', f, 'place files now name their species by id')
-
 def clean(t):
     import re
     t = re.sub(r'\s*\((?:[^()]*;[^()]*|[^()]*/[^()]*|[^()]*listen[^()]*)\)', '', t or '')
@@ -178,10 +171,9 @@ def about():
     if os.path.isdir(ROWS):
         for r in tab.values():
             if r != before[r['sid']]: write_row(r)
-    else: json.dump(tab, open(TABLE, 'w'), indent=1, ensure_ascii=False)
+    else: json.dump(by_name(tab), open(TABLE, 'w'), indent=1, ensure_ascii=False)
     print(n, 'rows have an about line')
 
 if __name__ == '__main__' and sys.argv[1:] == ['pack']: pack()
-if __name__ == '__main__' and sys.argv[1:] == ['migrate-sp']: migrate_sp()
 if __name__ == '__main__' and sys.argv[1:] == ['about']: about()
 if __name__ == '__main__' and sys.argv[1:] == ['split']: split()
