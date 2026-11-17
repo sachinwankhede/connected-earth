@@ -1,5 +1,6 @@
   M.h0 = location.hash.slice(1);
-  M.holdHash = M.h0.replace(/(^|&)stub(?=&|$)/, "").replace(/^&/, "") || null;   /* the address is kept as it came while start-up draws the map and applies it (the first draw would otherwise write it back without the place, and a reload in that moment lost the link, #994) */
+  M.h0Plain = function () { try { return decodeURIComponent(M.h0); } catch (e) { return M.h0; } };   /* syncHash encodes what hashState returns, so the held address must be plain text: the raw one was encoded twice (%2520) and a reload before the first draw lost the region (#1011) */
+  M.holdHash = M.h0Plain().replace(/(^|&)stub(?=&|$)/, "").replace(/^&/, "") || null;   /* the address is kept as it came while start-up draws the map and applies it (the first draw would otherwise write it back without the place, and a reload in that moment lost the link, #994) */
   buildMap();
   if (window.maplibregl || window.__mapLib) initMap(); else window.__mapReady = initMap;   /* the map library follows this script in the page: the places list draws first, the map starts the moment the library has arrived */
   M.fromHash = true;   /* start-up first draws the map and then applies the address: neither is a new history step, and the first draw must not wipe the entry's state (#412) */
