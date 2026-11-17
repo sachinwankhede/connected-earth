@@ -67,6 +67,29 @@ def species_sid_errors(spw, sids):
             if not f.endswith('.webp'): errs.append('%s/%s is not a .webp picture (nothing writes it)' % ('/'.join(parts), f))
     return errs
 
+NAME_OVERRIDE_LIMIT = 972    # #887 step 7: a place node names its species by id and keeps a `name` or `wiki` of its own only when it differs from the species row. These are the counts left after
+WIKI_OVERRIDE_LIMIT = 1066   # jobs/cleanoverrides.py dropped the case-and-punctuation-only names (17 Nov); a pull request may lower them (edit the number) but never raise them: a change of name or page belongs in the species row.
+
+def override_errors(root, sp):
+    """A place node must not repeat the row's name in other capitals, and the number of nodes with a name or wiki of their own must not grow."""
+    import species
+    by_sid = {r['sid']: r for r in sp.values() if r.get('sid')}; errs = []; names = wikis = 0
+    full = os.path.join(root, 'data/places')
+    for f in sorted(os.listdir(full)) if os.path.isdir(full) else []:
+        if not f.endswith('.json') or f in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
+        try: e = json.load(open(os.path.join(full, f)))
+        except (OSError, ValueError): continue
+        for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
+            row = by_sid.get(n.get('sp'))
+            if not row: continue
+            if 'name' in n:
+                names += 1
+                if species.same_name(n['name'], row.get('name')): errs.append('data/places/%s: node %s has name %r, the species row says %r (same name; drop it: python3 jobs/cleanoverrides.py)' % (f, n.get('id'), n['name'], row.get('name')))
+            if 'wiki' in n: wikis += 1
+    if names > NAME_OVERRIDE_LIMIT: errs.append('place nodes with a name of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (names, NAME_OVERRIDE_LIMIT))
+    if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (wikis, WIKI_OVERRIDE_LIMIT))
+    return errs
+
 def check(root):
     errs = []; warns = []
     sys.path.insert(0, HERE); import species
@@ -94,6 +117,7 @@ def check(root):
                         keys.setdefault(k, '%s/%s' % (d, f))
     else:
         for k, v in sp.items(): shape(v, 'species-row', 'species %r' % k, errs)
+    errs += override_errors(root, sp)
     sids = [v.get('sid') for v in sp.values()]
     if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
     for k, v in sp.items():   # #1013: the build writes the id of a species node, a file name and a link from the stored sid, and the app and the tests treat it as the slug of the Latin name; that holds for every taxon and group today, so it is enforced here. A resource row (rain, soil: not a species) may carry a `-2` suffix when two names slug alike.
