@@ -6,6 +6,12 @@ and is more than `km` kilometres from its nearest edge, farthest first. A point 
 park outline is drawn as its parts). Read only; the validator turns the list into an error or a warning (build/validate_data.py, OUTSIDE_IS_ERROR)."""
 import glob, json, math, os
 
+def kind(name):
+    """'refuge', 'forest' or 'park' when a unit's name says so, else None. The outline jobs drop these words when they compare names, so a Forest and a Refuge of one name would look alike
+    (#1004: an Arapaho National Forest outline stood for the Arapaho National Wildlife Refuge, a Sequoia National Forest one for the National Park)."""
+    n = (name or '').lower()
+    return 'refuge' if 'refuge' in n or 'nwr' in n else 'forest' if 'forest' in n else 'park' if 'park' in n else None
+
 def inside(x, y, rings):
     ins = False
     for r in rings:

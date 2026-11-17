@@ -26,6 +26,11 @@ class RecordTests(unittest.TestCase):
         later = NOW + datetime.timedelta(days=30); w = orc.OutlineRecords(self.root); w.record('a1', 'osm', now=later); e = w.recs['a1']
         self.assertEqual((e['built'], e['checkedAt']), (NOW.isoformat(), later.isoformat()))
 
+    def test_drop_removes_file_and_record_and_lists_the_place_as_missing(self):   # #1004
+        outline(self.root, 'bad1'); w = orc.OutlineRecords(self.root); w.record('bad1', 'padus', now=NOW); w.commit()
+        w = orc.OutlineRecords(self.root); w.drop('bad1', now=NOW); w.commit()
+        r = orc.OutlineRecords(self.root); self.assertFalse(r.has('bad1')); self.assertTrue(r.is_missing('bad1')); self.assertFalse(os.path.exists(os.path.join(self.root, 'data', 'outlines', 'bad1.json'))); self.assertEqual(r.check(), [])
+
     def test_source_of_a_file_is_its_s_or_padus(self):
         self.assertEqual(orc.source_of({'n': 'x'}), 'padus'); self.assertEqual(orc.source_of({'s': 'wikidata'}), 'wikidata')
 

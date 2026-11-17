@@ -49,6 +49,13 @@ class OutlineRecords:
         prev = self.miss_.get(pid, {}); n = attempts if attempts is not None else int(prev.get('attempts', 0)) + 1
         self.miss_[pid] = pr.negative_entry(status, n, now)
 
+    def drop(self, pid, status='wrong', now=None):
+        """Remove this place's outline file and credit record and put the place in the missing list, so the acquire job looks again after its delay (#1004: an outline that is the wrong unit).
+        Remove the file first, the lists last, as commit() does."""
+        f = os.path.join(self.root, *DIR, pid + '.json')
+        if os.path.exists(f): os.remove(f)
+        self.recs.pop(pid, None); self.miss_.pop(pid, None); self.miss(pid, status, now=now)
+
     def commit(self):
         for parts, obj in ((RECORDS, self.recs), (MISSING, self.miss_)): _write_json(os.path.join(self.root, *parts), obj, indent=0)
 

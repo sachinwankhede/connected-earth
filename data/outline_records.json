@@ -3182,13 +3182,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"metroutpond": {
-"built": "2026-11-16T09:42:09.818762+00:00",
-"checkedAt": "2026-11-16T09:42:09.818762+00:00",
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "mialgonac": {
 "built": "2026-11-16T09:42:09.818764+00:00",
 "checkedAt": "2026-11-16T09:42:09.818764+00:00",
@@ -5025,13 +5018,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"npchannelislands": {
-"built": "2026-11-16T09:42:09.819306+00:00",
-"checkedAt": "2026-11-16T09:42:09.819306+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "npcongaree": {
 "built": "2026-11-16T09:42:09.819308+00:00",
 "checkedAt": "2026-11-16T09:42:09.819308+00:00",
@@ -5283,13 +5269,6 @@
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
-},
-"npsequoia": {
-"built": "2026-11-16T09:42:09.819383+00:00",
-"checkedAt": "2026-11-16T09:42:09.819383+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
 },
 "npshenandoah": {
 "built": "2026-11-16T09:42:09.819385+00:00",
@@ -5557,13 +5536,6 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
-},
-"nyrobertmoses": {
-"built": "2026-11-16T09:42:09.819464+00:00",
-"checkedAt": "2026-11-16T09:42:09.819464+00:00",
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
 },
 "nysampson": {
 "built": "2026-11-16T09:42:09.819466+00:00",
@@ -6725,13 +6697,6 @@
 "usapostleislandsnational": {
 "built": "2026-11-16T09:42:09.819807+00:00",
 "checkedAt": "2026-11-16T09:42:09.819807+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"usarapahonationalwildlif": {
-"built": "2026-11-16T09:42:09.819809+00:00",
-"checkedAt": "2026-11-16T09:42:09.819809+00:00",
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
@@ -9799,13 +9764,6 @@
 "xusnh": {
 "built": "2026-11-16T09:42:09.820725+00:00",
 "checkedAt": "2026-11-16T09:42:09.820725+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"xusny": {
-"built": "2026-11-16T09:42:09.820727+00:00",
-"checkedAt": "2026-11-16T09:42:09.820727+00:00",
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"

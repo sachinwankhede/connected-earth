@@ -8,6 +8,7 @@ import json,os,re,sys,time,urllib.request,urllib.parse
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here=os.path.dirname(os.path.abspath(__file__)); ROOT=os.path.dirname(here)
 sys.path.insert(0,os.path.join(ROOT,'build')); import species, geoids
+sys.path.insert(0,os.path.join(ROOT,'lib')); import outline_check as oc
 B="https://services.arcgis.com/v01gqwM5QqNysAAi/arcgis/rest/services/Fee_Managers_PADUS/FeatureServer/0/query"
 OUT=os.path.join(ROOT,'data','outlines')
 def path(i): return os.path.join(OUT,i+'.json')
@@ -41,8 +42,10 @@ def fetch(e):
     want=toks(e['name'])|toks(e.get('short',''))
     best=[]
     sc={}
+    kp=oc.kind(e['name'])
     for f in fs:
         n=f['attributes']['Unit_Nm'] or ''; t=toks(n)
+        if kp and oc.kind(n) and oc.kind(n)!=kp: continue   # a Forest is not the Refuge of the same name (#1004)
         s=len(want&t)/max(1,len(want|t)) if t else 0
         sc.setdefault(n,[0,0]); sc[n][0]=s; sc[n][1]+=f['attributes']['GIS_Acres'] or 0
     if not sc: return None
