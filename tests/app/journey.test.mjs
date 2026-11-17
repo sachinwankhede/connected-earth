@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   async function startWithPhotos(hash = '#stub', extra = null) {
     const b = await H.launch(), ctx = await b.newContext({ viewport: size }), p = await ctx.newPage();
     const errors = [];
-    p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
+    H.watch(p); p.setDefaultTimeout(90000); p.on('pageerror', (e) => errors.push(String(e)));
     await p.route(/openfreemap|arcgis|amazonaws|wikipedia|fonts|cdnjs/, (r) => r.abort());
     await mockSpeciesPictures(p, { Osprey: ['0123456789ab.webp', 'Osprey'] }, extra);   // a hosted picture entry for the osprey journey
     const url = await H.urlFor(H.FMAIN);
