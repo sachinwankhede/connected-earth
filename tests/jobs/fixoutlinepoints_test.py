@@ -13,7 +13,7 @@ def tree(places):
     rec = orc.OutlineRecords(root)
     for pid, (name, lat, lon, oname) in places.items():
         json.dump({'id': pid, 'name': name, 'lat': lat, 'lon': lon}, open(os.path.join(root, 'data', 'places', pid + '.json'), 'w'))
-        json.dump({'n': oname, 'r': [SQUARE]}, open(os.path.join(root, 'data', 'outlines', pid + '.json'), 'w')); rec.record(pid, 'padus')
+        json.dump({'n': oname, 'r': [SQUARE]}, open(os.path.join(root, 'data', 'outlines', pid + '.json'), 'w')); rec.record(pid, 'padus', inputs={'lat': lat, 'lon': lon, 'name': name})
     rec.commit(); return root
 
 class T(unittest.TestCase):
@@ -31,6 +31,8 @@ class T(unittest.TestCase):
         self.assertEqual([m[0] for m in moved], ['rough']); self.assertEqual([d[0] for d in dropped], ['wrong'])
         self.assertEqual(oc.outside(root, 5.0), [])   # the moved point is inside; the dropped place has no outline left
         e = json.load(open(os.path.join(root, 'data', 'places', 'rough.json'))); self.assertTrue(oc.inside(e['lon'], e['lat'], [SQUARE]))
+        r2 = orc.OutlineRecords(root); self.assertEqual(r2.stale(), [])   # the moved place's record now names the new point (step 5b)
+        self.assertEqual((r2.recs['rough']['inputs']['lat'], r2.recs['rough']['inputs']['lon']), (round(e['lat'], 4), round(e['lon'], 4)))
         self.assertFalse(os.path.exists(os.path.join(root, 'data', 'outlines', 'wrong.json')))
         rec = orc.OutlineRecords(root); self.assertFalse(rec.has('wrong')); self.assertTrue(rec.is_missing('wrong')); self.assertEqual(rec.check(), [])
         self.assertEqual(f.main(root), ([], []))   # nothing left to do

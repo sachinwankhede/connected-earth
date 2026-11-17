@@ -176,7 +176,9 @@ def check(root):
     import outline_check; far = outline_check.outside(root, 5.0)   # a point far outside its own outline means a wrong point or the wrong outline (#977, docs/DATA-AUDIT.md)
     if far: (errs if OUTSIDE_IS_ERROR else warns).append('%d place point(s) lie more than 5 km outside their own outline, first %s' % (len(far), ', '.join('%s (%s km)' % (pid, d) for d, pid in far[:5])))
     import outline_records   # credit records of park outlines (#977): files and records agree, once data/outline_records.json exists (nothing to check before)
-    errs += outline_records.OutlineRecords(root).check()
+    orx = outline_records.OutlineRecords(root); errs += orx.check()
+    st = orx.stale()   # the place moved or was renamed after its outline was built: look again (jobs/dropoutlines.py puts it back on the list); a warning until the outline job re-checks by itself
+    if st: warns.append('%d outline(s) were built for a place that has since moved or been renamed, first %s' % (len(st), ', '.join('%s (%s)' % x for x in st[:5])))
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent
     import place_photos; pw = place_photos.PlacePhotos(root); errs += pw.check()
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)

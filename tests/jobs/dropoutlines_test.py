@@ -9,7 +9,7 @@ def tree():
     root = tempfile.mkdtemp(); os.makedirs(os.path.join(root, 'data', 'outlines'))
     rec = orc.OutlineRecords(root)
     for pid in ('a', 'b'):
-        json.dump({'n': 'x', 'r': [[0, 0, 1, 0, 1, 1, 0, 0]]}, open(os.path.join(root, 'data', 'outlines', pid + '.json'), 'w')); rec.record(pid, 'padus')
+        json.dump({'n': 'x', 'r': [[0, 0, 1, 0, 1, 1, 0, 0]]}, open(os.path.join(root, 'data', 'outlines', pid + '.json'), 'w')); rec.record(pid, 'padus', inputs={'lat': 0.5, 'lon': 0.5, 'name': 'x'})
     rec.commit(); return root
 
 class T(unittest.TestCase):
