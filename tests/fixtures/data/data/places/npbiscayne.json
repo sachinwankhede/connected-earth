@@ -65,32 +65,32 @@
   },
   {
    "id": "warm",
-   "sp": "warm clear ocean water",
+   "sp": "warm-clear-ocean-water",
    "xh": 0.38
   },
   {
    "id": "canal",
-   "sp": "canal freshwater",
+   "sp": "canal-freshwater",
    "xh": 0.64
   },
   {
    "id": "nutr",
-   "sp": "bay nutrients",
+   "sp": "bay-nutrients",
    "xh": 0.88
   },
   {
    "id": "decomp",
-   "sp": "bacteria, fungi and worms",
+   "sp": "bacteria-fungi-and-worms",
    "xh": 0.5
   },
   {
    "id": "turtlegrass",
-   "sp": "thalassia testudinum",
+   "sp": "thalassia-testudinum",
    "xh": 0.2
   },
   {
    "id": "mangrove",
-   "sp": "rhizophora mangle",
+   "sp": "rhizophora-mangle",
    "xh": 0.5,
    "desc": "Lines the shore with prop roots that shelter young fish, mollusks and crustaceans; its leaf litter feeds the shallows."
   },
@@ -102,82 +102,82 @@
   },
   {
    "id": "manatee",
-   "sp": "trichechus manatus",
+   "sp": "trichechus-manatus",
    "xh": 0.05
   },
   {
    "id": "greenturtle",
-   "sp": "chelonia mydas",
+   "sp": "chelonia-mydas",
    "xh": 0.17,
    "desc": "Adults graze seagrass in shallow water. Green sea turtles are among the marine reptiles that use the park."
   },
   {
    "id": "urchin",
-   "sp": "lytechinus variegatus",
+   "sp": "lytechinus-variegatus",
    "xh": 0.29
   },
   {
    "id": "conch",
-   "sp": "aliger gigas",
+   "sp": "aliger-gigas",
    "xh": 0.41
   },
   {
    "id": "parrotfish",
-   "sp": "sparisoma viride",
+   "sp": "sparisoma-viride",
    "xh": 0.53
   },
   {
    "id": "shrimp",
-   "sp": "farfantepenaeus duorarum",
+   "sp": "farfantepenaeus-duorarum",
    "xh": 0.65
   },
   {
    "id": "mullet",
-   "sp": "mugil cephalus",
+   "sp": "mugil-cephalus",
    "xh": 0.8,
    "wiki": "Striped mullet"
   },
   {
    "id": "lobster",
-   "sp": "panulirus argus",
+   "sp": "panulirus-argus",
    "xh": 0.12
   },
   {
    "id": "snapper",
-   "sp": "lutjanus griseus",
+   "sp": "lutjanus-griseus",
    "xh": 0.3
   },
   {
    "id": "barracuda",
-   "sp": "sphyraena barracuda",
+   "sp": "sphyraena-barracuda",
    "xh": 0.5
   },
   {
    "id": "pelican",
-   "sp": "pelecanus occidentalis",
+   "sp": "pelecanus-occidentalis",
    "xh": 0.7
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.88,
    "desc": "A fish-eating raptor that plunges for fish in the shallow bay."
   },
   {
    "id": "shark",
-   "sp": "carcharhinus leucas",
+   "sp": "carcharhinus-leucas",
    "xh": 0.2,
    "desc": "A shallow-water apex predator that takes bony fish, rays, turtles and dolphins.",
    "badge": "Keystone predator"
   },
   {
    "id": "croc",
-   "sp": "crocodylus acutus",
+   "sp": "crocodylus-acutus",
    "xh": 0.5
   },
   {
    "id": "dolphin",
-   "sp": "tursiops truncatus",
+   "sp": "tursiops-truncatus",
    "xh": 0.8,
    "desc": "A resident of the bay and nearby waters that hunts fish such as mullet. Bull sharks occasionally eat dolphins."
   }

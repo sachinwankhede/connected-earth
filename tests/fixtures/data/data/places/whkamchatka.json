@@ -54,13 +54,13 @@
   },
   {
    "id": "ash",
-   "sp": "volcanic ash soil",
+   "sp": "volcanic-ash-soil",
    "xh": 0.5,
    "desc": "Frequent eruptions leave fresh ash and rock that new plants colonise, which keeps parts of the peninsula in constant renewal."
   },
   {
    "id": "snow",
-   "sp": "snowpack and meltwater",
+   "sp": "snowpack-and-meltwater",
    "xh": 0.8,
    "wiki": "Snowmelt",
    "desc": "Deep winter snow melts into the rivers and lakes where salmon spawn and feeds the soil moisture of alpine meadows.",
@@ -68,63 +68,63 @@
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.92,
    "desc": "Break down dead plants, salmon carcasses and animal remains, returning nutrients to the volcanic soil."
   },
   {
    "id": "stonepine",
-   "sp": "pinus pumila",
+   "sp": "pinus-pumila",
    "xh": 0.1
   },
   {
    "id": "larch",
-   "sp": "larix gmelinii",
+   "sp": "larix-gmelinii",
    "xh": 0.3,
    "name": "Gmelin larch"
   },
   {
    "id": "bilberry",
-   "sp": "vaccinium uliginosum",
+   "sp": "vaccinium-uliginosum",
    "xh": 0.5,
    "desc": "A low berry shrub of tundra and open forest. Its fruit is eaten by bears, hares, voles and birds."
   },
   {
    "id": "fireweed",
-   "sp": "chamaenerion angustifolium",
+   "sp": "chamaenerion-angustifolium",
    "xh": 0.7,
    "desc": "A tall pink wildflower that quickly colonises burned and disturbed ground, such as slopes after eruptions or fires."
   },
   {
    "id": "phyto",
-   "sp": "microscopic algae",
+   "sp": "microscopic-algae",
    "xh": 0.9,
    "desc": "Drifting microscopic algae in the cold Pacific and Okhotsk seas that feed zooplankton. General ecological knowledge."
   },
   {
    "id": "marmot",
-   "sp": "marmota camtschatica",
+   "sp": "marmota-camtschatica",
    "xh": 0.06
   },
   {
    "id": "sheep",
-   "sp": "ovis nivicola",
+   "sp": "ovis-nivicola",
    "xh": 0.2
   },
   {
    "id": "hare",
-   "sp": "lepus timidus",
+   "sp": "lepus-timidus",
    "xh": 0.34,
    "desc": "Feeds on shrubs, berries and herbs and is taken by foxes, sables and stoats."
   },
   {
    "id": "vole",
-   "sp": "myodes rufocanus",
+   "sp": "myodes-rufocanus",
    "xh": 0.5
   },
   {
    "id": "nutcracker",
-   "sp": "nucifraga caryocatactes",
+   "sp": "nucifraga-caryocatactes",
    "xh": 0.66,
    "name": "Spotted nutcracker",
    "wiki": "Spotted nutcracker",
@@ -139,36 +139,36 @@
   },
   {
    "id": "sockeye",
-   "sp": "oncorhynchus nerka",
+   "sp": "oncorhynchus-nerka",
    "xh": 0.1,
    "desc": "Kamchatka holds the largest Asian spawning grounds, notably the Ozernaya River. Adults die after spawning and feed the land."
   },
   {
    "id": "sable",
-   "sp": "martes zibellina",
+   "sp": "martes-zibellina",
    "xh": 0.3,
    "desc": "A small omnivorous marten that eats rodents, hares, birds and berries."
   },
   {
    "id": "fox",
-   "sp": "vulpes vulpes",
+   "sp": "vulpes-vulpes",
    "xh": 0.5,
    "desc": "Hunts voles, hares and birds, eats berries, and scavenges carcasses."
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.72,
    "desc": "An opportunist that scavenges carrion, such as salmon left on riverbanks."
   },
   {
    "id": "bear",
-   "sp": "ursus arctos beringianus",
+   "sp": "ursus-arctos-beringianus",
    "xh": 0.28
   },
   {
    "id": "eagle",
-   "sp": "haliaeetus pelagicus",
+   "sp": "haliaeetus-pelagicus",
    "xh": 0.65
   }
  ],

@@ -15,7 +15,7 @@
  "nodes": [
   {
    "id": "phyto",
-   "sp": "diverse microalgae",
+   "sp": "diverse-microalgae",
    "xh": 0.15,
    "desc": "Drifting algae that make the sea's base food, thriving where upwelling brings nutrients."
   },
@@ -26,22 +26,22 @@
   },
   {
    "id": "seagrass",
-   "sp": "halodule uninervis",
+   "sp": "halodule-uninervis",
    "xh": 0.62
   },
   {
    "id": "macroalgae",
-   "sp": "halimeda spp.",
+   "sp": "halimeda-spp",
    "xh": 0.85
   },
   {
    "id": "coral",
-   "sp": "acropora spp.",
+   "sp": "acropora-spp",
    "xh": 0.1
   },
   {
    "id": "zooplankton",
-   "sp": "copepods and larvae",
+   "sp": "copepods-and-larvae",
    "xh": 0.24,
    "desc": "Tiny drifting animals that graze phytoplankton and feed fish, manta rays and coral."
   },
@@ -52,7 +52,7 @@
   },
   {
    "id": "parrotfish",
-   "sp": "scarus spp.",
+   "sp": "scarus-spp",
    "xh": 0.5
   },
   {
@@ -62,13 +62,13 @@
   },
   {
    "id": "turtle",
-   "sp": "chelonia mydas",
+   "sp": "chelonia-mydas",
    "xh": 0.78,
    "desc": "Grazes seagrass meadows, which keeps them healthy."
   },
   {
    "id": "dugong",
-   "sp": "dugong dugon",
+   "sp": "dugong-dugon",
    "xh": 0.92,
    "ic": "seal",
    "no": [
@@ -77,7 +77,7 @@
   },
   {
    "id": "crown",
-   "sp": "acanthaster planci",
+   "sp": "acanthaster-planci",
    "xh": 0.1,
    "desc": "Eats coral polyps. Outbreaks can strip large stretches of reef."
   },
@@ -88,44 +88,44 @@
   },
   {
    "id": "manta",
-   "sp": "mobula alfredi",
+   "sp": "mobula-alfredi",
    "xh": 0.34
   },
   {
    "id": "moray",
-   "sp": "gymnothorax spp.",
+   "sp": "gymnothorax-spp",
    "xh": 0.48
   },
   {
    "id": "coraltrout",
-   "sp": "plectropomus leopardus",
+   "sp": "plectropomus-leopardus",
    "xh": 0.62
   },
   {
    "id": "trevally",
-   "sp": "caranx ignobilis",
+   "sp": "caranx-ignobilis",
    "xh": 0.76
   },
   {
    "id": "triton",
-   "sp": "charonia tritonis",
+   "sp": "charonia-tritonis",
    "xh": 0.9
   },
   {
    "id": "shorebird",
-   "sp": "arenaria and calidris spp.",
+   "sp": "arenaria-and-calidris-spp",
    "xh": 0.98,
    "desc": "Winter visitors that feed on small animals among reef-flat algae and rubble before flying north to breed in the Arctic."
   },
   {
    "id": "tiger",
-   "sp": "galeocerdo cuvier",
+   "sp": "galeocerdo-cuvier",
    "xh": 0.35,
    "desc": "Eats turtles, dugongs, fish and carrion, and roams widely over seagrass and reef."
   },
   {
    "id": "reefshark",
-   "sp": "carcharhinus melanopterus",
+   "sp": "carcharhinus-melanopterus",
    "xh": 0.65,
    "tl": 4,
    "desc": "Hunts reef fish in shallow water."
@@ -138,7 +138,7 @@
   },
   {
    "id": "water",
-   "sp": "seawater & currents",
+   "sp": "seawater-currents",
    "xh": 0.35
   },
   {
@@ -148,7 +148,7 @@
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.86,
    "name": "Bacteria & sponges",
    "wiki": "Sponge",

@@ -40,90 +40,90 @@
  "nodes": [
   {
    "id": "firepink",
-   "sp": "silene virginica",
+   "sp": "silene-virginica",
    "xh": 0.142,
    "desc": "Fire-pink (Silene virginica): a plant that turns sunlight into food. Recorded 23 times near the park in GBIF."
   },
   {
    "id": "commonlousewor",
-   "sp": "pedicularis canadensis",
+   "sp": "pedicularis-canadensis",
    "xh": 0.285,
    "desc": "Common lousewort (Pedicularis canadensis): a plant that turns sunlight into food. Recorded 22 times near the park in GBIF."
   },
   {
    "id": "pawpaw",
-   "sp": "asimina triloba",
+   "sp": "asimina-triloba",
    "xh": 0.428,
    "desc": "Pawpaw (Asimina triloba): a plant that turns sunlight into food. Recorded 15 times near the park in GBIF."
   },
   {
    "id": "wildbluephlox",
-   "sp": "phlox divaricata",
+   "sp": "phlox-divaricata",
    "xh": 0.572,
    "desc": "Wild blue phlox (Phlox divaricata): a plant that turns sunlight into food. Recorded 13 times near the park in GBIF."
   },
   {
    "id": "birdfootviolet",
-   "sp": "viola pedata",
+   "sp": "viola-pedata",
    "xh": 0.715,
    "desc": "Bird-foot Violet (Viola pedata): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF."
   },
   {
    "id": "americanhazeln",
-   "sp": "corylus americana",
+   "sp": "corylus-americana",
    "xh": 0.858,
    "desc": "American Hazelnut (Corylus americana): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF."
   },
   {
    "id": "blueswallowtai",
-   "sp": "battus philenor",
+   "sp": "battus-philenor",
    "xh": 0.156,
    "desc": "Blue Swallowtail (Battus philenor): eats plants or other primary food sources. Recorded 29 times near the park in GBIF."
   },
   {
    "id": "spicebushswall",
-   "sp": "papilio troilus",
+   "sp": "papilio-troilus",
    "xh": 0.328,
    "desc": "Spicebush Swallowtail (Papilio troilus): eats plants or other primary food sources. Recorded 25 times near the park in GBIF."
   },
   {
    "id": "greatspangledf",
-   "sp": "speyeria cybele",
+   "sp": "speyeria-cybele",
    "xh": 0.5,
    "desc": "Great Spangled Fritillary (Speyeria cybele): eats plants or other primary food sources. Recorded 13 times near the park in GBIF."
   },
   {
    "id": "elkalycecomynt",
-   "sp": "elkalyce comyntas",
+   "sp": "elkalyce-comyntas",
    "xh": 0.672,
    "desc": "Elkalyce comyntas (Elkalyce comyntas): eats plants or other primary food sources. Recorded 12 times near the park in GBIF."
   },
   {
    "id": "groundhog",
-   "sp": "marmota monax",
+   "sp": "marmota-monax",
    "xh": 0.844
   },
   {
    "id": "americanrobin",
-   "sp": "turdus migratorius",
+   "sp": "turdus-migratorius",
    "xh": 0.177,
    "desc": "American Robin (Turdus migratorius): hunts or scavenges other animals. Recorded 242 times near the park in GBIF."
   },
   {
    "id": "redbelliedwood",
-   "sp": "melanerpes carolinus",
+   "sp": "melanerpes-carolinus",
    "xh": 0.393,
    "desc": "Red-bellied Woodpecker (Melanerpes carolinus): hunts or scavenges other animals. Recorded 234 times near the park in GBIF."
   },
   {
    "id": "bluejay",
-   "sp": "cyanocitta cristata",
+   "sp": "cyanocitta-cristata",
    "xh": 0.607,
    "desc": "Blue Jay (Cyanocitta cristata): hunts or scavenges other animals. Recorded 220 times near the park in GBIF."
   },
   {
    "id": "virginiaopossu",
-   "sp": "didelphis virginiana",
+   "sp": "didelphis-virginiana",
    "xh": 0.823
   },
   {
@@ -138,12 +138,12 @@
   },
   {
    "id": "soil",
-   "sp": "soil and nutrients",
+   "sp": "soil-and-nutrients",
    "xh": 0.58
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.84
   }
  ],

@@ -44,7 +44,7 @@
  "nodes": [
   {
    "id": "flood",
-   "sp": "seasonal flood",
+   "sp": "seasonal-flood",
    "xh": 0.15
   },
   {
@@ -55,7 +55,7 @@
   },
   {
    "id": "soil",
-   "sp": "island soils",
+   "sp": "island-soils",
    "xh": 0.65
   },
   {
@@ -65,24 +65,24 @@
   },
   {
    "id": "panicum",
-   "sp": "panicum repens",
+   "sp": "panicum-repens",
    "xh": 0.12
   },
   {
    "id": "cynodon",
-   "sp": "cynodon dactylon",
+   "sp": "cynodon-dactylon",
    "xh": 0.3,
    "desc": "Low creeping grass of drying floodplains and island edges, grazed by many hoofed animals."
   },
   {
    "id": "mopane",
-   "sp": "colophospermum mopane",
+   "sp": "colophospermum-mopane",
    "xh": 0.5,
    "desc": "A woodland tree of the drier ground whose leaves are browsed by elephants."
   },
   {
    "id": "ilala",
-   "sp": "hyphaene petersiana",
+   "sp": "hyphaene-petersiana",
    "xh": 0.7
   },
   {
@@ -101,7 +101,7 @@
   },
   {
    "id": "lechwe",
-   "sp": "kobus leche",
+   "sp": "kobus-leche",
    "xh": 0.17,
    "name": "Red lechwe",
    "wiki": "Red lechwe",
@@ -110,69 +110,69 @@
   },
   {
    "id": "hippo",
-   "sp": "hippopotamus amphibius",
+   "sp": "hippopotamus-amphibius",
    "xh": 0.29,
    "desc": "Rests in channels by day and grazes on land at night. Its movements help keep channels open.",
    "ic": "bison"
   },
   {
    "id": "zebra",
-   "sp": "equus quagga",
+   "sp": "equus-quagga",
    "xh": 0.41,
    "desc": "Grazes grasses on the drier floodplain and island margins and is taken by lions and wild dogs."
   },
   {
    "id": "buffalo",
-   "sp": "syncerus caffer",
+   "sp": "syncerus-caffer",
    "xh": 0.53,
    "desc": "Large herds graze floodplain grass and are preyed on mainly by lions."
   },
   {
    "id": "impala",
-   "sp": "aepyceros melampus",
+   "sp": "aepyceros-melampus",
    "xh": 0.65,
    "desc": "A mixed grazer and browser of woodland edges and a staple prey of many predators."
   },
   {
    "id": "elephant",
-   "sp": "loxodonta africana",
+   "sp": "loxodonta-africana",
    "xh": 0.8,
    "desc": "Eats grass, palm fruit and mopane leaves. Botswana holds the world's largest elephant population."
   },
   {
    "id": "fisheagle",
-   "sp": "haliaeetus vocifer",
+   "sp": "haliaeetus-vocifer",
    "xh": 0.2,
    "desc": "Perches over channels and lagoons and takes fish from the surface, and is among the best-recorded birds here."
   },
   {
    "id": "croc",
-   "sp": "crocodylus niloticus",
+   "sp": "crocodylus-niloticus",
    "xh": 0.5,
    "tl": 3,
    "desc": "Ambushes fish and mammals that come to drink at the channels and lagoons."
   },
   {
    "id": "hyena",
-   "sp": "crocuta crocuta",
+   "sp": "crocuta-crocuta",
    "xh": 0.8,
    "desc": "Hunts in clans and also scavenges carcasses, including kills of other predators."
   },
   {
    "id": "lion",
-   "sp": "panthera leo",
+   "sp": "panthera-leo",
    "xh": 0.22,
    "desc": "Top predator that hunts buffalo, zebra, lechwe and impala."
   },
   {
    "id": "leopard",
-   "sp": "panthera pardus",
+   "sp": "panthera-pardus",
    "xh": 0.5,
    "desc": "A solitary predator of wooded islands that takes impala, lechwe and other mid-sized prey."
   },
   {
    "id": "wilddog",
-   "sp": "lycaon pictus",
+   "sp": "lycaon-pictus",
    "xh": 0.78,
    "tl": 4,
    "desc": "A pack hunter of antelope; the Moremi area is a stronghold with a research project running since 1989.",

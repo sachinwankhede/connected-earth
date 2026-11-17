@@ -15,113 +15,113 @@
  "nodes": [
   {
    "id": "icealg",
-   "sp": "melosira arctica",
+   "sp": "melosira-arctica",
    "xh": 0.12
   },
   {
    "id": "phyto",
-   "sp": "diverse microalgae",
+   "sp": "diverse-microalgae",
    "xh": 0.3
   },
   {
    "id": "sedge",
-   "sp": "carex and salix arctica",
+   "sp": "carex-and-salix-arctica",
    "xh": 0.62
   },
   {
    "id": "lichen",
-   "sp": "cladonia rangiferina",
+   "sp": "cladonia-rangiferina",
    "xh": 0.86
   },
   {
    "id": "copepod",
-   "sp": "calanus glacialis",
+   "sp": "calanus-glacialis",
    "xh": 0.12
   },
   {
    "id": "clams",
-   "sp": "mya truncata",
+   "sp": "mya-truncata",
    "xh": 0.3
   },
   {
    "id": "lemming",
-   "sp": "dicrostonyx groenlandicus",
+   "sp": "dicrostonyx-groenlandicus",
    "xh": 0.48
   },
   {
    "id": "goose",
-   "sp": "anser caerulescens",
+   "sp": "anser-caerulescens",
    "xh": 0.62
   },
   {
    "id": "caribou",
-   "sp": "rangifer tarandus",
+   "sp": "rangifer-tarandus",
    "xh": 0.78,
    "wiki": "Caribou"
   },
   {
    "id": "muskox",
-   "sp": "ovibos moschatus",
+   "sp": "ovibos-moschatus",
    "xh": 0.92
   },
   {
    "id": "arcticcod",
-   "sp": "boreogadus saida",
+   "sp": "boreogadus-saida",
    "xh": 0.08
   },
   {
    "id": "ringedseal",
-   "sp": "pusa hispida",
+   "sp": "pusa-hispida",
    "xh": 0.2
   },
   {
    "id": "beluga",
-   "sp": "delphinapterus leucas",
+   "sp": "delphinapterus-leucas",
    "xh": 0.32
   },
   {
    "id": "walrus",
-   "sp": "odobenus rosmarus",
+   "sp": "odobenus-rosmarus",
    "xh": 0.44
   },
   {
    "id": "murre",
-   "sp": "uria lomvia",
+   "sp": "uria-lomvia",
    "xh": 0.56
   },
   {
    "id": "gull",
-   "sp": "larus hyperboreus",
+   "sp": "larus-hyperboreus",
    "xh": 0.68
   },
   {
    "id": "snowyowl",
-   "sp": "bubo scandiacus",
+   "sp": "bubo-scandiacus",
    "xh": 0.8
   },
   {
    "id": "arcticfox",
-   "sp": "vulpes lagopus",
+   "sp": "vulpes-lagopus",
    "xh": 0.92
   },
   {
    "id": "shorebird",
-   "sp": "arenaria and calidris spp.",
+   "sp": "arenaria-and-calidris-spp",
    "xh": 0.72
   },
   {
    "id": "polarbear",
-   "sp": "ursus maritimus",
+   "sp": "ursus-maritimus",
    "xh": 0.25
   },
   {
    "id": "orca",
-   "sp": "orcinus orca",
+   "sp": "orcinus-orca",
    "xh": 0.5
   },
   {
    "id": "arcticwolf",
-   "sp": "canis lupus arctos",
+   "sp": "canis-lupus-arctos",
    "xh": 0.8
   },
   {
@@ -132,22 +132,22 @@
   },
   {
    "id": "seaice",
-   "sp": "sea ice",
+   "sp": "sea-ice",
    "xh": 0.26
   },
   {
    "id": "water",
-   "sp": "cold, nutrient-rich water",
+   "sp": "cold-nutrient-rich-water-2",
    "xh": 0.44
   },
   {
    "id": "soil",
-   "sp": "permafrost soil",
+   "sp": "permafrost-soil",
    "xh": 0.66
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.88,
    "name": "Microbes",
    "desc": "Break down dead matter slowly in the cold."

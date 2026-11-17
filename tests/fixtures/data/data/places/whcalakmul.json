@@ -48,99 +48,99 @@
  "nodes": [
   {
    "id": "sapodilla",
-   "sp": "manilkara zapota",
+   "sp": "manilkara-zapota",
    "xh": 0.15
   },
   {
    "id": "gumbolimbo",
-   "sp": "bursera simaruba",
+   "sp": "bursera-simaruba",
    "xh": 0.38,
    "desc": "A common tree of the Yucatan forest whose small fruits are recorded in the diets of many birds, bats and primates."
   },
   {
    "id": "poisonwood",
-   "sp": "metopium brownei",
+   "sp": "metopium-brownei",
    "xh": 0.62
   },
   {
    "id": "waxmallow",
-   "sp": "malvaviscus arboreus",
+   "sp": "malvaviscus-arboreus",
    "xh": 0.85
   },
   {
    "id": "monkey",
-   "sp": "ateles geoffroyi",
+   "sp": "ateles-geoffroyi",
    "xh": 0.06
   },
   {
    "id": "bat",
-   "sp": "artibeus lituratus",
+   "sp": "artibeus-lituratus",
    "xh": 0.2,
    "wiki": "Artibeus lituratus",
    "desc": "Feeds on fruit at night, including gumbo-limbo and sapodilla, and spreads the seeds as it flies."
   },
   {
    "id": "tapir",
-   "sp": "tapirella bairdii",
+   "sp": "tapirella-bairdii",
    "xh": 0.34
   },
   {
    "id": "peccary",
-   "sp": "pecari tajacu",
+   "sp": "pecari-tajacu",
    "xh": 0.48,
    "desc": "A pig-like forager in herds that eats fruit, seeds, roots and some small animals. Cougars and jaguars hunt it."
   },
   {
    "id": "agouti",
-   "sp": "dasyprocta punctata",
+   "sp": "dasyprocta-punctata",
    "xh": 0.62,
    "ic": "vole"
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.76,
    "wiki": "White-tailed deer",
    "desc": "A browser of leaves, shoots and fruit, and a main prey of jaguars in Mexico."
   },
   {
    "id": "turkey",
-   "sp": "meleagris ocellata",
+   "sp": "meleagris-ocellata",
    "xh": 0.88
   },
   {
    "id": "toucan",
-   "sp": "ramphastos sulfuratus",
+   "sp": "ramphastos-sulfuratus",
    "xh": 0.97
   },
   {
    "id": "coati",
-   "sp": "nasua narica",
+   "sp": "nasua-narica",
    "xh": 0.22
   },
   {
    "id": "fox",
-   "sp": "urocyon cinereoargenteus",
+   "sp": "urocyon-cinereoargenteus",
    "xh": 0.5,
    "wiki": "Gray fox",
    "desc": "An omnivorous canid that eats fruit and small mammals, and itself falls to jaguars."
   },
   {
    "id": "vulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.8,
    "wiki": "Turkey vulture",
    "desc": "Finds and eats carrion over the forest, cleaning up the kills of the big cats."
   },
   {
    "id": "jaguar",
-   "sp": "panthera onca",
+   "sp": "panthera-onca",
    "xh": 0.35,
    "desc": "The top predator here, taking deer, peccaries, agoutis, coatis and monkeys. Calakmul and the adjoining Guatemalan forest form one of its key strongholds."
   },
   {
    "id": "puma",
-   "sp": "puma concolor",
+   "sp": "puma-concolor",
    "xh": 0.65,
    "desc": "Shares the forest and many prey with the jaguar, including deer and peccaries, and also takes monkeys."
   },
@@ -152,25 +152,25 @@
   },
   {
    "id": "rain",
-   "sp": "seasonal rain",
+   "sp": "seasonal-rain",
    "xh": 0.3,
    "desc": "Rain falls mostly in one season; the dry months test trees and animals alike."
   },
   {
    "id": "aguada",
-   "sp": "aguadas and bajos",
+   "sp": "aguadas-and-bajos",
    "xh": 0.55
   },
   {
    "id": "limestone",
-   "sp": "limestone soil",
+   "sp": "limestone-soil",
    "xh": 0.75,
    "wiki": "Karst",
    "desc": "Thin soil over porous limestone drains quickly, which is why standing water is scarce."
   },
   {
    "id": "decomp",
-   "sp": "fungi, bacteria and termites",
+   "sp": "fungi-bacteria-and-termites",
    "xh": 0.93
   }
  ],

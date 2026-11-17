@@ -43,31 +43,31 @@
  "nodes": [
   {
    "id": "bluestem",
-   "sp": "andropogon gerardi",
+   "sp": "andropogon-gerardi",
    "xh": 0.08,
    "desc": "The dominant tall grass of the Flint Hills prairie, and the main forage for grazing bison and cattle."
   },
   {
    "id": "indian",
-   "sp": "sorghastrum nutans",
+   "sp": "sorghastrum-nutans",
    "xh": 0.28,
    "name": "Indiangrass",
    "desc": "A tall warm-season grass that grows alongside big bluestem and is grazed by bison."
   },
   {
    "id": "little",
-   "sp": "schizachyrium scoparium",
+   "sp": "schizachyrium-scoparium",
    "xh": 0.48,
    "desc": "A shorter bunchgrass found on the thin, rocky upland soils of the Flint Hills."
   },
   {
    "id": "forbs",
-   "sp": "silphium laciniatum",
+   "sp": "silphium-laciniatum",
    "xh": 0.68
   },
   {
    "id": "cedar",
-   "sp": "juniperus virginiana",
+   "sp": "juniperus-virginiana",
    "xh": 0.88,
    "name": "Eastern red cedar",
    "desc": "A woody tree that spreads into unburned prairie; the Flint Hills are threatened by this woody encroachment.",
@@ -75,27 +75,27 @@
   },
   {
    "id": "bison",
-   "sp": "bison bison",
+   "sp": "bison-bison",
    "xh": 0.04,
    "desc": "A herd of about 200 bison grazes part of Konza Prairie. Wikipedia notes bison once grazed the region in huge numbers before being nearly wiped out."
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.17,
    "wiki": "White-tailed deer",
    "desc": "Often present in large numbers at Konza. It browses wildflowers and shrubs, and its droppings add nutrients to the soil."
   },
   {
    "id": "cottontail",
-   "sp": "sylvilagus floridanus",
+   "sp": "sylvilagus-floridanus",
    "xh": 0.3,
    "wiki": "Eastern cottontail",
    "desc": "A common small grazer of grasses and wildflowers, and prey for many of the prairie predators."
   },
   {
    "id": "vole",
-   "sp": "microtus ochrogaster",
+   "sp": "microtus-ochrogaster",
    "xh": 0.43,
    "desc": "A small grass-eating rodent that is well recorded around the park and is a staple prey of hawks and coyotes."
   },
@@ -107,13 +107,13 @@
   },
   {
    "id": "chicken",
-   "sp": "tympanuchus cupido",
+   "sp": "tympanuchus-cupido",
    "xh": 0.7,
    "desc": "Eats seeds and fruit, plus insects such as grasshoppers in summer. The Flint Hills are known for it, and raccoons and other mesopredators take many eggs."
   },
   {
    "id": "meadowlark",
-   "sp": "sturnella magna",
+   "sp": "sturnella-magna",
    "xh": 0.85,
    "name": "Eastern meadowlark",
    "wiki": "Eastern meadowlark",
@@ -121,21 +121,21 @@
   },
   {
    "id": "raccoon",
-   "sp": "procyon lotor",
+   "sp": "procyon-lotor",
    "xh": 0.12,
    "wiki": "Raccoon",
    "desc": "An omnivore. Wikipedia notes mesopredators such as raccoons raise prairie-chicken egg losses."
   },
   {
    "id": "ratsnake",
-   "sp": "pantherophis obsoletus",
+   "sp": "pantherophis-obsoletus",
    "xh": 0.34,
    "desc": "A constrictor that eats rodents, rabbits and birds; GloBI records it feeding on rabbits and cotton rats.",
    "ic": "snake"
   },
   {
    "id": "hawk",
-   "sp": "buteo jamaicensis",
+   "sp": "buteo-jamaicensis",
    "xh": 0.58,
    "tl": 3,
    "wiki": "Red-tailed hawk",
@@ -144,21 +144,21 @@
   },
   {
    "id": "vulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.84,
    "wiki": "Turkey vulture",
    "desc": "Scavenges carcasses such as deer and rabbits, returning their energy to the web."
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.32,
    "wiki": "Coyote",
    "desc": "The prairie's main wide-ranging carnivore, eating rabbits, rodents, insects and fawns."
   },
   {
    "id": "bobcat",
-   "sp": "lynx rufus",
+   "sp": "lynx-rufus",
    "xh": 0.68,
    "wiki": "Bobcat",
    "desc": "A solitary cat that preys on rabbits, rodents and young deer.",
@@ -185,13 +185,13 @@
   },
   {
    "id": "soil",
-   "sp": "prairie soil",
+   "sp": "prairie-soil",
    "xh": 0.7,
    "desc": "Deep loess and organic-rich soils hold nutrients; urine and dung from grazers add nitrogen."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi, insects & bacteria",
    "desc": "Break down dead grass, dung and carcasses and return nutrients to the soil."

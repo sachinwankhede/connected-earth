@@ -48,12 +48,12 @@
  "nodes": [
   {
    "id": "willow",
-   "sp": "salix pycnostachya",
+   "sp": "salix-pycnostachya",
    "xh": 0.12
   },
   {
    "id": "fescue",
-   "sp": "festuca rubra",
+   "sp": "festuca-rubra",
    "xh": 0.34,
    "name": "Mountain grasses",
    "desc": "Red fescue and other grasses form the pasture that wild mountain herbivores and livestock graze.",
@@ -66,90 +66,90 @@
   },
   {
    "id": "ephedra",
-   "sp": "ephedra intermedia",
+   "sp": "ephedra-intermedia",
    "xh": 0.78
   },
   {
    "id": "ibex",
-   "sp": "capra sibirica",
+   "sp": "capra-sibirica",
    "xh": 0.08,
    "desc": "Lives on steep slopes and scree. It eats alpine grasses and herbs, and in winter more twigs and needles of trees such as willow.",
    "badge": "Keystone grazer"
   },
   {
    "id": "urial",
-   "sp": "ovis vignei",
+   "sp": "ovis-vignei",
    "xh": 0.24
   },
   {
    "id": "vole",
-   "sp": "alticola argentatus",
+   "sp": "alticola-argentatus",
    "xh": 0.4
   },
   {
    "id": "hamster",
-   "sp": "cricetulus migratorius",
+   "sp": "cricetulus-migratorius",
    "xh": 0.56
   },
   {
    "id": "snowcock",
-   "sp": "tetraogallus himalayensis",
+   "sp": "tetraogallus-himalayensis",
    "xh": 0.72,
    "desc": "Listed as an Important Bird Area species at Band-e Amir. Eats grass shoots, seeds, Ephedra berries and Artemisia leaves, and golden eagles sometimes take adults."
   },
   {
    "id": "swallow",
-   "sp": "papilio machaon",
+   "sp": "papilio-machaon",
    "xh": 0.89,
    "desc": "A butterfly whose caterpillars eat plants such as Artemisia. GloBI records many songbirds eating it.",
    "ic": "mayfly"
   },
   {
    "id": "whitethroat",
-   "sp": "sylvia curruca",
+   "sp": "sylvia-curruca",
    "xh": 0.1
   },
   {
    "id": "redstart",
-   "sp": "phoenicurus ochruros",
+   "sp": "phoenicurus-ochruros",
    "xh": 0.25
   },
   {
    "id": "shrike",
-   "sp": "lanius schach",
+   "sp": "lanius-schach",
    "xh": 0.4
   },
   {
    "id": "agama",
-   "sp": "paralaudakia himalayana",
+   "sp": "paralaudakia-himalayana",
    "xh": 0.55
   },
   {
    "id": "boa",
-   "sp": "eryx elegans",
+   "sp": "eryx-elegans",
    "xh": 0.7
   },
   {
    "id": "fox",
-   "sp": "vulpes vulpes",
+   "sp": "vulpes-vulpes",
    "xh": 0.88,
    "desc": "GloBI records it eating many songbirds and small rodents recorded here. It also scavenges carcasses."
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.3,
    "desc": "The northern regions of Afghanistan are described as strongholds for wolves. Wolves chiefly hunt hoofed mammals and eat carrion, and the ibex has wolves as a main predator."
   },
   {
    "id": "eagle",
-   "sp": "aquila chrysaetos",
+   "sp": "aquila-chrysaetos",
    "xh": 0.7,
    "desc": "Occurs in Hindu Kush mountain habitat and hunts rodents, gamebirds and sometimes larger prey. It sometimes preys on adult Himalayan snowcocks."
   },
   {
    "id": "ice",
-   "sp": "winter snow and ice",
+   "sp": "winter-snow-and-ice",
    "xh": 0.08,
    "wiki": "Band-e Amir National Park",
    "desc": "Winters are severe, with temperatures down to about minus 20 C, and the lakes freeze over. Meltwater feeds streams and pasture."
@@ -162,18 +162,18 @@
   },
   {
    "id": "water",
-   "sp": "travertine lake water",
+   "sp": "travertine-lake-water",
    "xh": 0.52
   },
   {
    "id": "soil",
-   "sp": "mountain soil",
+   "sp": "mountain-soil",
    "xh": 0.74,
    "desc": "Thin mountain soils hold nutrients for shrubs and grasses and are replenished by decomposition."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.92,
    "name": "Soil microbes and fungi",
    "desc": "Break down dead plants, droppings and carcasses, returning nutrients to the soil."

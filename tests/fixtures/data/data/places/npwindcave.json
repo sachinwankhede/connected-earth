@@ -57,7 +57,7 @@
   },
   {
    "id": "rain",
-   "sp": "rain & snow",
+   "sp": "rain-snow",
    "xh": 0.4,
    "desc": "The park gets roughly 21 inches of precipitation a year, plus heavy winter snow, which is modest water for grassland growth."
   },
@@ -69,7 +69,7 @@
   },
   {
    "id": "soil",
-   "sp": "prairie soil",
+   "sp": "prairie-soil",
    "xh": 0.88
   },
   {
@@ -82,7 +82,7 @@
   },
   {
    "id": "wheat",
-   "sp": "pascopyrum smithii",
+   "sp": "pascopyrum-smithii",
    "xh": 0.28,
    "desc": "A cool-season grass of the northern Great Plains, a staple for grazers and a main food of prairie dogs.",
    "no": [
@@ -91,7 +91,7 @@
   },
   {
    "id": "forbs",
-   "sp": "echinacea angustifolia",
+   "sp": "echinacea-angustifolia",
    "xh": 0.46,
    "name": "Prairie wildflowers",
    "desc": "Coneflowers, globemallow and other forbs add diversity to the grassland and feed pronghorn and prairie dogs.",
@@ -99,25 +99,25 @@
   },
   {
    "id": "chokecherry",
-   "sp": "prunus virginiana",
+   "sp": "prunus-virginiana",
    "xh": 0.64
   },
   {
    "id": "pine",
-   "sp": "pinus ponderosa",
+   "sp": "pinus-ponderosa",
    "xh": 0.84,
    "name": "Ponderosa pine",
    "desc": "The dominant tree of the hills, forming the forest that meets the prairie at the park edge."
   },
   {
    "id": "bison",
-   "sp": "bison bison",
+   "sp": "bison-bison",
    "xh": 0.08,
    "desc": "The park herd is one of four free-roaming, genetically pure bison herds on public land. They graze mainly grasses and sedges."
   },
   {
    "id": "prairiedog",
-   "sp": "cynomys ludovicianus",
+   "sp": "cynomys-ludovicianus",
    "xh": 0.24,
    "wiki": "Black-tailed prairie dog",
    "desc": "A burrowing grazer that lives in large colonies; its digging and clipping reshape vegetation and its colonies support many other species.",
@@ -125,7 +125,7 @@
   },
   {
    "id": "pronghorn",
-   "sp": "antilocapra americana",
+   "sp": "antilocapra-americana",
    "xh": 0.4,
    "wiki": "Pronghorn",
    "desc": "A fast grassland ungulate that lives in the park alongside bison and elk.",
@@ -133,27 +133,27 @@
   },
   {
    "id": "elk",
-   "sp": "cervus canadensis",
+   "sp": "cervus-canadensis",
    "xh": 0.56,
    "desc": "Elk graze and browse in the park, and are among the larger prey of mountain lions."
   },
   {
    "id": "muledeer",
-   "sp": "odocoileus hemionus",
+   "sp": "odocoileus-hemionus",
    "xh": 0.72,
    "wiki": "Mule deer",
    "desc": "A browsing deer of slopes and pine edges, taken by cougars and coyotes."
   },
   {
    "id": "deermouse",
-   "sp": "peromyscus maniculatus",
+   "sp": "peromyscus-maniculatus",
    "xh": 0.9,
    "desc": "A small seed- and insect-eating rodent that is prey for badgers, coyotes, snakes and ferrets.",
    "ic": "vole"
   },
   {
    "id": "ferret",
-   "sp": "mustela nigripes",
+   "sp": "mustela-nigripes",
    "xh": 0.08,
    "desc": "An endangered weasel that depends on prairie dog colonies, which can make up most of its diet. The species has been reintroduced to the park.",
    "ic": "quad",
@@ -163,7 +163,7 @@
   },
   {
    "id": "badger",
-   "sp": "taxidea taxus",
+   "sp": "taxidea-taxus",
    "xh": 0.24,
    "wiki": "American badger",
    "desc": "A digging carnivore that preys on prairie dogs and other burrowing rodents.",
@@ -171,7 +171,7 @@
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.4,
    "tl": 3,
    "wiki": "Coyote",
@@ -179,28 +179,28 @@
   },
   {
    "id": "bullsnake",
-   "sp": "pituophis catenifer",
+   "sp": "pituophis-catenifer",
    "xh": 0.56,
    "desc": "A large constrictor that hunts rodents, birds and eggs in grassland.",
    "ic": "snake"
   },
   {
    "id": "vulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.72,
    "wiki": "Turkey vulture",
    "desc": "A soaring scavenger that finds and eats carcasses of deer and small mammals."
   },
   {
    "id": "magpie",
-   "sp": "pica hudsonia",
+   "sp": "pica-hudsonia",
    "xh": 0.88,
    "wiki": "Black-billed magpie",
    "desc": "A clever corvid that feeds on carrion as well as insects and seeds."
   },
   {
    "id": "puma",
-   "sp": "puma concolor",
+   "sp": "puma-concolor",
    "xh": 0.5,
    "name": "Mountain lion",
    "desc": "The park apex predator, which takes mainly deer and elk and is regarded as a keystone species.",

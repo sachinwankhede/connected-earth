@@ -34,34 +34,34 @@
  "nodes": [
   {
    "id": "algae",
-   "sp": "diverse microalgae",
+   "sp": "diverse-microalgae",
    "xh": 0.08,
    "name": "River phytoplankton",
    "desc": "Drifting algae that start the river's food chain. They feed zooplankton, mussels and filter-feeding fish."
   },
   {
    "id": "celery",
-   "sp": "vallisneria and potamogeton spp.",
+   "sp": "vallisneria-and-potamogeton-spp",
    "xh": 0.3
   },
   {
    "id": "moist",
-   "sp": "smartweeds and millets",
+   "sp": "smartweeds-and-millets",
    "xh": 0.5
   },
   {
    "id": "cottonwood",
-   "sp": "populus deltoides, acer saccharinum",
+   "sp": "populus-deltoides-acer-saccharinum",
    "xh": 0.72
   },
   {
    "id": "willow",
-   "sp": "salix nigra",
+   "sp": "salix-nigra",
    "xh": 0.9
   },
   {
    "id": "zoop",
-   "sp": "cladocera and copepods",
+   "sp": "cladocera-and-copepods",
    "xh": 0.04
   },
   {
@@ -71,41 +71,41 @@
   },
   {
    "id": "insects",
-   "sp": "mayflies, caddisflies and midges",
+   "sp": "mayflies-caddisflies-and-midges",
    "xh": 0.23
   },
   {
    "id": "shad",
-   "sp": "dorosoma cepedianum",
+   "sp": "dorosoma-cepedianum",
    "xh": 0.32
   },
   {
    "id": "silvercarp",
-   "sp": "hypophthalmichthys molitrix",
+   "sp": "hypophthalmichthys-molitrix",
    "xh": 0.42
   },
   {
    "id": "paddlefish",
-   "sp": "polyodon spathula",
+   "sp": "polyodon-spathula",
    "xh": 0.51
   },
   {
    "id": "canvasback",
-   "sp": "aythya valisineria",
+   "sp": "aythya-valisineria",
    "xh": 0.6,
    "wiki": "Canvasback",
    "desc": "A diving duck that migrates along the Mississippi Flyway. It eats tubers, buds, seeds, snails and insect larvae, favoring wild celery. The FWS says the upper river supports up to half the world's canvasbacks."
   },
   {
    "id": "mallard",
-   "sp": "anas platyrhynchos",
+   "sp": "anas-platyrhynchos",
    "xh": 0.69,
    "wiki": "Mallard",
    "desc": "Eats seeds from moist-soil plants and other plant foods in flooded fields and backwaters."
   },
   {
    "id": "muskrat",
-   "sp": "ondatra zibethicus",
+   "sp": "ondatra-zibethicus",
    "xh": 0.78,
    "wiki": "Muskrat",
    "desc": "Lives along banks and marshes, eating aquatic plants.",
@@ -113,14 +113,14 @@
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.88,
    "wiki": "White-tailed deer",
    "desc": "Browses young trees and shrubs on the floodplain. Coyotes take fawns, and eagles scavenge carcasses."
   },
   {
    "id": "beaver",
-   "sp": "castor canadensis",
+   "sp": "castor-canadensis",
    "xh": 0.97,
    "wiki": "North American beaver",
    "desc": "Cuts cottonwood and willow for food and dams.",
@@ -128,12 +128,12 @@
   },
   {
    "id": "drum",
-   "sp": "aplodinotus grunniens",
+   "sp": "aplodinotus-grunniens",
    "xh": 0.1
   },
   {
    "id": "otter",
-   "sp": "lontra canadensis",
+   "sp": "lontra-canadensis",
    "xh": 0.28,
    "name": "River otter",
    "wiki": "North American river otter",
@@ -141,42 +141,42 @@
   },
   {
    "id": "heron",
-   "sp": "ardea herodias",
+   "sp": "ardea-herodias",
    "xh": 0.4
   },
   {
    "id": "cormorant",
-   "sp": "nannopterum auritum",
+   "sp": "nannopterum-auritum",
    "xh": 0.5,
    "desc": "Dives for fish. The NPS notes cormorants depend on fish.",
    "ic": "raven"
   },
   {
    "id": "pelican",
-   "sp": "pelecanus erythrorhynchos",
+   "sp": "pelecanus-erythrorhynchos",
    "xh": 0.6,
    "desc": "Scoops up fish from shallows. Breeds on lakes across interior North America and winters on the Gulf coast, and also follows the Mississippi River in winter."
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.72,
    "desc": "Dives for fish. The NPS notes ospreys depend on fish."
   },
   {
    "id": "flathead",
-   "sp": "pylodictis olivaris",
+   "sp": "pylodictis-olivaris",
    "xh": 0.1
   },
   {
    "id": "baldeagle",
-   "sp": "haliaeetus leucocephalus",
+   "sp": "haliaeetus-leucocephalus",
    "xh": 0.45,
    "desc": "The FWS counts more than 200 nesting pairs in the refuge and nearby public lands. Eats fish and waterfowl and scavenges carcasses."
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.85,
    "wiki": "Coyote",
    "desc": "Lives along the banks, taking fawns, ducks and muskrats. The NPS lists it as a bank dweller."
@@ -189,17 +189,17 @@
   },
   {
    "id": "flood",
-   "sp": "flood pulse & river flow",
+   "sp": "flood-pulse-river-flow",
    "xh": 0.35
   },
   {
    "id": "sed",
-   "sp": "sediment & nutrients",
+   "sp": "sediment-nutrients",
    "xh": 0.62
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.88,
    "name": "Bacteria & fungi",
    "desc": "Break down leaf litter, dead fish and plants and return nutrients to the water and soil."

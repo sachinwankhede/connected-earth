@@ -47,12 +47,12 @@
  "nodes": [
   {
    "id": "sun",
-   "sp": "midnight sun and short summer",
+   "sp": "midnight-sun-and-short-summer",
    "xh": 0.1
   },
   {
    "id": "snow",
-   "sp": "snow and snowfields",
+   "sp": "snow-and-snowfields",
    "xh": 0.3
   },
   {
@@ -64,45 +64,45 @@
   },
   {
    "id": "soil",
-   "sp": "thin tundra soil",
+   "sp": "thin-tundra-soil",
    "xh": 0.7,
    "wiki": "Tundra",
    "desc": "Cold, shallow soils hold limited nutrients that plants and decomposers recycle slowly."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi and soil microbes",
    "desc": "Break down dead plants and carcasses, slowly in the cold, and return nutrients to the soil."
   },
   {
    "id": "sedge",
-   "sp": "carex aquatilis",
+   "sp": "carex-aquatilis",
    "xh": 0.12
   },
   {
    "id": "willow",
-   "sp": "salix glauca",
+   "sp": "salix-glauca",
    "xh": 0.37,
    "name": "Arctic willows"
   },
   {
    "id": "cowberry",
-   "sp": "vaccinium vitis-idaea",
+   "sp": "vaccinium-vitis-idaea",
    "xh": 0.62,
    "name": "Cowberry and heath shrubs",
    "desc": "Low evergreen shrub with tart berries. GloBI records it eaten by caribou, ptarmigan, longspurs, foxes and ravens."
   },
   {
    "id": "lichen",
-   "sp": "cladonia rangiferina",
+   "sp": "cladonia-rangiferina",
    "xh": 0.87,
    "desc": "A pale ground lichen. Wikipedia says caribou dig through snow to reach it, and it is a winter staple for them."
   },
   {
    "id": "caribou",
-   "sp": "rangifer tarandus",
+   "sp": "rangifer-tarandus",
    "xh": 0.06,
    "wiki": "Caribou",
    "desc": "Wikipedia describes migrations between taiga winter range and tundra summer range. The Western Arctic herd moves through the central Brooks Range and feeds wolves, bears and people.",
@@ -111,62 +111,62 @@
   },
   {
    "id": "sheep",
-   "sp": "ovis dalli",
+   "sp": "ovis-dalli",
    "xh": 0.19,
    "desc": "A white mountain sheep of alpine slopes in the Brooks Range that grazes grasses and sedges."
   },
   {
    "id": "vole",
-   "sp": "microtus oeconomus",
+   "sp": "microtus-oeconomus",
    "xh": 0.31
   },
   {
    "id": "lemming",
-   "sp": "lemmus trimucronatus",
+   "sp": "lemmus-trimucronatus",
    "xh": 0.43
   },
   {
    "id": "gsq",
-   "sp": "urocitellus parryii",
+   "sp": "urocitellus-parryii",
    "xh": 0.56,
    "desc": "Eats plants and some small animals, then hibernates through winter. GloBI records it as prey of grizzlies and wolverines."
   },
   {
    "id": "ptarmigan",
-   "sp": "lagopus lagopus",
+   "sp": "lagopus-lagopus",
    "xh": 0.69,
    "desc": "A grouse that feeds on willow buds and twigs and other tundra plants. GloBI records it as prey of foxes, wolverines, grizzlies and stoats."
   },
   {
    "id": "longspur",
-   "sp": "calcarius lapponicus",
+   "sp": "calcarius-lapponicus",
    "xh": 0.82
   },
   {
    "id": "stoat",
-   "sp": "mustela erminea",
+   "sp": "mustela-erminea",
    "xh": 0.1
   },
   {
    "id": "fox",
-   "sp": "vulpes vulpes",
+   "sp": "vulpes-vulpes",
    "xh": 0.33,
    "desc": "Eats rodents, birds and berries. GloBI records it feeding on voles, lemmings, ptarmigan and caribou."
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.58,
    "desc": "A scavenging bird that feeds on carrion, berries and small animals, and stays all winter in the Arctic."
   },
   {
    "id": "wolverine",
-   "sp": "gulo gulo",
+   "sp": "gulo-gulo",
    "xh": 0.85
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.3,
    "desc": "Hunts caribou, Dall sheep and smaller animals in the Brooks Range. A top predator of the caribou herds.",
    "cat": "Keystone predator",
@@ -176,7 +176,7 @@
   },
   {
    "id": "grizzly",
-   "sp": "ursus arctos",
+   "sp": "ursus-arctos",
    "xh": 0.7,
    "name": "Grizzly bear",
    "desc": "The park has a low density of grizzlies, roughly one bear per 100 square miles. They eat berries, ground squirrels and caribou."

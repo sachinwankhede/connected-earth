@@ -58,117 +58,117 @@
   },
   {
    "id": "upwell",
-   "sp": "cap blanc upwelling",
+   "sp": "cap-blanc-upwelling",
    "xh": 0.36
   },
   {
    "id": "dust",
-   "sp": "windblown sediment",
+   "sp": "windblown-sediment",
    "xh": 0.6
   },
   {
    "id": "mud",
-   "sp": "tidal mudflats",
+   "sp": "tidal-mudflats",
    "xh": 0.84
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.97,
    "name": "Bacteria",
    "desc": "Break down dead seagrass, algae and animals, releasing nutrients back to the mud and water."
   },
   {
    "id": "zostera",
-   "sp": "zostera noltei",
+   "sp": "zostera-noltei",
    "xh": 0.15
   },
   {
    "id": "cymodocea",
-   "sp": "cymodocea nodosa",
+   "sp": "cymodocea-nodosa",
    "xh": 0.45
   },
   {
    "id": "phyto",
-   "sp": "microscopic algae",
+   "sp": "microscopic-algae",
    "xh": 0.78,
    "desc": "Drifting and mud-surface microalgae fuelled by upwelled nutrients; they feed fish, clams and crabs."
   },
   {
    "id": "turtle",
-   "sp": "chelonia mydas",
+   "sp": "chelonia-mydas",
    "xh": 0.08,
    "desc": "Adults graze mostly on seagrass and algae in shallow lagoons and bays. The species occurs at the site and is listed by the IUCN."
   },
   {
    "id": "loripes",
-   "sp": "loripes lucinalis",
+   "sp": "loripes-lucinalis",
    "xh": 0.28
   },
   {
    "id": "crab",
-   "sp": "afruca tangeri",
+   "sp": "afruca-tangeri",
    "xh": 0.48
   },
   {
    "id": "mullet",
-   "sp": "mugil cephalus",
+   "sp": "mugil-cephalus",
    "xh": 0.68,
    "wiki": "Mugil cephalus",
    "desc": "Schooling fish of shallow coastal waters feeding on algae and detritus. Mullet are the main prey of Atlantic humpback dolphins."
   },
   {
    "id": "sardinella",
-   "sp": "sardinella aurita",
+   "sp": "sardinella-aurita",
    "xh": 0.88,
    "wiki": "Sardinella aurita",
    "desc": "Small schooling fish that eats plankton and is a major food for larger fish, seabirds and marine mammals in upwelling waters."
   },
   {
    "id": "octopus",
-   "sp": "octopus vulgaris",
+   "sp": "octopus-vulgaris",
    "xh": 0.08
   },
   {
    "id": "redknot",
-   "sp": "calidris canutus",
+   "sp": "calidris-canutus",
    "xh": 0.24,
    "desc": "Long-distance migrant that winters on West African flats and in winter eats mainly hard-shelled prey such as bivalves."
   },
   {
    "id": "spoonbill",
-   "sp": "platalea leucorodia",
+   "sp": "platalea-leucorodia",
    "xh": 0.4
   },
   {
    "id": "pelican",
-   "sp": "pelecanus onocrotalus",
+   "sp": "pelecanus-onocrotalus",
    "xh": 0.56
   },
   {
    "id": "gull",
-   "sp": "larus fuscus",
+   "sp": "larus-fuscus",
    "xh": 0.72
   },
   {
    "id": "harrier",
-   "sp": "circus aeruginosus",
+   "sp": "circus-aeruginosus",
    "xh": 0.9,
    "tl": 3
   },
   {
    "id": "dolphin",
-   "sp": "sousa teuszii",
+   "sp": "sousa-teuszii",
    "xh": 0.22
   },
   {
    "id": "monkseal",
-   "sp": "monachus monachus",
+   "sp": "monachus-monachus",
    "xh": 0.52
   },
   {
    "id": "blacktip",
-   "sp": "carcharhinus limbatus",
+   "sp": "carcharhinus-limbatus",
    "xh": 0.82
   }
  ],

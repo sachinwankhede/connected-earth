@@ -40,57 +40,57 @@
  "nodes": [
   {
    "id": "canadianbunchb",
-   "sp": "cornus canadensis",
+   "sp": "cornus-canadensis",
    "xh": 0.142,
    "desc": "Canadian Bunchberry (Cornus canadensis): a plant that turns sunlight into food. Recorded 21 times near the park in GBIF."
   },
   {
    "id": "interruptedclu",
-   "sp": "spinulum annotinum",
+   "sp": "spinulum-annotinum",
    "xh": 0.285
   },
   {
    "id": "bluebead",
-   "sp": "clintonia borealis",
+   "sp": "clintonia-borealis",
    "xh": 0.428,
    "desc": "Bluebead (Clintonia borealis): a plant that turns sunlight into food. Recorded 10 times near the park in GBIF."
   },
   {
    "id": "ladysslipperor",
-   "sp": "cypripedium acaule",
+   "sp": "cypripedium-acaule",
    "xh": 0.572,
    "desc": "Lady's-Slipper Orchid (Cypripedium acaule): a plant that turns sunlight into food. Recorded 5 times near the park in GBIF."
   },
   {
    "id": "creepingsnowbe",
-   "sp": "gaultheria hispidula",
+   "sp": "gaultheria-hispidula",
    "xh": 0.715
   },
   {
    "id": "easternroughse",
-   "sp": "carex scabrata",
+   "sp": "carex-scabrata",
    "xh": 0.858
   },
   {
    "id": "americanredsqu",
-   "sp": "tamiasciurus hudsonicus",
+   "sp": "tamiasciurus-hudsonicus",
    "xh": 0.5
   },
   {
    "id": "americanrobin",
-   "sp": "turdus migratorius",
+   "sp": "turdus-migratorius",
    "xh": 0.213,
    "desc": "American Robin (Turdus migratorius): hunts or scavenges other animals. Recorded 42 times near the park in GBIF."
   },
   {
    "id": "redeyedvireo",
-   "sp": "vireo olivaceus",
+   "sp": "vireo-olivaceus",
    "xh": 0.5,
    "desc": "Red-eyed Vireo (Vireo olivaceus): hunts or scavenges other animals. Recorded 36 times near the park in GBIF."
   },
   {
    "id": "raccoon",
-   "sp": "procyon lotor",
+   "sp": "procyon-lotor",
    "xh": 0.787
   },
   {
@@ -105,12 +105,12 @@
   },
   {
    "id": "soil",
-   "sp": "soil and nutrients",
+   "sp": "soil-and-nutrients",
    "xh": 0.58
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.84
   }
  ],

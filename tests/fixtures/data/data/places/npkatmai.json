@@ -47,24 +47,24 @@
  "nodes": [
   {
    "id": "sun",
-   "sp": "long summer daylight",
+   "sp": "long-summer-daylight",
    "xh": 0.1
   },
   {
    "id": "ash",
-   "sp": "volcanic ash soil",
+   "sp": "volcanic-ash-soil",
    "xh": 0.3,
    "desc": "The 1912 Novarupta eruption buried the Valley of Ten Thousand Smokes under deep ash and pumice deposits, where plants are slowly recolonizing.",
    "ic": "fire"
   },
   {
    "id": "cold",
-   "sp": "cold, short growing season",
+   "sp": "cold-short-growing-season",
    "xh": 0.5
   },
   {
    "id": "nutr",
-   "sp": "salmon-borne nutrients",
+   "sp": "salmon-borne-nutrients",
    "xh": 0.7
   },
   {
@@ -81,19 +81,19 @@
   },
   {
    "id": "crow",
-   "sp": "empetrum nigrum",
+   "sp": "empetrum-nigrum",
    "xh": 0.2,
    "desc": "A low evergreen tundra shrub with black berries that birds eat."
   },
   {
    "id": "bilb",
-   "sp": "vaccinium uliginosum",
+   "sp": "vaccinium-uliginosum",
    "xh": 0.34,
    "desc": "A low berry shrub of tundra and bog. Its berries are eaten by bears."
   },
   {
    "id": "horse",
-   "sp": "equisetum arvense",
+   "sp": "equisetum-arvense",
    "xh": 0.48,
    "name": "Field horsetail",
    "desc": "A spore-bearing plant that colonizes bare, disturbed ground and is eaten by bears and moose.",
@@ -101,37 +101,37 @@
   },
   {
    "id": "spruce",
-   "sp": "picea glauca",
+   "sp": "picea-glauca",
    "xh": 0.62,
    "desc": "A conifer whose seeds feed red squirrels and which forms the forest along park lakes and rivers."
   },
   {
    "id": "fire",
-   "sp": "chamaenerion angustifolium",
+   "sp": "chamaenerion-angustifolium",
    "xh": 0.76,
    "desc": "A tall pink wildflower that quickly colonizes bare or disturbed ground and is browsed by moose."
   },
   {
    "id": "phyto",
-   "sp": "diatoms and other algae",
+   "sp": "diatoms-and-other-algae",
    "xh": 0.9,
    "desc": "Microscopic drifting algae that form the base of the food web in park lakes."
   },
   {
    "id": "moose",
-   "sp": "alces alces",
+   "sp": "alces-alces",
    "xh": 0.1,
    "desc": "Browses shrubs, horsetail and other plants. Wikipedia lists moose among park mammals; bears and wolves hunt them."
   },
   {
    "id": "ags",
-   "sp": "urocitellus parryii",
+   "sp": "urocitellus-parryii",
    "xh": 0.28,
    "desc": "A burrowing, hibernating rodent of tundra slopes that eats plants and seeds and is prey for bears."
   },
   {
    "id": "rsq",
-   "sp": "tamiasciurus hudsonicus",
+   "sp": "tamiasciurus-hudsonicus",
    "xh": 0.46,
    "wiki": "American red squirrel",
    "desc": "Feeds on spruce seeds and is prey for lynx and bears.",
@@ -139,57 +139,57 @@
   },
   {
    "id": "vole",
-   "sp": "microtus oeconomus",
+   "sp": "microtus-oeconomus",
    "xh": 0.64,
    "desc": "A small rodent of wet meadows that feeds on sedges and other plants and is eaten by bears."
   },
   {
    "id": "zoop",
-   "sp": "copepoda and relatives",
+   "sp": "copepoda-and-relatives",
    "xh": 0.84
   },
   {
    "id": "sock",
-   "sp": "oncorhynchus nerka",
+   "sp": "oncorhynchus-nerka",
    "xh": 0.08,
    "desc": "Feeds on zooplankton, then returns from the ocean to spawn. Spawning runs into Brooks River bring bears, eagles and gulls to feed.",
    "badge": "Keystone species"
   },
   {
    "id": "lynx",
-   "sp": "lynx canadensis",
+   "sp": "lynx-canadensis",
    "xh": 0.25,
    "desc": "A secretive wild cat listed among park mammals. It hunts squirrels and other small prey."
   },
   {
    "id": "gull",
-   "sp": "larus glaucescens",
+   "sp": "larus-glaucescens",
    "xh": 0.42,
    "desc": "The most often recorded bird here. Gulls scavenge the remains bears leave from salmon."
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.6,
    "desc": "An opportunistic omnivore that eats berries and scavenges salmon remains and carrion."
   },
   {
    "id": "eagle",
-   "sp": "haliaeetus leucocephalus",
+   "sp": "haliaeetus-leucocephalus",
    "xh": 0.78,
    "tl": 3,
    "desc": "Feeds on spawning salmon and on carcasses left on riverbanks."
   },
   {
    "id": "bear",
-   "sp": "ursus arctos",
+   "sp": "ursus-arctos",
    "xh": 0.35,
    "desc": "Katmai protects one of the largest brown bear populations in the world. Bears eat sedges, berries, and in summer, salmon.",
    "badge": "Keystone predator"
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.65,
    "desc": "Listed among Katmai mammals. Wolves hunt large prey such as moose.",
    "no": [

@@ -17,143 +17,143 @@
  "nodes": [
   {
    "id": "brazil",
-   "sp": "bertholletia excelsa",
+   "sp": "bertholletia-excelsa",
    "xh": 0.12
   },
   {
    "id": "kapok",
-   "sp": "ceiba pentandra",
+   "sp": "ceiba-pentandra",
    "xh": 0.28
   },
   {
    "id": "cecropia",
-   "sp": "cecropia spp.",
+   "sp": "cecropia-spp",
    "xh": 0.46
   },
   {
    "id": "fig",
-   "sp": "ficus spp.",
+   "sp": "ficus-spp",
    "xh": 0.62
   },
   {
    "id": "acai",
-   "sp": "euterpe oleracea",
+   "sp": "euterpe-oleracea",
    "xh": 0.78
   },
   {
    "id": "floodalg",
-   "sp": "aquatic macrophytes",
+   "sp": "aquatic-macrophytes",
    "xh": 0.94
   },
   {
    "id": "leafcutter",
-   "sp": "atta cephalotes",
+   "sp": "atta-cephalotes",
    "xh": 0.06
   },
   {
    "id": "sloth",
-   "sp": "bradypus variegatus",
+   "sp": "bradypus-variegatus",
    "xh": 0.17,
    "name": "Three-toed sloth",
    "ic": "grizzly"
   },
   {
    "id": "howler",
-   "sp": "alouatta spp.",
+   "sp": "alouatta-spp",
    "xh": 0.28
   },
   {
    "id": "agouti",
-   "sp": "dasyprocta spp.",
+   "sp": "dasyprocta-spp",
    "xh": 0.4
   },
   {
    "id": "tapir",
-   "sp": "tapirus terrestris",
+   "sp": "tapirus-terrestris",
    "xh": 0.52
   },
   {
    "id": "capybara",
-   "sp": "hydrochoerus hydrochaeris",
+   "sp": "hydrochoerus-hydrochaeris",
    "xh": 0.64,
    "ic": "beaver"
   },
   {
    "id": "macaw",
-   "sp": "ara macao",
+   "sp": "ara-macao",
    "xh": 0.75
   },
   {
    "id": "toucan",
-   "sp": "ramphastos toco",
+   "sp": "ramphastos-toco",
    "xh": 0.85
   },
   {
    "id": "tambaqui",
-   "sp": "colossoma macropomum",
+   "sp": "colossoma-macropomum",
    "xh": 0.95
   },
   {
    "id": "ocelot",
-   "sp": "leopardus pardalis",
+   "sp": "leopardus-pardalis",
    "xh": 0.12
   },
   {
    "id": "anteater",
-   "sp": "myrmecophaga tridactyla",
+   "sp": "myrmecophaga-tridactyla",
    "xh": 0.27,
    "ic": "fox"
   },
   {
    "id": "boa",
-   "sp": "boa constrictor",
+   "sp": "boa-constrictor",
    "xh": 0.42
   },
   {
    "id": "kingvulture",
-   "sp": "sarcoramphus papa",
+   "sp": "sarcoramphus-papa",
    "xh": 0.56
   },
   {
    "id": "piranha",
-   "sp": "pygocentrus nattereri",
+   "sp": "pygocentrus-nattereri",
    "xh": 0.7
   },
   {
    "id": "otter",
-   "sp": "pteronura brasiliensis",
+   "sp": "pteronura-brasiliensis",
    "xh": 0.83
   },
   {
    "id": "arapaima",
-   "sp": "arapaima gigas",
+   "sp": "arapaima-gigas",
    "xh": 0.94
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.34,
    "name": "Osprey (winter visitor)"
   },
   {
    "id": "jaguar",
-   "sp": "panthera onca",
+   "sp": "panthera-onca",
    "xh": 0.3
   },
   {
    "id": "harpy",
-   "sp": "harpia harpyja",
+   "sp": "harpia-harpyja",
    "xh": 0.55,
    "ic": "baldeagle"
   },
   {
    "id": "caiman",
-   "sp": "melanosuchus niger",
+   "sp": "melanosuchus-niger",
    "xh": 0.78
   },
   {
    "id": "anaconda",
-   "sp": "eunectes murinus",
+   "sp": "eunectes-murinus",
    "xh": 0.93
   },
   {
@@ -164,17 +164,17 @@
   },
   {
    "id": "rain",
-   "sp": "rain & river floods",
+   "sp": "rain-river-floods",
    "xh": 0.36
   },
   {
    "id": "soil",
-   "sp": "nutrient-poor soil",
+   "sp": "nutrient-poor-soil",
    "xh": 0.62
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.86,
    "name": "Fungi & termites",
    "desc": "Break down leaf litter and fallen wood in weeks, so nutrients return to roots quickly."

@@ -50,22 +50,22 @@
  "nodes": [
   {
    "id": "aulac",
-   "sp": "aulacoseira baicalensis",
+   "sp": "aulacoseira-baicalensis",
    "xh": 0.18
   },
   {
    "id": "taiga",
-   "sp": "conifers, shrubs and berries",
+   "sp": "conifers-shrubs-and-berries",
    "xh": 0.9
   },
   {
    "id": "epi",
-   "sp": "epischura baikalensis",
+   "sp": "epischura-baikalensis",
    "xh": 0.08
   },
   {
    "id": "macro",
-   "sp": "macrohectopus branickii",
+   "sp": "macrohectopus-branickii",
    "xh": 0.2
   },
   {
@@ -75,55 +75,55 @@
   },
   {
    "id": "amph",
-   "sp": "acanthogammarus and relatives",
+   "sp": "acanthogammarus-and-relatives",
    "xh": 0.5
   },
   {
    "id": "golo",
-   "sp": "comephorus spp.",
+   "sp": "comephorus-spp",
    "xh": 0.08
   },
   {
    "id": "sculpin",
-   "sp": "cottocomephorus spp.",
+   "sp": "cottocomephorus-spp",
    "xh": 0.2
   },
   {
    "id": "omul",
-   "sp": "coregonus migratorius",
+   "sp": "coregonus-migratorius",
    "xh": 0.32
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.64,
    "desc": "A fish-eating bird of prey that hunts in shallow water along the shore."
   },
   {
    "id": "eagle",
-   "sp": "haliaeetus albicilla",
+   "sp": "haliaeetus-albicilla",
    "xh": 0.76,
    "tl": 3
   },
   {
    "id": "sable",
-   "sp": "martes zibellina",
+   "sp": "martes-zibellina",
    "xh": 0.88
   },
   {
    "id": "seal",
-   "sp": "pusa sibirica",
+   "sp": "pusa-sibirica",
    "xh": 0.26
   },
   {
    "id": "bear",
-   "sp": "ursus arctos",
+   "sp": "ursus-arctos",
    "xh": 0.86,
    "desc": "Roams the taiga shore. It is the only known natural predator of adult Baikal seals, though attacks are thought to be rare."
   },
   {
    "id": "ice",
-   "sp": "winter ice",
+   "sp": "winter-ice",
    "xh": 0.05
   },
   {
@@ -134,17 +134,17 @@
   },
   {
    "id": "oxy",
-   "sp": "deep oxygenated water",
+   "sp": "deep-oxygenated-water",
    "xh": 0.42
   },
   {
    "id": "nutr",
-   "sp": "dissolved nutrients",
+   "sp": "dissolved-nutrients",
    "xh": 0.6
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.8,
    "name": "Bacteria",
    "desc": "Break down dead algae, plankton and animals, returning nutrients to the water."
