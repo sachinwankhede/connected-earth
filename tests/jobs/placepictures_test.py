@@ -3,7 +3,7 @@
 import datetime, io, json, os, sys, tempfile, unittest
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', 'jobs')); sys.path.insert(0, os.path.join(HERE, '..', '..', 'lib'))
-import placepictures as pj, place_photos as pp, author_lookup as al, commonsplacephotos as cpp
+import placepictures as pj, place_photos as pp, author_lookup as al, place_sources as cpp
 
 def jpeg():
     from PIL import Image
