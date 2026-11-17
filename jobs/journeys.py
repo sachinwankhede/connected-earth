@@ -16,15 +16,12 @@ def km(a, b, c, d):
 
 def load():
     sys.path.insert(0, os.path.join(ROOT, 'build')); import species
-    tab = species.by_name()   # {Latin name: row}: this job ranks by name
-    key = {r['sid']: k for k, r in tab.items() if r.get('sid')}   # #1013: a place node's `sp` is a species id; this job ranks by the table key (Latin name), so translate once here
+    tab = species.table()   # {species id: row}; a place node's `sp` is a species id too (#1013, #1024)
     places = []
     for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
         try: e = json.load(open(f))
         except Exception: continue
         if isinstance(e, dict) and e.get('nodes'):
-            for n in e['nodes']:
-                if isinstance(n, dict) and n.get('sp') in key: n['sp'] = key[n['sp']]
             places.append(e)
     import journeydata
     links = journeydata.links()
@@ -85,7 +82,7 @@ if __name__ == '__main__':
     for sp, ps in occ.items():
         if len(ps) < 2: continue
         d, a, b = far_pair(ps)
-        if d >= MIN_KM: cand.append(dict(sp=sp, name=tab[sp].get('name') or sp, wiki=tab[sp]['wiki'], n=len(ps), km=round(d), a=a, b=b))
+        if d >= MIN_KM: cand.append(dict(sp=sp, name=tab[sp].get('name') or sp, latin=tab[sp].get('latin') or '', wiki=tab[sp]['wiki'], n=len(ps), km=round(d), a=a, b=b))
     ev = {} if OFFLINE else evidence(sorted({c['wiki'] for c in cand}))
     for c in cand: c['score'], c['why'] = ev.get(c['wiki'], (0, ''))
     keep = [c for c in cand if c['score'] > 0] if not OFFLINE else cand
@@ -94,6 +91,6 @@ if __name__ == '__main__':
            '%d species live in places %d+ km apart; %d of them are described as migratory on Wikipedia%s. Top %d below. Score: 3 for a migration category plus half a point per sentence in the whole article that says it migrates (max 5 for the sentences, 8 in all).' % (len(cand), MIN_KM, len(keep), ' (offline run: not checked)' if OFFLINE else '', TOP), '',
            '| # | Species | Score | Places | Farthest pair | Existing journey | Evidence |', '|---|---|---|---|---|---|---|']
     for i, c in enumerate(keep[:TOP], 1):
-        out.append('| %d | %s (%s) | %s | %d | %s <-> %s, %d km | %s | %s |' % (i, c['name'], c['sp'], c['score'], c['n'], c['a'], c['b'], c['km'], cov.get(c['sp'], ''), c['why'].replace('|', '/')))
+        out.append('| %d | %s (%s) | %s | %d | %s <-> %s, %d km | %s | %s |' % (i, c['name'], c['latin'] or c['sp'], c['score'], c['n'], c['a'], c['b'], c['km'], cov.get(c['sp'], ''), c['why'].replace('|', '/')))
     os.makedirs(os.path.join(ROOT, 'research'), exist_ok=True)
     open(os.path.join(ROOT, 'research', 'journey-candidates.md'), 'w').write('\n'.join(out) + '\n'); print('\n'.join(out[:20]))

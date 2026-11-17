@@ -17,6 +17,14 @@ class DataFormat(unittest.TestCase):
             errs, _ = check(r); text = '\n'.join(errs)
             self.assertIn("species 'a-b-2': its sid 'a-b-2' is not the slug of its name ('a-b')", text)
             self.assertEqual(sum('slug of its name' in e for e in errs), 1)   # the resource row is not reported
+    def test_conservation_is_by_species_id(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
+            put(r, 'data/species/conservation.json', {'a-b': {'c': 'LC', 'q': 'Q1'}, 'a b': {'c': 'LC', 'q': 'Q1'}}); put(r, 'data/species/conservation_asked.json', ['a-b', 'zzz'])
+            text = '\n'.join(check(r)[0])
+            self.assertIn("conservation.json: 'a b' is not the id of a species row", text)
+            self.assertIn("conservation_asked.json: 'zzz' is not the id of a species row", text)
+            self.assertNotIn("'a-b' is not the id", text)
     def test_clean_tree_has_no_problems(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})

@@ -74,7 +74,7 @@ def main():
     for f in ('search_vocabulary.json', 'order_names.json', 'tab_groups.json'): shutil.copyfile(os.path.join(sd, f), os.path.join(od, f))
     sids = {r['sid'] for r in keep.values()}; lat = {species.name_key(r) for r in keep.values()}
     tax = load(os.path.join(sd, 'taxonomy.json')); dump({k: v for k, v in tax.items() if k in sids}, os.path.join(od, 'taxonomy.json'), indent=1)
-    con = load(os.path.join(sd, 'conservation.json')); dump({k: v for k, v in con.items() if k in lat}, os.path.join(od, 'conservation.json'), indent=1)
+    con = load(os.path.join(sd, 'conservation.json')); dump({k: v for k, v in con.items() if k in sids}, os.path.join(od, 'conservation.json'), indent=1)
     dump({}, os.path.join(od, 'about.json'))
     os.makedirs(os.path.join(OUT, 'data', 'geo')); shutil.copyfile(R('data', 'geo', 'geo.json'), os.path.join(OUT, 'data', 'geo', 'geo.json'))
     # place pictures (the app reads photos/places/places.json, keyed by the place id (#973 phase 4), and the image files next to it): eight places with a picture, the rest without

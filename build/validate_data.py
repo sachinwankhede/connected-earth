@@ -170,6 +170,11 @@ def check(root):
             shape(man, 'taxonomy-manual', 'data/species/taxonomy_manual.json', errs)
             for sid in sorted(set(man) - taxa): errs.append('data/species/taxonomy_manual.json: %r is not a species of kind taxon' % sid)
         for sid in sorted(set(tx or {}) & set(rv or {})): errs.append('taxonomy: %r is both accepted and in the review list' % sid)
+    # conservation status (#1024): by species id, like every other species file
+    cons = load(root, 'data', 'species', 'conservation.json'); casked = load(root, 'data', 'species', 'conservation_asked.json')
+    if cons is not None or casked is not None:
+        for name, ids in (('conservation.json', cons or {}), ('conservation_asked.json', casked or [])):
+            for sid in sorted(set(ids) - set(sids), key=str): errs.append('data/species/%s: %r is not the id of a species row' % (name, sid))
     # eating-link table (#256): one file per consumer species, sitting where its sid says; the consumer and every prey must be species of the table
     dd = os.path.join(root, 'data', 'diets')
     if os.path.isdir(dd):

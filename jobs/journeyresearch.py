@@ -36,13 +36,12 @@ def sections(text):
 
 def main(names):
     tab, places, links = J.load(); occ = J.occurrences(tab, places); cov = J.covered(places, links)
-    pl = {e['id']: e for e in places}; byl = {}
-    for k, r in tab.items():
-        if r.get('latin'): byl.setdefault(r['latin'].lower(), []).append(k)
+    pl = {e['id']: e for e in places}
+    byl = {r['latin'].lower(): k for k, r in tab.items() if r.get('latin')}   # a typed Latin name -> species id (the one place this job starts from a name)
     out = ['# Journey research', '', 'Retrieved %s. Wikipedia text is CC BY-SA; each section names its article. Nothing here is verified beyond what the source says.' % TODAY, '',
            'Use: pick the two ends only where the text says the species travels between those regions. Skip a species when no pair of places fits.', '']
     for lat in names:
-        keys = byl.get(lat.lower(), []); sp = keys[0] if keys else None
+        sp = byl.get(lat.lower())
         r = tab.get(sp, {}) if sp else {}
         out += ['## %s (%s)' % (r.get('name', lat), lat), '']
         if not sp or sp not in occ: out += ['Not found in the app (or only one place).', '']; continue
