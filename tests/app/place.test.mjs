@@ -73,6 +73,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       return { has: !!st && !!wm, order: st && wm && top(st) < top(wm) && top(wm) < top(g) && top(g) < top(first), len: st ? st.textContent.length : 0, matters: wm ? wm.textContent.length : 0, envCards: env.querySelectorAll('.pmc').length, envImgs: env.querySelectorAll('.pph img').length };
     });
     assert.ok(r.has && r.order, 'the story and why it matters come before the food web, then the species rows'); assert.ok(r.len > 120 && r.matters > 80);
+    const gap = await p.evaluate(() => { const v = document.getElementById('pview'), b = (e) => e.getBoundingClientRect(), wm = v.querySelector('.jwhy'), g = v.querySelector('#pgraph'), f = g.nextElementSibling, nx = f.nextElementSibling; return { above: Math.round(b(g).top - b(wm).bottom), below: Math.round(b(nx).top - b(f).bottom), cap: f.classList.contains('fine') }; });
+    assert.ok(gap.cap && gap.above >= 18 && gap.below >= 24, 'air above and below the food-web graph (#727): ' + JSON.stringify(gap));
     assert.ok(r.envCards >= 2 && r.envImgs === r.envCards, 'environment items show photos: ' + JSON.stringify(r));
     // a place without a story has neither section
     const withStory = H.readFixturePlaces(false).filter((e) => e.story).map((e) => e.id);

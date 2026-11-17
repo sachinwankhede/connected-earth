@@ -993,6 +993,9 @@ rect.core { stroke-dasharray: 3 2.5; }
 .jp .jwhy { margin-top: 10px; }
 .jp .pstory { margin: 14px 0 0; }
 .jp h3 { margin: 18px 0 6px; font: 500 11px var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.jp .jwhy + .jmap.pmap { margin-top: 20px; }   /* air between "Why it matters" and the food-web graph (#727, owner 17 Nov) */
+.jp .pmap + p.fine { margin: 8px 0 0; }
+.jp .pmap + p.fine + h3, .jp .pmap + p.fine + .prow { margin-top: 26px; }   /* and between the graph's caption and the rows below it */
 .jp p { margin: 0 0 8px; }
 .jp p.fine { margin: 6px 2px 0; line-height: 1.4; }
 .jp a { color: var(--accent); }
