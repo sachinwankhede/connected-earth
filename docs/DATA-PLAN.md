@@ -56,7 +56,7 @@ The seven writers (`photos`, `commonsnearby`, `commonscategory`, `commonsplaceph
 4. **The migration is data, so a job does it, not an agent.** It opens a data pull request with the before and after table, the 10-item spot check and the round-trip proof; the agent merges only on a green `gate`.
 5. **Size.** About eight small pull requests across `lib/`, seven jobs, the build, the app reader and one workflow. The first is a design item on #887 before any code (CLAUDE.md: discuss the design before building a job or workflow).
 6. **What stays out.** Species pictures keep their title-keyed lists for now (6 parallel dictionaries keyed by wiki title is the same disease and is the next item after step 4; it is not mixed into this one). Pictures that are wrong in content (Fisherman's, Olallie, `gulf`) are fixed by the job that stores them through the new writer, not by hand.
-7. **Open decisions that are not 3 and 4.** The 98 pictures credited to "unknown author" (licence doubt, owner); whether the health report needs thresholds; how to treat `sdponca` (a duplicate of Nebraska's Ponca State Park).
+7. **Open decisions that are not 3 and 4 (settled 15 to 17 Nov).** Pictures credited to "unknown author": a repair step in the weekly picture jobs (#1057); the health report has no thresholds (17 Nov); `sdponca` (a duplicate of Nebraska's Ponca State Park) was removed in #924.
 
 ## Place pictures: what we learned (15 Nov, #887, #908)
 These are the traps behind the rules; `docs/ARCHITECTURE-DATA.md` ("Place pictures") says how it fits together.
