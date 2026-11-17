@@ -14,11 +14,11 @@ def check(pilot):
     latin_places = {}
     for e in light:
         for k in sidx[e['id']]: latin_places.setdefault(spt[k if isinstance(k, int) else k[0]][0], set()).add(e['id'])
-    common = dict((l, c) for l, c in spt)
+    common = dict((l, c) for l, c, _ in spt)
     full_p, full_s = {}, {}
     for e in light:
         for w in B.search_words(e['name'] + ' ' + e['short']): full_p.setdefault(B.search_bucket(w), set()).add(e['id'])
-    for l, c in spt:
+    for l, c, _ in spt:
         if l in latin_places:
             for w in B.search_words(c + ' ' + l) | B.search_aliases(c): full_s.setdefault(B.search_bucket(w), set()).add(l)
     assert set(sug) == set(full_p) | set(full_s), 'one file for every start that has a name'

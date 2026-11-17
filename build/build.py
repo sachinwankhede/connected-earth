@@ -36,7 +36,6 @@ def load_places(pilot):
         for i in pilot_order:
             ecos.append(json.load(open(D('data', 'places', i + '.json'))))
     tab = species.table()
-    SIDS.clear(); SIDS.update({species.name_key(r): r['sid'] for r in tab.values()})
     bad = ['%s: %s' % (e['id'], ', '.join(map(repr, geoids.name_form(e)))) for e in ecos if geoids.name_form(e)]
     if bad: sys.exit('country and state must be ids from data/geo/geo.json (run python3 build/places_ids.py to rewrite names; an unknown name is a mistake):\n  ' + '\n  '.join(bad[:20]))
     ecos = [geoids.names(species.join(e, tab)) for e in ecos]
@@ -72,18 +71,18 @@ UNUSED = ('link_ideas', 'stage')   # in the source data but never read by the ap
 
 def split(ecos, links, sp=None, nps=None):
     """Light copy of each place for the page, plus the heavy part (nodes, links, evidence) for api/<id>.json.
-    The species of every place are listed as numbers into one shared table (spt: [latin, usual name]); a species that a place names differently
+    The species of every place are listed as numbers into one shared table (spt: [Latin name, usual name, species id]); a species that a place names differently
     is [number, that name]. The page expands them back to [latin, name] at start."""
     import collections
     ends = cross_ends(links); light = []; webs = {}; sidx = {}; qs = {}
-    seen = collections.defaultdict(collections.Counter)
+    seen = collections.defaultdict(collections.Counter); lat = {}
     for e in ecos:
         for n in e['nodes']:
-            if not n.get('cat') and n.get('latin'): seen[n['latin']][n['name']] += 1
-    spt = [[l, c.most_common(1)[0][0]] for l, c in sorted(seen.items())]; at = {l: i for i, (l, _) in enumerate(spt)}
+            if not n.get('cat') and n.get('latin'): seen[n['sid']][n['name']] += 1; lat[n['sid']] = n['latin']
+    spt = [[lat[k], c.most_common(1)[0][0], k] for k, c in sorted(seen.items(), key=lambda kv: lat[kv[0]])]; at = {k: i for i, (_, _, k) in enumerate(spt)}   # one row per species: [Latin name, usual name, species id], in Latin-name order
     for e in ecos:
         nodes = e['nodes']
-        s = [at[n['latin']] if n['name'] == spt[at[n['latin']]][1] else [at[n['latin']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
+        s = [at[n['sid']] if n['name'] == spt[at[n['sid']]][1] else [at[n['sid']], n['name']] for n in nodes if not n.get('cat') and n.get('latin')]
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
@@ -118,11 +117,6 @@ INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'auto', 'p
 # Fields the app never reads (item #313, step 1; checked by searching src/app.html): they stay in the source data, they are only left out of the files.
 # tier, cont and country are the singular forms of what the app reads as conts and countries; side and ly are unused; idx.nl (the number of links of one kind) too.
 # imgwiki is the Wikipedia title the data jobs search a place's picture, coordinates and links from (#908); the app reads pictures by place id, so it is left out (about 80 KB, #1008).
-SIDS = {}   # {lowercase Latin name (or name): the stored sid of its species row}, filled from the species table when the build starts (#1013)
-def sid_of(latin):
-    """The stored id of the species with this Latin name; the build never works an id out of a name."""
-    return SIDS[latin.lower()]
-
 NOT_SHIPPED = ('tier', 'cont', 'country', 'side', 'ly', 'imgwiki')
 NOT_SHIPPED_IDX = ('nl',)
 
@@ -306,18 +300,18 @@ def split_suggest(light, spt, sidx, pics=None):
     The app keeps the entries whose name starts with what is typed above those that only have a word that starts with it."""
     count = {}
     for e in light:
-        for l in {spt[k if isinstance(k, int) else k[0]][0] for k in sidx[e['id']]}: count[l] = count.get(l, 0) + 1
+        for k in {spt[k if isinstance(k, int) else k[0]][2] for k in sidx[e['id']]}: count[k] = count.get(k, 0) + 1
     out = {}
     for e in light:
         for w in search_words(e['name'] + ' ' + e['short']):
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['p']
             if len(b) < SUGGEST_PER and not any(x[0] == e['id'] for x in b): b.append([e['id'], e['name']])
-    sp = sorted(((-count[l], c, l) for l, c in spt if l in count), key=lambda t: (t[0], t[1], t[2]))
-    for neg, c, l in sp:
+    sp = sorted(((-count[k], c, l, k) for l, c, k in spt if k in count), key=lambda t: (t[0], t[1], t[2]))
+    for neg, c, l, k in sp:
         al = search_aliases(c)   # other words for the same name (#602): the row carries them as a sixth field the app matches against
         for w in search_words(c + ' ' + l) | al:
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
-            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0), sid_of(l)] + ([' '.join(sorted(al))] if al else []))
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(k, 0), k] + ([' '.join(sorted(al))] if al else []))
     return out
 
 
@@ -343,23 +337,23 @@ DIET_N = 4   # what it eats and what eats it: at most this many of each on the s
 
 
 def species_diet(ecos, about, common, pics):
-    """Adds 'ea' (what it eats) and 'eb' (what eats it) to the species files in about: [[Latin name, usual name, number of places, hosted picture file or 0], ...], the links found in
+    """Adds 'ea' (what it eats) and 'eb' (what eats it) to the species files in about (by species id; common and pics are by species id too): [[usual name, number of places, hosted picture file or 0, species id], ...], the links found in
     the most places first, then by name. A link is a food link of a place (raw row [food, eater] with no third entry); resources and groups without a Latin name are left out."""
     places = {}; eats = {}; eaten = {}
     for e in ecos:
-        lat = {n['id']: n['latin'] for n in e['nodes'] if not n.get('cat') and n.get('latin')}
+        lat = {n['id']: n['sid'] for n in e['nodes'] if not n.get('cat') and n.get('latin')}
         for l in set(lat.values()): places[l] = places.get(l, 0) + 1
         for r in e['raw']:
             if len(r) != 2 or r[0] not in lat or r[1] not in lat or lat[r[0]] == lat[r[1]]: continue
             a, b = lat[r[1]], lat[r[0]]   # a eats b
             eats.setdefault(a, {})[b] = eats.setdefault(a, {}).get(b, 0) + 1
             eaten.setdefault(b, {})[a] = eaten.setdefault(b, {}).get(a, 0) + 1
+    latin = {k: f['l'] for k, f in about.items()}   # a tie on the number of places and the name is settled by the Latin name, as it always was
     def rows(d):
-        return [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), sid_of(l)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
-    for f in about.values():
-        l = f['l']
-        if eats.get(l): f['ea'] = rows(eats[l])
-        if eaten.get(l): f['eb'] = rows(eaten[l])
+        return [[common.get(k, latin.get(k, k)), places.get(k, 0), pics.get(k, 0), k] for k, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0], latin.get(kv[0], kv[0])).lower(), latin.get(kv[0], kv[0])))[:DIET_N]]
+    for k, f in about.items():
+        if eats.get(k): f['ea'] = rows(eats[k])
+        if eaten.get(k): f['eb'] = rows(eaten[k])
     return places
 
 
@@ -367,21 +361,21 @@ RELATED_ROWS = 5   # the same family: at most this many on the species page (#44
 
 
 def species_related(about, common, pics, places):
-    """Adds 'rl' (other species of the same family) to the species files in about: [[usual name, number of places, hosted picture file or 0, species id], ...], found in the most places first, then by name. Needs 'fa' (family) and 'l'."""
-    fam = {}
-    for f in about.values():
-        if f.get('fa'): fam.setdefault(f['fa'], []).append(f['l'])
-    for f in about.values():
+    """Adds 'rl' (other species of the same family) to the species files in about: [[usual name, number of places, hosted picture file or 0, species id], ...], found in the most places first, then by name. Needs 'fa' (family) and 'l'; about, common, pics and places are by species id."""
+    fam = {}; latin = {k: f['l'] for k, f in about.items()}
+    for k, f in about.items():
+        if f.get('fa'): fam.setdefault(f['fa'], []).append(k)
+    for k, f in about.items():
         if not f.get('fa'): continue
-        o = sorted((l for l in fam[f['fa']] if l != f['l']), key=lambda l: (-places.get(l, 0), common.get(l.lower(), l).lower(), l))[:RELATED_ROWS]
-        if o: f['rl'] = [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), sid_of(l)] for l in o]
+        o = sorted((x for x in fam[f['fa']] if x != k), key=lambda x: (-places.get(x, 0), common.get(x, latin[x]).lower(), latin[x]))[:RELATED_ROWS]
+        if o: f['rl'] = [[common.get(x, latin[x]), places.get(x, 0), pics.get(x, 0), x] for x in o]
 
 
 def species_overlap(ecos):
     """-> (related, ties, species_places) for this set of places, in the order of the list. related[id] = [[id, species in common], ...] (at most 10, most first, ties in page order);
-    ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[latin] = [place ids in page order] for every species, also one found in a single place (#420: the species page and the map filter need it)."""
+    ties[id] = [[other id, [species names]], ...] (most first, then by id); species_places[species id] = [place ids in page order] for every species, also one found in a single place (#420: the species page and the map filter need it)."""
     ids = [e['id'] for e in ecos]
-    lists = {e['id']: [(n['latin'], n['name']) for n in e['nodes'] if not n.get('cat') and n.get('latin')] for e in ecos}
+    lists = {e['id']: [(n['sid'], n['name']) for n in e['nodes'] if not n.get('cat') and n.get('latin')] for e in ecos}
     by = {}
     for i in ids:
         for lat, name in lists[i]: by.setdefault(lat, []).append((i, name))
@@ -437,9 +431,8 @@ def species_bucket(sid):
 
 
 def split_species_places(sp):
-    """{file name: {species id: [place ids]}}: the files are keyed by species id (the stored sid of the species row, the key of the species' picture and description too), not by Latin name (#973)."""
-    byid = {}
-    for lat in sorted(sp): byid[sid_of(lat)] = list(dict.fromkeys(byid.get(sid_of(lat), []) + sp[lat]))
+    """{file name: {species id: [place ids]}}: sp is {species id: [place ids]}; the files are keyed by the species id (the stored sid of the species row, the key of the species' picture and description too) (#973)."""
+    byid = {sid: list(dict.fromkeys(places)) for sid, places in sp.items()}
     files = {}
     for sid in sorted(byid): files.setdefault(species_bucket(sid), {})[sid] = byid[sid]
     return {'%s.json' % k: v for k, v in sorted(files.items())}
@@ -479,23 +472,24 @@ def order_key(name):
     return re.sub(r'[^a-z0-9]+', '-', (name or '').lower()).strip('-') or 'other'
 
 
-def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_MIN):
-    """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name};
-    orderof: {Latin name: order name} (#519 level 2). min_species (#534): a group with fewer species joins the group Other; an order with fewer joins the Other of its group, which is always the last order. A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
+def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_MIN, latin=None):
+    """{file name: content}. sp: {species id: [place ids]}; common: {species id: usual name}; groupof: {species id: group key}; pics: {species id: hosted file name};
+    orderof: {species id: order name} (#519 level 2); latin: {species id: Latin name}, only to settle a tie in the order of the rows. min_species (#534): a group with fewer species joins the group Other; an order with fewer joins the Other of its group, which is always the last order. A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
     g-<group>-<order key>-<n>.json pages; its row in groups.json then carries the number of orders as a fifth value."""
-    rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0), sid_of(l)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
+    latin = latin or {}
+    rows = sorted(([latin.get(k, k), common.get(k, latin.get(k, k)), len(ids), pics.get(k, 0), k] for k, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))   # [Latin name, usual name, places, picture, species id]; the Latin name is dropped before the rows ship
     files = {'top.json': rows[:TAB_TOP]}; groups = []
-    size = collections.Counter(groupof.get(r[0], 'other') for r in rows)
+    size = collections.Counter(groupof.get(r[4], 'other') for r in rows)
     small = {k for k, n in size.items() if n < min_species and k != 'other'}   # too few species for a pill of their own
     for key, label in TAB_GROUPS:
-        g = [r for r in rows if (('other' if groupof.get(r[0], 'other') in small else groupof.get(r[0], 'other'))) == key]
+        g = [r for r in rows if (('other' if groupof.get(r[4], 'other') in small else groupof.get(r[4], 'other'))) == key]
         if not g: continue
         pages = [g[i:i + TAB_PAGE] for i in range(0, len(g), TAB_PAGE)]
         for i, pg in enumerate(pages): files['g-%s-%d.json' % (key, i)] = pg
         row = [key, label, len(g), len(pages)]
         if orderof:
             by = {}
-            for r in g: by.setdefault((orderof.get(r[0]) or '').strip(), []).append(r)
+            for r in g: by.setdefault((orderof.get(r[4]) or '').strip(), []).append(r)
             rest = by.pop('', [])   # the species without an order and every order under min_species make the group's Other, which comes last
             for name in [n for n, rs in by.items() if len(rs) < min_species]: rest += by.pop(name)
             if rest: by[''] = sorted(rest, key=lambda r: (-r[2], r[1].lower(), r[0]))
@@ -513,9 +507,9 @@ def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_M
     return files
 
 
-def write_species_tab(sp, common, groupof, pics, pilot, orderof=None):
+def write_species_tab(sp, common, groupof, pics, pilot, orderof=None, latin=None):
     d = os.path.join(O('api'), 'species-tab-pilot' if pilot else 'species-tab'); os.makedirs(d, exist_ok=True)
-    files = split_species_tab(sp, common, groupof, pics, orderof)
+    files = split_species_tab(sp, common, groupof, pics, orderof, latin=latin)
     for f in os.listdir(d):
         if f not in files: os.remove(os.path.join(d, f))
     for f, obj in files.items():
@@ -625,7 +619,7 @@ def build(pilot, out_path, write=False, places=False):
     if errs:
         print('\n'.join(errs)); sys.exit(1)
     tab = species.table()
-    used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
+    used = {n['sid'] for e in ecos for n in e['nodes'] if n.get('sid')}   # the species ids on the nodes
     nodetitles = {}   # the titles a species' place nodes carry (wiki, canonicalWiki, latin), by species id: the old shape looked a picture up under them
     for e in ecos:
         for n in e['nodes']:
@@ -637,22 +631,23 @@ def build(pilot, out_path, write=False, places=False):
     nps = node_photos.NodePhotos(paths.DATA_ROOT).pics
     light, webs, spt, sidx, qs = split(ecos, links, sp, nps)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
-    groupof = {l: species_group(tax.get(sid_of(l))) for l, _ in spt}   # the Species tab's groups (#422)
-    orderof = {l: (tax.get(sid_of(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
+    groupof = {k: species_group(tax.get(k)) for _, _, k in spt}   # the Species tab's groups (#422), by species id
+    orderof = {k: (tax.get(k) or {}).get('order') or '' for _, _, k in spt}   # and their orders (#519)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
-    common = {l.lower(): c for l, c in spt}
+    common = {k: c for _, c, k in spt}   # usual names, by species id
     CS_WORDS = {'LC': 'Least concern', 'NT': 'Near threatened', 'VU': 'Vulnerable', 'EN': 'Endangered', 'CR': 'Critically endangered', 'EW': 'Extinct in the wild', 'EX': 'Extinct'}
     cons = json.load(open(D('data', 'species', 'conservation.json'))) if os.path.exists(D('data', 'species', 'conservation.json')) else {}   # #680: the conservation status code (LC to EX) from Wikidata, by lowercase Latin name
     about = {}; pics = {}
-    for k in sorted(used):
-        row = tab.get(SIDS.get(k))
+    for k in sorted(used, key=lambda k: species.name_key(tab[k])):   # in Latin-name order, as the files have always been written
+        row = tab.get(k)
         if not row or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
-        if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
+        c = cons.get(species.name_key(row))   # conservation.json is by lowercase Latin name
+        if c: f['cs'] = c['c']; f['cl'] = CS_WORDS[c['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
         own = sp['pics'].get(row['sid'])   # this species' own picture; a species without one shows none (#973 phase 4: no borrowing of a title's picture)
-        if own: f['ph'] = [own['f'], own.get('page') or own.get('wiki')]; f['phm'] = species_pics.credit(own) or None; pics[row['latin']] = own['f']
+        if own: f['ph'] = [own['f'], own.get('page') or own.get('wiki')]; f['phm'] = species_pics.credit(own) or None; pics[k] = own['f']
         if own and sp['large'].get(row['sid']) == own['f']: f['pl'] = 1
         if f.get('phm') is None: f.pop('phm', None)
         about[row['sid']] = f
@@ -681,7 +676,7 @@ def build(pilot, out_path, write=False, places=False):
     pictures = {'ph': jp, 'phm': jpm_ids}
     pictures.update(journey_cover_pictures(journey_pics.load(paths.DATA_ROOT), links))   # additive: the covers by journey id, only once photos/journey_pictures.json exists (lib/journey_pics.py)
     if write: write_webs(webs, about, pictures)
-    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], {l: c for l, c in spt}, groupof, pics, pilot, orderof); write_ties(light, ov[1], pilot)
+    if places: clear_old_places_files(); write_regions(light, pilot); write_search(light, spt, sidx, qs, pilot, pics); ov = species_overlap(ecos); write_species_places(ov[2], pilot); write_species_tab(ov[2], common, groupof, pics, pilot, orderof, latin={k: l for l, _, k in spt}); write_ties(light, ov[1], pilot)
     data = json.dumps({'couple': links['couple'], 'src': links['src'], 'cross': links['cross']},
                       separators=(',', ':'), ensure_ascii=False).replace('</', '<\\/')
     if places: write_journeys(data, pilot)
