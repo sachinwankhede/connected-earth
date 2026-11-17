@@ -44,10 +44,10 @@ class OutlineRecords:
         if page: e['page'] = page
         self.recs[pid] = e; self.miss_.pop(pid, None)
 
-    def miss(self, pid, status, attempts=None, now=None):
+    def miss(self, pid, status, attempts=None, now=None, inputs=None):
         if pid in self.recs: raise ValueError('%r has an outline record: drop it first' % pid)
         prev = self.miss_.get(pid, {}); n = attempts if attempts is not None else int(prev.get('attempts', 0)) + 1
-        self.miss_[pid] = pr.negative_entry(status, n, now)
+        self.miss_[pid] = pr.negative_entry(status, n, now, inputs)
 
     def drop(self, pid, status='wrong', now=None):
         """Remove this place's outline file and credit record and put the place in the missing list, so the acquire job looks again after its delay (#1004: an outline that is the wrong unit).

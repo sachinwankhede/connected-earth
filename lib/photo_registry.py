@@ -23,25 +23,51 @@ def _utcnow():
     return datetime.datetime.now(datetime.timezone.utc)
 
 
-def negative_entry(status, attempts=1, now=None):
-    """Return a timestamped failure cache entry with capped retry delays."""
+def place_inputs(u):
+    """What a place's miss (no picture, no outline) was tried with: its point, name and Wikipedia title. `u` is a place or a unit of jobs/placepictures.py (title or imgwiki)."""
+    lat, lon = u.get("lat"), u.get("lon", u.get("lng"))
+    return {"lat": round(float(lat), 4) if isinstance(lat, (int, float)) else None, "lon": round(float(lon), 4) if isinstance(lon, (int, float)) else None,
+            "name": u.get("name"), "title": u.get("title") or u.get("imgwiki")}
+
+
+def _km(a, b):
+    import math
+    k = math.cos(math.radians((a["lat"] + b["lat"]) / 2))
+    return math.hypot((a["lon"] - b["lon"]) * k, a["lat"] - b["lat"]) * 111.2
+
+
+def same_inputs(old, new):
+    """True when a miss recorded with `old` still stands for a place that now has `new`: same name and title, and the point moved less than contracts.INPUT_MOVE_KM."""
+    if not isinstance(old, dict) or not isinstance(new, dict): return False
+    if old.get("name") != new.get("name") or old.get("title") != new.get("title"): return False
+    if None in (old.get("lat"), old.get("lon"), new.get("lat"), new.get("lon")): return old.get("lat") == new.get("lat") and old.get("lon") == new.get("lon")
+    return _km(old, new) < contracts.INPUT_MOVE_KM
+
+
+def negative_entry(status, attempts=1, now=None, inputs=None):
+    """Return a timestamped failure cache entry with capped retry delays. `inputs` (place_inputs) says what the miss was tried with, so cache_active can see that the place has changed since."""
     now = now or _utcnow()
     attempts = max(1, int(attempts))
     if status in PERMANENT:
         delay = datetime.timedelta(days=contracts.PERMANENT_RETRY_DAYS)
     else:
         delay = datetime.timedelta(hours=min(contracts.TRANSIENT_RETRY_MAX_HOURS, 2 ** min(attempts, 8)))
-    return {
+    entry = {
         "status": status,
         "checkedAt": now.isoformat(),
         "expiresAt": (now + delay).isoformat(),
         "attempts": attempts,
     }
+    if inputs: entry["inputs"] = inputs
+    return entry
 
 
-def cache_active(value, now=None):
-    """Legacy string entries have no expiry and are retried once during migration."""
+def cache_active(value, now=None, inputs=None):
+    """Legacy string entries have no expiry and are retried once during migration. When `inputs` (the place as it is now) is given, a miss that did not record its inputs, or recorded
+    others (the place moved, was renamed or got another title), is not active: it is tried again (#887 step 5)."""
     if not isinstance(value, dict) or not value.get("expiresAt"):
+        return False
+    if inputs is not None and not same_inputs(value.get("inputs"), inputs):
         return False
     try:
         expiry = datetime.datetime.fromisoformat(value["expiresAt"].replace("Z", "+00:00"))

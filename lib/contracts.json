@@ -4,6 +4,7 @@
   "permanentRetryDays": 180,
   "transientRetryMaxHours": 168,
   "sourceRetryDays": 90,
+  "inputMoveKm": 1.0,
   "story": { "words": 60, "chars": [120, 620] },
   "matters": { "words": 40, "chars": [80, 520] }
 }

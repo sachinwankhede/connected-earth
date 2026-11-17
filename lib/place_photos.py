@@ -76,11 +76,11 @@ class PlacePhotos:
         self._write.pop(self._path(SMALL_DIR, pid + '.jpg'), None); self._drop_large(pid)
         self.miss(pid, status, source, now=now)
 
-    def miss(self, pid, status, source='', attempts=None, now=None):
+    def miss(self, pid, status, source='', attempts=None, now=None, inputs=None):
         """Record that no usable picture was found for this place. One retry policy (photo_registry.negative_entry) for every source; the ledger notes who tried."""
         if pid in self.pics: raise ValueError('%r has a stored picture: use remove() to drop it first' % pid)
         prev = self.miss_.get(pid, {}); n = attempts if attempts is not None else int(prev.get('attempts', 0)) + 1
-        e = pr.negative_entry(status, n, now); self.miss_[pid] = e
+        e = pr.negative_entry(status, n, now, inputs); self.miss_[pid] = e
         if source: self.tried.setdefault(pid, {})[source] = e['checkedAt'][:10]
 
     def note_tried(self, pid, source, now=None):

@@ -71,15 +71,26 @@ class AcquireTests(unittest.TestCase):
 
     def test_holds_are_the_old_jobs_holds(self):
         today = datetime.date(2026, 11, 15); w = self.w; offered = []
-        for pid in ('hold', 'old', 'free', 'fresh_miss'): w.miss(pid, 'nophoto', 'wikipedia')
+        for pid in ('hold', 'old', 'free', 'fresh_miss'): w.miss(pid, 'nophoto', 'wikipedia', inputs=pp.pr.place_inputs(unit(pid)))
         w.tried['hold']['commons'] = (today - datetime.timedelta(days=10)).isoformat(); w.tried['old']['commons'] = (today - datetime.timedelta(days=91)).isoformat()
-        w.miss_['fresh_miss'] = pp.pr.negative_entry('nophoto', 1); w.miss_['hold'] = pp.pr.negative_entry('nophoto', 1, datetime.datetime(2026, 1, 1, tzinfo=datetime.timezone.utc))
+        w.miss_['fresh_miss'] = pp.pr.negative_entry('nophoto', 1, inputs=pp.pr.place_inputs(unit('fresh_miss'))); w.miss_['hold'] = pp.pr.negative_entry('nophoto', 1, datetime.datetime(2026, 1, 1, tzinfo=datetime.timezone.utc), inputs=pp.pr.place_inputs(unit('hold')))
         units = [unit(p) for p in ('hold', 'old', 'free', 'fresh_miss')]
         self.run_([strategy('wikipedia', offered=offered), strategy('commons', offered=offered)], units, today=today)
         self.assertEqual(sorted(p for n, p in offered if n == 'commons'), ['free', 'fresh_miss', 'old'], 'commons: held 90 days from its date; "hold" was tried 10 days ago')
         self.assertEqual([p for n, p in offered if n == 'wikipedia'], ['hold'], 'wikipedia: held while the missing record has not expired; only the expired one is tried again')
         offered.clear(); self.run_([strategy('commons', offered=offered)], units, today=today, again=True)
         self.assertEqual(sorted(p for n, p in offered), ['free', 'fresh_miss', 'hold', 'old'], '--again ignores the hold')
+
+    def test_a_miss_is_not_held_once_the_place_has_changed_or_never_recorded_what_it_was_tried_with(self):
+        """#887 step 5: 'no photo' was reached from the place's point, name and title; another point, name or title, or no record of them, means try again."""
+        today = datetime.date(2026, 11, 15); w = self.w; offered = []
+        w.miss('same', 'nophoto', 'wikipedia', inputs=pp.pr.place_inputs(unit('same')))
+        w.miss('legacy', 'nophoto', 'wikipedia')   # recorded before inputs were kept
+        moved = unit('moved'); w.miss('moved', 'nophoto', 'wikipedia', inputs=pp.pr.place_inputs(moved)); moved['lat'] = moved['lat'] + 0.5
+        renamed = unit('renamed'); w.miss('renamed', 'nophoto', 'wikipedia', inputs=pp.pr.place_inputs(renamed)); renamed['title'] = 'Another title'
+        nudged = unit('nudged'); w.miss('nudged', 'nophoto', 'wikipedia', inputs=pp.pr.place_inputs(nudged)); nudged['lat'] = nudged['lat'] + 0.0005   # about 50 m
+        self.run_([strategy('wikipedia', offered=offered)], [unit('same'), unit('legacy'), moved, renamed, nudged], today=today)
+        self.assertEqual(sorted(p for n, p in offered), ['legacy', 'moved', 'renamed'])
 
     def test_a_source_that_found_nothing_is_noted_in_the_ledger_only(self):
         self.w.miss('aa', 'notphoto', 'wikipedia'); self.w.commit(); self.w = self.fresh(); before = self.w.miss_['aa']
