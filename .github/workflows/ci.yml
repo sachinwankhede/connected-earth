@@ -91,6 +91,7 @@ jobs:
       - run: npm ci
       - name: Validate auto-generated data
         run: |
+          set -o pipefail   # a crash in validate.py must fail the step, not just a line with ERROR in the log
           python3 build/validate.py $(ls data/places/*.json) | tee validate.log
           ! grep -q "ERROR" validate.log
       - name: Install the schema checker (used by the data format check)
@@ -193,32 +194,15 @@ jobs:
       - run: npm ci
       - name: Install Pillow (the Openverse place-picture test makes a JPEG)
         run: python3 -m pip install --break-system-packages pillow==11.3.0
-      - name: Job self-tests
+      - name: Job self-tests (every tests/jobs/*_test.py and *.test.mjs, so a new test file runs without being added here)
+        if: ${{ !cancelled() }}
         run: |
-          python3 tests/jobs/photo_registry_test.py
-          python3 tests/jobs/ci_changes_test.py
-          python3 tests/jobs/live_check_test.py
-          python3 tests/jobs/species_sources_test.py
-          python3 tests/jobs/commons_api_test.py
-          python3 tests/jobs/regenplaces_test.py
-          python3 tests/jobs/photos_test.py
-          python3 tests/jobs/authorlookup_test.py
-          python3 tests/jobs/dropunnamed_test.py
-          python3 tests/jobs/placepictures_test.py
-          python3 tests/jobs/speciespictures_test.py
-          python3 tests/jobs/rekeyjourneyphotos_test.py
-          python3 tests/jobs/journeypictures_test.py
-          python3 tests/jobs/commonsplacephotos_test.py
-          python3 tests/jobs/openverseplaces_test.py
-          python3 tests/jobs/commonsnearby_test.py
-          python3 tests/jobs/commonscategory_test.py
-          python3 tests/jobs/fixcoords_test.py
-          python3 tests/jobs/promote_stories_test.py
-          python3 tests/jobs/gemini_batch_test.py
-          python3 tests/jobs/gemini_stories_test.py
-          python3 tests/jobs/allowed_sources_test.py
-          python3 -m unittest tests/jobs/sync_test.py
-          node --test tests/jobs/*.test.mjs
+          fail=0
+          for t in tests/jobs/*_test.py; do
+            echo "== $t"; python3 "$t" || { echo "FAILED: $t"; fail=1; }   # keep going: one run reports every failing file
+          done
+          node --test tests/jobs/*.test.mjs || fail=1
+          exit $fail
 
   gate:
     # Always runs. Passes when every needed job passed (skipped jobs were not needed).
