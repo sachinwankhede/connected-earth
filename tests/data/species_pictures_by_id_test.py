@@ -9,9 +9,9 @@ B.SIDS.update({'canis lupus': 'canis-lupus', 'canis rufus': 'canis-rufus', 'bryu
 
 def row(f, page, **kw): return {'f': f, 'page': page, 'wiki': kw.get('wiki', page), 'a': 'An Author', 'l': 'CC BY 4.0', 'lu': 'https://creativecommons.org/licenses/by/4.0', 'p': 'https://commons.wikimedia.org/wiki/File:X.jpg'}
 nodes = [
-    {'id': 'a', 'name': 'Wolf', 'latin': 'Canis lupus', 'wiki': 'Gray wolf', 'tl': 3},                  # own picture
-    {'id': 'b', 'name': 'Red wolf', 'latin': 'Canis rufus', 'wiki': 'Gray wolf', 'tl': 3},              # shares the title of a, has no picture of its own
-    {'id': 'c', 'name': 'Moss', 'latin': 'Bryum argenteum', 'wiki': 'Bryum', 'tl': 1},                  # no own picture, title entry exists
+    {'id': 'a', 'sid': 'canis-lupus', 'name': 'Wolf', 'latin': 'Canis lupus', 'wiki': 'Gray wolf', 'tl': 3},                  # own picture
+    {'id': 'b', 'sid': 'canis-rufus', 'name': 'Red wolf', 'latin': 'Canis rufus', 'wiki': 'Gray wolf', 'tl': 3},              # shares the title of a, has no picture of its own
+    {'id': 'c', 'sid': 'bryum-argenteum', 'name': 'Moss', 'latin': 'Bryum argenteum', 'wiki': 'Bryum', 'tl': 1},                  # no own picture, title entry exists
     {'id': 'd', 'name': 'Rain', 'cat': 'rain', 'wiki': 'Rain', 'tl': 0},                                 # not a species
 ]
 ecos = [{'id': 'testplace', 'nodes': nodes, 'raw': []}]

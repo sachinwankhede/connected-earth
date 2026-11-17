@@ -85,6 +85,7 @@ def join(eco, tab):
         base = {k: v for k, v in by_sid[n['sp']].items() if k not in ('about', 'sid', 'sk', 'src', 'at')} if 'sp' in n else None
         full = {**(base or {}), **{k: v for k, v in n.items() if k not in ('sp', 'no')}}
         for f in n.get('no', []): full.pop(f, None)
+        if base is not None and 'cat' not in full and full.get('latin'): full['sid'] = n['sp']   # #1013: a species node keeps the id of its row, so the build never works one out from the name (a node with a category is a resource and has a concept id, nid, instead; a node with no Latin name, like Himalaya's lichens, is not a species page and gets none; a place can drop the row's `cat` with `no`, as Togo does for its termites)
         if base and base.get('wiki') and full.get('wiki') and full['wiki'] != base['wiki']:
             full['canonicalWiki'] = base['wiki']
         out.append({k: full[k] for k in ORDER if k in full} | {k: v for k, v in full.items() if k not in ORDER})

@@ -87,7 +87,7 @@ def split(ecos, links, sp=None, nps=None):
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
-        wnodes = [dict(n, sid=sid_of(n['latin'])) if n.get('latin') and not n.get('cat') else dict(n, nid=node_photos.node_id(n['wiki'])) if n.get('cat') and n.get('wiki') else n for n in nodes]   # the id of a node's species (sid) or concept (nid) is written with it: the app reads it and works out no id from a name (#973)
+        wnodes = [dict(n, nid=node_photos.node_id(n['wiki'])) if n.get('cat') and n.get('wiki') else n for n in nodes]   # the id of a node's species (sid, kept by the join) or concept (nid) is written with it: the app reads it and works out no id from a name (#973)
         webs[e['id']] = {'nodes': wnodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if True:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one shows none (#973 phase 4: it no longer borrows the picture of a Wikipedia title, 2 species did)
@@ -101,7 +101,7 @@ def split(ecos, links, sp=None, nps=None):
                     if ncr.get('lu'): ncr['lu'] = https_license(ncr['lu'])
                     ownm['node:' + nid] = ncr
                     continue
-                sid = sid_of(n['latin']) if n.get('latin') and not n.get('cat') else None
+                sid = n['sid'] if n.get('latin') and not n.get('cat') else None
                 r = sp['pics'].get(sid) if sp is not None and sid else None
                 if r:
                     own[sid] = [r['f'], r.get('page') or r.get('wiki')]
@@ -629,7 +629,7 @@ def build(pilot, out_path, write=False, places=False):
     nodetitles = {}   # the titles a species' place nodes carry (wiki, canonicalWiki, latin), by species id: the old shape looked a picture up under them
     for e in ecos:
         for n in e['nodes']:
-            if n.get('latin') and not n.get('cat'): nodetitles.setdefault(sid_of(n['latin']), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+            if n.get('latin') and not n.get('cat'): nodetitles.setdefault(n['sid'], set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
     sp = species_pics.load(paths.DATA_ROOT, nodetitles)   # the pictures by species id, from either shape on disk (lib/species_pics.py; #934)
     for _c in list(sp['pics'].values()) + list(sp['titles'].values()):
         if _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
@@ -663,7 +663,7 @@ def build(pilot, out_path, write=False, places=False):
         for nid in node_ids:
             n = byid.get(eco_id, {}).get(nid)
             if n:
-                sid = sid_of(n['latin']) if n.get('latin') and not n.get('cat') else None
+                sid = n['sid'] if n.get('latin') and not n.get('cat') else None
                 if sid and sp['pics'].get(sid): js[sid] = sp['pics'][sid]
                 nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node at a journey end (sunlight, rain...) has its picture by node id (#976, #973 phase 4)
                 if nid and nps.get(nid): jn[nid] = nps[nid]

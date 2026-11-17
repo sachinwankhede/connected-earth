@@ -26,7 +26,10 @@ class Rows(unittest.TestCase):
     def test_provenance_fields_do_not_reach_the_built_nodes(self):
         tab = {'a b': row('A b', 'a-b', src='legacy', at='2026-11-03')}
         node = species.join({'id': 'p', 'nodes': [{'id': 'n', 'sp': 'a-b', 'xh': 1}]}, tab)['nodes'][0]
-        self.assertNotIn('src', node); self.assertNotIn('at', node); self.assertNotIn('sid', node)
+        self.assertNotIn('src', node); self.assertNotIn('at', node)
+        self.assertEqual(node['sid'], 'a-b')   # a species node keeps the id of its row (#1013)
+        res = species.join({'id': 'p', 'nodes': [{'id': 'r', 'sp': 'rain', 'xh': 1}]}, {'rain': {'name': 'Rain', 'cat': 'rain', 'tl': 0, 'sid': 'rain', 'sk': 'resource'}})['nodes'][0]
+        self.assertNotIn('sid', res)   # a resource has a concept id instead
 
 class PackAndSplit(unittest.TestCase):
     """pack() and split() on a throwaway tree (the module's paths are pointed at it)."""
