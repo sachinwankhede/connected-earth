@@ -4,12 +4,16 @@ Commons gives the credit as free text. clean_author() turns it into the name or 
   - an email address is no author (privacy); "Name <a@b.c>" keeps the name
   - "The original uploader was X at English Wikipedia." -> X; "No machine-readable author provided. X assumed (based on copyright claims)." -> X
   - "X (talk) 06:06, 13 January 2009 (UTC)" -> X; camera / GPS boilerplate after "Camera location" is cut; web addresses are cut
+  - "(c) X, some rights reserved (CC BY)" -> X; "X (unsplash.com/@handle)" -> X; "X, Institute, University, City, ST 12345" (a name followed by an institution and a postal address) -> X (#934; owner, 17 Nov: "Clean it")
   - html tags and entities are removed; "Unknown", "Anonymous", "Unknown authorUnknown author" and the like are '' (UNKNOWN)
 A plain name or handle is returned unchanged. Pure text, no network: PlacePhotos.put() and the author rule in jobs/ both use it."""
 import html, re
 
 UNKNOWN = {'', 'unknown', 'unknown author', 'anonymous', 'author unknown', 'n/a', '?', 'see file page'}
 _EMAIL = re.compile(r'<?[\w.+-]+@[\w-]+(?:\.[\w-]+)+>?')
+_RIGHTS = re.compile(r'^\(c\)\s*|,?\s*(?:some|all) rights reserved(?:\s*\([^)]*\))?\s*$', re.I)   # "(c) X, some rights reserved (CC BY)": the licence has its own column
+_BARE_SITE = re.compile(r'\(\s*(?:[\w-]+\.)+(?:com|org|net|edu|gov|io|info|us|uk|au|ca|de|fr)(?:/[^)\s]*)?\s*\)', re.I)   # "(unsplash.com/@handle)": a web address with no http in front of it
+_ADDRESS = re.compile(r'^([^,]+),.*,\s*[A-Z]{2}\s+\d{5}(?:-\d{4})?$')   # "Name, Institute, University, City, CA 93106": the name before an institution's postal address
 _URL = re.compile(r'(?:https?://|www\.)[^\s)\]>]+')   # stops before a closing bracket, so an address inside brackets leaves the pair to be removed whole
 
 def _squash(s): return re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', s or ''))).strip()
@@ -27,7 +31,10 @@ def clean_author(a):
     s = re.split(r'\s*\(talk\)', s, maxsplit=1, flags=re.I)[0]
     s = re.split(r'Camera location', s, maxsplit=1)[0]
     cut = s != squashed   # a sentence or stamp was cut away above
-    s = _EMAIL.sub('', s); s = _URL.sub('', s)
+    s = _EMAIL.sub('', s); s = _URL.sub('', s); s = _BARE_SITE.sub('', s)
+    s = _RIGHTS.sub('', s).strip()
+    m = _ADDRESS.match(s)
+    if m: s = m.group(1)
     s = re.sub(r'\(\s*\)|\[\s*\]', '', s)   # the brackets a web address or email was inside
     s = re.sub(r'\s+', ' ', s).strip(' -–—:;,|/')
     s = re.sub(r'\s+[.(\[]+$', '', s).strip(' -–—:;,|/')   # a full stop or opening bracket left on its own at the end

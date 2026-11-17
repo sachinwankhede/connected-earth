@@ -15,6 +15,12 @@ class CleanTests(unittest.TestCase):
         self.assertEqual(c('Sasata (edited by Noodle snacks'), 'Sasata (edited by Noodle snacks'); self.assertEqual(c('James Roberts (Jampp…'), 'James Roberts (Jampp…'); self.assertFalse(is_dirty('James Roberts (Jampp…'))   # a source's own truncation is not touched
         self.assertEqual(c('Aviceda at English Wikipedia\n\n(Original text: Tom (talk))'), 'Aviceda at English Wikipedia')
         self.assertEqual(c("Noodle snacks (https://www.jjharrison.com.au/)Bennett's Wallaby)"), "Noodle snacks Bennett's Wallaby")
+    def test_journey_author_forms_cleaned_in_november(self):   # #934: the three journey covers the first rule left alone
+        self.assertEqual(c('(c) David F. Belmonte, some rights reserved (CC BY)'), 'David F. Belmonte')
+        self.assertEqual(c('Jonatan Pie (unsplash.com/@r3dmax)'), 'Jonatan Pie')
+        self.assertEqual(c('Milton Love, Marine Science Institute, University of California, Santa Barbara, CA 93106'), 'Milton Love')
+        for a in ('Jane Doe (jane.doe)', 'Acme, Inc., Springfield', 'Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC'): self.assertEqual(c(a), a)
+        self.assertTrue(is_dirty('(c) David F. Belmonte, some rights reserved (CC BY)')); self.assertFalse(is_dirty('David F. Belmonte'))
     def test_email_is_no_author(self):
         self.assertEqual(c('toddander@gmail.com'), ''); self.assertFalse(is_unknown('toddander@gmail.com'))
         self.assertEqual(c('Jane Doe <jane@example.org>'), 'Jane Doe'); self.assertEqual(c('mailto me: jane@example.org'), 'mailto me')
