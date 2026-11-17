@@ -36,6 +36,7 @@ def load_places(pilot):
         for i in pilot_order:
             ecos.append(json.load(open(D('data', 'places', i + '.json'))))
     tab = species.table()
+    SIDS.clear(); SIDS.update({k: r['sid'] for k, r in tab.items()})
     bad = ['%s: %s' % (e['id'], ', '.join(map(repr, geoids.name_form(e)))) for e in ecos if geoids.name_form(e)]
     if bad: sys.exit('country and state must be ids from data/geo/geo.json (run python3 build/places_ids.py to rewrite names; an unknown name is a mistake):\n  ' + '\n  '.join(bad[:20]))
     ecos = [geoids.names(species.join(e, tab)) for e in ecos]
@@ -86,7 +87,7 @@ def split(ecos, links, sp=None, nps=None):
         idx = {'nr': len(e['raw']), 'ns': sum(1 for n in nodes if not n.get('cat')), 'nl': sum(1 for r in e['raw'] if len(r) == 2 or r[2] == 's'), 'cx': {n['id']: n['name'] for n in nodes if n['id'] in ends.get(e['id'], ())}}
         qs[e['id']] = ' '.join(n['name'] for n in nodes if n.get('cat'))   # words for search only, not in the page
         sidx[e['id']] = s   # the species lists are not in the page: the search index is built from them
-        wnodes = [dict(n, sid=species.slug(n['latin'])) if n.get('latin') and not n.get('cat') else dict(n, nid=node_photos.node_id(n['wiki'])) if n.get('cat') and n.get('wiki') else n for n in nodes]   # the id of a node's species (sid) or concept (nid) is written with it: the app reads it and works out no id from a name (#973)
+        wnodes = [dict(n, sid=sid_of(n['latin'])) if n.get('latin') and not n.get('cat') else dict(n, nid=node_photos.node_id(n['wiki'])) if n.get('cat') and n.get('wiki') else n for n in nodes]   # the id of a node's species (sid) or concept (nid) is written with it: the app reads it and works out no id from a name (#973)
         webs[e['id']] = {'nodes': wnodes, 'raw': e['raw'], 'ev': e.get('ev', {})} | {k: e[k] for k in HEAVY if k in e}
         if True:   # the picture entries of this place's own species travel with the place, so opening it needs no list of every species
             # a species with a picture of its own (by species id, #934) is listed under its id, so two species on one title never share a picture; a species without one shows none (#973 phase 4: it no longer borrows the picture of a Wikipedia title, 2 species did)
@@ -100,7 +101,7 @@ def split(ecos, links, sp=None, nps=None):
                     if ncr.get('lu'): ncr['lu'] = https_license(ncr['lu'])
                     ownm['node:' + nid] = ncr
                     continue
-                sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
+                sid = sid_of(n['latin']) if n.get('latin') and not n.get('cat') else None
                 r = sp['pics'].get(sid) if sp is not None and sid else None
                 if r:
                     own[sid] = [r['f'], r.get('page') or r.get('wiki')]
@@ -117,6 +118,11 @@ INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'auto', 'p
 # Fields the app never reads (item #313, step 1; checked by searching src/app.html): they stay in the source data, they are only left out of the files.
 # tier, cont and country are the singular forms of what the app reads as conts and countries; side and ly are unused; idx.nl (the number of links of one kind) too.
 # imgwiki is the Wikipedia title the data jobs search a place's picture, coordinates and links from (#908); the app reads pictures by place id, so it is left out (about 80 KB, #1008).
+SIDS = {}   # {lowercase Latin name (or name): the stored sid of its species row}, filled from the species table when the build starts (#1013)
+def sid_of(latin):
+    """The stored id of the species with this Latin name; the build never works an id out of a name."""
+    return SIDS[latin.lower()]
+
 NOT_SHIPPED = ('tier', 'cont', 'country', 'side', 'ly', 'imgwiki')
 NOT_SHIPPED_IDX = ('nl',)
 
@@ -311,7 +317,7 @@ def split_suggest(light, spt, sidx, pics=None):
         al = search_aliases(c)   # other words for the same name (#602): the row carries them as a sixth field the app matches against
         for w in search_words(c + ' ' + l) | al:
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
-            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0), species.slug(l)] + ([' '.join(sorted(al))] if al else []))
+            if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(l, 0), sid_of(l)] + ([' '.join(sorted(al))] if al else []))
     return out
 
 
@@ -349,7 +355,7 @@ def species_diet(ecos, about, common, pics):
             eats.setdefault(a, {})[b] = eats.setdefault(a, {}).get(b, 0) + 1
             eaten.setdefault(b, {})[a] = eaten.setdefault(b, {}).get(a, 0) + 1
     def rows(d):
-        return [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
+        return [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), sid_of(l)] for l, _ in sorted(d.items(), key=lambda kv: (-kv[1], common.get(kv[0].lower(), kv[0]).lower(), kv[0]))[:DIET_N]]
     for f in about.values():
         l = f['l']
         if eats.get(l): f['ea'] = rows(eats[l])
@@ -368,7 +374,7 @@ def species_related(about, common, pics, places):
     for f in about.values():
         if not f.get('fa'): continue
         o = sorted((l for l in fam[f['fa']] if l != f['l']), key=lambda l: (-places.get(l, 0), common.get(l.lower(), l).lower(), l))[:RELATED_ROWS]
-        if o: f['rl'] = [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), species.slug(l)] for l in o]
+        if o: f['rl'] = [[common.get(l.lower(), l), places.get(l, 0), pics.get(l, 0), sid_of(l)] for l in o]
 
 
 def species_overlap(ecos):
@@ -431,9 +437,9 @@ def species_bucket(sid):
 
 
 def split_species_places(sp):
-    """{file name: {species id: [place ids]}}: the files are keyed by species id (species.slug of the Latin name, the key of the species' picture and description too), not by Latin name (#973)."""
+    """{file name: {species id: [place ids]}}: the files are keyed by species id (the stored sid of the species row, the key of the species' picture and description too), not by Latin name (#973)."""
     byid = {}
-    for lat in sorted(sp): byid[species.slug(lat)] = list(dict.fromkeys(byid.get(species.slug(lat), []) + sp[lat]))
+    for lat in sorted(sp): byid[sid_of(lat)] = list(dict.fromkeys(byid.get(sid_of(lat), []) + sp[lat]))
     files = {}
     for sid in sorted(byid): files.setdefault(species_bucket(sid), {})[sid] = byid[sid]
     return {'%s.json' % k: v for k, v in sorted(files.items())}
@@ -477,7 +483,7 @@ def split_species_tab(sp, common, groupof, pics, orderof=None, min_species=TAB_M
     """{file name: content}. sp: {Latin name: [place ids]}; common: {Latin name: usual name}; groupof: {Latin name: group key}; pics: {Latin name: hosted file name};
     orderof: {Latin name: order name} (#519 level 2). min_species (#534): a group with fewer species joins the group Other; an order with fewer joins the Other of its group, which is always the last order. A group with two or more orders also gets o-<group>.json ([order key, order, species, pages] most species first) and
     g-<group>-<order key>-<n>.json pages; its row in groups.json then carries the number of orders as a fifth value."""
-    rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0), species.slug(l)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
+    rows = sorted(([l, common.get(l, l), len(ids), pics.get(l, 0), sid_of(l)] for l, ids in sp.items()), key=lambda r: (-r[2], r[1].lower(), r[0]))
     files = {'top.json': rows[:TAB_TOP]}; groups = []
     size = collections.Counter(groupof.get(r[0], 'other') for r in rows)
     small = {k for k, n in size.items() if n < min_species and k != 'other'}   # too few species for a pill of their own
@@ -620,12 +626,10 @@ def build(pilot, out_path, write=False, places=False):
         print('\n'.join(errs)); sys.exit(1)
     tab = species.table()
     used = {n['latin'].lower() for e in ecos for n in e['nodes'] if n.get('latin')}
-    for k in used:   # the app builds the file name from the Latin name, so an id that is not that name's slug must not carry a description
-        if k in tab and tab[k].get('about') and tab[k]['sid'] != species.slug(k): raise SystemExit('species %r has a description but its id %r is not the slug of its name' % (k, tab[k]['sid']))
     nodetitles = {}   # the titles a species' place nodes carry (wiki, canonicalWiki, latin), by species id: the old shape looked a picture up under them
     for e in ecos:
         for n in e['nodes']:
-            if n.get('latin') and not n.get('cat'): nodetitles.setdefault(species.slug(n['latin']), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
+            if n.get('latin') and not n.get('cat'): nodetitles.setdefault(sid_of(n['latin']), set()).update(k for k in (n['latin'], n.get('wiki'), n.get('canonicalWiki')) if k)
     sp = species_pics.load(paths.DATA_ROOT, nodetitles)   # the pictures by species id, from either shape on disk (lib/species_pics.py; #934)
     for _c in list(sp['pics'].values()) + list(sp['titles'].values()):
         if _c.get('lu'): _c['lu'] = https_license(_c['lu'])   # credit links are always https
@@ -633,8 +637,8 @@ def build(pilot, out_path, write=False, places=False):
     nps = node_photos.NodePhotos(paths.DATA_ROOT).pics
     light, webs, spt, sidx, qs = split(ecos, links, sp, nps)   # + the non-species node pictures by node id (photos/node_pictures.json; none until it exists)
     txf = D('data', 'species', 'taxonomy.json'); tax = json.load(open(txf)) if os.path.exists(txf) else {}
-    groupof = {l: species_group(tax.get(species.slug(l))) for l, _ in spt}   # the Species tab's groups (#422)
-    orderof = {l: (tax.get(species.slug(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
+    groupof = {l: species_group(tax.get(sid_of(l))) for l, _ in spt}   # the Species tab's groups (#422)
+    orderof = {l: (tax.get(sid_of(l)) or {}).get('order') or '' for l, _ in spt}   # and their orders (#519)
     # the species page (#420) reads one small file per species: its names, kind, description and own picture entry (api/species/<id>.json)
     common = {l.lower(): c for l, c in spt}
     CS_WORDS = {'LC': 'Least concern', 'NT': 'Near threatened', 'VU': 'Vulnerable', 'EN': 'Endangered', 'CR': 'Critically endangered', 'EW': 'Extinct in the wild', 'EX': 'Extinct'}
@@ -642,7 +646,7 @@ def build(pilot, out_path, write=False, places=False):
     about = {}; pics = {}
     for k in sorted(used):
         row = tab.get(k)
-        if not row or row['sid'] != species.slug(k) or k not in common: continue
+        if not row or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
         if cons.get(k): f['cs'] = cons[k]['c']; f['cl'] = CS_WORDS[cons[k]['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
@@ -659,7 +663,7 @@ def build(pilot, out_path, write=False, places=False):
         for nid in node_ids:
             n = byid.get(eco_id, {}).get(nid)
             if n:
-                sid = species.slug(n['latin']) if n.get('latin') and not n.get('cat') else None
+                sid = sid_of(n['latin']) if n.get('latin') and not n.get('cat') else None
                 if sid and sp['pics'].get(sid): js[sid] = sp['pics'][sid]
                 nid = node_photos.node_id(n.get('wiki')) if n.get('cat') and n.get('wiki') else None   # a non-species node at a journey end (sunlight, rain...) has its picture by node id (#976, #973 phase 4)
                 if nid and nps.get(nid): jn[nid] = nps[nid]

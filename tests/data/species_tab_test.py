@@ -4,6 +4,14 @@ import json, os, sys, unittest
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 import build as B
+import species
+
+
+class _Ids(dict):   # made-up species have no stored id: give each the slug of its name (the real build reads the stored id of the species row, #1013)
+    def __missing__(self, k): return species.slug(k)
+
+
+B.SIDS = _Ids()
 
 class SpeciesTab(unittest.TestCase):
     def test_groups_from_kingdom_and_class(self):
