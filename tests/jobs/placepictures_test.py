@@ -92,6 +92,24 @@ class AcquireTests(unittest.TestCase):
         self.run_([strategy('wikipedia', offered=offered)], [unit('same'), unit('legacy'), moved, renamed, nudged], today=today)
         self.assertEqual(sorted(p for n, p in offered), ['legacy', 'moved', 'renamed'])
 
+    def test_the_time_budget_ends_the_run_cleanly_and_keeps_what_it_has(self):
+        """#887: no count limit; a run stops after its minutes, between two places, and what it found is saved (the workflow's own timeout would lose it)."""
+        ticks = iter(range(0, 100000, 60))   # the fake clock moves one minute for every time it is read
+        offered = []; units = [unit(p) for p in ('a', 'b', 'c', 'd', 'e')]
+        stats, stopped = self.run_([strategy('wikipedia', found={'a', 'b', 'c', 'd', 'e'}, offered=offered)], units, minutes=2.5, clock=lambda: next(ticks))
+        self.assertEqual(stopped, [])   # not a source that was throttled: the PR still opens
+        self.assertTrue(0 < len(self.w.pics) < 5, 'some places were done and the rest left: %s' % sorted(self.w.pics))
+        self.assertTrue(any('time budget' in l for l in self.log))
+        self.assertEqual(self.fresh().check(), [])
+        n = len(self.w.pics); offered.clear()   # the next run goes on with the rest
+        self.run_([strategy('wikipedia', found={'a', 'b', 'c', 'd', 'e'}, offered=offered)], units, minutes=1000, clock=lambda: 0)
+        self.assertEqual(len(self.w.pics), 5); self.assertGreater(5, n)
+
+    def test_without_minutes_or_a_limit_every_place_left_is_tried(self):
+        units = [unit('p%d' % i) for i in range(130)]; offered = []
+        self.run_([strategy('wikipedia', miss={u['id'] for u in units}, offered=offered)], units)
+        self.assertEqual(len(offered), 130)
+
     def test_a_source_that_found_nothing_is_noted_in_the_ledger_only(self):
         self.w.miss('aa', 'notphoto', 'wikipedia'); self.w.commit(); self.w = self.fresh(); before = self.w.miss_['aa']
         self.run_([strategy('commons', miss={'aa'})], [unit('aa')])
