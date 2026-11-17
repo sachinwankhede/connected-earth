@@ -12,6 +12,15 @@ def kind(name):
     n = (name or '').lower()
     return 'refuge' if 'refuge' in n or 'nwr' in n else 'forest' if 'forest' in n else 'park' if 'park' in n else None
 
+NOT_A_PARK = {'trail', 'rail', 'wma', 'management', 'other', 'byway', 'corridor'}   # words of a unit that is not the park itself (#977: a Rail Trail for a National Seashore, a Wildlife Management Area for a State Park, PAD-US "Other")
+
+def refuses(place_name, unit_name):
+    """True when a unit must not stand for a place: a different kind (a Forest for a Refuge or a Park, #1004), or a unit named a trail, corridor, management area or "Other" that the place's own name does not say."""
+    k, u = kind(place_name), kind(unit_name)
+    if k and u and k != u: return True
+    words = lambda t: set(re.findall(r'[a-z]+', (t or '').lower()))
+    return bool((words(unit_name) & NOT_A_PARK) - words(place_name))
+
 STOP = set('national state park forest refuge wildlife nwr monument historic site memorial recreation area preserve seashore lakeshore river the of and wilderness natural conservation'.split())
 def toks(s):
     """The words of a place or unit name that tell one from another (the words every park has are left out), as the outline jobs compare them."""

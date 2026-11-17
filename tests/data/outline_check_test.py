@@ -35,3 +35,12 @@ def test_review_lists_outlines_whose_name_does_not_fit_and_drops_nothing():
     assert 'ok' not in rows
     assert rows['trail'][4] == ['extra words', 'small'] and rows['kind'][4] == ['kind'] and 'missing words' in rows['part'][4]
     assert os.path.exists(os.path.join(root, 'data', 'outlines', 'trail.json'))
+
+
+def test_refuses_a_unit_that_is_not_the_place():
+    assert oc.refuses('Elk State Park', 'Elk State Forest') and oc.refuses('Arapaho National Wildlife Refuge', 'Arapaho National Forest')
+    assert oc.refuses('Cape Cod National Seashore', 'Cape Cod Rail Trail') and oc.refuses('Dale Hollow Lake State Park', 'Dale Hollow Lake Wildlife Management Area')
+    assert oc.refuses('San Bernardino National Forest', 'San Bernardino Other')
+    assert not oc.refuses('Loess Hills State Forest', 'Loess Hills State Forest') and not oc.refuses('Mill Bluff State Park', 'Mill Bluff State Park-Iansr')
+    assert not oc.refuses('Appalachian Trail Corridor', 'Appalachian National Scenic Trail Corridor')   # the place's own name says trail and corridor
+    assert not oc.refuses('Loess Hills', 'Loess Hills State Forest')   # no kind on the place: the name decides

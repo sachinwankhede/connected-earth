@@ -4192,18 +4192,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"kydalehollowlakest": {
-"built": "2026-11-16T09:42:09.818527+00:00",
-"checkedAt": "2026-11-16T09:42:09.818527+00:00",
-"inputs": {
-"lat": 36.6475,
-"lon": -85.297,
-"name": "Dale Hollow Lake State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "kygreenbolakestate": {
 "built": "2026-11-16T09:42:09.818529+00:00",
 "checkedAt": "2026-11-16T09:42:09.818529+00:00",
@@ -10210,18 +10198,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"paelk": {
-"built": "2026-11-16T09:42:09.819593+00:00",
-"checkedAt": "2026-11-16T09:42:09.819593+00:00",
-"inputs": {
-"lat": 41.5992,
-"lon": -78.5749,
-"name": "Elk State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "paevansburg": {
 "built": "2026-11-16T09:42:09.819595+00:00",
 "checkedAt": "2026-11-16T09:42:09.819595+00:00",
@@ -11009,18 +10985,6 @@
 "lat": 36.0868,
 "lon": -87.2778,
 "name": "Montgomery Bell State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"tnnatcheztrace": {
-"built": "2026-11-16T09:42:09.819729+00:00",
-"checkedAt": "2026-11-16T09:42:09.819729+00:00",
-"inputs": {
-"lat": 35.7357,
-"lon": -88.2792,
-"name": "Natchez Trace State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -13231,18 +13195,6 @@
 "lat": 33.296,
 "lon": -88.8285,
 "name": "Sam D. Hamilton Noxubee National Wildlife Refuge"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"ussanbernardinonationalf": {
-"built": "2026-11-16T09:42:09.820100+00:00",
-"checkedAt": "2026-11-16T09:42:09.820100+00:00",
-"inputs": {
-"lat": 34.091,
-"lon": -117.26,
-"name": "San Bernardino National Forest"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -15781,18 +15733,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"wvcampcreek": {
-"built": "2026-11-16T09:42:09.820535+00:00",
-"checkedAt": "2026-11-16T09:42:09.820535+00:00",
-"inputs": {
-"lat": 37.5072,
-"lon": -81.1372,
-"name": "Camp Creek State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "wvcanaanvalleyreso": {
 "built": "2026-11-16T09:42:09.820537+00:00",
 "checkedAt": "2026-11-16T09:42:09.820537+00:00",
@@ -16724,18 +16664,6 @@
 "lat": 30.7785,
 "lon": -82.4296,
 "name": "Okefenokee National Wildlife Refuge"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"xusma": {
-"built": "2026-11-16T09:42:09.820721+00:00",
-"checkedAt": "2026-11-16T09:42:09.820721+00:00",
-"inputs": {
-"lat": 41.9,
-"lon": -70.0,
-"name": "Cape Cod National Seashore"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
