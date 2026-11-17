@@ -11,7 +11,7 @@ import json, math, os, re, sys, time, unicodedata, urllib.parse, urllib.request
 import os as _os, sys as _sys; _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))), 'lib')); import fetch   # every download goes through the allowed-sources guard (lib/fetch.py)
 here = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(here)
 sys.path.insert(0, os.path.join(ROOT, 'build')); import species, geoids
-sys.path.insert(0, os.path.join(ROOT, 'lib')); import outline_records, photo_registry
+sys.path.insert(0, os.path.join(ROOT, 'lib')); import outline_records, photo_registry, outline_check as oc
 OUT = os.path.join(ROOT, 'data', 'outlines'); UA = 'ConnectedEarth/1.0 (https://connected-earth-5ps.pages.dev/; data job)'
 sys.setrecursionlimit(20000)
 MAXPTS = 2500    # points per park, keeps a file well under the 400 KB budget
@@ -85,6 +85,7 @@ def from_osm(e, qid):
         if qid and (x.get('extratags') or {}).get('wikidata') == qid: return rings_of(g), osm_page(x)
         near = km(e['lat'], e['lon'], float(x['lat']), float(x['lon'])) < 30
         t = toks(x.get('name', '') or x.get('display_name', '').split(',')[0])
+        if oc.refuses(e['name'], x.get('name', '') or x.get('display_name', '').split(',')[0]): continue   # same rule as PAD-US (#977)
         if near and want and len(want & t) / len(want | t) >= 0.5 and x.get('category') in ('boundary', 'leisure', 'landuse', 'natural') and best is None: best = (rings_of(g), osm_page(x))
     return best or (None, None)
 def plausible(e, rings):

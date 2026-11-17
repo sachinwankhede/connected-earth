@@ -42,10 +42,9 @@ def fetch(e):
     want=toks(e['name'])|toks(e.get('short',''))
     best=[]
     sc={}
-    kp=oc.kind(e['name'])
     for f in fs:
         n=f['attributes']['Unit_Nm'] or ''; t=toks(n)
-        if kp and oc.kind(n) and oc.kind(n)!=kp: continue   # a Forest is not the Refuge of the same name (#1004)
+        if oc.refuses(e['name'], n): continue   # a Forest is not the Refuge of the same name (#1004); a trail, corridor or management area is not the park (#977)
         s=len(want&t)/max(1,len(want|t)) if t else 0
         sc.setdefault(n,[0,0]); sc[n][0]=s; sc[n][1]+=f['attributes']['GIS_Acres'] or 0
     if not sc: return None
