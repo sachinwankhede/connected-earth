@@ -14,15 +14,15 @@ import sys, os, re, json, time, glob, datetime
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, HERE)
 import fetch, urllib.request, urllib.error
-import gemini_api as api
+import gemini_api as api, contracts
 from gemini_api import QuotaStop, Overloaded, BUSY_WAITS, MAX_BUSY_IN_A_ROW, retry_delay   # the calling code is shared (lib/gemini_api.py, #772)
 MODELS = ('gemini-3.5-flash-lite', 'gemini-3.1-flash-lite', 'gemini-3.8-flash')   # free-tier daily limits seen 13 Nov: 500, 500 and 20 requests; each model has its own quota
 MODEL = os.environ.get('GEMINI_MODEL') or MODELS[0]   # one model, or several separated by commas: tried in that order, the next one takes over when a model is out of quota or stays busy
 URL = api.URL
 MAX_ROWS = 150; PAGE = 15; MAX_OUT = 600; GAP = api.GAP; MAX_WAIT = api.MAX_WAIT; RESEARCH_CHARS = 30000
 PROMPT_VERSION = 'stories-2'
-STORY_WORDS = 60; WHY_WORDS = 40
-STORY_CHARS = (120, 620); WHY_CHARS = (80, 520)   # the place check in build/validate.py refuses anything outside these, so a draft outside them can never go in a batch (#779, 14 Nov)
+STORY_WORDS = contracts.STORY_WORDS; WHY_WORDS = contracts.WHY_WORDS
+STORY_CHARS = contracts.STORY_CHARS; WHY_CHARS = contracts.WHY_CHARS   # the place check in build/validate.py refuses anything outside these, so a draft outside them can never go in a batch (#779, 14 Nov)
 SYSTEM = ('You write two short texts about a protected natural place for a children-friendly nature atlas. Use ONLY facts stated in the SOURCE TEXT: no outside knowledge, no guesses. '
           'Every number, name, date and place name you write must appear in the source text. If the source does not support a fact, leave it out. Plain sentences, no marketing words, no lists, no bold. Never write latitude or longitude coordinates; say the region or country instead, and open with what makes the place special.\n'
           '"story": 2 to 3 sentences, at most %d words: where the place is, how big or how old, and what lives or is special there.\n'

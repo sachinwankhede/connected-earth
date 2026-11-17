@@ -3,7 +3,8 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 
-const MAX = { story: 60, matters: 40 };
+const C = JSON.parse(fs.readFileSync(new URL('../../lib/contracts.json', import.meta.url), 'utf8'));   // lib/contracts.json: the limits are written once
+const MAX = { story: C.story.words, matters: C.matters.words };
 const words = (t) => String(t || '').trim().split(/\s+/).filter(Boolean).length;
 
 test('place story and why-it-matters texts stay within the word limits', () => {
