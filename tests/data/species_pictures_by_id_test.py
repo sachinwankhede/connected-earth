@@ -5,7 +5,6 @@ import os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 import build as B
-B.SIDS.update({'canis lupus': 'canis-lupus', 'canis rufus': 'canis-rufus', 'bryum argenteum': 'bryum-argenteum'})   # the stored ids of the species rows (#1013)
 
 def row(f, page, **kw): return {'f': f, 'page': page, 'wiki': kw.get('wiki', page), 'a': 'An Author', 'l': 'CC BY 4.0', 'lu': 'https://creativecommons.org/licenses/by/4.0', 'p': 'https://commons.wikimedia.org/wiki/File:X.jpg'}
 nodes = [

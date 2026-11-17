@@ -37,11 +37,11 @@ def check(pilot):
     orel, oties, owhere = old_scan(ecos)
     assert rel == orel, 'related places differ from the old scan: ' + next(i for i in orel if rel[i] != orel[i])
     assert ties == oties, 'ties differ from the old scan'
-    assert where == owhere, 'species to places differs from the old scan'
+    assert where == {B.species.slug(l): v for l, v in owhere.items()}, 'species to places differs from the old scan'   # the new scan is by species id; the old one by Latin name
     assert all(len(v) <= B.RELATED_N for v in rel.values())
     # the files: every species is in the file of its bucket, and the buckets hold exactly the lists
     files = B.split_species_places(where)
-    assert {k: v for f in files.values() for k, v in f.items()} == {B.species.slug(l): v for l, v in where.items()} and all(B.species_bucket(l) + '.json' == f for f, d in files.items() for l in d)   # keyed by species id (#973)
+    assert {k: v for f in files.values() for k, v in f.items()} == where and all(B.species_bucket(l) + '.json' == f for f, d in files.items() for l in d)   # keyed by species id (#973)
     assert all(len(f) == 7 and f.endswith('.json') for f in files), 'a bucket is two characters'
     # the ties files: per region, the first 16 of the old scan's list, the first 5 with count and up to 3 names, the rest as bare ids
     errs = B.check(ecos, links, B.app_source(), json.load(open(os.path.join(ROOT, 'data', 'geo', 'geo.json'))))   # fills in the derived fields (countries) the region key needs
