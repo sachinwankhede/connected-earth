@@ -98,6 +98,9 @@ def check(root):
         if v.get('latin') and k != v['latin'].lower(): errs.append('species %r: key is not the lowercase Latin name' % k)
     sids = [v.get('sid') for v in sp.values()]
     if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
+    for k, v in sp.items():   # #1013: the build writes the id of a species node, a file name and a link from the stored sid, and the app and the tests treat it as the slug of the Latin name; that holds for every taxon and group today, so it is enforced here. A resource row (rain, soil: not a species) may carry a `-2` suffix when two names slug alike.
+        if v.get('sk') in ('taxon', 'group') and v.get('sid') and v['sid'] != species.slug(v.get('latin') or v.get('name') or ''):
+            errs.append('species %r: its sid %r is not the slug of its name (%r); the build and the app expect it to be' % (k, v['sid'], species.slug(v.get('latin') or v.get('name') or '')))
     ids = place_ids(root)
     pd_ = os.path.join(root, 'data', 'places')   # #973 phase 4: every node of a food web that names a species row (`sp`) finds it, and the row has its id, so the app can ask for its picture by id
     if sp and os.path.isdir(pd_):

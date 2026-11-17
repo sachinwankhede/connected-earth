@@ -11,6 +11,12 @@ def put(root, rel, obj):
 SP = {'a b': {'latin': 'A b', 'name': 'AB', 'tl': 2, 'wiki': 'A b', 'desc': 'd', 'ic': 'x', 'sid': 'a-b', 'sk': 'taxon'}}
 
 class DataFormat(unittest.TestCase):
+    def test_a_species_sid_must_be_the_slug_of_its_name_but_a_resource_may_differ(self):
+        with tempfile.TemporaryDirectory() as r:
+            put(r, 'data/species/species.json', {'a b': dict(SP['a b'], sid='a-b-2'), 'soil': {'name': 'Soil', 'tl': 0, 'ic': 'x', 'sid': 'soil-2', 'sk': 'resource', 'cat': 'rock'}}); put(r, 'data/places/p.json', {})
+            errs, _ = check(r); text = '\n'.join(errs)
+            self.assertIn("species 'a b': its sid 'a-b-2' is not the slug of its name ('a-b')", text)
+            self.assertEqual(sum('slug of its name' in e for e in errs), 1)   # the resource row is not reported
     def test_clean_tree_has_no_problems(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {})
