@@ -9,13 +9,13 @@ The rules below were the old jobs' own functions (jobs/speciesphotos.py + hostph
 they were COPIED here with the same behaviour (the old job files stay until the new job has had one good run). Network goes through lib/wm.py (hosts listed in lib/allowed_sources.json, enforced by lib/fetch.py); no host is added."""
 import io, ipaddress, os, re, sys, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); sys.path.insert(0, HERE)
-import wm
+import wm, contracts
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
 import commons_api as cs
 from openverse_api import API as OV_API, licence_of as ov_licence_of, norm, unwanted, SHEET_WORDS
 from place_sources import Res, Vetted   # the same result type and the same vetted Commons rows (author rule) as the place sources
 
-RETRY_DAYS = 90   # every source but wikipedia: tried again this long after its date in photos/species_tried.json
+RETRY_DAYS = contracts.SOURCE_RETRY_DAYS   # every source but wikipedia: tried again this long after its date in photos/species_tried.json
 
 # --- Wikipedia: the picture of the species' page (from speciesphotos.py for the link, hostphotos.py for the licence and the download)
 NOTPHOTO = re.compile(r'logo|emblem|coat[_ ]of[_ ]arms|(^|[_ ])flag([_ .]|$)|\.svg|map\.(png|jpe?g|gif)$|(^|[_ -])maps?([_ .0-9-]|$)|locator|diagram|[_ -]chart', re.I)

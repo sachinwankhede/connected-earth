@@ -9,7 +9,10 @@ import struct
 import sys
 import urllib.parse
 
-PERMANENT = {"nophoto", "notcommons", "notphoto", "notfree", "wrongpage"}   # notfree: the picture exists but its licence is outside the rule (#421); wrongpage: the Wikipedia page is a disambiguation page or names another state (#767)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import contracts
+
+PERMANENT = set(contracts.PERMANENT_STATUSES)   # lib/contracts.json. notfree: the picture exists but its licence is outside the rule (#421); wrongpage: the Wikipedia page is a disambiguation page or names another state (#767)
 ALLOWED_IMAGE_HOSTS = {"upload.wikimedia.org", "thumb.wikimedia.org"}
 CREDIT_PAGE_HOSTS = {"commons.wikimedia.org", "www.gbif.org", "openverse.org", "www.inaturalist.org"}   # where a species picture's credit page may be (GBIF from #511); place pictures stay on Commons
 PLACE_CREDIT_HOSTS = {"commons.wikimedia.org", "openverse.org"}   # where a place picture's credit page may be (Openverse from #768)
@@ -25,9 +28,9 @@ def negative_entry(status, attempts=1, now=None):
     now = now or _utcnow()
     attempts = max(1, int(attempts))
     if status in PERMANENT:
-        delay = datetime.timedelta(days=180)
+        delay = datetime.timedelta(days=contracts.PERMANENT_RETRY_DAYS)
     else:
-        delay = datetime.timedelta(hours=min(24 * 7, 2 ** min(attempts, 8)))
+        delay = datetime.timedelta(hours=min(contracts.TRANSIENT_RETRY_MAX_HOURS, 2 ** min(attempts, 8)))
     return {
         "status": status,
         "checkedAt": now.isoformat(),

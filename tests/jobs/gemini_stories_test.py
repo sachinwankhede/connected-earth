@@ -41,7 +41,7 @@ class CheckTests(unittest.TestCase):
     def test_the_limits_are_the_ones_the_place_check_uses(self):
         import re
         src = open(os.path.join(os.path.dirname(__file__), '..', '..', 'build', 'validate.py')).read()
-        self.assertIn("('story',%d,%d),('matters',%d,%d)" % (g.STORY_CHARS + g.WHY_CHARS), src)
+        self.assertIn("('story',contracts.STORY_CHARS),('matters',contracts.WHY_CHARS)", src)   # the place check reads the same lib/contracts.json the writer does
 
     def test_empty_is_rejected(self):
         self.assertIsNotNone(g.check({'story': '', 'matters': 'x'}, SRC))

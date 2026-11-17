@@ -9,7 +9,8 @@ ICONS=set(re.findall(r"^\s{4}(\w+):",tpl[i0:i1],re.M))
 geo=json.load(open(os.path.join(ROOT,'data','geo','geo.json')))
 C={c['name']:c['cont'] for c in geo['countries']}; S={s['name'] for s in geo['states']}
 sys.path.insert(0,here)
-import species, geoids
+sys.path.insert(0,os.path.join(os.path.dirname(here),"lib"))
+import species, geoids, contracts
 def check(path):
     e=species.load(path); errs=[]; warn=[]
     for x in geoids.name_form(e):
@@ -29,7 +30,7 @@ def check(path):
         if s not in S: errs.append('unknown US state '+s)
     if e.get('states') and 'United States of America' not in e.get('countries',[e['country']]): errs.append('states only for the United States')
     if e['icon'] not in ICONS: errs.append('eco icon %s not in ICONS'%e['icon'])
-    for k,lo,hi in (('story',120,620),('matters',80,520)):
+    for k,(lo,hi) in (('story',contracts.STORY_CHARS),('matters',contracts.WHY_CHARS)):
         if k in e and not (isinstance(e[k],str) and lo<=len(e[k])<=hi): errs.append('%s must be text of %d-%d characters'%(k,lo,hi))
     if ('matters' in e) and 'story' not in e: errs.append('matters needs a story')
     if e['tier'] not in ('overview','detailed'): errs.append('tier must be overview or detailed')

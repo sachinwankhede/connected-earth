@@ -9,11 +9,11 @@ files import them back, so their own tests still hold. Network goes through lib/
 import collections, datetime, glob, io, json, os, re, shutil, sys, tempfile, unicodedata, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
-import wm, photo_registry as pr
+import wm, photo_registry as pr, contracts
 from photo_registry import ALLOWED_IMAGE_HOSTS, safe_https
 import author_lookup as al, wikipedia_photo as ph, commons_api as cs, openverse_api as o   # nothing here imports from jobs/
 
-RETRY_DAYS = 90   # every source but wikipedia: tried again this long after its date in photos/places_tried.json
+RETRY_DAYS = contracts.SOURCE_RETRY_DAYS   # every source but wikipedia: tried again this long after its date in photos/places_tried.json
 Res = collections.namedtuple('Res', 'kind entry jpg why status note', defaults=(None, None, '', 'nophoto', ''))   # kind: found | miss | retry
 
 def now_iso(): return datetime.datetime.now(datetime.timezone.utc).isoformat()
