@@ -116,7 +116,8 @@ def split(ecos, links, sp=None, nps=None):
 INDEX_FIELDS = ('id', 'short', 'lat', 'lon', 'kind', 'icon', 'level', 'auto', 'park', 'conts', 'countries', 'states')
 # Fields the app never reads (item #313, step 1; checked by searching src/app.html): they stay in the source data, they are only left out of the files.
 # tier, cont and country are the singular forms of what the app reads as conts and countries; side and ly are unused; idx.nl (the number of links of one kind) too.
-NOT_SHIPPED = ('tier', 'cont', 'country', 'side', 'ly')
+# imgwiki is the Wikipedia title the data jobs search a place's picture, coordinates and links from (#908); the app reads pictures by place id, so it is left out (about 80 KB, #1008).
+NOT_SHIPPED = ('tier', 'cont', 'country', 'side', 'ly', 'imgwiki')
 NOT_SHIPPED_IDX = ('nl',)
 
 

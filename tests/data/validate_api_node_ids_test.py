@@ -14,4 +14,9 @@ with tempfile.TemporaryDirectory() as d:
     json.dump({'nodes': [{'id': 'wolf', 'latin': 'Canis lupus'}]}, open(os.path.join(d, 'yellowstone.json'), 'w'))
     r = subprocess.run([sys.executable, os.path.join(ROOT, 'build', 'validate_api.py'), d], capture_output=True, text=True)
     assert r.returncode == 1 and 'yellowstone.json' in r.stdout and 'wolf' in r.stdout, r.stdout + r.stderr
+with tempfile.TemporaryDirectory() as d:   # the built cards leave out `imgwiki` (the app never reads it, #1008)
+    os.makedirs(os.path.join(d, 'places', 'main'))
+    json.dump({'a': {'name': 'A', 'place': 'p', 'blurb': 'b', 'imgwiki': 'A', 'idx': {}}}, open(os.path.join(d, 'places', 'main', 'cards-world.json'), 'w'))
+    r = subprocess.run([sys.executable, os.path.join(ROOT, 'build', 'validate_api.py'), d], capture_output=True, text=True)
+    assert r.returncode == 1 and 'cards-world.json' in r.stdout, r.stdout + r.stderr
 print('ok')

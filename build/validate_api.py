@@ -11,7 +11,7 @@ SCHEMAS = {
     'search/s-*.json': dict(type='object', required=['p', 's'], properties=dict(
         p=dict(type='array', items=dict(type='array', minItems=2, maxItems=2, items=S())),
         s=dict(type='array', items=dict(type='array', minItems=5, maxItems=6, prefixItems=[S(), S(), I, dict(type=['string', 'integer']), S()], items=S())))),
-    'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'imgwiki', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), imgwiki=S(), idx=dict(type='object')))),
+    'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), idx=dict(type='object')), **{'not': dict(required=['imgwiki'])})),
     'species/*.json': dict(type='object', required=['l', 'n', 'tl', 'ic'], properties=dict(l=S(), n=S(), tl=I, ic=S())),
 }
 def nodes_missing_ids(d):
