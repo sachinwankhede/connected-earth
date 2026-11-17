@@ -46,19 +46,22 @@ describe('stored place photos carry a credit line', () => {
     assert.ok(b, 'the fixture has two places with pictures');
     // a's row under its own id; a second row under an unrelated id that carries b's title (two places on one title, #908): b has no row of its own
     const list = { [a.id]: { ...man[a.id], wiki: a.imgwiki }, 'someotherplace': { ...man[a.id], wiki: b.imgwiki } };
-    const shows = async (e) => {
+    const shows = async (e, expectPicture) => {
       const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
       await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(list) }));
       await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
       await page.waitForFunction(() => window.__M && window.__M.styleReady, null, { timeout: 30000 }).catch(() => {});
-      await page.waitForFunction(() => document.querySelector('#pp-main img'), null, { timeout: 15000 }).catch(() => {});
+      await page.waitForFunction(() => document.querySelector('#pp-main img'), null, { timeout: expectPicture ? 15000 : 1 }).catch(() => {});
+      // #989: "no picture" is only a result once the page has had the list: the place is open, the list file has arrived and been read (a swallowed timeout above made "not ready yet" look like "no picture")
+      await page.waitForFunction((id) => window.__M && window.__M.pid === id && window.__M.photoGo && performance.getEntriesByType('resource').some((r) => /\/photos\/places\/places\.json/.test(r.name) && r.responseEnd > 0), e.id, { timeout: 30000 });
+      await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(r, 0)))));   // the reply's promise callbacks have run
       const seen = await page.evaluate(() => { const i = document.querySelector('#pp-main img'); return i ? { src: i.getAttribute('src'), main: document.getElementById('pp-main').innerHTML.slice(0, 200) } : null; });   // #989: what drew it, when it shows
       assert.deepEqual(errors, []); await ctx.close(); return seen;
     };
-    assert.ok(await shows(a), 'the place with a row under its own id shows its picture');
-    const got = await shows(b);
+    assert.ok(await shows(a, true), 'the place with a row under its own id shows its picture');
+    const got = await shows(b, false);
     assert.equal(got, null, 'a place with no row under its own id shows no picture, whatever another row\'s title says: ' + JSON.stringify(got) + ' (a\'s file is ' + man[a.id].f + ', b\'s title row is ' + (man[b.id] && man[b.id].f) + ')');
   });
 
