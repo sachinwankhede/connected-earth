@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
-import { readPlaces, FDATA } from './helper.mjs';
+import { readPlaces, FDATA, FETCH } from './helper.mjs';
 import { loadJourneys } from '../journeytable.mjs';
 // The pictures' source data. Real data (the default) is read the first time a test asks for it, so a file that uses the fixture build never touches it.
 const sources = {};
@@ -50,7 +50,7 @@ export async function mockPhotos(page, { allPlaces = false, thinPlaces = false, 
   // a place carries its own species picture entries now: give each place file the mocked entries for its species
   await page.route(/\/api\/[\w-]+\.json(?:\?|$)/, async (r) => {
     if (/(species-pictures)\.json/.test(r.request().url())) return r.fallback();
-    const res = await r.fetch();
+    const res = await r.fetch(FETCH);
     if (!res.ok()) return r.fallback();   // not a built file: a fixture place is answered by its own route
     const w = await res.json();
     w.ph = {}; w.phm = {};

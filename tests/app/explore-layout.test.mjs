@@ -19,7 +19,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.route('**/photos/species.json', (route) => route.fulfill({ contentType: 'application/json', body: '{}' }));
     await p.route(/\/api\/[\w-]+\.json(?:\?|$)/, async (route) => {   // no pictures: a place also carries its own picture entries now
       if (/(about)\.json/.test(route.request().url())) return route.fallback();
-      const res = await route.fetch(), w = await res.json(); w.ph = {}; w.phm = {};
+      const res = await route.fetch(H.FETCH), w = await res.json(); w.ph = {}; w.phm = {};
       return route.fulfill({ response: res, body: JSON.stringify(w) });
     });
     const openWeb = async (id) => {

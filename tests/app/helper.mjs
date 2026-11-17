@@ -62,6 +62,8 @@ function server() {
 export async function urlFor(file) { const srv = await server(); return `http://127.0.0.1:${srv.address().port}/` + path.relative(ROOT, file).split(path.sep).join('/'); }
 export function setServerOffline(offline) { serverOffline = offline; }
 
+// #984: route.fetch() makes its own connection to the test server from Node; a kept-alive socket the server has closed answers ECONNRESET, the handler throws, the page's request is never answered and the wait for the food web times out. maxRetries makes Playwright retry exactly that error.
+export const FETCH = { maxRetries: 3 };
 export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 1280, height: 800 } };
 
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
@@ -120,11 +122,11 @@ export function fixturePlace(urlPath) {
 }
 async function routeFixtures(page) {
   await page.route(/\/api\/journeys\/main\.json(?:\?|$)/, async (r) => {
-    const d = await (await r.fetch()).json();
+    const d = await (await r.fetch(FETCH)).json();
     await r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...d, cross: d.cross.concat(FIXTURE_JOURNEYS) }) });
   });
   await page.route(/\/api\/places\/main\/(?:index|cards)-world\.json(?:\?|$)/, async (r) => {
-    const res = await r.fetch();
+    const res = await r.fetch(FETCH);
     await r.fulfill({ response: res, body: fixtureList(new URL(r.request().url()).pathname, await res.text()) });
   });
   for (const f of FIXTURES) await page.route(new RegExp('/api/' + f.index.id + '\\.json(?:\\?|$)'), (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(f.place) }));
