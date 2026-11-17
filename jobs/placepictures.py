@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """placepictures.py: the ONE job that finds a picture for a place that has none (docs/DATA-PLAN.md, step 4; #887).
-Usage: placepictures.py [--strategy all|wikipedia|commons|nearby|category|openverse|large] [--limit N] [--max-mb N] [--minutes N] [--again] [--dry]   (run from the repository root)
+Usage: placepictures.py [--strategy all|wikipedia|commons|nearby|category|openverse|large] [--limit N] [--max-mb N] [--minutes N] [--repair-limit N] [--again] [--dry]   (run from the repository root)
 
 It replaces the five acquire jobs for place pictures (jobs/photos.py, commonsplacephotos.py, commonsnearby.py, commonscategory.py, openverseplaces.py), which each wrote the files and lists in their own way. Here the five
 SOURCES are strategies tried in this order, and a place stops at the first one that gives an accepted picture:
@@ -29,7 +29,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
 import wm, place_photos as pp, photo_registry as pr
-import author_lookup as al
+import author_lookup as al, author_repair as ar
 from place_sources import Res, Vetted, now_iso, SOURCES, find_wikipedia, find_commons, find_nearby, find_category, find_openverse   # noqa: F401 (re-exported: the tests and callers use pj.Res, pj.Vetted, pj.find_*)
 
 COMMIT_EVERY = 25
@@ -201,11 +201,17 @@ def main(argv=None, root=ROOT, strategies=None, large=make_large):
     w = pp.PlacePhotos(root); units, shared = load_units(os.path.join(root, 'data', 'places'))
     if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is keyed by title, not by place id: this job needs the id-keyed files (migration #906)'); return 1
     print('%d places with a title, %d skipped because another place has the same title: %s' % (len(units), len(shared), ', '.join(sorted(u['id'] for u in shared)) or 'none'))
+    rl = int(opt('--repair-limit', 40)); dry = '--dry' in a; t0 = time.monotonic()
     stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large, minutes=minutes)
     for name, s in stats.items():
         if name == 'large': print('summary large: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, larger copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['large'], s['nolarge']))
     print('added %d pictures, %d larger copies' % (sum(s['found'] for s in stats.values()), sum(s['large'] + s['made'] for s in stats.values())))
+    if rl:   # the author repair step (#887, lib/author_repair.py): after the sources, only when none of them stopped, inside the same time budget
+        if stopped: print('author repair skipped: a source stopped this run')
+        else:
+            rs, _ = ar.repair_step(w, limit=rl, dry=dry, late=(lambda: time.monotonic() - t0 >= minutes * 60) if minutes else None); print(ar.summary(rs))
+            if not dry and (rs['fixed'] or rs['none']): w.commit()
     block = stats_block(w, dict(places=len(units) + len(shared), strategies=stats), dry='--dry' in a); print(block)
     try:
         with open('placepictures_stats.md', 'w', encoding='utf-8') as f: f.write(block)   # not committed: the workflow may put it in the PR body
