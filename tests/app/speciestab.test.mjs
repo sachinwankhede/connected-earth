@@ -28,16 +28,16 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.equal(await fetched(p, /species-tab/), false, 'nothing of the tab at start-up');
     const top = await p.evaluate(() => fetch('api/species-tab/top.json').then((r) => r.json()));
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-latin]').length > 0, null, { timeout: 60000 });
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-sid]').length > 0, null, { timeout: 60000 });
     assert.equal(await fetched(p, /species-tab-[0-9a-f]+\.js/), true); assert.equal(await fetched(p, /api\/species-tab\/top\.json/), true);
-    const s = await p.evaluate(() => ({ rows: [...document.querySelectorAll('#sptab .sgr[data-latin]')].map((r) => ({ n: r.querySelector('b').textContent, l: r.querySelector('i').textContent, h: r.getBoundingClientRect().height })), cards: getComputedStyle(document.getElementById('cards')).display, head: document.querySelectorAll('#sptab h3').length }));
-    assert.equal(s.rows.length, top.length); assert.equal(s.rows[0].n, top[0][1]); assert.equal(s.rows[0].l, 'Species · in ' + top[0][2] + ' places');
+    const s = await p.evaluate(() => ({ rows: [...document.querySelectorAll('#sptab .sgr[data-sid]')].map((r) => ({ n: r.querySelector('b').textContent, l: r.querySelector('i').textContent, h: r.getBoundingClientRect().height })), cards: getComputedStyle(document.getElementById('cards')).display, head: document.querySelectorAll('#sptab h3').length }));
+    assert.equal(s.rows.length, top.length); assert.equal(s.rows[0].n, top[0][0]); assert.equal(s.rows[0].l, 'Species · in ' + top[0][1] + ' places');
     assert.ok(s.rows.every((r) => /^Species · in \d+ places?$/.test(r.l) && r.h >= 44)); assert.equal(s.cards, 'none', 'the places list is out of the way'); assert.equal(s.head, 0, 'no heading line (#534)');
-    await p.locator('#sptab .sgr[data-latin]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr[data-latin]').click()));
-    await p.waitForFunction((n) => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === n, top[0][1], { timeout: 60000 });
+    await p.locator('#sptab .sgr[data-sid]').first().click({ timeout: 5000 }).catch(() => p.evaluate(() => document.querySelector('#sptab .sgr[data-sid]').click()));
+    await p.waitForFunction((n) => document.querySelector('#pview h2') && document.querySelector('#pview h2').textContent === n, top[0][0], { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelector('#pview .jback').textContent.trim()), '‹ Species');
     await p.evaluate(() => history.back()); await H.pause(p, 1000);
-    assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab'); assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab .sgr[data-latin]').length), top.length);
+    assert.equal(await p.evaluate(() => document.getElementById('sptab').hidden), false, 'Back returns to the Species tab'); assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab .sgr[data-sid]').length), top.length);
     assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'the group pills are still there after Back from a species page (#592)');
     await p.evaluate(() => window.dispatchEvent(new HashChangeEvent('hashchange'))); await H.pause(p, 500);   // what a return to the app does: the address is applied again and the list redrawn
     assert.ok(await p.evaluate(() => document.querySelectorAll('#regions [data-spg]').length > 0), 'a redraw of the places list does not blank the Species pills (#592)');
@@ -64,13 +64,13 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     const big = groups.findIndex((g) => g[2] > 250);   // a group with a second page, when the data has one
     const gi = big >= 0 ? big : 0, g = groups[gi];
     await pick(p, 'data-spg', g[0]);
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-latin]').length > 0, null, { timeout: 60000 });
-    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#regions .chip.on').textContent, h3: document.querySelectorAll('#sptab h3').length, n: document.querySelectorAll('#sptab .sgr[data-latin]').length }));
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgl .sgr[data-sid]').length > 0, null, { timeout: 60000 });
+    const v = await p.evaluate(() => ({ back: document.querySelector('#sptab .jback') ? 'back' : 'none', head: document.querySelector('#regions .chip.on').textContent, h3: document.querySelectorAll('#sptab h3').length, n: document.querySelectorAll('#sptab .sgr[data-sid]').length }));
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spg')), g[0], 'the picked group is the marked pill');
     assert.equal(v.back, 'none', 'the All pill is the way back, no second link (#526)'); assert.equal(v.h3, 0, 'no heading line'); assert.equal(v.head.replace(/^All /, ''), g[1] + ' ' + g[2], 'the selected pill says the name and the count (All <group> when it has orders)'); assert.equal(v.n, Math.min(g[2], 250));
     if (g[2] > 250) {
       await p.evaluate(() => document.querySelector('#sptab [data-more]').click());
-      await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-latin]').length > n, 250, { timeout: 60000 });
+      await p.waitForFunction((n) => document.querySelectorAll('#sptab .sgr[data-sid]').length > n, 250, { timeout: 60000 });
     }
     await p.evaluate(() => document.querySelector('#regions [data-spg=""],#regions [data-spu]').click());   // inside a group with orders the way back is ‹ Groups (#519 level 2)
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0 && !document.querySelector('#regions [data-spu]'), null, { timeout: 15000 });
@@ -95,7 +95,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     if (size.width < 700) assert.ok((await wide()) <= 1, 'the open group does not pan sideways: ' + (await wide()) + ' px too wide');   // owner, 10 Nov
     const o = orders[0];
     await p.evaluate((k) => document.querySelector('#regions [data-spo="' + k + '"]').click(), o[0]);
-    await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spo]') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(o[2], 250), { timeout: 60000 });
+    await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spo]') && document.querySelectorAll('#sptab .sgr[data-sid]').length === n, Math.min(o[2], 250), { timeout: 60000 });
     assert.equal(await p.evaluate(() => document.querySelectorAll('#sptab h3').length), 0, 'no heading line');
     assert.equal(await p.evaluate(() => document.querySelector('#regions .chip.on').getAttribute('data-spo')), o[0], 'the picked order is the marked pill');
     if (orders.length > 3) {   // a pick comes first after the back pill and All, visible or not (#534)
@@ -106,7 +106,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
       assert.deepEqual(c.slice(0, 3).map((x) => x.k), ['up', 'all', o3[0]], 'the pick is the first pill after the back pill and All'); assert.equal(c[2].on, true); assert.ok(c.length <= 8);
     }
     await p.evaluate((k) => document.querySelector('#regions [data-spg="' + k + '"]').click(), g[0]);   // All <group>: the whole group again
-    await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spg]') && document.querySelectorAll('#sptab .sgr[data-latin]').length === n, Math.min(g[2], 250), { timeout: 30000 });
+    await p.waitForFunction((n) => document.querySelector('#regions .chip.on[data-spg]') && document.querySelectorAll('#sptab .sgr[data-sid]').length === n, Math.min(g[2], 250), { timeout: 30000 });
     await p.evaluate(() => document.querySelector('#regions [data-spu]').click());
     await p.waitForFunction(() => document.querySelector('#regions [data-spg=""].on') && !document.querySelector('#regions [data-spu]'), null, { timeout: 15000 });
     assert.deepEqual(t.errors, []); await b.close();
@@ -123,10 +123,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => document.querySelectorAll('#regions [data-spg]').length > 0, null, { timeout: 60000 });
     await p.click('#q'); await p.keyboard.type('osprey');
-    await p.waitForFunction(() => /species? match(es)? “osprey”$/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr[data-latin="Pandion haliaetus"]'), null, { timeout: 60000 });
-    const r = await p.evaluate(() => ({ head: document.getElementById('qnote').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ latin: x.getAttribute('data-latin'), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
-    assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.latin && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
-    assert.equal(r.rows[0].latin, 'Pandion haliaetus', 'the osprey first'); assert.equal(r.places, 0);
+    await p.waitForFunction(() => /species? match(es)? “osprey”$/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr[data-sid="pandion-haliaetus"]'), null, { timeout: 60000 });
+    const r = await p.evaluate(() => ({ head: document.getElementById('qnote').textContent, rows: [...document.querySelectorAll('#sptab .sgr')].map((x) => ({ sid: x.getAttribute("data-sid"), g: x.hasAttribute('data-g'), l: x.querySelector('i').textContent })), places: document.querySelectorAll('#sptab .sgr[data-id]').length }));
+    assert.match(r.head, /^\d+ species match(es)? “osprey”$/); assert.ok(r.rows.length > 0 && r.rows.every((x) => x.sid && !x.g && /^Species · in \d+ places?$/.test(x.l)), 'only species rows');
+    assert.equal(r.rows[0].sid, 'pandion-haliaetus', 'the osprey first'); assert.equal(r.places, 0);
     await p.waitForFunction(() => !document.getElementById('sug').hidden, null, { timeout: 15000 });
     const sug = await p.evaluate(() => [...document.querySelectorAll('#sug .sgr')].map((x) => x.getAttribute('data-id') ? 'place' : 'species'));
     assert.ok(sug.length > 0 && sug.every((x) => x === 'species'), 'the dropdown has species only: ' + sug);

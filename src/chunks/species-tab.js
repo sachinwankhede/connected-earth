@@ -1,5 +1,5 @@
 /* The Species tab (#422). This code is not in the page: the page loads this file the first time the tab opens (withSpeciesTab in src/app/cards.js) and gives it what it
-   needs in A (Data, the photo registry, escaping, the row icons, and go(latin) which opens a species page). It reads api/species-tab/ only through A.Data.
+   needs in A (Data, the photo registry, escaping, the row icons, and goSid(sid) which opens a species page). It reads api/species-tab/ only through A.Data.
    First screen: the species found in the most places, then the groups; a group opens its own list, 250 rows at a time. */
 window.__chunk = window.__chunk || {};
 window.__chunk["species-tab"] = function (A) {
@@ -17,19 +17,19 @@ window.__chunk["species-tab"] = function (A) {
       "body:has(.sheet.mm) .crumbs { display: none; }"].join("\n");   /* map-mode layout (owner, 9 Nov): title row with a close at its right, then one row of pills (‹ parent, All <region>, the regions below it, #568); kept here so the first view does not carry it */
   function mmStyle() { if (document.getElementById("mmcss")) return; var st = document.createElement("style"); st.id = "mmcss"; st.textContent = mmCSS; document.head.appendChild(st); }
   function el(html, cls) { var d = document.createElement("div"); d.className = cls; d.innerHTML = html; return d; }
-  function row(r) {   /* [Latin name, usual name, places, picture file or 0] */
-    var c = r[3] && A.PhotoRegistry.speciesCandidate([r[3], r[0]], r[0], 1, null);
+  function row(r) {   /* [usual name, places, picture file or 0, species id] */
+    var c = r[2] && A.PhotoRegistry.speciesCandidate([r[2], ""], "", 1, null);
     var d = el('<span class="sgi">' + (c ? '<img alt="" loading="lazy" referrerpolicy="no-referrer" src="' + A.esc(c.assetUrl) + '">' : A.leaf) + '</span><span class="sgt"><b></b><i></i></span>' + A.chev, "sgr");
-    d.setAttribute("role", "link"); d.tabIndex = 0; d.setAttribute("data-latin", r[0]);
-    d.querySelector("b").textContent = r[1]; d.querySelector("i").textContent = "Species · in " + r[2] + (r[2] === 1 ? " place" : " places");
+    d.setAttribute("role", "link"); d.tabIndex = 0; d.setAttribute("data-sid", r[3]);
+    d.querySelector("b").textContent = r[0]; d.querySelector("i").textContent = "Species · in " + r[1] + (r[1] === 1 ? " place" : " places");
     var im = d.querySelector("img"); if (im) im.onerror = function () { d.querySelector(".sgi").innerHTML = A.leaf; };
     return d;
   }
-  function card(r) {   /* the same photo card as the place page's photo rows (.prow / .pmc): [Latin name, usual name, places, picture file or 0] */
-    var c = r[3] && A.PhotoRegistry.speciesCandidate([r[3], r[0]], r[0], 1, null);
+  function card(r) {   /* the same photo card as the place page's photo rows (.prow / .pmc): [usual name, places, picture file or 0, species id] */
+    var c = r[2] && A.PhotoRegistry.speciesCandidate([r[2], ""], "", 1, null);
     var d = document.createElement("button"); d.className = "pmc";
     d.innerHTML = '<span class="pbox"><span class="pph' + (c ? " has" : "") + '">' + (c ? '<img alt="" loading="lazy" referrerpolicy="no-referrer" src="' + A.esc(c.assetUrl) + '">' : A.leaf) + '</span></span><b></b><small></small>';
-    d.type = "button"; d.setAttribute("data-latin", r[0]); d.querySelector("b").textContent = r[1]; d.querySelector("small").textContent = "in " + r[2] + (r[2] === 1 ? " place" : " places");
+    d.type = "button"; d.setAttribute("data-sid", r[3]); d.querySelector("b").textContent = r[0]; d.querySelector("small").textContent = "in " + r[1] + (r[1] === 1 ? " place" : " places");
     var im = d.querySelector("img"); if (im) im.onerror = function () { var p = d.querySelector(".pph"); p.classList.remove("has"); p.innerHTML = A.leaf; };
     return d;
   }
@@ -72,7 +72,7 @@ window.__chunk["species-tab"] = function (A) {
   function openGroup(key, ok) { var g = groups.filter(function (x) { return x[0] === key; })[0]; if (g) group(g, ok); else want = key; }   /* before the groups have loaded, open() does it */
   function act(t) {
     var d = t.closest(".sgr");
-    if (d && d.hasAttribute("data-latin")) A.go(d.getAttribute("data-latin"));
+    if (d && d.hasAttribute("data-sid")) A.goSid(d.getAttribute("data-sid"));
   }
   var qIn = document.getElementById("q"), qT, qN = 0, shown = "";
   function find() {   /* the search box on this tab looks for species only (#422 step 4) */
@@ -81,7 +81,7 @@ window.__chunk["species-tab"] = function (A) {
     A.find(q).then(function (rows) {
       if (n !== qN || !rows) return;
       rg.innerHTML = ""; box.innerHTML = "";   /* what was found is said in the note under the tabs, the same on all three (#449) */
-      if (rows.length) box.appendChild(list(rows, function (r) { return row([r.latin, r.name, r.n, r.pic || 0]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
+      if (rows.length) box.appendChild(list(rows, function (r) { return row([r.name, r.n, r.pic || 0, r.sid]); })); else box.insertAdjacentHTML("beforeend", '<p class="fine"><a href="#" data-clr="1">Clear</a></p>');
     }).catch(function () { if (n === qN) shown = ""; });
   }
   qIn.addEventListener("input", function () { clearTimeout(qT); qT = setTimeout(find, 150); });
@@ -143,7 +143,7 @@ window.__chunk["species-tab"] = function (A) {
     });
   }
   PV.addEventListener("click", function (ev) {
-    var r = M.sid && ev.target.closest("[data-latin]"); if (r) { A.go(r.getAttribute("data-latin"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
+    var r = M.sid && ev.target.closest("[data-sid]"); if (r) { A.goSid(r.getAttribute("data-sid"), M.spN); return; }   /* a species in "What it eats" opens its page; Back says this species' name */
     var t = M.sid && ev.target.closest("[data-pback],[data-spp],[data-spmap],[data-sg]"); if (!t) return;
     ev.preventDefault();
     if (t.hasAttribute("data-sg")) { M.sid = null; PV.hidden = true; P.showMap(); P.setTab("species"); openGroup(t.getAttribute("data-sg")); }   /* the group's list in the Species tab */

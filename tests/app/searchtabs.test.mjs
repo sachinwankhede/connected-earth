@@ -21,7 +21,7 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => /species? match/.test(document.getElementById('qnote').textContent) && !document.querySelector('#regions [data-spg]') && document.querySelector('#sptab .sgl .sgr'), null, { timeout: 60000 });
-    await picLoaded(p, '#sptab .sgr[data-latin="Pandion haliaetus"]');
+    await picLoaded(p, '#sptab .sgr[data-sid="pandion-haliaetus"]');
     assert.deepEqual(t.errors, []); await b.close();
   });
 
@@ -50,10 +50,10 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     assert.match(await p.evaluate(() => { const w = document.querySelectorAll('#cards li:not([hidden]) .card .where'); return w[1] && getComputedStyle(w[1]).display !== 'none' ? w[1].textContent : ''; }), /\d+ species · \d+ feeding links/, 'the Places row shows species and feeding links (#508)');
     assert.equal(await p.evaluate(() => getComputedStyle(document.getElementById('qnote')).textTransform), 'none', 'the count line is plain text, not capitals (#481)');
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 }); await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => document.querySelector('#sptab .sgl .sgr[data-latin]'), null, { timeout: 60000 });
-    const sp = await p.evaluate(() => { const r = document.querySelector('#sptab .sgl .sgr[data-latin]'), i = r.querySelector('.sgi').getBoundingClientRect(), b = r.querySelector('b').getBoundingClientRect(), k = r.querySelector('i').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: b.top < k.top, caps: getComputedStyle(r.querySelector('i')).textTransform, chev: !!r.querySelector('svg') }; });
+    await p.waitForFunction(() => document.querySelector('#sptab .sgl .sgr[data-sid]'), null, { timeout: 60000 });
+    const sp = await p.evaluate(() => { const r = document.querySelector('#sptab .sgl .sgr[data-sid]'), i = r.querySelector('.sgi').getBoundingClientRect(), b = r.querySelector('b').getBoundingClientRect(), k = r.querySelector('i').getBoundingClientRect(); return { pic: Math.round(i.width) + 'x' + Math.round(i.height), titleAbove: b.top < k.top, caps: getComputedStyle(r.querySelector('i')).textTransform, chev: !!r.querySelector('svg') }; });
     assert.deepEqual(sp, { pic: '52x52', titleAbove: true, caps: 'none', chev: true }, 'Species row: ' + JSON.stringify(sp));
-    boxes.species = await box('#sptab .sgl .sgr[data-latin]');
+    boxes.species = await box('#sptab .sgl .sgr[data-sid]');
     assert.deepEqual(boxes.species, boxes.places, 'one list format: Species rows look like Places rows (#493)');
     const j = await p.evaluate(() => !![...document.querySelectorAll('[data-tab="journeys"]')].find((x) => x.offsetParent));
     if (j) {
@@ -149,8 +149,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /places? match(es)? “sahara”$/.test(n.textContent); }, null, { timeout: 30000 });
     await p.click('[data-tab="species"]:visible');
     await p.waitForFunction(() => { const n = document.getElementById('qnote'); return !n.hidden && /species match(es)? “sahara”$/.test(n.textContent) && !document.querySelector('#regions [data-spg]'); }, null, { timeout: 30000 });
-    await p.waitForFunction(() => { const m = /^(\d+) species match/.exec(document.getElementById('qnote').textContent); return document.querySelectorAll('#sptab .sgr[data-latin]').length === (m ? +m[1] : 0); }, null, { timeout: 30000 });   // the list is drawn to the note's count (#786: the note changes a moment before the rows)
-    const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-latin]').length, top: !!document.querySelector('#regions [data-spg]') }));
+    await p.waitForFunction(() => { const m = /^(\d+) species match/.exec(document.getElementById('qnote').textContent); return document.querySelectorAll('#sptab .sgr[data-sid]').length === (m ? +m[1] : 0); }, null, { timeout: 30000 });   // the list is drawn to the note's count (#786: the note changes a moment before the rows)
+    const list = await p.evaluate(() => ({ note: document.getElementById('qnote').textContent, rows: document.querySelectorAll('#sptab .sgr[data-sid]').length, top: !!document.querySelector('#regions [data-spg]') }));
     assert.equal(list.top, false, 'the groups are out of the way during a search'); assert.equal(/^No species/.test(list.note), list.rows === 0, 'the note and the list agree: ' + JSON.stringify(list));
     assert.deepEqual(t.errors, []); await b.close();
   });
@@ -161,8 +161,8 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await p.evaluate(() => { if (window.__M.setSheet) window.__M.setSheet('half'); });
     await p.waitForSelector('[data-tab="species"]:visible', { timeout: 60000 });
     await p.click('[data-tab="species"]:visible');
-    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-latin]').length > 0, null, { timeout: 60000 });
-    await p.evaluate(() => document.querySelector('#sptab .sgr[data-latin]').click());
+    await p.waitForFunction(() => document.querySelectorAll('#sptab .sgr[data-sid]').length > 0, null, { timeout: 60000 });
+    await p.evaluate(() => document.querySelector('#sptab .sgr[data-sid]').click());
     await p.waitForFunction(() => document.querySelector('#pview [data-spmap]'), null, { timeout: 60000 });
     await p.evaluate(() => document.querySelector('#pview [data-spmap]').click());
     await p.waitForFunction(() => document.getElementById('pview').hidden, null, { timeout: 30000 });
