@@ -116,9 +116,9 @@ def measure(entry, jpg):
 # --- the five sources (wikipedia, commons, nearby, category, openverse) live in lib/place_sources.py; STRATEGIES is its SOURCES list, in the order they are tried
 STRATEGIES = SOURCES
 
-def held(w, pid, source, days, today):
-    """True while the source must not try this place again."""
-    if days is None: return pr.cache_active(w.miss_.get(pid))
+def held(w, pid, source, days, today, unit=None):
+    """True while the source must not try this place again. With the place (`unit`), a miss recorded for another point, name or title no longer holds."""
+    if days is None: return pr.cache_active(w.miss_.get(pid), inputs=pr.place_inputs(unit) if unit else None)
     return w.tried.get(pid, {}).get(source, '') > (today - datetime.timedelta(days=days)).isoformat()
 
 def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, large=None):
@@ -129,7 +129,7 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
     for name, find, applies, days in strategies:
         if only not in ('all', name): continue
         s = stats[name] = collections.Counter()
-        todo = [u for u in units if not w.has(u['id']) and applies(w, u) and (again or not held(w, u['id'], name, days, today))]
+        todo = [u for u in units if not w.has(u['id']) and applies(w, u) and (again or not held(w, u['id'], name, days, today, u))]
         if limit: todo = todo[:limit]
         log('strategy %s: %d places to try' % (name, len(todo)))
         try:
@@ -139,7 +139,7 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
                     entry, why = vet(r.entry)
                     if entry is None:
                         s['refused'] += 1; log('refused %s %s (%s) - %s' % (name, pid, u['title'], why))
-                        if not dry: (w.miss(pid, 'notfree', 'wikipedia') if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
+                        if not dry: (w.miss(pid, 'notfree', 'wikipedia', inputs=pr.place_inputs(u)) if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
                         continue
                     try: row = measure(dict(entry, wiki=u['title']), r.jpg)
                     except ValueError as ex: s['retry'] += 1; log('retry %s %s - unusable image data: %s' % (name, pid, ex)); continue
@@ -153,7 +153,7 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
                             else: s['nolarge'] += 1; log('no larger copy %s %s (%s) - %s; the small picture stays' % (name, pid, u['title'], lwhy))
                 elif r.kind == 'miss':
                     s['miss'] += 1; s['refused_licence'] += (r.status == 'notfree'); log('no %s %s (%s) - %s' % (name, pid, u['title'], r.why))
-                    if not dry: (w.miss(pid, r.status, 'wikipedia') if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
+                    if not dry: (w.miss(pid, r.status, 'wikipedia', inputs=pr.place_inputs(u)) if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
                 else: s['retry'] += 1; log('retry %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                 if pending >= COMMIT_EVERY and not dry: w.commit(); pending = 0
                 if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); break

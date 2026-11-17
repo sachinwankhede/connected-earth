@@ -107,7 +107,7 @@ def run(want=(), root=ROOT, now=None):
     for e in places(root):
         f = os.path.join(out, e['id'] + '.json')
         if (want and e['id'] not in want) or os.path.exists(f): continue
-        if not want and photo_registry.cache_active(rec.miss_.get(e['id']), now): missing.append(e); continue   # tried lately: not again before its delay is over
+        if not want and photo_registry.cache_active(rec.miss_.get(e['id']), now, inputs=photo_registry.place_inputs(e)): missing.append(e); continue   # tried lately: not again before its delay is over
         rings = None; src = None; page = None
         try:
             qid, shape = wikidata(e)
@@ -118,7 +118,7 @@ def run(want=(), root=ROOT, now=None):
         except Exception as ex: print('ERR', e['id'], ex, flush=True)
         if rings and not plausible(e, rings): print('far from the place, dropped', e['id'], e['name'], src, flush=True); rings = None
         packed = pack(rings) if rings else []
-        if not packed: missing.append(e); rec.miss(e['id'], 'none', now=now); print('none', e['id'], e['name'], flush=True); continue
+        if not packed: missing.append(e); rec.miss(e['id'], 'none', now=now, inputs=photo_registry.place_inputs(e)); print('none', e['id'], e['name'], flush=True); continue
         json.dump({'n': e['name'], 'r': packed, 's': src}, open(f, 'w'), separators=(',', ':'), ensure_ascii=False); got += 1
         rec.record(e['id'], src, page=page, now=now)
         print('ok', src, e['id'], e['name'], len(packed), flush=True); time.sleep(0.5)

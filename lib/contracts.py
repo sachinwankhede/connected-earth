@@ -15,5 +15,7 @@ PERMANENT_RETRY_DAYS = _C['permanentRetryDays']
 TRANSIENT_RETRY_MAX_HOURS = _C['transientRetryMaxHours']   # a failure that may pass (network, quota): tried again after 2^attempts hours, at most this many
 SOURCE_RETRY_DAYS = _C['sourceRetryDays']   # a source that found nothing for a place or species is tried again this long after its date
 
+INPUT_MOVE_KM = _C['inputMoveKm']   # a place that moved less than this since a miss was recorded is the same place for it; more, and the miss is stale (#887 step 5)
+
 STORY_WORDS = _C['story']['words']; STORY_CHARS = tuple(_C['story']['chars'])
 WHY_WORDS = _C['matters']['words']; WHY_CHARS = tuple(_C['matters']['chars'])
