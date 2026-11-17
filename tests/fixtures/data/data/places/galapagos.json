@@ -48,96 +48,96 @@
  "nodes": [
   {
    "id": "phyto",
-   "sp": "drifting algae",
+   "sp": "drifting-algae",
    "xh": 0.1
   },
   {
    "id": "algae",
-   "sp": "red and green seaweeds",
+   "sp": "red-and-green-seaweeds",
    "xh": 0.3
   },
   {
    "id": "opuntia",
-   "sp": "opuntia species",
+   "sp": "opuntia-species",
    "xh": 0.66
   },
   {
    "id": "grass",
-   "sp": "island grasses",
+   "sp": "island-grasses",
    "xh": 0.86
   },
   {
    "id": "zoop",
-   "sp": "copepods and larvae",
+   "sp": "copepods-and-larvae",
    "xh": 0.06,
    "desc": "Tiny drifting grazers that eat phytoplankton and are in turn eaten by small schooling fish."
   },
   {
    "id": "sardine",
-   "sp": "sardines and similar",
+   "sp": "sardines-and-similar",
    "xh": 0.17
   },
   {
    "id": "crab",
-   "sp": "grapsus grapsus",
+   "sp": "grapsus-grapsus",
    "xh": 0.3
   },
   {
    "id": "iguana",
-   "sp": "amblyrhynchus cristatus",
+   "sp": "amblyrhynchus-cristatus",
    "xh": 0.42
   },
   {
    "id": "finch",
-   "sp": "geospiza and relatives",
+   "sp": "geospiza-and-relatives",
    "xh": 0.56
   },
   {
    "id": "tortoise",
-   "sp": "chelonoidis species",
+   "sp": "chelonoidis-species",
    "xh": 0.7
   },
   {
    "id": "goat",
-   "sp": "capra hircus",
+   "sp": "capra-hircus",
    "xh": 0.86,
    "name": "Feral goat (introduced)"
   },
   {
    "id": "cormorant",
-   "sp": "phalacrocorax harrisi",
+   "sp": "phalacrocorax-harrisi",
    "xh": 0.15
   },
   {
    "id": "penguin",
-   "sp": "spheniscus mendiculus",
+   "sp": "spheniscus-mendiculus",
    "xh": 0.27
   },
   {
    "id": "sealion",
-   "sp": "zalophus wollebaeki",
+   "sp": "zalophus-wollebaeki",
    "xh": 0.4
   },
   {
    "id": "rat",
-   "sp": "rattus rattus",
+   "sp": "rattus-rattus",
    "xh": 0.8,
    "name": "Black rat (introduced)",
    "tl": 3
   },
   {
    "id": "hammerhead",
-   "sp": "sphyrna lewini",
+   "sp": "sphyrna-lewini",
    "xh": 0.12
   },
   {
    "id": "galshark",
-   "sp": "carcharhinus galapagensis",
+   "sp": "carcharhinus-galapagensis",
    "xh": 0.3
   },
   {
    "id": "hawk",
-   "sp": "buteo galapagoensis",
+   "sp": "buteo-galapagoensis",
    "xh": 0.74
   },
   {
@@ -148,17 +148,17 @@
   },
   {
    "id": "upwelling",
-   "sp": "cromwell current and humboldt current",
+   "sp": "cromwell-current-and-humboldt-current",
    "xh": 0.3
   },
   {
    "id": "rain",
-   "sp": "seasonal rain and mist",
+   "sp": "seasonal-rain-and-mist",
    "xh": 0.68
   },
   {
    "id": "decomp",
-   "sp": "bacteria and fungi",
+   "sp": "bacteria-and-fungi",
    "xh": 0.92,
    "desc": "Break down dead plants and animals, returning nutrients to soil and sea."
   }

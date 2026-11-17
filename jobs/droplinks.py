@@ -18,7 +18,7 @@ def drop(root, dry=False):
     want = set(pairs); rows = 0; files = 0
     st = species.table(root)
     for p in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))):
-        d = json.load(open(p, encoding='utf-8')); nm = {n['id']: (st.get(n.get('sp')) or {}).get('sid') for n in d.get('nodes', [])}
+        d = json.load(open(p, encoding='utf-8')); nm = {n['id']: n.get('sp') for n in d.get('nodes', [])}
         keep = [r for r in d.get('raw', []) if (nm.get(r[0]), nm.get(r[1])) not in want]
         if len(keep) == len(d.get('raw', [])): continue
         gone = [r for r in d['raw'] if r not in keep]; rows += len(gone); files += 1

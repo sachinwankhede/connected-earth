@@ -48,7 +48,7 @@
  "nodes": [
   {
    "id": "seagrass",
-   "sp": "thalassia testudinum",
+   "sp": "thalassia-testudinum",
    "xh": 0.15,
    "desc": "Seagrass meadows shelter young fish and many small invertebrates. Turtles, parrotfish and sea urchins graze them, and dead leaves become detritus."
   },
@@ -61,80 +61,80 @@
   },
   {
    "id": "mangrove",
-   "sp": "rhizophora mangle",
+   "sp": "rhizophora-mangle",
    "xh": 0.62,
    "desc": "Mangroves cover much of the park. Their prop roots shelter young reef animals such as juvenile spiny lobsters before they move to the reef."
   },
   {
    "id": "scrub",
-   "sp": "bourreria succulenta",
+   "sp": "bourreria-succulenta",
    "xh": 0.85
   },
   {
    "id": "hutia",
-   "sp": "geocapromys ingrahami",
+   "sp": "geocapromys-ingrahami",
    "xh": 0.08
   },
   {
    "id": "iguana",
-   "sp": "cyclura cychlura",
+   "sp": "cyclura-cychlura",
    "xh": 0.22
   },
   {
    "id": "pigeon",
-   "sp": "patagioenas leucocephala",
+   "sp": "patagioenas-leucocephala",
    "xh": 0.36
   },
   {
    "id": "conch",
-   "sp": "lobatus gigas",
+   "sp": "lobatus-gigas",
    "xh": 0.55
   },
   {
    "id": "parrotfish",
-   "sp": "sparisoma viride",
+   "sp": "sparisoma-viride",
    "xh": 0.7,
    "desc": "Scrapes algae from dead coral. It is very important on Caribbean reefs because of how abundant it is."
   },
   {
    "id": "turtle",
-   "sp": "chelonia mydas",
+   "sp": "chelonia-mydas",
    "xh": 0.86,
    "desc": "Adults mostly graze seagrass and algae in shallow lagoons and bays. Juveniles also eat animals."
   },
   {
    "id": "lobster",
-   "sp": "panulirus argus",
+   "sp": "panulirus-argus",
    "xh": 0.2,
    "desc": "Eats mollusks, crustaceans, worms and dead animals. Juveniles settle among algae, seagrass and mangrove roots."
   },
   {
    "id": "grouper",
-   "sp": "epinephelus striatus",
+   "sp": "epinephelus-striatus",
    "xh": 0.42,
    "desc": "A reef predator of fish and small crustaceans. Spawning gatherings make it easy to overfish, and it is critically endangered."
   },
   {
    "id": "lionfish",
-   "sp": "pterois volitans",
+   "sp": "pterois-volitans",
    "xh": 0.62,
    "desc": "An invasive predator of small fish and crustaceans, established across the Bahamas. Few predators are known to eat it."
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.85,
    "desc": "A fish-eating raptor, the only animal allowed to fish in the park."
   },
   {
    "id": "reefshark",
-   "sp": "carcharhinus perezi",
+   "sp": "carcharhinus-perezi",
    "xh": 0.35,
    "desc": "One of the largest reef predators. It eats reef fish, cephalopods and rays, and is protected in the Bahamas."
   },
   {
    "id": "tiger",
-   "sp": "galeocerdo cuvier",
+   "sp": "galeocerdo-cuvier",
    "xh": 0.7,
    "desc": "A large shark that preys on adult green turtles, among other prey."
   },
@@ -146,19 +146,19 @@
   },
   {
    "id": "tide",
-   "sp": "tides and currents",
+   "sp": "tides-and-currents",
    "xh": 0.35
   },
   {
    "id": "soil",
-   "sp": "thin limestone soil",
+   "sp": "thin-limestone-soil",
    "xh": 0.6,
    "wiki": "Soil",
    "desc": "Shallow, sandy soil over limestone supports low coastal scrub."
   },
   {
    "id": "decomp",
-   "sp": "bacteria and fungi",
+   "sp": "bacteria-and-fungi",
    "xh": 0.88,
    "desc": "Break down dead seagrass, algae, leaf litter and carcasses into nutrients."
   }

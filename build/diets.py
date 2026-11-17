@@ -37,7 +37,7 @@ def join(eco, tab, root=None):
     """Give the place its full `ev`: its own entries (overrides) plus the table's evidence for every eating link it has none for. In raw order, as the files were written."""
     t = table(root)
     if not t or not eco.get('raw'): return eco
-    sid = {n['id']: (tab.get(n.get('sp')) or {}).get('sid') for n in eco['nodes']}
+    sid = {n['id']: n.get('sp') for n in eco['nodes']}   # `sp` is the species id (#1013)
     own = eco.get('ev') or {}; out = {}
     for r in eco['raw']:
         k = r[0] + '>' + r[1]
@@ -68,7 +68,7 @@ def pack(root=None, legacy=False, check=False, src=None):
         for r in d['raw']:
             if kind_of(r) not in EATS: continue
             k = r[0] + '>' + r[1]; ev = (d.get('ev') or {}).get(k)
-            a, b = (tab.get(nm.get(r[0])) or {}).get('sid'), (tab.get(nm.get(r[1])) or {}).get('sid')
+            a, b = nm.get(r[0]), nm.get(r[1])
             if ev is None or not a or not b: continue
             occ[(a, b)].append((p, k, ev, kind_of(r)))
     at = datetime.date.today().isoformat(); src = src or os.environ.get('DIETS_SRC') or 'pack'
@@ -91,7 +91,7 @@ def pack(root=None, legacy=False, check=False, src=None):
         for r in d['raw']:
             k = r[0] + '>' + r[1]
             if legacy and kind_of(r) in EATS and k not in ev:   # only in the one-off: from then on an absent entry means "as in the table"
-                a, b = (tab.get(nm.get(r[0])) or {}).get('sid'), (tab.get(nm.get(r[1])) or {}).get('sid')
+                a, b = nm.get(r[0]), nm.get(r[1])
                 if (a, b) in t and not any(pp == p and kk == k for (pp, kk, _e, _k) in occ.get((a, b), ())) : ev[k] = None; nulls += 1
         if json.dumps(ev, ensure_ascii=False) != before:
             stripped += max(0, n0 - len(ev)); changed += 1

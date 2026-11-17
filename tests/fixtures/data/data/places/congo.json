@@ -50,7 +50,7 @@
  "nodes": [
   {
    "id": "fig",
-   "sp": "ficus spp.",
+   "sp": "ficus-spp",
    "xh": 0.08,
    "name": "Fig trees",
    "desc": "Fig trees fruit through much of the year and feed bats, monkeys and apes. Their seeds are spread when animals eat the fruit.",
@@ -59,7 +59,7 @@
   },
   {
    "id": "irvingia",
-   "sp": "irvingia gabonensis and relatives",
+   "sp": "irvingia-gabonensis-and-relatives",
    "xh": 0.25
   },
   {
@@ -69,7 +69,7 @@
   },
   {
    "id": "lianas",
-   "sp": "woody lianas and saplings",
+   "sp": "woody-lianas-and-saplings",
    "xh": 0.6
   },
   {
@@ -80,44 +80,44 @@
   },
   {
    "id": "bat",
-   "sp": "eidolon helvum",
+   "sp": "eidolon-helvum",
    "xh": 0.04
   },
   {
    "id": "colobus",
-   "sp": "piliocolobus spp.",
+   "sp": "piliocolobus-spp",
    "xh": 0.13
   },
   {
    "id": "chimp",
-   "sp": "pan troglodytes",
+   "sp": "pan-troglodytes",
    "xh": 0.22,
    "tl": 2,
    "ic": "grizzly"
   },
   {
    "id": "bonobo",
-   "sp": "pan paniscus",
+   "sp": "pan-paniscus",
    "xh": 0.31
   },
   {
    "id": "gorilla",
-   "sp": "gorilla gorilla gorilla",
+   "sp": "gorilla-gorilla-gorilla",
    "xh": 0.4
   },
   {
    "id": "elephant",
-   "sp": "loxodonta cyclotis",
+   "sp": "loxodonta-cyclotis",
    "xh": 0.49
   },
   {
    "id": "okapi",
-   "sp": "okapia johnstoni",
+   "sp": "okapia-johnstoni",
    "xh": 0.58
   },
   {
    "id": "duiker",
-   "sp": "cephalophus spp.",
+   "sp": "cephalophus-spp",
    "xh": 0.67
   },
   {
@@ -127,35 +127,35 @@
   },
   {
    "id": "hippo",
-   "sp": "hippopotamus amphibius",
+   "sp": "hippopotamus-amphibius",
    "xh": 0.86,
    "badge": "Ecosystem engineer"
   },
   {
    "id": "fish",
-   "sp": "cichlids, catfish and others",
+   "sp": "cichlids-catfish-and-others",
    "xh": 0.95
   },
   {
    "id": "goldencat",
-   "sp": "caracal aurata",
+   "sp": "caracal-aurata",
    "xh": 0.3
   },
   {
    "id": "croc",
-   "sp": "crocodylus niloticus",
+   "sp": "crocodylus-niloticus",
    "xh": 0.9,
    "tl": 3
   },
   {
    "id": "leopard",
-   "sp": "panthera pardus",
+   "sp": "panthera-pardus",
    "xh": 0.42,
    "badge": "Keystone predator"
   },
   {
    "id": "eagle",
-   "sp": "stephanoaetus coronatus",
+   "sp": "stephanoaetus-coronatus",
    "xh": 0.7
   },
   {
@@ -172,19 +172,19 @@
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.38,
    "name": "Litter fungi and microbes",
    "desc": "Break down leaf litter and dead animals and return nutrients to the soil, but slowly in waterlogged peat."
   },
   {
    "id": "peat",
-   "sp": "peatland soil",
+   "sp": "peatland-soil",
    "xh": 0.56
   },
   {
    "id": "flood",
-   "sp": "seasonal flooding",
+   "sp": "seasonal-flooding",
    "xh": 0.76
   }
  ],

@@ -61,7 +61,7 @@
   },
   {
    "id": "snow",
-   "sp": "snow and snowmelt",
+   "sp": "snow-and-snowmelt",
    "xh": 0.3,
    "wiki": "Snowmelt"
   },
@@ -73,25 +73,25 @@
   },
   {
    "id": "soil",
-   "sp": "thin rocky soil",
+   "sp": "thin-rocky-soil",
    "xh": 0.7
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "desc": "Break down dead plants and carcasses and return nutrients to the soil."
   },
   {
    "id": "oak",
-   "sp": "quercus gambelii",
+   "sp": "quercus-gambelii",
    "xh": 0.12,
    "ic": "willow",
    "badge": "Foundation species"
   },
   {
    "id": "pinyon",
-   "sp": "pinus edulis",
+   "sp": "pinus-edulis",
    "xh": 0.35,
    "name": "Colorado pinyon",
    "desc": "A slow-growing pine of the pinyon-juniper woodland that covers much of the rim. Its large seeds feed wildlife.",
@@ -99,12 +99,12 @@
   },
   {
    "id": "sage",
-   "sp": "artemisia tridentata",
+   "sp": "artemisia-tridentata",
    "xh": 0.6
   },
   {
    "id": "mahogany",
-   "sp": "cercocarpus montanus",
+   "sp": "cercocarpus-montanus",
    "xh": 0.85,
    "name": "Mountain mahogany",
    "desc": "A tough rocky-slope shrub that elk and deer browse heavily, often keeping it short.",
@@ -112,18 +112,18 @@
   },
   {
    "id": "bighorn",
-   "sp": "ovis canadensis",
+   "sp": "ovis-canadensis",
    "xh": 0.06,
    "desc": "Grazes grass and browses shrubs on rugged, rocky ground near cliffs. Mountain lions are its greatest threat."
   },
   {
    "id": "elk",
-   "sp": "cervus canadensis",
+   "sp": "cervus-canadensis",
    "xh": 0.2
   },
   {
    "id": "muledeer",
-   "sp": "odocoileus hemionus",
+   "sp": "odocoileus-hemionus",
    "xh": 0.34,
    "wiki": "Mule deer",
    "desc": "Mainly browses shrubs and trees such as sagebrush and Gambel oak. Coyotes and cougars are its leading predators.",
@@ -131,21 +131,21 @@
   },
   {
    "id": "cottontail",
-   "sp": "sylvilagus nuttallii",
+   "sp": "sylvilagus-nuttallii",
    "xh": 0.48,
    "wiki": "Mountain cottontail",
    "desc": "A rabbit of sagebrush and woodland edges that feeds on plants and is prey for many predators."
   },
   {
    "id": "rocksq",
-   "sp": "otospermophilus variegatus",
+   "sp": "otospermophilus-variegatus",
    "xh": 0.62,
    "wiki": "Rock squirrel",
    "desc": "Eats seeds, acorns, pine nuts and fruit, storing food in its burrow. Snakes, hawks and coyotes prey on it."
   },
   {
    "id": "deermouse",
-   "sp": "peromyscus maniculatus",
+   "sp": "peromyscus-maniculatus",
    "xh": 0.76,
    "wiki": "Deer mouse",
    "desc": "A very common small rodent that eats seeds and insects, and is eaten by snakes, hawks and coyotes.",
@@ -153,7 +153,7 @@
   },
   {
    "id": "scrubjay",
-   "sp": "aphelocoma woodhouseii",
+   "sp": "aphelocoma-woodhouseii",
    "xh": 0.9,
    "tl": 2,
    "wiki": "Woodhouse's scrub jay",
@@ -162,7 +162,7 @@
   },
   {
    "id": "bullsnake",
-   "sp": "pituophis catenifer",
+   "sp": "pituophis-catenifer",
    "xh": 0.12,
    "wiki": "Bullsnake",
    "desc": "A large constrictor of dry open country that eats rodents, rabbits and birds.",
@@ -170,7 +170,7 @@
   },
   {
    "id": "redtail",
-   "sp": "buteo jamaicensis",
+   "sp": "buteo-jamaicensis",
    "xh": 0.32,
    "tl": 3,
    "wiki": "Red-tailed hawk",
@@ -179,7 +179,7 @@
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.52,
    "tl": 3,
    "wiki": "Coyote",
@@ -187,20 +187,20 @@
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.72,
    "desc": "The most recorded bird here. A clever omnivore that scavenges carcasses."
   },
   {
    "id": "vulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.9,
    "wiki": "Turkey vulture",
    "desc": "Soars over the canyon looking for carrion, such as dead deer."
   },
   {
    "id": "cougar",
-   "sp": "puma concolor",
+   "sp": "puma-concolor",
    "xh": 0.3,
    "name": "Cougar",
    "desc": "Elusive big cat that mostly kills deer and elk, and also bighorn sheep. Its kills feed bears and scavengers.",
@@ -208,7 +208,7 @@
   },
   {
    "id": "bear",
-   "sp": "ursus americanus",
+   "sp": "ursus-americanus",
    "xh": 0.7,
    "name": "American black bear",
    "wiki": "American black bear",

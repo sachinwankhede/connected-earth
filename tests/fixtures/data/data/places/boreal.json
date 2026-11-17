@@ -50,45 +50,45 @@
  "nodes": [
   {
    "id": "blackspruce",
-   "sp": "picea mariana",
+   "sp": "picea-mariana",
    "xh": 0.08
   },
   {
    "id": "jackpine",
-   "sp": "pinus banksiana",
+   "sp": "pinus-banksiana",
    "xh": 0.22
   },
   {
    "id": "aspen",
-   "sp": "populus tremuloides",
+   "sp": "populus-tremuloides",
    "xh": 0.36,
    "name": "Trembling aspen",
    "wiki": "Quaking aspen"
   },
   {
    "id": "tamarack",
-   "sp": "larix laricina",
+   "sp": "larix-laricina",
    "xh": 0.5,
    "ic": "willow"
   },
   {
    "id": "lichmoss",
-   "sp": "cladonia, sphagnum and others",
+   "sp": "cladonia-sphagnum-and-others",
    "xh": 0.66
   },
   {
    "id": "blueberry",
-   "sp": "vaccinium spp.",
+   "sp": "vaccinium-spp",
    "xh": 0.84
   },
   {
    "id": "budworm",
-   "sp": "choristoneura fumiferana",
+   "sp": "choristoneura-fumiferana",
    "xh": 0.06
   },
   {
    "id": "vole",
-   "sp": "myodes gapperi",
+   "sp": "myodes-gapperi",
    "xh": 0.19,
    "name": "Red-backed vole",
    "wiki": "Southern red-backed vole",
@@ -97,7 +97,7 @@
   },
   {
    "id": "hare",
-   "sp": "lepus americanus",
+   "sp": "lepus-americanus",
    "xh": 0.32,
    "desc": "Eats grasses and herbs in summer and buds, twigs and bark in winter. Its numbers rise and fall in a cycle of roughly ten years, and lynx numbers follow.",
    "ic": "vole",
@@ -105,7 +105,7 @@
   },
   {
    "id": "rsquirrel",
-   "sp": "tamiasciurus hudsonicus",
+   "sp": "tamiasciurus-hudsonicus",
    "xh": 0.45,
    "name": "Red squirrel",
    "wiki": "American red squirrel",
@@ -114,7 +114,7 @@
   },
   {
    "id": "beaver",
-   "sp": "castor canadensis",
+   "sp": "castor-canadensis",
    "xh": 0.58,
    "name": "North American beaver",
    "wiki": "North American beaver",
@@ -123,28 +123,28 @@
   },
   {
    "id": "moose",
-   "sp": "alces alces",
+   "sp": "alces-alces",
    "xh": 0.72,
    "desc": "A browser of willow, birch and aspen shoots and water plants. Wolves and bears take calves, and young forest after fire gives it more food."
   },
   {
    "id": "caribou",
-   "sp": "rangifer tarandus caribou",
+   "sp": "rangifer-tarandus-caribou",
    "xh": 0.87
   },
   {
    "id": "warbler",
-   "sp": "setophaga and leiothlypis spp.",
+   "sp": "setophaga-and-leiothlypis-spp",
    "xh": 0.14
   },
   {
    "id": "owl",
-   "sp": "strix nebulosa",
+   "sp": "strix-nebulosa",
    "xh": 0.38
   },
   {
    "id": "bear",
-   "sp": "ursus americanus",
+   "sp": "ursus-americanus",
    "xh": 0.66,
    "name": "American black bear",
    "tl": 3,
@@ -153,14 +153,14 @@
   },
   {
    "id": "lynx",
-   "sp": "lynx canadensis",
+   "sp": "lynx-canadensis",
    "xh": 0.32,
    "tl": 4,
    "badge": "Specialist predator"
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.72
   },
   {
@@ -176,17 +176,17 @@
   },
   {
    "id": "peat",
-   "sp": "permafrost & peatlands",
+   "sp": "permafrost-peatlands",
    "xh": 0.56
   },
   {
    "id": "soil",
-   "sp": "acidic forest soil",
+   "sp": "acidic-forest-soil",
    "xh": 0.78
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.93,
    "name": "Fungi & soil microbes",
    "desc": "Slowly break down needles, wood and carcasses in the cold, returning nutrients to the soil."

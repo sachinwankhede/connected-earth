@@ -17,18 +17,18 @@
  "nodes": [
   {
    "id": "redoat",
-   "sp": "themeda triandra",
+   "sp": "themeda-triandra",
    "xh": 0.2,
    "name": "Red oat grass"
   },
   {
    "id": "star",
-   "sp": "cynodon and digitaria spp.",
+   "sp": "cynodon-and-digitaria-spp",
    "xh": 0.45
   },
   {
    "id": "acacia",
-   "sp": "vachellia tortilis",
+   "sp": "vachellia-tortilis",
    "xh": 0.72,
    "desc": "Flat-topped trees that feed giraffes and elephants and shade the ground beneath."
   },
@@ -39,103 +39,103 @@
   },
   {
    "id": "wildebeest",
-   "sp": "connochaetes taurinus",
+   "sp": "connochaetes-taurinus",
    "xh": 0.08
   },
   {
    "id": "zebra",
-   "sp": "equus quagga",
+   "sp": "equus-quagga",
    "xh": 0.2
   },
   {
    "id": "gazelle",
-   "sp": "eudorcas thomsonii",
+   "sp": "eudorcas-thomsonii",
    "xh": 0.31
   },
   {
    "id": "buffalo",
-   "sp": "syncerus caffer",
+   "sp": "syncerus-caffer",
    "xh": 0.43
   },
   {
    "id": "giraffe",
-   "sp": "giraffa camelopardalis",
+   "sp": "giraffa-camelopardalis",
    "xh": 0.54
   },
   {
    "id": "elephant",
-   "sp": "loxodonta africana",
+   "sp": "loxodonta-africana",
    "xh": 0.65,
    "wiki": "African elephant",
    "desc": "Pushes over trees and digs for water, opening woodland into grassland."
   },
   {
    "id": "hippo",
-   "sp": "hippopotamus amphibius",
+   "sp": "hippopotamus-amphibius",
    "xh": 0.76,
    "desc": "Grazes grass on land at night and fertilizes rivers with its dung by day.",
    "ic": "bison"
   },
   {
    "id": "termites",
-   "sp": "macrotermes spp.",
+   "sp": "macrotermes-spp",
    "xh": 0.87
   },
   {
    "id": "tilapia",
-   "sp": "oreochromis spp.",
+   "sp": "oreochromis-spp",
    "xh": 0.96
   },
   {
    "id": "cheetah",
-   "sp": "acinonyx jubatus",
+   "sp": "acinonyx-jubatus",
    "xh": 0.18
   },
   {
    "id": "wilddog",
-   "sp": "lycaon pictus",
+   "sp": "lycaon-pictus",
    "xh": 0.3
   },
   {
    "id": "jackal",
-   "sp": "lupulella mesomelas",
+   "sp": "lupulella-mesomelas",
    "xh": 0.42,
    "desc": "Takes gazelle fawns and rodents and cleans up scraps at kills."
   },
   {
    "id": "aardwolf",
-   "sp": "proteles cristata",
+   "sp": "proteles-cristata",
    "xh": 0.6,
    "desc": "A small hyena relative that laps up thousands of termites a night.",
    "ic": "fox"
   },
   {
    "id": "vulture",
-   "sp": "gyps rueppelli",
+   "sp": "gyps-rueppelli",
    "xh": 0.78
   },
   {
    "id": "lion",
-   "sp": "panthera leo",
+   "sp": "panthera-leo",
    "xh": 0.25,
    "desc": "Hunts wildebeest, zebra and buffalo in prides, and its kills feed hyenas, jackals and vultures."
   },
   {
    "id": "leopard",
-   "sp": "panthera pardus",
+   "sp": "panthera-pardus",
    "xh": 0.5,
    "desc": "A solitary ambush hunter that hauls kills into trees, out of reach of lions and hyenas."
   },
   {
    "id": "hyena",
-   "sp": "crocuta crocuta",
+   "sp": "crocuta-crocuta",
    "xh": 0.72,
    "tl": 4,
    "ic": "coyote"
   },
   {
    "id": "croc",
-   "sp": "crocodylus niloticus",
+   "sp": "crocodylus-niloticus",
    "xh": 0.93,
    "desc": "Ambushes wildebeest and zebra at river crossings and eats fish between migrations."
   },
@@ -147,18 +147,18 @@
   },
   {
    "id": "rain",
-   "sp": "seasonal rains",
+   "sp": "seasonal-rains",
    "xh": 0.38
   },
   {
    "id": "soil",
-   "sp": "volcanic soil",
+   "sp": "volcanic-soil",
    "xh": 0.64,
    "desc": "Ash from old volcanoes makes the southern plains rich in minerals but shallow."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.88,
    "name": "Dung beetles & fungi",
    "wiki": "Dung beetle",

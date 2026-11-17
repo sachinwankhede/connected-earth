@@ -34,40 +34,40 @@
  "nodes": [
   {
    "id": "bluestem",
-   "sp": "andropogon gerardi",
+   "sp": "andropogon-gerardi",
    "xh": 0.1,
    "desc": "A tall dominant prairie grass. The MDC says prairie species such as prairie-chickens and Henslow's sparrows indirectly depend on it, and it is excellent forage for livestock."
   },
   {
    "id": "indian",
-   "sp": "sorghastrum nutans, panicum virgatum",
+   "sp": "sorghastrum-nutans-panicum-virgatum",
    "xh": 0.26
   },
   {
    "id": "little",
-   "sp": "schizachyrium scoparium",
+   "sp": "schizachyrium-scoparium",
    "xh": 0.42,
    "desc": "A shorter bunchgrass of drier prairie ground."
   },
   {
    "id": "forbs",
-   "sp": "echinacea, silphium and others",
+   "sp": "echinacea-silphium-and-others",
    "xh": 0.6
   },
   {
    "id": "milkweed",
-   "sp": "asclepias spp.",
+   "sp": "asclepias-spp",
    "xh": 0.78
   },
   {
    "id": "bison",
-   "sp": "bison bison",
+   "sp": "bison-bison",
    "xh": 0.05,
    "desc": "The MDC says historically vast herds disturbed the prairie in ways that helped maintain it. Today only small managed herds remain."
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.17,
    "wiki": "White-tailed deer",
    "desc": "Browses wildflowers and young plants. Wikipedia notes its droppings spread nutrients that support plant diversity."
@@ -80,12 +80,12 @@
   },
   {
    "id": "regal",
-   "sp": "speyeria idalia",
+   "sp": "speyeria-idalia",
    "xh": 0.38
   },
   {
    "id": "cottontail",
-   "sp": "sylvilagus floridanus",
+   "sp": "sylvilagus-floridanus",
    "xh": 0.48,
    "wiki": "Eastern cottontail",
    "desc": "Eats grasses and wildflowers and is prey for hawks, coyotes and bobcats.",
@@ -93,35 +93,35 @@
   },
   {
    "id": "vole",
-   "sp": "microtus ochrogaster",
+   "sp": "microtus-ochrogaster",
    "xh": 0.58,
    "desc": "A small grass-eating rodent and a staple for hawks, harriers, coyotes and badgers."
   },
   {
    "id": "gsq",
-   "sp": "ictidomys tridecemlineatus",
+   "sp": "ictidomys-tridecemlineatus",
    "xh": 0.69,
    "wiki": "Thirteen-lined ground squirrel",
    "desc": "Eats seeds and insects, hibernates, and is a main prey of badgers and hawks."
   },
   {
    "id": "chicken",
-   "sp": "tympanuchus cupido",
+   "sp": "tympanuchus-cupido",
    "xh": 0.8
   },
   {
    "id": "dickcissel",
-   "sp": "spiza americana",
+   "sp": "spiza-americana",
    "xh": 0.14
   },
   {
    "id": "henslow",
-   "sp": "centronyx henslowii",
+   "sp": "centronyx-henslowii",
    "xh": 0.27
   },
   {
    "id": "hawk",
-   "sp": "buteo jamaicensis",
+   "sp": "buteo-jamaicensis",
    "xh": 0.45,
    "tl": 3,
    "wiki": "Red-tailed hawk",
@@ -130,12 +130,12 @@
   },
   {
    "id": "harrier",
-   "sp": "circus hudsonius",
+   "sp": "circus-hudsonius",
    "xh": 0.6
   },
   {
    "id": "badger",
-   "sp": "taxidea taxus",
+   "sp": "taxidea-taxus",
    "xh": 0.75,
    "wiki": "American badger",
    "desc": "Digs out ground squirrels, pocket gophers and other rodents. Wikipedia lists snakes, ground-nesting birds and insects as other prey.",
@@ -143,7 +143,7 @@
   },
   {
    "id": "bobcat",
-   "sp": "lynx rufus",
+   "sp": "lynx-rufus",
    "xh": 0.89,
    "tl": 3,
    "wiki": "Bobcat",
@@ -152,7 +152,7 @@
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.5,
    "wiki": "Coyote",
    "desc": "Today's top predator of the prairie. Eats rabbits, rodents, birds and fawns."
@@ -178,12 +178,12 @@
   },
   {
    "id": "soil",
-   "sp": "deep prairie soil",
+   "sp": "deep-prairie-soil",
    "xh": 0.7
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi, earthworms & bacteria",
    "desc": "Break down dead grass and dung and return nutrients to the soil."

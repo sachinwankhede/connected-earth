@@ -65,10 +65,10 @@ def main():
         for e in (d['ends'] if 'ends' in d else [d['from'], d['to']]): assert e['eco'] in places, (j, e['eco'])   # a species journey has ends, a flow has from and to
         dump(d, os.path.join(jd, j + '.json'), indent=1)
     # species: the rows the places use, and the lookup tables the build reads
-    tab = species.table(ROOT); keep = {}
+    tab = species.table(ROOT); keep = {}; key = {r['sid']: k for k, r in tab.items() if r.get('sid')}   # a node's `sp` is a species id (#1013)
     for p in places.values():
         for n in p['nodes']:
-            if 'sp' in n: keep[n['sp']] = tab[n['sp']]
+            if 'sp' in n: keep[key[n['sp']]] = tab[key[n['sp']]]
     for k, r in keep.items(): species.write_row(r, os.path.join(OUT, 'data', 'species', 'rows'))
     sd = R('data', 'species'); od = os.path.join(OUT, 'data', 'species')
     for f in ('search_vocabulary.json', 'order_names.json', 'tab_groups.json'): shutil.copyfile(os.path.join(sd, f), os.path.join(od, f))

@@ -17,11 +17,15 @@ def km(a, b, c, d):
 def load():
     sys.path.insert(0, os.path.join(ROOT, 'build')); import species
     tab = species.table()
+    key = {r['sid']: k for k, r in tab.items() if r.get('sid')}   # #1013: a place node's `sp` is a species id; this job ranks by the table key (Latin name), so translate once here
     places = []
     for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
         try: e = json.load(open(f))
         except Exception: continue
-        if isinstance(e, dict) and e.get('nodes'): places.append(e)
+        if isinstance(e, dict) and e.get('nodes'):
+            for n in e['nodes']:
+                if isinstance(n, dict) and n.get('sp') in key: n['sp'] = key[n['sp']]
+            places.append(e)
     import journeydata
     links = journeydata.links()
     return tab, places, links

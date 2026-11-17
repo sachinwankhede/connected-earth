@@ -48,7 +48,7 @@
  "nodes": [
   {
    "id": "oyamel",
-   "sp": "abies religiosa",
+   "sp": "abies-religiosa",
    "xh": 0.1
   },
   {
@@ -71,12 +71,12 @@
   },
   {
    "id": "salvia",
-   "sp": "salvia elegans",
+   "sp": "salvia-elegans",
    "xh": 0.9
   },
   {
    "id": "monarch",
-   "sp": "danaus plexippus",
+   "sp": "danaus-plexippus",
    "xh": 0.06,
    "wiki": "Monarch butterfly",
    "desc": "Most of the eastern North American population overwinters in the reserve, clustered in oyamel forest. Caterpillars store toxins from milkweed, which makes adults foul-tasting to most predators.",
@@ -84,7 +84,7 @@
   },
   {
    "id": "bee",
-   "sp": "apis mellifera",
+   "sp": "apis-mellifera",
    "xh": 0.23,
    "wiki": "Western honey bee",
    "desc": "Recorded around the reserve visiting sages, Bidens and fuchsia flowers for nectar and pollen.",
@@ -92,57 +92,57 @@
   },
   {
    "id": "hummer",
-   "sp": "basilinna leucotis",
+   "sp": "basilinna-leucotis",
    "xh": 0.4
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.57,
    "wiki": "White-tailed deer",
    "desc": "Listed among the reserve's larger mammals. It browses shrubs and plants and is prey for coyotes and bobcats."
   },
   {
    "id": "volcano",
-   "sp": "neotomodon alstoni",
+   "sp": "neotomodon-alstoni",
    "xh": 0.74
   },
   {
    "id": "deermouse",
-   "sp": "peromyscus melanotis",
+   "sp": "peromyscus-melanotis",
    "xh": 0.91
   },
   {
    "id": "grosbeak",
-   "sp": "pheucticus melanocephalus",
+   "sp": "pheucticus-melanocephalus",
    "xh": 0.12
   },
   {
    "id": "lizard",
-   "sp": "sceloporus grammicus",
+   "sp": "sceloporus-grammicus",
    "xh": 0.37
   },
   {
    "id": "rattler",
-   "sp": "crotalus triseriatus",
+   "sp": "crotalus-triseriatus",
    "xh": 0.62
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.87,
    "desc": "A scavenger and opportunist named among the reserve's birds, feeding on carrion and small animals."
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.2,
    "wiki": "Coyote",
    "desc": "Listed among the reserve's mammals. It hunts mice and deer and scavenges carcasses."
   },
   {
    "id": "bobcat",
-   "sp": "lynx rufus",
+   "sp": "lynx-rufus",
    "xh": 0.5,
    "wiki": "Bobcat",
    "desc": "A recorded cat of the area that preys on deer, mice and other small mammals.",
@@ -150,7 +150,7 @@
   },
   {
    "id": "owl",
-   "sp": "bubo virginianus",
+   "sp": "bubo-virginianus",
    "xh": 0.8
   },
   {
@@ -161,18 +161,18 @@
   },
   {
    "id": "rain",
-   "sp": "rain & cloud moisture",
+   "sp": "rain-cloud-moisture",
    "xh": 0.3
   },
   {
    "id": "soil",
-   "sp": "soil & nutrients",
+   "sp": "soil-nutrients",
    "xh": 0.55,
    "desc": "Volcanic mountain soils hold the nutrients that firs, pines, oaks and wildflowers draw up."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.85,
    "name": "Fungi & bacteria",
    "desc": "Break down fallen needles, leaves, wood and carcasses and return nutrients to the soil."

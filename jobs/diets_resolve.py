@@ -23,7 +23,7 @@ def resolve(root, min_share=0.9, dry=False):
     for p in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))):
         if os.path.basename(p) in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
         d = json.load(open(p, encoding='utf-8')); loaded[p] = d
-        nm = {n['id']: (st.get(n.get('sp')) or {}).get('sid') for n in d.get('nodes', [])}
+        nm = {n['id']: n.get('sp') for n in d.get('nodes', [])}
         for i, r in enumerate(d.get('raw', [])):
             k = diets.kind_of(r)
             if k not in EATS: continue

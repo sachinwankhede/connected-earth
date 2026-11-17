@@ -17,17 +17,17 @@
  "nodes": [
   {
    "id": "algae",
-   "sp": "bacillariophyta (diatoms)",
+   "sp": "bacillariophyta-diatoms",
    "xh": 0.05
   },
   {
    "id": "willow",
-   "sp": "salix spp.",
+   "sp": "salix-spp",
    "xh": 0.22
   },
   {
    "id": "aspen",
-   "sp": "populus tremuloides",
+   "sp": "populus-tremuloides",
    "xh": 0.34,
    "wiki": "Quaking aspen",
    "desc": "Clonal groves that shelter birds and insects. Elk and beaver browse young shoots, which can stop a grove from regrowing.",
@@ -35,19 +35,19 @@
   },
   {
    "id": "grass",
-   "sp": "pseudoroegneria spicata",
+   "sp": "pseudoroegneria-spicata",
    "xh": 0.56
   },
   {
    "id": "sage",
-   "sp": "artemisia tridentata",
+   "sp": "artemisia-tridentata",
    "xh": 0.74,
    "wiki": "Big sagebrush",
    "desc": "Evergreen winter forage. Pronghorn lean on it when snow buries the grass."
   },
   {
    "id": "whitebark",
-   "sp": "pinus albicaulis",
+   "sp": "pinus-albicaulis",
    "xh": 0.93,
    "desc": "A high-elevation pine whose fatty seeds feed grizzly bears and red squirrels."
   },
@@ -59,7 +59,7 @@
   },
   {
    "id": "beaver",
-   "sp": "castor canadensis",
+   "sp": "castor-canadensis",
    "xh": 0.15,
    "wiki": "North American beaver",
    "desc": "Cuts willow and aspen and dams streams. The ponds it makes are used by fish, birds and moose.",
@@ -67,19 +67,19 @@
   },
   {
    "id": "moose",
-   "sp": "alces alces",
+   "sp": "alces-alces",
    "xh": 0.26,
    "desc": "Wades into streamside willow thickets, its main winter food."
   },
   {
    "id": "elk",
-   "sp": "cervus canadensis",
+   "sp": "cervus-canadensis",
    "xh": 0.37,
    "desc": "The northern range's main large grazer and browser. Wolves, cougars, coyotes and bears all take elk."
   },
   {
    "id": "bison",
-   "sp": "bison bison",
+   "sp": "bison-bison",
    "xh": 0.47,
    "name": "Bison",
    "desc": "Grazes grass and sedge in large herds. Winter-killed animals feed scavengers.",
@@ -89,14 +89,14 @@
   },
   {
    "id": "muledeer",
-   "sp": "odocoileus hemionus",
+   "sp": "odocoileus-hemionus",
    "xh": 0.57,
    "wiki": "Mule deer",
    "desc": "Browses sagebrush, willow and grass at lower elevations."
   },
   {
    "id": "pronghorn",
-   "sp": "antilocapra americana",
+   "sp": "antilocapra-americana",
    "xh": 0.66,
    "wiki": "Pronghorn",
    "desc": "Open-country grazer and sagebrush browser. Coyotes and eagles take fawns.",
@@ -110,7 +110,7 @@
   },
   {
    "id": "vole",
-   "sp": "microtus montanus",
+   "sp": "microtus-montanus",
    "xh": 0.82,
    "wiki": "Montane vole",
    "desc": "A small grass-eating rodent and a staple for foxes, coyotes, hawks and eagles.",
@@ -118,14 +118,14 @@
   },
   {
    "id": "gsquirrel",
-   "sp": "urocitellus armatus",
+   "sp": "urocitellus-armatus",
    "xh": 0.9,
    "name": "Ground squirrel",
    "desc": "A hibernating meadow rodent eaten by nearly every mid-sized predator. Grizzlies dig them out of burrows."
   },
   {
    "id": "rsquirrel",
-   "sp": "tamiasciurus hudsonicus",
+   "sp": "tamiasciurus-hudsonicus",
    "xh": 0.98,
    "name": "Red squirrel",
    "wiki": "American red squirrel",
@@ -134,7 +134,7 @@
   },
   {
    "id": "otter",
-   "sp": "lontra canadensis",
+   "sp": "lontra-canadensis",
    "xh": 0.03,
    "name": "River otter",
    "wiki": "North American river otter",
@@ -142,31 +142,31 @@
   },
   {
    "id": "trout",
-   "sp": "oncorhynchus clarkii bouvieri",
+   "sp": "oncorhynchus-clarkii-bouvieri",
    "xh": 0.1
   },
   {
    "id": "osprey",
-   "sp": "pandion haliaetus",
+   "sp": "pandion-haliaetus",
    "xh": 0.18,
    "desc": "Dives for trout from perches over rivers and lakes."
   },
   {
    "id": "baldeagle",
-   "sp": "haliaeetus leucocephalus",
+   "sp": "haliaeetus-leucocephalus",
    "xh": 0.26,
    "tl": 3,
    "desc": "Takes fish and scavenges carcasses, including wolf kills."
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.34,
    "desc": "Ravens often follow wolves and feed on what they leave behind."
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.44,
    "tl": 3,
    "wiki": "Coyote",
@@ -174,13 +174,13 @@
   },
   {
    "id": "fox",
-   "sp": "vulpes vulpes",
+   "sp": "vulpes-vulpes",
    "xh": 0.54,
    "desc": "Pounces on voles beneath the snow and takes ground squirrels."
   },
   {
    "id": "meadowlark",
-   "sp": "sturnella neglecta",
+   "sp": "sturnella-neglecta",
    "xh": 0.64,
    "tl": 3,
    "wiki": "Western meadowlark",
@@ -188,7 +188,7 @@
   },
   {
    "id": "hawk",
-   "sp": "buteo jamaicensis",
+   "sp": "buteo-jamaicensis",
    "xh": 0.74,
    "tl": 3,
    "wiki": "Red-tailed hawk",
@@ -197,33 +197,33 @@
   },
   {
    "id": "goldeneagle",
-   "sp": "aquila chrysaetos",
+   "sp": "aquila-chrysaetos",
    "xh": 0.86,
    "tl": 3,
    "desc": "Hunts ground squirrels and voles, takes pronghorn fawns, and scavenges kills."
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.36,
    "desc": "Reintroduced in 1995. Hunts elk, bison, deer and moose, and its kills feed scavengers. Many ecologists link its return to recovering willow and aspen."
   },
   {
    "id": "grizzly",
-   "sp": "ursus arctos horribilis",
+   "sp": "ursus-arctos-horribilis",
    "xh": 0.64,
    "desc": "An omnivore that eats pine seeds, roots, trout, elk calves and carrion."
   },
   {
    "id": "lion",
-   "sp": "puma concolor",
+   "sp": "puma-concolor",
    "xh": 0.9,
    "name": "Mountain lion",
    "desc": "An ambush hunter of elk and mule deer in broken, wooded terrain."
   },
   {
    "id": "water",
-   "sp": "snowmelt & streams",
+   "sp": "snowmelt-streams",
    "xh": 0.12
   },
   {
@@ -234,13 +234,13 @@
   },
   {
    "id": "soil",
-   "sp": "soil & nutrients",
+   "sp": "soil-nutrients",
    "xh": 0.62,
    "desc": "Holds the nitrogen and minerals that plants draw up. Decomposers return nutrients from litter and carcasses."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.86,
    "name": "Fungi & bacteria",
    "desc": "Break down plant litter and carcasses and return nutrients to the soil."

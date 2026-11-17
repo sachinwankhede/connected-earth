@@ -52,17 +52,17 @@
  "nodes": [
   {
    "id": "cork",
-   "sp": "quercus suber",
+   "sp": "quercus-suber",
    "xh": 0.12
   },
   {
    "id": "rockrose",
-   "sp": "cistus salviifolius",
+   "sp": "cistus-salviifolius",
    "xh": 0.35
   },
   {
    "id": "clubrush",
-   "sp": "bolboschoenus maritimus",
+   "sp": "bolboschoenus-maritimus",
    "xh": 0.6,
    "desc": "A sedge of the brackish and freshwater marsh edges that grows where the marisma floods.",
    "ic": "grass"
@@ -74,14 +74,14 @@
   },
   {
    "id": "rabbit",
-   "sp": "oryctolagus cuniculus",
+   "sp": "oryctolagus-cuniculus",
    "xh": 0.05,
    "ic": "vole",
    "badge": "Keystone grazer"
   },
   {
    "id": "reddeer",
-   "sp": "cervus elaphus",
+   "sp": "cervus-elaphus",
    "xh": 0.19,
    "name": "Red deer",
    "wiki": "Red deer",
@@ -90,68 +90,68 @@
   },
   {
    "id": "fallow",
-   "sp": "dama dama",
+   "sp": "dama-dama",
    "xh": 0.33
   },
   {
    "id": "boar",
-   "sp": "sus scrofa",
+   "sp": "sus-scrofa",
    "xh": 0.47,
    "desc": "A versatile omnivore that digs roots, eats acorns and seeds, and also takes small animals and carrion."
   },
   {
    "id": "crayfish",
-   "sp": "procambarus clarkii",
+   "sp": "procambarus-clarkii",
    "xh": 0.62
   },
   {
    "id": "coot",
-   "sp": "fulica atra",
+   "sp": "fulica-atra",
    "xh": 0.76,
    "desc": "An abundant marsh bird and a staple of the winter waterfowl crowds, taken by eagles and other predators."
   },
   {
    "id": "flamingo",
-   "sp": "phoenicopterus roseus",
+   "sp": "phoenicopterus-roseus",
    "xh": 0.9,
    "desc": "Stirs up shallow mud and filters out small crustaceans, algae, seeds and larvae. Seen in large numbers on the marisma."
   },
   {
    "id": "mongoose",
-   "sp": "herpestes ichneumon",
+   "sp": "herpestes-ichneumon",
    "xh": 0.1
   },
   {
    "id": "genet",
-   "sp": "genetta genetta",
+   "sp": "genetta-genetta",
    "xh": 0.3,
    "desc": "A small night-hunting carnivore that takes rodents, rabbits, birds and reptiles. The Iberian lynx often kills genets."
   },
   {
    "id": "otter",
-   "sp": "lutra lutra",
+   "sp": "lutra-lutra",
    "xh": 0.55,
    "desc": "Eats mainly fish, plus amphibians, crustaceans and waterbirds. Here that includes coots and the introduced crayfish."
   },
   {
    "id": "heron",
-   "sp": "ardea cinerea",
+   "sp": "ardea-cinerea",
    "xh": 0.75,
    "desc": "A wading bird of the marshes that eats fish, frogs and crayfish. The park holds one of the largest heronries in the Mediterranean."
   },
   {
    "id": "stork",
-   "sp": "ciconia ciconia",
+   "sp": "ciconia-ciconia",
    "xh": 0.92
   },
   {
    "id": "lynx",
-   "sp": "lynx pardinus",
+   "sp": "lynx-pardinus",
    "xh": 0.3
   },
   {
    "id": "eagle",
-   "sp": "aquila adalberti",
+   "sp": "aquila-adalberti",
    "xh": 0.7
   },
   {
@@ -162,22 +162,22 @@
   },
   {
    "id": "rain",
-   "sp": "autumn-winter rain",
+   "sp": "autumn-winter-rain",
    "xh": 0.3
   },
   {
    "id": "flood",
-   "sp": "marisma flooding",
+   "sp": "marisma-flooding",
    "xh": 0.5
   },
   {
    "id": "sand",
-   "sp": "sand dunes & soils",
+   "sp": "sand-dunes-soils",
    "xh": 0.7
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi, dung beetles & bacteria",
    "desc": "Break down dead plants, dung and carcasses and return nutrients to the soil and marsh mud."

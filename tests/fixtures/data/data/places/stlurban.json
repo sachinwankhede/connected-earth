@@ -50,7 +50,7 @@
  "nodes": [
   {
    "id": "oak",
-   "sp": "quercus spp.",
+   "sp": "quercus-spp",
    "xh": 0.1,
    "name": "Street & park oaks",
    "wiki": "Quercus",
@@ -58,7 +58,7 @@
   },
   {
    "id": "maple",
-   "sp": "acer spp.",
+   "sp": "acer-spp",
    "xh": 0.24
   },
   {
@@ -71,31 +71,31 @@
   },
   {
    "id": "garden",
-   "sp": "mixed ornamental and food plants",
+   "sp": "mixed-ornamental-and-food-plants",
    "xh": 0.62
   },
   {
    "id": "squirrel",
-   "sp": "sciurus carolinensis",
+   "sp": "sciurus-carolinensis",
    "xh": 0.06,
    "wiki": "Eastern gray squirrel",
    "desc": "An omnivore that eats acorns, nuts, buds and fruit, and raids bird feeders and trash bins near people. Hawks are among its main predators."
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.17,
    "wiki": "White-tailed deer",
    "desc": "Browses garden plants, young growth and acorns in larger parks and greenbelts. Coyotes are among the predators of fawns."
   },
   {
    "id": "insects",
-   "sp": "caterpillars, beetles and others",
+   "sp": "caterpillars-beetles-and-others",
    "xh": 0.3
   },
   {
    "id": "rabbit",
-   "sp": "sylvilagus floridanus",
+   "sp": "sylvilagus-floridanus",
    "xh": 0.44,
    "wiki": "Eastern cottontail",
    "desc": "Grazes lawns and garden plants. Cottontails are prey for hawks and coyotes.",
@@ -103,7 +103,7 @@
   },
   {
    "id": "robin",
-   "sp": "turdus migratorius",
+   "sp": "turdus-migratorius",
    "xh": 0.58,
    "tl": 2,
    "wiki": "American robin",
@@ -111,43 +111,43 @@
   },
   {
    "id": "sparrow",
-   "sp": "passer domesticus",
+   "sp": "passer-domesticus",
    "xh": 0.72,
    "wiki": "House sparrow",
    "desc": "A seed-eating bird closely tied to buildings and people, also taking scraps and insects. A common prey of Cooper's hawks."
   },
   {
    "id": "raccoon",
-   "sp": "procyon lotor",
+   "sp": "procyon-lotor",
    "xh": 0.12,
    "wiki": "Raccoon",
    "desc": "An adaptable omnivore. Wikipedia describes it eating invertebrates, plants and small vertebrates, using garbage in cities, and dabbling for fish and crayfish at the water's edge."
   },
   {
    "id": "cooper",
-   "sp": "accipiter cooperii",
+   "sp": "accipiter-cooperii",
    "xh": 0.3
   },
   {
    "id": "swift",
-   "sp": "chaetura pelagica",
+   "sp": "chaetura-pelagica",
    "xh": 0.5
   },
   {
    "id": "starling",
-   "sp": "sturnus vulgaris",
+   "sp": "sturnus-vulgaris",
    "xh": 0.7,
    "wiki": "Common starling",
    "desc": "An introduced omnivore that forages on lawns for insects and also takes scraps. It is common prey for urban hawks and falcons."
   },
   {
    "id": "bluegill",
-   "sp": "lepomis macrochirus",
+   "sp": "lepomis-macrochirus",
    "xh": 0.88
   },
   {
    "id": "redtail",
-   "sp": "buteo jamaicensis",
+   "sp": "buteo-jamaicensis",
    "xh": 0.2,
    "wiki": "Red-tailed hawk",
    "desc": "A large hawk that hunts squirrels, rabbits and other small mammals around parks and highways.",
@@ -155,14 +155,14 @@
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.45,
    "wiki": "Coyote",
    "desc": "Lives in the city. Wikipedia says urban coyotes eat rabbits, rodents, birds, fruit and trash, and that small pets (especially cats) can be taken."
   },
   {
    "id": "peregrine",
-   "sp": "falco peregrinus",
+   "sp": "falco-peregrinus",
    "xh": 0.72,
    "tl": 4,
    "desc": "Nests on tall buildings and bridges. In cities its diet is dominated by pigeons, with starlings, robins and swifts also taken."
@@ -181,17 +181,17 @@
   },
   {
    "id": "soil",
-   "sp": "park & garden soil",
+   "sp": "park-garden-soil",
    "xh": 0.55
   },
   {
    "id": "scraps",
-   "sp": "human food waste",
+   "sp": "human-food-waste",
    "xh": 0.75
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.92,
    "name": "Fungi, worms & bacteria",
    "desc": "Break down fallen leaves and dead animals and return nutrients to the soil."

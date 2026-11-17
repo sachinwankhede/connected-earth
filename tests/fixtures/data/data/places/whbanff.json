@@ -52,13 +52,13 @@
  "nodes": [
   {
    "id": "whitebark",
-   "sp": "pinus albicaulis",
+   "sp": "pinus-albicaulis",
    "xh": 0.1,
    "desc": "A high-elevation pine whose large seeds feed nutcrackers, squirrels and bears. Blister rust, pine beetles and fire suppression threaten it, and it is listed as endangered in Canada."
   },
   {
    "id": "aspen",
-   "sp": "populus tremuloides",
+   "sp": "populus-tremuloides",
    "xh": 0.3,
    "name": "Trembling aspen",
    "wiki": "Quaking aspen",
@@ -72,23 +72,23 @@
   },
   {
    "id": "buffalo",
-   "sp": "shepherdia canadensis",
+   "sp": "shepherdia-canadensis",
    "xh": 0.7
   },
   {
    "id": "fescue",
-   "sp": "festuca campestris",
+   "sp": "festuca-campestris",
    "xh": 0.9
   },
   {
    "id": "nutcracker",
-   "sp": "nucifraga columbiana",
+   "sp": "nucifraga-columbiana",
    "xh": 0.05,
    "desc": "The main disperser of whitebark pine. Each bird caches tens of thousands of seeds a year, and forgotten caches grow into new trees."
   },
   {
    "id": "redsq",
-   "sp": "tamiasciurus hudsonicus",
+   "sp": "tamiasciurus-hudsonicus",
    "xh": 0.17,
    "name": "Red squirrel",
    "wiki": "American red squirrel",
@@ -97,46 +97,46 @@
   },
   {
    "id": "gsq",
-   "sp": "urocitellus columbianus",
+   "sp": "urocitellus-columbianus",
    "xh": 0.29,
    "wiki": "Columbian ground squirrel",
    "desc": "A burrowing, hibernating squirrel of meadows and grassland that eats plants and is taken by coyotes and grizzlies."
   },
   {
    "id": "marmot",
-   "sp": "marmota caligata",
+   "sp": "marmota-caligata",
    "xh": 0.41,
    "desc": "A large alpine ground squirrel that feeds on meadow plants in the short summer and hibernates. Grizzlies and coyotes prey on it.",
    "ic": "quad"
   },
   {
    "id": "hare",
-   "sp": "lepus americanus",
+   "sp": "lepus-americanus",
    "xh": 0.53,
    "desc": "Browses shrubs and twigs in forest and is a main prey of martens and coyotes."
   },
   {
    "id": "bighorn",
-   "sp": "ovis canadensis",
+   "sp": "ovis-canadensis",
    "xh": 0.65,
    "desc": "Grazes grassy slopes and meadows and is prey for wolves, coyotes and grizzlies."
   },
   {
    "id": "moose",
-   "sp": "alces alces",
+   "sp": "alces-alces",
    "xh": 0.77,
    "desc": "Browses willow and aspen in wet valleys. Wolves and grizzlies are its main predators."
   },
   {
    "id": "elk",
-   "sp": "cervus canadensis",
+   "sp": "cervus-canadensis",
    "xh": 0.89,
    "desc": "Introduced to Banff in 1917 from Yellowstone. Grazes grasses and browses aspen, and large herds can degrade vegetation, so wolves are a key check on them.",
    "badge": "Keystone grazer"
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.25,
    "tl": 3,
    "wiki": "Coyote",
@@ -144,25 +144,25 @@
   },
   {
    "id": "marten",
-   "sp": "martes americana",
+   "sp": "martes-americana",
    "xh": 0.5,
    "desc": "A forest weasel relative that hunts red squirrels and hares and also eats small rodents."
   },
   {
    "id": "raven",
-   "sp": "corvus corax",
+   "sp": "corvus-corax",
    "xh": 0.75,
    "desc": "An intelligent scavenger that feeds on carrion left by wolves and other predators."
   },
   {
    "id": "wolf",
-   "sp": "canis lupus",
+   "sp": "canis-lupus",
    "xh": 0.35,
    "desc": "Returned to the Bow Valley in the 1980s and 1990s after being removed. Preys mainly on elk, moose and other hoofed animals."
   },
   {
    "id": "grizzly",
-   "sp": "ursus arctos",
+   "sp": "ursus-arctos",
    "xh": 0.65,
    "name": "Grizzly bear",
    "wiki": "Grizzly bear",
@@ -170,7 +170,7 @@
   },
   {
    "id": "snow",
-   "sp": "snowpack & glacier meltwater",
+   "sp": "snowpack-glacier-meltwater",
    "xh": 0.1
   },
   {
@@ -181,18 +181,18 @@
   },
   {
    "id": "sun",
-   "sp": "short mountain summer",
+   "sp": "short-mountain-summer",
    "xh": 0.5
   },
   {
    "id": "soil",
-   "sp": "mountain soils",
+   "sp": "mountain-soils",
    "xh": 0.7,
    "desc": "Thin soils of valley floors and slopes that anchor the plants and are renewed by decomposers."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi, insects & bacteria",
    "desc": "Break down dead wood, leaves and carcasses and return nutrients to the soil."

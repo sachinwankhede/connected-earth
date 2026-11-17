@@ -55,69 +55,69 @@
  "nodes": [
   {
    "id": "phyto",
-   "sp": "diatoms and other algae",
+   "sp": "diatoms-and-other-algae",
    "xh": 0.2,
    "desc": "Microscopic drifting algae that feed the whole open lake. Invasive mussels now filter much of this food from the water."
   },
   {
    "id": "zoop",
-   "sp": "copepods and water fleas",
+   "sp": "copepods-and-water-fleas",
    "xh": 0.12
   },
   {
    "id": "mysis",
-   "sp": "mysis diluviana",
+   "sp": "mysis-diluviana",
    "xh": 0.28
   },
   {
    "id": "diporeia",
-   "sp": "diporeia hoyi",
+   "sp": "diporeia-hoyi",
    "xh": 0.44
   },
   {
    "id": "mussels",
-   "sp": "dreissena bugensis, d. polymorpha",
+   "sp": "dreissena-bugensis-d-polymorpha",
    "xh": 0.6
   },
   {
    "id": "alewife",
-   "sp": "alosa pseudoharengus",
+   "sp": "alosa-pseudoharengus",
    "xh": 0.08
   },
   {
    "id": "whitefish",
-   "sp": "coregonus clupeaformis",
+   "sp": "coregonus-clupeaformis",
    "xh": 0.2
   },
   {
    "id": "lamprey",
-   "sp": "petromyzon marinus",
+   "sp": "petromyzon-marinus",
    "xh": 0.32
   },
   {
    "id": "cormorant",
-   "sp": "nannopterum auritum",
+   "sp": "nannopterum-auritum",
    "xh": 0.5
   },
   {
    "id": "gull",
-   "sp": "larus argentatus",
+   "sp": "larus-argentatus",
    "xh": 0.7,
    "wiki": "Herring gull"
   },
   {
    "id": "laketrout",
-   "sp": "salvelinus namaycush",
+   "sp": "salvelinus-namaycush",
    "xh": 0.14
   },
   {
    "id": "chinook",
-   "sp": "oncorhynchus tshawytscha",
+   "sp": "oncorhynchus-tshawytscha",
    "xh": 0.34
   },
   {
    "id": "eagle",
-   "sp": "haliaeetus leucocephalus",
+   "sp": "haliaeetus-leucocephalus",
    "xh": 0.7,
    "desc": "A fish-eating raptor of the lakeshore that takes live and dead fish."
   },
@@ -134,12 +134,12 @@
   },
   {
    "id": "cold",
-   "sp": "cold deep water",
+   "sp": "cold-deep-water",
    "xh": 0.5
   },
   {
    "id": "decomp",
-   "sp": "bacteria and fungi",
+   "sp": "bacteria-and-fungi",
    "xh": 0.9,
    "desc": "Break down dead algae, fish and mussels and return phosphorus to the water."
   }

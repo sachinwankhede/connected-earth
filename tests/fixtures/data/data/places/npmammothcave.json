@@ -60,13 +60,13 @@
   },
   {
    "id": "beech",
-   "sp": "fagus grandifolia",
+   "sp": "fagus-grandifolia",
    "xh": 0.34,
    "desc": "A hardwood common in the park's forest. Its nuts and leaves are eaten by deer and mice, with GloBI records for both."
   },
   {
    "id": "pawpaw",
-   "sp": "asimina triloba",
+   "sp": "asimina-triloba",
    "xh": 0.56,
    "desc": "A woodland understory tree with large fruit. GloBI records show raccoons and opossums eating it.",
    "ic": "willow"
@@ -78,21 +78,21 @@
   },
   {
    "id": "deer",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.08,
    "wiki": "White-tailed deer",
    "desc": "Often seen along park roads. Browses leaves, wildflowers and nuts, and is eaten by coyotes and scavenged by vultures."
   },
   {
    "id": "squirrel",
-   "sp": "sciurus carolinensis",
+   "sp": "sciurus-carolinensis",
    "xh": 0.24,
    "wiki": "Eastern gray squirrel",
    "desc": "Common in the park's hardwood forest. Eats acorns and nuts, and is prey for coyotes and snakes."
   },
   {
    "id": "mouse",
-   "sp": "peromyscus leucopus",
+   "sp": "peromyscus-leucopus",
    "xh": 0.4,
    "wiki": "White-footed mouse",
    "desc": "A small forest rodent that eats seeds and nuts. Wikipedia says it is the most common prey of the timber rattlesnake.",
@@ -100,7 +100,7 @@
   },
   {
    "id": "moth",
-   "sp": "halysidota tessellaris",
+   "sp": "halysidota-tessellaris",
    "xh": 0.56,
    "name": "Banded tussock moth",
    "desc": "Its caterpillars chew leaves of oak and many other trees. The adult moths are food for bats; GloBI records the red bat eating them.",
@@ -108,32 +108,32 @@
   },
   {
    "id": "cricket",
-   "sp": "hadenoecus subterraneus",
+   "sp": "hadenoecus-subterraneus",
    "xh": 0.72
   },
   {
    "id": "crayfish",
-   "sp": "orconectes pellucidus",
+   "sp": "orconectes-pellucidus",
    "xh": 0.88
   },
   {
    "id": "indbat",
-   "sp": "myotis sodalis",
+   "sp": "myotis-sodalis",
    "xh": 0.08
   },
   {
    "id": "graybat",
-   "sp": "myotis grisescens",
+   "sp": "myotis-grisescens",
    "xh": 0.24
   },
   {
    "id": "cavefish",
-   "sp": "amblyopsis spelaea",
+   "sp": "amblyopsis-spelaea",
    "xh": 0.4
   },
   {
    "id": "ratsnake",
-   "sp": "pantherophis alleghaniensis",
+   "sp": "pantherophis-alleghaniensis",
    "xh": 0.56,
    "name": "Central ratsnake",
    "wiki": "Central ratsnake",
@@ -142,28 +142,28 @@
   },
   {
    "id": "raccoon",
-   "sp": "procyon lotor",
+   "sp": "procyon-lotor",
    "xh": 0.72,
    "wiki": "Raccoon",
    "desc": "An omnivore that eats fruit like pawpaw, crayfish and other small animals, and takes hibernating bats."
   },
   {
    "id": "vulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.88,
    "wiki": "Turkey vulture",
    "desc": "Among the most recorded birds near the park. Scavenges carcasses such as deer and other mammals."
   },
   {
    "id": "coyote",
-   "sp": "canis latrans",
+   "sp": "canis-latrans",
    "xh": 0.3,
    "wiki": "Coyote",
    "desc": "Top mammal predator in the region. GloBI records it eating deer, squirrels, mice, rabbits and raccoons."
   },
   {
    "id": "rattler",
-   "sp": "crotalus horridus",
+   "sp": "crotalus-horridus",
    "xh": 0.7,
    "tl": 4,
    "wiki": "Timber rattlesnake",
@@ -183,12 +183,12 @@
   },
   {
    "id": "karst",
-   "sp": "karst limestone soil",
+   "sp": "karst-limestone-soil",
    "xh": 0.5
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi, beetles & bacteria",
    "desc": "Break down leaf litter, carcasses and cave guano and return nutrients to the soil."

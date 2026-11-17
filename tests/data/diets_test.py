@@ -15,7 +15,7 @@ def make(root):
         species.write_row(r, os.path.join(root, 'data', 'species', 'rows'))
     os.makedirs(os.path.join(root, 'data', 'places'))
     def place(pid, edges, ev):
-        nodes = [{'id': k, 'sp': (SP[k]).lower(), 'xh': 0.5} for k in SP if any(k in e[:2] for e in edges)]
+        nodes = [{'id': k, 'sp': species.slug(SP[k]), 'xh': 0.5} for k in SP if any(k in e[:2] for e in edges)]
         d = {'id': pid, 'nodes': nodes, 'raw': edges, 'ev': ev}
         open(os.path.join(root, 'data', 'places', pid + '.json'), 'w').write(json.dumps(d, ensure_ascii=False))
         return d
@@ -56,7 +56,7 @@ def test_new_place_with_known_and_new_pairs():
     with tempfile.TemporaryDirectory() as root:
         make(root); diets.pack(root, legacy=True); diets._cache.clear()
         p = os.path.join(root, 'data', 'places', 'e.json')
-        d = {'id': 'e', 'nodes': [{'id': 'g', 'sp': 'poa pratensis'}, {'id': 'w', 'sp': 'canis lupus'}, {'id': 'x', 'sp': 'odocoileus virginianus'}],
+        d = {'id': 'e', 'nodes': [{'id': 'g', 'sp': 'poa-pratensis'}, {'id': 'w', 'sp': 'canis-lupus'}, {'id': 'x', 'sp': 'odocoileus-virginianus'}],
              'raw': [['g', 'x'], ['x', 'w'], ['g', 'w']], 'ev': {'g>x': ['g', 'Odocoileus virginianus', 'Poa pratensis'], 'g>w': ['a']}}
         open(p, 'w').write(json.dumps(d))
         s = diets.pack(root, src='job-x')
@@ -72,7 +72,7 @@ def test_species_pack_leaves_slimmed_places_alone():
     with tempfile.TemporaryDirectory() as root:
         make(root); diets.pack(root, legacy=True); diets._cache.clear()
         newp = os.path.join(root, 'data', 'places', 'e.json')   # a job adds a place with full evidence: the same pack lifts it into the table
-        open(newp, 'w').write(json.dumps({'id': 'e', 'nodes': [{'id': 'g', 'sp': 'poa pratensis', 'xh': 0.1}, {'id': 'w', 'sp': 'canis lupus', 'xh': 0.9}], 'raw': [['g', 'w']], 'ev': {'g>w': ['a']}}))
+        open(newp, 'w').write(json.dumps({'id': 'e', 'nodes': [{'id': 'g', 'sp': 'poa-pratensis', 'xh': 0.1}, {'id': 'w', 'sp': 'canis-lupus', 'xh': 0.9}], 'raw': [['g', 'w']], 'ev': {'g>w': ['a']}}))
         saved = (species.ROOT, species.TABLE, species.ROWS, diets.ROOT)
         species.ROOT = diets.ROOT = root; species.TABLE = os.path.join(root, 'data', 'species', 'species.json'); species.ROWS = os.path.join(root, 'data', 'species', 'rows')
         try:

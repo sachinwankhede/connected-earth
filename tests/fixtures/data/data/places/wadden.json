@@ -51,93 +51,93 @@
   },
   {
    "id": "eelgrass",
-   "sp": "zostera marina",
+   "sp": "zostera-marina",
    "xh": 0.62
   },
   {
    "id": "phyto",
-   "sp": "diatoms and flagellates",
+   "sp": "diatoms-and-flagellates",
    "xh": 0.88,
    "desc": "Drifting algae carried in with the tide. Filter feeders such as cockles and mussels strain them from the water."
   },
   {
    "id": "snail",
-   "sp": "peringia ulvae (hydrobia)",
+   "sp": "peringia-ulvae-hydrobia",
    "xh": 0.06
   },
   {
    "id": "lugworm",
-   "sp": "arenicola marina",
+   "sp": "arenicola-marina",
    "xh": 0.17
   },
   {
    "id": "ragworm",
-   "sp": "hediste diversicolor",
+   "sp": "hediste-diversicolor",
    "xh": 0.28
   },
   {
    "id": "cockle",
-   "sp": "cerastoderma edule",
+   "sp": "cerastoderma-edule",
    "xh": 0.39
   },
   {
    "id": "mussel",
-   "sp": "mytilus edulis",
+   "sp": "mytilus-edulis",
    "xh": 0.51,
    "desc": "Forms dense beds on the flats by attaching to each other and to hard bits of ground. A preferred food of eiders and oystercatchers.",
    "badge": "Ecosystem engineer"
   },
   {
    "id": "tellin",
-   "sp": "macoma balthica",
+   "sp": "macoma-balthica",
    "xh": 0.62
   },
   {
    "id": "shrimp",
-   "sp": "crangon crangon",
+   "sp": "crangon-crangon",
    "xh": 0.06
   },
   {
    "id": "crab",
-   "sp": "carcinus maenas",
+   "sp": "carcinus-maenas",
    "xh": 0.18
   },
   {
    "id": "plaice",
-   "sp": "pleuronectes platessa",
+   "sp": "pleuronectes-platessa",
    "xh": 0.3
   },
   {
    "id": "knot",
-   "sp": "calidris canutus",
+   "sp": "calidris-canutus",
    "xh": 0.42,
    "ic": "hawk"
   },
   {
    "id": "godwit",
-   "sp": "limosa lapponica",
+   "sp": "limosa-lapponica",
    "xh": 0.54
   },
   {
    "id": "oyc",
-   "sp": "haematopus ostralegus",
+   "sp": "haematopus-ostralegus",
    "xh": 0.66
   },
   {
    "id": "eider",
-   "sp": "somateria mollissima",
+   "sp": "somateria-mollissima",
    "xh": 0.78,
    "desc": "A diving sea duck that swallows mussels whole and crushes them in its gizzard. It also eats crabs and other crustaceans."
   },
   {
    "id": "gull",
-   "sp": "larus argentatus",
+   "sp": "larus-argentatus",
    "xh": 0.9,
    "desc": "An opportunistic gull of the coast that feeds on shore crabs and other items found on the flats."
   },
   {
    "id": "seal",
-   "sp": "phoca vitulina",
+   "sp": "phoca-vitulina",
    "xh": 0.34,
    "name": "Harbour seal",
    "tl": 4,
@@ -166,7 +166,7 @@
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.88,
    "name": "Mud bacteria",
    "desc": "Break down dead algae, plants and animals in the mud and return nutrients to the water."

@@ -46,72 +46,72 @@
  "nodes": [
   {
    "id": "grass",
-   "sp": "poaceae and carex",
+   "sp": "poaceae-and-carex",
    "xh": 0.1
   },
   {
    "id": "flowers",
-   "sp": "gentiana, primula, ranunculus",
+   "sp": "gentiana-primula-ranunculus",
    "xh": 0.3
   },
   {
    "id": "rhodo",
-   "sp": "rhododendron spp.",
+   "sp": "rhododendron-spp",
    "xh": 0.5
   },
   {
    "id": "fir",
-   "sp": "abies spectabilis, juniperus",
+   "sp": "abies-spectabilis-juniperus",
    "xh": 0.7
   },
   {
    "id": "lichen",
-   "sp": "lichens & mosses",
+   "sp": "lichens-mosses",
    "xh": 0.9
   },
   {
    "id": "tahr",
-   "sp": "hemitragus jemlahicus",
+   "sp": "hemitragus-jemlahicus",
    "xh": 0.05
   },
   {
    "id": "bharal",
-   "sp": "pseudois nayaur",
+   "sp": "pseudois-nayaur",
    "xh": 0.17
   },
   {
    "id": "musk",
-   "sp": "moschus chrysogaster",
+   "sp": "moschus-chrysogaster",
    "xh": 0.29
   },
   {
    "id": "marmot",
-   "sp": "marmota himalayana",
+   "sp": "marmota-himalayana",
    "xh": 0.41
   },
   {
    "id": "pika",
-   "sp": "ochotona macrotis",
+   "sp": "ochotona-macrotis",
    "xh": 0.53
   },
   {
    "id": "yak",
-   "sp": "bos grunniens",
+   "sp": "bos-grunniens",
    "xh": 0.65
   },
   {
    "id": "snowcock",
-   "sp": "tetraogallus himalayensis",
+   "sp": "tetraogallus-himalayensis",
    "xh": 0.77
   },
   {
    "id": "monal",
-   "sp": "lophophorus impejanus",
+   "sp": "lophophorus-impejanus",
    "xh": 0.89
   },
   {
    "id": "lammer",
-   "sp": "gypaetus barbatus",
+   "sp": "gypaetus-barbatus",
    "xh": 0.2,
    "name": "Lammergeier (bearded vulture)",
    "ic": "goldeneagle",
@@ -119,25 +119,25 @@
   },
   {
    "id": "eagle",
-   "sp": "aquila chrysaetos",
+   "sp": "aquila-chrysaetos",
    "xh": 0.5,
    "tl": 3
   },
   {
    "id": "fox",
-   "sp": "vulpes vulpes",
+   "sp": "vulpes-vulpes",
    "xh": 0.8,
    "desc": "A small predator of marmots and, from general knowledge, pikas."
   },
   {
    "id": "leopard",
-   "sp": "panthera uncia",
+   "sp": "panthera-uncia",
    "xh": 0.3,
    "badge": "Apex predator"
   },
   {
    "id": "wolf",
-   "sp": "canis lupus chanco",
+   "sp": "canis-lupus-chanco",
    "xh": 0.7
   },
   {
@@ -148,22 +148,22 @@
   },
   {
    "id": "melt",
-   "sp": "snowmelt and glacier meltwater",
+   "sp": "snowmelt-and-glacier-meltwater",
    "xh": 0.3
   },
   {
    "id": "monsoon",
-   "sp": "monsoon rain",
+   "sp": "monsoon-rain",
    "xh": 0.5
   },
   {
    "id": "soil",
-   "sp": "thin mountain soil",
+   "sp": "thin-mountain-soil",
    "xh": 0.7
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.9,
    "name": "Fungi & soil microbes",
    "desc": "Break down dead plants, dung and carcasses, slowly in the cold, returning nutrients."

@@ -43,104 +43,104 @@
  "nodes": [
   {
    "id": "purpleeryngo",
-   "sp": "eryngium leavenworthii",
+   "sp": "eryngium-leavenworthii",
    "xh": 0.142
   },
   {
    "id": "buttonbush",
-   "sp": "cephalanthus occidentalis",
+   "sp": "cephalanthus-occidentalis",
    "xh": 0.285,
    "desc": "Buttonbush (Cephalanthus occidentalis): a plant that turns sunlight into food. Recorded 21 times near the park in GBIF."
   },
   {
    "id": "bittersneezewe",
-   "sp": "helenium amarum",
+   "sp": "helenium-amarum",
    "xh": 0.428
   },
   {
    "id": "blanket",
-   "sp": "gaillardia pulchella",
+   "sp": "gaillardia-pulchella",
    "xh": 0.572,
    "name": "Blanket",
    "desc": "Blanket (Gaillardia pulchella): a plant that turns sunlight into food. Recorded 12 times near the park in GBIF."
   },
   {
    "id": "smoothsumac",
-   "sp": "rhus glabra",
+   "sp": "rhus-glabra",
    "xh": 0.715,
    "desc": "Smooth sumac (Rhus glabra): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF."
   },
   {
    "id": "lemonbeebalm",
-   "sp": "monarda citriodora",
+   "sp": "monarda-citriodora",
    "xh": 0.858,
    "name": "Lemon beebalm",
    "desc": "Lemon beebalm (Monarda citriodora): a plant that turns sunlight into food. Recorded 11 times near the park in GBIF."
   },
   {
    "id": "northerncardin",
-   "sp": "cardinalis cardinalis",
+   "sp": "cardinalis-cardinalis",
    "xh": 0.142,
    "desc": "Northern Cardinal (Cardinalis cardinalis): eats plants or other primary food sources. Recorded 260 times near the park in GBIF."
   },
   {
    "id": "carolinachicka",
-   "sp": "poecile carolinensis",
+   "sp": "poecile-carolinensis",
    "xh": 0.285,
    "desc": "Carolina Chickadee (Poecile carolinensis): eats plants or other primary food sources. Recorded 222 times near the park in GBIF."
   },
   {
    "id": "tuftedtitmouse",
-   "sp": "baeolophus bicolor",
+   "sp": "baeolophus-bicolor",
    "xh": 0.428,
    "desc": "Tufted Titmouse (Baeolophus bicolor): eats plants or other primary food sources. Recorded 209 times near the park in GBIF."
   },
   {
    "id": "hackberryemper",
-   "sp": "asterocampa celtis",
+   "sp": "asterocampa-celtis",
    "xh": 0.572,
    "desc": "Hackberry Emperor (Asterocampa celtis): eats plants or other primary food sources. Recorded 10 times near the park in GBIF."
   },
   {
    "id": "wheelbug",
-   "sp": "arilus cristatus",
+   "sp": "arilus-cristatus",
    "xh": 0.715,
    "desc": "Wheel Bug (Arilus cristatus): eats plants or other primary food sources. Recorded 10 times near the park in GBIF."
   },
   {
    "id": "whitetaileddee",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.858,
    "desc": "White-tailed Deer (Odocoileus virginianus): eats plants or other primary food sources. Recorded 14 times near the park in GBIF."
   },
   {
    "id": "turkeyvulture",
-   "sp": "cathartes aura",
+   "sp": "cathartes-aura",
    "xh": 0.156,
    "desc": "Turkey Vulture (Cathartes aura): hunts or scavenges other animals. Recorded 258 times near the park in GBIF."
   },
   {
    "id": "americancrow",
-   "sp": "corvus brachyrhynchos",
+   "sp": "corvus-brachyrhynchos",
    "xh": 0.328,
    "desc": "American Crow (Corvus brachyrhynchos): hunts or scavenges other animals. Recorded 215 times near the park in GBIF."
   },
   {
    "id": "redbelliedwood",
-   "sp": "melanerpes carolinus",
+   "sp": "melanerpes-carolinus",
    "xh": 0.5,
    "desc": "Red-bellied Woodpecker (Melanerpes carolinus): hunts or scavenges other animals. Recorded 169 times near the park in GBIF."
   },
   {
    "id": "commongrayfox",
-   "sp": "urocyon cinereoargenteus",
+   "sp": "urocyon-cinereoargenteus",
    "xh": 0.672,
    "name": "Common Gray Fox",
    "desc": "Common Gray Fox (Urocyon cinereoargenteus): hunts or scavenges other animals. Recorded 3 times near the park in GBIF."
   },
   {
    "id": "commonraccoon",
-   "sp": "procyon lotor",
+   "sp": "procyon-lotor",
    "xh": 0.844,
    "name": "Common raccoon",
    "desc": "Common raccoon (Procyon lotor): hunts or scavenges other animals. Recorded 2 times near the park in GBIF."
@@ -157,12 +157,12 @@
   },
   {
    "id": "soil",
-   "sp": "soil and nutrients",
+   "sp": "soil-and-nutrients",
    "xh": 0.58
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.84
   }
  ],

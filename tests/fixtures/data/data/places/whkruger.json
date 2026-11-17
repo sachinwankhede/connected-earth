@@ -44,56 +44,56 @@
  "nodes": [
   {
    "id": "redgrass",
-   "sp": "themeda triandra",
+   "sp": "themeda-triandra",
    "xh": 0.2,
    "desc": "A tall grass of the open grazing lands that zebra, wildebeest, buffalo and impala all feed on.",
    "badge": "Foundation species"
   },
   {
    "id": "mopane",
-   "sp": "colophospermum mopane",
+   "sp": "colophospermum-mopane",
    "xh": 0.42,
    "desc": "The dominant tree across the northern park. Elephants, giraffes and antelope browse its leaves, and the mopane worm caterpillar feeds on it."
   },
   {
    "id": "knobthorn",
-   "sp": "senegalia nigrescens",
+   "sp": "senegalia-nigrescens",
    "xh": 0.64
   },
   {
    "id": "marula",
-   "sp": "sclerocarya birrea",
+   "sp": "sclerocarya-birrea",
    "xh": 0.84
   },
   {
    "id": "impala",
-   "sp": "aepyceros melampus",
+   "sp": "aepyceros-melampus",
    "xh": 0.08,
    "desc": "The most numerous large mammal in the park. It grazes after the rains and browses woody plants in the dry season, and is prey for most large carnivores.",
    "ic": "muledeer"
   },
   {
    "id": "zebra",
-   "sp": "equus quagga",
+   "sp": "equus-quagga",
    "xh": 0.2,
    "desc": "Grazes grasses on the open plains and is common prey for lions, hyenas and wild dogs."
   },
   {
    "id": "wildebeest",
-   "sp": "connochaetes taurinus",
+   "sp": "connochaetes-taurinus",
    "xh": 0.32,
    "desc": "A grazing antelope of the open grasslands, hunted by lions, hyenas, leopards and wild dogs.",
    "ic": "quad"
   },
   {
    "id": "buffalo",
-   "sp": "syncerus caffer",
+   "sp": "syncerus-caffer",
    "xh": 0.44,
    "desc": "Forms large herds on the grazing lands and is a main prey of lions."
   },
   {
    "id": "giraffe",
-   "sp": "giraffa giraffa",
+   "sp": "giraffa-giraffa",
    "xh": 0.56,
    "name": "Giraffe",
    "wiki": "Giraffe",
@@ -101,51 +101,51 @@
   },
   {
    "id": "elephant",
-   "sp": "loxodonta africana",
+   "sp": "loxodonta-africana",
    "xh": 0.72,
    "name": "African bush elephant",
    "desc": "A mixed feeder on grass, leaves, bark and fruit. Its feeding opens up thickets and riverside forest, and calves are sometimes taken by lions."
   },
   {
    "id": "hyena",
-   "sp": "crocuta crocuta",
+   "sp": "crocuta-crocuta",
    "xh": 0.15,
    "desc": "Hunts in clans and also scavenges. It eats a wide range of prey, from impala to buffalo, and often feeds on lion kills."
   },
   {
    "id": "wilddog",
-   "sp": "lycaon pictus",
+   "sp": "lycaon-pictus",
    "xh": 0.4,
    "desc": "A pack-hunting predator of antelope and zebra. Its packs are endangered in South Africa.",
    "ic": "wolf"
   },
   {
    "id": "vulture",
-   "sp": "gyps africanus",
+   "sp": "gyps-africanus",
    "xh": 0.65,
    "desc": "A scavenger that feeds on the soft tissue of carcasses and is among the first vultures to reach one. It is critically endangered, in part from poisoned carcasses."
   },
   {
    "id": "bateleur",
-   "sp": "terathopius ecaudatus",
+   "sp": "terathopius-ecaudatus",
    "xh": 0.88,
    "desc": "A soaring eagle that takes live prey and also feeds on carrion."
   },
   {
    "id": "lion",
-   "sp": "panthera leo",
+   "sp": "panthera-leo",
    "xh": 0.3,
    "desc": "The top predator of the park, hunting zebra, wildebeest, buffalo, giraffe and impala. Its kills feed hyenas and vultures."
   },
   {
    "id": "leopard",
-   "sp": "panthera pardus",
+   "sp": "panthera-pardus",
    "xh": 0.7,
    "desc": "A solitary ambush predator that takes impala, wildebeest, zebra and other medium prey."
   },
   {
    "id": "rain",
-   "sp": "summer rains",
+   "sp": "summer-rains",
    "xh": 0.12,
    "desc": "Falls mostly from September to May and sets the pace of grass and leaf growth."
   },
@@ -162,12 +162,12 @@
   },
   {
    "id": "soil",
-   "sp": "soils and geology",
+   "sp": "soils-and-geology",
    "xh": 0.76
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.92,
    "name": "Termites, dung beetles & fungi",
    "wiki": "Dung beetle",

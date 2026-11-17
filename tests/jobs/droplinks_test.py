@@ -12,7 +12,7 @@ class DropLinks(unittest.TestCase):
         w(self.r, ['data', 'species', 'taxonomy.json'], {'pandion-haliaetus': {'family': 'Pandionidae', 'class': 'Aves'}, 'odocoileus-virginianus': {'class': 'Mammalia', 'kingdom': 'Animalia'}, 'alosa-sapidissima': {'class': 'Actinopterygii'}, 'aquila-chrysaetos': {'family': 'Accipitridae', 'class': 'Aves'}})
         w(self.r, ['data', 'diets', 'pa', 'pandion-haliaetus.json'], {'sid': 'pandion-haliaetus', 'prey': {'odocoileus-virginianus': {'ev': ['g'], 'k': 'e'}, 'alosa-sapidissima': {'ev': ['g'], 'k': 'e'}}})
         w(self.r, ['data', 'diets', 'aq', 'aquila-chrysaetos.json'], {'sid': 'aquila-chrysaetos', 'prey': {'odocoileus-virginianus': {'ev': ['g'], 'k': 'e'}}})
-        w(self.r, ['data', 'places', 'x.json'], {'id': 'x', 'nodes': [{'id': 'osp', 'sp': 'pandion haliaetus'}, {'id': 'deer', 'sp': 'odocoileus virginianus'}, {'id': 'shad', 'sp': 'alosa sapidissima'}, {'id': 'eag', 'sp': 'aquila chrysaetos'}],
+        w(self.r, ['data', 'places', 'x.json'], {'id': 'x', 'nodes': [{'id': 'osp', 'sp': 'pandion-haliaetus'}, {'id': 'deer', 'sp': 'odocoileus-virginianus'}, {'id': 'shad', 'sp': 'alosa-sapidissima'}, {'id': 'eag', 'sp': 'aquila-chrysaetos'}],
             'raw': [['deer', 'osp'], ['shad', 'osp'], ['deer', 'eag']], 'ev': {'deer>osp': ['g'], 'shad>osp': ['g'], 'deer>eag': ['g']}})
     def test_rule(self):
         self.assertTrue(D.wrong({'family': 'Pandionidae'}, {'class': 'Mammalia'})); self.assertTrue(D.wrong({'family': 'Gaviidae'}, {'kingdom': 'Plantae'}))

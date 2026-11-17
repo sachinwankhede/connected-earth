@@ -39,19 +39,19 @@
  "nodes": [
   {
    "id": "mintleafbeebal",
-   "sp": "monarda fistulosa",
+   "sp": "monarda-fistulosa",
    "xh": 0.142,
    "desc": "Mintleaf Beebalm (Monarda fistulosa): a plant that turns sunlight into food. Recorded 3 times near the park in GBIF."
   },
   {
    "id": "hobblebush",
-   "sp": "viburnum lantanoides",
+   "sp": "viburnum-lantanoides",
    "xh": 0.285,
    "desc": "Hobblebush (Viburnum lantanoides): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF."
   },
   {
    "id": "easternhemlock",
-   "sp": "tsuga canadensis",
+   "sp": "tsuga-canadensis",
    "xh": 0.428,
    "name": "Eastern Hemlock-spruce",
    "desc": "Eastern Hemlock-spruce (Tsuga canadensis): a plant that turns sunlight into food. Recorded 2 times near the park in GBIF.",
@@ -59,12 +59,12 @@
   },
   {
    "id": "americandogvio",
-   "sp": "viola labradorica",
+   "sp": "viola-labradorica",
    "xh": 0.572
   },
   {
    "id": "bitterberry",
-   "sp": "prunus virginiana",
+   "sp": "prunus-virginiana",
    "xh": 0.715,
    "name": "Bitter-berry",
    "desc": "Bitter-berry (Prunus virginiana): a plant that turns sunlight into food. Recorded 1 times near the park in GBIF.",
@@ -72,70 +72,70 @@
   },
   {
    "id": "longsedge",
-   "sp": "carex folliculata",
+   "sp": "carex-folliculata",
    "xh": 0.858
   },
   {
    "id": "blackcappedchi",
-   "sp": "poecile atricapillus",
+   "sp": "poecile-atricapillus",
    "xh": 0.124,
    "desc": "Black-capped Chickadee (Poecile atricapillus): eats plants or other primary food sources. Recorded 1,845 times near the park in GBIF."
   },
   {
    "id": "darkeyedjunco",
-   "sp": "junco hyemalis",
+   "sp": "junco-hyemalis",
    "xh": 0.231,
    "desc": "Dark-eyed Junco (Junco hyemalis): eats plants or other primary food sources. Recorded 1,783 times near the park in GBIF."
   },
   {
    "id": "mourningdove",
-   "sp": "zenaida macroura",
+   "sp": "zenaida-macroura",
    "xh": 0.339,
    "desc": "Mourning Dove (Zenaida macroura): eats plants or other primary food sources. Recorded 1,449 times near the park in GBIF."
   },
   {
    "id": "americangoldfi",
-   "sp": "spinus tristis",
+   "sp": "spinus-tristis",
    "xh": 0.446,
    "desc": "American Goldfinch (Spinus tristis): eats plants or other primary food sources. Recorded 1,386 times near the park in GBIF."
   },
   {
    "id": "commonclearwin",
-   "sp": "hemaris thysbe",
+   "sp": "hemaris-thysbe",
    "xh": 0.554
   },
   {
    "id": "greenstinkbug",
-   "sp": "chinavia hilaris",
+   "sp": "chinavia-hilaris",
    "xh": 0.661
   },
   {
    "id": "whitetaileddee",
-   "sp": "odocoileus virginianus",
+   "sp": "odocoileus-virginianus",
    "xh": 0.769,
    "desc": "White-tailed deer (Odocoileus virginianus): eats plants or other primary food sources. Recorded 5 times near the park in GBIF."
   },
   {
    "id": "northamericanp",
-   "sp": "erethizon dorsatus",
+   "sp": "erethizon-dorsatus",
    "xh": 0.876,
    "desc": "North American porcupine (Erethizon dorsatus): eats plants or other primary food sources. Recorded 1 times near the park in GBIF."
   },
   {
    "id": "bluejay",
-   "sp": "cyanocitta cristata",
+   "sp": "cyanocitta-cristata",
    "xh": 0.285,
    "desc": "Blue Jay (Cyanocitta cristata): hunts or scavenges other animals. Recorded 1,518 times near the park in GBIF."
   },
   {
    "id": "americanrobin",
-   "sp": "turdus migratorius",
+   "sp": "turdus-migratorius",
    "xh": 0.715,
    "desc": "American Robin (Turdus migratorius): hunts or scavenges other animals. Recorded 1,472 times near the park in GBIF."
   },
   {
    "id": "bobcat",
-   "sp": "lynx rufus",
+   "sp": "lynx-rufus",
    "xh": 0.5
   },
   {
@@ -150,12 +150,12 @@
   },
   {
    "id": "soil",
-   "sp": "soil and nutrients",
+   "sp": "soil-and-nutrients",
    "xh": 0.58
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.84
   }
  ],

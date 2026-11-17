@@ -52,85 +52,85 @@
   },
   {
    "id": "rain",
-   "sp": "rare rainfall",
+   "sp": "rare-rainfall",
    "xh": 0.28
   },
   {
    "id": "water",
-   "sp": "oasis groundwater",
+   "sp": "oasis-groundwater",
    "xh": 0.5
   },
   {
    "id": "soil",
-   "sp": "sandy, nutrient-poor soil",
+   "sp": "sandy-nutrient-poor-soil",
    "xh": 0.68
   },
   {
    "id": "decomp",
-   "sp": "termites, scarab beetles, fungi, bacteria",
+   "sp": "termites-scarab-beetles-fungi-bacteria",
    "xh": 0.88
   },
   {
    "id": "grass",
-   "sp": "stipagrostis and others",
+   "sp": "stipagrostis-and-others",
    "xh": 0.1
   },
   {
    "id": "acacia",
-   "sp": "vachellia tortilis",
+   "sp": "vachellia-tortilis",
    "xh": 0.35,
    "name": "Acacia trees",
    "ic": "willow"
   },
   {
    "id": "datepalm",
-   "sp": "phoenix dactylifera",
+   "sp": "phoenix-dactylifera",
    "xh": 0.85
   },
   {
    "id": "locust",
-   "sp": "schistocerca gregaria",
+   "sp": "schistocerca-gregaria",
    "xh": 0.06
   },
   {
    "id": "jerboa",
-   "sp": "jaculus and relatives",
+   "sp": "jaculus-and-relatives",
    "xh": 0.18
   },
   {
    "id": "sandgrouse",
-   "sp": "pterocles coronatus",
+   "sp": "pterocles-coronatus",
    "xh": 0.3
   },
   {
    "id": "dorcas",
-   "sp": "gazella dorcas",
+   "sp": "gazella-dorcas",
    "xh": 0.42
   },
   {
    "id": "addax",
-   "sp": "addax nasomaculatus",
+   "sp": "addax-nasomaculatus",
    "xh": 0.54
   },
   {
    "id": "barbary",
-   "sp": "ammotragus lervia",
+   "sp": "ammotragus-lervia",
    "xh": 0.68,
    "desc": "A hardy wild sheep of Saharan mountains that eats grasses and shrubs."
   },
   {
    "id": "silverant",
-   "sp": "cataglyphis bombycina",
+   "sp": "cataglyphis-bombycina",
    "xh": 0.08
   },
   {
    "id": "viper",
-   "sp": "cerastes cerastes",
+   "sp": "cerastes-cerastes",
    "xh": 0.2
   },
   {
    "id": "monitor",
-   "sp": "varanus griseus",
+   "sp": "varanus-griseus",
    "xh": 0.32,
    "tl": 3,
    "wiki": "Varanus griseus",
@@ -138,22 +138,22 @@
   },
   {
    "id": "fennec",
-   "sp": "vulpes zerda",
+   "sp": "vulpes-zerda",
    "xh": 0.46
   },
   {
    "id": "lanner",
-   "sp": "falco biarmicus",
+   "sp": "falco-biarmicus",
    "xh": 0.6
   },
   {
    "id": "cheetah",
-   "sp": "acinonyx jubatus hecki",
+   "sp": "acinonyx-jubatus-hecki",
    "xh": 0.38
   },
   {
    "id": "owl",
-   "sp": "bubo ascalaphus",
+   "sp": "bubo-ascalaphus",
    "xh": 0.74
   }
  ],

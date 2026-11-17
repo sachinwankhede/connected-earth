@@ -38,34 +38,34 @@
  "nodes": [
   {
    "id": "phyto",
-   "sp": "diatoms and dinoflagellates",
+   "sp": "diatoms-and-dinoflagellates",
    "xh": 0.2
   },
   {
    "id": "spartina",
-   "sp": "spartina alterniflora",
+   "sp": "spartina-alterniflora",
    "xh": 0.72
   },
   {
    "id": "zoop",
-   "sp": "copepods and larvae",
+   "sp": "copepods-and-larvae",
    "xh": 0.06,
    "desc": "Tiny grazers of phytoplankton. Adult menhaden and bay anchovies eat them."
   },
   {
    "id": "menhaden",
-   "sp": "brevoortia patronus",
+   "sp": "brevoortia-patronus",
    "xh": 0.2
   },
   {
    "id": "anchovy",
-   "sp": "anchoa mitchilli",
+   "sp": "anchoa-mitchilli",
    "xh": 0.33,
    "desc": "A small schooling fish that eats zooplankton. Wikipedia notes anchovies may temporarily increase in hypoxic water."
   },
   {
    "id": "oyster",
-   "sp": "crassostrea virginica",
+   "sp": "crassostrea-virginica",
    "xh": 0.46,
    "desc": "Filters algae from the water. Wikipedia notes oysters face more disease under hypoxia.",
    "no": [
@@ -74,60 +74,60 @@
   },
   {
    "id": "worms",
-   "sp": "polychaetes and bivalves",
+   "sp": "polychaetes-and-bivalves",
    "xh": 0.58
   },
   {
    "id": "shrimp",
-   "sp": "farfantepenaeus aztecus",
+   "sp": "farfantepenaeus-aztecus",
    "xh": 0.7
   },
   {
    "id": "croaker",
-   "sp": "micropogonias undulatus",
+   "sp": "micropogonias-undulatus",
    "xh": 0.12
   },
   {
    "id": "trout",
-   "sp": "cynoscion nebulosus",
+   "sp": "cynoscion-nebulosus",
    "xh": 0.26
   },
   {
    "id": "redsnapper",
-   "sp": "lutjanus campechanus",
+   "sp": "lutjanus-campechanus",
    "xh": 0.4
   },
   {
    "id": "redfish",
-   "sp": "sciaenops ocellatus",
+   "sp": "sciaenops-ocellatus",
    "xh": 0.52
   },
   {
    "id": "crab",
-   "sp": "callinectes sapidus",
+   "sp": "callinectes-sapidus",
    "xh": 0.63,
    "desc": "An omnivore that eats oysters, worms and carrion.",
    "ic": "ant"
   },
   {
    "id": "jelly",
-   "sp": "chrysaora quinquecirrha",
+   "sp": "chrysaora-quinquecirrha",
    "xh": 0.72,
    "desc": "A jellyfish. Wikipedia says jellyfish can survive hypoxia and may increase when competitors and predators leave."
   },
   {
    "id": "turtle",
-   "sp": "lepidochelys kempii",
+   "sp": "lepidochelys-kempii",
    "xh": 0.83
   },
   {
    "id": "pelican",
-   "sp": "pelecanus erythrorhynchos",
+   "sp": "pelecanus-erythrorhynchos",
    "xh": 0.94
   },
   {
    "id": "dolphin",
-   "sp": "tursiops truncatus",
+   "sp": "tursiops-truncatus",
    "xh": 0.3,
    "name": "Bottlenose dolphin",
    "wiki": "Bottlenose dolphin",
@@ -135,7 +135,7 @@
   },
   {
    "id": "bullshark",
-   "sp": "carcharhinus leucas",
+   "sp": "carcharhinus-leucas",
    "xh": 0.68
   },
   {
@@ -146,18 +146,18 @@
   },
   {
    "id": "plume",
-   "sp": "river nutrients",
+   "sp": "river-nutrients",
    "xh": 0.3
   },
   {
    "id": "oxygen",
-   "sp": "bottom-water oxygen",
+   "sp": "bottom-water-oxygen",
    "xh": 0.64,
    "desc": "Warm, layered water traps oxygen-poor water near the bottom. Bottom dwellers that cannot leave suffocate when oxygen falls very low."
   },
   {
    "id": "decomp",
-   "sp": "decomposer community",
+   "sp": "decomposer-community",
    "xh": 0.88,
    "name": "Bacteria",
    "desc": "Break down dead algae. In summer this uses up bottom-water oxygen and creates the dead zone."
@@ -405,7 +405,7 @@
   "22",
   "48"
  ],
- "imgwiki": "Gulf Islands National Seashore",
+ "imgwiki": "Gulf of Mexico",
  "icon": "whale",
  "tier": "detailed",
  "kind": "Coast & ocean",

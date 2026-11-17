@@ -5,7 +5,7 @@ import diets_resolve as D
 
 def w(root, parts, data):
     p = os.path.join(root, *parts); os.makedirs(os.path.dirname(p), exist_ok=True); open(p, 'w').write(json.dumps(data, ensure_ascii=False, separators=(',', ':')))
-NODES = [{'id': 'deer', 'sp': 'odocoileus virginianus'}, {'id': 'vul', 'sp': 'cathartes aura'}, {'id': 'coy', 'sp': 'canis latrans'}]
+NODES = [{'id': 'deer', 'sp': 'deer'}, {'id': 'vul', 'sp': 'vul'}, {'id': 'coy', 'sp': 'coy'}]
 def place(kinds):   # kinds: {(from, to): 'e' or 's'}
     return {'id': 'p', 'nodes': NODES, 'raw': [[a, b] if k == 'e' else [a, b, 's'] for (a, b), k in kinds.items()] + [['sun', 'deer', 'r']], 'ev': {'deer>vul': ['g']}}
 class Resolve(unittest.TestCase):
