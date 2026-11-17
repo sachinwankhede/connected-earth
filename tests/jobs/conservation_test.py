@@ -19,6 +19,9 @@ class T(unittest.TestCase):
         self.assertEqual(c.parse([row('Foo bar', 'Q2', 'Q11394'), row('Foo bar', 'Q3', 'Q219127')]), {})
     def test_same_code_twice_kept(self):
         self.assertEqual(c.parse([row('Foo bar', 'Q3', 'Q11394'), row('Foo bar', 'Q2', 'Q11394')])['foo bar']['c'], 'EN')
+    def test_found_names_become_species_ids_and_unknown_names_are_dropped(self):
+        found = c.parse([row('Ursus arctos', 'Q1', 'Q211005'), row('Nobody here', 'Q2', 'Q211005')])
+        self.assertEqual(c.by_id(found, {'ursus arctos': 'ursus-arctos'}), {'ursus-arctos': {'c': 'LC', 'q': 'Q1'}})
     def test_query_has_names_and_no_quotes_inside(self):
         q = c.query(['Aa bb', 'Cc "dd'])
         self.assertIn('"Aa bb"', q); self.assertIn('"Cc dd"', q); self.assertIn('wdt:P141', q)

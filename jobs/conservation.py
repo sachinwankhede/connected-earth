@@ -3,8 +3,8 @@
 Wikidata states a species' conservation status (property P141) as a CC0 statement, using the IUCN category items. For each species in the table (by its Latin
 name, property P225) this keeps the one best-ranked value and stores a short code: LC, NT, VU, EN, CR, EW, EX (DD, data deficient, is not stored: there is no
 status to show). A species with no value, or with two different best-ranked values, gets no entry. Writes data/species/conservation.json
-{lowercase Latin name: {"c": code, "q": Wikidata item}} and prints how many species were found. Only query.wikidata.org is asked (an allowed host, Wikimedia
-CC0); nothing is taken from IUCN itself. Resumable: names already in the file are not asked again unless --again."""
+{species id: {"c": code, "q": Wikidata item}} (#1024: the id of the species row; the Latin name is only what Wikidata is asked by) and prints how many species were found. Only query.wikidata.org is asked (an allowed host, Wikimedia
+CC0); nothing is taken from IUCN itself. Resumable: species already in the file are not asked again unless --again."""
 import json, os, sys, time, urllib.parse, urllib.request
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, 'lib')); import fetch
@@ -30,6 +30,10 @@ def parse(rows, unknown=None):
         if len({c for c, _ in vals}) == 1: c, q = sorted(vals)[0]; out[name] = {'c': c, 'q': q}
     return out
 
+def by_id(found, sid_of):
+    """{species id: entry} from parse()'s {lowercase name: entry}; sid_of is {lowercase name: species id}. A name no species row has is dropped."""
+    return {sid_of[n]: v for n, v in found.items() if n in sid_of}
+
 def sparql(q):
     for t in range(5):
         try:
@@ -45,13 +49,13 @@ if __name__ == '__main__':
     from collections import Counter; unknown = Counter()
     have = json.load(open(OUT)) if os.path.exists(OUT) and not again else {}
     asked = set(have) | set(json.load(open(ASKED)) if os.path.exists(ASKED) and not again else [])
-    names = [r.get('latin') or r['name'] for r in species.table().values()]
-    todo = [n for n in names if n.lower() not in asked]
+    tab = species.table(); sid_of = {species.name_key(r): k for k, r in tab.items()}   # Wikidata is asked by Latin name; everything stored is by species id
+    todo = [k for k in tab if k not in asked]
     if limit: todo = todo[:limit]
     for i in range(0, len(todo), size):
-        batch = todo[i:i + size]; rows = sparql(query(batch))
+        batch = todo[i:i + size]; rows = sparql(query([tab[k].get('latin') or tab[k]['name'] for k in batch]))
         if rows is None: print('batch failed, stopping', file=sys.stderr); break
-        have.update(parse(rows, unknown)); asked.update(n.lower() for n in batch)
+        have.update(by_id(parse(rows, unknown), sid_of)); asked.update(batch)
         time.sleep(2)
     json.dump(dict(sorted(have.items())), open(OUT, 'w'), indent=1, ensure_ascii=False)
     json.dump(sorted(asked - set(have)), open(ASKED, 'w'))

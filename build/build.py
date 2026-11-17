@@ -642,7 +642,7 @@ def build(pilot, out_path, write=False, places=False):
         row = tab.get(k)
         if not row or k not in common: continue
         f = {'l': row['latin'], 'n': common[k], 'tl': int(row['tl'])} | ({'ic': row['ic']} if row.get('ic') else {}) | ({'t': row['about']} if row.get('about') else {})
-        c = cons.get(species.name_key(row))   # conservation.json is by lowercase Latin name
+        c = cons.get(k)   # conservation.json is by species id (#1024)
         if c: f['cs'] = c['c']; f['cl'] = CS_WORDS[c['c']]   # a species with no status has no cs; cl is the word the species page shows (#680)
         tx = tax.get(row['sid'])   # the group, order and family of the species page (#446); a species with no taxonomy record has none of them
         if tx: f['g'] = species_group(tx); f.update({a: tx[b] for a, b in (('od', 'order'), ('fa', 'family')) if tx.get(b)})
