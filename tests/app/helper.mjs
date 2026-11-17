@@ -131,12 +131,25 @@ async function routeFixtures(page) {
 }
 
 // Open a page on a build. Map tiles, photos and fonts are blocked so tests are fast and offline.
+// #994: a test that hangs for the whole 300 s is killed without a word about the page. watch() keeps the requests still in flight and the last console lines, and after `ms` (default 200 s, before the runner's 300 s) writes them with the address and what is visible to stderr, so the log names the stage that stalled. It reads the page with a 5 s limit (a busy page cannot answer) and stops when the context closes.
+export function watch(page, ms = 200000) {
+  const pending = new Set(), logs = [];
+  page.on('request', (r) => pending.add(r.url().slice(-90))); page.on('requestfinished', (r) => pending.delete(r.url().slice(-90))); page.on('requestfailed', (r) => pending.delete(r.url().slice(-90)));
+  page.on('console', (m) => { logs.push(m.type() + ': ' + m.text().slice(0, 160)); if (logs.length > 20) logs.shift(); });
+  const timer = setTimeout(async () => {
+    const st = await Promise.race([page.evaluate(() => ({ hash: location.hash, d3: typeof window.d3, styleReady: !!(window.__M && window.__M.styleReady), pid: window.__M && window.__M.pid, jid: window.__M && window.__M.jid, shown: ['mapview', 'pview', 'jview', 'webview'].filter((i) => { const e = document.getElementById(i); return e && !e.hidden; }) })).catch((e) => 'page did not answer: ' + e.message), new Promise((r) => setTimeout(() => r('page did not answer in 5 s (busy?)'), 5000))]);
+    console.error('[watch] test still running after ' + ms + ' ms. page: ' + JSON.stringify(st) + '\n[watch] requests in flight: ' + JSON.stringify([...pending].slice(0, 10)) + '\n[watch] console: ' + JSON.stringify(logs.slice(-8)));
+  }, ms);
+  timer.unref(); page.on('close', () => clearTimeout(timer));
+  return timer;
+}
+
 export async function open(browser, file, size, { hash = '', geo = null, extraCss = '', fixtures = false } = {}) {
   const ctx = await browser.newContext({
     viewport: size,
     ...(geo ? { geolocation: geo, permissions: ['geolocation'] } : {}),
   });
-  const page = await ctx.newPage();
+  const page = await ctx.newPage(); watch(page);
   page.setDefaultTimeout(90000); // CI machines draw the map in software and can be several times slower than a laptop
   const errors = [], failed = [];   // failed: requests that did not complete or answered 4xx/5xx (not the outside hosts the test aborts on purpose), named in a wait's timeout message
   page.on('pageerror', (e) => errors.push(String(e)));
