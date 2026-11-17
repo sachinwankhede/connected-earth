@@ -5018,6 +5018,14 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
+"npchannelislands": {
+"built": "2026-11-17T07:37:39.646704+00:00",
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=3636334",
+"source": "osm"
+},
 "npcongaree": {
 "built": "2026-11-16T09:42:09.819308+00:00",
 "checkedAt": "2026-11-16T09:42:09.819308+00:00",
@@ -5268,6 +5276,14 @@
 "checkedAt": "2026-11-16T09:42:09.819381+00:00",
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"source": "osm"
+},
+"npsequoia": {
+"built": "2026-11-17T07:37:39.646704+00:00",
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=175060",
 "source": "osm"
 },
 "npshenandoah": {
@@ -6700,6 +6716,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"usarapahonationalwildlif": {
+"built": "2026-11-17T07:37:39.646704+00:00",
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=5902670",
+"source": "osm"
 },
 "usaroostooknationalwildl": {
 "built": "2026-11-16T09:42:09.819811+00:00",
@@ -9767,6 +9791,14 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
+},
+"xusny": {
+"built": "2026-11-17T07:37:39.646704+00:00",
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"licence": "ODbL 1.0",
+"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
+"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=1695394",
+"source": "osm"
 },
 "xusok": {
 "built": "2026-11-16T09:42:09.820729+00:00",

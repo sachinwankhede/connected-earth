@@ -36,10 +36,10 @@
 "status": "none"
 },
 "metroutpond": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.679291+00:00",
-"expiresAt": "2026-11-17T09:08:05.679291+00:00",
-"status": "wrong"
+"attempts": 2,
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"expiresAt": "2026-11-17T11:37:39.646704+00:00",
+"status": "none"
 },
 "miwhitepinetrail": {
 "attempts": 1,
@@ -47,23 +47,11 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"npchannelislands": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.680351+00:00",
-"expiresAt": "2026-11-17T09:08:05.680351+00:00",
-"status": "wrong"
-},
-"npsequoia": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.690179+00:00",
-"expiresAt": "2026-11-17T09:08:05.690179+00:00",
-"status": "wrong"
-},
 "nyrobertmoses": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.680067+00:00",
-"expiresAt": "2026-11-17T09:08:05.680067+00:00",
-"status": "wrong"
+"attempts": 2,
+"checkedAt": "2026-11-17T07:37:39.646704+00:00",
+"expiresAt": "2026-11-17T11:37:39.646704+00:00",
+"status": "none"
 },
 "oklakeeufula": {
 "attempts": 1,
@@ -88,12 +76,6 @@
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
-},
-"usarapahonationalwildlif": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.681665+00:00",
-"expiresAt": "2026-11-17T09:08:05.681665+00:00",
-"status": "wrong"
 },
 "wariverside": {
 "attempts": 1,
@@ -694,12 +676,6 @@
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
-},
-"xusny": {
-"attempts": 1,
-"checkedAt": "2026-11-17T07:08:05.680716+00:00",
-"expiresAt": "2026-11-17T09:08:05.680716+00:00",
-"status": "wrong"
 },
 "xuzb": {
 "attempts": 1,
