@@ -13,8 +13,7 @@ sys.path.insert(0, os.path.join(ROOT, 'lib'))
 import outline_check as oc, outline_records
 kind = oc.kind
 
-STOP = set('national state park forest refuge wildlife nwr monument historic site memorial recreation area preserve seashore lakeshore river the of and wilderness natural conservation'.split())
-def toks(s): return {w for w in re.findall(r'[a-z]+', unicodedata.normalize('NFKD', s or '').encode('ascii', 'ignore').decode().lower().replace("'s", 's')) if w not in STOP and len(w) > 2}
+toks = oc.toks
 
 FAR_KM = 30   # a point this far outside its own outline: the outline is not the unit (the point is a rough sample, never that rough)
 
