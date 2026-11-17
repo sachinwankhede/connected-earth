@@ -67,7 +67,7 @@ export const SIZES = { phone: { width: 390, height: 750 }, desktop: { width: 128
 // Places drawn on the map at the world view with the Local parks button off: auto-generated national places appear only once zoomed in.
 export const atWorld = (places) => places.filter((e) => !e.auto && e.level !== 'local');
 const TABLES = new Map();
-const tableOf = (root) => { if (!TABLES.has(root)) TABLES.set(root, loadSpecies(root)); return TABLES.get(root); };
+const tableOf = (root) => { if (!TABLES.has(root)) TABLES.set(root, Object.fromEntries(Object.values(loadSpecies(root)).filter((r) => r.sid).map((r) => [r.sid, r]))); return TABLES.get(root); };   // by species id: a place node's `sp` is the id (#1013)
 // Same join as build/species.py: a place keeps only what differs from the shared species row.
 const join = (e, root) => ({ ...e, nodes: e.nodes.map((n) => {
   const { sp, no, ...rest } = n, base = tableOf(root)[sp] || {}, full = { ...base, ...rest };
