@@ -190,14 +190,15 @@ def stats_block(w, counters, dry=False):
              '- larger copies made: %d' % large]
     return '\n'.join(lines) + '\n'
 
-def main(argv=None, root=ROOT):
+def main(argv=None, root=ROOT, strategies=None, large=make_large):
+    """strategies and large are what the tests give in place of the real sources and the Commons download (#1028); None and make_large are the real ones."""
     a = list(sys.argv[1:] if argv is None else argv); opt = lambda k, d: a[a.index(k) + 1] if k in a else d
     only = opt('--strategy', 'all'); limit = int(opt('--limit', 120)); max_mb = float(opt('--max-mb', 25))
     if only not in ['all', 'large'] + [s[0] for s in STRATEGIES]: print('unknown strategy', only); return 1
     w = pp.PlacePhotos(root); units, shared = load_units(os.path.join(root, 'data', 'places'))
     if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is keyed by title, not by place id: this job needs the id-keyed files (migration #906)'); return 1
     print('%d places with a title, %d skipped because another place has the same title: %s' % (len(units), len(shared), ', '.join(sorted(u['id'] for u in shared)) or 'none'))
-    stats, stopped = acquire(w, units, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=make_large)
+    stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large)
     for name, s in stats.items():
         if name == 'large': print('summary large: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, larger copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['large'], s['nolarge']))

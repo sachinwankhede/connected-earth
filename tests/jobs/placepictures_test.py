@@ -192,7 +192,7 @@ class StatsTests(unittest.TestCase):
         cwd = os.getcwd(); os.chdir(d)
         try:
             old = sys.stdout; sys.stdout = io.StringIO()
-            try: pj.main([], root=d)
+            try: pj.main([], root=d, strategies=[], large=lambda e: (None, 'no network in a test'))   # the real sources and the Commons download are never called (#1028)
             finally: sys.stdout = old
             self.assertTrue(os.path.exists('placepictures_stats.md'))
         finally: os.chdir(cwd)
