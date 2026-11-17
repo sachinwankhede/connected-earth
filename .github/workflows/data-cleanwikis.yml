@@ -1,0 +1,45 @@
+name: data-cleanwikis
+# Manual only (#1038 step 2). Asks Wikipedia where each place node's own `wiki` title and its species row's title lead; where both reach the same article, the node drops its `wiki`.
+# Default is a dry run (lookups only, nothing written); `max` limits the pairs looked up for a first small run (0 = all, about 390). A live run opens one data pull request listing every change.
+on:
+  workflow_dispatch:
+    inputs:
+      dry: { description: 'dry run: look up and report, write nothing (yes or no)', default: 'yes' }
+      max: { description: 'pairs to look up (0 = all)', default: '0' }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-cleanwikis
+jobs:
+  wikis:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Resolve and drop
+        env:
+          DRY: ${{ inputs.dry }}
+          MAX: ${{ inputs.max }}
+        run: |
+          set -o pipefail
+          args=""
+          [ "$DRY" != "no" ] && args="$args --dry"
+          [ "$MAX" != "0" ] && args="$args --max $MAX"
+          python3 jobs/cleanwikis.py $args | tee wikis.log
+      - name: Validate
+        if: ${{ inputs.dry == 'no' }}
+        run: python3 build/validate.py
+      - name: Commit and open the pull request
+        if: ${{ inputs.dry == 'no' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/cleanwikis-${GITHUB_RUN_ID}"
+          git add data/places
+          if git diff --cached --quiet; then echo "nothing to change"; exit 0; fi
+          git commit -m "Drop place-node wiki overrides that are the species row's own page (#1038)"
+          git push -f origin HEAD
+          { printf 'Part of #1038 (step 2) and #887. Automatic run of data-cleanwikis. Sources: en.wikipedia.org (title redirects, already allowed); no pictures, no licence change. A node drops its `wiki` only when it and the species row reach the same existing article that is not a disambiguation page.\n\n%s\n\nSpot check (10 pairs, read each):\n\n' "$(tail -1 wikis.log)"; grep '^drop' wikis.log | shuf -n 10 --random-source=<(yes) | sed 's/^/- /'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Drop place-node wiki overrides that are the species row's own page" --body-file body.md
