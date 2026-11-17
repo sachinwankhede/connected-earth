@@ -151,6 +151,8 @@ def pack():
             if k not in old: write_row(r)
     else: json.dump(new, open(TABLE, 'w'), indent=1, ensure_ascii=False)
     print(len(new), 'species rows;', sum(len(e['nodes']) for e in ecos.values()), 'place entries')
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib')); import place_inputs   # #887 step 5b: the food web of each place is recorded after every pack, so a web that changed without a pack fails the validator
+    print('food web records: %d written' % len(place_inputs.stamp(ROOT)))
     import diets
     if os.path.isdir(diets.dir_of()):   # #256: new eating links go into data/diets/ in the same step, so every job and CI check that runs this pack covers the table too
         s = diets.pack(src=os.environ.get('SPECIES_SRC')); print('eating links: %d new pairs, %d evidence entries moved to data/diets/' % (s['new_pairs'], s['ev_dropped']))
