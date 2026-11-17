@@ -104,11 +104,11 @@ def check(root):
     ids = place_ids(root)
     pd_ = os.path.join(root, 'data', 'places')   # #973 phase 4: every node of a food web that names a species row (`sp`) finds it, and the row has its id, so the app can ask for its picture by id
     if sp and os.path.isdir(pd_):
-        have = {k for k, v in sp.items() if v.get('sid')}
+        have = {v['sid'] for v in sp.values() if v.get('sid')}
         for f in sorted(os.listdir(pd_)):
             if not f.endswith('.json') or f in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
             for n in json.load(open(os.path.join(pd_, f))).get('nodes', []):
-                if isinstance(n, dict) and 'sp' in n and n['sp'] not in have: errs.append('place %s: node %r names species row %r, which does not exist or has no sid' % (f[:-5], n.get('id'), n['sp']))
+                if isinstance(n, dict) and 'sp' in n and n['sp'] not in have: errs.append('place %s: node %r names species id %r, which is not the sid of any species row' % (f[:-5], n.get('id'), n['sp']))
     import journeydata
     errs += journeydata.order_problems(root)
     has_links = os.path.exists(os.path.join(root, 'data', 'journeys', 'links.json'))

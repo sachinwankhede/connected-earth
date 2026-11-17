@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Shared species table. data/species/species.json holds one row per species (key = lowercase Latin name):
 the usual name, wiki page, icon, description, trophic level, category and badge.
-A place file keeps for each species only its id, latin, position (xh) and whatever differs from the shared row.
+A place file keeps for each species only its species id (`sp`), position (xh) and whatever differs from the shared row.
   python3 build/species.py pack   fold place files into the table and slim them (safe to repeat)
   python3 build/species.py unpack write full nodes back into place files (for inspection)
 The build calls join() so the app receives full nodes either way."""
@@ -73,9 +73,10 @@ def join(eco, tab):
     import diets
     eco = diets.join(eco, tab)   # #256: the evidence of an eating link that the place does not hold itself comes from data/diets/
     out = []
+    by_sid = {r['sid']: r for r in tab.values() if r.get('sid')}   # #1013: a place node names its species row by the row's id (`sp` is a sid, not the Latin name)
     for n in eco['nodes']:
-        if 'sp' in n and n['sp'] not in tab: raise SystemExit('%s: species %s is not in data/species/species.json (run build/species.py pack)' % (eco.get('id'), n['sp']))
-        base = {k: v for k, v in tab.get(n['sp'], {}).items() if k not in ('about', 'sid', 'sk', 'src', 'at')} if 'sp' in n else None
+        if 'sp' in n and n['sp'] not in by_sid: raise SystemExit('%s: node %s names species id %r, which is not a row of the species table (run build/species.py pack)' % (eco.get('id'), n.get('id'), n['sp']))
+        base = {k: v for k, v in by_sid[n['sp']].items() if k not in ('about', 'sid', 'sk', 'src', 'at')} if 'sp' in n else None
         full = {**(base or {}), **{k: v for k, v in n.items() if k not in ('sp', 'no')}}
         for f in n.get('no', []): full.pop(f, None)
         if base and base.get('wiki') and full.get('wiki') and full['wiki'] != base['wiki']:
@@ -123,7 +124,7 @@ def pack():
         slim = []
         for n in e['nodes']:
             k = key(n); row = new[k]
-            s = {'id': n['id'], 'sp': k, 'xh': n['xh']}
+            s = {'id': n['id'], 'sp': row['sid'], 'xh': n['xh']}
             for f in SHARED:
                 if n.get(f) == row.get(f): continue
                 if f in n: s[f] = n[f]
@@ -141,6 +142,19 @@ def pack():
     import diets
     if os.path.isdir(diets.dir_of()):   # #256: new eating links go into data/diets/ in the same step, so every job and CI check that runs this pack covers the table too
         s = diets.pack(src=os.environ.get('SPECIES_SRC')); print('eating links: %d new pairs, %d evidence entries moved to data/diets/' % (s['new_pairs'], s['ev_dropped']))
+
+def migrate_sp():
+    """One-off (#1013): a place node's `sp` named its species row by the lowercase Latin name; it now holds the row's id (`sid`). Rewrites every place file; a value that is already an id (or a row's key and id are the same word) is left as it is, so it is safe to repeat."""
+    tab = table(); by_sid = {r['sid'] for r in tab.values() if r.get('sid')}; n = f = 0
+    for p in files():
+        d = json.load(open(p)); changed = False
+        for x in d.get('nodes', []):
+            if 'sp' not in x: continue
+            sid = tab[x['sp']]['sid'] if x['sp'] in tab else x['sp']
+            if sid not in by_sid: raise SystemExit('%s: node %s names %r, which is neither a species key nor an id' % (p, x.get('id'), x['sp']))
+            if sid != x['sp']: x['sp'] = sid; changed = True; n += 1
+        if changed: json.dump(d, open(p, 'w'), ensure_ascii=False); f += 1
+    print(n, 'nodes in', f, 'place files now name their species by id')
 
 def clean(t):
     import re
@@ -168,5 +182,6 @@ def about():
     print(n, 'rows have an about line')
 
 if __name__ == '__main__' and sys.argv[1:] == ['pack']: pack()
+if __name__ == '__main__' and sys.argv[1:] == ['migrate-sp']: migrate_sp()
 if __name__ == '__main__' and sys.argv[1:] == ['about']: about()
 if __name__ == '__main__' and sys.argv[1:] == ['split']: split()

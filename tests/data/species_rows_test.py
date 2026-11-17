@@ -24,7 +24,7 @@ class Rows(unittest.TestCase):
         self.assertEqual(list(species.table(r2.name)), ['a b']); r2.cleanup()
     def test_provenance_fields_do_not_reach_the_built_nodes(self):
         tab = {'a b': row('A b', 'a-b', src='legacy', at='2026-11-03')}
-        node = species.join({'id': 'p', 'nodes': [{'id': 'n', 'sp': 'a b', 'xh': 1}]}, tab)['nodes'][0]
+        node = species.join({'id': 'p', 'nodes': [{'id': 'n', 'sp': 'a-b', 'xh': 1}]}, tab)['nodes'][0]
         self.assertNotIn('src', node); self.assertNotIn('at', node); self.assertNotIn('sid', node)
 
 class PackAndSplit(unittest.TestCase):
