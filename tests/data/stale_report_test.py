@@ -16,7 +16,7 @@ class Report(unittest.TestCase):
     def test_counts_and_notes(self):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/outlines/a.json', {'n': 1}); put(r, 'data/outlines/b.json', {'n': 1})
-            put(r, 'data/outline_records.json', {'a': {'point': [1, 2]}, 'c': {}})
+            put(r, 'data/outline_records.json', {'a': {'inputs': {'lat': 1, 'lon': 2, 'name': 'a'}}, 'c': {}})
             put(r, 'data/places/a.json', {'story': 'x', 'nodes': [1], 'storyFrom': {'h': 'abc'}, 'webFrom': {'at': 'd'}})
             put(r, 'data/places/b.json', {'story': 'y', 'nodes': [1]})
             rows, notes = self.run_in(r)

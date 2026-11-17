@@ -120,12 +120,14 @@ def run(want=(), root=ROOT, now=None):
         packed = pack(rings) if rings else []
         if not packed: missing.append(e); rec.miss(e['id'], 'none', now=now, inputs=photo_registry.place_inputs(e)); print('none', e['id'], e['name'], flush=True); continue
         json.dump({'n': e['name'], 'r': packed, 's': src}, open(f, 'w'), separators=(',', ':'), ensure_ascii=False); got += 1
-        rec.record(e['id'], src, page=page, now=now)
+        rec.record(e['id'], src, page=page, now=now, inputs=outline_records.outline_inputs(e))
         print('ok', src, e['id'], e['name'], len(packed), flush=True); time.sleep(0.5)
     for f in sorted(os.listdir(out)):   # an outline written by bounds.py (PAD-US) in the same run, or by hand, gets its record too: a file always has its credit record
         pid = f[:-5]
         if f.endswith('.json') and not rec.has(pid):
-            with open(os.path.join(out, f)) as h: rec.record(pid, outline_records.source_of(json.load(h)), now=now)
+            with open(os.path.join(out, f)) as h: src = outline_records.source_of(json.load(h))
+            pf = os.path.join(root, 'data', 'places', pid + '.json')
+            rec.record(pid, src, now=now, inputs=outline_records.outline_inputs(json.load(open(pf))) if os.path.exists(pf) else None)
     rec.commit()
     return got, missing
 if __name__ == '__main__':

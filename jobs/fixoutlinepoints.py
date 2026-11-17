@@ -45,7 +45,7 @@ def snapped(x, y, rings):
 
 def main(root=ROOT, dry=False, now=None):
     """-> (moved [(id, old, new, km)], dropped [(id, outline name, km)])."""
-    rec = outline_records.OutlineRecords(root); moved, dropped = [], []
+    rec = outline_records.OutlineRecords(root); moved, dropped, changed = [], [], False
     for km, pid in oc.outside(root, 5.0):
         pf = os.path.join(root, 'data', 'places', pid + '.json'); of = os.path.join(root, 'data', 'outlines', pid + '.json')
         place = json.load(open(pf)); outline = json.load(open(of)); rings = [r for r in outline['r'] if len(r) >= 4 and len(r) % 2 == 0]
@@ -56,10 +56,11 @@ def main(root=ROOT, dry=False, now=None):
                 text = open(pf, encoding='utf-8').read()
                 text = re.sub(r'("lat":\s*)-?[\d.]+', lambda m: m.group(1) + repr(y), text, count=1); text = re.sub(r'("lon":\s*)-?[\d.]+', lambda m: m.group(1) + repr(x), text, count=1)
                 open(pf, 'w', encoding='utf-8').write(text)
+                if rec.has(pid): rec.recs[pid]['inputs'] = outline_records.outline_inputs(json.load(open(pf, encoding='utf-8'))); changed = True   # the outline now stands for the new point (step 5b)
         else:
             dropped.append((pid, outline.get('n'), km))
             if not dry: rec.drop(pid, now=now)
-    if dropped and not dry: rec.commit()
+    if (dropped or changed) and not dry: rec.commit()
     return moved, dropped
 
 if __name__ == '__main__':

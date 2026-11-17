@@ -21,6 +21,16 @@ SOURCES = {
 }
 
 
+def outline_inputs(place):
+    """What an outline is built for: the place's point (rounded) and name. Stored on the record as `inputs` (#977, step 5b), so a place that moved or was renamed shows as stale."""
+    i = pr.place_inputs(place or {}); return {'lat': i['lat'], 'lon': i['lon'], 'name': i['name']}
+
+
+def same_place(old, new):
+    """True when an outline built for `old` still fits a place that now has `new` (same name, point moved less than the shared INPUT_MOVE_KM)."""
+    return pr.same_inputs(dict(old or {}, title=None), dict(new or {}, title=None))
+
+
 def source_of(outline):
     """The source an outline file names (`s`), PAD-US when it names none."""
     return (outline or {}).get('s') or 'padus'
@@ -34,14 +44,15 @@ class OutlineRecords:
     def has(self, pid): return pid in self.recs
     def is_missing(self, pid): return pid in self.miss_
 
-    def record(self, pid, source, page=None, now=None):
-        """Set the credit record of this place's outline; `built` stays when the record is replaced."""
+    def record(self, pid, source, page=None, now=None, inputs=None):
+        """Set the credit record of this place's outline; `built` stays when the record is replaced. `inputs` (outline_inputs of the place) is what it was built for."""
         if not ID_RE.match(pid or ''): raise ValueError('%r is not a place id' % pid)
         if source not in SOURCES: raise ValueError('unknown outline source %r' % source)
         licence, link = SOURCES[source]; stamp = (now or pr._utcnow()).isoformat()
         e = {'source': source, 'licence': licence, 'built': (self.recs.get(pid) or {}).get('built', stamp), 'checkedAt': stamp}
         if link: e['licence link'] = link
         if page: e['page'] = page
+        if inputs: e['inputs'] = inputs
         self.recs[pid] = e; self.miss_.pop(pid, None)
 
     def miss(self, pid, status, attempts=None, now=None, inputs=None):
@@ -59,6 +70,17 @@ class OutlineRecords:
     def commit(self):
         for parts, obj in ((RECORDS, self.recs), (MISSING, self.miss_)): _write_json(os.path.join(self.root, *parts), obj, indent=0)
 
+    def stale(self):
+        """(place id, why) for each outline whose place has a different name or has moved since it was built (record `inputs`), sorted. A place that no longer exists is not listed here (the validator reports it)."""
+        out = []
+        for pid, e in sorted(self.recs.items()):
+            pf = os.path.join(self.root, 'data', 'places', pid + '.json')
+            if not os.path.exists(pf) or not isinstance(e.get('inputs'), dict): continue
+            with open(pf) as fh: now = outline_inputs(json.load(fh))
+            if not same_place(e['inputs'], now):
+                old = e['inputs']; out.append((pid, 'renamed' if old.get('name') != now['name'] else 'moved'))
+        return out
+
     def check(self):
         """Problems between the outline files and the records. Nothing to check until the record file exists."""
         errs = []; d = os.path.join(self.root, *DIR)
@@ -74,5 +96,7 @@ class OutlineRecords:
             if s != e['source']: errs.append('%s: record says %s but the file says %s' % (pid, e['source'], s))
             if not e.get('checkedAt') or not e.get('built'): errs.append('%s: record lacks built or checkedAt' % pid)
             if pid in self.miss_: errs.append('%s: has an outline and is also in outline_missing.json' % pid)
+            i = e.get('inputs')
+            if not isinstance(i, dict) or not {'lat', 'lon', 'name'} <= set(i): errs.append('%s: record does not say which place point and name the outline was built for (inputs)' % pid)
         for pid in sorted(files - set(self.recs)): errs.append('data/outlines/%s.json has no record in outline_records.json' % pid)
         return errs

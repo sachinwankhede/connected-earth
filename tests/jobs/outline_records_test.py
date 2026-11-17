@@ -6,6 +6,8 @@ import outline_records as orc
 
 NOW = datetime.datetime(2026, 11, 16, 12, 0, tzinfo=datetime.timezone.utc)
 
+INP = {'lat': 1.0, 'lon': 2.0, 'name': 'x'}
+
 
 def outline(root, pid, **extra):
     os.makedirs(os.path.join(root, 'data', 'outlines'), exist_ok=True)
@@ -16,9 +18,9 @@ class RecordTests(unittest.TestCase):
     def setUp(self): self.root = tempfile.mkdtemp()
 
     def test_a_record_has_the_shared_shape_and_no_author_or_expiry(self):
-        outline(self.root, 'akchilkat'); w = orc.OutlineRecords(self.root); w.record('akchilkat', 'padus', now=NOW); w.commit()
+        outline(self.root, 'akchilkat'); w = orc.OutlineRecords(self.root); w.record('akchilkat', 'padus', now=NOW, inputs=INP); w.commit()
         e = orc.OutlineRecords(self.root).recs['akchilkat']
-        self.assertEqual(set(e), {'source', 'licence', 'licence link', 'built', 'checkedAt'})
+        self.assertEqual(set(e), {'source', 'licence', 'licence link', 'built', 'checkedAt', 'inputs'})
         self.assertEqual((e['built'], e['checkedAt']), (NOW.isoformat(), NOW.isoformat())); self.assertEqual(orc.OutlineRecords(self.root).check(), [])
 
     def test_replacing_a_record_keeps_built_and_moves_checkedAt(self):
