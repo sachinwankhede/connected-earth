@@ -11,11 +11,24 @@ SCHEMAS = {
     'search/s-*.json': dict(type='object', required=['p', 's'], properties=dict(
         p=dict(type='array', items=dict(type='array', minItems=2, maxItems=2, items=S())),
         s=dict(type='array', items=dict(type='array', minItems=5, maxItems=6, prefixItems=[S(), S(), I, dict(type=['string', 'integer']), S()], items=S())))),
-    'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'imgwiki', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), imgwiki=S(), idx=dict(type='object')))),
+    'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), idx=dict(type='object')), **{'not': dict(required=['imgwiki'])})),
     'species/*.json': dict(type='object', required=['l', 'n', 'tl', 'ic'], properties=dict(l=S(), n=S(), tl=I, ic=S())),
 }
+def nodes_missing_ids(d):
+    """The ids of the nodes of one place file that lack their id: a species node (a Latin name, no cat) needs `sid`, a concept node (cat and a wiki title) needs `nid` (#1008). The app works out no id from a name, so a node without one has no picture or link."""
+    bad = []
+    for n in d.get('nodes') or []:
+        if not isinstance(n, dict): continue
+        if (n.get('latin') and not n.get('cat') and not n.get('sid')) or (n.get('cat') and n.get('wiki') and not n.get('nid')): bad.append(str(n.get('id')))
+    return bad
 def main(root):
     errs = []; files = 0
+    for f in sorted(glob.glob(os.path.join(root, '*.json'))):
+        try: d = json.load(open(f, encoding='utf-8'))
+        except ValueError: continue   # not a place file; the schemas below report a bad file in their own folders
+        if isinstance(d, dict) and isinstance(d.get('nodes'), list):
+            files += 1; bad = nodes_missing_ids(d)
+            if bad: errs.append('%s: %d node(s) without their sid/nid (#1008): %s' % (os.path.relpath(f, root), len(bad), ', '.join(bad[:5])))
     for pat, schema in SCHEMAS.items():
         v = V(schema)
         for f in sorted(glob.glob(os.path.join(root, pat))):
