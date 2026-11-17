@@ -2,7 +2,7 @@
 """ci_changes.py: decide which CI checks a change needs. Reads changed file paths on stdin (one per line) and prints
 app=true|false, data=true|false, jobs=true|false (GitHub output lines).
   app  : the app itself changed (src, build, app tests, fonts, package files, root files, the pages workflow): everything runs.
-  data : only data changed (data, photos, data tests) or the checks or deploy workflow itself (ci.yml, pages.yml): validation, pack check, build, size budgets, data tests, one smoke test. A ci.yml or pages.yml change gets this lighter run (the build steps run, the browser suite does not).
+  data : only data changed (data, photos, data tests, the schemas in build/schemas, the writers in lib) or the checks or deploy workflow itself (ci.yml, pages.yml): validation, pack check, build, size budgets, data tests, one smoke test. A ci.yml or pages.yml change gets this lighter run (the build steps run, the browser suite does not).
   jobs : a job script or shared lib changed (jobs/*.py, jobs/*.sh, lib, job tests, state/promote tools, this classifier, the live-site check): the job self-tests only.
   quiet files (docs, notes, the data-job workflows, workflows named readonly-*.yml (read-only: they only read or measure, never build, deploy, write or use secrets), job state files such as queue, names, reports, park lists) run nothing.
 Anything not listed counts as app, so a new kind of file is never skipped by mistake."""
@@ -11,7 +11,8 @@ import fnmatch, sys
 QUIET = ['docs/*', '*.md', '.github/workflows/data-*.yml', '.github/workflows/status.yml', '.github/workflows/readonly-*.yml', '.github/branches-to-delete.txt',
          'jobs/state_queue.txt', 'jobs/names.json', 'jobs/reports/*', 'jobs/nps/*', 'jobs/work/*']
 JOBS = ['jobs/*.py', 'jobs/*.sh', 'lib/*', 'tests/jobs/*', 'build/state.py', 'build/promote.py', 'build/promote_check.py', 'build/ci_changes.py', 'build/live_check.py']
-DATA = ['data/*', 'photos/*', 'tests/data/*', 'build/data_quality.py', 'lib/photo_registry.py', '.github/workflows/ci.yml', '.github/workflows/pages.yml']
+DATA = ['data/*', 'photos/*', 'tests/data/*', 'build/data_quality.py', 'build/schemas/*', 'lib/*',   # a writer in lib/ or a schema change runs the data validation and data tests too (#887): a record shape and its written contract must change together
+         '.github/workflows/ci.yml', '.github/workflows/pages.yml']
 
 def match(path, patterns):
     return any(fnmatch.fnmatch(path, p) for p in patterns)
