@@ -86,8 +86,8 @@ def override_errors(root, sp):
                 names += 1
                 if species.same_name(n['name'], row.get('name')): errs.append('data/places/%s: node %s has name %r, the species row says %r (same name; drop it: python3 jobs/cleanoverrides.py)' % (f, n.get('id'), n['name'], row.get('name')))
             if 'wiki' in n: wikis += 1
-    if names > NAME_OVERRIDE_LIMIT: errs.append('place nodes with a name of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (names, NAME_OVERRIDE_LIMIT))
-    if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (wikis, WIKI_OVERRIDE_LIMIT))
+    if names > NAME_OVERRIDE_LIMIT: errs.append('place nodes with a name of their own: %d, over the limit of %d (#887 step 7): change the species row, or point the node at the right species (sp); a different concept (Decomposers, Soil microbes) is a group row of its own. Never create a species row only to hold a spelling or regional name (one species has one row; #1038).' % (names, NAME_OVERRIDE_LIMIT))
+    if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row, or point the node at the right species (sp). Never create a species row only to hold a spelling or regional name (one species has one row; #1038).' % (wikis, WIKI_OVERRIDE_LIMIT))
     return errs
 
 def check(root):
@@ -177,6 +177,7 @@ def check(root):
     if far: (errs if OUTSIDE_IS_ERROR else warns).append('%d place point(s) lie more than 5 km outside their own outline, first %s' % (len(far), ', '.join('%s (%s km)' % (pid, d) for d, pid in far[:5])))
     import outline_records   # credit records of park outlines (#977): files and records agree, once data/outline_records.json exists (nothing to check before)
     orx = outline_records.OutlineRecords(root); errs += orx.check()
+    import place_inputs; pe, pw_ = place_inputs.PlaceInputs(root).check(); errs += pe; warns += pw_   # what each place's food web and story were built from (#887 step 5b): a web that changed without `build/species.py pack`, a story with no record
     st = orx.stale()   # the place moved or was renamed after its outline was built: look again (jobs/dropoutlines.py puts it back on the list); a warning until the outline job re-checks by itself
     if st: warns.append('%d outline(s) were built for a place that has since moved or been renamed, first %s' % (len(st), ', '.join('%s (%s)' % x for x in st[:5])))
     sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'lib'))   # place pictures (#887): files, lists, larger copies, missing.json and authors agree; the app does not depend on this (a place without a picture shows none), the data keeps itself consistent

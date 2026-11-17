@@ -17,8 +17,10 @@ class Report(unittest.TestCase):
         with tempfile.TemporaryDirectory() as r:
             put(r, 'data/outlines/a.json', {'n': 1}); put(r, 'data/outlines/b.json', {'n': 1})
             put(r, 'data/outline_records.json', {'a': {'inputs': {'lat': 1, 'lon': 2, 'name': 'a'}}, 'c': {}})
-            put(r, 'data/places/a.json', {'story': 'x', 'nodes': [1], 'storyFrom': {'h': 'abc'}, 'webFrom': {'at': 'd'}})
-            put(r, 'data/places/b.json', {'story': 'y', 'nodes': [1]})
+            a = {'story': 'x', 'nodes': [{'id': 'g', 'sp': 's'}], 'raw': []}
+            put(r, 'data/places/a.json', a); put(r, 'data/places/b.json', {'story': 'y', 'nodes': [{'id': 'g', 'sp': 's'}]})
+            sys.path.insert(0, os.path.join(ROOT, 'lib')); import place_inputs
+            put(r, 'data/place_inputs.json', {'a': {'web': dict(place_inputs.web_inputs(a), at='d'), 'story': {'research': 'h', 'at': 'd'}}})
             rows, notes = self.run_in(r)
             self.assertEqual(rows, [('outlines', 2, 1, rows[0][3]), ('stories', 2, 1, rows[1][3]), ('food webs', 2, 1, rows[2][3])])
             self.assertEqual(len(notes), 3)   # b has no record, c has no file, c names no place

@@ -30,14 +30,17 @@ def report():
     if files - set(recs): notes.append('%d outline files have no record (e.g. %s)' % (len(files - set(recs)), sorted(files - set(recs))[0]))
     if set(recs) - files: notes.append('%d outline records have no file (e.g. %s)' % (len(set(recs) - files), sorted(set(recs) - files)[0]))
     if set(recs) - set(ps): notes.append('%d outline records name no place (e.g. %s)' % (len(set(recs) - set(ps)), sorted(set(recs) - set(ps))[0]))
-    # stories and why-it-matters: written from a research text; a place should keep what it was written from
+    # stories and food webs: recorded in data/place_inputs.json (lib/place_inputs.py): a web by the hash of its nodes and links, a story by the hash of the research text it came from
+    pi = load('data', 'place_inputs.json') or {}
     stories = [i for i, e in ps.items() if e.get('story')]
-    with_src = sum(1 for i in stories if isinstance(ps[i].get('storyFrom'), dict))
-    rows.append(('stories', len(stories), with_src, 'place has `storyFrom` (hash of the research text)'))
-    # food webs: nodes and links come from GBIF records and GloBI diet evidence
+    with_src = sum(1 for i in stories if isinstance((pi.get(i) or {}).get('story'), dict))
+    rows.append(('stories', len(stories), with_src, 'record has `story` (hash of the research text)'))
     webs = [i for i, e in ps.items() if e.get('nodes')]
-    with_web = sum(1 for i in webs if isinstance(ps[i].get('webFrom'), dict))
-    rows.append(('food webs', len(webs), with_web, 'place has `webFrom` (species list and evidence build date)'))
+    with_web = sum(1 for i in webs if isinstance((pi.get(i) or {}).get('web'), dict))
+    rows.append(('food webs', len(webs), with_web, 'record has `web` (hash of the nodes and links)'))
+    import sys as _s; _s.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'lib')); import place_inputs
+    stale = [x for x in place_inputs.PlaceInputs(ROOT).stale_webs() if x[1] != 'no record']
+    if stale: notes.append('%d food webs changed since their record, first %s' % (len(stale), ', '.join('%s (%s)' % x for x in stale[:5])))
     return rows, notes
 
 if __name__ == '__main__':

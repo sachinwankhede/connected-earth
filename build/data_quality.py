@@ -93,6 +93,10 @@ def report(root=ROOT):
     ]
     jp = journey_cover_row(root)   # only once the journey pictures are keyed by journey id (lib/journey_pics.py); until then the report is unchanged
     if jp: lines.insert(-1, jp)
+    try:   # the current state of each kind of data (#887 step 8): fine, or what needs attention and what fixes it
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__))); import data_status
+        lines += ["", "## Data status", "", "The current state of each kind of data; a status comes only from rules already enforced (no thresholds). `python3 build/data_status.py --json FILE` writes the same rows.", "", data_status.table(data_status.rows(root)), ""]
+    except Exception as e: lines += ["", "Data status could not be built: %s" % e, ""]
     return "\n".join(lines)
 
 
