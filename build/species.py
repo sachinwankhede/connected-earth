@@ -16,6 +16,11 @@ ORDER = ['id', 'name', 'latin', 'tl', 'xh', 'wiki', 'canonicalWiki', 'desc', 'ic
 SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
 
+def same_name(a, b):
+    """#887 step 7: two names that differ only in capitals, spacing or punctuation ("Common Raven", "Common raven") are one name."""
+    n = lambda x: re.sub(r'[^a-z0-9]+', '', (x or '').lower())
+    return bool(a) and bool(b) and a != b and n(a) == n(b)
+
 GROUP = re.compile(r' spp\.?|,| and |\(|&|/')
 def slug(k): return re.sub(r'[^a-z0-9]+', '-', k.lower()).strip('-')
 def kind_of(k, row):
