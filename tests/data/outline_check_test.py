@@ -17,3 +17,21 @@ with tempfile.TemporaryDirectory() as t:
     assert [p for _, p in got] == ['far'], got   # 'near' is 2 km out (under 5), 'in' is inside, 'nopoint' has no point
     assert [p for _, p in oc.outside(t, 1.0)] == ['far', 'near'], oc.outside(t, 1.0)
 print('ok')
+
+
+def test_review_lists_outlines_whose_name_does_not_fit_and_drops_nothing():
+    """#977: review() lists outlines whose name does not fit the place; it changes nothing."""
+    root = tempfile.mkdtemp()
+    for d in ('places', 'outlines'): os.makedirs(os.path.join(root, 'data', d))
+    def put(pid, name, oname, size=0.1):
+        json.dump({'id': pid, 'name': name, 'lat': 40.0, 'lon': -100.0}, open(os.path.join(root, 'data', 'places', pid + '.json'), 'w'))
+        ring = [-100.0, 40.0, -100.0 + size, 40.0, -100.0 + size, 40.0 + size, -100.0, 40.0]
+        json.dump({'n': oname, 'r': [ring]}, open(os.path.join(root, 'data', 'outlines', pid + '.json'), 'w'))
+    put('ok', 'Loess Hills State Forest', 'Loess Hills State Forest')
+    put('trail', 'Cape Cod National Seashore', 'Cape Cod Rail Trail')
+    put('kind', 'Elk State Park', 'Elk State Forest', size=1.0)
+    put('part', 'Delaware Bay and Bombay Hook', 'Bombay Hook National Wildlife Refuge')
+    rows = {r[0]: r for r in oc.review(root)}
+    assert 'ok' not in rows
+    assert rows['trail'][4] == ['extra words', 'small'] and rows['kind'][4] == ['kind'] and 'missing words' in rows['part'][4]
+    assert os.path.exists(os.path.join(root, 'data', 'outlines', 'trail.json'))
