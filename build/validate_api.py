@@ -5,6 +5,10 @@ import glob, json, os, sys
 from jsonschema import Draft202012Validator as V
 S = lambda **kw: dict(type='string', **kw)
 I = dict(type='integer')
+SID = S(pattern='^[a-z0-9]+(-[a-z0-9]+)*$')   # a species id: species.slug of the Latin name
+# One species row the app lists (#1008): [usual name, places, hosted picture file or 0, species id]
+SROW = dict(type='array', minItems=4, maxItems=4, prefixItems=[S(), I, dict(type=['string', 'integer']), SID])
+SROWS = dict(type='array', items=SROW)
 SCHEMAS = {
     'search/meta.json': dict(type='object', required=['n', 'rows', 'buckets', 'sug'], properties=dict(n=I, rows=I, buckets=dict(type='array', items=S()), sug=dict(type='array', items=S()))),
     'search/rows-*.json': dict(type='array', items=S()),
@@ -12,7 +16,9 @@ SCHEMAS = {
         p=dict(type='array', items=dict(type='array', minItems=2, maxItems=2, items=S())),
         s=dict(type='array', items=dict(type='array', minItems=5, maxItems=6, prefixItems=[S(), S(), I, dict(type=['string', 'integer']), S()], items=S())))),
     'places/main/cards-*.json': dict(type='object', additionalProperties=dict(type='object', required=['name', 'place', 'blurb', 'idx'], properties=dict(name=S(), place=S(), blurb=S(), idx=dict(type='object')), **{'not': dict(required=['imgwiki'])})),
-    'species/*.json': dict(type='object', required=['l', 'n', 'tl', 'ic'], properties=dict(l=S(), n=S(), tl=I, ic=S())),
+    'species/*.json': dict(type='object', required=['l', 'n', 'tl', 'ic'], properties=dict(l=S(), n=S(), tl=I, ic=S(), ea=SROWS, eb=SROWS, rl=SROWS)),
+    'species-tab/top.json': SROWS, 'species-tab/g-*.json': SROWS, 'species-tab-pilot/top.json': SROWS, 'species-tab-pilot/g-*.json': SROWS,
+    'journeys/main.json': dict(type='object', required=['couple', 'src', 'cross'], properties=dict(couple=dict(type='number'), src=dict(type='object'), cross=dict(type='array', items=dict(type='object', required=['id', 'type', 'title', 'text'], properties=dict(id=S(), type=S(), title=S(), text=S()))))),
 }
 def nodes_missing_ids(d):
     """The ids of the nodes of one place file that lack their id: a species node (a Latin name, no cat) needs `sid`, a concept node (cat and a wiki title) needs `nid` (#1008). The app works out no id from a name, so a node without one has no picture or link."""
@@ -21,8 +27,21 @@ def nodes_missing_ids(d):
         if not isinstance(n, dict): continue
         if (n.get('latin') and not n.get('cat') and not n.get('sid')) or (n.get('cat') and n.get('wiki') and not n.get('nid')): bad.append(str(n.get('id')))
     return bad
+def journey_ends_missing(root):
+    """Journey ends whose `node` is not a node of that place's food web (#1013): the app finds the node by id and a missing one breaks the journey."""
+    f = os.path.join(root, 'journeys', 'main.json'); bad = []; cache = {}
+    if not os.path.exists(f): return bad
+    for c in json.load(open(f, encoding='utf-8')).get('cross') or []:
+        for en in list(c.get('ends') or []) + [c.get('from'), c.get('to')]:
+            if not isinstance(en, dict): continue
+            eco = en.get('eco'); p = os.path.join(root, '%s.json' % eco)
+            if eco not in cache: cache[eco] = {n.get('id') for n in json.load(open(p, encoding='utf-8')).get('nodes', [])} if os.path.exists(p) else None
+            if cache[eco] is None or en.get('node') not in cache[eco]: bad.append('%s: %s/%s' % (c.get('id'), eco, en.get('node')))
+    return bad
 def main(root):
     errs = []; files = 0
+    bad = journey_ends_missing(root)
+    if bad: errs.append('journeys/main.json: %d journey end(s) name a node that is not in that place: %s' % (len(bad), '; '.join(bad[:5])))
     for f in sorted(glob.glob(os.path.join(root, '*.json'))):
         try: d = json.load(open(f, encoding='utf-8'))
         except ValueError: continue   # not a place file; the schemas below report a bad file in their own folders
