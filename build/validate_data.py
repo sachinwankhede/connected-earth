@@ -86,8 +86,8 @@ def override_errors(root, sp):
                 names += 1
                 if species.same_name(n['name'], row.get('name')): errs.append('data/places/%s: node %s has name %r, the species row says %r (same name; drop it: python3 jobs/cleanoverrides.py)' % (f, n.get('id'), n['name'], row.get('name')))
             if 'wiki' in n: wikis += 1
-    if names > NAME_OVERRIDE_LIMIT: errs.append('place nodes with a name of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (names, NAME_OVERRIDE_LIMIT))
-    if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row instead' % (wikis, WIKI_OVERRIDE_LIMIT))
+    if names > NAME_OVERRIDE_LIMIT: errs.append('place nodes with a name of their own: %d, over the limit of %d (#887 step 7): change the species row, or point the node at the right species (sp); a different concept (Decomposers, Soil microbes) is a group row of its own. Never create a species row only to hold a spelling or regional name (one species has one row; #1038).' % (names, NAME_OVERRIDE_LIMIT))
+    if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row, or point the node at the right species (sp). Never create a species row only to hold a spelling or regional name (one species has one row; #1038).' % (wikis, WIKI_OVERRIDE_LIMIT))
     return errs
 
 def check(root):
