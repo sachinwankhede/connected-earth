@@ -1,0 +1,9 @@
+{
+  "_note": "The rules several jobs, validators and tests share, written once (docs/DATA-PLAN.md step 2). Python reads this through lib/contracts.py, the Node tests read this file. Change a number here, nowhere else.",
+  "photoPermanentStatuses": ["nophoto", "notcommons", "notphoto", "notfree", "wrongpage"],
+  "permanentRetryDays": 180,
+  "transientRetryMaxHours": 168,
+  "sourceRetryDays": 90,
+  "story": { "words": 60, "chars": [120, 620] },
+  "matters": { "words": 40, "chars": [80, 520] }
+}
