@@ -21,6 +21,8 @@ class ChangeKinds(unittest.TestCase):
             (['jobs/about.py', 'jobs/syncstep.sh'], (False, False, True)),
             (['tests/jobs/sync_test.py', 'build/state.py'], (False, False, True)),
             (['lib/photo_registry.py'], (False, True, True)),
+            (['lib/place_photos.py'], (False, True, True)),   # any lib writer also runs the data validation and data tests (#887)
+            (['build/schemas/photo-missing.schema.json'], (False, True, False)),   # a schema alone runs the data checks, not the browser suite
             (['docs/ARCHITECTURE.md', 'CLAUDE.md', '.github/workflows/data-about.yml', 'jobs/names.json', 'jobs/reports/x.md'], (False, False, False)),
             (['.github/workflows/readonly-header-check.yml', '.github/workflows/readonly-x.yml'], (False, False, False)),   # read-only workflows (#678): no checks needed
             (['.github/workflows/readonly-header-check.yml', 'src/app.html'], (True, False, False)),
