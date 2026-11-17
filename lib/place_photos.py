@@ -21,6 +21,25 @@ def author_missing(entry):
     the lookup that can fill a name in lives in the job, this only refuses (#887)."""
     return (entry.get('l') or '').upper().startswith('CC BY') and ac.clean_author(entry.get('a')) == ''
 
+class CreditRepair:
+    """The two writes lib/author_repair.py needs, shared by the writers that keep `pics` and the retry ledger `tried` (place, species, journey). Neither touches a file."""
+    def set_credit(self, rid, credit):
+        """Replace the credit (a, l, lu) of a stored picture; the picture and its other fields stay. Refused with no named author or no licence."""
+        if rid not in self.pics: raise ValueError('no stored picture for %r' % rid)
+        e = dict(self.pics[rid]); e['a'] = ac.clean_author(credit.get('a')); e['l'] = credit.get('l') or ''; e['lu'] = credit.get('lu') or ''
+        if not e['a'] or not e['l']: raise ValueError('credit for %r has no named author or no licence: refused' % rid)
+        self.pics[rid] = e
+        t = self.tried.get(rid)
+        if t is not None:
+            t.pop('author-repair', None)
+            if not t: del self.tried[rid]
+
+    def note_repair_tried(self, rid, now=None):
+        """Record in the ledger that the author lookup found nothing usable for this stored picture (retry after contracts.SOURCE_RETRY_DAYS)."""
+        if rid not in self.pics: raise ValueError('no stored picture for %r' % rid)
+        self.tried.setdefault(rid, {})['author-repair'] = (now or pr._utcnow()).isoformat()[:10]
+
+
 PLACES = ('photos', 'places', 'places.json'); MISSING = ('photos', 'places', 'missing.json')
 LARGE = ('photos', 'places_large.json'); TRIED = ('photos', 'places_tried.json')
 SMALL_DIR = ('photos', 'places'); LARGE_DIR = ('photos', 'places-lg')
@@ -41,7 +60,7 @@ def _write_json(path, obj, indent=0):
     os.replace(tmp, path)
 
 
-class PlacePhotos:
+class PlacePhotos(CreditRepair):
     def __init__(self, root='.'):
         self.root = root; p = lambda parts: os.path.join(root, *parts)
         self.pics = _read(p(PLACES)); self.miss_ = _read(p(MISSING)); self.large = _read(p(LARGE)); self.tried = _read(p(TRIED))

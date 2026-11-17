@@ -29,7 +29,7 @@ import collections, datetime, glob, io, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
 import wm, species_photos as sp, species_pics, photo_registry as pr
-import author_lookup as al
+import author_lookup as al, author_repair as ar
 from species_sources import Res, Vetted, SOURCES, source_urls   # noqa: F401 (Res and Vetted re-exported for callers and tests)
 
 COMMIT_EVERY = 25
@@ -198,11 +198,17 @@ def main(argv=None, root=ROOT):
     w = sp.SpeciesPhotos(root); units = load_units(root)
     shared = collections.Counter(u['title'] for u in units)
     print('%d species rows with a title, %d titles, %d titles shared by %d rows (each fetched once)' % (len(units), len(shared), sum(1 for c in shared.values() if c > 1), sum(c for c in shared.values() if c > 1)))
+    rl = int(opt('--repair-limit', 40)); dry = '--dry' in a
     stats, stopped = acquire(w, units, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, copies=make_copies)
     for name, s in stats.items():
         if name == 'copies': print('summary copies: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, pictures with copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['copies'], s['nocopy']))
     print('added %d pictures' % sum(s['found'] for s in stats.values()))
+    if rl:   # the author repair step (#887, lib/author_repair.py): after the sources, only when none of them stopped, inside the same time budget
+        if stopped: print('author repair skipped: a source stopped this run')
+        else:
+            rs, _ = ar.repair_step(w, limit=rl, dry=dry); print(ar.summary(rs))
+            if not dry and (rs['fixed'] or rs['none']): w.commit()
     block = stats_block(w, dict(species=len(units), strategies=stats), dry='--dry' in a); print(block)
     try:
         with open('speciespictures_stats.md', 'w', encoding='utf-8') as f: f.write(block)   # not committed: the workflow may put it in the PR body

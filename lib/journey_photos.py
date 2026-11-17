@@ -14,13 +14,13 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 import author_clean as ac
-from place_photos import author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for all writers
+from place_photos import CreditRepair, author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for all writers
 
 PICS = ('photos', 'journey_pictures.json'); MISSING = ('photos', 'journey_missing.json'); LARGE = ('photos', 'journey_large.json'); TRIED = ('photos', 'journey_tried.json')
 SMALL_DIR = ('photos', 'journeys'); LARGE_DIR = ('photos', 'journeys-lg')
 
 
-class JourneyPhotos:
+class JourneyPhotos(CreditRepair):
     def __init__(self, root='.'):
         self.root = root; p = lambda parts: os.path.join(root, *parts)
         self.pics = _read(p(PICS)); self.miss_ = _read(p(MISSING)); self.large = _read(p(LARGE)); self.tried = _read(p(TRIED))

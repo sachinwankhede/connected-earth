@@ -15,7 +15,7 @@ import hashlib, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 import author_clean as ac
-from place_photos import author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for both writers
+from place_photos import CreditRepair, author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for both writers
 
 PICS = ('photos', 'species_pictures.json'); MISSING = ('photos', 'species_missing.json'); TRIED = ('photos', 'species_tried.json')
 COPIES = {'small': (('photos', 'species'), ('photos', 'species_pictures.json')),
@@ -24,7 +24,7 @@ COPIES = {'small': (('photos', 'species'), ('photos', 'species_pictures.json')),
 SMALL_DIR = COPIES['small'][0]; MEDIUM = COPIES['medium'][1]; LARGE = COPIES['large'][1]; MEDIUM_DIR = COPIES['medium'][0]; LARGE_DIR = COPIES['large'][0]
 
 
-class SpeciesPhotos:
+class SpeciesPhotos(CreditRepair):
     def __init__(self, root='.'):
         self.root = root; p = lambda parts: os.path.join(root, *parts)
         self.pics = _read(p(PICS)); self.miss_ = _read(p(MISSING)); self.tried = _read(p(TRIED))
