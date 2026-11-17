@@ -19,7 +19,7 @@ def with_kind(r, kind):
 
 def resolve(root, min_share=0.9, dry=False):
     """Returns (fixed, left): fixed = [(prey sid, consumer sid, kind, number of rows changed)], left = [(prey sid, consumer sid, {kind: places})]."""
-    st = species.table(root); loaded = {}; occ = collections.defaultdict(list)
+    loaded = {}; occ = collections.defaultdict(list)
     for p in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))):
         if os.path.basename(p) in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
         d = json.load(open(p, encoding='utf-8')); loaded[p] = d

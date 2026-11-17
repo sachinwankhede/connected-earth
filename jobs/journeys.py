@@ -16,7 +16,7 @@ def km(a, b, c, d):
 
 def load():
     sys.path.insert(0, os.path.join(ROOT, 'build')); import species
-    tab = species.table()
+    tab = species.by_name()   # {Latin name: row}: this job ranks by name
     key = {r['sid']: k for k, r in tab.items() if r.get('sid')}   # #1013: a place node's `sp` is a species id; this job ranks by the table key (Latin name), so translate once here
     places = []
     for f in sorted(glob.glob(os.path.join(ROOT, 'data', 'places', '*.json'))):
