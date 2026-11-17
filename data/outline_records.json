@@ -9764,13 +9764,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"xusia": {
-"built": "2026-11-16T09:42:09.820719+00:00",
-"checkedAt": "2026-11-16T09:42:09.820719+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "xusma": {
 "built": "2026-11-16T09:42:09.820721+00:00",
 "checkedAt": "2026-11-16T09:42:09.820721+00:00",
@@ -9810,13 +9803,6 @@
 "xuspa": {
 "built": "2026-11-16T09:42:09.820731+00:00",
 "checkedAt": "2026-11-16T09:42:09.820731+00:00",
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"xusri": {
-"built": "2026-11-16T09:42:09.820733+00:00",
-"checkedAt": "2026-11-16T09:42:09.820733+00:00",
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
