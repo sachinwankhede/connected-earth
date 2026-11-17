@@ -24618,6 +24618,18 @@
 "u": "0/0b/Ring-tailed_lemur_%28Lemur_catta%29.jpg/330px-Ring-tailed_lemur_%28Lemur_catta%29.jpg",
 "wiki": "Ring-tailed lemur"
 },
+"leonia-glycycarpa": {
+"a": "Dr. Alexey Yakovlev",
+"f": "a26090fff984.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/e5991384-a436-4845-8aec-60d90854363e",
+"page": "Violaceae",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/e5991384-a436-4845-8aec-60d90854363e",
+"wiki": "Violaceae"
+},
 "leonurus-cardiaca": {
 "a": "D. Gordon E. Robertson",
 "f": "ad17b578c232.webp",
@@ -26343,6 +26355,18 @@
 "page": "Lupinus_perennis",
 "u": "2/29/Lupinus_perennis_in_flower.jpg/330px-Lupinus_perennis_in_flower.jpg",
 "wiki": "Lupinus perennis"
+},
+"lupinus-polyphyllus": {
+"a": "Matt Lavin",
+"f": "3b26ec532865.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/0751ce21-61a3-4689-a96c-67dc75c0bbca",
+"page": "Lupinus_polyphyllus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/0751ce21-61a3-4689-a96c-67dc75c0bbca",
+"wiki": "Lupinus polyphyllus"
 },
 "lupinus-pusillus": {
 "a": "Matt Lavin from Bozeman, Montana, USA",
@@ -28468,6 +28492,18 @@
 "u": "3/32/Meriones_tristrami_-_full_body.jpg/330px-Meriones_tristrami_-_full_body.jpg",
 "wiki": "Tristram's jird"
 },
+"merops-bulocki": {
+"a": "thecmn",
+"f": "0e33c508dd6d.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/85dd2ee3-2cdd-4ee1-b91f-d3e49804420d",
+"page": "Red-throated_bee-eater",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/85dd2ee3-2cdd-4ee1-b91f-d3e49804420d",
+"wiki": "Red-throated bee-eater"
+},
 "merops-ornatus": {
 "a": "JJ Harrison",
 "f": "89c45d043a6e.webp",
@@ -29611,6 +29647,18 @@
 "page": "Myriophyllum_sibiricum",
 "u": "d/d5/Myriophyllum_sibiricum_95298624.jpg/330px-Myriophyllum_sibiricum_95298624.jpg",
 "wiki": "Myriophyllum sibiricum"
+},
+"myriophyllum-spicatum": {
+"a": "Tenesse85",
+"f": "af9980c4c4c8.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/d98633e4-bd73-4095-8dd1-cc1e1a3a19dd",
+"page": "Myriophyllum_spicatum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/d98633e4-bd73-4095-8dd1-cc1e1a3a19dd",
+"wiki": "Myriophyllum spicatum"
 },
 "myriopteris-gracilis": {
 "a": "Stan Shebs",
@@ -36769,6 +36817,18 @@
 "u": "a/ad/Prole%C4%87no_cve%C4%87e_3.JPG/330px-Prole%C4%87no_cve%C4%87e_3.JPG",
 "wiki": "Primula"
 },
+"pringleophaga-kerguelensis": {
+"a": "Bernard DUPONT",
+"f": "a18db6052f6d.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/40f85690-78c5-4ed1-a7e8-84ab0b712d2b",
+"page": "Tineidae",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/40f85690-78c5-4ed1-a7e8-84ab0b712d2b",
+"wiki": "Tineidae"
+},
 "priodontes-maximus": {
 "a": "Guillaume Delaitre",
 "f": "74ecb9d62ecd.webp",
@@ -38059,6 +38119,18 @@
 "u": "b/b6/Qualea_dichotoma.jpg/330px-Qualea_dichotoma.jpg",
 "wiki": "Qualea"
 },
+"quercus": {
+"a": "docentjoyce",
+"f": "da49db447995.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/64d13500-407a-4a03-ad01-10937aa5337b",
+"page": "Quercus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/64d13500-407a-4a03-ad01-10937aa5337b",
+"wiki": "Quercus"
+},
 "quercus-acutissima": {
 "a": "Daderot",
 "f": "887a7c3b06f2.webp",
@@ -38159,6 +38231,18 @@
 "u": "3/37/Quercus_buckleyi_leaves.jpg/330px-Quercus_buckleyi_leaves.jpg",
 "wiki": "Quercus buckleyi"
 },
+"quercus-carya": {
+"a": "hedera.baltica",
+"f": "1e0ecb632e6b.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/f0cb21f8-2b0a-491d-98f8-43076bba1fe3",
+"page": "Oak",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/f0cb21f8-2b0a-491d-98f8-43076bba1fe3",
+"wiki": "Oak"
+},
 "quercus-castaneifolia": {
 "a": "User:Mmparedes",
 "f": "3d470ae6f7c3.webp",
@@ -38258,6 +38342,18 @@
 "page": "Quercus_fusiformis",
 "u": "b/b0/Matrimonial_Oak_San_Saba_County_Texas.jpg/330px-Matrimonial_Oak_San_Saba_County_Texas.jpg",
 "wiki": "Quercus fusiformis"
+},
+"quercus-gambelii": {
+"a": "Paul and Jill",
+"f": "f28aa58d95e7.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/4dca1eeb-a75d-4974-8e79-989b99ca5884",
+"page": "Quercus_gambelii",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4dca1eeb-a75d-4974-8e79-989b99ca5884",
+"wiki": "Quercus gambelii"
 },
 "quercus-garryana": {
 "a": "Llywrch",
@@ -38538,6 +38634,18 @@
 "page": "Quercus_phellos",
 "u": "4/4e/Tree_in_Mississippi.jpg/330px-Tree_in_Mississippi.jpg",
 "wiki": "Quercus phellos"
+},
+"quercus-robur": {
+"a": "Wobbly Monkey",
+"f": "56a5334cca2d.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/4ededc89-12aa-47dc-9718-8d23c46919af",
+"page": "Quercus_robur",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4ededc89-12aa-47dc-9718-8d23c46919af",
+"wiki": "Quercus robur"
 },
 "quercus-rubra": {
 "a": "Velela",
@@ -40331,6 +40439,18 @@
 "u": "d/de/Ruellia_humilis.jpg/330px-Ruellia_humilis.jpg",
 "wiki": "Ruellia humilis"
 },
+"rumex-acetosella": {
+"a": "olive.titus",
+"f": "3693bc58ff66.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/98bdd616-22af-49ea-8a4d-b015a6fb0be7",
+"page": "Rumex_acetosella",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/98bdd616-22af-49ea-8a4d-b015a6fb0be7",
+"wiki": "Rumex acetosella"
+},
 "rumex-crispus": {
 "a": "Olivier Pichard",
 "f": "cf57f9cd0e4c.webp",
@@ -40991,6 +41111,18 @@
 "u": "1/1c/Salvia_elegans.jpg/330px-Salvia_elegans.jpg",
 "wiki": "Salvia elegans"
 },
+"salvia-farinacea": {
+"a": "smallcurio",
+"f": "73a087c6e1ca.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/cc481152-d4cc-4d90-8c74-eb5ef0a735bb",
+"page": "Salvia_farinacea",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/cc481152-d4cc-4d90-8c74-eb5ef0a735bb",
+"wiki": "Salvia farinacea"
+},
 "salvia-leucophylla": {
 "a": "NoahElhardt",
 "f": "8d11cc7e8fe5.webp",
@@ -41050,6 +41182,18 @@
 "page": "Salvia_urticifolia",
 "u": "e/e6/Salvia_urticifolia.jpg/330px-Salvia_urticifolia.jpg",
 "wiki": "Salvia urticifolia"
+},
+"sambucus-canadensis": {
+"a": "Dinesh Valke",
+"f": "781a9fcbcfae.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/01b6d4d2-4c08-4c6f-b6fb-6cb310b07adc",
+"page": "Sambucus_canadensis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/01b6d4d2-4c08-4c6f-b6fb-6cb310b07adc",
+"wiki": "Sambucus canadensis"
 },
 "sambucus-cerulea": {
 "a": "Wsiegmund",
@@ -41765,6 +41909,18 @@
 "u": "0/05/Selenia_aurea_Arkansas.jpg/330px-Selenia_aurea_Arkansas.jpg",
 "wiki": "Selenia aurea"
 },
+"semicossyphus-pulcher": {
+"a": "quinn.anya",
+"f": "5779c650c43d.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/8c1df267-4b95-45f6-87ea-2b9c1ed5bb4c",
+"page": "California_sheephead",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/8c1df267-4b95-45f6-87ea-2b9c1ed5bb4c",
+"wiki": "California sheephead"
+},
 "semnopithecus-entellus": {
 "a": "Rajeev minj",
 "f": "8ae16609a561.webp",
@@ -42066,6 +42222,18 @@
 "u": "1/13/Setophaga_dominica%2C_Tisbury%2C_Martha%27s_Vineyard%2C_Massachusetts_496646966.jpg/330px-Setophaga_dominica%2C_Tisbury%2C_Martha%27s_Vineyard%2C_Massachusetts_496646966.jpg",
 "wiki": "Setophaga dominica"
 },
+"setophaga-occidentalis": {
+"a": "Frode Jacobsen",
+"f": "43a6f7d72bb5.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/70054",
+"page": "Setophaga_occidentalis",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/70054",
+"wiki": "Setophaga occidentalis"
+},
 "setophaga-pensylvanica": {
 "a": "Mdf",
 "f": "300d08b1198e.webp",
@@ -42135,6 +42303,18 @@
 "page": "Shepherdia_rotundifolia",
 "u": "1/16/Shepherdia_rotundifolia_%288003258721%29.jpg/330px-Shepherdia_rotundifolia_%288003258721%29.jpg",
 "wiki": "Shepherdia rotundifolia"
+},
+"sherardia-arvensis": {
+"a": "Tenesse85",
+"f": "0099a0bfbd1e.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/0410dcce-bd9d-4196-8d4c-f1f258d76e8b",
+"page": "Sherardia_arvensis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/0410dcce-bd9d-4196-8d4c-f1f258d76e8b",
+"wiki": "Sherardia arvensis"
 },
 "shorea-robusta": {
 "a": "Unknown",
@@ -42872,6 +43052,18 @@
 "u": "7/76/Solidago_flexicaulis01.jpg/330px-Solidago_flexicaulis01.jpg",
 "wiki": "Solidago flexicaulis"
 },
+"solidago-gigantea": {
+"a": "Matt Lavin",
+"f": "2e9450b5d59a.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/cade7b48-3f94-499d-8049-0d9957014d8a",
+"page": "Solidago_gigantea",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/cade7b48-3f94-499d-8049-0d9957014d8a",
+"wiki": "Solidago gigantea"
+},
 "solidago-mollis": {
 "a": "Unknown",
 "f": "6edd1afa34cd.webp",
@@ -43405,6 +43597,18 @@
 "page": "Scalloped_hammerhead",
 "u": "3/36/Scalloped_hammerhead_shark_%28Sphyrna_lewini%29_Costa_Rica_%28cropped%29.jpg/330px-Scalloped_hammerhead_shark_%28Sphyrna_lewini%29_Costa_Rica_%28cropped%29.jpg",
 "wiki": "Scalloped hammerhead"
+},
+"spigelia-marilandica": {
+"a": "Roy Cohutta",
+"f": "b75755122e52.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/6babbcb9-6312-4686-9e0b-d184ad6f594a",
+"page": "Spigelia_marilandica",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/6babbcb9-6312-4686-9e0b-d184ad6f594a",
+"wiki": "Spigelia marilandica"
 },
 "spilogale-gracilis": {
 "a": "Unknown",
@@ -44353,6 +44557,18 @@
 "u": "0/0f/Sylvilagus_audubonii_2.jpg/330px-Sylvilagus_audubonii_2.jpg",
 "wiki": "Sylvilagus audubonii"
 },
+"sylvilagus-bachmani": {
+"a": "Don Henise",
+"f": "90df826f61f0.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/e868bb04-c822-4198-a426-a58fbc9eb572",
+"page": "Brush_rabbit",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/e868bb04-c822-4198-a426-a58fbc9eb572",
+"wiki": "Brush rabbit"
+},
 "sylvilagus-floridanus": {
 "a": "StBlueD",
 "f": "5d70f001b691.webp",
@@ -44975,6 +45191,18 @@
 "u": "4/48/Onymacris_unguicularis_MHNT.jpg/330px-Onymacris_unguicularis_MHNT.jpg",
 "wiki": "Darkling beetle"
 },
+"tenrecidae": {
+"a": "Rod Waddington",
+"f": "b70d2545ecbf.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/e736bf17-a39f-4b3c-ba84-d7cbf653b126",
+"page": "Tenrec",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/e736bf17-a39f-4b3c-ba84-d7cbf653b126",
+"wiki": "Tenrec"
+},
 "tenualosa-ilisha": {
 "a": "Roddur 123",
 "f": "b0deadf864cf.webp",
@@ -45388,6 +45616,18 @@
 "page": "Essex_skipper",
 "u": "0/07/Essex_skipper_%28Thymelicus_lineola%29_male.jpg/330px-Essex_skipper_%28Thymelicus_lineola%29_male.jpg",
 "wiki": "Thymelicus lineola"
+},
+"thymus-praecox": {
+"a": "Chase Mathey",
+"f": "6c44633ab722.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/555092602",
+"page": "Thymus_praecox",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/555092602",
+"wiki": "Thymus praecox"
 },
 "thyridopteryx-ephemeraeformis": {
 "a": "Unknown authorUnknown author",
@@ -47183,6 +47423,18 @@
 "u": "6/6c/Vaccinium_cespitosum_0806025.jpg/330px-Vaccinium_cespitosum_0806025.jpg",
 "wiki": "Vaccinium cespitosum"
 },
+"vaccinium-corymbosum": {
+"a": "Lydia Fravel",
+"f": "34c99661bbdd.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/8c4ad6df-488b-4697-8091-a8e19beda202",
+"page": "Vaccinium_corymbosum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/8c4ad6df-488b-4697-8091-a8e19beda202",
+"wiki": "Vaccinium corymbosum"
+},
 "vaccinium-crassifolium": {
 "a": "James Kingdon",
 "f": "deef984318cc.webp",
@@ -47787,6 +48039,18 @@
 "u": "1/17/Verbena_urticifolia_001.JPG/330px-Verbena_urticifolia_001.JPG",
 "wiki": "Verbena urticifolia"
 },
+"verbesina-alternifolia": {
+"a": "sonnia hill",
+"f": "f23392445c3d.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/00701292-b77d-4021-8897-ab623722de6e",
+"page": "Verbesina_alternifolia",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/00701292-b77d-4021-8897-ab623722de6e",
+"wiki": "Verbesina alternifolia"
+},
 "verbesina-encelioides": {
 "a": "Copyright by Curtis Clark, licensed as noted",
 "f": "255a5e64c884.webp",
@@ -47876,6 +48140,18 @@
 "page": "Veronica_persica",
 "u": "d/d0/Veronica_persica_060403Fw.jpg/330px-Veronica_persica_060403Fw.jpg",
 "wiki": "Veronica persica"
+},
+"veronica-scutellata": {
+"a": "Thibault Lefort",
+"f": "0c54f8f4aa1d.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/31c4fb79-7679-4948-b9b5-38a93d67a7d6",
+"page": "Veronica_scutellata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/31c4fb79-7679-4948-b9b5-38a93d67a7d6",
+"wiki": "Veronica scutellata"
 },
 "veronicastrum-virginicum": {
 "a": "Crazytwoknobs",
@@ -48538,6 +48814,18 @@
 "page": "Andean_condor",
 "u": "b/b9/AndeanCondorMale.jpg/330px-AndeanCondorMale.jpg",
 "wiki": "Andean condor"
+},
+"washingtonia-filifera": {
+"a": "jean-michel52",
+"f": "9bd945d33027.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/0c83711e-e163-4118-b0da-b81daf1778e9",
+"page": "Washingtonia_filifera",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/0c83711e-e163-4118-b0da-b81daf1778e9",
+"wiki": "Washingtonia filifera"
 },
 "wasmannia-auropunctata": {
 "a": "April Nobile",

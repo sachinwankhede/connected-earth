@@ -617,12 +617,6 @@
 "expiresAt": "2027-05-14T14:23:29.593720+00:00",
 "status": "nophoto"
 },
-"leonia-glycycarpa": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593722+00:00",
-"expiresAt": "2027-05-14T14:23:29.593722+00:00",
-"status": "nophoto"
-},
 "lepidium-davisii": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593724+00:00",
@@ -677,12 +671,6 @@
 "expiresAt": "2027-05-14T14:23:29.593745+00:00",
 "status": "nophoto"
 },
-"lupinus-polyphyllus": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593746+00:00",
-"expiresAt": "2027-05-14T14:23:29.593746+00:00",
-"status": "nophoto"
-},
 "lupinus-sellulus": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593748+00:00",
@@ -725,12 +713,6 @@
 "expiresAt": "2027-05-14T14:23:29.593767+00:00",
 "status": "nophoto"
 },
-"merops-bulocki": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593770+00:00",
-"expiresAt": "2027-05-14T14:23:29.593770+00:00",
-"status": "nophoto"
-},
 "mesalina-brevirostris": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593773+00:00",
@@ -753,12 +735,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593781+00:00",
 "expiresAt": "2027-05-14T14:23:29.593781+00:00",
-"status": "nophoto"
-},
-"myriophyllum-spicatum": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593783+00:00",
-"expiresAt": "2027-05-14T14:23:29.593783+00:00",
 "status": "nophoto"
 },
 "nitraria-sibirica": {
@@ -923,46 +899,16 @@
 "expiresAt": "2027-05-14T14:23:29.593864+00:00",
 "status": "nophoto"
 },
-"pringleophaga-kerguelensis": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593866+00:00",
-"expiresAt": "2027-05-14T14:23:29.593866+00:00",
-"status": "nophoto"
-},
 "pseudopanurgus-aestivalis": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593872+00:00",
 "expiresAt": "2027-05-14T14:23:29.593872+00:00",
 "status": "nophoto"
 },
-"quercus": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593873+00:00",
-"expiresAt": "2027-05-14T14:23:29.593873+00:00",
-"status": "nophoto"
-},
-"quercus-carya": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593875+00:00",
-"expiresAt": "2027-05-14T14:23:29.593875+00:00",
-"status": "nophoto"
-},
-"quercus-gambelii": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593877+00:00",
-"expiresAt": "2027-05-14T14:23:29.593877+00:00",
-"status": "nophoto"
-},
 "quercus-giffordii": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593879+00:00",
 "expiresAt": "2027-05-14T14:23:29.593879+00:00",
-"status": "nophoto"
-},
-"quercus-robur": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593881+00:00",
-"expiresAt": "2027-05-14T14:23:29.593881+00:00",
 "status": "nophoto"
 },
 "ranunculus-harveyi": {
@@ -1001,12 +947,6 @@
 "expiresAt": "2027-05-14T14:23:29.593898+00:00",
 "status": "nophoto"
 },
-"rumex-acetosella": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593900+00:00",
-"expiresAt": "2027-05-14T14:23:29.593900+00:00",
-"status": "nophoto"
-},
 "rumex-fueginus": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593902+00:00",
@@ -1043,18 +983,6 @@
 "expiresAt": "2027-05-14T14:23:29.593910+00:00",
 "status": "nophoto"
 },
-"salvia-farinacea": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593914+00:00",
-"expiresAt": "2027-05-14T14:23:29.593914+00:00",
-"status": "nophoto"
-},
-"sambucus-canadensis": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593923+00:00",
-"expiresAt": "2027-05-14T14:23:29.593923+00:00",
-"status": "nophoto"
-},
 "sasa-kurilensis": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593929+00:00",
@@ -1079,24 +1007,6 @@
 "expiresAt": "2027-05-14T14:23:29.593935+00:00",
 "status": "nophoto"
 },
-"semicossyphus-pulcher": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593939+00:00",
-"expiresAt": "2027-05-14T14:23:29.593939+00:00",
-"status": "nophoto"
-},
-"setophaga-occidentalis": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593941+00:00",
-"expiresAt": "2027-05-14T14:23:29.593941+00:00",
-"status": "nophoto"
-},
-"sherardia-arvensis": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593943+00:00",
-"expiresAt": "2027-05-14T14:23:29.593943+00:00",
-"status": "nophoto"
-},
 "sida-abutilifolia": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593945+00:00",
@@ -1109,22 +1019,10 @@
 "expiresAt": "2027-05-14T14:23:29.593949+00:00",
 "status": "nophoto"
 },
-"solidago-gigantea": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593951+00:00",
-"expiresAt": "2027-05-14T14:23:29.593951+00:00",
-"status": "nophoto"
-},
 "sphaeropteris-lunulata": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593955+00:00",
 "expiresAt": "2027-05-14T14:23:29.593955+00:00",
-"status": "nophoto"
-},
-"spigelia-marilandica": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593957+00:00",
-"expiresAt": "2027-05-14T14:23:29.593957+00:00",
 "status": "nophoto"
 },
 "strymon-sylvinus": {
@@ -1139,12 +1037,6 @@
 "expiresAt": "2027-05-14T14:23:29.593963+00:00",
 "status": "nophoto"
 },
-"sylvilagus-bachmani": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593965+00:00",
-"expiresAt": "2027-05-14T14:23:29.593965+00:00",
-"status": "nophoto"
-},
 "sylvisorex-vulcanorum": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593967+00:00",
@@ -1157,12 +1049,6 @@
 "expiresAt": "2027-05-14T14:23:29.593969+00:00",
 "status": "nophoto"
 },
-"tenrecidae": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593971+00:00",
-"expiresAt": "2027-05-14T14:23:29.593971+00:00",
-"status": "nophoto"
-},
 "tharsalea-rubidus": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593973+00:00",
@@ -1173,12 +1059,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593975+00:00",
 "expiresAt": "2027-05-14T14:23:29.593975+00:00",
-"status": "nophoto"
-},
-"thymus-praecox": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593977+00:00",
-"expiresAt": "2027-05-14T14:23:29.593977+00:00",
 "status": "nophoto"
 },
 "trifolium-beckwithii": {
@@ -1205,12 +1085,6 @@
 "expiresAt": "2027-05-14T14:23:29.593989+00:00",
 "status": "nophoto"
 },
-"vaccinium-corymbosum": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593993+00:00",
-"expiresAt": "2027-05-14T14:23:29.593993+00:00",
-"status": "nophoto"
-},
 "verbena-pumila": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593995+00:00",
@@ -1223,18 +1097,6 @@
 "expiresAt": "2027-05-14T14:23:29.593997+00:00",
 "status": "nophoto"
 },
-"verbesina-alternifolia": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593999+00:00",
-"expiresAt": "2027-05-14T14:23:29.593999+00:00",
-"status": "nophoto"
-},
-"veronica-scutellata": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.594003+00:00",
-"expiresAt": "2027-05-14T14:23:29.594003+00:00",
-"status": "nophoto"
-},
 "viburnum-scabrellum": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.594004+00:00",
@@ -1245,12 +1107,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.594008+00:00",
 "expiresAt": "2027-05-14T14:23:29.594008+00:00",
-"status": "nophoto"
-},
-"washingtonia-filifera": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.594012+00:00",
-"expiresAt": "2027-05-14T14:23:29.594012+00:00",
 "status": "nophoto"
 },
 "xyphon-triguttatum": {
