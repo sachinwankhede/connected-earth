@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """placepictures.py: the ONE job that finds a picture for a place that has none (docs/DATA-PLAN.md, step 4; #887).
-Usage: placepictures.py [--strategy all|wikipedia|commons|nearby|category|openverse|large] [--limit N] [--max-mb N] [--again] [--dry]   (run from the repository root)
+Usage: placepictures.py [--strategy all|wikipedia|commons|nearby|category|openverse|large] [--limit N] [--max-mb N] [--minutes N] [--again] [--dry]   (run from the repository root)
 
 It replaces the five acquire jobs for place pictures (jobs/photos.py, commonsplacephotos.py, commonsnearby.py, commonscategory.py, openverseplaces.py), which each wrote the files and lists in their own way. Here the five
 SOURCES are strategies tried in this order, and a place stops at the first one that gives an accepted picture:
@@ -22,9 +22,9 @@ Holds (when a source is tried again for a place that gave nothing): wikipedia, a
 in photos/places_tried.json {id: {source: date}}. A transient failure (a download that failed) is recorded nowhere and is tried again by the next run.
 Author rule (#887, owner 15 Nov): a CC BY or CC BY-SA picture needs a named author. When the stored credit says unknown, Commons is asked once more (authorlookup.lookup: the Artist or Attribution field, or the uploader when the credit says own work);
 no name found = the picture is refused and the place is recorded as 'notfree' for wikipedia, or as tried for the other sources, with the reason in the log.
-Caps: --limit places per strategy (default 120, 0 = all left), --max-mb of pictures kept (default 25); pictures are committed every 25 finds, so a stopped run resumes. A run that finds nothing and changes no ledger writes no file.
+Caps: --minutes of time (default 120: the run stops cleanly and keeps what it has; the workflow's 170-minute timeout would cancel it and lose the run), --max-mb of pictures kept (default 25), --limit places per strategy (default 0 = all left, #887); pictures are committed every 25 finds, so a stopped run resumes. A run that finds nothing and changes no ledger writes no file.
 --dry prints what would be kept and writes nothing (later strategies then see no new missing places). Exit 2 when a source stopped the run (throttled three times, or refused)."""
-import collections, datetime, glob, hashlib, io, json, os, re, shutil, sys, tempfile, urllib.parse
+import collections, datetime, glob, hashlib, io, json, os, re, shutil, sys, tempfile, time, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
@@ -121,11 +121,12 @@ def held(w, pid, source, days, today, unit=None):
     if days is None: return pr.cache_active(w.miss_.get(pid), inputs=pr.place_inputs(unit) if unit else None)
     return w.tried.get(pid, {}).get(source, '') > (today - datetime.timedelta(days=days)).isoformat()
 
-def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, large=None):
+def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, large=None, minutes=None, clock=time.monotonic):
     """Runs the strategies in order over the places that have no picture, then (strategy large, or all) makes the missing larger copies. Returns (stats, stopped): per-strategy counts and the strategies a source stopped.
     large: make_large, or None to make no larger copies (the tests of the sources do not download)."""
     today = today or datetime.date.today(); strategies = STRATEGIES if strategies is None else strategies
     stats = collections.OrderedDict(); stopped = []; spent = 0; pending = 0
+    deadline = None if not minutes else clock() + minutes * 60; late = lambda: deadline is not None and clock() >= deadline   # the time budget: the run ends cleanly and keeps what it has (the workflow's own timeout would cancel it and lose the run)
     for name, find, applies, days in strategies:
         if only not in ('all', name): continue
         s = stats[name] = collections.Counter()
@@ -157,11 +158,12 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
                 else: s['retry'] += 1; log('retry %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                 if pending >= COMMIT_EVERY and not dry: w.commit(); pending = 0
                 if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); break
+                if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); break
         except RuntimeError as ex:
             stopped.append(name); log('STOP %s: %s (nothing more is tried from this source; ask the owner)' % (name, ex))
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
-        if spent >= max_bytes: break
-    if only in ('all', 'large') and large is not None and spent < max_bytes:
+        if spent >= max_bytes or late(): break
+    if only in ('all', 'large') and large is not None and spent < max_bytes and not late():
         s = stats['large'] = collections.Counter()
         todo = sorted(pid for pid, e in w.pics.items() if e.get('f') and not w.has_large(pid) and commons_file_name(e.get('p')))
         if limit: todo = todo[:limit]
@@ -174,6 +176,7 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
             else: s['none'] += 1; log('no larger copy large %s (%s) - %s; the small picture stays' % (pid, w.pics[pid].get('wiki', ''), lwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
             if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); break
+            if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); break
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
     return stats, stopped
 
@@ -193,12 +196,12 @@ def stats_block(w, counters, dry=False):
 def main(argv=None, root=ROOT, strategies=None, large=make_large):
     """strategies and large are what the tests give in place of the real sources and the Commons download (#1028); None and make_large are the real ones."""
     a = list(sys.argv[1:] if argv is None else argv); opt = lambda k, d: a[a.index(k) + 1] if k in a else d
-    only = opt('--strategy', 'all'); limit = int(opt('--limit', 120)); max_mb = float(opt('--max-mb', 25))
+    only = opt('--strategy', 'all'); limit = int(opt('--limit', 0)); max_mb = float(opt('--max-mb', 25)); minutes = float(opt('--minutes', 120))
     if only not in ['all', 'large'] + [s[0] for s in STRATEGIES]: print('unknown strategy', only); return 1
     w = pp.PlacePhotos(root); units, shared = load_units(os.path.join(root, 'data', 'places'))
     if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is keyed by title, not by place id: this job needs the id-keyed files (migration #906)'); return 1
     print('%d places with a title, %d skipped because another place has the same title: %s' % (len(units), len(shared), ', '.join(sorted(u['id'] for u in shared)) or 'none'))
-    stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large)
+    stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large, minutes=minutes)
     for name, s in stats.items():
         if name == 'large': print('summary large: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, larger copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['large'], s['nolarge']))
