@@ -68,6 +68,16 @@ Refreshing existing data stays with the four jobs. The validator gains one rule:
 
 **Other guards.** Each candidate commits all or nothing (files first, lists last, as `lib/node_photos.py` does), so a killed run leaves no half-made species; `ensure()` is idempotent, so a repeated or retried run returns the same id; all runs share one concurrency group, so two runs never add at once; and the validators run on the finished tree before a pull request opens. What is not covered: two data pull requests open at the same time that add the same species. The second one conflicts on the row file and is resolved by hand (or refused by the validator once the first has merged).
 
+## 6.2 Schema and model
+**What is checked today.** `build/schemas/<kind>.schema.json` is the written contract of a file, checked in `build/validate_data.py` through `shape()`. The species row (`species-row`), `taxonomy`, `taxonomy-review`, `about` and the picture miss records (`photo-missing`) have one. `tests/data/writer_schema_test.py` fails when a schema has no entry in its `WRITERS` list and, for a record made by a `lib/` writer, validates the writer's real output against the schema; `build/ci_changes.py` runs the data checks whenever `lib/*` or `build/schemas/*` changes (#1055). Not covered today by a schema: the picture credit records (`photos/species_pictures.json`, `photos/node_pictures.json`), `conservation.json`, and the new refusal ledger.
+
+**What this process adds, so that what it writes is correct by construction.**
+1. **A schema for every file it writes.** New schemas: picture credit record (species and node), conservation entry and refusal ledger. The row and taxonomy schemas stay.
+2. **A real-writer test for each.** `ensure()` (the new row), the ledger writer and the credit-record writers each get a callable sample in `WRITERS`, validated against their schema, so a change to a writer or a schema that does not match fails in CI.
+3. **Shape check on the whole tree before a pull request opens.** The workflow runs `build/validate_data.py` on the finished files, as `data-placepictures` does today, and the run fails instead of opening a pull request when a record is wrong.
+4. **Model rules, beyond shape.** A row is in the folder of its kind (resource rows only in `data/nodes/rows/`; the validator already checks this); a resource row has a `cat` of abiotic or decomp, a taxon row a Latin name, a taxonomy entry and a species picture; every sidecar entry is keyed by an existing row id; every node's `sp` is an existing row. These are in `build/validate_data.py`, with the uniqueness rules of section 6.1.
+5. **One place for the rules.** Required steps per kind, the hold and the word limit live in `lib/contracts.py`; the validator reads them from there, so the process and the check cannot drift apart.
+
 ## 7. Risks
 - **Rate limits:** the 2-second gap and a time budget; a throttled source stops the run (as `placepictures`), it is not retried in a loop.
 - **A wrong identity** (a title that is a different organism): step 1 refuses disambiguation pages and redirects; GBIF's match confidence in step 3 catches the rest; every addition is in the pull request for the spot check.
