@@ -12,7 +12,7 @@ The row is made as a side effect of `build/species.py pack()`. The pictures come
 ## 2. The shape
 **A script that composes the existing pieces, run by one workflow.** `jobs/addspecies.py` takes a list of candidates and, for each, runs the steps below in order. If identity fails it stops (there is nothing to look up); otherwise it runs every remaining step and records the result of each (found, missing, or skipped), so the ledger shows everything that is missing and not only the first thing. The row is added only when every required step passed. It reuses the code of the four jobs above (their source functions, GBIF lookup, summary fetch, Wikidata query) instead of copying it; those jobs stay for refreshing data that already exists. The row id comes from `lib/species_rows.py` (`ensure`, proposed in #1054).
 
-A candidate is `{wiki title, optional Latin name, kind (taxon or resource), the places and nodes that want it}`.
+A candidate is `{wiki title, kind (taxon or resource), optional Latin name}`. It carries nothing about places: a species exists on its own, with or without a place that uses it.
 
 | Step | Check | On failure |
 |---|---|---|
@@ -23,18 +23,21 @@ A candidate is `{wiki title, optional Latin name, kind (taxon or resource), the 
 | 5 Conservation (taxon only) | Wikidata status as in `jobs/conservation.py`. | Not an error: no entry, the row is kept. |
 | 6 Commit | The row and every file are written together through the existing writers (`SpeciesPhotos`, the taxonomy and summary writers, `NodePhotos` for resources): files first, lists last, as `lib/node_photos.py` already does, so a killed run leaves at worst a file no list mentions. | The whole candidate is dropped. |
 
-A refused candidate gets no row. The node that wanted it keeps the nearest existing row. The refusal goes to a **refusal ledger**: the page, the kind, the places and nodes that wanted it, the sources tried and when, the reason. It is retried after the usual hold (90 days) and whenever a source is added. A count of refusals by page is the priority list for the next picture source. (Where the ledger lives is decided in the first pull request: a new file or the existing missing and tried files with a new status.)
+A refused candidate gets no row. The refusal goes to a **refusal ledger**: the page, the kind, the result of each step, when it was tried and the reason (nothing about places). It is retried after the usual hold (90 days) and whenever a source is added. A count of refusals by page is the priority list for the next picture source. (Where the ledger lives is decided in the first pull request: a new file or the existing missing and tried files with a new status.)
 
 The admission rules (which steps are required, the hold, the word limit) live in `lib/contracts.py`, so tightening or relaxing a rule is one edit with a test.
 
-## 2.1 The input
-One candidate is `{title (the Wikipedia article), kind (taxon or resource), optional Latin name, wanted by: [(place id, node id), ...]}`. A run gets its candidates from three places:
-1. **A list typed into the workflow** (`titles`), for a species someone wants added now.
-2. **A scan** (`jobs/addspecies.py --scan`) that finds the nodes of all places whose title has no row and groups them by title. This is how a new place's food web reaches the process, and how the cleanup of #1061 is fed.
-3. **The refusal ledger:** refused candidates whose hold has expired (the weekly retry, below).
-The `wanted by` list is how a refused species falls back: each listed node keeps the nearest existing row, and the ledger remembers which nodes wanted it.
+## 2.1 The model, and the input
+**The dependency runs one way: a place needs a species, never the reverse.** A species is complete without any place. A place can create a node only for a species that is already available (it has a row with all its data). So the species process knows nothing about places, nodes or who asked; it takes a title and either adds the species or refuses and records why.
 
-The place and journey processes will use the same frame (a candidate, ordered steps with a recorded result each, an all-or-nothing commit, a ledger); only the steps and the candidate differ: a place candidate is a name, a region and a source; a journey candidate is a species id and its two ends.
+One candidate is `{title (the Wikipedia article), kind (taxon or resource), optional Latin name}`. A run gets its candidates from three places:
+1. **A list typed into the workflow** (`titles`), for a species someone wants added now.
+2. **A caller on the place side.** When the place process needs a species it asks the species registry for it (`ensure(title)`); if the species is not yet there, the place process asks this process to add it first. If the species is refused, the place side decides what its node does (use the nearest available species, or leave the node out); that choice belongs to the place process, not to this one.
+3. **The refusal ledger:** refused candidates whose hold has expired (the weekly retry, below).
+
+A **gap report** on the place side (`build/` script, read-only) lists the species titles that existing nodes name and no row has; it is how a backlog such as the cleanup of #1061 is turned into a list for input 1. It is a report about places, not an input of the species process.
+
+The place and journey processes use the same frame (a candidate, ordered steps with a recorded result each, an all-or-nothing commit, a ledger). They depend on species the way described above: a journey needs its species by id, a place needs the species of each node.
 
 ## 3. One species or many
 Both. The unit of work is one candidate, and a run takes a list. Each candidate commits or is refused on its own; one failure never blocks the others. A run has caps like `placepictures`: a time budget (`--minutes`), a limit on pictures' total size (`--max-mb`) and a count (`--limit`). The polite Wikimedia client allows one request every 2 seconds and a species needs roughly 10 to 20 requests, so a batch of 75 species is about 30 to 50 minutes (the largest batch we expect, the cleanup below).
@@ -49,8 +52,7 @@ Both. The unit of work is one candidate, and a run takes a list. Each candidate 
 
 ## 5. Where requests come from (every entry point uses the same steps)
 1. **By hand:** the `titles` input, for any species the owner or the agent wants added.
-2. **From the build:** a node whose title has no row becomes a candidate instead of a bare row; `pack()` stops creating rows and fails when a node has no `sp` (the order is in #1054, step 3).
-3. **From a place job:** `autogen.py` calls `ensure()` while it builds the web and a missing row becomes a candidate.
+2. **From the place side:** a node whose title has no row no longer gets a bare row: `pack()` stops creating rows and fails when a node has no `sp` (#1054, step 3); `autogen.py` asks for the species by title while it builds the web, as in section 2.1.
 
 ## 6. What this does not change
 Refreshing existing data stays with the four jobs. The validator gains one rule: a data pull request that adds a row with any required file missing fails.
@@ -71,11 +73,11 @@ Refreshing existing data stays with the four jobs. The validator gains one rule:
 ## 9. Decisions (owner, 18 Nov) and the open ones
 - **Summary is required.** Decided.
 - **Record every step.** Decided; see section 2: identity failing stops the candidate, every other step is run and recorded.
-- **Refusal ledger: one writer and one record shape for all kinds, one file per kind** (`species` for taxon and resource rows, later `place` and `journey`). Recommended, not yet decided: the places and journeys will refuse for their own reasons, so a shared shape (`{key, kind, wanted by, steps: {name: found|missing|skipped, detail}, tried at, hold until}`) lets one library and one report serve all three, while one file per kind keeps data pull requests from clashing (the repository already works this way).
+- **Refusal ledger: one writer and one record shape for all kinds, one file per kind** (`species` for taxon and resource rows, later `place` and `journey`). Recommended, not yet decided: the places and journeys will refuse for their own reasons, so a shared shape (`{key, kind, steps: {name: found|missing|skipped, detail}, tried at, hold until}`) lets one library and one report serve all three, while one file per kind keeps data pull requests from clashing (the repository already works this way).
 - **Weekly retry.** A scheduled workflow (a `.github/**` change, owner-merged) that every week takes the ledger entries whose hold has expired (90 days) and runs them through the process again, so a picture that has since appeared on Commons or Openverse is picked up without anyone asking. A new picture source also makes every picture refusal due. Recommended: run it by hand until the process has had a few runs, then schedule it.
 
 ## 10. The first use: the #1061 cleanup
-Not part of the process; one batch that goes through it. The plan of #1061 lists, for each node that has its own name or Wikipedia page, whether its page already has a row (the node points at it), is a separate article (a candidate for this process), or has no article (the node uses the nearest row). The candidates are about 75 species and 23 resource rows; the process admits those with a licensed picture, taxonomy and summary, and refuses and records the rest, which then keep the nearest row. Everything learned there (which pictures are missing, which sources are worth adding) goes to the refusal ledger, which is how the same process serves later additions.
+Not part of the process; one batch that goes through it. The gap report lists, for each node that has its own name or Wikipedia page, whether its page already has a row (the node points at it), is a separate article (a title to feed this process), or has no article (the node uses the nearest row; that is a place-side choice). The candidates are about 75 species and 23 resource rows; the process admits those with a licensed picture, taxonomy and summary, and refuses and records the rest, which then keep the nearest row. Everything learned there (which pictures are missing, which sources are worth adding) goes to the refusal ledger, which is how the same process serves later additions.
 
 ## 11. Keeping it general
 - The steps, the rules and the ledger do not mention a place, a state or the cleanup; a candidate carries only a title, a kind and the nodes that want it.
