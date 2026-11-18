@@ -57,6 +57,17 @@ Both. The unit of work is one candidate, and a run takes a list. Each candidate 
 ## 6. What this does not change
 Refreshing existing data stays with the four jobs. The validator gains one rule: a data pull request that adds a row with any required file missing fails.
 
+## 6.1 Integrity and duplicates
+**How a duplicate is avoided: identity is decided before anything is written, in a fixed order, and a doubt is reported, never merged.** Step 1 looks the candidate up against the existing rows in this order, and stops at the first hit:
+1. **The same Wikipedia article** (after redirects) as an existing row of the same kind: return that row's id, create nothing. A row maps to one unique page.
+2. **The same GBIF accepted key** (taxon rows): two titles that GBIF says are one species (a synonym, an old name) are one row. This is what catches the duplicates a redirect does not.
+3. **The same Latin name or the same row id** (`slug(latin)`; the name when there is no Latin): never a second row with the id of an existing one.
+4. **Not found:** a new row. If two of these tests disagree (the page is a row's, the GBIF key is another row's), the candidate is refused with `conflict` and both rows named in the ledger, and a person decides; synonym matching never merges two rows on its own (#1054 section 2.4).
+
+**What the validator enforces from the first run.** For rows added by this process, errors in `build/validate_data.py`: one row per `wiki` per kind, one row per GBIF key, one row per id, and every required file present for the row. The rows that already break these (the 56 shared pages of resource rows, the taxon pairs; see `build/species_report.py`) are held by a count limit that may only go down, as the override limits are, until the #1061 cleanup removes them.
+
+**Other guards.** Each candidate commits all or nothing (files first, lists last, as `lib/node_photos.py` does), so a killed run leaves no half-made species; `ensure()` is idempotent, so a repeated or retried run returns the same id; all runs share one concurrency group, so two runs never add at once; and the validators run on the finished tree before a pull request opens. What is not covered: two data pull requests open at the same time that add the same species. The second one conflicts on the row file and is resolved by hand (or refused by the validator once the first has merged).
+
 ## 7. Risks
 - **Rate limits:** the 2-second gap and a time budget; a throttled source stops the run (as `placepictures`), it is not retried in a loop.
 - **A wrong identity** (a title that is a different organism): step 1 refuses disambiguation pages and redirects; GBIF's match confidence in step 3 catches the rest; every addition is in the pull request for the spot check.
