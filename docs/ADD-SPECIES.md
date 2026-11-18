@@ -1,6 +1,8 @@
-# Adding a species: one process, complete or not at all (design, 18 Nov 2026)
+# Adding a species: the one standing process, complete or not at all (design, 18 Nov 2026)
 
-Part of #1023 (how a place, a species and a journey are created) and a prerequisite of #1061 (one row per concept). Owner requirements, 18 Nov: a species is created in one go with all its data, behind admission rules; no licensed picture from any source means no row, and the refusal is written down; the conservation entry is optional. This document answers: how does it work, is it a workflow or a script, one species or many, and how does it run on GitHub.
+Part of #1023 (how a place, a species and a journey are created). **This is the standing process for every species that will ever be added to the project**, whatever starts it: a new place whose food web names an organism we have no row for, a promotion, a manual request, or a cleanup. The one-off cleanup of #1061 (one row per concept, about 75 species rows and 23 resource rows) is only the first use and is described in the last section; nothing in the process is specific to it.
+
+Owner requirements, 18 Nov: a species is created in one go with all its data, behind admission rules; no licensed picture from any source means no row, and the refusal is written down; the conservation entry is optional. This document answers: how does it work, is it a workflow or a script, one species or many, and how does it run on GitHub.
 
 Terms: a **row** is one entry of the species table (`data/species/rows/` for species, `data/nodes/rows/` for resource rows); a **node** is one circle in one place's food web and points at a row by `sp`; the **other data files** of a species are its picture files (`photos/species_*.json`), `taxonomy.json`, `about.json` and `conservation.json`, each keyed by the row's id.
 
@@ -26,7 +28,7 @@ A refused candidate gets no row. The node that wanted it keeps the nearest exist
 The admission rules (which steps are required, the hold, the word limit) live in `lib/contracts.py`, so tightening or relaxing a rule is one edit with a test.
 
 ## 3. One species or many
-Both. The unit of work is one candidate, and a run takes a list. Each candidate commits or is refused on its own; one failure never blocks the others. A run has caps like `placepictures`: a time budget (`--minutes`), a limit on pictures' total size (`--max-mb`) and a count (`--limit`). The polite Wikimedia client allows one request every 2 seconds and a species needs roughly 10 to 20 requests, so 75 species is about 30 to 50 minutes.
+Both. The unit of work is one candidate, and a run takes a list. Each candidate commits or is refused on its own; one failure never blocks the others. A run has caps like `placepictures`: a time budget (`--minutes`), a limit on pictures' total size (`--max-mb`) and a count (`--limit`). The polite Wikimedia client allows one request every 2 seconds and a species needs roughly 10 to 20 requests, so a batch of 75 species is about 30 to 50 minutes (the largest batch we expect, the cleanup below).
 
 ## 4. How it runs on GitHub
 `.github/workflows/data-addspecies.yml` (owner-merged, as all workflows), modelled on `data-placepictures.yml` and `data-fixcoords.yml`:
@@ -36,8 +38,8 @@ Both. The unit of work is one candidate, and a run takes a list. Each candidate 
 - **The pull request body** lists, per added species, the sources and licences and the author, and the refusals with their reason; the 10-item spot check of `docs/PROMOTION.md` applies. The agent merges on a green `gate` as for any data pull request.
 - **A dry run** does every lookup and writes nothing, and prints what would be added and what would be refused (this is how the first run is judged).
 
-## 5. Where requests come from
-1. **By hand:** the `titles` input. This is how the first runs go, and how the plan of #1061 (about 75 species and 23 resource rows) is executed.
+## 5. Where requests come from (every entry point uses the same steps)
+1. **By hand:** the `titles` input, for any species the owner or the agent wants added.
 2. **From the build:** a node whose title has no row becomes a candidate instead of a bare row; `pack()` stops creating rows and fails when a node has no `sp` (the order is in #1054, step 3).
 3. **From a place job:** `autogen.py` calls `ensure()` while it builds the web and a missing row becomes a candidate.
 
@@ -54,7 +56,7 @@ Refreshing existing data stays with the four jobs. The validator gains one rule:
 1. This document read and decided (owner).
 2. `lib/species_rows.py` with `ensure()` and the refusal ledger, with tests, nothing calling it.
 3. `jobs/addspecies.py` composing the steps, with fakes in tests; `--dry`.
-4. `data-addspecies.yml` (owner-merged); a dry run with a few titles; then a live run with the resource rows of #1061.
+4. `data-addspecies.yml` (owner-merged); a dry run with a few titles; then the first live use, the cleanup of #1061 (last section).
 5. The validator rule; `pack()` stops creating rows (per #1054).
 
 ## 9. Owner decisions needed
@@ -62,3 +64,12 @@ Refreshing existing data stays with the four jobs. The validator gains one rule:
 - Are the steps' order and "stop at the first refusal" right, or should a run record every failing step for the ledger?
 - One refusal ledger for species and resource rows, or one each?
 - Does the weekly retry run on a schedule (a `.github/**` change) or by hand until it is trusted?
+
+## 10. The first use: the #1061 cleanup
+Not part of the process; one batch that goes through it. The plan of #1061 lists, for each node that has its own name or Wikipedia page, whether its page already has a row (the node points at it), is a separate article (a candidate for this process), or has no article (the node uses the nearest row). The candidates are about 75 species and 23 resource rows; the process admits those with a licensed picture, taxonomy and summary, and refuses and records the rest, which then keep the nearest row. Everything learned there (which pictures are missing, which sources are worth adding) goes to the refusal ledger, which is how the same process serves later additions.
+
+## 11. Keeping it general
+- The steps, the rules and the ledger do not mention a place, a state or the cleanup; a candidate carries only a title, a kind and the nodes that want it.
+- A new kind of row (a group, say) is a new entry in the rules (`lib/contracts.py`: which steps it needs), not new code.
+- A new picture source is one function in `lib/species_sources.py`; the refusal ledger tells which source would help most.
+- Every change to the rules is a pull request with the number of species it would have admitted or refused in the last run, so a change in admission is visible.
