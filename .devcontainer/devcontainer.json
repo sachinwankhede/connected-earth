@@ -1,6 +1,5 @@
 {
   "name": "OpenCode Mobile Workspace",
-  "image": "://microsoft.com",
   "postCreateCommand": "npm install -g opencode-ai",
   "postStartCommand": "nohup opencode web --hostname 0.0.0.0 --port 3000 > /tmp/opencode.log 2>&1 &",
   "portsAttributes": {
