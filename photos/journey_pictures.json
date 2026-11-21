@@ -39,6 +39,16 @@
 "u": "a/a0/Osprey_Perched_Snag_Heislerville.jpg/330px-Osprey_Perched_Snag_Heislerville.jpg",
 "wiki": "Osprey"
 },
+"dust": {
+"a": "NASA",
+"f": "dust.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Saharan_dust_-_Jun_18%2C_2020.jpg",
+"page": "Saharan_air_layer",
+"u": "9/92/Saharan_dust_-_Jun_18%2C_2020.jpg/330px-Saharan_dust_-_Jun_18%2C_2020.jpg",
+"wiki": "Saharan Air Layer"
+},
 "flamingo": {
 "a": "Giles Laurent",
 "f": "flamingo.webp",
@@ -99,6 +109,16 @@
 "src": "wikidata-p18",
 "u": "0/0e/Danaus_plexippus_MHNT_femelle.jpg/330px-Danaus_plexippus_MHNT_femelle.jpg",
 "wiki": "Monarch butterfly"
+},
+"nutrients": {
+"a": "Robert Simmon & Jesse Allen",
+"f": "nutrients.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Aquatic_Dead_Zones.jpg",
+"page": "Dead_zone_%28ecology%29",
+"u": "c/c7/Aquatic_Dead_Zones.jpg/330px-Aquatic_Dead_Zones.jpg",
+"wiki": "Gulf of Mexico dead zone"
 },
 "osprey": {
 "a": "Chuck Homler / Focus On Wildlife",
