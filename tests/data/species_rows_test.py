@@ -35,14 +35,14 @@ class PackAndSplit(unittest.TestCase):
     """pack() and split() on a throwaway tree (the module's paths are pointed at it)."""
     def setUp(self):
         self.d = tempfile.TemporaryDirectory(); r = self.d.name
-        self.keep = (species.ROOT, species.TABLE, species.ROWS, species.files)
-        species.ROOT = r; species.TABLE = os.path.join(r, 'data', 'species', 'species.json'); species.ROWS = os.path.join(r, 'data', 'species', 'rows')
+        self.keep = (species.ROOT, species.TABLE, species.ROWS, species.NODES, species.files)
+        species.ROOT = r; species.TABLE = os.path.join(r, 'data', 'species', 'species.json'); species.ROWS = os.path.join(r, 'data', 'species', 'rows'); species.NODES = os.path.join(r, 'data', 'nodes', 'rows')
         os.makedirs(os.path.join(r, 'data', 'species')); os.makedirs(os.path.join(r, 'data', 'places'))
         self.place = os.path.join(r, 'data', 'places', 'p.json')
         species.files = lambda: iter([self.place])
         self.stdout = sys.stdout; sys.stdout = open(os.devnull, 'w')
     def tearDown(self):
-        sys.stdout = self.stdout; species.ROOT, species.TABLE, species.ROWS, species.files = self.keep; self.d.cleanup()
+        sys.stdout = self.stdout; species.ROOT, species.TABLE, species.ROWS, species.NODES, species.files = self.keep; self.d.cleanup()
     def node(self, i, latin, name):
         return {'id': i, 'latin': latin, 'name': name, 'tl': 2, 'xh': 1, 'wiki': latin, 'desc': 'd', 'ic': 'x'}
     def test_split_then_table_is_the_old_table(self):
