@@ -105,3 +105,32 @@ Not part of the process; one batch that goes through it. The gap report lists, f
 - A new kind of row (a group, say) is a new entry in the rules (`lib/contracts.py`: which steps it needs), not new code.
 - A new picture source is one function in `lib/species_sources.py`; the refusal ledger tells which source would help most.
 - Every change to the rules is a pull request with the number of species it would have admitted or refused in the last run, so a change in admission is visible.
+
+## 12. The interface: one REST-like contract for species, place and journey (design, 22 Nov 2026)
+Owner question, 22 Nov: can add species, place and journey have a REST-API-like shape? Yes. The shape below is the same for all three kinds (`docs/ADD-PLACE.md` and `docs/ADD-JOURNEY.md` section 11 refer here). **The transport is not HTTP by default**: the project is a static site with data in git, so the "endpoint" is a GitHub workflow; an HTTP front (section 12.3) is optional and an owner decision.
+
+### 12.1 The contract
+| Call | Meaning |
+|---|---|
+| `POST /species`, `POST /places`, `POST /journeys` | Add one candidate. Body: the candidate of that kind (the JSON each doc defines) and `dry` (default true). |
+| `GET /species/{id}` (same for places, journeys) | Read one record and, for a species, the state of its other data files. |
+| `GET /ledger/{kind}` | The refusals of that kind: key, steps, tried at, hold until. |
+
+One response shape for every kind:
+```
+{ "kind": "species|place|journey",
+  "status": "added | exists | refused",
+  "id": "<id when added or existing>",
+  "dry": true,
+  "steps": { "<step>": {"result": "found|missing|skipped", "detail": "..."} },
+  "reason": "<set only when refused: the first required step that failed, or conflict>" }
+```
+Rules: **idempotent** (the same candidate twice returns `exists` and the same id, never a second record); **a dry call writes nothing** and returns what would happen; **every step is reported**, not only the first failure; `conflict` names both records. The response has a schema in `build/schemas/` and a real-writer test, like every other file we write.
+
+### 12.2 How it is built
+1. **The real API is a function**: `add(kind, candidate, dry) -> Result` in `lib/`, one implementation per kind behind it (`species_rows`, `places`, `journeys`). The validator, the ledger and the workflows all use this one interface.
+2. **A command line over it**: JSON in, JSON out (`python3 -m lib.add species '<json>'`). The three workflows call it; `workflow_dispatch` with the candidate as input is the "POST", and the result is the pull request body and a JSON artifact.
+3. **Nothing else changes**: the steps, rules and ledger of each document stay as written.
+
+### 12.3 Optional HTTP front: a Cloudflare Worker
+A Worker is a small script that runs on Cloudflare's edge, next to the site. It would be a doorway, not the process: it checks a caller's token, validates the body against the request schema, then asks GitHub to run the workflow (`workflow_dispatch`) and returns a run id; the caller polls `GET` for the result, which is read from the pull request or the artifact. It does no adding itself. It needs a secret (a GitHub token allowed to dispatch workflows), a hosted piece the repository does not have today, and a rate limit, so it touches ground rule 4 (secrets and cost) and `.github/**` (owner-merged). Not built before the three processes work; it is only worth building if a caller outside GitHub needs it. Because the contract above already exists, the Worker would be a thin layer over it.

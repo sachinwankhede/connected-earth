@@ -76,3 +76,6 @@ Same record shape as species (`{key, steps: {name: found|missing|skipped, detail
 
 ## 10. Keeping it general
 The steps, rules and ledger mention no state and no particular park. A new kind of place (a marine area, a city park) is a new entry in `lib/contracts.py`, not new code; a new source of candidates is a new input, not a new step.
+
+## 11. The interface
+Same REST-like contract as the other kinds: `POST` a candidate (with `dry`), a response with `status` (`added`, `exists`, `refused`), `id`, every step's result and a `reason`; idempotent; read calls for the record and the ledger. The shape, the function behind it (`add(kind, candidate, dry)`), the command line and the optional Cloudflare Worker are in `docs/ADD-SPECIES.md`, section 12. The steps of this document are the `steps` of the response.
