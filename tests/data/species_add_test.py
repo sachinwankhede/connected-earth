@@ -29,8 +29,29 @@ class Identify(Base):
         self.assertEqual(self.rows.identify('Sun_light', 'resource', '', 'Sun light')['status'], 'new')
         self.assertEqual(self.rows.identify('Sunlight', 'resource', '', 'Sunlight')['by'], 'wiki')
 
-    def test_a_page_is_unique_per_kind_not_across_kinds(self):
-        self.assertEqual(self.rows.identify('Sunlight', 'taxon', 'sunlightus')['status'], 'new')
+    def test_a_page_is_one_row_across_kinds(self):
+        # docs/NODE-IDENTITY.md I3 (owner, 22 Nov): the page of a resource row cannot also become a taxon row, and the other way round
+        i = self.rows.identify('Sunlight', 'taxon', 'sunlightus')
+        self.assertEqual((i['status'], i['sids']), ('conflict', ['sunlight'])); self.assertIn('another kind', i['by'])
+        self.assertEqual(self.rows.identify('Coyote', 'resource', '', 'Coyote')['sids'], ['canis-latrans'])
+
+    def test_a_place_is_never_a_row(self):
+        # I4: the name or the picture article of a place is not a page a row can have
+        os.makedirs(os.path.join(self.d, 'data', 'places'), exist_ok=True)
+        json.dump({'id': 'xafghan', 'name': 'Band-e Amir National Park', 'imgwiki': 'Band-e Amir National Park', 'nodes': []}, open(os.path.join(self.d, 'data', 'places', 'xafghan.json'), 'w'))
+        json.dump({'id': 'xisrael', 'name': 'Hula Nature Reserve', 'imgwiki': 'Hula Valley', 'nodes': []}, open(os.path.join(self.d, 'data', 'places', 'xisrael.json'), 'w'))
+        self.rows = sr.SpeciesRows(self.d)
+        for page in ('Band-e Amir National Park', 'hula_valley'):
+            i = self.rows.identify(page, 'resource', '', page)
+            self.assertEqual(i['status'], 'conflict'); self.assertTrue(i['by'].startswith('place'))
+        self.assertEqual(self.rows.identify('Limestone', 'resource', '', 'Limestone')['status'], 'new')
+
+    def test_a_resource_id_held_by_another_concept_is_not_that_concept(self):
+        # `macrotermes` was a resource row for the page Termite; the page Macrotermes is another article and gets the next free id (the dry run of 22 Nov said "exists")
+        self.rows.create(row('', 'Termites & fungi', 'Termite', sk='resource', cat='decomp', tl=0, sid='macrotermes'))
+        i = self.rows.identify('Macrotermes', 'resource', '', 'Macrotermes')
+        self.assertEqual(i['status'], 'new'); self.assertEqual(self.rows.new_sid('resource', '', 'Macrotermes'), 'macrotermes-2')
+        self.assertEqual(self.rows.new_sid('taxon', 'canis lupus', 'Wolf'), 'canis-lupus')
 
     def test_same_gbif_key_is_the_same_row(self):
         self.rows.taxonomy['canis-latrans'] = {'key': 5219243}; self.rows._index()

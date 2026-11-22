@@ -1,4 +1,4 @@
-import os, sys, unittest
+import json, os, sys, unittest
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(ROOT, 'build'))
 import override_report as o
@@ -44,5 +44,21 @@ class NameClasses(unittest.TestCase):
         self.assertEqual(o.name_class('Leopard', 'Javan leopard'), 'form'); self.assertEqual(o.name_class('Brittlebush', 'White brittlebush'), 'form')
         self.assertEqual(o.name_class('Fungi and bacteria', 'Fungi and soil microbes'), 'group'); self.assertEqual(o.name_class('Peat', 'Peat & bog'), 'group')
         self.assertEqual(o.name_class('Argali', 'Marco Polo sheep'), 'other'); self.assertEqual(o.name_class('Cardinal catchfly', 'Indian-pink'), 'other')
+
+class PagesOfPlacesAndOtherKinds(unittest.TestCase):
+    """docs/NODE-IDENTITY.md I3 and I4: a new-row page that is a place's article, or a row of another kind's page, is not a candidate."""
+    def setUp(self):
+        import tempfile, json
+        self.d = tempfile.mkdtemp(); os.makedirs(os.path.join(self.d, 'data', 'places'))
+        tab = dict(TAB, mac={'sid': 'mac', 'sk': 'taxon', 'name': 'Fungus-growing termites', 'wiki': 'Macrotermes'})
+        node = lambda i, w: {'id': i, 'sp': 'sun', 'xh': 0.1, 'wiki': w}
+        json.dump({'id': 'xafghan', 'name': 'Band-e Amir National Park', 'imgwiki': 'Band-e Amir National Park', 'nodes': [node('ice', 'Band-e Amir National Park'), node('t', 'Macrotermes'), node('l', 'Limestone')]},
+                  open(os.path.join(self.d, 'data', 'places', 'xafghan.json'), 'w'))
+        self.rows = o.scan(self.d, tab)
+    def test_outcomes(self):
+        got = {r[1]: r[6] for r in self.rows}
+        self.assertEqual(got, {'ice': 'place', 't': 'cross-kind', 'l': 'new-row'})
+    def test_only_the_new_row_page_is_a_candidate(self):
+        self.assertEqual([c['wiki'] for c in o.candidates(self.rows, dict(TAB))], ['Limestone'])
 
 if __name__ == '__main__': unittest.main()
