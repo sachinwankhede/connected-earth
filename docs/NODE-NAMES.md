@@ -6,9 +6,9 @@ Before any node `name` override is dropped (I2) the row must carry the right nam
 
 **A row is one concept with one Wikipedia page (I1), and its name is that concept's English name.** The owner does not rule row by row; the name is taken from the data in this order, and the first step that gives an answer decides:
 
-1. The page title, when it is a common name (Wikipedia has settled it).
+1. The page title, when it is a common name (Wikipedia has settled it), without a trailing disambiguation bracket ("Nene (bird)" gives "Nene").
 2. The English label of the page's Wikidata item, when the title is only the scientific name, with a capital first letter.
-3. The English common names Wikidata lists for the taxon (property P1843): the row keeps its current name when that name is on the list, otherwise it takes the first listed.
+3. When Wikipedia and Wikidata give no preferred name (title and label are both scientific), Wikidata's English common names (P1843) are used only as evidence, never as an order: the row keeps its current name when it is listed, and also when it is a plain common name that is merely not listed (the order Wikidata lists names in is not a reason to rename anything). A row whose current name is the Latin name takes the first listed common name that is not itself scientific.
 4. A row whose current name is **more specific than its page** ("Feral cat" on the page of the domestic cat) is a different concept from that page. If the specific name is itself a Wikipedia article, the concept is its own row (own page, own picture and summary), and the nodes that mean it are repointed to it (a place update). If it is not an article, the name is local wording: the row takes the page's name and the wording moves to the node `desc`. A row whose page is not the species its name and nodes describe (Wild horse on the page "Mustang") is repointed to the right page.
 5. A page that is missing, a disambiguation page, or has no name from steps 1 to 3 is the only case left for the owner.
 

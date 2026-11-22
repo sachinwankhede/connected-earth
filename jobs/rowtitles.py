@@ -97,12 +97,13 @@ def decide(rows, get):
             name = cap(lab.get(qid))
             if name and not is_scientific(name, r): src = 'Wikidata label of %s' % qid
             else:
-                names = com.get(qid) or []; cur = r.get('name')
+                names = [n for n in (com.get(qid) or []) if not is_scientific(n, r)]; cur = r.get('name')
                 keep = next((n for n in names if n == cur or species.same_name(n, cur)), None)
                 if keep: name, src = cur, 'listed as a common name on %s' % qid
+                elif cur and not is_scientific(cur, r): name, src = cur, 'no preferred common name on Wikipedia or Wikidata (%s): the current name is kept' % qid   # Wikidata's order is not evidence of a better name
                 elif names: name, src = cap(names[0]), 'first common name of %s' % qid
                 else: out.append((r, 'unresolved', None, 'the title %r and the Wikidata label %r are scientific names and Wikidata lists no English common name' % (title, lab.get(qid)))); continue
-        else: name, src = title, 'article title'
+        else: name, src = re.sub(r'\s*\([^)]*\)$', '', title) or title, 'article title'   # "Nene (bird)": the bracket only tells pages apart, it is not part of the name
         same = name == r.get('name') or species.same_name(name, r.get('name'))
         out.append((r, 'same' if same else 'change', name, src))
     # step 4: a current name that is a Wikipedia article other than the row's page is a more specific concept
