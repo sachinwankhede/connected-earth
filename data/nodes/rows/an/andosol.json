@@ -1,0 +1,14 @@
+{
+ "about": "Andosols are soils found in volcanic areas formed in volcanic tephra. In some cases, andosols can also be found outside active volcanic areas.",
+ "at": "2026-11-22",
+ "cat": "abiotic",
+ "desc": "",
+ "ic": "soil",
+ "latin": "",
+ "name": "Andosol",
+ "sid": "andosol",
+ "sk": "resource",
+ "src": "addspecies",
+ "tl": 0,
+ "wiki": "Andosol"
+}
