@@ -97,13 +97,14 @@ A journey is a connection that exists in nature, so a missing journey is a conne
 ## 11. Decisions
 - Decided (owner, 18 Nov): complete creation in one go; one ledger writer and shape for all kinds, one file per kind (recommended, species side).
 - Decided (owner, 22 Nov): a journey is not limited to a pair of ends; it has stops and legs. Food webs are connected by movement of organisms and flows of matter; a shared species is not a connection.
-- Open:
+- Open (owner, 22 Nov: parked in #1082, to be answered before any journey work starts):
   - whether a cover picture is required;
   - whether the 17 species journeys get a species id before the process exists;
   - whether a leg carries its own season sentence (`when`) or the journey's one `when` is enough;
   - whether `osprey`/`chesosprey` and the two green turtle files become one journey each (a decision per case);
   - whether a flow node must be a resource node, and whether a flow may start at a point outside any place (the app reads such a flow; no file has one: drop that branch or model it);
-  - whether the build and the app change in one pull request (recommended) or the build first with the app reading both shapes.
+  - whether the build and the app change in one pull request (recommended) or the build first with the app reading both shapes;
+  - which source of movement evidence the coverage report may use (section 8).
 
 ## 12. Keeping it general
 Steps, rules and ledger mention no species, no place and no route. A new kind of journey is a new entry in `lib/contracts.py` (which checks apply to its stops), not new code.
