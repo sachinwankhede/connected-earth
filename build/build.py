@@ -238,6 +238,7 @@ def search_bucket(word):
 _SV = json.load(open(D('data', 'species', 'search_vocabulary.json'), encoding='utf-8'))   # spelling pairs and plurals for the search index (#602): data, see the note in the file
 SPELLING_PAIRS = [tuple(p) for p in _SV['spelling_pairs']]
 IRREGULAR_PLURALS = _SV['irregular_plurals']
+ALSO_CALLED = _SV.get('also_called', {})   # {species id: [names it had before a rename]}, see the note in the file
 SAME_PLURAL = set(_SV['same_plural'])   # elk keeps "elks" as well, see _plural
 
 
@@ -269,6 +270,13 @@ def search_aliases(common):
     return out - set(toks)
 
 
+def also_called_words(sid):
+    """The words of the names a row had before it was renamed, with their spelling partners and plurals (#1061): a search for the old name still finds the row."""
+    out = set()
+    for n in ALSO_CALLED.get(sid, []): out |= search_words(n) | search_aliases(n)
+    return out
+
+
 def split_search(light, spt, sidx, qs):
     """(meta, buckets, rows). buckets: {two letters: {'w': sorted words, 'p': [place numbers, each list delta-coded]}}; rows: list of files, each a list of
     place ids for SEARCH_ROWS places in page order (the app reads only the id; name, place, position, continent and state were dropped in #561)."""
@@ -277,7 +285,7 @@ def split_search(light, spt, sidx, qs):
         names = []; alias = set()
         for k in sidx[e['id']]:
             lat, common = (spt[k][0], spt[k][1]) if isinstance(k, int) else (spt[k[0]][0], k[1])
-            names += [common, lat]; alias |= search_aliases(common)
+            names += [common, lat]; alias |= search_aliases(common) | also_called_words(spt[k][2] if isinstance(k, int) else spt[k[0]][2])
         for w in search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)) | alias:
             posting.setdefault(w, []).append(n)
     buckets = {}
@@ -308,7 +316,7 @@ def split_suggest(light, spt, sidx, pics=None):
             if len(b) < SUGGEST_PER and not any(x[0] == e['id'] for x in b): b.append([e['id'], e['name']])
     sp = sorted(((-count[k], c, l, k) for l, c, k in spt if k in count), key=lambda t: (t[0], t[1], t[2]))
     for neg, c, l, k in sp:
-        al = search_aliases(c)   # other words for the same name (#602): the row carries them as a sixth field the app matches against
+        al = (search_aliases(c) | also_called_words(k)) - search_words(c + ' ' + l)   # other words for the same name (#602) and for its former names (#1061): the row carries them as a sixth field the app matches against
         for w in search_words(c + ' ' + l) | al:
             b = out.setdefault(search_bucket(w), {'p': [], 's': []})['s']
             if len(b) < SUGGEST_PER and not any(x[0] == l for x in b): b.append([l, c, -neg, (pics or {}).get(k, 0), k] + ([' '.join(sorted(al))] if al else []))
