@@ -30,7 +30,7 @@ These are written so that a validator can check each one.
 
 ## 5. Order of work (agreed, 22 Nov)
 1. This document, and the update operation of `docs/ADD-SPECIES.md` section 12.4.
-2. Reconcile the override report (its outcome counts add up to 1,134 against 1,096 nodes) and add the place-page and place-named-row counts. Sample the 746 "nearest" nodes: is the nearest row really the same thing?
+2. Done (22 Nov): the override report adds up to 1,096 nodes (nearest 746, repoint 125, new-row 148, ambiguous 64, cross-kind 10, place 3). The "nearest" sample shows the node name is often better than the row name (Elk row, "Red deer" node), so **the row name is decided per row before any override is dropped**. Checks come first (22 Nov, owner: hand edits are fine for this cleanup, but the checks must stop bad data being created): `build/validate_data.py` `page_errors` caps pages held by two rows (151) and rows whose page is a place (27); both only go down.
 3. The place-level edit: an update of a place's food web (`docs/ADD-PLACE.md`, section 12) with the checks of the add process and a reference check (journey stops that name the node).
 4. The cross-kind identity check, then `data-addspecies` for the pages that really need rows (without the four place pages).
 5. Merge the shared rows (I3), repoint, retire the place-named rows, lower the limits to zero, and add the validator rules for I2 to I4.
