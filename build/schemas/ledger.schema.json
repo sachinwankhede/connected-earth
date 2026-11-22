@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "data/ledger/<kind>.json: the refusal ledger of one kind (species, place or journey), keyed by the candidate's key (docs/ADD-SPECIES.md; written only by lib/creation_ledger.py)",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["steps", "reason", "tried", "hold_until", "attempts"],
+    "additionalProperties": false,
+    "properties": {
+      "steps": {
+        "type": "object",
+        "minProperties": 1,
+        "additionalProperties": {
+          "type": "object",
+          "required": ["result"],
+          "additionalProperties": false,
+          "properties": {
+            "result": {"enum": ["found", "missing", "skipped"]},
+            "detail": {"type": "string"}
+          }
+        }
+      },
+      "reason": {"type": "string", "minLength": 1, "description": "the first required step that failed, or conflict"},
+      "tried": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+      "hold_until": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+      "attempts": {"type": "integer", "minimum": 1}
+    }
+  }
+}

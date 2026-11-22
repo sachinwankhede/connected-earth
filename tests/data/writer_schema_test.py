@@ -13,8 +13,16 @@ def photo_missing():
     return {'with-inputs': pr.negative_entry('nophoto', 1, NOW, inp), 'no-point': pr.negative_entry('notfree', 2, NOW, nopoint),
             'without-inputs': pr.negative_entry('wrongpage', 3, NOW)}
 
+def ledger():
+    import creation_ledger as cl, tempfile
+    L = cl.Ledger('species', tempfile.mkdtemp())
+    L.record('Eastern coyote', {'identity': {'result': 'found', 'detail': 'new'}, 'picture': {'result': 'missing', 'detail': 'no licensed picture'}, 'conservation': {'result': 'skipped'}}, 'picture', NOW)
+    L.record('Eastern coyote', {'picture': {'result': 'missing'}}, 'picture', NOW)   # a second refusal counts an attempt
+    return dict(L.rows)
+
 # schema kind -> a function returning {key: record} made by the real writer, or a string saying where the records come from
 WRITERS = {
+    'ledger': ledger,   # lib/creation_ledger.py, the refusal ledger of species, places and journeys
     'photo-missing': photo_missing,   # lib/photo_registry.negative_entry, used by the place and species picture writers
     'about': 'jobs/about.py', 'diets': 'jobs/ and build/species.py (data/diets)', 'geo': 'data/geo/geo.json, a source file',
     'journey': 'journey files (jobs/ and the research branch)', 'journey-config': 'data/journeys/config.json, a source file',
@@ -38,7 +46,7 @@ class WriterSchemas(unittest.TestCase):
             schema = json.load(open(os.path.join(SCHEMAS, kind + '.schema.json'), encoding='utf-8'))
             for label, record in made().items():
                 try:
-                    jsonschema.validate({'k': record} if kind == 'photo-missing' else record, schema)
+                    jsonschema.validate({'k': record} if kind in ('photo-missing', 'ledger') else record, schema)   # these two schemas describe a file of {key: record}
                 except jsonschema.ValidationError as e:
                     self.fail('%s: the writer made a %s record the schema refuses: %s' % (kind, label, e.message[:200]))
 
