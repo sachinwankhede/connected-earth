@@ -3,12 +3,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.join(ROOT, 'jobs')); sys.path.insert(0, os.path.join(ROOT, 'build'))
 import rowtitles
 
-def fake(pages, labels, commons=None):
+def fake(pages, labels, commons=None, taxa=None):
     """get() answering like Wikipedia ({asked title: (final title, wikidata id) | 'missing' | 'disambig' | ('redirect', to, id)}) and Wikidata ({id: label})."""
     def get(url):
         if 'wikidata' in url and 'props=claims' in url:
             ids = url.split('ids=')[1].split('|')
-            return {'entities': {i: {'claims': {'P1843': [{'mainsnak': {'datavalue': {'value': {'text': t, 'language': l}}}} for t, l in (commons or {})[i]]}} for i in ids if i in (commons or {})}}
+            return {'entities': {i: {'claims': {'P225': [{'mainsnak': {'datavalue': {'value': (taxa or {})[i]}}}] if i in (taxa or {}) else [], 'P1843': [{'mainsnak': {'datavalue': {'value': {'text': t, 'language': l}}}} for t, l in (commons or {}).get(i, [])]}} for i in ids if i in (commons or {}) or i in (taxa or {})}}
         if 'wikidata' in url:
             ids = url.split('ids=')[1].split('|')
             return {'entities': {i: {'labels': {'en': {'value': labels[i]}}} for i in ids if i in labels}}
@@ -25,8 +25,16 @@ def fake(pages, labels, commons=None):
 def row(sid, name, wiki, latin=''): return {'sid': sid, 'name': name, 'wiki': wiki, 'latin': latin, 'sk': 'taxon'}
 
 class Decide(unittest.TestCase):
-    def one(self, r, pages, labels=None, commons=None):
-        return rowtitles.decide([r], fake(pages, labels or {}, commons))[0]
+    def one(self, r, pages, labels=None, commons=None, taxa=None):
+        return rowtitles.decide([r], fake(pages, labels or {}, commons, taxa))[0]
+    def test_a_page_of_another_taxon_is_a_wrong_page(self):
+        r = row('b', 'Arctic cod', 'Arctogadus', 'Boreogadus saida')
+        st = self.one(r, {'Arctogadus': ('Arctogadus', 'Q10')}, {}, None, {'Q10': 'Arctogadus'})
+        self.assertEqual(st[1], 'wrongpage'); self.assertIn('Arctogadus', st[3])
+        self.assertNotEqual(self.one(row('b', 'Bullsnake', 'Pituophis catenifer', 'Pituophis catenifer'), {'Pituophis catenifer': ('Pituophis catenifer', 'Q11')}, {'Q11': 'Pituophis catenifer'}, None, {'Q11': 'Pituophis catenifer'})[1], 'wrongpage')
+    def test_a_synonym_label_with_the_same_epithet_is_scientific(self):
+        r = row('v', 'Umbrella thorn', 'Vachellia tortilis', 'Vachellia tortilis')
+        self.assertEqual(self.one(r, {'Vachellia tortilis': ('Vachellia tortilis', 'Q12')}, {'Q12': 'Acacia tortilis'}, None, {'Q12': 'Vachellia tortilis'})[1], 'same')
     def test_a_common_name_title_is_the_proposal(self):
         _, st, n, src = self.one(row('a', 'Bull Pine', 'Ponderosa pine', 'Pinus ponderosa'), {'Bull Pine': 'missing'})
         self.assertEqual((st, n, src), ('change', 'Ponderosa pine', 'article title'))
