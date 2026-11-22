@@ -1,0 +1,14 @@
+{
+ "about": "The dry season is a yearly period of low rainfall, especially in the tropics.",
+ "at": "2026-11-22",
+ "cat": "abiotic",
+ "desc": "",
+ "ic": "rain",
+ "latin": "",
+ "name": "Dry season",
+ "sid": "dry-season",
+ "sk": "resource",
+ "src": "addspecies",
+ "tl": 0,
+ "wiki": "Dry season"
+}

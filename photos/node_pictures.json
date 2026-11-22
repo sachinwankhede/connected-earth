@@ -54,6 +54,30 @@
 "page": "Alpine_tundra",
 "wiki": "Alpine tundra"
 },
+"andisol": {
+"a": "Unknown author",
+"built": "2026-11-22T16:27:02.461585+00:00",
+"checkedAt": "2026-11-22T16:27:02.461585+00:00",
+"f": "46c54a16ec65.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:AndisolWorld.jpg",
+"page": "Andisol",
+"u": "1/16/AndisolWorld.jpg/330px-AndisolWorld.jpg",
+"wiki": "Andisol"
+},
+"andosol": {
+"a": "Unknown author",
+"built": "2026-11-22T16:27:12.461218+00:00",
+"checkedAt": "2026-11-22T16:27:12.461218+00:00",
+"f": "a66648bd4a59.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Andisol_profile.jpg",
+"page": "Andosol",
+"u": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Andisol_profile.jpg",
+"wiki": "Andosol"
+},
 "awash-river": {
 "a": "Bjørg Sandkjær (Bjorg Sandkjaer)",
 "built": "2026-11-16T04:00:53.289959+00:00",
@@ -168,6 +192,19 @@
 "src": "wikidata-p18",
 "wiki": "Canadian Shield"
 },
+"caribbean-sea": {
+"a": "Kijan Ay",
+"built": "2026-11-22T16:27:28.451709+00:00",
+"checkedAt": "2026-11-22T16:27:28.451709+00:00",
+"f": "046f362156e8.webp",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:50_Shades_Of_Blue_%28187611681%29.jpeg",
+"page": "Caribbean_Sea",
+"src": "wikidata-p18",
+"u": "8/84/50_Shades_Of_Blue_%28187611681%29.jpeg/330px-50_Shades_Of_Blue_%28187611681%29.jpeg",
+"wiki": "Caribbean Sea"
+},
 "cenote": {
 "a": "Son of Groucho",
 "built": "2026-11-16T04:00:53.290316+00:00",
@@ -200,6 +237,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Chobe_River_at_Kasane.jpg",
 "page": "Cuando_River",
 "wiki": "Chobe River"
+},
+"chukchi-sea": {
+"a": "Mohonu",
+"built": "2026-11-22T16:27:38.478002+00:00",
+"checkedAt": "2026-11-22T16:27:38.478002+00:00",
+"f": "0d739e8216a0.webp",
+"l": "CC BY-SA 3.0",
+"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
+"p": "https://commons.wikimedia.org/wiki/File:Chukchi_Sea.png",
+"page": "Chukchi_Sea",
+"u": "9/94/Chukchi_Sea.png/330px-Chukchi_Sea.png",
+"wiki": "Chukchi Sea"
 },
 "clay-lick": {
 "a": "This Image was created by User:Amog. If you would like to use the image please mail me at",
@@ -346,6 +395,18 @@
 "page": "Decomposer",
 "wiki": "Decomposer"
 },
+"desert-climate": {
+"a": "Maulucioni, based on a previous work by Beck, H.E. et al. 2018",
+"built": "2026-11-22T16:27:48.525271+00:00",
+"checkedAt": "2026-11-22T16:27:48.525271+00:00",
+"f": "9d9c99813381.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:BW_climate.png",
+"page": "Desert_climate",
+"u": "4/48/BW_climate.png/330px-BW_climate.png",
+"wiki": "Desert climate"
+},
 "detritus": {
 "a": "Rickjpelleg",
 "built": "2026-11-16T04:00:53.290951+00:00",
@@ -378,6 +439,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Dja_River_and_pirogue.JPG",
 "page": "Dja_River",
 "wiki": "Dja River"
+},
+"dry-season": {
+"a": "Basile Morin",
+"built": "2026-11-22T16:27:58.457687+00:00",
+"checkedAt": "2026-11-22T16:27:58.457687+00:00",
+"f": "f58abb884cb1.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Long_shadow_of_a_dead_tree_with_its_branches_on_the_dry_fields_of_Laos_-_landscape.jpg",
+"page": "Dry_season",
+"u": "3/3c/Long_shadow_of_a_dead_tree_with_its_branches_on_the_dry_fields_of_Laos_-_landscape.jpg/330px-Long_shadow_of_a_dead_tree_with_its_branches_on_the_dry_fields_of_Laos_-_landscape.jpg",
+"wiki": "Dry season"
 },
 "dune": {
 "a": "Himarerme",
@@ -456,6 +529,18 @@
 "page": "Falkland_Current",
 "wiki": "Falkland Current"
 },
+"fedchenko-glacier": {
+"a": "Jaan Künnap",
+"built": "2026-11-22T16:28:08.473480+00:00",
+"checkedAt": "2026-11-22T16:28:08.473480+00:00",
+"f": "adae64eb69ee.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:1982_expedition_to_Tartu_%C3%9Clikool_350_%2807%29.jpg",
+"page": "Vanch-Yakh_Glacier",
+"u": "f/f9/1982_expedition_to_Tartu_%C3%9Clikool_350_%2807%29.jpg/330px-1982_expedition_to_Tartu_%C3%9Clikool_350_%2807%29.jpg",
+"wiki": "Fedchenko Glacier"
+},
 "fiord": {
 "a": "Frédéric de Goldschmidt",
 "built": "2026-11-16T04:00:53.291279+00:00",
@@ -477,6 +562,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Rolla_Island_in_front_of_Commander_Peak_and_entrance_to_Hall_Arm_of_Doubtful_Sound.jpg",
 "page": "Fiordland",
 "wiki": "Fiordland"
+},
+"fire-ecology": {
+"a": "Unknown author",
+"built": "2026-11-22T16:28:18.494008+00:00",
+"checkedAt": "2026-11-22T16:28:18.494008+00:00",
+"f": "47a3f985d5f5.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Wildfire-ISS007_Mosaic2.jpg",
+"page": "Fire_ecology",
+"u": "1/13/Wildfire-ISS007_Mosaic2.jpg/330px-Wildfire-ISS007_Mosaic2.jpg",
+"wiki": "Fire ecology"
 },
 "flash-flood": {
 "a": "PawełMM (this montage); Nyttend (original photographs)",
@@ -510,6 +607,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ganges_River_Delta%2C_Bangladesh%2C_India.jpg",
 "page": "Flood_pulse_concept",
 "wiki": "Flood pulse concept"
+},
+"floodplain": {
+"a": "NASA Astronaut photograph ISS030-E-90012",
+"built": "2026-11-22T16:28:28.488816+00:00",
+"checkedAt": "2026-11-22T16:28:28.488816+00:00",
+"f": "aa73012fff0c.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Paran%C3%A1_River_Floodplain.jpg",
+"page": "Floodplain",
+"u": "e/e0/Paran%C3%A1_River_Floodplain.jpg/330px-Paran%C3%A1_River_Floodplain.jpg",
+"wiki": "Floodplain"
 },
 "florida-reef": {
 "a": "NOAA National Marine Fisheries Servie",
@@ -930,6 +1039,18 @@
 "page": "Lava",
 "wiki": "Lava"
 },
+"limestone": {
+"a": "Fernando Domínguez Cerejido",
+"built": "2026-11-22T16:28:38.480153+00:00",
+"checkedAt": "2026-11-22T16:28:38.480153+00:00",
+"f": "b804a568c86b.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:ElTorcal0408.jpg",
+"page": "Limestone",
+"u": "9/99/ElTorcal0408.jpg/330px-ElTorcal0408.jpg",
+"wiki": "Limestone"
+},
 "limestone-pavement": {
 "a": "Childzy",
 "built": "2026-11-16T04:00:53.292759+00:00",
@@ -973,6 +1094,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Luangwa_river02.jpg",
 "page": "Luangwa_River",
 "wiki": "Luangwa River"
+},
+"luxembourg-sandstone": {
+"a": "Colbachr",
+"built": "2026-11-22T16:28:48.468868+00:00",
+"checkedAt": "2026-11-22T16:28:48.468868+00:00",
+"f": "fd166ce8acbb.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Gres_luxembourg.jpg",
+"page": "Luxembourg_Sandstone",
+"u": "3/30/Gres_luxembourg.jpg/330px-Gres_luxembourg.jpg",
+"wiki": "Luxembourg Sandstone"
 },
 "macrotermes": {
 "a": "Unknown author",
@@ -1083,6 +1216,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Monsoon_clouds_near_Nagercoil.jpg",
 "page": "Monsoon",
 "wiki": "Monsoon"
+},
+"monsoon-of-india": {
+"a": "Mdmadhu",
+"built": "2026-11-22T16:28:58.469318+00:00",
+"checkedAt": "2026-11-22T16:28:58.469318+00:00",
+"f": "46ae8e0a4894.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:The_South_Asian_Monsoon.gif",
+"page": "Monsoon_of_South_Asia",
+"u": "f/ff/The_South_Asian_Monsoon.gif/330px-The_South_Asian_Monsoon.gif",
+"wiki": "Monsoon of India"
 },
 "montane-ecosystems": {
 "a": "Walter Siegmund",
@@ -1894,6 +2039,18 @@
 "page": "Swamp",
 "wiki": "Swamp"
 },
+"syrian-desert": {
+"a": "Emilfarb at English Wikipedia",
+"built": "2026-11-22T16:29:08.521391+00:00",
+"checkedAt": "2026-11-22T16:29:08.521391+00:00",
+"f": "451ab4ca0403.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Syrian_Desert.png",
+"page": "Syrian_desert",
+"u": "9/97/Syrian_Desert.png/330px-Syrian_Desert.png",
+"wiki": "Syrian Desert"
+},
 "tian-shan": {
 "a": "Maryliflower",
 "built": "2026-11-16T04:00:53.295899+00:00",
@@ -1994,6 +2151,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Dramatic_Views_of_Hurricane_Florence_from_the_International_Space_Station_From_9_12_%2842828603210%29_%28cropped%29.jpg",
 "page": "Tropical_cyclone",
 "wiki": "Tropical cyclone"
+},
+"tropical-rainforest": {
+"a": "lubasi",
+"built": "2026-11-22T16:29:18.462476+00:00",
+"checkedAt": "2026-11-22T16:29:18.462476+00:00",
+"f": "65c138552c6e.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Amazon_Rainforest.jpg",
+"page": "Tropical_rainforest",
+"u": "d/d0/Aerial_view_of_the_Amazon_Rainforest.jpg/330px-Aerial_view_of_the_Amazon_Rainforest.jpg",
+"wiki": "Tropical rainforest"
 },
 "tundra": {
 "a": "Hannes Grobe, AWI",
@@ -2151,6 +2320,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Burnout_ops_on_Mangum_Fire_McCall_Smokejumpers.jpg",
 "page": "Wildfire",
 "wiki": "Wildfire"
+},
+"winter": {
+"a": "Ernst Vikne",
+"built": "2026-11-22T16:29:28.471972+00:00",
+"checkedAt": "2026-11-22T16:29:28.471972+00:00",
+"f": "7183add33123.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Winter_forest_silver.jpg",
+"page": "Winter",
+"u": "b/b0/Winter_forest_silver.jpg/330px-Winter_forest_silver.jpg",
+"wiki": "Winter"
 },
 "zambezi": {
 "a": "Brian McMorrow",
