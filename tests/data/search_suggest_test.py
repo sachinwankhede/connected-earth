@@ -18,9 +18,9 @@ def check(pilot):
     full_p, full_s = {}, {}
     for e in light:
         for w in B.search_words(e['name'] + ' ' + e['short']): full_p.setdefault(B.search_bucket(w), set()).add(e['id'])
-    for l, c, _ in spt:
+    for l, c, sid in spt:
         if l in latin_places:
-            for w in B.search_words(c + ' ' + l) | B.search_aliases(c): full_s.setdefault(B.search_bucket(w), set()).add(l)
+            for w in B.search_words(c + ' ' + l) | B.search_aliases(c) | B.also_called_words(sid): full_s.setdefault(B.search_bucket(w), set()).add(l)
     assert set(sug) == set(full_p) | set(full_s), 'one file for every start that has a name'
     for key, b in sug.items():
         assert all(len(r) in (5, 6) and (r[3] == 0 or r[3].endswith('.webp')) and r[4] == B.species.slug(r[0]) and (len(r) == 5 or (isinstance(r[5], str) and r[5])) for r in b['s']), key + ': a species row is [latin, name, places, hosted picture or 0, species id] and, when there are other words for the name, a fifth field with them (#443, #602)'
