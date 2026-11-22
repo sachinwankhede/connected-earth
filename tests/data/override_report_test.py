@@ -37,4 +37,12 @@ class Classify(unittest.TestCase):
         tab = dict(TAB, dup={'sid': 'dup', 'sk': 'taxon', 'name': 'Other', 'wiki': 'Wolf'}); P2, N2 = o.indexes(tab)
         self.assertEqual(o.classify({'wiki': 'Wolf'}, tab['wolf'], 'wolf', P2, N2), None)
 
+class NameClasses(unittest.TestCase):
+    """#1038 (#1047): the first report, kept as `--classes` (#1077 had replaced it)."""
+    def test_classes(self):
+        self.assertEqual(o.name_class('Cattails', 'Cattail'), 'spelling'); self.assertEqual(o.name_class('Beavertail cactus', 'Beaver-tail cactus'), 'spelling')
+        self.assertEqual(o.name_class('Leopard', 'Javan leopard'), 'form'); self.assertEqual(o.name_class('Brittlebush', 'White brittlebush'), 'form')
+        self.assertEqual(o.name_class('Fungi and bacteria', 'Fungi and soil microbes'), 'group'); self.assertEqual(o.name_class('Peat', 'Peat & bog'), 'group')
+        self.assertEqual(o.name_class('Argali', 'Marco Polo sheep'), 'other'); self.assertEqual(o.name_class('Cardinal catchfly', 'Indian-pink'), 'other')
+
 if __name__ == '__main__': unittest.main()
