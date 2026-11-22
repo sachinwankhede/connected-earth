@@ -1,0 +1,84 @@
+name: data-addspecies
+# By hand only (docs/ADD-SPECIES.md, section 4; part of #1023). Adds species whole or not at all through jobs/addspecies.py: picture, taxonomy, summary and conservation are looked up for every new candidate, and a candidate with a required step missing gets no row and is written to data/ledger/species.json. dry = yes (the default) does every lookup, writes nothing and opens no pull request: the step summary says what would be added and what would be refused. A live run opens ONE data pull request.
+# Needs no secret: only GITHUB_TOKEN. Every download goes through lib/fetch.py and the hosts already in lib/allowed_sources.json (Wikipedia, Wikidata, Commons, GBIF, Openverse, iNaturalist); no paid API.
+# Candidates: `titles` (one Wikipedia title per line) with `kind` (taxon, group or resource) and, for a taxon, `tl` (trophic level 1 to 4) and `latin` when the title is not the Latin name; or `candidates` (a JSON list of {wiki, kind, latin, name, tl, ic, cat}) for per-species details. A species the table already has is returned as `exists` and not looked up again.
+# Same concurrency group as the picture jobs (data-photos): it writes the same files. It stops while another data pull request that writes species files is open.
+on:
+  workflow_dispatch:
+    inputs:
+      titles: { description: "Wikipedia titles, one per line (used with kind)", default: "" }
+      kind: { description: "taxon, group or resource (for titles)", default: "taxon" }
+      tl: { description: "Trophic level 1 to 4 (for taxon titles)", default: "" }
+      latin: { description: "Latin name (only when one title is given and it is not the Latin name)", default: "" }
+      candidates: { description: "Or a JSON list of candidates {wiki, kind, latin, name, tl, ic, cat}", default: "" }
+      limit: { description: "Candidates to try (0 = all)", default: "0" }
+      minutes: { description: "Time budget: stops cleanly after this many minutes (the job's own timeout is 170)", default: "120" }
+      dry: { description: "yes = only look up and report, write nothing and open no pull request", default: "yes" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-photos
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    env:
+      DRY: ${{ github.event.inputs.dry }}
+      TITLES: ${{ github.event.inputs.titles }}
+      KIND: ${{ github.event.inputs.kind }}
+      TL: ${{ github.event.inputs.tl }}
+      LATIN: ${{ github.event.inputs.latin }}
+      CANDIDATES: ${{ github.event.inputs.candidates }}
+      LIMIT: ${{ github.event.inputs.limit }}
+      MINUTES: ${{ github.event.inputs.minutes }}
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - run: pip install pillow jsonschema
+      - name: Stop while a species pull request is open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|test("^data/(photos|dropunnamed|commons|largephoto|hostphoto|openverse|rekey|droppictures|placepictures|addspecies|taxonomy|about|conservation)"))]|length')
+          echo "open species or picture pull requests: $N"; echo "n=$N" >> "$GITHUB_OUTPUT"
+      - name: Add the species
+        id: add
+        if: steps.open.outputs.n == '0'
+        run: |
+          set +e
+          ARGS=(--limit "${LIMIT:-0}" --minutes "${MINUTES:-120}" --out result.json --report report.md)
+          [ "$DRY" = "no" ] || ARGS+=(--dry)
+          if [ -n "$CANDIDATES" ]; then printf '%s' "$CANDIDATES" > candidates.json; ARGS+=(--candidates candidates.json); fi
+          if [ -n "$TITLES" ]; then
+            T=$(printf '%s' "$TITLES" | tr '\r' '\n' | grep -v '^[[:space:]]*$' | paste -sd'|' -)
+            ARGS+=(--titles "$T" --kind "$KIND"); [ -z "$TL" ] || ARGS+=(--tl "$TL"); [ -z "$LATIN" ] || ARGS+=(--latin "$LATIN")
+          fi
+          python3 jobs/addspecies.py "${ARGS[@]}" | tee add.log | tail -150
+          RC=${PIPESTATUS[0]}
+          echo "rc=$RC" >> "$GITHUB_OUTPUT"
+          [ -f report.md ] && cat report.md >> "$GITHUB_STEP_SUMMARY"
+          [ "$RC" = "0" ] || [ "$RC" = "2" ] || exit "$RC"
+      - name: Validate the new files
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        run: |
+          set -o pipefail
+          python3 build/validate_data.py | tail -20
+      - name: Commit and open the pull request
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/addspecies-${GITHUB_RUN_ID}"
+          git add -A photos data
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          NA=$(python3 -c "import json;print(sum(1 for r in json.load(open('result.json')) if r['status']=='added'))")
+          NR=$(python3 -c "import json;print(sum(1 for r in json.load(open('result.json')) if r['status']=='refused'))")
+          git commit -m "Species: $NA added, $NR refused (addspecies)"
+          git push -f origin HEAD
+          { printf 'Part of #1023 (`docs/ADD-SPECIES.md`). Run of data-addspecies: **%s added**, **%s refused** (the refusals are in `data/ledger/species.json`, tried again after the 90-day hold).\n\n' "$NA" "$NR"; cat report.md; printf '\n**Sources and licences:** Wikipedia and Wikidata, Wikimedia Commons, GBIF, Openverse and iNaturalist, all already in `lib/allowed_sources.json`; only CC0, CC BY, CC BY-SA and public domain are kept, with a named author (#421). The licence and author of each new picture are in the list above.\n\n**Spot check:** every added species is listed above with its picture source, licence and author; check at least 10 (or all, when fewer) as `docs/PROMOTION.md` requires.\n\n_Generated by [Claude Code](https://claude.ai/code)_\n'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Species: $NA added, $NR refused (addspecies)" --body-file body.md
+      - name: Say so when a source stopped the run
+        if: steps.add.outputs.rc == '2'
+        run: echo "A source stopped the run (throttled or refused); see the STOP line in the log." && exit 1
