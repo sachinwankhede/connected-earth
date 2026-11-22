@@ -99,6 +99,20 @@ class Job(unittest.TestCase):
         self.assertIn('not about', A.summary_of('Coyote may refer to: the animal, a film and a town in many places.')[2])
         self.assertIn('too short', A.summary_of('A small one.')[2]); self.assertIn('no text', A.summary_of('')[2])
 
+class Report(unittest.TestCase):
+    def test_report_lists_added_refused_and_known(self):
+        d = tree(); A.run([TAXON], Fake(), d, dry=False, now=DAY, log=lambda *a: None)
+        res, stopped = A.run([TAXON, dict(TAXON, wiki='Nopic', latin='No pic'), dict(TAXON, wiki='New one', latin='New one')], Fake(picture=1), d, dry=True, now=DAY, log=lambda *a: None)
+        md = A.report(res, True, 'x')
+        for part in ('(dry run: nothing written)', 'would add 0, already there 1, refused 2', '**a source stopped the run:** x', '**Already there:** Eastern coyote', 'Nopic: **picture**', 'Refusals by reason: picture 2'): self.assertIn(part, md)
+        res, _ = A.run([dict(TAXON, wiki='Fine', latin='Fine one')], Fake(), d, dry=True, now=DAY, log=lambda *a: None)
+        self.assertIn('wikipedia (CC BY 4.0, Jane Doe) | taxonomy found | summary found | conservation found', A.report(res, True))
+
+    def test_main_writes_the_report_and_the_result_file(self):
+        d = tree(); out = os.path.join(d, 'r.json'); rep = os.path.join(d, 'r.md')
+        rc = A.main(['--titles', 'Canis one|Canis two', '--kind', 'taxon', '--tl', '4', '--dry', '--out', out, '--report', rep], root=d, src=Fake())
+        self.assertEqual(rc, 0); self.assertEqual(len(json.load(open(out))), 2); self.assertIn('would add 2', open(rep).read())
+
 class RealSourcesWithFakes(unittest.TestCase):
     """Sources.picture with fake source functions: the first accepted picture wins; a refusal is in the trail; an organism-only source skips a resource."""
     def make(self, sources, vet=None):

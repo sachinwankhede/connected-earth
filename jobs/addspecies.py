@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """addspecies.py: add species whole or not at all (docs/ADD-SPECIES.md). It composes the existing sources and writers; lib/species_rows.py decides who a candidate is, whether it may be added, and records refusals.
-Usage: addspecies.py (--candidates file.json | --titles "Title one|Title two" --kind taxon|group|resource) [--latin "Name"] [--tl N] [--dry] [--limit N] [--minutes N] [--out result.json]   (run from the repository root)
+Usage: addspecies.py (--candidates file.json | --titles "Title one|Title two" --kind taxon|group|resource) [--latin "Name"] [--tl N] [--dry] [--limit N] [--minutes N] [--out result.json] [--report report.md]   (run from the repository root)
 
 A candidate is {wiki, kind, latin?, name?, tl?, ic?, cat?, desc?, gbif?}: the Wikipedia article, the kind of row, and what a row needs that no source can give (the trophic level of a taxon, the icon, the category of a resource). It carries nothing about places.
 For every new candidate the steps run in this order and every one is recorded, whatever the others found:
@@ -172,6 +172,27 @@ def run(cands, src, root='.', dry=True, limit=0, deadline=None, now=None, log=pr
     return out, stopped
 
 
+def report(res, dry=False, stopped=None):
+    """The result as Markdown (the step summary of a dry run and the body of the data pull request): what was added with its source, licence and author (the spot check), what was refused and why (the priority list for the next source), what was already there."""
+    n = lambda st: [r for r in res if r['status'] == st]
+    out = ['### addspecies%s' % (' (dry run: nothing written)' if dry else ''), '', '- %s %d, already there %d, refused %d' % ('would add' if dry else 'added', len(n('added')), len(n('exists')), len(n('refused')))]
+    if stopped: out.append('- **a source stopped the run:** %s' % stopped)
+    if n('added'):
+        out += ['', '**%s** (picture: source, licence, author; then taxonomy, summary, conservation):' % ('Would add' if dry else 'Added'), '']
+        for r in n('added'):
+            st = r['steps']; out.append('- `%s` %s: %s | taxonomy %s | summary %s | conservation %s' % (r['id'], r['wiki'], st['picture']['detail'], st['taxonomy']['result'], st['summary']['result'], st['conservation']['result']))
+    if n('refused'):
+        out += ['', '**Refused** (no row written; each is in `data/ledger/species.json` and tried again after the hold):', '']
+        for r in n('refused'):
+            miss = '; '.join('%s: %s' % (k, v.get('detail', '')) for k, v in r['steps'].items() if v['result'] == 'missing')
+            out.append('- %s: **%s** (%s)' % (r['wiki'], r['reason'], miss or '-'))
+        by = {}
+        for r in n('refused'): by[r['reason']] = by.get(r['reason'], 0) + 1
+        out += ['', 'Refusals by reason: ' + ', '.join('%s %d' % kv for kv in sorted(by.items(), key=lambda kv: (-kv[1], kv[0])))]
+    if n('exists'): out += ['', '**Already there:** ' + ', '.join('%s (`%s`)' % (r['wiki'], r['id']) for r in n('exists'))]
+    return '\n'.join(out) + '\n'
+
+
 def main(argv=None, root=ROOT, src=None):
     a = list(sys.argv[1:] if argv is None else argv); opt = lambda k, d=None: a[a.index(k) + 1] if k in a else d
     dry = '--dry' in a; cands = []
@@ -189,6 +210,7 @@ def main(argv=None, root=ROOT, src=None):
         if r['status'] == 'refused': refused[r['reason']] = refused.get(r['reason'], 0) + 1
     if refused: print('refused by reason:', json.dumps(refused, sort_keys=True))
     if opt('--out'): json.dump(res, open(opt('--out'), 'w'), indent=1, ensure_ascii=False)
+    if opt('--report'): open(opt('--report'), 'w', encoding='utf-8').write(report(res, dry, stopped))
     if not dry and n('added'):
         bad = SpeciesPhotos(root).check()
         if bad: print('CHECK FAILED:'); print('\n'.join(bad[:30])); return 1
