@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""rowtitles.py (#1061, docs/NODE-NAMES.md): READ-ONLY. What would a species row be called if its name were the English Wikipedia title of its page?
-A row maps to one article (I1). The article title is the common name Wikipedia settled on; when the title is only the scientific name, the English label of the
-article's Wikidata item stands in (first letter capital). Nothing is written: the report lists the rows whose name would change, each with the current name,
-the proposed one and where it came from, and the rows that cannot be settled (missing page, disambiguation page, no label), for the owner to read.
+"""rowtitles.py (#1061, docs/NODE-NAMES.md): READ-ONLY. What would a species row be called, decided from the data in the order of docs/NODE-NAMES.md?
+1 the article title when it is a common name; 2 the English label of the article's Wikidata item when the title is only the scientific name (first letter capital);
+3 the English common names Wikidata lists for the taxon (P1843): the current name when it is listed, else the first; 4 a current name that is itself a Wikipedia
+article other than the row's page is a more specific concept: reported as OWN ARTICLE (a new row or a repoint, never a plain rename). Nothing is written: the report
+lists the rows whose name would change with the step that gave the name, the rows with an own article, and the rows no step settles (missing page, disambiguation
+page, no name).
   python3 jobs/rowtitles.py                 # rows that some place node still names differently (the cleanup scope)
   python3 jobs/rowtitles.py --all           # every taxon and group row
   python3 jobs/rowtitles.py --max N         # first N rows only (a small first run)
@@ -14,12 +16,16 @@ import species
 SKIP = ('links.json', 'order.json', 'species.json', 'bounds.json')
 WP = 'https://en.wikipedia.org/w/api.php?action=query&format=json&redirects=1&prop=pageprops&ppprop=disambiguation|wikibase_item&titles='
 WD = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=labels&languages=en&ids='
+WDC = 'https://www.wikidata.org/w/api.php?action=wbgetentities&format=json&props=claims&ids='   # P1843 = taxon common name
 BINOMIAL = re.compile(r'[A-Z][a-z]+( [a-z]+){1,2}$')
 
 def is_scientific(title, row):
-    """True when the title is the row's Latin name (or the row's genus + an epithet): it says what the species is, not what it is called."""
+    """True when the title is the row's Latin name, its genus alone, or its genus + an epithet: it says what the species is, not what it is called."""
     t = (title or '').strip(); latin = (row.get('latin') or '').strip().lower()
-    return bool(t) and (t.lower() == latin or (bool(BINOMIAL.match(t)) and bool(latin) and t.split()[0].lower() == latin.split()[0]))
+    if not t or not latin: return False
+    return t.lower() == latin or t.lower() == latin.split()[0] or (bool(BINOMIAL.match(t)) and t.split()[0].lower() == latin.split()[0])
+
+def cap(name): return (name or '')[:1].upper() + (name or '')[1:]
 
 def scope(root, everything=False):
     """[row] to look at: the rows a place node names differently (default), or every taxon and group row."""
@@ -62,29 +68,59 @@ def labels_of(ids, get):
             if lab: out[k] = lab
     return out
 
+def commons_of(ids, get):
+    """{wikidata id: [English common names]} from P1843 (taxon common name), in the order Wikidata gives them."""
+    out = {}; ids = sorted(set(i for i in ids if i))
+    for i in range(0, len(ids), 20):
+        ents = (get(WDC + '|'.join(ids[i:i + 20])) or {}).get('entities') or {}
+        for k, v in ents.items():
+            names = []
+            for c in ((v.get('claims') or {}).get('P1843') or []):
+                val = ((c.get('mainsnak') or {}).get('datavalue') or {}).get('value') or {}
+                if val.get('language') == 'en' and val.get('text') and val['text'] not in names: names.append(val['text'])
+            if names: out[k] = names
+    return out
+
 def decide(rows, get):
-    """[(row, status, proposed, source)]. status: same, change, or unresolved (the reason is in `source`)."""
+    """[(row, status, proposed, source)]. status: same, change, specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""
     found = titles_of([r['wiki'] for r in rows], get)
-    lab = labels_of([(found.get(r['wiki']) or (None, None))[1] for r in rows if is_scientific((found.get(r['wiki']) or ('',))[0], r)], get)
+    sci = [r for r in rows if found.get(r['wiki']) and is_scientific(found[r['wiki']][0], r)]
+    lab = labels_of([found[r['wiki']][1] for r in sci], get)
+    need = [found[r['wiki']][1] for r in sci if not (lab.get(found[r['wiki']][1]) and not is_scientific(cap(lab[found[r['wiki']][1]]), r))]
+    com = commons_of(need, get)
     out = []
     for r in rows:
         f = found.get(r['wiki'])
         if not f: out.append((r, 'unresolved', None, 'the page is missing, a disambiguation page or a section')); continue
         title, qid = f
         if is_scientific(title, r):
-            name = lab.get(qid)
-            if not name: out.append((r, 'unresolved', None, 'the title %r is the scientific name and Wikidata has no English label' % title)); continue
-            name = name[:1].upper() + name[1:]; src = 'Wikidata label of %s' % qid
-            if is_scientific(name, r): out.append((r, 'unresolved', None, 'the Wikidata label %r is again a scientific name' % name)); continue
+            name = cap(lab.get(qid))
+            if name and not is_scientific(name, r): src = 'Wikidata label of %s' % qid
+            else:
+                names = com.get(qid) or []; cur = r.get('name')
+                keep = next((n for n in names if n == cur or species.same_name(n, cur)), None)
+                if keep: name, src = cur, 'listed as a common name on %s' % qid
+                elif names: name, src = cap(names[0]), 'first common name of %s' % qid
+                else: out.append((r, 'unresolved', None, 'the title %r and the Wikidata label %r are scientific names and Wikidata lists no English common name' % (title, lab.get(qid)))); continue
         else: name, src = title, 'article title'
         same = name == r.get('name') or species.same_name(name, r.get('name'))
         out.append((r, 'same' if same else 'change', name, src))
-    return out
+    # step 4: a current name that is a Wikipedia article other than the row's page is a more specific concept
+    ask = [r['name'] for r, st, _, _ in out if st == 'change' and r.get('name')]
+    own = titles_of(ask, get) if ask else {}
+    res = []
+    for r, st, n, s in out:
+        o = own.get(r.get('name')) if st == 'change' else None
+        page = found.get(r['wiki'])
+        if o and page and o[0] != page[0]: res.append((r, 'specific', o[0], "its own article, not the row's page %r" % page[0]))
+        else: res.append((r, st, n, s))
+    return res
 
 def report(res):
-    ch = [x for x in res if x[1] == 'change']; un = [x for x in res if x[1] == 'unresolved']; same = [x for x in res if x[1] == 'same']
-    lines = ['rows looked at: %d; name already the article name: %d; would change: %d; cannot be settled: %d' % (len(res), len(same), len(ch), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
+    ch = [x for x in res if x[1] == 'change']; un = [x for x in res if x[1] == 'unresolved']; same = [x for x in res if x[1] == 'same']; sp = [x for x in res if x[1] == 'specific']
+    lines = ['rows looked at: %d; name already right: %d; would change: %d; own article (new row or repoint): %d; cannot be settled: %d' % (len(res), len(same), len(ch), len(sp), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
     lines += ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in ch]
+    lines += ['', 'OWN ARTICLE (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in sp]
     lines += ['', 'CANNOT BE SETTLED (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in un]
     return '\n'.join(lines)
 
