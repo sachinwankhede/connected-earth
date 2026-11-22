@@ -69,3 +69,6 @@ Same shape as species and places, one file for journeys, one writer. Counted by 
 
 ## 10. Keeping it general
 Steps, rules and ledger mention no species, no place and no route. A new kind of journey (a seasonal range, a migration with several stops) is a new entry in `lib/contracts.py`, not new code.
+
+## 11. The interface
+Same REST-like contract as the other kinds: `POST` a candidate (with `dry`), a response with `status` (`added`, `exists`, `refused`), `id`, every step's result and a `reason`; idempotent; read calls for the record and the ledger. The shape, the function behind it (`add(kind, candidate, dry)`), the command line and the optional Cloudflare Worker are in `docs/ADD-SPECIES.md`, section 12. The steps of this document are the `steps` of the response.
