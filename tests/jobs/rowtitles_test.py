@@ -42,16 +42,26 @@ class Decide(unittest.TestCase):
     def test_missing_and_disambiguation_pages_and_missing_labels_are_not_settled(self):
         self.assertEqual(self.one(row('m', 'X', 'Nowhere'), {'Nowhere': 'missing'})[1], 'unresolved')
         self.assertEqual(self.one(row('d', 'X', 'Mercury'), {'Mercury': 'disambig'})[1], 'unresolved')
-        self.assertEqual(self.one(row('l', 'X', 'Abies alba', 'Abies alba'), {'Abies alba': ('Abies alba', 'Q3')})[1], 'unresolved')
+        self.assertEqual(self.one(row('l', 'Abies alba', 'Abies alba', 'Abies alba'), {'Abies alba': ('Abies alba', 'Q3')})[1], 'unresolved')   # no name from the data and the current name is the Latin one
     def test_a_label_that_is_again_scientific_is_not_used(self):
-        self.assertEqual(self.one(row('l', 'X', 'Abies alba', 'Abies alba'), {'Abies alba': ('Abies alba', 'Q3')}, {'Q3': 'abies alba'})[1], 'unresolved')
+        self.assertEqual(self.one(row('l', 'Abies alba', 'Abies alba', 'Abies alba'), {'Abies alba': ('Abies alba', 'Q3')}, {'Q3': 'abies alba'})[1], 'unresolved')
 
     def test_wikidata_common_names_settle_a_plant_whose_title_and_label_are_scientific(self):
         r = row('p', 'Eastern white pine', 'Pinus strobus', 'Pinus strobus'); pages = {'Pinus strobus': ('Pinus strobus', 'Q5')}
         self.assertEqual(self.one(r, pages, {'Q5': 'Pinus strobus'}, {'Q5': [('Weymouth pine', 'en'), ('Eastern white pine', 'en')]})[1:3], ('same', 'Eastern white pine'))   # the current name is listed: kept
-        _, st, n, src = self.one(row('p', 'Pine', 'Pinus strobus', 'Pinus strobus'), {**pages, 'Pine': 'missing'}, {'Q5': 'Pinus strobus'}, {'Q5': [('Weymouth pine', 'en'), ('Eastern white pine', 'en')]})
-        self.assertEqual((st, n), ('change', 'Weymouth pine')); self.assertIn('Q5', src)   # not listed: the first one
-        self.assertEqual(self.one(r, pages, {'Q5': 'Pinus strobus'}, {'Q5': [('Pin blanc', 'fr')]})[1], 'unresolved')   # only other languages
+        _, st, n, src = self.one(row('p', 'Pinus strobus', 'Pinus strobus', 'Pinus strobus'), pages, {'Q5': 'Pinus strobus'}, {'Q5': [('Weymouth pine', 'en'), ('Eastern white pine', 'en')]})
+        self.assertEqual((st, n), ('change', 'Weymouth pine')); self.assertIn('Q5', src)   # the current name is the Latin name: the first listed
+        self.assertEqual(self.one(row('p', 'Pinus strobus', 'Pinus strobus', 'Pinus strobus'), pages, {'Q5': 'Pinus strobus'}, {'Q5': [('Pin blanc', 'fr')]})[1], 'unresolved')   # only other languages
+    def test_a_plain_current_name_is_kept_when_wikipedia_and_wikidata_give_no_preferred_one(self):
+        r = row('p', 'Virginian Juniper', 'Juniperus virginiana', 'Juniperus virginiana')
+        _, st, n, src = self.one(r, {'Juniperus virginiana': ('Juniperus virginiana', 'Q4')}, {'Q4': 'Juniperus virginiana'}, {'Q4': [('Eastern juniper', 'en')]})
+        self.assertEqual((st, n), ('same', 'Virginian Juniper')); self.assertIn('kept', src)
+    def test_a_scientific_common_name_is_not_used(self):
+        r = row('d', 'Diospyros', 'Diospyros', 'Diospyros')
+        self.assertEqual(self.one(r, {'Diospyros': ('Diospyros', 'Q3')}, {'Q3': 'Diospyros'}, {'Q3': [('Diospyros', 'en')]})[1], 'unresolved')
+    def test_a_disambiguation_bracket_is_not_part_of_the_name(self):
+        _, st, n, _ = self.one(row('n', 'Nene (Hawaiian goose)', 'Nene (bird)', 'Branta sandvicensis'), {'Nene (Hawaiian goose)': 'missing'})
+        self.assertEqual((st, n), ('change', 'Nene'))
     def test_a_genus_only_title_is_a_scientific_name(self):
         r = row('e', 'Wild Mockcucumber', 'Echinocystis lobata', 'Echinocystis lobata')
         self.assertEqual(self.one(r, {'Echinocystis lobata': ('Echinocystis', 'Q6'), 'Wild Mockcucumber': 'missing'}, {'Q6': 'Echinocystis'})[1], 'unresolved')
