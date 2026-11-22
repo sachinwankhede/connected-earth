@@ -35,14 +35,14 @@ class PackAndSplit(unittest.TestCase):
     """pack() and split() on a throwaway tree (the module's paths are pointed at it)."""
     def setUp(self):
         self.d = tempfile.TemporaryDirectory(); r = self.d.name
-        self.keep = (species.ROOT, species.TABLE, species.ROWS, species.files)
-        species.ROOT = r; species.TABLE = os.path.join(r, 'data', 'species', 'species.json'); species.ROWS = os.path.join(r, 'data', 'species', 'rows')
+        self.keep = (species.ROOT, species.TABLE, species.ROWS, species.NODES, species.files)
+        species.ROOT = r; species.TABLE = os.path.join(r, 'data', 'species', 'species.json'); species.ROWS = os.path.join(r, 'data', 'species', 'rows'); species.NODES = os.path.join(r, 'data', 'nodes', 'rows')
         os.makedirs(os.path.join(r, 'data', 'species')); os.makedirs(os.path.join(r, 'data', 'places'))
         self.place = os.path.join(r, 'data', 'places', 'p.json')
         species.files = lambda: iter([self.place])
         self.stdout = sys.stdout; sys.stdout = open(os.devnull, 'w')
     def tearDown(self):
-        sys.stdout = self.stdout; species.ROOT, species.TABLE, species.ROWS, species.files = self.keep; self.d.cleanup()
+        sys.stdout = self.stdout; species.ROOT, species.TABLE, species.ROWS, species.NODES, species.files = self.keep; self.d.cleanup()
     def node(self, i, latin, name):
         return {'id': i, 'latin': latin, 'name': name, 'tl': 2, 'xh': 1, 'wiki': latin, 'desc': 'd', 'ic': 'x'}
     def test_split_then_table_is_the_old_table(self):
@@ -63,5 +63,15 @@ class PackAndSplit(unittest.TestCase):
         self.assertEqual(slim[0]['name'], 'Changed by a vote')                  # the place keeps what differs from the row
         before = json.dumps(tab, sort_keys=True); species.pack()
         self.assertEqual(json.dumps(species.by_name(), sort_keys=True), before)  # safe to repeat
+    def test_a_node_that_names_its_row_is_counted_under_that_row_whatever_name_it_holds(self):
+        # #1088: a node without a Latin name was matched by its name, so dropping or changing that name made pack add a duplicate row
+        os.makedirs(species.ROWS, exist_ok=True)
+        species.write_row({'name': 'Rain', 'tl': 1, 'wiki': 'Rain', 'desc': 'd', 'ic': 'x', 'sid': 'rain', 'sk': 'resource', 'cat': 'water'}, os.path.join(species.ROOT, 'data', 'nodes', 'rows'))
+        for name in (None, 'Heavy rain'):
+            n = {'id': 'n1', 'sp': 'rain', 'xh': 1}
+            if name: n['name'] = name
+            json.dump({'id': 'p', 'nodes': [n]}, open(self.place, 'w')); species.pack()
+            self.assertEqual(sorted(species.table()), ['rain'])
+            self.assertEqual(json.load(open(self.place))['nodes'][0].get('name'), name)
 
 if __name__ == '__main__': unittest.main()

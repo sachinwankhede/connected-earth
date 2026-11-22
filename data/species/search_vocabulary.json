@@ -1,5 +1,5 @@
 {
- "note": "Other words people type for the same name (#602): build/build.py writes them into the search index, so the app's lookup stays a plain prefix match. spelling_pairs apply to every word of a species' usual name (both ways); the plural of its last word is added too, or the singular when the last word is an irregular plural. irregular_plurals maps a singular to its plural; same_plural lists words whose plural is the same word (elk keeps 'elks' as well).",
+ "note": "Other words people type for the same name (#602): build/build.py writes them into the search index, so the app's lookup stays a plain prefix match. spelling_pairs apply to every word of a species' usual name (both ways); the plural of its last word is added too, or the singular when the last word is an irregular plural. irregular_plurals maps a singular to its plural; same_plural lists words whose plural is the same word (elk keeps 'elks' as well). also_called {species id: [names]} are the names a row had before it was renamed to its Wikipedia name (#1061): the build adds their words to the row, so a search for the old name still finds it (cow, caribou, gray wolf). A rename adds the old name here.",
  "spelling_pairs": [
   [
    "gray",
@@ -53,5 +53,112 @@
   "squid",
   "swine",
   "trout"
- ]
+ ],
+ "also_called": {
+  "bacillariophyta": [
+   "Marsh algae & diatoms"
+  ],
+  "boa-imperator": [
+   "Boa constrictor"
+  ],
+  "boreogadus-saida": [
+   "Arctic cod"
+  ],
+  "bos-taurus": [
+   "Cow"
+  ],
+  "branta-sandvicensis": [
+   "Nēnē (Hawaiian goose)"
+  ],
+  "bryophyta": [
+   "Mosses"
+  ],
+  "canis-lupus": [
+   "Gray wolf"
+  ],
+  "castor-canadensis": [
+   "American beaver"
+  ],
+  "chromolaena-odorata": [
+   "Siam weed"
+  ],
+  "copepoda": [
+   "Zooplankton"
+  ],
+  "crotaphytus-collaris": [
+   "Collared lizard"
+  ],
+  "cyanobacteria": [
+   "Algae and cyanobacteria"
+  ],
+  "ephemeroptera": [
+   "Mayflies"
+  ],
+  "equus-caballus": [
+   "Wild horse"
+  ],
+  "giraffa-giraffa": [
+   "Angolan giraffe"
+  ],
+  "insecta": [
+   "Forest insects"
+  ],
+  "lepidoptera": [
+   "Moths"
+  ],
+  "loxodonta-africana": [
+   "African elephant"
+  ],
+  "macaca-fascicularis": [
+   "Long-tailed macaque"
+  ],
+  "mayflies-caddisflies-and-midges": [
+   "Aquatic insect larvae"
+  ],
+  "myocastor-coypus": [
+   "Coypu"
+  ],
+  "nucifraga-caryocatactes": [
+   "Eurasian nutcracker"
+  ],
+  "oreochromis": [
+   "Tilapia and bream"
+  ],
+  "ovis-aries": [
+   "Domestic sheep"
+  ],
+  "pantherophis-alleghaniensis": [
+   "Eastern Rat Snake"
+  ],
+  "peromyscus-maniculatus": [
+   "Deer mouse"
+  ],
+  "pituophis-catenifer": [
+   "Bullsnake"
+  ],
+  "pseudois-nayaur": [
+   "Blue sheep (bharal)"
+  ],
+  "puma-concolor": [
+   "Puma"
+  ],
+  "quercus": [
+   "Oaks"
+  ],
+  "rangifer-tarandus": [
+   "Caribou"
+  ],
+  "tapirus-terrestris": [
+   "Lowland tapir"
+  ],
+  "ulva": [
+   "Green seaweed"
+  ],
+  "ursus-americanus": [
+   "Black bear"
+  ],
+  "varanus-salvator": [
+   "Water monitor"
+  ]
+ }
 }

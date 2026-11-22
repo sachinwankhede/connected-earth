@@ -1,11 +1,12 @@
 {
  "latin": "Crotaphytus collaris",
- "name": "Collared lizard",
+ "name": "Common collared lizard",
  "tl": 3,
- "wiki": "Collared lizard",
+ "wiki": "Common collared lizard",
  "desc": "A big-headed lizard of rocky desert ground that hunts insects and smaller lizards. Hawks and rattlesnakes eat it.",
  "ic": "snake",
  "sid": "crotaphytus-collaris",
  "sk": "taxon",
- "src": "legacy"
+ "src": "legacy",
+ "about": "The common collared lizard, also commonly called eastern collared lizard, Oklahoma collared lizard, mountain boomer, yellow-headed collared lizard, and collared lizard, is a North American species of…"
 }

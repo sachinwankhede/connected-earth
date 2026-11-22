@@ -1,12 +1,12 @@
 {
  "latin": "Cyanobacteria",
- "name": "Algae and cyanobacteria",
+ "name": "Cyanobacteria",
  "tl": 1,
- "wiki": "Algae",
+ "wiki": "Cyanobacteria",
  "desc": "Films of algae coat stones and tufa in the lakes and streams and are grazed by insect larvae and small crustaceans.",
  "ic": "algae",
- "about": "Algae are any of a large and diverse group of photosynthetic organisms. It excludes the land plants (embryophytes).",
  "sid": "cyanobacteria",
  "sk": "taxon",
- "src": "legacy"
+ "src": "legacy",
+ "about": "Cyanobacteria ( sy-AN-oh-bak-TEER-ee-ə) are a group of autotrophic gram-negative bacteria of the phylum Cyanobacteriota that can obtain biological energy via oxygenic photosynthesis."
 }

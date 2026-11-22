@@ -1,12 +1,12 @@
 {
  "latin": "Pantherophis alleghaniensis",
- "name": "Eastern Rat Snake",
+ "name": "Yellow ratsnake",
  "tl": 3,
- "wiki": "Pantherophis alleghaniensis",
+ "wiki": "Yellow ratsnake",
  "desc": "Eastern Rat Snake (Pantherophis alleghaniensis): hunts or scavenges other animals. Recorded 10 times near the park in GBIF.",
  "ic": "quad",
- "about": "The central ratsnake, also commonly known as the black ratsnake, chicken snake, gray ratsnake, midland ratsnake, and pilot black snake, is a species of nonvenomous snake in the subfamily Colubrinae…",
  "sid": "pantherophis-alleghaniensis",
  "sk": "taxon",
- "src": "legacy"
+ "src": "legacy",
+ "about": "Pantherophis quadrivittatus, commonly called the yellow ratsnake or eastern ratsnake, is a species of nonvenomous snake in the family Colubridae. The species is endemic to North America."
 }

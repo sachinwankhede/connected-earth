@@ -132,6 +132,18 @@ class DataFormat(unittest.TestCase):
             for want in ("'ic' is a required property", 'own sid', "'sk' is a required property", "'2' is not of type 'integer'", 'duplicates', "'gone' has no file", "'zz' has no file", 'stray.json has no place', 'missing.webp is missing', 'no named author', 'orphan.webp is not listed', "'zz' is not a species row"):
                 self.assertIn(want, text)
 
+class PageIdentity(unittest.TestCase):
+    def test_a_page_held_twice_or_by_a_place_is_over_the_limit_only_beyond_the_limits(self):   # I3, I4 (docs/NODE-IDENTITY.md)
+        import validate_data as v
+        d = tempfile.mkdtemp(); os.makedirs(os.path.join(d, 'data/places'))
+        json.dump({'id': 'x', 'name': 'Lake Tana', 'imgwiki': 'Lake Tana'}, open(os.path.join(d, 'data/places/x.json'), 'w'))
+        sp = {'a': {'sid': 'a', 'wiki': 'Rain'}, 'b': {'sid': 'b', 'wiki': 'rain'}, 'c': {'sid': 'c', 'wiki': 'Lake_Tana'}}
+        old = (v.PAGE_SHARED_LIMIT, v.PAGE_PLACE_LIMIT)
+        try:
+            v.PAGE_SHARED_LIMIT = v.PAGE_PLACE_LIMIT = 1; self.assertEqual(v.page_errors(d, sp), [])
+            v.PAGE_SHARED_LIMIT = v.PAGE_PLACE_LIMIT = 0; self.assertEqual(len(v.page_errors(d, sp)), 2)
+        finally: v.PAGE_SHARED_LIMIT, v.PAGE_PLACE_LIMIT = old
+
 class JourneyEnds(unittest.TestCase):
     def test_a_journey_may_not_end_at_a_local_place(self):
         with tempfile.TemporaryDirectory() as r:

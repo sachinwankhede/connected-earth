@@ -32,7 +32,7 @@ def check(pilot, folder):
         names = []; alias = set()
         for k in sidx[e['id']]:
             lat, common = (spt[k][0], spt[k][1]) if isinstance(k, int) else (spt[k[0]][0], k[1])
-            names += [common, lat]; alias |= B.search_aliases(common)   # other words for the same name (#602)
+            names += [common, lat]; alias |= B.search_aliases(common) | B.also_called_words(spt[k][2] if isinstance(k, int) else spt[k[0]][2])   # other words for the same name (#602) and its former names (#1061)
         for w in B.search_words(' '.join([e['name'], e['place'], e['short'], e.get('kind') or '', qs[e['id']]] + names)) | alias: want.setdefault(w, []).append(n)
     assert words == want, 'index differs from the places'
     # rows: one line per place in page order

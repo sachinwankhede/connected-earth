@@ -16,7 +16,7 @@ Exit 2 when a source stopped the run (throttled three times, or refused); exit 1
 import os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib')); sys.path.insert(0, os.path.join(ROOT, 'build'))
-import speciespictures as sj, journey_photos as jp, journey_pics, species_sources as ss
+import speciespictures as sj, journey_photos as jp, journey_pics, species_sources as ss, author_repair as ar
 
 # the species strategies, except that the three that look for an animal (gbif, openverse, inaturalist) skip a flow journey
 STRATEGIES = [(n, f, a if n in ('wikipedia', 'commons') else ss._organism, d) for n, f, a, d in ss.SOURCES]
@@ -47,11 +47,17 @@ def main(argv=None, root=ROOT):
     if not journey_pics.new_shape(root): print('the journey pictures are not keyed by journey id yet: this job needs photos/journey_pictures.json (migration, jobs/rekeyjourneyphotos.py)'); return 1
     w = Photos(root); units = load_units(root)
     print('%d journeys with a title (%d flow journeys), %d without a cover' % (len(units), sum(1 for u in units if u['abiotic']), sum(1 for u in units if not w.has(u['sid']))))
+    rl = int(opt('--repair-limit', 40))
     stats, stopped = sj.acquire(w, units, STRATEGIES, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry=dry, copies=copies)
     for name, s in stats.items():
         if name == 'copies': print('summary copies: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, pictures with copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['copies'], s['nocopy']))
     print('added %d covers' % sum(s['found'] for s in stats.values()))
+    if rl:   # the author repair step (#887, lib/author_repair.py): after the sources, only when none of them stopped, inside the same time budget
+        if stopped: print('author repair skipped: a source stopped this run')
+        else:
+            rs, _ = ar.repair_step(w, limit=rl, dry=dry); print(ar.summary(rs))
+            if not dry and (rs['fixed'] or rs['none']): w.commit()
     if not dry:
         bad = jp.JourneyPhotos(root).check()
         if bad: print('CHECK FAILED:'); print('\n'.join(bad[:30])); return 1

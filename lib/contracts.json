@@ -1,10 +1,50 @@
 {
   "_note": "The rules several jobs, validators and tests share, written once (docs/DATA-PLAN.md step 2). Python reads this through lib/contracts.py, the Node tests read this file. Change a number here, nowhere else.",
-  "photoPermanentStatuses": ["nophoto", "notcommons", "notphoto", "notfree", "wrongpage"],
+  "photoPermanentStatuses": [
+    "nophoto",
+    "notcommons",
+    "notphoto",
+    "notfree",
+    "wrongpage"
+  ],
   "permanentRetryDays": 180,
   "transientRetryMaxHours": 168,
   "sourceRetryDays": 90,
   "inputMoveKm": 1.0,
-  "story": { "words": 60, "chars": [120, 620] },
-  "matters": { "words": 40, "chars": [80, 520] }
+  "story": {
+    "words": 60,
+    "chars": [
+      120,
+      620
+    ]
+  },
+  "matters": {
+    "words": 40,
+    "chars": [
+      80,
+      520
+    ]
+  },
+  "ledgerHoldDays": 90,
+  "species": {
+    "required": {
+      "taxon": [
+        "picture",
+        "taxonomy",
+        "summary"
+      ],
+      "group": [
+        "picture",
+        "summary"
+      ],
+      "resource": [
+        "picture",
+        "summary"
+      ]
+    },
+    "optional": [
+      "conservation"
+    ],
+    "_note": "docs/ADD-SPECIES.md: the steps a species row needs before it is added (identity always runs first and stops the candidate). Conservation is never required."
+  }
 }

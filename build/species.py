@@ -109,15 +109,18 @@ def files():
         yield os.path.join(ROOT, d, f)
 
 def pack():
-    tab = table(); old = by_name(tab); ecos = {}
+    tab = table(); old = by_name(tab); ecos = {}; raw = {}
+    by_sid = {r['sid']: r for r in tab.values() if r.get('sid')}
+    def rowkey(r, n):   # #1088: a node that names its row (`sp`) is counted under that row, not under the name it may override
+        return name_key(by_sid[r['sp']]) if r.get('sp') in by_sid else key(n)
     own_ev = {}   # #256: a place keeps only its own `ev` (the table holds the rest); the join below fills it in for counting, and the file is written back with what it had
     for p in files():
-        d = json.load(open(p)); own_ev[p] = d['ev'] if 'ev' in d else None; ecos[p] = join(d, tab)   # full nodes
+        d = json.load(open(p)); own_ev[p] = d['ev'] if 'ev' in d else None; raw[p] = [dict(n) for n in d['nodes']]; ecos[p] = join(d, tab)   # full nodes
     seen = collections.defaultdict(lambda: collections.defaultdict(collections.Counter))
     for p, e in ecos.items():
-        for n in e['nodes']:
+        for r, n in zip(raw[p], e['nodes']):
             for f in SHARED:
-                seen[key(n)][f][json.dumps(n.get(f), ensure_ascii=False)] += 1
+                seen[rowkey(r, n)][f][json.dumps(n.get(f), ensure_ascii=False)] += 1
     new = {}; rows_mode = os.path.isdir(ROWS)
     for k, fs in sorted(seen.items()):
         row = {}
@@ -134,8 +137,8 @@ def pack():
     assign(new, old)
     for p, e in ecos.items():
         slim = []
-        for n in e['nodes']:
-            k = key(n); row = new[k]
+        for r, n in zip(raw[p], e['nodes']):
+            k = rowkey(r, n); row = new[k]
             s = {'id': n['id'], 'sp': row['sid'], 'xh': n['xh']}
             for f in SHARED:
                 if n.get(f) == row.get(f): continue

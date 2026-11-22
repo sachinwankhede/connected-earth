@@ -1,12 +1,12 @@
 {
  "latin": "Boreogadus saida",
- "name": "Arctic cod",
+ "name": "Polar cod",
  "tl": 3,
- "wiki": "Arctic cod",
+ "wiki": "Polar cod",
  "desc": "A small fish that links copepods to seals, whales and seabirds.",
  "ic": "trout",
- "about": "Arctogadus glacialis, known also with ambiguous common names Arctic cod and polar cod, is an Arctic species of fish in the cod family Gadidae, related to the true cod (genus Gadus).",
  "sid": "boreogadus-saida",
  "sk": "taxon",
- "src": "legacy"
+ "src": "legacy",
+ "about": "Boreogadus saida, known as the polar cod or as the Arctic cod, is a fish of the cod family Gadidae, related to the true cod (genus Gadus)."
 }

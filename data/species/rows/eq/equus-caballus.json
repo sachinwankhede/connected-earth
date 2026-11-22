@@ -1,12 +1,12 @@
 {
  "latin": "Equus caballus",
- "name": "Wild horse",
+ "name": "Horse",
  "tl": 2,
- "wiki": "Mustang",
+ "wiki": "Horse",
  "desc": "Free-roaming horses live in the South Unit. Park staff manage the herd size, and a fence keeps horses and bison inside the park.",
  "ic": "quad",
- "about": "The mustang is a free-roaming horse of the Western United States, descended from horses brought to the Americas by the Spanish conquistadors.",
  "sid": "equus-caballus",
  "sk": "taxon",
- "src": "legacy"
+ "src": "legacy",
+ "about": "The horse is a domesticated, one-toed, hoofed mammal. It belongs to the taxonomic family Equidae and is one of two extant subspecies of Equus ferus."
 }
