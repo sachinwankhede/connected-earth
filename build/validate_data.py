@@ -185,6 +185,9 @@ def check(root):
     dirty = pw.dirty_authors()   # authors that carry an email, talk stamp, web address or sentence (owner, 15 Nov); an error since jobs/cleanauthors.py cleaned the stored rows (DIRTY_AUTHOR_IS_ERROR)
     if dirty: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/places/places.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty), ', '.join(dirty[:5])))
     # taxonomy sidecar (#254): shape per file, and rules across files
+    ld = os.path.join(root, 'data', 'ledger')   # docs/ADD-SPECIES.md: the refusal ledger, one file per kind, written only by lib/creation_ledger.py
+    for f in sorted(os.listdir(ld)) if os.path.isdir(ld) else []:
+        if f.endswith('.json'): shape(json.load(open(os.path.join(ld, f))), 'ledger', 'data/ledger/' + f, errs)
     tx = load(root, 'data', 'species', 'taxonomy.json'); rv = load(root, 'data', 'species', 'taxonomy_review.json')
     man = load(root, 'data', 'species', 'taxonomy_manual.json')
     if tx is not None or rv is not None or man is not None:

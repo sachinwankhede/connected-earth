@@ -19,3 +19,7 @@ INPUT_MOVE_KM = _C['inputMoveKm']   # a place that moved less than this since a 
 
 STORY_WORDS = _C['story']['words']; STORY_CHARS = tuple(_C['story']['chars'])
 WHY_WORDS = _C['matters']['words']; WHY_CHARS = tuple(_C['matters']['chars'])
+
+LEDGER_HOLD_DAYS = _C['ledgerHoldDays']   # a refused candidate (species, place or journey) is tried again this long after its date (docs/ADD-SPECIES.md, the refusal ledger)
+SPECIES_REQUIRED = {k: tuple(v) for k, v in _C['species']['required'].items()}   # per kind of row (taxon, group, resource): the steps that must be found before the row is added
+SPECIES_OPTIONAL = tuple(_C['species']['optional'])   # run and recorded, never a reason to refuse
