@@ -18,7 +18,7 @@ The first draft of this document proposed "the name most nodes use". That was wi
 
 ## How it is applied
 
-1. `jobs/rowtitles.py` (read-only; workflow `readonly-rowtitles`, owner-merged because it is under `.github/`) applies steps 1 and 2 today (steps 3 and 4 are being added, and until they are the rows they would settle stay in its "cannot be settled" list) and prints, for each row a node still names differently, the proposed name and the step that gave it, the rows that already match, and the rows left for the owner.
+1. `jobs/rowtitles.py` (read-only; workflow `readonly-rowtitles`, owner-merged because it is under `.github/`) applies steps 1 to 4 (read-only; for step 4 it reports an own article but does not yet check that the article has a licensed picture, which the add process requires) and prints, for each row a node still names differently, the proposed name and the step that gave it, the rows that already match, and the rows left for the owner.
 2. A data pull request (by hand, allowed for this cleanup) applies the renames and repoints the job proposes; a new row goes through the add process (licensed picture required, refusal ledger).
 3. Node `name` overrides on those rows are then dropped in batches, with the name cap in `build/validate_data.py` lowered with each batch.
 
