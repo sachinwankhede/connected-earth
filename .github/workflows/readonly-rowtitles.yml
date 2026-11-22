@@ -1,0 +1,23 @@
+name: readonly-rowtitles
+# Manual, read-only (#1061, docs/NODE-NAMES.md). For the species rows that a place node still names differently, asks English Wikipedia for the title of the row's
+# page (and Wikidata for the English label when the title is only the scientific name) and prints in the run summary which rows would change name, which already
+# match, and which cannot be settled. It changes nothing: no commit, no pull request, no secret. Hosts: en.wikipedia.org and www.wikidata.org (lib/allowed_sources.json).
+on:
+  workflow_dispatch:
+    inputs:
+      all: { description: "yes = every taxon and group row, not only the rows a node names differently", default: "no" }
+permissions:
+  contents: read
+jobs:
+  lookup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+      - name: Look up the titles (read-only)
+        env:
+          ALL: ${{ github.event.inputs.all }}
+        run: |
+          ARGS=(); [ "$ALL" = "yes" ] && ARGS+=(--all)
+          python3 jobs/rowtitles.py "${ARGS[@]}" | tee report.txt
+          { echo '```'; cat report.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
