@@ -5,6 +5,8 @@ Outcome for each node override:
   repoint    a row of the same kind already has the page (wiki override) or the name (name-only override): the node points at that row (`sp`) and drops its override
   ambiguous  several rows of the kind already have the page (the shared pages of #1061: "Rain" is the page of many resource rows): which row the node should use is decided when those rows are merged, not here
   new-row    the page has no row: a candidate for jobs/addspecies.py (data-addspecies); if the process refuses it (no licensed picture, no taxonomy, no summary) the node uses the row it has now and drops the override
+  place      the page is the name or picture article of a place: a place is never a node (docs/NODE-IDENTITY.md, I4); the node uses the generic row and says the rest in `desc`
+  cross-kind the page is already the page of a row of ANOTHER kind (I3, one page one row across kinds): a person decides which kind the node means
   nearest    a name-only override: no page of its own, so no row; the node keeps the row it has and drops the name
 A title is compared as written (capitals, spaces and underscores ignored). Redirects are NOT followed here (no network): a page that redirects to a page a row already has shows as new-row, and the dry run of data-addspecies reports it as exists once its title is resolved; jobs/cleanwikis.py is the tool that resolves titles.
 --candidates writes the new-row pages as a list for `data-addspecies` ({wiki, kind, name, tl, ic, cat?, latin: ''}): a taxon needs its Latin name filled in by a person or from the current row before a run, since no offline source gives it."""
@@ -39,11 +41,23 @@ def classify(node, row, sid, pages, names):
         return 'nearest', None, None
     return None
 
+def place_pages(root=ROOT):
+    """{normalised page}: the name and the picture article of every place."""
+    out = set(); d = os.path.join(root, 'data', 'places')
+    for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+        if not f.endswith('.json') or f in SKIP: continue
+        try: e = json.load(open(os.path.join(d, f)))
+        except (OSError, ValueError): continue
+        if isinstance(e, dict): out.update(norm(e[k]) for k in ('name', 'imgwiki') if e.get(k))
+    return out
+
 def scan(root=ROOT, tab=None):
     """[(place id, node id, row sid, kind, has name, has wiki, outcome, target, page)] for every node with an override."""
     import species
     tab = tab if tab is not None else species.table(root); pages, names = indexes(tab); out = []
-    d = os.path.join(root, 'data', 'places')
+    d = os.path.join(root, 'data', 'places'); ppages = place_pages(root); anykind = collections.defaultdict(set)
+    for sid, r in tab.items():
+        if r.get('wiki'): anykind[norm(r['wiki'])].add(r.get('sk'))
     for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
         if not f.endswith('.json') or f in SKIP: continue
         try: e = json.load(open(os.path.join(d, f)))
@@ -51,6 +65,9 @@ def scan(root=ROOT, tab=None):
         for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
             if n.get('sp') not in tab or not ('name' in n or 'wiki' in n): continue
             r = tab[n['sp']]; c = classify(n, r, n['sp'], pages, names)
+            if c and c[0] == 'new-row':
+                if norm(c[2]) in ppages: c = ('place', None, c[2])
+                elif anykind.get(norm(c[2]), set()) - {r.get('sk')}: c = ('cross-kind', None, c[2])
             if c: out.append((f[:-5], n.get('id'), n['sp'], r.get('sk'), 'name' in n, 'wiki' in n, c[0], c[1], c[2]))
     return out
 
@@ -118,7 +135,7 @@ if __name__ == '__main__':
     print('%d place nodes keep a name or wiki of their own' % len(rows)); s = summary(rows)
     for (kind, outcome), n in sorted(s.items()): print('%-9s %-9s %5d nodes' % (kind, outcome, n))
     cands = candidates(rows, tab); print('%d distinct new-row pages (%s)' % (len(cands), ', '.join('%s %d' % kv for kv in sorted(collections.Counter(c['kind'] for c in cands).items()))))
-    by = collections.Counter((r[6], r[3], r[8] or r[7]) for r in rows if r[6] in ('new-row', 'repoint', 'ambiguous'))
+    by = collections.Counter((r[6], r[3], r[8] or r[7]) for r in rows if r[6] in ('new-row', 'repoint', 'ambiguous', 'place', 'cross-kind'))
     for (outcome, kind, key), n in by.most_common(None if full else 12): print('  %-8s %-8s %-40s %3d nodes' % (outcome, kind, key, n))
     if '--candidates' in sys.argv:
         out = sys.argv[sys.argv.index('--candidates') + 1]; json.dump(cands, open(out, 'w'), indent=1, ensure_ascii=False); print('wrote', out)

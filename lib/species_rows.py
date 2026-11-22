@@ -4,8 +4,8 @@
 identify() decides who a candidate is before anything is written, in a fixed order, and a doubt is a `conflict`, never a merge:
   1 the same Wikipedia article as a row of the same kind  -> that row
   2 the same GBIF key (taxon rows; from taxonomy.json)     -> that row
-  3 the same row id (the slug of the Latin name, or of the name) -> that row
-  If two of these name different rows the answer is `conflict` with both named. Otherwise the candidate is new.
+  3 the same row id (taxon and group rows only: their id is the slug of the Latin name, so the id is the identity; a resource row's id is only a free name and is never an identity) -> that row
+  If two of these name different rows the answer is `conflict` with both named. A page is one row across kinds and never a place (docs/NODE-IDENTITY.md, I3 and I4): a candidate whose page is already the page of a row of ANOTHER kind, or the name or picture article of a place, is a `conflict` too, never a new row. Otherwise the candidate is new.
 ensure() adds a species whole or not at all: it runs identify(), asks `gather` for the other steps (every one is run and recorded), refuses and records in the ledger when a required step (contracts.SPECIES_REQUIRED) is not found, and otherwise
 writes the files and then the row, so a killed run leaves at worst files no row mentions. The result has the one shape every add call has: {kind, status: added|exists|refused, id, dry, steps, reason}.
 A candidate carries nothing about places. `gather` is how the real sources are plugged in (jobs/addspecies.py); the tests pass fakes."""
@@ -32,11 +32,34 @@ class SpeciesRows:
         self._index()
 
     def _index(self):
-        self.by_wiki = {}; self.by_gbif = {}
+        self.by_wiki = {}; self.by_gbif = {}; self.by_page = {}; self._place_pages = None
         for sid, r in self.tab.items():
-            if r.get('wiki'): self.by_wiki.setdefault((r.get('sk'), _norm(r['wiki'])), []).append(sid)
+            if r.get('wiki'):
+                self.by_wiki.setdefault((r.get('sk'), _norm(r['wiki'])), []).append(sid)
+                self.by_page.setdefault(_norm(r['wiki']), []).append(sid)
         for sid, t in self.taxonomy.items():
             if sid in self.tab and t.get('key') is not None: self.by_gbif.setdefault(t['key'], []).append(sid)
+
+    def place_pages(self):
+        """{normalised page: [place ids]}: the name and the picture article of every place (a place is never a row; read once, when first asked)."""
+        if self._place_pages is None:
+            self._place_pages = {}; d = os.path.join(self.root, 'data', 'places')
+            for f in sorted(os.listdir(d)) if os.path.isdir(d) else []:
+                if not f.endswith('.json') or f in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
+                try: e = json.load(open(os.path.join(d, f)))
+                except (OSError, ValueError): continue
+                if not isinstance(e, dict): continue
+                for k in ('name', 'imgwiki'):
+                    if e.get(k): self._place_pages.setdefault(_norm(e[k]), set()).add(e.get('id') or f[:-5])
+        return self._place_pages
+
+    def new_sid(self, kind, latin, name):
+        """The id a new row gets. Taxon and group: the slug of the Latin name (it is the identity). Resource: the slug of the name, or the next free `-2`, `-3` when another concept already holds it."""
+        base = self.sid_for(latin, name)
+        if kind != 'resource' or base not in self.tab: return base
+        n = 2
+        while '%s-%d' % (base, n) in self.tab: n += 1
+        return '%s-%d' % (base, n)
 
     def sid_for(self, latin, name):
         """The id a new row would get: the slug of the Latin name (the name when there is none), as the build and the validator expect for a taxon or a group."""
@@ -50,8 +73,13 @@ class SpeciesRows:
         if kind == 'taxon' and gbif is not None:
             for sid in self.by_gbif.get(gbif, []): hits.setdefault(sid, 'gbif')
         cand = self.sid_for(latin, name or wiki)
-        if cand in self.tab: hits.setdefault(cand, 'id')
-        if not hits: return {'status': 'new', 'sid': None, 'sids': [], 'by': None}
+        if kind != 'resource' and cand in self.tab: hits.setdefault(cand, 'id')
+        if not hits:
+            other = sorted(x for x in self.by_page.get(_norm(wiki), []) if self.tab[x].get('sk') != kind)
+            if other: return {'status': 'conflict', 'sid': None, 'sids': other, 'by': 'page of another kind (%s)' % ', '.join(sorted({self.tab[x].get('sk') for x in other}))}
+            pl = sorted(self.place_pages().get(_norm(wiki), ()))
+            if pl: return {'status': 'conflict', 'sid': None, 'sids': [], 'by': 'place: the page is the article of %s' % ', '.join(pl)}
+            return {'status': 'new', 'sid': None, 'sids': [], 'by': None}
         if len(hits) > 1: return {'status': 'conflict', 'sid': None, 'sids': sorted(hits), 'by': ','.join(sorted(set(hits.values())))}
         sid, by = next(iter(hits.items())); return {'status': 'exists', 'sid': sid, 'sids': [sid], 'by': by}
 
@@ -91,10 +119,11 @@ class SpeciesRows:
         if ident['status'] == 'exists':
             return out('exists', ident['sid'], {'identity': {'result': 'found', 'detail': 'row %s (same %s)' % (ident['sid'], ident['by'])}})
         if ident['status'] == 'conflict':
-            steps = {'identity': {'result': 'missing', 'detail': 'conflict: %s (matched by %s)' % (', '.join(ident['sids']), ident['by'])}}
-            self._refuse(ledger, key, steps, 'conflict', day, dry)
-            return out('refused', None, steps, 'conflict')
-        sid = self.sid_for(cand.get('latin'), cand.get('name') or cand['wiki'])
+            steps = {'identity': {'result': 'missing', 'detail': 'conflict: %s (matched by %s)' % (', '.join(ident['sids']) or 'no row', ident['by'])}}
+            reason = 'place' if ident['by'].startswith('place') else 'conflict'
+            self._refuse(ledger, key, steps, reason, day, dry)
+            return out('refused', None, steps, reason)
+        sid = self.new_sid(kind, cand.get('latin'), cand.get('name') or cand['wiki'])
         steps, row, commit = gather(cand, sid)
         steps = {'identity': {'result': 'found', 'detail': 'new'}, **steps}
         needed = contracts.SPECIES_REQUIRED[kind]
