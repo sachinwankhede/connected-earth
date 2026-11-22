@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """addspecies.py: add species whole or not at all (docs/ADD-SPECIES.md). It composes the existing sources and writers; lib/species_rows.py decides who a candidate is, whether it may be added, and records refusals.
-Usage: addspecies.py (--candidates file.json | --titles "Title one|Title two" --kind taxon|group|resource) [--latin "Name"] [--tl N] [--dry] [--limit N] [--minutes N] [--out result.json] [--report report.md]   (run from the repository root)
+Usage: addspecies.py (--candidates file.json | --titles "Title one|Title two" --kind taxon|group|resource) [--latin "Name"]  (a taxon without --latin gets the taxon name of its Wikipedia page from Wikidata) [--tl N] [--dry] [--limit N] [--minutes N] [--out result.json] [--report report.md]   (run from the repository root)
 
 A candidate is {wiki, kind, latin?, name?, tl?, ic?, cat?, desc?, gbif?}: the Wikipedia article, the kind of row, and what a row needs that no source can give (the trophic level of a taxon, the icon, the category of a resource). It carries nothing about places.
 For every new candidate the steps run in this order and every one is recorded, whatever the others found:
@@ -74,6 +74,14 @@ class Sources:
         pages = ((d or {}).get('query') or {}).get('pages') or {}
         raw = next((p.get('extract', '') for p in pages.values() if 'missing' not in p), '')
         return summary_of(raw)
+
+    def latin(self, title):
+        """The taxon name (Wikidata P225) of the item behind a Wikipedia page after redirects, or '' when the page has no item or the item no taxon name."""
+        import rowtitles as rt
+        d = self.wm.get('https://en.wikipedia.org/w/api.php?action=query&prop=pageprops&ppprop=wikibase_item&redirects=1&format=json&titles=' + urllib.parse.quote(title))
+        pages = ((d or {}).get('query') or {}).get('pages') or {}
+        qid = next((((p.get('pageprops') or {}).get('wikibase_item')) for p in pages.values() if 'missing' not in p), None)
+        return rt.taxa_of([qid], self.wm.get).get(qid, '') if qid else ''
 
     def conservation(self, latin):
         """(entry, why) from Wikidata, as jobs/conservation.py."""
@@ -152,7 +160,7 @@ def normalise(c):
     c = dict(c); c['wiki'] = (c.get('wiki') or '').strip(); k = c.get('kind')
     if not c['wiki']: raise ValueError('a candidate needs a wiki title')
     if k not in species_rows.KINDS: raise ValueError('%r: kind must be one of %s' % (c['wiki'], species_rows.KINDS))
-    if k != 'resource' and not c.get('latin'): c['latin'] = c['wiki']   # a title that is the Latin name; for a common-name title pass `latin`
+    if k == 'group' and not c.get('latin'): c['latin'] = c['wiki']
     if k == 'taxon' and 'tl' not in c: raise ValueError('%r: a taxon needs its trophic level (tl 1 to 4)' % c['wiki'])
     return c
 
@@ -165,6 +173,10 @@ def run(cands, src, root='.', dry=True, limit=0, deadline=None, now=None, log=pr
         if deadline and time.time() > deadline: log('STOP: the time budget; the rest waits for the next run'); break
         try: c = normalise(c)
         except ValueError as ex: out.append({'kind': 'species', 'status': 'refused', 'id': None, 'dry': dry, 'steps': {}, 'reason': 'bad candidate: %s' % ex}); log('refused %s' % ex); continue
+        if c['kind'] == 'taxon' and not c.get('latin'):
+            try: c['latin'] = src.latin(c['wiki']) if hasattr(src, 'latin') else c['wiki']   # the page's own taxon name, never the common-name title
+            except RuntimeError as ex: stopped = 'Wikidata: %s' % ex; log('STOP: %s' % stopped); break
+            if not c['latin']: out.append({'kind': 'species', 'status': 'refused', 'id': None, 'dry': dry, 'wiki': c['wiki'], 'steps': {}, 'reason': 'no taxon name on the Wikidata item of this page: pass `latin`'}); log('refused %s: no taxon name' % c['wiki']); continue
         try: r = rows.ensure(c, gather, ledger, now, dry)
         except Stopped as ex: stopped = str(ex); log('STOP: %s (nothing more is tried; ask the owner)' % ex); break
         r['wiki'] = c['wiki']; out.append(r)

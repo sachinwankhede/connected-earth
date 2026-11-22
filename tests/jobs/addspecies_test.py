@@ -148,4 +148,26 @@ class RealSourcesWithFakes(unittest.TestCase):
         def boom(todo): raise RuntimeError('too many throttles')
         with self.assertRaises(A.Stopped): self.make([('wikipedia', boom, lambda w, u: True, None)]).picture({'sid': 'a', 'title': 'A'}, 'taxon')
 
+class LatinFake(Fake):
+    def __init__(self, names, **no): Fake.__init__(self, **no); self.names = names
+    def latin(self, title): return self.names.get(title, '')
+
+class LatinFromPage(unittest.TestCase):
+    NOLATIN = {'wiki': 'Eastern coyote', 'kind': 'taxon', 'tl': 4, 'ic': 'coyote'}
+
+    def test_a_common_name_title_gets_the_latin_name_of_its_page(self):
+        f = LatinFake({'Eastern coyote': 'Canis latrans'})
+        res, _ = A.run([self.NOLATIN], f, tree(), dry=True, now=DAY, log=lambda *a: None)
+        self.assertNotEqual(res[0]['status'], 'refused'); self.assertIn(('conservation', 'Canis latrans'), f.asked)
+
+    def test_no_taxon_name_on_the_page_is_refused_not_guessed_from_the_title(self):
+        f = LatinFake({})
+        res, _ = A.run([self.NOLATIN], f, tree(), dry=True, now=DAY, log=lambda *a: None)
+        self.assertEqual(res[0]['status'], 'refused'); self.assertIn('latin', res[0]['reason']); self.assertEqual(f.asked, [])
+
+    def test_a_given_latin_name_is_kept(self):
+        f = LatinFake({'Eastern coyote': 'Wrong name'})
+        A.run([dict(self.NOLATIN, latin='Canis latrans var')], f, tree(), dry=True, now=DAY, log=lambda *a: None)
+        self.assertIn(('conservation', 'Canis latrans var'), f.asked)
+
 if __name__ == '__main__': unittest.main()
