@@ -67,7 +67,7 @@ def species_sid_errors(spw, sids):
             if not f.endswith('.webp'): errs.append('%s/%s is not a .webp picture (nothing writes it)' % ('/'.join(parts), f))
     return errs
 
-NAME_OVERRIDE_LIMIT = 934    # #887 step 7: a place node names its species by id and keeps a `name` or `wiki` of its own only when it differs from the species row. These are the counts left after
+NAME_OVERRIDE_LIMIT = 699    # #887 step 7: a place node names its species by id and keeps a `name` or `wiki` of its own only when it differs from the species row. These are the counts left after
 WIKI_OVERRIDE_LIMIT = 250    # jobs/cleanoverrides.py dropped the case-and-punctuation-only names (17 Nov); a pull request may lower them (edit the number) but never raise them: a change of name or page belongs in the species row.
 
 def override_errors(root, sp):
