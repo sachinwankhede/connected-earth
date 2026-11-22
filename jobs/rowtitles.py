@@ -95,9 +95,13 @@ def taxa_of(ids, get):
     return out
 
 def wrong_page(row, taxon):
-    """True when the row is a species (taxon row), its page's item names a different taxon (P225) and that is not its Latin name or a genus of it."""
+    """True when the row is a species (taxon row) and its page's item names a different taxon (P225) that is neither its Latin name, its genus alone, nor a synonym or subspecies with the same epithet."""
     latin = (row.get('latin') or '').strip().lower(); t = (taxon or '').strip().lower()
-    return bool(latin and t and row.get('sk') == 'taxon' and len(latin.split()) >= 2 and t != latin)
+    if not (latin and t and row.get('sk') == 'taxon' and len(latin.split()) >= 2) or t == latin: return False
+    lw, tw = latin.split(), t.split()
+    if len(tw) == 1 and tw[0] == lw[0]: return False   # the page is the row's genus (a genus with one species): the page covers it
+    if len(tw) >= 2 and tw[-1] == lw[1]: return False   # same epithet: a synonym, other genus or a subspecies of the same species
+    return True
 
 def decide(rows, get):
     """[(row, status, proposed, source)]. status: same, change, wrongpage (the page is another taxon: repoint), specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""

@@ -32,6 +32,11 @@ class Decide(unittest.TestCase):
         st = self.one(r, {'Arctogadus': ('Arctogadus', 'Q10')}, {}, None, {'Q10': 'Arctogadus'})
         self.assertEqual(st[1], 'wrongpage'); self.assertIn('Arctogadus', st[3])
         self.assertNotEqual(self.one(row('b', 'Bullsnake', 'Pituophis catenifer', 'Pituophis catenifer'), {'Pituophis catenifer': ('Pituophis catenifer', 'Q11')}, {'Q11': 'Pituophis catenifer'}, None, {'Q11': 'Pituophis catenifer'})[1], 'wrongpage')
+    def test_a_genus_page_a_synonym_and_a_subspecies_are_not_wrong_pages(self):
+        for latin, tax in (('Chamaebatiaria millefolium', 'Chamaebatiaria'), ('Capra hircus', 'Capra aegagrus hircus'), ('Myodes rufocanus', 'Craseomys rufocanus')):
+            self.assertFalse(rowtitles.wrong_page(row('x', 'N', 'P', latin), tax), latin)
+        self.assertTrue(rowtitles.wrong_page(row('x', 'N', 'P', 'Boa imperator'), 'Boa constrictor'))
+        self.assertTrue(rowtitles.wrong_page(row('x', 'N', 'P', 'Pantherophis alleghaniensis'), 'Pantherophis spiloides'))
     def test_a_synonym_label_with_the_same_epithet_is_scientific(self):
         r = row('v', 'Umbrella thorn', 'Vachellia tortilis', 'Vachellia tortilis')
         self.assertEqual(self.one(r, {'Vachellia tortilis': ('Vachellia tortilis', 'Q12')}, {'Q12': 'Acacia tortilis'}, None, {'Q12': 'Vachellia tortilis'})[1], 'same')
