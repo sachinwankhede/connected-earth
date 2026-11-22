@@ -134,3 +134,20 @@ Rules: **idempotent** (the same candidate twice returns `exists` and the same id
 
 ### 12.3 Optional HTTP front: a Cloudflare Worker
 A Worker is a small script that runs on Cloudflare's edge, next to the site. It would be a doorway, not the process: it checks a caller's token, validates the body against the request schema, then asks GitHub to run the workflow (`workflow_dispatch`) and returns a run id; the caller polls `GET` for the result, which is read from the pull request or the artifact. It does no adding itself. It needs a secret (a GitHub token allowed to dispatch workflows), a hosted piece the repository does not have today, and a rate limit, so it touches ground rule 4 (secrets and cost) and `.github/**` (owner-merged). Not built before the three processes work; it is only worth building if a caller outside GitHub needs it. Because the contract above already exists, the Worker would be a thin layer over it.
+
+### 12.4 Update: the same steps on an existing record (design, 22 Nov 2026)
+Owner question, 22 Nov: should there be a generic update, not one per attribute? Yes. An update is **the add steps run again on the record as it would be after the change**, so add and update use one set of rules and cannot disagree. (Needed first by the cleanup of `docs/NODE-IDENTITY.md`, where a node's species is changed in a place's food web.)
+
+| Call | Meaning |
+|---|---|
+| `PATCH /species/{id}`, `/places/{id}`, `/journeys/{id}` | Change fields of one record. Body: `set` (field to new value) and `dry` (default true). |
+
+The response is the shape of 12.1 plus `before` and `after` for each changed field. Rules:
+- **Same checks as add.** The candidate is the record with the patch applied; identity, model and contract steps run on the whole record, every step is reported, and a failing required step refuses the whole update. A refusal is recorded in the same ledger.
+- **Identity fields are not patchable.** `id`, kind, and the page of a row (`wiki`) change only through a rename or merge call, which is a separate operation with its own reference handling.
+- **A reference check before any write.** A reverse index lists who points at the record (nodes by `sp`, journey stops, diet and link records). An update that would leave a reference invalid is refused with `references` and the list. Merging two rows is the same check run for every node that names the row.
+- **All or nothing, files first.** An update that touches several files (a node in a place file, the journey that names it) commits them together, then the lists; a dry call writes nothing.
+- **Data is changed only through this call** (ground rule 1): no hand edit of data and no one-off script that writes data files; a job calls `update(kind, id, patch, dry)` in `lib/` beside `add`, and a workflow (owner-merged) runs a list of patches the same way `data-addspecies` runs candidates.
+- **No attribute-specific code.** Which fields a kind has, which are required and what each check is live in `lib/contracts.json`; a new attribute is a new entry there.
+
+Not built. Order: the audit of `docs/NODE-IDENTITY.md` first, then the place update (a node's `sp`), then the others as a need appears.
