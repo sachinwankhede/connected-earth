@@ -23,7 +23,9 @@ def is_scientific(title, row):
     """True when the title is the row's Latin name, its genus alone, or its genus + an epithet: it says what the species is, not what it is called."""
     t = (title or '').strip(); latin = (row.get('latin') or '').strip().lower()
     if not t or not latin: return False
-    return t.lower() == latin or t.lower() == latin.split()[0] or (bool(BINOMIAL.match(t)) and t.split()[0].lower() == latin.split()[0])
+    w = t.lower().split(); lw = latin.split()
+    same_epithet = len(w) == 2 and len(lw) >= 2 and w[1] == lw[1] and bool(BINOMIAL.match(t))   # "Acacia tortilis" for Vachellia tortilis: a synonym, still a Latin name
+    return t.lower() == latin or t.lower() == lw[0] or (bool(BINOMIAL.match(t)) and w[0] == lw[0]) or same_epithet
 
 def cap(name): return (name or '')[:1].upper() + (name or '')[1:]
 
@@ -81,9 +83,26 @@ def commons_of(ids, get):
             if names: out[k] = names
     return out
 
+def taxa_of(ids, get):
+    """{wikidata id: taxon name (P225)}."""
+    out = {}; ids = sorted(set(i for i in ids if i))
+    for i in range(0, len(ids), 20):
+        ents = (get(WDC + '|'.join(ids[i:i + 20])) or {}).get('entities') or {}
+        for k, v in ents.items():
+            for c in ((v.get('claims') or {}).get('P225') or []):
+                val = ((c.get('mainsnak') or {}).get('datavalue') or {}).get('value')
+                if isinstance(val, str) and val: out[k] = val; break
+    return out
+
+def wrong_page(row, taxon):
+    """True when the row is a species (taxon row), its page's item names a different taxon (P225) and that is not its Latin name or a genus of it."""
+    latin = (row.get('latin') or '').strip().lower(); t = (taxon or '').strip().lower()
+    return bool(latin and t and row.get('sk') == 'taxon' and len(latin.split()) >= 2 and t != latin)
+
 def decide(rows, get):
-    """[(row, status, proposed, source)]. status: same, change, specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""
+    """[(row, status, proposed, source)]. status: same, change, wrongpage (the page is another taxon: repoint), specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""
     found = titles_of([r['wiki'] for r in rows], get)
+    taxa = taxa_of([f[1] for f in found.values() if f], get)
     sci = [r for r in rows if found.get(r['wiki']) and is_scientific(found[r['wiki']][0], r)]
     lab = labels_of([found[r['wiki']][1] for r in sci], get)
     need = [found[r['wiki']][1] for r in sci if not (lab.get(found[r['wiki']][1]) and not is_scientific(cap(lab[found[r['wiki']][1]]), r))]
@@ -93,6 +112,7 @@ def decide(rows, get):
         f = found.get(r['wiki'])
         if not f: out.append((r, 'unresolved', None, 'the page is missing, a disambiguation page or a section')); continue
         title, qid = f
+        if wrong_page(r, taxa.get(qid)): out.append((r, 'wrongpage', None, "the page %r is the taxon %r, not %r" % (title, taxa[qid], r.get('latin')))); continue
         if is_scientific(title, r):
             name = cap(lab.get(qid))
             if name and not is_scientific(name, r): src = 'Wikidata label of %s' % qid
@@ -118,10 +138,11 @@ def decide(rows, get):
     return res
 
 def report(res):
-    ch = [x for x in res if x[1] == 'change']; un = [x for x in res if x[1] == 'unresolved']; same = [x for x in res if x[1] == 'same']; sp = [x for x in res if x[1] == 'specific']
-    lines = ['rows looked at: %d; name already right: %d; would change: %d; own article (new row or repoint): %d; cannot be settled: %d' % (len(res), len(same), len(ch), len(sp), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
+    ch = [x for x in res if x[1] == 'change']; un = [x for x in res if x[1] == 'unresolved']; same = [x for x in res if x[1] == 'same']; sp = [x for x in res if x[1] == 'specific']; wp = [x for x in res if x[1] == 'wrongpage']
+    lines = ['rows looked at: %d; name already right: %d; would change: %d; own article (new row or repoint): %d; wrong page (repoint): %d; cannot be settled: %d' % (len(res), len(same), len(ch), len(sp), len(wp), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
     lines += ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in ch]
     lines += ['', 'OWN ARTICLE (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in sp]
+    lines += ['', 'WRONG PAGE: repoint (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in wp]
     lines += ['', 'CANNOT BE SETTLED (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in un]
     return '\n'.join(lines)
 
