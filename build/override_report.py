@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""override_report.py [root] [--all] [--candidates file.json]: read-only (#1061). Lists every place node that keeps a `name` or `wiki` of its own and says what the owner's rule does with it. Nothing is changed.
+"""override_report.py [root] [--all] [--candidates file.json] [--classes]: read-only (#1061). `--classes` is the first report of #1038: name overrides sorted into spelling, form, group and other. Lists every place node that keeps a `name` or `wiki` of its own and says what the owner's rule does with it. Nothing is changed.
 Owner rules (#1038, #1061): a row maps to one unique Wikipedia page; no node keeps a name or wiki of its own; a separate article (a redirect is not one) gets its own row; no article means the node uses the nearest row.
 Outcome for each node override:
   repoint    a row of the same kind already has the page (wiki override) or the name (name-only override): the node points at that row (`sp`) and drops its override
@@ -71,6 +71,46 @@ def summary(rows):
     out = collections.Counter()
     for _, _, _, kind, hn, hw, outcome, _, page in rows: out[(kind, outcome)] += 1
     return out
+
+# The first report of #1038 (#1047), kept as `--classes`: it sorts the `name` overrides into spelling, form, group and other, so a person can tell a spelling from a real name. #1077 replaced it by mistake; it is restored here unchanged except for its names.
+GROUP = set('fungi bacteria microbes microbe decomposers decomposer soil soils grass grasses fish trees tree shrubs shrub algae plankton phytoplankton zooplankton insects insect birds mammals peat water rain sun wood litter detritus herbs plants'.split())
+
+def words(s): return re.findall(r'[a-z]+', re.sub(r"[-'’]", '', (s or '').lower().replace('&', ' and ')))
+def stem(w): return w[:-1] if len(w) > 3 and w.endswith('s') and not w.endswith('ss') else w
+def key(s): return [stem(w) for w in words(s) if w != 'and']
+
+def name_class(row, node):
+    """spelling (same words), form (one name holds the other plus a qualifier: keep), group (a group or resource: decide), other (a different common name: keep)."""
+    a, b = key(row), key(node)
+    if ''.join(a) == ''.join(b) or sorted(a) == sorted(b): return 'spelling'
+    wa, wb = set(words(row)) | set(words(node)), set(words(row)) & set(words(node))
+    if (GROUP & wa) or ' and ' in (' ' + (row + ' ' + node).lower().replace('&', 'and') + ' ') or '/' in node: return 'group'
+    if set(a) <= set(b) or set(b) <= set(a): return 'form'
+    return 'other'
+
+def name_pairs(root=ROOT):
+    import species
+    sp = species.table(root); by = {r['sid']: r for r in sp.values() if r.get('sid')}; out = collections.Counter(); d = os.path.join(root, 'data', 'places')
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.json') or f in SKIP: continue
+        try: e = json.load(open(os.path.join(d, f)))
+        except (OSError, ValueError): continue
+        for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
+            r = by.get(n.get('sp'))
+            if r and 'name' in n and not species.same_name(n['name'], r.get('name')): out[(r.get('name') or '', n['name'])] += 1
+    return out
+
+def name_report(root=ROOT):
+    by = collections.defaultdict(list)
+    for (a, b), c in name_pairs(root).items(): by[name_class(a, b)].append((c, a, b))
+    return {k: sorted(v, reverse=True) for k, v in by.items()}
+
+if __name__ == '__main__' and '--classes' in sys.argv:
+    rep = name_report(); full = '--all' in sys.argv
+    for k in ('spelling', 'form', 'group', 'other'):
+        v = rep.get(k, []); print('%-9s %4d pairs %4d nodes' % (k, len(v), sum(c for c, _, _ in v)))
+        for c, a, b in (v if full else v[:6]): print('   %2d  %s  ->  %s' % (c, a, b))
+    sys.exit(0)
 
 if __name__ == '__main__':
     import species
