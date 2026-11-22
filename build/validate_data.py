@@ -90,6 +90,28 @@ def override_errors(root, sp):
     if wikis > WIKI_OVERRIDE_LIMIT: errs.append('place nodes with a wiki page of their own: %d, over the limit of %d (#887 step 7): change the species row, or point the node at the right species (sp). Never create a species row only to hold a spelling or regional name (one species has one row; #1038).' % (wikis, WIKI_OVERRIDE_LIMIT))
     return errs
 
+PAGE_SHARED_LIMIT = 151      # #1061 / docs/NODE-IDENTITY.md I3 and I4: counts today; a pull request may lower them (merge or retire rows) but never raise them. The add process refuses a row whose page another row or a place already holds, so these only go down.
+PAGE_PLACE_LIMIT = 27
+
+def page_errors(root, sp):
+    """I3: a Wikipedia page is the article of one row. I4: no row's page is a place's own article (a place is never a row)."""
+    import re, collections
+    n = lambda t: re.sub(r'[\s_]+', ' ', str(t or '')).strip().lower()
+    pg = collections.defaultdict(set)
+    for r in sp.values():
+        if r.get('wiki') and r.get('sid'): pg[n(r['wiki'])].add(r['sid'])
+    shared = sorted(p for p, v in pg.items() if len(v) > 1)
+    places = set(); full = os.path.join(root, 'data/places')
+    for f in sorted(os.listdir(full)) if os.path.isdir(full) else []:
+        if not f.endswith('.json') or f in ('links.json', 'order.json', 'species.json', 'bounds.json'): continue
+        try: e = json.load(open(os.path.join(full, f)))
+        except (OSError, ValueError): continue
+        if isinstance(e, dict): places.update(n(e[k]) for k in ('name', 'imgwiki') if e.get(k))
+    held = sorted(p for p in pg if p in places); errs = []
+    if len(shared) > PAGE_SHARED_LIMIT: errs.append('Wikipedia pages held by more than one species row: %d, over the limit of %d (I3): one page, one row; add through the add process, which refuses a page that is taken. Newest: %s' % (len(shared), PAGE_SHARED_LIMIT, ', '.join(shared[:5])))
+    if len(held) > PAGE_PLACE_LIMIT: errs.append('species rows whose page is a place article: %d, over the limit of %d (I4): a place is never a node or a row. Pages: %s' % (len(held), PAGE_PLACE_LIMIT, ', '.join(held[:5])))
+    return errs
+
 def check(root):
     errs = []; warns = []
     sys.path.insert(0, HERE); import species
@@ -118,6 +140,7 @@ def check(root):
     else:
         for k, v in sp.items(): shape(v, 'species-row', 'species %r' % k, errs)
     errs += override_errors(root, sp)
+    errs += page_errors(root, sp)
     sids = [v.get('sid') for v in sp.values()]
     if sp and (None in sids or len(set(sids)) != len(sids)): errs.append('species: every row needs its own sid (stable id)')
     for k, v in sp.items():   # #1013: the build writes the id of a species node, a file name and a link from the stored sid, and the app and the tests treat it as the slug of the Latin name; that holds for every taxon and group today, so it is enforced here. A resource row (rain, soil: not a species) may carry a `-2` suffix when two names slug alike.
