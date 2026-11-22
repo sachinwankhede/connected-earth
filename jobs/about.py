@@ -46,6 +46,7 @@ def clean(t):
     t=t or ''
     while re.search(r'\([^()]*\)',t): t=re.sub(r'\s*\([^()]*\)','',t)     # pronunciations, conversions, dates
     t=re.sub(r'\s+',' ',t).strip()
+    if '(' in t or ')' in t or not re.search(r'[.!?]["\']?$',t): return ''   # an extract cut inside a bracket or an abbreviation ("(est.") is not a sentence: no text beats a broken one
     return '' if (not t or species.NOT_ABOUT.search(t) or len(t.split())>MAXW or len(t)<30) else t
 sums=json.load(open(SUMS)) if os.path.exists(SUMS) else {}
 todo=sorted(place_titles()-set(sums))
