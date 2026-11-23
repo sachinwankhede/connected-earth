@@ -1,0 +1,47 @@
+name: data-strictrows
+# Manual (#1061; owner, 23 Nov: "delete all bad/conflicting data... no data is better than bad data"). Runs jobs/strictrows.py for one batch (input `batch`): removes the species rows whose
+# page is not about exactly that thing, with their nodes, edge records, diet files, taxonomy and picture entries, from data/audit/identity.json. No network. Opens ONE pull request; the gate's
+# data checks run the validator. Nothing is merged by the job. Git keeps every removed row.
+on:
+  workflow_dispatch:
+    inputs:
+      batch:
+        description: "Batch to remove (all = every rule; nopage = rows whose page has no Wikidata item; shared = rows that share a page with another row)"
+        required: true
+        default: all
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-strictrows
+jobs:
+  strictrows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Remove the rows
+        run: |
+          python3 jobs/strictrows.py --batch "${{ inputs.batch }}" | tee report.txt
+          python3 build/species.py pack
+          python3 build/validate_data.py | grep -v '^warn' | tail -5
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BATCH: ${{ inputs.batch }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/strictrows-${BATCH}-${GITHUB_RUN_ID}"
+          git add -A data photos
+          if git diff --cached --quiet; then echo "nothing to remove"; exit 0; fi
+          N=$(python3 -c "import json;d=json.load(open('data/audit/strictrows.json'))['removed'];print(sum(1 for v in d.values() if v[0]=='$BATCH'))")
+          git commit -m "Remove $N rows (strict batch $BATCH)"
+          git push -f origin HEAD
+          python3 - > spot.md <<'PY'
+          import json, random
+          d = json.load(open('data/audit/strictrows.json'))['removed']; random.seed(1); pick = random.sample(sorted(d), min(10, len(d)))
+          print('| Removed row | Batch | Why |\n|---|---|---|')
+          for k in pick: print('| %s | %s | %s |' % (k, d[k][0], d[k][1]))
+          PY
+          { printf 'Part of #1061. Owner decision 23 Nov: delete bad or conflicting rows ("no data is better than bad data"). Strict batch `%s`: %s rows removed with their nodes, edge records, diet entries, taxonomy and picture entries. Sources: none added; the list comes from data/audit/identity.json (English Wikipedia and Wikidata, CC0 / CC BY-SA text not copied). The validator passes on the result.\n\nA row whose node ends a journey is kept and listed below.\n\n' "$BATCH" "$N"; cat spot.md; echo; echo 'Run summary:'; head -20 report.txt; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Remove $N rows (strict batch $BATCH)" --body-file body.md
