@@ -8,6 +8,7 @@ page, no name).
   python3 jobs/rowtitles.py                 # rows that some place node still names differently (the cleanup scope)
   python3 jobs/rowtitles.py --all           # every taxon and group row
   python3 jobs/rowtitles.py --max N         # first N rows only (a small first run)
+  python3 jobs/rowtitles.py --all --json data/audit/rowtitles.json   # also write what it decided per row (the data-rowtitles workflow; the data status page reads it)
 Needs the web (en.wikipedia.org and www.wikidata.org, through lib/wm.py), so it runs in a GitHub job."""
 import json, os, re, sys, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -150,10 +151,19 @@ def report(res):
     lines += ['', 'CANNOT BE SETTLED (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in un]
     return '\n'.join(lines)
 
+def to_json(res, today):
+    """{asOf, rows: {row id: [status, proposed name or '', why]}}: what the web decided for each row, for the data status page (build/status_page.py). The reason is kept only when the name is not already right."""
+    return {'asOf': today, 'rows': {r['sid']: [st, n or '', '' if st == 'same' else s] for r, st, n, s in res}}
+
 def main(argv):
     import wm
     rows = scope(ROOT, '--all' in argv)
     if '--max' in argv: rows = rows[:int(argv[argv.index('--max') + 1])]
-    print(report(decide(rows, wm.get)))
+    res = decide(rows, wm.get)
+    print(report(res))
+    if '--json' in argv:
+        import datetime
+        out = argv[argv.index('--json') + 1]; os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
+        with open(out, 'w', encoding='utf-8') as h: json.dump(to_json(res, datetime.date.today().isoformat()), h, ensure_ascii=False, separators=(',', ':'), sort_keys=True)
 
 if __name__ == '__main__': main(sys.argv[1:])

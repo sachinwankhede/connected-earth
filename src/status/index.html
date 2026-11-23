@@ -23,6 +23,9 @@
 <div class="card"><h2 id="flags">Problems by row</h2><p class="sub">Rows with each problem flag (a row can have several).</p><div id="flagbars" style="min-height:120px"></div></div>
 <div class="card"><h2 id="outcomes">Overrides still to settle</h2><p class="sub">Nodes that keep their own name or page, by what the cleanup must do.</p><div id="outbars" style="min-height:100px"></div></div>
 <div class="card"><h2 id="kinds">Rows by kind</h2><div id="kindbars" style="min-height:70px"></div></div>
+<div class="card" id="webcard" hidden><h2 id="webh">Name check against Wikipedia and Wikidata</h2><p class="sub" id="webnote"></p><div id="webbars"></div>
+<div class="ctl"><select id="websel" aria-label="Web status"></select><span class="lab" id="webcount"></span></div>
+<div class="w"><table><thead><tr><th>id</th><th>name now</th><th>page</th><th>status</th><th>proposed</th><th>why</th></tr></thead><tbody id="webbody"></tbody></table></div></div>
 <div class="card"><h2 id="rowsh">Rows with a problem</h2>
 <div class="ctl"><select id="flagsel" aria-label="Flag"></select><input id="q" placeholder="Search id, name or page" aria-label="Search rows"><span class="lab" id="rowcount"></span></div>
 <div class="w"><table><thead><tr><th>id</th><th>kind</th><th>name</th><th>page</th><th>nodes</th><th>flags</th></tr></thead><tbody id="rowbody"></tbody></table></div></div>
@@ -33,16 +36,19 @@
 <p class="sub">Read from the data in main each time the site is deployed (build/data_audit.py). Web checks (page titles, Wikidata) are in the readonly-data-audit run summary, not here.</p>
 </main>
 <script>
-const N=n=>Number(n).toLocaleString('en-US'),CAP=150;let A=null,F='',O='';
+const N=n=>Number(n).toLocaleString('en-US'),CAP=150;let A=null,F='',O='',W='';
 const $=id=>document.getElementById(id),el=(t,x)=>{const e=document.createElement(t);e.textContent=x==null?'':x;return e};
 function bars(h,d,lab,val){const m=Math.max(1,...d.map(x=>+x[val]));h.replaceChildren();d.forEach(r=>{const b=document.createElement('div');b.className='bar';const i=document.createElement('i');i.style.width=(+r[val]/m*100)+'%';const w=document.createElement('span');w.append(i);b.append(el('span',r[lab]),w,el('span',N(r[val])));h.append(b)})}
 function body(h,rows,cols){h.replaceChildren();rows.slice(0,CAP).forEach(r=>{const tr=document.createElement('tr');cols.forEach(c=>tr.append(el('td',r[c])));h.append(tr)})}
 const rowsF=()=>{const q=($('q').value||'').toLowerCase();return A.rows.filter(r=>(!F||r.flags.split(' ').includes(F))&&(!q||(r.id+' '+r.name+' '+r.page).toLowerCase().includes(q)))};
 const ovF=()=>A.overrides.filter(r=>!O||r.outcome===O);
+const webF=()=>A.web?A.web.rows.filter(r=>!W||r.status===W):[];
 function draw(){const a=rowsF(),o=ovF();body($('rowbody'),a,['id','kind','name','page','nodes','flags']);$('rowcount').textContent=N(a.length)+' rows'+(a.length>CAP?', first '+CAP+' shown (narrow with the search)':'');
+ if(A.web){const w=webF();body($('webbody'),w,['id','name','page','status','proposed','why']);$('webcount').textContent=N(w.length)+' rows'+(w.length>CAP?', first '+CAP+' shown':'')}
  body($('ovbody'),o,['place','node','node_name','node_page','row_name','outcome','target_row']);$('ovcount').textContent=N(o.length)+' nodes'+(o.length>CAP?', first '+CAP+' shown':'')}
 function sel(h,all,list,key,set){h.replaceChildren(new Option(all,''),...list.map(r=>new Option(r[key])));h.onchange=()=>{set(h.value);draw()}}
 fetch('audit.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{A=d;
+ if(d.web){$('webcard').hidden=false;$('webnote').textContent='Result of the last web run, '+d.web.asOf+' (data/audit/rowtitles.json). It is as fresh as that run, not live.';bars($('webbars'),d.web.status,'status','rows');sel($('websel'),'All statuses',d.web.status,'status',v=>W=v)}else{$('webcard').hidden=true}
  const t=$('tiles');t.replaceChildren();d.totals.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value));v.className='big';const l=el('div',r.metric);l.className='lab';c.append(v,l);t.append(c)});
  bars($('flagbars'),d.flags,'flag','rows');bars($('outbars'),d.outcomes,'outcome','nodes');bars($('kindbars'),d.kinds,'kind','rows');
  const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_breaks_rule'))+' rows have a name that breaks the naming rule, '+N(s('name_unchecked'))+' need a web check of their name, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';

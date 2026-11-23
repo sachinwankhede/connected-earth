@@ -2,15 +2,26 @@
 """status_page.py: the data status page (#1061, #887). The deploy runs the read-only audit (build/data_audit.py) on the data in the checkout and publishes
 status/index.html (from src/status/index.html) and status/audit.json beside the app, so the page always shows main as deployed. Not part of the app: it is not in the
 first view, not linked from the app and not in the service worker's precache. Changes no data."""
-import json, os, sys
+import collections, json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import data_audit
 FLAGS = list(data_audit.FLAGS)
 
+def web(root, rows):
+    """The web name check (data/audit/rowtitles.json, written by the data-rowtitles job), or None before its first run: counts by status and the rows whose name is not already right."""
+    path = os.path.join(root, 'data', 'audit', 'rowtitles.json')
+    if not os.path.exists(path): return None
+    d = json.load(open(path, encoding='utf-8')); by = {r['id']: r for r in rows}; res = d.get('rows') or {}
+    names = {'same': 'name already right', 'change': 'would be renamed', 'specific': 'own article (new row or repoint)', 'wrongpage': 'wrong page (repoint)', 'unresolved': 'cannot be settled'}
+    count = collections.Counter(v[0] for v in res.values())
+    return {'asOf': d.get('asOf'), 'status': [{'status': names[k], 'rows': count[k]} for k in names if count[k]],
+            'rows': [{'id': k, 'name': (by.get(k) or {}).get('name', ''), 'page': (by.get(k) or {}).get('page', ''), 'status': names.get(v[0], v[0]), 'proposed': v[1], 'why': v[2]} for k, v in sorted(res.items()) if v[0] != 'same']}
+
 def payload(root=ROOT):
     nodes, rows, dups, S = data_audit.audit(root)
     return {
+        'web': web(root, rows),
         'totals': [{'metric': 'Species rows', 'value': S['rows']}, {'metric': 'Place nodes', 'value': S['nodes']},
                    {'metric': 'Nodes with own name or page', 'value': S['nodes_with_override']}, {'metric': 'Nodes on a missing row', 'value': S['nodes_pointing_at_a_missing_row']}],
         'kinds': [{'kind': k, 'rows': v} for k, v in S['rows_by_kind'].items()],

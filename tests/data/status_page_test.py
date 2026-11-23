@@ -17,3 +17,15 @@ have = set(re.findall(r'id="([a-z]+)"', html))
 assert ids <= have, 'the page script uses elements it does not have: %r' % sorted(ids - have)
 assert "fetch('audit.json'" in html
 print('status page ok')
+
+# the web name check (data/audit/rowtitles.json): absent before the first run, otherwise counts by status and only the rows whose name is not already right
+assert SP.web(ROOT, rows) is None or isinstance(SP.web(ROOT, rows)['asOf'], str)
+with tempfile.TemporaryDirectory() as d:
+    os.makedirs(os.path.join(d, 'data', 'audit'))
+    ids = [r['id'] for r in rows[:3]]
+    json.dump({'asOf': '2026-11-23', 'rows': {ids[0]: ['same', 'A', ''], ids[1]: ['change', 'B', 'article title'], ids[2]: ['unresolved', '', 'no name']}}, open(os.path.join(d, 'data', 'audit', 'rowtitles.json'), 'w'))
+    w = SP.web(d, rows)
+    assert w['asOf'] == '2026-11-23' and {x['status']: x['rows'] for x in w['status']} == {'name already right': 1, 'would be renamed': 1, 'cannot be settled': 1}
+    assert [x['id'] for x in w['rows']] == sorted(ids[1:]) and all(x['status'] != 'name already right' for x in w['rows'])
+assert "$('webcard')" in html and 'd.web' in html
+print('web check ok')

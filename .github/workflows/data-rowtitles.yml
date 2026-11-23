@@ -1,0 +1,38 @@
+name: data-rowtitles
+# Manual (#1061, docs/NODE-NAMES.md). Runs jobs/rowtitles.py on every taxon and group row (English Wikipedia titles and Wikidata labels, hosts listed in
+# lib/allowed_sources.json) and opens one pull request with data/audit/rowtitles.json: for each row, whether its name is already right, what it would be, and why.
+# The data status page reads that file, so the "name needs a web check" rows get their answer. It changes no row. No schedule yet: run it once by hand, judge timing, then decide.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-rowtitles
+jobs:
+  rowtitles:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Ask Wikipedia and Wikidata
+        run: python3 jobs/rowtitles.py --all --json data/audit/rowtitles.json | tee report.txt | head -3
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/rowtitles-${GITHUB_RUN_ID}"
+          git add data/audit/rowtitles.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random
+          d = json.load(open('data/audit/rowtitles.json'))['rows']; random.seed(1); pick = random.sample(sorted(d), min(10, len(d)))
+          print('| Row | Status | Proposed name | Why |\n|---|---|---|---|')
+          for k in pick: print('| %s | %s | %s | %s |' % (k, d[k][0], d[k][1], d[k][2]))
+          PY
+          N=$(python3 -c "import json;print(len(json.load(open('data/audit/rowtitles.json'))['rows']))")
+          git commit -m "Row name web check: $N rows (data/audit/rowtitles.json)"
+          git push -f origin HEAD
+          { printf 'Part of #1061. Automatic run of data-rowtitles on %s rows. Sources: English Wikipedia page titles and Wikidata English labels and common names (CC0 / CC BY-SA text is not copied, only titles and labels), through lib/wm.py (hosts listed in lib/allowed_sources.json). It changes no species row.\n\n' "$N"; cat spot.md; echo; echo 'Run summary (first lines):'; head -3 report.txt; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Row name web check ($N rows)" --body-file body.md
