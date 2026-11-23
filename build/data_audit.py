@@ -6,7 +6,7 @@ Writes to DIR (default audit/): nodes.csv, rows.csv, duplicates.csv, summary.jso
   rows.csv        one line per species row: id, kind, name, page, Latin name, trophic level, how many nodes and places use it, and a flag per problem (see FLAGS).
   duplicates.csv  rows that share a page, a name or a Latin name: what, the shared value, the row ids.
 Run from the repository root. Pictures, outlines and records are in build/data_status.py; the web checks (is the row's page the right species, is its name the page title) are jobs/rowtitles.py."""
-import collections, csv, json, os, sys
+import collections, csv, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import species, override_report as OR
@@ -15,7 +15,8 @@ SKIP = ('links.json', 'order.json', 'species.json', 'bounds.json')
 FLAGS = {
     'no_page': 'the row has no Wikipedia page (`wiki`)',
     'no_latin': 'a taxon without a Latin name',
-    'name_not_page': 'the name differs from the page title (the row-name rule says they agree)',
+    'name_breaks_rule': 'the page title is a common name (brackets dropped) and the row name differs from it: a rename, or a more specific concept that needs its own row (docs/NODE-NAMES.md steps 1 and 4)',
+    'name_unchecked': 'the page title is only a Latin name, so the right name is the Wikidata label (step 2): jobs/rowtitles.py checks it on the web, the offline audit cannot',
     'shared_page': 'another row of the same kind has the same page',
     'shared_name': 'another row of the same kind has the same name',
     'shared_latin': 'another taxon row has the same Latin name',
@@ -24,6 +25,13 @@ FLAGS = {
 }
 
 def norm(t): return OR.norm(t)
+def plain(t): return norm(re.sub(r'\s*\([^()]*\)\s*$', '', str(t or '')))   # "Nene (bird)" gives "nene"
+def scientific(title, row):
+    """The same test as jobs/rowtitles.is_scientific (kept here so this audit stays offline and imports nothing from jobs/)."""
+    t = (title or '').strip(); latin = (row.get('latin') or '').strip().lower()
+    if not t or not latin: return False
+    w = t.lower().split(); lw = latin.split(); binom = bool(re.match(r'[A-Z][a-z]+( [a-z]+){1,2}$', t))
+    return t.lower() == latin or t.lower() == lw[0] or (binom and w[0] == lw[0]) or (len(w) == 2 and len(lw) >= 2 and w[1] == lw[1] and binom)
 
 def place_nodes(root):
     d = os.path.join(root, 'data', 'places')
@@ -56,7 +64,8 @@ def audit(root=ROOT):
         f = {
             'no_page': not page,
             'no_latin': kind == 'taxon' and not r.get('latin'),
-            'name_not_page': bool(page) and norm(name) != norm(page),
+            'name_breaks_rule': bool(page) and kind in ('taxon', 'group') and not scientific(page, r) and plain(name) != plain(page),
+            'name_unchecked': bool(page) and kind in ('taxon', 'group') and scientific(page, r),
             'shared_page': bool(page) and len(by_page.get((kind, norm(page)), [])) > 1,
             'shared_name': bool(name) and len(by_name.get((kind, norm(name)), [])) > 1,
             'shared_latin': kind == 'taxon' and bool(r.get('latin')) and len(by_latin.get(norm(r['latin']), [])) > 1,

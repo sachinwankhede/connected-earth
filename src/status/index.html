@@ -45,7 +45,7 @@ function sel(h,all,list,key,set){h.replaceChildren(new Option(all,''),...list.ma
 fetch('audit.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{A=d;
  const t=$('tiles');t.replaceChildren();d.totals.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value));v.className='big';const l=el('div',r.metric);l.className='lab';c.append(v,l);t.append(c)});
  bars($('flagbars'),d.flags,'flag','rows');bars($('outbars'),d.outcomes,'outcome','nodes');bars($('kindbars'),d.kinds,'kind','rows');
- const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_not_page'))+' rows have a name that differs from their page, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';
+ const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_breaks_rule'))+' rows have a name that breaks the naming rule, '+N(s('name_unchecked'))+' need a web check of their name, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';
  sel($('flagsel'),'All flags',d.flags,'flag',v=>F=v);sel($('outsel'),'All outcomes',d.outcomes,'outcome',v=>O=v);$('q').oninput=draw;
  body($('dupbody'),d.dups,['what','kind','value','rows','nodes']);draw()}).catch(()=>{$('lead').textContent='The audit file did not load.'});
 </script></body></html>
