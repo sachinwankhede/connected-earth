@@ -1,0 +1,39 @@
+name: data-identity
+# Manual (#1061, option 5). Runs jobs/identity.py on every row (taxon, group, resource): the Wikidata item (QID) of its Wikipedia page, with the item's taxon rank and name
+# (en.wikipedia.org and www.wikidata.org through lib/wm.py, hosts listed in lib/allowed_sources.json). Opens one pull request with data/audit/identity.json. It changes no row.
+on: for each row, .
+# The data status page reads that file, so the "name needs a web check" rows get their answer. It changes no row. No schedule yet: run it once by hand, judge timing, then decide.
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-identity
+jobs:
+  identity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - name: Ask Wikipedia and Wikidata
+        run: python3 jobs/identity.py --json data/audit/identity.json | tee report.txt | head -3
+      - name: Commit and open the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/identity-${GITHUB_RUN_ID}"
+          git add data/audit/identity.json
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          python3 - > spot.md <<'PY'
+          import json, random
+          d = json.load(open('data/audit/identity.json'))['rows']; random.seed(1)
+          print('| Row | Item | Rank | Taxon | Kind | Why |\n|---|---|---|---|---|---|')
+          for k in random.sample(sorted(d), min(10, len(d))): print('| %s | %s |' % (k, ' | '.join(d[k])))
+          PY
+          N=$(python3 -c "import json;print(len(json.load(open('data/audit/identity.json'))['rows']))")
+          git commit -m "Row identity check: $N rows (data/audit/identity.json)"
+          git push -f origin HEAD
+          { printf 'Part of #1061. Automatic run of data-identity on %s rows. Sources: English Wikipedia page titles and Wikidata English labels and common names (CC0 / CC BY-SA text is not copied, only titles and labels), through lib/wm.py (hosts listed in lib/allowed_sources.json). It changes no species row.\n\n' "$N"; cat spot.md; echo; echo 'Run summary (first lines):'; head -3 report.txt; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "Row identity check ($N rows)" --body-file body.md
