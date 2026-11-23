@@ -134,19 +134,27 @@ def decide(rows, get):
     # step 4: a current name that is a Wikipedia article other than the row's page is a more specific concept
     ask = [r['name'] for r, st, _, _ in out if st == 'change' and r.get('name')]
     own = titles_of(ask, get) if ask else {}
+    otax = taxa_of([o[1] for o in own.values() if o], get)   # the taxon of each own article (P225), to tell the same species from another one
     res = []
     for r, st, n, s in out:
         o = own.get(r.get('name')) if st == 'change' else None
         page = found.get(r['wiki'])
-        if o and page and o[0] != page[0]: res.append((r, 'specific', o[0], "its own article, not the row's page %r" % page[0]))
+        if o and page and o[0] != page[0]:
+            t = otax.get(o[1])
+            if r.get('sk') != 'taxon' or not t: res.append((r, 'specific', o[0], "its own article, not the row's page %r (no taxon on the article: check by hand)" % page[0]))
+            elif not wrong_page(r, t): res.append((r, 'repoint', o[0], "the article %r is the row's own taxon (%s): point the row's page at it (now %r)" % (o[0], t, page[0])))
+            else: res.append((r, 'newrow', o[0], "the article %r is another taxon (%s) than the row's page %r: a new row if it has a licensed picture" % (o[0], t, page[0])))
         else: res.append((r, st, n, s))
     return res
 
 def report(res):
     ch = [x for x in res if x[1] == 'change']; un = [x for x in res if x[1] == 'unresolved']; same = [x for x in res if x[1] == 'same']; sp = [x for x in res if x[1] == 'specific']; wp = [x for x in res if x[1] == 'wrongpage']
-    lines = ['rows looked at: %d; name already right: %d; would change: %d; own article (new row or repoint): %d; wrong page (repoint): %d; cannot be settled: %d' % (len(res), len(same), len(ch), len(sp), len(wp), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
+    lines = ['rows looked at: %d; name already right: %d; would change: %d; own article, same taxon (repoint): %d; own article, other taxon (new row): %d; own article, check by hand: %d; wrong page (repoint): %d; cannot be settled: %d' % (len(res), len(same), len(ch), len([x for x in res if x[1] == 'repoint']), len([x for x in res if x[1] == 'newrow']), len(sp), len(wp), len(un)), '', 'WOULD CHANGE (row | now | proposed | from)']
     lines += ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in ch]
-    lines += ['', 'OWN ARTICLE (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in sp]
+    rp = [x for x in res if x[1] == 'repoint']; nr = [x for x in res if x[1] == 'newrow']
+    lines += ['', 'REPOINT: the name is an article of the row\'s own taxon (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in rp]
+    lines += ['', 'NEW ROW: the name is an article of another taxon (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in nr]
+    lines += ['', 'OWN ARTICLE, CHECK BY HAND (row | now | its article | note)'] + ['%s | %s | %s | %s' % (r['sid'], r.get('name'), n, s) for r, _, n, s in sp]
     lines += ['', 'WRONG PAGE: repoint (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in wp]
     lines += ['', 'CANNOT BE SETTLED (row | now | why)'] + ['%s | %s | %s' % (r['sid'], r.get('name'), s) for r, _, _, s in un]
     return '\n'.join(lines)
