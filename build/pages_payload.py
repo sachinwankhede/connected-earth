@@ -7,6 +7,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / 'lib'))
+sys.path.insert(0, str(ROOT / 'build'))
 import species_pics, journey_pics, node_photos
 DEST = ROOT / 'dist' / 'pages'
 # The species files (descriptions and the 192 px and 400 px pictures) can be published apart from the app (item #692), because a Cloudflare Pages project holds at most 20,000 files.
@@ -81,6 +82,11 @@ def main(mode='all'):
         copy_file(ROOT / relative, relative, expected)
 
     copy_file(ROOT / 'geo-states.json', 'geo-states.json', expected)
+
+    if MODE != 'species':   # the data status page and its audit file, made from the data in this checkout (build/status_page.py); not part of the app
+        import status_page
+        status_page.write(str(DEST))
+        expected.update(('status/index.html', 'status/audit.json'))
 
     for lib in sorted(list(ROOT.glob('maplibre-gl-*.js')) + list(ROOT.glob('d3-*.js')) + list(ROOT.glob('species-tab-*.js')) + list(ROOT.glob('pulse-*.js'))):
         copy_file(lib, lib.name, expected)
