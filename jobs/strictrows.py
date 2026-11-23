@@ -121,6 +121,8 @@ def apply(root, sids, dry=False):
     for name in ('taxonomy.json', 'conservation.json', 'taxonomy_manual.json', 'taxonomy_review.json', 'conservation_asked.json'):
         p = os.path.join(sp, name)
         if os.path.exists(p): edit(p, drop_ids)
+    p = os.path.join(sp, 'search_vocabulary.json')   # also_called {species id: [former names]}
+    if os.path.exists(p): edit(p, lambda o: bool([o['also_called'].pop(s) for s in [s for s in o.get('also_called', {}) if s in go]]))
     for name in ('identity.json', 'rowtitles.json'):   # the audit files name rows by id: a removed row leaves them (data/audit/strictrows.json says why)
         p = os.path.join(root, 'data', 'audit', name)
         if os.path.exists(p): edit(p, lambda o: bool([o['rows'].pop(s) for s in [s for s in o['rows'] if s in go]]))
