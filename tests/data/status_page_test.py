@@ -29,3 +29,14 @@ with tempfile.TemporaryDirectory() as d:
     assert [x['id'] for x in w['rows']] == sorted(ids[1:]) and all(x['status'] != 'name already right' for x in w['rows'])
 assert "$('webcard')" in html and 'd.web' in html
 print('web check ok')
+
+# the identity check (data/audit/identity.json): absent before the first run; shared items, groups by view, rows without an item
+assert SP.identity(ROOT, rows) is None or isinstance(SP.identity(ROOT, rows)['asOf'], str)
+r1 = {'latin': 'Acer spp.'}; r2 = {'latin': 'Abies spectabilis, Juniperus'}; r3 = {'latin': 'Festuca and other grasses'}
+assert SP.group_view(r1, ['Q1', 'Q2', 'Acer', 'group', ''], {'Q2': 'genus'}) == SP.VIEWS[2]
+assert SP.group_view(r2, ['Q1', 'Q2', 'Abies spectabilis', 'group', ''], {'Q2': 'species'}) == SP.VIEWS[3]
+assert SP.group_view(r3, ['Q1', 'Q2', 'Festuca', 'group', ''], {'Q2': 'genus'}) == SP.VIEWS[3]
+assert SP.group_view(r1, ['Q1', 'Q2', 'Felidae', 'group', ''], {'Q2': 'family'}) == SP.VIEWS[4]
+assert SP.group_view(r1, ['Q1', '', '', 'group', ''], {}) == SP.VIEWS[1] and SP.group_view(r1, ['', '', '', 'group', 'x'], {}) == SP.VIEWS[5]
+assert "$('idcard')" in html and 'd.identity' in html
+print('identity view ok')
