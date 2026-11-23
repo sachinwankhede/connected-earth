@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Data status</title>
+<style>:root{--fg:#1d1d1f;--mut:#6b6b70;--bg:#fff;--pn:#f6f6f7;--ln:#dcdce0}@media(prefers-color-scheme:dark){:root{--fg:#f1f1f2;--mut:#a0a0a8;--bg:#161618;--pn:#202024;--ln:#38383e}}body{margin:0;background:var(--bg);padding:16px}
+
+.ds{font-family:system-ui,sans-serif;color:var(--fg);display:grid;gap:16px}
+.ds h1{font:400 28px Georgia,serif;margin:0}.ds h2{font-size:18px;margin:0 0 8px}
+.ds .sub{color:var(--mut)}
+.ds .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.ds .card{background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:16px;min-width:0}
+.ds .big{font:400 30px Georgia,serif;font-variant-numeric:tabular-nums}
+.ds .lab{color:var(--mut);font-size:13px}
+.ds .bar{display:grid;grid-template-columns:minmax(90px,170px) 1fr 56px;gap:8px;align-items:center;margin:4px 0;font-size:13px}
+.ds .bar i{display:block;height:12px;border-radius:3px;background:var(--bc,#3b7dd8)}
+.ds .bar span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.ds .w{overflow-x:auto}.ds table{border-collapse:collapse;width:100%;font-size:13px}
+.ds th,.ds td{text-align:left;padding:4px 8px;border-bottom:1px solid var(--ln);white-space:nowrap}
+.ds .ctl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;align-items:center}
+.ds input{font:inherit;padding:4px 8px;background:var(--bg);color:var(--fg);border:1px solid var(--ln);border-radius:8px}
+</style></head><body>
+
+<main class="ds">
+<div><h1>Data status</h1><p class="sub" id="lead"></p></div>
+<div class="tiles" id="tiles" style="min-height:70px"></div>
+<div class="card"><h2 id="flags">Problems by row</h2><p class="sub">Rows with each problem flag (a row can have several).</p><div id="flagbars" style="min-height:120px"></div></div>
+<div class="card"><h2 id="outcomes">Overrides still to settle</h2><p class="sub">Nodes that keep their own name or page, by what the cleanup must do.</p><div id="outbars" style="min-height:100px"></div></div>
+<div class="card"><h2 id="kinds">Rows by kind</h2><div id="kindbars" style="min-height:70px"></div></div>
+<div class="card"><h2 id="rowsh">Rows with a problem</h2>
+<div class="ctl"><select id="flagsel" aria-label="Flag"></select><input id="q" placeholder="Search id, name or page" aria-label="Search rows"><span class="lab" id="rowcount"></span></div>
+<div class="w"><table><thead><tr><th>id</th><th>kind</th><th>name</th><th>page</th><th>nodes</th><th>flags</th></tr></thead><tbody id="rowbody"></tbody></table></div></div>
+<div class="card"><h2 id="dupsh">Shared pages and names</h2><div class="w"><table><thead><tr><th>what</th><th>kind</th><th>value</th><th>rows</th><th>nodes</th></tr></thead><tbody id="dupbody"></tbody></table></div></div>
+<div class="card"><h2 id="ovh">Nodes with an override</h2>
+<div class="ctl"><select id="outsel" aria-label="Outcome"></select><span class="lab" id="ovcount"></span></div>
+<div class="w"><table><thead><tr><th>place</th><th>node</th><th>node name</th><th>node page</th><th>row name</th><th>outcome</th><th>target</th></tr></thead><tbody id="ovbody"></tbody></table></div></div>
+<p class="sub">Read from the data in main each time the site is deployed (build/data_audit.py). Web checks (page titles, Wikidata) are in the readonly-data-audit run summary, not here.</p>
+</main>
+<script>
+const N=n=>Number(n).toLocaleString('en-US'),CAP=150;let A=null,F='',O='';
+const $=id=>document.getElementById(id),el=(t,x)=>{const e=document.createElement(t);e.textContent=x==null?'':x;return e};
+function bars(h,d,lab,val){const m=Math.max(1,...d.map(x=>+x[val]));h.replaceChildren();d.forEach(r=>{const b=document.createElement('div');b.className='bar';const i=document.createElement('i');i.style.width=(+r[val]/m*100)+'%';const w=document.createElement('span');w.append(i);b.append(el('span',r[lab]),w,el('span',N(r[val])));h.append(b)})}
+function body(h,rows,cols){h.replaceChildren();rows.slice(0,CAP).forEach(r=>{const tr=document.createElement('tr');cols.forEach(c=>tr.append(el('td',r[c])));h.append(tr)})}
+const rowsF=()=>{const q=($('q').value||'').toLowerCase();return A.rows.filter(r=>(!F||r.flags.split(' ').includes(F))&&(!q||(r.id+' '+r.name+' '+r.page).toLowerCase().includes(q)))};
+const ovF=()=>A.overrides.filter(r=>!O||r.outcome===O);
+function draw(){const a=rowsF(),o=ovF();body($('rowbody'),a,['id','kind','name','page','nodes','flags']);$('rowcount').textContent=N(a.length)+' rows'+(a.length>CAP?', first '+CAP+' shown (narrow with the search)':'');
+ body($('ovbody'),o,['place','node','node_name','node_page','row_name','outcome','target_row']);$('ovcount').textContent=N(o.length)+' nodes'+(o.length>CAP?', first '+CAP+' shown':'')}
+function sel(h,all,list,key,set){h.replaceChildren(new Option(all,''),...list.map(r=>new Option(r[key])));h.onchange=()=>{set(h.value);draw()}}
+fetch('audit.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{A=d;
+ const t=$('tiles');t.replaceChildren();d.totals.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value));v.className='big';const l=el('div',r.metric);l.className='lab';c.append(v,l);t.append(c)});
+ bars($('flagbars'),d.flags,'flag','rows');bars($('outbars'),d.outcomes,'outcome','nodes');bars($('kindbars'),d.kinds,'kind','rows');
+ const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_not_page'))+' rows have a name that differs from their page, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';
+ sel($('flagsel'),'All flags',d.flags,'flag',v=>F=v);sel($('outsel'),'All outcomes',d.outcomes,'outcome',v=>O=v);$('q').oninput=draw;
+ body($('dupbody'),d.dups,['what','kind','value','rows','nodes']);draw()}).catch(()=>{$('lead').textContent='The audit file did not load.'});
+</script></body></html>
