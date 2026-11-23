@@ -13,7 +13,36 @@ SKIP = ('links.json', 'order.json', 'species.json', 'bounds.json')
 
 def batch_nopage(ident):
     return {s: 'page has no Wikidata item' for s, v in ident['rows'].items() if not v[0]}
-BATCHES = {'nopage': batch_nopage}
+
+def batch_shared(ident, root=ROOT):
+    """Rows that share a page (Wikidata item) with another row, and are not the one that page is about. Per item: if the item names a taxon, the row whose Latin name is that taxon stays (none stays when no row is that taxon);
+    otherwise the row with the most nodes stays (ties: the first id). Every other row goes. Synonyms are removed, not merged: no data is better than bad data (owner, 23 Nov)."""
+    import collections
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}; use = collections.Counter()
+    for f in place_files(root):
+        try: e = json.load(open(f, encoding='utf-8'))
+        except ValueError: continue
+        for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
+            if n.get('sp'): use[n['sp']] += 1
+    cl = collections.defaultdict(list)
+    for s, v in ident['rows'].items():
+        if v[0] and s in tab: cl[v[0]].append(s)
+    out = {}
+    for q, m in cl.items():
+        if len(m) < 2: continue
+        tax = (ident['rows'][m[0]][2] or '').lower()
+        if tax:
+            keep = [s for s in m if (tab[s].get('latin') or '').lower() == tax]
+            k = keep[0] if keep else None; why = 'shares its page with another row; the page is about %s' % ident['rows'][m[0]][2]
+        else:
+            k = max(sorted(m), key=lambda s: use[s]); why = 'shares its page with another row, which has more nodes'
+        for s in m:
+            if s != k: out[s] = why
+    return out
+
+def batch_all(ident, root=ROOT):
+    out = batch_shared(ident, root); out.update(batch_nopage(ident)); return out
+BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all}
 
 def dump_like(path, obj, text):
     """Write obj in the layout `text` (the file as it was) has; the first of a few common layouts that reproduces the old text from the old object is used."""
