@@ -82,6 +82,14 @@ class Decide(unittest.TestCase):
         r = row('f', 'Feral cat', 'Felis catus', 'Felis catus'); pages = {'Felis catus': ('redirect', 'Cat', 'Q7'), 'Feral cat': ('Feral cat', 'Q8')}
         _, st, n, src = self.one(r, pages)
         self.assertEqual((st, n), ('specific', 'Feral cat')); self.assertIn('Cat', src)
+    def test_an_own_article_of_the_rows_own_species_is_a_repoint(self):
+        r = row('t', 'Thimbleweed', 'Anemone virginiana', 'Anemone virginiana'); pages = {'Anemone virginiana': ('Anemone virginiana', 'Q1'), 'Thimbleweed': ('Thimbleweed', 'Q2')}
+        _, st, n, src = self.one(r, pages, {'Q1': 'Tall thimbleweed'}, taxa={'Q1': 'Anemone virginiana', 'Q2': 'Anemone virginiana'})
+        self.assertEqual((st, n), ('repoint', 'Thimbleweed'))
+    def test_an_own_article_of_another_species_is_a_new_row(self):
+        r = row('c', 'Green-winged Teal', 'Anas crecca', 'Anas crecca'); pages = {'Anas crecca': ('redirect', 'Eurasian teal', 'Q1'), 'Green-winged Teal': ('redirect', 'Green-winged teal', 'Q2')}
+        _, st, n, src = self.one(r, pages, taxa={'Q1': 'Anas crecca', 'Q2': 'Anas carolinensis'})
+        self.assertEqual((st, n), ('newrow', 'Green-winged teal'))
     def test_a_current_name_that_redirects_to_the_same_page_is_a_plain_rename(self):
         r = row('b', 'Cow', 'Bos taurus', 'Bos taurus'); pages = {'Bos taurus': ('redirect', 'Cattle', 'Q9'), 'Cow': ('redirect', 'Cattle', 'Q9')}
         self.assertEqual(self.one(r, pages)[1:3], ('change', 'Cattle'))
