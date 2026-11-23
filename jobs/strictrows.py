@@ -78,7 +78,45 @@ def journey_nodes(root):
 def place_files(root):
     return [f for f in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))) if os.path.basename(f) not in SKIP]
 
-def apply(root, sids, dry=False):
+def protect(root, tab, go, reason):
+    """Take out of `go` (in place) the rows whose removal would leave a place invalid (build/validate.py: the tip names a node, at least one abiotic and one decomp node, 10 to 34 species), and return {sid: why}.
+    Deterministic: for each place in file order, the tip node's row stays; a missing abiotic or decomp kind keeps its first removed row (by id); too few species keeps the removed species rows (a row that shares a page before a row with no page, then by id) until there are 10.
+    The kept rows are the bad rows still in the data: they are listed so a later pass can remove them once the place has accurate nodes (owner: places can evolve)."""
+    places = []
+    for f in place_files(root):
+        try: e = json.load(open(f, encoding='utf-8'))
+        except ValueError: continue
+        if isinstance(e, dict) and isinstance(e.get('nodes'), list): places.append((e.get('id'), [n for n in e['nodes'] if n.get('sp') in tab], (e.get('tip') or {}).get('id'), [r for r in e.get('raw') or [] if isinstance(r, list)]))
+    kept = {}; dropped = {}
+    def keep(sid, why): go.discard(sid); kept[sid] = why
+    changed = True
+    while changed:
+        changed = False
+        for pid, nodes, tip, raw in places:
+            gone_n = dropped.setdefault(pid, set()); left = [n for n in nodes if n['sp'] not in go and n['id'] not in gone_n]
+            tn = [n for n in nodes if n['id'] == tip]
+            if tn and tn[0]['sp'] in go: keep(tn[0]['sp'], 'the tip of %s names its node' % pid); changed = True; continue
+            hit = False
+            for kind in ('abiotic', 'decomp'):
+                if not any(tab[n['sp']].get('cat') == kind for n in left):
+                    c = sorted(n['sp'] for n in nodes if n['sp'] in go and tab[n['sp']].get('cat') == kind)
+                    if c: keep(c[0], '%s needs an %s node' % (pid, kind)); changed = hit = True; break
+            if hit: continue
+            sp = [n for n in left if not tab[n['sp']].get('cat')]
+            if len(sp) < 10:
+                c = sorted((n['sp'] for n in nodes if n['sp'] in go and not tab[n['sp']].get('cat')), key=lambda x: (not str(reason.get(x, '')).startswith('shares'), x))
+                for x in c[:10 - len(sp)]: keep(x, '%s needs 10 species' % pid); changed = True
+                continue
+            ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
+            for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
+                cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o]
+                essential = o['id'] == tip or (cat in ('abiotic', 'decomp') and not any(tab[n['sp']].get('cat') == cat for n in rest)) or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
+                if not essential: gone_n.add(o['id']); changed = True; continue
+                nb = sorted(nodes_by[x]['sp'] for r in raw if o['id'] in r[:2] for x in r[:2] if x != o['id'] and x in nodes_by and nodes_by[x]['sp'] in go) if (nodes_by := {n['id']: n for n in nodes}) else []
+                if nb: keep(nb[0], '%s: its node %s would have no links' % (pid, o['id'])); changed = True
+    return kept, dropped
+
+def apply(root, sids, dry=False, reason=None):
     """Remove the rows `sids`; returns (removed, kept) where kept = {sid: reason}."""
     tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}
     jn = journey_nodes(root); kept = {}; nodeids = {}   # nodeids[place] = {node id: sid}
@@ -91,9 +129,11 @@ def apply(root, sids, dry=False):
                 if (e.get('id'), n.get('id')) in jn: kept[n['sp']] = 'a journey ends at its node in %s' % e.get('id')
                 nodeids.setdefault(f, {})[n['id']] = n['sp']
     go = {s for s in sids if s in tab and s not in kept}
+    pk, dropped = protect(root, tab, go, reason or {})
+    kept.update(pk)
     if dry: return sorted(go), kept
     for f, ids in nodeids.items():
-        gone = {i for i, s in ids.items() if s in go}
+        pid = json.load(open(f, encoding='utf-8')).get('id'); gone = {i for i, s in ids.items() if s in go} | dropped.get(pid, set())
         if not gone: continue
         def fix(e):
             e['nodes'] = [n for n in e['nodes'] if n.get('id') not in gone]
@@ -147,8 +187,8 @@ def record(root, batch, removed, reason, kept):
 def main(argv):
     batch = argv[argv.index('--batch') + 1]; dry = '--dry' in argv
     ident = json.load(open(os.path.join(ROOT, 'data', 'audit', 'identity.json'), encoding='utf-8'))
-    reason = BATCHES[batch](ident); removed, kept = apply(ROOT, set(reason), dry)
-    print('%d rows %s, %d kept (journey)' % (len(removed), 'to remove' if dry else 'removed', len(kept)))
+    reason = BATCHES[batch](ident); removed, kept = apply(ROOT, set(reason), dry, reason)
+    print('%d rows %s, %d kept (the data would break without them)' % (len(removed), 'to remove' if dry else 'removed', len(kept)))
     for s, why in sorted(kept.items()): print('kept', s, why)
     if not dry: record(ROOT, batch, removed, reason, kept)
 
