@@ -228,6 +228,14 @@ def check(root):
     if cons is not None or casked is not None:
         for name, ids in (('conservation.json', cons or {}), ('conservation_asked.json', casked or [])):
             for sid in sorted(set(ids) - set(sids), key=str): errs.append('data/species/%s: %r is not the id of a species row' % (name, sid))
+    # web name check (#1061): what jobs/rowtitles.py decided for each row; the data status page reads it
+    rt = load(root, 'data', 'audit', 'rowtitles.json')
+    if rt is not None:
+        if not isinstance(rt, dict) or not isinstance(rt.get('rows'), dict) or not isinstance(rt.get('asOf'), str): errs.append('data/audit/rowtitles.json: expected {asOf, rows}')
+        else:
+            for sid in sorted(set(rt['rows']) - set(sids), key=str): errs.append('data/audit/rowtitles.json: %r is not the id of a species row' % (sid,))
+            for sid, v in sorted(rt['rows'].items()):
+                if not (isinstance(v, list) and len(v) == 3 and v[0] in ('same', 'change', 'wrongpage', 'specific', 'unresolved')): errs.append('data/audit/rowtitles.json: %r is not [status, proposed, why]' % (sid,))
     # eating-link table (#256): one file per consumer species, sitting where its sid says; the consumer and every prey must be species of the table
     dd = os.path.join(root, 'data', 'diets')
     if os.path.isdir(dd):
