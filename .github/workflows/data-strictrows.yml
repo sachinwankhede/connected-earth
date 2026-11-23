@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       batch:
-        description: "Batch to remove (nopage = rows whose page has no Wikidata item)"
+        description: "Batch to remove (all = every rule; nopage = rows whose page has no Wikidata item; shared = rows that share a page with another row)"
         required: true
-        default: nopage
+        default: all
 permissions:
   contents: write
   pull-requests: write
