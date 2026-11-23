@@ -1,8 +1,6 @@
 name: data-identity
 # Manual (#1061, option 5). Runs jobs/identity.py on every row (taxon, group, resource): the Wikidata item (QID) of its Wikipedia page, with the item's taxon rank and name
 # (en.wikipedia.org and www.wikidata.org through lib/wm.py, hosts listed in lib/allowed_sources.json). Opens one pull request with data/audit/identity.json. It changes no row.
-on: for each row, .
-# The data status page reads that file, so the "name needs a web check" rows get their answer. It changes no row. No schedule yet: run it once by hand, judge timing, then decide.
 on:
   workflow_dispatch:
 permissions:
