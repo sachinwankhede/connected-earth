@@ -1,0 +1,38 @@
+name: readonly-data-audit
+# Manual and weekly, read-only (#1061, #887). Pulls the detail behind the data status: every place node and species row with its problem flags (build/data_audit.py), the
+# status table (build/data_status.py), the override classes (build/override_report.py), the validator's problems, and, with web=yes, the Wikipedia and Wikidata checks of
+# every row's page and name (jobs/rowtitles.py --all). It changes nothing: no commit, no pull request, no secret. The files are attached to the run as `data-audit`.
+# Hosts: en.wikipedia.org and www.wikidata.org (lib/allowed_sources.json), only for web=yes.
+on:
+  workflow_dispatch:
+    inputs:
+      web: { description: "yes = also ask Wikipedia and Wikidata about every row (about 30 minutes)", default: "yes" }
+  schedule:
+    - cron: "17 5 * * 1"
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v5
+      - name: Offline detail (nodes, rows, duplicates, status, override classes, validator)
+        run: |
+          mkdir -p audit
+          python3 build/data_audit.py --out audit | tail -40
+          python3 build/data_status.py --json audit/status.json > audit/status.txt
+          python3 build/override_report.py --all > audit/override_report.txt
+          python3 build/override_report.py --candidates audit/new_row_candidates.json > /dev/null
+          python3 build/validate_data.py > audit/validate.txt 2>&1 || true
+          { echo '### Counts'; echo '```'; python3 -c "import json;print(json.dumps(json.load(open('audit/summary.json')),indent=1))"; echo '```'; echo '### Data status'; echo '```'; cat audit/status.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - name: Web checks (page and name of every row)
+        if: github.event_name == 'schedule' || github.event.inputs.web != 'no'
+        run: |
+          python3 jobs/rowtitles.py --all > audit/rowtitles.txt || true
+          { echo '### Row titles (web)'; echo '```'; head -c 60000 audit/rowtitles.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: data-audit
+          path: audit/
+          retention-days: 30
