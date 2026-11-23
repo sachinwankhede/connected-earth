@@ -228,6 +228,14 @@ def check(root):
     if cons is not None or casked is not None:
         for name, ids in (('conservation.json', cons or {}), ('conservation_asked.json', casked or [])):
             for sid in sorted(set(ids) - set(sids), key=str): errs.append('data/species/%s: %r is not the id of a species row' % (name, sid))
+    # identity check (#1061): the Wikidata item of every row's page (jobs/identity.py); the data status page reads it
+    idn = load(root, 'data', 'audit', 'identity.json')
+    if idn is not None:
+        if not isinstance(idn, dict) or not isinstance(idn.get('rows'), dict) or not isinstance(idn.get('asOf'), str): errs.append('data/audit/identity.json: expected {asOf, rows}')
+        else:
+            for sid in sorted(set(idn['rows']) - set(sids), key=str): errs.append('data/audit/identity.json: %r is not the id of a row' % (sid,))
+            for sid, v in idn['rows'].items():
+                if not (isinstance(v, list) and len(v) == 5): errs.append('data/audit/identity.json: %r is not [item, rank, taxon, kind, why]' % (sid,))
     # web name check (#1061): what jobs/rowtitles.py decided for each row; the data status page reads it
     rt = load(root, 'data', 'audit', 'rowtitles.json')
     if rt is not None:

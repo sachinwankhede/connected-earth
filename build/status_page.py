@@ -2,7 +2,7 @@
 """status_page.py: the data status page (#1061, #887). The deploy runs the read-only audit (build/data_audit.py) on the data in the checkout and publishes
 status/index.html (from src/status/index.html) and status/audit.json beside the app, so the page always shows main as deployed. Not part of the app: it is not in the
 first view, not linked from the app and not in the service worker's precache. Changes no data."""
-import collections, json, os, sys
+import collections, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import data_audit
@@ -18,10 +18,44 @@ def web(root, rows):
     return {'asOf': d.get('asOf'), 'status': [{'status': names[k], 'rows': count[k]} for k in names if count[k]],
             'rows': [{'id': k, 'name': (by.get(k) or {}).get('name', ''), 'page': (by.get(k) or {}).get('page', ''), 'status': names.get(v[0], v[0]), 'proposed': v[1], 'why': v[2]} for k, v in sorted(res.items()) if v[0] != 'same']}
 
+VIEWS = ['shared item (one item, several rows)', 'group: role-based, stays', 'group: convert candidate (members all in the page taxon)', 'group: keep (members go beyond the page taxon)', 'group: needs a person (page is a higher rank)', 'group: no page or item', 'row without an item']
+
+def group_view(r, v, ranks):
+    """Which view a group row falls in, from its item (v = [qid, rank id, taxon name, kind, why]) and its `latin` member list (a text check, not a decision)."""
+    if not v[0]: return VIEWS[5]
+    if not v[1]: return VIEWS[1]
+    rk = ranks.get(v[1], v[1])
+    if rk not in ('genus', 'species'): return VIEWS[4]
+    parts = [x.strip() for x in re.split(r',|;| and | & ', re.sub(r'\b(and relatives|spp?\.?|etc\.?|relatives)\b', '', r.get('latin') or '')) if x.strip()]
+    gen = {x.split()[0] for x in parts if re.match(r'[A-Z][a-z]+', x)}; g0 = (v[2] or '').split(' ')[0]
+    if not gen or 'other' in (r.get('latin') or '').lower(): return VIEWS[4] if not gen else VIEWS[3]
+    return VIEWS[2] if gen == {g0} and (rk == 'genus' or all(x == v[2] for x in parts)) else VIEWS[3]
+
+def identity(root, rows):
+    """The identity check (data/audit/identity.json, written by the data-identity job), or None before its first run: the Wikidata item of every row's page. Lists the items several rows share, the groups by what a text check says, and the rows with no item."""
+    path = os.path.join(root, 'data', 'audit', 'identity.json')
+    if not os.path.exists(path): return None
+    d = json.load(open(path, encoding='utf-8')); R = d.get('rows') or {}; ranks = d.get('ranks') or {}; by = {r['id']: r for r in rows}
+    import species
+    full = {r['sid']: r for r in species.table(root).values() if r.get('sid')}
+    cl = collections.defaultdict(list)
+    for k, v in R.items():
+        if v[0]: cl[v[0]].append(k)
+    out = []
+    for q, m in sorted(cl.items()):
+        if len(m) > 1: out.append({'view': VIEWS[0], 'item': q, 'kinds': ' '.join(sorted({R[k][3] for k in m})), 'ids': ' '.join(sorted(m)), 'names': ', '.join((full.get(k) or {}).get('name', '') for k in sorted(m)), 'detail': (R[m[0]][2] or '')})
+    for k, v in sorted(R.items()):
+        r = full.get(k) or {}
+        if v[3] == 'group': out.append({'view': group_view(r, v, ranks), 'item': v[0], 'kinds': 'group', 'ids': k, 'names': r.get('name', ''), 'detail': '%s | %s | %s' % (ranks.get(v[1], ''), v[2], r.get('latin', ''))})
+        elif not v[0]: out.append({'view': VIEWS[6], 'item': '', 'kinds': v[3], 'ids': k, 'names': r.get('name', ''), 'detail': v[4]})
+    n = collections.Counter(x['view'] for x in out)
+    return {'asOf': d.get('asOf'), 'rowsChecked': len(R), 'views': [{'view': k, 'rows': n[k]} for k in VIEWS if n[k]], 'rows': out}
+
 def payload(root=ROOT):
     nodes, rows, dups, S = data_audit.audit(root)
     return {
         'web': web(root, rows),
+        'identity': identity(root, rows),
         'totals': [{'metric': 'Species rows', 'value': S['rows']}, {'metric': 'Place nodes', 'value': S['nodes']},
                    {'metric': 'Nodes with own name or page', 'value': S['nodes_with_override']}, {'metric': 'Nodes on a missing row', 'value': S['nodes_pointing_at_a_missing_row']}],
         'kinds': [{'kind': k, 'rows': v} for k, v in S['rows_by_kind'].items()],
