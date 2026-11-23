@@ -114,11 +114,13 @@ def apply(root, sids, dry=False):
                 return ch
             if edit(p, fixd) and not json.load(open(p, encoding='utf-8')).get('prey'): os.remove(p)   # a diet file with no prey is not a diet
     sp = os.path.join(root, 'data', 'species')
-    for name in ('taxonomy.json', 'conservation.json'):
+    def drop_ids(o):
+        if isinstance(o, dict): return bool([o.pop(s) for s in [s for s in o if s in go]])
+        if isinstance(o, list) and any(s in go for s in o): o[:] = [s for s in o if s not in go]; return True
+        return False
+    for name in ('taxonomy.json', 'conservation.json', 'taxonomy_manual.json', 'taxonomy_review.json', 'conservation_asked.json'):
         p = os.path.join(sp, name)
-        if os.path.exists(p): edit(p, lambda o: bool([o.pop(s) for s in [s for s in o if s in go]]))
-    p = os.path.join(sp, 'conservation_asked.json')
-    if os.path.exists(p): edit(p, lambda o: (o.__setitem__(slice(None), [s for s in o if s not in go]) or True) if any(s in go for s in o) else False)
+        if os.path.exists(p): edit(p, drop_ids)
     for name in ('identity.json', 'rowtitles.json'):   # the audit files name rows by id: a removed row leaves them (data/audit/strictrows.json says why)
         p = os.path.join(root, 'data', 'audit', name)
         if os.path.exists(p): edit(p, lambda o: bool([o['rows'].pop(s) for s in [s for s in o['rows'] if s in go]]))
