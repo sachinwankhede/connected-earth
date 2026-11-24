@@ -1380,7 +1380,7 @@ delphinium-geyeri,taxon,Geyer's larkspur,Delphinium geyeri,Delphinium geyeri,1,1
 delphinium-nuttallianum,taxon,Nuttall's larkspur,Delphinium nuttallianum,Delphinium nuttallianum,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 delphinium-tricorne,taxon,Dwarf larkspur,Delphinium tricorne,Delphinium tricorne,1,5,5,legacy,0,0,0,1,0,0,0,0,0
 delta-silt-and-nutrients,resource,Delta silt and nutrients,Shatt al-Arab,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
-delta-silt-nutrients,resource,Delta silt & nutrients,Sediment,,0,1,1,legacy,0,0,0,0,1,0,0,0,0
+delta-silt-nutrients,resource,Delta silt & nutrients,Sediment,,0,2,2,legacy,0,0,0,0,0,0,0,0,0
 dendrelaphis-caudolineatus,taxon,Striped bronzeback,Dendrelaphis caudolineatus,Dendrelaphis caudolineatus,3,1,1,legacy,0,0,0,1,0,0,0,0,0
 dendrelaphis-punctulatus,taxon,Common tree snake,Common tree snake,Dendrelaphis punctulatus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 dendroaspis-jamesoni,taxon,Jameson's mamba,Jameson's mamba,Dendroaspis jamesoni,3,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -1993,7 +1993,6 @@ hedysarum-alpinum,taxon,Alpine sweetvetch,Hedysarum alpinum,Hedysarum alpinum,1,
 helarctos-malayanus,taxon,Sun bear,Sun bear,Helarctos malayanus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 helenium-amarum,taxon,Bitter sneezeweed,Helenium amarum,Helenium amarum,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 heleobia,taxon,Heleobia snails,Heleobia,Heleobia,2,1,1,legacy,0,0,0,1,0,0,0,0,0
-heliamphora,taxon,Tepui pitcher plants,Heliamphora,Heliamphora,1,0,0,legacy,0,0,0,1,0,0,0,1,0
 helianthus-annuus,taxon,Common sunflower,Helianthus annuus,Helianthus annuus,1,10,10,legacy,0,0,0,1,0,0,0,0,0
 helianthus-argophyllus,taxon,Silverleaf sunflower,Helianthus argophyllus,Helianthus argophyllus,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 helianthus-debilis,taxon,Cucumberleaf Sunflower,Helianthus debilis,Helianthus debilis,1,2,2,legacy,0,0,0,1,0,0,0,0,0
@@ -2917,10 +2916,9 @@ nuphar-advena,taxon,Spatter-dock,Nuphar advena,Nuphar advena,1,1,1,legacy,0,0,0,
 nuphar-polysepala,taxon,Rocky Mountain pond-lily,Nuphar polysepala,Nuphar polysepala,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 nuphar-variegata,taxon,Varigated Yellow Pond-Lily,Nuphar variegata,Nuphar variegata,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 nura-river-and-snowmelt,resource,Nura River and snowmelt,Nura (river),,0,1,1,legacy,0,0,0,0,0,0,0,0,0
-nutrient-poor-soil,resource,Nutrient-poor soil,Soil,,0,1,1,legacy,0,0,0,0,1,0,0,0,0
 nutrient-rich-mud,resource,Nutrient-rich mud,Mud,,0,2,2,legacy,0,0,0,0,0,0,0,0,0
 nutrients,resource,Nutrients,Nutrient,,0,3,3,legacy,0,0,0,0,0,0,0,0,0
-nutrients-and-runoff,resource,Nutrients and runoff,Nutrient pollution,,0,2,2,legacy,0,0,0,0,1,0,0,0,0
+nutrients-and-runoff,resource,Nutrients and runoff,Nutrient pollution,,0,4,4,legacy,0,0,0,0,0,0,0,0,0
 nyctereutes-procyonoides,taxon,Raccoon dog,Raccoon dog,Nyctereutes procyonoides,3,3,3,legacy,0,0,0,0,0,0,0,0,0
 nymphaea-alba,taxon,White water-lily,Nymphaea alba,Nymphaea alba,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 nymphaea-lotus,taxon,Water lotus,Nymphaea lotus,Nymphaea lotus,1,2,2,legacy,0,0,0,1,0,0,0,0,0
@@ -3268,7 +3266,6 @@ phacelia-tanacetifolia,taxon,Phacelia,Phacelia tanacetifolia,Phacelia tanacetifo
 phacochoerus-africanus,taxon,Common warthog,Common warthog,Phacochoerus africanus,2,8,8,legacy,0,0,0,0,0,0,0,0,0
 phainopepla-nitens,taxon,Phainopepla,Phainopepla nitens,Phainopepla nitens,3,2,2,legacy,0,0,0,1,0,0,0,0,0
 phalacrocorax-carbo,taxon,Great cormorant,Great cormorant,Phalacrocorax carbo,3,3,3,legacy,0,0,0,0,0,0,0,0,0
-phalacrocorax-harrisi,taxon,Flightless cormorant,Flightless cormorant,Phalacrocorax harrisi,3,0,0,legacy,0,0,0,0,0,0,0,1,0
 phalacrocorax-varius,taxon,Australian pied cormorant,Pied cormorant,Phalacrocorax varius,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 phalanger-orientalis,taxon,Northern common cuscus,Northern common cuscus,Phalanger orientalis,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 phalaris-arundinacea,taxon,Reed Canary-grass,Phalaris arundinacea,Phalaris arundinacea,1,7,7,legacy,0,0,0,1,0,0,0,0,0
@@ -3824,7 +3821,6 @@ ribes-triste,taxon,Swamp red currant,Ribes triste,Ribes triste,1,1,1,legacy,0,0,
 ribes-viscosissimum,taxon,Sticky currant,Ribes viscosissimum,Ribes viscosissimum,1,2,2,legacy,0,0,0,1,0,0,0,0,0
 ricinus-communis,taxon,Castor-oil-Plant,Ricinus communis,Ricinus communis,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 rissa-tridactyla,taxon,Black-legged kittiwake,Black-legged kittiwake,Rissa tridactyla,3,2,2,legacy,0,0,0,0,0,0,0,0,0
-river-nutrients,resource,River nutrients,Nutrient pollution,,0,2,2,legacy,0,0,0,0,1,0,0,0,0
 river-sediment-and-nutrients,resource,River sediment and nutrients,Shkumbin,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 rivers,resource,Rivers,Limpopo River,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 rivina-humilis,taxon,Bloodberry,Rivina humilis,Rivina humilis,1,1,1,legacy,0,0,0,1,0,0,0,0,0
@@ -3959,7 +3955,6 @@ sambucus-racemosa,taxon,Red-berried Elder,Sambucus racemosa,Sambucus racemosa,1,
 san-juan-and-bartola-rivers,resource,San Juan and Bartola rivers,San Juan River (Nicaragua),,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 sander-vitreus,taxon,Walleye,Walleye,Sander vitreus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 sandy-cays,resource,Sandy cays,Cay,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
-sandy-nutrient-poor-soil,resource,"Sandy, nutrient-poor soil",Soil,,0,1,1,legacy,0,0,0,0,1,0,0,0,0
 sandy-soil-and-dunes,resource,Sandy soil and dunes,Sand,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 sanguinaria-canadensis,taxon,Red puccoon,Sanguinaria canadensis,Sanguinaria canadensis,1,14,14,legacy,0,0,0,1,0,0,0,0,0
 sapajus-apella,taxon,Tufted capuchin,Tufted capuchin,Sapajus apella,2,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -3971,7 +3966,7 @@ sarcoramphus-papa,taxon,King vulture,King vulture,Sarcoramphus papa,3,2,2,legacy
 sardinella,taxon,Sardines,Sardinella,Sardinella,3,1,1,legacy,0,0,0,1,0,0,0,0,0
 sardinella-aurita,taxon,Round sardinella,Round sardinella,Sardinella aurita,2,2,2,legacy,0,0,0,0,0,0,0,0,0
 sardinella-longiceps,taxon,Indian oil sardine,Indian oil sardine,Sardinella longiceps,2,1,1,legacy,0,0,0,0,0,0,0,0,0
-sardines-and-similar,group,Sardines and small schooling fish,Sardine,Sardines and similar,2,1,1,legacy,0,0,1,0,0,0,0,0,0
+sardines-and-similar,group,Sardine,Sardine,Sardines and similar,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 sarracenia-alata,taxon,Pale pitcherplant,Sarracenia alata,Sarracenia alata,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 sarracenia-flava,taxon,Yellow Pitcherplant,Sarracenia flava,Sarracenia flava,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 sarracenia-minor,taxon,Rainhat-trumpet,Sarracenia minor,Sarracenia minor,1,1,1,legacy,0,0,0,1,0,0,0,0,0
@@ -4024,7 +4019,6 @@ seasonal-flooding,resource,Seasonal flooding,Congo River,,0,3,3,legacy,0,0,0,0,0
 seasonal-floodwater,resource,Seasonal floodwater,Chobe River,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 seasonal-grazing-transhumance,resource,Seasonal grazing (transhumance),Transhumance,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 sebastes-spp,group,Rockfish,Sebastes,Sebastes spp.,3,1,1,legacy,0,0,0,1,0,0,0,0,0
-sediment-nutrients,resource,Sediment & nutrients,Sediment,,0,1,1,legacy,0,0,0,0,1,0,0,0,0
 sedum-lanceolatum,taxon,Lance-leaf stonecrop,Sedum lanceolatum,Sedum lanceolatum,1,2,2,legacy,0,0,0,1,0,0,0,0,0
 sedum-nuttallii,taxon,Yellow stonecrop,Sedum nuttallii,Sedum nuttallii,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 sedum-pulchellum,taxon,Widowscross,Sedum pulchellum,Sedum pulchellum,1,2,2,legacy,0,0,0,1,0,0,0,0,0
@@ -4124,7 +4118,7 @@ smilax-walteri,taxon,Coral greenbrier,Smilax walteri,Smilax walteri,1,3,3,legacy
 snake-river-and-wetlands,resource,Snake River and wetlands,Snake River,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 snowmelt-and-glacier-water,resource,Snowmelt and glacier water,Snowmelt,,0,2,2,legacy,0,0,0,0,0,0,0,0,0
 snowmelt-and-medano-creek,resource,Snowmelt and Medano Creek,Great Sand Dunes National Park and Preserve,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
-soil-and-nutrients,resource,Soil and nutrients,Soil,,0,1239,1239,legacy,0,0,0,0,1,0,0,0,0
+soil-and-nutrients,resource,Soil and nutrients,Soil,,0,1241,1241,legacy,0,0,0,0,0,0,0,0,0
 solanum-americanum,taxon,Small-flowered Nightshade,Solanum americanum,Solanum americanum,1,3,3,legacy,0,0,0,1,0,0,0,0,0
 solanum-capsicoides,taxon,Cockroach Berry,Solanum capsicoides,Solanum capsicoides,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 solanum-carolinense,taxon,Horse-nettle,Solanum carolinense,Solanum carolinense,1,38,38,legacy,0,0,0,1,0,0,0,0,0
@@ -4199,7 +4193,6 @@ sphex-ichneumoneus,taxon,American Golden Digger Wasp,Sphex ichneumoneus,Sphex ic
 sphingidae,taxon,Hawk moths,Sphingidae,Sphingidae,2,1,1,legacy,0,0,0,1,0,0,0,0,0
 sphyraena-barracuda,taxon,Great barracuda,Great barracuda,Sphyraena barracuda,3,3,3,legacy,0,0,0,1,0,0,0,0,0
 sphyrapicus-varius,taxon,Yellow-bellied Sapsucker,Sphyrapicus varius,Sphyrapicus varius,3,1,1,legacy,0,0,0,1,0,0,0,0,0
-sphyrna,taxon,Hammerhead shark,Hammerhead shark,Sphyrna,4,0,0,legacy,0,0,0,0,0,0,0,1,0
 sphyrna-lewini,taxon,Scalloped hammerhead,Scalloped hammerhead,Sphyrna lewini,4,2,2,legacy,0,0,0,0,0,0,0,0,0
 spigelia-marilandica,taxon,Indian-pink,Spigelia marilandica,Spigelia marilandica,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 spilogale-gracilis,taxon,Western spotted skunk,Spilogale gracilis,Spilogale gracilis,3,1,1,legacy,0,0,0,1,0,0,0,0,0
