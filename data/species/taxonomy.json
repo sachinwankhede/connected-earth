@@ -26579,20 +26579,6 @@
 "rank": "GENUS",
 "src": "gbif"
 },
-"heliamphora": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 94,
-"family": "Sarraceniaceae",
-"gname": "Heliamphora Benth.",
-"key": 7263152,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Ericales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "helianthus-annuus": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -43483,20 +43469,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"phalacrocorax-harrisi": {
-"at": "2026-11-04",
-"class": "Aves",
-"conf": 100,
-"family": "Phalacrocoracidae",
-"gname": "Phalacrocorax harrisi Rothschild, 1898",
-"key": 2481900,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Suliformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "phalacrocorax-varius": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -55669,20 +55641,6 @@
 "order": "Piciformes",
 "phylum": "Chordata",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"sphyrna": {
-"at": "2026-11-04",
-"class": "Elasmobranchii",
-"conf": 96,
-"family": "Sphyrnidae",
-"gname": "Sphyrna Rafinesque, 1810",
-"key": 2418788,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carcharhiniformes",
-"phylum": "Chordata",
-"rank": "GENUS",
 "src": "gbif"
 },
 "sphyrna-lewini": {
