@@ -3,7 +3,7 @@
 (data/audit/identity.json). No network.
   python3 jobs/namefix.py --list [--dry]     # print the two lists
   python3 jobs/namefix.py --rename [--dry]   # rename the clear cases: a taxon row whose page is about exactly that taxon, or a species or subspecies row whose page is about one species; the new name is the page's own title
-  (the others are removed by `jobs/strictrows.py --batch badname`: a row whose name says one thing and whose page another does not know what it is; no data is better than bad data)
+  (rows whose page is another taxon, and the cases above, are removed by `jobs/strictrows.py --batch badname`: a row whose name says one thing and whose page another does not know what it is; no data is better than bad data)
 A rename changes only the row's `name`; its nodes follow it. Groups and rows whose page is about something broader are never renamed."""
 import json, os, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,6 +19,9 @@ def lists(root=ROOT):
     ren, dele = {}, {}
     for sid, r in sorted(tab.items()):
         v = web.get(sid)
+        pt = ((ident['rows'].get(sid) or [''] * 5)[2] or '')
+        if v and v[0] == 'wrongpage' and r.get('sk') == 'taxon' and len((r.get('latin') or '').split()) >= 2 and pt and len(pt.split()) == 1 and pt.lower() != (r.get('latin') or '').split()[0].lower() and not data_audit.scientific(r.get('wiki') or '', r):   # a species row whose page is a family, order or other higher taxon
+            dele[sid] = 'its page %s is another taxon than the row (%s)' % (r['wiki'], v[2]); continue
         if not v or v[0] != 'change' or r.get('sk') not in ('taxon', 'group') or not r.get('wiki'): continue
         page, name = r['wiki'], r.get('name') or ''
         if data_audit.scientific(page, r) or data_audit.plain(name) == data_audit.plain(page): continue   # not a name that breaks the rule
