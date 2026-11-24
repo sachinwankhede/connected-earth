@@ -54,7 +54,7 @@ def batch_unused(ident, root=ROOT):
 def batch_badname(ident, root=ROOT):
     """Rows whose name and page disagree on what the row is and that cannot be renamed safely (jobs/namefix.py): removed, not renamed (owner, 24 Nov, #1061)."""
     import namefix
-    return namefix.lists(root)[1]
+    return namefix.all_deletes(root)
 BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all, 'unused': batch_unused, 'badname': batch_badname}
 
 def dump_like(path, obj, text):
