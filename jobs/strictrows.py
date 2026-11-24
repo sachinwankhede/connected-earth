@@ -5,7 +5,7 @@ with everything that depends on them, in batches. Reads data/audit/identity.json
 Removing a row removes: its row file; the nodes of every place that name it (and the edge records `raw`/`ev` that name those nodes); its diet file and its entries in other diet files;
 its taxonomy, conservation and picture entries (through lib/species_photos.py). A row whose node is the end of a journey is KEPT and listed (a journey is not edited here).
 It writes data/audit/strictrows.json = {asOf, removed:{sid:[batch, reason]}, kept:{sid:reason}} so the status page and the validator know what was removed and why. It never touches a row it was not asked for."""
-import datetime, glob, json, os, sys
+import datetime, glob, json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for d in ('build', 'lib'): sys.path.insert(0, os.path.join(ROOT, d))
 import species
@@ -175,10 +175,61 @@ def apply(root, sids, dry=False, reason=None):
         if os.path.exists(p): os.remove(p)
     return sorted(go), kept
 
-def record(root, batch, removed, reason, kept):
+PLACE_RES = (re.compile(r'^the tip of (\w+) names'), re.compile(r'^(\w+) needs '), re.compile(r'^(\w+): its node'))
+
+def blocking_places(kept):
+    """{place id: why} for the kept rows that block a place (protect() wrote the place id in the reason). A row kept for a journey names no place."""
+    out = {}
+    for s, why in kept.items():
+        for rx in PLACE_RES:
+            m = rx.match(why)
+            if m: out.setdefault(m.group(1), why); break
+    return out
+
+def remove_place(root, pid):
+    """Remove a whole place with everything that names it: file, outline and its credit and missing rows, place_inputs row, order entry, picture and larger copy and their rows. Journeys are not edited: the caller skips places a journey names."""
+    for rel in (('data', 'places', pid + '.json'), ('data', 'outlines', pid + '.json')):
+        p = os.path.join(root, *rel)
+        if os.path.exists(p): os.remove(p)
+    for rel in (('data', 'outline_records.json'), ('data', 'outline_missing.json'), ('photos', 'places', 'places.json'), ('photos', 'places', 'missing.json'),
+                ('photos', 'places_large.json'), ('photos', 'places_tried.json')):
+        p = os.path.join(root, *rel)
+        if not os.path.exists(p): continue
+        def drop(o):
+            if rel[-1] == 'places.json' and rel[1] == 'places' and pid in o:
+                f = os.path.join(root, 'photos', 'places', o[pid].get('f') or pid + '.jpg')
+                if os.path.exists(f): os.remove(f)
+            return o.pop(pid, None) is not None
+        edit(p, drop)
+    import place_inputs
+    pi = place_inputs.PlaceInputs(root)
+    if pid in pi.recs: pi.recs.pop(pid); pi.commit()   # its file keeps its own layout
+    f = os.path.join(root, 'photos', 'places-lg', pid + '.webp')
+    if os.path.exists(f): os.remove(f)
+    for p in sorted(glob.glob(os.path.join(root, 'data', 'order', '*.json'))):
+        edit(p, lambda o: isinstance(o, list) and pid in o and (o.__setitem__(slice(None), [x for x in o if x != pid]) or True))
+
+def run_places(root, ident, dry=False):
+    """Remove every place that a kept row blocks (a tip, the only abiotic or decomp node, the 10-species minimum, a node with no links): such a place cannot lose its bad row without a replacement, so it is removed and can be
+    recreated with accurate nodes later (owner, 24 Nov: delete, then recreate). A place a journey names stays. Repeats until no removable place is blocked, then removes the rows. Returns (removed places {id: why}, removed rows, kept rows)."""
+    reason = BATCHES['all'](ident); jp = {p for p, _ in journey_nodes(root)}; gone = {}
+    while True:
+        _, kept = apply(root, set(reason), dry=True, reason=reason)
+        todo = {p: w for p, w in blocking_places(kept).items() if p not in jp and p not in gone}
+        if not todo: break
+        for p, w in sorted(todo.items()):
+            gone[p] = w
+            if not dry: remove_place(root, p)
+        if dry: break
+    if dry: return gone, [], kept
+    rows, kept = apply(root, set(reason), False, reason)
+    return gone, rows, kept
+
+def record(root, batch, removed, reason, kept, places=None):
     p = os.path.join(root, 'data', 'audit', 'strictrows.json')
     d = json.load(open(p)) if os.path.exists(p) else {'removed': {}, 'kept': {}}
     d['asOf'] = datetime.date.today().isoformat()
+    if places: d.setdefault('places', {}).update(places)
     for s in removed: d['removed'][s] = [batch, reason[s]]; d['kept'].pop(s, None)
     for s, why in kept.items(): d['kept'][s] = why
     os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -187,6 +238,13 @@ def record(root, batch, removed, reason, kept):
 def main(argv):
     batch = argv[argv.index('--batch') + 1]; dry = '--dry' in argv
     ident = json.load(open(os.path.join(ROOT, 'data', 'audit', 'identity.json'), encoding='utf-8'))
+    if batch == 'places':
+        gone, removed, kept = run_places(ROOT, ident, dry); reason = BATCHES['all'](ident)
+        print('%d places %s (a kept row blocked each); %d rows %s, %d kept' % (len(gone), 'to remove' if dry else 'removed', len(removed), 'to remove' if dry else 'removed', len(kept)))
+        for p, w in sorted(gone.items()): print('place', p, w)
+        for s, why in sorted(kept.items()): print('kept', s, why)
+        if not dry: record(ROOT, batch, removed, reason, kept, gone)
+        return
     reason = BATCHES[batch](ident); removed, kept = apply(ROOT, set(reason), dry, reason)
     print('%d rows %s, %d kept (the data would break without them)' % (len(removed), 'to remove' if dry else 'removed', len(kept)))
     for s, why in sorted(kept.items()): print('kept', s, why)

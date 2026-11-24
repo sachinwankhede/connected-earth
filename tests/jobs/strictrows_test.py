@@ -40,4 +40,21 @@ with tempfile.TemporaryDirectory() as r:
         go, kept = SR.apply(r2, {'nb-bad'})
         assert go == [] and 'nb-bad' in kept, (go, kept)
         assert 'jj' in [n['id'] for n in json.load(open(os.path.join(r2, 'data/places/p2.json')))['nodes']]
+    # a place a kept row blocks is removed whole, with its outline, picture and order entry; a place a journey names stays
+    with tempfile.TemporaryDirectory() as r3:
+        for sid in tuple('uu%02d-x' % i for i in range(10)) + ('tp-bad',): w(r3, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('ab-soil', 'abiotic'), ('dc-fungi', 'decomp')): w(r3, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        def place(pid, tip):
+            nd = [{'id': 'b', 'sp': 'tp-bad'}, {'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(10)]
+            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': tip}, 'nodes': nd, 'raw': [['b', 'y0'], ['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+            w(r3, 'data/outlines/%s.json' % pid, {'n': 1}); w(r3, 'photos/places/%s.jpg' % pid, 'x'); w(r3, 'photos/places-lg/%s.webp' % pid, 'x')
+        place('pbad', 'b'); place('pjny', 'b'); place('pfine', 'y0')
+        w(r3, 'data/order/0000-main.json', ['pbad', 'pjny', 'pfine']); w(r3, 'data/journeys/j.json', {'ends': [{'eco': 'pjny', 'node': 'y1'}]})
+        w(r3, 'photos/places/places.json', {'pbad': {'f': 'pbad.jpg'}, 'pfine': {'f': 'pfine.jpg'}}); w(r3, 'photos/places_large.json', {'pbad': 'pbad.webp'})
+        SR.BATCHES['all'] = lambda ident: {'tp-bad': 'test'}
+        gone, rows, kept = SR.run_places(r3, {})
+        assert set(gone) == {'pbad'} and rows == [] and set(kept) == {'tp-bad'}, (gone, rows, kept)
+        assert not os.path.exists(os.path.join(r3, 'data/places/pbad.json')) and not os.path.exists(os.path.join(r3, 'data/outlines/pbad.json')) and not os.path.exists(os.path.join(r3, 'photos/places/pbad.jpg')) and not os.path.exists(os.path.join(r3, 'photos/places-lg/pbad.webp'))
+        assert os.path.exists(os.path.join(r3, 'data/places/pjny.json')) and os.path.exists(os.path.join(r3, 'data/places/pfine.json'))
+        assert json.load(open(os.path.join(r3, 'data/order/0000-main.json'))) == ['pjny', 'pfine'] and list(json.load(open(os.path.join(r3, 'photos/places/places.json')))) == ['pfine'] and json.load(open(os.path.join(r3, 'photos/places_large.json'))) == {}
 print('strictrows ok')
