@@ -30,6 +30,29 @@ def lists(root=ROOT):
             dele[sid] = 'its name and its page disagree on what it is (%s on the page %s)' % (name, page)
     return ren, dele
 
+def shared(root=ROOT):
+    """{sid: new name} for taxon rows that share one name with another taxon row (owner, 24 Nov, #1061). One row per name keeps it: a genus row ("Carex": Sedges) first, else the row most places use (ties: the first id).
+    Every other row takes its own page's title when that is the row's own scientific name (Acer saccharinum; a page about the genus does not count), which is always true and never clashes. Nothing is deleted: these are different species that share a common name."""
+    import collections
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}; use = collections.Counter(); d = os.path.join(root, 'data', 'places')
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.json') or f in data_audit.SKIP: continue
+        try: e = json.load(open(os.path.join(d, f), encoding='utf-8'))
+        except (OSError, ValueError): continue
+        for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
+            if n.get('sp'): use[n['sp']] += 1
+    by = collections.defaultdict(list)
+    for sid, r in tab.items():
+        if r.get('sk') == 'taxon' and r.get('name'): by[data_audit.norm(r['name'])].append(sid)
+    taken = {data_audit.norm(r.get('name') or '') for r in tab.values() if r.get('sk') == 'taxon'}; out = {}
+    for name, m in sorted(by.items()):
+        if len(m) < 2: continue
+        keep = sorted(m, key=lambda s: (len((tab[s].get('latin') or '').split()) > 1, -use[s], s))[0]
+        for s in m:
+            r = tab[s]; page = r.get('wiki') or ''
+            if s != keep and page and data_audit.scientific(page, r) and data_audit.norm(page) == data_audit.norm(r.get('latin') or '') and data_audit.norm(page) not in taken: out[s] = page; taken.add(data_audit.norm(page))
+    return out
+
 def rename(root, ren, dry=False):
     done = []
     for sid, new in sorted(ren.items()):
@@ -46,6 +69,7 @@ def rename(root, ren, dry=False):
 
 def main(argv):
     ren, dele = lists(ROOT); dry = '--dry' in argv
+    if '--shared' in argv: ren = shared(ROOT); argv = [a for a in argv if a != '--list'] + ['--rename']
     if '--rename' in argv:
         done = rename(ROOT, ren, dry); print('%d rows %s' % (len(done), 'to rename' if dry else 'renamed'))
         for sid, old, new in done: print('rename', sid, '|', old, '->', new)

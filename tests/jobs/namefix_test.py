@@ -18,4 +18,10 @@ with tempfile.TemporaryDirectory() as r:
     done = NF.rename(r, ren)
     assert [(a, c) for a, _, c in done] == [('sx-owl', 'Short-eared owl'), ('sx-sal', 'Willow')]
     assert json.load(open(os.path.join(r, 'data/species/rows/sx/sx-owl.json')))['name'] == 'Short-eared owl' and json.load(open(os.path.join(r, 'data/species/rows/sx/sx-loc.json')))['name'] == 'Garden locust'
+# rows that share one name: the genus row, else the most used row, keeps it; the others take their page title (a scientific name); nothing is removed
+with tempfile.TemporaryDirectory() as r:
+    for sid, lat, nm in (('mm-gen', 'Macaranga', 'Macaranga'), ('mm-sp', 'Macaranga tanarius', 'Macaranga'), ('rr-a', 'Rosa a', 'Wild rose'), ('rr-b', 'Rosa b', 'Wild rose'), ('rr-c', 'Rosa c', 'Wild rose')):
+        w(r, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': lat, 'name': nm, 'wiki': lat, 'sk': 'taxon'})
+    w(r, 'data/places/p.json', {'nodes': [{'id': 'n1', 'sp': 'rr-b'}, {'id': 'n2', 'sp': 'rr-b'}, {'id': 'n3', 'sp': 'rr-a'}, {'id': 'n4', 'sp': 'mm-sp'}]})
+    assert NF.shared(r) == {'mm-sp': 'Macaranga tanarius', 'rr-a': 'Rosa a', 'rr-c': 'Rosa c'}, NF.shared(r)
 print('namefix ok')
