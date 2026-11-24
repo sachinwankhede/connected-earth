@@ -357,7 +357,7 @@ ardenna-pacifica,taxon,Wedge-tailed shearwater,Wedge-tailed shearwater,Ardenna p
 ardisia-crenata,taxon,Spiceberry,Ardisia crenata,Ardisia crenata,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 ardisia-elliptica,taxon,Shoebutton ardisia,Ardisia elliptica,Ardisia elliptica,1,6,6,legacy,0,0,0,1,0,0,0,0,0
 ardisia-escallonioides,taxon,Marlberry,Ardisia escallonioides,Ardisia escallonioides,1,1,1,legacy,0,0,0,1,0,0,0,0,0
-arenaria-and-calidris-spp,group,Migratory shorebirds,Ruddy turnstone,Arenaria and Calidris spp.,3,2,2,legacy,0,0,1,0,0,0,0,0,0
+arenaria-and-calidris-spp,group,Ruddy turnstone,Ruddy turnstone,Arenaria and Calidris spp.,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 arenga-obtusifolia,taxon,Arenga palm,Arenga obtusifolia,Arenga obtusifolia,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 arenicola-marina,taxon,Lugworm,Arenicola marina,Arenicola marina,2,1,1,legacy,0,0,0,1,0,0,0,0,0
 argemone-pleiacantha,taxon,Southwestern pricklypoppy,Argemone pleiacantha,Argemone pleiacantha,1,1,1,legacy,0,0,0,1,0,0,0,0,0
@@ -1022,7 +1022,7 @@ chauna-torquata,taxon,Southern screamer,Southern screamer,Chauna torquata,2,1,1,
 cheilinus-undulatus,taxon,Humphead wrasse,Humphead wrasse,Cheilinus undulatus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 chelone-glabra,taxon,White Turtlehead,Chelone glabra,Chelone glabra,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 chelonia-mydas,taxon,Green sea turtle,Green sea turtle,Chelonia mydas,2,23,23,legacy,0,0,0,0,0,0,0,0,0
-chelonoidis-species,taxon,Galápagos giant tortoise,Galápagos tortoise,Chelonoidis species,2,1,1,legacy,0,0,1,0,0,0,0,0,0
+chelonoidis-species,taxon,Galápagos tortoise,Galápagos tortoise,Chelonoidis species,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 chenopodium-album,taxon,Fat-hen,Chenopodium album,Chenopodium album,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 chenopodium-fremontii,taxon,Fremont's goosefoot,Chenopodium fremontii,Chenopodium fremontii,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 chenopodium-oahuense,taxon,Alaweo,Chenopodium oahuense,Chenopodium oahuense,1,1,1,legacy,0,0,0,1,0,0,0,0,0
@@ -2311,7 +2311,7 @@ larix-laricina,taxon,Tamarack,Larix laricina,Larix laricina,1,6,6,legacy,0,0,0,1
 larix-occidentalis,taxon,Hackmatack,Larix occidentalis,Larix occidentalis,1,2,2,legacy,0,0,0,1,0,0,0,0,0
 larix-sibirica,taxon,Siberian larch,Larix sibirica,Larix sibirica,1,1,1,legacy,0,0,0,1,0,0,0,0,0
 larrea-tridentata,taxon,Creosote bush,Larrea tridentata,Larrea tridentata,1,23,23,legacy,0,0,0,1,0,0,0,0,0
-larus-argentatus,taxon,Herring gull,European herring gull,Larus argentatus,3,3,3,legacy,0,0,1,0,0,0,0,0,0
+larus-argentatus,taxon,European herring gull,European herring gull,Larus argentatus,3,3,3,legacy,0,0,0,0,0,0,0,0,0
 larus-californicus,taxon,California Gull,Larus californicus,Larus californicus,3,4,4,legacy,0,0,0,1,0,0,0,0,0
 larus-delawarensis,taxon,Ring-billed Gull,Larus delawarensis,Larus delawarensis,3,42,42,legacy,0,0,0,1,0,0,0,0,0
 larus-dominicanus,taxon,Kelp gull,Kelp gull,Larus dominicanus,3,2,2,legacy,0,0,0,0,0,0,0,0,0
@@ -2980,7 +2980,7 @@ olneya-tesota,taxon,Desert ironwood,Olneya tesota,Olneya tesota,1,1,1,legacy,0,0
 omocestus-viridulus,taxon,Common green grasshopper,Omocestus viridulus,Omocestus viridulus,2,2,2,legacy,0,0,0,1,0,0,0,0,0
 oncopeltus-fasciatus,taxon,Large Milkweed Bug,Oncopeltus fasciatus,Oncopeltus fasciatus,2,6,6,legacy,0,0,0,1,0,0,0,0,0
 oncorhynchus,taxon,Pacific salmon,Pacific salmon,Oncorhynchus,3,2,2,legacy,0,0,0,0,0,0,0,0,0
-oncorhynchus-clarkii-bouvieri,taxon,Cutthroat trout,Yellowstone cutthroat trout,Oncorhynchus clarkii bouvieri,3,1,1,legacy,0,0,1,0,0,0,0,0,0
+oncorhynchus-clarkii-bouvieri,taxon,Yellowstone cutthroat trout,Yellowstone cutthroat trout,Oncorhynchus clarkii bouvieri,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 oncorhynchus-gorbuscha,taxon,Pink salmon,Pink salmon,Oncorhynchus gorbuscha,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 oncorhynchus-mykiss,taxon,Rainbow trout,Rainbow trout,Oncorhynchus mykiss,4,1,1,legacy,0,0,0,0,0,0,0,0,0
 oncorhynchus-nerka,taxon,Sockeye salmon,Sockeye salmon,Oncorhynchus nerka,3,5,5,legacy,0,0,0,0,0,0,0,0,0
