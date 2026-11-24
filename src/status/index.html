@@ -19,7 +19,8 @@
 
 <main class="ds">
 <div><h1>Data status</h1><p class="sub" id="lead"></p></div>
-<div class="card" id="fixcard" hidden><h2 id="fixh">Fix first</h2><p class="sub">In this order: correct bad data (step 1), then add missing data (step 2).</p><div class="w"><table><thead><tr><th>step</th><th>what</th><th>rows or places</th><th>detail</th><th>fix</th><th>item</th></tr></thead><tbody id="fixbody"></tbody></table></div></div>
+<div class="card" id="fixcard" hidden><h2 id="fixh">Problems: fix these first</h2><p class="sub">Data that is wrong or not needed. Correct or delete it before adding anything.</p><div class="w"><table><thead><tr><th>what is wrong</th><th>count</th><th>example</th><th>fix</th><th>item</th></tr></thead><tbody id="fixbody"></tbody></table></div></div>
+<div class="card" id="misscard" hidden><h2 id="missh">Missing: add these after</h2><p class="sub">Data that is not there yet (including pictures). Nothing here is wrong.</p><div class="w"><table><thead><tr><th>what is missing</th><th>count</th><th>have</th><th>fix</th><th>item</th></tr></thead><tbody id="missbody"></tbody></table></div></div>
 <div class="tiles" id="tiles" style="min-height:70px"></div>
 <div class="card"><h2 id="flags">Problems by row</h2><p class="sub">Rows with each problem flag (a row can have several).</p><div id="flagbars" style="min-height:120px"></div></div>
 <div class="card"><h2 id="outcomes">Overrides still to settle</h2><p class="sub">Nodes that keep their own name or page, by what the cleanup must do.</p><div id="outbars" style="min-height:100px"></div></div>
@@ -56,7 +57,7 @@ function sel(h,all,list,key,set){h.replaceChildren(new Option(all,''),...list.ma
 fetch('audit.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{A=d;
  if(d.web){$('webcard').hidden=false;$('webnote').textContent='Result of the last web run, '+d.web.asOf+' (data/audit/rowtitles.json). It is as fresh as that run, not live.';bars($('webbars'),d.web.status,'status','rows');sel($('websel'),'All statuses',d.web.status,'status',v=>W=v)}else{$('webcard').hidden=true}
  if(d.identity){$('idcard').hidden=false;$('idnote').textContent='Result of the last identity run, '+d.identity.asOf+' (data/audit/identity.json), '+N(d.identity.rowsChecked)+' rows. It is as fresh as that run, not live. The group views come from a text check of each group\'s member list: candidates to read, not decisions.';bars($('idbars'),d.identity.views,'view','rows');sel($('idsel'),'All views',d.identity.views,'view',v=>I=v)}
- if(d.fixfirst){$('fixcard').hidden=false;body($('fixbody'),d.fixfirst,['step','what','count','detail','fix','item'])}
+ if(d.fixfirst){$('fixcard').hidden=false;body($('fixbody'),d.fixfirst.problems,['what','count','example','fix','item']);$('misscard').hidden=false;body($('missbody'),d.fixfirst.missing,['what','count','have','fix','item'])}
  const t=$('tiles');t.replaceChildren();d.totals.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value));v.className='big';const l=el('div',r.metric);l.className='lab';c.append(v,l);t.append(c)});
  bars($('flagbars'),d.flags,'flag','rows');bars($('outbars'),d.outcomes,'outcome','nodes');bars($('kindbars'),d.kinds,'kind','rows');
  const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_breaks_rule'))+' rows have a name that breaks the naming rule, '+N(s('name_unchecked'))+' need a web check of their name, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';
