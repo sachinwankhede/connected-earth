@@ -22,6 +22,9 @@ def lists(root=ROOT):
         pt = ((ident['rows'].get(sid) or [''] * 5)[2] or '')
         if v and v[0] == 'wrongpage' and r.get('sk') == 'taxon' and len((r.get('latin') or '').split()) >= 2 and pt and len(pt.split()) == 1 and pt.lower() != (r.get('latin') or '').split()[0].lower() and not data_audit.scientific(r.get('wiki') or '', r):   # a species row whose page is a family, order or other higher taxon
             dele[sid] = 'its page %s is another taxon than the row (%s)' % (r['wiki'], v[2]); continue
+        if v and r.get('sk') == 'taxon' and r.get('wiki') and not data_audit.scientific(r['wiki'], r) and data_audit.plain(r.get('name') or '') != data_audit.plain(r['wiki']) and (
+                v[0] in ('repoint', 'newrow') or (v[0] == 'specific' and len((r.get('latin') or '').split()) == 1)):
+            dele[sid] = 'its name is another article than its page (%s on the page %s): %s' % (r.get('name'), r['wiki'], {'repoint': 'a repoint', 'newrow': 'another taxon', 'specific': 'a group on a broad page'}[v[0]]); continue   # owner, 24 Nov: delete rather than guess
         if not v or v[0] != 'change' or r.get('sk') not in ('taxon', 'group') or not r.get('wiki'): continue
         page, name = r['wiki'], r.get('name') or ''
         if data_audit.scientific(page, r) or data_audit.plain(name) == data_audit.plain(page): continue   # not a name that breaks the rule
