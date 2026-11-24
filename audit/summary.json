@@ -1,0 +1,45 @@
+{
+ "rows": 4771,
+ "rows_by_kind": {
+  "taxon": 4549,
+  "group": 25,
+  "resource": 197
+ },
+ "nodes": 30310,
+ "nodes_with_override": 824,
+ "nodes_by_outcome": {
+  "no override": 29486,
+  "nearest": 580,
+  "repoint": 103,
+  "new-row": 127,
+  "cross-kind": 11,
+  "ambiguous": 1,
+  "place": 2
+ },
+ "nodes_pointing_at_a_missing_row": 0,
+ "row_flags": {
+  "no_page": 0,
+  "no_latin": 0,
+  "name_breaks_rule": 5,
+  "name_unchecked": 3340,
+  "shared_page": 7,
+  "shared_name": 0,
+  "shared_latin": 0,
+  "no_node": 3,
+  "no_about": 10
+ },
+ "flag_meaning": {
+  "no_page": "the row has no Wikipedia page (`wiki`)",
+  "no_latin": "a taxon without a Latin name",
+  "name_breaks_rule": "the page title is a common name (brackets dropped), the row name differs from it and the web name check did not find the name already right: a rename, or a more specific concept that needs its own row (docs/NODE-NAMES.md steps 1 and 4)",
+  "name_unchecked": "the page title is only a Latin name, so the right name is the Wikidata label (step 2): jobs/rowtitles.py checks it on the web, the offline audit cannot",
+  "shared_page": "another row of the same kind has the same page",
+  "shared_name": "another row of the same kind has the same name",
+  "shared_latin": "another taxon row has the same Latin name",
+  "no_node": "no place node uses the row",
+  "no_about": "a taxon or group without a description (`about`)"
+ },
+ "duplicate_groups": {
+  "page": 3
+ }
+}
