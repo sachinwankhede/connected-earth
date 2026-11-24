@@ -19,7 +19,7 @@
  "row_flags": {
   "no_page": 0,
   "no_latin": 0,
-  "name_breaks_rule": 4,
+  "name_breaks_rule": 0,
   "name_unchecked": 3339,
   "shared_page": 0,
   "shared_name": 0,
