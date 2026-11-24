@@ -42,7 +42,16 @@ def batch_shared(ident, root=ROOT):
 
 def batch_all(ident, root=ROOT):
     out = batch_shared(ident, root); out.update(batch_nopage(ident)); return out
-BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all}
+def batch_unused(ident, root=ROOT):
+    """Rows no place node uses (owner, 24 Nov, #1061: "go ahead with the fixes"). A row nothing shows is data nothing needs; git keeps it. A row a journey ends at is a node of a place, so it is used and never listed."""
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}; use = set()
+    for f in place_files(root):
+        try: e = json.load(open(f, encoding='utf-8'))
+        except ValueError: continue
+        for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
+            if n.get('sp'): use.add(n['sp'])
+    return {s: 'no place uses it' for s in sorted(tab) if s not in use}
+BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all, 'unused': batch_unused}
 
 def dump_like(path, obj, text):
     """Write obj in the layout `text` (the file as it was) has; the first of a few common layouts that reproduces the old text from the old object is used."""

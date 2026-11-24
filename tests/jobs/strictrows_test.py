@@ -79,4 +79,9 @@ with tempfile.TemporaryDirectory() as r:
         go, kept = SR.apply(r4, {'zz-bad'})
         e4 = json.load(open(os.path.join(r4, 'data/places/p4.json')))
         assert go == ['zz-bad'] and kept == {} and 'tip' not in e4 and 'z' not in [n['id'] for n in e4['nodes']] and len(e4['nodes']) == 12, (go, kept, e4)
+# batch `unused`: a row no place node uses is listed; a row a place uses (including a journey's end node) is not
+with tempfile.TemporaryDirectory() as r4:
+    for sid in ('used-a', 'free-b', 'free-c'): w(r4, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+    w(r4, 'data/places/p4.json', {'id': 'p4', 'nodes': [{'id': 'n', 'sp': 'used-a'}], 'raw': [], 'ev': {}})
+    assert SR.batch_unused({}, r4) == {'free-b': 'no place uses it', 'free-c': 'no place uses it'}
 print('strictrows ok')
