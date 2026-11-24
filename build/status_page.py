@@ -51,9 +51,9 @@ def identity(root, rows):
     n = collections.Counter(x['view'] for x in out)
     return {'asOf': d.get('asOf'), 'rowsChecked': len(R), 'views': [{'view': k, 'rows': n[k]} for k in VIEWS if n[k]], 'rows': out}
 
-def fixfirst(root, S):
-    """What to fix first, in the owner's order (24 Nov, #1061): correct bad data, then add missing data. Counts are read from the data in the checkout (place files, data/audit/strictrows.json) and the audit summary S, so they are as fresh as the deploy. Each step names its item."""
-    import species
+def fixfirst(root, S, rows):
+    """Two lists, kept apart (owner, 24 Nov, #1061): `problems` is data that is wrong or unneeded (fix first: correct or delete) and `missing` is data not there yet (add after). Counts are read from the checkout (place files, data/audit/strictrows.json, the audit rows, build/data_status.py), so they are as fresh as the deploy. Each line names its item."""
+    import species, data_status
     d = os.path.join(root, 'data', 'places'); no_env = 0; places = 0
     for f in sorted(os.listdir(d)):
         if not f.endswith('.json') or f in data_audit.SKIP: continue
@@ -64,19 +64,28 @@ def fixfirst(root, S):
         if 'abiotic' not in cats or 'decomp' not in cats: no_env += 1
     sp = os.path.join(root, 'data', 'audit', 'strictrows.json'); sr = json.load(open(sp, encoding='utf-8')) if os.path.exists(sp) else {}
     journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v)
-    fl = S['row_flags']
-    return [
-        {'step': 1, 'what': 'Bad rows kept only because a journey ends at their node', 'count': len(journey), 'detail': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row (owner to decide)', 'item': '#1142'},
-        {'step': 1, 'what': 'Rows that share a page with another row', 'count': fl['shared_page'], 'detail': 'one Wikipedia page, one row', 'fix': 'remove or repoint (stricter identity check, #1142)', 'item': '#1142'},
-        {'step': 1, 'what': 'Rows whose name breaks the naming rule', 'count': fl['name_breaks_rule'], 'detail': 'the name is not the page title', 'fix': 'rename or remove (web name check)', 'item': '#1061'},
-        {'step': 2, 'what': 'Places with no abiotic or no decomposer node', 'count': no_env, 'detail': 'of %d places; a warning for now' % places, 'fix': 'add accurate nodes, then make the rule strict again', 'item': '#1138'},
-        {'step': 2, 'what': 'Places removed by the cleanup', 'count': len(sr.get('places') or {}), 'detail': 'data/audit/strictrows.json', 'fix': 'recreate them with accurate rows', 'item': '#1132'},
+    def ex(flag): return ', '.join('%s (%s)' % (r['name'], r['id']) for r in [r for r in rows if r[flag]][:2])
+    fl = S['row_flags']; ds = {r['dataset']: r for r in data_status.rows(root)}
+    doubts = sum(r['doubts'] for r in ds.values())
+    problems = [
+        {'what': 'Two rows with the same name, so at least one is wrong', 'count': fl['shared_name'], 'example': ex('shared_name'), 'fix': 'check each pair against its page; rename or remove', 'item': '#1142'},
+        {'what': 'Name does not match the row\'s own page', 'count': fl['name_breaks_rule'], 'example': ex('name_breaks_rule'), 'fix': 'rename to the page title (groups: a person decides)', 'item': '#1061'},
+        {'what': 'Rows no place uses', 'count': fl['no_node'], 'example': ex('no_node'), 'fix': 'delete (nothing shows them)', 'item': '#1061'},
+        {'what': 'Rows sharing one page with another row', 'count': fl['shared_page'], 'example': ex('shared_page'), 'fix': 'remove or repoint', 'item': '#1142'},
+        {'what': 'Bad rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row (owner to decide)', 'item': '#1142'},
+        {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887'},
     ]
+    missing = [
+        {'what': 'Places with no abiotic or no decomposer node', 'count': no_env, 'have': '%d of %d places' % (places - no_env, places), 'fix': 'add accurate nodes, then make the rule strict again', 'item': '#1138'},
+        {'what': 'Places removed by the cleanup', 'count': len(sr.get('places') or {}), 'have': 'recreate them', 'fix': 'add the places back with accurate rows', 'item': '#1132'},
+        {'what': 'Species without an "about" text', 'count': fl['no_about'], 'have': 'of %d species rows' % S['rows'], 'fix': 'write it', 'item': '#1061'},
+    ] + [{'what': n + ' missing', 'count': ds[k]['missing'], 'have': '%d of %d have one' % (ds[k]['have'], ds[k]['items']), 'fix': 'the weekly job retries; see the data jobs', 'item': '#887'} for k, n in (('Place pictures', 'Place pictures'), ('Species pictures', 'Species pictures'), ('Node pictures', 'Node pictures'), ('Outlines', 'Place outlines'), ('Stories', 'Place stories')) if k in ds and ds[k]['missing']]
+    return {'problems': problems, 'missing': missing}
 
 def payload(root=ROOT):
     nodes, rows, dups, S = data_audit.audit(root)
     return {
-        'fixfirst': fixfirst(root, S),
+        'fixfirst': fixfirst(root, S, rows),
         'web': web(root, rows),
         'identity': identity(root, rows),
         'totals': [{'metric': 'Species rows', 'value': S['rows']}, {'metric': 'Place nodes', 'value': S['nodes']},
