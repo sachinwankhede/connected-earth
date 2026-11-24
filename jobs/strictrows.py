@@ -51,7 +51,11 @@ def batch_unused(ident, root=ROOT):
         for n in (e.get('nodes') or []) if isinstance(e, dict) else []:
             if n.get('sp'): use.add(n['sp'])
     return {s: 'no place uses it' for s in sorted(tab) if s not in use}
-BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all, 'unused': batch_unused}
+def batch_badname(ident, root=ROOT):
+    """Rows whose name and page disagree on what the row is and that cannot be renamed safely (jobs/namefix.py): removed, not renamed (owner, 24 Nov, #1061)."""
+    import namefix
+    return namefix.lists(root)[1]
+BATCHES = {'nopage': batch_nopage, 'shared': batch_shared, 'all': batch_all, 'unused': batch_unused, 'badname': batch_badname}
 
 def dump_like(path, obj, text):
     """Write obj in the layout `text` (the file as it was) has; the first of a few common layouts that reproduces the old text from the old object is used."""
