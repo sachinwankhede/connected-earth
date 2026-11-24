@@ -29,4 +29,15 @@ with tempfile.TemporaryDirectory() as r:
     # a removal that would leave a place invalid keeps the row: the tip, the only abiotic node and the 10 species stay
     go, kept = SR.apply(r, {'bb-good', 'ab-soil', 'ss00-x', 'ss01-x', 'ss02-x'})
     assert go == ['ss01-x', 'ss02-x'] and set(kept) == {'bb-good', 'ab-soil', 'ss00-x'}, (go, kept)
+    # a node whose only neighbour goes would be dropped with no links; if a journey ends at it, its row stays and so does the neighbour
+    with tempfile.TemporaryDirectory() as r2:
+        for sid in ('nb-bad', 'jj-jny') + tuple('tt%02d-x' % i for i in range(10)): w(r2, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('ab-soil', 'abiotic'), ('dc-fungi', 'decomp')): w(r2, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        nd = [{'id': 'nb', 'sp': 'nb-bad'}, {'id': 'jj', 'sp': 'jj-jny'}, {'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'tt%02d-x' % i} for i in range(10)]
+        rw = [['nb', 'jj'], ['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)]
+        w(r2, 'data/places/p2.json', {'id': 'p2', 'tip': {'id': 'y0'}, 'nodes': nd, 'raw': rw, 'ev': {}}, indent=1)
+        w(r2, 'data/journeys/j.json', {'ends': [{'eco': 'p2', 'node': 'jj'}]})
+        go, kept = SR.apply(r2, {'nb-bad'})
+        assert go == [] and 'nb-bad' in kept, (go, kept)
+        assert 'jj' in [n['id'] for n in json.load(open(os.path.join(r2, 'data/places/p2.json')))['nodes']]
 print('strictrows ok')

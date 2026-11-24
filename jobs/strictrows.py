@@ -78,7 +78,7 @@ def journey_nodes(root):
 def place_files(root):
     return [f for f in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))) if os.path.basename(f) not in SKIP]
 
-def protect(root, tab, go, reason):
+def protect(root, tab, go, reason, jn=()):
     """Take out of `go` (in place) the rows whose removal would leave a place invalid (build/validate.py: the tip names a node, at least one abiotic and one decomp node, 10 to 34 species), and return {sid: why}.
     Deterministic: for each place in file order, the tip node's row stays; a missing abiotic or decomp kind keeps its first removed row (by id); too few species keeps the removed species rows (a row that shares a page before a row with no page, then by id) until there are 10.
     The kept rows are the bad rows still in the data: they are listed so a later pass can remove them once the place has accurate nodes (owner: places can evolve)."""
@@ -110,7 +110,7 @@ def protect(root, tab, go, reason):
             ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
             for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
                 cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o]
-                essential = o['id'] == tip or (cat in ('abiotic', 'decomp') and not any(tab[n['sp']].get('cat') == cat for n in rest)) or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
+                essential = o['id'] == tip or (pid, o['id']) in jn or (cat in ('abiotic', 'decomp') and not any(tab[n['sp']].get('cat') == cat for n in rest)) or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
                 if not essential: gone_n.add(o['id']); changed = True; continue
                 nb = sorted(nodes_by[x]['sp'] for r in raw if o['id'] in r[:2] for x in r[:2] if x != o['id'] and x in nodes_by and nodes_by[x]['sp'] in go) if (nodes_by := {n['id']: n for n in nodes}) else []
                 if nb: keep(nb[0], '%s: its node %s would have no links' % (pid, o['id'])); changed = True
@@ -129,7 +129,7 @@ def apply(root, sids, dry=False, reason=None):
                 if (e.get('id'), n.get('id')) in jn: kept[n['sp']] = 'a journey ends at its node in %s' % e.get('id')
                 nodeids.setdefault(f, {})[n['id']] = n['sp']
     go = {s for s in sids if s in tab and s not in kept}
-    pk, dropped = protect(root, tab, go, reason or {})
+    pk, dropped = protect(root, tab, go, reason or {}, jn)
     kept.update(pk)
     if dry: return sorted(go), kept
     for f, ids in nodeids.items():
