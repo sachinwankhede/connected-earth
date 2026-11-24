@@ -42,13 +42,13 @@ with tempfile.TemporaryDirectory() as r:
         assert 'jj' in [n['id'] for n in json.load(open(os.path.join(r2, 'data/places/p2.json')))['nodes']]
     # a place a kept row blocks is removed whole, with its outline, picture and order entry; a place a journey names stays
     with tempfile.TemporaryDirectory() as r3:
-        for sid in tuple('uu%02d-x' % i for i in range(10)) + ('tp-bad',): w(r3, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
-        for sid, cat in (('ab-soil', 'abiotic'), ('dc-fungi', 'decomp')): w(r3, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
-        def place(pid, tip):
-            nd = [{'id': 'b', 'sp': 'tp-bad'}, {'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(10)]
-            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': tip}, 'nodes': nd, 'raw': [['b', 'y0'], ['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+        for sid in tuple('uu%02d-x' % i for i in range(10)): w(r3, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('ab-soil', 'abiotic'), ('tp-bad', 'decomp'), ('dc-fungi', 'decomp')): w(r3, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        def place(pid, tip, dc='tp-bad'):
+            nd = [{'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': dc}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(10)]
+            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': tip}, 'nodes': nd, 'raw': [['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
             w(r3, 'data/outlines/%s.json' % pid, {'n': 1}); w(r3, 'photos/places/%s.jpg' % pid, 'x'); w(r3, 'photos/places-lg/%s.webp' % pid, 'x')
-        place('pbad', 'b'); place('pjny', 'b'); place('pfine', 'y0')
+        place('pbad', 'y0'); place('pjny', 'y0'); place('pfine', 'y0', 'dc-fungi')
         w(r3, 'data/order/0000-main.json', ['pbad', 'pjny', 'pfine']); w(r3, 'data/journeys/j.json', {'ends': [{'eco': 'pjny', 'node': 'y1'}]})
         w(r3, 'photos/places/places.json', {'pbad': {'f': 'pbad.jpg'}, 'pfine': {'f': 'pfine.jpg'}}); w(r3, 'photos/places_large.json', {'pbad': 'pbad.webp'})
         SR.BATCHES['all'] = lambda ident: {'tp-bad': 'test'}
@@ -57,4 +57,13 @@ with tempfile.TemporaryDirectory() as r:
         assert not os.path.exists(os.path.join(r3, 'data/places/pbad.json')) and not os.path.exists(os.path.join(r3, 'data/outlines/pbad.json')) and not os.path.exists(os.path.join(r3, 'photos/places/pbad.jpg')) and not os.path.exists(os.path.join(r3, 'photos/places-lg/pbad.webp'))
         assert os.path.exists(os.path.join(r3, 'data/places/pjny.json')) and os.path.exists(os.path.join(r3, 'data/places/pfine.json'))
         assert json.load(open(os.path.join(r3, 'data/order/0000-main.json'))) == ['pjny', 'pfine'] and list(json.load(open(os.path.join(r3, 'photos/places/places.json')))) == ['pfine'] and json.load(open(os.path.join(r3, 'photos/places_large.json'))) == {}
+    # the opening tip is optional: removing the row a tip names removes the tip and keeps the place
+    with tempfile.TemporaryDirectory() as r4:
+        for sid in ('zz-bad',) + tuple('vv%02d-x' % i for i in range(10)): w(r4, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('ab-soil', 'abiotic'), ('dc-fungi', 'decomp')): w(r4, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        nd = [{'id': 'z', 'sp': 'zz-bad'}, {'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'vv%02d-x' % i} for i in range(10)]
+        w(r4, 'data/places/p4.json', {'id': 'p4', 'tip': {'id': 'z', 'title': 'Take away z'}, 'nodes': nd, 'raw': [['z', 'y0'], ['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+        go, kept = SR.apply(r4, {'zz-bad'})
+        e4 = json.load(open(os.path.join(r4, 'data/places/p4.json')))
+        assert go == ['zz-bad'] and kept == {} and 'tip' not in e4 and 'z' not in [n['id'] for n in e4['nodes']] and len(e4['nodes']) == 12, (go, kept, e4)
 print('strictrows ok')

@@ -18,6 +18,17 @@ for (const [name, size] of Object.entries(H.SIZES)) {
   const shown = (p) => p.evaluate(() => ({ page: !document.getElementById('pview').hidden, web: !document.getElementById('webview').hidden, map: !document.getElementById('mapview').hidden, journey: !document.getElementById('jview').hidden, hash: location.hash, back: document.getElementById('back').textContent.trim(), sel: (document.querySelector('#svg .node.sel') || {}).textContent || null }));
   const ready = (p) => p.waitForSelector('#pgraph .pn', { timeout: 60000 });
 
+  test(`${name}: a place with no opening tip opens with no page error (the tip is optional, strict-rows job)`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.FMAIN, size, { fixtures: true });
+    const place = H.fixturePlace('/api/testland.json'); delete place.tip;
+    await t.page.route(/\/api\/testland\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(place) }));
+    await t.page.goto((await H.urlFor(H.FMAIN)) + '#stub&e=testland'); await t.page.reload();   // the explore view: its panel shows the place's overview while nothing is selected
+    await t.page.waitForSelector('#panel .eyebrow', { state: 'attached', timeout: 60000 });
+    assert.deepEqual(t.errors, []);
+    await t.close(); await b.close();
+  });
+
   test(`${name}: a place page has the name first, a calm picture of the web, then the detail below`, async () => {
     const { b, p, errors } = await start('#stub&pg=testland', true);   // the made-up Testland (tests/fixtures), not a real place
     await ready(p);

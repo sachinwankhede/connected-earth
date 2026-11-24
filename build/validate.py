@@ -15,7 +15,7 @@ def check(path):
     e=species.load(path); errs=[]; warn=[]
     for x in geoids.name_form(e):
         errs.append('country and state are ids from data/geo/geo.json, not names: %r (rewrite with python3 build/places_ids.py; if it is not found there, the name is wrong)'%x)
-    for k in ('id','name','short','place','lat','lon','side','blurb','tip','sources','notes','nodes','raw','country','imgwiki','icon','tier','kind'):
+    for k in ('id','name','short','place','lat','lon','side','blurb','sources','notes','nodes','raw','country','imgwiki','icon','tier','kind'):
         if k not in e: errs.append('missing field '+k)
     if errs: return errs,warn
     if os.path.basename(path)!=e['id']+'.json': errs.append('file name must be <id>.json')
@@ -63,7 +63,7 @@ def check(path):
         seen.add(k)
         if len(r)==3 and r[2] not in ('s','r','d'): errs.append('bad edge kind %s'%r)
         if len(r)==2 and tl[r[0]]!=0 and tl[r[1]]<=tl[r[0]]-1 and tl[r[1]]<tl[r[0]]: warn.append('eats edge goes downward in tl: %s'%r)
-    if e['tip']['id'] not in S_: errs.append('tip.id not a node')
+    if e.get('tip') and e['tip'].get('id') not in S_: errs.append('tip.id not a node')   # the opening tip is optional: when it is there it names a node
     deg={i:0 for i in ids}
     for r in e['raw']:
         if r[0] in deg and r[1] in deg: deg[r[0]]+=1; deg[r[1]]+=1

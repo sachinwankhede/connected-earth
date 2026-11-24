@@ -60,7 +60,6 @@
     return h;
   }
   function emptyHTML() {
-    var t = ECO.tip, n = BY[t.id];
     var pp = PHOTOS[PhotoRegistry.placeKey(ECO.id)], ph = pp ? '<figure class="shot"><img src="' + esc(pp.src) + '" alt="' + ECO.name + '" referrerpolicy="no-referrer"' + photoAttrs(pp, "parent") + '><figcaption>' + creditHTML(pp) + '</figcaption></figure>' : "";
     return '<p class="eyebrow">' + ECO.place + "</p>" + ph +
       (ECO.blurb ? '<p class="lead">' + ECO.blurb + "</p>" : "") + overviewHTML() +
