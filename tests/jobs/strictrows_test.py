@@ -26,9 +26,9 @@ with tempfile.TemporaryDirectory() as r:
     assert not os.path.exists(os.path.join(r, 'data/diets/aa/aa-bad.json'))
     assert json.load(open(os.path.join(r, 'data/diets/bb/bb-good.json')))['prey'] == {'cc-jny': {'k': 'e'}}
     assert json.load(open(os.path.join(r, 'data/species/taxonomy.json'))) == {'bb-good': {'a': 2}} and json.load(open(os.path.join(r, 'data/species/conservation_asked.json'))) == ['bb-good']
-    # a removal that would leave a place invalid keeps the row: the tip, the only abiotic node and the 10 species stay
+    # a removal that would leave a place invalid keeps the row: the 10 species stay (the only abiotic node can go: validate.py warns)
     go, kept = SR.apply(r, {'bb-good', 'ab-soil', 'ss00-x', 'ss01-x', 'ss02-x'})
-    assert go == ['ss01-x', 'ss02-x'] and set(kept) == {'bb-good', 'ab-soil', 'ss00-x'}, (go, kept)
+    assert go == ['ab-soil', 'ss01-x', 'ss02-x'] and set(kept) == {'bb-good', 'ss00-x'}, (go, kept)   # the only abiotic node can go now (a warning, not an error); the 10-species minimum keeps two rows
     # a node whose only neighbour goes would be dropped with no links; if a journey ends at it, its row stays and so does the neighbour
     with tempfile.TemporaryDirectory() as r2:
         for sid in ('nb-bad', 'jj-jny') + tuple('tt%02d-x' % i for i in range(10)): w(r2, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
@@ -42,13 +42,18 @@ with tempfile.TemporaryDirectory() as r:
         assert 'jj' in [n['id'] for n in json.load(open(os.path.join(r2, 'data/places/p2.json')))['nodes']]
     # a place a kept row blocks is removed whole, with its outline, picture and order entry; a place a journey names stays
     with tempfile.TemporaryDirectory() as r3:
-        for sid in tuple('uu%02d-x' % i for i in range(10)): w(r3, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
-        for sid, cat in (('ab-soil', 'abiotic'), ('tp-bad', 'decomp'), ('dc-fungi', 'decomp')): w(r3, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
-        def place(pid, tip, dc='tp-bad'):
-            nd = [{'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': dc}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(10)]
-            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': tip}, 'nodes': nd, 'raw': [['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+        for sid in tuple('uu%02d-x' % i for i in range(10)) + ('tp-bad',): w(r3, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('ab-soil', 'abiotic'), ('dc-fungi', 'decomp')): w(r3, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        def place(pid, species):   # `species` species nodes: a place with exactly 10 needs every one of them
+            nd = [{'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(10)] + ([{'id': 'b', 'sp': 'tp-bad'}] if species == 11 else [])
+            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': 'y0'}, 'nodes': nd, 'raw': [['nab', 'y0'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)] + ([['b', 'y0']] if species == 11 else []), 'ev': {}})
             w(r3, 'data/outlines/%s.json' % pid, {'n': 1}); w(r3, 'photos/places/%s.jpg' % pid, 'x'); w(r3, 'photos/places-lg/%s.webp' % pid, 'x')
-        place('pbad', 'y0'); place('pjny', 'y0'); place('pfine', 'y0', 'dc-fungi')
+        place('pfine', 10)
+        # pbad: 9 good species plus the bad one (10): removing the bad one leaves 9
+        nd = [{'id': 'nab', 'sp': 'ab-soil'}, {'id': 'ndc', 'sp': 'dc-fungi'}, {'id': 'b', 'sp': 'tp-bad'}] + [{'id': 'y%d' % i, 'sp': 'uu%02d-x' % i} for i in range(9)]
+        for pid in ('pbad', 'pjny'):
+            w(r3, 'data/places/%s.json' % pid, {'id': pid, 'tip': {'id': 'y0'}, 'nodes': nd, 'raw': [['nab', 'y0'], ['ndc', 'y0'], ['b', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 9)], 'ev': {}})
+            w(r3, 'data/outlines/%s.json' % pid, {'n': 1}); w(r3, 'photos/places/%s.jpg' % pid, 'x'); w(r3, 'photos/places-lg/%s.webp' % pid, 'x')
         w(r3, 'data/order/0000-main.json', ['pbad', 'pjny', 'pfine']); w(r3, 'data/journeys/j.json', {'ends': [{'eco': 'pjny', 'node': 'y1'}]})
         w(r3, 'photos/places/places.json', {'pbad': {'f': 'pbad.jpg'}, 'pfine': {'f': 'pfine.jpg'}}); w(r3, 'photos/places_large.json', {'pbad': 'pbad.webp'})
         SR.BATCHES['all'] = lambda ident: {'tp-bad': 'test'}
@@ -57,6 +62,14 @@ with tempfile.TemporaryDirectory() as r:
         assert not os.path.exists(os.path.join(r3, 'data/places/pbad.json')) and not os.path.exists(os.path.join(r3, 'data/outlines/pbad.json')) and not os.path.exists(os.path.join(r3, 'photos/places/pbad.jpg')) and not os.path.exists(os.path.join(r3, 'photos/places-lg/pbad.webp'))
         assert os.path.exists(os.path.join(r3, 'data/places/pjny.json')) and os.path.exists(os.path.join(r3, 'data/places/pfine.json'))
         assert json.load(open(os.path.join(r3, 'data/order/0000-main.json'))) == ['pjny', 'pfine'] and list(json.load(open(os.path.join(r3, 'photos/places/places.json')))) == ['pfine'] and json.load(open(os.path.join(r3, 'photos/places_large.json'))) == {}
+    # two orphan species nodes: dropping the first must not make the second look spare (the 10-species minimum holds)
+    with tempfile.TemporaryDirectory() as r5:
+        for sid in ('nn-bad',) + tuple('ww%02d-x' % i for i in range(11)): w(r5, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        nd = [{'id': 'bad', 'sp': 'nn-bad'}] + [{'id': 'y%d' % i, 'sp': 'ww%02d-x' % i} for i in range(11)]   # y0 to y8 stay linked, y9 and y10 hang only on `bad`
+        w(r5, 'data/places/p5.json', {'id': 'p5', 'nodes': nd, 'raw': [['y9', 'bad'], ['y10', 'bad']] + [['y%d' % i, 'y0'] for i in range(1, 9)], 'ev': {}})
+        go, kept = SR.apply(r5, {'nn-bad'})
+        n5 = [n for n in json.load(open(os.path.join(r5, 'data/places/p5.json')))['nodes'] if n['sp'].startswith('ww')]
+        assert len(n5) >= 10, (go, kept, len(n5))
     # the opening tip is optional: removing the row a tip names removes the tip and keeps the place
     with tempfile.TemporaryDirectory() as r4:
         for sid in ('zz-bad',) + tuple('vv%02d-x' % i for i in range(10)): w(r4, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
@@ -66,13 +79,4 @@ with tempfile.TemporaryDirectory() as r:
         go, kept = SR.apply(r4, {'zz-bad'})
         e4 = json.load(open(os.path.join(r4, 'data/places/p4.json')))
         assert go == ['zz-bad'] and kept == {} and 'tip' not in e4 and 'z' not in [n['id'] for n in e4['nodes']] and len(e4['nodes']) == 12, (go, kept, e4)
-    # two orphan nodes of the same kind: dropping the first must not make the second look spare (the last abiotic node stays)
-    with tempfile.TemporaryDirectory() as r5:
-        for sid in ('nn-bad',) + tuple('ww%02d-x' % i for i in range(10)): w(r5, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
-        for sid, cat in (('sun-a', 'abiotic'), ('rain-a', 'abiotic'), ('dc-fungi', 'decomp')): w(r5, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
-        nd = [{'id': 'bad', 'sp': 'nn-bad'}, {'id': 'sun', 'sp': 'sun-a'}, {'id': 'rain', 'sp': 'rain-a'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'ww%02d-x' % i} for i in range(10)]
-        w(r5, 'data/places/p5.json', {'id': 'p5', 'nodes': nd, 'raw': [['sun', 'bad'], ['rain', 'bad'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
-        go, kept = SR.apply(r5, {'nn-bad'})
-        ab = [n['id'] for n in json.load(open(os.path.join(r5, 'data/places/p5.json')))['nodes'] if n['id'] in ('sun', 'rain')]
-        assert len(ab) >= 1, (go, kept, ab)
 print('strictrows ok')
