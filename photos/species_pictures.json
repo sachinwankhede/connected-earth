@@ -5202,26 +5202,6 @@
 "u": "7/73/Baccharissarothroides.JPG/330px-Baccharissarothroides.JPG",
 "wiki": "Baccharis sarothroides"
 },
-"bacillariophyceae": {
-"a": "University of Rhode Island/Stephanie Anderson",
-"f": "137920040c1c.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Mixed_phytoplankton_community_2.png",
-"page": "Phytoplankton",
-"u": "7/7b/Mixed_phytoplankton_community_2.png/330px-Mixed_phytoplankton_community_2.png",
-"wiki": "Phytoplankton"
-},
-"bacillariophyceae-and-other-microalgae": {
-"a": "University of Rhode Island/Stephanie Anderson",
-"f": "137920040c1c.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Mixed_phytoplankton_community_2.png",
-"page": "Phytoplankton",
-"u": "7/7b/Mixed_phytoplankton_community_2.png/330px-Mixed_phytoplankton_community_2.png",
-"wiki": "Phytoplankton"
-},
 "bacillariophyta": {
 "a": "Prof. Gordon T. Taylor, Stony Brook University",
 "f": "63f182f86a5f.webp",
@@ -10042,16 +10022,6 @@
 "u": "d/d3/Dune_wirelettuce%2C_Chaetadelpha_wheeleri_%2815530103438%29.jpg/330px-Dune_wirelettuce%2C_Chaetadelpha_wheeleri_%2815530103438%29.jpg",
 "wiki": "Chaetadelpha wheeleri"
 },
-"chaetoceros": {
-"a": "University of Rhode Island/Stephanie Anderson",
-"f": "137920040c1c.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Mixed_phytoplankton_community_2.png",
-"page": "Phytoplankton",
-"u": "7/7b/Mixed_phytoplankton_community_2.png/330px-Mixed_phytoplankton_community_2.png",
-"wiki": "Phytoplankton"
-},
 "chaetodipus-baileyi": {
 "a": "United States National Park Service",
 "f": "b3a5d5eaf99d.webp",
@@ -11118,18 +11088,6 @@
 "page": "Cistus_salviifolius",
 "u": "0/0b/Cistus_April_2008-1.jpg/330px-Cistus_April_2008-1.jpg",
 "wiki": "Cistus salviifolius"
-},
-"citharexylum-caudatum": {
-"a": "Starr Environmental",
-"f": "8c49776a21d7.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://openverse.org/image/39347034-4edb-4f59-9517-d6eafba5bba6",
-"page": "Citharexylum_caudatum",
-"s": "Openverse",
-"src": "openverse",
-"u": "openverse/39347034-4edb-4f59-9517-d6eafba5bba6",
-"wiki": "Citharexylum caudatum"
 },
 "citharexylum-spinosum": {
 "a": "Vinayaraj",
@@ -14187,16 +14145,6 @@
 "u": "c/c8/Dianthus_barbatus_flowers_01.jpg/330px-Dianthus_barbatus_flowers_01.jpg",
 "wiki": "Dianthus barbatus"
 },
-"diatoms-and-dinoflagellates": {
-"a": "University of Rhode Island/Stephanie Anderson",
-"f": "137920040c1c.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Mixed_phytoplankton_community_2.png",
-"page": "Phytoplankton",
-"u": "7/7b/Mixed_phytoplankton_community_2.png/330px-Mixed_phytoplankton_community_2.png",
-"wiki": "Phytoplankton"
-},
 "dicentra-cucullaria": {
 "a": "Fritzflohrreynolds",
 "f": "2721a984cbf2.webp",
@@ -14276,18 +14224,6 @@
 "page": "Dichanthelium_scoparium",
 "u": "6/60/Dichanthelium_scoparium_NRCS-002.jpg/330px-Dichanthelium_scoparium_NRCS-002.jpg",
 "wiki": "Dichanthelium scoparium"
-},
-"dichanthelium-scribnerianum": {
-"a": "John Kees",
-"f": "6bbac3af8ceb.webp",
-"l": "CC0 1.0",
-"lu": "https://creativecommons.org/publicdomain/zero/1.0",
-"p": "https://www.inaturalist.org/photos/194583206",
-"page": "Dichanthelium_scribnerianum",
-"s": "iNaturalist",
-"src": "inaturalist",
-"u": "inaturalist/194583206",
-"wiki": "Dichanthelium scribnerianum"
 },
 "dichanthelium-sphaerocarpon": {
 "a": "Choess",
@@ -15678,18 +15614,6 @@
 "u": "a/a9/Elymus_hystrix_inflorescences_001.JPG/330px-Elymus_hystrix_inflorescences_001.JPG",
 "wiki": "Elymus hystrix"
 },
-"elymus-smithii": {
-"a": "Cecelia Alexander",
-"f": "fe8ba0b2a20a.webp",
-"l": "CC0 1.0",
-"lu": "https://creativecommons.org/publicdomain/zero/1.0",
-"p": "https://www.inaturalist.org/photos/75151056",
-"page": "Elymus_smithii",
-"s": "iNaturalist",
-"src": "inaturalist",
-"u": "inaturalist/75151056",
-"wiki": "Elymus smithii"
-},
 "emoia-cyanura": {
 "a": "Charles J. Sharp",
 "f": "5e1c7d32bb90.webp",
@@ -15831,16 +15755,6 @@
 "wiki": "Northern anchovy"
 },
 "enhydra-lutris": {
-"a": "Marshal Hedin from San Diego",
-"f": "39bba42a0244.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Sea_Otter_%28Enhydra_lutris%29_%2825169790524%29_crop.jpg",
-"page": "Sea_otter",
-"u": "0/02/Sea_Otter_%28Enhydra_lutris%29_%2825169790524%29_crop.jpg/330px-Sea_Otter_%28Enhydra_lutris%29_%2825169790524%29_crop.jpg",
-"wiki": "Sea otter"
-},
-"enhydra-lutris-nereis": {
 "a": "Marshal Hedin from San Diego",
 "f": "39bba42a0244.webp",
 "l": "CC BY-SA 2.0",
@@ -16545,18 +16459,6 @@
 "page": "Eriogonum_sphaerocephalum",
 "u": "e/ed/Eriogonum_sphaerocephalum_9834.JPG/330px-Eriogonum_sphaerocephalum_9834.JPG",
 "wiki": "Eriogonum sphaerocephalum"
-},
-"eriogonum-tenellum": {
-"a": "aspidoscelis",
-"f": "591303bbba3c.webp",
-"l": "CC0 1.0",
-"lu": "https://creativecommons.org/publicdomain/zero/1.0",
-"p": "https://openverse.org/image/8b4c1c08-2205-4f73-8536-3726728b94d0",
-"page": "Eriogonum_tenellum",
-"s": "Openverse",
-"src": "openverse",
-"u": "openverse/8b4c1c08-2205-4f73-8536-3726728b94d0",
-"wiki": "Eriogonum tenellum"
 },
 "eriogonum-thymoides": {
 "a": "Walter Siegmund",
@@ -17887,28 +17789,6 @@
 "u": "2/24/Ficus_microcarpa_-_La_Gomera_01.jpg/330px-Ficus_microcarpa_-_La_Gomera_01.jpg",
 "wiki": "Ficus microcarpa"
 },
-"ficus-spp": {
-"a": "איתן פרמן 14:23, 31 May 2006 (UTC)",
-"f": "fdf7b89cf7af.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Sycomoros_old.jpg",
-"page": "Ficus",
-"u": "3/3d/Sycomoros_old.jpg/330px-Sycomoros_old.jpg",
-"wiki": "Ficus"
-},
-"ficus-variegata": {
-"a": "merec0",
-"f": "01408420b50a.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://openverse.org/image/27a8ecac-e87e-4c43-b4ca-8d592285f268",
-"page": "Ficus_variegata",
-"s": "Openverse",
-"src": "openverse",
-"u": "openverse/27a8ecac-e87e-4c43-b4ca-8d592285f268",
-"wiki": "Ficus variegata"
-},
 "fimbristylis-vahlii": {
 "a": "Britton, N.L., and A. Brown.",
 "f": "ba04b1c9831b.webp",
@@ -18632,18 +18512,6 @@
 "page": "Gentiana_andrewsii",
 "u": "6/67/GentianaAndrewsii.jpg/330px-GentianaAndrewsii.jpg",
 "wiki": "Gentiana andrewsii"
-},
-"gentiana-primula-ranunculus": {
-"a": "Swallowtail Garden Seeds",
-"f": "8854e3b533ab.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://openverse.org/image/0f1578cc-879a-4cb5-9aae-545ad9f4e656",
-"page": "Gentiana",
-"s": "Openverse",
-"src": "openverse",
-"u": "openverse/0f1578cc-879a-4cb5-9aae-545ad9f4e656",
-"wiki": "Gentiana"
 },
 "gentiana-septemfida": {
 "a": "Salicyna",
@@ -19678,16 +19546,6 @@
 "page": "Haliotis_cracherodii",
 "u": "5/58/Haliotis_cracherodii.JPG/330px-Haliotis_cracherodii.JPG",
 "wiki": "Black abalone"
-},
-"halodule": {
-"a": "Daderot",
-"f": "376b4f841439.webp",
-"l": "CC0",
-"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-"p": "https://commons.wikimedia.org/wiki/File:Zostera_marina_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07663.JPG",
-"page": "Seagrass",
-"u": "f/f7/Zostera_marina_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07663.JPG/330px-Zostera_marina_-_National_Museum_of_Nature_and_Science%2C_Tokyo_-_DSC07663.JPG",
-"wiki": "Seagrass"
 },
 "halodule-uninervis": {
 "a": "Daderot",
@@ -21598,16 +21456,6 @@
 "wiki": "Impatiens pallida"
 },
 "imperata-cylindrica": {
-"a": "Keisotyo",
-"f": "7d372dd96729.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Imperata_cylindrica_tigaya_colony.jpg",
-"page": "Imperata_cylindrica",
-"u": "5/51/Imperata_cylindrica_tigaya_colony.jpg/330px-Imperata_cylindrica_tigaya_colony.jpg",
-"wiki": "Imperata cylindrica"
-},
-"imperata-cylindrica-saccharum": {
 "a": "Keisotyo",
 "f": "7d372dd96729.webp",
 "l": "CC BY-SA 3.0",
@@ -29542,16 +29390,6 @@
 "u": "7/76/Sockeye_salmon_swimming_right.jpg/330px-Sockeye_salmon_swimming_right.jpg",
 "wiki": "Sockeye salmon"
 },
-"oncorhynchus-spp": {
-"a": "David Menke",
-"f": "7ba998198a5a.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Oncorhynchus_nerka_2.jpg",
-"page": "Oncorhynchus",
-"u": "4/4b/Oncorhynchus_nerka_2.jpg/330px-Oncorhynchus_nerka_2.jpg",
-"wiki": "Pacific salmon"
-},
 "oncorhynchus-tshawytscha": {
 "a": "A. Hoen and Co.",
 "f": "dc6a396c5f46.webp",
@@ -30464,18 +30302,6 @@
 "page": "Harp_seal",
 "u": "2/22/Harp_Seal_%28Pagophilus_groenlandicus%29%2C_Greenland_Sea_IMG_5075.jpg/330px-Harp_Seal_%28Pagophilus_groenlandicus%29%2C_Greenland_Sea_IMG_5075.jpg",
 "wiki": "Pagophilus groenlandicus"
-},
-"palafoxia-sphacelata": {
-"a": "aarongunnar",
-"f": "1bc6d6a99589.webp",
-"l": "CC BY 4.0",
-"lu": "https://creativecommons.org/licenses/by/4.0",
-"p": "https://www.inaturalist.org/photos/153558897",
-"page": "Palafoxia_sphacelata",
-"s": "iNaturalist",
-"src": "inaturalist",
-"u": "inaturalist/153558897",
-"wiki": "Palafoxia sphacelata"
 },
 "palisota-bracteosa": {
 "a": "Rufous-crowned Sparrow",
@@ -36366,18 +36192,6 @@
 "u": "3/37/Quercus_buckleyi_leaves.jpg/330px-Quercus_buckleyi_leaves.jpg",
 "wiki": "Quercus buckleyi"
 },
-"quercus-carya": {
-"a": "hedera.baltica",
-"f": "1e0ecb632e6b.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://openverse.org/image/f0cb21f8-2b0a-491d-98f8-43076bba1fe3",
-"page": "Oak",
-"s": "Openverse",
-"src": "openverse",
-"u": "openverse/f0cb21f8-2b0a-491d-98f8-43076bba1fe3",
-"wiki": "Oak"
-},
 "quercus-castaneifolia": {
 "a": "User:Mmparedes",
 "f": "3d470ae6f7c3.webp",
@@ -38353,16 +38167,6 @@
 "page": "Rubus_setosus",
 "u": "0/02/Rubus_setosus_as_Rubus_nigricans_BB-1913.png/330px-Rubus_setosus_as_Rubus_nigricans_BB-1913.png",
 "wiki": "Rubus setosus"
-},
-"rubus-sons": {
-"a": "Alex Abair",
-"f": "d6b1fcae63bc.webp",
-"l": "CC BY 4.0",
-"lu": "https://creativecommons.org/licenses/by/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Rubus_trivialis_258349257.jpg",
-"page": "Rubus_trivialis",
-"u": "6/6b/Rubus_trivialis_258349257.jpg/330px-Rubus_trivialis_258349257.jpg",
-"wiki": "Rubus sons"
 },
 "rubus-spectabilis": {
 "a": "Leslie Seaton from Seattle, WA, USA",
@@ -42964,16 +42768,6 @@
 "u": "4/4c/Vodnice_posv%C3%A1tn%C3%A1_zoo_praha_2.jpg/330px-Vodnice_posv%C3%A1tn%C3%A1_zoo_praha_2.jpg",
 "wiki": "Titicaca water frog"
 },
-"tenaxia": {
-"a": "Fir0002",
-"f": "1e011ce49406.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Meadow_Foxtail_head.jpg",
-"page": "Poaceae",
-"u": "a/ad/Meadow_Foxtail_head.jpg/330px-Meadow_Foxtail_head.jpg",
-"wiki": "Poaceae"
-},
 "tenebrionidae": {
 "a": "Didier Descouens",
 "f": "26f1230754dc.webp",
@@ -44759,16 +44553,6 @@
 "page": "Sea_lettuce",
 "u": "c/cf/Meersalat-Ulva-lactuca.jpg/330px-Meersalat-Ulva-lactuca.jpg",
 "wiki": "Ulva (genus)"
-},
-"ulva-and-others": {
-"a": "Toby Hudson",
-"f": "369abb6dd9e5.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:NSW_seabed_1.JPG",
-"page": "Algae",
-"u": "0/03/NSW_seabed_1.JPG/330px-NSW_seabed_1.JPG",
-"wiki": "Algae"
 },
 "umbellularia-californica": {
 "a": "Awinch1001",
