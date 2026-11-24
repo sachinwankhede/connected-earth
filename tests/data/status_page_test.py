@@ -40,3 +40,10 @@ assert SP.group_view(r1, ['Q1', 'Q2', 'Felidae', 'group', ''], {'Q2': 'family'})
 assert SP.group_view(r1, ['Q1', '', '', 'group', ''], {}) == SP.VIEWS[1] and SP.group_view(r1, ['', '', '', 'group', 'x'], {}) == SP.VIEWS[5]
 assert "$('idcard')" in html and 'd.identity' in html
 print('identity view ok')
+
+# fix first: correct bad data (step 1) before adding missing data (step 2)
+ff = a['fixfirst']
+assert [x['step'] for x in ff] == sorted(x['step'] for x in ff) and {x['step'] for x in ff} == {1, 2}
+assert all(isinstance(x['count'], int) and x['item'].startswith('#') for x in ff)
+assert "$('fixbody')" in html and 'd.fixfirst' in html
+print('fix first ok')
