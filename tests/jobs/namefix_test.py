@@ -18,6 +18,14 @@ with tempfile.TemporaryDirectory() as r:
     done = NF.rename(r, ren)
     assert [(a, c) for a, _, c in done] == [('sx-owl', 'Short-eared owl'), ('sx-sal', 'Willow')]
     assert json.load(open(os.path.join(r, 'data/species/rows/sx/sx-owl.json')))['name'] == 'Short-eared owl' and json.load(open(os.path.join(r, 'data/species/rows/sx/sx-loc.json')))['name'] == 'Garden locust'
+# a species row whose page is a family or order is listed for removal; one whose page is another common name for the same species is not
+with tempfile.TemporaryDirectory() as r:
+    for sid, lat, nm, pg in (('wp-fam', 'Leonia glycycarpa', 'Leonia tree', 'Violaceae'), ('wp-ok', 'Parnassius apollo', 'Apollo butterfly', 'Apollo (butterfly)')):
+        w(r, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': lat, 'name': nm, 'wiki': pg, 'sk': 'taxon'})
+    w(r, 'data/audit/rowtitles.json', {'rows': {'wp-fam': ['wrongpage', '', 'x'], 'wp-ok': ['wrongpage', '', 'x']}})
+    w(r, 'data/audit/identity.json', {'ranks': {}, 'rows': {'wp-fam': ['Q1', 'Q2', 'Violaceae', 'taxon', ''], 'wp-ok': ['Q3', 'Q4', 'la papallo', 'taxon', '']}})
+    ren, dele = NF.lists(r)
+    assert ren == {} and list(dele) == ['wp-fam'], (ren, dele)
 # rows that share one name: the genus row, else the most used row, keeps it; the others take their page title (a scientific name); nothing is removed
 with tempfile.TemporaryDirectory() as r:
     for sid, lat, nm in (('mm-gen', 'Macaranga', 'Macaranga'), ('mm-sp', 'Macaranga tanarius', 'Macaranga'), ('rr-a', 'Rosa a', 'Wild rose'), ('rr-b', 'Rosa b', 'Wild rose'), ('rr-c', 'Rosa c', 'Wild rose')):
