@@ -79,8 +79,8 @@ def place_files(root):
     return [f for f in sorted(glob.glob(os.path.join(root, 'data', 'places', '*.json'))) if os.path.basename(f) not in SKIP]
 
 def protect(root, tab, go, reason, jn=()):
-    """Take out of `go` (in place) the rows whose removal would leave a place invalid (build/validate.py: at least one abiotic and one decomp node, 10 to 34 species), and return {sid: why}.
-    Deterministic: for each place in file order, a missing abiotic or decomp kind keeps its first removed row (by id); too few species keeps the removed species rows (a row that shares a page before a row with no page, then by id) until there are 10.
+    """Take out of `go` (in place) the rows whose removal would leave a place invalid (build/validate.py: 10 to 34 species, every node linked), and return {sid: why}.
+    Deterministic: for each place in file order, too few species keeps the removed species rows (a row that shares a page before a row with no page, then by id) until there are 10.
     The kept rows are the bad rows still in the data: they are listed so a later pass can remove them once the place has accurate nodes (owner: places can evolve)."""
     places = []
     for f in place_files(root):
@@ -94,12 +94,6 @@ def protect(root, tab, go, reason, jn=()):
         changed = False
         for pid, nodes, tip, raw in places:
             gone_n = dropped.setdefault(pid, set()); left = [n for n in nodes if n['sp'] not in go and n['id'] not in gone_n]
-            hit = False
-            for kind in ('abiotic', 'decomp'):
-                if not any(tab[n['sp']].get('cat') == kind for n in left):
-                    c = sorted(n['sp'] for n in nodes if n['sp'] in go and tab[n['sp']].get('cat') == kind)
-                    if c: keep(c[0], '%s needs an %s node' % (pid, kind)); changed = hit = True; break
-            if hit: continue
             sp = [n for n in left if not tab[n['sp']].get('cat')]
             if len(sp) < 10:
                 c = sorted((n['sp'] for n in nodes if n['sp'] in go and not tab[n['sp']].get('cat')), key=lambda x: (not str(reason.get(x, '')).startswith('shares'), x))
@@ -108,7 +102,7 @@ def protect(root, tab, go, reason, jn=()):
             ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
             for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
                 cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o and n['id'] not in gone_n]   # nodes already dropped in this pass do not count
-                essential = (pid, o['id']) in jn or (cat in ('abiotic', 'decomp') and not any(tab[n['sp']].get('cat') == cat for n in rest)) or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
+                essential = (pid, o['id']) in jn or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
                 if not essential: gone_n.add(o['id']); changed = True; continue
                 nb = sorted(nodes_by[x]['sp'] for r in raw if o['id'] in r[:2] for x in r[:2] if x != o['id'] and x in nodes_by and nodes_by[x]['sp'] in go) if (nodes_by := {n['id']: n for n in nodes}) else []
                 if nb: keep(nb[0], '%s: its node %s would have no links' % (pid, o['id'])); changed = True
@@ -209,7 +203,7 @@ def remove_place(root, pid):
         edit(p, lambda o: isinstance(o, list) and pid in o and (o.__setitem__(slice(None), [x for x in o if x != pid]) or True))
 
 def run_places(root, ident, dry=False):
-    """Remove every place that a kept row blocks (the only abiotic or decomp node, the 10-species minimum, a node with no links): such a place cannot lose its bad row without a replacement, so it is removed and can be
+    """Remove every place that a kept row blocks (the 10-species minimum, a node with no links): such a place cannot lose its bad row without a replacement, so it is removed and can be
     recreated with accurate nodes later (owner, 24 Nov: delete, then recreate). A place a journey names stays. Repeats until no removable place is blocked, then removes the rows. Returns (removed places {id: why}, removed rows, kept rows)."""
     reason = BATCHES['all'](ident); jp = {p for p, _ in journey_nodes(root)}; gone = {}
     while True:

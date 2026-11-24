@@ -29,6 +29,22 @@ for (const [name, size] of Object.entries(H.SIZES)) {
     await t.close(); await b.close();
   });
 
+  test(`${name}: a place with no abiotic or decomposer node opens, on the page and in the explore view (#1138)`, async () => {
+    const b = await H.launch();
+    const t = await H.open(b, H.FMAIN, size, { fixtures: true });
+    const place = H.fixturePlace('/api/testland.json'), env = new Set(place.nodes.filter((n) => n.cat).map((n) => n.id));
+    assert.ok(env.size > 0, 'the fixture place has environment nodes to take out');
+    place.nodes = place.nodes.filter((n) => !env.has(n.id)); place.raw = place.raw.filter((r) => !env.has(r[0]) && !env.has(r[1]));
+    for (const k of Object.keys(place.ev || {})) if (k.split('>').some((x) => env.has(x))) delete place.ev[k];
+    await t.page.route(/\/api\/testland\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(place) }));
+    for (const hash of ['#stub&pg=testland', '#stub&e=testland']) {
+      await t.page.goto((await H.urlFor(H.FMAIN)) + hash); await t.page.reload();
+      await t.page.waitForSelector(hash.includes('pg=') ? '#pgraph .pn' : '#panel .eyebrow', { state: 'attached', timeout: 60000 });
+    }
+    assert.deepEqual(t.errors, []);
+    await t.close(); await b.close();
+  });
+
   test(`${name}: a place page has the name first, a calm picture of the web, then the detail below`, async () => {
     const { b, p, errors } = await start('#stub&pg=testland', true);   // the made-up Testland (tests/fixtures), not a real place
     await ready(p);
