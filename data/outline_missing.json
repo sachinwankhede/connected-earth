@@ -119,25 +119,7 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"whatlantic": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whbanff": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "whbelize": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whcalakmul": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
@@ -155,18 +137,6 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"whcarpathian": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whcocos": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "whdanube": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
@@ -174,12 +144,6 @@
 "status": "none"
 },
 "whfiordland": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whgobi": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
@@ -233,18 +197,6 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"whmountkenya": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whnoronha": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "whogasawara": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
@@ -282,12 +234,6 @@
 "status": "none"
 },
 "whsalonga": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"whsiankaan": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
@@ -365,12 +311,6 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"whwrangel": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "wvcampcreek": {
 "attempts": 1,
 "checkedAt": "2026-11-17T12:57:21.995068+00:00",
@@ -443,19 +383,7 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"xdomrep": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "xelsalvador": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"xeqguinea": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
@@ -545,12 +473,6 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"xluxembourg": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "xmacedonia": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
@@ -582,12 +504,6 @@
 "status": "none"
 },
 "xoman": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"xpalestine": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
@@ -641,12 +557,6 @@
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",
 "status": "none"
 },
-"xsomaliland": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
 "xssudan": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
@@ -654,12 +564,6 @@
 "status": "none"
 },
 "xsyria": {
-"attempts": 1,
-"checkedAt": "2026-11-16T13:02:34.973249+00:00",
-"expiresAt": "2026-11-16T15:02:34.973249+00:00",
-"status": "none"
-},
-"xturkey": {
 "attempts": 1,
 "checkedAt": "2026-11-16T13:02:34.973249+00:00",
 "expiresAt": "2026-11-16T15:02:34.973249+00:00",

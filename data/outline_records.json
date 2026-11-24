@@ -95,18 +95,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"akwoodtikchik": {
-"built": "2026-11-16T09:42:09.817810+00:00",
-"checkedAt": "2026-11-16T09:42:09.817810+00:00",
-"inputs": {
-"lat": 59.9599,
-"lon": -158.7288,
-"name": "Wood-Tikchik State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "albattleshipmemori": {
 "built": "2026-11-16T09:42:09.817812+00:00",
 "checkedAt": "2026-11-16T09:42:09.817812+00:00",
@@ -186,18 +174,6 @@
 "lat": 32.5506,
 "lon": -85.4882,
 "name": "Chewacla State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"alchickasaw": {
-"built": "2026-11-16T09:42:09.817828+00:00",
-"checkedAt": "2026-11-16T09:42:09.817828+00:00",
-"inputs": {
-"lat": 32.3613,
-"lon": -87.785,
-"name": "Chickasaw State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -2797,18 +2773,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"hiwaiaholewaikanen": {
-"built": "2026-11-16T09:42:09.818290+00:00",
-"checkedAt": "2026-11-16T09:42:09.818290+00:00",
-"inputs": {
-"lat": 21.4948,
-"lon": -157.8591,
-"name": "Waiahole / Waikane Nature Preserve"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "hiwaianapanapa": {
 "built": "2026-11-16T09:42:09.818293+00:00",
 "checkedAt": "2026-11-16T09:42:09.818293+00:00",
@@ -4379,18 +4343,6 @@
 "lat": 30.7673,
 "lon": -90.1515,
 "name": "Bogue Chitto State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"lacaneycreeklake": {
-"built": "2026-11-16T09:42:09.818578+00:00",
-"checkedAt": "2026-11-16T09:42:09.818578+00:00",
-"inputs": {
-"lat": 32.2525,
-"lon": -92.519,
-"name": "Caney Creek Lake State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -6654,18 +6606,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"msflorewoodriverpl": {
-"built": "2026-11-16T09:42:09.818967+00:00",
-"checkedAt": "2026-11-16T09:42:09.818967+00:00",
-"inputs": {
-"lat": 33.5257,
-"lon": -90.2487,
-"name": "Florewood River Plantation State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "msgeorgepcossar": {
 "built": "2026-11-16T09:42:09.818969+00:00",
 "checkedAt": "2026-11-16T09:42:09.818969+00:00",
@@ -8454,42 +8394,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"npacadia": {
-"built": "2026-11-16T09:42:09.819284+00:00",
-"checkedAt": "2026-11-16T09:42:09.819284+00:00",
-"inputs": {
-"lat": 44.35,
-"lon": -68.21,
-"name": "Acadia National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npamericansamoa": {
-"built": "2026-11-16T09:42:09.819286+00:00",
-"checkedAt": "2026-11-16T09:42:09.819286+00:00",
-"inputs": {
-"lat": -14.25,
-"lon": -170.68,
-"name": "National Park of American Samoa"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"nparches": {
-"built": "2026-11-16T09:42:09.819288+00:00",
-"checkedAt": "2026-11-16T09:42:09.819288+00:00",
-"inputs": {
-"lat": 38.73,
-"lon": -109.59,
-"name": "Arches National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "npbadlands": {
 "built": "2026-11-16T09:42:09.819290+00:00",
 "checkedAt": "2026-11-16T09:42:09.819290+00:00",
@@ -8550,18 +8454,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"npcanyonlands": {
-"built": "2026-11-16T09:42:09.819300+00:00",
-"checkedAt": "2026-11-16T09:42:09.819300+00:00",
-"inputs": {
-"lat": 38.17,
-"lon": -109.76,
-"name": "Canyonlands National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "npcapitolreef": {
 "built": "2026-11-16T09:42:09.819302+00:00",
 "checkedAt": "2026-11-16T09:42:09.819302+00:00",
@@ -8585,19 +8477,6 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
-},
-"npchannelislands": {
-"built": "2026-11-17T07:37:39.646704+00:00",
-"checkedAt": "2026-11-17T07:37:39.646704+00:00",
-"inputs": {
-"lat": 34.0161,
-"lon": -119.8039,
-"name": "Channel Islands National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"page": "https://nominatim.openstreetmap.org/ui/details.html?osmtype=R&osmid=3636334",
-"source": "osm"
 },
 "npcongaree": {
 "built": "2026-11-16T09:42:09.819308+00:00",
@@ -8630,18 +8509,6 @@
 "lat": 41.24,
 "lon": -81.55,
 "name": "Cuyahoga Valley National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npdeathvalley": {
-"built": "2026-11-16T09:42:09.819315+00:00",
-"checkedAt": "2026-11-16T09:42:09.819315+00:00",
-"inputs": {
-"lat": 36.45,
-"lon": -116.85,
-"name": "Death Valley National Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -8695,18 +8562,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"npglacierbay": {
-"built": "2026-11-16T09:42:09.819325+00:00",
-"checkedAt": "2026-11-16T09:42:09.819325+00:00",
-"inputs": {
-"lat": 58.5,
-"lon": -137.0,
-"name": "Glacier Bay National Park and Preserve"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "npgrandcanyon": {
 "built": "2026-11-16T09:42:09.819327+00:00",
 "checkedAt": "2026-11-16T09:42:09.819327+00:00",
@@ -8738,42 +8593,6 @@
 "lat": 38.98,
 "lon": -114.3,
 "name": "Great Basin National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npgreatsanddunes": {
-"built": "2026-11-16T09:42:09.819333+00:00",
-"checkedAt": "2026-11-16T09:42:09.819333+00:00",
-"inputs": {
-"lat": 37.73,
-"lon": -105.51,
-"name": "Great Sand Dunes National Park and Preserve"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npguadalupe": {
-"built": "2026-11-16T09:42:09.819335+00:00",
-"checkedAt": "2026-11-16T09:42:09.819335+00:00",
-"inputs": {
-"lat": 31.917,
-"lon": -104.867,
-"name": "Guadalupe Mountains National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"nphaleakala": {
-"built": "2026-11-16T09:42:09.819337+00:00",
-"checkedAt": "2026-11-16T09:42:09.819337+00:00",
-"inputs": {
-"lat": 20.72,
-"lon": -156.17,
-"name": "Haleakalā National Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -8935,42 +8754,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"npmountrainier": {
-"built": "2026-11-16T09:42:09.819366+00:00",
-"checkedAt": "2026-11-16T09:42:09.819366+00:00",
-"inputs": {
-"lat": 46.85,
-"lon": -121.75,
-"name": "Mount Rainier National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npnewrivergorge": {
-"built": "2026-11-16T09:42:09.819369+00:00",
-"checkedAt": "2026-11-16T09:42:09.819369+00:00",
-"inputs": {
-"lat": 37.96,
-"lon": -81.08,
-"name": "New River Gorge National Park and Preserve"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npnorthcascades": {
-"built": "2026-11-16T09:42:09.819371+00:00",
-"checkedAt": "2026-11-16T09:42:09.819371+00:00",
-"inputs": {
-"lat": 48.83,
-"lon": -121.35,
-"name": "North Cascades National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "nppetrifiedforest": {
 "built": "2026-11-16T09:42:09.819373+00:00",
 "checkedAt": "2026-11-16T09:42:09.819373+00:00",
@@ -8978,18 +8761,6 @@
 "lat": 35.09,
 "lon": -109.81,
 "name": "Petrified Forest National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"nppinnacles": {
-"built": "2026-11-16T09:42:09.819375+00:00",
-"checkedAt": "2026-11-16T09:42:09.819375+00:00",
-"inputs": {
-"lat": 36.49,
-"lon": -121.18,
-"name": "Pinnacles National Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -9018,18 +8789,6 @@
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
-},
-"npsaguaro": {
-"built": "2026-11-16T09:42:09.819381+00:00",
-"checkedAt": "2026-11-16T09:42:09.819381+00:00",
-"inputs": {
-"lat": 32.2204,
-"lon": -110.735,
-"name": "Saguaro National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
 },
 "npsequoia": {
 "built": "2026-11-17T07:37:39.646704+00:00",
@@ -9111,18 +8870,6 @@
 "lat": 43.57,
 "lon": -103.48,
 "name": "Wind Cave National Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"npwrangell": {
-"built": "2026-11-16T09:42:09.819397+00:00",
-"checkedAt": "2026-11-16T09:42:09.819397+00:00",
-"inputs": {
-"lat": 61.417,
-"lon": -142.801,
-"name": "Wrangell-St. Elias National Park and Preserve"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -10049,18 +9796,6 @@
 "lat": 43.1213,
 "lon": -124.4283,
 "name": "Brandon South Jetty Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"ordeadwood": {
-"built": "2026-11-16T09:42:09.819569+00:00",
-"checkedAt": "2026-11-16T09:42:09.819569+00:00",
-"inputs": {
-"lat": 44.0947,
-"lon": -123.756,
-"name": "Deadwood Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -12600,18 +12335,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"uslincolnnationalforest": {
-"built": "2026-11-16T09:42:09.819999+00:00",
-"checkedAt": "2026-11-16T09:42:09.819999+00:00",
-"inputs": {
-"lat": 32.303,
-"lon": -104.8815,
-"name": "Lincoln National Forest"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "uslittlemissourinational": {
 "built": "2026-11-16T09:42:09.820001+00:00",
 "checkedAt": "2026-11-16T09:42:09.820001+00:00",
@@ -13567,18 +13290,6 @@
 "lat": 37.1245,
 "lon": -120.9215,
 "name": "Volta Wildlife Area"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"uswaccamawnationalwildli": {
-"built": "2026-11-16T09:42:09.820164+00:00",
-"checkedAt": "2026-11-16T09:42:09.820164+00:00",
-"inputs": {
-"lat": 33.626,
-"lon": -79.1415,
-"name": "Waccamaw National Wildlife Refuge"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -14821,18 +14532,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"whcomoe": {
-"built": "2026-11-16T09:42:09.820380+00:00",
-"checkedAt": "2026-11-16T09:42:09.820380+00:00",
-"inputs": {
-"lat": 9.16,
-"lon": -3.77,
-"name": "Comoé National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "whcorbett": {
 "built": "2026-11-16T09:42:09.820382+00:00",
 "checkedAt": "2026-11-16T09:42:09.820382+00:00",
@@ -14864,18 +14563,6 @@
 "lat": 7.74,
 "lon": -77.55,
 "name": "Darién National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"whdja": {
-"built": "2026-11-16T09:42:09.820388+00:00",
-"checkedAt": "2026-11-16T09:42:09.820388+00:00",
-"inputs": {
-"lat": 3.2,
-"lon": 13.0,
-"name": "Dja Faunal Reserve"
 },
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
@@ -15025,18 +14712,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"whkomodo": {
-"built": "2026-11-16T09:42:09.820415+00:00",
-"checkedAt": "2026-11-16T09:42:09.820415+00:00",
-"inputs": {
-"lat": -8.55,
-"lon": 119.5,
-"name": "Komodo National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "whkruger": {
 "built": "2026-11-16T09:42:09.820417+00:00",
 "checkedAt": "2026-11-16T09:42:09.820417+00:00",
@@ -15060,18 +14735,6 @@
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
-},
-"whlordhowe": {
-"built": "2026-11-16T09:42:09.820421+00:00",
-"checkedAt": "2026-11-16T09:42:09.820421+00:00",
-"inputs": {
-"lat": -31.55,
-"lon": 159.08,
-"name": "Lord Howe Island Group"
-},
-"licence": "CC0 1.0",
-"licence link": "https://creativecommons.org/publicdomain/zero/1.0/",
-"source": "wikidata"
 },
 "whlorentz": {
 "built": "2026-11-16T09:42:09.820423+00:00",
@@ -15133,18 +14796,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"whokavango": {
-"built": "2026-11-16T09:42:09.820434+00:00",
-"checkedAt": "2026-11-16T09:42:09.820434+00:00",
-"inputs": {
-"lat": -19.3,
-"lon": 22.9,
-"name": "Okavango Delta"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "whphongnha": {
 "built": "2026-11-16T09:42:09.820436+00:00",
 "checkedAt": "2026-11-16T09:42:09.820436+00:00",
@@ -15169,18 +14820,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"whplitvice": {
-"built": "2026-11-16T09:42:09.820440+00:00",
-"checkedAt": "2026-11-16T09:42:09.820440+00:00",
-"inputs": {
-"lat": 44.9,
-"lon": 15.6,
-"name": "Plitvice Lakes National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "whputorana": {
 "built": "2026-11-16T09:42:09.820442+00:00",
 "checkedAt": "2026-11-16T09:42:09.820442+00:00",
@@ -15200,18 +14839,6 @@
 "lat": -25.8,
 "lon": 113.7,
 "name": "Shark Bay, Western Australia"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"whshiretoko": {
-"built": "2026-11-16T09:42:09.820446+00:00",
-"checkedAt": "2026-11-16T09:42:09.820446+00:00",
-"inputs": {
-"lat": 44.1,
-"lon": 145.1,
-"name": "Shiretoko"
 },
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
@@ -16057,18 +15684,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"wyseminoereservoir": {
-"built": "2026-11-16T09:42:09.820601+00:00",
-"checkedAt": "2026-11-16T09:42:09.820601+00:00",
-"inputs": {
-"lat": 42.0448,
-"lon": -106.8476,
-"name": "Seminoe Reservoir State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "wysinkscanyon": {
 "built": "2026-11-16T09:42:09.820603+00:00",
 "checkedAt": "2026-11-16T09:42:09.820603+00:00",
@@ -16141,30 +15756,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"xbenin": {
-"built": "2026-11-16T09:42:09.820615+00:00",
-"checkedAt": "2026-11-16T09:42:09.820615+00:00",
-"inputs": {
-"lat": 11.3,
-"lon": 1.5,
-"name": "Pendjari National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"xbulgaria": {
-"built": "2026-11-16T09:42:09.820617+00:00",
-"checkedAt": "2026-11-16T09:42:09.820617+00:00",
-"inputs": {
-"lat": 41.7,
-"lon": 23.4,
-"name": "Pirin National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "xcuba": {
 "built": "2026-11-16T09:42:09.820619+00:00",
 "checkedAt": "2026-11-16T09:42:09.820619+00:00",
@@ -16196,18 +15787,6 @@
 "lat": 15.7,
 "lon": 40.2,
 "name": "Dahlak Archipelago"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"xestonia": {
-"built": "2026-11-16T09:42:09.820625+00:00",
-"checkedAt": "2026-11-16T09:42:09.820625+00:00",
-"inputs": {
-"lat": 58.44,
-"lon": 25.1,
-"name": "Soomaa National Park"
 },
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
@@ -16308,18 +15887,6 @@
 "licence": "CC0 1.0",
 "licence link": "https://creativecommons.org/publicdomain/zero/1.0/",
 "source": "wikidata"
-},
-"xguinea": {
-"built": "2026-11-16T09:42:09.820643+00:00",
-"checkedAt": "2026-11-16T09:42:09.820643+00:00",
-"inputs": {
-"lat": 7.65,
-"lon": -8.4,
-"name": "Mount Nimba Strict Nature Reserve"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
 },
 "xhonduras": {
 "built": "2026-11-16T09:42:09.820645+00:00",
@@ -16465,18 +16032,6 @@
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
 "source": "osm"
 },
-"xpakistan": {
-"built": "2026-11-16T09:42:09.820684+00:00",
-"checkedAt": "2026-11-16T09:42:09.820684+00:00",
-"inputs": {
-"lat": 35.0,
-"lon": 75.4,
-"name": "Deosai National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
 "xportugal": {
 "built": "2026-11-16T09:42:09.820686+00:00",
 "checkedAt": "2026-11-16T09:42:09.820686+00:00",
@@ -16568,18 +16123,6 @@
 "lat": 23.47,
 "lon": 120.96,
 "name": "Yushan National Park"
-},
-"licence": "ODbL 1.0",
-"licence link": "https://opendatacommons.org/licenses/odbl/1-0/",
-"source": "osm"
-},
-"xtimor": {
-"built": "2026-11-16T09:42:09.820703+00:00",
-"checkedAt": "2026-11-16T09:42:09.820703+00:00",
-"inputs": {
-"lat": -8.45,
-"lon": 127.33,
-"name": "Nino Konis Santana National Park"
 },
 "licence": "ODbL 1.0",
 "licence link": "https://opendatacommons.org/licenses/odbl/1-0/",

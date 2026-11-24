@@ -53,12 +53,6 @@
 "expiresAt": "2027-05-14T14:23:29.593489+00:00",
 "status": "nophoto"
 },
-"carex-corrugata": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593492+00:00",
-"expiresAt": "2027-05-14T14:23:29.593492+00:00",
-"status": "nophoto"
-},
 "carex-crebriflora": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593495+00:00",
@@ -83,28 +77,10 @@
 "expiresAt": "2027-05-14T14:23:29.593508+00:00",
 "status": "nophoto"
 },
-"chasmanthium-laxum": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593515+00:00",
-"expiresAt": "2027-05-14T14:23:29.593515+00:00",
-"status": "nophoto"
-},
-"chenopodium-subglabrum": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593517+00:00",
-"expiresAt": "2027-05-14T14:23:29.593517+00:00",
-"status": "nophoto"
-},
 "conophthorus-ponderosae": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593533+00:00",
 "expiresAt": "2027-05-14T14:23:29.593533+00:00",
-"status": "nophoto"
-},
-"croton-dioicus": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593556+00:00",
-"expiresAt": "2027-05-14T14:23:29.593556+00:00",
 "status": "nophoto"
 },
 "dinaromys-bogdanovi": {
@@ -191,12 +167,6 @@
 "expiresAt": "2027-05-14T14:23:29.593669+00:00",
 "status": "nophoto"
 },
-"hypoxis-curtissii": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593672+00:00",
-"expiresAt": "2027-05-14T14:23:29.593672+00:00",
-"status": "nophoto"
-},
 "ilex-ambigua": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593680+00:00",
@@ -249,12 +219,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593773+00:00",
 "expiresAt": "2027-05-14T14:23:29.593773+00:00",
-"status": "nophoto"
-},
-"micranthes-marshallii": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593775+00:00",
-"expiresAt": "2027-05-14T14:23:29.593775+00:00",
 "status": "nophoto"
 },
 "ochotona-coreana": {
@@ -333,12 +297,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593887+00:00",
 "expiresAt": "2027-05-14T14:23:29.593887+00:00",
-"status": "nophoto"
-},
-"rorippa-calycina": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593896+00:00",
-"expiresAt": "2027-05-14T14:23:29.593896+00:00",
 "status": "nophoto"
 },
 "rubus-biformispinus": {
