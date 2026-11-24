@@ -6482,20 +6482,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"atriplex-lampa": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Amaranthaceae",
-"gname": "Atriplex lampa (Moq.) Gillies",
-"key": 8681279,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Caryophyllales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "atriplex-parishii": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -18053,20 +18039,6 @@
 "family": "Cervidae",
 "gname": "Dama dama (Linnaeus, 1758)",
 "key": 5220136,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"damaliscus-lunatus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Bovidae",
-"gname": "Damaliscus lunatus (Burchell, 1823)",
-"key": 2441041,
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Artiodactyla",
@@ -30757,20 +30729,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"larus-canus": {
-"at": "2026-11-04",
-"class": "Aves",
-"conf": 100,
-"family": "Laridae",
-"gname": "Larus canus Linnaeus, 1758",
-"key": 7982160,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Charadriiformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "larus-delawarensis": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -43340,20 +43298,6 @@
 "match": "exact",
 "order": "Caryophyllales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"petaurista-lena": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Sciuridae",
-"gname": "Petaurista lena Thomas, 1907",
-"key": 11156745,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
