@@ -11447,20 +11447,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"carex-corrugata": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Cyperaceae",
-"gname": "Carex corrugata Fernald",
-"key": 2722249,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "carex-crebriflora": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -12056,20 +12042,6 @@
 "family": "Cyperaceae",
 "gname": "Carex plantaginea Lam.",
 "key": 2723909,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"carex-podocarpa": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 98,
-"family": "Cyperaceae",
-"gname": "Carex podocarpa R.Br.",
-"key": 2722558,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Poales",
@@ -14167,20 +14139,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"chasmanthium-laxum": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Poaceae",
-"gname": "Chasmanthium laxum (L.) H.O.Yates",
-"key": 2703085,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "chauliognathus-pensylvanicus": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -14311,20 +14269,6 @@
 "family": "Amaranthaceae",
 "gname": "Chenopodium oahuense (Meyen) Aellen",
 "key": 3083927,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Caryophyllales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"chenopodium-subglabrum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Amaranthaceae",
-"gname": "Chenopodium subglabrum (S.Watson) A.Nelson",
-"key": 3083891,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Caryophyllales",
@@ -14925,20 +14869,6 @@
 "family": "Onagraceae",
 "gname": "Chylismia claviformis (Torr. & Frém.) A.Heller",
 "key": 7161520,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Myrtales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"chylismia-scapoidea": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Onagraceae",
-"gname": "Chylismia scapoidea Nutt. ex Torr. & A.Gray",
-"key": 9379108,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Myrtales",
@@ -17670,20 +17600,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"croton-dioicus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Euphorbiaceae",
-"gname": "Croton dioicus Cav.",
-"key": 3058980,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -29155,20 +29071,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"hypericum-drummondii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Hypericaceae",
-"gname": "Hypericum drummondii (Grev. & Hook.) Torr. & A.Gray",
-"key": 3189500,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "hypericum-perforatum": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -29319,20 +29221,6 @@
 "match": "exact",
 "order": "Lepidoptera",
 "phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"hypoxis-curtissii": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Hypoxidaceae",
-"gname": "Hypoxis curtissii Rose",
-"key": 2852862,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Asparagales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -34550,20 +34438,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"luzula-bulbosa": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 97,
-"family": "Juncaceae",
-"gname": "Luzula bulbosa (Alph.Wood) Smyth & L.C.R.Smyth",
-"key": 2700991,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "lycaeides-melissa": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -35173,20 +35047,6 @@
 "family": "Euphorbiaceae",
 "gname": "Macaranga grandifolia (Blanco) Merr.",
 "key": 3074216,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"macaranga-mappa": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Euphorbiaceae",
-"gname": "Macaranga mappa (L.) Müll.Arg.",
-"key": 3074290,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Malpighiales",
@@ -37425,20 +37285,6 @@
 "order": "Myrtales",
 "phylum": "Tracheophyta",
 "rank": "GENUS",
-"src": "gbif"
-},
-"micranthes-marshallii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Saxifragaceae",
-"gname": "Micranthes marshallii (Greene) Small",
-"key": 5567639,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Saxifragales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "micranthes-petiolaris": {
@@ -49368,20 +49214,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"psydrax-odoratus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rubiaceae",
-"gname": "Psydrax odoratus (G.Forst.) A.C.Sm. & S.P.Darwin",
-"key": 2893185,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Gentianales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "pteralopex-taki": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -52351,20 +52183,6 @@
 "match": "exact",
 "order": "Orthoptera",
 "phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"rorippa-calycina": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Brassicaceae",
-"gname": "Rorippa calycina (Engelm.) Rydb.",
-"key": 3053390,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Brassicales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
