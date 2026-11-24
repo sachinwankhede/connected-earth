@@ -5,11 +5,15 @@
   python3 jobs/namefix.py --rename [--dry]   # rename the clear cases: a taxon row whose page is about exactly that taxon, or a species or subspecies row whose page is about one species; the new name is the page's own title
   (rows whose page is another taxon, and the cases above, are removed by `jobs/strictrows.py --batch badname`: a row whose name says one thing and whose page another does not know what it is; no data is better than bad data)
 A rename changes only the row's `name`; its nodes follow it. Groups and rows whose page is about something broader are never renamed."""
-import json, os, sys
+import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 for d in ('build', 'lib'): sys.path.insert(0, os.path.join(ROOT, d))
 import species, data_audit
 SPECIES_RANKS = ('species', 'subspecies')
+
+def all_deletes(root=ROOT):
+    """Every row `strictrows --batch badname` removes: the first rule's removals, the leftovers, and the shared-name rows with no claim to the name."""
+    out = dict(lists(root)[1]); out.update(leftovers(root)[1]); out.update(shared(root, True)[1]); return out
 
 def lists(root=ROOT):
     """(rename, delete): rename = {sid: new name}; delete = {sid: reason}. Both only for rows whose name breaks the naming rule and for which the web check proposes a name."""
@@ -36,12 +40,29 @@ def lists(root=ROOT):
             dele[sid] = 'its name and its page disagree on what it is (%s on the page %s)' % (name, page)
     return ren, dele
 
-def shared(root=ROOT):
+def title_of(page):
+    return re.sub(r'\s*\([^)]*\)$', '', page or '') or page
+
+def leftovers(root=ROOT):
+    """(rename, delete) for the rows that still break the names rule after the other rules (owner, 24 Nov, #1061: "ok to delete if we can't have a rule"). The web check proposed a name that is not the page title, or the name is the page title with only a bracket
+    left out: the row takes the page's title (bracket dropped). Anything else is removed: its name and page disagree and no rule says which is right."""
+    web = json.load(open(os.path.join(root, 'data', 'audit', 'rowtitles.json'), encoding='utf-8'))['rows']
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}; ren, dele = {}, {}
+    taken = {data_audit.norm(r.get('name') or '') for r in tab.values()}
+    for sid, r in sorted(tab.items()):
+        page, name, v = r.get('wiki') or '', r.get('name') or '', web.get(sid)
+        if r.get('sk') not in ('taxon', 'group') or not page or data_audit.scientific(page, r) or data_audit.plain(name) == data_audit.plain(page) or (v and v[0] == 'same'): continue
+        new = title_of(page)
+        if r['sk'] == 'taxon' and ((v and v[0] == 'change') or data_audit.plain(title_of(page)) in data_audit.plain(name)) and data_audit.norm(new) not in taken: ren[sid] = new; taken.add(data_audit.norm(new))
+        else: dele[sid] = 'its name and its page disagree and no rule settles it (%s on the page %s)' % (name, page)
+    return ren, dele
+
+def shared(root=ROOT, with_delete=False):
     """{sid: new name} for taxon rows that share one name with another taxon row (owner, 24 Nov, #1061). One row per name keeps it: a genus row ("Carex": Sedges) first, else the row most places use (ties: the first id).
     Every other row takes its own page's title when that is the row's own scientific name (Acer saccharinum; a page about the genus does not count), which is always true and never clashes. Nothing is deleted: these are different species that share a common name."""
     import collections
     tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}; use = collections.Counter(); d = os.path.join(root, 'data', 'places')
-    for f in sorted(os.listdir(d)):
+    for f in sorted(os.listdir(d) if os.path.isdir(d) else []):
         if not f.endswith('.json') or f in data_audit.SKIP: continue
         try: e = json.load(open(os.path.join(d, f), encoding='utf-8'))
         except (OSError, ValueError): continue
@@ -50,14 +71,16 @@ def shared(root=ROOT):
     by = collections.defaultdict(list)
     for sid, r in tab.items():
         if r.get('sk') == 'taxon' and r.get('name'): by[data_audit.norm(r['name'])].append(sid)
-    taken = {data_audit.norm(r.get('name') or '') for r in tab.values() if r.get('sk') == 'taxon'}; out = {}
+    taken = {data_audit.norm(r.get('name') or '') for r in tab.values() if r.get('sk') == 'taxon'}; out = {}; gone = {}
     for name, m in sorted(by.items()):
         if len(m) < 2: continue
-        keep = sorted(m, key=lambda s: (len((tab[s].get('latin') or '').split()) > 1, -use[s], s))[0]
+        keep = sorted(m, key=lambda s: (data_audit.norm(tab[s].get('wiki') or '') != name, len((tab[s].get('latin') or '').split()) > 1, -use[s], s))[0]   # the row whose own page has this name first
         for s in m:
             r = tab[s]; page = r.get('wiki') or ''
-            if s != keep and page and data_audit.scientific(page, r) and data_audit.norm(page) == data_audit.norm(r.get('latin') or '') and data_audit.norm(page) not in taken: out[s] = page; taken.add(data_audit.norm(page))
-    return out
+            if s == keep: continue
+            if page and data_audit.scientific(page, r) and data_audit.norm(page) == data_audit.norm(r.get('latin') or '') and data_audit.norm(page) not in taken: out[s] = page; taken.add(data_audit.norm(page))
+            elif with_delete: gone[s] = 'it shares the name %s with a row that has a better claim to it, and its own page is not its scientific name' % r.get('name')
+    return (out, gone) if with_delete else out
 
 def rename(root, ren, dry=False):
     done = []
@@ -76,6 +99,7 @@ def rename(root, ren, dry=False):
 def main(argv):
     ren, dele = lists(ROOT); dry = '--dry' in argv
     if '--shared' in argv: ren = shared(ROOT); argv = [a for a in argv if a != '--list'] + ['--rename']
+    if '--leftovers' in argv: ren = leftovers(ROOT)[0]; argv = [a for a in argv if a != '--list'] + ['--rename']
     if '--rename' in argv:
         done = rename(ROOT, ren, dry); print('%d rows %s' % (len(done), 'to rename' if dry else 'renamed'))
         for sid, old, new in done: print('rename', sid, '|', old, '->', new)

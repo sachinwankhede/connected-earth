@@ -34,6 +34,15 @@ with tempfile.TemporaryDirectory() as r:
     w(r, 'data/audit/rowtitles.json', {'rows': {sid: [st, 'x', 'y'] for sid, _, _, _, st in rows}}); w(r, 'data/audit/identity.json', {'ranks': {}, 'rows': {}})
     ren, dele = NF.lists(r)
     assert ren == {} and sorted(dele) == ['xr-grp', 'xr-new', 'xr-rep'], (ren, dele)
+# leftovers: the page title (bracket dropped) when the web check proposed a name or only a bracket differs; otherwise the row is removed. A name's owner is the row whose own page has that name
+with tempfile.TemporaryDirectory() as r:
+    rows = (('lo-a', 'Wasmannia auropunctata', 'Electric ant', 'Little fire ant', 'taxon'), ('lo-b', 'Parnassius apollo', 'Apollo butterfly', 'Apollo (butterfly)', 'taxon'), ('lo-c', 'Larus canus', 'Mew gull', 'Common gull', 'taxon'),
+            ('el-a', 'Cervus canadensis', 'Elk', 'Elk', 'taxon'), ('el-b', 'Cervus elaphus', 'Elk', 'Cervus elaphus', 'taxon'))
+    for sid, lat, nm, pg, k in rows: w(r, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': lat, 'name': nm, 'wiki': pg, 'sk': k})
+    w(r, 'data/audit/rowtitles.json', {'rows': {'lo-a': ['change', 'Electric ant', ''], 'lo-b': ['specific', 'x', ''], 'lo-c': ['specific', 'x', '']}}); w(r, 'data/audit/identity.json', {'ranks': {}, 'rows': {}})
+    ren, dele = NF.leftovers(r)
+    assert ren == {'lo-a': 'Little fire ant', 'lo-b': 'Apollo'} and list(dele) == ['lo-c'], (ren, dele)
+    assert NF.shared(r) == {'el-b': 'Cervus elaphus'}, NF.shared(r)   # Elk stays on the row whose page is Elk, though the other row has more nodes
 # rows that share one name: the genus row, else the most used row, keeps it; the others take their page title (a scientific name); nothing is removed
 with tempfile.TemporaryDirectory() as r:
     for sid, lat, nm in (('mm-gen', 'Macaranga', 'Macaranga'), ('mm-sp', 'Macaranga tanarius', 'Macaranga'), ('rr-a', 'Rosa a', 'Wild rose'), ('rr-b', 'Rosa b', 'Wild rose'), ('rr-c', 'Rosa c', 'Wild rose')):
