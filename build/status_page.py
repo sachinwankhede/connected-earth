@@ -51,9 +51,32 @@ def identity(root, rows):
     n = collections.Counter(x['view'] for x in out)
     return {'asOf': d.get('asOf'), 'rowsChecked': len(R), 'views': [{'view': k, 'rows': n[k]} for k in VIEWS if n[k]], 'rows': out}
 
+def fixfirst(root, S):
+    """What to fix first, in the owner's order (24 Nov, #1061): correct bad data, then add missing data. Counts are read from the data in the checkout (place files, data/audit/strictrows.json) and the audit summary S, so they are as fresh as the deploy. Each step names its item."""
+    import species
+    d = os.path.join(root, 'data', 'places'); no_env = 0; places = 0
+    for f in sorted(os.listdir(d)):
+        if not f.endswith('.json') or f in data_audit.SKIP: continue
+        try: e = species.load(os.path.join(d, f))
+        except Exception: continue
+        if not isinstance(e, dict) or 'nodes' not in e: continue
+        places += 1; cats = {n.get('cat') for n in e['nodes']}
+        if 'abiotic' not in cats or 'decomp' not in cats: no_env += 1
+    sp = os.path.join(root, 'data', 'audit', 'strictrows.json'); sr = json.load(open(sp, encoding='utf-8')) if os.path.exists(sp) else {}
+    journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v)
+    fl = S['row_flags']
+    return [
+        {'step': 1, 'what': 'Bad rows kept only because a journey ends at their node', 'count': len(journey), 'detail': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row (owner to decide)', 'item': '#1142'},
+        {'step': 1, 'what': 'Rows that share a page with another row', 'count': fl['shared_page'], 'detail': 'one Wikipedia page, one row', 'fix': 'remove or repoint (stricter identity check, #1142)', 'item': '#1142'},
+        {'step': 1, 'what': 'Rows whose name breaks the naming rule', 'count': fl['name_breaks_rule'], 'detail': 'the name is not the page title', 'fix': 'rename or remove (web name check)', 'item': '#1061'},
+        {'step': 2, 'what': 'Places with no abiotic or no decomposer node', 'count': no_env, 'detail': 'of %d places; a warning for now' % places, 'fix': 'add accurate nodes, then make the rule strict again', 'item': '#1138'},
+        {'step': 2, 'what': 'Places removed by the cleanup', 'count': len(sr.get('places') or {}), 'detail': 'data/audit/strictrows.json', 'fix': 'recreate them with accurate rows', 'item': '#1132'},
+    ]
+
 def payload(root=ROOT):
     nodes, rows, dups, S = data_audit.audit(root)
     return {
+        'fixfirst': fixfirst(root, S),
         'web': web(root, rows),
         'identity': identity(root, rows),
         'totals': [{'metric': 'Species rows', 'value': S['rows']}, {'metric': 'Place nodes', 'value': S['nodes']},
