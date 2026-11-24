@@ -111,22 +111,6 @@
 "width": 330,
 "wiki": "Totem Bight State Historical Park"
 },
-"akwoodtikchik": {
-"a": "C&GS Season's Report Sylar 1952-115.",
-"checkedAt": "2026-11-13T05:25:27.775701+00:00",
-"f": "akwoodtikchik.jpg",
-"fetchedAt": "2026-11-13T05:25:27.775701+00:00",
-"height": 493,
-"l": "Public domain",
-"lu": "",
-"mt": "image/jpeg",
-"p": "https://commons.wikimedia.org/wiki/File:Theb1945_-_Flickr_-_NOAA_Photo_Library.jpg",
-"reviewStatus": "approved",
-"sha256": "df9bad66cd2b4555dc77ef544b5c64cb6a9004d3c646b38529939412f293d4ce",
-"w": "https://en.wikipedia.org/wiki/Wood-tikchik_State_Park",
-"width": 330,
-"wiki": "Wood-tikchik State Park"
-},
 "albattleshipmemori": {
 "a": "Ben Jacobson (Kranar Drogin)",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -11547,23 +11531,6 @@
 "width": 330,
 "wiki": "Robbers Cave State Resort Park"
 },
-"ordeadwood": {
-"a": "OregonDOT",
-"checkedAt": "2026-11-17T16:50:53.924253+00:00",
-"f": "ordeadwood.jpg",
-"fetchedAt": "2026-11-17T16:50:53.924253+00:00",
-"height": 440,
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"mt": "image/jpeg",
-"p": "https://openverse.org/image/5525c6d2-eb67-4610-b90d-f82305bf0ecf",
-"reviewStatus": "approved",
-"s": "Openverse",
-"sha256": "0ebec7ab37fd220be9408874e6e018356d31df9a06ecf398293e2623b4d89608",
-"w": "https://openverse.org/image/5525c6d2-eb67-4610-b90d-f82305bf0ecf",
-"width": 330,
-"wiki": "Deadwood Park"
-},
 "ornorthsantiamrive": {
 "a": "OregonDOT",
 "checkedAt": "2026-11-17T16:52:09.095887+00:00",
@@ -14701,22 +14668,6 @@
 "width": 330,
 "wiki": "Lava Beds National Monument"
 },
-"uslincolnnationalforest": {
-"a": "Dsw3131",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"f": "uslincolnnationalforest.jpg",
-"fetchedAt": null,
-"height": 247,
-"l": "Public domain",
-"lu": "",
-"mt": "image/jpeg",
-"p": "https://commons.wikimedia.org/wiki/File:Lincoln_National_Forest_along_Crest_Trail-Terrain.jpg",
-"reviewStatus": "approved",
-"sha256": "320cc16b7d61e16603bf78b82d804e8a09712d20a86a290c989433ee0e11a0d2",
-"w": "https://en.wikipedia.org/wiki/Lincoln_National_Forest",
-"width": 330,
-"wiki": "Lincoln National Forest"
-},
 "uslittlemissourinational": {
 "a": "Travellers & Tinkers",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -15980,22 +15931,6 @@
 "w": "https://en.wikipedia.org/wiki/Valentine_National_Wildlife_Refuge",
 "width": 330,
 "wiki": "Valentine National Wildlife Refuge"
-},
-"uswaccamawnationalwildli": {
-"a": "Myrtle Beach TheDigitel",
-"checkedAt": "2026-11-01T00:35:53.296847+00:00",
-"f": "uswaccamawnationalwildli.jpg",
-"fetchedAt": null,
-"height": 246,
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"mt": "image/jpeg",
-"p": "https://commons.wikimedia.org/wiki/File:Waccamaw_National_Wildlife_Refuge.jpg",
-"reviewStatus": "approved",
-"sha256": "4477cac63b11bfe401faed6837b8c9091e41d3fc1a1d1005b73f5601fc267751",
-"w": "https://en.wikipedia.org/wiki/Waccamaw_National_Wildlife_Refuge",
-"width": 330,
-"wiki": "Waccamaw National Wildlife Refuge"
 },
 "uswenatcheenationalfores": {
 "a": "Miguel Vieira from Walnut Creek, CA, USA",
@@ -19694,23 +19629,6 @@
 "w": "https://en.wikipedia.org/wiki/Names_Hill",
 "width": 330,
 "wiki": "Names Hill"
-},
-"wyseminoereservoir": {
-"a": "waterarchives",
-"checkedAt": "2026-11-17T17:03:51.720676+00:00",
-"f": "wyseminoereservoir.jpg",
-"fetchedAt": "2026-11-17T17:03:51.720676+00:00",
-"height": 212,
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"mt": "image/jpeg",
-"p": "https://openverse.org/image/c79c90f4-170d-447e-8537-188ebbd093e5",
-"reviewStatus": "approved",
-"s": "Openverse",
-"sha256": "df1f1d4280ee84a9b71604d158e9a4d49a55af89571e28e88ffd8696552394d5",
-"w": "https://openverse.org/image/c79c90f4-170d-447e-8537-188ebbd093e5",
-"width": 330,
-"wiki": "Seminoe Reservoir State Park"
 },
 "wysinkscanyon": {
 "a": "Jonmikel & Kat from Lander, WY",

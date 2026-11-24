@@ -95,18 +95,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"akwoodtikchik": {
-"built": "2026-11-16T09:42:09.817810+00:00",
-"checkedAt": "2026-11-16T09:42:09.817810+00:00",
-"inputs": {
-"lat": 59.9599,
-"lon": -158.7288,
-"name": "Wood-Tikchik State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "albattleshipmemori": {
 "built": "2026-11-16T09:42:09.817812+00:00",
 "checkedAt": "2026-11-16T09:42:09.817812+00:00",
@@ -186,18 +174,6 @@
 "lat": 32.5506,
 "lon": -85.4882,
 "name": "Chewacla State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"alchickasaw": {
-"built": "2026-11-16T09:42:09.817828+00:00",
-"checkedAt": "2026-11-16T09:42:09.817828+00:00",
-"inputs": {
-"lat": 32.3613,
-"lon": -87.785,
-"name": "Chickasaw State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -2797,18 +2773,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"hiwaiaholewaikanen": {
-"built": "2026-11-16T09:42:09.818290+00:00",
-"checkedAt": "2026-11-16T09:42:09.818290+00:00",
-"inputs": {
-"lat": 21.4948,
-"lon": -157.8591,
-"name": "Waiahole / Waikane Nature Preserve"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "hiwaianapanapa": {
 "built": "2026-11-16T09:42:09.818293+00:00",
 "checkedAt": "2026-11-16T09:42:09.818293+00:00",
@@ -4379,18 +4343,6 @@
 "lat": 30.7673,
 "lon": -90.1515,
 "name": "Bogue Chitto State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"lacaneycreeklake": {
-"built": "2026-11-16T09:42:09.818578+00:00",
-"checkedAt": "2026-11-16T09:42:09.818578+00:00",
-"inputs": {
-"lat": 32.2525,
-"lon": -92.519,
-"name": "Caney Creek Lake State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -6649,18 +6601,6 @@
 "lat": 32.0973,
 "lon": -88.6926,
 "name": "Clarkco State Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"msflorewoodriverpl": {
-"built": "2026-11-16T09:42:09.818967+00:00",
-"checkedAt": "2026-11-16T09:42:09.818967+00:00",
-"inputs": {
-"lat": 33.5257,
-"lon": -90.2487,
-"name": "Florewood River Plantation State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -10054,18 +9994,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"ordeadwood": {
-"built": "2026-11-16T09:42:09.819569+00:00",
-"checkedAt": "2026-11-16T09:42:09.819569+00:00",
-"inputs": {
-"lat": 44.0947,
-"lon": -123.756,
-"name": "Deadwood Park"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "orfinnrock": {
 "built": "2026-11-16T09:42:09.819571+00:00",
 "checkedAt": "2026-11-16T09:42:09.819571+00:00",
@@ -12600,18 +12528,6 @@
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
 "source": "padus"
 },
-"uslincolnnationalforest": {
-"built": "2026-11-16T09:42:09.819999+00:00",
-"checkedAt": "2026-11-16T09:42:09.819999+00:00",
-"inputs": {
-"lat": 32.303,
-"lon": -104.8815,
-"name": "Lincoln National Forest"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
 "uslittlemissourinational": {
 "built": "2026-11-16T09:42:09.820001+00:00",
 "checkedAt": "2026-11-16T09:42:09.820001+00:00",
@@ -13567,18 +13483,6 @@
 "lat": 37.1245,
 "lon": -120.9215,
 "name": "Volta Wildlife Area"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"uswaccamawnationalwildli": {
-"built": "2026-11-16T09:42:09.820164+00:00",
-"checkedAt": "2026-11-16T09:42:09.820164+00:00",
-"inputs": {
-"lat": 33.626,
-"lon": -79.1415,
-"name": "Waccamaw National Wildlife Refuge"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
@@ -16052,18 +15956,6 @@
 "lat": 42.1773,
 "lon": -110.1883,
 "name": "Names Hill"
-},
-"licence": "Public domain (US Geological Survey)",
-"licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",
-"source": "padus"
-},
-"wyseminoereservoir": {
-"built": "2026-11-16T09:42:09.820601+00:00",
-"checkedAt": "2026-11-16T09:42:09.820601+00:00",
-"inputs": {
-"lat": 42.0448,
-"lon": -106.8476,
-"name": "Seminoe Reservoir State Park"
 },
 "licence": "Public domain (US Geological Survey)",
 "licence link": "https://www.usgs.gov/programs/gap-analysis-project/science/pad-us-data-overview",

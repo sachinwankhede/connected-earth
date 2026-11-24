@@ -11,18 +11,6 @@
 },
 "status": "nophoto"
 },
-"alchickasaw": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:06:27.431819+00:00",
-"expiresAt": "2027-05-16T16:06:27.431819+00:00",
-"inputs": {
-"lat": 32.3613,
-"lon": -87.785,
-"name": "Chickasaw State Park",
-"title": "Chickasaw State Park"
-},
-"status": "nophoto"
-},
 "alfrankjackson": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:06:29.477481+00:00",
@@ -431,18 +419,6 @@
 },
 "status": "nophoto"
 },
-"hiwaiaholewaikanen": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:07:40.211765+00:00",
-"expiresAt": "2027-05-16T16:07:40.211765+00:00",
-"inputs": {
-"lat": 21.4948,
-"lon": -157.8591,
-"name": "Waiahole / Waikane Nature Preserve",
-"title": "Waiahole / Waikane Nature Preserve"
-},
-"status": "nophoto"
-},
 "iageorgewyth": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:07:41.593497+00:00",
@@ -788,18 +764,6 @@
 "lon": -92.9726,
 "name": "Big Cypress State Park",
 "title": "Big Cypress State Park"
-},
-"status": "nophoto"
-},
-"lacaneycreeklake": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:08:45.575480+00:00",
-"expiresAt": "2027-05-16T16:08:45.575480+00:00",
-"inputs": {
-"lat": 32.2525,
-"lon": -92.519,
-"name": "Caney Creek Lake State Park",
-"title": "Caney Creek Lake State Park"
 },
 "status": "nophoto"
 },
@@ -1160,18 +1124,6 @@
 "lon": -90.5051,
 "name": "Saint Joe State Park",
 "title": "Saint Joe State Park"
-},
-"status": "nophoto"
-},
-"msflorewoodriverpl": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:09:55.443435+00:00",
-"expiresAt": "2027-05-16T16:09:55.443435+00:00",
-"inputs": {
-"lat": 33.5257,
-"lon": -90.2487,
-"name": "Florewood River Plantation State Park",
-"title": "Florewood River Plantation State Park"
 },
 "status": "nophoto"
 },
