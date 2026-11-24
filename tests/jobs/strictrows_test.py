@@ -66,4 +66,13 @@ with tempfile.TemporaryDirectory() as r:
         go, kept = SR.apply(r4, {'zz-bad'})
         e4 = json.load(open(os.path.join(r4, 'data/places/p4.json')))
         assert go == ['zz-bad'] and kept == {} and 'tip' not in e4 and 'z' not in [n['id'] for n in e4['nodes']] and len(e4['nodes']) == 12, (go, kept, e4)
+    # two orphan nodes of the same kind: dropping the first must not make the second look spare (the last abiotic node stays)
+    with tempfile.TemporaryDirectory() as r5:
+        for sid in ('nn-bad',) + tuple('ww%02d-x' % i for i in range(10)): w(r5, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('sun-a', 'abiotic'), ('rain-a', 'abiotic'), ('dc-fungi', 'decomp')): w(r5, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        nd = [{'id': 'bad', 'sp': 'nn-bad'}, {'id': 'sun', 'sp': 'sun-a'}, {'id': 'rain', 'sp': 'rain-a'}, {'id': 'ndc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'ww%02d-x' % i} for i in range(10)]
+        w(r5, 'data/places/p5.json', {'id': 'p5', 'nodes': nd, 'raw': [['sun', 'bad'], ['rain', 'bad'], ['ndc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+        go, kept = SR.apply(r5, {'nn-bad'})
+        ab = [n['id'] for n in json.load(open(os.path.join(r5, 'data/places/p5.json')))['nodes'] if n['id'] in ('sun', 'rain')]
+        assert len(ab) >= 1, (go, kept, ab)
 print('strictrows ok')

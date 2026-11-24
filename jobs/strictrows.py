@@ -107,7 +107,7 @@ def protect(root, tab, go, reason, jn=()):
                 continue
             ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
             for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
-                cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o]
+                cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o and n['id'] not in gone_n]   # nodes already dropped in this pass do not count
                 essential = (pid, o['id']) in jn or (cat in ('abiotic', 'decomp') and not any(tab[n['sp']].get('cat') == cat for n in rest)) or (not cat and sum(1 for n in rest if not tab[n['sp']].get('cat')) < 10)
                 if not essential: gone_n.add(o['id']); changed = True; continue
                 nb = sorted(nodes_by[x]['sp'] for r in raw if o['id'] in r[:2] for x in r[:2] if x != o['id'] and x in nodes_by and nodes_by[x]['sp'] in go) if (nodes_by := {n['id']: n for n in nodes}) else []
