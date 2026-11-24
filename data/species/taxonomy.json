@@ -6385,20 +6385,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"astragalus-parryi": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Fabaceae",
-"gname": "Astragalus parryi A.Gray",
-"key": 5345089,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "astragalus-praelongus": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -6448,20 +6434,6 @@
 "family": "Fabaceae",
 "gname": "Astragalus subcinereus A.Gray",
 "key": 5344647,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"astragalus-tenellus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Fabaceae",
-"gname": "Astragalus tenellus Pursh",
-"key": 5344561,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Fabales",
@@ -7177,18 +7149,6 @@
 "order": "Asterales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"bacillariophyceae": {
-"at": "2026-11-04",
-"class": "Bacillariophyceae",
-"conf": 94,
-"gname": "Bacillariophyceae",
-"key": 7947184,
-"kingdom": "Chromista",
-"match": "exact",
-"phylum": "Ochrophyta",
-"rank": "CLASS",
 "src": "gbif"
 },
 "bacillariophyta": {
@@ -9056,20 +9016,6 @@
 "family": "Poaceae",
 "gname": "Bromus inermis Leyss.",
 "key": 2703670,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"bromus-porteri": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Poaceae",
-"gname": "Bromus porteri (Coult.) Nash",
-"key": 2703743,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Poales",
@@ -11501,20 +11447,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"carex-corrugata": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Cyperaceae",
-"gname": "Carex corrugata Fernald",
-"key": 2722249,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "carex-crebriflora": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -12110,20 +12042,6 @@
 "family": "Cyperaceae",
 "gname": "Carex plantaginea Lam.",
 "key": 2723909,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"carex-podocarpa": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 98,
-"family": "Cyperaceae",
-"gname": "Carex podocarpa R.Br.",
-"key": 2722558,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Poales",
@@ -13920,20 +13838,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"chaetoceros": {
-"at": "2026-11-04",
-"class": "Bacillariophyceae",
-"conf": 94,
-"family": "Chaetocerotaceae",
-"gname": "Chaetoceros Ehrenberg",
-"key": 3192923,
-"kingdom": "Chromista",
-"match": "exact",
-"order": "Chaetocerotales",
-"phylum": "Ochrophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "chaetodipus-baileyi": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -14235,20 +14139,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"chasmanthium-laxum": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Poaceae",
-"gname": "Chasmanthium laxum (L.) H.O.Yates",
-"key": 2703085,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "chauliognathus-pensylvanicus": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -14379,20 +14269,6 @@
 "family": "Amaranthaceae",
 "gname": "Chenopodium oahuense (Meyen) Aellen",
 "key": 3083927,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Caryophyllales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"chenopodium-subglabrum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Amaranthaceae",
-"gname": "Chenopodium subglabrum (S.Watson) A.Nelson",
-"key": 3083891,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Caryophyllales",
@@ -15000,20 +14876,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"chylismia-scapoidea": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Onagraceae",
-"gname": "Chylismia scapoidea Nutt. ex Torr. & A.Gray",
-"key": 9379108,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Myrtales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "cibotium-glaucum": {
 "at": "2026-11-04",
 "class": "Polypodiopsida",
@@ -15430,20 +15292,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Malvales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"citharexylum-caudatum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Verbenaceae",
-"gname": "Citharexylum caudatum L.",
-"key": 2925393,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Lamiales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -17379,20 +17227,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"crataegus-ouachitensis": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rosaceae",
-"gname": "Crataegus ouachitensis E.J.Palmer",
-"key": 3015383,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "crataegus-spathulata": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -17766,20 +17600,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"croton-dioicus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Euphorbiaceae",
-"gname": "Croton dioicus Cav.",
-"key": 3058980,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -19688,20 +19508,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"dichanthelium-lucidum": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Poaceae",
-"gname": "Dichanthelium lucidum (Ashe) LeBlond",
-"key": 4134102,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "dichanthelium-scoparium": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -19709,20 +19515,6 @@
 "family": "Poaceae",
 "gname": "Dichanthelium scoparium (Lam.) Gould",
 "key": 2702562,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"dichanthelium-scribnerianum": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 97,
-"family": "Poaceae",
-"gname": "Dichanthelium scribnerianum (Nash) J.R.Thomas",
-"key": 12265084,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Poales",
@@ -21602,20 +21394,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"elkalyce-comyntas": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Lycaenidae",
-"gname": "Elkalyce comyntas (Godart, 1823)",
-"key": 1920900,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Lepidoptera",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "ellisia-nyctelea": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -21665,20 +21443,6 @@
 "family": "Poaceae",
 "gname": "Elymus hystrix L.",
 "key": 8112114,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"elymus-smithii": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Poaceae",
-"gname": "Elymus smithii (Rydb.) Gould",
-"key": 5290148,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Poales",
@@ -21904,20 +21668,6 @@
 "order": "Carnivora",
 "phylum": "Chordata",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"enhydra-lutris-nereis": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Mustelidae",
-"gname": "Enhydra lutris nereis (Merriam, 1904)",
-"key": 6163936,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carnivora",
-"phylum": "Chordata",
-"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "enhydris-enhydris": {
@@ -22885,20 +22635,6 @@
 "family": "Polygonaceae",
 "gname": "Eriogonum sphaerocephalum Douglas ex Benth.",
 "key": 2889491,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Caryophyllales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"eriogonum-tenellum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Polygonaceae",
-"gname": "Eriogonum tenellum Torr.",
-"key": 2889737,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Caryophyllales",
@@ -24768,20 +24504,6 @@
 "family": "Moraceae",
 "gname": "Ficus microcarpa L.fil.",
 "key": 7467639,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"ficus-variegata": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 100,
-"family": "Moraceae",
-"gname": "Ficus variegata Blume",
-"key": 3234563,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Rosales",
@@ -27215,20 +26937,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"halodule": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 94,
-"family": "Cymodoceaceae",
-"gname": "Halodule Endl.",
-"key": 2864092,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Alismatales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "halodule-uninervis": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -29363,20 +29071,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"hypericum-drummondii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Hypericaceae",
-"gname": "Hypericum drummondii (Grev. & Hook.) Torr. & A.Gray",
-"key": 3189500,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "hypericum-perforatum": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -29527,20 +29221,6 @@
 "match": "exact",
 "order": "Lepidoptera",
 "phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"hypoxis-curtissii": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Hypoxidaceae",
-"gname": "Hypoxis curtissii Rose",
-"key": 2852862,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Asparagales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -32176,34 +31856,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"lathyrus-brachycalyx": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Fabaceae",
-"gname": "Lathyrus brachycalyx Rydb.",
-"key": 5356674,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"lathyrus-decaphyllus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 98,
-"family": "Fabaceae",
-"gname": "Lathyrus decaphyllus Pursh",
-"key": 5356567,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "lathyrus-japonicus": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -34786,20 +34438,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"luzula-bulbosa": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 97,
-"family": "Juncaceae",
-"gname": "Luzula bulbosa (Alph.Wood) Smyth & L.C.R.Smyth",
-"key": 2700991,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "lycaeides-melissa": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -35409,20 +35047,6 @@
 "family": "Euphorbiaceae",
 "gname": "Macaranga grandifolia (Blanco) Merr.",
 "key": 3074216,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"macaranga-mappa": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Euphorbiaceae",
-"gname": "Macaranga mappa (L.) Müll.Arg.",
-"key": 3074290,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Malpighiales",
@@ -37675,20 +37299,6 @@
 "order": "Myrtales",
 "phylum": "Tracheophyta",
 "rank": "GENUS",
-"src": "gbif"
-},
-"micranthes-marshallii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Saxifragaceae",
-"gname": "Micranthes marshallii (Greene) Small",
-"key": 5567639,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Saxifragales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "micranthes-petiolaris": {
@@ -42331,20 +41941,6 @@
 "match": "exact",
 "order": "Carnivora",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"palafoxia-sphacelata": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Asteraceae",
-"gname": "Palafoxia sphacelata (Nutt. ex Torr.) Cory",
-"key": 3121702,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Asterales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -49632,20 +49228,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"psydrax-odoratus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rubiaceae",
-"gname": "Psydrax odoratus (G.Forst.) A.C.Sm. & S.P.Darwin",
-"key": 2893185,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Gentianales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "pteralopex-taki": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -52618,20 +52200,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"rorippa-calycina": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Brassicaceae",
-"gname": "Rorippa calycina (Engelm.) Rydb.",
-"key": 3053390,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Brassicales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "rorippa-sinuata": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -53213,20 +52781,6 @@
 "family": "Rosaceae",
 "gname": "Rubus × setosus Bigelow",
 "key": 7769228,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"rubus-sons": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rosaceae",
-"gname": "Rubus sons L.H.Bailey",
-"key": 2990157,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Rosales",
@@ -55116,20 +54670,6 @@
 "match": "exact",
 "order": "Pelecaniformes",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"scutellaria-bushii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Lamiaceae",
-"gname": "Scutellaria bushii Britton",
-"key": 5341329,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Lamiales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -59617,20 +59157,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"tenaxia": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 94,
-"family": "Poaceae",
-"gname": "Tenaxia N.P.Barker & H.P.Linder",
-"key": 4932130,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "tenebrionidae": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -61127,20 +60653,6 @@
 "family": "Fabaceae",
 "gname": "Trifolium gymnocarpon Nutt.",
 "key": 7516070,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"trifolium-latifolium": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Fabaceae",
-"gname": "Trifolium latifolium (Hook.) Greene",
-"key": 5359139,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Fabales",

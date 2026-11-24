@@ -11,18 +11,6 @@
 },
 "status": "nophoto"
 },
-"alchickasaw": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:06:27.431819+00:00",
-"expiresAt": "2027-05-16T16:06:27.431819+00:00",
-"inputs": {
-"lat": 32.3613,
-"lon": -87.785,
-"name": "Chickasaw State Park",
-"title": "Chickasaw State Park"
-},
-"status": "nophoto"
-},
 "alfrankjackson": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:06:29.477481+00:00",
@@ -143,18 +131,6 @@
 },
 "status": "nophoto"
 },
-"colonemesa": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:06:49.430088+00:00",
-"expiresAt": "2027-05-16T16:06:49.430088+00:00",
-"inputs": {
-"lat": 37.7345,
-"lon": -108.4298,
-"name": "Lone Mesa State Park",
-"title": "Lone Mesa State Park"
-},
-"status": "nophoto"
-},
 "ctairlinestatepark": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:06:51.648574+00:00",
@@ -248,18 +224,6 @@
 "lon": -75.7509,
 "name": "Deerfield Golf and Tennis Club",
 "title": "Deerfield Golf and Tennis Club"
-},
-"status": "nophoto"
-},
-"dedoebridgenaturep": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:07:07.737289+00:00",
-"expiresAt": "2027-05-16T16:07:07.737289+00:00",
-"inputs": {
-"lat": 38.6189,
-"lon": -75.3121,
-"name": "Doe Bridge Nature Preserve",
-"title": "Doe Bridge Nature Preserve"
 },
 "status": "nophoto"
 },
@@ -395,18 +359,6 @@
 },
 "status": "nophoto"
 },
-"hiheeiakeavalleyna": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:07:31.629064+00:00",
-"expiresAt": "2027-05-16T16:07:31.629064+00:00",
-"inputs": {
-"lat": 21.4446,
-"lon": -157.8159,
-"name": "Heeia Kea Valley Nature Park (undevel)",
-"title": "Heeia Kea Valley Nature Park (undevel)"
-},
-"status": "nophoto"
-},
 "hikeaiwaheiau": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:07:33.565189+00:00",
@@ -431,18 +383,6 @@
 },
 "status": "nophoto"
 },
-"hiwaiaholewaikanen": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:07:40.211765+00:00",
-"expiresAt": "2027-05-16T16:07:40.211765+00:00",
-"inputs": {
-"lat": 21.4948,
-"lon": -157.8591,
-"name": "Waiahole / Waikane Nature Preserve",
-"title": "Waiahole / Waikane Nature Preserve"
-},
-"status": "nophoto"
-},
 "iageorgewyth": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:07:41.593497+00:00",
@@ -464,18 +404,6 @@
 "lon": -92.932,
 "name": "Honey Creek State Park",
 "title": "Honey Creek State Park"
-},
-"status": "nophoto"
-},
-"ialakeofthreefires": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:07:45.430539+00:00",
-"expiresAt": "2027-05-16T16:07:45.430539+00:00",
-"inputs": {
-"lat": 40.7161,
-"lon": -94.6946,
-"name": "Lake of Three Fires State Park",
-"title": "Lake of Three Fires State Park"
 },
 "status": "nophoto"
 },
@@ -671,18 +599,6 @@
 },
 "status": "nophoto"
 },
-"ksfallriver": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:08:23.439436+00:00",
-"expiresAt": "2027-05-16T16:08:23.439436+00:00",
-"inputs": {
-"lat": 37.6523,
-"lon": -96.0817,
-"name": "Fall River State Park",
-"title": "Fall River State Park"
-},
-"status": "nophoto"
-},
 "kshillsdale": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:08:25.433447+00:00",
@@ -788,18 +704,6 @@
 "lon": -92.9726,
 "name": "Big Cypress State Park",
 "title": "Big Cypress State Park"
-},
-"status": "nophoto"
-},
-"lacaneycreeklake": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:08:45.575480+00:00",
-"expiresAt": "2027-05-16T16:08:45.575480+00:00",
-"inputs": {
-"lat": 32.2525,
-"lon": -92.519,
-"name": "Caney Creek Lake State Park",
-"title": "Caney Creek Lake State Park"
 },
 "status": "nophoto"
 },
@@ -1139,18 +1043,6 @@
 },
 "status": "nophoto"
 },
-"moozarknationalsce": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:09:51.438161+00:00",
-"expiresAt": "2027-05-16T16:09:51.438161+00:00",
-"inputs": {
-"lat": 36.9443,
-"lon": -90.9776,
-"name": "Ozark National Scenic Riverways",
-"title": "Ozark National Scenic Riverways"
-},
-"status": "notphoto"
-},
 "mosaintjoe": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:09:54.813853+00:00",
@@ -1160,18 +1052,6 @@
 "lon": -90.5051,
 "name": "Saint Joe State Park",
 "title": "Saint Joe State Park"
-},
-"status": "nophoto"
-},
-"msflorewoodriverpl": {
-"attempts": 2,
-"checkedAt": "2026-11-17T16:09:55.443435+00:00",
-"expiresAt": "2027-05-16T16:09:55.443435+00:00",
-"inputs": {
-"lat": 33.5257,
-"lon": -90.2487,
-"name": "Florewood River Plantation State Park",
-"title": "Florewood River Plantation State Park"
 },
 "status": "nophoto"
 },
