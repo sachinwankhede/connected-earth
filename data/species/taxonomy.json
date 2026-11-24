@@ -3525,19 +3525,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"anolis-lineatopus": {
-"at": "2026-11-04",
-"class": "Squamata",
-"conf": 100,
-"family": "Dactyloidae",
-"gname": "Anolis lineatopus Gray, 1840",
-"key": 9044311,
-"kingdom": "Animalia",
-"match": "exact",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "anolis-sagrei": {
 "at": "2026-11-04",
 "class": "Squamata",
@@ -26072,20 +26059,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"haaniella-echinata": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Heteropterygidae",
-"gname": "Haaniella echinata (Redtenbacher, 1906)",
-"key": 1415935,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Phasmida",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "habropoda-laboriosa": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -31410,20 +31383,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"leonia-glycycarpa": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Violaceae",
-"gname": "Leonia glycycarpa Ruiz & Pav.",
-"key": 7296446,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "leonurus-cardiaca": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -33392,20 +33351,6 @@
 "order": "Spongillida",
 "phylum": "Porifera",
 "rank": "FAMILY",
-"src": "gbif"
-},
-"lucanus-cervus": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Lucanidae",
-"gname": "Lucanus cervus (Linnaeus, 1758)",
-"key": 5743122,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Coleoptera",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "luciobarbus-subquincunciatus": {
@@ -47295,20 +47240,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"pringleophaga-kerguelensis": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Tineidae",
-"gname": "Pringleophaga kerguelensis Enderlein, 1905",
-"key": 1856036,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Lepidoptera",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "priodontes-maximus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -52646,20 +52577,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Salmoniformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"salpa-thompsoni": {
-"at": "2026-11-04",
-"class": "Thaliacea",
-"conf": 100,
-"family": "Salpidae",
-"gname": "Salpa thompsoni Foxton, 1961",
-"key": 5232502,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Salpida",
 "phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
