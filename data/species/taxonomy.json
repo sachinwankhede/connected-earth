@@ -321,20 +321,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"acanthacris-ruficornis": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Acrididae",
-"gname": "Acanthacris ruficornis (Fabricius, 1787)",
-"key": 1705891,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Orthoptera",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "acanthaster-planci": {
 "at": "2026-11-04",
 "class": "Asteroidea",
@@ -833,20 +819,6 @@
 "order": "Hymenoptera",
 "phylum": "Arthropoda",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"acrididae": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 96,
-"family": "Acrididae",
-"gname": "Acrididae",
-"key": 9394,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Orthoptera",
-"phylum": "Arthropoda",
-"rank": "FAMILY",
 "src": "gbif"
 },
 "acridotheres-tristis": {
@@ -10400,20 +10372,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"canis-familiaris": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Canidae",
-"gname": "Canis familiaris Linnaeus, 1758",
-"key": 5219200,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carnivora",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "canis-latrans": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -15490,20 +15448,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"cocos-nucifera": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 99,
-"family": "Arecaceae",
-"gname": "Cocos nucifera L.",
-"key": 2735117,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Arecales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "coenonympha-california": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -19296,20 +19240,6 @@
 "match": "exact",
 "order": "Gleicheniales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"dicrostonyx-vinogradovi": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cricetidae",
-"gname": "Dicrostonyx vinogradovi Ognev, 1948",
-"key": 2438388,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -24802,18 +24732,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"gastropoda": {
-"at": "2026-11-04",
-"class": "Gastropoda",
-"conf": 96,
-"gname": "Gastropoda",
-"key": 225,
-"kingdom": "Animalia",
-"match": "exact",
-"phylum": "Mollusca",
-"rank": "CLASS",
-"src": "gbif"
-},
 "gaultheria-hispidula": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -28440,20 +28358,6 @@
 "order": "Anseriformes",
 "phylum": "Chordata",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"hymenophyllum": {
-"at": "2026-11-04",
-"class": "Polypodiopsida",
-"conf": 92,
-"family": "Hymenophyllaceae",
-"gname": "Hymenophyllum J.E.Sm.",
-"key": 2651287,
-"kingdom": "Plantae",
-"match": "higher-rank",
-"order": "Hymenophyllales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
 "src": "gbif"
 },
 "hymenoxys-hoopesii": {
@@ -33378,20 +33282,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"lophuromys-makundii": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Muridae",
-"gname": "Lophuromys makundii W.Verheyen, Hulsemans, Dierckx, Mulungu, Leirs, Corti & E.Verheyen, 2007",
-"key": 9115528,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "lorinseria-areolata": {
 "at": "2026-11-04",
 "class": "Polypodiopsida",
@@ -36872,20 +36762,6 @@
 "family": "Cricetidae",
 "gname": "Microtus gregalis (Pallas, 1779)",
 "key": 2438648,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"microtus-ilaeus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cricetidae",
-"gname": "Microtus ilaeus Thomas, 1912",
-"key": 4265012,
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Rodentia",
@@ -48211,19 +48087,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"pseudanthias": {
-"at": "2026-11-04",
-"conf": 96,
-"family": "Serranidae",
-"gname": "Pseudanthias Bleeker, 1871",
-"key": 2387545,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Perciformes",
-"phylum": "Chordata",
-"rank": "GENUS",
-"src": "gbif"
-},
 "pseudaspis-cana": {
 "at": "2026-11-04",
 "class": "Squamata",
@@ -50396,20 +50259,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"restio": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 95,
-"family": "Restionaceae",
-"gname": "Restio Rottb.",
-"key": 7860601,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "rhabdomys-dilectus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -51481,20 +51330,6 @@
 "family": "Rosaceae",
 "gname": "Rosa nutkana C.Presl",
 "key": 3011070,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"rosa-omeiensis": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rosaceae",
-"gname": "Rosa omeiensis Rolfe",
-"key": 3007118,
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Rosales",
@@ -61060,20 +60895,6 @@
 "order": "Rosales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"usnea": {
-"at": "2026-11-04",
-"class": "Lecanoromycetes",
-"conf": 94,
-"family": "Parmeliaceae",
-"gname": "Usnea Dill. ex Adans., 1763",
-"key": 2605982,
-"kingdom": "Fungi",
-"match": "exact",
-"order": "Lecanorales",
-"phylum": "Ascomycota",
-"rank": "GENUS",
 "src": "gbif"
 },
 "uta-stansburiana": {
