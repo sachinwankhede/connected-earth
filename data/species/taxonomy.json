@@ -1751,20 +1751,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"alcelaphus-buselaphus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Bovidae",
-"gname": "Alcelaphus buselaphus (Pallas, 1766)",
-"key": 5220185,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "alces-alces": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -9063,20 +9049,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"budorcas-taxicolor": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Bovidae",
-"gname": "Budorcas taxicolor Hodgson, 1850",
-"key": 2441046,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "bufo-bufo": {
 "at": "2026-11-04",
 "class": "Amphibia",
@@ -9469,19 +9441,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"caesio": {
-"at": "2026-11-04",
-"conf": 96,
-"family": "Caesionidae",
-"gname": "Caesio Lacepède, 1801",
-"key": 2374771,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Perciformes",
-"phylum": "Chordata",
-"rank": "GENUS",
-"src": "gbif"
-},
 "caiman-crocodilus": {
 "at": "2026-11-04",
 "class": "Crocodylia",
@@ -9548,20 +9507,6 @@
 "order": "Poales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"calamus": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 95,
-"family": "Arecaceae",
-"gname": "Calamus L.",
-"key": 8494406,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Arecales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
 "src": "gbif"
 },
 "calanus-finmarchicus": {
@@ -15519,19 +15464,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"coleoptera": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 96,
-"gname": "Coleoptera",
-"key": 1470,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Coleoptera",
-"phylum": "Arthropoda",
-"rank": "ORDER",
-"src": "gbif"
-},
 "colias-christina": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -15667,20 +15599,6 @@
 "match": "exact",
 "order": "Ericales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"colobus-angolensis": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cercopithecidae",
-"gname": "Colobus angolensis Sclater, 1860",
-"key": 5963047,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Primates",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -24065,20 +23983,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"formicidae": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 95,
-"family": "Formicidae",
-"gname": "Formicidae",
-"key": 4342,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Hymenoptera",
-"phylum": "Arthropoda",
-"rank": "FAMILY",
-"src": "gbif"
-},
 "foulehaio-procerior": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -25457,20 +25361,6 @@
 "match": "exact",
 "order": "Fabales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"glis-glis": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Gliridae",
-"gname": "Glis glis (Linnaeus, 1766)",
-"key": 5706486,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -38356,20 +38246,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"neophocaena-phocaenoides": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Phocoenidae",
-"gname": "Neophocaena phocaenoides (G.Cuvier, 1829)",
-"key": 2440656,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Cetacea",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "neophron-percnopterus": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -39925,20 +39801,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Passeriformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"onychomys-arenicola": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cricetidae",
-"gname": "Onychomys arenicola Mearns, 1896",
-"key": 2438515,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
 "phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
@@ -46410,16 +46272,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"polychaeta": {
-"at": "2026-11-04",
-"class": "Polychaeta",
-"kingdom": "Animalia",
-"match": "manual",
-"note": "bristle worms; a class (GBIF also has an unrelated insect genus of that name)",
-"phylum": "Annelida",
-"rank": "CLASS",
-"src": "manual"
-},
 "polydrusus-formosus": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -51520,20 +51372,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"rubus-fruticosus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Rosaceae",
-"gname": "Rubus fruticosus L.",
-"key": 8436459,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "rubus-hispidus": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -54393,19 +54231,6 @@
 "order": "Ericales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"siganus": {
-"at": "2026-11-04",
-"conf": 96,
-"family": "Siganidae",
-"gname": "Siganus Forsskål, 1775",
-"key": 2390168,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Perciformes",
-"phylum": "Chordata",
-"rank": "GENUS",
 "src": "gbif"
 },
 "siganus-canaliculatus": {
@@ -60814,19 +60639,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"uta-stansburiana": {
-"at": "2026-11-04",
-"class": "Squamata",
-"conf": 100,
-"family": "Phrynosomatidae",
-"gname": "Uta stansburiana Baird & Girard, 1852",
-"key": 2451029,
-"kingdom": "Animalia",
-"match": "exact",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "uvularia-grandiflora": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -62981,20 +62793,6 @@
 "match": "exact",
 "order": "Poales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"zaglossus-bruijnii": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 98,
-"family": "Tachyglossidae",
-"gname": "Zaglossus bruijni (Peters & Doria, 1876)",
-"key": 2433391,
-"kingdom": "Animalia",
-"match": "fuzzy",
-"order": "Monotremata",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },

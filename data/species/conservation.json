@@ -287,10 +287,6 @@
   "c": "LC",
   "q": "Q25961"
  },
- "alcelaphus-buselaphus": {
-  "c": "LC",
-  "q": "Q622880"
- },
  "alces-alces": {
   "c": "LC",
   "q": "Q35517"
@@ -1303,10 +1299,6 @@
   "c": "VU",
   "q": "Q751036"
  },
- "budorcas-taxicolor": {
-  "c": "VU",
-  "q": "Q193469"
- },
  "bufo-bufo": {
   "c": "LC",
   "q": "Q146375"
@@ -2202,10 +2194,6 @@
  "colias-eurytheme": {
   "c": "LC",
   "q": "Q1944775"
- },
- "colobus-angolensis": {
-  "c": "VU",
-  "q": "Q541813"
  },
  "colobus-guereza": {
   "c": "LC",
@@ -3630,10 +3618,6 @@
  "gleditsia-triacanthos": {
   "c": "LC",
   "q": "Q157650"
- },
- "glis-glis": {
-  "c": "LC",
-  "q": "Q147128"
  },
  "glyceria-striata": {
   "c": "LC",
@@ -5651,10 +5635,6 @@
   "c": "VU",
   "q": "Q36135"
  },
- "neophocaena-phocaenoides": {
-  "c": "VU",
-  "q": "Q322138"
- },
  "neophron-percnopterus": {
   "c": "EN",
   "q": "Q33504"
@@ -5886,10 +5866,6 @@
  "onychognathus-tristramii": {
   "c": "LC",
   "q": "Q916098"
- },
- "onychomys-arenicola": {
-  "c": "LC",
-  "q": "Q943069"
  },
  "onychomys-leucogaster": {
   "c": "LC",
@@ -9299,10 +9275,6 @@
   "c": "LC",
   "q": "Q155909"
  },
- "uta-stansburiana": {
-  "c": "LC",
-  "q": "Q1414026"
- },
  "vaccinium-arboreum": {
   "c": "LC",
   "q": "Q3249733"
@@ -9534,10 +9506,6 @@
  "yucca-schidigera": {
   "c": "LC",
   "q": "Q1518712"
- },
- "zaglossus-bruijnii": {
-  "c": "CR",
-  "q": "Q635949"
  },
  "zalophus-californianus": {
   "c": "LC",
