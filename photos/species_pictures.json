@@ -23700,6 +23700,16 @@
 "u": "b/b8/Lymantria_dispar_MHNT.CUT.2012.0.357_Col_de_Cricheto_Bastelica_male_Dos.jpg/330px-Lymantria_dispar_MHNT.CUT.2012.0.357_Col_de_Cricheto_Bastelica_male_Dos.jpg",
 "wiki": "Spongy moth"
 },
+"lymantria-dispar-asiatica": {
+"a": "Alexander Schintlmeister",
+"f": "e352c64a4f58.webp",
+"l": "CC BY 3.0 au",
+"lu": "https://creativecommons.org/licenses/by/3.0/au/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Lymantria_dispar_asiatica_male.jpg",
+"page": "Lymantria_dispar_asiatica",
+"u": "a/a5/Lymantria_dispar_asiatica_male.jpg/330px-Lymantria_dispar_asiatica_male.jpg",
+"wiki": "Asian gypsy moth"
+},
 "lynx-canadensis": {
 "a": "Michael Zahra",
 "f": "946f9c8eeccf.webp",
@@ -28441,6 +28451,16 @@
 "page": "Argali",
 "u": "c/c1/Ovis_ammon_%28cropped%29.jpg/330px-Ovis_ammon_%28cropped%29.jpg",
 "wiki": "Argali"
+},
+"ovis-ammon-polii": {
+"a": "Fábio Olmos",
+"f": "0cc5c5d128b9.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Marco_Polo_sheep_pair_by_F%C3%A1bio_Olmos_%28cropped%29.jpg",
+"page": "Marco_Polo_sheep",
+"u": "e/e7/Marco_Polo_sheep_pair_by_F%C3%A1bio_Olmos_%28cropped%29.jpg/330px-Marco_Polo_sheep_pair_by_F%C3%A1bio_Olmos_%28cropped%29.jpg",
+"wiki": "Marco Polo sheep"
 },
 "ovis-aries": {
 "a": "Keith Weller",
@@ -42409,6 +42429,16 @@
 "page": "Ursus_americanus_carlottae",
 "u": "0/0d/Black_Bear_Coast.jpg/330px-Black_Bear_Coast.jpg",
 "wiki": "Haida Gwaii black bear"
+},
+"ursus-americanus-floridanus": {
+"a": "Florida Fish and Wildlife Conservation Commission",
+"f": "14394c3d264d.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:A_Florida_Black_Bear.jpg",
+"page": "Florida_black_bear",
+"u": "1/14/A_Florida_Black_Bear.jpg/330px-A_Florida_Black_Bear.jpg",
+"wiki": "Florida black bear"
 },
 "ursus-arctos": {
 "a": "Yathin S Krishnappa",

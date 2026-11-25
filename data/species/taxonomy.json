@@ -33884,6 +33884,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"lymantria-dispar-asiatica": {
+"at": "2026-11-25",
+"class": "Insecta",
+"conf": 100,
+"family": "Erebidae",
+"gname": "Lymantria dispar asiatica Wnukowsky, 1926",
+"key": 11808416,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Lepidoptera",
+"phylum": "Arthropoda",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "lynx-canadensis": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -40691,6 +40705,20 @@
 "order": "Artiodactyla",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"ovis-ammon-polii": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Bovidae",
+"gname": "Ovis ammon polii Blyth, 1840",
+"key": 4262542,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "ovis-aries": {
@@ -60702,6 +60730,20 @@
 "family": "Ursidae",
 "gname": "Ursus americanus carlottae Osgood, 1901",
 "key": 6163826,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"ursus-americanus-floridanus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Ursidae",
+"gname": "Ursus americanus floridanus Merriam, 1896",
+"key": 6163833,
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Carnivora",
