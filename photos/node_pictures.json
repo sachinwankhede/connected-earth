@@ -10,6 +10,18 @@
 "page": "Adirondack_Park",
 "wiki": "Adirondack Park"
 },
+"aletsch-glacier": {
+"a": "Robert J Heath",
+"built": "2026-11-25T21:38:26.085545+00:00",
+"checkedAt": "2026-11-25T21:38:26.085545+00:00",
+"f": "d413a19e5bb6.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Switzerland%2C_Bettmeralp_%2819505442736%29.jpg",
+"page": "Aletsch_Glacier",
+"u": "e/ec/Switzerland%2C_Bettmeralp_%2819505442736%29.jpg/330px-Switzerland%2C_Bettmeralp_%2819505442736%29.jpg",
+"wiki": "Aletsch Glacier"
+},
 "alluvium": {
 "a": "Nick (NJR ZA)",
 "built": "2026-11-16T04:00:53.289815+00:00",
@@ -472,6 +484,18 @@
 "page": "Erg_%28landform%29",
 "wiki": "Erg (landform)"
 },
+"european-bison": {
+"a": "Charles J. Sharp",
+"built": "2026-11-25T21:38:31.979643+00:00",
+"checkedAt": "2026-11-25T21:38:31.979643+00:00",
+"f": "229f8ef9926f.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:European_bison_%28Bison_bonasus%29_male_Bia%C5%82owieza.jpg",
+"page": "European_bison",
+"u": "5/59/European_bison_%28Bison_bonasus%29_male_Bia%C5%82owieza.jpg/330px-European_bison_%28Bison_bonasus%29_male_Bia%C5%82owieza.jpg",
+"wiki": "European bison"
+},
 "eutrophication": {
 "a": "Felix Andrews (Floybix)",
 "built": "2026-11-16T04:00:53.291212+00:00",
@@ -682,6 +706,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Geikie_Plateau_Glacier.JPG",
 "page": "Glacier",
 "wiki": "Glacier"
+},
+"gray-wolf": {
+"a": "User:Mas3cf",
+"built": "2026-11-25T21:38:37.851663+00:00",
+"checkedAt": "2026-11-25T21:38:37.851663+00:00",
+"f": "3a5dabf6f6bc.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Eurasian_wolf_2.jpg",
+"page": "Wolf",
+"u": "6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
+"wiki": "Gray wolf"
 },
 "great-sand-dunes-national-park-and-preserve": {
 "a": "Lionello DelPiccolo liodp",
@@ -1380,6 +1416,18 @@
 "page": "Peat_swamp_forest",
 "wiki": "Peat swamp forest"
 },
+"pendjari-river": {
+"a": "Gregor Rom",
+"built": "2026-11-25T21:38:39.935770+00:00",
+"checkedAt": "2026-11-25T21:38:39.935770+00:00",
+"f": "e9d80fd7ce46.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Pendjari_fluss.JPG",
+"page": "Oti_River",
+"u": "1/16/Pendjari_fluss.JPG/330px-Pendjari_fluss.JPG",
+"wiki": "Pendjari River"
+},
 "permafrost": {
 "a": "BLM Alaska",
 "built": "2026-11-16T04:00:53.294060+00:00",
@@ -1570,6 +1618,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:Rapids_of_Kern_River%2C_California%2C_USA.webm",
 "page": "Rapids",
 "wiki": "Rapids"
+},
+"reindeer": {
+"a": "Are G Nilsen",
+"built": "2026-11-25T21:38:41.935064+00:00",
+"checkedAt": "2026-11-25T21:38:41.935064+00:00",
+"f": "297ed83fdede.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg",
+"page": "Reindeer",
+"u": "9/96/Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg/330px-Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg",
+"wiki": "Reindeer"
 },
 "rh-ne": {
 "a": "Benoît Prieur",

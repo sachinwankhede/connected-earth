@@ -11,12 +11,6 @@
 },
 "status": "nophoto"
 },
-"aktotembightstateh": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566557+00:00",
-"expiresAt": "2027-05-24T03:37:21.566557+00:00",
-"status": "notfree"
-},
 "alfrankjackson": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:06:29.477481+00:00",
@@ -148,12 +142,6 @@
 "title": "Lone Mesa State Park"
 },
 "status": "nophoto"
-},
-"congo": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566596+00:00",
-"expiresAt": "2027-05-24T03:37:21.566596+00:00",
-"status": "notfree"
 },
 "ctairlinestatepark": {
 "attempts": 2,
@@ -479,12 +467,6 @@
 },
 "status": "nophoto"
 },
-"iastone": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566609+00:00",
-"expiresAt": "2027-05-24T03:37:21.566609+00:00",
-"status": "notfree"
-},
 "ideagleisland": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:07:49.437051+00:00",
@@ -522,9 +504,15 @@
 "status": "nophoto"
 },
 "idlakewalcott": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566620+00:00",
-"expiresAt": "2027-05-24T03:37:21.566620+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:39:06.373218+00:00",
+"expiresAt": "2026-12-25T21:39:06.373218+00:00",
+"inputs": {
+"lat": 42.6737,
+"lon": -113.4813,
+"name": "Lake Walcott State Park",
+"title": "Lake Walcott State Park"
+},
 "status": "notfree"
 },
 "ilbuffalorock": {
@@ -672,9 +660,15 @@
 "status": "nophoto"
 },
 "kselkcity": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566629+00:00",
-"expiresAt": "2027-05-24T03:37:21.566629+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:39:14.402715+00:00",
+"expiresAt": "2026-12-25T21:39:14.402715+00:00",
+"inputs": {
+"lat": 37.2512,
+"lon": -95.7762,
+"name": "Elk City State Park",
+"title": "Elk City State Park"
+},
 "status": "notfree"
 },
 "ksfallriver": {
@@ -748,12 +742,6 @@
 "title": "Toronto State Park"
 },
 "status": "nophoto"
-},
-"kstuttlecreekstate": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566638+00:00",
-"expiresAt": "2027-05-24T03:37:21.566638+00:00",
-"status": "notfree"
 },
 "kybigbonelick": {
 "attempts": 2,
@@ -1127,12 +1115,6 @@
 },
 "status": "nophoto"
 },
-"molongbranch": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566647+00:00",
-"expiresAt": "2027-05-24T03:37:21.566647+00:00",
-"status": "notfree"
-},
 "moozarkcavefish": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:09:49.438994+00:00",
@@ -1301,12 +1283,6 @@
 },
 "status": "nophoto"
 },
-"ncpettigrew": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566656+00:00",
-"expiresAt": "2027-05-24T03:37:21.566656+00:00",
-"status": "notfree"
-},
 "ncpilotmountain": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:10:31.532990+00:00",
@@ -1330,12 +1306,6 @@
 "title": "Yellow Mountain State Natural Area"
 },
 "status": "nophoto"
-},
-"ndfortransom": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566665+00:00",
-"expiresAt": "2027-05-24T03:37:21.566665+00:00",
-"status": "notfree"
 },
 "ndgrahamsisland": {
 "attempts": 2,
@@ -1482,9 +1452,15 @@
 "status": "nophoto"
 },
 "nmleasburgdam": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566673+00:00",
-"expiresAt": "2027-05-24T03:37:21.566673+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:39:48.398496+00:00",
+"expiresAt": "2026-12-25T21:39:48.398496+00:00",
+"inputs": {
+"lat": 32.4956,
+"lon": -106.9224,
+"name": "Leasburg Dam State Park",
+"title": "Leasburg Dam State Park"
+},
 "status": "notfree"
 },
 "nmlivingdesert": {
@@ -1498,24 +1474,6 @@
 "title": "Living Desert State Park"
 },
 "status": "nophoto"
-},
-"npcongaree": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566682+00:00",
-"expiresAt": "2027-05-24T03:37:21.566682+00:00",
-"status": "notfree"
-},
-"nplakeclark": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566690+00:00",
-"expiresAt": "2027-05-24T03:37:21.566690+00:00",
-"status": "notfree"
-},
-"npvoyageurs": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566699+00:00",
-"expiresAt": "2027-05-24T03:37:21.566699+00:00",
-"status": "notfree"
 },
 "nvbigbendofthecolo": {
 "attempts": 2,
@@ -1542,9 +1500,15 @@
 "status": "nophoto"
 },
 "nvechocanyon": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566706+00:00",
-"expiresAt": "2027-05-24T03:37:21.566706+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:40:18.356774+00:00",
+"expiresAt": "2026-12-25T21:40:18.356774+00:00",
+"inputs": {
+"lat": 37.9085,
+"lon": -114.2648,
+"name": "Echo Canyon State Park",
+"title": "Echo Canyon State Park"
+},
 "status": "notfree"
 },
 "nvwhitewaterparkat": {
@@ -1558,12 +1522,6 @@
 "title": "Whitewater Park At Rock"
 },
 "status": "nophoto"
-},
-"nyallegany": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566715+00:00",
-"expiresAt": "2027-05-24T03:37:21.566715+00:00",
-"status": "notfree"
 },
 "nygilgo": {
 "attempts": 2,
@@ -1914,9 +1872,15 @@
 "status": "nophoto"
 },
 "schamiltonbranch": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566723+00:00",
-"expiresAt": "2027-05-24T03:37:21.566723+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:40:34.349069+00:00",
+"expiresAt": "2026-12-25T21:40:34.349069+00:00",
+"inputs": {
+"lat": 33.7494,
+"lon": -82.223,
+"name": "Hamilton Branch State Park",
+"title": "Hamilton Branch State Park"
+},
 "status": "notfree"
 },
 "sclakegreenwood": {
@@ -2027,12 +1991,6 @@
 },
 "status": "nophoto"
 },
-"usbandeliernationalmonum": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566733+00:00",
-"expiresAt": "2027-05-24T03:37:21.566733+00:00",
-"status": "notfree"
-},
 "usbeltramiwildlifemanage": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:12:33.804688+00:00",
@@ -2140,18 +2098,6 @@
 "title": "Midewin Other"
 },
 "status": "nophoto"
-},
-"usnezpercenationalforest": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566742+00:00",
-"expiresAt": "2027-05-24T03:37:21.566742+00:00",
-"status": "notfree"
-},
-"usricelakenationalwildli": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566751+00:00",
-"expiresAt": "2027-05-24T03:37:21.566751+00:00",
-"status": "notfree"
 },
 "usvoltawildlifearea": {
 "attempts": 2,
@@ -2345,18 +2291,6 @@
 },
 "status": "notfree"
 },
-"whmanapools": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566761+00:00",
-"expiresAt": "2027-05-24T03:37:21.566761+00:00",
-"status": "notfree"
-},
-"whogasawara": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566771+00:00",
-"expiresAt": "2027-05-24T03:37:21.566771+00:00",
-"status": "notfree"
-},
 "whpyrenees": {
 "attempts": 2,
 "checkedAt": "2026-11-17T16:13:41.810523+00:00",
@@ -2370,21 +2304,27 @@
 "status": "nophoto"
 },
 "whsocotra": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566780+00:00",
-"expiresAt": "2027-05-24T03:37:21.566780+00:00",
-"status": "notfree"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:41:16.348981+00:00",
+"expiresAt": "2026-12-25T21:41:16.348981+00:00",
+"inputs": {
+"lat": 12.5,
+"lon": 54.0,
+"name": "Socotra Archipelago",
+"title": "Socotra"
 },
-"whsvalbard": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566788+00:00",
-"expiresAt": "2027-05-24T03:37:21.566788+00:00",
 "status": "notfree"
 },
 "whvaldes": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566797+00:00",
-"expiresAt": "2027-05-24T03:37:21.566797+00:00",
+"attempts": 2,
+"checkedAt": "2026-11-25T21:41:32.354998+00:00",
+"expiresAt": "2026-12-25T21:41:32.354998+00:00",
+"inputs": {
+"lat": -42.5,
+"lon": -63.9,
+"name": "Península Valdés",
+"title": "Valdés Peninsula"
+},
 "status": "notfree"
 },
 "wichippewamoraine": {
@@ -2446,12 +2386,6 @@
 "title": "Bluestone Lake State Park"
 },
 "status": "nophoto"
-},
-"wvcampcreek": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566804+00:00",
-"expiresAt": "2027-05-24T03:37:21.566804+00:00",
-"status": "notfree"
 },
 "wvstonewallresort": {
 "attempts": 2,
@@ -2548,12 +2482,6 @@
 "title": "Al Reem Biosphere Reserve"
 },
 "status": "notphoto"
-},
-"xsolomon": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.566813+00:00",
-"expiresAt": "2027-05-24T03:37:21.566813+00:00",
-"status": "notfree"
 },
 "xsomalia": {
 "attempts": 2,
