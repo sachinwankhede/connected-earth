@@ -1,11 +1,4 @@
 {
- "polychaeta": {
-  "kingdom": "Animalia",
-  "phylum": "Annelida",
-  "class": "Polychaeta",
-  "rank": "CLASS",
-  "note": "bristle worms; a class (GBIF also has an unrelated insect genus of that name)"
- },
  "bambusoideae": {
   "kingdom": "Plantae",
   "phylum": "Tracheophyta",

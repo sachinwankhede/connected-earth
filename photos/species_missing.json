@@ -17,12 +17,6 @@
 "expiresAt": "2027-05-14T14:23:29.593431+00:00",
 "status": "nophoto"
 },
-"anolis-townsendi": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593442+00:00",
-"expiresAt": "2027-05-14T14:23:29.593442+00:00",
-"status": "nophoto"
-},
 "asclepias-purpurascens": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593452+00:00",
@@ -161,12 +155,6 @@
 "expiresAt": "2027-05-14T14:23:29.593667+00:00",
 "status": "nophoto"
 },
-"hymenophyllum": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593669+00:00",
-"expiresAt": "2027-05-14T14:23:29.593669+00:00",
-"status": "nophoto"
-},
 "ilex-ambigua": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593680+00:00",
@@ -237,12 +225,6 @@
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593795+00:00",
 "expiresAt": "2027-05-14T14:23:29.593795+00:00",
-"status": "nophoto"
-},
-"onychomys-arenicola": {
-"attempts": 1,
-"checkedAt": "2026-11-15T14:23:29.593799+00:00",
-"expiresAt": "2027-05-14T14:23:29.593799+00:00",
 "status": "nophoto"
 },
 "oreoleuciscus-potanini": {

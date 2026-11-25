@@ -15,8 +15,8 @@ SKIP = ('links.json', 'order.json', 'species.json', 'bounds.json')
 FLAGS = {
     'no_page': 'the row has no Wikipedia page (`wiki`)',
     'no_latin': 'a taxon without a Latin name',
-    'name_breaks_rule': 'the page title is a common name (brackets dropped) and the row name differs from it: a rename, or a more specific concept that needs its own row (docs/NODE-NAMES.md steps 1 and 4)',
-    'name_unchecked': 'the page title is only a Latin name, so the right name is the Wikidata label (step 2): jobs/rowtitles.py checks it on the web, the offline audit cannot',
+    'name_breaks_rule': 'the page title is a common name (brackets dropped), the row name differs from it and the web name check did not find the name already right: a rename, or a more specific concept that needs its own row (docs/NODE-NAMES.md steps 1 and 4)',
+    'name_unchecked': 'the page title is only a Latin name, so the right name is the Wikidata label (step 2): jobs/rowtitles.py checks it on the web, the offline audit cannot. A row the web check has settled (name already right, or no common name exists) is not listed; one it proposes another name for, and one it has not seen, is',
     'shared_page': 'another row of the same kind has the same page',
     'shared_name': 'another row of the same kind has the same name',
     'shared_latin': 'another taxon row has the same Latin name',
@@ -42,8 +42,19 @@ def place_nodes(root):
         if isinstance(e, dict):
             for n in e.get('nodes') or []: yield f[:-5], n
 
+def web_rows(root):
+    """{id: [status, proposed name, why]} of the web name check (data/audit/rowtitles.json), or {} when it has not run."""
+    p = os.path.join(root, 'data', 'audit', 'rowtitles.json')
+    return (json.load(open(p, encoding='utf-8')).get('rows') or {}) if os.path.exists(p) else {}
+
+def web_same(root):
+    """Ids whose name the web name check (data/audit/rowtitles.json) found already right: a listed common name of the row's page, not a break of the rule (owner, 24 Nov, #1061: Wolf on the page Gray wolf)."""
+    p = os.path.join(root, 'data', 'audit', 'rowtitles.json')
+    if not os.path.exists(p): return set()
+    return {k for k, v in (json.load(open(p, encoding='utf-8')).get('rows') or {}).items() if v and v[0] == 'same'}
+
 def audit(root=ROOT):
-    tab = species.table(root)
+    tab = species.table(root); same = web_same(root); web = web_rows(root)
     out_nodes = []; use = collections.Counter(); places = collections.defaultdict(set)
     over = {(p, n): (c, t, pg) for p, n, _sid, _k, _hn, _hw, c, t, pg in OR.scan(root, tab)}
     for pid, n in place_nodes(root):
@@ -64,8 +75,8 @@ def audit(root=ROOT):
         f = {
             'no_page': not page,
             'no_latin': kind == 'taxon' and not r.get('latin'),
-            'name_breaks_rule': bool(page) and kind in ('taxon', 'group') and not scientific(page, r) and plain(name) != plain(page),
-            'name_unchecked': bool(page) and kind in ('taxon', 'group') and scientific(page, r),
+            'name_breaks_rule': bool(page) and kind in ('taxon', 'group') and not scientific(page, r) and plain(name) != plain(page) and sid not in same,
+            'name_unchecked': bool(page) and kind in ('taxon', 'group') and scientific(page, r) and (sid not in web or (web[sid][0] in ('change', 'wrongpage', 'specific', 'repoint', 'newrow') and plain(name) != plain(web[sid][1] or name))),
             'shared_page': bool(page) and len(by_page.get((kind, norm(page)), [])) > 1,
             'shared_name': bool(name) and len(by_name.get((kind, norm(name)), [])) > 1,
             'shared_latin': kind == 'taxon' and bool(r.get('latin')) and len(by_latin.get(norm(r['latin']), [])) > 1,

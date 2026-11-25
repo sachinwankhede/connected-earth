@@ -1,5 +1,5 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Data status</title>
-<style>:root{--fg:#1d1d1f;--mut:#6b6b70;--bg:#fff;--pn:#f6f6f7;--ln:#dcdce0}@media(prefers-color-scheme:dark){:root{--fg:#f1f1f2;--mut:#a0a0a8;--bg:#161618;--pn:#202024;--ln:#38383e}}body{margin:0;background:var(--bg);padding:16px}
+<style>:root{--fg:#1d1d1f;--mut:#6b6b70;--bg:#fff;--pn:#f6f6f7;--ln:#dcdce0;--bad:#b3261e;--badbg:#fdecea;--warn:#8a5a00;--warnbg:#fff4dc;--ok:#1d7a3a;--okbg:#e6f4ea}@media(prefers-color-scheme:dark){:root{--fg:#f1f1f2;--mut:#a0a0a8;--bg:#161618;--pn:#202024;--ln:#38383e;--bad:#ff8a80;--badbg:#3a1e1c;--warn:#f0c060;--warnbg:#33290f;--ok:#7bd68f;--okbg:#17301f}}body{margin:0;background:var(--bg);padding:16px}
 
 .ds{font-family:system-ui,sans-serif;color:var(--fg);display:grid;gap:16px}
 .ds h1{font:400 28px Georgia,serif;margin:0}.ds h2{font-size:18px;margin:0 0 8px}
@@ -15,13 +15,30 @@
 .ds th,.ds td{text-align:left;padding:4px 8px;border-bottom:1px solid var(--ln);white-space:nowrap}
 .ds .ctl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;align-items:center}
 .ds input{font:inherit;padding:4px 8px;background:var(--bg);color:var(--fg);border:1px solid var(--ln);border-radius:8px}
+
+.ds h2.sec{font-size:20px;margin:8px 0 2px}
+.ds .item{background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:12px 16px;display:grid;grid-template-columns:72px 1fr;gap:4px 14px;align-items:start;min-width:0}
+.ds .item.bad{border-left:4px solid var(--bad)}.ds .item.miss{border-left:4px solid var(--warn)}
+.ds .num{font:400 28px Georgia,serif;font-variant-numeric:tabular-nums;line-height:1.1}.ds .item.bad .num{color:var(--bad)}.ds .item.miss .num{color:var(--warn)}
+.ds .t{font-weight:600}.ds .d{color:var(--mut);font-size:13px;overflow-wrap:anywhere}
+.ds .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.ds .chip{font-size:12px;padding:1px 8px;border-radius:99px;border:1px solid var(--ln);color:var(--mut)}
+.ds .chip.you{background:var(--badbg);color:var(--bad);border-color:transparent}.ds .chip.me,.ds .chip.job{background:var(--okbg);color:var(--ok);border-color:transparent}
+.ds .prog{height:8px;border-radius:4px;background:var(--ln);overflow:hidden;margin-top:6px}.ds .prog i{display:block;height:100%;background:var(--warn)}
+.ds .allok{background:var(--okbg);color:var(--ok);border-radius:8px;padding:10px 16px;font-weight:600}
+.ds details.clear{color:var(--mut);font-size:13px}.ds details.clear summary{cursor:pointer}
+.ds details.more>summary{cursor:pointer;font-weight:600;padding:12px 16px;background:var(--pn);border:1px solid var(--ln);border-radius:8px}
+.ds details.more[open]>summary{margin-bottom:16px}.ds details.more>.card{margin-bottom:16px}
+@media(max-width:480px){.ds .item{grid-template-columns:56px 1fr}.ds .num{font-size:24px}}
 </style></head><body>
 
 <main class="ds">
 <div><h1>Data status</h1><p class="sub" id="lead"></p></div>
-<div class="card" id="fixcard" hidden><h2 id="fixh">Problems: fix these first</h2><p class="sub">Data that is wrong or not needed. Correct or delete it before adding anything.</p><div class="w"><table><thead><tr><th>what is wrong</th><th>count</th><th>example</th><th>fix</th><th>item</th></tr></thead><tbody id="fixbody"></tbody></table></div></div>
-<div class="card" id="misscard" hidden><h2 id="missh">Missing: add these after</h2><p class="sub">Data that is not there yet (including pictures). Nothing here is wrong.</p><div class="w"><table><thead><tr><th>what is missing</th><th>count</th><th>have</th><th>fix</th><th>item</th></tr></thead><tbody id="missbody"></tbody></table></div></div>
-<div class="tiles" id="tiles" style="min-height:70px"></div>
+<section id="fixcard" hidden><h2 class="sec" id="fixh">Bad data</h2><p class="sub">Wrong or not needed. Fixed first, by correcting or deleting.</p><div id="fixlist" style="display:grid;gap:10px"></div><details class="clear" id="fixclear"></details></section>
+<section id="misscard" hidden><h2 class="sec" id="missh">Missing data</h2><p class="sub">Not there yet. Nothing here is wrong; it is added after the bad data is fixed.</p><div id="misslist" style="display:grid;gap:10px"></div></section>
+<section><h2 class="sec">Data now</h2><div class="tiles" id="statlist" style="min-height:70px"></div></section>
+<details class="more"><summary>Working detail (for whoever is fixing)</summary>
+<div class="tiles" id="tiles" style="min-height:70px;margin-bottom:16px"></div>
 <div class="card"><h2 id="flags">Problems by row</h2><p class="sub">Rows with each problem flag (a row can have several).</p><div id="flagbars" style="min-height:120px"></div></div>
 <div class="card"><h2 id="outcomes">Overrides still to settle</h2><p class="sub">Nodes that keep their own name or page, by what the cleanup must do.</p><div id="outbars" style="min-height:100px"></div></div>
 <div class="card"><h2 id="kinds">Rows by kind</h2><div id="kindbars" style="min-height:70px"></div></div>
@@ -38,6 +55,7 @@
 <div class="card"><h2 id="ovh">Nodes with an override</h2>
 <div class="ctl"><select id="outsel" aria-label="Outcome"></select><span class="lab" id="ovcount"></span></div>
 <div class="w"><table><thead><tr><th>place</th><th>node</th><th>node name</th><th>node page</th><th>row name</th><th>outcome</th><th>target</th></tr></thead><tbody id="ovbody"></tbody></table></div></div>
+</details>
 <p class="sub">Read from the data in main each time the site is deployed (build/data_audit.py). Web checks (page titles, Wikidata) are in the readonly-data-audit run summary, not here.</p>
 </main>
 <script>
@@ -57,10 +75,20 @@ function sel(h,all,list,key,set){h.replaceChildren(new Option(all,''),...list.ma
 fetch('audit.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{A=d;
  if(d.web){$('webcard').hidden=false;$('webnote').textContent='Result of the last web run, '+d.web.asOf+' (data/audit/rowtitles.json). It is as fresh as that run, not live.';bars($('webbars'),d.web.status,'status','rows');sel($('websel'),'All statuses',d.web.status,'status',v=>W=v)}else{$('webcard').hidden=true}
  if(d.identity){$('idcard').hidden=false;$('idnote').textContent='Result of the last identity run, '+d.identity.asOf+' (data/audit/identity.json), '+N(d.identity.rowsChecked)+' rows. It is as fresh as that run, not live. The group views come from a text check of each group\'s member list: candidates to read, not decisions.';bars($('idbars'),d.identity.views,'view','rows');sel($('idsel'),'All views',d.identity.views,'view',v=>I=v)}
- if(d.fixfirst){$('fixcard').hidden=false;body($('fixbody'),d.fixfirst.problems,['what','count','example','fix','item']);$('misscard').hidden=false;body($('missbody'),d.fixfirst.missing,['what','count','have','fix','item'])}
+ if(d.fixfirst){const f=d.fixfirst,WHO={me:'Claude fixes it',job:'a data job fixes it',you:'needs your decision'};
+  const item=(r,cls,miss)=>{const c=document.createElement('div');c.className='item '+cls;const n=el('div',N(r.count));n.className='num';const b=document.createElement('div');const t=el('div',r.what);t.className='t';b.append(t);
+   const x=r.example||r.have;if(x){const e=el('div',(r.example?'Example: ':'')+x);e.className='d';b.append(e)}
+   if(miss&&r.total){const p=document.createElement('div');p.className='prog';const i=document.createElement('i');i.style.width=Math.round(r.done/r.total*100)+'%';p.append(i);b.append(p)}
+   const fx=el('div','Fix: '+r.fix);fx.className='d';b.append(fx);const ch=document.createElement('div');ch.className='chips';const w=el('span',WHO[r.who]||r.who);w.className='chip '+r.who;ch.append(w,Object.assign(el('span',r.item),{className:'chip'}));b.append(ch);c.append(n,b);return c};
+  const bad=f.problems.filter(r=>r.count>0),ok=f.problems.filter(r=>!r.count),L=$('fixlist');$('fixcard').hidden=false;L.replaceChildren();
+  $('fixh').textContent=bad.length?'Bad data: '+N(bad.reduce((a,r)=>a+r.count,0))+' items to fix':'Bad data: none';
+  if(!bad.length){const a=el('div','All checks are clear.');a.className='allok';L.append(a)}bad.forEach(r=>L.append(item(r,'bad')));
+  const cl=$('fixclear');cl.hidden=!ok.length;cl.replaceChildren(Object.assign(el('summary','✓ '+ok.length+' checks are clear'),{}),el('div',ok.map(r=>r.what).join(' · ')));
+  const M=d.fixfirst.missing.filter(r=>r.count>0);$('misscard').hidden=false;$('missh').textContent='Missing data: '+M.length+' kinds';const ML=$('misslist');ML.replaceChildren();M.forEach(r=>ML.append(item(r,'miss',1)));
+  const S=$('statlist');S.replaceChildren();f.stats.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value)+(r.of?' of '+N(r.of):''));v.className='big';const l=el('div',r.label);l.className='lab';c.append(v,l);S.append(c)})}
  const t=$('tiles');t.replaceChildren();d.totals.forEach(r=>{const c=document.createElement('div');c.className='card';const v=el('div',N(r.value));v.className='big';const l=el('div',r.metric);l.className='lab';c.append(v,l);t.append(c)});
  bars($('flagbars'),d.flags,'flag','rows');bars($('outbars'),d.outcomes,'outcome','nodes');bars($('kindbars'),d.kinds,'kind','rows');
- const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=N(s('name_breaks_rule'))+' rows have a name that breaks the naming rule, '+N(s('name_unchecked'))+' need a web check of their name, '+N(s('shared_page'))+' share a page with another row, and '+N(+d.totals[2].value)+' nodes still carry their own name or page.';
+ const s=k=>+d.flags.find(x=>x.flag===k).rows;$('lead').textContent=d.fixfirst?(d.fixfirst.problems.reduce((a,r)=>a+r.count,0)?'Bad data is fixed first, then missing data is added. The working detail at the bottom is for whoever is doing the fixing.':'No bad data is known. Missing data is added next.'):'';
  sel($('flagsel'),'All flags',d.flags,'flag',v=>F=v);sel($('outsel'),'All outcomes',d.outcomes,'outcome',v=>O=v);$('q').oninput=draw;
  body($('dupbody'),d.dups,['what','kind','value','rows','nodes']);draw()}).catch(()=>{$('lead').textContent='The audit file did not load.'});
 </script></body></html>
