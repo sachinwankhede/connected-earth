@@ -67,7 +67,7 @@ def fixfirst(root, S, rows):
     journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v and k in ids)   # a row merged or removed since is no longer a problem
     def ex(flag): return ', '.join('%s (%s)' % (r['name'], r['id']) for r in [r for r in rows if r[flag]][:2])
     fl = S['row_flags']; ds = {r['dataset']: r for r in data_status.rows(root)}
-    doubts = sum(r['doubts'] for r in ds.values())
+    doubts = sum(r['doubts'] for r in ds.values()); oc = S.get('nodes_by_outcome') or {}
     sp_rows = sum(1 for r in rows if r['kind'] in ('taxon', 'group'))
     # who: job = a data job fixes it, me = Claude fixes it in a pull request, you = needs the owner's decision
     problems = [
@@ -77,6 +77,8 @@ def fixfirst(root, S, rows):
         {'what': 'Rows no place uses', 'count': fl['no_node'], 'example': ex('no_node'), 'fix': 'delete (nothing shows them)', 'item': '#1061', 'who': 'job'},
         {'what': 'Two rows on one Wikipedia page', 'count': fl['shared_page'], 'example': ex('shared_page'), 'fix': 'merge into one row or repoint', 'item': '#1142', 'who': 'me'},
         {'what': 'Wrong rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row', 'item': '#1142', 'who': 'you'},
+        {'what': 'Place nodes that duplicate an existing row', 'count': oc.get('repoint', 0) + oc.get('place', 0), 'example': 'a node with its own name or page that another row already has, or a page that is a park', 'fix': 'point the node at the right row (checked group by group) or drop its own name', 'item': '#1061', 'who': 'me'},
+        {'what': 'Place nodes whose page may be the wrong kind of thing', 'count': oc.get('cross-kind', 0) + oc.get('new-row', 0), 'example': 'e.g. a sponge page on a bacteria row; some are only another valid name', 'fix': 'check each: make a row, point at an existing row, or drop the page', 'item': '#1061', 'who': 'me'},
         {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887', 'who': 'you'},
     ]
     missing = [
