@@ -63,24 +63,31 @@ def fixfirst(root, S, rows):
         places += 1; cats = {n.get('cat') for n in e['nodes']}
         if 'abiotic' not in cats or 'decomp' not in cats: no_env += 1
     sp = os.path.join(root, 'data', 'audit', 'strictrows.json'); sr = json.load(open(sp, encoding='utf-8')) if os.path.exists(sp) else {}
-    journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v)
+    ids = {r['id'] for r in rows}
+    journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v and k in ids)   # a row merged or removed since is no longer a problem
     def ex(flag): return ', '.join('%s (%s)' % (r['name'], r['id']) for r in [r for r in rows if r[flag]][:2])
     fl = S['row_flags']; ds = {r['dataset']: r for r in data_status.rows(root)}
     doubts = sum(r['doubts'] for r in ds.values())
+    sp_rows = sum(1 for r in rows if r['kind'] in ('taxon', 'group'))
+    # who: job = a data job fixes it, me = Claude fixes it in a pull request, you = needs the owner's decision
     problems = [
-        {'what': 'Two rows with the same name, so at least one is wrong', 'count': fl['shared_name'], 'example': ex('shared_name'), 'fix': 'check each pair against its page; rename or remove', 'item': '#1142'},
-        {'what': 'Name does not match the row\'s own page', 'count': fl['name_breaks_rule'], 'example': ex('name_breaks_rule'), 'fix': 'rename to the page title (groups: a person decides)', 'item': '#1061'},
-        {'what': 'Rows no place uses', 'count': fl['no_node'], 'example': ex('no_node'), 'fix': 'delete (nothing shows them)', 'item': '#1061'},
-        {'what': 'Rows sharing one page with another row', 'count': fl['shared_page'], 'example': ex('shared_page'), 'fix': 'remove or repoint', 'item': '#1142'},
-        {'what': 'Bad rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row (owner to decide)', 'item': '#1142'},
-        {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887'},
+        {'what': 'Two rows with the same name', 'count': fl['shared_name'], 'example': ex('shared_name'), 'fix': 'rename one to its own page title', 'item': '#1142', 'who': 'me'},
+        {'what': 'Row name does not match its own Wikipedia page', 'count': fl['name_breaks_rule'], 'example': ex('name_breaks_rule'), 'fix': 'rename to the page title, or delete the row', 'item': '#1061', 'who': 'me'},
+        {'what': 'Row name not yet checked on the web', 'count': fl['name_unchecked'], 'example': ex('name_unchecked'), 'fix': 'names are acceptable; the web check proposes a more specific article', 'item': '#1061', 'who': 'me'},
+        {'what': 'Rows no place uses', 'count': fl['no_node'], 'example': ex('no_node'), 'fix': 'delete (nothing shows them)', 'item': '#1061', 'who': 'job'},
+        {'what': 'Two rows on one Wikipedia page', 'count': fl['shared_page'], 'example': ex('shared_page'), 'fix': 'merge into one row or repoint', 'item': '#1142', 'who': 'me'},
+        {'what': 'Wrong rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row', 'item': '#1142', 'who': 'you'},
+        {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887', 'who': 'you'},
     ]
     missing = [
-        {'what': 'Places with no abiotic or no decomposer node', 'count': no_env, 'have': '%d of %d places' % (places - no_env, places), 'fix': 'add accurate nodes, then make the rule strict again', 'item': '#1138'},
-        {'what': 'Places removed by the cleanup', 'count': len(sr.get('places') or {}), 'have': 'recreate them', 'fix': 'add the places back with accurate rows', 'item': '#1132'},
-        {'what': 'Species without an "about" text', 'count': fl['no_about'], 'have': 'of %d species rows' % S['rows'], 'fix': 'write it', 'item': '#1061'},
-    ] + [{'what': n + ' missing', 'count': ds[k]['missing'], 'have': '%d of %d have one' % (ds[k]['have'], ds[k]['items']), 'fix': 'the weekly job retries; see the data jobs', 'item': '#887'} for k, n in (('Place pictures', 'Place pictures'), ('Species pictures', 'Species pictures'), ('Node pictures', 'Node pictures'), ('Outlines', 'Place outlines'), ('Stories', 'Place stories')) if k in ds and ds[k]['missing']]
-    return {'problems': problems, 'missing': missing}
+        {'what': 'Places with no abiotic or no decomposer node', 'count': no_env, 'have': '%d of %d places' % (places - no_env, places), 'done': places - no_env, 'total': places, 'fix': 'add accurate nodes, then make the rule strict again', 'item': '#1138', 'who': 'me'},
+        {'what': 'Places removed by the cleanup', 'count': len(sr.get('places') or {}), 'have': 'to recreate', 'fix': 'add the places back with accurate rows', 'item': '#1132', 'who': 'job'},
+        {'what': 'Species without an "about" text', 'count': fl['no_about'], 'have': '%d of %d have one' % (sp_rows - fl['no_about'], sp_rows), 'done': sp_rows - fl['no_about'], 'total': sp_rows, 'fix': 'write it', 'item': '#1061', 'who': 'job'},
+    ] + [{'what': n + ' missing', 'count': ds[k]['missing'], 'have': '%d of %d have one' % (ds[k]['have'], ds[k]['items']), 'done': ds[k]['have'], 'total': ds[k]['items'], 'fix': 'the weekly job retries', 'item': '#887', 'who': 'job'} for k, n in (('Place pictures', 'Place pictures'), ('Species pictures', 'Species pictures'), ('Node pictures', 'Node pictures'), ('Outlines', 'Place outlines'), ('Stories', 'Place stories')) if k in ds and ds[k]['missing']]
+    kinds = S['rows_by_kind']
+    stats = [{'label': 'Places', 'value': places}, {'label': 'Species and groups', 'value': sp_rows}, {'label': 'Other rows (soil, sun, water...)', 'value': sum(1 for r in rows) - sp_rows}, {'label': 'Place nodes', 'value': S['nodes']}]
+    stats += [{'label': k, 'value': ds[k]['have'], 'of': ds[k]['items']} for k in ('Place pictures', 'Species pictures') if k in ds]
+    return {'problems': problems, 'missing': missing, 'stats': stats}
 
 def payload(root=ROOT):
     nodes, rows, dups, S = data_audit.audit(root)
