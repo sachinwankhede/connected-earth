@@ -261,7 +261,7 @@ anolis-fuscoauratus,taxon,Slender anole,Anolis fuscoauratus,Anolis fuscoauratus,
 anolis-gundlachi,taxon,Yellow-beard anole,Anolis gundlachi,Anolis gundlachi,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 anolis-sagrei,taxon,Brown anole,Anolis sagrei,Anolis sagrei,3,5,5,legacy,0,0,0,0,0,0,0,0,0
 anopheles-aquasalis,taxon,Salt-marsh mosquito,Anopheles,Anopheles aquasalis,2,1,1,legacy,0,0,0,0,0,0,0,0,0
-anoplolepis-gracilipes,taxon,Crazy ant,Anoplolepis gracilipes,Anoplolepis gracilipes,2,1,1,legacy,0,0,0,1,0,0,0,0,0
+anoplolepis-gracilipes,taxon,Yellow crazy ant,Anoplolepis gracilipes,Anoplolepis gracilipes,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 anous-stolidus,taxon,Brown noddy,Brown noddy,Anous stolidus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 anser-albifrons,taxon,Greater white-fronted goose,Greater white-fronted goose,Anser albifrons,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 anser-anser,taxon,Greylag goose,Greylag goose,Anser anser,2,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -359,7 +359,7 @@ ardisia-elliptica,taxon,Shoebutton ardisia,Ardisia elliptica,Ardisia elliptica,1
 ardisia-escallonioides,taxon,Marlberry,Ardisia escallonioides,Ardisia escallonioides,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 arenaria-interpres,taxon,Ruddy turnstone,Ruddy turnstone,Arenaria interpres,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 arenga-obtusifolia,taxon,Arenga palm,Arenga obtusifolia,Arenga obtusifolia,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-arenicola-marina,taxon,Lugworm,Arenicola marina,Arenicola marina,2,1,1,legacy,0,0,0,1,0,0,0,0,0
+arenicola-marina,taxon,Lugworm,Arenicola marina,Arenicola marina,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 argemone-pleiacantha,taxon,Southwestern pricklypoppy,Argemone pleiacantha,Argemone pleiacantha,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 argemone-polyanthemos,taxon,Plains prickly-poppy,Argemone polyanthemos,Argemone polyanthemos,1,3,3,legacy,0,0,0,0,0,0,0,0,0
 argentina-anserina,taxon,Silverweed,Argentina anserina,Argentina anserina,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -423,8 +423,8 @@ asclepias-perennis,taxon,Smooth-seed milkweed,Asclepias perennis,Asclepias peren
 asclepias-purpurascens,taxon,Purple milkweed,Asclepias purpurascens,Asclepias purpurascens,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 asclepias-quadrifolia,taxon,Four-leaf milkweed,Asclepias quadrifolia,Asclepias quadrifolia,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 asclepias-speciosa,taxon,Greek milkweed,Asclepias speciosa,Asclepias speciosa,1,25,25,legacy,0,0,0,0,0,0,0,0,0
-asclepias-subverticillata,taxon,Asclepias subverticillata,Asclepias subverticillata,Asclepias subverticillata,1,2,2,legacy,0,0,0,1,0,0,0,0,0
-asclepias-sullivantii,taxon,Asclepias sullivantii,Asclepias sullivantii,Asclepias sullivantii,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+asclepias-subverticillata,taxon,Asclepias subverticillata,Asclepias subverticillata,Asclepias subverticillata,1,2,2,legacy,0,0,0,0,0,0,0,0,0
+asclepias-sullivantii,taxon,Asclepias sullivantii,Asclepias sullivantii,Asclepias sullivantii,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 asclepias-syriaca,taxon,Common Milkweed,Asclepias syriaca,Asclepias syriaca,1,46,46,legacy,0,0,0,0,0,0,0,0,0
 asclepias-tuberosa,taxon,Butterfly Milkweed,Asclepias tuberosa,Asclepias tuberosa,1,19,19,legacy,0,0,0,0,0,0,0,0,0
 asclepias-variegata,taxon,Redring milkweed,Asclepias variegata,Asclepias variegata,1,2,2,legacy,0,0,0,0,0,0,0,0,0
@@ -918,7 +918,7 @@ catharus-ustulatus,taxon,Swainson's Thrush,Catharus ustulatus,Catharus ustulatus
 catocala-ilia,taxon,Ilia Underwing,Catocala ilia,Catocala ilia,2,2,2,legacy,0,0,0,0,0,0,0,0,0
 catopuma-temminckii,taxon,Asian golden cat,Asian golden cat,Catopuma temminckii,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 cavia-aperea,taxon,Brazilian guinea pig,Brazilian guinea pig,Cavia aperea,2,2,2,legacy,0,0,0,0,0,0,0,0,0
-ceanothus,taxon,Ceanothus,Ceanothus,Ceanothus,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+ceanothus,taxon,Ceanothus,Ceanothus,Ceanothus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 ceanothus-herbaceus,taxon,Redroot,Ceanothus herbaceus,Ceanothus herbaceus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 ceanothus-integerrimus,taxon,Deerbrush ceanothus,Ceanothus integerrimus,Ceanothus integerrimus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 ceanothus-lemmonii,taxon,LEMMON'S CEANOTHUS,Ceanothus lemmonii,Ceanothus lemmonii,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -1127,7 +1127,7 @@ cloud-and-mist,resource,Cloud and mist,Fog,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 clupea-harengus,taxon,Atlantic herring,Atlantic herring,Clupea harengus,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 clupea-pallasii,taxon,Pacific herring,Pacific herring,Clupea pallasii,2,2,2,legacy,0,0,0,0,0,0,0,0,0
 clupeidae,taxon,Small schooling fish,Clupeidae,Clupeidae,2,1,1,legacy,0,0,0,0,0,0,0,0,0
-cnidoscolus-stimulosus,taxon,Bull-nettle,Cnidoscolus stimulosus,Cnidoscolus stimulosus,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+cnidoscolus-stimulosus,taxon,Bull-nettle,Cnidoscolus stimulosus,Cnidoscolus stimulosus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 coastal-sand-dunes,resource,Coastal sand dunes,Dune,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 coccinella-septempunctata,taxon,Seven-spot Ladybird,Coccinella septempunctata,Coccinella septempunctata,3,10,10,legacy,0,0,0,0,0,0,0,0,0
 coccinia-grandis,taxon,Scarlet-Fruited Gourd,Coccinia grandis,Coccinia grandis,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -1700,7 +1700,7 @@ eupeodes-volucris,taxon,Bird Hover Fly,Eupeodes volucris,Eupeodes volucris,2,2,2
 euphagus-cyanocephalus,taxon,Brewer's Blackbird,Euphagus cyanocephalus,Euphagus cyanocephalus,2,5,5,legacy,0,0,0,0,0,0,0,0,0
 euphausia-superba,taxon,Antarctic krill,Antarctic krill,Euphausia superba,2,2,2,legacy,0,0,0,0,0,0,0,0,0
 euphausiacea,taxon,Krill,Krill,Euphausiacea,2,5,5,legacy,0,0,0,0,0,0,0,0,0
-euphorbia-antisyphilitica,taxon,Euphorbia antisyphilitica,Euphorbia antisyphilitica,Euphorbia antisyphilitica,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+euphorbia-antisyphilitica,taxon,Euphorbia antisyphilitica,Euphorbia antisyphilitica,Euphorbia antisyphilitica,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 euphorbia-celastroides,taxon,`ekoko,Euphorbia celastroides,Euphorbia celastroides,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 euphorbia-corollata,taxon,Poison-milkweed,Euphorbia corollata,Euphorbia corollata,1,6,6,legacy,0,0,0,0,0,0,0,0,0
 euphorbia-davidii,taxon,David's Spurge,Euphorbia davidii,Euphorbia davidii,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -1969,7 +1969,7 @@ haliotis-cracherodii,taxon,Black abalone,Black abalone,Haliotis cracherodii,2,1,
 halocnemum-strobilaceum,taxon,Saltmarsh glasswort,Halocnemum strobilaceum,Halocnemum strobilaceum,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 halodule-uninervis,taxon,Seagrass,Seagrass,Halodule uninervis,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 halogeton-glomeratus,taxon,Barilla,Halogeton glomeratus,Halogeton glomeratus,1,2,2,legacy,0,0,0,0,0,0,0,0,0
-halophila,taxon,Halophila,Halophila,Halophila,1,5,5,legacy,0,0,0,1,0,0,0,0,0
+halophila,taxon,Halophila,Halophila,Halophila,1,5,5,legacy,0,0,0,0,0,0,0,0,0
 halophila-ovalis,taxon,Paddle weed,Halophila ovalis,Halophila ovalis,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 haloxylon-ammodendron,taxon,Black saxaul,Haloxylon ammodendron,Haloxylon ammodendron,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 haloxylon-persicum,taxon,White saxaul,Haloxylon persicum,Haloxylon persicum,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -2307,7 +2307,7 @@ lappula-occidentalis,taxon,Spiny sheepbur,Lappula occidentalis,Lappula occidenta
 larix-decidua,taxon,European larch,Larix decidua,Larix decidua,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 larix-gmelinii,taxon,Dahurian larch,Larix gmelinii,Larix gmelinii,1,3,3,legacy,0,0,0,0,0,0,0,0,0
 larix-laricina,taxon,Tamarack,Larix laricina,Larix laricina,1,6,6,legacy,0,0,0,0,0,0,0,0,0
-larix-occidentalis,taxon,Hackmatack,Larix occidentalis,Larix occidentalis,1,2,2,legacy,0,0,0,1,0,0,0,0,0
+larix-occidentalis,taxon,Western larch,Larix occidentalis,Larix occidentalis,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 larix-sibirica,taxon,Siberian larch,Larix sibirica,Larix sibirica,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 larrea-tridentata,taxon,Creosote bush,Larrea tridentata,Larrea tridentata,1,23,23,legacy,0,0,0,0,0,0,0,0,0
 larus-argentatus,taxon,European herring gull,European herring gull,Larus argentatus,3,3,3,legacy,0,0,0,0,0,0,0,0,0
@@ -2621,7 +2621,7 @@ manduca-quinquemaculatus,taxon,Tomato Hornworm,Manduca quinquemaculatus,Manduca 
 manilkara,taxon,Coastal forest trees,Manilkara,Manilkara,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 manilkara-zapota,taxon,Sapodilla (chicozapote),Manilkara zapota,Manilkara zapota,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 maniola-jurtina,taxon,Meadow brown,Meadow brown,Maniola jurtina,2,2,2,legacy,0,0,0,0,0,0,0,0,0
-mantis-religiosa,taxon,Praying mantis,Mantis religiosa,Mantis religiosa,3,3,3,legacy,0,0,0,1,0,0,0,0,0
+mantis-religiosa,taxon,European mantis,Mantis religiosa,Mantis religiosa,3,3,3,legacy,0,0,0,0,0,0,0,0,0
 marantaceae,taxon,Marantaceae herbs,Marantaceae,Marantaceae,1,4,4,legacy,0,0,0,0,0,0,0,0,0
 marcgravia-rectiflora,taxon,Lira vine,Marcgravia,Marcgravia rectiflora,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 margarops-fuscatus,taxon,Pearly-eyed thrasher,Pearly-eyed thrasher,Margarops fuscatus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -2877,7 +2877,7 @@ neotoma-stephensi,taxon,Stephen's Woodrat,Neotoma stephensi,Neotoma stephensi,2,
 neotomodon-alstoni,taxon,Mexican volcano mouse,Mexican volcano mouse,Neotomodon alstoni,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 neotragus-pygmaeus,taxon,Royal antelope,Royal antelope,Neotragus pygmaeus,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 nepenthes-rajah,taxon,Giant pitcher plant,Nepenthes rajah,Nepenthes rajah,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-nepeta-cataria,taxon,Cat-mint,Nepeta cataria,Nepeta cataria,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+nepeta-cataria,taxon,Catnip,Nepeta cataria,Nepeta cataria,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 nephelodes-minians,taxon,Bronzed Cutworm,Nephelodes minians,Nephelodes minians,2,2,2,legacy,0,0,0,0,0,0,0,0,0
 nepytia-canosaria,taxon,False hemlock looper,Nepytia canosaria,Nepytia canosaria,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 nereocystis-luetkeana,taxon,Bull kelp,Nereocystis,Nereocystis luetkeana,1,2,2,legacy,0,0,0,0,0,0,0,0,0
@@ -3397,7 +3397,7 @@ pistia-stratiotes,taxon,Water lettuce,Pistia,Pistia stratiotes,1,3,3,legacy,0,0,
 pitangus-sulphuratus,taxon,Great kiskadee,Great kiskadee,Pitangus sulphuratus,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 pitohui-dichrous,taxon,Hooded pitohui,Hooded pitohui,Pitohui dichrous,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 pittosporum-viridiflorum,taxon,Cape pittosporum,Pittosporum viridiflorum,Pittosporum viridiflorum,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-pituophis-catenifer,taxon,Gopher snake,Pituophis catenifer,Pituophis catenifer,3,80,80,legacy,0,0,0,1,0,0,0,0,0
+pituophis-catenifer,taxon,Gopher snake,Pituophis catenifer,Pituophis catenifer,3,80,80,legacy,0,0,0,0,0,0,0,0,0
 pituophis-catenifer-sayi,taxon,Bullsnake,Bullsnake,Pituophis catenifer sayi,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 pituophis-melanoleucus,taxon,Northern pine snake,Northern pine snake,Pituophis melanoleucus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 pityopsis-falcata,taxon,Sickleleaf Silkgrass,Pityopsis falcata,Pityopsis falcata,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -3419,7 +3419,7 @@ platanus-occidentalis,taxon,Sycamore,Platanus occidentalis,Platanus occidentalis
 platanus-wrightii,taxon,Arizona sycamore,Platanus wrightii,Platanus wrightii,1,4,4,legacy,0,0,0,0,0,0,0,0,0
 platte-river-flow,resource,Platte River flow,Platte River,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 platystemon-californicus,taxon,Cream-cups,Platystemon californicus,Platystemon californicus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-plecia-nearctica,taxon,March fly,Plecia nearctica,Plecia nearctica,2,1,1,legacy,0,0,0,1,0,0,0,0,0
+plecia-nearctica,taxon,Lovebug,Plecia nearctica,Plecia nearctica,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 plectrophenax-nivalis,taxon,Snow Bunting,Plectrophenax nivalis,Plectrophenax nivalis,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 plectropomus-leopardus,taxon,Leopard coral grouper,Plectropomus leopardus,Plectropomus leopardus,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 plegadis-falcinellus,taxon,Glossy ibis,Glossy ibis,Plegadis falcinellus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -3756,7 +3756,7 @@ regulus-calendula,taxon,Ruby-crowned Kinglet,Regulus calendula,Regulus calendula
 regulus-satrapa,taxon,Golden-crowned Kinglet,Regulus satrapa,Regulus satrapa,3,3,3,legacy,0,0,0,0,0,0,0,0,0
 reithrodontomys-megalotis,taxon,Western harvest mouse,Reithrodontomys megalotis,Reithrodontomys megalotis,2,17,17,legacy,0,0,0,0,0,0,0,0,0
 rhabdomys-dilectus,taxon,Four-striped grass mouse,Rhabdomys,Rhabdomys dilectus,2,1,1,legacy,0,0,0,0,0,0,0,0,0
-rhabdomys-pumilio,taxon,Striped mouse,Rhabdomys pumilio,Rhabdomys pumilio,2,1,1,legacy,0,0,0,1,0,0,0,0,0
+rhabdomys-pumilio,taxon,Striped mouse,Rhabdomys pumilio,Rhabdomys pumilio,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhacophorus-malabaricus,taxon,Malabar gliding frog,Malabar gliding frog,Rhacophorus malabaricus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhamnus-cathartica,taxon,Buckthorn,Rhamnus cathartica,Rhamnus cathartica,1,6,6,legacy,0,0,0,0,0,0,0,0,0
 rhanterium-epapposum,taxon,Arfaj,Rhanterium epapposum,Rhanterium epapposum,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -3772,9 +3772,9 @@ rhinopithecus-bieti,taxon,Black-and-white snub-nosed monkey,Black snub-nosed mon
 rhinopithecus-roxellana,taxon,Golden snub-nosed monkey,Golden snub-nosed monkey,Rhinopithecus roxellana,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhipidura-albiscapa,taxon,Grey fantail,Grey fantail,Rhipidura albiscapa,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhizophora,taxon,Mangroves,Rhizophora,Rhizophora,1,4,4,legacy,0,0,0,0,0,0,0,0,0
-rhizophora-apiculata,taxon,Rhizophora apiculata,Rhizophora apiculata,Rhizophora apiculata,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+rhizophora-apiculata,taxon,Rhizophora apiculata,Rhizophora apiculata,Rhizophora apiculata,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhizophora-mangle,taxon,Red mangrove,Rhizophora mangle,Rhizophora mangle,1,9,9,legacy,0,0,0,0,0,0,0,0,0
-rhizophora-mucronata,taxon,Rhizophora mucronata,Rhizophora mucronata,Rhizophora mucronata,1,1,1,legacy,0,0,0,1,0,0,0,0,0
+rhizophora-mucronata,taxon,Rhizophora mucronata,Rhizophora mucronata,Rhizophora mucronata,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhododendron,taxon,Rhododendron,Rhododendron,Rhododendron,1,4,4,legacy,0,0,0,0,0,0,0,0,0
 rhododendron-calendulaceum,taxon,Flame Azalea,Rhododendron calendulaceum,Rhododendron calendulaceum,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 rhododendron-canescens,taxon,Mountain Azalea,Rhododendron canescens,Rhododendron canescens,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -4058,7 +4058,7 @@ setophaga-coronata,taxon,Yellow-rumped Warbler,Setophaga coronata,Setophaga coro
 setophaga-dominica,taxon,Yellow-throated Warbler,Setophaga dominica,Setophaga dominica,3,1,1,manual,0,0,0,0,0,0,0,0,0
 setophaga-occidentalis,taxon,Hermit Warbler,Setophaga occidentalis,Setophaga occidentalis,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 setophaga-pensylvanica,taxon,Chestnut-sided Warbler,Setophaga pensylvanica,Setophaga pensylvanica,3,1,1,legacy,0,0,0,0,0,0,0,0,0
-setophaga-petechia,taxon,Yellow Warbler,Setophaga petechia,Setophaga petechia,3,2,2,legacy,0,0,0,1,0,0,0,0,0
+setophaga-petechia,taxon,Yellow Warbler,Setophaga petechia,Setophaga petechia,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 setophaga-pinus,taxon,Pine Warbler,Setophaga pinus,Setophaga pinus,3,28,28,legacy,0,0,0,0,0,0,0,0,0
 setophaga-ruticilla,taxon,American Redstart,Setophaga ruticilla,Setophaga ruticilla,3,7,7,legacy,0,0,0,0,0,0,0,0,0
 shallow-lagoons,resource,Shallow lagoons,Ojo de Liebre Lagoon,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -4336,7 +4336,7 @@ tanacetum-vulgare,taxon,Tansy,Tanacetum vulgare,Tanacetum vulgare,1,7,7,legacy,0
 tapinoma-sessile,taxon,Odorous House Ant,Tapinoma sessile,Tapinoma sessile,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 tapirus-bairdii,taxon,Baird's tapir,Baird's tapir,Tapirus bairdii,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 tapirus-terrestris,taxon,South American tapir,Lowland tapir,Tapirus terrestris,2,9,9,legacy,0,0,0,0,0,0,0,0,0
-taraxacum-officinale,taxon,Dandelion,Taraxacum officinale,Taraxacum officinale,1,6,6,legacy,0,0,0,1,0,0,0,0,0
+taraxacum-officinale,taxon,Dandelion,Taraxacum officinale,Taraxacum officinale,1,6,6,legacy,0,0,0,0,0,0,0,0,0
 taraxia-tanacetifolia,taxon,Tansyleaf evening primrose,Taraxia tanacetifolia,Taraxia tanacetifolia,1,2,2,legacy,0,0,0,0,0,0,0,0,0
 tarenna,taxon,Tarenna,Tarenna,Tarenna,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 tauraco-schuettii,taxon,Black-billed turaco,Black-billed turaco,Tauraco schuettii,2,1,1,legacy,0,0,0,0,0,0,0,0,0

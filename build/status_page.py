@@ -73,7 +73,7 @@ def fixfirst(root, S, rows):
     problems = [
         {'what': 'Two rows with the same name', 'count': fl['shared_name'], 'example': ex('shared_name'), 'fix': 'rename one to its own page title', 'item': '#1142', 'who': 'me'},
         {'what': 'Row name does not match its own Wikipedia page', 'count': fl['name_breaks_rule'], 'example': ex('name_breaks_rule'), 'fix': 'rename to the page title, or delete the row', 'item': '#1061', 'who': 'me'},
-        {'what': 'Row name not yet checked on the web', 'count': fl['name_unchecked'], 'example': ex('name_unchecked'), 'fix': 'names are acceptable; the web check proposes a more specific article', 'item': '#1061', 'who': 'me'},
+        {'what': 'Row name not yet checked on the web', 'count': fl['name_unchecked'], 'example': ex('name_unchecked'), 'fix': 'apply the name the web check found, or run the web check', 'item': '#1061', 'who': 'me'},
         {'what': 'Rows no place uses', 'count': fl['no_node'], 'example': ex('no_node'), 'fix': 'delete (nothing shows them)', 'item': '#1061', 'who': 'job'},
         {'what': 'Two rows on one Wikipedia page', 'count': fl['shared_page'], 'example': ex('shared_page'), 'fix': 'merge into one row or repoint', 'item': '#1142', 'who': 'me'},
         {'what': 'Wrong rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row', 'item': '#1142', 'who': 'you'},
