@@ -4,7 +4,7 @@ status/index.html (from src/status/index.html) and status/audit.json beside the 
 first view, not linked from the app and not in the service worker's precache. Changes no data."""
 import collections, json, os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
-sys.path.insert(0, HERE)
+sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(os.path.dirname(HERE), 'jobs'))
 import data_audit
 FLAGS = list(data_audit.FLAGS)
 
@@ -67,6 +67,9 @@ def fixfirst(root, S, rows):
     journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v and k in ids)   # a row merged or removed since is no longer a problem
     def ex(flag): return ', '.join('%s (%s)' % (r['name'], r['id']) for r in [r for r in rows if r[flag]][:2])
     fl = S['row_flags']; ds = {r['dataset']: r for r in data_status.rows(root)}
+    import identitycheck   # offline: reads data/audit/identity.json, so the count is as old as that file (refresh it with the data-identity job)
+    try: wrongrank = identitycheck.mismatches({r['sid']: r for r in species.table(root).values() if r.get('sid')}, json.load(open(os.path.join(root, 'data', 'audit', 'identity.json'), encoding='utf-8')))
+    except (OSError, ValueError): wrongrank = {}
     import node_photos
     try: orphans = node_photos.NodePhotos(root).orphans(node_photos.concepts(root))   # same source as the validator's warning, so the two agree
     except SystemExit: orphans = []   # a node names a species row that is not there: the validator reports that first
@@ -83,6 +86,7 @@ def fixfirst(root, S, rows):
         {'what': 'Place nodes that duplicate an existing row', 'count': oc.get('repoint', 0) + oc.get('place', 0), 'example': 'a node with its own name or page that another row already has, or a page that is a park', 'fix': 'point the node at the right row (checked group by group) or drop its own name', 'item': '#1061', 'who': 'me'},
         {'what': 'Place nodes whose page may be the wrong kind of thing', 'count': oc.get('cross-kind', 0) + oc.get('new-row', 0), 'example': 'e.g. a sponge page on a bacteria row; some are only another valid name', 'fix': 'check each: make a row, point at an existing row, or drop the page', 'item': '#1061', 'who': 'me'},
         {'what': 'Node picture entries no place shows', 'count': len(orphans), 'example': ', '.join('%s:%s' % x for x in orphans[:2]) or 'none', 'fix': 'delete through the node writer (lib/node_photos.py, a data pull request)', 'item': '#1183', 'who': 'job'},
+        {'what': 'Rows on a Wikipedia page of the wrong rank', 'count': len(wrongrank), 'example': ', '.join('%s (%s)' % (v[1], v[0]) for v in list(wrongrank.values())[:2]) or 'none', 'fix': 'owner reviews the list (jobs/identitycheck.py), then strictrows removes what is approved', 'item': '#1142', 'who': 'you'},
         {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887', 'who': 'you'},
     ]
     missing = [
