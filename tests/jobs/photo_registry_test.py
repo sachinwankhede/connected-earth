@@ -21,10 +21,10 @@ class PhotoRegistryTests(unittest.TestCase):
         now = datetime.datetime(2025, 1, 1, tzinfo=datetime.timezone.utc)
         permanent = photo_registry.negative_entry("nophoto", 1, now)
         transient = photo_registry.negative_entry("network", 8, now)
-        self.assertEqual(permanent["expiresAt"], "2025-06-30T00:00:00+00:00")
+        self.assertEqual(permanent["expiresAt"], "2025-01-31T00:00:00+00:00")
         self.assertEqual(transient["expiresAt"], "2025-01-08T00:00:00+00:00")
         self.assertTrue(photo_registry.cache_active(permanent, now))
-        self.assertFalse(photo_registry.cache_active(permanent, now + datetime.timedelta(days=181)))
+        self.assertFalse(photo_registry.cache_active(permanent, now + datetime.timedelta(days=31)))
         self.assertFalse(photo_registry.cache_active("nophoto", now))
 
     def test_failure_classification_keeps_transient_errors_out_of_permanent_cache(self):
