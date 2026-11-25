@@ -23,12 +23,13 @@ in photos/places_tried.json {id: {source: date}}. A transient failure (a downloa
 Author rule (#887, owner 15 Nov): a CC BY or CC BY-SA picture needs a named author. When the stored credit says unknown, Commons is asked once more (authorlookup.lookup: the Artist or Attribution field, or the uploader when the credit says own work);
 no name found = the picture is refused and the place is recorded as 'notfree' for wikipedia, or as tried for the other sources, with the reason in the log.
 Caps: --minutes of time (default 120: the run stops cleanly and keeps what it has; the workflow's 170-minute timeout would cancel it and lose the run), --max-mb of pictures kept (default 25), --limit places per strategy (default 0 = all left, #887); pictures are committed every 25 finds, so a stopped run resumes. A run that finds nothing and changes no ledger writes no file.
+Resume contract (#1183, lib/runbudget.py): prints `more: N` and exits 3 when the time or size budget stopped it with N places still due and untried by this run; 0 when none; 2 when a source stopped it (do not chain).
 --dry prints what would be kept and writes nothing (later strategies then see no new missing places). Exit 2 when a source stopped the run (throttled three times, or refused)."""
 import collections, datetime, glob, hashlib, io, json, os, re, shutil, sys, tempfile, time, urllib.parse
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'lib'))
-import wm, place_photos as pp, photo_registry as pr
+import runbudget, wm, place_photos as pp, photo_registry as pr
 import author_lookup as al, author_repair as ar
 from place_sources import Res, Vetted, now_iso, SOURCES, find_wikipedia, find_commons, find_nearby, find_category, find_openverse   # noqa: F401 (re-exported: the tests and callers use pj.Res, pj.Vetted, pj.find_*)
 
@@ -121,21 +122,23 @@ def held(w, pid, source, days, today, unit=None):
     if days is None: return pr.cache_active(w.miss_.get(pid), inputs=pr.place_inputs(unit) if unit else None)
     return w.tried.get(pid, {}).get(source, '') > (today - datetime.timedelta(days=days)).isoformat()
 
-def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, large=None, minutes=None, clock=time.monotonic):
+def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, large=None, minutes=None, clock=time.monotonic, report=None):
     """Runs the strategies in order over the places that have no picture, then (strategy large, or all) makes the missing larger copies. Returns (stats, stopped): per-strategy counts and the strategies a source stopped.
     large: make_large, or None to make no larger copies (the tests of the sources do not download)."""
     today = today or datetime.date.today(); strategies = STRATEGIES if strategies is None else strategies
     stats = collections.OrderedDict(); stopped = []; spent = 0; pending = 0
-    deadline = None if not minutes else clock() + minutes * 60; late = lambda: deadline is not None and clock() >= deadline   # the time budget: the run ends cleanly and keeps what it has (the workflow's own timeout would cancel it and lose the run)
+    late = runbudget.Budget(minutes, clock).late; halted = False   # the time budget (lib/runbudget.py): the run ends cleanly and keeps what it has (the workflow's own timeout would cancel it and lose the run)
+    tried_now = collections.defaultdict(set)   # strategy -> place ids this run tried (never counted as still due)
+    def due(name, applies, days, unit_held=True): return [u for u in units if not w.has(u['id']) and applies(w, u) and (again or not held(w, u['id'], name, days, today, u))]
     for name, find, applies, days in strategies:
         if only not in ('all', name): continue
         s = stats[name] = collections.Counter()
-        todo = [u for u in units if not w.has(u['id']) and applies(w, u) and (again or not held(w, u['id'], name, days, today, u))]
+        todo = due(name, applies, days)
         if limit: todo = todo[:limit]
         log('strategy %s: %d places to try' % (name, len(todo)))
         try:
             for u, r in find(todo):
-                pid = u['id']; s['tried'] += 1
+                pid = u['id']; s['tried'] += 1; tried_now[name].add(pid)
                 if r.kind == 'found':
                     entry, why = vet(r.entry)
                     if entry is None:
@@ -157,27 +160,35 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                     if not dry: (w.miss(pid, r.status, 'wikipedia', inputs=pr.place_inputs(u)) if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
                 else: s['retry'] += 1; log('retry %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                 if pending >= COMMIT_EVERY and not dry: w.commit(); pending = 0
-                if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); break
-                if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); break
+                if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
+                if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break
         except RuntimeError as ex:
             stopped.append(name); log('STOP %s: %s (nothing more is tried from this source; ask the owner)' % (name, ex))
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
-        if spent >= max_bytes or late(): break
-    if only in ('all', 'large') and large is not None and spent < max_bytes and not late():
+        if halted or spent >= max_bytes or late(): halted = True; break
+    large_left = lambda: sorted(pid for pid, e in w.pics.items() if e.get('f') and not w.has_large(pid) and commons_file_name(e.get('p')) and pid not in tried_large)
+    tried_large = set()
+    if only in ('all', 'large') and large is not None and not halted:
         s = stats['large'] = collections.Counter()
-        todo = sorted(pid for pid, e in w.pics.items() if e.get('f') and not w.has_large(pid) and commons_file_name(e.get('p')))
+        todo = large_left()
         if limit: todo = todo[:limit]
         log('strategy large: %d pictures without a larger copy' % len(todo))
         for pid in todo:
-            s['tried'] += 1
+            s['tried'] += 1; tried_large.add(pid)
             if dry: log('would try a larger copy for %s' % pid); continue
             webp, lwhy = large(w.pics[pid])
             if webp: w.put_large(pid, webp); s['made'] += 1; spent += len(webp); pending += 1; log('larger copy large %s %d KB' % (pid, round(len(webp) / 1024)))
             else: s['none'] += 1; log('no larger copy large %s (%s) - %s; the small picture stays' % (pid, w.pics[pid].get('wiki', ''), lwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
-            if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); break
-            if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); break
+            if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
+            if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
+    more = 0
+    if halted and not stopped:   # still due and not tried by this run (the resume contract, lib/runbudget.py)
+        for name, find, applies, days in strategies:
+            if only in ('all', name): more += sum(1 for u in due(name, applies, days) if u['id'] not in tried_now[name])
+        if only in ('all', 'large') and large is not None: more += len(large_left())
+    if report is not None: report['more'] = more
     return stats, stopped
 
 def stats_block(w, counters, dry=False):
@@ -202,7 +213,7 @@ def main(argv=None, root=ROOT, strategies=None, large=make_large):
     if w.pics and any('wiki' not in r for r in w.pics.values()): print('places.json is keyed by title, not by place id: this job needs the id-keyed files (migration #906)'); return 1
     print('%d places with a title, %d skipped because another place has the same title: %s' % (len(units), len(shared), ', '.join(sorted(u['id'] for u in shared)) or 'none'))
     rl = int(opt('--repair-limit', 40)); dry = '--dry' in a; t0 = time.monotonic()
-    stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large, minutes=minutes)
+    report = {}; stats, stopped = acquire(w, units, strategies, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, large=large, minutes=minutes, report=report)
     for name, s in stats.items():
         if name == 'large': print('summary large: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, larger copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['large'], s['nolarge']))
@@ -212,6 +223,7 @@ def main(argv=None, root=ROOT, strategies=None, large=make_large):
         else:
             rs, _ = ar.repair_step(w, limit=rl, dry=dry, late=(lambda: time.monotonic() - t0 >= minutes * 60) if minutes else None); print(ar.summary(rs))
             if not dry and (rs['fixed'] or rs['none']): w.commit()
+    more = report.get('more', 0); print(runbudget.more_line(more))
     block = stats_block(w, dict(places=len(units) + len(shared), strategies=stats), dry='--dry' in a); print(block)
     try:
         with open('placepictures_stats.md', 'w', encoding='utf-8') as f: f.write(block)   # not committed: the workflow may put it in the PR body
@@ -219,6 +231,6 @@ def main(argv=None, root=ROOT, strategies=None, large=make_large):
     if '--dry' not in a:
         bad = pp.PlacePhotos(root).check()
         if bad: print('CHECK FAILED:'); print('\n'.join(bad[:30])); return 1
-    return 2 if stopped else 0
+    return runbudget.exit_code(stopped, more)
 
 if __name__ == '__main__': sys.exit(main())
