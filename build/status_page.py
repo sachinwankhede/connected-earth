@@ -67,6 +67,9 @@ def fixfirst(root, S, rows):
     journey = sorted(k for k, v in (sr.get('kept') or {}).items() if 'journey ends' in v and k in ids)   # a row merged or removed since is no longer a problem
     def ex(flag): return ', '.join('%s (%s)' % (r['name'], r['id']) for r in [r for r in rows if r[flag]][:2])
     fl = S['row_flags']; ds = {r['dataset']: r for r in data_status.rows(root)}
+    import node_photos
+    try: orphans = node_photos.NodePhotos(root).orphans(node_photos.concepts(root))   # same source as the validator's warning, so the two agree
+    except SystemExit: orphans = []   # a node names a species row that is not there: the validator reports that first
     doubts = sum(r['doubts'] for r in ds.values()); oc = S.get('nodes_by_outcome') or {}
     sp_rows = sum(1 for r in rows if r['kind'] in ('taxon', 'group'))
     # who: job = a data job fixes it, me = Claude fixes it in a pull request, you = needs the owner's decision
@@ -79,6 +82,7 @@ def fixfirst(root, S, rows):
         {'what': 'Wrong rows kept because a journey ends at their node', 'count': len(journey), 'example': ', '.join(journey) or 'none', 'fix': 'change the journey or drop the row', 'item': '#1142', 'who': 'you'},
         {'what': 'Place nodes that duplicate an existing row', 'count': oc.get('repoint', 0) + oc.get('place', 0), 'example': 'a node with its own name or page that another row already has, or a page that is a park', 'fix': 'point the node at the right row (checked group by group) or drop its own name', 'item': '#1061', 'who': 'me'},
         {'what': 'Place nodes whose page may be the wrong kind of thing', 'count': oc.get('cross-kind', 0) + oc.get('new-row', 0), 'example': 'e.g. a sponge page on a bacteria row; some are only another valid name', 'fix': 'check each: make a row, point at an existing row, or drop the page', 'item': '#1061', 'who': 'me'},
+        {'what': 'Node picture entries no place shows', 'count': len(orphans), 'example': ', '.join('%s:%s' % x for x in orphans[:2]) or 'none', 'fix': 'delete through the node writer (lib/node_photos.py, a data pull request)', 'item': '#1183', 'who': 'job'},
         {'what': 'Pictures credited to an unknown author', 'count': doubts, 'example': 'places, species and nodes', 'fix': 'find the author or remove the picture (licence doubt)', 'item': '#887', 'who': 'you'},
     ]
     missing = [

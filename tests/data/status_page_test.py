@@ -46,6 +46,7 @@ ff = a['fixfirst']; P, M = ff['problems'], ff['missing']
 assert P and M and all(isinstance(x['count'], int) and x['item'].startswith('#') for x in P + M)
 assert {x['what'] for x in P}.isdisjoint({x['what'] for x in M})
 assert any('picture' in x['what'].lower() for x in M)
+assert any(x['what'] == 'Node picture entries no place shows' and isinstance(x['count'], int) for x in P)   # orphan node entries are on the Fix first card (#1183)
 assert all(x['who'] in ('me', 'job', 'you') for x in P + M) and a['fixfirst']['stats'] and all(isinstance(x['value'], int) for x in a['fixfirst']['stats'])
 assert "$('fixlist')" in html and "$('misslist')" in html and "$('statlist')" in html and 'd.fixfirst.problems' in html and 'd.fixfirst.missing' in html
 print('problems and missing ok')
