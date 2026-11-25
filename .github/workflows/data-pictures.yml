@@ -1,0 +1,108 @@
+name: data-pictures
+# The ONE job that finds pictures for every kind (#1183): species, places, journeys and the non-species nodes. It replaces data-speciespictures, data-placepictures and data-journeypictures once it has run cleanly once for each kind (owner decision, 25 Nov: those stay until then, and are removed in a separate owner-merged change).
+# Weekly (Saturday 03:11 UTC, away from the old Sunday, Tuesday and Thursday runs) and by hand. A scheduled run is live (dry = no) and covers ALL kinds. Every item still missing is checked every week, whatever the number (owner decision, #1183): a run that stops on its time budget exits 3 with `more: N` (lib/runbudget.py), and this workflow starts the next run of that kind while it exits 3, until nothing is due, `rounds` rounds were made or the total `minutes` are used. The ledgers (a source tries an item again only after its 30-day hold, per source, lib/contracts.json) make every round continue where the last one stopped.
+# One pull request for the whole chain, one table per kind. A source that stopped a run (throttled or refused: exit 2) ends the chain; what was found so far is still committed, and the run is marked failed afterwards. A run that finds nothing and changes no ledger opens no pull request. Nothing starts while another photo pull request is open.
+# New picture sources are added once, in lib/species_sources.py SOURCES (and lib/allowed_sources.json, owner approval): every kind that applies to it uses it, and a new source goes last by default. strategy applies only when one kind is named; `all` runs every source in order, then makes the missing larger copies.
+on:
+  schedule:
+    - cron: '11 3 * * 6'
+  workflow_dispatch:
+    inputs:
+      kinds: { description: "all, or a list of: species, places, journeys, nodes (space or comma separated)", default: "all" }
+      strategy: { description: "all, or one source or step of ONE kind (only used when a single kind is named; e.g. wikipedia, commons, gbif, openverse, inaturalist, medium, large)", default: "all" }
+      limit: { description: "Items to try per strategy per round (0 = all left)", default: "0" }
+      minutes: { description: "Total time budget for the whole chain, in minutes (each round gets at most 120; the job's own timeout is 350)", default: "300" }
+      rounds: { description: "Most rounds per kind", default: "8" }
+      dry: { description: "yes = one round per kind, only print what would be kept, write nothing and open no pull request", default: "yes" }
+      again: { description: "yes = also try items a source tried inside its hold (30 days; a new source has no date and tries everything missing at once)", default: "no" }
+permissions:
+  contents: write
+  pull-requests: write
+concurrency: data-photos
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    env:
+      DRY: ${{ github.event_name == 'schedule' && 'no' || github.event.inputs.dry }}   # a scheduled run has no inputs: it is live
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v5
+        with: { ref: main }
+      - run: pip install pillow
+      - name: Stop while a photo pull request is open
+        id: open
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N=$(gh pr list --state open --json headRefName --jq '[.[]|select(.headRefName|test("^data/(photos|dropunnamed|commons|largephoto|largeplacephoto|hostphoto|openverse|rekey|droppictures|fixcoords|placepictures|speciespictures|journeypictures|pictures)"))]|length')
+          echo "open photo pull requests: $N"; echo "n=$N" >> "$GITHUB_OUTPUT"
+      - name: Find the pictures (chained rounds per kind)
+        id: find
+        if: steps.open.outputs.n == '0'
+        env:
+          KINDS: ${{ github.event.inputs.kinds || 'all' }}
+          STRATEGY: ${{ github.event.inputs.strategy || 'all' }}
+          LIMIT: ${{ github.event.inputs.limit || '0' }}
+          TOTAL_MIN: ${{ github.event.inputs.minutes || '300' }}
+          ROUNDS: ${{ github.event.inputs.rounds || '8' }}
+          AGAIN: ${{ github.event.inputs.again || 'no' }}
+        run: |
+          set +e
+          KS=$(echo "$KINDS" | tr ',' ' ')
+          [ "$KS" = "all" ] && KS="nodes journeys places species"   # the small kinds first, so the large species list cannot starve them
+          for K in $KS; do case "$K" in species|places|journeys|nodes) ;; *) echo "unknown kind $K"; exit 1;; esac; done
+          NK=$(echo $KS | wc -w); [ "$NK" -gt 1 ] && STRATEGY=all
+          STOP=0; FAIL=0; START=$SECONDS
+          for K in $KS; do
+            case "$K" in species) S=jobs/speciespictures.py;; places) S=jobs/placepictures.py;; journeys) S=jobs/journeypictures.py;; nodes) S=jobs/nodepictures.py;; esac
+            R=0
+            while :; do
+              R=$((R+1))
+              LEFT=$(( TOTAL_MIN - (SECONDS-START)/60 )); [ "$LEFT" -lt 1 ] && { echo "$K: the total time budget is used"; break; }
+              M=$(( LEFT < 120 ? LEFT : 120 ))
+              echo "=== $K round $R ($M min) ==="
+              python3 "$S" --strategy "$STRATEGY" --limit "$LIMIT" --minutes "$M" ${{ env.DRY != 'no' && '--dry' || '' }} $( [ "$AGAIN" = "yes" ] && echo --again ) | tee -a "find-$K.log" | tail -60
+              RC=${PIPESTATUS[0]}
+              echo "$K round $R exit $RC"
+              if [ "$RC" = "3" ] && [ "${{ env.DRY }}" = "no" ] && [ "$R" -lt "$ROUNDS" ]; then continue; fi
+              [ "$RC" = "2" ] && { STOP=1; }
+              [ "$RC" = "1" ] && { FAIL=1; }
+              [ "$RC" = "3" ] && echo "$K: more is still due after $R round(s); the next weekly run continues"
+              break
+            done
+            [ "$STOP" = "1" ] || [ "$FAIL" = "1" ] && break
+          done
+          echo "stop=$STOP" >> "$GITHUB_OUTPUT"; echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
+          [ "$FAIL" = "0" ] || exit 1
+      - name: Validate the new files
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        run: |
+          set -o pipefail
+          python3 lib/photo_registry.py validate
+          python3 build/validate_data.py | tail -20
+      - name: Commit and open the pull request
+        if: steps.open.outputs.n == '0' && env.DRY == 'no'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "connected-earth-bot"; git config user.email "actions@users.noreply.github.com"
+          git checkout -B "data/pictures-${GITHUB_RUN_ID}"
+          git add -A photos
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          cat find-*.log > find.log
+          NY=$(grep -c '^yes ' find.log || true); NR=$(grep -c '^refused ' find.log || true); NL=$(grep -c '^larger copy ' find.log || true)
+          TITLE="Pictures: $NY found, $NL larger copies (${{ github.event.inputs.kinds || 'all' }})"
+          git commit -m "$TITLE"
+          git push -f origin HEAD
+          { printf 'Part of #1183. Automatic run of data-pictures, kinds `%s`, strategy `%s`, limit `%s`, rounds up to `%s`, total %s minutes.\n\n**Result:** %s pictures found, %s larger copies made, %s refused because a CC BY / CC BY-SA picture had no author (listed as `refused` in the run log); the rest are recorded in each kind'"'"'s tried ledger so each source tries them again only after its hold (30 days).\n\n**Rounds and what is still due:**\n\n' "${{ github.event.inputs.kinds || 'all' }}" "${{ github.event.inputs.strategy || 'all' }}" "${{ github.event.inputs.limit || '0' }}" "${{ github.event.inputs.rounds || '8' }}" "${{ github.event.inputs.minutes || '300' }}" "$NY" "$NL" "$NR"
+            grep -h -E '^(=== .* round|more: |[a-z]+ round [0-9]+ exit)' find.log | sed 's/^/- /'
+            printf '\n**By source:**\n\n'; grep -h '^summary ' find.log | sed 's/^summary /- /'
+            printf '\n**Sources and licences:** Wikipedia and Wikidata, Wikimedia Commons, GBIF, Openverse and iNaturalist, all already in `lib/allowed_sources.json`; only CC0, CC BY, CC BY-SA and public domain are kept (#421). Licences of the new pictures:\n\n'
+            grep -h '^yes ' find.log | awk -F' [|] ' '{print $2}' | sort | uniq -c | sed 's/^ *\([0-9]*\) \(.*\)$/- \2: \1/'
+            printf '\n**Spot check (10 of them):**\n\n'; NYS=$(( NY/10 > 0 ? NY/10 : 1 )); grep -h '^yes ' find.log | awk -v n="$NYS" 'n==1 || NR%n==1' | head -10 | sed 's/^yes /- /'
+            for f in speciespictures_stats.md placepictures_stats.md journeypictures_stats.md nodepictures_stats.md; do [ -f "$f" ] && { printf '\n'; cat "$f"; }; done
+            printf '\nFull list in the run log.\n\n_Generated by [Claude Code](https://claude.ai/code)_\n'; } > body.md
+          gh pr create --base main --head "$(git branch --show-current)" --title "$TITLE" --body-file body.md
+      - name: Say so when a source stopped the run
+        if: steps.find.outputs.stop == '1'
+        run: echo "A source stopped the chain (throttled or refused); see the STOP line in the log. What was found is in the pull request." && exit 1
