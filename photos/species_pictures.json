@@ -2722,6 +2722,16 @@
 "u": "a/a3/Antilocapra_americana.jpg/330px-Antilocapra_americana.jpg",
 "wiki": "Antilocapra americana"
 },
+"antilocapra-americana-sonoriensis": {
+"a": "USFWS",
+"f": "6e139a363ae0.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:Usfws-sonoran-pronghorn-large.jpg",
+"page": "Sonoran_pronghorn",
+"u": "0/06/Usfws-sonoran-pronghorn-large.jpg/330px-Usfws-sonoran-pronghorn-large.jpg",
+"wiki": "Sonoran pronghorn"
+},
 "antrozous-pallidus": {
 "a": "USGS",
 "f": "b95cff407f97.webp",
@@ -5259,6 +5269,16 @@
 "u": "8/8d/American_bison_k5680-1.jpg/330px-American_bison_k5680-1.jpg",
 "wiki": "American bison"
 },
+"bison-bison-athabascae": {
+"a": "Murray Foubister",
+"f": "45644cbe2c68.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Hwy_97_Liard_to_Watson_Lake_-_Buffalo_%285857521108%29.jpg",
+"page": "Wood_bison",
+"u": "d/d9/Hwy_97_Liard_to_Watson_Lake_-_Buffalo_%285857521108%29.jpg/330px-Hwy_97_Liard_to_Watson_Lake_-_Buffalo_%285857521108%29.jpg",
+"wiki": "Wood bison"
+},
 "bison-bonasus": {
 "a": "Charles J. Sharp",
 "f": "8814bf1edf98.webp",
@@ -7303,6 +7323,16 @@
 "page": "Wolf",
 "u": "6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
 "wiki": "Gray wolf"
+},
+"canis-lupus-arabs": {
+"a": "Ahmad Qarmish12",
+"f": "504690b43255.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Arabian_wolf_in_Jordan.jpg",
+"page": "Arabian_wolf",
+"u": "7/72/Arabian_wolf_in_Jordan.jpg/330px-Arabian_wolf_in_Jordan.jpg",
+"wiki": "Arabian wolf"
 },
 "canis-lupus-arctos": {
 "a": "Stephan Sprinz",
@@ -14626,6 +14656,26 @@
 "u": "9/98/Elephas_maximus_%28Bandipur%29.jpg/330px-Elephas_maximus_%28Bandipur%29.jpg",
 "wiki": "Asian elephant"
 },
+"elephas-maximus-indicus": {
+"a": "Yathin S Krishnappa",
+"f": "e23ece41645d.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Elephas_maximus_%28Bandipur%29.jpg",
+"page": "Indian_elephant",
+"u": "9/98/Elephas_maximus_%28Bandipur%29.jpg/330px-Elephas_maximus_%28Bandipur%29.jpg",
+"wiki": "Indian elephant"
+},
+"elephas-maximus-sumatranus": {
+"a": "Léodras",
+"f": "6f0c9373c928.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Elephant_Sumatra_ProfilG.jpg",
+"page": "Sumatran_elephant",
+"u": "c/c1/Elephant_Sumatra_ProfilG.jpg/330px-Elephant_Sumatra_ProfilG.jpg",
+"wiki": "Sumatran elephant"
+},
 "eleusine-indica": {
 "a": "Tauʻolunga",
 "f": "8202987ea86a.webp",
@@ -20978,6 +21028,16 @@
 "u": "e/e8/Male_Ugandan_kob_-_Queen_Elizabeth_National_Park%2C_Uganda_%284%29.jpg/330px-Male_Ugandan_kob_-_Queen_Elizabeth_National_Park%2C_Uganda_%284%29.jpg",
 "wiki": "Kob"
 },
+"kobus-kob-thomasi": {
+"a": "Charles J. Sharp",
+"f": "08dd94511b4f.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Ugandan_kob_%28Kobus_kob_thomasi%29_male.jpg",
+"page": "Ugandan_kob",
+"u": "3/3b/Ugandan_kob_%28Kobus_kob_thomasi%29_male.jpg/330px-Ugandan_kob_%28Kobus_kob_thomasi%29_male.jpg",
+"wiki": "Uganda kob"
+},
 "kobus-leche": {
 "a": "Charles J. Sharp",
 "f": "1de16c21b649.webp",
@@ -21167,6 +21227,16 @@
 "page": "Rock_ptarmigan",
 "u": "4/46/Rock_ptarmigan_%28Lagopus_muta_islandorum%29_female_breeding_Botnsvatn.jpg/330px-Rock_ptarmigan_%28Lagopus_muta_islandorum%29_female_breeding_Botnsvatn.jpg",
 "wiki": "Rock ptarmigan"
+},
+"lagopus-scotica": {
+"a": "MPF",
+"f": "7931239ea668.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:2014-04-21_Lagopus_lagopus_scotica%2C_Hawsen_Burn_1.jpg",
+"page": "Red_grouse",
+"u": "f/fc/2014-04-21_Lagopus_lagopus_scotica%2C_Hawsen_Burn_1.jpg/330px-2014-04-21_Lagopus_lagopus_scotica%2C_Hawsen_Burn_1.jpg",
+"wiki": "Red grouse"
 },
 "lagostrophus-fasciatus": {
 "a": "John Gould",
@@ -23649,6 +23719,16 @@
 "page": "Eurasian_lynx",
 "u": "4/49/Lynx_Nationalpark_Bayerischer_Wald_01.jpg/330px-Lynx_Nationalpark_Bayerischer_Wald_01.jpg",
 "wiki": "Eurasian lynx"
+},
+"lynx-lynx-balcanicus": {
+"a": "albinfo",
+"f": "37e686af3533.webp",
+"l": "CC0",
+"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"p": "https://commons.wikimedia.org/wiki/File:Tirana_Zoo_Balkan_Lynx_%28OSCAL19_trip%29.jpg",
+"page": "Balkan_lynx",
+"u": "6/6c/Tirana_Zoo_Balkan_Lynx_%28OSCAL19_trip%29.jpg/330px-Tirana_Zoo_Balkan_Lynx_%28OSCAL19_trip%29.jpg",
+"wiki": "Balkan lynx"
 },
 "lynx-pardinus": {
 "a": "Diego Delso",
@@ -27367,6 +27447,16 @@
 "u": "a/a7/Mule_buck_elk_creek_m_myatt_%285489214303%29.jpg/330px-Mule_buck_elk_creek_m_myatt_%285489214303%29.jpg",
 "wiki": "Odocoileus hemionus"
 },
+"odocoileus-hemionus-columbianus": {
+"a": "Charles J. Sharp",
+"f": "1b161278ef49.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Columbian_black-tailed_deer_%28Odocoileus_hemionus_columbianus%29_male_Mt_Rainier.jpg",
+"page": "Black-tailed_deer",
+"u": "c/cf/Columbian_black-tailed_deer_%28Odocoileus_hemionus_columbianus%29_male_Mt_Rainier.jpg/330px-Columbian_black-tailed_deer_%28Odocoileus_hemionus_columbianus%29_male_Mt_Rainier.jpg",
+"wiki": "Black-tailed deer"
+},
 "odocoileus-virginianus": {
 "a": "USDA photo by Scott Bauer",
 "f": "b01b8c4b64b1.webp",
@@ -28642,6 +28732,27 @@
 "u": "4/42/015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/330px-015_Chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
 "wiki": "Chimpanzee"
 },
+"pan-troglodytes-schweinfurthii": {
+"a": "Giles Laurent",
+"f": "aa5837178a69.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:013_Alpha_male_chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+"page": "Eastern_chimpanzee",
+"src": "wikidata-p18",
+"u": "8/86/013_Alpha_male_chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg/330px-013_Alpha_male_chimpanzee_at_Kibale_forest_National_Park_Photo_by_Giles_Laurent.jpg",
+"wiki": "Eastern chimpanzee"
+},
+"pan-troglodytes-troglodytes": {
+"a": "Lizzyfoxx",
+"f": "d0687cedab4e.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Just_Sit_Here_%28118964695%29.jpeg",
+"page": "Central_chimpanzee",
+"u": "2/27/Just_Sit_Here_%28118964695%29.jpeg/330px-Just_Sit_Here_%28118964695%29.jpeg",
+"wiki": "Central chimpanzee"
+},
 "pan-troglodytes-verus": {
 "a": "Aboubacarkhoraa",
 "f": "7d85eb28df12.webp",
@@ -28802,6 +28913,16 @@
 "u": "a/a6/020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg/330px-020_The_lion_king_Snyggve_in_the_Serengeti_National_Park_Photo_by_Giles_Laurent.jpg",
 "wiki": "Lion"
 },
+"panthera-leo-leo": {
+"a": "Prajwal Padhi",
+"f": "8a95f94daf84.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Lionss_of_king.jpg",
+"page": "Panthera_leo_leo",
+"u": "1/12/Lionss_of_king.jpg/330px-Lionss_of_king.jpg",
+"wiki": "Panthera leo leo"
+},
 "panthera-onca": {
 "a": "USFWS",
 "f": "432f1e4cbb77.webp",
@@ -28821,6 +28942,36 @@
 "page": "Leopard",
 "u": "7/70/African_leopard_male_%28cropped%29.jpg/330px-African_leopard_male_%28cropped%29.jpg",
 "wiki": "Leopard"
+},
+"panthera-pardus-fusca": {
+"a": "Tisha Mukherjee",
+"f": "70089b7a9101.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Indian_leopard_in_Jawai_Bandh_April_2025_by_Tisha_Mukherjee_02.jpg",
+"page": "Indian_leopard",
+"u": "3/33/Indian_leopard_in_Jawai_Bandh_April_2025_by_Tisha_Mukherjee_02.jpg/330px-Indian_leopard_in_Jawai_Bandh_April_2025_by_Tisha_Mukherjee_02.jpg",
+"wiki": "Indian leopard"
+},
+"panthera-pardus-kotiya": {
+"a": "Charles J. Sharp",
+"f": "f53ef03c343e.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sri_Lankan_leopard_%28Panthera_pardus_kotiya%29_female_5.jpg",
+"page": "Sri_Lankan_leopard",
+"u": "9/97/Sri_Lankan_leopard_%28Panthera_pardus_kotiya%29_female_5.jpg/330px-Sri_Lankan_leopard_%28Panthera_pardus_kotiya%29_female_5.jpg",
+"wiki": "Sri Lankan leopard"
+},
+"panthera-pardus-melas": {
+"a": "Panthera_pardus_close_up.jpg: tropicaLiving derivative work: Anaxibia",
+"f": "415ce622cdb6.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Panthera_pardus_close_up-2.jpg",
+"page": "Javan_leopard",
+"u": "c/c6/Panthera_pardus_close_up-2.jpg/330px-Panthera_pardus_close_up-2.jpg",
+"wiki": "Javan leopard"
 },
 "panthera-pardus-pardus": {
 "a": "Charles J. Sharp",
@@ -28861,6 +29012,26 @@
 "page": "Siberian_tiger",
 "u": "b/b9/P.t.altaica_Tomak_Male.jpg/330px-P.t.altaica_Tomak_Male.jpg",
 "wiki": "Siberian tiger"
+},
+"panthera-tigris-jacksoni": {
+"a": "Tu7uh",
+"f": "d21511599554.webp",
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:MalayanTiger.jpg",
+"page": "Malayan_tiger",
+"u": "c/c5/MalayanTiger.jpg/330px-MalayanTiger.jpg",
+"wiki": "Malayan tiger"
+},
+"panthera-tigris-sumatrae": {
+"a": "Captain Herbert",
+"f": "d798732d32d3.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Sumatran_Tiger_Berlin_Tierpark.jpg",
+"page": "Sumatran_tiger",
+"u": "e/e1/Sumatran_Tiger_Berlin_Tierpark.jpg/330px-Sumatran_Tiger_Berlin_Tierpark.jpg",
+"wiki": "Sumatran tiger"
 },
 "panthera-tigris-tigris": {
 "a": "Tisha Mukherjee",
@@ -34579,6 +34750,16 @@
 "u": "4/4e/Tree_in_Mississippi.jpg/330px-Tree_in_Mississippi.jpg",
 "wiki": "Quercus phellos"
 },
+"quercus-pubescens": {
+"a": "Etrusko25",
+"f": "bca43ac1328a.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Quercus_pubescens_Tuscany.jpg",
+"page": "Quercus_pubescens",
+"u": "9/96/Quercus_pubescens_Tuscany.jpg/330px-Quercus_pubescens_Tuscany.jpg",
+"wiki": "Quercus pubescens"
+},
 "quercus-robur": {
 "a": "Wobbly Monkey",
 "f": "56a5334cca2d.webp",
@@ -34820,6 +35001,16 @@
 "page": "Reindeer",
 "u": "9/96/Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg/330px-Reinbukken_p%C3%A5_frisk_gr%C3%B8nt_beite._-_panoramio.jpg",
 "wiki": "Reindeer"
+},
+"rangifer-tarandus-platyrhynchus": {
+"a": "Bjørn Christian Tørrissen",
+"f": "3fe5f2511cf0.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Svalbardrein-in-Tempelfjorden.jpg",
+"page": "Svalbard_reindeer",
+"u": "2/2b/Svalbardrein-in-Tempelfjorden.jpg/330px-Svalbardrein-in-Tempelfjorden.jpg",
+"wiki": "Svalbard reindeer"
 },
 "ranunculus-fascicularis": {
 "a": "Mason Brock (Masebrock)",
@@ -36254,6 +36445,16 @@
 "page": "Sambar_deer",
 "u": "7/7a/Sambar_%28Cervus_unicolor_unicolor%29_male.jpg/330px-Sambar_%28Cervus_unicolor_unicolor%29_male.jpg",
 "wiki": "Sambar deer"
+},
+"rusa-unicolor-swinhoii": {
+"a": "Richard Lydekker",
+"f": "8cde431329b0.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:The_deer_of_all_lands_%281898%29_Formosan_sambar_in_Woburn_Abbey.png",
+"page": "Formosan_sambar_deer",
+"u": "2/2e/The_deer_of_all_lands_%281898%29_Formosan_sambar_in_Woburn_Abbey.png/330px-The_deer_of_all_lands_%281898%29_Formosan_sambar_in_Woburn_Abbey.png",
+"wiki": "Formosan sambar deer"
 },
 "rutilus-rutilus": {
 "a": "Scardinius_erythropthalmus1_resize.jpg: Original uploader was Algirdas at lt.wikipedia\nderivative work: George Chernilevsky talk",
@@ -42249,6 +42450,16 @@
 "u": "a/a9/GrizzlyBearJeanBeaufort.jpg/330px-GrizzlyBearJeanBeaufort.jpg",
 "wiki": "Grizzly bear"
 },
+"ursus-arctos-isabellinus": {
+"a": "Zoo Hluboka",
+"f": "694d9b516d73.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://commons.wikimedia.org/wiki/File:Medv%C4%9Bd_plav%C3%BD_%28Ursus_arctos_isabellinus%29.jpg",
+"page": "Himalayan_brown_bear",
+"u": "9/96/Medv%C4%9Bd_plav%C3%BD_%28Ursus_arctos_isabellinus%29.jpg/330px-Medv%C4%9Bd_plav%C3%BD_%28Ursus_arctos_isabellinus%29.jpg",
+"wiki": "Himalayan brown bear"
+},
 "ursus-arctos-lasiopus": {
 "a": "bryan...",
 "f": "9c9b295d6d2a.webp",
@@ -42278,6 +42489,16 @@
 "page": "Asian_black_bear",
 "u": "b/b7/Ursus_thibetanus_3_%28Wroclaw_zoo%29.JPG/330px-Ursus_thibetanus_3_%28Wroclaw_zoo%29.JPG",
 "wiki": "Asian black bear"
+},
+"ursus-thibetanus-formosanus": {
+"a": "Abu0804",
+"f": "2f7ef7c333dd.webp",
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"p": "https://commons.wikimedia.org/wiki/File:Formosan_Black_Bear.JPG",
+"page": "Formosan_black_bear",
+"u": "e/e9/Formosan_Black_Bear.JPG/330px-Formosan_Black_Bear.JPG",
+"wiki": "Formosan black bear"
 },
 "urtica-dioica": {
 "a": "Evelyn Simak",

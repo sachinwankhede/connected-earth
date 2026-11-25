@@ -3846,6 +3846,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"antilocapra-americana-sonoriensis": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Antilocapridae",
+"gname": "Antilocapra americana sonoriensis Goldman, 1945",
+"key": 6165142,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "antrozous-pallidus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -7485,6 +7499,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"bison-bison-athabascae": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 99,
+"family": "Bovidae",
+"gname": "Bison bison athabascae Rhoads, 1898",
+"key": 9182932,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "bison-bonasus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -10330,6 +10358,20 @@
 "order": "Carnivora",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"canis-lupus-arabs": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Canidae",
+"gname": "Canis lupus arabs Pocock, 1934",
+"key": 6164216,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "canis-lupus-arctos": {
@@ -20838,6 +20880,34 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"elephas-maximus-indicus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Elephantidae",
+"gname": "Elephas maximus indicus Cuvier, 1798",
+"key": 5219462,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Proboscidea",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"elephas-maximus-sumatranus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Elephantidae",
+"gname": "Elephas maximus sumatranus Temminck, 1847",
+"key": 5219463,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Proboscidea",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "eleusine-indica": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -30019,6 +30089,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"kobus-kob-thomasi": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Bovidae",
+"gname": "Kobus kob thomasi (P.L.Sclater, 1896)",
+"key": 5706375,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "kobus-leche": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -30293,6 +30377,20 @@
 "key": 5227679,
 "kingdom": "Animalia",
 "match": "exact",
+"order": "Galliformes",
+"phylum": "Chordata",
+"rank": "SPECIES",
+"src": "gbif"
+},
+"lagopus-scotica": {
+"at": "2026-11-25",
+"class": "Aves",
+"conf": 97,
+"family": "Phasianidae",
+"gname": "Lagopus scoticus (Latham)",
+"key": 8189518,
+"kingdom": "Animalia",
+"match": "fuzzy",
 "order": "Galliformes",
 "phylum": "Chordata",
 "rank": "SPECIES",
@@ -33812,6 +33910,20 @@
 "order": "Carnivora",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"lynx-lynx-balcanicus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Lynx lynx balcanicus Buresh, 1941",
+"key": 10773846,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "lynx-pardinus": {
@@ -39181,6 +39293,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"odocoileus-hemionus-columbianus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Cervidae",
+"gname": "Odocoileus hemionus columbianus (Richardson, 1829)",
+"key": 4262326,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "odocoileus-virginianus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -40970,6 +41096,34 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"pan-troglodytes-schweinfurthii": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Hominidae",
+"gname": "Pan troglodytes schweinfurthii (Giglioli, 1872)",
+"key": 5707421,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Primates",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"pan-troglodytes-troglodytes": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Hominidae",
+"gname": "Pan troglodytes troglodytes (Blumenbach, 1775)",
+"key": 7262069,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Primates",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "pan-troglodytes-verus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -41207,6 +41361,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"panthera-leo-leo": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera leo leo (Linnaeus, 1758)",
+"key": 7059275,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "panthera-onca": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -41233,6 +41401,48 @@
 "order": "Carnivora",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"panthera-pardus-fusca": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera pardus fusca (Meyer, 1794)",
+"key": 5219442,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"panthera-pardus-kotiya": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera pardus kotiya Deraniyagala, 1956",
+"key": 5219437,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"panthera-pardus-melas": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera pardus melas (G.Cuvier, 1809)",
+"key": 5219441,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "panthera-pardus-pardus": {
@@ -41284,6 +41494,34 @@
 "family": "Felidae",
 "gname": "Panthera tigris altaica Temminck, 1844",
 "key": 5219420,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
+"panthera-tigris-jacksoni": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera tigris (Linnaeus, 1758)",
+"key": 5219416,
+"kingdom": "Animalia",
+"match": "higher-rank",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SPECIES",
+"src": "gbif"
+},
+"panthera-tigris-sumatrae": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Felidae",
+"gname": "Panthera tigris sumatrae Pocock, 1929",
+"key": 5219418,
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Carnivora",
@@ -49357,6 +49595,20 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
+"quercus-pubescens": {
+"at": "2026-11-25",
+"class": "Magnoliopsida",
+"conf": 97,
+"family": "Fagaceae",
+"gname": "Quercus pubescens Willd.",
+"key": 2881283,
+"kingdom": "Plantae",
+"match": "exact",
+"order": "Fagales",
+"phylum": "Tracheophyta",
+"rank": "SPECIES",
+"src": "gbif"
+},
 "quercus-robur": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -49690,6 +49942,20 @@
 "order": "Artiodactyla",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"rangifer-tarandus-platyrhynchus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Cervidae",
+"gname": "Rangifer tarandus platyrhynchus (Vrolik, 1829)",
+"key": 5706312,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "ranunculus-glaberrimus": {
@@ -51776,6 +52042,20 @@
 "order": "Artiodactyla",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"rusa-unicolor-swinhoii": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Cervidae",
+"gname": "Rusa unicolor swinhoii (Sclater, 1862)",
+"key": 4262402,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Artiodactyla",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "rutilus-rutilus": {
@@ -60485,6 +60765,20 @@
 "rank": "SUBSPECIES",
 "src": "gbif"
 },
+"ursus-arctos-isabellinus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Ursidae",
+"gname": "Ursus arctos isabellinus Horsfield, 1826",
+"key": 6163847,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
+"src": "gbif"
+},
 "ursus-arctos-lasiopus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -60525,6 +60819,20 @@
 "order": "Carnivora",
 "phylum": "Chordata",
 "rank": "SPECIES",
+"src": "gbif"
+},
+"ursus-thibetanus-formosanus": {
+"at": "2026-11-25",
+"class": "Mammalia",
+"conf": 100,
+"family": "Ursidae",
+"gname": "Ursus thibetanus formosanus Swinhoe, 1864",
+"key": 6163864,
+"kingdom": "Animalia",
+"match": "exact",
+"order": "Carnivora",
+"phylum": "Chordata",
+"rank": "SUBSPECIES",
 "src": "gbif"
 },
 "urtica-dioica": {

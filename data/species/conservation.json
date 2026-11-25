@@ -563,6 +563,10 @@
   "c": "LC",
   "q": "Q187943"
  },
+ "antilocapra-americana-sonoriensis": {
+  "c": "EN",
+  "q": "Q2165837"
+ },
  "antrozous-pallidus": {
   "c": "LC",
   "q": "Q301105"
@@ -3067,6 +3071,10 @@
   "c": "EN",
   "q": "Q133006"
  },
+ "elephas-maximus-sumatranus": {
+  "c": "CR",
+  "q": "Q1926485"
+ },
  "eleusine-indica": {
   "c": "LC",
   "q": "Q1148930"
@@ -4355,6 +4363,10 @@
   "c": "LC",
   "q": "Q237267"
  },
+ "kobus-kob-thomasi": {
+  "c": "LC",
+  "q": "Q5419779"
+ },
  "kobus-leche": {
   "c": "NT",
   "q": "Q273565"
@@ -4902,6 +4914,10 @@
  "lynx-lynx": {
   "c": "LC",
   "q": "Q43375"
+ },
+ "lynx-lynx-balcanicus": {
+  "c": "CR",
+  "q": "Q2164570"
  },
  "lynx-pardinus": {
   "c": "VU",
@@ -6063,6 +6079,14 @@
   "c": "EN",
   "q": "Q4126704"
  },
+ "pan-troglodytes-schweinfurthii": {
+  "c": "EN",
+  "q": "Q3296642"
+ },
+ "pan-troglodytes-troglodytes": {
+  "c": "EN",
+  "q": "Q2552951"
+ },
  "pan-troglodytes-verus": {
   "c": "CR",
   "q": "Q3297541"
@@ -6107,6 +6131,14 @@
   "c": "VU",
   "q": "Q34706"
  },
+ "panthera-pardus-kotiya": {
+  "c": "VU",
+  "q": "Q475046"
+ },
+ "panthera-pardus-melas": {
+  "c": "EN",
+  "q": "Q841950"
+ },
  "panthera-pardus-tulliana": {
   "c": "EN",
   "q": "Q754336"
@@ -6118,6 +6150,10 @@
  "panthera-tigris-altaica": {
   "c": "EN",
   "q": "Q69581"
+ },
+ "panthera-tigris-sumatrae": {
+  "c": "CR",
+  "q": "Q191129"
  },
  "panthera-tigris-tigris": {
   "c": "EN",
@@ -7546,6 +7582,10 @@
  "quercus-phellos": {
   "c": "LC",
   "q": "Q783224"
+ },
+ "quercus-pubescens": {
+  "c": "LC",
+  "q": "Q161415"
  },
  "quercus-robur": {
   "c": "LC",
