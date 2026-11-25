@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """jobs/speciespictures.py: the one acquire job for species pictures. Fake sources only: no network. Everything runs in a temp root in the NEW (sid-keyed) shape."""
-import datetime, io, json, os, sys, tempfile, unittest
+import datetime, hashlib, io, json, os, sys, tempfile, unittest
+from PIL import Image
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, '..', '..', 'jobs')); sys.path.insert(0, os.path.join(HERE, '..', '..', 'lib'))
 import speciespictures as sj, species_photos as sp, species_sources as ss, author_lookup as al
@@ -26,6 +27,12 @@ def strategy(name, found=(), miss=(), offered=None, entry=None):
 def fake_copies(entry, need=('medium', 'large'), log=None):
     if log is not None: log.append(entry['f'] if 'f' in entry else entry.get('u'))
     return {k: b'COPY-' + k.encode() for k in need}, ''
+
+def legacy(d, sid, entry, size=96):
+    """An old-shape picture: the 96 px file photos/species/<f> and its row, no 192 px copy."""
+    from PIL import Image
+    p = os.path.join(d, 'photos', 'species_pictures.json'); rows = json.load(open(p)); rows[sid] = entry; json.dump(rows, open(p, 'w'))
+    os.makedirs(os.path.join(d, 'photos', 'species'), exist_ok=True); b = io.BytesIO(); Image.new('RGB', (size, size * 2 // 3), (9, 9, 9)).save(b, 'WEBP'); open(os.path.join(d, 'photos', 'species', entry['f']), 'wb').write(b.getvalue())
 
 def new_root():
     d = tempfile.mkdtemp(); os.makedirs(os.path.join(d, 'photos')); json.dump({}, open(os.path.join(d, 'photos', 'species_pictures.json'), 'w')); return d
@@ -102,7 +109,7 @@ class AcquireTests(unittest.TestCase):
         w = self.fresh(); self.assertEqual(sorted(w.pics), ['rain1', 'rain2', 'wolf']); self.assertEqual(w.check(), [])
         self.assertEqual(w.pics['rain1']['f'], w.pics['rain2']['f']); self.assertNotEqual(w.pics['rain1']['f'], w.pics['wolf']['f'], 'a different picture, a different file')
         self.assertEqual((w.pics['rain1']['wiki'], w.pics['rain2']['wiki']), ('Rain', 'Rain')); self.assertEqual(stats['wikipedia']['found'], 3)
-        self.assertTrue(w.has_medium('rain2') and w.has_large('rain2')); self.assertEqual(sorted(os.listdir(os.path.join(self.d, 'photos/species'))).__len__(), 2)
+        self.assertTrue(w.has_medium('rain2') and w.has_large('rain2')); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-md'))), 2); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/species')))
 
     def test_a_shared_title_with_no_picture_is_recorded_for_every_sid(self):
         self.run_([strategy('wikipedia', miss={'rain1'})], [unit('rain1', 'Rain'), unit('rain2', 'Rain')])
@@ -113,21 +120,37 @@ class AcquireTests(unittest.TestCase):
         self.run_([strategy('wikipedia', found={'aa'})], [unit('aa')], copies=lambda e, need=('medium', 'large'): fake_copies(e, need, made))
         w = self.fresh(); self.assertTrue(w.has('aa') and w.has_medium('aa') and w.has_large('aa')); self.assertEqual(w.check(), [])
         f = w.pics['aa']['f']
-        self.assertEqual(open(os.path.join(self.d, 'photos/species-md', f), 'rb').read(), b'COPY-medium'); self.assertEqual(open(os.path.join(self.d, 'photos/species-lg', f), 'rb').read(), b'COPY-large')
+        stored = open(os.path.join(self.d, 'photos/species-md', f), 'rb').read(); self.assertEqual(Image.open(io.BytesIO(stored)).size, (192, 128)); self.assertEqual(f, hashlib.sha256(stored).hexdigest()[:12] + '.webp')
+        self.assertEqual(open(os.path.join(self.d, 'photos/species-lg', f), 'rb').read(), b'COPY-large'); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/species')), 'no 96 px file is written')
+        self.assertEqual(self.fresh().medium['aa'], f); self.assertEqual(made, [row('aa')['u']], 'one download, and only for the 400 px copy')
 
     def test_a_picture_is_kept_alone_when_no_copy_can_be_made(self):
         stats, _ = self.run_([strategy('wikipedia', found={'aa'})], [unit('aa')], copies=lambda e, need=('medium', 'large'): ({}, 'the source has no thumbnail for it'))
-        w = self.fresh(); self.assertTrue(w.has('aa')); self.assertFalse(w.has_large('aa')); self.assertFalse(w.has_medium('aa')); self.assertEqual(w.check(), [])
-        self.assertEqual(stats['wikipedia']['nocopy'], 1); self.assertTrue(any('small picture stays' in l for l in self.log))
+        w = self.fresh(); self.assertTrue(w.has('aa')); self.assertFalse(w.has_large('aa')); self.assertTrue(w.has_medium('aa'), 'the 192 px picture is the stored one'); self.assertEqual(w.check(), [])
+        self.assertEqual(stats['wikipedia']['nocopy'], 1); self.assertTrue(any('192 px picture stays' in l for l in self.log)); self.assertTrue(w.copy_held('aa', datetime.date.today()), 'the 30-day hold of a failed copy')
 
     def test_strategies_medium_and_large_fill_only_the_gaps_and_add_no_pictures(self):
-        self.w.put('aa', dict(row('aa'), wiki='Aa'), jpeg()); self.w.put('bb', dict(row('bb'), wiki='Bb'), jpeg((200, 0, 0))); self.w.put('gb', dict(row('gb', u='gbif/123'), wiki='G'), jpeg((0, 0, 200)))
+        legacy(self.d, 'aa', dict(row('aa'), wiki='Aa', f='aaaaaaaaaaaa.webp')); legacy(self.d, 'bb', dict(row('bb'), wiki='Bb', f='bbbbbbbbbbbb.webp'))   # pictures an older run left: 96 px file, no 192 px copy
+        self.w = self.fresh(); self.w.put('gb', dict(row('gb', u='gbif/123'), wiki='G'), jpeg((0, 0, 200)))
         self.w.put_large('aa', b'OLD'); self.w.commit(); self.w = self.fresh(); asked = []; found = []
         def copies(e, need=('medium', 'large')): asked.append((e['wiki'], need)); return {k: b'NEW' for k in need}, ''
         self.run_([strategy('wikipedia', found={'cc'}, offered=found)], [unit('aa'), unit('bb'), unit('cc')], copies=copies, only='large')
         w = self.fresh(); self.assertEqual(asked, [('Bb', ('large',))]); self.assertEqual(found, [], 'no picture strategy is asked'); self.assertEqual(sorted(w.pics), ['aa', 'bb', 'gb'])
-        self.assertTrue(w.has_large('bb')); self.assertFalse(w.has_medium('bb')); self.assertFalse(w.has_large('gb'), 'a GBIF picture has no source address for a copy')
+        self.assertTrue(w.has_large('bb')); self.assertFalse(w.has_medium('bb')); self.assertTrue(w.has_medium('gb')); self.assertFalse(w.has_large('gb'), 'a GBIF picture has no source address for a copy')
         asked.clear(); self.w = self.fresh(); self.run_([], [], copies=copies, only='medium'); self.assertEqual(sorted(a[0] for a in asked), ['Aa', 'Bb']); self.assertEqual(self.fresh().check(), [])
+
+    def test_old_shape_data_still_validates_and_the_192_copy_of_a_legacy_picture_is_still_made(self):
+        legacy(self.d, 'aa', dict(row('aa'), wiki='Aa', f='aaaaaaaaaaaa.webp')); self.w = self.fresh(); self.assertEqual(self.w.check(), [])
+        self.assertFalse(self.w.has_medium('aa')); self.run_([], [], copies=lambda e, need=('medium', 'large'): ({k: b'NEW-' + k.encode() for k in need}, ''), only='all')
+        w = self.fresh(); self.assertEqual(w.check(), []); self.assertTrue(w.has_medium('aa') and w.has_large('aa')); self.assertTrue(os.path.isfile(os.path.join(self.d, 'photos/species/aaaaaaaaaaaa.webp')), 'the 96 px file is only removed by the migration')
+
+    def test_check_and_repair_agree_for_both_shapes(self):
+        self.w.put('aa', dict(row('aa'), wiki='Aa'), jpeg()); self.w.commit(); f = self.fresh().pics['aa']['f']
+        w = self.fresh(); self.assertEqual(w.check(), [])
+        os.remove(os.path.join(self.d, 'photos/species-md', f)); w = self.fresh(); self.assertTrue(any('is missing' in e for e in w.check()))
+        self.assertEqual(w.repair(), ['medium:aa', 'species_pictures.json:aa']); self.assertEqual(self.fresh().check(), [])
+        self.w = self.fresh(); self.w.put('bb', dict(row('bb'), wiki='Bb'), jpeg((9, 9, 9))); self.w.commit(); w = self.fresh(); del w.medium['bb']
+        self.assertTrue(any('only in species-md' in e for e in w.check()))
 
     def test_a_run_that_changes_nothing_writes_no_file_and_dry_writes_nothing(self):
         self.w.put('aa', dict(row('aa'), wiki='Aa'), jpeg()); self.w.put_medium('aa', b'M'); self.w.put_large('aa', b'L'); self.w.commit()

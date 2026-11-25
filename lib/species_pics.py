@@ -30,7 +30,7 @@ def load(root='.', titles=None):
     """{'pics': {sid: row}, 'medium': {sid: file}, 'large': {sid: file}, 'missing': {sid: entry}, 'titles': {title: row}, 'title_large': {title: file}, 'title_medium': {title: file}, 'shape': 'sid'|'title'}. `titles` (old shape only) is {sid: [titles a species is shown under on the places, e.g. from
     the nodes' wiki and canonicalWiki]}: the old build looked a species' picture up under those, its Latin name first, so a species' row is the first of them that has a picture. The `titles` and
     `title_large` results are the same pictures by Wikipedia title, for the journeys, which still name a picture by title (every hosted title in the old shape). A row is the credit row ({a, l, lu, p, ...}) plus
-    `f` (the 96 px file name), `wiki` (the title the picture was found under), `page` (the Wikipedia page the species page links to) and `u` (the source path the larger copies
+    `f` (the picture file name: the 192 px file in species-md since #1188, the 96 px file in species/ before), `wiki` (the title the picture was found under), `page` (the Wikipedia page the species page links to) and `u` (the source path the larger copies
     are made from; a job that stores a picture in the new shape sets both)."""
     if new_shape(root):
         d = {'pics': _read(root, 'photos', 'species_pictures.json'), 'medium': _read(root, 'photos', 'species_medium.json') or {},

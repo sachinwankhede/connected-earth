@@ -104,8 +104,8 @@ def main(mode='all'):
             copy_file(source, source.relative_to(ROOT).as_posix(), expected)
 
     copy_file(ROOT / 'photos/places/places.json', 'photos/places/places.json', expected)
-    # our own copies of the species pictures: the app reads the 192 px (species-md) and 400 px (species-lg) copies. The 96 px files in photos/species/ stay in the repository
-    # (the 192 px step reads them as its fallback) but are not published, which keeps the payload under Cloudflare Pages' 20,000 file limit (#690).
+    # our own copies of the species pictures: the app reads the 192 px (species-md) and 400 px (species-lg) copies. Since #1188 the stored picture is the 192 px file in species-md; an old 96 px file in photos/species/ stays in the repository until the migration (jobs/drop96px.py)
+    # (the fallback below, for a picture with no 192 px file) and is not published, which keeps the payload under Cloudflare Pages' 20,000 file limit (#690).
     sp = species_pics.load(str(ROOT)); pics = list(sp['pics'].values()) + list(sp['titles'].values())   # by species id, from either shape; the journeys' pictures are by title (#934)
     hosted_names = {r['f'] for r in pics}
     medium_files = set(sp['medium'].values()) | set(sp['title_medium'].values())   # 192 px tile copies (#669)
@@ -119,7 +119,7 @@ def main(mode='all'):
         if not source.is_file():
             raise SystemExit('larger species picture missing: photos/species-lg/' + name)
         copy_file(source, 'photos/species-lg/' + name, expected)
-    jpics = journey_pics.load(str(ROOT))   # the journey covers by journey id (none until photos/journey_pictures.json exists): the 96 px file and its larger copy
+    jpics = journey_pics.load(str(ROOT))   # the journey covers by journey id (none until photos/journey_pictures.json exists): the cover file (192 px, or 96 px for an old one: same path) and its larger copy
     for row in sorted(jpics['pics'].values(), key=lambda r: r['f']):
         source = ROOT / 'photos/journeys' / row['f']
         if not source.is_file():

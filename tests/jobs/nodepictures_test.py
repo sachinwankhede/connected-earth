@@ -51,17 +51,14 @@ class NodeAcquireTests(unittest.TestCase):
         self.run_([strategy(n, offered=offered) for n in ('wikipedia', 'commons', 'gbif', 'openverse', 'inaturalist')])
         self.assertEqual(sorted({o[0] for o in offered}), ['commons', 'wikipedia'])
 
-    def test_the_192_px_copy_is_the_stored_file_and_nothing_else_is_written(self):
-        self.run_([strategy('wikipedia', found={'sunbeam'})])
+    def test_the_first_fetch_is_the_192_px_stored_file_and_nothing_else_is_written(self):
+        self.run_([strategy('wikipedia', found={'sunbeam'})], copies=None)
         w = self.fresh(); self.assertTrue(w.has('sunbeam')); self.assertEqual(w.check(), [])
         files = os.listdir(os.path.join(self.d, 'photos', 'nodes')); self.assertEqual(files, [w.pics['sunbeam']['f']])
-        self.assertEqual(open(os.path.join(self.d, 'photos', 'nodes', files[0]), 'rb').read(), b'MEDIUM-192')
+        from PIL import Image
+        self.assertEqual(Image.open(os.path.join(self.d, 'photos', 'nodes', files[0])).size, (192, 128))
         self.assertEqual(sorted(os.listdir(os.path.join(self.d, 'photos'))), ['node_missing.json', 'node_pictures.json', 'node_tried.json', 'nodes'])
         self.assertEqual(w.pics['sunbeam']['wiki'], 'Sunbeam')
-
-    def test_without_the_192_px_copy_the_small_picture_stays(self):
-        self.run_([strategy('wikipedia', found={'sunbeam'})], copies=no_copies)
-        w = self.fresh(); self.assertTrue(w.has('sunbeam')); self.assertEqual(w.check(), []); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos', 'nodes'))), 1)
 
     def test_a_wikipedia_miss_is_recorded_and_commons_then_holds_it_for_30_days(self):
         self.run_([strategy('wikipedia'), strategy('commons')])
@@ -88,10 +85,10 @@ class NodeAcquireTests(unittest.TestCase):
         self.assertFalse(os.path.exists(os.path.join(self.d, 'photos')))
 
     def test_main_runs_end_to_end_with_the_check_and_exit_codes(self):
-        saved = nj.STRATEGIES; old_c = nj.copies; old = sys.stdout
-        nj.STRATEGIES = [strategy('wikipedia', found={'sunbeam'}), strategy('commons')]; nj.copies = fake_copies; sys.stdout = io.StringIO()
+        saved = nj.STRATEGIES; old = sys.stdout
+        nj.STRATEGIES = [strategy('wikipedia', found={'sunbeam'}), strategy('commons')]; sys.stdout = io.StringIO()
         try: code = nj.main(['--strategy', 'wikipedia', '--repair-limit', '0'], root=self.d); bad = nj.main(['--strategy', 'nope'], root=self.d)
-        finally: sys.stdout = old; nj.copies = old_c; nj.STRATEGIES = saved
+        finally: sys.stdout = old; nj.STRATEGIES = saved
         self.assertEqual((code, bad), (0, 1)); self.assertTrue(np.NodePhotos(self.d).has('sunbeam'))
 
 

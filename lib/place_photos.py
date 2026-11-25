@@ -81,6 +81,13 @@ def _write_bytes(path, data):
     with open(tmp, 'wb') as f: f.write(data); f.flush(); os.fsync(f.fileno())
     os.replace(tmp, path)
 
+def shrink(raw, size=192, quality=70):
+    """WebP bytes of the image `raw` at most `size` px on its longer side (the 192 px picture of #1188, made from a larger copy by the migrations), or None when it is not an image."""
+    try:
+        import io; from PIL import Image
+        im = Image.open(io.BytesIO(raw)).convert('RGB'); im.thumbnail((size, size)); buf = io.BytesIO(); im.save(buf, 'WEBP', quality=quality, method=6); return buf.getvalue()
+    except Exception: return None
+
 def _write_json(path, obj, indent=0):
     os.makedirs(os.path.dirname(path), exist_ok=True); tmp = path + '.tmp'
     with open(tmp, 'w') as f: json.dump(obj, f, ensure_ascii=False, indent=indent, sort_keys=True); f.flush(); os.fsync(f.fileno())

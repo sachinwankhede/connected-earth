@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """journey_photos.py: the one writer for journey cover pictures (docs/DATA-PLAN.md, "Journey pictures: by journey id"; owner, 15 Nov: "Own").
 
-A journey cover is its own picture row, keyed by the JOURNEY ID (the file name of data/journeys/<id>.json), never by a Wikipedia title: the file `photos/journeys/<id>.webp` (96 px), its row in
+A journey cover is its own picture row, keyed by the JOURNEY ID (the file name of data/journeys/<id>.json), never by a Wikipedia title: the file `photos/journeys/<id>.webp` (192 px since #1188; an older cover is 96 px and keeps working until migrate_192 replaces it, same name), its row in
 `photos/journey_pictures.json` ({f, a, l, lu, p, wiki, page, u, src}: credit, the title it was found under, the source path the larger copy is made from), its larger copy
 `photos/journeys-lg/<id>.webp` (400 px) with its row in `photos/journey_large.json`, and the journey's absence from `photos/journey_missing.json` and from the retry ledger
 `photos/journey_tried.json`. The ends of a journey are not stored here: they use the place pictures by place id.
@@ -14,7 +14,7 @@ import os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 import author_clean as ac
-from place_photos import CreditRepair, author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for all writers
+from place_photos import CreditRepair, author_missing, shrink, _read, _write_bytes, _write_json   # one author rule and one atomic write for all writers
 
 PICS = ('photos', 'journey_pictures.json'); MISSING = ('photos', 'journey_missing.json'); LARGE = ('photos', 'journey_large.json'); TRIED = ('photos', 'journey_tried.json')
 SMALL_DIR = ('photos', 'journeys'); LARGE_DIR = ('photos', 'journeys-lg')
@@ -40,7 +40,7 @@ class JourneyPhotos(CreditRepair):
 
     # --- writing (nothing touches the disk until commit)
     def put(self, jid, entry, webp):
-        """Store the 96 px cover of this journey. The file name is always <id>.webp. The journey leaves missing.json and the ledger; a larger copy of a
+        """Store the 192 px cover of this journey (#1188; the caller shrinks the first fetch to 192 px). The file name is always <id>.webp. The journey leaves missing.json and the ledger; a larger copy of a
         different picture is dropped (the job makes a new one)."""
         entry = dict(entry); entry['a'] = ac.clean_author(entry.get('a')) or 'Unknown author'   # one stored form for the author (lib/author_clean.py)
         if author_missing(entry): raise ValueError('picture for %r is %s with no named author: refused' % (jid, entry.get('l')))
@@ -108,6 +108,25 @@ class JourneyPhotos(CreditRepair):
             elif name not in lfiles: errs.append('%s: listed in journey_large.json but %s is missing' % (jid, name))
         for f in sorted(lfiles - set(self.large.values())): errs.append('photos/journeys-lg/%s is not listed in journey_large.json' % f)
         return errs
+
+    def migrate_192(self, dry=False, size=192):
+        """The migration of #1188 (jobs/drop96px.py): a cover file whose longer side is under 192 px (the old 96 px one) is replaced, under the SAME name, by a 192 px copy shrunk from its 400 px copy (offline). A cover with no 400 px copy
+        stays 96 px (the app shows it as before; a job that fetches it again can replace it). The credit rows, `f` and journey_large.json do not change. Returns {'made': [ids], 'kept': {id: why}}; with `dry` nothing is written."""
+        out = {'made': [], 'kept': {}}; staged = {}
+        for jid, e in sorted(self.pics.items()):
+            path = self._path(SMALL_DIR, e.get('f') or '-'); lg = self._path(LARGE_DIR, jid + '.webp')
+            try:
+                from PIL import Image
+                with Image.open(path) as im: longest = max(im.size)
+            except Exception: continue   # missing or unreadable: check() reports it, not this step
+            if longest >= size: continue
+            if not (self.large.get(jid) and os.path.isfile(lg)): out['kept'][jid] = 'no 400 px copy to make the 192 px cover from'; continue
+            with open(lg, 'rb') as h: big = shrink(h.read(), size, 70)
+            if big is None: out['kept'][jid] = 'the 400 px copy is not an image'; continue
+            out['made'].append(jid); staged[path] = big
+        if not dry and staged:
+            self._write.update(staged); self.commit()
+        return out
 
     def dirty_authors(self):
         """Journey ids whose stored author clean_author would change (an email, a talk stamp, a web address, an uploader sentence)."""

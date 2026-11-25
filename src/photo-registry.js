@@ -64,7 +64,7 @@
     };
   }
 
-  // A journey cover is its own picture row keyed by journey id: {id: [96 px file, page]} (jpic) with its credit (jpicm) in api/species-pictures.json. The file is read from <base>/<name>.
+  // A journey cover is its own picture row keyed by journey id: {id: [cover file, page]} (192 px since #1188; an older cover is 96 px under the same name) (jpic) with its credit (jpicm) in api/species-pictures.json. The file is read from <base>/<name>.
   function journeyCandidate(value, base, metadata) {
     if (!Array.isArray(value) || typeof value[0] !== "string" || !/^[\w-]+\.webp$/.test(value[0]) || typeof base !== "string") return null;
     var c = speciesCandidate(["000000000000.webp", value[1]], null, 1, metadata);

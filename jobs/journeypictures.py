@@ -10,7 +10,7 @@ A species journey (type 'species') tries its imgwiki title through every source,
 "Gulf of Mexico dead zone") treats the title as a page title and tries only wikipedia and commons (a search finds a photo of the thing the word names, not of a flow: no GBIF, Openverse or iNaturalist, the
 `abiotic` rule of the species job). A page whose picture is a map, diagram, logo or flag is refused and the log says which file was skipped ("skipped as not a photo"). Journeys that share a title
 (osprey and chesosprey; greenturtleA and greenturtleB) are fetched once and each gets its own row and credit.
-Everything is written only through lib/journey_photos.py (put / put_large / miss / note_tried / commit): the 96 px picture, its credit and the 400 px copy in the same commit; the author rule applies (a CC BY /
+Everything is written only through lib/journey_photos.py (put / put_large / miss / note_tried / commit): the 192 px picture (the first fetch shrunk to 192 px, #1188; no 96 px step), its credit and the 400 px copy in the same commit; the author rule applies (a CC BY /
 CC BY-SA picture with no author is refused, recorded as 'notfree' for wikipedia or as tried for the other sources). Holds, caps, --dry and --limit are those of speciespictures.py (--limit counts titles).
 Resume contract (#1183, lib/runbudget.py), the same as the species, place and node jobs: --minutes (default 120) stops the run cleanly between two titles; the job prints `more: N` and exits 3 when N titles are still due and
 untried (run it again); 0 when none; 2 when a source stopped the run (do not chain); 1 for a failed check or when the migration (jobs/rekeyjourneyphotos.py) has not made photos/journey_pictures.json. Every title tried and every

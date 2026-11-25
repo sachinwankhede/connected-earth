@@ -26,7 +26,7 @@ class WriterTests(unittest.TestCase):
         w = self.fresh(); self.assertTrue(w.is_missing('abies-alba'))
         w.put('abies-alba', row(), b'WEBP'); w.commit(); w = self.fresh()
         self.assertTrue(w.has('abies-alba')); self.assertFalse(w.is_missing('abies-alba')); self.assertNotIn('abies-alba', w.tried)
-        f = w.pics['abies-alba']['f']; self.assertEqual(self.read('photos/species/' + f), b'WEBP'); self.assertEqual(w.check(), [])
+        f = w.pics['abies-alba']['f']; self.assertEqual(self.read('photos/species-md/' + f), b'WEBP'); self.assertEqual(w.medium['abies-alba'], f); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/species'))); self.assertEqual(w.check(), [])   # the 192 px picture is the stored one (#1188)
 
     def test_two_species_sharing_a_title_each_get_their_own_row(self):
         self.w.put('podocarpus', row(), b'A'); self.w.put('podocarpus-urbanii', row(p='https://commons.wikimedia.org/wiki/File:Z.jpg'), b'B'); self.w.commit(); w = self.fresh()
@@ -37,7 +37,7 @@ class WriterTests(unittest.TestCase):
     def test_species_showing_the_same_picture_share_one_file_until_the_last_one_goes(self):
         for sid in ('rain', 'rainfall'): self.w.put(sid, row(), b'SAME'); self.w.put_medium(sid, b'M'); self.w.put_large(sid, b'L')
         self.w.commit(); w = self.fresh(); f = w.pics['rain']['f']; self.assertEqual(f, w.pics['rainfall']['f'])
-        self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species'))), 1); self.assertEqual(w.check(), [])
+        self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-md'))), 1); self.assertEqual(w.check(), [])
         w.remove('rain', 'notfree'); w.commit(); w = self.fresh(); self.assertEqual(w.check(), []); self.assertTrue(os.path.exists(os.path.join(self.d, 'photos/species-lg', f)))
         w.remove('rainfall', 'notfree'); w.commit(); self.assertFalse(os.path.exists(os.path.join(self.d, 'photos/species-lg', f))); self.assertEqual(self.fresh().check(), [])
 
@@ -50,12 +50,12 @@ class WriterTests(unittest.TestCase):
     def test_remove_takes_both_copies_with_it_and_records_why(self):
         self.full(); w = self.fresh(); w.remove('podocarpus', 'notfree', 'commons'); w.commit(); w = self.fresh()
         self.assertFalse(w.has('podocarpus') or w.has_medium('podocarpus') or w.has_large('podocarpus')); self.assertTrue(w.is_missing('podocarpus'))
-        for rel in ('species', 'species-md', 'species-lg'): self.assertEqual(os.listdir(os.path.join(self.d, 'photos', rel)), [])
+        for rel in ('species-md', 'species-lg'): self.assertEqual(os.listdir(os.path.join(self.d, 'photos', rel)), [])
         self.assertEqual(w.check(), [])
 
     def test_a_different_picture_drops_the_old_copies(self):
         self.full(); w = self.fresh(); w.put('podocarpus', row('https://commons.wikimedia.org/wiki/File:Y.jpg'), b'S2'); w.commit(); w = self.fresh()
-        self.assertFalse(w.has_medium('podocarpus') or w.has_large('podocarpus')); self.assertEqual(w.check(), []); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-lg'))), 0)
+        self.assertFalse(w.has_large('podocarpus')); self.assertEqual(w.medium['podocarpus'], w.pics['podocarpus']['f'], 'the new 192 px picture is its own medium copy'); self.assertEqual(w.check(), []); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-lg'))), 0); self.assertEqual(len(os.listdir(os.path.join(self.d, 'photos/species-md'))), 1)
 
     def test_the_same_picture_keeps_its_copies(self):
         self.full(); w = self.fresh(); w.put('podocarpus', row(), b'S'); w.commit(); w = self.fresh()
@@ -69,6 +69,7 @@ class WriterTests(unittest.TestCase):
 
     def test_check_finds_what_a_killed_job_leaves_and_repair_removes_it(self):
         self.full(); f = self.fresh().pics['podocarpus']['f']; os.remove(os.path.join(self.d, 'photos/species-lg', f))
+        os.makedirs(os.path.join(self.d, 'photos/species'), exist_ok=True)
         with open(os.path.join(self.d, 'photos/species/stray.webp'), 'wb') as f: f.write(b'x')
         w = self.fresh(); self.assertEqual(len(w.check()), 2)
         w.repair(); w = self.fresh(); self.assertEqual(w.check(), []); self.assertTrue(w.has('podocarpus')); self.assertFalse(w.has_large('podocarpus'))

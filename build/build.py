@@ -540,7 +540,7 @@ def add_overlap(webs, ecos, main_ids):
 
 
 def journey_cover_pictures(jpics, links):
-    """The journey covers by journey id for api/species-pictures.json: `jpic` {journey id: [96 px file, Wikipedia page]}, `jpicm` {id: credit} and `jpicl` [ids that have a larger copy]. Empty (so the file is
+    """The journey covers by journey id for api/species-pictures.json: `jpic` {journey id: [cover file (192 px; an older cover is 96 px under the same name), Wikipedia page]}, `jpicm` {id: credit} and `jpicl` [ids that have a larger copy]. Empty (so the file is
     unchanged) while photos/journey_pictures.json does not exist; the app adopts it later (docs/DATA-PLAN.md, "Journey pictures: by journey id", phase 5)."""
     if jpics['shape'] != 'journey': return {}
     ids = [c['id'] for c in links['cross'] if c.get('id') in jpics['pics']]

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """species_photos.py: the one writer for species pictures (docs/DATA-PLAN.md, "Species pictures"; #934).
 
-A species picture is several things that must agree: the 96 px file `photos/species/<f>`, its row in `photos/species_pictures.json` (credit and source), the 192 px tile
-copy `photos/species-md/<f>` and the 400 px copy `photos/species-lg/<f>` with their rows in `photos/species_medium.json` and `photos/species_large.json`, and the
+A species picture is several things that must agree: the stored picture, its row in `photos/species_pictures.json` (credit and source), and the 400 px copy `photos/species-lg/<f>` with their rows in `photos/species_medium.json` and `photos/species_large.json`, and the
 species' absence from `photos/species_missing.json` and from the retry ledger `photos/species_tried.json`. Everything is keyed by the species `sid` (the Latin-name slug), never by a
-Wikipedia title (151 titles are shared by 618 species rows; owner, 15 Nov: "Per sid"); each row carries the title it came from as `wiki`. The file name `<f>` is the first 12 hex digits of the sha256 of the 96 px picture, so two species that show the same picture
+Wikipedia title (151 titles are shared by 618 species rows; owner, 15 Nov: "Per sid"); each row carries the title it came from as `wiki`. SINCE #1188 the stored picture is the 192 px file `photos/species-md/<f>` (its row in `photos/species_medium.json` is written with it) and no 96 px file is written; a picture an older run left has its 96 px file `photos/species/<f>` and keeps validating and building until
+migrate_192() (jobs/drop96px.py) moves it. The file name `<f>` is the first 12 hex digits of the sha256 of the stored picture (a legacy name is the hash of the old 96 px file and stays: the hash is only a unique name), so two species that show the same picture
 (a title shared by several species rows, such as Rain) share one file in each folder instead of each carrying a copy (the larger-copy budget has no room for 460 more); a file is deleted only when no
 species row still points at it.
 
@@ -15,7 +15,7 @@ import hashlib, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
 import author_clean as ac
-from place_photos import CreditRepair, author_missing, _read, _write_bytes, _write_json   # one author rule and one atomic write for both writers
+from place_photos import CreditRepair, author_missing, shrink, _read, _write_bytes, _write_json   # one author rule and one atomic write for both writers
 
 PICS = ('photos', 'species_pictures.json'); MISSING = ('photos', 'species_missing.json'); TRIED = ('photos', 'species_tried.json')
 COPIES = {'small': (('photos', 'species'), ('photos', 'species_pictures.json')),
@@ -41,13 +41,13 @@ class SpeciesPhotos(CreditRepair):
 
     # --- writing (nothing touches the disk until commit)
     def put(self, sid, entry, webp):
-        """Store the 96 px picture of this species. The file name is always <sid>.webp. The species leaves missing.json and the ledger; the other copies of a
-        different picture are dropped (the job makes new ones)."""
+        """Store the 192 px picture of this species (photos/species-md/<f>, medium list row included; no 96 px file). `f` is the hash of these bytes. The species leaves missing.json and the ledger; the 400 px copy of a
+        different picture is dropped (the job makes a new one)."""
         entry = dict(entry); entry['a'] = ac.clean_author(entry.get('a')) or 'Unknown author'   # one stored form for the author (lib/author_clean.py)
         if author_missing(entry): raise ValueError('picture for %r is %s with no named author: refused' % (sid, entry.get('l')))
         entry['f'] = hashlib.sha256(webp).hexdigest()[:12] + '.webp'
         if sid in self.pics and self.pics[sid].get('f') != entry['f']: self._drop_copies(sid); self._delete.append(self._path(SMALL_DIR, self.pics[sid]['f']))
-        self.pics[sid] = entry; self._write[self._path(SMALL_DIR, entry['f'])] = webp
+        self.pics[sid] = entry; self._write[self._path(MEDIUM_DIR, entry['f'])] = webp; self.medium[sid] = entry['f']
         self.miss_.pop(sid, None); self.tried.pop(sid, None)
 
     def put_medium(self, sid, webp): self._put_copy(sid, 'medium', webp)
@@ -106,10 +106,11 @@ class SpeciesPhotos(CreditRepair):
 
     def check(self):
         """Problems between the files and the lists. Empty means consistent."""
-        errs = self.ledger_errors('species_tried.json'); sf = {f for f in self._files(SMALL_DIR) if f.endswith('.webp')}
+        errs = self.ledger_errors('species_tried.json'); sf = {f for f in self._files(SMALL_DIR) if f.endswith('.webp')}; mf = self._files(MEDIUM_DIR)
         for sid, e in sorted(self.pics.items()):
             if not e.get('f'): errs.append('%s: no file name' % sid)
-            elif e['f'] not in sf: errs.append('%s: listed in species_pictures.json but %s is missing' % (sid, e['f']))
+            elif e['f'] not in sf and e['f'] not in mf: errs.append('%s: listed in species_pictures.json but %s is missing' % (sid, e['f']))
+            elif e['f'] not in sf and self.medium.get(sid) != e['f']: errs.append('%s: %s is only in species-md but species_medium.json does not list it' % (sid, e['f']))   # no 96 px file: the 192 px copy is the picture
             if sid in self.miss_: errs.append('%s: has a picture and is also in species_missing.json' % sid)
             if author_missing(e): errs.append('%s: %s picture with no named author' % (sid, e.get('l')))
         for f in sorted(sf - {e.get('f') for e in self.pics.values()}): errs.append('photos/species/%s is not listed in species_pictures.json' % f)
@@ -121,6 +122,39 @@ class SpeciesPhotos(CreditRepair):
                 elif name not in files: errs.append('%s: listed in %s but %s is missing' % (sid, label, name))
             for f in sorted(files - set(d.values())): errs.append('photos/%s/%s is not listed in %s' % (os.path.join(*COPIES[which][0])[len('photos/'):], f, label))
         return errs
+
+    def migrate_192(self, dry=False):
+        """The migration of #1188 (run by jobs/drop96px.py, never by a picture job): make the 192 px copy the stored picture and delete the 96 px files. Files and lists change per picture file `f` (species that show the same picture share it):
+        a species whose 192 px copy is missing gets one shrunk from its 400 px copy (offline, no download); the 96 px file `photos/species/<f>` is deleted only when EVERY species with that `f` has its 192 px copy, otherwise it stays
+        (the repository keeps validating). The credit rows, the `f` names and species_medium.json (apart from the rows added for copies made from the 400 px file) do not change: `f` is only a unique name, so a legacy name stays.
+        Returns {'delete': [96 px files removed], 'made': [sids that got a 192 px copy from the 400 px one], 'kept': {file: why the 96 px file stays}}; with `dry` nothing is written."""
+        by_f = {}
+        for sid, e in sorted(self.pics.items()): by_f.setdefault(e.get('f'), []).append(sid)
+        out = {'delete': [], 'made': [], 'kept': {}}; staged = {}
+        for f, sids in sorted(by_f.items(), key=lambda kv: str(kv[0])):
+            old = self._path(SMALL_DIR, f or '-')
+            if not f or not os.path.isfile(old): continue   # no 96 px file: already the new shape
+            why = ''
+            for sid in sids:
+                md = self._path(MEDIUM_DIR, f); lg = self._path(LARGE_DIR, f)
+                if self.medium.get(sid) == f and (os.path.isfile(md) or md in staged): continue
+                if os.path.isfile(md) or md in staged: out['made'].append(sid); staged[md] = staged.get(md); continue   # the file exists (another species' row): only the list row is added
+                big = None
+                if self.large.get(sid) == f and os.path.isfile(lg):
+                    with open(lg, 'rb') as h: big = shrink(h.read(), 192, 70)
+                if big is None: why = 'no 192 px copy and no 400 px copy to make it from (%s)' % sid; break
+                out['made'].append(sid); staged[md] = big
+            if why: out['kept'][f] = why
+            else: out['delete'].append(os.path.join(*SMALL_DIR, f))
+        if dry: return out
+        for md, data in staged.items():
+            if data is not None: self._write[md] = data
+        for sid in out['made']: self.medium[sid] = self.pics[sid]['f']
+        self.commit()   # 192 px files and the medium rows first
+        for rel in out['delete']:
+            try: os.remove(os.path.join(self.root, rel))
+            except OSError: pass
+        return out
 
     def dirty_authors(self):
         """Species ids whose stored author clean_author would change (an email, a talk stamp, a web address, an uploader sentence)."""
@@ -135,6 +169,6 @@ class SpeciesPhotos(CreditRepair):
                 if f.endswith('.webp') and f not in d: os.remove(os.path.join(base, f)); removed.append(os.path.join(*parts, f))
         for which, parts, d in (('medium', MEDIUM_DIR, self.medium), ('large', LARGE_DIR, self.large)):
             for sid in [s for s, n in d.items() if s not in self.pics or not os.path.exists(os.path.join(self.root, *parts, n))]: del d[sid]; removed.append('%s:%s' % (which, sid))
-        for sid in [s for s, e in self.pics.items() if not os.path.exists(os.path.join(self.root, *SMALL_DIR, e.get('f') or '-'))]: del self.pics[sid]; removed.append('species_pictures.json:' + sid)
+        for sid in [s for s, e in self.pics.items() if not any(os.path.exists(os.path.join(self.root, *d, e.get('f') or '-')) for d in (SMALL_DIR, MEDIUM_DIR))]: del self.pics[sid]; removed.append('species_pictures.json:' + sid)
         if removed: self.commit()
         return removed
