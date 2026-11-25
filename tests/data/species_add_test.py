@@ -116,7 +116,7 @@ class Ensure(Base):
         self.assertEqual((res['status'], res['reason'], res['id']), ('refused', 'picture', None))
         self.assertEqual(len(self.rows.tab), n)
         rec = self.ledger.get('Eastern coyote')
-        self.assertEqual((rec['reason'], rec['steps']['taxonomy']['result'], rec['attempts'], rec['hold_until']), ('picture', 'missing', 1, '2027-02-20'))   # every step is recorded, not only the first failure
+        self.assertEqual((rec['reason'], rec['steps']['taxonomy']['result'], rec['attempts'], rec['hold_until']), ('picture', 'missing', 1, '2026-12-22'))   # every step is recorded, not only the first failure
 
     def test_conservation_is_optional(self):
         def gather(c, sid):

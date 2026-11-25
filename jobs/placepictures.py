@@ -18,7 +18,7 @@ so a copy that failed once is tried again by the next run. This replaces jobs/la
 
 Everything is keyed by PLACE ID and written only through lib/place_photos.py (PlacePhotos.put / miss / note_tried / commit: files first, then lists). It needs the id-keyed files the migration (jobs/rekeyplacephotos.py) makes.
 A found row carries `wiki` = the place's imgwiki title, which is how the app finds a picture today; so a place whose title is shared with another place is skipped (the migration removed those pictures for the same reason) until the app looks pictures up by id.
-Holds (when a source is tried again for a place that gave nothing): wikipedia, as photos.py did, while the missing record has not expired (photo_registry.negative_entry: 180 days for the permanent reasons); each other source RETRY_DAYS (90 days) after its date
+Holds (when a source is tried again for a place that gave nothing): wikipedia, as photos.py did, while the missing record has not expired (photo_registry.negative_entry: 30 days for the permanent reasons); each other source RETRY_DAYS (30 days) after its date
 in photos/places_tried.json {id: {source: date}}. A transient failure (a download that failed) is recorded nowhere and is tried again by the next run.
 Author rule (#887, owner 15 Nov): a CC BY or CC BY-SA picture needs a named author. When the stored credit says unknown, Commons is asked once more (authorlookup.lookup: the Artist or Attribution field, or the uploader when the credit says own work);
 no name found = the picture is refused and the place is recorded as 'notfree' for wikipedia, or as tried for the other sources, with the reason in the log.

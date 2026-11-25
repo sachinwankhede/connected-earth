@@ -70,7 +70,7 @@ These are the traps behind the rules; `docs/ARCHITECTURE-DATA.md` ("Place pictur
 7. **Add a source as a function plus a stub, never a new job.** The contract test holds every source to the same rules, so a new source cannot skip the author or licence rule.
 8. **Tests that patch a function patch it where it is used.** Moving a helper into `lib/` broke tests that patched the old job module; patch the `lib/` module.
 9. **Do not poll the live site.** Fetching it is disallowed (robots); read data and CI instead.
-10. **Quiet by design.** Retry holds (90 days) keep a weekly run silent once a place was tried; skipping the PR to save noise would lose the retry notes, so no minimum count.
+10. **Quiet by design.** Retry holds (30 days) keep a weekly run silent once a place was tried; skipping the PR to save noise would lose the retry notes, so no minimum count.
 
 ## Species pictures: the same treatment (owner, 15 Nov, #934)
 Owner: "Same treatment with one id, one writer, one acquire job, one author rule" and, on shared titles, "Per sid". Measured on main (15 Nov): 5,623 species rows, 5,156 wiki titles, 151 titles shared by 618 rows; pictures are keyed by wiki title in 6 lists (`species`, `species_hosted`, `species_metadata`, `species_large`, `species_medium`, `species_missing`), 4 ledgers (`species_commons_tried`, `species_openverse_tried`, `species_inaturalist_tried`, `species_gbif_tried`) and 7 jobs. 4,865 hosted, 4,863 with both copies, 267 recorded as no photo, 12 CC BY rows with no author, 272 dirty authors.
