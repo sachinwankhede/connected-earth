@@ -94,14 +94,14 @@ def make_large(entry, get=None):
 
 # --- the author rule
 def vet(entry):
-    """(entry, '') when the picture may be kept, with the author filled in if Commons knows one; (None, why) for a CC BY / CC BY-SA picture with no author to be found."""
+    """(entry, '') when the picture may be kept, with the author filled in if Commons knows one; (None, why) for a picture with no author to be found (any licence)."""
     entry = dict(entry, a=al.clean(entry.get('a')) or entry.get('a'))   # the one stored form (lib/author_clean.py)
-    if not (al.by_licence(entry.get('l')) and al.unknown(entry.get('a'))): return entry, ''
+    if not al.unknown(entry.get('a')): return entry, ''   # every licence needs a named author (owner, 25 Nov, #887)
     fn = al.file_of(entry.get('p'))
     if fn:
         cls, name = al.lookup(fn)
         if cls != 'none' and name: return dict(entry, a=name), ''
-    return None, 'CC BY / BY-SA with no author'
+    return None, 'any licence with no author'
 
 def measure(entry, jpg):
     """The row with its measured fields (media type, size, sha256, review status), made by photo_registry.migrate_places on a scratch copy so nothing else in the repository is rewritten."""

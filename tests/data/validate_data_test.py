@@ -60,7 +60,7 @@ class DataFormat(unittest.TestCase):
             put(r, 'data/species/species.json', SP); put(r, 'data/places/p.json', {}); put(r, 'photos/species/f.webp', b'x')
             for lic in ('CC BY 4.0', 'CC BY-SA 3.0'):
                 put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': lic, 'wiki': 'A b'}}); self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
-            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': 'CC0', 'wiki': 'A b'}}); self.assertEqual(check(r), ([], []))
+            put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Unknown author', 'l': 'CC0', 'wiki': 'A b'}}); self.assertTrue([e for e in check(r)[0] if 'no named author' in e])   # every licence needs a named author (owner, 25 Nov, #887)
             put(r, 'photos/species_pictures.json', {'a-b': {'f': 'f.webp', 'a': 'Beeblebrox (talk) 06:06, 13 January 2009 (UTC)', 'l': 'CC BY 4.0', 'wiki': 'A b'}})
             errs, warns = check(r); self.assertTrue([e for e in errs if 'species_pictures.json' in e and 'need cleaning' in e]); self.assertEqual([w for w in warns if 'need cleaning' in w], [])   # an error since the 15 Nov cleanauthors data (#964)
     def test_a_stray_non_webp_file_in_a_species_folder_is_found(self):
@@ -79,7 +79,7 @@ class DataFormat(unittest.TestCase):
             put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Unknown author', 'l': 'CC BY-SA 4.0'}}); put(r, 'photos/places/okpark.jpg', b'x')
             self.assertTrue([e for e in check(r)[0] if 'no named author' in e])
             put(r, 'photos/places/places.json', {'okpark': {'f': 'okpark.jpg', 'a': 'Unknown author', 'l': 'CC0'}})
-            self.assertEqual([e for e in check(r)[0] if 'okpark' in e], [])
+            self.assertTrue([e for e in check(r)[0] if 'okpark' in e and 'no named author' in e])   # every licence needs a named author (owner, 25 Nov, #887)
     def test_a_stored_place_author_that_needs_cleaning_is_an_error(self):   # an email, a talk stamp, a web address or an uploader sentence is not the stored form (lib/author_clean.py)
         import validate_data
         self.assertTrue(validate_data.DIRTY_AUTHOR_IS_ERROR)
