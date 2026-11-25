@@ -5,18 +5,6 @@
 "expiresAt": "2027-05-24T03:37:21.601224+00:00",
 "status": "notfree"
 },
-"andisol": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.601255+00:00",
-"expiresAt": "2027-05-24T03:37:21.601255+00:00",
-"status": "notfree"
-},
-"andosol": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.601264+00:00",
-"expiresAt": "2027-05-24T03:37:21.601264+00:00",
-"status": "notfree"
-},
 "antarctic-convergence": {
 "attempts": 2,
 "checkedAt": "2026-11-25T21:38:26.085599+00:00",
@@ -28,12 +16,6 @@
 "checkedAt": "2026-11-25T21:38:26.085623+00:00",
 "expiresAt": "2026-12-25T21:38:26.085623+00:00",
 "status": "nophoto"
-},
-"black-water-river": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361539+00:00",
-"expiresAt": "2026-11-16T06:00:53.361539+00:00",
-"status": "notyet"
 },
 "california-current": {
 "attempts": 2,
@@ -59,12 +41,6 @@
 "expiresAt": "2027-05-24T03:37:21.601271+00:00",
 "status": "notfree"
 },
-"fire-ecology": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.601277+00:00",
-"expiresAt": "2027-05-24T03:37:21.601277+00:00",
-"status": "notfree"
-},
 "florida-current": {
 "attempts": 2,
 "checkedAt": "2026-11-25T21:38:31.979690+00:00",
@@ -77,12 +53,6 @@
 "expiresAt": "2026-12-25T21:38:35.943256+00:00",
 "status": "notfree"
 },
-"hamad": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361552+00:00",
-"expiresAt": "2026-11-16T06:00:53.361552+00:00",
-"status": "notyet"
-},
 "hypolimnion": {
 "attempts": 2,
 "checkedAt": "2026-11-25T21:38:37.851706+00:00",
@@ -94,36 +64,6 @@
 "checkedAt": "2026-11-25T03:37:21.601283+00:00",
 "expiresAt": "2027-05-24T03:37:21.601283+00:00",
 "status": "notfree"
-},
-"lake-edward": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361557+00:00",
-"expiresAt": "2026-11-16T06:00:53.361557+00:00",
-"status": "notyet"
-},
-"lake-urema": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361559+00:00",
-"expiresAt": "2026-11-16T06:00:53.361559+00:00",
-"status": "notyet"
-},
-"little-missouri-river": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361561+00:00",
-"expiresAt": "2026-11-16T06:00:53.361561+00:00",
-"status": "notyet"
-},
-"macrotermes": {
-"attempts": 1,
-"checkedAt": "2026-11-25T03:37:21.601288+00:00",
-"expiresAt": "2027-05-24T03:37:21.601288+00:00",
-"status": "notfree"
-},
-"marine-derived-nutrients": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361564+00:00",
-"expiresAt": "2026-11-16T06:00:53.361564+00:00",
-"status": "notyet"
 },
 "mediterranean-climate": {
 "attempts": 2,
@@ -142,12 +82,6 @@
 "checkedAt": "2026-11-25T21:38:37.851745+00:00",
 "expiresAt": "2026-12-25T21:38:37.851745+00:00",
 "status": "nophoto"
-},
-"oligotroph": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361572+00:00",
-"expiresAt": "2026-11-16T06:00:53.361572+00:00",
-"status": "notyet"
 },
 "orographic-lift": {
 "attempts": 1,
@@ -197,12 +131,6 @@
 "expiresAt": "2027-05-24T03:37:21.601308+00:00",
 "status": "notfree"
 },
-"termite": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361586+00:00",
-"expiresAt": "2026-11-16T06:00:53.361586+00:00",
-"status": "notyet"
-},
 "troodos-ophiolite": {
 "attempts": 2,
 "checkedAt": "2026-11-25T21:38:41.935154+00:00",
@@ -232,11 +160,5 @@
 "checkedAt": "2026-11-25T03:37:21.601328+00:00",
 "expiresAt": "2027-05-24T03:37:21.601328+00:00",
 "status": "notfree"
-},
-"wet-season": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361590+00:00",
-"expiresAt": "2026-11-16T06:00:53.361590+00:00",
-"status": "notyet"
 }
 }
