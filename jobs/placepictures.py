@@ -154,7 +154,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                         if large is not None:   # the pair goes into the same commit as the picture
                             webp, lwhy = large(row)
                             if webp: w.put_large(pid, webp); s['large'] += 1; spent += len(webp); log('larger copy %s %s %d KB' % (name, pid, round(len(webp) / 1024)))
-                            else: s['nolarge'] += 1; log('no larger copy %s %s (%s) - %s; the small picture stays' % (name, pid, u['title'], lwhy))
+                            else: w.note_copy_tried(pid); s['nolarge'] += 1; log('no larger copy %s %s (%s) - %s; the small picture stays' % (name, pid, u['title'], lwhy))
                 elif r.kind == 'miss':
                     s['miss'] += 1; s['refused_licence'] += (r.status == 'notfree'); log('no %s %s (%s) - %s' % (name, pid, u['title'], r.why))
                     if not dry: (w.miss(pid, r.status, 'wikipedia', inputs=pr.place_inputs(u)) if name == 'wikipedia' else w.note_tried(pid, name)); pending += 1
@@ -166,7 +166,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
             stopped.append(name); log('STOP %s: %s (nothing more is tried from this source; ask the owner)' % (name, ex))
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
         if halted or spent >= max_bytes or late(): halted = True; break
-    large_left = lambda: sorted(pid for pid, e in w.pics.items() if e.get('f') and not w.has_large(pid) and commons_file_name(e.get('p')) and pid not in tried_large)
+    large_left = lambda: sorted(pid for pid, e in w.pics.items() if e.get('f') and not w.has_large(pid) and commons_file_name(e.get('p')) and pid not in tried_large and (again or not w.copy_held(pid, today)))   # a copy that failed inside its hold is not due (#1183)
     tried_large = set()
     if only in ('all', 'large') and large is not None and not halted:
         s = stats['large'] = collections.Counter()
@@ -178,7 +178,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
             if dry: log('would try a larger copy for %s' % pid); continue
             webp, lwhy = large(w.pics[pid])
             if webp: w.put_large(pid, webp); s['made'] += 1; spent += len(webp); pending += 1; log('larger copy large %s %d KB' % (pid, round(len(webp) / 1024)))
-            else: s['none'] += 1; log('no larger copy large %s (%s) - %s; the small picture stays' % (pid, w.pics[pid].get('wiki', ''), lwhy))
+            else: w.note_copy_tried(pid); pending += 1; s['none'] += 1; log('no larger copy large %s (%s) - %s; the small picture stays' % (pid, w.pics[pid].get('wiki', ''), lwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
             if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
             if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break

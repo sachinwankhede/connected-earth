@@ -195,7 +195,11 @@ def check(root):
         import journey_photos; dirty_jp = journey_photos.JourneyPhotos(root).dirty_authors()
         if dirty_jp: (errs if DIRTY_AUTHOR_IS_ERROR else warns).append('photos/journey_pictures.json: %d stored author(s) need cleaning (lib/author_clean.py), first %s' % (len(dirty_jp), ', '.join(dirty_jp[:5])))
     import node_photos   # pictures of non-species nodes (#976): by node id, checked by their one writer (lib/node_photos.py); nothing to check before photos/node_pictures.json exists
-    errs += node_photos.NodePhotos(root).check()
+    npw = node_photos.NodePhotos(root); errs += npw.check()
+    try: concept_ids = node_photos.concepts(root)
+    except SystemExit: concept_ids = None   # a node names a species row that is not there: that is reported above, and the orphan list waits for it
+    orphan = npw.orphans(concept_ids) if concept_ids is not None else []   # a picture, miss or ledger entry for a concept no place shows any more: a warning that lists them (nothing is deleted; #1183)
+    if orphan: warns.append('photos/node_*.json: %d entr(ies) name a concept no place shows (%d pictures, %d missing, %d tried), first %s' % (len(orphan), sum(1 for n, _ in orphan if n == 'node_pictures.json'), sum(1 for n, _ in orphan if n == 'node_missing.json'), sum(1 for n, _ in orphan if n == 'node_tried.json'), ', '.join('%s:%s' % x for x in orphan[:5])))
     import outline_check; far = outline_check.outside(root, 5.0)   # a point far outside its own outline means a wrong point or the wrong outline (#977, docs/DATA-AUDIT.md)
     if far: (errs if OUTSIDE_IS_ERROR else warns).append('%d place point(s) lie more than 5 km outside their own outline, first %s' % (len(far), ', '.join('%s (%s km)' % (pid, d) for d, pid in far[:5])))
     import outline_records   # credit records of park outlines (#977): files and records agree, once data/outline_records.json exists (nothing to check before)

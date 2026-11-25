@@ -204,6 +204,9 @@ class LargeTests(unittest.TestCase):
         self.w.put('aa', row('aa'), jpeg()); self.w.put_large('aa', b'OLD'); self.w.put('bb', row('bb'), jpeg()); self.w.commit(); self.w = self.fresh()
         before = self.files()
         self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'Commons has no thumbnail for it'), only='large')
+        self.assertEqual(self.fresh().tried, {'bb': {'copy': self.fresh().tried['bb']['copy']}}, 'the failed copy is the only change: one ledger entry (#1183)')
+        self.w = self.fresh(); before = self.files()
+        self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'Commons has no thumbnail for it'), only='large')   # inside the hold: nothing is offered, nothing is written
         self.assertEqual(self.files(), before)
         self.w = self.fresh(); self.acq([], [unit('aa'), unit('bb')], lambda e: (None, 'x'), only='large', dry=True); self.assertEqual(self.files(), before)
 

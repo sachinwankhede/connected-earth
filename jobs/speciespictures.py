@@ -103,11 +103,13 @@ def by_title(units):
     for u in units: out.setdefault(u['title'], []).append(u)
     return out
 
-def copy_files(w, wanted):
-    """[(file, [(sid, needed copies)])] in sorted sid order: one download per picture file (species that show the same picture share it)."""
+def copy_files(w, wanted, today=None, again=True):
+    """[(file, [(sid, needed copies)])] in sorted sid order: one download per picture file (species that show the same picture share it). With `today`, a picture whose copy failed inside the hold
+    (the ledger entry 'copy', #1183) is left out unless `again`."""
     has = {'medium': w.has_medium, 'large': w.has_large}; by_file = collections.OrderedDict()
     for sid in sorted(w.pics):
         e = w.pics[sid]; need = tuple(k for k in wanted if not has[k](sid))
+        if need and today is not None and not again and w.copy_held(sid, today): continue
         if need and e.get('f') and source_urls(e.get('u')): by_file.setdefault(e['f'], []).append((sid, need))
     return list(by_file.items())
 
@@ -155,6 +157,8 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                             if 'large' in got: w.put_large(sid, got['large'])
                         spent += sum(len(b) for b in got.values()); s['copies'] += len(got) and 1
                         if got: log('copies %s %s %s' % (name, label, ', '.join('%s %d KB' % (k, round(len(b) / 1024)) for k, b in sorted(got.items()))))
+                        if cwhy and not dry:
+                            for sid in kept: w.note_copy_tried(sid)   # the same 30-day hold as a source: not offered first in every run
                         if cwhy: s['nocopy'] += 1; log('no %s copy %s %s - %s; the small picture stays' % ('larger' if got else 'larger or 192 px', name, label, cwhy))
                 elif r.kind == 'miss':
                     s['miss'] += len(sids); s['refused_licence'] += len(sids) * (r.status == 'notfree'); log('no %s %s - %s' % (name, label, r.why))
@@ -170,7 +174,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
         if halted or spent >= max_bytes or late(): halted = True; break
     wanted = [k for k in ('medium', 'large') if only in ('all', k)]
-    tried_files = set(); copy_todo = lambda: [(f, m) for f, m in copy_files(w, wanted) if f not in tried_files]
+    tried_files = set(); copy_todo = lambda: [(f, m) for f, m in copy_files(w, wanted, today, again) if f not in tried_files]   # a copy that failed inside its hold is not due (#1183)
     if wanted and copies is not None and not halted:
         s = stats['copies'] = collections.Counter()
         todo = copy_todo()
@@ -184,6 +188,8 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                 if 'medium' in got and 'medium' in n: w.put_medium(sid, got['medium'])
                 if 'large' in got and 'large' in n: w.put_large(sid, got['large'])
             if got: s['made'] += 1; spent += sum(len(b) for b in got.values()); pending += len(sids); log('copies %s %s' % (','.join(sids), ', '.join('%s %d KB' % (k, round(len(b) / 1024)) for k, b in sorted(got.items()))))
+            if cwhy:
+                for sid in sids: w.note_copy_tried(sid); pending += 1
             if cwhy: s['none'] += 1; log('no copy %s - %s; the small picture stays' % (','.join(sids), cwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
             if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
@@ -196,6 +202,24 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
         if wanted and copies is not None: more += len(copy_todo())
     if report is not None: report['more'] = more
     return stats, stopped
+
+def finish(w, stats, stopped, report, units_noun, dry, repair_limit, t0, minutes, check, log=print):
+    """The end of a run, shared by the journey and node jobs (the species and place jobs print the same lines): the per-strategy summary, the author repair step inside the time budget, the `more: N` line and
+    the check of the written files. Returns the exit code (lib/runbudget.py: 0 done, 3 more due, 2 a source stopped, 1 a failed check)."""
+    for name, s in stats.items():
+        if name == 'copies': log('summary copies: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
+        else: log('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, pictures with copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['copies'], s['nocopy']))
+    log('added %d %s' % (sum(s['found'] for s in stats.values()), units_noun))
+    if repair_limit:   # the author repair step (#887, lib/author_repair.py): after the sources, only when none of them stopped
+        if stopped: log('author repair skipped: a source stopped this run')
+        else:
+            rs, _ = ar.repair_step(w, limit=repair_limit, dry=dry, late=(lambda: time.monotonic() - t0 >= minutes * 60) if minutes else None); log(ar.summary(rs))
+            if not dry and (rs['fixed'] or rs['none']): w.commit()
+    more = report.get('more', 0); log(runbudget.more_line(more))
+    if not dry:
+        bad = check()
+        if bad: log('CHECK FAILED:'); log('\n'.join(bad[:30])); return 1
+    return runbudget.exit_code(stopped, more)
 
 def stats_block(w, counters, dry=False):
     """The end-of-run stats as a compact Markdown block (pure). counters = {'species': total rows, 'strategies': the per-strategy Counters acquire returns}."""

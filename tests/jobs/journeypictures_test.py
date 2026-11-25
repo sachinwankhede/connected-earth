@@ -105,7 +105,8 @@ class JourneyAcquireTests(unittest.TestCase):
     def test_the_large_strategy_makes_only_the_missing_400_px_copies_and_never_a_192_px_one(self):
         self.run_([strategy('wikipedia', found={'knot'})], only='wikipedia', copies=lambda e, need=('large',): ({}, 'no thumbnail'))
         w = self.fresh(); self.assertTrue(w.has('knot')); self.assertFalse(w.has_large('knot'))
-        self.w = self.fresh(); self.run_([], only='large'); self.assertTrue(self.fresh().has_large('knot')); self.assertEqual(self.fresh().check(), [])
+        self.w = self.fresh(); self.run_([], only='large'); self.assertFalse(self.fresh().has_large('knot'), 'the failed copy is held for 30 days (#1183)')
+        self.w = self.fresh(); self.run_([], only='large', again=True); self.assertTrue(self.fresh().has_large('knot')); self.assertEqual(self.fresh().check(), [])
 
     def test_a_source_that_stops_is_reported(self):
         def boom(todo):
