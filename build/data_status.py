@@ -32,7 +32,7 @@ def rows(root=ROOT):
         except Exception as e: out.append(dict(row(name, 0, 0), verdict='attention', notes=['could not be read: %s' % e]))
     import place_photos, species_photos, journey_photos, node_photos, outline_records, place_inputs
     def pp():
-        w = place_photos.PlacePhotos(root); return row('Place pictures', len(places), len(w.pics), len(w.miss_), len(w.check()), due(w.miss_), unknown(w.pics), {'invalid': 'lib/place_photos.py check', 'due': 'data-placepictures'})
+        w = place_photos.PlacePhotos(root); return row('Place pictures', len(places), len(w.pics), len(w.miss_), len(w.check()), due(w.miss_), unknown(w.pics), {'invalid': 'lib/place_photos.py check', 'due': 'data-pictures'})
     def sp():
         import species; w = species_photos.SpeciesPhotos(root); n = len(species.table(root)); return row('Species pictures', n, len(w.pics), len(w.miss_), len(w.check()), due(w.miss_), unknown(w.pics), {'due': 'the species picture jobs'})
     def jp():
