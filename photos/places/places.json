@@ -95,6 +95,22 @@
 "width": 330,
 "wiki": "Point Bridget State Park"
 },
+"aktotembightstateh": {
+"a": "roger4336",
+"checkedAt": "2026-11-25T21:42:52.784537+00:00",
+"f": "aktotembightstateh.jpg",
+"fetchedAt": "2026-11-25T21:42:52.784537+00:00",
+"height": 429,
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Totem_Bight_S.P._-_Totem_Pole_%28Detail%29.jpg",
+"reviewStatus": "approved",
+"sha256": "295a0ab83f3f8216276ea401729fbdc4d53fada199fc010fdacf0c7449fbdaaf",
+"w": "https://en.wikipedia.org/wiki/Totem_Bight_State_Historical_Park",
+"width": 330,
+"wiki": "Totem Bight State Historical Park"
+},
 "albattleshipmemori": {
 "a": "Ben Jacobson (Kranar Drogin)",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -1710,6 +1726,22 @@
 "w": "https://en.wikipedia.org/wiki/Navajo_State_Park",
 "width": 330,
 "wiki": "Navajo State Park"
+},
+"congo": {
+"a": "MONUSCO/Myriam Asmani",
+"checkedAt": "2026-11-25T21:43:52.270654+00:00",
+"f": "congo.jpg",
+"fetchedAt": "2026-11-25T21:43:52.270654+00:00",
+"height": 203,
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Congo_River_near_Kisangani.jpg",
+"reviewStatus": "approved",
+"sha256": "cb2190f63d35ecbcc78d5623e37553f9ecd565ad0613b76a839c61874d905cd3",
+"w": "https://en.wikipedia.org/wiki/Congo_Basin",
+"width": 330,
+"wiki": "Congo Basin"
 },
 "copaonia": {
 "a": "Jeffrey Beall",
@@ -3647,6 +3679,22 @@
 "width": 330,
 "wiki": "Springbrook State Park"
 },
+"iastone": {
+"a": "IowaMarkMD",
+"checkedAt": "2026-11-25T21:41:58.343047+00:00",
+"f": "iastone.jpg",
+"fetchedAt": "2026-11-25T21:41:58.343047+00:00",
+"height": 247,
+"l": "CC BY 3.0",
+"lu": "https://creativecommons.org/licenses/by/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Lookout_Mount_Lucia_-_panoramio_%281%29.jpg",
+"reviewStatus": "approved",
+"sha256": "3e70d520914d0fc2c6f1181d7ae1d822c190537b524fba735b7723aaa288fbb5",
+"w": "https://en.wikipedia.org/wiki/Stone_State_Park",
+"width": 330,
+"wiki": "Stone State Park"
+},
 "iavikinglake": {
 "a": "SamuelNelsonGISP",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -4656,6 +4704,22 @@
 "w": "https://en.wikipedia.org/wiki/Lake_Scott_State_Park",
 "width": 330,
 "wiki": "Scott State Park"
+},
+"kstuttlecreekstate": {
+"a": "(Photo Credit: U.S. Army)",
+"checkedAt": "2026-11-25T21:44:12.394068+00:00",
+"f": "kstuttlecreekstate.jpg",
+"fetchedAt": "2026-11-25T21:44:12.394068+00:00",
+"height": 219,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Tuttle_Creek_State_Park_people_arriving_for_First_Day_Hike_2019.jpg",
+"reviewStatus": "approved",
+"sha256": "3f01d0a560eeda14d415ec8f9bc1fcbcddc7fc64fe644218232a4c8ca5e9c697",
+"w": "https://en.wikipedia.org/wiki/Tuttle_Creek_State_Parks",
+"width": 330,
+"wiki": "Tuttle Creek State Parks"
 },
 "kybarrenriverlakes": {
 "a": "Ichabod",
@@ -7190,6 +7254,22 @@
 "width": 330,
 "wiki": "Lewis and Clark State Park"
 },
+"molongbranch": {
+"a": "mostateparks",
+"checkedAt": "2026-11-25T21:44:32.385865+00:00",
+"f": "molongbranch.jpg",
+"fetchedAt": "2026-11-25T21:44:32.385865+00:00",
+"height": 220,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Long_Branch-1.jpg",
+"reviewStatus": "approved",
+"sha256": "deacde86dfe95a72d946845196cbfa662d3e464f41c93187c421e0e71a535879",
+"w": "https://en.wikipedia.org/wiki/Long_Branch_State_Park",
+"width": 330,
+"wiki": "Long Branch State Park"
+},
 "momeramec": {
 "a": "Rklawton",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -8312,6 +8392,22 @@
 "width": 330,
 "wiki": "Mount Mitchell State Park"
 },
+"ncpettigrew": {
+"a": "ncwetlands.org",
+"checkedAt": "2026-11-25T21:44:46.566540+00:00",
+"f": "ncpettigrew.jpg",
+"fetchedAt": "2026-11-25T21:44:46.566540+00:00",
+"height": 220,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Amphibian_southern_leopard_frog_Pettigrew_State_Park_ncwetlands_KG_%283%29.jpg",
+"reviewStatus": "approved",
+"sha256": "8ef0a121564bb0849f309d78db489b13916c049cb031313cbb8581ddd79eb92d",
+"w": "https://en.wikipedia.org/wiki/Pettigrew_State_Park",
+"width": 330,
+"wiki": "Pettigrew State Park"
+},
 "ncravenrock": {
 "a": "Sarah and Jason",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -8423,6 +8519,22 @@
 "w": "https://en.wikipedia.org/wiki/Fort_Abraham_Lincoln",
 "width": 330,
 "wiki": "Fort Abraham Lincoln State Park"
+},
+"ndfortransom": {
+"a": "afiler",
+"checkedAt": "2026-11-25T21:42:08.399328+00:00",
+"f": "ndfortransom.jpg",
+"fetchedAt": "2026-11-25T21:42:08.399328+00:00",
+"height": 247,
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Fort_Ransom_State_Park.jpg",
+"reviewStatus": "approved",
+"sha256": "c7b470540ad641e8b990adb5b5d9186fdf4417cff43f9e65ddd35c084c3e5028",
+"w": "https://en.wikipedia.org/wiki/Fort_Ransom_State_Park",
+"width": 330,
+"wiki": "Fort Ransom State Park"
 },
 "ndicelandic": {
 "a": "McGhiever",
@@ -9691,6 +9803,22 @@
 "width": 330,
 "wiki": "Channel Islands National Park"
 },
+"npcongaree": {
+"a": "cappellacci",
+"checkedAt": "2026-11-25T21:43:12.397838+00:00",
+"f": "npcongaree.jpg",
+"fetchedAt": "2026-11-25T21:43:12.397838+00:00",
+"height": 186,
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Congaree_Forestscape.jpg",
+"reviewStatus": "approved",
+"sha256": "caa8114d271b719b6e8268d8061893e23523779693e28ebc85712008eb8f5681",
+"w": "https://en.wikipedia.org/wiki/Congaree_National_Park",
+"width": 330,
+"wiki": "Congaree National Park"
+},
 "npcraterlake": {
 "a": "John Manard",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -10059,6 +10187,22 @@
 "width": 330,
 "wiki": "Kobuk Valley National Park"
 },
+"nplakeclark": {
+"a": "NPS Photo",
+"checkedAt": "2026-11-25T21:44:58.609655+00:00",
+"f": "nplakeclark.jpg",
+"fetchedAt": "2026-11-25T21:44:58.609655+00:00",
+"height": 220,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:A_small_marmot_in_the_Lake_Clark_area._%28236cb167-1dd8-b71c-078f-bce75ca3095e%29.jpg",
+"reviewStatus": "approved",
+"sha256": "94aad5d55427eb3e7b3f59e4802246f83b815cf26962eb4604f5c3cbe3aa43d7",
+"w": "https://en.wikipedia.org/wiki/Lake_Clark_National_Park_and_Preserve",
+"width": 330,
+"wiki": "Lake Clark National Park and Preserve"
+},
 "nplassen": {
 "a": "NPS Photo",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -10299,6 +10443,22 @@
 "width": 330,
 "wiki": "Virgin Islands National Park"
 },
+"npvoyageurs": {
+"a": "NPS",
+"checkedAt": "2026-11-25T21:45:08.588476+00:00",
+"f": "npvoyageurs.jpg",
+"fetchedAt": "2026-11-25T21:45:08.588476+00:00",
+"height": 220,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Experience_Nature%27s_Light_Show_in_Voyageurs_National_Park_%28902bed75-1dd8-b71b-0b9f-46e49e80a936%29.jpg",
+"reviewStatus": "approved",
+"sha256": "509c0dd385dcf01947520c386eb0db12269df1051152cb0200e07a77faa543f5",
+"w": "https://en.wikipedia.org/wiki/Voyageurs_National_Park",
+"width": 330,
+"wiki": "Voyageurs National Park"
+},
 "npwhitesands": {
 "a": "xiquinhosilva",
 "checkedAt": "2026-11-13T00:43:34.327109+00:00",
@@ -10538,6 +10698,22 @@
 "w": "https://en.wikipedia.org/wiki/Sunken_Meadow_State_Park",
 "width": 330,
 "wiki": "Alfred E. Smith/Sunken Meadow State Park"
+},
+"nyallegany": {
+"a": "Andre Carrotflower",
+"checkedAt": "2026-11-25T21:42:20.447000+00:00",
+"f": "nyallegany.jpg",
+"fetchedAt": "2026-11-25T21:42:20.447000+00:00",
+"height": 198,
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Administration_Building%2C_Allegany_State_Park%2C_New_York_-_20210316.jpg",
+"reviewStatus": "approved",
+"sha256": "c8a15237019b26b3696d19da346e937d5db1bb73669cab8a75b9e1f760087c16",
+"w": "https://en.wikipedia.org/wiki/Allegany_State_Park",
+"width": 330,
+"wiki": "Allegany State Park"
 },
 "nybearmountain": {
 "a": "CoffeeSoup",
@@ -13116,6 +13292,22 @@
 "width": 330,
 "wiki": "Bald Knob National Wildlife Refuge"
 },
+"usbandeliernationalmonum": {
+"a": "Andrew Dunn (talk · contribs)",
+"checkedAt": "2026-11-25T21:42:24.345750+00:00",
+"f": "usbandeliernationalmonum.jpg",
+"fetchedAt": "2026-11-25T21:42:24.345750+00:00",
+"height": 485,
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Bandelier-Pockmarked_Cliff.jpg",
+"reviewStatus": "approved",
+"sha256": "030eb3c50cd64996ccd5e95cacd19a7df1dc77188c5bfeb26fe673d4ae1c1050",
+"w": "https://en.wikipedia.org/wiki/Bandelier_National_Monument",
+"width": 330,
+"wiki": "Bandelier National Monument"
+},
 "usbearrivermigratorybird": {
 "a": "RhetoricallySpeaking",
 "checkedAt": "2026-11-03T19:45:41.107658+00:00",
@@ -14764,6 +14956,23 @@
 "width": 330,
 "wiki": "Nebraska National Forest"
 },
+"usnezpercenationalforest": {
+"a": "Shook Photos",
+"checkedAt": "2026-11-25T21:46:10.923613+00:00",
+"f": "usnezpercenationalforest.jpg",
+"fetchedAt": "2026-11-25T21:46:10.923613+00:00",
+"height": 213,
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"mt": "image/jpeg",
+"p": "https://openverse.org/image/a2ace7c0-9928-4a7a-b3ea-d561e8954d57",
+"reviewStatus": "approved",
+"s": "Openverse",
+"sha256": "e60d56452baba30f01aabf23d839bd297bf96f4baf5fc622bb9a15f485dd6b78",
+"w": "https://openverse.org/image/a2ace7c0-9928-4a7a-b3ea-d561e8954d57",
+"width": 330,
+"wiki": "Nezperce National Forest"
+},
 "usoconeenationalforest": {
 "a": "Thomson200",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -15051,6 +15260,22 @@
 "w": "https://en.wikipedia.org/wiki/Red_Rock_Lakes_National_Wildlife_Refuge",
 "width": 330,
 "wiki": "Red Rock Lakes National Wildlife Refuge"
+},
+"usricelakenationalwildli": {
+"a": "Lorie Shaull",
+"checkedAt": "2026-11-25T21:45:31.738499+00:00",
+"f": "usricelakenationalwildli.jpg",
+"fetchedAt": "2026-11-25T21:45:31.738499+00:00",
+"height": 308,
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:A_bee_covered_in_dew_at_Rice_Lake_NWR_%28cropped%29.jpg",
+"reviewStatus": "approved",
+"sha256": "226ce24a77af99d0b9ffabdec81a665a912c5ff7a3e09848326039039655d752",
+"w": "https://en.wikipedia.org/wiki/Rice_Lake_National_Wildlife_Refuge",
+"width": 330,
+"wiki": "Rice Lake National Wildlife Refuge"
 },
 "usrockymountainarsenalna": {
 "a": "Oborseth",
@@ -17742,6 +17967,22 @@
 "width": 330,
 "wiki": "Lorentz National Park"
 },
+"whmanapools": {
+"a": "Babakathy",
+"checkedAt": "2026-11-25T21:45:40.534586+00:00",
+"f": "whmanapools.jpg",
+"fetchedAt": "2026-11-25T21:45:40.534586+00:00",
+"height": 247,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Island_in_the_Zambezi_River_at_Mana_Pools_National_Park-1.jpg",
+"reviewStatus": "approved",
+"sha256": "664f4e32f9f67a2f6ff7956423b9070043871f221903cf380b094190886ed7e6",
+"w": "https://en.wikipedia.org/wiki/Mana_Pools_National_Park",
+"width": 330,
+"wiki": "Mana Pools National Park"
+},
 "whmanu": {
 "a": "As578",
 "checkedAt": "2026-11-01T00:35:53.296847+00:00",
@@ -17837,6 +18078,22 @@
 "w": "https://en.wikipedia.org/wiki/Fernando_de_Noronha",
 "width": 330,
 "wiki": "Fernando de Noronha"
+},
+"whogasawara": {
+"a": "Ootahara",
+"checkedAt": "2026-11-25T21:43:34.386053+00:00",
+"f": "whogasawara.jpg",
+"fetchedAt": "2026-11-25T21:43:34.386053+00:00",
+"height": 247,
+"l": "CC0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Ogasawara_Highschool.jpg",
+"reviewStatus": "approved",
+"sha256": "67e0b10292427e461cfb6926e819e2af38328d2e06302d17ea3d25f9665e4efa",
+"w": "https://en.wikipedia.org/wiki/Ogasawara_Islands",
+"width": 330,
+"wiki": "Ogasawara Islands"
 },
 "whokavango": {
 "a": "Joachim Huber",
@@ -18093,6 +18350,22 @@
 "w": "https://en.wikipedia.org/wiki/Sinharaja_Forest_Reserve",
 "width": 330,
 "wiki": "Sinharaja Forest Reserve"
+},
+"whsvalbard": {
+"a": "MODIS Land Rapid Response Team, NASA GSFC",
+"checkedAt": "2026-11-25T21:42:38.374190+00:00",
+"f": "whsvalbard.jpg",
+"fetchedAt": "2026-11-25T21:42:38.374190+00:00",
+"height": 251,
+"l": "Public domain",
+"lu": "",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Svalbard_%28MODIS%29.jpg",
+"reviewStatus": "approved",
+"sha256": "f3dddd006ed84753f1491684dab19e748b0a8b1ebf9379077fb0d003d02cda4a",
+"w": "https://en.wikipedia.org/wiki/Svalbard",
+"width": 330,
+"wiki": "Svalbard"
 },
 "whtai": {
 "a": "yakovlev.alexey from Moscow, Russia",
@@ -18829,6 +19102,22 @@
 "w": "https://en.wikipedia.org/wiki/Cacapon_Resort_State_Park",
 "width": 330,
 "wiki": "Cacapon Resort State Park"
+},
+"wvcampcreek": {
+"a": "Brian M. Powell (user Bitmapped on en.wikipedia)",
+"checkedAt": "2026-11-25T21:42:44.404348+00:00",
+"f": "wvcampcreek.jpg",
+"fetchedAt": "2026-11-25T21:42:44.404348+00:00",
+"height": 247,
+"l": "CC BY-SA 3.0",
+"lu": "https://creativecommons.org/licenses/by-sa/3.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Camp_Creek_State_Park-Shay_Locomotive_Bell.jpg",
+"reviewStatus": "approved",
+"sha256": "707de51276492b1d9fad73c4a99a33724d38d7b912f93751f39d99537c48e3a8",
+"w": "https://en.wikipedia.org/wiki/Camp_Creek_State_Park",
+"width": 330,
+"wiki": "Camp Creek State Park"
 },
 "wvcanaanvalleyreso": {
 "a": "Tim Kiser (w:User:Malepheasant)",
@@ -20445,6 +20734,22 @@
 "w": "https://en.wikipedia.org/wiki/Triglav_National_Park",
 "width": 330,
 "wiki": "Triglav National Park"
+},
+"xsolomon": {
+"a": "Xplore Dive from Mooloolaba, Australia",
+"checkedAt": "2026-11-25T21:45:54.598504+00:00",
+"f": "xsolomon.jpg",
+"fetchedAt": "2026-11-25T21:45:54.598504+00:00",
+"height": 247,
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"mt": "image/jpeg",
+"p": "https://commons.wikimedia.org/wiki/File:Looking_back_from_Marovo_Lagoon_%2819_July_2008%29.jpg",
+"reviewStatus": "approved",
+"sha256": "96f0fec4500d5d21ee8e9c662a3037863318664b5b6bac9bcbbc5702c5985e85",
+"w": "https://en.wikipedia.org/wiki/Marovo_Lagoon",
+"width": 330,
+"wiki": "Marovo Lagoon"
 },
 "xsomaliland": {
 "a": "Abukar Musa",

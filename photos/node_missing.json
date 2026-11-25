@@ -1,10 +1,4 @@
 {
-"aletsch-glacier": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361490+00:00",
-"expiresAt": "2026-11-16T06:00:53.361490+00:00",
-"status": "notyet"
-},
 "alkali-soil": {
 "attempts": 1,
 "checkedAt": "2026-11-25T03:37:21.601224+00:00",
@@ -24,16 +18,16 @@
 "status": "notfree"
 },
 "antarctic-convergence": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361530+00:00",
-"expiresAt": "2026-11-16T06:00:53.361530+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:26.085599+00:00",
+"expiresAt": "2026-12-25T21:38:26.085599+00:00",
+"status": "nophoto"
 },
 "aquifer": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361536+00:00",
-"expiresAt": "2026-11-16T06:00:53.361536+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:26.085623+00:00",
+"expiresAt": "2026-12-25T21:38:26.085623+00:00",
+"status": "nophoto"
 },
 "black-water-river": {
 "attempts": 1,
@@ -42,22 +36,22 @@
 "status": "notyet"
 },
 "california-current": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361541+00:00",
-"expiresAt": "2026-11-16T06:00:53.361541+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:26.085636+00:00",
+"expiresAt": "2026-12-25T21:38:26.085636+00:00",
+"status": "nophoto"
 },
 "cay": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361543+00:00",
-"expiresAt": "2026-11-16T06:00:53.361543+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:29.928632+00:00",
+"expiresAt": "2026-12-25T21:38:29.928632+00:00",
+"status": "notfree"
 },
 "continental-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361546+00:00",
-"expiresAt": "2026-11-16T06:00:53.361546+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:29.928680+00:00",
+"expiresAt": "2026-12-25T21:38:29.928680+00:00",
+"status": "nophoto"
 },
 "falkland-current": {
 "attempts": 1,
@@ -72,16 +66,16 @@
 "status": "notfree"
 },
 "florida-current": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361548+00:00",
-"expiresAt": "2026-11-16T06:00:53.361548+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:31.979690+00:00",
+"expiresAt": "2026-12-25T21:38:31.979690+00:00",
+"status": "nophoto"
 },
 "gran-chaco": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361550+00:00",
-"expiresAt": "2026-11-16T06:00:53.361550+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:35.943256+00:00",
+"expiresAt": "2026-12-25T21:38:35.943256+00:00",
+"status": "notfree"
 },
 "hamad": {
 "attempts": 1,
@@ -90,10 +84,10 @@
 "status": "notyet"
 },
 "hypolimnion": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361555+00:00",
-"expiresAt": "2026-11-16T06:00:53.361555+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:37.851706+00:00",
+"expiresAt": "2026-12-25T21:38:37.851706+00:00",
+"status": "nophoto"
 },
 "krimml-waterfalls": {
 "attempts": 1,
@@ -132,22 +126,22 @@
 "status": "notyet"
 },
 "mediterranean-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361566+00:00",
-"expiresAt": "2026-11-16T06:00:53.361566+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:37.851725+00:00",
+"expiresAt": "2026-12-25T21:38:37.851725+00:00",
+"status": "nophoto"
 },
 "nutrient": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361568+00:00",
-"expiresAt": "2026-11-16T06:00:53.361568+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:37.851735+00:00",
+"expiresAt": "2026-12-25T21:38:37.851735+00:00",
+"status": "nophoto"
 },
 "oceanic-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361570+00:00",
-"expiresAt": "2026-11-16T06:00:53.361570+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:37.851745+00:00",
+"expiresAt": "2026-12-25T21:38:37.851745+00:00",
+"status": "nophoto"
 },
 "oligotroph": {
 "attempts": 1,
@@ -167,17 +161,11 @@
 "expiresAt": "2027-05-24T03:37:21.601298+00:00",
 "status": "notfree"
 },
-"pendjari-river": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361574+00:00",
-"expiresAt": "2026-11-16T06:00:53.361574+00:00",
-"status": "notyet"
-},
 "ramganga-river": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361576+00:00",
-"expiresAt": "2026-11-16T06:00:53.361576+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:39.935818+00:00",
+"expiresAt": "2026-12-25T21:38:39.935818+00:00",
+"status": "nophoto"
 },
 "red-sea": {
 "attempts": 1,
@@ -186,22 +174,22 @@
 "status": "notfree"
 },
 "salinity": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361579+00:00",
-"expiresAt": "2026-11-16T06:00:53.361579+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:41.935104+00:00",
+"expiresAt": "2026-12-25T21:38:41.935104+00:00",
+"status": "nophoto"
 },
 "sea-surface-temperature": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361581+00:00",
-"expiresAt": "2026-11-16T06:00:53.361581+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:41.935134+00:00",
+"expiresAt": "2026-12-25T21:38:41.935134+00:00",
+"status": "notfree"
 },
 "subarctic-climate": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361584+00:00",
-"expiresAt": "2026-11-16T06:00:53.361584+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:41.935144+00:00",
+"expiresAt": "2026-12-25T21:38:41.935144+00:00",
+"status": "nophoto"
 },
 "swamp": {
 "attempts": 1,
@@ -216,10 +204,10 @@
 "status": "notyet"
 },
 "troodos-ophiolite": {
-"attempts": 1,
-"checkedAt": "2026-11-16T04:00:53.361588+00:00",
-"expiresAt": "2026-11-16T06:00:53.361588+00:00",
-"status": "notyet"
+"attempts": 2,
+"checkedAt": "2026-11-25T21:38:41.935154+00:00",
+"expiresAt": "2026-12-25T21:38:41.935154+00:00",
+"status": "nophoto"
 },
 "ultisol": {
 "attempts": 1,

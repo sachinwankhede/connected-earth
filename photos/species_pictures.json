@@ -697,6 +697,18 @@
 "u": "e/e9/Acropora_pulchra.jpg/330px-Acropora_pulchra.jpg",
 "wiki": "Acropora"
 },
+"acropora-palmata": {
+"a": "James St. John",
+"f": "54a16e0a8b03.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/d80d3b54-8508-4399-8e3e-8c322e3367aa",
+"page": "Elkhorn_coral",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/d80d3b54-8508-4399-8e3e-8c322e3367aa",
+"wiki": "Elkhorn coral"
+},
 "actaea-pachypoda": {
 "a": "Eric Hunt",
 "f": "cd7a34d64eef.webp",
@@ -778,6 +790,18 @@
 "page": "Adelinia",
 "u": "a/a8/Cynoglossum_grande_8050.JPG/330px-Cynoglossum_grande_8050.JPG",
 "wiki": "Adelinia grande"
+},
+"adenostoma-fasciculatum": {
+"a": "campsjc",
+"f": "497643a2aedb.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/9ca6b124-558e-4c75-8e58-2134ab283b12",
+"page": "Adenostoma_fasciculatum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/9ca6b124-558e-4c75-8e58-2134ab283b12",
+"wiki": "Adenostoma fasciculatum"
 },
 "adesmia-cancellata": {
 "a": "The Great Mule of Eupatoria",
@@ -1104,6 +1128,18 @@
 "src": "openverse",
 "u": "openverse/c74eda1b-891e-470a-b3dd-2a6de36a7a6f",
 "wiki": "Florida cottonmouth"
+},
+"agkistrodon-contortrix": {
+"a": "2ndPeter",
+"f": "d8939e2926ad.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/8566b3dd-c455-4007-ac4d-1fcaa27811f0",
+"page": "Agkistrodon_contortrix",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/8566b3dd-c455-4007-ac4d-1fcaa27811f0",
+"wiki": "Agkistrodon contortrix"
 },
 "agkistrodon-piscivorus": {
 "a": "CDC/ Edward J. Wozniak D.V.M., Ph.D., John Willson at the University of Georgia, at the Savannah River Ecology Laboratory (SREL)",
@@ -1676,6 +1712,18 @@
 "u": "9/98/Puerto_Rican_parrot.jpg/330px-Puerto_Rican_parrot.jpg",
 "wiki": "Puerto Rican amazon"
 },
+"amblyopsis-spelaea": {
+"a": "Steven Wang",
+"f": "fd95ec7bf850.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/753100660",
+"page": "Northern_cavefish",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/753100660",
+"wiki": "Northern cavefish"
+},
 "amblyrhynchus-cristatus": {
 "a": "RAF-YYC from Calgary, Canada",
 "f": "2f5f0f1ada7a.webp",
@@ -1695,6 +1743,18 @@
 "page": "Ambrosia_artemisiifolia",
 "u": "6/60/Ambrosia_artemisiifolia_plant7_%2811741895306%29.jpg/330px-Ambrosia_artemisiifolia_plant7_%2811741895306%29.jpg",
 "wiki": "Ambrosia artemisiifolia"
+},
+"ambrosia-bidentata": {
+"a": "pamelabarnabee",
+"f": "141d6c2f4a00.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/150909693",
+"page": "Ambrosia_bidentata",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/150909693",
+"wiki": "Ambrosia bidentata"
 },
 "ambrosia-chamissonis": {
 "a": "Eric in SF",
@@ -2032,6 +2092,18 @@
 "u": "1/18/Anableps_anableps_Submerged.png/330px-Anableps_anableps_Submerged.png",
 "wiki": "Anableps anableps"
 },
+"anabrus-simplex": {
+"a": "Ranger Robb",
+"f": "ea42bafab925.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/ee2e5890-6098-4c86-8ec4-1018404cfc9d",
+"page": "Mormon_cricket",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/ee2e5890-6098-4c86-8ec4-1018404cfc9d",
+"wiki": "Mormon cricket"
+},
 "analeptura-lineola": {
 "a": "Judy Gallagher",
 "f": "6dc78bad2724.webp",
@@ -2351,6 +2423,30 @@
 "page": "Anemonoides_oregana",
 "u": "6/65/Anemone_oregana_var._oregana_2.jpg/330px-Anemone_oregana_var._oregana_2.jpg",
 "wiki": "Anemone oregana"
+},
+"anemone-quinquefolia": {
+"a": "wackybadger",
+"f": "bf628392c1dc.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/43428f15-23eb-47e8-96a3-0b7e370840ab",
+"page": "Anemone_quinquefolia",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/43428f15-23eb-47e8-96a3-0b7e370840ab",
+"wiki": "Anemone quinquefolia"
+},
+"anemone-tuberosa": {
+"a": "Alex Abair",
+"f": "f89762ce43c6.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/14350625",
+"page": "Anemone_tuberosa",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/14350625",
+"wiki": "Anemone tuberosa"
 },
 "anemone-virginiana": {
 "a": "Eric Hunt",
@@ -2944,6 +3040,18 @@
 "page": "Southern_brown_kiwi",
 "u": "9/99/Tokoeka.jpg/330px-Tokoeka.jpg",
 "wiki": "Southern brown kiwi"
+},
+"aquatic-macrophytes": {
+"a": "Bernard DUPONT",
+"f": "4546f428c8ea.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/ad9c00b3-cf38-4af9-83a6-b8f1eec869b1",
+"page": "Aquatic_plant",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/ad9c00b3-cf38-4af9-83a6-b8f1eec869b1",
+"wiki": "Aquatic plant"
 },
 "aquila-adalberti": {
 "a": "José Antonio Lagier Martin",
@@ -3590,6 +3698,30 @@
 "u": "inaturalist/10215966",
 "wiki": "Aristolochia watsonii"
 },
+"arizona-elegans": {
+"a": "Ranger Robb",
+"f": "fc8ff3eae345.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/e78b822a-101e-4fcb-9bfe-413d87981d4f",
+"page": "Glossy_snake",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/e78b822a-101e-4fcb-9bfe-413d87981d4f",
+"wiki": "Glossy snake"
+},
+"arnoglossum-atriplicifolium": {
+"a": "wackybadger",
+"f": "4042581f63c8.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/b3c31958-5321-4b75-b9bb-06c05cd0d4d5",
+"page": "Arnoglossum_atriplicifolium",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/b3c31958-5321-4b75-b9bb-06c05cd0d4d5",
+"wiki": "Arnoglossum atriplicifolium"
+},
 "arnoglossum-plantagineum": {
 "a": "Pieter Pelser",
 "f": "e174b90ca372.webp",
@@ -3729,6 +3861,18 @@
 "page": "Artemisia_ludoviciana",
 "u": "c/c9/Gardenology.org-IMG_2731_rbgs11jan.jpg/330px-Gardenology.org-IMG_2731_rbgs11jan.jpg",
 "wiki": "Artemisia ludoviciana"
+},
+"artemisia-spinescens": {
+"a": "aspidoscelis",
+"f": "7e0ba10b9d33.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/977678e9-0122-42d4-a097-de6723dabbcc",
+"page": "Artemisia_spinescens",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/977678e9-0122-42d4-a097-de6723dabbcc",
+"wiki": "Artemisia spinescens"
 },
 "artemisia-stelleriana": {
 "a": "John Phelan",
@@ -4547,6 +4691,18 @@
 "u": "https://upload.wikimedia.org/wikipedia/commons/1/11/Atriplexargentea.jpg",
 "wiki": "Atriplex argentea"
 },
+"atriplex-canescens": {
+"a": "PetrifiedForestNPS",
+"f": "e3f24434de3d.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/aed2ebf5-d0ca-4109-aa1f-7cbe08652467",
+"page": "Atriplex_canescens",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/aed2ebf5-d0ca-4109-aa1f-7cbe08652467",
+"wiki": "Atriplex canescens"
+},
 "atriplex-confertifolia": {
 "a": "Matt Lavin from Bozeman, Montana, USA",
 "f": "5f5e0c79b2d9.webp",
@@ -4718,6 +4874,18 @@
 "page": "Automeris_io",
 "u": "c/cf/Automeris_ioFMPCCA20040704-2974B1.jpg/330px-Automeris_ioFMPCCA20040704-2974B1.jpg",
 "wiki": "Automeris io"
+},
+"avena-sterilis": {
+"a": "Thibault Lefort",
+"f": "41791ae532ff.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/b09e7a37-a6ad-4304-aa55-087b373451f6",
+"page": "Avena_sterilis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/b09e7a37-a6ad-4304-aa55-087b373451f6",
+"wiki": "Avena sterilis"
 },
 "avenella-flexuosa": {
 "a": "Botaurus",
@@ -4908,6 +5076,18 @@
 "page": "Diatom",
 "u": "3/31/Diatoms_through_the_microscope.jpg/330px-Diatoms_through_the_microscope.jpg",
 "wiki": "Diatom"
+},
+"bactrocera-dorsalis": {
+"a": "U.S. Department of Agriculture",
+"f": "6b6ee8141f4b.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/1653256",
+"page": "Bactrocera_dorsalis",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/1653256",
+"wiki": "Bactrocera dorsalis"
 },
 "baeolophus-atricristatus": {
 "a": "Outriggr",
@@ -5980,6 +6160,18 @@
 "u": "1/10/Bourreria_succulenta.jpg/330px-Bourreria_succulenta.jpg",
 "wiki": "Bourreria succulenta"
 },
+"bouteloua-curtipendula": {
+"a": "Matt Lavin",
+"f": "331f866bdda8.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/8793df19-aa9c-4256-9c3f-f7deef757d04",
+"page": "Bouteloua_curtipendula",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/8793df19-aa9c-4256-9c3f-f7deef757d04",
+"wiki": "Bouteloua curtipendula"
+},
 "bouteloua-eriopoda": {
 "a": "Matt Lavin",
 "f": "7b3f57ab0dfd.webp",
@@ -5989,6 +6181,18 @@
 "page": "Bouteloua_eriopoda",
 "u": "b/b9/Bouteloua_eriopoda.jpg/330px-Bouteloua_eriopoda.jpg",
 "wiki": "Bouteloua eriopoda"
+},
+"bouteloua-gracilis": {
+"a": "ikewinski",
+"f": "2bb1c3b6fb51.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/d05e2c1f-8a12-407b-bd47-da581ab82b11",
+"page": "Bouteloua_gracilis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/d05e2c1f-8a12-407b-bd47-da581ab82b11",
+"wiki": "Bouteloua gracilis"
 },
 "brachyteles-arachnoides": {
 "a": "Leonardo Desordi Lobo",
@@ -6120,6 +6324,18 @@
 "u": "e/ef/Brevoortia_tyrannus1.jpg/330px-Brevoortia_tyrannus1.jpg",
 "wiki": "Atlantic menhaden"
 },
+"brickellia-californica": {
+"a": "aspidoscelis",
+"f": "313558e0826f.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/fd6b7845-4676-405b-9fd6-18e37c39a39d",
+"page": "Brickellia_californica",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/fd6b7845-4676-405b-9fd6-18e37c39a39d",
+"wiki": "Brickellia californica"
+},
 "brickellia-microphylla": {
 "a": "Stan Shebs",
 "f": "a37deb74e03c.webp",
@@ -6139,6 +6355,18 @@
 "page": "Brickellia_oblongifolia",
 "u": "0/00/Brickellia_oblongifolia_var_linifolia_1.jpg/330px-Brickellia_oblongifolia_var_linifolia_1.jpg",
 "wiki": "Brickellia oblongifolia"
+},
+"bridelia-ferruginea": {
+"a": "Dinesh Valke",
+"f": "c8df54ddaec0.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/be791ed2-6685-4573-9c0a-ab54f3b2b44c",
+"page": "Bridelia",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/be791ed2-6685-4573-9c0a-ab54f3b2b44c",
+"wiki": "Bridelia"
 },
 "bromeliaceae": {
 "a": "MANOJTV at English Wikipedia",
@@ -7939,6 +8167,18 @@
 "u": "inaturalist/201955700",
 "wiki": "Carex cumberlandensis"
 },
+"carex-davisii": {
+"a": "Douglas Goldman",
+"f": "89ebca63c1c5.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/407099673",
+"page": "Carex_davisii",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/407099673",
+"wiki": "Carex davisii"
+},
 "carex-debilis": {
 "a": "Mason Brock (Masebrock)",
 "f": "583ca4fe259d.webp",
@@ -8469,6 +8709,18 @@
 "u": "2/2c/Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg/330px-Carpinus_betulus_-_Hunsr%C3%BCck_001.jpg",
 "wiki": "Carpinus betulus"
 },
+"carya-glabra": {
+"a": "sonnia hill",
+"f": "2b7bce1a0a99.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/004cd7ea-3257-4ef5-89af-f2c368b3438a",
+"page": "Carya_glabra",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/004cd7ea-3257-4ef5-89af-f2c368b3438a",
+"wiki": "Carya glabra"
+},
 "carya-illinoinensis": {
 "a": "Bruce Marlin",
 "f": "511a441b502c.webp",
@@ -8619,6 +8871,18 @@
 "u": "0/0c/Castilleja_integra_-_Michael_Tidwell_01.jpg/330px-Castilleja_integra_-_Michael_Tidwell_01.jpg",
 "wiki": "Castilleja integra"
 },
+"castilleja-linariifolia": {
+"a": "PetrifiedForestNPS",
+"f": "fdc5a7f42392.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/1a85ba6f-4d18-400f-b780-1ae8ce097754",
+"page": "Castilleja_linariifolia",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/1a85ba6f-4d18-400f-b780-1ae8ce097754",
+"wiki": "Castilleja linariifolia"
+},
 "castilleja-miniata": {
 "a": "Walter Siegmund",
 "f": "eacff246b090.webp",
@@ -8748,6 +9012,18 @@
 "page": "Brazilian_guinea_pig",
 "u": "c/c6/Wildmeerschweinchen-06.jpg/330px-Wildmeerschweinchen-06.jpg",
 "wiki": "Brazilian guinea pig"
+},
+"ceanothus": {
+"a": "John Rusk",
+"f": "928a6c64e412.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/72e60233-2283-4320-a007-7dcbe19b8410",
+"page": "Ceanothus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/72e60233-2283-4320-a007-7dcbe19b8410",
+"wiki": "Ceanothus"
 },
 "ceanothus-herbaceus": {
 "a": "Clarence A. Rechenthin",
@@ -8908,6 +9184,18 @@
 "page": "Celastrina_lucia",
 "u": "b/b6/Spring_Azure-male.jpg/330px-Spring_Azure-male.jpg",
 "wiki": "Celastrina lucia"
+},
+"celastrus-orbiculatus": {
+"a": "krossbow",
+"f": "8bbe0f8900b9.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/1b5e6c1d-5965-49e3-9992-471ef5613d46",
+"page": "Celastrus_orbiculatus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/1b5e6c1d-5965-49e3-9992-471ef5613d46",
+"wiki": "Celastrus orbiculatus"
 },
 "celastrus-scandens": {
 "a": "The Cosmonaut",
@@ -9240,6 +9528,18 @@
 "page": "Cercis_occidentalis",
 "u": "1/17/Cercis_occidentalis_branch.jpg/330px-Cercis_occidentalis_branch.jpg",
 "wiki": "Cercis occidentalis"
+},
+"cercocarpus-intricatus": {
+"a": "Steve Matson",
+"f": "6b0e12053197.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/84591870",
+"page": "Cercocarpus_intricatus",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/84591870",
+"wiki": "Cercocarpus intricatus"
 },
 "cercocarpus-ledifolius": {
 "a": "Dcrjsr",
@@ -9948,6 +10248,18 @@
 "page": "Kelp_goose",
 "u": "6/64/Kelp_goose_%28Chloephaga_hybrida%29_male_Chiloe.jpg/330px-Kelp_goose_%28Chloephaga_hybrida%29_male_Chiloe.jpg",
 "wiki": "Kelp goose"
+},
+"chloephaga-melanoptera": {
+"a": "sussexbirder",
+"f": "334e52d4dd82.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/3f7ddf5c-baf1-4e8e-8734-718cbf185d7a",
+"page": "Andean_goose",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/3f7ddf5c-baf1-4e8e-8734-718cbf185d7a",
+"wiki": "Andean goose"
 },
 "chloephaga-picta": {
 "a": "Charles J. Sharp",
@@ -10665,6 +10977,18 @@
 "u": "9/98/The_Botanical_Magazine%2C_Plate_67_%28Volume_27%2C_1841%29-cropped.jpg/330px-The_Botanical_Magazine%2C_Plate_67_%28Volume_27%2C_1841%29-cropped.jpg",
 "wiki": "Cleomella lutea"
 },
+"cleomella-serrulata": {
+"a": "Paul and Jill",
+"f": "c7989a17b6d3.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/90e40fa2-1df4-4986-a54d-9bdc4a0f32f1",
+"page": "Cleomella_serrulata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/90e40fa2-1df4-4986-a54d-9bdc4a0f32f1",
+"wiki": "Cleomella serrulata"
+},
 "clerodendrum-bungei": {
 "a": "Xtreme77700",
 "f": "7f8e5cdd94f2.webp",
@@ -10714,6 +11038,18 @@
 "page": "Clitoria_mariana",
 "u": "a/a5/Clitoria_Mariana_-_Atlantic_Pigeon_Wings.jpg/330px-Clitoria_Mariana_-_Atlantic_Pigeon_Wings.jpg",
 "wiki": "Clitoria mariana"
+},
+"clupea-harengus": {
+"a": "Gillfoto",
+"f": "454ec8970824.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/85509894",
+"page": "Atlantic_herring",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/85509894",
+"wiki": "Atlantic herring"
 },
 "clupea-pallasii": {
 "a": "AnonymousUnknown author",
@@ -11067,6 +11403,18 @@
 "u": "0/00/Conicosiapugioniformis.jpg/330px-Conicosiapugioniformis.jpg",
 "wiki": "Conicosia pugioniformis"
 },
+"conium-maculatum": {
+"a": "Matt Lavin",
+"f": "1315f5da53e5.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/9496ea8b-f81f-41ac-a489-42d0eb48611e",
+"page": "Conium_maculatum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/9496ea8b-f81f-41ac-a489-42d0eb48611e",
+"wiki": "Conium maculatum"
+},
 "connochaetes-taurinus": {
 "a": "Bernard DUPONT",
 "f": "7072aef4261f.webp",
@@ -11308,6 +11656,18 @@
 "page": "Platymantis_vitiensis",
 "u": "b/b7/Fiji_tree_frog_Tamara_Osborne.JPG/330px-Fiji_tree_frog_Tamara_Osborne.JPG",
 "wiki": "Platymantis vitiensis"
+},
+"cornus-alternifolia": {
+"a": "Delaware Master Gardeners",
+"f": "c52d2141fd2b.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/346c54c1-d61a-406e-bda5-62ff4a333c8a",
+"page": "Cornus_alternifolia",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/346c54c1-d61a-406e-bda5-62ff4a333c8a",
+"wiki": "Cornus alternifolia"
 },
 "cornus-amomum": {
 "a": "User:SB_Johnny",
@@ -11571,6 +11931,18 @@
 "u": "0/06/Corydalisaurea.jpg/330px-Corydalisaurea.jpg",
 "wiki": "Corydalis aurea"
 },
+"corylus-americana": {
+"a": "Judy Gallagher",
+"f": "97160245aaee.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/4c56d0eb-b99b-4e70-8914-8a6f0a1ac064",
+"page": "Corylus_americana",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4c56d0eb-b99b-4e70-8914-8a6f0a1ac064",
+"wiki": "Corylus americana"
+},
 "corylus-avellana": {
 "a": "hedera.baltica",
 "f": "1557ed6e6c5a.webp",
@@ -11592,6 +11964,18 @@
 "page": "Corylus_colurna",
 "u": "2/2b/Corylus_colurna_subadriatic_dinaric_mountains_Orjen.JPG/330px-Corylus_colurna_subadriatic_dinaric_mountains_Orjen.JPG",
 "wiki": "Corylus colurna"
+},
+"corylus-cornuta": {
+"a": "Ken-ichi Ueda",
+"f": "cf29ca032537.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/25729",
+"page": "Corylus_cornuta",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/25729",
+"wiki": "Corylus cornuta"
 },
 "corymbia-papuana": {
 "a": "Heritage branch staff",
@@ -12327,6 +12711,18 @@
 "u": "c/cf/Steller%27s_Jay_flagstaff_arizona.jpg/330px-Steller%27s_Jay_flagstaff_arizona.jpg",
 "wiki": "Cyanocitta stelleri"
 },
+"cyathea": {
+"a": "Dinesh Valke",
+"f": "a00ce2c162d7.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/992f2fb5-feb8-4972-957b-146ef5e09393",
+"page": "Cyathea",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/992f2fb5-feb8-4972-957b-146ef5e09393",
+"wiki": "Cyathea"
+},
 "cyclura-cychlura": {
 "a": "Jimmy Baikovicius",
 "f": "2abc503c3330.webp",
@@ -12448,6 +12844,18 @@
 "page": "Cynoglossum_officinale",
 "u": "9/9c/Cynoglossum_officinale_W.jpg/330px-Cynoglossum_officinale_W.jpg",
 "wiki": "Cynoglossum officinale"
+},
+"cynomys-gunnisoni": {
+"a": "Paul and Jill",
+"f": "bb8164a3ee6d.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/3445b29c-5d21-44c9-bd26-bf8b95a282dd",
+"page": "Cynomys_gunnisoni",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/3445b29c-5d21-44c9-bd26-bf8b95a282dd",
+"wiki": "Cynomys gunnisoni"
 },
 "cynomys-leucurus": {
 "a": "Devonpike at English Wikipedia",
@@ -13107,6 +13515,18 @@
 "u": "d/df/Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg/330px-Great_spotted_woodpecker_%28Dendrocopos_major%29_male_Drenthe.jpg",
 "wiki": "Great spotted woodpecker"
 },
+"dendroctonus-ponderosae": {
+"a": "YellowstoneNPS",
+"f": "48f6eb102f5d.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/78407090-233a-4911-a588-8b8abdb0b1b4",
+"page": "Mountain_pine_beetle",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/78407090-233a-4911-a588-8b8abdb0b1b4",
+"wiki": "Mountain pine beetle"
+},
 "dendrocygna-viduata": {
 "a": "Richard Bartz, Munich Makro Freak",
 "f": "be360ee77c5b.webp",
@@ -13518,6 +13938,18 @@
 "page": "Virginia_opossum",
 "u": "2/27/Opossum_2.jpg/330px-Opossum_2.jpg",
 "wiki": "Didelphis virginiana"
+},
+"didiereaceae": {
+"a": "Dr. Alexey Yakovlev",
+"f": "3972aab32efd.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/2c72d539-a256-4795-96bd-833160736a7a",
+"page": "Didiereaceae",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/2c72d539-a256-4795-96bd-833160736a7a",
+"wiki": "Didiereaceae"
 },
 "dieunomia-nevadensis": {
 "a": "Insects Unlocked",
@@ -14502,6 +14934,18 @@
 "u": "a/a6/Korina_2012-05-15_Elaeagnus_angustifolia_1.jpg/330px-Korina_2012-05-15_Elaeagnus_angustifolia_1.jpg",
 "wiki": "Elaeagnus angustifolia"
 },
+"elaeagnus-commutata": {
+"a": "James St. John",
+"f": "f4675e9dee8f.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/f6214c30-6963-4210-af39-3dfd0cc0c5a6",
+"page": "Elaeagnus_commutata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/f6214c30-6963-4210-af39-3dfd0cc0c5a6",
+"wiki": "Elaeagnus commutata"
+},
 "elaeagnus-umbellata": {
 "a": "KENPEI",
 "f": "097a5f7ba008.webp",
@@ -15008,6 +15452,18 @@
 "u": "f/fd/Trailing_arbutus_2006.jpg/330px-Trailing_arbutus_2006.jpg",
 "wiki": "Epigaea repens"
 },
+"epilobium-brachycarpum": {
+"a": "Andrey Zharkikh",
+"f": "fb76b47d84c6.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/4239069",
+"page": "Epilobium_brachycarpum",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/4239069",
+"wiki": "Epilobium brachycarpum"
+},
 "epimecis-hortaria": {
 "a": "Cyndy Sims Parr",
 "f": "228a87359bc5.webp",
@@ -15329,6 +15785,18 @@
 "page": "Erigeron_divergens",
 "u": "5/53/Erigerondivergens.jpg/330px-Erigerondivergens.jpg",
 "wiki": "Erigeron divergens"
+},
+"erigeron-eatonii": {
+"a": "Matt Lavin",
+"f": "58fd605da8c0.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/83e5adb5-968c-4fd5-8fb4-f5d47c689278",
+"page": "Erigeron_eatonii",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/83e5adb5-968c-4fd5-8fb4-f5d47c689278",
+"wiki": "Erigeron eatonii"
 },
 "erigeron-glaucus": {
 "a": "JJ Harrison",
@@ -16698,6 +17166,18 @@
 "u": "e/ec/Ferocactus_wislizeni_flower.jpg/330px-Ferocactus_wislizeni_flower.jpg",
 "wiki": "Ferocactus wislizeni"
 },
+"festuca": {
+"a": "F. D. Richards",
+"f": "f79fa5fdaf53.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/0a3debf6-d1d4-48e0-8863-bae88895b183",
+"page": "Festuca",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/0a3debf6-d1d4-48e0-8863-bae88895b183",
+"wiki": "Festuca"
+},
 "festuca-campestris": {
 "a": "Matt Lavin",
 "f": "035a5bf75177.webp",
@@ -16848,6 +17328,18 @@
 "page": "Fouquieria_splendens",
 "u": "8/8a/Ocotillo_GB.jpg/330px-Ocotillo_GB.jpg",
 "wiki": "Fouquieria splendens"
+},
+"fragaria-vesca": {
+"a": "jkiscycling",
+"f": "a843863c0c44.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/1de749e5-d2f9-40e9-86e7-a068101b4dcf",
+"page": "Fragaria_vesca",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/1de749e5-d2f9-40e9-86e7-a068101b4dcf",
+"wiki": "Fragaria vesca"
 },
 "fragaria-virginiana": {
 "a": "Walter Siegmund",
@@ -17048,6 +17540,18 @@
 "page": "Eurasian_coot",
 "u": "d/d9/Eurasian_Coot_2023_11_25_03.jpg/330px-Eurasian_Coot_2023_11_25_03.jpg",
 "wiki": "Eurasian coot"
+},
+"gadus-chalcogrammus": {
+"a": "George Berninger Jr.",
+"f": "9d860d449821.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/86096392",
+"page": "Walleye_pollock",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/86096392",
+"wiki": "Walleye pollock"
 },
 "gaillardia-aristata": {
 "a": "Walter Siegmund",
@@ -17703,6 +18207,18 @@
 "u": "d/de/Scrub_gilia%2C_Gilia_malior_%2816505646409%29.jpg/330px-Scrub_gilia%2C_Gilia_malior_%2816505646409%29.jpg",
 "wiki": "Gilia malior"
 },
+"ginglymostoma-cirratum": {
+"a": "Victorian National Parks Association",
+"f": "2fc362804a44.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/79b1a7d7-2e78-49fe-abe7-0c279863f108",
+"page": "Nurse_shark",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/79b1a7d7-2e78-49fe-abe7-0c279863f108",
+"wiki": "Nurse shark"
+},
 "giraffa-camelopardalis": {
 "a": "claralieu",
 "f": "70dd942bcb5b.webp",
@@ -17804,6 +18320,18 @@
 "page": "Glyceria_striata",
 "u": "8/82/Glyceria_striata.jpg/330px-Glyceria_striata.jpg",
 "wiki": "Glyceria striata"
+},
+"glycyrrhiza-lepidota": {
+"a": "Matt Lavin",
+"f": "6333c965a4ba.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/fcf4249c-74dd-4c90-972a-6d724b8bd95e",
+"page": "Glycyrrhiza_lepidota",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/fcf4249c-74dd-4c90-972a-6d724b8bd95e",
+"wiki": "Glycyrrhiza lepidota"
 },
 "goodyera-oblongifolia": {
 "a": "Stan Shebs",
@@ -18437,6 +18965,18 @@
 "u": "4/4a/HALIMEDA_PICT0294.jpg/330px-HALIMEDA_PICT0294.jpg",
 "wiki": "Halimeda"
 },
+"haliotis-cracherodii": {
+"a": "Nelson Balcar",
+"f": "8b0cf5c4884e.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/1655054",
+"page": "Black_abalone",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/1655054",
+"wiki": "Black abalone"
+},
 "halodule-uninervis": {
 "a": "Daderot",
 "f": "376b4f841439.webp",
@@ -18763,6 +19303,30 @@
 "page": "Helianthus_mollis",
 "u": "8/82/Helianthus_mollis_arkansas.jpg/330px-Helianthus_mollis_arkansas.jpg",
 "wiki": "Helianthus mollis"
+},
+"helianthus-nuttallii": {
+"a": "Bob Nieman",
+"f": "db310137b89c.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/52790856",
+"page": "Helianthus_nuttallii",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/52790856",
+"wiki": "Helianthus nuttallii"
+},
+"helianthus-petiolaris": {
+"a": "Paul and Jill",
+"f": "74551b312fd6.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/213825c1-75c8-4595-8b15-643434449b4a",
+"page": "Helianthus_petiolaris",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/213825c1-75c8-4595-8b15-643434449b4a",
+"wiki": "Helianthus petiolaris"
 },
 "helianthus-porteri": {
 "a": "Eoghanacht",
@@ -19128,6 +19692,18 @@
 "u": "e/e3/Biologia_Centrali-Americana_%28Tab_17%29_BHL570902_crop.jpg/330px-Biologia_Centrali-Americana_%28Tab_17%29_BHL570902_crop.jpg",
 "wiki": "Desmarest's spiny pocket mouse"
 },
+"heteropogon-contortus": {
+"a": "Bernard DUPONT",
+"f": "17d192bc7ff5.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/eb354006-4694-452f-a30b-b782a04640fe",
+"page": "Heteropogon_contortus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/eb354006-4694-452f-a30b-b782a04640fe",
+"wiki": "Heteropogon contortus"
+},
 "heterotheca-subaxillaris": {
 "a": "MathKnight",
 "f": "74e61eb1f810.webp",
@@ -19187,6 +19763,30 @@
 "page": "Booted_eagle",
 "u": "4/49/Booted_eagle_%28India%2C_2012%29.jpg/330px-Booted_eagle_%28India%2C_2012%29.jpg",
 "wiki": "Booted eagle"
+},
+"hieracium-paniculatum": {
+"a": "Michael J. Papay",
+"f": "a554e475c23a.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/157755745",
+"page": "Hieracium_paniculatum",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/157755745",
+"wiki": "Hieracium paniculatum"
+},
+"hieracium-venosum": {
+"a": "schizoform",
+"f": "c95f6871b7a5.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/9028a8b8-5584-4406-a320-9e47f5cdd450",
+"page": "Hieracium_venosum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/9028a8b8-5584-4406-a320-9e47f5cdd450",
+"wiki": "Hieracium venosum"
 },
 "hierophis-cypriensis": {
 "a": "Marios Thoma",
@@ -19499,6 +20099,18 @@
 "u": "4/4c/Striped_hyena_in_Bhigwan_August_2025_by_Tisha_Mukherjee_07_%28cropped%29.jpg/330px-Striped_hyena_in_Bhigwan_August_2025_by_Tisha_Mukherjee_07_%28cropped%29.jpg",
 "wiki": "Striped hyena"
 },
+"hyalella": {
+"a": "Mardon Erbland",
+"f": "33fad0843f4b.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/235080331",
+"page": "Hyalella",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/235080331",
+"wiki": "Hyalella"
+},
 "hydrangea-arborescens": {
 "a": "H. Zell",
 "f": "c618336b175c.webp",
@@ -19528,6 +20140,18 @@
 "page": "Goldenseal",
 "u": "b/bd/Hydrastis_canadensis.jpg/330px-Hydrastis_canadensis.jpg",
 "wiki": "Hydrastis canadensis"
+},
+"hydrilla-verticillata": {
+"a": "sonnia hill",
+"f": "c5906fd33650.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/dcf6a1ea-cf5c-4db8-9ed3-f3d46b1126e3",
+"page": "Hydrilla_verticillata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/dcf6a1ea-cf5c-4db8-9ed3-f3d46b1126e3",
+"wiki": "Hydrilla verticillata"
 },
 "hydrocharis-morsus-ranae": {
 "a": "Christian Fischer",
@@ -20142,6 +20766,18 @@
 "u": "6/69/Ilex_mucronata_5524944.jpg/330px-Ilex_mucronata_5524944.jpg",
 "wiki": "Ilex mucronata"
 },
+"ilex-opaca": {
+"a": "Judy Gallagher",
+"f": "7e703ad4b4c8.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/76acd6d1-9ce0-41f5-91ce-56e44066dbc0",
+"page": "Ilex_opaca",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/76acd6d1-9ce0-41f5-91ce-56e44066dbc0",
+"wiki": "Ilex opaca"
+},
 "ilex-verticillata": {
 "a": "User:SB_Johnny",
 "f": "0bee03e7e3a0.webp",
@@ -20603,6 +21239,18 @@
 "page": "Juglans_microcarpa",
 "u": "e/e8/Juglans_microcarpa.jpg/330px-Juglans_microcarpa.jpg",
 "wiki": "Juglans microcarpa"
+},
+"juglans-nigra": {
+"a": "Douglas Goldman",
+"f": "399ff39dbb05.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/547891640",
+"page": "Juglans_nigra",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/547891640",
+"wiki": "Juglans nigra"
 },
 "juglans-regia": {
 "a": "Thesupermat",
@@ -21077,6 +21725,18 @@
 "page": "Koeberlinia_spinosa",
 "u": "5/5e/Koeberlinia_spinosa_WikiPlant.jpg/330px-Koeberlinia_spinosa_WikiPlant.jpg",
 "wiki": "Koeberlinia spinosa"
+},
+"koeleria": {
+"a": "Matt Lavin",
+"f": "fc06ac606631.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/6d37c139-6b15-4c41-a0c3-0c0b687a6a95",
+"page": "Koeleria",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/6d37c139-6b15-4c41-a0c3-0c0b687a6a95",
+"wiki": "Koeleria"
 },
 "kopsiopsis-hookeri": {
 "a": "Jeremydwade",
@@ -22120,6 +22780,18 @@
 "u": "b/bb/Leptoptilos_dubius_%28Assam%2C_2007%29.jpg/330px-Leptoptilos_dubius_%28Assam%2C_2007%29.jpg",
 "wiki": "Greater adjutant"
 },
+"leptosiphon-parviflorus": {
+"a": "Ken-ichi Ueda",
+"f": "dd8c157f0eb6.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/296748",
+"page": "Leptosiphon_parviflorus",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/296748",
+"wiki": "Leptosiphon parviflorus"
+},
 "leptosiphon-rattanii": {
 "a": "John Game",
 "f": "afa82d1bedfc.webp",
@@ -22956,6 +23628,18 @@
 "u": "f/fd/Lobodon_carcinophagus_on_sea_ice_%28cropped%29.jpg/330px-Lobodon_carcinophagus_on_sea_ice_%28cropped%29.jpg",
 "wiki": "Crabeater seal"
 },
+"lomatium-foeniculaceum": {
+"a": "Matt Lavin",
+"f": "41b475101047.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/4a39d3ea-4296-46fb-aa66-87cb191f5715",
+"page": "Lomatium_foeniculaceum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4a39d3ea-4296-46fb-aa66-87cb191f5715",
+"wiki": "Lomatium foeniculaceum"
+},
 "lomatium-nudicaule": {
 "a": "Walter Siegmund",
 "f": "829c2a130cea.webp",
@@ -23376,6 +24060,18 @@
 "u": "2/24/Lupinus_argenteus_-_Sarah_Allen_01.jpg/330px-Lupinus_argenteus_-_Sarah_Allen_01.jpg",
 "wiki": "Lupinus argenteus"
 },
+"lupinus-arizonicus": {
+"a": "National Park Service",
+"f": "7259c28e58da.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/a321b797-cb7b-42bd-a56c-45858206b149",
+"page": "Lupinus_arizonicus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/a321b797-cb7b-42bd-a56c-45858206b149",
+"wiki": "Lupinus arizonicus"
+},
 "lupinus-bicolor": {
 "a": "Caleb Catto",
 "f": "08f3523f0f26.webp",
@@ -23457,6 +24153,18 @@
 "page": "Lupinus_pusillus",
 "u": "a/ae/Lupinus_pusillus_%284012660217%29.jpg/330px-Lupinus_pusillus_%284012660217%29.jpg",
 "wiki": "Lupinus pusillus"
+},
+"lupinus-sericeus": {
+"a": "Matt Lavin",
+"f": "0cdbb21b85bc.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/1786a1e3-e071-4066-9988-597dbffee663",
+"page": "Lupinus_sericeus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/1786a1e3-e071-4066-9988-597dbffee663",
+"wiki": "Lupinus sericeus"
 },
 "lupinus-sparsiflorus": {
 "a": "Miwasatoshi",
@@ -24022,6 +24730,18 @@
 "u": "b/b5/Macoma_balthica_%28habitus%29.jpg/330px-Macoma_balthica_%28habitus%29.jpg",
 "wiki": "Macoma balthica"
 },
+"macrocystis-pyrifera": {
+"a": "Michael Bear",
+"f": "fd783729233d.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/6901215",
+"page": "Giant_kelp",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/6901215",
+"wiki": "Giant kelp"
+},
 "macrohectopus-branickii": {
 "a": "S.I. Didorenko in D. Karnaukhov, S. Biritskaya, M. Teplykh, N. Silenko, E. Dolinskaya, E. Silow",
 "f": "f8d4ccc3ad70.webp",
@@ -24251,6 +24971,18 @@
 "page": "Maianthemum_stellatum",
 "u": "8/87/Maianthemum_stellatum_15290.JPG/330px-Maianthemum_stellatum_15290.JPG",
 "wiki": "Maianthemum stellatum"
+},
+"maianthemum-trifolium": {
+"a": "Superior National Forest",
+"f": "fc1ffc055230.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/878485",
+"page": "Maianthemum_trifolium",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/878485",
+"wiki": "Maianthemum trifolium"
 },
 "malaclemys-terrapin": {
 "a": "Ryan Hagerty",
@@ -25484,6 +26216,18 @@
 "u": "0/07/Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%28Pl._79%29_%288201961557%29.jpg/330px-Flore_m%C3%A9dicale_des_Antilles%2C_ou%2C_Trait%C3%A9_des_plantes_usuelles_%28Pl._79%29_%288201961557%29.jpg",
 "wiki": "Metopium brownei"
 },
+"metrosideros-polymorpha": {
+"a": "Starr Environmental",
+"f": "78a7c1203bd4.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/4107be11-5ad1-4a08-87d8-2182922c3e49",
+"page": "Metrosideros_polymorpha",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4107be11-5ad1-4a08-87d8-2182922c3e49",
+"wiki": "Metrosideros polymorpha"
+},
 "metrosideros-umbellata": {
 "a": "Christopher Stephens",
 "f": "2bcb480d270c.webp",
@@ -26404,6 +27148,18 @@
 "u": "8/88/Little_Brown_Myotis_%28cropped%29.JPG/330px-Little_Brown_Myotis_%28cropped%29.JPG",
 "wiki": "Myotis lucifugus"
 },
+"myotis-sodalis": {
+"a": "U.S. Fish and Wildlife Service - Midwest Region",
+"f": "e78f7cda8f57.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/97b95709-4e37-4afe-b3d9-ad459ab6964e",
+"page": "Indiana_bat",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/97b95709-4e37-4afe-b3d9-ad459ab6964e",
+"wiki": "Indiana bat"
+},
 "myrcia": {
 "a": "João Medeiros",
 "f": "cfaed8b177dd.webp",
@@ -27147,6 +27903,18 @@
 "u": "b/b1/Nothofagus_menziesii_in_South_Westland_2nd_ver.jpg/330px-Nothofagus_menziesii_in_South_Westland_2nd_ver.jpg",
 "wiki": "Silver beech"
 },
+"nothofagus-pumilio": {
+"a": "Kristof Zyskowski",
+"f": "1aea7e00ec39.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/75075173",
+"page": "Nothofagus_pumilio",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/75075173",
+"wiki": "Nothofagus pumilio"
+},
 "notholithocarpus-densiflorus": {
 "a": "Joseph O'Brien, USDA Forest Service",
 "f": "5e0e01bbde02.webp",
@@ -27276,6 +28044,18 @@
 "page": "Nymphaea_alba",
 "u": "3/3f/2016_Kwiat_grzybieni_bia%C5%82ych_2.jpg/330px-2016_Kwiat_grzybieni_bia%C5%82ych_2.jpg",
 "wiki": "Nymphaea alba"
+},
+"nymphaea-lotus": {
+"a": "mkniebes",
+"f": "2ca30d5684a4.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/51af7edc-7718-4785-8c94-1a7cc52880b5",
+"page": "Nymphaea_lotus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/51af7edc-7718-4785-8c94-1a7cc52880b5",
+"wiki": "Nymphaea lotus"
 },
 "nymphaea-odorata": {
 "a": "Famartin",
@@ -28852,6 +29632,18 @@
 "page": "Mekong_giant_catfish",
 "u": "7/75/Pangasianodon_gigas_in_Gifu_World_Fresh_Water_Aquarium_-_2.jpg/330px-Pangasianodon_gigas_in_Gifu_World_Fresh_Water_Aquarium_-_2.jpg",
 "wiki": "Mekong giant catfish"
+},
+"panicum-amarum": {
+"a": "Douglas Goldman",
+"f": "f69b2491011d.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/716166253",
+"page": "Panicum_amarum",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/716166253",
+"wiki": "Panicum amarum"
 },
 "panicum-capillare": {
 "a": "Jim Pisarowicz",
@@ -31020,6 +31812,18 @@
 "u": "6/60/Phoradendron_juniperinum_1.jpg/330px-Phoradendron_juniperinum_1.jpg",
 "wiki": "Phoradendron juniperinum"
 },
+"phoradendron-leucarpum": {
+"a": "sonnia hill",
+"f": "2608f04ae468.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/b00ed265-cf63-4c17-b441-e3a1b3bcb370",
+"page": "Phoradendron_leucarpum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/b00ed265-cf63-4c17-b441-e3a1b3bcb370",
+"wiki": "Phoradendron leucarpum"
+},
 "phragmites-australis": {
 "a": "Peter O'Connor aka anemoneprojectors from Stevenage, United Kingdom",
 "f": "6a864df0e1a4.webp",
@@ -31471,6 +32275,18 @@
 "u": "6/68/Pinus_contorta_28263.JPG/330px-Pinus_contorta_28263.JPG",
 "wiki": "Pinus contorta"
 },
+"pinus-echinata": {
+"a": "sonnia hill",
+"f": "02b170b8ab8b.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/7c89e99b-6e00-4522-86fe-1d84db12f824",
+"page": "Pinus_echinata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/7c89e99b-6e00-4522-86fe-1d84db12f824",
+"wiki": "Pinus echinata"
+},
 "pinus-edulis": {
 "a": "jotor at Flickr",
 "f": "dd1e46703f6d.webp",
@@ -31660,6 +32476,18 @@
 "page": "Pinus_remota",
 "u": "8/8f/Pinus_remota%2C_Elephant_Mountain_WMA%2C_Brewster_County%2C_Texas_02.jpg/330px-Pinus_remota%2C_Elephant_Mountain_WMA%2C_Brewster_County%2C_Texas_02.jpg",
 "wiki": "Pinus remota"
+},
+"pinus-resinosa": {
+"a": "Paul and Jill",
+"f": "fd7cecfb5632.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/273250aa-f07f-4544-859f-876b32032b52",
+"page": "Pinus_resinosa",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/273250aa-f07f-4544-859f-876b32032b52",
+"wiki": "Pinus resinosa"
 },
 "pinus-rigida": {
 "a": "Famartin",
@@ -32715,6 +33543,18 @@
 "page": "Damselfish",
 "u": "2/24/Caribbean_Cocoa_damselfish.jpg/330px-Caribbean_Cocoa_damselfish.jpg",
 "wiki": "Damselfish"
+},
+"pomatomus-saltatrix": {
+"a": "themet",
+"f": "c96c1a5a6328.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/02c832f4-4453-44db-ad5c-c871b784fbff",
+"page": "Bluefish",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/02c832f4-4453-44db-ad5c-c871b784fbff",
+"wiki": "Bluefish"
 },
 "pongo-abelii": {
 "a": "Fiver, der Hellseher",
@@ -34488,6 +35328,18 @@
 "u": "9/91/Quercus_emoryi_%282008%29.jpg/330px-Quercus_emoryi_%282008%29.jpg",
 "wiki": "Quercus emoryi"
 },
+"quercus-falcata": {
+"a": "sonnia hill",
+"f": "aa7a97bdaff9.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/a7770918-22aa-4fbd-bcb4-da65fabf8ba0",
+"page": "Quercus_falcata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/a7770918-22aa-4fbd-bcb4-da65fabf8ba0",
+"wiki": "Quercus falcata"
+},
 "quercus-fusiformis": {
 "a": "Larry D. Moore",
 "f": "0ac6263205a8.webp",
@@ -34579,6 +35431,18 @@
 "page": "Quercus_ilicifolia",
 "u": "7/7a/Quercus_ilicifolia_tree.jpg/330px-Quercus_ilicifolia_tree.jpg",
 "wiki": "Quercus ilicifolia"
+},
+"quercus-imbricaria": {
+"a": "aeron13",
+"f": "c889bea79311.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/cf79f260-d7d1-4d34-a2fd-cb68d83a697b",
+"page": "Quercus_imbricaria",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/cf79f260-d7d1-4d34-a2fd-cb68d83a697b",
+"wiki": "Quercus imbricaria"
 },
 "quercus-incana": {
 "a": "François André Michaux (book author), Pierre-Joseph Redouté (illustrator), Boquet (engraver)",
@@ -34719,6 +35583,18 @@
 "page": "Quercus_muehlenbergii",
 "u": "9/96/2494-Quercus_muehlenbergii-Arb.Brno-8.12.JPG/330px-2494-Quercus_muehlenbergii-Arb.Brno-8.12.JPG",
 "wiki": "Quercus muehlenbergii"
+},
+"quercus-nigra": {
+"a": "Douglas Goldman",
+"f": "6eaf224ed30f.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/107539116",
+"page": "Quercus_nigra",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/107539116",
+"wiki": "Quercus nigra"
 },
 "quercus-oglethorpensis": {
 "a": "Bruce Kirchoff from Greensboro, NC, USA",
@@ -35272,6 +36148,18 @@
 "u": "0/03/Rhanterium-epapposum-near-Jubail-SaudiArabia-15apr2009-JohnNorton.jpg/330px-Rhanterium-epapposum-near-Jubail-SaudiArabia-15apr2009-JohnNorton.jpg",
 "wiki": "Rhanterium epapposum"
 },
+"rhapidophyllum-hystrix": {
+"a": "Farren Dell Rossman",
+"f": "05ed03b2e6d3.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/61223401",
+"page": "Rhapidophyllum_hystrix",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/61223401",
+"wiki": "Rhapidophyllum hystrix"
+},
 "rhea-americana": {
 "a": "Rufus46",
 "f": "802eaf63fba4.webp",
@@ -35653,6 +36541,18 @@
 "page": "Rhynchospora_colorata",
 "u": "f/fb/Rhynchospora_colorata_%28white_star_sedge%29_1.jpg/330px-Rhynchospora_colorata_%28white_star_sedge%29_1.jpg",
 "wiki": "Rhynchospora colorata"
+},
+"rhynchospora-fusca": {
+"a": "Tenesse85",
+"f": "a22505e373ac.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/6e9d7e33-8d1a-49dc-87b0-25653ae7a255",
+"page": "Rhynchospora_fusca",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/6e9d7e33-8d1a-49dc-87b0-25653ae7a255",
+"wiki": "Rhynchospora fusca"
 },
 "rhynchospora-scirpoides": {
 "a": "Britton, N.L., and A. Brown. 1913. An illustrated flora of the northern United States, Canada and the British Possessions. 3 vols. Charles Scribner's Sons, New York. Vol. 1: 347. Provided by Kentucky Native Plant Society. Scanned by Omnitek Inc.",
@@ -36094,6 +36994,18 @@
 "u": "9/90/P%C3%B5ldmuraka_%C3%B5is_Rubus_caesius.jpg/330px-P%C3%B5ldmuraka_%C3%B5is_Rubus_caesius.jpg",
 "wiki": "Rubus caesius"
 },
+"rubus-canadensis": {
+"a": "Marilyne Busque-Dubois",
+"f": "39221481070e.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/532016946",
+"page": "Rubus_canadensis",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/532016946",
+"wiki": "Rubus canadensis"
+},
 "rubus-chamaemorus": {
 "a": "Moravice",
 "f": "6484a05fea7a.webp",
@@ -36123,6 +37035,18 @@
 "page": "Rubus_frondosus",
 "u": "8/81/Rubus_frondosus%2C_leafy-flowered_blackberry.jpg/330px-Rubus_frondosus%2C_leafy-flowered_blackberry.jpg",
 "wiki": "Rubus frondosus"
+},
+"rubus-hispidus": {
+"a": "wackybadger",
+"f": "aefbe5356d9a.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/d982cf4c-2ae1-4587-a19f-dbb25fc7df19",
+"page": "Rubus_hispidus",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/d982cf4c-2ae1-4587-a19f-dbb25fc7df19",
+"wiki": "Rubus hispidus"
 },
 "rubus-idaeus": {
 "a": "Kollányi Gábor",
@@ -36586,6 +37510,18 @@
 "u": "f/f8/Salix_alba_leaves.jpg/330px-Salix_alba_leaves.jpg",
 "wiki": "Salix alba"
 },
+"salix-amygdaloides": {
+"a": "Matt Lavin",
+"f": "eae4690795a5.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/d655a53e-6cab-4b43-91de-c57ee3a703d8",
+"page": "Salix_amygdaloides",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/d655a53e-6cab-4b43-91de-c57ee3a703d8",
+"wiki": "Salix amygdaloides"
+},
 "salix-arctica": {
 "a": "Dani.j.lombardi",
 "f": "5f60e3f7c709.webp",
@@ -36616,6 +37552,18 @@
 "u": "1/18/Ch%C3%A2teau_de_Chenonceau_-_jardin_Russell-Page_%2801%29.jpg/330px-Ch%C3%A2teau_de_Chenonceau_-_jardin_Russell-Page_%2801%29.jpg",
 "wiki": "Salix babylonica"
 },
+"salix-bebbiana": {
+"a": "Matt Lavin",
+"f": "f82682bfd8eb.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/e3b8e6cc-0dde-461e-ad76-689b0b35c0e3",
+"page": "Salix_bebbiana",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/e3b8e6cc-0dde-461e-ad76-689b0b35c0e3",
+"wiki": "Salix bebbiana"
+},
 "salix-caprea": {
 "a": "Trougnouf (Benoit Brummer)",
 "f": "53d178f0cd6e.webp",
@@ -36635,6 +37583,18 @@
 "page": "Salix_caroliniana",
 "u": "0/02/Salix_caroliniana.jpg/330px-Salix_caroliniana.jpg",
 "wiki": "Salix caroliniana"
+},
+"salix-discolor": {
+"a": "bobkennedy",
+"f": "12a8c7509a20.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/45959867",
+"page": "Salix_discolor",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/45959867",
+"wiki": "Salix discolor"
 },
 "salix-drummondiana": {
 "a": "Mary Vaux Walcott",
@@ -36715,6 +37675,18 @@
 "page": "Salix_lanata",
 "u": "6/67/Salix-lanata-total.JPG/330px-Salix-lanata-total.JPG",
 "wiki": "Salix lanata"
+},
+"salix-lemmonii": {
+"a": "Matt Lavin",
+"f": "4f572cd703f8.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/142652",
+"page": "Salix_lemmonii",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/142652",
+"wiki": "Salix lemmonii"
 },
 "salix-lutea": {
 "a": "Matt Lavin",
@@ -37342,6 +38314,18 @@
 "u": "f/f2/SGR_laying.jpg/330px-SGR_laying.jpg",
 "wiki": "Desert locust"
 },
+"schizachyrium-scoparium": {
+"a": "F. D. Richards",
+"f": "2b855c308b08.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/12c74f7b-9a41-4322-96cc-99f5c067498d",
+"page": "Schizachyrium_scoparium",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/12c74f7b-9a41-4322-96cc-99f5c067498d",
+"wiki": "Schizachyrium scoparium"
+},
 "schoenoplectus-californicus": {
 "a": "Curtis Clark",
 "f": "71c04823cf6c.webp",
@@ -37521,6 +38505,18 @@
 "page": "Hamerkop",
 "u": "1/11/Hamerkop_%28Scopus_umbretta_umbretta%29_2.jpg/330px-Hamerkop_%28Scopus_umbretta_umbretta%29_2.jpg",
 "wiki": "Hamerkop"
+},
+"scutellaria-galericulata": {
+"a": "Matt Lavin",
+"f": "10f07fcd59f9.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/2660fc09-470d-46a9-8d00-87902aba2ca2",
+"page": "Scutellaria_galericulata",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/2660fc09-470d-46a9-8d00-87902aba2ca2",
+"wiki": "Scutellaria galericulata"
 },
 "scylla-serrata": {
 "a": "Richard Pillans, CSIRO",
@@ -38693,6 +39689,18 @@
 "u": "9/95/Solidago_curtisii_-_Flickr_-_pellaea.jpg/330px-Solidago_curtisii_-_Flickr_-_pellaea.jpg",
 "wiki": "Solidago curtisii"
 },
+"solidago-flexicaulis": {
+"a": "griffinsbray",
+"f": "45086222c2f8.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://openverse.org/image/c724c3d4-b69e-442f-9535-e063fce13de1",
+"page": "Solidago_flexicaulis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/c724c3d4-b69e-442f-9535-e063fce13de1",
+"wiki": "Solidago flexicaulis"
+},
 "solidago-gigantea": {
 "a": "Matt Lavin",
 "f": "2e9450b5d59a.webp",
@@ -38804,6 +39812,18 @@
 "page": "Sorbus_aucuparia",
 "u": "2/26/Rowan_tree_20081002b.jpg/330px-Rowan_tree_20081002b.jpg",
 "wiki": "Sorbus aucuparia"
+},
+"sorbus-scopulina": {
+"a": "Kate Manning",
+"f": "906d7b691ddd.webp",
+"l": "CC0 1.0",
+"lu": "https://creativecommons.org/publicdomain/zero/1.0",
+"p": "https://www.inaturalist.org/photos/316248636",
+"page": "Sorbus_scopulina",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/316248636",
+"wiki": "Sorbus scopulina"
 },
 "sorex-araneus": {
 "a": "Soricida",
@@ -39410,6 +40430,18 @@
 "page": "Sporobolus_alopecuroides",
 "u": "7/73/Crypsis_alopecuroides.jpg/330px-Crypsis_alopecuroides.jpg",
 "wiki": "Sporobolus alopecuroides"
+},
+"sporobolus-alterniflorus": {
+"a": "er-birds",
+"f": "fdcee8dc2e8b.webp",
+"l": "CC BY 4.0",
+"lu": "https://creativecommons.org/licenses/by/4.0",
+"p": "https://www.inaturalist.org/photos/216354754",
+"page": "Sporobolus_alterniflorus",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/216354754",
+"wiki": "Sporobolus alterniflorus"
 },
 "sporobolus-pyramidalis": {
 "a": "Harry Rose from South West Rocks, Australia",
@@ -40294,6 +41326,18 @@
 "u": "d/d3/Starr_070321-6132_Syzygium_malaccense.jpg/330px-Starr_070321-6132_Syzygium_malaccense.jpg",
 "wiki": "Syzygium"
 },
+"syzygium-cumini": {
+"a": "E.P. Mallory",
+"f": "dfbcd4f036b7.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/da8d40f2-166c-42fc-a1ec-683f6a3ec423",
+"page": "Syzygium_cumini",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/da8d40f2-166c-42fc-a1ec-683f6a3ec423",
+"wiki": "Syzygium cumini"
+},
 "syzygium-malaccense": {
 "a": "Crisco 1492",
 "f": "afb889f0cd12.webp",
@@ -40333,6 +41377,18 @@
 "page": "Ruddy_shelduck",
 "u": "9/95/2021-01-30_Ruddy_Shelduck_pair_at_Keoladeo%2C_Rajasthan%2C_India.jpg/330px-2021-01-30_Ruddy_Shelduck_pair_at_Keoladeo%2C_Rajasthan%2C_India.jpg",
 "wiki": "Ruddy shelduck"
+},
+"taeniatherum-caput-medusae": {
+"a": "Matt Lavin",
+"f": "6e4591b0d409.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/73d28cb3-ff33-4b6a-9c81-aa5192818591",
+"page": "Taeniatherum_caput-medusae",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/73d28cb3-ff33-4b6a-9c81-aa5192818591",
+"wiki": "Taeniatherum caput-medusae"
 },
 "tamarindus-indica": {
 "a": "B.navez",
@@ -40543,6 +41599,18 @@
 "page": "American_badger",
 "u": "8/82/Taxidea_taxus_%28Point_Reyes%2C_2007%29.jpg/330px-Taxidea_taxus_%28Point_Reyes%2C_2007%29.jpg",
 "wiki": "Taxidea taxus"
+},
+"taxodium-distichum": {
+"a": "Tatters ✾",
+"f": "f3270701a766.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/6d29f9b2-864d-4029-bc78-1788607c6c64",
+"page": "Taxodium_distichum",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/6d29f9b2-864d-4029-bc78-1788607c6c64",
+"wiki": "Taxodium distichum"
 },
 "taxus-canadensis": {
 "a": "USDA-NRCS PLANTS Database / Britton, N.L., and A. Brown. 1913. Illustrated flora of the northern states and Canada. Vol. 1: 67.",
@@ -40888,6 +41956,18 @@
 "u": "d/d3/Carolina_wren_%2814391%29.jpg/330px-Carolina_wren_%2814391%29.jpg",
 "wiki": "Thryothorus ludovicianus"
 },
+"thuja-occidentalis": {
+"a": "F. D. Richards",
+"f": "aa9c32d9d524.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/a9dede86-f56d-4772-a5d3-e1936a79cca1",
+"page": "Thuja_occidentalis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/a9dede86-f56d-4772-a5d3-e1936a79cca1",
+"wiki": "Thuja occidentalis"
+},
 "thuja-plicata": {
 "a": "abdallahh from Montréal, Canada",
 "f": "b7f5ab255516.webp",
@@ -40897,6 +41977,18 @@
 "page": "Thuja_plicata",
 "u": "a/a3/Thuja_plicata_Vancouver.jpg/330px-Thuja_plicata_Vancouver.jpg",
 "wiki": "Thuja plicata"
+},
+"thunnus-albacares": {
+"a": "yanayrosen",
+"f": "8cb25b167e7b.webp",
+"l": "Public domain",
+"lu": "https://creativecommons.org/publicdomain/mark/1.0",
+"p": "https://openverse.org/image/4e8bc93d-2a33-4f3a-adfe-bddaf677a1a0",
+"page": "Yellowfin_tuna",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/4e8bc93d-2a33-4f3a-adfe-bddaf677a1a0",
+"wiki": "Yellowfin tuna"
 },
 "thylogale-billardierii": {
 "a": "JJ Harrison",
@@ -40939,6 +42031,18 @@
 "src": "inaturalist",
 "u": "inaturalist/555092602",
 "wiki": "Thymus praecox"
+},
+"thyridopteryx-ephemeraeformis": {
+"a": "Wildreturn",
+"f": "5f48eaab5b53.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/a7c5e2e2-3321-4498-a3b1-47893e8904a5",
+"page": "Thyridopteryx_ephemeraeformis",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/a7c5e2e2-3321-4498-a3b1-47893e8904a5",
+"wiki": "Thyridopteryx ephemeraeformis"
 },
 "tiarella-trifoliata": {
 "a": "Walter Siegmund",
@@ -41119,6 +42223,18 @@
 "page": "Toxicodendron_rydbergii",
 "u": "f/fe/Toxicodendron_rydbergii_UGA1208036.jpg/330px-Toxicodendron_rydbergii_UGA1208036.jpg",
 "wiki": "Toxicodendron rydbergii"
+},
+"toxicodendron-vernix": {
+"a": "Don Henise",
+"f": "75e7d82b66bb.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/229ebbdd-a53e-4dc9-a85b-e305fc2463ce",
+"page": "Toxicodendron_vernix",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/229ebbdd-a53e-4dc9-a85b-e305fc2463ce",
+"wiki": "Toxicodendron vernix"
 },
 "toxomerus-geminatus": {
 "a": "Gilles Gonthier",
@@ -41389,6 +42505,18 @@
 "page": "Triadica_sebifera",
 "u": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Tallow2232.JPG",
 "wiki": "Triadica sebifera"
+},
+"triaenodon-obesus": {
+"a": "Guido & Family",
+"f": "2a698d7c1724.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/0a983d75-ce4f-4630-aed9-9e06b50e3167",
+"page": "Whitetip_reef_shark",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/0a983d75-ce4f-4630-aed9-9e06b50e3167",
+"wiki": "Whitetip reef shark"
 },
 "trianthema-portulacastrum": {
 "a": "Graham Racher",
@@ -41669,6 +42797,18 @@
 "page": "Trillium_erectum",
 "u": "1/1e/Trillium_erectum_-_Stephen%27s_Gulch_CA.jpg/330px-Trillium_erectum_-_Stephen%27s_Gulch_CA.jpg",
 "wiki": "Trillium erectum"
+},
+"trillium-flexipes": {
+"a": "wackybadger",
+"f": "deb911c11a17.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/f2a7b460-a0e8-4f2b-8367-81dc1f4c1090",
+"page": "Trillium_flexipes",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/f2a7b460-a0e8-4f2b-8367-81dc1f4c1090",
+"wiki": "Trillium flexipes"
 },
 "trillium-grandiflorum": {
 "a": "СССР",
@@ -42130,6 +43270,18 @@
 "u": "f/f8/Tympanuchus_cupido_-Illinois%2C_USA_-male_displaying-8_%281%29.jpg/330px-Tympanuchus_cupido_-Illinois%2C_USA_-male_displaying-8_%281%29.jpg",
 "wiki": "Greater prairie chicken"
 },
+"typha": {
+"a": "jkiscycling",
+"f": "f877b510ddee.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://openverse.org/image/b639e285-47eb-4053-9353-8eb81dce724d",
+"page": "Typha",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/b639e285-47eb-4053-9353-8eb81dce724d",
+"wiki": "Typha"
+},
 "typha-angustifolia": {
 "a": "MPF",
 "f": "a02f34355cad.webp",
@@ -42539,6 +43691,18 @@
 "page": "Uvularia_grandiflora",
 "u": "9/94/Uvularia_grandiflora_2.jpg/330px-Uvularia_grandiflora_2.jpg",
 "wiki": "Uvularia grandiflora"
+},
+"vaccinium-angustifolium": {
+"a": "阿橋 KHQ",
+"f": "6ec4a197e571.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/52aa7733-7028-4902-92ca-ae7fab1012bc",
+"page": "Vaccinium_angustifolium",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/52aa7733-7028-4902-92ca-ae7fab1012bc",
+"wiki": "Vaccinium angustifolium"
 },
 "vaccinium-arboreum": {
 "a": "Eric Hunt",
@@ -43348,6 +44512,18 @@
 "u": "b/b9/ON_-_Algonquin_Provincial_Park_-_Bl%C3%BCte.jpg/330px-ON_-_Algonquin_Provincial_Park_-_Bl%C3%BCte.jpg",
 "wiki": "Viburnum lantanoides"
 },
+"viburnum-lentago": {
+"a": "F. D. Richards",
+"f": "d6554655619e.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://openverse.org/image/c2fea7dd-73c4-4822-87d6-a16cc9bc3877",
+"page": "Viburnum_lentago",
+"s": "Openverse",
+"src": "openverse",
+"u": "openverse/c2fea7dd-73c4-4822-87d6-a16cc9bc3877",
+"wiki": "Viburnum lentago"
+},
 "viburnum-nudum": {
 "a": "Photo by David J. Stang",
 "f": "1c1ec26c0270.webp",
@@ -43719,6 +44895,18 @@
 "page": "Vitis_riparia",
 "u": "5/53/Vitis_riparia_%28USDA%29_2-3.jpg/330px-Vitis_riparia_%28USDA%29_2-3.jpg",
 "wiki": "Vitis riparia"
+},
+"vitis-rotundifolia": {
+"a": "Douglas Goldman",
+"f": "4fe9c13f5548.webp",
+"l": "CC BY-SA 4.0",
+"lu": "https://creativecommons.org/licenses/by-sa/4.0",
+"p": "https://www.inaturalist.org/photos/208069985",
+"page": "Vitis_rotundifolia",
+"s": "iNaturalist",
+"src": "inaturalist",
+"u": "inaturalist/208069985",
+"wiki": "Vitis rotundifolia"
 },
 "vitis-vinifera": {
 "a": "BerndtF",
