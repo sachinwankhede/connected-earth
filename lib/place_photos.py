@@ -17,9 +17,9 @@ import photo_registry as pr
 import author_clean as ac
 
 def author_missing(entry):
-    """A CC BY / CC BY-SA picture with no usable author (the licence needs one; an email address counts as none, lib/author_clean.py). A local test with no network:
-    the lookup that can fill a name in lives in the job, this only refuses (#887)."""
-    return (entry.get('l') or '').upper().startswith('CC BY') and ac.clean_author(entry.get('a')) == ''
+    """A picture with no usable author, whatever its licence (CC BY and CC BY-SA need one; owner, 25 Nov: a public domain label with no author is not trusted either, so every picture needs a named
+    author; an email address counts as none, lib/author_clean.py). A local test with no network: the lookup that can fill a name in lives in the job, this only refuses (#887)."""
+    return ac.clean_author(entry.get('a')) == ''
 
 class CreditRepair:
     """The two writes lib/author_repair.py needs, shared by the writers that keep `pics` and the retry ledger `tried` (place, species, journey). Neither touches a file."""
