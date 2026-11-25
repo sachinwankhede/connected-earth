@@ -15,9 +15,9 @@ Everything is keyed by SPECIES ID (`sid`) and written only through lib/species_p
 (jobs/rekeyspeciesphotos.py) makes. A Wikipedia title shared by several species rows (151 titles, 618 rows, mostly non-organisms) is fetched ONCE: the first row stands for the title, and the same bytes are put for every sid that has it
 (each with its own entry and credit, so each species is checked on its own; the file is shared because its name is the hash of the picture). --limit counts titles, not species.
 
-The 192 px copy (species-md, the photo tiles, #669) and the 400 px copy (species-lg, the species page) are made HERE too, right after a picture is accepted and in the SAME commit (put, then put_medium and put_large), from one download of
+Since #1188 the first fetch is shrunk straight to 192 px and that file IS the stored picture (photos/species-md/<f>, `f` = the hash of that file; there is no 96 px file). The 400 px copy (species-lg, the species page) is made HERE too, right after a picture is accepted and in the SAME commit (put, then put_large), from one download of
 the source's own larger thumbnail (lib/species_sources.source_urls: Commons 500 px, else 330 px; Openverse and iNaturalist their own size). A picture whose copies cannot be made (a Commons thumbnail that answers HTTP 400, a GBIF picture, which
-has no larger source address) is kept alone and the log says so (ground rule 10). `--strategy medium` / `large` makes the missing 192 px / 400 px copies of pictures that have a source address (no new pictures); `all` does both as its last step,
+has no larger source address) is kept alone and the log says so (ground rule 10). `--strategy medium` / `large` makes the missing 192 px / 400 px copies (medium only matters for a picture an older run left with a 96 px file) of pictures that have a source address (no new pictures); `all` does both as its last step,
 so a copy that failed once is tried again by the next run. This replaces hostphotos.py's download and largephotos.py.
 Holds (when a source is tried again for a species that gave nothing): wikipedia while the missing record has not expired (photo_registry.negative_entry: 30 days for the permanent reasons); each other source RETRY_DAYS (30 days) after its date
 in photos/species_tried.json {sid: {source: date}}. A transient failure (a download that failed, a request that failed) is recorded nowhere and is tried again by the next run.
@@ -35,7 +35,7 @@ import author_lookup as al, author_repair as ar
 from species_sources import Res, Vetted, SOURCES, source_urls   # noqa: F401 (Res and Vetted re-exported for callers and tests)
 
 COMMIT_EVERY = 25
-SMALL_SIZE = 96; SMALL_QUALITY = 72; MEDIUM_SIZE = 192; LARGE_SIZE = 400; COPY_QUALITY = 70   # the sizes and WebP qualities hostphotos.py and largephotos.py used
+MEDIUM_SIZE = 192; LARGE_SIZE = 400; COPY_QUALITY = 70   # the stored picture is the 192 px copy; the 400 px copy is the larger one (no 96 px picture any more: owner, 25 Nov, #1188)
 STRATEGIES = SOURCES
 
 
@@ -50,7 +50,7 @@ def load_units(root):
     abiotic = {r['wiki'] for r in rows if r.get('cat') == 'abiotic'}
     return [dict(sid=r['sid'], title=r['wiki'], name=r.get('name') or '', latin=r.get('latin') or '', abiotic=r['wiki'] in abiotic) for r in sorted(rows, key=lambda r: r['sid'])]
 
-# --- the pictures: 96 px, then the 192 px and 400 px copies
+# --- the pictures: the first fetch makes the 192 px picture (the stored one), the 400 px copy comes from the larger download
 def resize(raw, size, quality):
     """(WebP bytes, (w, h)) of the image `raw` at most size px on its longer side, or (None, None) when it is not an image."""
     try:
@@ -59,7 +59,9 @@ def resize(raw, size, quality):
         return buf.getvalue(), im.size
     except Exception: return None, None
 
-def small(raw): return resize(raw, SMALL_SIZE, SMALL_QUALITY)[0]
+def small(raw):
+    """The picture that is stored: the first fetch shrunk to 192 px (WebP quality 70). The name stays `small` for the callers; there is no 96 px step any more (#1188)."""
+    return resize(raw, MEDIUM_SIZE, COPY_QUALITY)[0]
 
 def download_first(urls, get):
     """Bytes of the first address that downloads, or None. A thumbnail that Commons cannot make answers HTTP 400: skipped, not fatal."""
@@ -150,8 +152,9 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                         except ValueError as ex:   # the writer's own author rule: recorded like a refusal
                             s['refused'] += 1; s['found'] -= 1; log('refused %s %s - %s' % (name, sid, ex)); w.note_tried(sid, name)
                         pending += 1
-                    if kept and copies is not None:   # the copies go into the same commit as the picture; one download for the title
-                        got, cwhy = copies(entry)
+                    need = tuple(k for k in ('medium', 'large') if kept and not (w.has_medium if k == 'medium' else w.has_large)(kept[0]))   # a writer that stores the 192 px picture itself has the medium copy already
+                    if kept and need and copies is not None:   # the copies go into the same commit as the picture; one download for the title
+                        got, cwhy = copies(entry, need)
                         for sid in kept:
                             if 'medium' in got: w.put_medium(sid, got['medium'])
                             if 'large' in got: w.put_large(sid, got['large'])
@@ -159,7 +162,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
                         if got: log('copies %s %s %s' % (name, label, ', '.join('%s %d KB' % (k, round(len(b) / 1024)) for k, b in sorted(got.items()))))
                         if cwhy and not dry:
                             for sid in kept: w.note_copy_tried(sid)   # the same 30-day hold as a source: not offered first in every run
-                        if cwhy: s['nocopy'] += 1; log('no %s copy %s %s - %s; the small picture stays' % ('larger' if got else 'larger or 192 px', name, label, cwhy))
+                        if cwhy: s['nocopy'] += 1; log('no %s copy %s %s - %s; the 192 px picture stays' % ('larger' if got else 'larger or 192 px', name, label, cwhy))
                 elif r.kind == 'miss':
                     s['miss'] += len(sids); s['refused_licence'] += len(sids) * (r.status == 'notfree'); log('no %s %s - %s' % (name, label, r.why))
                     if not dry:
@@ -190,7 +193,7 @@ def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000
             if got: s['made'] += 1; spent += sum(len(b) for b in got.values()); pending += len(sids); log('copies %s %s' % (','.join(sids), ', '.join('%s %d KB' % (k, round(len(b) / 1024)) for k, b in sorted(got.items()))))
             if cwhy:
                 for sid in sids: w.note_copy_tried(sid); pending += 1
-            if cwhy: s['none'] += 1; log('no copy %s - %s; the small picture stays' % (','.join(sids), cwhy))
+            if cwhy: s['none'] += 1; log('no copy %s - %s; the 192 px picture stays' % (','.join(sids), cwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
             if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
             if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break

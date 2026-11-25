@@ -124,10 +124,10 @@ class FailedCopiesAreHeldLikeASource(unittest.TestCase):
         w = jj.Photos(d); sj.acquire(w, jj.load_units(d), [], copies=lambda e, need=('large',), get=None: ({}, 'no thumbnail'), today=DAY, log=lambda m: None)
         self.assertEqual(list(jp.JourneyPhotos(d).tried['knot']), ['copy']); self.assertTrue(jp.JourneyPhotos(d).copy_held('knot', DAY))
 
-    def test_nodes_a_failed_192_copy_keeps_the_small_picture_and_is_noted(self):
-        d = nt.tree(); w = nj.Photos(d); units = nj.load_units(d)
-        sj.acquire(w, units, [nt.strategy('wikipedia'), nt.strategy('commons', found={'soil'})], only='all', copies=nt.no_copies, today=DAY, log=lambda m: None)
-        w = nj.Photos(d); self.assertTrue(w.has('soil')); self.assertIn('copy', w.tried['soil']); self.assertEqual(w.check(), [])
+    def test_nodes_have_no_copy_step_the_first_fetch_is_the_192_px_picture(self):
+        d = nt.tree(); w = nj.Photos(d); units = nj.load_units(d); asked = []
+        sj.acquire(w, units, [nt.strategy('wikipedia'), nt.strategy('commons', found={'soil'})], only='all', copies=lambda e, need=(), get=None: asked.append(need) or ({}, 'x'), today=DAY, log=lambda m: None)
+        w = nj.Photos(d); self.assertTrue(w.has('soil')); self.assertNotIn('soil', w.tried.get('soil', {}).get('copy', '')); self.assertEqual(w.check(), []); self.assertEqual(asked, [])
 
 
 class ValidatorWarnsAboutOrphans(unittest.TestCase):

@@ -3,7 +3,7 @@
 
 `load(root)` returns {'pics': {id: row}, 'large': {id: file}, 'missing': {id: entry}, 'shape': 'journey'|'none'}. Until the migration (phase 3) none of `photos/journey_pictures.json` and friends exist:
 then every part is empty and `shape` is 'none', so a consumer that reads this changes nothing (the covers still come from the title-keyed lists). A row is the credit row ({a, l, lu, p}) plus `f` (the
-96 px file), `wiki` (the title it was found under), `page`, `u` (the source path the larger copy is made from) and `src`. `check(root)` is the hook the data validator calls: the writer's
+cover file: 192 px, or 96 px for an older one), `wiki` (the title it was found under), `page`, `u` (the source path the larger copy is made from) and `src`. `check(root)` is the hook the data validator calls: the writer's
 file/list problems, plus a row for an id that is not a journey. Read only."""
 import json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
