@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """speciespictures.py: the ONE job that finds a picture for a species that has none (docs/DATA-PLAN.md, "Species pictures"; #934, phase 4).
-Usage: speciespictures.py [--strategy all|wikipedia|commons|gbif|openverse|inaturalist|medium|large] [--limit N] [--max-mb N] [--again] [--dry]   (run from the repository root)
+Usage: speciespictures.py [--strategy all|wikipedia|commons|gbif|openverse|inaturalist|medium|large] [--limit N] [--max-mb N] [--minutes N] [--again] [--dry]   (run from the repository root)
 
 It replaces the old species jobs (speciesphotos.py + hostphotos.py, commonsphotos.py, gbifphotos.py, openversephotos.py, inaturalistphotos.py, largephotos.py), which each wrote the files and lists in their own way. The SOURCES
 (lib/species_sources.py, one function each, the old rules copied with the same behaviour) are strategies tried in this order, and a species stops at the first one that gives an accepted picture:
@@ -23,12 +23,14 @@ Holds (when a source is tried again for a species that gave nothing): wikipedia 
 in photos/species_tried.json {sid: {source: date}}. A transient failure (a download that failed, a request that failed) is recorded nowhere and is tried again by the next run.
 Author rule (#934, owner 15 Nov): a CC BY or CC BY-SA picture needs a named author. When the credit says unknown, Commons is asked once more (author_lookup.lookup: the Artist or Attribution field, or the uploader when the credit says own work);
 no name found = the picture is refused and the species is recorded as 'notfree' for wikipedia, or as tried for the other sources, with the reason in the log. The writer refuses it too (put raises ValueError): that is recorded the same way.
-Caps: --limit titles per strategy (default 120, 0 = all left), --max-mb of pictures kept (default 25); committed every 25 sids, so a stopped run resumes. A run that finds nothing and changes no ledger writes no file.
+Caps: --limit titles per strategy (default 0 = all left, #1183), --minutes of time (default 120: the run stops cleanly between two titles and keeps what it has), --max-mb of pictures kept (default 25); committed every 25 sids, so a stopped run resumes.
+RESUME CONTRACT (#1183, shared in lib/runbudget.py): the job prints `more: N` (titles still due and not tried by this run) and exits 3 when the time or size budget stopped it with N > 0; 0 when nothing is left; 2 when a source stopped it (do not chain); 1 on error.
+A chain simply runs the job again while it exits 3: every title tried is written to the per-source ledger (held 30 days), the order is fixed, so the next run starts at what is still untried and the chain ends. A run that finds nothing and changes no ledger writes no file.
 --dry prints what would be kept and writes nothing (later strategies then see no new missing species). Exit 2 when a source stopped the run (throttled three times, or refused)."""
-import collections, datetime, glob, io, json, os, sys
+import collections, datetime, glob, io, json, os, sys, time
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE); sys.path.insert(0, os.path.join(ROOT, 'lib'))
-import wm, species_photos as sp, species_pics, photo_registry as pr
+import runbudget, wm, species_photos as sp, species_pics, photo_registry as pr
 import author_lookup as al, author_repair as ar
 from species_sources import Res, Vetted, SOURCES, source_urls   # noqa: F401 (Res and Vetted re-exported for callers and tests)
 
@@ -101,21 +103,33 @@ def by_title(units):
     for u in units: out.setdefault(u['title'], []).append(u)
     return out
 
-def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, copies=None):
+def copy_files(w, wanted):
+    """[(file, [(sid, needed copies)])] in sorted sid order: one download per picture file (species that show the same picture share it)."""
+    has = {'medium': w.has_medium, 'large': w.has_large}; by_file = collections.OrderedDict()
+    for sid in sorted(w.pics):
+        e = w.pics[sid]; need = tuple(k for k in wanted if not has[k](sid))
+        if need and e.get('f') and source_urls(e.get('u')): by_file.setdefault(e['f'], []).append((sid, need))
+    return list(by_file.items())
+
+def acquire(w, units, strategies=None, only='all', limit=0, max_bytes=25_000_000, again=False, dry=False, today=None, log=print, copies=None, minutes=None, clock=None, report=None):
     """Runs the strategies in order over the species that have no picture (one fetch per title), then (strategy medium, large or all) makes the missing copies. Returns (stats, stopped): per-strategy counts and the strategies a source stopped.
-    copies: make_copies, or None to make no copies (the tests of the sources do not download)."""
+    copies: make_copies, or None to make no copies (the tests of the sources do not download).
+    minutes: the time budget (lib/runbudget.py). report: a dict that gets 'more' = the titles (and copy files) still due and not tried by this run when a budget (time or size) stopped it, else 0."""
     today = today or datetime.date.today(); strategies = STRATEGIES if strategies is None else strategies
     stats = collections.OrderedDict(); stopped = []; spent = 0; pending = 0
+    late = runbudget.Budget(minutes, clock or time.monotonic).late; halted = False
+    tried_now = collections.defaultdict(set)   # strategy -> titles this run tried (never counted as still due)
+    def due(name, applies, days): return by_title([u for u in units if not w.has(u['sid']) and applies(w, u) and (again or not held(w, u['sid'], name, days, today))])
     for name, find, applies, days in strategies:
         if only not in ('all', name): continue
         s = stats[name] = collections.Counter()
-        groups = by_title([u for u in units if not w.has(u['sid']) and applies(w, u) and (again or not held(w, u['sid'], name, days, today))])
+        groups = due(name, applies, days)
         reps = [g[0] for g in groups.values()]
         if limit: reps = reps[:limit]
         log('strategy %s: %d titles to try (%d species)' % (name, len(reps), sum(len(groups[r['title']]) for r in reps)))
         try:
             for u, r in find(reps):
-                sids = [x['sid'] for x in groups[u['title']]]; t = u['title']; s['tried'] += 1; label = '%s (%s)' % (','.join(sids), t)
+                sids = [x['sid'] for x in groups[u['title']]]; t = u['title']; s['tried'] += 1; tried_now[name].add(t); label = '%s (%s)' % (','.join(sids), t)
                 note = lambda why, status=None: [(w.miss(sid, status or 'notfree', 'wikipedia') if name == 'wikipedia' else w.note_tried(sid, name)) for sid in sids]
                 if r.kind == 'found':
                     entry, why = vet(r.entry)
@@ -149,23 +163,21 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
                         pending += len(sids)
                 else: s['retry'] += 1; log('retry %s %s - %s' % (name, label, r.why))
                 if pending >= COMMIT_EVERY and not dry: w.commit(); pending = 0
-                if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); break
+                if spent >= max_bytes: log('STOP: %d KB of pictures kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
+                if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break
         except RuntimeError as ex:
             stopped.append(name); log('STOP %s: %s (nothing more is tried from this source; ask the owner)' % (name, ex))
         if pending and not dry: w.commit(); pending = 0   # a run that changed nothing writes nothing
-        if spent >= max_bytes: break
+        if halted or spent >= max_bytes or late(): halted = True; break
     wanted = [k for k in ('medium', 'large') if only in ('all', k)]
-    if wanted and copies is not None and spent < max_bytes:
-        s = stats['copies'] = collections.Counter(); has = {'medium': w.has_medium, 'large': w.has_large}
-        by_file = collections.OrderedDict()   # one download per picture file: species that show the same picture share it
-        for sid in sorted(w.pics):
-            e = w.pics[sid]; need = tuple(k for k in wanted if not has[k](sid))
-            if need and e.get('f') and source_urls(e.get('u')): by_file.setdefault(e['f'], []).append((sid, need))
-        todo = list(by_file.items())
+    tried_files = set(); copy_todo = lambda: [(f, m) for f, m in copy_files(w, wanted) if f not in tried_files]
+    if wanted and copies is not None and not halted:
+        s = stats['copies'] = collections.Counter()
+        todo = copy_todo()
         if limit: todo = todo[:limit]
         log('strategy %s: %d pictures without a copy' % ('+'.join(wanted), len(todo)))
         for f, members in todo:
-            s['tried'] += 1; sids = [m[0] for m in members]; need = tuple(sorted({k for m in members for k in m[1]}))
+            s['tried'] += 1; tried_files.add(f); sids = [m[0] for m in members]; need = tuple(sorted({k for m in members for k in m[1]}))
             if dry: log('would try copies for %s' % ','.join(sids)); continue
             got, cwhy = copies(w.pics[sids[0]], need)
             for sid, n in members:
@@ -174,8 +186,15 @@ def acquire(w, units, strategies=None, only='all', limit=120, max_bytes=25_000_0
             if got: s['made'] += 1; spent += sum(len(b) for b in got.values()); pending += len(sids); log('copies %s %s' % (','.join(sids), ', '.join('%s %d KB' % (k, round(len(b) / 1024)) for k, b in sorted(got.items()))))
             if cwhy: s['none'] += 1; log('no copy %s - %s; the small picture stays' % (','.join(sids), cwhy))
             if pending >= COMMIT_EVERY: w.commit(); pending = 0
-            if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); break
+            if spent >= max_bytes: log('STOP: %d KB kept (the cap); the rest waits for the next run' % (spent // 1024)); halted = True; break
+            if late(): log('STOP: the time budget of %s minutes is spent; the rest waits for the next run' % minutes); halted = True; break
         if pending and not dry: w.commit(); pending = 0
+    more = 0
+    if halted and not stopped:   # what is still due and was not tried by this run (a transient failure counts once, not again)
+        for name, find, applies, days in strategies:
+            if only in ('all', name): more += sum(1 for t in due(name, applies, days) if t not in tried_now[name])
+        if wanted and copies is not None: more += len(copy_todo())
+    if report is not None: report['more'] = more
     return stats, stopped
 
 def stats_block(w, counters, dry=False):
@@ -192,14 +211,15 @@ def stats_block(w, counters, dry=False):
 
 def main(argv=None, root=ROOT):
     a = list(sys.argv[1:] if argv is None else argv); opt = lambda k, d: a[a.index(k) + 1] if k in a else d
-    only = opt('--strategy', 'all'); limit = int(opt('--limit', 120)); max_mb = float(opt('--max-mb', 25))
+    only = opt('--strategy', 'all'); limit = int(opt('--limit', 0)); max_mb = float(opt('--max-mb', 25)); minutes = float(opt('--minutes', 120))
     if only not in ['all', 'medium', 'large'] + [s[0] for s in STRATEGIES]: print('unknown strategy', only); return 1
     if not species_pics.new_shape(root): print('the species pictures are not keyed by species id yet: this job needs the sid-keyed files (migration #934, jobs/rekeyspeciesphotos.py)'); return 1
     w = sp.SpeciesPhotos(root); units = load_units(root)
     shared = collections.Counter(u['title'] for u in units)
     print('%d species rows with a title, %d titles, %d titles shared by %d rows (each fetched once)' % (len(units), len(shared), sum(1 for c in shared.values() if c > 1), sum(c for c in shared.values() if c > 1)))
     rl = int(opt('--repair-limit', 40)); dry = '--dry' in a
-    stats, stopped = acquire(w, units, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, copies=make_copies)
+    t0 = time.monotonic(); report = {}
+    stats, stopped = acquire(w, units, only=only, limit=limit, max_bytes=int(max_mb * 1_000_000), again='--again' in a, dry='--dry' in a, copies=make_copies, minutes=minutes, report=report)
     for name, s in stats.items():
         if name == 'copies': print('summary copies: tried %d, made %d, none possible %d' % (s['tried'], s['made'], s['none']))
         else: print('summary %s: tried %d, found %d, nothing %d, refused (no author) %d, tried again later %d, pictures with copies %d (none possible %d)' % (name, s['tried'], s['found'], s['miss'], s['refused'], s['retry'], s['copies'], s['nocopy']))
@@ -207,8 +227,9 @@ def main(argv=None, root=ROOT):
     if rl:   # the author repair step (#887, lib/author_repair.py): after the sources, only when none of them stopped, inside the same time budget
         if stopped: print('author repair skipped: a source stopped this run')
         else:
-            rs, _ = ar.repair_step(w, limit=rl, dry=dry); print(ar.summary(rs))
+            rs, _ = ar.repair_step(w, limit=rl, dry=dry, late=(lambda: time.monotonic() - t0 >= minutes * 60) if minutes else None); print(ar.summary(rs))
             if not dry and (rs['fixed'] or rs['none']): w.commit()
+    more = report.get('more', 0); print(runbudget.more_line(more))
     block = stats_block(w, dict(species=len(units), strategies=stats), dry='--dry' in a); print(block)
     try:
         with open('speciespictures_stats.md', 'w', encoding='utf-8') as f: f.write(block)   # not committed: the workflow may put it in the PR body
@@ -216,6 +237,6 @@ def main(argv=None, root=ROOT):
     if '--dry' not in a:
         bad = sp.SpeciesPhotos(root).check()
         if bad: print('CHECK FAILED:'); print('\n'.join(bad[:30])); return 1
-    return 2 if stopped else 0
+    return runbudget.exit_code(stopped, more)
 
 if __name__ == '__main__': sys.exit(main())
