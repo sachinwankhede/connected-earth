@@ -64,10 +64,10 @@ class AcquireTests(unittest.TestCase):
         finally: sp.author_missing = orig
         w = self.fresh(); self.assertFalse(w.has('aa')); self.assertIn('commons', w.tried['aa']); self.assertTrue(any(l.startswith('refused commons aa') for l in self.log))
 
-    def test_cc0_needs_no_author(self):
-        al.lookup = lambda fn: self.fail('no lookup for a licence that needs no author')
+    def test_cc0_still_needs_an_author(self):   # owner, 25 Nov (#887): every picture needs a named author, whatever its licence, so CC0 with no author is refused too
+        al.lookup = lambda fn: ('none', '')
         self.run_([strategy('wikipedia', found={'aa'}, entry=lambda sid: row(sid, a='Unknown author', l='CC0'))], [unit('aa')])
-        self.assertTrue(self.fresh().has('aa'))
+        self.assertFalse(self.fresh().has('aa'))
 
     def test_holds_are_the_old_jobs_holds(self):
         today = datetime.date(2026, 11, 15); w = self.w; offered = []

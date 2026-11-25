@@ -55,10 +55,10 @@ class AcquireTests(unittest.TestCase):
         self.run_([strategy('commons', found={'aa'}, entry=unknown)], [unit('aa')], again=True)
         self.assertEqual(self.fresh().pics['aa']['a'], 'Pat Smith', 'the name Commons gives is stored, not "Unknown author"')
 
-    def test_cc0_and_public_domain_need_no_author(self):
-        al.lookup = lambda fn: self.fail('no lookup for a licence that needs no author')
+    def test_cc0_and_public_domain_still_need_an_author(self):   # owner, 25 Nov (#887): every picture needs a named author, whatever its licence, so CC0 with no author is refused too
+        al.lookup = lambda fn: ('none', '')
         self.run_([strategy('wikipedia', found={'aa'}, entry=lambda pid: row(pid, a='Unknown author', l='CC0'))], [unit('aa')])
-        self.assertTrue(self.fresh().has('aa'))
+        self.assertFalse(self.fresh().has('aa'))
 
     def test_vetted_info_lets_the_strategy_take_the_next_file(self):
         al.lookup = lambda fn: ('none', '') if fn == 'A.jpg' else ('artist', 'X')

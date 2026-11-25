@@ -224,7 +224,7 @@ class Vetted:
         if row is None: return default
         lic, au, lu, thumb, mime = row
         au = al.clean(au) or au   # the one stored form (lib/author_clean.py)
-        if al.by_licence(lic) and al.unknown(au):
+        if al.unknown(au):   # every licence needs a named author (owner, 25 Nov, #887)
             cls, name = al.lookup(key)
             if cls != 'none' and name: au = name
             else: lic = ''
