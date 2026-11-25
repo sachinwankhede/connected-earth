@@ -5,6 +5,24 @@
 "expiresAt": "2026-11-16T06:00:53.361490+00:00",
 "status": "notyet"
 },
+"alkali-soil": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601224+00:00",
+"expiresAt": "2027-05-24T03:37:21.601224+00:00",
+"status": "notfree"
+},
+"andisol": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601255+00:00",
+"expiresAt": "2027-05-24T03:37:21.601255+00:00",
+"status": "notfree"
+},
+"andosol": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601264+00:00",
+"expiresAt": "2027-05-24T03:37:21.601264+00:00",
+"status": "notfree"
+},
 "antarctic-convergence": {
 "attempts": 1,
 "checkedAt": "2026-11-16T04:00:53.361530+00:00",
@@ -41,6 +59,18 @@
 "expiresAt": "2026-11-16T06:00:53.361546+00:00",
 "status": "notyet"
 },
+"falkland-current": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601271+00:00",
+"expiresAt": "2027-05-24T03:37:21.601271+00:00",
+"status": "notfree"
+},
+"fire-ecology": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601277+00:00",
+"expiresAt": "2027-05-24T03:37:21.601277+00:00",
+"status": "notfree"
+},
 "florida-current": {
 "attempts": 1,
 "checkedAt": "2026-11-16T04:00:53.361548+00:00",
@@ -65,6 +95,12 @@
 "expiresAt": "2026-11-16T06:00:53.361555+00:00",
 "status": "notyet"
 },
+"krimml-waterfalls": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601283+00:00",
+"expiresAt": "2027-05-24T03:37:21.601283+00:00",
+"status": "notfree"
+},
 "lake-edward": {
 "attempts": 1,
 "checkedAt": "2026-11-16T04:00:53.361557+00:00",
@@ -82,6 +118,12 @@
 "checkedAt": "2026-11-16T04:00:53.361561+00:00",
 "expiresAt": "2026-11-16T06:00:53.361561+00:00",
 "status": "notyet"
+},
+"macrotermes": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601288+00:00",
+"expiresAt": "2027-05-24T03:37:21.601288+00:00",
+"status": "notfree"
 },
 "marine-derived-nutrients": {
 "attempts": 1,
@@ -113,6 +155,18 @@
 "expiresAt": "2026-11-16T06:00:53.361572+00:00",
 "status": "notyet"
 },
+"orographic-lift": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601293+00:00",
+"expiresAt": "2027-05-24T03:37:21.601293+00:00",
+"status": "notfree"
+},
+"oxisol": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601298+00:00",
+"expiresAt": "2027-05-24T03:37:21.601298+00:00",
+"status": "notfree"
+},
 "pendjari-river": {
 "attempts": 1,
 "checkedAt": "2026-11-16T04:00:53.361574+00:00",
@@ -124,6 +178,12 @@
 "checkedAt": "2026-11-16T04:00:53.361576+00:00",
 "expiresAt": "2026-11-16T06:00:53.361576+00:00",
 "status": "notyet"
+},
+"red-sea": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601303+00:00",
+"expiresAt": "2027-05-24T03:37:21.601303+00:00",
+"status": "notfree"
 },
 "salinity": {
 "attempts": 1,
@@ -143,6 +203,12 @@
 "expiresAt": "2026-11-16T06:00:53.361584+00:00",
 "status": "notyet"
 },
+"swamp": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601308+00:00",
+"expiresAt": "2027-05-24T03:37:21.601308+00:00",
+"status": "notfree"
+},
 "termite": {
 "attempts": 1,
 "checkedAt": "2026-11-16T04:00:53.361586+00:00",
@@ -154,6 +220,30 @@
 "checkedAt": "2026-11-16T04:00:53.361588+00:00",
 "expiresAt": "2026-11-16T06:00:53.361588+00:00",
 "status": "notyet"
+},
+"ultisol": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601313+00:00",
+"expiresAt": "2027-05-24T03:37:21.601313+00:00",
+"status": "notfree"
+},
+"vatnaj-kull": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601318+00:00",
+"expiresAt": "2027-05-24T03:37:21.601318+00:00",
+"status": "notfree"
+},
+"vernal-pool": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601323+00:00",
+"expiresAt": "2027-05-24T03:37:21.601323+00:00",
+"status": "notfree"
+},
+"voyageurs-national-park": {
+"attempts": 1,
+"checkedAt": "2026-11-25T03:37:21.601328+00:00",
+"expiresAt": "2027-05-24T03:37:21.601328+00:00",
+"status": "notfree"
 },
 "wet-season": {
 "attempts": 1,

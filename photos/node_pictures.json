@@ -10,17 +10,6 @@
 "page": "Adirondack_Park",
 "wiki": "Adirondack Park"
 },
-"alkali-soil": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.289764+00:00",
-"checkedAt": "2026-11-16T04:00:53.289764+00:00",
-"f": "0d966a14e6e7.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Rice_Field.jpg",
-"page": "Alkali_soil",
-"wiki": "Alkali soil"
-},
 "alluvium": {
 "a": "Nick (NJR ZA)",
 "built": "2026-11-16T04:00:53.289815+00:00",
@@ -53,30 +42,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Hikers_on_franconia_ridge.JPG",
 "page": "Alpine_tundra",
 "wiki": "Alpine tundra"
-},
-"andisol": {
-"a": "Unknown author",
-"built": "2026-11-22T16:27:02.461585+00:00",
-"checkedAt": "2026-11-22T16:27:02.461585+00:00",
-"f": "46c54a16ec65.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:AndisolWorld.jpg",
-"page": "Andisol",
-"u": "1/16/AndisolWorld.jpg/330px-AndisolWorld.jpg",
-"wiki": "Andisol"
-},
-"andosol": {
-"a": "Unknown author",
-"built": "2026-11-22T16:27:12.461218+00:00",
-"checkedAt": "2026-11-22T16:27:12.461218+00:00",
-"f": "a66648bd4a59.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Andisol_profile.jpg",
-"page": "Andosol",
-"u": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Andisol_profile.jpg",
-"wiki": "Andosol"
 },
 "awash-river": {
 "a": "Bjørg Sandkjær (Bjorg Sandkjaer)",
@@ -518,17 +483,6 @@
 "page": "Eutrophication",
 "wiki": "Eutrophication"
 },
-"falkland-current": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.291240+00:00",
-"checkedAt": "2026-11-16T04:00:53.291240+00:00",
-"f": "79e5cc9ec1db.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Humboldt_current.jpg",
-"page": "Falkland_Current",
-"wiki": "Falkland Current"
-},
 "fedchenko-glacier": {
 "a": "Jaan Künnap",
 "built": "2026-11-22T16:28:08.473480+00:00",
@@ -562,18 +516,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Rolla_Island_in_front_of_Commander_Peak_and_entrance_to_Hall_Arm_of_Doubtful_Sound.jpg",
 "page": "Fiordland",
 "wiki": "Fiordland"
-},
-"fire-ecology": {
-"a": "Unknown author",
-"built": "2026-11-22T16:28:18.494008+00:00",
-"checkedAt": "2026-11-22T16:28:18.494008+00:00",
-"f": "47a3f985d5f5.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Wildfire-ISS007_Mosaic2.jpg",
-"page": "Fire_ecology",
-"u": "1/13/Wildfire-ISS007_Mosaic2.jpg/330px-Wildfire-ISS007_Mosaic2.jpg",
-"wiki": "Fire ecology"
 },
 "flash-flood": {
 "a": "PawełMM (this montage); Nyttend (original photographs)",
@@ -884,17 +826,6 @@
 "page": "Kobuk_River",
 "wiki": "Kobuk River"
 },
-"krimml-waterfalls": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.292297+00:00",
-"checkedAt": "2026-11-16T04:00:53.292297+00:00",
-"f": "599dec0dad29.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Austrian.waterfall.at.krimml.arp.jpg",
-"page": "Krimml_Waterfalls",
-"wiki": "Krimml Waterfalls"
-},
 "kuroshio-current": {
 "a": "NOAA",
 "built": "2026-11-16T04:00:53.292325+00:00",
@@ -1106,17 +1037,6 @@
 "page": "Luxembourg_Sandstone",
 "u": "3/30/Gres_luxembourg.jpg/330px-Gres_luxembourg.jpg",
 "wiki": "Luxembourg Sandstone"
-},
-"macrotermes": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.292886+00:00",
-"checkedAt": "2026-11-16T04:00:53.292886+00:00",
-"f": "08cef740a194.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Isoptera_sandias_02.jpg",
-"page": "Macrotermes",
-"wiki": "Macrotermes"
 },
 "madre-de-dios-river": {
 "a": "Cho mik",
@@ -1394,17 +1314,6 @@
 "page": "Okavango_Delta",
 "wiki": "Okavango Delta"
 },
-"orographic-lift": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.293767+00:00",
-"checkedAt": "2026-11-16T04:00:53.293767+00:00",
-"f": "0b08f1ab3a0d.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Wave_cloud.jpg",
-"page": "Orographic_lift",
-"wiki": "Orographic lift"
-},
 "outwash-plain": {
 "a": "Debivort",
 "built": "2026-11-16T04:00:53.293802+00:00",
@@ -1415,17 +1324,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Skei%C3%B0ar%C3%A1rsandur%2C_Iceland.jpg",
 "page": "Outwash_plain",
 "wiki": "Outwash plain"
-},
-"oxisol": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.293827+00:00",
-"checkedAt": "2026-11-16T04:00:53.293827+00:00",
-"f": "0ccd2bb410fb.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:OxisolWorld.jpg",
-"page": "Oxisol",
-"wiki": "Oxisol"
 },
 "painted-desert-united-states": {
 "a": "Joyradost",
@@ -1672,18 +1570,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Rapids_of_Kern_River%2C_California%2C_USA.webm",
 "page": "Rapids",
 "wiki": "Rapids"
-},
-"red-sea": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.294667+00:00",
-"checkedAt": "2026-11-16T04:00:53.294667+00:00",
-"f": "74561667b37b.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Red_Sea_37.95521E_21.41271N.jpg",
-"page": "Red_Sea",
-"src": "wikidata-p18",
-"wiki": "Red Sea"
 },
 "rh-ne": {
 "a": "Benoît Prieur",
@@ -2028,17 +1914,6 @@
 "page": "Sunbeam",
 "wiki": "Sunbeam"
 },
-"swamp": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.295860+00:00",
-"checkedAt": "2026-11-16T04:00:53.295860+00:00",
-"f": "5f7190600b26.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Florida_freshwater_swamp_usgov_image.jpg",
-"page": "Swamp",
-"wiki": "Swamp"
-},
 "syrian-desert": {
 "a": "Emilfarb at English Wikipedia",
 "built": "2026-11-22T16:29:08.521391+00:00",
@@ -2175,17 +2050,6 @@
 "page": "Tundra",
 "wiki": "Tundra"
 },
-"ultisol": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.296239+00:00",
-"checkedAt": "2026-11-16T04:00:53.296239+00:00",
-"f": "1ebc77691772.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Ultisol.jpg",
-"page": "Ultisol",
-"wiki": "Ultisol"
-},
 "upwelling": {
 "a": "NOAA",
 "built": "2026-11-16T04:00:53.296269+00:00",
@@ -2207,28 +2071,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Uvs_n%C3%BAr.JPG",
 "page": "Uvs_Lake",
 "wiki": "Uvs Lake"
-},
-"vatnaj-kull": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.296342+00:00",
-"checkedAt": "2026-11-16T04:00:53.296342+00:00",
-"f": "534e1698fe87.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Vatnaj%C3%B6kull.jpeg",
-"page": "Vatnaj%C3%B6kull",
-"wiki": "Vatnajökull"
-},
-"vernal-pool": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.296370+00:00",
-"checkedAt": "2026-11-16T04:00:53.296370+00:00",
-"f": "17d8536631e0.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Vernal_Pools_2.jpg",
-"page": "Vernal_pool",
-"wiki": "Vernal pool"
 },
 "virgin-river": {
 "a": "Photo by Douglas Dietiker",
@@ -2264,17 +2106,6 @@
 "s": "Openverse",
 "src": "openverse",
 "wiki": "Volcanic soil"
-},
-"voyageurs-national-park": {
-"a": "Unknown author",
-"built": "2026-11-16T04:00:53.296500+00:00",
-"checkedAt": "2026-11-16T04:00:53.296500+00:00",
-"f": "7104a8535f2f.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Voyageurs_National_Park.jpg",
-"page": "Voyageurs_National_Park",
-"wiki": "Voyageurs National Park"
 },
 "water": {
 "a": "Blue_ice.jpg: Stephanie Costa Wassertropfen.jpg: Sven Hoppe Above_the_Clouds.jpg: Arun Kulshreshtha derivative work: StarLight",
