@@ -1,5 +1,5 @@
 {
- "latin": "Arenaria and Calidris spp.",
+ "latin": "Arenaria interpres",
  "name": "Ruddy turnstone",
  "tl": 3,
  "wiki": "Ruddy turnstone",
@@ -7,6 +7,6 @@
  "ic": "meadowlark",
  "about": "The ruddy turnstone is a small cosmopolitan wading bird, one of two species of turnstone in the genus Arenaria.",
  "sid": "arenaria-and-calidris-spp",
- "sk": "group",
+ "sk": "taxon",
  "src": "legacy"
 }
