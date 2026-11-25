@@ -12,11 +12,13 @@ class WriterTests(unittest.TestCase):
     def read(self, rel):
         with open(os.path.join(self.d, rel), 'rb') as f: return f.read()
 
-    def test_put_refuses_cc_by_with_no_named_author(self):
+    def test_put_refuses_any_licence_with_no_named_author(self):
         for a in ('', 'Unknown author', 'unknown', 'Anonymous'):
             with self.assertRaises(ValueError): self.w.put('p1', dict(row(), a=a), b'x')
         self.assertFalse(self.w.has('p1'))
-        self.w.put('p1', dict(row(), a='Unknown author', l='CC0'), b'x'); self.assertTrue(self.w.has('p1'))   # CC0 and public domain need no author
+        with self.assertRaises(ValueError): self.w.put('p1', dict(row(), a='Unknown author', l='CC0'), b'x')   # every licence needs a named author (owner, 25 Nov, #887)
+        self.assertFalse(self.w.has('p1'))
+        self.w.put('p1', dict(row(), a='Jane Roe', l='CC0'), b'x'); self.assertTrue(self.w.has('p1'))
 
     def test_put_writes_file_and_row_and_clears_the_miss(self):
         self.w.miss('okarrowhead', 'nophoto', 'nearby'); self.w.commit()

@@ -13,11 +13,13 @@ class WriterTests(unittest.TestCase):
     def full(self, sid='podocarpus'):
         self.w.put(sid, row(), b'S'); self.w.put_medium(sid, b'M'); self.w.put_large(sid, b'L'); self.w.commit()
 
-    def test_put_refuses_cc_by_with_no_named_author(self):
+    def test_put_refuses_any_licence_with_no_named_author(self):
         for a in ('', 'Unknown author', 'unknown', 'Anonymous'):
             with self.assertRaises(ValueError): self.w.put('s1', dict(row(), a=a), b'x')
         self.assertFalse(self.w.has('s1'))
-        self.w.put('s1', dict(row(), a='Unknown author', l='CC0'), b'x'); self.assertTrue(self.w.has('s1'))
+        with self.assertRaises(ValueError): self.w.put('s1', dict(row(), a='Unknown author', l='CC0'), b'x')   # every licence needs a named author (owner, 25 Nov, #887)
+        self.assertFalse(self.w.has('s1'))
+        self.w.put('s1', dict(row(), a='Jane Roe', l='CC0'), b'x'); self.assertTrue(self.w.has('s1'))
 
     def test_put_writes_file_and_row_and_clears_the_miss(self):
         self.w.miss('abies-alba', 'nophoto', 'commons'); self.w.commit()

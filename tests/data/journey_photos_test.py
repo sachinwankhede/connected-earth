@@ -12,11 +12,13 @@ class WriterTests(unittest.TestCase):
         with open(os.path.join(self.d, rel), 'rb') as f: return f.read()
     def full(self, jid='osprey'): self.w.put(jid, row(), b'S'); self.w.put_large(jid, b'L'); self.w.commit()
 
-    def test_put_refuses_cc_by_with_no_named_author(self):
+    def test_put_refuses_any_licence_with_no_named_author(self):
         for a in ('', 'Unknown author', 'unknown', 'Anonymous', 'me@example.org'):
             with self.assertRaises(ValueError): self.w.put('osprey', dict(row(), a=a), b'x')
         self.assertFalse(self.w.has('osprey'))
-        self.w.put('osprey', dict(row(), a='Unknown author', l='CC0'), b'x'); self.assertTrue(self.w.has('osprey'))
+        with self.assertRaises(ValueError): self.w.put('osprey', dict(row(), a='Unknown author', l='CC0'), b'x')   # every licence needs a named author (owner, 25 Nov, #887)
+        self.assertFalse(self.w.has('osprey'))
+        self.w.put('osprey', dict(row(), a='Jane Roe', l='CC0'), b'x'); self.assertTrue(self.w.has('osprey'))
 
     def test_author_is_stored_clean(self):
         self.w.put('osprey', dict(row(), a='Jane Roe <jane@example.org>'), b'x'); self.assertEqual(self.w.pics['osprey']['a'], 'Jane Roe')
