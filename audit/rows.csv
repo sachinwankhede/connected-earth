@@ -357,7 +357,7 @@ ardenna-pacifica,taxon,Wedge-tailed shearwater,Wedge-tailed shearwater,Ardenna p
 ardisia-crenata,taxon,Spiceberry,Ardisia crenata,Ardisia crenata,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 ardisia-elliptica,taxon,Shoebutton ardisia,Ardisia elliptica,Ardisia elliptica,1,6,6,legacy,0,0,0,0,0,0,0,0,0
 ardisia-escallonioides,taxon,Marlberry,Ardisia escallonioides,Ardisia escallonioides,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-arenaria-and-calidris-spp,group,Ruddy turnstone,Ruddy turnstone,Arenaria and Calidris spp.,3,2,2,legacy,0,0,0,0,0,0,0,0,0
+arenaria-interpres,taxon,Ruddy turnstone,Ruddy turnstone,Arenaria interpres,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 arenga-obtusifolia,taxon,Arenga palm,Arenga obtusifolia,Arenga obtusifolia,1,1,1,legacy,0,0,0,0,0,0,0,0,0
 arenicola-marina,taxon,Lugworm,Arenicola marina,Arenicola marina,2,1,1,legacy,0,0,0,1,0,0,0,0,0
 argemone-pleiacantha,taxon,Southwestern pricklypoppy,Argemone pleiacantha,Argemone pleiacantha,1,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -1370,7 +1370,7 @@ daucus-carota,taxon,Queen Anne's Lace,Daucus carota,Daucus carota,1,12,12,legacy
 davilla-kunthii,taxon,"Davilla, Texas",Davilla,Davilla kunthii,1,1,1,legacy,0,0,0,0,0,0,0,0,1
 decapoda,taxon,Decapod,Decapoda,Decapoda,2,1,1,legacy,0,0,0,0,0,0,0,0,0
 decodon-verticillatus,taxon,Swamp Loosestrife,Decodon verticillatus,Decodon verticillatus,1,1,1,legacy,0,0,0,0,0,0,0,0,0
-decomposer-community,resource,Fungi and bacteria,Decomposer,Decomposer community,0,1466,1466,legacy,0,0,0,0,0,0,0,0,0
+decomposer-community,resource,Fungi and bacteria,Decomposer,Decomposer community,0,1539,1539,legacy,0,0,0,0,0,0,0,0,0
 deep-cold-lakes,resource,Deep cold lakes,Putorana Plateau,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 deep-oxygenated-water,resource,Deep oxygenated water,Lake Baikal,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 dejongia-lobidactylus,taxon,Lobed Plume Moth,Dejongia lobidactylus,Dejongia lobidactylus,2,1,1,legacy,0,0,0,0,0,0,0,0,0
@@ -4278,7 +4278,7 @@ sula-leucogaster,taxon,Brown booby,Brown booby,Sula leucogaster,3,1,1,legacy,0,0
 sula-sula,taxon,Red-footed booby,Red-footed booby,Sula sula,3,2,2,legacy,0,0,0,0,0,0,0,0,0
 suncus-etruscus,taxon,Etruscan shrew,Etruscan shrew,Suncus etruscus,3,1,1,legacy,0,0,0,0,0,0,0,0,0
 sundasciurus-jentinki,taxon,Jentink's squirrel,Jentink's squirrel,Sundasciurus jentinki,2,1,1,legacy,0,0,0,0,0,0,0,0,0
-sunlight,resource,Sunlight,Sunbeam,,0,1469,1469,legacy,0,0,0,0,0,0,0,0,0
+sunlight,resource,Sunlight,Sunbeam,,0,1488,1488,legacy,0,0,0,0,0,0,0,0,0
 sus-scrofa,taxon,Wild boar,Wild boar,Sus scrofa,2,85,85,legacy,0,0,0,0,0,0,0,0,0
 swamps-rivers,resource,Swamps & rivers,Swamp,,0,1,1,legacy,0,0,0,0,0,0,0,0,0
 swietenia-macrophylla,taxon,Big-leaf mahogany,Swietenia macrophylla,Swietenia macrophylla,1,1,1,legacy,0,0,0,0,0,0,0,0,0
