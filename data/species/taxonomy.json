@@ -41389,20 +41389,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"panthera-leo-leo": {
-"at": "2026-11-25",
-"class": "Mammalia",
-"conf": 100,
-"family": "Felidae",
-"gname": "Panthera leo leo (Linnaeus, 1758)",
-"key": 7059275,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carnivora",
-"phylum": "Chordata",
-"rank": "SUBSPECIES",
-"src": "gbif"
-},
 "panthera-onca": {
 "at": "2026-11-04",
 "class": "Mammalia",
