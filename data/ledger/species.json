@@ -1,0 +1,30 @@
+{
+ "Iberian wolf": {
+  "attempts": 1,
+  "hold_until": "2027-02-23",
+  "reason": "taxonomy",
+  "steps": {
+   "conservation": {
+    "detail": "no status on Wikidata",
+    "result": "missing"
+   },
+   "identity": {
+    "detail": "new",
+    "result": "found"
+   },
+   "picture": {
+    "detail": "wikipedia (CC BY-SA 4.0, Arturo de Frias Marques)",
+    "result": "found"
+   },
+   "summary": {
+    "detail": "The Iberian wolf, is a subspecies of grey wolf. It inhabits the northwest of the",
+    "result": "found"
+   },
+   "taxonomy": {
+    "detail": "only a higher-rank match",
+    "result": "missing"
+   }
+  },
+  "tried": "2026-11-25"
+ }
+}
