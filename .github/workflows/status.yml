@@ -23,7 +23,7 @@ on:
       - data-linktest
       - data-names
       - data-outlines
-      - data-placepictures
+      - data-pictures
       - data-promote
       - data-regen
       - data-research
