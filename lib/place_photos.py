@@ -13,6 +13,7 @@ The place pictures are keyed by place id (migration #906, 15 Nov); each row carr
 import datetime, json, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import photo_registry as pr
+import contracts
 
 import author_clean as ac
 
@@ -38,6 +39,32 @@ class CreditRepair:
         """Record in the ledger that the author lookup found nothing usable for this stored picture (retry after contracts.SOURCE_RETRY_DAYS)."""
         if rid not in self.pics: raise ValueError('no stored picture for %r' % rid)
         self.tried.setdefault(rid, {})['author-repair'] = (now or pr._utcnow()).isoformat()[:10]
+
+    COPY = 'copy'   # the ledger source of a larger copy that could not be made (#1183): the same {id: {source: date}} entry and the same 30-day hold as a picture source
+
+    def note_copy_tried(self, rid, now=None):
+        """Record in the ledger that no larger copy could be made for this stored picture (held for contracts.SOURCE_RETRY_DAYS, so a copy that always fails is not offered first in every run)."""
+        if rid not in self.pics: raise ValueError('no stored picture for %r' % rid)
+        self.tried.setdefault(rid, {})[self.COPY] = (now or pr._utcnow()).isoformat()[:10]
+
+    def copy_held(self, rid, today=None):
+        """True while a failed larger copy of this picture must not be tried again."""
+        today = today or datetime.date.today()
+        return self.tried.get(rid, {}).get(self.COPY, '') > (today - datetime.timedelta(days=contracts.SOURCE_RETRY_DAYS)).isoformat()
+
+    def orphans(self, known):
+        """[(list name, id)] for ids in this writer's lists that name nothing in `known` (a set of ids). Read only: nothing is deleted. A writer names its lists in lists()."""
+        return [(name, i) for name, d in self.lists() for i in sorted(set(d) - set(known))]
+
+    def ledger_errors(self, label='tried'):
+        """Shape of the ledger {id: {source: 'YYYY-MM-DD'}}, the same for every kind: no empty entry, every source has a date."""
+        errs = []
+        for i, t in sorted(self.tried.items()):
+            if not isinstance(t, dict) or not t: errs.append('%s: %r is not a non-empty {source: date} entry' % (label, i)); continue
+            for src, d in sorted(t.items()):
+                try: datetime.date.fromisoformat(str(d)[:10])
+                except ValueError: errs.append('%s: %s/%s has no date (%r)' % (label, i, src, d))
+        return errs
 
 
 PLACES = ('photos', 'places', 'places.json'); MISSING = ('photos', 'places', 'missing.json')
@@ -125,9 +152,11 @@ class PlacePhotos(CreditRepair):
         self._write = {}; self._delete = []
 
     # --- consistency
+    def lists(self): return [('places.json', self.pics), ('missing.json', self.miss_), ('places_large.json', self.large), ('places_tried.json', self.tried)]
+
     def check(self):
         """Problems between the files and the lists. Empty means consistent."""
-        errs = []; sd = os.path.join(self.root, *SMALL_DIR); ld = os.path.join(self.root, *LARGE_DIR)
+        errs = self.ledger_errors('places_tried.json'); sd = os.path.join(self.root, *SMALL_DIR); ld = os.path.join(self.root, *LARGE_DIR)
         files = {f for f in os.listdir(sd) if f.endswith('.jpg')} if os.path.isdir(sd) else set()
         lfiles = set(os.listdir(ld)) if os.path.isdir(ld) else set()
         for pid, e in sorted(self.pics.items()):

@@ -102,9 +102,11 @@ class SpeciesPhotos(CreditRepair):
     def _files(self, parts):
         d = os.path.join(self.root, *parts); return set(os.listdir(d)) if os.path.isdir(d) else set()
 
+    def lists(self): return [('species_pictures.json', self.pics), ('species_missing.json', self.miss_), ('species_medium.json', self.medium), ('species_large.json', self.large), ('species_tried.json', self.tried)]
+
     def check(self):
         """Problems between the files and the lists. Empty means consistent."""
-        errs = []; sf = {f for f in self._files(SMALL_DIR) if f.endswith('.webp')}
+        errs = self.ledger_errors('species_tried.json'); sf = {f for f in self._files(SMALL_DIR) if f.endswith('.webp')}
         for sid, e in sorted(self.pics.items()):
             if not e.get('f'): errs.append('%s: no file name' % sid)
             elif e['f'] not in sf: errs.append('%s: listed in species_pictures.json but %s is missing' % (sid, e['f']))

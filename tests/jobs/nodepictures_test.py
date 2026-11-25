@@ -56,7 +56,7 @@ class NodeAcquireTests(unittest.TestCase):
         w = self.fresh(); self.assertTrue(w.has('sunbeam')); self.assertEqual(w.check(), [])
         files = os.listdir(os.path.join(self.d, 'photos', 'nodes')); self.assertEqual(files, [w.pics['sunbeam']['f']])
         self.assertEqual(open(os.path.join(self.d, 'photos', 'nodes', files[0]), 'rb').read(), b'MEDIUM-192')
-        self.assertEqual(sorted(os.listdir(os.path.join(self.d, 'photos'))), ['node_missing.json', 'node_pictures.json', 'nodes'])
+        self.assertEqual(sorted(os.listdir(os.path.join(self.d, 'photos'))), ['node_missing.json', 'node_pictures.json', 'node_tried.json', 'nodes'])
         self.assertEqual(w.pics['sunbeam']['wiki'], 'Sunbeam')
 
     def test_without_the_192_px_copy_the_small_picture_stays(self):

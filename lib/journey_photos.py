@@ -89,9 +89,11 @@ class JourneyPhotos(CreditRepair):
         self._write = {}; self._delete = []
 
     # --- consistency
+    def lists(self): return [('journey_pictures.json', self.pics), ('journey_missing.json', self.miss_), ('journey_large.json', self.large), ('journey_tried.json', self.tried)]
+
     def check(self):
         """Problems between the files and the lists. Empty means consistent."""
-        errs = []; sd = os.path.join(self.root, *SMALL_DIR); ld = os.path.join(self.root, *LARGE_DIR)
+        errs = self.ledger_errors('journey_tried.json'); sd = os.path.join(self.root, *SMALL_DIR); ld = os.path.join(self.root, *LARGE_DIR)
         files = {f for f in os.listdir(sd) if f.endswith('.webp')} if os.path.isdir(sd) else set()
         lfiles = set(os.listdir(ld)) if os.path.isdir(ld) else set()
         for jid, e in sorted(self.pics.items()):
