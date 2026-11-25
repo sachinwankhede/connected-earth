@@ -7,9 +7,9 @@
     "notfree",
     "wrongpage"
   ],
-  "permanentRetryDays": 180,
+  "permanentRetryDays": 30,
   "transientRetryMaxHours": 168,
-  "sourceRetryDays": 90,
+  "sourceRetryDays": 30,
   "inputMoveKm": 1.0,
   "story": {
     "words": 60,
@@ -25,7 +25,7 @@
       520
     ]
   },
-  "ledgerHoldDays": 90,
+  "ledgerHoldDays": 30,
   "species": {
     "required": {
       "taxon": [
