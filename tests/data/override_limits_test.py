@@ -19,11 +19,15 @@ class Overrides(unittest.TestCase):
         self.assertFalse(species.same_name(None, 'Common raven'))
 
     def test_a_noise_name_fails_and_a_real_one_does_not(self):
-        with tempfile.TemporaryDirectory() as r:
-            place(r, [{'id': 'a', 'sp': 'corvus-corax', 'name': 'Common Raven'}])
-            self.assertEqual(len(validate_data.override_errors(r, SP)), 1)
-            place(r, [{'id': 'a', 'sp': 'corvus-corax', 'name': 'Northern raven'}])
-            self.assertEqual(validate_data.override_errors(r, SP), [])
+        old = validate_data.NAME_OVERRIDE_LIMIT, validate_data.WIKI_OVERRIDE_LIMIT
+        try:
+            validate_data.NAME_OVERRIDE_LIMIT = 10; validate_data.WIKI_OVERRIDE_LIMIT = 10   # the real limits are 0 (#1038): this test is about noise, not the count
+            with tempfile.TemporaryDirectory() as r:
+                place(r, [{'id': 'a', 'sp': 'corvus-corax', 'name': 'Common Raven'}])
+                self.assertEqual(len(validate_data.override_errors(r, SP)), 1)
+                place(r, [{'id': 'a', 'sp': 'corvus-corax', 'name': 'Northern raven'}])
+                self.assertEqual(validate_data.override_errors(r, SP), [])
+        finally: validate_data.NAME_OVERRIDE_LIMIT, validate_data.WIKI_OVERRIDE_LIMIT = old
 
     def test_the_count_may_not_grow(self):
         old = validate_data.NAME_OVERRIDE_LIMIT, validate_data.WIKI_OVERRIDE_LIMIT
