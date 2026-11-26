@@ -104,8 +104,17 @@ def wrong_page(row, taxon):
     if len(tw) >= 2 and tw[-1] == lw[1]: return False   # same epithet: a synonym, other genus or a subspecies of the same species
     return True
 
+_CONV = None
+def converted_genera():
+    """{sid} of the genus rows jobs/rowtogenus.py made from a species row (data/audit/rowtogenus.json): the only genus rows the Latin-name rule applies to."""
+    global _CONV
+    if _CONV is None:
+        try: _CONV = {v[0] for v in json.load(open(os.path.join(ROOT, 'data', 'audit', 'rowtogenus.json'), encoding='utf-8')).get('converted', {}).values()}
+        except (OSError, ValueError): _CONV = set()
+    return _CONV
+
 def decide(rows, get):
-    """[(row, status, proposed, source)]. status: same, change, wrongpage (the page is another taxon: repoint), specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""
+    """[(row, status, proposed, source)]. status: same, change, latin (a genus row whose page has no common name: the Latin genus name), wrongpage (the page is another taxon: repoint), specific (the current name is its own article: the proposal is that article) or unresolved (the reason is in `source`)."""
     found = titles_of([r['wiki'] for r in rows], get)
     taxa = taxa_of([f[1] for f in found.values() if f], get)
     sci = [r for r in rows if found.get(r['wiki']) and is_scientific(found[r['wiki']][0], r)]
@@ -125,12 +134,13 @@ def decide(rows, get):
                 names = [n for n in (com.get(qid) or []) if not is_scientific(n, r)]; cur = r.get('name')
                 keep = next((n for n in names if n == cur or species.same_name(n, cur)), None)
                 if keep: name, src = cur, 'listed as a common name on %s' % qid
+                elif cur and not is_scientific(cur, r) and len((r.get('latin') or '').split()) == 1 and r['sid'] in converted_genera(): name, src = cap(r['latin']), 'LATIN: no common name for the genus on Wikipedia or Wikidata (%s): the Latin genus name (owner, 26 Nov)' % qid   # a genus row never takes one species' name
                 elif cur and not is_scientific(cur, r): name, src = cur, 'no preferred common name on Wikipedia or Wikidata (%s): the current name is kept' % qid   # Wikidata's order is not evidence of a better name
                 elif names: name, src = cap(names[0]), 'first common name of %s' % qid
                 else: out.append((r, 'unresolved', None, 'the title %r and the Wikidata label %r are scientific names and Wikidata lists no English common name' % (title, lab.get(qid)))); continue
         else: name, src = re.sub(r'\s*\([^)]*\)$', '', title) or title, 'article title'   # "Nene (bird)": the bracket only tells pages apart, it is not part of the name
         same = name == r.get('name') or species.same_name(name, r.get('name'))
-        out.append((r, 'same' if same else 'change', name, src))
+        out.append((r, 'latin' if src.startswith('LATIN: ') and not same else 'same' if same else 'change', name, src[7:] if src.startswith('LATIN: ') else src))
     # step 4: a current name that is a Wikipedia article other than the row's page is a more specific concept
     ask = [r['name'] for r, st, _, _ in out if st == 'change' and r.get('name')]
     own = titles_of(ask, get) if ask else {}
