@@ -5,7 +5,7 @@ A place file keeps for each species only its species id (`sp`), position (xh) an
   python3 build/species.py pack   fold place files into the table and slim them (safe to repeat)
   python3 build/species.py unpack write full nodes back into place files (for inspection)
 The build calls join() so the app receives full nodes either way."""
-import json, os, re, sys, collections, datetime
+import unicodedata, json, os, re, sys, collections, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import paths
 ROOT = paths.DATA_ROOT   # data/ lives here; the repository unless CE_DATA_ROOT is set (#787)
@@ -17,8 +17,8 @@ SHARED = ['latin', 'name', 'tl', 'wiki', 'desc', 'ic', 'cat', 'badge']
 key = lambda n: (n.get('latin') or n['name']).lower()
 
 def same_name(a, b):
-    """#887 step 7: two names that differ only in capitals, spacing or punctuation ("Common Raven", "Common raven") are one name."""
-    n = lambda x: re.sub(r'[^a-z0-9]+', '', (x or '').lower())
+    """#887 step 7 and R5a: two names that differ only in capitals, spacing, punctuation, an accent or gray/grey ("Common Raven", "Common raven") are one name."""
+    n = lambda x: re.sub(r'[^a-z0-9]+', '', unicodedata.normalize('NFKD', (x or '').lower()).encode('ascii', 'ignore').decode()).replace('gray', 'grey')   # R5a (26 Nov): an accent and gray/grey are the same name
     return bool(a) and bool(b) and a != b and n(a) == n(b)
 
 GROUP = re.compile(r' spp\.?|,| and |\(|&|/')
