@@ -44,7 +44,7 @@ def check(path):
     sp=[n for n in e['nodes'] if not n.get('cat')]
     if not 10<=len(sp)<=34: errs.append('species count %d outside 10-34'%len(sp))
     cats={n.get('cat') for n in e['nodes']}
-    if 'abiotic' not in cats or 'decomp' not in cats: warn.append('no abiotic or no decomp node (to be filled in: #1138)')   # a warning for now (owner, 24 Nov): the strict-rows cleanup removed bad environment rows; the rule becomes an error again when the places have accurate ones
+    if 'abiotic' not in cats or 'decomp' not in cats: errs.append('need an abiotic and a decomp node (#1138)')
     for n in e['nodes']:
         for k in ('id','name','latin','tl','xh','wiki','desc','ic'):
             if k not in n: errs.append('%s missing %s'%(n.get('id'),k))

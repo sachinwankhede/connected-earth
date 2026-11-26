@@ -112,6 +112,10 @@ def protect(root, tab, go, reason, jn=()):
                 c = sorted((n['sp'] for n in nodes if n['sp'] in go and not tab[n['sp']].get('cat')), key=lambda x: (not str(reason.get(x, '')).startswith('shares'), x))
                 for x in c[:10 - len(sp)]: keep(x, '%s needs 10 species' % pid); changed = True
                 continue
+            for cat in ('abiotic', 'decomp'):   # a place keeps one abiotic and one decomposer node (build/validate.py, #1138): keep the first bad row of that kind rather than leave the place without
+                if any(tab[n['sp']].get('cat') == cat for n in nodes) and not any(tab[n['sp']].get('cat') == cat for n in left):
+                    c = sorted(n['sp'] for n in nodes if n['sp'] in go and tab[n['sp']].get('cat') == cat)
+                    if c: keep(c[0], '%s: its only %s node' % (pid, cat)); changed = True
             ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
             for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
                 cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o and n['id'] not in gone_n]   # nodes already dropped in this pass do not count
