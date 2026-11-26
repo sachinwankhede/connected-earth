@@ -263,7 +263,7 @@
 "expiresAt": "2027-05-24T03:37:21.452948+00:00",
 "status": "notfree"
 },
-"macrotermes-carbonarius": {
+"macrotermes": {
 "attempts": 1,
 "checkedAt": "2026-11-25T03:37:21.452956+00:00",
 "expiresAt": "2027-05-24T03:37:21.452956+00:00",
@@ -503,7 +503,7 @@
 "expiresAt": "2027-05-14T14:23:29.593963+00:00",
 "status": "nophoto"
 },
-"sylvisorex-vulcanorum": {
+"sylvisorex": {
 "attempts": 1,
 "checkedAt": "2026-11-15T14:23:29.593967+00:00",
 "expiresAt": "2027-05-14T14:23:29.593967+00:00",

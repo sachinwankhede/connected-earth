@@ -435,10 +435,6 @@
   "c": "LC",
   "q": "Q4748211"
  },
- "amphiscirpus-nevadensis": {
-  "c": "LC",
-  "q": "Q4748361"
- },
  "anableps-anableps": {
   "c": "LC",
   "q": "Q5240255"
@@ -1243,10 +1239,6 @@
   "c": "NT",
   "q": "Q687695"
  },
- "brasenia-schreberi": {
-  "c": "LC",
-  "q": "Q10913294"
- },
  "brevoortia-patronus": {
   "c": "LC",
   "q": "Q2053687"
@@ -1266,10 +1258,6 @@
  "brosimum-alicastrum": {
   "c": "LC",
   "q": "Q990886"
- },
- "brosimum-lactescens": {
-  "c": "LC",
-  "q": "Q15435291"
  },
  "broussonetia-papyrifera": {
   "c": "LC",
@@ -1414,10 +1402,6 @@
  "calidris-canutus": {
   "c": "NT",
   "q": "Q27124"
- },
- "calla-palustris": {
-  "c": "LC",
-  "q": "Q175886"
  },
  "callicarpa-americana": {
   "c": "LC",
@@ -2051,10 +2035,6 @@
   "c": "VU",
   "q": "Q2383035"
  },
- "chilopsis-linearis": {
-  "c": "LC",
-  "q": "Q143161"
- },
  "chiococca-alba": {
   "c": "LC",
   "q": "Q5101397"
@@ -2467,10 +2447,6 @@
   "c": "LC",
   "q": "Q947671"
  },
- "crossopteryx-febrifuga": {
-  "c": "LC",
-  "q": "Q15435922"
- },
  "crotalus-adamanteus": {
   "c": "LC",
   "q": "Q744532"
@@ -2530,10 +2506,6 @@
  "cuon-alpinus": {
   "c": "EN",
   "q": "Q132585"
- },
- "cupania-americana": {
-  "c": "LC",
-  "q": "Q15547102"
  },
  "cyanea-truncata": {
   "c": "CR",
@@ -2634,10 +2606,6 @@
  "cypseloides-senex": {
   "c": "LC",
   "q": "Q1089138"
- },
- "cyrilla-racemiflora": {
-  "c": "LC",
-  "q": "Q140549"
  },
  "dacelo-leachii": {
   "c": "LC",
@@ -3339,10 +3307,6 @@
   "c": "LC",
   "q": "Q146149"
  },
- "faidherbia-albida": {
-  "c": "LC",
-  "q": "Q483240"
- },
  "falco-berigora": {
   "c": "LC",
   "q": "Q605547"
@@ -3927,10 +3891,6 @@
   "c": "LC",
   "q": "Q186942"
  },
- "heteromeles-arbutifolia": {
-  "c": "LC",
-  "q": "Q21546397"
- },
  "heteromys-desmarestianus": {
   "c": "LC",
   "q": "Q63874"
@@ -4062,10 +4022,6 @@
  "hypericum-revolutum": {
   "c": "LC",
   "q": "Q3144139"
- },
- "hyphaene-coriacea": {
-  "c": "LC",
-  "q": "Q3644219"
  },
  "hyphaene-petersiana": {
   "c": "LC",
@@ -4407,10 +4363,6 @@
   "c": "VU",
   "q": "Q107054796"
  },
- "laguncularia-racemosa": {
-  "c": "LC",
-  "q": "Q1760533"
- },
  "lama-guanicoe": {
   "c": "LC",
   "q": "Q172886"
@@ -4550,10 +4502,6 @@
  "leiothrix-lutea": {
   "c": "LC",
   "q": "Q589245"
- },
- "leitneria-floridana": {
-  "c": "NT",
-  "q": "Q1330656"
  },
  "lemmiscus-curtatus": {
   "c": "LC",
@@ -5062,10 +5010,6 @@
  "mallomys-rothschildi": {
   "c": "LC",
   "q": "Q955648"
- },
- "malosma-laurina": {
-  "c": "LC",
-  "q": "Q15544644"
  },
  "malus-baccata": {
   "c": "LC",
@@ -5703,10 +5647,6 @@
   "c": "EN",
   "q": "Q22111959"
  },
- "nimbaphrynoides-occidentalis": {
-  "c": "CR",
-  "q": "Q2275619"
- },
  "nisaetus-nipalensis": {
   "c": "NT",
   "q": "Q1262185"
@@ -5742,10 +5682,6 @@
  "nothofagus-pumilio": {
   "c": "LC",
   "q": "Q1817587"
- },
- "notholithocarpus-densiflorus": {
-  "c": "LC",
-  "q": "Q17271024"
  },
  "notomys-alexis": {
   "c": "LC",
@@ -5850,10 +5786,6 @@
  "okapia-johnstoni": {
   "c": "EN",
   "q": "Q82037"
- },
- "olneya-tesota": {
-  "c": "NT",
-  "q": "Q675377"
  },
  "oncorhynchus-nerka": {
   "c": "LC",
@@ -6094,10 +6026,6 @@
  "panda-oleosa": {
   "c": "LC",
   "q": "Q7130430"
- },
- "pandanus-boninensis": {
-  "c": "LC",
-  "q": "Q293360"
  },
  "pandanus-tectorius": {
   "c": "LC",
@@ -6562,10 +6490,6 @@
  "phoenicurus-ochruros": {
   "c": "LC",
   "q": "Q26755"
- },
- "phragmites-australis": {
-  "c": "LC",
-  "q": "Q28557"
  },
  "phrynosoma-platyrhinos": {
   "c": "LC",
@@ -7067,10 +6991,6 @@
   "c": "LC",
   "q": "Q163092"
  },
- "praomys-jacksoni": {
-  "c": "LC",
-  "q": "Q1768076"
- },
  "praomys-tullbergi": {
   "c": "LC",
   "q": "Q1768408"
@@ -7250,10 +7170,6 @@
  "pseudois-nayaur": {
   "c": "LC",
   "q": "Q465019"
- },
- "pseudonympha-varii": {
-  "c": "LC",
-  "q": "Q7255207"
  },
  "pseudopus-apodus": {
   "c": "LC",
@@ -7735,10 +7651,6 @@
   "c": "LC",
   "q": "Q531971"
  },
- "rhabdomys-dilectus": {
-  "c": "LC",
-  "q": "Q611467"
- },
  "rhabdomys-pumilio": {
   "c": "LC",
   "q": "Q644293"
@@ -8087,10 +7999,6 @@
   "c": "NT",
   "q": "Q24170509"
  },
- "sarcobatus-vermiculatus": {
-  "c": "LC",
-  "q": "Q17252862"
- },
  "sarcophilus-harrisii": {
   "c": "EN",
   "q": "Q134964"
@@ -8423,10 +8331,6 @@
   "c": "LC",
   "q": "Q2700140"
  },
- "spathodea-campanulata": {
-  "c": "LC",
-  "q": "Q387442"
- },
  "spatula-clypeata": {
   "c": "LC",
   "q": "Q28106731"
@@ -8699,10 +8603,6 @@
   "c": "LC",
   "q": "Q138169"
  },
- "sylvisorex-vulcanorum": {
-  "c": "LC",
-  "q": "Q1768358"
- },
  "sympetrum-corruptum": {
   "c": "LC",
   "q": "Q2740755"
@@ -8850,10 +8750,6 @@
  "thelypteris-palustris": {
   "c": "LC",
   "q": "Q958103"
- },
- "theobroma-subincanum": {
-  "c": "LC",
-  "q": "Q10262384"
  },
  "theropithecus-gelada": {
   "c": "LC",
@@ -9238,10 +9134,6 @@
  "ulmus-crassifolia": {
   "c": "LC",
   "q": "Q7879431"
- },
- "umbellularia-californica": {
-  "c": "LC",
-  "q": "Q692162"
  },
  "urena-lobata": {
   "c": "LC",
