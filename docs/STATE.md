@@ -282,3 +282,4 @@ Done 10 Nov: #591 (#596); #303 and #558 were already done and closed; #406 step 
 - 26 Nov (#1038, #1142): name and wiki override limits set to 0 (no node keeps an override); of the five journey rows only halimeda-spp is left, renamed to its genus name Halimeda.
 - 26 Nov (#1142): 73 genus rows with no common name renamed to the Latin genus name (`jobs/rowtogenus.py --rename --apply`); common-name pages keep the common name.
 - 26 Nov (#1061, #1183): dashboard bad-data count 78 to 1: 7 shared-page groups and Dalibarda merged into one row each (`jobs/mergerows.py`), 50 orphan node pictures dropped (`jobs/droporphans.py`), 3 names applied (Starvine, Munroa, Four-striped grass mouse). Left: sorghum genus row on a species page (#1211, needs the web check).
+- 26 Nov (#1211): last wrong-rank row sorghum removed (a genus row on the crop's page, one place, Kakadu; its fire node relinked to the eucalyptus and paperbark).
