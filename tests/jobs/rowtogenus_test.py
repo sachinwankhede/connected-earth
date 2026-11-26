@@ -73,3 +73,15 @@ with tempfile.TemporaryDirectory() as r:
     RG.repoint(r, write=True)
     assert rd(r, 'data/species/rows/mm/mm.json')['wiki'] == 'Mm' and rd(r, 'data/species/rows/nn/nn.json')['wiki'] == 'Nn' and not RG.repoint(r)
 print('ok repoint')
+
+# --rename: a `latin` proposal renames a converted genus row (name and the start of desc); a name another row has is skipped
+with tempfile.TemporaryDirectory() as r:
+    build(r)
+    cv = RG.plan(r)[0]; RG.apply(r, cv); RG.record(r, cv, {})
+    t = rd(r, 'data/audit/rowtitles.json'); t['rows']['aa'] = ['latin', 'Aa', 'no common name']; t['rows']['cc'] = ['latin', 'Aa', 'no common name']; w(r, 'data/audit/rowtitles.json', t)
+    out, sk = RG.latin_names(r)
+    assert out == {'aa': ['Blue aa', 'Aa']} and list(sk) == ['cc'], (out, sk)
+    RG.latin_names(r, write=True)
+    a = rd(r, 'data/species/rows/aa/aa.json')
+    assert a['name'] == 'Aa' and a['desc'] == 'Aa (Aa): a plant.' and rd(r, 'data/audit/rowtitles.json')['rows']['aa'] == ['same', 'Aa', '']
+print('ok rename')

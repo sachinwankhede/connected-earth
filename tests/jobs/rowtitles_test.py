@@ -69,6 +69,16 @@ class Decide(unittest.TestCase):
         r = row('p', 'Virginian Juniper', 'Juniperus virginiana', 'Juniperus virginiana')
         _, st, n, src = self.one(r, {'Juniperus virginiana': ('Juniperus virginiana', 'Q4')}, {'Q4': 'Juniperus virginiana'}, {'Q4': [('Eastern juniper', 'en')]})
         self.assertEqual((st, n), ('same', 'Virginian Juniper')); self.assertIn('kept', src)
+    def test_a_converted_genus_row_with_no_common_name_takes_the_latin_genus_name(self):
+        r = row('ascia', 'Great Southern white', 'Ascia', 'Ascia')
+        rowtitles._CONV = {'ascia'}
+        try:
+            got = self.one(r, {'Ascia': ('Ascia', 'Q1')}, {'Q1': 'Ascia'})
+            self.assertEqual((got[1], got[2]), ('latin', 'Ascia'))
+            rowtitles._CONV = set()   # a genus row nobody converted keeps its name
+            self.assertEqual(self.one(r, {'Ascia': ('Ascia', 'Q1')}, {'Q1': 'Ascia'})[1], 'same')
+        finally: rowtitles._CONV = None
+
     def test_a_scientific_common_name_is_not_used(self):
         r = row('d', 'Diospyros', 'Diospyros', 'Diospyros')
         self.assertEqual(self.one(r, {'Diospyros': ('Diospyros', 'Q3')}, {'Q3': 'Diospyros'}, {'Q3': [('Diospyros', 'en')]})[1], 'unresolved')
