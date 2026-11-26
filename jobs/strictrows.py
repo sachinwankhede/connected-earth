@@ -101,7 +101,9 @@ def protect(root, tab, go, reason, jn=()):
         except ValueError: continue
         if isinstance(e, dict) and isinstance(e.get('nodes'), list): places.append((e.get('id'), [n for n in e['nodes'] if n.get('sp') in tab], None, [r for r in e.get('raw') or [] if isinstance(r, list)]))
     kept = {}; dropped = {}
-    def keep(sid, why): go.discard(sid); kept[sid] = why
+    def keep(sid, why):
+        go.discard(sid); kept[sid] = why
+        for s in dropped.values(): s.clear()   # nodes dropped because this row was going are linked again: work them out afresh
     changed = True
     while changed:
         changed = False
@@ -112,10 +114,12 @@ def protect(root, tab, go, reason, jn=()):
                 c = sorted((n['sp'] for n in nodes if n['sp'] in go and not tab[n['sp']].get('cat')), key=lambda x: (not str(reason.get(x, '')).startswith('shares'), x))
                 for x in c[:10 - len(sp)]: keep(x, '%s needs 10 species' % pid); changed = True
                 continue
+            restart = False
             for cat in ('abiotic', 'decomp'):   # a place keeps one abiotic and one decomposer node (build/validate.py, #1138): keep the first bad row of that kind rather than leave the place without
                 if any(tab[n['sp']].get('cat') == cat for n in nodes) and not any(tab[n['sp']].get('cat') == cat for n in left):
                     c = sorted(n['sp'] for n in nodes if n['sp'] in go and tab[n['sp']].get('cat') == cat)
-                    if c: keep(c[0], '%s: its only %s node' % (pid, cat)); changed = True
+                    if c: keep(c[0], '%s: its only %s node' % (pid, cat)); changed = True; restart = True; break
+            if restart: continue
             ids = {n['id'] for n in left}; linked = {i for r in raw if r[0] in ids and r[1] in ids for i in r[:2]}
             for o in [n for n in left if n['id'] not in linked]:   # a node whose neighbours all went has no links (build/validate.py)
                 cat = tab[o['sp']].get('cat'); rest = [n for n in left if n is not o and n['id'] not in gone_n]   # nodes already dropped in this pass do not count
