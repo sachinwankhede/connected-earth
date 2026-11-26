@@ -53788,20 +53788,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"sorghum": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 94,
-"family": "Poaceae",
-"gname": "Sorghum Moench",
-"key": 2705180,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Poales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "sorghum-halepense": {
 "at": "2026-11-04",
 "class": "Liliopsida",
