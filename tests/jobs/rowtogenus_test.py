@@ -85,3 +85,12 @@ with tempfile.TemporaryDirectory() as r:
     a = rd(r, 'data/species/rows/aa/aa.json')
     assert a['name'] == 'Aa' and a['desc'] == 'Aa (Aa): a plant.' and rd(r, 'data/audit/rowtitles.json')['rows']['aa'] == ['same', 'Aa', '']
 print('ok rename')
+
+# --rename leaves a genus row whose page is a common-name title alone (owner: it keeps the common name)
+with tempfile.TemporaryDirectory() as r:
+    build(r)
+    cv = RG.plan(r)[0]; RG.apply(r, cv); RG.record(r, cv, {})
+    t = rd(r, 'data/audit/rowtitles.json'); t['rows']['gg'] = ['latin', 'Gg', 'no common name']; t['rows']['aa'] = ['latin', 'Aa', 'no common name']; w(r, 'data/audit/rowtitles.json', t)
+    out, sk = RG.latin_names(r)
+    assert 'gg' not in out and 'gg' in sk and 'common-name' in sk['gg'] and 'aa' in out, (out, sk)   # gg's page is "Common gg"
+print('ok rename common')
