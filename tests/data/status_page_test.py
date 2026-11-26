@@ -27,6 +27,14 @@ with tempfile.TemporaryDirectory() as d:
     w = SP.web(d, rows)
     assert w['asOf'] == '2026-11-23' and {x['status']: x['rows'] for x in w['status']} == {'name already right': 1, 'would be renamed': 1, 'cannot be settled': 1}
     assert [x['id'] for x in w['rows']] == sorted(ids[1:]) and all(x['status'] != 'name already right' for x in w['rows'])
+# a row in data/audit/accepted.json is not listed and not counted (owner, 26 Nov)
+with tempfile.TemporaryDirectory() as d:
+    os.makedirs(os.path.join(d, 'data', 'audit'))
+    ids = [r['id'] for r in rows[:3]]
+    json.dump({'asOf': '2026-11-23', 'rows': {ids[0]: ['wrongpage', '', 'x'], ids[1]: ['change', 'B', 'article title'], ids[2]: ['same', '', '']}}, open(os.path.join(d, 'data', 'audit', 'rowtitles.json'), 'w'))
+    json.dump({'names': {ids[0]: 'synonym'}, 'identity': []}, open(os.path.join(d, 'data', 'audit', 'accepted.json'), 'w'))
+    w = SP.web(d, rows)
+    assert [x['id'] for x in w['rows']] == [ids[1]] and {x['status']: x['rows'] for x in w['status']} == {'name already right': 1, 'would be renamed': 1}, w
 assert "$('webcard')" in html and 'd.web' in html
 print('web check ok')
 

@@ -85,13 +85,15 @@ class Decide(unittest.TestCase):
         try:
             got = self.one(r, *args)
             self.assertEqual((got[1], got[2]), ('same', 'Calla'))
-            rowtitles._CONV = set()   # a row nobody converted still gets the common name proposal
-            self.assertEqual(self.one(r, *args)[1:3], ('change', 'Callalily'))
+            rowtitles._CONV = set()   # any one-word genus row on a Latin title keeps its Latin name (R5), converted or not
+            self.assertEqual(self.one(r, *args)[1:3], ('same', 'Calla'))
+            sp = row('p', 'Pinus strobus', 'Pinus strobus', 'Pinus strobus')   # a species row on a Latin title still gets the first common name
+            self.assertEqual(self.one(sp, {'Pinus strobus': ('Pinus strobus', 'Q5')}, {'Q5': 'Pinus strobus'}, {'Q5': [('Weymouth pine', 'en')]})[1:3], ('change', 'Weymouth pine'))
         finally: rowtitles._CONV = None
 
     def test_a_scientific_common_name_is_not_used(self):
         r = row('d', 'Diospyros', 'Diospyros', 'Diospyros')
-        self.assertEqual(self.one(r, {'Diospyros': ('Diospyros', 'Q3')}, {'Q3': 'Diospyros'}, {'Q3': [('Diospyros', 'en')]})[1], 'unresolved')
+        self.assertEqual(self.one(r, {'Diospyros': ('Diospyros', 'Q3')}, {'Q3': 'Diospyros'}, {'Q3': [('Diospyros', 'en')]})[1], 'same')   # a one-word genus row keeps its Latin name (R5)
     def test_a_disambiguation_bracket_is_not_part_of_the_name(self):
         _, st, n, _ = self.one(row('n', 'Nene (Hawaiian goose)', 'Nene (bird)', 'Branta sandvicensis'), {'Nene (Hawaiian goose)': 'missing'})
         self.assertEqual((st, n), ('change', 'Nene'))

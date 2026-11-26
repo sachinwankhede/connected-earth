@@ -136,7 +136,7 @@ def decide(rows, get):
                 if keep: name, src = cur, 'listed as a common name on %s' % qid
                 elif cur and not is_scientific(cur, r) and len((r.get('latin') or '').split()) == 1 and r['sid'] in converted_genera(): name, src = cap(r['latin']), 'LATIN: no common name for the genus on Wikipedia or Wikidata (%s): the Latin genus name (owner, 26 Nov)' % qid   # a genus row never takes one species' name
                 elif cur and not is_scientific(cur, r): name, src = cur, 'no preferred common name on Wikipedia or Wikidata (%s): the current name is kept' % qid   # Wikidata's order is not evidence of a better name
-                elif cur and is_scientific(cur, r) and len((r.get('latin') or '').split()) == 1 and r['sid'] in converted_genera(): name, src = cur, 'LATIN: the genus row already has its Latin genus name and the Wikipedia article is the Latin title (owner, 26 Nov); a Wikidata common name is not evidence'   # R5: stays, not proposed for a rename
+                elif cur and is_scientific(cur, r) and len((r.get('latin') or '').split()) == 1: name, src = cur, 'LATIN: the genus row already has its Latin genus name and the Wikipedia article is the Latin title (owner, 26 Nov); a Wikidata common name is not evidence'   # R5: stays, not proposed for a rename
                 elif names: name, src = cap(names[0]), 'first common name of %s' % qid
                 else: out.append((r, 'unresolved', None, 'the title %r and the Wikidata label %r are scientific names and Wikidata lists no English common name' % (title, lab.get(qid)))); continue
         else: name, src = re.sub(r'\s*\([^)]*\)$', '', title) or title, 'article title'   # "Nene (bird)": the bracket only tells pages apart, it is not part of the name
