@@ -79,6 +79,16 @@ class Decide(unittest.TestCase):
             self.assertEqual(self.one(r, {'Ascia': ('Ascia', 'Q1')}, {'Q1': 'Ascia'})[1], 'same')
         finally: rowtitles._CONV = None
 
+    def test_a_converted_genus_row_already_on_its_latin_name_is_not_renamed_to_a_wikidata_common_name(self):
+        r = row('calla', 'Calla', 'Calla', 'Calla'); args = ({'Calla': ('Calla', 'Q1')}, {'Q1': 'Calla'}, {'Q1': [('Callalily', 'en')]})
+        rowtitles._CONV = {'calla'}
+        try:
+            got = self.one(r, *args)
+            self.assertEqual((got[1], got[2]), ('same', 'Calla'))
+            rowtitles._CONV = set()   # a row nobody converted still gets the common name proposal
+            self.assertEqual(self.one(r, *args)[1:3], ('change', 'Callalily'))
+        finally: rowtitles._CONV = None
+
     def test_a_scientific_common_name_is_not_used(self):
         r = row('d', 'Diospyros', 'Diospyros', 'Diospyros')
         self.assertEqual(self.one(r, {'Diospyros': ('Diospyros', 'Q3')}, {'Q3': 'Diospyros'}, {'Q3': [('Diospyros', 'en')]})[1], 'unresolved')
