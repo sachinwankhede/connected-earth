@@ -431,20 +431,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"acer": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 92,
-"family": "Sapindaceae",
-"gname": "Acer L.",
-"key": 3189834,
-"kingdom": "Plantae",
-"match": "higher-rank",
-"order": "Sapindales",
-"phylum": "Tracheophyta",
-"rank": "GENUS",
-"src": "gbif"
-},
 "acer-circinatum": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -10027,20 +10013,6 @@
 "rank": "SUBSPECIES",
 "src": "gbif"
 },
-"canis-lupus-chanco": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Canidae",
-"gname": "Canis lupus chanco Gray, 1863",
-"key": 6164182,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carnivora",
-"phylum": "Chordata",
-"rank": "SUBSPECIES",
-"src": "gbif"
-},
 "canis-simensis": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -13511,19 +13483,6 @@
 "match": "exact",
 "phylum": "Chordata",
 "rank": "SPECIES",
-"src": "gbif"
-},
-"chelonoidis-species": {
-"at": "2026-11-04",
-"class": "Testudines",
-"conf": 96,
-"family": "Testudinidae",
-"gname": "Chelonoidis Fitzinger, 1835",
-"key": 5220265,
-"kingdom": "Animalia",
-"match": "higher-rank",
-"phylum": "Chordata",
-"rank": "GENUS",
 "src": "gbif"
 },
 "chenopodium-album": {
