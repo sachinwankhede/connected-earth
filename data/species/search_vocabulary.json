@@ -61,9 +61,6 @@
   "boa-imperator": [
    "Boa constrictor"
   ],
-  "boreogadus-saida": [
-   "Arctic cod"
-  ],
   "bos-taurus": [
    "Cow"
   ],
@@ -450,6 +447,106 @@
   ],
   "yushania": [
    "Yushania niitakayamensis"
+  ],
+  "acanthis": [
+   "Acanthis flammea"
+  ],
+  "acomys": [
+   "Acomys dimidiatus"
+  ],
+  "antidesma": [
+   "Antidesma montanum"
+  ],
+  "arapaima": [
+   "Arapaima gigas"
+  ],
+  "axis": [
+   "Axis porcinus"
+  ],
+  "baccaurea": [
+   "Baccaurea parviflora"
+  ],
+  "boreogadus": [
+   "Arctic cod",
+   "Boreogadus saida"
+  ],
+  "bridelia": [
+   "Bridelia ferruginea"
+  ],
+  "choristoneura": [
+   "Choristoneura fumiferana"
+  ],
+  "dama": [
+   "Dama dama"
+  ],
+  "dendropanax": [
+   "Dendropanax caucanus"
+  ],
+  "diporeia": [
+   "Diporeia hoyi"
+  ],
+  "brandegea": [
+   "Echinopepon bigelovii"
+  ],
+  "ephedra": [
+   "Ephedra intermedia"
+  ],
+  "galiniera": [
+   "Galiniera saxifraga"
+  ],
+  "garberia": [
+   "Garberia heterophylla"
+  ],
+  "gilbertiodendron": [
+   "Gilbertiodendron splendidum"
+  ],
+  "giraffa": [
+   "Giraffa camelopardalis"
+  ],
+  "guarea": [
+   "Guarea macrophylla"
+  ],
+  "guatteria": [
+   "Guatteria punctata"
+  ],
+  "hagenia": [
+   "Hagenia abyssinica"
+  ],
+  "hydrilla": [
+   "Hydrilla verticillata"
+  ],
+  "macrocystis": [
+   "Macrocystis pyrifera"
+  ],
+  "moschus": [
+   "Moschus berezovskii"
+  ],
+  "myrianthus": [
+   "Myrianthus preussii"
+  ],
+  "nyctereutes": [
+   "Nyctereutes procyonoides"
+  ],
+  "phainopepla": [
+   "Phainopepla nitens"
+  ],
+  "plagiosiphon": [
+   "Plagiosiphon emarginatus"
+  ],
+  "pseudoedophrys": [
+   "Pseudoedophrys hilleri"
+  ],
+  "sorindeia": [
+   "Sorindeia grandifolia"
+  ],
+  "strombosia": [
+   "Strombosia scheffleri"
+  ],
+  "synandra": [
+   "Synandra hispidula"
+  ],
+  "welwitschia": [
+   "Welwitschia mirabilis"
   ]
  }
 }

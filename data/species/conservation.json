@@ -67,10 +67,6 @@
   "c": "LC",
   "q": "Q978642"
  },
- "acanthis-flammea": {
-  "c": "LC",
-  "q": "Q20754771"
- },
  "acanthodactylus-boskianus": {
   "c": "LC",
   "q": "Q2822535"
@@ -154,10 +150,6 @@
  "acinonyx-jubatus-hecki": {
   "c": "CR",
   "q": "Q2164369"
- },
- "acomys-dimidiatus": {
-  "c": "LC",
-  "q": "Q1765953"
  },
  "acrantophis-madagascariensis": {
   "c": "LC",
@@ -547,10 +539,6 @@
   "c": "LC",
   "q": "Q191683"
  },
- "antidesma-montanum": {
-  "c": "LC",
-  "q": "Q11044855"
- },
  "antidorcas-marsupialis": {
   "c": "LC",
   "q": "Q213084"
@@ -886,10 +874,6 @@
  "axis-axis": {
   "c": "LC",
   "q": "Q232054"
- },
- "axis-porcinus": {
-  "c": "EN",
-  "q": "Q372169"
  },
  "aythya-affinis": {
   "c": "LC",
@@ -1246,10 +1230,6 @@
  "brevoortia-tyrannus": {
   "c": "LC",
   "q": "Q756893"
- },
- "bridelia-ferruginea": {
-  "c": "LC",
-  "q": "Q15512160"
  },
  "bronchocela-cristatella": {
   "c": "LC",
@@ -2615,10 +2595,6 @@
   "c": "LC",
   "q": "Q824974"
  },
- "dama-dama": {
-  "c": "LC",
-  "q": "Q159857"
- },
  "damaliscus-pygargus": {
   "c": "LC",
   "q": "Q1009881"
@@ -2730,10 +2706,6 @@
  "dendromecon-rigida": {
   "c": "LC",
   "q": "Q5256765"
- },
- "dendropanax-caucanus": {
-  "c": "LC",
-  "q": "Q15551775"
  },
  "dendrosenecio-keniodendron": {
   "c": "LC",
@@ -3095,10 +3067,6 @@
   "c": "LC",
   "q": "Q3055689"
  },
- "ephedra-intermedia": {
-  "c": "LC",
-  "q": "Q717867"
- },
  "ephedra-nevadensis": {
   "c": "LC",
   "q": "Q5382148"
@@ -3451,10 +3419,6 @@
   "c": "LC",
   "q": "Q26982"
  },
- "galiniera-saxifraga": {
-  "c": "LC",
-  "q": "Q15446889"
- },
  "galium-palustre": {
   "c": "LC",
   "q": "Q159757"
@@ -3559,17 +3523,9 @@
   "c": "EN",
   "q": "Q245414"
  },
- "gilbertiodendron-splendidum": {
-  "c": "VU",
-  "q": "Q3008381"
- },
  "ginglymostoma-cirratum": {
   "c": "VU",
   "q": "Q756859"
- },
- "giraffa-camelopardalis": {
-  "c": "VU",
-  "q": "Q15083"
  },
  "glaucomys-sabrinus": {
   "c": "LC",
@@ -3630,14 +3586,6 @@
  "grus-japonensis": {
   "c": "VU",
   "q": "Q232906"
- },
- "guarea-macrophylla": {
-  "c": "LC",
-  "q": "Q10292517"
- },
- "guatteria-punctata": {
-  "c": "LC",
-  "q": "Q15361361"
  },
  "guazuma-ulmifolia": {
   "c": "LC",
@@ -3702,10 +3650,6 @@
  "haemorhous-purpureus": {
   "c": "LC",
   "q": "Q27075782"
- },
- "hagenia-abyssinica": {
-  "c": "LC",
-  "q": "Q1785081"
  },
  "hagenius-brevistylus": {
   "c": "LC",
@@ -3970,10 +3914,6 @@
  "hydrastis-canadensis": {
   "c": "VU",
   "q": "Q1051710"
- },
- "hydrilla-verticillata": {
-  "c": "LC",
-  "q": "Q164181"
  },
  "hydrocharis-morsus-ranae": {
   "c": "LC",
@@ -5379,10 +5319,6 @@
   "c": "LC",
   "q": "Q1520764"
  },
- "moschus-berezovskii": {
-  "c": "EN",
-  "q": "Q277469"
- },
  "moschus-chrysogaster": {
   "c": "EN",
   "q": "Q288881"
@@ -5494,10 +5430,6 @@
  "myotis-sodalis": {
   "c": "NT",
   "q": "Q281343"
- },
- "myrianthus-preussii": {
-  "c": "LC",
-  "q": "Q15609668"
  },
  "myrica-gale": {
   "c": "LC",
@@ -5702,10 +5634,6 @@
  "numida-meleagris": {
   "c": "LC",
   "q": "Q251842"
- },
- "nyctereutes-procyonoides": {
-  "c": "LC",
-  "q": "Q133189"
  },
  "nymphaea-alba": {
   "c": "LC",
@@ -6391,10 +6319,6 @@
   "c": "LC",
   "q": "Q183255"
  },
- "phainopepla-nitens": {
-  "c": "LC",
-  "q": "Q1188364"
- },
  "phalacrocorax-carbo": {
   "c": "LC",
   "q": "Q25440"
@@ -6762,10 +6686,6 @@
  "plagiodontia-aedium": {
   "c": "LC",
   "q": "Q549103"
- },
- "plagiosiphon-emarginatus": {
-  "c": "LC",
-  "q": "Q15541034"
  },
  "planera-aquatica": {
   "c": "LC",
@@ -8315,10 +8235,6 @@
   "c": "LC",
   "q": "Q591450"
  },
- "sorindeia-grandifolia": {
-  "c": "LC",
-  "q": "Q15481565"
- },
  "sousa-plumbea": {
   "c": "EN",
   "q": "Q3017051"
@@ -8510,10 +8426,6 @@
  "strix-varia": {
   "c": "LC",
   "q": "Q630457"
- },
- "strombosia-scheffleri": {
-  "c": "LC",
-  "q": "Q15354912"
  },
  "strongylopus-grayii": {
   "c": "LC",

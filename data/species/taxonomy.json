@@ -335,20 +335,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"acanthis-flammea": {
-"at": "2026-11-04",
-"class": "Aves",
-"conf": 100,
-"family": "Fringillidae",
-"gname": "Acanthis flammea (Linnaeus, 1758)",
-"key": 5231630,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Passeriformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "acanthodactylus-boskianus": {
 "at": "2026-11-04",
 "class": "Squamata",
@@ -736,20 +722,6 @@
 "match": "exact",
 "order": "Fabales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"acomys-dimidiatus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Muridae",
-"gname": "Acomys dimidiatus (Cretzschmar, 1826)",
-"key": 4264830,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -3721,20 +3693,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"antidesma-montanum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Phyllanthaceae",
-"gname": "Antidesma montanum Blume",
-"key": 3076595,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "antidorcas-marsupialis": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -4346,19 +4304,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Gruiformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"arapaima-gigas": {
-"at": "2026-11-04",
-"conf": 99,
-"family": "Arapaimidae",
-"gname": "Arapaima gigas (Schinz, 1822)",
-"key": 5212877,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Osteoglossiformes",
 "phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
@@ -6636,20 +6581,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"axis-porcinus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cervidae",
-"gname": "Axis porcinus (Zimmermann, 1780)",
-"key": 5220128,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "aythya-affinis": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -6744,20 +6675,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Apiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"baccaurea-parviflora": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Phyllanthaceae",
-"gname": "Baccaurea parviflora (Müll.Arg.) Müll.Arg.",
-"key": 3082081,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -8122,19 +8039,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"boreogadus-saida": {
-"at": "2026-11-04",
-"conf": 100,
-"family": "Gadidae",
-"gname": "Boreogadus saida (Lepechin, 1774)",
-"key": 2415752,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Gadiformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "borrichia-frutescens": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -8560,20 +8464,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Asterales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"bridelia-ferruginea": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Phyllanthaceae",
-"gname": "Bridelia ferruginea Benth.",
-"key": 3076157,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Malpighiales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -14040,20 +13930,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"choristoneura-fumiferana": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Tortricidae",
-"gname": "Choristoneura fumiferana (Clemens, 1865)",
-"key": 5102666,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Lepidoptera",
-"phylum": "Arthropoda",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "chorthippus-biguttulus": {
 "at": "2026-11-04",
 "class": "Insecta",
@@ -17697,20 +17573,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"dama-dama": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Cervidae",
-"gname": "Dama dama (Linnaeus, 1758)",
-"key": 5220136,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "damaliscus-pygargus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -18319,20 +18181,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Ranunculales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"dendropanax-caucanus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Araliaceae",
-"gname": "Dendropanax caucanus (Harms) Harms",
-"key": 3035067,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Apiales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -19118,20 +18966,6 @@
 "match": "exact",
 "order": "Rodentia",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"diporeia-hoyi": {
-"at": "2026-11-04",
-"class": "Malacostraca",
-"conf": 100,
-"family": "Pontoporeiidae",
-"gname": "Diporeia hoyi (S.I.Smith, 1874)",
-"key": 2216123,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Amphipoda",
-"phylum": "Arthropoda",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -20140,20 +19974,6 @@
 "rank": "GENUS",
 "src": "gbif"
 },
-"echinopepon-bigelovii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Cucurbitaceae",
-"gname": "Echinopepon bigelovii (S.Watson) S.Watson",
-"key": 3622902,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Cucurbitales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "echium-vulgare": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -20844,20 +20664,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"ephedra-intermedia": {
-"at": "2026-11-04",
-"class": "Gnetopsida",
-"conf": 99,
-"family": "Ephedraceae",
-"gname": "Ephedra intermedia Schrenk & C.A.Mey.",
-"key": 2653256,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Ephedrales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -23983,20 +23789,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"galiniera-saxifraga": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rubiaceae",
-"gname": "Galiniera saxifraga (Hochst.) Bridson",
-"key": 2900024,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Gentianales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "galium": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -24146,20 +23938,6 @@
 "order": "Amphipoda",
 "phylum": "Arthropoda",
 "rank": "GENUS",
-"src": "gbif"
-},
-"garberia-heterophylla": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Asteraceae",
-"gname": "Garberia heterophylla (Bartram) Merr. & R.M.Harper",
-"key": 3118103,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Asterales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "garrulus-glandarius": {
@@ -24749,20 +24527,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"gilbertiodendron-splendidum": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Fabaceae",
-"gname": "Gilbertiodendron splendidum (A.Chev. ex Hutch. & Dalziel) J.Léonard",
-"key": 2941650,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "gilia-malior": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -24787,20 +24551,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "order": "Orectolobiformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"giraffa-camelopardalis": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Giraffidae",
-"gname": "Giraffa camelopardalis (Linnaeus, 1758)",
-"key": 2441205,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
 "phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
@@ -25223,34 +24973,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"guarea-macrophylla": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Meliaceae",
-"gname": "Guarea macrophylla M.Vahl",
-"key": 7271393,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Sapindales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"guatteria-punctata": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Annonaceae",
-"gname": "Guatteria punctata (Aubl.) R.A.Howard",
-"key": 3155772,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Magnoliales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "guazuma-ulmifolia": {
 "at": "2026-11-04",
 "class": "Magnoliopsida",
@@ -25555,20 +25277,6 @@
 "match": "exact",
 "order": "Passeriformes",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"hagenia-abyssinica": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Rosaceae",
-"gname": "Hagenia abyssinica (Bruce) J.F.Gmel.",
-"key": 5370415,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -27409,20 +27117,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Ranunculales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"hydrilla-verticillata": {
-"at": "2026-11-04",
-"class": "Liliopsida",
-"conf": 98,
-"family": "Hydrocharitaceae",
-"gname": "Hydrilla verticillata (L.f.) Royle",
-"key": 5329570,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Alismatales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -33633,20 +33327,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"macrocystis-pyrifera": {
-"at": "2026-11-04",
-"class": "Phaeophyceae",
-"conf": 99,
-"family": "Laminariaceae",
-"gname": "Macrocystis pyrifera (L.) C.Agardh",
-"key": 5422328,
-"kingdom": "Chromista",
-"match": "exact",
-"order": "Laminariales",
-"phylum": "Ochrophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "macroglossus-minimus": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -36406,20 +36086,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"moschus-berezovskii": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Moschidae",
-"gname": "Moschus berezovskii Flerov, 1929",
-"key": 2440991,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Artiodactyla",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "moschus-chrysogaster": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -36975,20 +36641,6 @@
 "order": "Myrtales",
 "phylum": "Tracheophyta",
 "rank": "GENUS",
-"src": "gbif"
-},
-"myrianthus-preussii": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Urticaceae",
-"gname": "Myrianthus preussii Engl.",
-"key": 7316418,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Rosales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "myrica-gale": {
@@ -38101,20 +37753,6 @@
 "match": "exact",
 "order": "Nymphaeales",
 "phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"nyctereutes-procyonoides": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 100,
-"family": "Canidae",
-"gname": "Nyctereutes procyonoides (Gray, 1834)",
-"key": 2434552,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Carnivora",
-"phylum": "Chordata",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -42742,20 +42380,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"phainopepla-nitens": {
-"at": "2026-11-04",
-"class": "Aves",
-"conf": 100,
-"family": "Ptilogonatidae",
-"gname": "Phainopepla nitens (Swainson, 1838)",
-"key": 2492885,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Passeriformes",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "phalacrocorax-carbo": {
 "at": "2026-11-04",
 "class": "Aves",
@@ -44594,20 +44218,6 @@
 "match": "exact",
 "order": "Rodentia",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"plagiosiphon-emarginatus": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Fabaceae",
-"gname": "Plagiosiphon emarginatus (Hutch. & Dalziel) J.Léonard",
-"key": 2961132,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Fabales",
-"phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -46999,20 +46609,6 @@
 "kingdom": "Animalia",
 "match": "exact",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"pseudoedophrys-hilleri": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Curculionidae",
-"gname": "Pseudoedophrys hilleri (Faust, 1889)",
-"key": 7472034,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Coleoptera",
-"phylum": "Arthropoda",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -54261,20 +53857,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"sorindeia-grandifolia": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Anacardiaceae",
-"gname": "Sorindeia grandifolia Engl.",
-"key": 3662192,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Sapindales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "sousa-plumbea": {
 "at": "2026-11-04",
 "class": "Mammalia",
@@ -55574,20 +55156,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"strombosia-scheffleri": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Strombosiaceae",
-"gname": "Strombosia scheffleri Engl.",
-"key": 3685528,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Santalales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "strongylocentrotus-purpuratus": {
 "at": "2026-11-04",
 "class": "Echinoidea",
@@ -56186,20 +55754,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Alismatales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"synandra-hispidula": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 97,
-"family": "Lamiaceae",
-"gname": "Synandra hispidula (Michx.) Baill.",
-"key": 5341425,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Lamiales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"
@@ -61452,20 +61006,6 @@
 "order": "Oxalidales",
 "phylum": "Tracheophyta",
 "rank": "GENUS",
-"src": "gbif"
-},
-"welwitschia-mirabilis": {
-"at": "2026-11-04",
-"class": "Gnetopsida",
-"conf": 99,
-"family": "Welwitschiaceae",
-"gname": "Welwitschia mirabilis Hook.f.",
-"key": 5275521,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Welwitschiales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
 "src": "gbif"
 },
 "wyethia-sagittata": {

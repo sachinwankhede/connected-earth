@@ -251,7 +251,7 @@
 "u": "0/0b/Acanthaster_planci_460468243_%28closeup%29.jpg/330px-Acanthaster_planci_460468243_%28closeup%29.jpg",
 "wiki": "Crown-of-thorns starfish"
 },
-"acanthis-flammea": {
+"acanthis": {
 "a": "Cephas",
 "f": "bb1aa253dfe4.webp",
 "l": "CC BY-SA 3.0",
@@ -565,7 +565,7 @@
 "u": "7/7c/Lotus_scoparius.jpg/330px-Lotus_scoparius.jpg",
 "wiki": "Acmispon glaber"
 },
-"acomys-dimidiatus": {
+"acomys": {
 "a": "Marcel Burkhard alias cele4",
 "f": "9d18fd7bed79.webp",
 "l": "CC BY-SA 2.0 de",
@@ -2788,7 +2788,7 @@
 "u": "c/c3/Demoiselle_Cranes_at_Tal_Chappar.jpg/330px-Demoiselle_Cranes_at_Tal_Chappar.jpg",
 "wiki": "Demoiselle crane"
 },
-"antidesma-montanum": {
+"antidesma": {
 "a": "Forest & Kim Starr",
 "f": "94d534d9ec49.webp",
 "l": "CC BY 3.0",
@@ -3254,7 +3254,7 @@
 "u": "9/9a/Limpkin%2C_Florida_05.jpg/330px-Limpkin%2C_Florida_05.jpg",
 "wiki": "Limpkin"
 },
-"arapaima-gigas": {
+"arapaima": {
 "a": "Shizhao",
 "f": "f6051e6d27af.webp",
 "l": "CC BY-SA 3.0",
@@ -4917,6 +4917,16 @@
 "u": "b/b5/Mature_mangrove_tree_%28Avicennia_marina%29_at_edge_of_Lake_Be_Malae.jpg/330px-Mature_mangrove_tree_%28Avicennia_marina%29_at_edge_of_Lake_Be_Malae.jpg",
 "wiki": "Avicennia marina"
 },
+"axis": {
+"a": "L. Shyamal",
+"f": "6c9f7874a012.webp",
+"l": "CC BY 2.5",
+"lu": "https://creativecommons.org/licenses/by/2.5",
+"p": "https://commons.wikimedia.org/wiki/File:Chital_herd.jpg",
+"page": "Axis_%28genus%29",
+"u": "9/9a/Chital_herd.jpg/330px-Chital_herd.jpg",
+"wiki": "Hog deer"
+},
 "axis-axis": {
 "a": "Giles Laurent",
 "f": "5eb284da605b.webp",
@@ -4926,16 +4936,6 @@
 "page": "Chital",
 "u": "7/73/066_Chital_in_Ranthambore_National_Park_Photo_by_Giles_Laurent.jpg/330px-066_Chital_in_Ranthambore_National_Park_Photo_by_Giles_Laurent.jpg",
 "wiki": "Chital"
-},
-"axis-porcinus": {
-"a": "L. Shyamal",
-"f": "6c9f7874a012.webp",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Chital_herd.jpg",
-"page": "Axis_%28genus%29",
-"u": "9/9a/Chital_herd.jpg/330px-Chital_herd.jpg",
-"wiki": "Hog deer"
 },
 "aythya-affinis": {
 "a": "Chuck Homler d/b/a Focus On Wildlife",
@@ -5007,7 +5007,7 @@
 "u": "b/b3/Coussin_d%27Azorella_selago_sur_l%27%C3%AEle_de_la_Possession_%28Crozet%29.jpg/330px-Coussin_d%27Azorella_selago_sur_l%27%C3%AEle_de_la_Possession_%28Crozet%29.jpg",
 "wiki": "Azorella selago"
 },
-"baccaurea-parviflora": {
+"baccaurea": {
 "a": "Sakurai Midori",
 "f": "07f4b3c9eb19.webp",
 "l": "CC BY-SA 3.0",
@@ -6020,7 +6020,7 @@
 "u": "3/39/Palymyra_in_Tamil_Nadu.jpg/330px-Palymyra_in_Tamil_Nadu.jpg",
 "wiki": "Borassus flabellifer"
 },
-"boreogadus-saida": {
+"boreogadus": {
 "a": "Claude Nozères",
 "f": "bd40d4c81336.webp",
 "l": "CC BY 4.0",
@@ -6224,6 +6224,16 @@
 "u": "1/18/Bradypus.jpg/330px-Bradypus.jpg",
 "wiki": "Brown-throated sloth"
 },
+"brandegea": {
+"a": "joedecruyenaere",
+"f": "27b7222690e4.webp",
+"l": "CC BY-SA 2.0",
+"lu": "https://creativecommons.org/licenses/by-sa/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Brandegea_bigelovii.jpg",
+"page": "Brandegea",
+"u": "2/2d/Brandegea_bigelovii.jpg/330px-Brandegea_bigelovii.jpg",
+"wiki": "Echinopepon bigelovii"
+},
 "branta-bernicla": {
 "a": "Needsmoreritalin",
 "f": "929ce6370496.webp",
@@ -6356,7 +6366,7 @@
 "u": "0/00/Brickellia_oblongifolia_var_linifolia_1.jpg/330px-Brickellia_oblongifolia_var_linifolia_1.jpg",
 "wiki": "Brickellia oblongifolia"
 },
-"bridelia-ferruginea": {
+"bridelia": {
 "a": "Dinesh Valke",
 "f": "c8df54ddaec0.webp",
 "l": "CC BY-SA 2.0",
@@ -10381,7 +10391,7 @@
 "u": "7/75/Chorispora_tenella_4239.JPG/330px-Chorispora_tenella_4239.JPG",
 "wiki": "Chorispora tenella"
 },
-"choristoneura-fumiferana": {
+"choristoneura": {
 "a": "Wildreturn",
 "f": "0490804c5b35.webp",
 "l": "CC BY 2.0",
@@ -13101,7 +13111,7 @@
 "u": "2/2c/Dalibarda_repens_4284.JPG/330px-Dalibarda_repens_4284.JPG",
 "wiki": "Dalibarda repens"
 },
-"dama-dama": {
+"dama": {
 "a": "Dietmar Rabich",
 "f": "9e5ce922f827.webp",
 "l": "CC BY-SA 4.0",
@@ -13577,7 +13587,7 @@
 "u": "8/8e/Dendromecon_rigida_%28NPS%29.jpg/330px-Dendromecon_rigida_%28NPS%29.jpg",
 "wiki": "Dendromecon rigida"
 },
-"dendropanax-caucanus": {
+"dendropanax": {
 "a": "KENPEI",
 "f": "db774fd102f9.webp",
 "l": "CC BY-SA 3.0",
@@ -14854,16 +14864,6 @@
 "u": "3/3d/Echinocystis_lobata.jpg/330px-Echinocystis_lobata.jpg",
 "wiki": "Echinocystis lobata"
 },
-"echinopepon-bigelovii": {
-"a": "joedecruyenaere",
-"f": "27b7222690e4.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Brandegea_bigelovii.jpg",
-"page": "Brandegea",
-"u": "2/2d/Brandegea_bigelovii.jpg/330px-Brandegea_bigelovii.jpg",
-"wiki": "Echinopepon bigelovii"
-},
 "echium-vulgare": {
 "a": "Kasjanek24",
 "f": "34de0a86261a.webp",
@@ -15372,7 +15372,7 @@
 "u": "b/bc/TREE_BOOTLACE_SURINAM_AMAZONE_SOUTH-AMERICA_%2832976580666%29.jpg/330px-TREE_BOOTLACE_SURINAM_AMAZONE_SOUTH-AMERICA_%2832976580666%29.jpg",
 "wiki": "Eperua falcata"
 },
-"ephedra-intermedia": {
+"ephedra": {
 "a": "Dcrjsr",
 "f": "63b6fc434864.webp",
 "l": "CC BY 3.0",
@@ -17743,7 +17743,7 @@
 "u": "3/3a/Gammarus_pulex_14875940_%28cropped%29.jpg/330px-Gammarus_pulex_14875940_%28cropped%29.jpg",
 "wiki": "Gammarus"
 },
-"garberia-heterophylla": {
+"garberia": {
 "a": "Dsandii",
 "f": "f56ccf6860b9.webp",
 "l": "CC BY-SA 4.0",
@@ -18187,7 +18187,7 @@
 "u": "d/d6/Geum_triflorum_4879.JPG/330px-Geum_triflorum_4879.JPG",
 "wiki": "Geum triflorum"
 },
-"gilbertiodendron-splendidum": {
+"gilbertiodendron": {
 "a": "Xander van der Burgt",
 "f": "4dbd83d4d20c.webp",
 "l": "CC BY 3.0",
@@ -18219,7 +18219,7 @@
 "u": "openverse/79b1a7d7-2e78-49fe-abe7-0c279863f108",
 "wiki": "Nurse shark"
 },
-"giraffa-camelopardalis": {
+"giraffa": {
 "a": "claralieu",
 "f": "70dd942bcb5b.webp",
 "l": "CC BY 2.0",
@@ -18535,7 +18535,7 @@
 "u": "7/75/Beech_Blight_Aphids_-_Flickr_-_treegrow_%288%29.jpg/330px-Beech_Blight_Aphids_-_Flickr_-_treegrow_%288%29.jpg",
 "wiki": "Grylloprociphilus imbricator"
 },
-"guarea-macrophylla": {
+"guarea": {
 "a": "Me",
 "f": "47fca9544e06.webp",
 "l": "Public domain",
@@ -18545,7 +18545,7 @@
 "u": "5/5d/Guarea_guidonia_3.JPG/330px-Guarea_guidonia_3.JPG",
 "wiki": "Guarea"
 },
-"guatteria-punctata": {
+"guatteria": {
 "a": "Alex Popovkin, Bahia, Brazil",
 "f": "6660f01416b7.webp",
 "l": "CC BY 2.0",
@@ -18795,7 +18795,7 @@
 "u": "4/42/Carpodacus_purpureus_CT3.jpg/330px-Carpodacus_purpureus_CT3.jpg",
 "wiki": "Haemorhous purpureus"
 },
-"hagenia-abyssinica": {
+"hagenia": {
 "a": "Franz Eugen Köhler, Köhler's Medizinal-Pflanzen",
 "f": "f5d1417a26ea.webp",
 "l": "Public domain",
@@ -20141,7 +20141,7 @@
 "u": "b/bd/Hydrastis_canadensis.jpg/330px-Hydrastis_canadensis.jpg",
 "wiki": "Hydrastis canadensis"
 },
-"hydrilla-verticillata": {
+"hydrilla": {
 "a": "sonnia hill",
 "f": "c5906fd33650.webp",
 "l": "CC BY 2.0",
@@ -24730,7 +24730,7 @@
 "u": "b/b5/Macoma_balthica_%28habitus%29.jpg/330px-Macoma_balthica_%28habitus%29.jpg",
 "wiki": "Macoma balthica"
 },
-"macrocystis-pyrifera": {
+"macrocystis": {
 "a": "Michael Bear",
 "f": "fd783729233d.webp",
 "l": "CC BY 4.0",
@@ -26768,7 +26768,7 @@
 "u": "a/aa/MorusRubra9.jpg/330px-MorusRubra9.jpg",
 "wiki": "Morus rubra"
 },
-"moschus-berezovskii": {
+"moschus": {
 "a": "EspenÅberg",
 "f": "c95cd308c036.webp",
 "l": "CC BY-SA 4.0",
@@ -27170,7 +27170,7 @@
 "u": "4/47/Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Myrcia_rostrata.jpg/330px-Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Myrcia_rostrata.jpg",
 "wiki": "Myrcia"
 },
-"myrianthus-preussii": {
+"myrianthus": {
 "a": "AGRIPO",
 "f": "d7db55d9f260.webp",
 "l": "CC BY-SA 4.0",
@@ -28025,7 +28025,7 @@
 "u": "b/bb/Nuphar_variegatum_3_PP.jpg/330px-Nuphar_variegatum_3_PP.jpg",
 "wiki": "Nuphar variegata"
 },
-"nyctereutes-procyonoides": {
+"nyctereutes": {
 "a": "Доктор рукиноги\nKKPCW",
 "f": "75008190b4de.webp",
 "l": "CC BY-SA 4.0",
@@ -31371,7 +31371,7 @@
 "u": "4/45/Southern_warthog_%28Phacochoerus_africanus_sundevallii%29_male.jpg/330px-Southern_warthog_%28Phacochoerus_africanus_sundevallii%29_male.jpg",
 "wiki": "Common warthog"
 },
-"phainopepla-nitens": {
+"phainopepla": {
 "a": "Lip Kee Yap from Singapore, Republic of Singapore",
 "f": "08a6a2b4d4f6.webp",
 "l": "CC BY-SA 2.0",
@@ -32731,7 +32731,7 @@
 "u": "a/a1/Original-scientific-illustration-of-Plagiodontia-aedium-from-Cuvier-1836-showing.png/330px-Original-scientific-illustration-of-Plagiodontia-aedium-from-Cuvier-1836-showing.png",
 "wiki": "Hispaniolan hutia"
 },
-"plagiosiphon-emarginatus": {
+"plagiosiphon": {
 "a": "(Harms) J.Léonard",
 "f": "546358107a86.webp",
 "l": "CC0",
@@ -34486,7 +34486,7 @@
 "u": "5/51/Mole_snake.JPG/330px-Mole_snake.JPG",
 "wiki": "Mole snake"
 },
-"pseudoedophrys-hilleri": {
+"pseudoedophrys": {
 "a": "Katja Schulz from Washington, D. C., USA",
 "f": "3b6cebaf851b.webp",
 "l": "CC BY 2.0",
@@ -39865,7 +39865,7 @@
 "u": "a/a9/Starr_030612-8001_Sorghum_halepense.jpg/330px-Starr_030612-8001_Sorghum_halepense.jpg",
 "wiki": "Sorghum halepense"
 },
-"sorindeia-grandifolia": {
+"sorindeia": {
 "a": "Ton Rulkens from Mozambique",
 "f": "1e536bcb1072.webp",
 "l": "CC BY-SA 2.0",
@@ -40823,7 +40823,7 @@
 "u": "3/3c/Strix-varia-005.jpg/330px-Strix-varia-005.jpg",
 "wiki": "Barred owl"
 },
-"strombosia-scheffleri": {
+"strombosia": {
 "a": "Govindoo",
 "f": "4fa7061ad1ae.webp",
 "l": "Public domain",
@@ -41256,7 +41256,7 @@
 "u": "0/05/SKUNKCABBAGE-MOSS-400X575.jpg/330px-SKUNKCABBAGE-MOSS-400X575.jpg",
 "wiki": "Symplocarpus foetidus"
 },
-"synandra-hispidula": {
+"synandra": {
 "a": "Mason Brock (Masebrock)",
 "f": "a7375e03b313.webp",
 "l": "Public domain",
@@ -45060,7 +45060,7 @@
 "u": "8/8f/Weinmannia_tinctoria_flowers.JPG/330px-Weinmannia_tinctoria_flowers.JPG",
 "wiki": "Weinmannia"
 },
-"welwitschia-mirabilis": {
+"welwitschia": {
 "a": "Thomas Schoch",
 "f": "b1b46c3048c4.webp",
 "l": "CC BY-SA 3.0",
