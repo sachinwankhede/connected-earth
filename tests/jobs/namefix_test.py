@@ -50,3 +50,11 @@ with tempfile.TemporaryDirectory() as r:
     w(r, 'data/places/p.json', {'nodes': [{'id': 'n1', 'sp': 'rr-b'}, {'id': 'n2', 'sp': 'rr-b'}, {'id': 'n3', 'sp': 'rr-a'}, {'id': 'n4', 'sp': 'mm-sp'}]})
     assert NF.shared(r) == {'mm-sp': 'Macaranga tanarius', 'rr-a': 'Rosa a', 'rr-c': 'Rosa c'}, NF.shared(r)
 print('namefix ok')
+
+# R5a (26 Nov): `titles` renames to the redirect's article title; an accent or gray/grey is the same name, and a name another row has is skipped
+with tempfile.TemporaryDirectory() as r:
+    rows = (('rt-a', 'Fringilla coelebs', 'Common chaffinch'), ('rt-b', 'Buteo galapagoensis', 'Galápagos hawk'), ('rt-c', 'Halichoerus grypus', 'Gray seal'), ('rt-d', 'Cervus elaphus', 'Red deer'), ('rt-e', 'Cervus x', 'Stag'))
+    for sid, lat, nm in rows: w(r, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': lat, 'name': nm, 'wiki': nm, 'sk': 'taxon'})
+    w(r, 'data/audit/rowtitles.json', {'rows': {'rt-a': ['change', 'Eurasian chaffinch', 'article title'], 'rt-b': ['change', 'Galapagos hawk', 'article title'], 'rt-c': ['change', 'Grey seal', 'article title'],
+                                               'rt-d': ['change', 'Stag', 'article title'], 'rt-e': ['change', 'Other', 'Wikidata label of Q1']}})
+    assert NF.titles(r) == {'rt-a': 'Eurasian chaffinch'}, NF.titles(r)

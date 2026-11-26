@@ -96,8 +96,23 @@ def rename(root, ren, dry=False):
         open(p, 'w', encoding='utf-8').write(out + ('\n' if text.endswith('\n') else ''))
     return done
 
+def titles(root=ROOT):
+    """R5a (owner, 26 Nov): {sid: new name} for a row whose page is a redirect or was moved: the web check found a different article title (rowtitles.json status `change`, source `article title`). An accent or gray/grey is the same name (species.same_name), a name another row already has is skipped (it would make two rows share a name)."""
+    web = json.load(open(os.path.join(root, 'data', 'audit', 'rowtitles.json'), encoding='utf-8'))['rows']
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}
+    have = {}
+    for sid, r in tab.items(): have.setdefault(data_audit.plain(r.get('name') or ''), set()).add(sid)
+    out = {}
+    for sid, v in sorted(web.items()):
+        r = tab.get(sid)
+        if not r or v[0] != 'change' or not v[1] or v[2] != 'article title': continue
+        if v[1] == r.get('name') or species.same_name(v[1], r.get('name')) or (have.get(data_audit.plain(v[1])) or set()) - {sid}: continue
+        out[sid] = v[1]
+    return out
+
 def main(argv):
     ren, dele = lists(ROOT); dry = '--dry' in argv
+    if '--titles' in argv: ren = titles(ROOT); argv = [a for a in argv if a != '--list'] + ['--rename']
     if '--shared' in argv: ren = shared(ROOT); argv = [a for a in argv if a != '--list'] + ['--rename']
     if '--leftovers' in argv: ren = leftovers(ROOT)[0]; argv = [a for a in argv if a != '--list'] + ['--rename']
     if '--rename' in argv:

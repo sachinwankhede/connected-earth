@@ -30269,20 +30269,6 @@
 "rank": "SPECIES",
 "src": "gbif"
 },
-"lemmus-trimucronatus": {
-"at": "2026-11-04",
-"class": "Mammalia",
-"conf": 99,
-"family": "Cricetidae",
-"gname": "Lemmus trimucronatus (Richardson, 1825)",
-"key": 5219836,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Rodentia",
-"phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
 "lemna-gibba": {
 "at": "2026-11-04",
 "class": "Liliopsida",
@@ -34679,20 +34665,6 @@
 "match": "exact",
 "order": "Piciformes",
 "phylum": "Chordata",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"melanolophia-signataria": {
-"at": "2026-11-04",
-"class": "Insecta",
-"conf": 100,
-"family": "Geometridae",
-"gname": "Melanolophia signataria (Walker, 1860)",
-"key": 9264326,
-"kingdom": "Animalia",
-"match": "exact",
-"order": "Lepidoptera",
-"phylum": "Arthropoda",
 "rank": "SPECIES",
 "src": "gbif"
 },
@@ -59450,20 +59422,6 @@
 "kingdom": "Plantae",
 "match": "exact",
 "order": "Fabales",
-"phylum": "Tracheophyta",
-"rank": "SPECIES",
-"src": "gbif"
-},
-"valerianella-radiata": {
-"at": "2026-11-04",
-"class": "Magnoliopsida",
-"conf": 99,
-"family": "Caprifoliaceae",
-"gname": "Valerianella radiata (Willd.) Dufr.",
-"key": 2888782,
-"kingdom": "Plantae",
-"match": "exact",
-"order": "Dipsacales",
 "phylum": "Tracheophyta",
 "rank": "SPECIES",
 "src": "gbif"

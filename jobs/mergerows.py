@@ -8,7 +8,7 @@ for d in ('build', 'lib', 'jobs'): sys.path.insert(0, os.path.join(ROOT, d))
 import species, strictrows
 PAIRS = {'seasonal-floodwater': 'environment', 'brackish-lagoon-water': 'lagoon-water', 'deep-cold-lakes': 'lakes-waterholes', 'lakes-and-rivers': 'lakes-waterholes',
          'oasis-springs-and-wadi': 'oasis-groundwater', 'rainwater-depressions-rawdat': 'rainfall', 'rain-and-snowmelt': 'snowmelt-and-glacier-water',
-         'mountain-streams-and-pools': 'clear-fast-streams', 'dalibarda': 'rubus'}
+         'mountain-streams-and-pools': 'clear-fast-streams', 'dalibarda': 'rubus', 'halimeda-spp': 'halimeda'}
 
 def merge(root, pairs, write=True):
     """Returns {loser: number of nodes moved or dropped}."""
