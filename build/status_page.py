@@ -13,7 +13,7 @@ def web(root, rows):
     path = os.path.join(root, 'data', 'audit', 'rowtitles.json')
     if not os.path.exists(path): return None
     d = json.load(open(path, encoding='utf-8')); by = {r['id']: r for r in rows}; res = d.get('rows') or {}
-    names = {'same': 'name already right', 'change': 'would be renamed', 'repoint': 'own article, same species (repoint the page)', 'newrow': 'own article, other species (new row)', 'specific': 'own article, check by hand', 'wrongpage': 'wrong page (repoint)', 'unresolved': 'cannot be settled'}
+    names = {'same': 'name already right', 'change': 'would be renamed', 'latin': 'genus row: Latin genus name', 'repoint': 'own article, same species (repoint the page)', 'newrow': 'own article, other species (new row)', 'specific': 'own article, check by hand', 'wrongpage': 'wrong page (repoint)', 'unresolved': 'cannot be settled'}
     count = collections.Counter(v[0] for v in res.values())
     return {'asOf': d.get('asOf'), 'status': [{'status': names[k], 'rows': count[k]} for k in names if count[k]],
             'rows': [{'id': k, 'name': (by.get(k) or {}).get('name', ''), 'page': (by.get(k) or {}).get('page', ''), 'status': names.get(v[0], v[0]), 'proposed': v[1], 'why': v[2]} for k, v in sorted(res.items()) if v[0] != 'same']}

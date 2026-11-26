@@ -247,7 +247,7 @@ def check(root):
         else:
             for sid in sorted(set(rt['rows']) - set(sids), key=str): errs.append('data/audit/rowtitles.json: %r is not the id of a species row' % (sid,))
             for sid, v in sorted(rt['rows'].items()):
-                if not (isinstance(v, list) and len(v) == 3 and v[0] in ('same', 'change', 'wrongpage', 'specific', 'repoint', 'newrow', 'unresolved')): errs.append('data/audit/rowtitles.json: %r is not [status, proposed, why]' % (sid,))
+                if not (isinstance(v, list) and len(v) == 3 and v[0] in ('same', 'change', 'latin', 'wrongpage', 'specific', 'repoint', 'newrow', 'unresolved')): errs.append('data/audit/rowtitles.json: %r is not [status, proposed, why]' % (sid,))
     # eating-link table (#256): one file per consumer species, sitting where its sid says; the consumer and every prey must be species of the table
     dd = os.path.join(root, 'data', 'diets')
     if os.path.isdir(dd):

@@ -4,6 +4,7 @@ latin = the genus (Wikidata P225 of the page, from data/audit/identity.json), wi
 the photo, the nodes of every place and the diets follow. No network. Read-only unless --apply.
   python3 jobs/rowtogenus.py [--dry]      # default: print what would change and what is skipped
   python3 jobs/rowtogenus.py --apply      # write it; exits 1 and writes nothing on any collision
+  python3 jobs/rowtogenus.py --rename [--apply]   # then: genus rows whose page has no common name (rowtitles.json status `latin`) take the Latin genus name
 Converted: a taxon row of two or more words whose page the identity check says is a genus (jobs/identitycheck.py "species row on a genus page"), whose page is a genus. Name (owner, 26 Nov): a page titled with a common name keeps it ("Giant kelp", the page stays); a page the web check (data/audit/rowtitles.json) settles (`same`, `change`) keeps
 that name; a genus with no English name (`unresolved`, `wrongpage`) gets the Latin genus name. Skipped and listed: a page of any rank above genus. Genus rows on a species page ("genus row on a species page") are never touched.
 Each converted row: its row file is replaced by the genus row; place nodes `sp`, diet file and diet entries, search_vocabulary `also_called` (the old latin name is added), the picture (lib/species_photos.py rekey) and the two
@@ -57,6 +58,31 @@ def repoint(root=ROOT, write=False):
             p = species.row_path(sid, os.path.join(root, 'data', 'species', 'rows')); o = json.load(open(p, encoding='utf-8')); o['wiki'] = latin
             species.write_row(o, os.path.join(root, 'data', 'species', 'rows'))
     return out
+
+def latin_names(root=ROOT, write=False):
+    """{sid: [old name, new name]} for the genus rows made by this job whose web name check (rowtitles.json, status `latin`) found no common name for the genus (owner, 26 Nov: "Wikipedia genus title where it has one, else the Latin
+    genus name"). Only the row's `name` (and the same words at the start of its `desc`) change. A name another row already has is left and listed in `skipped`."""
+    web = json.load(open(os.path.join(root, 'data', 'audit', 'rowtitles.json'), encoding='utf-8'))
+    conv = {v[0] for v in json.load(open(os.path.join(root, 'data', 'audit', 'rowtogenus.json'), encoding='utf-8')).get('converted', {}).values()}
+    tab = {r['sid']: r for r in species.table(root).values() if r.get('sid')}
+    taken = {species_norm(r.get('name')) for r in tab.values()}; out, skipped = {}, {}
+    for sid in sorted(conv):
+        v = web['rows'].get(sid); r = tab.get(sid)
+        if not v or v[0] != 'latin' or not r: continue
+        new = v[1]
+        if species_norm(new) in taken: skipped[sid] = 'the name %r is already a row' % new; continue
+        taken.add(species_norm(new)); out[sid] = [r.get('name'), new]
+        if write:
+            p = species.row_path(sid, os.path.join(root, 'data', 'species', 'rows')); o = json.load(open(p, encoding='utf-8')); old = o.get('name') or ''
+            o['name'] = new
+            if old and (o.get('desc') or '').startswith(old): o['desc'] = new + o['desc'][len(old):]
+            species.write_row(o, os.path.join(root, 'data', 'species', 'rows'))
+    if write:
+        def audit(o):
+            for sid in out: o['rows'][sid] = ['same', out[sid][1], '']
+            return True
+        strictrows.edit(os.path.join(root, 'data', 'audit', 'rowtitles.json'), audit)
+    return out, skipped
 
 def species_norm(s): return ' '.join((s or '').lower().split())
 
@@ -135,6 +161,13 @@ def record(root, convert, skipped):
         json.dump({'asOf': datetime.date.today().isoformat(), 'converted': dict(sorted(done.items())), 'skipped': dict(sorted(skipped.items()))}, h, ensure_ascii=False, separators=(',', ':'), sort_keys=True)
 
 def main(argv):
+    if '--rename' in argv:
+        out, skipped = latin_names(ROOT, '--apply' in argv)
+        print('%d genus rows %s' % (len(out), 'renamed' if '--apply' in argv else 'to rename'))
+        for sid, (a, b) in sorted(out.items()): print('rename', sid, '|', a, '->', b)
+        for sid, w in sorted(skipped.items()): print('skip', sid, '|', w)
+        if '--apply' in argv and out: subprocess.run([sys.executable, os.path.join(ROOT, 'build', 'species.py'), 'pack'], cwd=ROOT, check=True)
+        return
     convert, skipped, problems = plan(ROOT)
     print('%d rows %s, %d skipped' % (len(convert), 'to convert' if '--apply' not in argv else 'converted', len(skipped)))
     for o, c in sorted(convert.items()): print('convert', o, '->', c['sid'], '|', c['name'])
