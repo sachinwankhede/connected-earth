@@ -28,20 +28,21 @@ def build(r, extra=()):
 with tempfile.TemporaryDirectory() as r:
     build(r)
     conv, skip, bad = RG.plan(r)
-    assert sorted(conv) == ['aa-bb', 'cc-dd'] and not bad, (conv, bad)   # same and change; family page, common-name page, unresolved and species page are not converted
+    assert sorted(conv) == ['aa-bb', 'cc-dd', 'gg-hh', 'ii-jj'] and not bad, (conv, bad)   # same and change, a common-name page (keeps it) and an unresolved genus (Latin name); family page and species page are not converted
     assert conv['aa-bb'] == {'sid': 'aa', 'latin': 'Aa', 'name': 'Blue aa', 'wiki': 'Aa'} and conv['cc-dd']['name'] == 'Cc plant' and conv['cc-dd']['sid'] == 'cc'
-    assert 'gg-hh' in skip and 'common-name' in skip['gg-hh'] and 'ii-jj' in skip and 'unresolved' in skip['ii-jj'] and 'ee-ff' in skip and 'kk' not in skip, skip
+    assert conv['gg-hh'] == {'sid': 'gg', 'latin': 'Gg', 'name': 'Common gg', 'wiki': 'Common gg'} and conv['ii-jj'] == {'sid': 'ii', 'latin': 'Ii', 'name': 'Ii', 'wiki': 'Ii'}
+    assert 'ee-ff' in skip and 'kk' not in skip and 'gg-hh' not in skip and 'ii-jj' not in skip, skip
     RG.apply(r, conv); RG.record(r, conv, skip)
     a = rd(r, 'data/species/rows/aa/aa.json')
     assert (a['sid'], a['latin'], a['wiki'], a['name']) == ('aa', 'Aa', 'Aa', 'Blue aa') and a['desc'] == 'Blue aa (Aa): a plant.' and not os.path.exists(os.path.join(r, 'data/species/rows/aa/aa-bb.json'))
-    assert [n['sp'] for n in rd(r, 'data/places/p1.json')['nodes']] == ['aa', 'cc', 'ii-jj'] and open(os.path.join(r, 'data/places/p1.json')).read().startswith('{\n "id"')
+    assert [n['sp'] for n in rd(r, 'data/places/p1.json')['nodes']] == ['aa', 'cc', 'ii'] and open(os.path.join(r, 'data/places/p1.json')).read().startswith('{\n "id"')
     assert not os.path.exists(os.path.join(r, 'data/diets/aa/aa-bb.json')) and rd(r, 'data/diets/aa/aa.json') == {'sid': 'aa', 'prey': {'cc': {'k': 'e'}}}
-    assert rd(r, 'data/diets/ii/ii-jj.json') == {'sid': 'ii-jj', 'prey': {'aa': {'k': 'e'}, 'cc': {'k': 'e'}}, 'pred': {'aa': {'k': 'e'}}}
-    assert rd(r, 'data/species/taxonomy.json') == {'ii-jj': {'a': 2}} and rd(r, 'data/species/conservation.json') == {}
-    assert rd(r, 'data/species/search_vocabulary.json')['also_called'] == {'aa': ['Old name', 'Aa bb'], 'cc': ['Cc dd']}, rd(r, 'data/species/search_vocabulary.json')
+    assert rd(r, 'data/diets/ii/ii.json') == {'sid': 'ii', 'prey': {'aa': {'k': 'e'}, 'cc': {'k': 'e'}}, 'pred': {'aa': {'k': 'e'}}}
+    assert rd(r, 'data/species/taxonomy.json') == {} and rd(r, 'data/species/conservation.json') == {}
+    assert rd(r, 'data/species/search_vocabulary.json')['also_called'] == {'aa': ['Old name', 'Aa bb'], 'cc': ['Cc dd'], 'gg': ['Gg hh'], 'ii': ['Ii jj']}, rd(r, 'data/species/search_vocabulary.json')
     assert rd(r, 'photos/species_pictures.json') == {'aa': {'f': 'abc.webp'}} and rd(r, 'photos/species_medium.json') == {'aa': 'abc.webp'} and rd(r, 'photos/species_missing.json') == {'cc': {'x': 1}} and rd(r, 'photos/species_tried.json') == {'cc': {'x': 1}}
     assert rd(r, 'data/audit/rowtitles.json')['rows']['cc'] == ['same', 'Cc plant', ''] and 'aa' in rd(r, 'data/audit/identity.json')['rows'] and 'aa-bb' not in rd(r, 'data/audit/identity.json')['rows']
-    assert rd(r, 'data/audit/rowtogenus.json')['converted'] == {'aa-bb': ['aa', 'Blue aa'], 'cc-dd': ['cc', 'Cc plant']}
+    assert rd(r, 'data/audit/rowtogenus.json')['converted'] == {'aa-bb': ['aa', 'Blue aa'], 'cc-dd': ['cc', 'Cc plant'], 'gg-hh': ['gg', 'Common gg'], 'ii-jj': ['ii', 'Ii']}
     c2, s2, b2 = RG.plan(r)   # a second run has nothing left to convert
     assert not c2 and not b2
 
@@ -63,3 +64,12 @@ with tempfile.TemporaryDirectory() as r:
     build(r); s = SpeciesPhotos(r); s.rekey('aa-bb', 'aa'); s.rekey('cc-dd', 'cc')
     assert 'aa' in s.pics and 'aa-bb' not in s.pics and 'aa' in s.medium and 'aa' in s.large and 'cc' in s.miss_ and 'cc' in s.tried
 print('ok')
+
+# a genus row on a species page is repointed to the genus title; one already on its genus title is left
+with tempfile.TemporaryDirectory() as r:
+    build(r, [row('mm', 'Mm', 'Mm trees', 'Mm species'), row('nn', 'Nn', 'Nn trees', 'Nn')])
+    i = rd(r, 'data/audit/identity.json'); i['rows']['mm'] = ['Q1', 'R2', 'Mm species', 'taxon', '']; i['rows']['nn'] = ['Q1', 'R2', 'Nn species', 'taxon', '']; w(r, 'data/audit/identity.json', i)
+    assert RG.repoint(r) == {'kk': 'Kk', 'mm': 'Mm'} and rd(r, 'data/species/rows/mm/mm.json')['wiki'] == 'Mm species'
+    RG.repoint(r, write=True)
+    assert rd(r, 'data/species/rows/mm/mm.json')['wiki'] == 'Mm' and rd(r, 'data/species/rows/nn/nn.json')['wiki'] == 'Nn' and not RG.repoint(r)
+print('ok repoint')
