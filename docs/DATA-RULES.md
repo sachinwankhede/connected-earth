@@ -87,11 +87,11 @@ Instead of fixing rule by rule, build these together so each rule above is close
 1. **One row writer** (`lib/rows.py`, with `check()`): the only code that creates, renames, repoints, merges or removes a row. It enforces R1 to R8, R11 and D1 to D4, and logs a refusal with its reason. Jobs and tools call it; none writes a row file directly. (Merge and removal use the paths now in `jobs/mergerows.py` and `jobs/strictrows.py`.)
 2. **`gate` rules (offline)**: R1 and R9 as errors (two rows of one kind on one page; resource rows in the right folder); R10 (unused row); N6 (orphan node picture); P2 (clashing place id); Q2 (the validator refuses to run with no places). The web-dependent rules R2 to R5 are checked inside the writer when a data job creates the row, and by the audit as a drift check.
 3. **Fix the audit rules** so a clean audit means clean data: flag a species row on a genus page (R4), drop the `repoint` proposal for species rows, let the check say "genus row, Latin name" for rows whose proposed name is a species' common name.
-4. **Schedule** the identity and name audits monthly as the drift detector (R11), and open an issue when the dashboard count is not zero.
+4. **Schedule** the identity and name audits weekly as the drift detector (R11), and open an issue when the dashboard count is not zero.
 5. **Done when:** every row of the tables above that says `none`, `audit` or `convention` has a test, and a deliberately bad row (shared page, wrong rank, bare row, a removal that orphans a node) fails `gate` or is refused by the writer.
 
 ## 9. Owner decisions to confirm
 
-- The admission rules R2 to R8 as drafted (what is refused; refused nodes use the nearest row; the refusal is logged).
+- Decided (owner, 26 Nov): the admission rules R2 to R8 as drafted (what is refused; refused nodes use the nearest row; the refusal is logged).
 - R3 is decided (owner, 26 Nov): a resource row is refused only when its name does not match its page; a named feature with its own matching row stays.
-- Audit cadence (monthly proposed).
+- Audit cadence: weekly (owner, 26 Nov: monthly is too far).
