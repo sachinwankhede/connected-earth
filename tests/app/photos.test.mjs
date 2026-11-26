@@ -27,7 +27,7 @@ describe('stored place photos carry a credit line', () => {
   test('a picture list keyed by place id (the title in each row) shows the same picture and credit (#887)', async () => {
     const e = places[0], m = man[e.id];
     const byId = Object.fromEntries(places.map((x) => [x.id, { ...man[x.id], wiki: x.imgwiki }]));   // the new shape: key = place id, the title in `wiki`
-    const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
+    const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
     const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
     await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
     await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(byId) }));
@@ -47,7 +47,7 @@ describe('stored place photos carry a credit line', () => {
     // a's row under its own id; a second row under an unrelated id that carries b's title (two places on one title, #908): b has no row of its own
     const list = { [a.id]: { ...man[a.id], wiki: a.imgwiki }, 'someotherplace': { ...man[a.id], wiki: b.imgwiki } };
     const shows = async (e, expectPicture) => {
-      const ctx = await browser.newContext({ viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
+      const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: H.SIZES[Object.keys(H.SIZES)[0]] }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
       await page.route(/\/photos\/places\/places\.json(?:\?|$)/, (r) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(list) }));
@@ -69,7 +69,7 @@ describe('stored place photos carry a credit line', () => {
     test(`${sizeName}: photo comes from our own files, with author, licence and Commons link`, async () => {
       assert.ok(places.length > 0, 'at least one stored photo');
       const e = places[0], m = man[e.id];
-      const ctx = await browser.newContext({ viewport: size }); const page = await ctx.newPage();
+      const ctx = await browser.newContext({ serviceWorkers: 'block', viewport: size }); const page = await ctx.newPage();
       const errors = []; page.on('pageerror', (x) => errors.push(String(x)));
       await page.route(/openfreemap|arcgis|amazonaws|wikipedia|wikimedia|fonts|cdnjs/, (r) => r.abort());
       await page.goto(base + 'index.html#stub&pg=' + e.id); await page.reload();
