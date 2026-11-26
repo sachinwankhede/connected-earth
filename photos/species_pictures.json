@@ -343,16 +343,6 @@
 "u": "c/c9/Accipiter_striatus%2C_Canet_Road%2C_San_Luis_Obispo_1.jpg/330px-Accipiter_striatus%2C_Canet_Road%2C_San_Luis_Obispo_1.jpg",
 "wiki": "Sharp-shinned hawk"
 },
-"acer": {
-"a": "TeunSpaans",
-"f": "b5dc4a69dde0.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Acer_pictum_ssp_pictum_R0019758.JPG",
-"page": "Acer_pictum",
-"u": "f/f8/Acer_pictum_ssp_pictum_R0019758.JPG/330px-Acer_pictum_ssp_pictum_R0019758.JPG",
-"wiki": "Acer pictum"
-},
 "acer-circinatum": {
 "a": "Tony Perodeau",
 "f": "0d5137dbac0d.webp",
@@ -7582,16 +7572,6 @@
 "u": "6/64/Arctic_Wolf_in_Aulavik_National_Park_04_%28cropped%29.jpg/330px-Arctic_Wolf_in_Aulavik_National_Park_04_%28cropped%29.jpg",
 "wiki": "Arctic wolf"
 },
-"canis-lupus-chanco": {
-"a": "Stanzinnamgail",
-"f": "93697e0feb95.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Tibetan_Wolf_By_Stanzin_%28Stakpa%29_cropped.jpg",
-"page": "Himalayan_wolf",
-"u": "4/4a/Tibetan_Wolf_By_Stanzin_%28Stakpa%29_cropped.jpg/330px-Tibetan_Wolf_By_Stanzin_%28Stakpa%29_cropped.jpg",
-"wiki": "Himalayan wolf"
-},
 "canis-simensis": {
 "a": "Charles J. Sharp",
 "f": "fb04646f9533.webp",
@@ -10075,16 +10055,6 @@
 "page": "Green_sea_turtle",
 "u": "a/a3/Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg/330px-Green_sea_turtle_%28Chelonia_mydas%29_Moorea.jpg",
 "wiki": "Green sea turtle"
-},
-"chelonoidis-species": {
-"a": "Mfield, Matthew Field",
-"f": "71a0070724e3.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Galapagos_giant_tortoise_Geochelone_elephantopus.jpg",
-"page": "Gal%C3%A1pagos_tortoise",
-"u": "4/42/Galapagos_giant_tortoise_Geochelone_elephantopus.jpg/330px-Galapagos_giant_tortoise_Geochelone_elephantopus.jpg",
-"wiki": "Galápagos tortoise"
 },
 "chenopodium-album": {
 "a": "Rasbak",
