@@ -28,7 +28,7 @@ with tempfile.TemporaryDirectory() as r:
     assert json.load(open(os.path.join(r, 'data/species/taxonomy.json'))) == {'bb-good': {'a': 2}} and json.load(open(os.path.join(r, 'data/species/conservation_asked.json'))) == ['bb-good']
     # a removal that would leave a place invalid keeps the row: the 10 species stay (the only abiotic node can go: validate.py warns)
     go, kept = SR.apply(r, {'bb-good', 'ab-soil', 'ss00-x', 'ss01-x', 'ss02-x'})
-    assert go == ['ab-soil', 'ss01-x', 'ss02-x'] and set(kept) == {'bb-good', 'ss00-x'}, (go, kept)   # the only abiotic node can go now (a warning, not an error); the 10-species minimum keeps two rows
+    assert go == ['ss01-x', 'ss02-x'] and set(kept) == {'bb-good', 'ss00-x', 'ab-soil'}, (go, kept)   # the only abiotic node stays (#1138: a place needs one); the 10-species minimum keeps two rows
     # a node whose only neighbour goes would be dropped with no links; if a journey ends at it, its row stays and so does the neighbour
     with tempfile.TemporaryDirectory() as r2:
         for sid in ('nb-bad', 'jj-jny') + tuple('tt%02d-x' % i for i in range(10)): w(r2, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
