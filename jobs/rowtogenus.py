@@ -70,6 +70,7 @@ def latin_names(root=ROOT, write=False):
         v = web['rows'].get(sid); r = tab.get(sid)
         if not v or v[0] != 'latin' or not r: continue
         new = v[1]
+        if species_norm(r.get('wiki')) != species_norm(r.get('latin')): skipped[sid] = 'its page %s is a common-name title: the row keeps the common name (owner, 26 Nov)' % r.get('wiki'); continue
         if species_norm(new) in taken: skipped[sid] = 'the name %r is already a row' % new; continue
         taken.add(species_norm(new)); out[sid] = [r.get('name'), new]
         if write:
