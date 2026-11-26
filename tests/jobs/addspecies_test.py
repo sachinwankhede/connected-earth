@@ -170,4 +170,14 @@ class LatinFromPage(unittest.TestCase):
         A.run([dict(self.NOLATIN, latin='Canis latrans var')], f, tree(), dry=True, now=DAY, log=lambda *a: None)
         self.assertIn(('conservation', 'Canis latrans var'), f.asked)
 
+    def test_a_species_title_that_redirects_to_a_genus_makes_the_genus_row_on_the_genus_page(self):   # #1142
+        f = LatinFake({'Achyrachaena mollis': 'Achyrachaena'})
+        res, _ = A.run([{'wiki': 'Achyrachaena mollis', 'kind': 'taxon', 'tl': 1, 'ic': 'aspen'}], f, tree(), dry=True, now=DAY, log=lambda *a: None)
+        self.assertEqual(res[0]['wiki'], 'Achyrachaena'); self.assertIn(('conservation', 'Achyrachaena'), f.asked)
+
+    def test_a_species_page_keeps_its_title(self):
+        f = LatinFake({'Eastern coyote': 'Canis latrans'})
+        res, _ = A.run([self.NOLATIN], f, tree(), dry=True, now=DAY, log=lambda *a: None)
+        self.assertEqual(res[0]['wiki'], 'Eastern coyote')
+
 if __name__ == '__main__': unittest.main()

@@ -176,6 +176,7 @@ def run(cands, src, root='.', dry=True, limit=0, deadline=None, now=None, log=pr
         if c['kind'] == 'taxon' and not c.get('latin'):
             try: c['latin'] = src.latin(c['wiki']) if hasattr(src, 'latin') else c['wiki']   # the page's own taxon name, never the common-name title
             except RuntimeError as ex: stopped = 'Wikidata: %s' % ex; log('STOP: %s' % stopped); break
+            if c['latin'] and len(c['latin'].split()) == 1: c['wiki'] = c['latin']   # the page is a genus (a species title that redirects to it): the row is the genus row, on the genus page (#1142: "a row is whatever its Wikipedia page is")
             if not c['latin']: out.append({'kind': 'species', 'status': 'refused', 'id': None, 'dry': dry, 'wiki': c['wiki'], 'steps': {}, 'reason': 'no taxon name on the Wikidata item of this page: pass `latin`'}); log('refused %s: no taxon name' % c['wiki']); continue
         try: r = rows.ensure(c, gather, ledger, now, dry)
         except Stopped as ex: stopped = str(ex); log('STOP: %s (nothing more is tried; ask the owner)' % ex); break

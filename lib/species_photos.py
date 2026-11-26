@@ -69,6 +69,11 @@ class SpeciesPhotos(CreditRepair):
         if sid in self.pics: self._delete.append(self._path(SMALL_DIR, self.pics.pop(sid)['f']))
         self._drop_copies(sid); self.miss_.pop(sid, None); self.tried.pop(sid, None)
 
+    def rekey(self, old, new):
+        """The row `old` became the row `new` (#1142, a species row became its genus row): every list entry moves to the new id; the files are named by hash and stay."""
+        for d in (self.pics, self.miss_, self.tried, self.medium, self.large):
+            if old in d: d[new] = d.pop(old)
+
     def miss(self, sid, status, source='', attempts=None, now=None):
         """Record that no usable picture was found for this species. One retry policy (photo_registry.negative_entry) for every source; the ledger notes who tried."""
         if sid in self.pics: raise ValueError('%r has a stored picture: use remove() to drop it first' % sid)
