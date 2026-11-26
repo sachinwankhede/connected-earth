@@ -14,7 +14,7 @@ floodwater hot-salty-shallow-water lakes-and-clear-water lakes-and-rivers lakes-
 oasis-springs-and-wadi ocean-passages rain-and-rivers rain-meltwater rainwater-depressions-rawdat red-sand-and-limestone-country river-sediment-and-nutrients rivers seasonal-flood
 seasonal-flood-pulse seasonal-flooding seasonal-floodwater shallow-lagoons shallow-saline-lakes snowmelt-and-medano-creek thin-soil-on-ancient-rock timane-river-and-waterholes
 travertine-lake-water veredas-rio-preto-streams warm-clear-ocean-water warm-clear-water warm-shallow-sheltered-bay westerly-rain winter-snow-and-ice'''.split()}
-SIDS.update({s: KIND for s in '''muddy-tidal-flats poor-acidic-soils poor-wet-soils reef-water lagoon-water warm-lagoon-water cool-mountain-air rain-and-snowmelt groundwater sunlight'''.split()})
+SIDS.update({s: KIND for s in '''muddy-tidal-flats poor-acidic-soils poor-wet-soils reef-water lagoon-water warm-lagoon-water cool-mountain-air rain-and-snowmelt sunlight'''.split()})
 
 def plan(root=ROOT):
     import species

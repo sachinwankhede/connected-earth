@@ -70,6 +70,15 @@ with tempfile.TemporaryDirectory() as r:
         go, kept = SR.apply(r5, {'nn-bad'})
         n5 = [n for n in json.load(open(os.path.join(r5, 'data/places/p5.json')))['nodes'] if n['sp'].startswith('ww')]
         assert len(n5) >= 10, (go, kept, len(n5))
+    # a row kept as its place's only abiotic node must not leave its linked species dropped (the palm hangs only on the spring)
+    with tempfile.TemporaryDirectory() as r6:
+        for sid in tuple('pp%02d-x' % i for i in range(11)): w(r6, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
+        for sid, cat in (('sp-spring', 'abiotic'), ('dc-fungi', 'decomp')): w(r6, 'data/nodes/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'resource', 'cat': cat})
+        nd = [{'id': 'spring', 'sp': 'sp-spring'}, {'id': 'dc', 'sp': 'dc-fungi'}] + [{'id': 'y%d' % i, 'sp': 'pp%02d-x' % i} for i in range(11)]   # y10 hangs only on the spring
+        w(r6, 'data/places/p6.json', {'id': 'p6', 'nodes': nd, 'raw': [['spring', 'y10', 'r'], ['dc', 'y0']] + [['y%d' % i, 'y0'] for i in range(1, 10)], 'ev': {}})
+        go, kept = SR.apply(r6, {'sp-spring'}, False, {'sp-spring': 'bad page'})
+        assert go == [] and 'sp-spring' in kept, (go, kept)
+        assert 'y10' in [n['id'] for n in json.load(open(os.path.join(r6, 'data/places/p6.json')))['nodes']]
     # the opening tip is optional: removing the row a tip names removes the tip and keeps the place
     with tempfile.TemporaryDirectory() as r4:
         for sid in ('zz-bad',) + tuple('vv%02d-x' % i for i in range(10)): w(r4, 'data/species/rows/%s/%s.json' % (sid[:2], sid), {'sid': sid, 'latin': sid, 'name': sid, 'sk': 'taxon'})
