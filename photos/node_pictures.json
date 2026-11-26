@@ -1,15 +1,4 @@
 {
-"adirondack-park": {
-"a": "Mwanner",
-"built": "2026-11-16T04:00:53.289683+00:00",
-"checkedAt": "2026-11-16T04:00:53.289683+00:00",
-"f": "73efdd8c7702.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Long_Pond_-_St_Regis.jpg",
-"page": "Adirondack_Park",
-"wiki": "Adirondack Park"
-},
 "aletsch-glacier": {
 "a": "Robert J Heath",
 "built": "2026-11-25T21:38:26.085545+00:00",
@@ -65,28 +54,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Awash_river.jpg",
 "page": "Awash_River",
 "wiki": "Awash River"
-},
-"band-e-amir": {
-"a": "USAID",
-"built": "2026-11-16T04:00:53.289988+00:00",
-"checkedAt": "2026-11-16T04:00:53.289988+00:00",
-"f": "7654813c8a6f.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Afghanistan%27s_Grand_Canyon.jpg",
-"page": "Band-e_Amir_National_Park",
-"wiki": "Band-e Amir"
-},
-"biscayne-bay": {
-"a": "Wilfredor",
-"built": "2026-11-16T04:00:53.290075+00:00",
-"checkedAt": "2026-11-16T04:00:53.290075+00:00",
-"f": "e904ffecc030.webp",
-"l": "CC0",
-"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-"p": "https://commons.wikimedia.org/wiki/File:Miami%2C_Florida%2C_Skyline_4.jpg",
-"page": "Biscayne_Bay",
-"wiki": "Biscayne Bay"
 },
 "blackwater-river": {
 "a": "Tim Ross",
@@ -146,18 +113,6 @@
 "src": "wikidata-p18",
 "wiki": "Brine"
 },
-"canadian-shield": {
-"a": "TCY",
-"built": "2026-11-16T04:00:53.290277+00:00",
-"checkedAt": "2026-11-16T04:00:53.290277+00:00",
-"f": "9979c1d9542c.webp",
-"l": "CC BY-SA 2.5",
-"lu": "https://creativecommons.org/licenses/by-sa/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Hautes-Gorges-de-la-Rivi%C3%A8re-Malbaie.jpg",
-"page": "Canadian_Shield",
-"src": "wikidata-p18",
-"wiki": "Canadian Shield"
-},
 "cenote": {
 "a": "Son of Groucho",
 "built": "2026-11-16T04:00:53.290316+00:00",
@@ -179,17 +134,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Homalin_aerial.jpg",
 "page": "Chindwin_River",
 "wiki": "Chindwin River"
-},
-"chobe-river": {
-"a": "Dicklyon",
-"built": "2026-11-16T04:00:53.290376+00:00",
-"checkedAt": "2026-11-16T04:00:53.290376+00:00",
-"f": "8f92c584a906.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Chobe_River_at_Kasane.jpg",
-"page": "Cuando_River",
-"wiki": "Chobe River"
 },
 "clay-lick": {
 "a": "This Image was created by User:Amog. If you would like to use the image please mail me at",
@@ -213,17 +157,6 @@
 "page": "Cloud_forest",
 "wiki": "Cloud forest"
 },
-"congo-river": {
-"a": "MONUSCO/Myriam Asmani",
-"built": "2026-11-16T04:00:53.290537+00:00",
-"checkedAt": "2026-11-16T04:00:53.290537+00:00",
-"f": "498cbdaef916.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Congo_River_near_Kisangani.jpg",
-"page": "Congo_River",
-"wiki": "Congo River"
-},
 "controlled-burn": {
 "a": "USFWS - Pacific Region",
 "built": "2026-11-16T04:00:53.290609+00:00",
@@ -234,28 +167,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:USFWS_Resilient_Landscapes_%2817223539378%29.jpg",
 "page": "Controlled_burn",
 "wiki": "Controlled burn"
-},
-"coral-bleaching": {
-"a": "Acropora at English Wikipedia",
-"built": "2026-11-16T04:00:53.290651+00:00",
-"checkedAt": "2026-11-16T04:00:53.290651+00:00",
-"f": "4a2ae577a348.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Bleachedcoral.jpg",
-"page": "Coral_bleaching",
-"wiki": "Coral bleaching"
-},
-"coral-reef": {
-"a": "Richard Ling",
-"built": "2026-11-16T04:00:53.290688+00:00",
-"checkedAt": "2026-11-16T04:00:53.290688+00:00",
-"f": "948e5d78cd5f.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Blue_Linckia_Starfish.JPG",
-"page": "Coral_reef",
-"wiki": "Coral reef"
 },
 "cuyahoga-river": {
 "a": "Tim Evanson",
@@ -334,17 +245,6 @@
 "page": "Dune",
 "wiki": "Dune"
 },
-"durmitor": {
-"a": "Andrea Polereczky",
-"built": "2026-11-16T04:00:53.291080+00:00",
-"checkedAt": "2026-11-16T04:00:53.291080+00:00",
-"f": "051c68c1c55b.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Durmitor.jpg",
-"page": "Durmitor",
-"wiki": "Durmitor"
-},
 "dust": {
 "a": "George Everett Marsh Jr.",
 "built": "2026-11-16T04:00:53.291108+00:00",
@@ -412,17 +312,6 @@
 "page": "Fjord",
 "wiki": "Fiord"
 },
-"fiordland": {
-"a": "Pseudopanax at English Wikipedia",
-"built": "2026-11-16T04:00:53.291319+00:00",
-"checkedAt": "2026-11-16T04:00:53.291319+00:00",
-"f": "a966ecf6870e.webp",
-"l": "CC BY 4.0",
-"lu": "https://creativecommons.org/licenses/by/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Rolla_Island_in_front_of_Commander_Peak_and_entrance_to_Hall_Arm_of_Doubtful_Sound.jpg",
-"page": "Fiordland",
-"wiki": "Fiordland"
-},
 "flash-flood": {
 "a": "PawełMM (this montage); Nyttend (original photographs)",
 "built": "2026-11-16T04:00:53.291382+00:00",
@@ -455,17 +344,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Ganges_River_Delta%2C_Bangladesh%2C_India.jpg",
 "page": "Flood_pulse_concept",
 "wiki": "Flood pulse concept"
-},
-"florida-reef": {
-"a": "NOAA National Marine Fisheries Servie",
-"built": "2026-11-16T04:00:53.291476+00:00",
-"checkedAt": "2026-11-16T04:00:53.291476+00:00",
-"f": "5f8b44002d32.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Florida_reef_tract.png",
-"page": "Florida_Reef",
-"wiki": "Florida Reef"
 },
 "fog": {
 "a": "Abdul Momin",
@@ -567,17 +445,6 @@
 "u": "6/68/Eurasian_wolf_2.jpg/330px-Eurasian_wolf_2.jpg",
 "wiki": "Gray wolf"
 },
-"great-sand-dunes-national-park-and-preserve": {
-"a": "Lionello DelPiccolo liodp",
-"built": "2026-11-16T04:00:53.291853+00:00",
-"checkedAt": "2026-11-16T04:00:53.291853+00:00",
-"f": "b08348a1beb4.webp",
-"l": "CC0",
-"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-"p": "https://commons.wikimedia.org/wiki/File:Great_Sand_Dunes_National_Park_and_Preserve%2C_United_States_%28Unsplash%29.jpg",
-"page": "Great_Sand_Dunes_National_Park_and_Preserve",
-"wiki": "Great Sand Dunes National Park and Preserve"
-},
 "groundwater": {
 "a": "Shigeru23",
 "built": "2026-11-16T04:00:53.291890+00:00",
@@ -644,17 +511,6 @@
 "page": "Hypoxia_%28environmental%29",
 "wiki": "Hypoxia (environmental)"
 },
-"iber-wetlands": {
-"a": "Evelyn Proimos",
-"built": "2026-11-16T04:00:53.292091+00:00",
-"checkedAt": "2026-11-16T04:00:53.292091+00:00",
-"f": "7179d68a036d.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Flying_Over_Esteros_del_Iber%C3%A1_The_kingdom_of_water%2C_North-eastern_Argentina.jpg",
-"page": "Iber%C3%A1_Wetlands",
-"wiki": "Iberá Wetlands"
-},
 "iguazu-falls": {
 "a": "Mariordo (Mario Roberto Durán Ortiz)",
 "built": "2026-11-16T04:00:53.292138+00:00",
@@ -687,17 +543,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Issykkul_plyag.jpg",
 "page": "Issyk-Kul",
 "wiki": "Issyk-Kul"
-},
-"karst": {
-"a": "Anil Öztas",
-"built": "2026-11-16T04:00:53.292245+00:00",
-"checkedAt": "2026-11-16T04:00:53.292245+00:00",
-"f": "53b753df6e2e.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Zadar_%28HR%29%2C_Krupa-Canyon_--_2022_--_0003.jpg",
-"page": "Karst",
-"wiki": "Karst"
 },
 "kobuk-river": {
 "a": "NPS Photo",
@@ -732,17 +577,6 @@
 "page": "Lagoon",
 "wiki": "Lagoon"
 },
-"lagoons-of-new-caledonia": {
-"a": "the Enhanced Thematic Mapper Plus on NASA’s Landsat 7 satellite, Jesse Allen, Michon Scott.",
-"built": "2026-11-16T04:00:53.292403+00:00",
-"checkedAt": "2026-11-16T04:00:53.292403+00:00",
-"f": "4e08d01824b2.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Lagoons_and_Reefs_of_New_Caledonia_May_10%2C_2001.jpg",
-"page": "New_Caledonian_barrier_reef",
-"wiki": "Lagoons of New Caledonia"
-},
 "lake": {
 "a": "Marius~commonswiki",
 "built": "2026-11-16T04:00:53.292439+00:00",
@@ -753,28 +587,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Lake_Idro_Italy_2005-08-16.jpg",
 "page": "Lake",
 "wiki": "Lake"
-},
-"lake-baikal": {
-"a": "Jacques Descloitres, MODIS Land Rapid Response Team, NASA/GSFC",
-"built": "2026-11-16T04:00:53.292474+00:00",
-"checkedAt": "2026-11-16T04:00:53.292474+00:00",
-"f": "53a22eb1f495.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Baikal.A2001296.0420.250m-NASA.jpg",
-"page": "Lake_Baikal",
-"wiki": "Lake Baikal"
-},
-"lake-clark": {
-"a": "Dev Dharm Khalsa / NPS",
-"built": "2026-11-16T04:00:53.292500+00:00",
-"checkedAt": "2026-11-16T04:00:53.292500+00:00",
-"f": "8a75b7bf3029.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Lake_Clark_Place_Name_Project_images._Credit_Dev_Charm_Khalsa_NPS._%28997f0f3e-e7db-418a-83be-eaacbe026e50%29.jpg",
-"page": "Lake_Clark_%28Alaska%29",
-"wiki": "Lake Clark"
 },
 "lake-malawi": {
 "a": "National Aeronautics and Space Administration (NASA)",
@@ -820,17 +632,6 @@
 "page": "Lake_Superior",
 "wiki": "Lake Superior"
 },
-"lake-tengiz": {
-"a": "nasa",
-"built": "2026-11-16T04:00:53.292657+00:00",
-"checkedAt": "2026-11-16T04:00:53.292657+00:00",
-"f": "c9efea50bde7.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Tengiz_and_Korgaljinski_Lakes%2C_Kazakhstan.jpg",
-"page": "Lake_Tengiz",
-"wiki": "Lake Tengiz"
-},
 "lake-titicaca": {
 "a": "Draceane",
 "built": "2026-11-16T04:00:53.292689+00:00",
@@ -865,17 +666,6 @@
 "page": "Limestone_pavement",
 "wiki": "Limestone pavement"
 },
-"limpopo-river": {
-"a": "Department of Defense. American Forces Information Service. Defense Visual Information Center. 1994",
-"built": "2026-11-16T04:00:53.292795+00:00",
-"checkedAt": "2026-11-16T04:00:53.292795+00:00",
-"f": "60ed1a33428c.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Limpopo.jpg",
-"page": "Limpopo_River",
-"wiki": "Limpopo River"
-},
 "loess": {
 "a": "Wilson44691",
 "built": "2026-11-16T04:00:53.292824+00:00",
@@ -897,28 +687,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Luangwa_river02.jpg",
 "page": "Luangwa_River",
 "wiki": "Luangwa River"
-},
-"madre-de-dios-river": {
-"a": "Cho mik",
-"built": "2026-11-16T04:00:53.292919+00:00",
-"checkedAt": "2026-11-16T04:00:53.292919+00:00",
-"f": "6f7059ca1f30.webp",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Madre_de_Dios_Boca_Manu.jpg",
-"page": "Madre_de_Dios_River",
-"wiki": "Madre de Dios River"
-},
-"maloti-drakensberg-park": {
-"a": "Esther Westerveld",
-"built": "2026-11-16T04:00:53.292954+00:00",
-"checkedAt": "2026-11-16T04:00:53.292954+00:00",
-"f": "070553e7c1ba.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Tugela_Gorge_-_Royal_Natal_National_Park.jpg",
-"page": "Maloti-Drakensberg_Park",
-"wiki": "Maloti-Drakensberg Park"
 },
 "marsh": {
 "a": "Photograph by Eric Koppel. User:EKoppel",
@@ -974,28 +742,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Monsoon_clouds_near_Nagercoil.jpg",
 "page": "Monsoon",
 "wiki": "Monsoon"
-},
-"montane-ecosystems": {
-"a": "Walter Siegmund",
-"built": "2026-11-16T04:00:53.293268+00:00",
-"checkedAt": "2026-11-16T04:00:53.293268+00:00",
-"f": "e11e8bf43503.webp",
-"l": "CC BY 2.5",
-"lu": "https://creativecommons.org/licenses/by/2.5",
-"p": "https://commons.wikimedia.org/wiki/File:Lila_Lake_26527.JPG",
-"page": "Montane_ecosystem",
-"wiki": "Montane ecosystems"
-},
-"mount-paektu": {
-"a": "Laika ac from USA",
-"built": "2026-11-16T04:00:53.293305+00:00",
-"checkedAt": "2026-11-16T04:00:53.293305+00:00",
-"f": "08703a94e019.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Laika_ac_Mt._Paekdu_%287998657081%29.jpg",
-"page": "Mount_Paektu",
-"wiki": "Mount Paektu"
 },
 "mud": {
 "a": "Ildar Sagdejev (Specious)",
@@ -1107,28 +853,6 @@
 "page": "Ocean_current",
 "wiki": "Ocean current"
 },
-"ojo-de-liebre-lagoon": {
-"a": "NASA",
-"built": "2026-11-16T04:00:53.293705+00:00",
-"checkedAt": "2026-11-16T04:00:53.293705+00:00",
-"f": "e1b171bb8702.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Laguna_Ojo_de_Liebre%2C_Mexico.jpg",
-"page": "Ojo_de_Liebre_Lagoon",
-"wiki": "Ojo de Liebre Lagoon"
-},
-"okavango-delta": {
-"a": "Joachim Huber",
-"built": "2026-11-16T04:00:53.293741+00:00",
-"checkedAt": "2026-11-16T04:00:53.293741+00:00",
-"f": "42259d71fbaa.webp",
-"l": "CC BY-SA 2.0",
-"lu": "https://creativecommons.org/licenses/by-sa/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Okavango_Delta%2C_Botswana1.jpg",
-"page": "Okavango_Delta",
-"wiki": "Okavango Delta"
-},
 "outwash-plain": {
 "a": "Debivort",
 "built": "2026-11-16T04:00:53.293802+00:00",
@@ -1139,28 +863,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Skei%C3%B0ar%C3%A1rsandur%2C_Iceland.jpg",
 "page": "Outwash_plain",
 "wiki": "Outwash plain"
-},
-"painted-desert-united-states": {
-"a": "Joyradost",
-"built": "2026-11-16T04:00:53.293854+00:00",
-"checkedAt": "2026-11-16T04:00:53.293854+00:00",
-"f": "8e728cf9dbee.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Painteddesert1.JPG",
-"page": "Painted_Desert_%28Arizona%29",
-"wiki": "Painted Desert (United States)"
-},
-"palmyra": {
-"a": "Bernard Gagnon",
-"built": "2026-11-16T04:00:53.293890+00:00",
-"checkedAt": "2026-11-16T04:00:53.293890+00:00",
-"f": "c68dc41aceaf.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Palmyra_03.jpg",
-"page": "Palmyra",
-"wiki": "Palmyra"
 },
 "peace-athabasca-delta": {
 "a": "Copernicus Sentinel-2, ESA",
@@ -1219,28 +921,6 @@
 "src": "wikidata-p18",
 "wiki": "Permafrost"
 },
-"peron-peninsula": {
-"a": "NASA",
-"built": "2026-11-16T04:00:53.294086+00:00",
-"checkedAt": "2026-11-16T04:00:53.294086+00:00",
-"f": "bca418a8b758.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Shark_Bay_Phytoplankton_in_Bloom.jpg",
-"page": "Peron_Peninsula",
-"wiki": "Peron Peninsula"
-},
-"persian-gulf": {
-"a": "NASA",
-"built": "2026-11-16T04:00:53.294111+00:00",
-"checkedAt": "2026-11-16T04:00:53.294111+00:00",
-"f": "f7ed3a1f736e.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:PersianGulf_vue_satellite_du_golfe_persique.jpg",
-"page": "Persian_Gulf",
-"wiki": "Persian Gulf"
-},
 "platte-river": {
 "a": "Babymestizo",
 "built": "2026-11-16T04:00:53.294170+00:00",
@@ -1273,40 +953,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:ERA5_global_precipitation_sum.png",
 "page": "Precipitation",
 "wiki": "Precipitation"
-},
-"puncak-jaya": {
-"a": "Enda Kaban",
-"built": "2026-11-16T04:00:53.294318+00:00",
-"checkedAt": "2026-11-16T04:00:53.294318+00:00",
-"f": "36ad57aefe94.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Carstenzs_Piramida_Mountain.jpg",
-"page": "Puncak_Jaya",
-"wiki": "Puncak Jaya"
-},
-"putorana-plateau": {
-"a": "Александр Лещёнок",
-"built": "2026-11-16T04:00:53.294358+00:00",
-"checkedAt": "2026-11-16T04:00:53.294358+00:00",
-"f": "a0cd580702c1.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:%D0%A2%D0%B8%D1%88%D0%B8%D0%BD%D0%B0_%D0%BE%D0%B7%D0%B5%D1%80%D0%B0_%D0%94%D1%8E%D0%BF%D0%BA%D1%83%D0%BD.jpg",
-"page": "Putorana_Plateau",
-"wiki": "Putorana Plateau"
-},
-"qatar": {
-"a": "Ceslou",
-"built": "2026-11-16T04:00:53.294392+00:00",
-"checkedAt": "2026-11-16T04:00:53.294392+00:00",
-"f": "55f4402433d7.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Skyline_of_Doha_West_Bay.jpg",
-"page": "Qatar",
-"src": "wikidata-p18",
-"wiki": "Qatar"
 },
 "r-o-pl-tano": {
 "a": "Hjvannes at Dutch Wikipedia",
@@ -1421,17 +1067,6 @@
 "page": "Rock_Creek_%28Potomac_River_tributary%29",
 "wiki": "Rock Creek (Potomac River tributary)"
 },
-"sabkha": {
-"a": "NASA",
-"built": "2026-11-16T04:00:53.294821+00:00",
-"checkedAt": "2026-11-16T04:00:53.294821+00:00",
-"f": "f2fc4e3d341e.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Sebkha_El_Melah_-_2001.jpg",
-"page": "Sabkha",
-"wiki": "Sabkha"
-},
 "san-juan-river-nicaragua": {
 "a": "Rodrigo Castillo",
 "built": "2026-11-16T04:00:53.294883+00:00",
@@ -1486,39 +1121,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:WL-S%C3%A9n%C3%A9gal-Rosso-Travers%C3%A9e_du_fleuve_S%C3%A9n%C3%A9gal.jpg",
 "page": "Senegal_River",
 "wiki": "Senegal River"
-},
-"shark-bay": {
-"a": "NASA",
-"built": "2026-11-16T04:00:53.295189+00:00",
-"checkedAt": "2026-11-16T04:00:53.295189+00:00",
-"f": "bca418a8b758.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Shark_Bay_Phytoplankton_in_Bloom.jpg",
-"page": "Shark_Bay",
-"wiki": "Shark Bay"
-},
-"shatt-al-arab": {
-"a": "Aziz1005",
-"built": "2026-11-16T04:00:53.295214+00:00",
-"checkedAt": "2026-11-16T04:00:53.295214+00:00",
-"f": "c8b08f8e7eb5.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Shat_al-arab-22.JPG",
-"page": "Shatt_al-Arab",
-"wiki": "Shatt al-Arab"
-},
-"shkumbin": {
-"a": "Original uploader was Albinfo at de.wikipedia",
-"built": "2026-11-16T04:00:53.295263+00:00",
-"checkedAt": "2026-11-16T04:00:53.295263+00:00",
-"f": "7782e529ac31.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Shkumbin.jpg",
-"page": "Shkumbin",
-"wiki": "Shkumbin"
 },
 "silt": {
 "a": "Mike Beauregard from Nunavut, Canada",
@@ -1575,17 +1177,6 @@
 "page": "Snowpack",
 "wiki": "Snowpack"
 },
-"so-a": {
-"a": "Florian Jesse",
-"built": "2026-11-16T04:00:53.295469+00:00",
-"checkedAt": "2026-11-16T04:00:53.295469+00:00",
-"f": "387e169e3e2b.webp",
-"l": "CC0",
-"lu": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-"p": "https://commons.wikimedia.org/wiki/File:Soca_4.jpg",
-"page": "So%C4%8Da",
-"wiki": "Soča"
-},
 "soil": {
 "a": "HolgerK at English Wikipedia",
 "built": "2026-11-16T04:00:53.295589+00:00",
@@ -1596,17 +1187,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Stagnogley.JPG",
 "page": "Soil",
 "wiki": "Soil"
-},
-"soomaa-national-park": {
-"a": "Joonas Plaan",
-"built": "2026-11-16T04:00:53.295624+00:00",
-"checkedAt": "2026-11-16T04:00:53.295624+00:00",
-"f": "d2b0d4a0eaf2.webp",
-"l": "CC BY 2.0",
-"lu": "https://creativecommons.org/licenses/by/2.0",
-"p": "https://commons.wikimedia.org/wiki/File:Raudna_j%C3%B5gi-masterplaan-2008.jpg",
-"page": "Soomaa_National_Park",
-"wiki": "Soomaa National Park"
 },
 "south-nahanni-river": {
 "a": "Josh Steinitz",
@@ -1653,17 +1233,6 @@
 "page": "Stream",
 "wiki": "Stream"
 },
-"sunbeam": {
-"a": "ExorcisioTe",
-"built": "2026-11-16T04:00:53.295827+00:00",
-"checkedAt": "2026-11-16T04:00:53.295827+00:00",
-"f": "0bbdfe5e017e.webp",
-"l": "CC BY-SA 4.0",
-"lu": "https://creativecommons.org/licenses/by-sa/4.0",
-"p": "https://commons.wikimedia.org/wiki/File:Crepuscular_Rays_Reno_Nevada_USA.jpg",
-"page": "Sunbeam",
-"wiki": "Sunbeam"
-},
 "tian-shan": {
 "a": "Maryliflower",
 "built": "2026-11-16T04:00:53.295899+00:00",
@@ -1709,29 +1278,6 @@
 "page": "Tisza",
 "wiki": "Tisza"
 },
-"tocantins-river": {
-"a": "Etore.Santos",
-"built": "2026-11-16T04:00:53.296070+00:00",
-"checkedAt": "2026-11-16T04:00:53.296070+00:00",
-"f": "c2caca8bb55b.webp",
-"l": "Public domain",
-"lu": "",
-"p": "https://commons.wikimedia.org/wiki/File:Ponte_Imperatriz.jpg",
-"page": "Tocantins_River",
-"src": "wikidata-p18",
-"wiki": "Tocantins River"
-},
-"tonl-sap": {
-"a": "Deror_avi",
-"built": "2026-11-16T04:00:53.296101+00:00",
-"checkedAt": "2026-11-16T04:00:53.296101+00:00",
-"f": "0023d74447c2.webp",
-"l": "CC BY-SA 3.0",
-"lu": "https://creativecommons.org/licenses/by-sa/3.0",
-"p": "https://commons.wikimedia.org/wiki/File:Cambodia%2C_Tonle_Sap_IMG_3285.JPG",
-"page": "Tonle_Sap",
-"wiki": "Tonlé Sap"
-},
 "transhumance": {
 "a": "Jpmgir",
 "built": "2026-11-16T04:00:53.296136+00:00",
@@ -1775,17 +1321,6 @@
 "p": "https://commons.wikimedia.org/wiki/File:Upwelling_animated.gif",
 "page": "Upwelling",
 "wiki": "Upwelling"
-},
-"uvs-lake": {
-"a": "Original uploader was Jan Sysel at cs.wikipedia",
-"built": "2026-11-16T04:00:53.296317+00:00",
-"checkedAt": "2026-11-16T04:00:53.296317+00:00",
-"f": "c78a5f460d6b.webp",
-"l": "CC BY-SA 3.0",
-"lu": "http://creativecommons.org/licenses/by-sa/3.0/",
-"p": "https://commons.wikimedia.org/wiki/File:Uvs_n%C3%BAr.JPG",
-"page": "Uvs_Lake",
-"wiki": "Uvs Lake"
 },
 "virgin-river": {
 "a": "Photo by Douglas Dietiker",
