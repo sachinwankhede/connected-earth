@@ -10,7 +10,7 @@ Part of #1061, #1023 and #1211. Written after the bad-data cleanup of 22 to 26 N
 |---|---|---|---|---|
 | R1 | A row maps to one Wikipedia page, and a page maps to one row per kind. | owner 18 Nov | audit (shared_page flag) | Not a `gate` error; two rows can share a page. |
 | R2 | A row exists only if its page is a separate article (not a redirect, disambiguation, section or missing page). | owner 18 Nov | audit | Nothing refuses it at creation. |
-| R3 | The page must be about the row: a species row on that taxon's page; a resource row on the concept (Stream, Tide), not on a named place or another kind of thing (Limpopo River for "Rivers", Oxisol for "Poor acidic soils"). A named feature may have its own row only when the row is named for it. | owner 18 and 24 Nov | audit (partly) | The "page is about the name" check is by hand today. |
+| R3 | The page must be about the row: a species row on that taxon's page; a resource row on the concept (Stream, Tide), not on a named place or another kind of thing (Limpopo River for "Rivers", Oxisol for "Poor acidic soils"). A named feature may have its own row only when the row is named for it. | owner 18 and 24 Nov; reading confirmed 26 Nov: refuse a resource row only when its name and page disagree ("Rivers" on Limpopo River); "Upper Sûre Lake" on Upper Sûre Lake stays | audit (partly) | The "page is about the name" check is by hand today. |
 | R4 | A species row's page is not a genus, family or other higher rank, and a genus row is not on a species page (sorghum). | owner 24 and 26 Nov | audit | Species-on-genus is not flagged (#1211); the `repoint` status proposes the opposite. |
 | R5 | Name: the row name is the Wikipedia article title (brackets dropped); a genus row takes the common name if Wikipedia has one, else the Latin genus name; a common-name page keeps the common name. | owner 22 and 26 Nov, `docs/NODE-NAMES.md` | audit (needs the web) | Not checked at creation. |
 | R6 | No row is created for a spelling, a regional name or a wording of an existing species; no row is created only to hold text. | owner 17 Nov | none | |
@@ -93,5 +93,5 @@ Instead of fixing rule by rule, build these together so each rule above is close
 ## 9. Owner decisions to confirm
 
 - The admission rules R2 to R8 as drafted (what is refused; refused nodes use the nearest row; the refusal is logged).
-- Whether R3 should refuse every resource row on a named place, or only rows whose name does not match the page (this page assumes the second).
+- R3 is decided (owner, 26 Nov): a resource row is refused only when its name does not match its page; a named feature with its own matching row stays.
 - Audit cadence (monthly proposed).
