@@ -1100,6 +1100,18 @@
 "page": "Shoal",
 "wiki": "Sandbar"
 },
+"seawater": {
+"a": "Joao Carlos Medau from Campinas, Brazil",
+"built": "2026-11-28T11:39:01.398559+00:00",
+"checkedAt": "2026-11-28T11:39:01.398559+00:00",
+"f": "27fd05c36e90.webp",
+"l": "CC BY 2.0",
+"lu": "https://creativecommons.org/licenses/by/2.0",
+"p": "https://commons.wikimedia.org/wiki/File:Mar_de_Siete_Colores_-_West_%288331578284%29.jpg",
+"page": "Seawater",
+"u": "8/83/Mar_de_Siete_Colores_-_West_%288331578284%29.jpg/330px-Mar_de_Siete_Colores_-_West_%288331578284%29.jpg",
+"wiki": "Seawater"
+},
 "sediment": {
 "a": "European Space Agency",
 "built": "2026-11-16T04:00:53.295132+00:00",
@@ -1232,6 +1244,18 @@
 "p": "https://commons.wikimedia.org/wiki/File:%D0%A6%D0%B2%D1%80%D1%86%D0%BA%D0%B0_2_PPRP001.jpg",
 "page": "Stream",
 "wiki": "Stream"
+},
+"sunlight": {
+"a": "NASA",
+"built": "2026-11-28T11:39:03.322242+00:00",
+"checkedAt": "2026-11-28T11:39:03.322242+00:00",
+"f": "09ff9a0803ee.webp",
+"l": "Public domain",
+"lu": "",
+"p": "https://commons.wikimedia.org/wiki/File:STS-134_EVA4_view_to_the_Russian_Orbital_Segment.jpg",
+"page": "Sunlight",
+"u": "a/a6/STS-134_EVA4_view_to_the_Russian_Orbital_Segment.jpg/330px-STS-134_EVA4_view_to_the_Russian_Orbital_Segment.jpg",
+"wiki": "Sunlight"
 },
 "tian-shan": {
 "a": "Maryliflower",

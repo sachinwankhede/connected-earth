@@ -83,6 +83,12 @@
 "expiresAt": "2026-12-25T21:38:41.935104+00:00",
 "status": "nophoto"
 },
+"soil-ph": {
+"attempts": 1,
+"checkedAt": "2026-11-28T11:39:01.398618+00:00",
+"expiresAt": "2026-12-28T11:39:01.398618+00:00",
+"status": "nophoto"
+},
 "subarctic-climate": {
 "attempts": 2,
 "checkedAt": "2026-11-25T21:38:41.935144+00:00",
